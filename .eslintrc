@@ -1,0 +1,30 @@
+{
+  "parser"  : "babel-eslint",
+  "extends" : [
+    "standard",
+    "standard-react"
+  ],
+  "plugins": [
+    "babel",
+    "react",
+    "promise"
+  ],
+  "env"     : {
+    "browser" : true
+  },
+  "rules": {
+    "key-spacing"                  : 0,
+    "semi"                         : [2, "always"],
+    "curly"                        : [2, "all"],
+    "brace-style"                  : [2, "1tbs", {}],
+    "babel/generator-star-spacing" : 1,
+    "generator-star-spacing"       : 0,
+    "jsx-quotes"                   : [2, "prefer-single"],
+    "max-len"                      : [2, 120, 2],
+    "object-curly-spacing"         : [2, "always"],
+    "no-tabs"                      : 0,
+    "indent"                       : ["error", "tab", { "SwitchCase": 1 }],
+    "react/jsx-indent"             : [2, "tab"],
+    "react/jsx-indent-props"       : [2, "tab"]
+  }
+}
