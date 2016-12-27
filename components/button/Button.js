@@ -13,39 +13,28 @@ class Button extends Component {
 			PropTypes.element
 		]),
 		label: PropTypes.string,
-		neutral: PropTypes.bool,
 		onMouseLeave: PropTypes.func,
 		onMouseUp: PropTypes.func,
 		primary: PropTypes.bool,
-		raised: PropTypes.bool,
-		theme: PropTypes.shape({
-			accent: PropTypes.string,
-			button: PropTypes.string,
-			flat: PropTypes.string,
-			floating: PropTypes.string,
-			icon: PropTypes.string,
-			inverse: PropTypes.string,
-			mini: PropTypes.string,
-			neutral: PropTypes.string,
-			primary: PropTypes.string,
-			raised: PropTypes.string,
-			rippleWrapper: PropTypes.string,
-			toggle: PropTypes.string
-		}),
 		type: PropTypes.string
 	};
 
 	static defaultProps = {
 		accent: false,
 		className: '',
-		flat: false,
-		floating: false,
-		mini: false,
-		neutral: true,
 		primary: false,
-		raised: false,
 		type: 'button'
 	};
+
+    handleMouseUp = (event) => {
+      this.refs.button.blur();
+      if (this.props.onMouseUp) this.props.onMouseUp(event);
+    };
+
+    handleMouseLeave = (event) => {
+      this.refs.button.blur();
+      if (this.props.onMouseLeave) this.props.onMouseLeave(event);
+    };
 
 	render () {
 		const {
@@ -54,18 +43,19 @@ class Button extends Component {
 			href,
 			icon,
 			label,
+			type,
+			primary,
+			accent,
 			...others
 		} = this.props;
 
 		const element = href ? 'a' : 'button';
 		const level = primary ? 'primary' : accent ? 'accent' : 'neutral';
-		const shape = flat ? 'flat' : raised ? 'raised' : floating ? 'floating' : 'flat';
 
-		const classes = classnames(theme.button, [ theme[ shape ] ], {
-			[theme[ level ]]: neutral,
-			[theme.mini]: mini,
-			[theme.inverse]: inverse
-		}, className);
+		const classes = classNames(
+			level,
+			className
+		);
 
 		const props = {
 			...others,
