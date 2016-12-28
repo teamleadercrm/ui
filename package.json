@@ -60,6 +60,8 @@
   "scripts": {
     "babel": "babel ./components --out-dir ./lib",
     "build": "npm run babel && npm run sass",
+    "lint": "eslint components spec",
+    "lint:fix": "npm run lint -- --fix",
     "prepublish": "npm run build",
     "sass": "cpx \"./components/**/*.scss\" ./lib",
     "test": "echo \"Error: no test specified\" && exit 1"
