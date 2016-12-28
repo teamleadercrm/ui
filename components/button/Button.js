@@ -57,6 +57,7 @@ class Button extends Component {
     const level = primary ? 'primary' : accent ? 'accent' : 'neutral';
 
     const classes = cx(
+      styles.button,
       level,
       className
     );
