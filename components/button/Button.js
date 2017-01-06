@@ -81,7 +81,7 @@ class Button extends Component {
       onMouseUp: this.handleMouseUp,
       onMouseLeave: this.handleMouseLeave,
       type: !href ? type : null,
-      'data-react-toolbox': 'button'
+      'data-teamleader-ui': 'button'
     };
 
     return React.createElement(element, props,
