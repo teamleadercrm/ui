@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import cx from 'classnames';
+import FontIcon from '../font_icon';
 import theme from './theme.css';
 
 class Button extends Component {
@@ -64,10 +65,10 @@ class Button extends Component {
 
     const classes = cx(
       theme.button,
-        {
-          [theme[level]]: true,
-          [theme[shape]]: true
-        },
+      {
+        [theme[level]]: true,
+        [theme[shape]]: true
+      },
       className
     );
 
