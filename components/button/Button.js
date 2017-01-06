@@ -47,11 +47,13 @@ class Button extends Component {
       children,
       className,
       flat,
+      floating,
       href,
       icon,
       label,
       type,
       primary,
+      raised,
       accent,
       ...others
     } = this.props;
