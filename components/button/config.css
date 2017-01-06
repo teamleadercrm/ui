@@ -1,5 +1,5 @@
 :root {
-  --button-border-radius: calc(0.2 * var(--unit));
+  --button-border-radius: calc(0 * var(--unit));
   --button-height: calc(3.6 * var(--unit));
   --button-toggle-font-size: calc(2 * var(--unit));
   --button-primary-color: var(--color-primary);
