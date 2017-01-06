@@ -18,6 +18,7 @@ class Button extends Component {
     onMouseLeave: PropTypes.func,
     onMouseUp: PropTypes.func,
     primary: PropTypes.bool,
+    processing: PropTypes.bool,
     type: PropTypes.string
   };
 
@@ -26,6 +27,7 @@ class Button extends Component {
     className: '',
     flat: false,
     primary: false,
+    processing: false,
     type: 'button'
   };
 
@@ -54,6 +56,7 @@ class Button extends Component {
       label,
       type,
       primary,
+      processing,
       raised,
       accent,
       ...others
@@ -62,12 +65,14 @@ class Button extends Component {
     const element = href ? 'a' : 'button';
     const level = primary ? 'primary' : accent ? 'accent' : 'neutral';
     const shape = flat ? 'flat' : raised ? 'raised' : floating ? 'floating' : 'flat';
+    const state = processing ? 'processing' : '';
 
     const classes = cx(
       theme.button,
       {
         [theme[level]]: true,
-        [theme[shape]]: true
+        [theme[shape]]: true,
+        [theme[state]]: true
       },
       className
     );
@@ -86,6 +91,7 @@ class Button extends Component {
 
     return React.createElement(element, props,
       icon ? <FontIcon className={theme.icon} value={icon} /> : null,
+      processing ? <FontIcon className={theme.icon} value="spinner8" /> : null,
       label,
       children
     );

@@ -2,6 +2,20 @@
 @import '../variables.css';
 @import './config.css';
 
+
+
+@keyframes spin {
+  0% {
+    /*-webkit-transform: rotate(0deg);*/
+    transform: rotate(0deg);
+  }
+  100% {
+    /*-webkit-transform: rotate(359deg);*/
+    transform: rotate(359deg);
+  }
+}
+
+
 .button {
   align-content: center;
   align-items: center;
@@ -170,12 +184,12 @@
 
 .primary:not([disabled]) {
   &.raised,
+  &.flat,
   &.floating {
     background: var(--button-primary-color);
     color: var(--button-primary-color-contrast);
   }
 
-  &.flat,
   &.toggle {
     color: var(--button-primary-color);
 
@@ -186,6 +200,16 @@
 
   &.flat:hover {
     background: var(--button-primary-color-hover);
+    box-shadow: var(--zdepth-shadow-1);
+  }
+
+  &.processing {
+    background: color(var(--button-primary-color) a(50%));
+    pointer-events: none;
+
+    span {
+      animation: spin 1s infinite linear;
+    }
   }
 }
 
@@ -256,3 +280,16 @@
   background-color: var(--button-disabled-background-inverse);
   color: var(--button-disabled-text-color-inverse);
 }
+
+
+/* Spin */
+/*@-webkit-keyframes spin {*/
+  /*0% {*/
+    /*!*-webkit-transform: rotate(0deg);*!*/
+    /*transform: rotate(0deg);*/
+  /*}*/
+  /*100% {*/
+    /*!*-webkit-transform: rotate(359deg);*!*/
+    /*transform: rotate(359deg);*/
+  /*}*/
+/*}*/
