@@ -1,0 +1,25 @@
+@font-face {
+  font-family: 'Teamleader Icons';
+  src:
+    url('fonts/icomoon.ttf?8ym8k7') format('truetype'),
+    url('fonts/icomoon.woff?8ym8k7') format('woff'),
+    url('fonts/icomoon.svg?8ym8k7#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.teamleader-icons {
+  font-family: 'Teamleader Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
