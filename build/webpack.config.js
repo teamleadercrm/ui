@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const config = require('../config');
 const debug = require('debug')('app:webpack:config');
+const path = require('path');
 
 const host = config.server_host;
 const port = config.server_port;
@@ -141,16 +142,16 @@ if (isUsingCSSModules) {
     (__DEV__ || __STAGING__) ? 'localIdentName=[name]__[local]___[hash:base64:5]' : 'localIdentName=[hash:base64:7]'
   ].join('&');
 
-  webpackConfig.module.loaders.push({
-    test: /\.scss$/,
-    include: cssModulesRegex,
-    loaders: [
-      'style',
-      cssModulesLoader,
-      'postcss',
-      'sass?sourceMap'
-    ]
-  });
+  // webpackConfig.module.loaders.push({
+  //   test: /\.scss$/,
+  //   include: cssModulesRegex,
+  //   loaders: [
+  //     'style',
+  //     cssModulesLoader,
+  //     'postcss',
+  //     'sass?sourceMap'
+  //   ]
+  // });
 
   webpackConfig.module.loaders.push({
     test: /\.css$/,
@@ -165,16 +166,16 @@ if (isUsingCSSModules) {
 
 // Loaders for files that should not be treated as CSS modules.
 const excludeCSSModules = isUsingCSSModules ? cssModulesRegex : false;
-webpackConfig.module.loaders.push({
-  test: /\.scss$/,
-  exclude: excludeCSSModules,
-  loaders: [
-    'style',
-    BASE_CSS_LOADER,
-    'postcss',
-    'sass?sourceMap'
-  ]
-});
+// webpackConfig.module.loaders.push({
+//   test: /\.scss$/,
+//   exclude: excludeCSSModules,
+//   loaders: [
+//     'style',
+//     BASE_CSS_LOADER,
+//     'postcss',
+//     'sass?sourceMap'
+//   ]
+// });
 
 webpackConfig.module.loaders.push({
   test: /\.css$/,
@@ -193,23 +194,18 @@ webpackConfig.sassLoader = {
   includePaths: paths.client('styles')
 };
 
-webpackConfig.postcss = [
-  cssnano({
-    autoprefixer: {
-      add: true,
-      remove: true,
-      browsers: [ 'last 2 versions' ]
-    },
-    discardComments: {
-      removeAll: true
-    },
-    discardUnused: false,
-    mergeIdents: false,
-    reduceIdents: false,
-    safe: true,
-    sourcemap: true
-  })
-];
+webpackConfig.postcss = () => {
+  return [
+    require('postcss-import')({
+      root: __dirname,
+      path: [path.join(__dirname, './components')]
+    }),
+    require('postcss-mixins')(),
+    require('postcss-each')(),
+    require('postcss-cssnext')(),
+    require('postcss-reporter')({ clearMessages: true })
+  ];
+};
 
 // File loaders
 /* eslint-disable */

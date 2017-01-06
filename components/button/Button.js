@@ -1,12 +1,13 @@
 import React, { Component, PropTypes } from 'react';
 import cx from 'classnames';
-import styles from './styles.scss';
+import theme from './theme.css';
 
 class Button extends Component {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
     disabled: PropTypes.bool,
+    flat: PropTypes.bool,
     href: PropTypes.string,
     icon: PropTypes.oneOfType([
       PropTypes.string,
@@ -22,6 +23,7 @@ class Button extends Component {
   static defaultProps = {
     accent: false,
     className: '',
+    flat: false,
     primary: false,
     type: 'button'
   };
@@ -44,6 +46,7 @@ class Button extends Component {
     const {
       children,
       className,
+      flat,
       href,
       icon,
       label,
@@ -55,10 +58,14 @@ class Button extends Component {
 
     const element = href ? 'a' : 'button';
     const level = primary ? 'primary' : accent ? 'accent' : 'neutral';
+    const shape = flat ? 'flat' : raised ? 'raised' : floating ? 'floating' : 'flat';
 
     const classes = cx(
-      styles.button,
-      level,
+      theme.button,
+        {
+          [theme[level]]: true,
+          [theme[shape]]: true
+        },
       className
     );
 

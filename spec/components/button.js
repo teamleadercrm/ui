@@ -5,7 +5,7 @@ const ButtonTest = () => (
   <section>
     <h5>Buttons</h5>
 
-    <Button href='' target='_blank'>
+    <Button href='' target='_blank' flat={true}>
       Test
     </Button>
   </section>
