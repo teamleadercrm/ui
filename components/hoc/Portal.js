@@ -5,11 +5,11 @@ class Portal extends Component {
   static propTypes = {
     children: PropTypes.any,
     container: PropTypes.any,
-    lockBody: PropTypes.bool
+    lockBody: PropTypes.bool,
   };
 
   static defaultProps = {
-    lockBody: true
+    lockBody: true,
   };
 
   componentDidMount () {

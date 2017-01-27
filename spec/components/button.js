@@ -6,9 +6,9 @@ const ButtonTest = () => (
     <h5>Buttons</h5>
 
     <Button primary>Primary button</Button>
-    <Button primary processing></Button>
+    <Button primary processing />
     <Button >Textual button</Button>
-    <Button flat icon='notifications'></Button>
+    <Button flat icon='notifications' />
   </section>
 );
 

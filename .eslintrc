@@ -23,6 +23,7 @@
   },
   "rules": {
     "key-spacing"                  : 0,
+    "comma-dangle"                 : ["error", "always-multiline"],
     "semi"                         : [2, "always"],
     "curly"                        : [2, "all"],
     "brace-style"                  : [2, "1tbs", {}],

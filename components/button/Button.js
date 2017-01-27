@@ -12,14 +12,14 @@ class Button extends Component {
     href: PropTypes.string,
     icon: PropTypes.oneOfType([
       PropTypes.string,
-      PropTypes.element
+      PropTypes.element,
     ]),
     label: PropTypes.string,
     onMouseLeave: PropTypes.func,
     onMouseUp: PropTypes.func,
     primary: PropTypes.bool,
     processing: PropTypes.bool,
-    type: PropTypes.string
+    type: PropTypes.string,
   };
 
   static defaultProps = {
@@ -27,8 +27,7 @@ class Button extends Component {
     className: '',
     flat: false,
     primary: false,
-    processing: false,
-    type: 'button'
+    type: 'button',
   };
 
   handleMouseUp = (event) => {
@@ -72,7 +71,7 @@ class Button extends Component {
       {
         [theme[level]]: true,
         [theme[shape]]: true,
-        [theme[state]]: true
+        [theme[state]]: true,
       },
       className
     );
@@ -86,12 +85,12 @@ class Button extends Component {
       onMouseUp: this.handleMouseUp,
       onMouseLeave: this.handleMouseLeave,
       type: !href ? type : null,
-      'data-teamleader-ui': 'button'
+      'data-teamleader-ui': 'button',
     };
 
     return React.createElement(element, props,
       icon ? <FontIcon className={theme.icon} value={icon} /> : null,
-      processing ? <FontIcon className={theme.icon} value="spinner8" /> : null,
+      processing ? <FontIcon className={theme.icon} value='spinner8' /> : null,
       label,
       children
     );

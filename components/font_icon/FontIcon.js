@@ -17,12 +17,12 @@ FontIcon.propTypes = {
   className: PropTypes.string,
   value: PropTypes.oneOfType([
     PropTypes.string,
-    PropTypes.element
-  ])
+    PropTypes.element,
+  ]),
 };
 
 FontIcon.defaultProps = {
-  className: ''
+  className: '',
 };
 
 export default FontIcon;
