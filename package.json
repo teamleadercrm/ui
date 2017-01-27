@@ -98,6 +98,7 @@
     "gulp-babel": "^6.1.2",
     "gulp-postcss": "^6.2.0",
     "html-webpack-plugin": "^2.22.0",
+    "husky": "^0.13.1",
     "imports-loader": "^0.6.5",
     "ip": "^1.1.2",
     "json-loader": "^0.5.4",
@@ -146,6 +147,8 @@
     "url": "git+https://github.com/teamleadercrm/teamleader-ui.git"
   },
   "scripts": {
+    "precommit" : "npm run lint:fix",
+    "prepush" : "npm test",
     "babel": "babel ./components/**/*.js --out-dir ./lib",
     "build": "NODE_ENV=production rimraf lib && gulp",
     "clean": "rimraf dist",
