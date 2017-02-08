@@ -27,6 +27,7 @@ class Button extends Component {
     className: '',
     flat: false,
     primary: false,
+    processing: false,
     type: 'button',
   };
 
@@ -89,7 +90,7 @@ class Button extends Component {
     };
 
     return React.createElement(element, props,
-      icon ? <FontIcon className={theme.icon} value={icon} /> : null,
+      icon && !processing ? <FontIcon className={theme.icon} value={icon} /> : null,
       processing ? <FontIcon className={theme.icon} value='spinner8' /> : null,
       label,
       children

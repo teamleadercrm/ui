@@ -2,19 +2,14 @@
 @import '../variables.css';
 @import './config.css';
 
-
-
 @keyframes spin {
   0% {
-    -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
   100% {
-    -webkit-transform: rotate(359deg);
     transform: rotate(359deg);
   }
 }
-
 
 .button {
   align-content: center;
@@ -152,15 +147,15 @@
     border-radius: 50%;
   }
 
-  &.mini {
-    font-size: var(--button-floating-mini-font-size);
-    height: var(--button-floating-mini-height);
-    width: var(--button-floating-mini-height);
+  /*&.mini {*/
+    /*font-size: var(--button-floating-mini-font-size);*/
+    /*height: var(--button-floating-mini-height);*/
+    /*width: var(--button-floating-mini-height);*/
 
-    & .icon {
-      line-height: var(--button-floating-mini-height);
-    }
-  }
+    /*& .icon {*/
+      /*line-height: var(--button-floating-mini-height);*/
+    /*}*/
+  /*}*/
 }
 
 .toggle {
@@ -201,15 +196,6 @@
   &.flat:hover {
     background: var(--button-primary-color-hover);
     box-shadow: var(--zdepth-shadow-1);
-  }
-
-  &.processing {
-    background: color(var(--button-primary-color) a(50%));
-    pointer-events: none;
-
-    span {
-      animation: spin 1s infinite linear;
-    }
   }
 }
 
@@ -279,4 +265,13 @@
 .neutral.inverse[disabled] {
   background-color: var(--button-disabled-background-inverse);
   color: var(--button-disabled-text-color-inverse);
+}
+
+.processing {
+  background: color(var(--button-primary-color) a(50%));
+  pointer-events: none;
+
+  & .icon {
+    animation: spin 1s infinite linear;
+  }
 }
