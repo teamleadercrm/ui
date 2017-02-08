@@ -8,8 +8,8 @@
   --color-primary-dark: var(--palette-teal-darker);
   --color-secondary: var(--palette-bluewood);
 
-  /*--color-accent: var(--palette-pink-a200);*/
-  /*--color-accent-dark: var(--palette-pink-700);*/
+  --color-accent: var(--palette-bluewood-lighter);
+  --color-accent-dark: var(--color-secondary);
   --color-primary-contrast: var(--color-dark-contrast);
   --color-accent-contrast: var(--color-dark-contrast);
 
