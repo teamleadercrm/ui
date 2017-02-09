@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from 'react';
-import cx from 'classnames';
+import classnames from 'classnames';
+import { themr } from 'react-css-themr';
+import { BUTTON } from '../identifiers';
 import FontIcon from '../font_icon';
-import theme from './theme.css';
 
 class Button extends Component {
   static propTypes = {
@@ -19,6 +20,20 @@ class Button extends Component {
     onMouseUp: PropTypes.func,
     primary: PropTypes.bool,
     processing: PropTypes.bool,
+    theme: PropTypes.shape({
+      accent: PropTypes.string,
+      button: PropTypes.string,
+      flat: PropTypes.string,
+      floating: PropTypes.string,
+      icon: PropTypes.string,
+      inverse: PropTypes.string,
+      mini: PropTypes.string,
+      neutral: PropTypes.string,
+      primary: PropTypes.string,
+      raised: PropTypes.string,
+      rippleWrapper: PropTypes.string,
+      toggle: PropTypes.string,
+    }),
     type: PropTypes.string,
   };
 
@@ -54,6 +69,7 @@ class Button extends Component {
       href,
       icon,
       label,
+      theme,
       type,
       primary,
       processing,
@@ -67,7 +83,7 @@ class Button extends Component {
     const shape = flat ? 'flat' : raised ? 'raised' : floating ? 'floating' : 'flat';
     const state = processing ? 'processing' : '';
 
-    const classes = cx(
+    const classes = classnames(
       theme.button,
       {
         [theme[level]]: true,
@@ -98,4 +114,5 @@ class Button extends Component {
   }
 }
 
-export default Button;
+export default themr(BUTTON)(Button);
+export { Button };

@@ -12,10 +12,10 @@
 }
 
 .button {
+  @apply --reset;
   align-content: center;
   align-items: center;
   border: 0;
-  composes: reset from '../helpers.css';
   cursor: pointer;
   display: inline-block;
   flex-direction: row;
