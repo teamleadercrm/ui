@@ -121,7 +121,8 @@ const BASE_CSS_LOADER = 'css?sourceMap&-minimize';
 // These paths will be combined into a single regex.
 const PATHS_TO_TREAT_AS_CSS_MODULES = [
   // 'react-toolbox', (example)
-  'components'
+  'components',
+  'lib'
 ];
 
 // If config has CSS modules enabled, treat this project's styles as CSS modules.
