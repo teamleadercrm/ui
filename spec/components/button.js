@@ -13,7 +13,7 @@ const ButtonTest = () => (
     <p>
       <Button primary processing>Primary flat processing</Button>&nbsp;
       <Button primary processing icon='notifications'>Primary flat processing with icon</Button>&nbsp;
-      <Button primary processing></Button>
+      <Button primary processing/>
     </p>
     <p>
       <Button primary disabled>Primary flat disabled</Button>&nbsp;
@@ -52,13 +52,13 @@ const ButtonTest = () => (
     <p>
       <Button accent processing>Accent flat processing</Button>&nbsp;
       <Button accent processing icon='notifications'>Accent flat processing with icon</Button>&nbsp;
-      <Button accent processing></Button>
+      <Button accent processing/>
     </p>
 
     <p>
       <Button accent disabled>Accent flat disabled</Button>&nbsp;
       <Button accent disabled icon='notifications'>Accent disabled with icon</Button>&nbsp;
-      <Button accent disabled icon='notifications'></Button>
+      <Button accent disabled icon='notifications'/>
     </p>
 
     <hr/>
@@ -92,13 +92,13 @@ const ButtonTest = () => (
     <p>
       <Button processing>Neutral flat processing</Button>&nbsp;
       <Button processing icon='notifications'>Neutral flat processing with icon</Button>&nbsp;
-      <Button processing></Button>
+      <Button processing/>
     </p>
 
     <p>
       <Button disabled>Neutral flat disabled</Button>&nbsp;
       <Button disabled icon='notifications'>Neutral disabled with icon</Button>&nbsp;
-      <Button disabled icon='notifications'></Button>
+      <Button disabled icon='notifications'/>
     </p>
 
     <hr/>
@@ -123,10 +123,10 @@ const ButtonTest = () => (
 
     <hr/>
 
-    <p><Button primary floating icon='notifications'></Button></p>
-    <p><Button primary floating processing icon='notifications'></Button></p>
-    <p><Button primary floating disabled icon='notifications'></Button></p>
-    <p><Button floating icon='notifications'></Button></p>
+    <p><Button primary floating icon='notifications'/></p>
+    <p><Button primary floating processing icon='notifications'/></p>
+    <p><Button primary floating disabled icon='notifications'/></p>
+    <p><Button floating icon='notifications'/></p>
 
   </section>
 );
