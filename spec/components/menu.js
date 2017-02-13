@@ -3,12 +3,12 @@ import { Menu, MenuItem, MenuDivider, IconMenu } from '../../components/menu';
 
 class MenuTest extends React.Component {
   state = {
-    value: undefined
+    value: undefined,
   };
 
   handleSelect = (item) => {
     console.log('Menu selection changed!!, now its', item);
-    this.setState({value: item});
+    this.setState({ value: item });
   };
 
   handleItemClick = () => {
@@ -26,7 +26,7 @@ class MenuTest extends React.Component {
           <MenuDivider />
           <MenuItem caption='Caption & Icon' icon='notifications' />
           <MenuItem caption='Caption, Icon & Shortcut' icon='notifications' shortcut='Ctrl + P' />
-          <MenuItem caption='Disabled ...' icon='plus' shortcut='Ctrl + P' disabled/>
+          <MenuItem caption='Disabled ...' icon='plus' shortcut='Ctrl + P' disabled />
         </Menu>
 
         <hr />
@@ -34,7 +34,7 @@ class MenuTest extends React.Component {
         <IconMenu icon='more_vert' position='topLeft'>
           <MenuItem value='download' icon='plus' caption='Download' />
           <MenuDivider />
-          <MenuItem caption='Disabled ...' icon='plus' shortcut='Ctrl + P' disabled/>
+          <MenuItem caption='Disabled ...' icon='plus' shortcut='Ctrl + P' disabled />
         </IconMenu>
       </section>
     );
