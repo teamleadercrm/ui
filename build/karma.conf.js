@@ -44,8 +44,7 @@ const karmaConfig = {
       'react/addons': true,
       'react/lib/ExecutionEnvironment': true,
       'react/lib/ReactContext': 'window'
-    }),
-    sassLoader: webpackConfig.sassLoader
+    })
   },
   webpackMiddleware: {
     noInfo: true
