@@ -6,10 +6,12 @@ import FontIcon from '../font_icon';
 
 class Button extends Component {
   static propTypes = {
+    accent: PropTypes.bool,
     children: PropTypes.node,
     className: PropTypes.string,
     disabled: PropTypes.bool,
     flat: PropTypes.bool,
+    floating: PropTypes.bool,
     href: PropTypes.string,
     icon: PropTypes.oneOfType([
       PropTypes.string,
@@ -20,6 +22,7 @@ class Button extends Component {
     onMouseUp: PropTypes.func,
     primary: PropTypes.bool,
     processing: PropTypes.bool,
+    raised: PropTypes.bool,
     theme: PropTypes.shape({
       accent: PropTypes.string,
       button: PropTypes.string,
@@ -46,15 +49,42 @@ class Button extends Component {
     type: 'button',
   };
 
+  getLevel = () => {
+    if (this.props.primary) {
+      return 'primary';
+    }
+    if (this.props.accent) {
+      return 'accent';
+    }
+    return 'neutral';
+  };
+
+  getShape = () => {
+    if (this.props.raised) {
+      return 'raised';
+    }
+    if (this.props.floating) {
+      return 'floating';
+    }
+    return 'flat';
+  };
+
+  getState = () => {
+    if (this.props.processing) {
+      return 'processing';
+    }
+    return '';
+  };
+
   handleMouseUp = (event) => {
-    this.refs.button.blur();
+    this.buttonNode.blur();
     if (this.props.onMouseUp) {
       this.props.onMouseUp(event);
     }
   };
 
   handleMouseLeave = (event) => {
-    this.refs.button.blur();
+    this.buttonNode.blur();
     if (this.props.onMouseLeave) {
       this.props.onMouseLeave(event);
     }
@@ -64,24 +94,19 @@ class Button extends Component {
     const {
       children,
       className,
-      flat,
-      floating,
       href,
       icon,
       label,
       theme,
       type,
-      primary,
       processing,
-      raised,
-      accent,
       ...others
     } = this.props;
 
     const element = href ? 'a' : 'button';
-    const level = primary ? 'primary' : accent ? 'accent' : 'neutral';
-    const shape = flat ? 'flat' : raised ? 'raised' : floating ? 'floating' : 'flat';
-    const state = processing ? 'processing' : '';
+    const level = this.getLevel();
+    const shape = this.getShape();
+    const state = this.getState();
 
     const classes = classnames(
       theme.button,
@@ -96,7 +121,9 @@ class Button extends Component {
     const props = {
       ...others,
       href,
-      ref: 'button',
+      ref: (node) => {
+        this.buttonNode = node;
+      },
       className: classes,
       disabled: this.props.disabled,
       onMouseUp: this.handleMouseUp,

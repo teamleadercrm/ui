@@ -47,22 +47,30 @@ const factory = (FontIcon) => {
     };
 
     getLevel = () => {
-      if (this.props.primary) return 'primary';
-      if (this.props.accent) return 'accent';
+      if (this.props.primary) {
+        return 'primary';
+      }
+      if (this.props.accent) {
+        return 'accent';
+      }
       return 'neutral';
     }
 
     handleMouseUp = (event) => {
       this.buttonNode.blur();
-      if (this.props.onMouseUp) this.props.onMouseUp(event);
+      if (this.props.onMouseUp) {
+        this.props.onMouseUp(event);
+      }
     };
 
     handleMouseLeave = (event) => {
       this.buttonNode.blur();
-      if (this.props.onMouseLeave) this.props.onMouseLeave(event);
+      if (this.props.onMouseLeave) {
+        this.props.onMouseLeave(event);
+      }
     };
 
-    render() {
+    render () {
       const {
         accent,    // eslint-disable-line
         children,
@@ -78,7 +86,7 @@ const factory = (FontIcon) => {
       } = this.props;
       const element = href ? 'a' : 'button';
       const level = this.getLevel();
-      const classes = classnames([theme.toggle], {
+      const classes = classnames([ theme.toggle ], {
         [theme[level]]: neutral,
         [theme.inverse]: inverse,
       }, className);
@@ -86,7 +94,9 @@ const factory = (FontIcon) => {
       const props = {
         ...others,
         href,
-        ref: (node) => { this.buttonNode = node; },
+        ref: (node) => {
+          this.buttonNode = node;
+        },
         className: classes,
         disabled: this.props.disabled,
         onMouseUp: this.handleMouseUp,

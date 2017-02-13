@@ -13,6 +13,7 @@
 
 .button {
   @apply --reset;
+  @apply --no-text-decoration;
   align-content: center;
   align-items: center;
   border: 0;
