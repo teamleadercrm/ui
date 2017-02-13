@@ -1,25 +1,29 @@
 import React, { Component, PropTypes } from 'react';
 
-const ActivableRendererFactory = (options = {delay: 500}) =>
+const ActivableRendererFactory = (options = { delay: 500 }) =>
   ActivableComponent => class ActivableRenderer extends Component {
     static propTypes = {
       active: PropTypes.bool.isRequired,
       children: PropTypes.any,
-      delay: PropTypes.number
+      delay: PropTypes.number,
     };
 
     static defaultProps = {
-      delay: options.delay
+      delay: options.delay,
     };
 
     state = {
       active: this.props.active,
-      rendered: this.props.active
+      rendered: this.props.active,
     };
 
     componentWillReceiveProps (nextProps) {
-      if (nextProps.active && !this.props.active) this.renderAndActivate();
-      if (!nextProps.active && this.props.active) this.deactivateAndUnrender();
+      if (nextProps.active && !this.props.active) {
+        this.renderAndActivate();
+      }
+      if (!nextProps.active && this.props.active) {
+        this.deactivateAndUnrender();
+      }
     }
 
     componentWillUnmount () {
@@ -28,7 +32,9 @@ const ActivableRendererFactory = (options = {delay: 500}) =>
     }
 
     renderAndActivate () {
-      if (this.unrenderTimeout) clearTimeout(this.unrenderTimeout);
+      if (this.unrenderTimeout) {
+        clearTimeout(this.unrenderTimeout);
+      }
       this.setState({ rendered: true, active: false }, () => {
         this.activateTimeout = setTimeout(() => this.setState({ active: true }), 20);
       });
