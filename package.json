@@ -162,7 +162,7 @@
     "dmc": "npm start",
     "lint": "eslint components spec",
     "lint:fix": "npm run lint -- --fix",
-    "prepublish": "npm run build",
+    "postinstall": "npm run build",
     "start": "better-npm-run start",
     "test": "better-npm-run test",
     "test:dev": "npm run test -- --watch"
