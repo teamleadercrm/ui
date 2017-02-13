@@ -169,10 +169,6 @@ webpackConfig.module.loaders.push({
 // ------------------------------------
 // Style Configuration
 // ------------------------------------
-webpackConfig.sassLoader = {
-  includePaths: paths.client('styles')
-};
-
 webpackConfig.postcss = () => {
   return [
     require('postcss-import')({
