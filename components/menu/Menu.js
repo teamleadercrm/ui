@@ -13,7 +13,7 @@ const POSITION = {
   TOP_LEFT: 'topLeft',
   TOP_RIGHT: 'topRight',
   BOTTOM_LEFT: 'bottomLeft',
-  BOTTOM_RIGHT: 'bottomRight'
+  BOTTOM_RIGHT: 'bottomRight',
 };
 
 const factory = (MenuItem) => {
@@ -38,19 +38,19 @@ const factory = (MenuItem) => {
         outline: PropTypes.string,
         static: PropTypes.string,
         topLeft: PropTypes.string,
-        topRight: PropTypes.string
-      })
+        topRight: PropTypes.string,
+      }),
     };
 
     static defaultProps = {
       active: false,
       outline: true,
       position: POSITION.STATIC,
-      selectable: true
+      selectable: true,
     };
 
     state = {
-      active: this.props.active
+      active: this.props.active,
     };
 
     componentDidMount () {
@@ -81,7 +81,9 @@ const factory = (MenuItem) => {
           const position = this.calculatePosition();
           if (this.state.position !== position) {
             this.setState({ position, active: false }, () => {
-              this.activateTimeoutHandle = setTimeout(() => { this.show(); }, 20);
+              this.activateTimeoutHandle = setTimeout(() => {
+                this.show();
+              }, 20);
             });
           } else {
             this.show();
@@ -104,17 +106,19 @@ const factory = (MenuItem) => {
       if (!this.state.active && nextState.active) {
         events.addEventsToDocument({
           click: this.handleDocumentClick,
-          touchstart: this.handleDocumentClick
+          touchstart: this.handleDocumentClick,
         });
       }
     }
 
     componentDidUpdate (prevProps, prevState) {
       if (prevState.active && !this.state.active) {
-        if (this.props.onHide) this.props.onHide();
+        if (this.props.onHide) {
+          this.props.onHide();
+        }
         events.removeEventsFromDocument({
           click: this.handleDocumentClick,
-          touchstart: this.handleDocumentClick
+          touchstart: this.handleDocumentClick,
         });
       } else if (!prevState.active && this.state.active && this.props.onShow) {
         this.props.onShow();
@@ -125,7 +129,7 @@ const factory = (MenuItem) => {
       if (this.state.active) {
         events.removeEventsFromDocument({
           click: this.handleDocumentClick,
-          touchstart: this.handleDocumentClick
+          touchstart: this.handleDocumentClick,
         });
       }
       clearTimeout(this.positionTimeoutHandle);
@@ -134,24 +138,32 @@ const factory = (MenuItem) => {
 
     handleDocumentClick = (event) => {
       if (this.state.active && !events.targetIsDescendant(event, ReactDOM.findDOMNode(this))) {
-        this.setState({active: false, rippled: false});
+        this.setState({ active: false, rippled: false });
       }
     };
 
     handleSelect = (item, event) => {
       const { value, onClick } = item.props;
-      if (onClick) event.persist();
-      this.setState({ active: false, rippled: this.props.ripple }, () => {
-        if (onClick) onClick(event);
-        if (this.props.onSelect) this.props.onSelect(value);
+      if (onClick) {
+        event.persist();
+      }
+      this.setState({ active: false }, () => {
+        if (onClick) {
+          onClick(event);
+        }
+        if (this.props.onSelect) {
+          this.props.onSelect(value);
+        }
       });
     };
 
     calculatePosition () {
       const parentNode = ReactDOM.findDOMNode(this).parentNode;
-      if (!parentNode) return;
-      const {top, left, height, width} = parentNode.getBoundingClientRect();
-      const {height: wh, width: ww} = getViewport();
+      if (!parentNode) {
+        return;
+      }
+      const { top, left, height, width } = parentNode.getBoundingClientRect();
+      const { height: wh, width: ww } = getViewport();
       const toTop = top < ((wh / 2) - height / 2);
       const toLeft = left < ((ww / 2) - width / 2);
       return `${toTop ? 'top' : 'bottom'}${toLeft ? 'Left' : 'Right'}`;
@@ -182,11 +194,15 @@ const factory = (MenuItem) => {
 
     renderItems () {
       return React.Children.map(this.props.children, (item) => {
-        if (!item) return item;
+        if (!item) {
+          return item;
+        }
         if (item.type === MenuItem) {
           return React.cloneElement(item, {
-            selected: typeof item.props.value !== 'undefined' && this.props.selectable && item.props.value === this.props.selected,
-            onClick: this.handleSelect.bind(this, item)
+            selected: typeof item.props.value !== 'undefined' &&
+              this.props.selectable &&
+              item.props.value === this.props.selected,
+            onClick: this.handleSelect.bind(this, item),
           });
         } else {
           return React.cloneElement(item);
@@ -196,17 +212,17 @@ const factory = (MenuItem) => {
 
     show () {
       const { width, height } = this.refs.menu.getBoundingClientRect();
-      this.setState({active: true, width, height});
+      this.setState({ active: true, width, height });
     }
 
     hide () {
-      this.setState({active: false});
+      this.setState({ active: false });
     }
 
     render () {
       const { theme } = this.props;
       const outlineStyle = { width: this.state.width, height: this.state.height };
-      const className = classnames([theme.menu, theme[this.state.position]], {
+      const className = classnames([ theme.menu, theme[this.state.position] ], {
         [theme.active]: this.state.active,
       }, this.props.className);
 

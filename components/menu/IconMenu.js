@@ -12,7 +12,7 @@ const factory = (IconButton, Menu) => {
       className: PropTypes.string,
       icon: PropTypes.oneOfType([
         PropTypes.string,
-        PropTypes.element
+        PropTypes.element,
       ]),
       onClick: PropTypes.func,
       onHide: PropTypes.func,
@@ -23,29 +23,33 @@ const factory = (IconButton, Menu) => {
       selected: PropTypes.any,
       theme: PropTypes.shape({
         icon: PropTypes.string,
-        iconMenu: PropTypes.string
-      })
+        iconMenu: PropTypes.string,
+      }),
     };
 
     static defaultProps = {
       className: '',
       icon: 'more_vert',
       position: 'auto',
-      selectable: false
+      selectable: false,
     };
 
     state = {
-      active: false
+      active: false,
     };
 
     handleButtonClick = (event) => {
       this.setState({ active: !this.state.active });
-      if (this.props.onClick) this.props.onClick(event);
+      if (this.props.onClick) {
+        this.props.onClick(event);
+      }
     };
 
     handleMenuHide = () => {
       this.setState({ active: false });
-      if (this.props.onHide) this.props.onHide();
+      if (this.props.onHide) {
+        this.props.onHide();
+      }
     };
 
     render () {

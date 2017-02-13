@@ -13,7 +13,7 @@ const factory = () => {
       disabled: PropTypes.bool,
       icon: PropTypes.oneOfType([
         PropTypes.string,
-        PropTypes.element
+        PropTypes.element,
       ]),
       onClick: PropTypes.func,
       selected: PropTypes.bool,
@@ -24,14 +24,14 @@ const factory = () => {
         icon: PropTypes.string,
         menuItem: PropTypes.string,
         selected: PropTypes.string,
-        shortcut: PropTypes.string
-      })
+        shortcut: PropTypes.string,
+      }),
     };
 
     static defaultProps = {
       className: '',
       disabled: false,
-      selected: false
+      selected: false,
     };
 
     handleClick = (event) => {
@@ -41,15 +41,15 @@ const factory = () => {
     };
 
     render () {
-      const {icon, caption, children, shortcut, selected, disabled, theme, ...others} = this.props;
+      const { icon, caption, children, shortcut, selected, disabled, theme, ...others } = this.props;
       const className = classnames(theme.menuItem, {
         [theme.selected]: selected,
-        [theme.disabled]: disabled
+        [theme.disabled]: disabled,
       }, this.props.className);
 
       return (
         <li {...others} data-react-toolbox='menu-item' className={className} onClick={this.handleClick}>
-          {icon ? <FontIcon value={icon} className={theme.icon}/> : null}
+          {icon ? <FontIcon value={icon} className={theme.icon} /> : null}
           <span className={theme.caption}>{caption}</span>
           {shortcut ? <small className={theme.shortcut}>{shortcut}</small> : null}
           {children}
