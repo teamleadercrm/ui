@@ -1,19 +1,9 @@
-
 @import './variables.css';
 
 .reset {
-  box-sizing: border-box;
-  font-family: var(--preferred-font);
-  -webkit-font-smoothing: antialiased;
-  font-smoothing: antialiased;
-  text-size-adjust: 100%;
+  @apply --reset;
+}
 
-& *,
-& *::after,
-& *::before {
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    font-smoothing: antialiased;
-    text-size-adjust: 100%;
-  }
+.no-text-decoration {
+  @apply --no-text-decoration;
 }
