@@ -12,7 +12,6 @@ const applyTheme = Component => themr(MENU, theme)(Component);
 const ThemedMenuDivider = applyTheme(MenuDivider);
 const ThemedMenuItem = applyTheme(menuItemFactory());
 const ThemedMenu = applyTheme(menuFactory(ThemedMenuItem));
-console.log("IconButton", IconButton);
 const ThemedIconMenu = applyTheme(iconMenuFactory(IconButton, ThemedMenu));
 
 export { ThemedMenuDivider as MenuDivider };
