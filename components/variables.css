@@ -103,5 +103,12 @@
       text-size-adjust: 100%;
       -webkit-touch-callout: none;
     }
-  }
+  };
+
+  --no-text-decoration: {
+    &:active,
+    &:hover {
+      text-decoration: none !important;
+    }
+  };
 }
