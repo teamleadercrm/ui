@@ -94,12 +94,17 @@ class Button extends Component {
     const {
       children,
       className,
+      flat, // eslint-disable-line
+      floating, // eslint-disable-line
       href,
       icon,
       label,
       theme,
       type,
+      primary, // eslint-disable-line
       processing,
+      raised, // eslint-disable-line
+      accent, // eslint-disable-line
       ...others
     } = this.props;
 
