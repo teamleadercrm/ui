@@ -2,7 +2,10 @@
   "name": "teamleader-ui",
   "description": "Teamleader UI library",
   "version": "0.0.1",
-  "author": "Teamleader <info@teamleader.eu>",
+  "author": "Teamleader <development@teamleader.eu>",
+  "contributors": [
+    "Dries Decramer <dries.decramer@teamleader.eu>"
+  ],
   "betterScripts": {
     "compile": {
       "command": "node bin/compile",
