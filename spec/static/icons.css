@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'Teamleader Icons';
   src:
-    url('fonts/icomoon.ttf?8ym8k7') format('truetype'),
-    url('fonts/icomoon.woff?8ym8k7') format('woff'),
-    url('fonts/icomoon.svg?8ym8k7#icomoon') format('svg');
+    url('fonts/icomoon.ttf') format('truetype'),
+    url('fonts/icomoon.woff') format('woff'),
+    url('fonts/icomoon.svg') format('svg');
   font-weight: normal;
   font-style: normal;
 }
