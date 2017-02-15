@@ -9,10 +9,10 @@
   --menu-item-selected-background: transparent;
   --menu-item-icon-font-size: calc(2.4 * var(--unit));
   --menu-item-icon-size: calc(1.6 * var(--menu-item-icon-font-size));
-  --menu-item-height: calc(4.8 * var(--unit));
+  --menu-item-height: calc(2.8 * var(--unit));
   --menu-item-padding: calc(1.6 * var(--unit));
   --menu-item-font-size: calc(1.6 * var(--unit));
-  --menu-divider-height: calc((4.8 / 4) * var(--unit));
+  --menu-divider-height: calc((2.8 / 4) * var(--unit));
   --menu-icon-size: calc(2.3 * var(--unit));
   --menu-icon-ripple-duration: 650ms;
 }
