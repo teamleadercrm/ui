@@ -14,6 +14,7 @@ const ThemedMenuItem = applyTheme(menuItemFactory());
 const ThemedMenu = applyTheme(menuFactory(ThemedMenuItem));
 const ThemedIconMenu = applyTheme(iconMenuFactory(IconButton, ThemedMenu));
 
+export default ThemedMenu;
 export { ThemedMenuDivider as MenuDivider };
 export { ThemedMenuItem as MenuItem };
 export { ThemedMenu as Menu };
