@@ -46,7 +46,7 @@ const factory = (FontIcon) => {
         return 'primary';
       }
       return 'neutral';
-    }
+    };
 
     handleMouseUp = (event) => {
       this.buttonNode.blur();
@@ -75,8 +75,10 @@ const factory = (FontIcon) => {
         type,
         ...others
       } = this.props;
+
       const element = href ? 'a' : 'button';
       const level = this.getLevel();
+
       const classes = classnames([ theme.toggle ], {
         [theme[level]]: neutral,
         [theme.inverse]: inverse,
