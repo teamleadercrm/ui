@@ -138,7 +138,7 @@ const factory = (MenuItem) => {
 
     handleDocumentClick = (event) => {
       if (this.state.active && !events.targetIsDescendant(event, ReactDOM.findDOMNode(this))) {
-        this.setState({ active: false, rippled: false });
+        this.setState({ active: false });
       }
     };
 
