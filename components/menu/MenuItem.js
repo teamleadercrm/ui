@@ -48,7 +48,7 @@ const factory = () => {
       }, this.props.className);
 
       return (
-        <li {...others} data-react-toolbox='menu-item' className={className} onClick={this.handleClick}>
+        <li {...others} data-teamleader-ui='menu-item' className={className} onClick={this.handleClick}>
           {icon ? <FontIcon value={icon} className={theme.icon} /> : null}
           <span className={theme.caption}>{caption}</span>
           {shortcut ? <small className={theme.shortcut}>{shortcut}</small> : null}
