@@ -21,7 +21,6 @@ class Button extends Component {
     onMouseUp: PropTypes.func,
     primary: PropTypes.bool,
     processing: PropTypes.bool,
-    raised: PropTypes.bool,
     theme: PropTypes.shape({
       accent: PropTypes.string,
       button: PropTypes.string,
@@ -31,7 +30,6 @@ class Button extends Component {
       mini: PropTypes.string,
       neutral: PropTypes.string,
       primary: PropTypes.string,
-      raised: PropTypes.string,
       rippleWrapper: PropTypes.string,
       toggle: PropTypes.string,
     }),
@@ -58,10 +56,6 @@ class Button extends Component {
   };
 
   getShape = () => {
-    if (this.props.raised) {
-      return 'raised';
-    }
-
     return 'flat';
   };
 
@@ -98,7 +92,6 @@ class Button extends Component {
       type,
       primary, // eslint-disable-line
       processing,
-      raised, // eslint-disable-line
       accent, // eslint-disable-line
       ...others
     } = this.props;

@@ -30,7 +30,6 @@ const factory = (FontIcon) => {
         mini: PropTypes.string,
         neutral: PropTypes.string,
         primary: PropTypes.string,
-        raised: PropTypes.string,
         rippleWrapper: PropTypes.string,
         toggle: PropTypes.string,
       }),

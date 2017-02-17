@@ -28,26 +28,6 @@ const ButtonTest = () => (
     <hr />
 
     <p>
-      <Button primary raised>Primary raised</Button>&nbsp;
-      <Button primary raised icon='notifications'>Primary raised with icon</Button>&nbsp;
-      <Button primary raised icon='notifications' />
-    </p>
-
-    <p>
-      <Button primary raised processing>Primary raised processing</Button>&nbsp;
-      <Button primary raised processing icon='notifications'>Primary raised processing with icon</Button>&nbsp;
-      <Button primary raised processing />
-    </p>
-
-    <p>
-      <Button primary raised disabled>Primary raised disabled</Button>&nbsp;
-      <Button primary raised disabled icon='notifications'>Primary raised disabled with icon</Button>&nbsp;
-      <Button primary raised disabled icon='notifications' />
-    </p>
-
-    <hr />
-
-    <p>
       <Button accent>Accent flat</Button>&nbsp;
       <Button accent icon='notifications'>Accent flat with icon</Button>&nbsp;
       <Button accent icon='notifications' />
@@ -65,27 +45,7 @@ const ButtonTest = () => (
       <Button accent disabled icon='notifications' />
     </p>
 
-    <hr />
-
-    <p>
-      <Button accent raised>Accent raised</Button>&nbsp;
-      <Button accent raised icon='notifications'>Accent raised with icon</Button>&nbsp;
-      <Button accent raised icon='notifications' />
-    </p>
-
-    <p>
-      <Button accent raised processing>Accent raised processing</Button>&nbsp;
-      <Button accent raised processing icon='notifications'>Accent raised processing with icon</Button>&nbsp;
-      <Button accent raised processing />
-    </p>
-
-    <p>
-      <Button accent raised disabled>Accent raised disabled</Button>&nbsp;
-      <Button accent raised disabled icon='notifications'>Accent raised disabled with icon</Button>&nbsp;
-      <Button accent raised disabled icon='notifications' />
-    </p>
-
-    <hr />
+    <hr/>
 
     <p>
       <Button>Neutral flat</Button>&nbsp;
@@ -103,26 +63,6 @@ const ButtonTest = () => (
       <Button disabled>Neutral flat disabled</Button>&nbsp;
       <Button disabled icon='notifications'>Neutral disabled with icon</Button>&nbsp;
       <Button disabled icon='notifications' />
-    </p>
-
-    <hr />
-
-    <p>
-      <Button raised>Accent raised</Button>&nbsp;
-      <Button raised icon='notifications'>Accent raised with icon</Button>&nbsp;
-      <Button raised icon='notifications' />
-    </p>
-
-    <p>
-      <Button raised processing>Accent raised processing</Button>&nbsp;
-      <Button raised processing icon='notifications'>Accent raised processing with icon</Button>&nbsp;
-      <Button raised processing />
-    </p>
-
-    <p>
-      <Button raised disabled>Accent raised disabled</Button>&nbsp;
-      <Button raised disabled icon='notifications'>Accent raised disabled with icon</Button>&nbsp;
-      <Button raised disabled icon='notifications' />
     </p>
 
   </section>

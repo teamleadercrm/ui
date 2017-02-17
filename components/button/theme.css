@@ -116,13 +116,6 @@
   }
 }
 
-.raised {
-  box-shadow: var(--shadow-2p);
-  composes: button;
-  composes: squared;
-  composes: solid;
-}
-
 .flat {
   background: transparent;
   composes: button;
@@ -149,7 +142,6 @@
 }
 
 .primary:not([disabled]) {
-  &.raised,
   &.flat {
     background: var(--button-primary-color);
     color: var(--button-primary-color-contrast);
@@ -170,11 +162,6 @@
 }
 
 .accent:not([disabled]) {
-  &.raised {
-    background: var(--button-accent-color);
-    color: var(--button-accent-color-contrast);
-  }
-
   &.flat,
   &.toggle {
     color: var(--button-accent-color);
@@ -190,11 +177,6 @@
 }
 
 .neutral:not([disabled]) {
-  &.raised {
-    background-color: var(--button-neutral-color);
-    color: var(--button-neutral-color-contrast);
-  }
-
   &.flat,
   &.toggle {
     color: var(--button-neutral-color-contrast);
@@ -209,11 +191,6 @@
   }
 
   &.inverse {
-    &.raised {
-      background-color: var(--button-neutral-color-contrast);
-      color: var(--button-neutral-color);
-    }
-
     &.flat,
     &.toggle {
       color: var(--button-neutral-color);
