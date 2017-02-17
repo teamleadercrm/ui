@@ -128,10 +128,6 @@
 }
 
 .primary {
-  background: var(--button-primary-disabled-background-color);
-}
-
-.primary {
   &[disabled] {
     background: var(--button-primary-disabled-background-color);
     color: var(--button-primary-color-contrast);
