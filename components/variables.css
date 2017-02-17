@@ -20,7 +20,7 @@
   --unit: 10px;
 
   --preferred-font: 'proximanova', trebuchet ms, Verdana, 'Arial', sans-serif;
-  --font-size: calc(1.6 * var(--unit));
+  --font-size: calc(1.4 * var(--unit));
   --font-size-tiny: calc(1.2 * var(--unit));
   --font-size-small: calc(1.4 * var(--unit));
   --font-size-normal: var(--font-size);
