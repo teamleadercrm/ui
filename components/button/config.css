@@ -11,10 +11,6 @@
   --button-neutral-color: var(--color-white);
   /*--button-neutral-color-contrast: var(--palette-grey-900);*/
   --button-neutral-color-hover: color(var(--palette-grey-200));
-  --button-floating-font-size: calc(2.4 * var(--unit));
-  --button-floating-height: calc(5.6 * var(--unit));
-  --button-floating-mini-height: calc(4 * var(--unit));
-  /*--button-floating-mini-font-size: calc(var(--button-floating-mini-height) / 2.25);*/
   --button-disabled-text-color: color(var(--color-black) a(26%));
   --button-disabled-background-color: color(var(--color-black) a(12%));
   --button-disabled-text-color-inverse: color(var(--color-black) a(54%));

@@ -129,36 +129,6 @@
   composes: squared;
 }
 
-.floating {
-  border-radius: 50%;
-  box-shadow:
-          0 1px 1.5px 0 rgba(0, 0, 0, 0.12),
-          0 1px 1px 0 rgba(0, 0, 0, 0.24);
-  composes: button;
-  composes: solid;
-  font-size: var(--button-floating-font-size);
-  height: var(--button-floating-height);
-  width: var(--button-floating-height);
-
-  & .icon {
-    line-height: var(--button-floating-height);
-  }
-
-  & > .rippleWrapper {
-    border-radius: 50%;
-  }
-
-  /*&.mini {*/
-    /*font-size: var(--button-floating-mini-font-size);*/
-    /*height: var(--button-floating-mini-height);*/
-    /*width: var(--button-floating-mini-height);*/
-
-    /*& .icon {*/
-      /*line-height: var(--button-floating-mini-height);*/
-    /*}*/
-  /*}*/
-}
-
 .toggle {
   background: transparent;
   border-radius: 50%;
@@ -180,8 +150,7 @@
 
 .primary:not([disabled]) {
   &.raised,
-  &.flat,
-  &.floating {
+  &.flat {
     background: var(--button-primary-color);
     color: var(--button-primary-color-contrast);
   }
@@ -201,8 +170,7 @@
 }
 
 .accent:not([disabled]) {
-  &.raised,
-  &.floating {
+  &.raised {
     background: var(--button-accent-color);
     color: var(--button-accent-color-contrast);
   }
@@ -222,8 +190,7 @@
 }
 
 .neutral:not([disabled]) {
-  &.raised,
-  &.floating {
+  &.raised {
     background-color: var(--button-neutral-color);
     color: var(--button-neutral-color-contrast);
   }
@@ -242,8 +209,7 @@
   }
 
   &.inverse {
-    &.raised,
-    &.floating {
+    &.raised {
       background-color: var(--button-neutral-color-contrast);
       color: var(--button-neutral-color);
     }

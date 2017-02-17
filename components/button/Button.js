@@ -11,7 +11,6 @@ class Button extends Component {
     className: PropTypes.string,
     disabled: PropTypes.bool,
     flat: PropTypes.bool,
-    floating: PropTypes.bool,
     href: PropTypes.string,
     icon: PropTypes.oneOfType([
       PropTypes.string,
@@ -27,7 +26,6 @@ class Button extends Component {
       accent: PropTypes.string,
       button: PropTypes.string,
       flat: PropTypes.string,
-      floating: PropTypes.string,
       icon: PropTypes.string,
       inverse: PropTypes.string,
       mini: PropTypes.string,
@@ -63,9 +61,7 @@ class Button extends Component {
     if (this.props.raised) {
       return 'raised';
     }
-    if (this.props.floating) {
-      return 'floating';
-    }
+
     return 'flat';
   };
 
@@ -95,7 +91,6 @@ class Button extends Component {
       children,
       className,
       flat, // eslint-disable-line
-      floating, // eslint-disable-line
       href,
       icon,
       label,

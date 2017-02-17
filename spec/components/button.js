@@ -125,13 +125,6 @@ const ButtonTest = () => (
       <Button raised disabled icon='notifications' />
     </p>
 
-    <hr />
-
-    <p><Button primary floating icon='notifications' /></p>
-    <p><Button primary floating processing icon='notifications' /></p>
-    <p><Button primary floating disabled icon='notifications' /></p>
-    <p><Button floating icon='notifications' /></p>
-
   </section>
 );
 

@@ -25,7 +25,6 @@ const factory = (FontIcon) => {
         accent: PropTypes.string,
         button: PropTypes.string,
         flat: PropTypes.string,
-        floating: PropTypes.string,
         icon: PropTypes.string,
         inverse: PropTypes.string,
         mini: PropTypes.string,
