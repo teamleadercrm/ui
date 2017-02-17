@@ -102,23 +102,6 @@
   }
 }
 
-.solid {
-  &[disabled] {
-    background-color: var(--button-disabled-background-color);
-    box-shadow: var(--shadow-2p);
-  }
-
-  &:active {
-    box-shadow: var(--shadow-2p);
-  }
-
-  &:focus:not(:active) {
-    box-shadow:
-            0 0 8px rgba(0, 0, 0, 0.18),
-            0 8px 16px rgba(0, 0, 0, 0.36);
-  }
-}
-
 .flat {
   background: transparent;
   composes: button;
@@ -144,26 +127,41 @@
   }
 }
 
-.primary:not([disabled]) {
-  &.flat {
-    background: var(--button-primary-color);
+.primary {
+  background: var(--button-primary-disabled-background-color);
+}
+
+.primary {
+  &[disabled] {
+    background: var(--button-primary-disabled-background-color);
     color: var(--button-primary-color-contrast);
   }
 
-  &.toggle {
-    color: var(--button-primary-color);
+  &:not([disabled]) {
+    &.flat {
+      background: var(--button-primary-color);
+      color: var(--button-primary-color-contrast);
+    }
 
-    &:focus:not(:active) {
+    &.toggle {
+      color: var(--button-primary-color);
+
+      &:focus:not(:active) {
+        background: var(--button-primary-color-hover);
+      }
+    }
+
+    &.flat:hover {
       background: var(--button-primary-color-hover);
+      box-shadow: var(--zdepth-shadow-1);
+    }
+
+    &.processing {
+      background: var(--button-primary-disabled-background-color);
+      color: var(--button-primary-color);
     }
   }
-
-  &.flat:hover {
-    background: var(--button-primary-color-hover);
-    box-shadow: var(--zdepth-shadow-1);
-  }
 }
-
 .neutral:not([disabled]) {
   &.flat,
   &.toggle {
@@ -176,6 +174,10 @@
 
   &.flat:hover {
     background: var(--button-neutral-color-hover);
+  }
+
+  &.processing {
+    color: var(--button-disabled-text-color);
   }
 
   &.inverse {
