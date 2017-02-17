@@ -90,12 +90,15 @@
 
   & .icon {
     font-size: 120%;
-    margin-right: var(--button-squared-icon-margin);
     vertical-align: middle;
   }
 
-  & > svg {
-    margin-right: calc(0.5 * var(--unit));
+  &:not(.iconOnly) .icon {
+    margin-right: var(--button-squared-icon-margin);
+  }
+
+  &:not(.iconOnly) > svg {
+    margin-right: calc(.5 * var(--unit));
   }
 }
 
