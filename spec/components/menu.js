@@ -18,7 +18,7 @@ class MenuTest extends React.Component {
   render () {
     return (
       <section>
-        <h5>Menus</h5>
+        <h2>Menus</h2>
         <Menu onSelect={this.handleSelect} selectable={false} selected={this.state.value}>
           <MenuItem value='foo' caption='Caption' />
           <MenuItem onClick={this.handleItemClick} value='bar' caption='Caption & Shortcut' shortcut='Ctrl + P' />

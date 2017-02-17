@@ -7,7 +7,7 @@ const handleItemClick = () => {
 
 const ButtonTest = () => (
   <section>
-    <h5>Buttons</h5>
+    <h2>Buttons</h2>
 
     <p>
       <Button primary onMouseUp={handleItemClick}>Primary flat</Button>&nbsp;
