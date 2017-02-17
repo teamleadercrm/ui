@@ -119,6 +119,7 @@
 .menuInner {
   display: block;
   list-style: none;
+  margin: 0;
   padding: var(--menu-padding);
   position: relative;
   text-align: left;
