@@ -41,11 +41,25 @@ const factory = () => {
     };
 
     render () {
-      const { icon, caption, children, shortcut, selected, disabled, theme, ...others } = this.props;
-      const className = classnames(theme.menuItem, {
-        [theme.selected]: selected,
-        [theme.disabled]: disabled,
-      }, this.props.className);
+      const {
+        icon,
+        caption,
+        children,
+        shortcut,
+        selected,
+        disabled,
+        theme,
+        ...others
+      } = this.props;
+
+      const className = classnames(
+        theme.menuItem,
+        {
+          [theme.selected]: selected,
+          [theme.disabled]: disabled,
+        },
+        this.props.className
+      );
 
       return (
         <li {...others} data-teamleader-ui='menu-item' className={className} onClick={this.handleClick}>
