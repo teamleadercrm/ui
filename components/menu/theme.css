@@ -3,7 +3,6 @@
 @import './config.css';
 
 .iconMenu {
-  composes: reset from '../helpers.css';
   display: inline-block;
   position: relative;
   text-align: center;
@@ -14,6 +13,7 @@
 }
 
 .menu {
+  @apply --reset;
   display: inline-block;
   position: relative;
 
@@ -141,7 +141,7 @@
   }
 
   &.disabled {
-    opacity: 0.5;
+    opacity: .5;
     pointer-events: none;
   }
 
