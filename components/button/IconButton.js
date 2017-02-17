@@ -7,7 +7,6 @@ import InjectFontIcon from '../font_icon/FontIcon';
 const factory = (FontIcon) => {
   class IconButton extends Component {
     static propTypes = {
-      accent: PropTypes.bool,
       children: PropTypes.node,
       className: PropTypes.string,
       disabled: PropTypes.bool,
@@ -22,7 +21,6 @@ const factory = (FontIcon) => {
       onMouseUp: PropTypes.func,
       primary: PropTypes.bool,
       theme: PropTypes.shape({
-        accent: PropTypes.string,
         button: PropTypes.string,
         flat: PropTypes.string,
         icon: PropTypes.string,
@@ -37,7 +35,6 @@ const factory = (FontIcon) => {
     };
 
     static defaultProps = {
-      accent: false,
       className: '',
       neutral: true,
       primary: false,
@@ -47,9 +44,6 @@ const factory = (FontIcon) => {
     getLevel = () => {
       if (this.props.primary) {
         return 'primary';
-      }
-      if (this.props.accent) {
-        return 'accent';
       }
       return 'neutral';
     }
@@ -70,7 +64,6 @@ const factory = (FontIcon) => {
 
     render () {
       const {
-        accent,    // eslint-disable-line
         children,
         className,
         href,
@@ -100,7 +93,7 @@ const factory = (FontIcon) => {
         onMouseUp: this.handleMouseUp,
         onMouseLeave: this.handleMouseLeave,
         type: !href ? type : null,
-        'data-react-toolbox': 'button',
+        'data-teamleader-ui': 'button',
       };
 
       const iconElement = typeof icon === 'string'

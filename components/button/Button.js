@@ -6,7 +6,6 @@ import FontIcon from '../font_icon';
 
 class Button extends Component {
   static propTypes = {
-    accent: PropTypes.bool,
     children: PropTypes.node,
     className: PropTypes.string,
     disabled: PropTypes.bool,
@@ -22,7 +21,6 @@ class Button extends Component {
     primary: PropTypes.bool,
     processing: PropTypes.bool,
     theme: PropTypes.shape({
-      accent: PropTypes.string,
       button: PropTypes.string,
       flat: PropTypes.string,
       icon: PropTypes.string,
@@ -37,7 +35,6 @@ class Button extends Component {
   };
 
   static defaultProps = {
-    accent: false,
     className: '',
     flat: false,
     primary: false,
@@ -48,9 +45,6 @@ class Button extends Component {
   getLevel = () => {
     if (this.props.primary) {
       return 'primary';
-    }
-    if (this.props.accent) {
-      return 'accent';
     }
     return 'neutral';
   };
@@ -92,7 +86,6 @@ class Button extends Component {
       type,
       primary, // eslint-disable-line
       processing,
-      accent, // eslint-disable-line
       ...others
     } = this.props;
 

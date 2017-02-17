@@ -53,7 +53,7 @@
     border: 0;
   }
 
-  & > span:not([data-react-toolbox='tooltip']) {
+  & > span:not([data-teamleader-ui='tooltip']) {
     display: inline-block;
     line-height: var(--button-height);
     vertical-align: top;
@@ -161,21 +161,6 @@
   }
 }
 
-.accent:not([disabled]) {
-  &.flat,
-  &.toggle {
-    color: var(--button-accent-color);
-
-    &:focus:not(:active) {
-      background: var(--button-accent-color-hover);
-    }
-  }
-
-  &.flat:hover {
-    background: var(--button-accent-color-hover);
-  }
-}
-
 .neutral:not([disabled]) {
   &.flat,
   &.toggle {
@@ -212,7 +197,6 @@
 }
 
 .processing {
-  background: color(var(--button-primary-color) a(50%));
   pointer-events: none;
 
   & .icon {

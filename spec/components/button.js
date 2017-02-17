@@ -28,26 +28,6 @@ const ButtonTest = () => (
     <hr />
 
     <p>
-      <Button accent>Accent flat</Button>&nbsp;
-      <Button accent icon='notifications'>Accent flat with icon</Button>&nbsp;
-      <Button accent icon='notifications' />
-    </p>
-
-    <p>
-      <Button accent processing>Accent flat processing</Button>&nbsp;
-      <Button accent processing icon='notifications'>Accent flat processing with icon</Button>&nbsp;
-      <Button accent processing />
-    </p>
-
-    <p>
-      <Button accent disabled>Accent flat disabled</Button>&nbsp;
-      <Button accent disabled icon='notifications'>Accent disabled with icon</Button>&nbsp;
-      <Button accent disabled icon='notifications' />
-    </p>
-
-    <hr/>
-
-    <p>
       <Button>Neutral flat</Button>&nbsp;
       <Button icon='notifications'>Neutral flat with icon</Button>&nbsp;
       <Button icon='notifications' />
