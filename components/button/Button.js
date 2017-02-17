@@ -100,7 +100,7 @@ class Button extends Component {
         [theme[level]]: true,
         [theme[shape]]: true,
         [theme[state]]: true,
-        [theme.iconOnly]: !this.props.label && !this.props.children
+        [theme.iconOnly]: !this.props.label && !this.props.children,
       },
       className
     );
