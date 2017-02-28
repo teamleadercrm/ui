@@ -17,4 +17,9 @@
 
 .dialog {
   @apply --reset;
+  background-color: white;
+  border-radius: 0;
+  box-shadow: var(--shadow-2p);
+  display: block;
+  padding: 1em;
 }

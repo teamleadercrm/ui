@@ -1,0 +1,10 @@
+@import '../colors.css';
+@import '../variables.css';
+@import './config.css';
+
+.wrapper {
+}
+
+.popover {
+  background: deeppink;
+}
