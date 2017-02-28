@@ -27,7 +27,7 @@
     "semi"                         : [2, "always"],
     "curly"                        : [2, "all"],
     "brace-style"                  : [2, "1tbs", {}],
-    "jsx-quotes"                   : [2, "prefer-single"],
+    "jsx-quotes"                   : [2, "prefer-double"],
     "max-len"                      : [2, 120, 2],
     "space-before-function-paren"  : ["error", "always"],
     "array-bracket-spacing"        : ["error", "always"],
