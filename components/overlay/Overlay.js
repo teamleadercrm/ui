@@ -69,7 +69,7 @@ class Overlay extends Component {
     if (this.props.active && this.props.onEscKeyDown && e.which === 27) {
       this.props.onEscKeyDown(e);
     }
-  }
+  };
 
   handleClick = (event) => {
     event.preventDefault();
@@ -77,7 +77,7 @@ class Overlay extends Component {
     if (this.props.onClick) {
       this.props.onClick(event);
     }
-  }
+  };
 
   render () {
     const {
