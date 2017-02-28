@@ -21,8 +21,8 @@ const factory = () => {
       type: PropTypes.string,
     };
 
-    constructor (props) {
-      super(props);
+    constructor () {
+      super(...arguments);
       this.randomGradientPostFix = Math.random().toString(16).slice(2);
     }
 
