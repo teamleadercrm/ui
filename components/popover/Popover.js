@@ -12,6 +12,12 @@ const factory = (Dialog) => {
         children: PropTypes.node,
       })),
       active: PropTypes.bool,
+      anchorEl: PropTypes.object.isRequired,
+      anchorOrigin: PropTypes.shape({
+        horizontal: PropTypes.string.isRequired,
+        vertical: PropTypes.string.isRequired,
+      }),
+      canAutoPosition: PropTypes.bool,
       children: PropTypes.node,
       className: PropTypes.string,
       onEscKeyDown: PropTypes.func,
@@ -19,6 +25,10 @@ const factory = (Dialog) => {
       onOverlayMouseDown: PropTypes.func,
       onOverlayMouseMove: PropTypes.func,
       onOverlayMouseUp: PropTypes.func,
+      targetOrigin: PropTypes.shape({
+        horizontal: PropTypes.string.isRequired,
+        vertical: PropTypes.string.isRequired,
+      }),
       theme: PropTypes.shape({
         active: PropTypes.string,
         body: PropTypes.string,
@@ -36,8 +46,14 @@ const factory = (Dialog) => {
     static defaultProps = {
       actions: [],
       active: false,
+      canAutoPosition: true,
       type: 'normal',
     };
+
+    constructor (props) {
+      super(props);
+      console.log(props);
+    }
 
     componentDidMount () {
       this.setPlacement();
@@ -50,8 +66,8 @@ const factory = (Dialog) => {
       const anchorPosition = {
         top: anchorRect.top,
         left: anchorRect.left,
-        width: el.offsetWidth,
-        height: el.offsetHeight,
+        width: anchorEl.offsetWidth,
+        height: anchorEl.offsetHeight,
       };
 
       anchorPosition.right = anchorRect.right || anchorPosition.left + anchorPosition.width;

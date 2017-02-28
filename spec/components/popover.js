@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Popover from '../../components/popover';
 import Button from '../../components/button';
 
@@ -7,9 +8,10 @@ class PopoverTest extends React.Component {
     active: false,
   };
 
-  // componentDidMount () {
-  //   this.anchorEl = this.popoverToggleButton;
-  // }
+  componentDidMount () {
+    this.anchorEl = ReactDOM.findDOMNode(this.popoverToggleButton);
+    this.forceUpdate();
+  }
 
   handleToggle = () => {
     this.setState({ active: !this.state.active });
@@ -27,16 +29,21 @@ class PopoverTest extends React.Component {
         <Button label='Show my popover' onClick={this.handleToggle} ref={(button) => {
           this.popoverToggleButton = button;
         }} />
-        <Popover
-          actions={this.actions}
-          active={this.state.active}
-          anchorEl={this.popoverToggleButton}
-          onEscKeyDown={this.handleToggle}
-          onOverlayClick={this.handleToggle}
-          title='My awesome dialog'
-        >
-          <p>Here you can add popover content.</p>
-        </Popover>
+
+        { this.anchorEl &&
+          <Popover
+            actions={this.actions}
+            active={this.state.active}
+            anchorEl={this.anchorEl}
+            anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
+            targetOrigin={{ horizontal: 'left', vertical: 'top' }}
+            onEscKeyDown={this.handleToggle}
+            onOverlayClick={this.handleToggle}
+            title='My awesome dialog'
+          >
+            <p>Here you can add popover content.</p>
+          </Popover>
+        }
       </section>
     );
   }
