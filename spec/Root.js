@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from './components/button';
 import Menu from './components/menu';
-import Popover from './components/popover';
+import Dialog from './components/dialog';
 
 const Root = () => (
   <div>
@@ -9,7 +9,7 @@ const Root = () => (
     {__DEV__}
     <Button />
     <Menu />
-    <Popover />
+    <Dialog />
   </div>
 );
 
