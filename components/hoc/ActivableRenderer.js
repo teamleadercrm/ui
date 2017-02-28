@@ -4,13 +4,13 @@ const ActivableRendererFactory = (options = { delay: 500 }) =>
   ActivableComponent => class ActivableRenderer extends Component {
     static propTypes = {
       active: PropTypes.bool.isRequired,
-      children: PropTypes.any,
+      children: PropTypes.node,
       delay: PropTypes.number,
     };
 
     static defaultProps = {
       delay: options.delay,
-    };
+    }
 
     state = {
       active: this.props.active,
