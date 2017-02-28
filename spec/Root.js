@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from './components/button';
 import Menu from './components/menu';
+import Popover from './components/popover';
 
 const Root = () => (
   <div>
@@ -8,6 +9,7 @@ const Root = () => (
     {__DEV__}
     <Button />
     <Menu />
+    <Popover />
   </div>
 );
 
