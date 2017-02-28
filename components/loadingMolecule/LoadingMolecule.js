@@ -36,10 +36,10 @@ const factory = () => {
         ...others
       } = this.props;
 
-      let gradient1Name = `linearGradient-1-${this.randomGradientPostFix}`;
-      let gradient2Name = `linearGradient-2-${this.randomGradientPostFix}`;
-      let grandient1Source = `url(${basePath}#${gradient1Name})`;
-      let grandient2Source = `url(${basePath}#${gradient2Name})`;
+      const gradient1Name = `linearGradient-1-${this.randomGradientPostFix}`;
+      const gradient2Name = `linearGradient-2-${this.randomGradientPostFix}`;
+      const grandient1Source = `url(${basePath}#${gradient1Name})`;
+      const grandient2Source = `url(${basePath}#${gradient2Name})`;
 
       return (
         <div className={cx(theme['loading-molecule'], theme[type])} {...others}>
