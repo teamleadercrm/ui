@@ -15,22 +15,22 @@
 }
 
 .left-solid {
-  animation: hideshow 2s ease infinite;
+  animation: pulse 2s ease infinite;
   animation-delay: 0.15s;
 }
 
 .left-gradient {
-  animation: hideshow 2s ease infinite;
+  animation: pulse 2s ease infinite;
   animation-delay: 0.3s;
 }
 
 .right-solid {
-  animation: hideshow 2s ease infinite;
+  animation: pulse 2s ease infinite;
   animation-delay: 0.45s;
 }
 
 .right-gradient {
-  animation: hideshow 2s ease infinite;
+  animation: pulse 2s ease infinite;
   animation-delay: 0.6s;
 }
 
@@ -42,7 +42,7 @@
   transform: scale(1.5);
 }
 
-@keyframes hideshow {
+@keyframes pulse {
   0% { opacity: .25; }
   25% { opacity: .25; }
   35% { opacity: 1; }
