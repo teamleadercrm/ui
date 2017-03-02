@@ -5,5 +5,4 @@ import theme from './theme.css';
 
 const ThemedPopover = themr(POPOVER, theme)(Popover);
 export default ThemedPopover;
-
 export { ThemedPopover as Popover };
