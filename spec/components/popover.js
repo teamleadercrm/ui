@@ -19,7 +19,7 @@ class PopoverTest extends React.Component {
 
   actions = [
     { label: 'Cancel', onClick: this.handleToggle },
-    { label: 'Save', onClick: this.handleToggle },
+    { label: 'Save', onClick: this.handleToggle, primary: true },
   ];
 
   render () {
@@ -37,11 +37,15 @@ class PopoverTest extends React.Component {
             anchorEl={this.anchorEl}
             anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
             targetOrigin={{ horizontal: 'left', vertical: 'top' }}
+            onCloseClick={this.handleToggle}
             onEscKeyDown={this.handleToggle}
             onOverlayClick={this.handleToggle}
-            title='My awesome dialog'
+            title='My awesome POPOVER dialog'
           >
             <p>Here you can add popover content.</p>
+            <div className='highlight'>
+              <p>Here you can highlight some content.</p>
+            </div>
           </Popover>
         }
       </section>

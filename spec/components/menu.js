@@ -24,17 +24,17 @@ class MenuTest extends React.Component {
           <MenuItem onClick={this.handleItemClick} value='bar' caption='Caption & Shortcut' shortcut='Ctrl + P' />
           <MenuItem caption='Disabled ...' disabled shortcut='Ctrl + P' />
           <MenuDivider />
-          <MenuItem caption='Caption & Icon' icon='notifications' />
-          <MenuItem caption='Caption, Icon & Shortcut' icon='notifications' shortcut='Ctrl + P' />
-          <MenuItem caption='Disabled ...' icon='plus' shortcut='Ctrl + P' disabled />
+          <MenuItem caption='Caption & Icon' icon='close' />
+          <MenuItem caption='Caption, Icon & Shortcut' icon='user_two' shortcut='Ctrl + P' />
+          <MenuItem caption='Disabled ...' icon='search' shortcut='Ctrl + P' disabled />
         </Menu>
 
         <hr />
 
-        <IconMenu icon='more_vert' position='topLeft'>
-          <MenuItem value='download' icon='plus' caption='Download' />
+        <IconMenu icon='dots_vert' position='topLeft'>
+          <MenuItem value='download' icon='user_two' caption='Download' />
           <MenuDivider />
-          <MenuItem caption='Disabled ...' icon='plus' shortcut='Ctrl + P' disabled />
+          <MenuItem caption='Disabled ...' icon='search' shortcut='Ctrl + P' disabled />
         </IconMenu>
       </section>
     );

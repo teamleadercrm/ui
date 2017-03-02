@@ -13,7 +13,7 @@ class DialogTest extends React.Component {
 
   actions = [
     { label: 'Cancel', onClick: this.handleToggle },
-    { label: 'Save', onClick: this.handleToggle },
+    { label: 'Save', onClick: this.handleToggle, primary: true },
   ];
 
   render () {
@@ -24,6 +24,7 @@ class DialogTest extends React.Component {
         <Dialog
           actions={this.actions}
           active={this.state.active}
+          onCloseClick={this.handleToggle}
           onEscKeyDown={this.handleToggle}
           onOverlayClick={this.handleToggle}
           title='My awesome dialog'
