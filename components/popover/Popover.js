@@ -17,9 +17,9 @@ const factory = (Dialog) => {
         horizontal: PropTypes.string.isRequired,
         vertical: PropTypes.string.isRequired,
       }),
-      canAutoPosition: PropTypes.bool,
       children: PropTypes.node,
       className: PropTypes.string,
+      onCloseClick: PropTypes.func,
       onEscKeyDown: PropTypes.func,
       onOverlayClick: PropTypes.func,
       onOverlayMouseDown: PropTypes.func,
@@ -50,110 +50,18 @@ const factory = (Dialog) => {
       type: 'normal',
     };
 
-    constructor (props) {
-      super(props);
-      console.log(props);
-    }
-
-    componentDidMount () {
-      this.setPlacement();
-    }
-
-    getAnchorPosition (anchorEl) {
-      console.log('get anchor pos', anchorEl);
-      const anchorRect = anchorEl.getBoundingClientRect();
-
-      const anchorPosition = {
-        top: anchorRect.top,
-        left: anchorRect.left,
-        width: anchorEl.offsetWidth,
-        height: anchorEl.offsetHeight,
-      };
-
-      anchorPosition.right = anchorRect.right || anchorPosition.left + anchorPosition.width;
-      anchorPosition.bottom = anchorRect.bottom || anchorPosition.top + anchorPosition.height;
-      anchorPosition.middle = anchorPosition.left + ((anchorPosition.right - anchorPosition.left) / 2);
-      anchorPosition.center = anchorPosition.top + ((anchorPosition.bottom - anchorPosition.top) / 2);
-
-      return anchorPosition;
-    }
-
-    getTargetPosition (targetEl) {
-      return {
-        top: 0,
-        center: targetEl.offsetHeight / 2,
-        bottom: targetEl.offsetHeight,
-        left: 0,
-        middle: targetEl.offsetWidth / 2,
-        right: targetEl.offsetWidth,
-      };
-    }
-
-    setPlacement () {
-      if (!this.dialog) {
-        return;
-      }
-
-      const targetEl = this.dialog;
-
-      if (!targetEl) {
-        return;
-      }
-
-      const { targetOrigin, anchorOrigin, anchorEl } = this.props;
-      // const anchorEl = this.props.anchorEl || this.anchorEl;
-
-      console.log('anchorEl', anchorEl);
-
-      const anchor = this.getAnchorPosition(anchorEl);
-      let target = this.getTargetPosition(targetEl);
-      console.log('anchor', anchor);
-      console.log('target', target);
-      //
-      // let targetPosition = {
-      //   top: anchor[anchorOrigin.vertical] - target[targetOrigin.vertical],
-      //   left: anchor[anchorOrigin.horizontal] - target[targetOrigin.horizontal],
-      // };
-      //
-      // if (this.props.canAutoPosition) {
-      //   target = this.getTargetPosition(targetEl); // update as height may have changed
-      //   targetPosition = this.applyAutoPositionIfNeeded(anchor, target, targetOrigin, anchorOrigin, targetPosition);
-      // }
-
-      // if(anchor.top > targetPosition.top) {
-      //   this.setState({
-      //     arrowVerticalPositionClass: "arrow-vertical-bottom"
-      //   });
-      // } else {
-      //   this.setState({
-      //     arrowVerticalPositionClass: ""
-      //   });
-      // }
-      //
-      // if(anchor.left > targetPosition.left) {
-      //   this.setState({
-      //     arrowHorizontalPositionClass: "arrow-horizontal-right"
-      //   });
-      // } else {
-      //   this.setState({
-      //     arrowHorizontalPositionClass: ""
-      //   });
-      // }
-
-      // targetEl.style.top = `${Math.max(0, targetPosition.top)}px`;
-      // targetEl.style.left = `${Math.max(0, targetPosition.left)}px`;
-      // targetEl.style.maxHeight = `${window.innerHeight}px`;
-    }
-
     render () {
       return (
         <Dialog
           actions={this.props.actions}
           active={this.props.active}
-          title='My POPOVER dialog'
-          ref={(dialog) => {
-            this.dialog = dialog;
-          }}
+          anchorEl={this.props.anchorEl}
+          anchorOrigin={this.props.anchorOrigin}
+          targetOrigin={this.props.targetOrigin}
+          title={this.props.title}
+          canAutoPosition
+          onCloseClick={this.props.onCloseClick}
+          onOverlayClick={this.props.onOverlayClick}
         >
           {this.props.children}
         </Dialog>
