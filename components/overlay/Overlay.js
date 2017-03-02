@@ -93,9 +93,13 @@ class Overlay extends Component {
       <div
         {...other}
         onClick={this.handleClick}
-        className={classnames(theme.overlay, {
-          [theme.active]: active,
-        }, className)}
+        className={classnames(
+          theme.overlay,
+          {
+            [theme.active]: active,
+          },
+          className
+        )}
       />
     );
   }
