@@ -17,9 +17,77 @@
 
 .dialog {
   @apply --reset;
-  background-color: white;
+  background-color: var(--dialog-background-color);
   border-radius: 0;
   box-shadow: var(--shadow-2p);
   display: block;
-  padding: 1em;
+  position: relative;
+}
+
+.arrow {
+  background: var(--color-white);
+  box-shadow: var(--shadow-2p);
+  content: "";
+  height: calc(1.4 * var(--unit));
+  position: absolute;
+  transform: rotate(45deg);
+  left: calc(-.5 * var(--unit));
+  top: calc(1.4 * var(--unit));
+  width: calc(1.4 * var(--unit));
+}
+
+.header {
+  background: var(--dialog-background-color);
+  border-bottom: 1px solid var(--dialog-header-border-color);
+  padding: var(--dialog-header-padding);
+  position: relative;
+}
+
+.title {
+  color: var(--dialog-color-title);
+  flex-grow: 0;
+  font-size: calc(1.6 * var(--unit));
+  font-weight: 700;
+  line-height: 1;
+  margin: 0;
+}
+
+.close {
+  position: absolute;
+  right: var(--unit);
+  top: calc(.85 * var(--unit));
+}
+
+.body {
+  color: var(--color-text-secondary);
+  flex-grow: 2;
+  padding: var(--dialog-content-padding);
+
+  & p {
+    font-size: calc(1.4 * var(--unit));
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: calc(2.4 * var(--unit));
+    margin: 0;
+  }
+}
+
+.highlight {
+  background: var(--dialog-highlight-background-color);
+  border-bottom: 1px solid var(--dialog-highlight-border-color);
+  border-top: 1px solid var(--dialog-highlight-border-color);
+  padding: calc(.7 * var(--unit)) calc(1.4 * var(--unit));
+}
+
+.navigation {
+  flex-grow: 0;
+  padding: var(--dialog-navigation-padding);
+  text-align: right;
+}
+
+.button {
+  margin-left: var(--dialog-navigation-padding);
+  min-width: 0;
+  padding-left: var(--dialog-navigation-padding);
+  padding-right: var(--dialog-navigation-padding);
 }
