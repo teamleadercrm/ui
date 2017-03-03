@@ -177,6 +177,7 @@ webpackConfig.postcss = () => {
     require('postcss-mixins')(),
     require('postcss-each')(),
     require('postcss-cssnext')(),
+    require('postcss-nested')(),
     require('postcss-reporter')({ clearMessages: true })
   ];
 };

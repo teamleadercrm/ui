@@ -119,6 +119,7 @@
     "postcss-import": "^9.0.0",
     "postcss-loader": "^0.13.0",
     "postcss-mixins": "^5.4.1",
+    "postcss-nested": "^1.0.0",
     "postcss-reporter": "^3.0.0",
     "promise-polyfill": "^6.0.2",
     "react-addons-test-utils": "^15.4.1",
