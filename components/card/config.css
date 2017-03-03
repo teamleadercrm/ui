@@ -1,0 +1,9 @@
+:root {
+  --card-background-color: var(--color-white);
+  --card-drag-outline: 3px dashed var(--palette-grey-300);
+  --card-disabled-opacity: .4;
+  --card-margin: 0 0 var(--unit) 0;
+  --card-padding: calc(1.4 * var(--unit));
+  --card-shadow: var(--shadow-1p);
+  --card-shadow-hover: var(--shadow-1p-blurred);
+}

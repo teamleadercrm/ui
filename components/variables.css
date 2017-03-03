@@ -30,6 +30,12 @@
   --font-weight-semi-bold: 500;
   --font-weight-bold: 700;
 
+  --shadow-1p:
+          0 1px 4px 0 rgba(43, 59, 76, .1);
+
+  --shadow-1p-blurred:
+          0 1px 10px 0 rgba(43, 59, 76, .2);
+
   --shadow-2p:
           0 2px 2px 0 rgba(0, 0, 0, 0.14),
           0 3px 1px -2px rgba(0, 0, 0, 0.2),
