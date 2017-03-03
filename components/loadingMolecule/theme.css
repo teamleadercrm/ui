@@ -15,31 +15,31 @@
 }
 
 .left-solid {
-  animation: pulse 2s ease infinite;
-  animation-delay: 0.15s;
+  animation: pulse var(--loading-molecule-animation-duration) ease infinite;
+  animation-delay: var(--loading-molecule-animation-delay);
 }
 
 .left-gradient {
-  animation: pulse 2s ease infinite;
-  animation-delay: 0.3s;
+  animation: pulse var(--loading-molecule-animation-duration) ease infinite;
+  animation-delay: calc(2 * var(--loading-molecule-animation-delay));
 }
 
 .right-solid {
-  animation: pulse 2s ease infinite;
-  animation-delay: 0.45s;
+  animation: pulse var(--loading-molecule-animation-duration) ease infinite;
+  animation-delay: calc(3 * var(--loading-molecule-animation-delay));
 }
 
 .right-gradient {
-  animation: pulse 2s ease infinite;
-  animation-delay: 0.6s;
+  animation: pulse var(--loading-molecule-animation-duration) ease infinite;
+  animation-delay: calc(4 * var(--loading-molecule-animation-delay));
 }
 
 .small svg {
-  transform: scale(.5);
+  transform: scale(var(--loading-moledule-scale-small));
 }
 
 .large svg {
-  transform: scale(1.5);
+  transform: scale(var(--loading-moledule-scale-large));
 }
 
 @keyframes pulse {
