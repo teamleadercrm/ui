@@ -9,9 +9,9 @@ const Root = () => (
     <h1>Teamleader UI v{__VERSION__}</h1>
     {__DEV__}
     <Button />
+    <Popover />
     <Menu />
     <Dialog />
-    <Popover />
   </div>
 );
 
