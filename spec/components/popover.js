@@ -26,7 +26,7 @@ class PopoverTest extends React.Component {
     return (
       <section>
         <h2>Popover</h2>
-        <Button label='Show my popover' onClick={this.handleToggle} ref={(button) => {
+        <Button style={{ 'marginLeft': '50%' }} label='Show my popover' onClick={this.handleToggle} ref={(button) => {
           this.popoverToggleButton = button;
         }} />
 
@@ -35,8 +35,8 @@ class PopoverTest extends React.Component {
             actions={this.actions}
             active={this.state.active}
             anchorEl={this.anchorEl}
-            anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
-            targetOrigin={{ horizontal: 'left', vertical: 'top' }}
+            anchorOrigin={{ horizontal: 'left', vertical: 'center' }}
+            targetOrigin={{ horizontal: 'right', vertical: 'top' }}
             onCloseClick={this.handleToggle}
             onEscKeyDown={this.handleToggle}
             onOverlayClick={this.handleToggle}
