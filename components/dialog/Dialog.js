@@ -23,6 +23,7 @@ const factory = (Overlay, Button) => {
         horizontal: PropTypes.string.isRequired,
         vertical: PropTypes.string.isRequired,
       }),
+      backdrop: PropTypes.string,
       canAutoPosition: PropTypes.bool,
       children: PropTypes.node,
       className: PropTypes.string,
@@ -56,6 +57,7 @@ const factory = (Overlay, Button) => {
     static defaultProps = {
       actions: [],
       active: false,
+      backdrop: 'dark',
       canAutoPosition: false,
       type: 'normal',
     };
@@ -341,6 +343,7 @@ const factory = (Overlay, Button) => {
         <Portal className={this.props.theme.wrapper}>
           <Overlay
             active={this.props.active}
+            backdrop={this.props.backdrop}
             className={this.props.theme.overlay}
             onClick={this.props.onOverlayClick}
             onEscKeyDown={this.props.onEscKeyDown}
@@ -349,6 +352,7 @@ const factory = (Overlay, Button) => {
             onMouseUp={this.props.onOverlayMouseUp}
             theme={this.props.theme}
             themeNamespace='overlay'
+
           />
           <div
             data-teamleader-ui='dialog'
