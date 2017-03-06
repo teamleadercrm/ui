@@ -20,6 +20,7 @@ class Overlay extends Component {
   };
 
   static defaultProps = {
+    backdrop: 'dark',
     lockScroll: true,
   };
 
