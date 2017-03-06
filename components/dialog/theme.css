@@ -21,7 +21,7 @@
   border-radius: 0;
   box-shadow: var(--shadow-2p);
   display: block;
-  position: relative;
+  position: absolute;
 }
 
 .arrow {
@@ -59,9 +59,11 @@
 }
 
 .body {
+  background: var(--dialog-background-color);
   color: var(--color-text-secondary);
   flex-grow: 2;
   padding: var(--dialog-content-padding);
+  position: relative;
 
   & p {
     font-size: calc(1.4 * var(--unit));
@@ -80,8 +82,10 @@
 }
 
 .navigation {
+  background: var(--dialog-background-color);
   flex-grow: 0;
   padding: var(--dialog-navigation-padding);
+  position: relative;
   text-align: right;
 }
 
