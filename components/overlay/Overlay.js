@@ -6,6 +6,7 @@ import { OVERLAY } from '../identifiers';
 class Overlay extends Component {
   static propTypes = {
     active: PropTypes.bool,
+    backdrop: PropTypes.string,
     children: PropTypes.node,
     className: PropTypes.string,
     lockScroll: PropTypes.bool,
@@ -83,6 +84,7 @@ class Overlay extends Component {
     const {
       active,
       className,
+      backdrop,
       lockScroll, // eslint-disable-line
       theme,
       onEscKeyDown, // eslint-disable-line
@@ -95,6 +97,7 @@ class Overlay extends Component {
         onClick={this.handleClick}
         className={classnames(
           theme.overlay,
+          theme[backdrop],
           {
             [theme.active]: active,
           },
