@@ -60,13 +60,35 @@ const factory = (Overlay, Button) => {
       type: 'normal',
     };
 
+    constructor () {
+      super(...arguments);
+
+      this.setPlacement = this.setPlacement.bind(this);
+      this._setPlacementThrottled = this._setPlacementThrottled.bind(this);
+
+      this.state = {
+        dialogPositioning: {
+          dialogLeft: 0,
+          dialogTop: 0,
+          dialogMaxHeight: 'none',
+          dialogPosition: 'relative',
+        },
+        arrowPositioning: {
+          arrowLeft: -7,
+          arrowTop: -7,
+        },
+      };
+    }
+
+    _setPlacementThrottled = throttle(this.setPlacement, 16);
+
     componentDidMount () {
       if (this.props.anchorOrigin && this.props.targetOrigin) {
         this.setPlacement();
 
         events.addEventsToWindow({
-          resize: throttle(this.setPlacement.bind(this), 16),
-          scroll: throttle(this.setPlacement.bind(this), 16),
+          resize: this._setPlacementThrottled,
+          scroll: this._setPlacementThrottled,
         });
       }
     }
@@ -74,8 +96,8 @@ const factory = (Overlay, Button) => {
     componentWillUnmount () {
       if (this.props.anchorOrigin && this.props.targetOrigin) {
         events.removeEventsFromWindow({
-          resize: throttle(this.setPlacement.bind(this), 16),
-          scroll: throttle(this.setPlacement.bind(this), 16),
+          resize: this._setPlacementThrottled,
+          scroll: this._setPlacementThrottled,
         });
       }
     }
@@ -83,7 +105,7 @@ const factory = (Overlay, Button) => {
     getAnchorPosition (anchorEl) {
       const anchorRect = anchorEl.getBoundingClientRect();
 
-      const anchorPosition = {
+      let anchorPosition = {
         top: anchorRect.top,
         left: anchorRect.left,
         width: anchorEl.offsetWidth,
@@ -159,13 +181,89 @@ const factory = (Overlay, Button) => {
     setPlacement () {
       const { anchorEl, anchorOrigin, targetOrigin, canAutoPosition } = this.props;
       const targetEl = document.querySelectorAll('[data-teamleader-ui="dialog"]')[0];
-      // const arrowEl = targetEl.querySelector('.' + this.props.theme.arrow);
+
       const anchor = this.getAnchorPosition(anchorEl);
       let target = this.getTargetPosition(targetEl);
 
+      let arrow = { left: 16, top: 16 };
+      let correction = { left: 0, top: 0 };
+
+      // Corner to corner positioning doesn't need an arrow
+      if (
+        ((anchorOrigin.vertical === 'top' && targetOrigin.vertical === 'bottom') ||
+        (anchorOrigin.vertical === 'bottom' && targetOrigin.vertical === 'top')) &&
+        ((anchorOrigin.horizontal === 'left' && targetOrigin.horizontal === 'right') ||
+        (anchorOrigin.horizontal === 'right' && targetOrigin.horizontal === 'left'))
+      ) {
+        arrow = { left: 16, top: 16 };
+        correction = { left: 0, top: 0 };
+      } else {
+        if (
+          (anchorOrigin.vertical === 'top' && targetOrigin.vertical === 'bottom') ||
+          (anchorOrigin.vertical === 'bottom' && targetOrigin.vertical === 'top')
+        ) {
+          switch (targetOrigin.horizontal) {
+          case 'left': {
+            arrow.left = 16;
+          }
+            break;
+          case 'middle': {
+            arrow.left = target.middle - 4;
+          }
+            break;
+          case 'right': {
+            arrow.left = target.right - 32;
+          }
+            break;
+          }
+        }
+        if (anchorOrigin.vertical === 'top' && targetOrigin.vertical === 'bottom') {
+          correction.top = -16;
+          arrow.top = target.bottom - 8;
+        }
+
+        if (anchorOrigin.vertical === 'bottom' && targetOrigin.vertical === 'top') {
+          correction.top = 16;
+          arrow.top = target.top - 7;
+        }
+
+        if (
+          (anchorOrigin.horizontal === 'left' && targetOrigin.horizontal === 'right') ||
+          (anchorOrigin.horizontal === 'right' && targetOrigin.horizontal === 'left')
+        ) {
+          switch (targetOrigin.vertical) {
+          case 'top': {
+            arrow.top = 16;
+            correction.top = -8;
+          }
+            break;
+          case 'center': {
+            arrow.top = target.center - 4;
+            correction.top = 0;
+          }
+            break;
+          case 'bottom': {
+            arrow.top = target.bottom - 32;
+            correction.top = 8;
+          }
+            break;
+          }
+        }
+
+        if (anchorOrigin.horizontal === 'left' && targetOrigin.horizontal === 'right') {
+          correction.left = -16;
+          arrow.left = target.right - 8;
+        }
+
+        if (anchorOrigin.horizontal === 'right' && targetOrigin.horizontal === 'left') {
+          correction.left = 16;
+          arrow.left = target.left - 7;
+        }
+      }
+
       let targetPosition = {
-        top: anchor[anchorOrigin.vertical] - target[targetOrigin.vertical],
-        left: anchor[anchorOrigin.horizontal] - target[targetOrigin.horizontal],
+        top: anchor[anchorOrigin.vertical] - target[targetOrigin.vertical] + correction.top,
+        left: anchor[anchorOrigin.horizontal] - target[targetOrigin.horizontal] + correction.left,
       };
 
       if (canAutoPosition) {
@@ -173,10 +271,17 @@ const factory = (Overlay, Button) => {
         targetPosition = this.applyAutoPositionIfNeeded(anchor, target, targetOrigin, anchorOrigin, targetPosition);
       }
 
-      targetEl.style.position = 'absolute';
-      targetEl.style.top = `${Math.max(0, targetPosition.top)}px`;
-      targetEl.style.left = `${Math.max(0, targetPosition.left)}px`;
-      targetEl.style.maxHeight = `${window.innerHeight}px`;
+      this.setState({
+        dialogPositioning: {
+          dialogLeft: Math.max(0, targetPosition.left),
+          dialogTop: Math.max(0, targetPosition.top),
+          dialogPosition: 'absolute',
+        },
+        arrowPositioning: {
+          arrowLeft: arrow.left,
+          arrowTop: arrow.top,
+        },
+      });
     }
 
     applyAutoPositionIfNeeded (anchor, target, targetOrigin, anchorOrigin, targetPosition) {
@@ -229,6 +334,9 @@ const factory = (Overlay, Button) => {
         this.props.className
       );
 
+      const { dialogLeft, dialogTop, dialogPosition } = this.state.dialogPositioning;
+      const { arrowLeft, arrowTop } = this.state.arrowPositioning;
+
       return (
         <Portal className={this.props.theme.wrapper}>
           <Overlay
@@ -242,10 +350,20 @@ const factory = (Overlay, Button) => {
             theme={this.props.theme}
             themeNamespace='overlay'
           />
-          <div data-teamleader-ui='dialog' className={className}>
-            {this.props.anchorOrigin && this.props.targetOrigin ? <div className={this.props.theme.arrow} /> : null}
+          <div
+            data-teamleader-ui='dialog'
+            className={className}
+            style={{ left: `${dialogLeft}px`, top: `${dialogTop}px`, position: dialogPosition }}
+          >
+            {this.props.anchorOrigin && this.props.targetOrigin
+              ? <div className={this.props.theme.arrow} style={{ left : `${arrowLeft}px`, top : `${arrowTop}px` }} />
+              : null
+            }
             <header className={this.props.theme.header}>
-              {this.props.title ? <h6 className={this.props.theme.title}>{this.props.title}</h6> : null}
+              {this.props.title
+                ? <h6 className={this.props.theme.title}>{this.props.title}</h6>
+                : null
+              }
               <Button icon='close' className={this.props.theme.close} onMouseUp={this.props.onCloseClick} />
             </header>
             <section role='body' className={this.props.theme.body}>
