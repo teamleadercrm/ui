@@ -17,6 +17,7 @@ const factory = (Dialog) => {
         horizontal: PropTypes.string.isRequired,
         vertical: PropTypes.string.isRequired,
       }),
+      backdrop: PropTypes.string,
       children: PropTypes.node,
       className: PropTypes.string,
       onCloseClick: PropTypes.func,
@@ -48,6 +49,7 @@ const factory = (Dialog) => {
       active: false,
       canAutoPosition: true,
       type: 'normal',
+      backdrop: 'transparent',
     };
 
     render () {
@@ -62,6 +64,7 @@ const factory = (Dialog) => {
           canAutoPosition
           onCloseClick={this.props.onCloseClick}
           onOverlayClick={this.props.onOverlayClick}
+          backdrop={this.props.backdrop}
         >
           {this.props.children}
         </Dialog>
