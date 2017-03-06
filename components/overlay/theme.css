@@ -3,7 +3,6 @@
 @import './config.css';
 
 .overlay {
-  background-color: var(--overlay-color);
   bottom: 0;
   height: 100vh;
   left: 0;
@@ -18,4 +17,8 @@
     opacity: var(--overlay-opacity);
     pointer-events: all;
   }
+}
+
+.dark {
+  background-color: var(--overlay-color);
 }
