@@ -94,9 +94,9 @@ class Button extends Component {
     const classes = classnames(
       theme.button,
       {
-        [theme[level]]: true,
-        [theme[shape]]: true,
-        [theme[state]]: true,
+        [theme[ level ]]: theme[ level ],
+        [theme[ shape ]]: theme[ shape ],
+        [theme[ state ]]: theme[ state ],
         [theme.iconOnly]: !this.props.label && !this.props.children,
       },
       className
