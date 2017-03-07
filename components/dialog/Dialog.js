@@ -188,84 +188,10 @@ const factory = (Overlay, Button) => {
       let target = this.getTargetPosition(targetEl);
 
       let arrow = { left: 16, top: 16 };
-      let correction = { left: 0, top: 0 };
-
-      // Corner to corner positioning doesn't need an arrow
-      if (
-        ((anchorOrigin.vertical === 'top' && targetOrigin.vertical === 'bottom') ||
-        (anchorOrigin.vertical === 'bottom' && targetOrigin.vertical === 'top')) &&
-        ((anchorOrigin.horizontal === 'left' && targetOrigin.horizontal === 'right') ||
-        (anchorOrigin.horizontal === 'right' && targetOrigin.horizontal === 'left'))
-      ) {
-        arrow = { left: 16, top: 16 };
-        correction = { left: 0, top: 0 };
-      } else {
-        if (
-          (anchorOrigin.vertical === 'top' && targetOrigin.vertical === 'bottom') ||
-          (anchorOrigin.vertical === 'bottom' && targetOrigin.vertical === 'top')
-        ) {
-          switch (targetOrigin.horizontal) {
-          case 'left': {
-            arrow.left = 16;
-          }
-            break;
-          case 'middle': {
-            arrow.left = target.middle - 4;
-          }
-            break;
-          case 'right': {
-            arrow.left = target.right - 32;
-          }
-            break;
-          }
-        }
-        if (anchorOrigin.vertical === 'top' && targetOrigin.vertical === 'bottom') {
-          correction.top = -16;
-          arrow.top = target.bottom - 8;
-        }
-
-        if (anchorOrigin.vertical === 'bottom' && targetOrigin.vertical === 'top') {
-          correction.top = 16;
-          arrow.top = target.top - 7;
-        }
-
-        if (
-          (anchorOrigin.horizontal === 'left' && targetOrigin.horizontal === 'right') ||
-          (anchorOrigin.horizontal === 'right' && targetOrigin.horizontal === 'left')
-        ) {
-          switch (targetOrigin.vertical) {
-          case 'top': {
-            arrow.top = 16;
-            correction.top = -8;
-          }
-            break;
-          case 'center': {
-            arrow.top = target.center - 4;
-            correction.top = 0;
-          }
-            break;
-          case 'bottom': {
-            arrow.top = target.bottom - 32;
-            correction.top = 8;
-          }
-            break;
-          }
-        }
-
-        if (anchorOrigin.horizontal === 'left' && targetOrigin.horizontal === 'right') {
-          correction.left = -16;
-          arrow.left = target.right - 8;
-        }
-
-        if (anchorOrigin.horizontal === 'right' && targetOrigin.horizontal === 'left') {
-          correction.left = 16;
-          arrow.left = target.left - 7;
-        }
-      }
 
       let targetPosition = {
-        top: anchor[anchorOrigin.vertical] - target[targetOrigin.vertical] + correction.top,
-        left: anchor[anchorOrigin.horizontal] - target[targetOrigin.horizontal] + correction.left,
+        top: anchor[anchorOrigin.vertical] - target[targetOrigin.vertical],
+        left: anchor[anchorOrigin.horizontal] - target[targetOrigin.horizontal],
       };
 
       if (canAutoPosition) {
