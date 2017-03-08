@@ -5,8 +5,7 @@ import Button from './Button';
 import { iconButtonFactory } from './IconButton';
 import { FontIcon } from '../font_icon/FontIcon';
 import theme from './theme.css';
-//
-// const Button = buttonFactory(themedRippleFactory({ centered: false }), FontIcon);
+
 const IconButton = iconButtonFactory(FontIcon);
 
 const ThemedButton = themr(BUTTON, theme)(Button);

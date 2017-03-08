@@ -28,7 +28,6 @@ const factory = (FontIcon) => {
         mini: PropTypes.string,
         neutral: PropTypes.string,
         primary: PropTypes.string,
-        rippleWrapper: PropTypes.string,
         toggle: PropTypes.string,
       }),
       type: PropTypes.string,
@@ -80,7 +79,7 @@ const factory = (FontIcon) => {
       const level = this.getLevel();
 
       const classes = classnames([ theme.toggle ], {
-        [theme[level]]: neutral,
+        [theme[ level ]]: neutral,
         [theme.inverse]: inverse,
       }, className);
 

@@ -20,21 +20,21 @@ class MenuTest extends React.Component {
       <section>
         <h2>Menus</h2>
         <Menu onSelect={this.handleSelect} selectable={false} selected={this.state.value}>
-          <MenuItem value='foo' caption='Caption' />
-          <MenuItem onClick={this.handleItemClick} value='bar' caption='Caption & Shortcut' shortcut='Ctrl + P' />
-          <MenuItem caption='Disabled ...' disabled shortcut='Ctrl + P' />
+          <MenuItem value="foo" caption="Caption" />
+          <MenuItem onClick={this.handleItemClick} value="bar" caption="Caption & Shortcut" shortcut="Ctrl + P" />
+          <MenuItem caption="Disabled ..." disabled shortcut="Ctrl + P" />
           <MenuDivider />
-          <MenuItem caption='Caption & Icon' icon='close' />
-          <MenuItem caption='Caption, Icon & Shortcut' icon='user_two' shortcut='Ctrl + P' />
-          <MenuItem caption='Disabled ...' icon='search' shortcut='Ctrl + P' disabled />
+          <MenuItem caption="Caption & Icon" icon="notifications" />
+          <MenuItem caption="Caption, Icon & Shortcut" icon="notifications" shortcut="Ctrl + P" />
+          <MenuItem caption="Disabled ..." icon="plus" shortcut="Ctrl + P" disabled />
         </Menu>
 
         <hr />
 
-        <IconMenu icon='dots_vert' position='topLeft'>
-          <MenuItem value='download' icon='user_two' caption='Download' />
+        <IconMenu icon="more_vert" position="topLeft">
+          <MenuItem value="download" icon="plus" caption="Download" />
           <MenuDivider />
-          <MenuItem caption='Disabled ...' icon='search' shortcut='Ctrl + P' disabled />
+          <MenuItem caption="Disabled ..." icon="plus" shortcut="Ctrl + P" disabled />
         </IconMenu>
       </section>
     );

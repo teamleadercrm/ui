@@ -1,7 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
-import { themr } from 'react-css-themr';
-import { BUTTON } from '../identifiers';
 import FontIcon from '../font_icon';
 
 class Button extends Component {
@@ -28,7 +26,6 @@ class Button extends Component {
       mini: PropTypes.string,
       neutral: PropTypes.string,
       primary: PropTypes.string,
-      rippleWrapper: PropTypes.string,
       toggle: PropTypes.string,
     }),
     type: PropTypes.string,
@@ -121,12 +118,12 @@ class Button extends Component {
 
     return React.createElement(element, props,
       icon && !processing ? <FontIcon className={theme.icon} value={icon} /> : null,
-      processing ? <FontIcon className={theme.icon} value='spinner' /> : null,
+      processing ? <FontIcon className={theme.icon} value="spinner8" /> : null,
       label,
       children
     );
   }
 }
 
-export default themr(BUTTON)(Button);
+export default Button;
 export { Button };

@@ -3,6 +3,7 @@ import Button from './components/button';
 import Menu from './components/menu';
 import Dialog from './components/dialog';
 import Popover from './components/popover';
+import LoadingMolecule from './components/loadingMolecule';
 
 const Root = () => (
   <div>
@@ -12,6 +13,7 @@ const Root = () => (
     <Popover />
     <Menu />
     <Dialog />
+    <LoadingMolecule />
   </div>
 );
 

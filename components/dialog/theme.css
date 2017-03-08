@@ -22,6 +22,11 @@
   box-shadow: var(--shadow-2p);
   display: block;
   position: absolute;
+  opacity: 0;
+
+  &.active {
+    opacity: 1;
+  }
 }
 
 .arrow {
