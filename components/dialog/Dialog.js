@@ -67,6 +67,7 @@ const factory = (Overlay, Button) => {
 
       this.setPlacement = this.setPlacement.bind(this);
       this._setPlacementThrottled = this._setPlacementThrottled.bind(this);
+      this.arrowSize = 16;
 
       this.state = {
         dialogPositioning: {
@@ -75,10 +76,7 @@ const factory = (Overlay, Button) => {
           dialogMaxHeight: 'none',
           dialogPosition: 'relative',
         },
-        arrowPositioning: {
-          arrowLeft: -7,
-          arrowTop: -7,
-        },
+        arrowPositioning: false,
       };
     }
 
@@ -187,8 +185,6 @@ const factory = (Overlay, Button) => {
       const anchor = this.getAnchorPosition(anchorEl);
       let target = this.getTargetPosition(targetEl);
 
-      let arrow = { left: 16, top: 16 };
-
       let targetPosition = {
         top: anchor[anchorOrigin.vertical] - target[targetOrigin.vertical],
         left: anchor[anchorOrigin.horizontal] - target[targetOrigin.horizontal],
@@ -199,17 +195,133 @@ const factory = (Overlay, Button) => {
         targetPosition = this.applyAutoPositionIfNeeded(anchor, target, targetOrigin, anchorOrigin, targetPosition);
       }
 
+      const arrowPositioning = this.getArrowPositioning(anchor, targetPosition);
+
+      // if we show an arrow, we want some extra padding margin on the target
+      targetPosition = this.applyArrowPositioningToTargetPosition(arrowPositioning, targetPosition);
+
       this.setState({
         dialogPositioning: {
           dialogLeft: Math.max(0, targetPosition.left),
           dialogTop: Math.max(0, targetPosition.top),
           dialogPosition: 'absolute',
         },
-        arrowPositioning: {
-          arrowLeft: arrow.left,
-          arrowTop: arrow.top,
-        },
+        arrowPositioning,
       });
+    }
+
+    getArrowPositioning(anchorPosition, targetPosition) {
+      let directions = this.getArrowDirections(anchorPosition, targetPosition);
+
+      // no or multiple directions? No arrow possible!
+      if (directions.length !== 1) {
+        return false;
+      }
+
+      let direction = directions[0];
+      let positioning = {
+        direction
+      };
+      let arrowSize = this.arrowSize;
+
+      // @todo make it point to the correct point instead of just top and left
+
+      let targetHeight = targetPosition.bottom - targetPosition.top;
+      let targetWidth = targetPosition.right - targetPosition.left;
+      let topDiff = anchorPosition.top - targetPosition.top;
+      let leftDiff = anchorPosition.left - targetPosition.left;
+
+      switch (direction) {
+        case 'left':
+          positioning.left = -1 * (arrowSize / 2) + 1;
+          positioning.top = Math.max(0, topDiff) + (arrowSize / 2);
+          // to less space to show the arrow? Just don't show it...
+          if (topDiff > (targetHeight - arrowSize) || topDiff < 0) {
+            return false;
+          }
+          break;
+        case 'right':
+          positioning.left = targetWidth - (arrowSize / 2);
+          positioning.top = Math.max(0, topDiff) + (arrowSize / 2);
+          // to less space to show the arrow? Just don't show it...
+          if (topDiff > (targetHeight - arrowSize) || topDiff < 0) {
+            return false;
+          }
+          break;
+        case 'top':
+          positioning.left = Math.max(0, leftDiff) + (arrowSize / 2);
+          positioning.top = -1 * (arrowSize / 2) + 1;
+          // to less space to show the arrow? Just don't show it...
+          if (leftDiff > (targetWidth - arrowSize) || leftDiff < 0) {
+            return false;
+          }
+          break;
+        case 'bottom':
+          positioning.left = Math.max(0, leftDiff) + (arrowSize / 2);
+          positioning.top = targetHeight - (arrowSize / 2);
+          // to less space to show the arrow? Just don't show it...
+          if (leftDiff > (targetWidth - arrowSize) || leftDiff < 0) {
+            return false;
+          }
+          break;
+      }
+
+      return positioning;
+    }
+
+    applyArrowPositioningToTargetPosition(arrowPositioning, targetPosition) {
+      if (!arrowPositioning) {
+        return targetPosition;
+      }
+
+      const padding = (this.arrowSize / 2) + 1;
+
+      switch (arrowPositioning.direction) {
+        case 'top':
+          targetPosition.top += padding;
+          targetPosition.bottom += padding;
+          targetPosition.center += padding;
+          break;
+        case 'bottom':
+          targetPosition.top -= padding;
+          targetPosition.bottom -= padding;
+          targetPosition.center -= padding;
+          break;
+        case 'left':
+          targetPosition.left += padding;
+          targetPosition.middle += padding;
+          targetPosition.right += padding;
+          break;
+        case 'right':
+          targetPosition.left -= padding;
+          targetPosition.middle -= padding;
+          targetPosition.right -= padding;
+          break;
+      }
+
+      return targetPosition;
+    }
+
+    getArrowDirections(anchorPosition, targetPosition) {
+      let directions = [];
+
+      if (targetPosition.left >= anchorPosition.right) {
+        directions.push('left');
+      }
+
+      if (targetPosition.right <= anchorPosition.left) {
+        directions.push('right');
+      }
+
+      if (targetPosition.top >= anchorPosition.bottom) {
+        directions.push('top');
+      }
+
+      if (targetPosition.bottom <= anchorPosition.top) {
+        directions.push('bottom');
+      }
+
+      return directions;
     }
 
     applyAutoPositionIfNeeded (anchor, target, targetOrigin, anchorOrigin, targetPosition) {
@@ -239,7 +351,17 @@ const factory = (Overlay, Button) => {
         }
       }
 
-      return targetPosition;
+      const height = target.bottom - target.top;
+      const width = target.right - target.left;
+
+      return {
+        top: targetPosition.top,
+        center: targetPosition.top + (height / 2),
+        bottom: targetPosition.top + height,
+        left: targetPosition.left,
+        middle: targetPosition.left + (width / 2),
+        right: targetPosition.left + width
+      }
     }
 
     render () {
@@ -263,7 +385,8 @@ const factory = (Overlay, Button) => {
       );
 
       const { dialogLeft, dialogTop, dialogPosition } = this.state.dialogPositioning;
-      const { arrowLeft, arrowTop } = this.state.arrowPositioning;
+      const arrowLeft = this.state.arrowPositioning.left;
+      const arrowTop = this.state.arrowPositioning.top;
 
       return (
         <Portal className={this.props.theme.wrapper}>
@@ -285,7 +408,7 @@ const factory = (Overlay, Button) => {
             className={className}
             style={{ left: `${dialogLeft}px`, top: `${dialogTop}px`, position: dialogPosition }}
           >
-            {this.props.anchorOrigin && this.props.targetOrigin
+            {this.props.anchorOrigin && this.props.targetOrigin && this.state.arrowPositioning
               ? <div className={this.props.theme.arrow} style={{ left : `${arrowLeft}px`, top : `${arrowTop}px` }} />
               : null
             }
