@@ -53,7 +53,7 @@ class PopoverTest extends React.Component {
       <section>
         <h2>Popover</h2>
 
-          <Button style={{ 'marginLeft': '50%', 'border': '1px solid red' }} label='Show my popover' onClick={this.handleToggle} ref={(button) => {
+          <Button style={{ 'marginLeft': '50%' }} label='Show my popover' onClick={this.handleToggle} ref={(button) => {
             this.popoverToggleButton = button;
           }} />
 
