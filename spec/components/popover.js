@@ -8,12 +8,12 @@ class PopoverTest extends React.Component {
     active: false,
     anchorOrigin: {
       vertical: 'top',
-      horizontal: 'left'
+      horizontal: 'left',
     },
     targetOrigin: {
       vertical: 'top',
-      horizontal: 'left'
-    }
+      horizontal: 'left',
+    },
   };
 
   componentDidMount () {
@@ -30,7 +30,7 @@ class PopoverTest extends React.Component {
     { label: 'Save', onClick: this.handleToggle, primary: true },
   ];
 
-  setAnchor(positionElement, position) {
+  setAnchor (positionElement, position) {
     const { anchorOrigin } = this.state;
     anchorOrigin[positionElement] = position;
 
@@ -39,7 +39,7 @@ class PopoverTest extends React.Component {
     });
   }
 
-  setTarget(positionElement, position) {
+  setTarget (positionElement, position) {
     const { targetOrigin } = this.state;
     targetOrigin[positionElement] = position;
 
@@ -53,29 +53,29 @@ class PopoverTest extends React.Component {
       <section>
         <h2>Popover</h2>
 
-          <Button style={{ 'marginLeft': '50%' }} label='Show my popover' onClick={this.handleToggle} ref={(button) => {
-            this.popoverToggleButton = button;
-          }} />
+        <Button style={{ 'marginLeft': '50%' }} label="Show my popover" onClick={this.handleToggle} ref={(button) => {
+          this.popoverToggleButton = button;
+        }} />
 
-          <h3>Anchor origin</h3>
-          <h4>Vertical</h4>
-          <label><input type="radio" onChange={this.setAnchor.bind(this, 'vertical', 'top')} checked={this.state.anchorOrigin.vertical === 'top'} /> Top</label>
-          <label><input type="radio" onChange={this.setAnchor.bind(this, 'vertical', 'center')} checked={this.state.anchorOrigin.vertical === 'center'} /> Center</label>
-          <label><input type="radio" onChange={this.setAnchor.bind(this, 'vertical', 'bottom')} checked={this.state.anchorOrigin.vertical === 'bottom'} /> Bottom</label>
-          <h4>Horizontal</h4>
-          <label><input type="radio" onChange={this.setAnchor.bind(this, 'horizontal', 'left')} checked={this.state.anchorOrigin.horizontal === 'left'} /> Left</label>
-          <label><input type="radio" onChange={this.setAnchor.bind(this, 'horizontal', 'middle')} checked={this.state.anchorOrigin.horizontal === 'middle'} /> Middle</label>
-          <label><input type="radio" onChange={this.setAnchor.bind(this, 'horizontal', 'right')} checked={this.state.anchorOrigin.horizontal === 'right'} /> Right</label>
+        <h3>Anchor origin</h3>
+        <h4>Vertical</h4>
+        <label><input type="radio" onChange={this.setAnchor.bind(this, 'vertical', 'top')} checked={this.state.anchorOrigin.vertical === 'top'} /> Top</label>
+        <label><input type="radio" onChange={this.setAnchor.bind(this, 'vertical', 'center')} checked={this.state.anchorOrigin.vertical === 'center'} /> Center</label>
+        <label><input type="radio" onChange={this.setAnchor.bind(this, 'vertical', 'bottom')} checked={this.state.anchorOrigin.vertical === 'bottom'} /> Bottom</label>
+        <h4>Horizontal</h4>
+        <label><input type="radio" onChange={this.setAnchor.bind(this, 'horizontal', 'left')} checked={this.state.anchorOrigin.horizontal === 'left'} /> Left</label>
+        <label><input type="radio" onChange={this.setAnchor.bind(this, 'horizontal', 'middle')} checked={this.state.anchorOrigin.horizontal === 'middle'} /> Middle</label>
+        <label><input type="radio" onChange={this.setAnchor.bind(this, 'horizontal', 'right')} checked={this.state.anchorOrigin.horizontal === 'right'} /> Right</label>
 
-          <h3>Target origin</h3>
-          <h4>Vertical</h4>
-          <label><input type="radio" onChange={this.setTarget.bind(this, 'vertical', 'top')} checked={this.state.targetOrigin.vertical === 'top'} /> Top</label>
-          <label><input type="radio" onChange={this.setTarget.bind(this, 'vertical', 'center')} checked={this.state.targetOrigin.vertical === 'center'} /> Center</label>
-          <label><input type="radio" onChange={this.setTarget.bind(this, 'vertical', 'bottom')} checked={this.state.targetOrigin.vertical === 'bottom'} /> Bottom</label>
-          <h4>Horizontal</h4>
-          <label><input type="radio" onChange={this.setTarget.bind(this, 'horizontal', 'left')} checked={this.state.targetOrigin.horizontal === 'left'} /> Left</label>
-          <label><input type="radio" onChange={this.setTarget.bind(this, 'horizontal', 'middle')} checked={this.state.targetOrigin.horizontal === 'middle'} /> Middle</label>
-          <label><input type="radio" onChange={this.setTarget.bind(this, 'horizontal', 'right')} checked={this.state.targetOrigin.horizontal === 'right'} /> Right</label>
+        <h3>Target origin</h3>
+        <h4>Vertical</h4>
+        <label><input type="radio" onChange={this.setTarget.bind(this, 'vertical', 'top')} checked={this.state.targetOrigin.vertical === 'top'} /> Top</label>
+        <label><input type="radio" onChange={this.setTarget.bind(this, 'vertical', 'center')} checked={this.state.targetOrigin.vertical === 'center'} /> Center</label>
+        <label><input type="radio" onChange={this.setTarget.bind(this, 'vertical', 'bottom')} checked={this.state.targetOrigin.vertical === 'bottom'} /> Bottom</label>
+        <h4>Horizontal</h4>
+        <label><input type="radio" onChange={this.setTarget.bind(this, 'horizontal', 'left')} checked={this.state.targetOrigin.horizontal === 'left'} /> Left</label>
+        <label><input type="radio" onChange={this.setTarget.bind(this, 'horizontal', 'middle')} checked={this.state.targetOrigin.horizontal === 'middle'} /> Middle</label>
+        <label><input type="radio" onChange={this.setTarget.bind(this, 'horizontal', 'right')} checked={this.state.targetOrigin.horizontal === 'right'} /> Right</label>
 
         { this.anchorEl &&
           <Popover
@@ -87,10 +87,10 @@ class PopoverTest extends React.Component {
             onCloseClick={this.handleToggle}
             onEscKeyDown={this.handleToggle}
             onOverlayClick={this.handleToggle}
-            title='My awesome POPOVER dialog'
+            title="My awesome POPOVER dialog"
           >
             <p>Here you can add popover content.</p>
-            <div className='highlight'>
+            <div className="highlight">
               <p>Here you can highlight some content.</p>
             </div>
           </Popover>

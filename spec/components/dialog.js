@@ -20,14 +20,14 @@ class DialogTest extends React.Component {
     return (
       <section>
         <h2>Dialog</h2>
-        <Button label='Show my dialog' onClick={this.handleToggle} />
+        <Button label="Show my dialog" onClick={this.handleToggle} />
         <Dialog
           actions={this.actions}
           active={this.state.active}
           onCloseClick={this.handleToggle}
           onEscKeyDown={this.handleToggle}
           onOverlayClick={this.handleToggle}
-          title='My awesome dialog'
+          title="My awesome dialog"
         >
           <p>Here you can add arbitrary content. hello</p>
         </Dialog>

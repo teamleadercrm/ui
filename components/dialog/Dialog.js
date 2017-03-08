@@ -210,7 +210,7 @@ const factory = (Overlay, Button) => {
       });
     }
 
-    getArrowPositioning(anchorPosition, targetPosition) {
+    getArrowPositioning (anchorPosition, targetPosition) {
       let directions = this.getArrowDirections(anchorPosition, targetPosition);
 
       // no or multiple directions? No arrow possible!
@@ -220,7 +220,7 @@ const factory = (Overlay, Button) => {
 
       let direction = directions[0];
       let positioning = {
-        direction
+        direction,
       };
       let arrowSize = this.arrowSize;
 
@@ -232,44 +232,44 @@ const factory = (Overlay, Button) => {
       let leftDiff = anchorPosition.left - targetPosition.left;
 
       switch (direction) {
-        case 'left':
-          positioning.left = -1 * (arrowSize / 2) + 1;
-          positioning.top = Math.max(0, topDiff) + (arrowSize / 2);
-          // to less space to show the arrow? Just don't show it...
-          if (topDiff > (targetHeight - arrowSize) || topDiff < 0) {
-            return false;
-          }
-          break;
-        case 'right':
-          positioning.left = targetWidth - (arrowSize / 2);
-          positioning.top = Math.max(0, topDiff) + (arrowSize / 2);
-          // to less space to show the arrow? Just don't show it...
-          if (topDiff > (targetHeight - arrowSize) || topDiff < 0) {
-            return false;
-          }
-          break;
-        case 'top':
-          positioning.left = Math.max(0, leftDiff) + (arrowSize / 2);
-          positioning.top = -1 * (arrowSize / 2) + 1;
-          // to less space to show the arrow? Just don't show it...
-          if (leftDiff > (targetWidth - arrowSize) || leftDiff < 0) {
-            return false;
-          }
-          break;
-        case 'bottom':
-          positioning.left = Math.max(0, leftDiff) + (arrowSize / 2);
-          positioning.top = targetHeight - (arrowSize / 2);
-          // to less space to show the arrow? Just don't show it...
-          if (leftDiff > (targetWidth - arrowSize) || leftDiff < 0) {
-            return false;
-          }
-          break;
+      case 'left':
+        positioning.left = -1 * (arrowSize / 2) + 1;
+        positioning.top = Math.max(0, topDiff) + (arrowSize / 2);
+            // to less space to show the arrow? Just don't show it...
+        if (topDiff > (targetHeight - arrowSize) || topDiff < 0) {
+          return false;
+        }
+        break;
+      case 'right':
+        positioning.left = targetWidth - (arrowSize / 2);
+        positioning.top = Math.max(0, topDiff) + (arrowSize / 2);
+            // to less space to show the arrow? Just don't show it...
+        if (topDiff > (targetHeight - arrowSize) || topDiff < 0) {
+          return false;
+        }
+        break;
+      case 'top':
+        positioning.left = Math.max(0, leftDiff) + (arrowSize / 2);
+        positioning.top = -1 * (arrowSize / 2) + 1;
+            // to less space to show the arrow? Just don't show it...
+        if (leftDiff > (targetWidth - arrowSize) || leftDiff < 0) {
+          return false;
+        }
+        break;
+      case 'bottom':
+        positioning.left = Math.max(0, leftDiff) + (arrowSize / 2);
+        positioning.top = targetHeight - (arrowSize / 2);
+            // to less space to show the arrow? Just don't show it...
+        if (leftDiff > (targetWidth - arrowSize) || leftDiff < 0) {
+          return false;
+        }
+        break;
       }
 
       return positioning;
     }
 
-    applyArrowPositioningToTargetPosition(arrowPositioning, targetPosition) {
+    applyArrowPositioningToTargetPosition (arrowPositioning, targetPosition) {
       if (!arrowPositioning) {
         return targetPosition;
       }
@@ -277,32 +277,32 @@ const factory = (Overlay, Button) => {
       const padding = (this.arrowSize / 2) + 1;
 
       switch (arrowPositioning.direction) {
-        case 'top':
-          targetPosition.top += padding;
-          targetPosition.bottom += padding;
-          targetPosition.center += padding;
-          break;
-        case 'bottom':
-          targetPosition.top -= padding;
-          targetPosition.bottom -= padding;
-          targetPosition.center -= padding;
-          break;
-        case 'left':
-          targetPosition.left += padding;
-          targetPosition.middle += padding;
-          targetPosition.right += padding;
-          break;
-        case 'right':
-          targetPosition.left -= padding;
-          targetPosition.middle -= padding;
-          targetPosition.right -= padding;
-          break;
+      case 'top':
+        targetPosition.top += padding;
+        targetPosition.bottom += padding;
+        targetPosition.center += padding;
+        break;
+      case 'bottom':
+        targetPosition.top -= padding;
+        targetPosition.bottom -= padding;
+        targetPosition.center -= padding;
+        break;
+      case 'left':
+        targetPosition.left += padding;
+        targetPosition.middle += padding;
+        targetPosition.right += padding;
+        break;
+      case 'right':
+        targetPosition.left -= padding;
+        targetPosition.middle -= padding;
+        targetPosition.right -= padding;
+        break;
       }
 
       return targetPosition;
     }
 
-    getArrowDirections(anchorPosition, targetPosition) {
+    getArrowDirections (anchorPosition, targetPosition) {
       let directions = [];
 
       if (targetPosition.left >= anchorPosition.right) {
@@ -360,8 +360,8 @@ const factory = (Overlay, Button) => {
         bottom: targetPosition.top + height,
         left: targetPosition.left,
         middle: targetPosition.left + (width / 2),
-        right: targetPosition.left + width
-      }
+        right: targetPosition.left + width,
+      };
     }
 
     render () {
@@ -400,11 +400,11 @@ const factory = (Overlay, Button) => {
             onMouseMove={this.props.onOverlayMouseMove}
             onMouseUp={this.props.onOverlayMouseUp}
             theme={this.props.theme}
-            themeNamespace='overlay'
+            themeNamespace="overlay"
 
           />
           <div
-            data-teamleader-ui='dialog'
+            data-teamleader-ui="dialog"
             className={className}
             style={{ left: `${dialogLeft}px`, top: `${dialogTop}px`, position: dialogPosition }}
           >
@@ -417,13 +417,13 @@ const factory = (Overlay, Button) => {
                 ? <h6 className={this.props.theme.title}>{this.props.title}</h6>
                 : null
               }
-              <Button icon='close' className={this.props.theme.close} onMouseUp={this.props.onCloseClick} />
+              <Button icon="close" className={this.props.theme.close} onMouseUp={this.props.onCloseClick} />
             </header>
-            <section role='body' className={this.props.theme.body}>
+            <section role="body" className={this.props.theme.body}>
               {this.props.children}
             </section>
             {actions.length
-              ? <nav role='navigation' className={this.props.theme.navigation}>
+              ? <nav role="navigation" className={this.props.theme.navigation}>
                 {actions}
               </nav>
               : null
