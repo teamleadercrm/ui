@@ -1,5 +1,5 @@
 import React from 'react';
-import { LoadingMolecule } from '../../components/loadingMolecule';
+import { LoadingMolecule } from '../../components';
 import theme from './loadingMolecule.css';
 
 class LoadingMoleculeTest extends React.Component {
