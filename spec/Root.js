@@ -2,6 +2,7 @@ import React from 'react';
 import Button from './components/button';
 import Menu from './components/menu';
 import LoadingMolecule from './components/loadingMolecule';
+import Card from './components/card';
 
 const Root = () => (
   <div>
@@ -10,6 +11,7 @@ const Root = () => (
     <Button />
     <Menu />
     <LoadingMolecule />
+    <Card />
   </div>
 );
 

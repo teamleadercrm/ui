@@ -1,0 +1,35 @@
+@import '../colors.css';
+@import '../variables.css';
+@import './config.css';
+
+.card {
+  @apply --reset;
+  width: 100%;
+  position: relative;
+  background: var(--card-background-color);
+  box-shadow: var(--card-shadow);
+  margin: var(--card-margin);
+
+  .inner {
+    padding: var(--card-padding);
+  }
+
+  &.disabled {
+    pointer-events: none;
+
+    .inner {
+      opacity: var(--card-disabled-opacity);
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: var(--card-shadow-hover);
+    background: #FFF;
+  }
+
+  &.dragging {
+    box-shadow: none;
+    outline: var(--card-drag-outline);
+  }
+}
