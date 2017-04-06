@@ -40,9 +40,11 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
         navigation: PropTypes.string,
         overlay: PropTypes.string,
         title: PropTypes.string,
+        subtitle: PropTypes.string,
         wrapper: PropTypes.string,
       }),
       title: PropTypes.string,
+      subtitle: PropTypes.string,
       position: PropTypes.string.isRequired,
       direction: PropTypes.string.isRequired,
     };
@@ -106,6 +108,7 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
         active,
         backdrop,
         children,
+        subtitle,
         theme,
         title,
         onCloseClick,
@@ -159,6 +162,10 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
             <header className={theme.header}>
               {title
                 ? <h6 className={theme.title}>{title}</h6>
+                : null
+              }
+              {subtitle
+                ? <p className={theme.subtitle}>{subtitle}</p>
                 : null
               }
               <Button icon="close" className={theme.close} onMouseUp={onCloseClick} />
