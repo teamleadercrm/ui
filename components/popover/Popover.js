@@ -44,7 +44,7 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
         wrapper: PropTypes.string,
       }),
       title: PropTypes.string,
-      subtitle: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.string]),
+      subtitle: React.PropTypes.oneOfType([ React.PropTypes.object, React.PropTypes.string ]),
       position: PropTypes.string.isRequired,
       direction: PropTypes.string.isRequired,
     };
