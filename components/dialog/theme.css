@@ -29,18 +29,6 @@
   }
 }
 
-.arrow {
-  background: var(--color-white);
-  box-shadow: var(--shadow-2p);
-  content: "";
-  height: calc(1.4 * var(--unit));
-  position: absolute;
-  transform: rotate(45deg);
-  left: calc(-.5 * var(--unit));
-  top: calc(1.4 * var(--unit));
-  width: calc(1.4 * var(--unit));
-}
-
 .header {
   background: var(--dialog-background-color);
   border-bottom: 1px solid var(--dialog-header-border-color);
