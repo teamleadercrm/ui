@@ -29,7 +29,7 @@ class DialogTest extends React.Component {
           onOverlayClick={this.handleToggle}
           title="My awesome dialog"
         >
-          <p>Here you can add arbitrary content. hello</p>
+          <p>Here you can add arbitrary content.</p>
         </Dialog>
       </section>
     );
