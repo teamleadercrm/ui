@@ -1,15 +1,16 @@
 import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
-import { themr } from 'react-css-themr';
 import throttle from 'lodash.throttle';
-import Portal from '../hoc/Portal';
 import ActivableRenderer from '../hoc/ActivableRenderer';
-import { POPOVER_HORIZONTAL, POPOVER_VERTICAL } from '../identifiers';
-import { events } from '../utils';
+import Portal from '../hoc/Portal';
+import InjectButton from '../button';
 import InjectOverlay from '../overlay';
+import { events } from '../utils';
+import { themr } from 'react-css-themr';
+import { POPOVER_HORIZONTAL, POPOVER_VERTICAL } from '../identifiers';
 import { calculateHorizontalPositions, calculateVerticalPositions } from './positionCalculation';
 
-const factory = (Overlay, calculatePositions, axis) => {
+const factory = (Overlay, Button, calculatePositions, axis) => {
   class PopoverHorizontal extends Component {
     static propTypes = {
       active: PropTypes.bool,
@@ -81,17 +82,31 @@ const factory = (Overlay, calculatePositions, axis) => {
     }
 
     setPlacement () {
+      const { anchorEl, direction, position } = this.props;
       const targetEl = document.querySelectorAll(`[data-teamleader-ui="popover-${axis}"]`)[0];
+
       this.setState(
         {
-          positioning: calculatePositions(this.props.anchorEl, targetEl, this.props.direction, this.props.position),
+          positioning: calculatePositions(anchorEl, targetEl, direction, position),
         }
       );
     }
 
     render () {
-      const { active, children, theme, title } = this.props;
       const { left, top, arrowLeft, arrowTop } = this.state.positioning;
+
+      const {
+        active,
+        backdrop,
+        children,
+        theme,
+        title,
+        onOverlayClick,
+        onEscKeyDown,
+        onOverlayMouseDown,
+        onOverlayMouseMove,
+        onOverlayMouseUp
+      } = this.props;
 
       const className = classnames(
         [
@@ -105,27 +120,26 @@ const factory = (Overlay, calculatePositions, axis) => {
       return (
         <Portal className={theme.wrapper}>
           <Overlay
-            active={this.props.active}
-            backdrop={this.props.backdrop}
+            active={active}
+            backdrop={backdrop}
             className={theme.overlay}
-            onClick={this.props.onOverlayClick}
-            onEscKeyDown={this.props.onEscKeyDown}
-            onMouseDown={this.props.onOverlayMouseDown}
-            onMouseMove={this.props.onOverlayMouseMove}
-            onMouseUp={this.props.onOverlayMouseUp}
+            onClick={onOverlayClick}
+            onEscKeyDown={onEscKeyDown}
+            onMouseDown={onOverlayMouseDown}
+            onMouseMove={onOverlayMouseMove}
+            onMouseUp={onOverlayMouseUp}
             theme={theme}
             themeNamespace="overlay"
-
           />
           <div
             data-teamleader-ui={`popover-${axis}`}
             className={className}
-            style={{ left: `${left}px`, top: `${top}px`, position: 'absolute' }}
+            style={{ left: `${left}px`, top: `${top}px` }}
           >
             <div className={theme.arrow} style={{ left : `${arrowLeft}px`, top : `${arrowTop}px` }} />
             <header className={theme.header}>
               <h6 className={theme.title}>{title}</h6>
-              <button icon="close" className={theme.close} />
+              <Button icon="close" className={theme.close} />
             </header>
             <section role="body" className={theme.body}>
               {children}
@@ -140,9 +154,9 @@ const factory = (Overlay, calculatePositions, axis) => {
 };
 
 export const PopoverHorizontal = themr(POPOVER_HORIZONTAL)(
-  factory(InjectOverlay, calculateHorizontalPositions, 'horizontal')
+  factory(InjectOverlay, InjectButton, calculateHorizontalPositions, 'horizontal')
 );
 
 export const PopoverVertical = themr(POPOVER_VERTICAL)(
-  factory(InjectOverlay, calculateVerticalPositions, 'vertical')
+  factory(InjectOverlay, InjectButton, calculateVerticalPositions, 'vertical')
 );
