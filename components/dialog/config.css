@@ -9,5 +9,6 @@
   --dialog-header-border-color: var(--palette-grey-400);
   --dialog-header-padding: calc(1.4 * var(--unit)) calc(7.2 * var(--unit)) calc(1.4 * var(--unit)) calc(1.4 * var(--unit));
   --dialog-navigation-padding: calc(0.8 * var(--unit));
-  --dialog-translate-y: calc(4 * var(--unit));
+  --dialog-translate-y: calc(-4 * var(--unit));
+  --dialog-overflow: hidden;
 }
