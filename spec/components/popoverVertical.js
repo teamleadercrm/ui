@@ -34,7 +34,7 @@ class PopoverTest extends React.Component {
         <Button
           primary
           style={{ 'marginLeft': '50%' }}
-          label="Show my Vertical"
+          label="Show a vertical popover"
           onClick={this.handleToggle}
           ref={
             (button) => {
