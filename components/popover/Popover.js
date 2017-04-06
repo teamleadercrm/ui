@@ -101,6 +101,7 @@ const factory = (Overlay, Button, calculatePositions, axis) => {
         children,
         theme,
         title,
+        onCloseClick,
         onOverlayClick,
         onEscKeyDown,
         onOverlayMouseDown,
@@ -138,8 +139,11 @@ const factory = (Overlay, Button, calculatePositions, axis) => {
           >
             <div className={theme.arrow} style={{ left : `${arrowLeft}px`, top : `${arrowTop}px` }} />
             <header className={theme.header}>
-              <h6 className={theme.title}>{title}</h6>
-              <Button icon="close" className={theme.close} />
+              {title
+                ? <h6 className={theme.title}>{title}</h6>
+                : null
+              }
+              <Button icon="close" className={theme.close} onMouseUp={onCloseClick} />
             </header>
             <section role="body" className={theme.body}>
               {children}
