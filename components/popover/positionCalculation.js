@@ -43,13 +43,13 @@ const positionMiddle = (anchorPosition, targetPosition) => ({
 });
 
 const positionTop = (anchorPosition, targetPosition) => ({
-  top: anchorPosition.top,
-  arrowTop: ARROW_OFFSET,
+  top: anchorPosition.top - POPUP_OFFSET*.75,
+  arrowTop: ARROW_OFFSET*2.35,
 });
 
 const positionBottom = (anchorPosition, targetPosition) => ({
-  top: anchorPosition.bottom - targetPosition.height,
-  arrowTop: targetPosition.height - 3 * ARROW_OFFSET,
+  top: anchorPosition.bottom - targetPosition.height + POPUP_OFFSET*.75,
+  arrowTop: targetPosition.height - 4.5 * ARROW_OFFSET,
 });
 
 const directionWest = (anchorPosition, targetPosition) => ({
