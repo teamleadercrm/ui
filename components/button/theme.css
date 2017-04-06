@@ -72,10 +72,6 @@
     pointer-events: none;
   }
 
-  & > .rippleWrapper {
-    overflow: hidden;
-  }
-
   &[disabled] {
     color: var(--button-disabled-text-color);
     cursor: auto;
@@ -120,10 +116,6 @@
     font-size: var(--button-toggle-font-size);
     line-height: var(--button-height);
     vertical-align: top;
-  }
-
-  & > .rippleWrapper {
-    border-radius: 50%;
   }
 }
 
