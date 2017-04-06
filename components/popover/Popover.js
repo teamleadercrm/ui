@@ -10,7 +10,7 @@ import { themr } from 'react-css-themr';
 import { POPOVER_HORIZONTAL, POPOVER_VERTICAL } from '../identifiers';
 import { calculateHorizontalPositions, calculateVerticalPositions } from './positionCalculation';
 
-const factory = (Overlay, Button, calculatePositions, axis) => {
+const factory = (axis, calculatePositions, Overlay, Button) => {
   class PopoverHorizontal extends Component {
     static propTypes = {
       actions: PropTypes.arrayOf(PropTypes.shape({
@@ -181,9 +181,9 @@ const factory = (Overlay, Button, calculatePositions, axis) => {
 };
 
 export const PopoverHorizontal = themr(POPOVER_HORIZONTAL)(
-  factory(InjectOverlay, InjectButton, calculateHorizontalPositions, 'horizontal')
+  factory('horizontal', calculateHorizontalPositions, InjectOverlay, InjectButton)
 );
 
 export const PopoverVertical = themr(POPOVER_VERTICAL)(
-  factory(InjectOverlay, InjectButton, calculateVerticalPositions, 'vertical')
+  factory('vertical', calculateVerticalPositions, InjectOverlay, InjectButton)
 );
