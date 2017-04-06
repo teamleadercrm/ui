@@ -105,7 +105,7 @@ const factory = (Overlay, Button, calculatePositions, axis) => {
         onEscKeyDown,
         onOverlayMouseDown,
         onOverlayMouseMove,
-        onOverlayMouseUp
+        onOverlayMouseUp,
       } = this.props;
 
       const className = classnames(
