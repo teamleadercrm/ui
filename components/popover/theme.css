@@ -88,6 +88,4 @@
 .button {
   margin-left: var(--popover-navigation-padding);
   min-width: 0;
-  padding-left: var(--popover-navigation-padding);
-  padding-right: var(--popover-navigation-padding);
 }
