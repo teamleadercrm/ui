@@ -41,13 +41,13 @@
 
 .header {
   background: var(--popover-background-color);
-  /*border-bottom: 1px solid var(--dialog-header-border-color);*/
-  padding: 10px;
+  border-bottom: 1px solid var(--popover-header-border-color);
+  padding: var(--popover-header-padding);
   position: relative;
 }
 
 .title {
-  /*color: var(--dialog-color-title);*/
+  color: var(--popover-header-title-text-color);
   flex-grow: 0;
   font-size: calc(1.6 * var(--unit));
   font-weight: 700;
@@ -63,9 +63,9 @@
 
 .body {
   background: var(--popover-background-color);
-  /*color: var(--color-text-secondary);*/
+  color: var(--popover-body-text-color);
   flex-grow: 2;
-  padding: 10px;
+  padding: var(--popover-body-padding);
   position: relative;
 
   & p {
@@ -75,4 +75,19 @@
     line-height: calc(2.4 * var(--unit));
     margin: 0;
   }
+}
+
+.navigation {
+  background: var(--popover-background-color);
+  flex-grow: 0;
+  padding: var(--popover-navigation-padding);
+  position: relative;
+  text-align: right;
+}
+
+.button {
+  margin-left: var(--popover-navigation-padding);
+  min-width: 0;
+  padding-left: var(--popover-navigation-padding);
+  padding-right: var(--popover-navigation-padding);
 }
