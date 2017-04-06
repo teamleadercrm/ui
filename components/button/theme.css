@@ -21,7 +21,7 @@
   display: inline-block;
   flex-direction: row;
   font-size: calc(1.4 * var(--unit));
-  font-weight: 500;
+  font-weight: var(--button-font-weight);
   height: var(--button-height);
   justify-content: center;
   letter-spacing: 0;
