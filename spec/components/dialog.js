@@ -20,7 +20,7 @@ class DialogTest extends React.Component {
     return (
       <section>
         <h2>Dialog</h2>
-        <Button label="Show my dialog" onClick={this.handleToggle} />
+        <Button primary label="Show my dialog" onClick={this.handleToggle} />
         <Dialog
           actions={this.actions}
           active={this.state.active}
