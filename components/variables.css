@@ -87,6 +87,7 @@
   --reset: {
     box-sizing: border-box;
     font-family: var(--preferred-font);
+    -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     font-smoothing: antialiased;
     text-size-adjust: 100%;
@@ -95,6 +96,7 @@
     & *::after,
     & *::before {
       box-sizing: border-box;
+      -moz-osx-font-smoothing: grayscale;
       -webkit-font-smoothing: antialiased;
       font-smoothing: antialiased;
       text-size-adjust: 100%;
