@@ -78,6 +78,7 @@ class PopoverTest extends React.Component {
             onEscKeyDown={this.handleToggle}
             onOverlayClick={this.handleToggle}
             title="My awesome Vertical POPOVER"
+            subtitle="with a beautiful subtitle"
           >
             <p>Here you can add popover content.</p>
             <div className="highlight">
