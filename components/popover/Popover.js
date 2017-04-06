@@ -13,6 +13,11 @@ import { calculateHorizontalPositions, calculateVerticalPositions } from './posi
 const factory = (Overlay, Button, calculatePositions, axis) => {
   class PopoverHorizontal extends Component {
     static propTypes = {
+      actions: PropTypes.arrayOf(PropTypes.shape({
+        className: PropTypes.string,
+        label: PropTypes.string,
+        children: PropTypes.node,
+      })),
       active: PropTypes.bool,
       anchorEl: PropTypes.object,
       backdrop: PropTypes.string,
@@ -96,6 +101,7 @@ const factory = (Overlay, Button, calculatePositions, axis) => {
       const { left, top, arrowLeft, arrowTop } = this.state.positioning;
 
       const {
+        actions,
         active,
         backdrop,
         children,
@@ -108,6 +114,17 @@ const factory = (Overlay, Button, calculatePositions, axis) => {
         onOverlayMouseMove,
         onOverlayMouseUp,
       } = this.props;
+
+      const actionButtons = actions.map((action, idx) => {
+        const className = classnames(
+          theme.button,
+          {
+            [action.className]: action.className,
+          }
+        );
+
+        return <Button key={idx} {...action} className={className} />; // eslint-disable-line
+      });
 
       const className = classnames(
         [
@@ -148,6 +165,12 @@ const factory = (Overlay, Button, calculatePositions, axis) => {
             <section role="body" className={theme.body}>
               {children}
             </section>
+            {actionButtons.length
+              ? <nav role="navigation" className={theme.navigation}>
+                {actionButtons}
+              </nav>
+              : null
+            }
           </div>
         </Portal>
       );
