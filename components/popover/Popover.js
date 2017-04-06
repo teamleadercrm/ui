@@ -11,7 +11,7 @@ import { POPOVER_HORIZONTAL, POPOVER_VERTICAL } from '../identifiers';
 import { calculateHorizontalPositions, calculateVerticalPositions } from './positionCalculation';
 
 const factory = (axis, calculatePositions, Overlay, Button) => {
-  class PopoverHorizontal extends Component {
+  class Popover extends Component {
     static propTypes = {
       actions: PropTypes.arrayOf(PropTypes.shape({
         className: PropTypes.string,
@@ -178,7 +178,7 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
     }
   }
 
-  return ActivableRenderer()(PopoverHorizontal);
+  return ActivableRenderer()(Popover);
 };
 
 export const PopoverHorizontal = themr(POPOVER_HORIZONTAL)(
