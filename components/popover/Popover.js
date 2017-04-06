@@ -48,6 +48,7 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
     };
 
     static defaultProps = {
+      actions: [],
       active: true,
       backdrop: 'dark',
     };
