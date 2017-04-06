@@ -1,3 +1,9 @@
 :root {
   --popover-background-color: var(--color-white);
+  --popover-body-text-color: var(--color-text-secondary);
+  --popover-body-padding: calc(1.4 * var(--unit));
+  --popover-header-border-color: var(--palette-grey-400);
+  --popover-header-padding: calc(1.4 * var(--unit)) calc(7.2 * var(--unit)) calc(1.4 * var(--unit)) calc(1.4 * var(--unit));
+  --popover-navigation-padding: calc(0.8 * var(--unit));
+  --popover-header-title-text-color: var(--color-text-secondary);
 }
