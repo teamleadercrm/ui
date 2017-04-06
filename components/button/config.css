@@ -1,6 +1,7 @@
 :root {
   --button-border-radius: calc(.2 * var(--unit));
-  --button-height: calc(2.8 * var(--unit));
+  --button-font-weight: var(--font-weight-semi-bold);
+  --button-height: calc(3 * var(--unit));
   --button-toggle-font-size: calc(2 * var(--unit));
   --button-primary-color: var(--color-primary);
   --button-primary-color-hover: color(var(--color-primary-dark));
