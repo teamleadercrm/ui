@@ -1,0 +1,12 @@
+:root {
+  --dialog-background-color: var(--color-white);
+  --dialog-border-radius: calc(0.2 * var(--unit));
+  --dialog-color-title: var(--color-secondary);
+  --dialog-color-white: var(--color-white);
+  --dialog-content-padding: calc(1.4 * var(--unit));
+  --dialog-header-border-color: var(--palette-grey-400);
+  --dialog-header-padding: calc(1.4 * var(--unit)) calc(7.2 * var(--unit)) calc(1.4 * var(--unit)) calc(1.4 * var(--unit));
+  --dialog-navigation-padding: calc(0.8 * var(--unit));
+  --dialog-translate-y: calc(-4 * var(--unit));
+  --dialog-overflow: hidden;
+}

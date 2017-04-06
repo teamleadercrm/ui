@@ -1,0 +1,93 @@
+@import '../colors.css';
+@import '../variables.css';
+@import './config.css';
+
+.wrapper {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: var(--z-index-higher);
+
+  @apply --reset;
+}
+
+.popover {
+  background: var(--popover-background-color);
+  position: absolute;
+  opacity: 0;
+  min-width: 300px;
+
+  &.active {
+    opacity: 1;
+  }
+}
+
+.arrow {
+  background: var(--color-white);
+  box-shadow: var(--shadow-2p);
+  content: "";
+  height: calc(1.4 * var(--unit));
+  position: absolute;
+  transform: rotate(45deg);
+  left: calc(-.5 * var(--unit));
+  top: calc(1.4 * var(--unit));
+  width: calc(1.4 * var(--unit));
+}
+
+.header {
+  background: var(--popover-background-color);
+  border-bottom: 1px solid var(--popover-header-border-color);
+  padding: var(--popover-header-padding);
+  position: relative;
+}
+
+.title {
+  color: var(--popover-header-title-text-color);
+  flex-grow: 0;
+  font-size: calc(1.6 * var(--unit));
+  font-weight: 700;
+  line-height: 1;
+  margin: 0;
+}
+
+.close {
+  position: absolute;
+  right: var(--unit);
+  top: calc(.85 * var(--unit));
+}
+
+.body {
+  background: var(--popover-background-color);
+  color: var(--popover-body-text-color);
+  flex-grow: 2;
+  padding: var(--popover-body-padding);
+  position: relative;
+
+  & p {
+    font-size: calc(1.4 * var(--unit));
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: calc(2.4 * var(--unit));
+    margin: 0;
+  }
+}
+
+.navigation {
+  background: var(--popover-background-color);
+  flex-grow: 0;
+  padding: var(--popover-navigation-padding);
+  position: relative;
+  text-align: right;
+}
+
+.button {
+  margin-left: var(--popover-navigation-padding);
+  min-width: 0;
+  padding-left: var(--popover-navigation-padding);
+  padding-right: var(--popover-navigation-padding);
+}

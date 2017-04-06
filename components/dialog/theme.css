@@ -1,0 +1,130 @@
+@import '../colors.css';
+@import '../variables.css';
+@import '../media.css';
+@import './config.css';
+
+.wrapper {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: var(--z-index-higher);
+
+  @apply --reset;
+}
+
+.dialog {
+  @apply --reset;
+  background-color: var(--dialog-background-color);
+  border-radius: 0;
+  box-shadow: var(--shadow-2p);
+  display: flex;
+  flex-direction: column;
+  max-height: 96vh;
+  max-width: 96vw;
+  position: absolute;
+  opacity: 0;
+  overflow: var(--dialog-overflow);
+  transform: translateY(var(--dialog-translate-y));
+  transition:
+    opacity var(--animation-duration) var(--animation-curve-default),
+    transform var(--animation-duration) var(--animation-curve-default);
+  transition-delay: var(--animation-delay);
+
+  &.active {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+.small {
+  width: 30vw;
+
+  @media screen and (--sm-tablet-viewport) {
+    width: 50vw;
+  }
+
+  @media screen and (--xs-viewport) {
+    width: 75vw;
+  }
+}
+
+.normal {
+  width: 50vw;
+
+  @media screen and (--xs-viewport) {
+    width: 96vw;
+  }
+}
+
+.large {
+  width: 96vw;
+}
+
+.fullscreen {
+  width: 96vw;
+
+  @media screen and (--xs-viewport) {
+    border-radius: 0;
+    max-height: 100vh;
+    max-width: 100vw;
+    min-height: 100vh;
+    width: 100vw;
+  }
+}
+
+.header {
+  background: var(--dialog-background-color);
+  border-bottom: 1px solid var(--dialog-header-border-color);
+  padding: var(--dialog-header-padding);
+  position: relative;
+}
+
+.title {
+  color: var(--dialog-color-title);
+  flex-grow: 0;
+  font-size: calc(1.6 * var(--unit));
+  font-weight: 700;
+  line-height: 1;
+  margin: 0;
+}
+
+.close {
+  position: absolute;
+  right: var(--unit);
+  top: calc(.85 * var(--unit));
+}
+
+.body {
+  background: var(--dialog-background-color);
+  color: var(--color-text-secondary);
+  flex-grow: 2;
+  padding: var(--dialog-content-padding);
+  position: relative;
+
+  & p {
+    font-size: calc(1.4 * var(--unit));
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: calc(2.4 * var(--unit));
+    margin: 0;
+  }
+}
+
+.navigation {
+  background: var(--dialog-background-color);
+  flex-grow: 0;
+  padding: var(--dialog-navigation-padding);
+  position: relative;
+  text-align: right;
+}
+
+.button {
+  margin-left: var(--dialog-navigation-padding);
+  min-width: 0;
+  padding-left: var(--dialog-navigation-padding);
+  padding-right: var(--dialog-navigation-padding);
+}

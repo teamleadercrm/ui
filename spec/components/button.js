@@ -45,6 +45,7 @@ const ButtonTest = () => (
       <Button disabled icon="notifications" />
     </p>
 
+    <hr />
   </section>
 );
 

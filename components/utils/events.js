@@ -30,6 +30,18 @@ export default {
     }
   },
 
+  addEventsToWindow (eventMap) {
+    for (const key in eventMap) {
+      window.addEventListener(key, eventMap[key], false);
+    }
+  },
+
+  removeEventsFromWindow (eventMap) {
+    for (const key in eventMap) {
+      window.removeEventListener(key, eventMap[key], false);
+    }
+  },
+
   targetIsDescendant (event, parent) {
     let node = event.target;
     while (node !== null) {
