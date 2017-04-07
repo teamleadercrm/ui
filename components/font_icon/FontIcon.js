@@ -4,7 +4,7 @@ import cx from 'classnames';
 const FontIcon = ({ children, className, value, ...other }) => (
   <span
     data-teamleader-ui="font-icon"
-    className={cx({ 'teamleader-icons': typeof value === 'string' || typeof children === 'string' }, className)}
+    className={cx(className, { 'teamleader-icons': typeof value === 'string' || typeof children === 'string' })}
     {...other}
   >
     {value}

@@ -43,12 +43,12 @@ const positionMiddle = (anchorPosition, targetPosition) => ({
 });
 
 const positionTop = (anchorPosition, targetPosition) => ({
-  top: anchorPosition.top - POPUP_OFFSET*.75,
-  arrowTop: ARROW_OFFSET*2.35,
+  top: anchorPosition.top - POPUP_OFFSET * 0.75,
+  arrowTop: ARROW_OFFSET * 2.35,
 });
 
 const positionBottom = (anchorPosition, targetPosition) => ({
-  top: anchorPosition.bottom - targetPosition.height + POPUP_OFFSET*.75,
+  top: anchorPosition.bottom - targetPosition.height + POPUP_OFFSET * 0.75,
   arrowTop: targetPosition.height - 4.5 * ARROW_OFFSET,
 });
 

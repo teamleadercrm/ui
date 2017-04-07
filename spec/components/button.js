@@ -10,17 +10,17 @@ const ButtonTest = () => (
     <h2>Buttons</h2>
 
     <p>
-      <Button primary onMouseUp={handleItemClick}>Primary flat</Button>&nbsp;
-      <Button primary icon="search">Primary flat with icon</Button>&nbsp;
+      <Button primary onMouseUp={handleItemClick}>Primary</Button>&nbsp;
+      <Button primary icon="search">Primary with icon</Button>&nbsp;
       <Button primary icon="search" />
     </p>
     <p>
-      <Button primary processing>Primary flat processing</Button>&nbsp;
-      <Button primary processing icon="search">Primary flat processing with icon</Button>&nbsp;
+      <Button primary processing>Primary processing</Button>&nbsp;
+      <Button primary processing icon="search">Primary processing with icon</Button>&nbsp;
       <Button primary processing />
     </p>
     <p>
-      <Button primary disabled>Primary flat disabled</Button>&nbsp;
+      <Button primary disabled>Primary  disabled</Button>&nbsp;
       <Button primary disabled icon="search">Primary disabled with icon</Button>&nbsp;
       <Button primary disabled icon="search" />
     </p>
@@ -28,21 +28,38 @@ const ButtonTest = () => (
     <hr />
 
     <p>
-      <Button>Neutral flat</Button>&nbsp;
-      <Button icon="search">Neutral flat with icon</Button>&nbsp;
+      <Button>Secondary</Button>&nbsp;
+      <Button icon="search">Secondary with icon</Button>&nbsp;
       <Button icon="search" />
     </p>
 
     <p>
-      <Button processing>Neutral flat processing</Button>&nbsp;
-      <Button processing icon="search">Neutral flat processing with icon</Button>&nbsp;
+      <Button bordered>Secondary bordered</Button>&nbsp;
+      <Button bordered icon="search">Secondary with icon and border</Button>&nbsp;
+    </p>
+
+    <p>
+      <Button processing>Secondary processing</Button>&nbsp;
+      <Button processing icon="search">Secondary processing with icon</Button>&nbsp;
       <Button processing />
     </p>
 
     <p>
-      <Button disabled>Neutral flat disabled</Button>&nbsp;
-      <Button disabled icon="search">Neutral disabled with icon</Button>&nbsp;
+      <Button bordered processing>Secondary bordered processing</Button>&nbsp;
+      <Button bordered processing icon="search">Secondary processing with icon</Button>&nbsp;
+      <Button bordered processing />
+    </p>
+
+    <p>
+      <Button disabled>Secondary disabled</Button>&nbsp;
+      <Button disabled icon="search">Secondary disabled with icon</Button>&nbsp;
       <Button disabled icon="search" />
+    </p>
+
+    <p>
+      <Button bordered disabled>Secondary bordered disabled</Button>&nbsp;
+      <Button bordered disabled icon="search">Secondary disabled with icon</Button>&nbsp;
+      <Button bordered disabled icon="search" />
     </p>
 
     <hr />

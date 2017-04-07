@@ -1,13 +1,14 @@
 import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
 import FontIcon from '../font_icon';
+import { omit } from 'lodash';
 
 class Button extends Component {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
     disabled: PropTypes.bool,
-    flat: PropTypes.bool,
+    bordered: PropTypes.bool,
     href: PropTypes.string,
     icon: PropTypes.oneOfType([
       PropTypes.string,
@@ -20,12 +21,11 @@ class Button extends Component {
     processing: PropTypes.bool,
     theme: PropTypes.shape({
       button: PropTypes.string,
-      flat: PropTypes.string,
+      bordered: PropTypes.string,
       icon: PropTypes.string,
       inverse: PropTypes.string,
-      mini: PropTypes.string,
-      neutral: PropTypes.string,
       primary: PropTypes.string,
+      secondary: PropTypes.string,
       toggle: PropTypes.string,
     }),
     type: PropTypes.string,
@@ -33,7 +33,7 @@ class Button extends Component {
 
   static defaultProps = {
     className: '',
-    flat: false,
+    bordered: false,
     primary: false,
     processing: false,
     type: 'button',
@@ -43,18 +43,19 @@ class Button extends Component {
     if (this.props.primary) {
       return 'primary';
     }
-    return 'neutral';
+    return 'secondary';
   };
 
   getShape = () => {
-    return 'flat';
+    if (this.props.bordered) {
+      return 'bordered';
+    }
   };
 
   getState = () => {
     if (this.props.processing) {
       return 'processing';
     }
-    return '';
   };
 
   handleMouseUp = (event) => {
@@ -75,16 +76,16 @@ class Button extends Component {
     const {
       children,
       className,
-      flat, // eslint-disable-line
       href,
       icon,
       label,
       theme,
       type,
-      primary, // eslint-disable-line
       processing,
       ...others
     } = this.props;
+
+    const rest = omit(others, [ 'primary', 'bordered' ]);
 
     const element = href ? 'a' : 'button';
     const level = this.getLevel();
@@ -103,7 +104,7 @@ class Button extends Component {
     );
 
     const props = {
-      ...others,
+      ...rest,
       href,
       ref: (node) => {
         this.buttonNode = node;

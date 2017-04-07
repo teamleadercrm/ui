@@ -1,20 +1,22 @@
 :root {
   --button-border-radius: calc(.2 * var(--unit));
+  --button-border-color: var(--palette-grey-400);
+  --button-padding: 0 calc(1.4 * var(--unit));
   --button-font-weight: var(--font-weight-normal);
   --button-height: calc(3 * var(--unit));
   --button-toggle-font-size: calc(2 * var(--unit));
-  --button-primary-color: var(--color-primary);
-  --button-primary-color-hover: color(var(--color-primary-dark));
+  --button-primary-color-processing: var(--color-primary);
+  --button-primary-background-color: var(--color-primary);
+  --button-primary-background-color-hover: color(var(--color-primary-dark));
   --button-primary-color-contrast: var(--color-primary-contrast);
   --button-primary-disabled-background-color: var(--palette-teal-lightest);
-  --button-neutral-color: var(--color-white);
-  --button-neutral-color-contrast: var(--palette-bluewood-lighter);
-  --button-neutral-color-hover: color(var(--palette-grey-200));
-  --button-disabled-text-color: color(var(--color-black) a(26%));
+  --button-secondary-color : var(--palette-bluewood-lighter);
+  --button-secondary-background-color : transparent;
+  --button-secondary-background-color-hover : var(--palette-grey-200);
+  --button-disabled-text-color: var(--palette-grey-500);
   --button-disabled-background-color: color(var(--color-black) a(12%));
   --button-disabled-text-color-inverse: color(var(--color-black) a(54%));
   --button-disabled-background-inverse: color(var(--color-black) a(8%));
-  --button-squared-icon-margin: calc(0.6 * var(--unit));
+  --button-icon-margin: calc(0.6 * var(--unit));
   --button-squared-min-width: calc(4 * var(--unit));
-  --button-squared-padding: 0 calc(1.4 * var(--unit));
 }

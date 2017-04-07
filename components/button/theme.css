@@ -17,6 +17,7 @@
   align-content: center;
   align-items: center;
   border: 0;
+  border-radius: var(--button-border-radius);
   cursor: pointer;
   display: inline-block;
   flex-direction: row;
@@ -27,16 +28,25 @@
   letter-spacing: 0;
   line-height: var(--button-height);
   outline: none;
-  padding: 0;
+  padding: var(--button-padding);
   position: relative;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
-  transition:
-          box-shadow 0.2s var(--animation-curve-fast-out-linear-in),
-          background-color 0.2s var(--animation-curve-default),
-          color 0.2s var(--animation-curve-default);
+  transition: box-shadow 0.2s var(--animation-curve-fast-out-linear-in),
+  background-color 0.2s var(--animation-curve-default),
+  color 0.2s var(--animation-curve-default);
   white-space: nowrap;
+
+  &:not(.iconOnly) .icon,
+  &:not(.iconOnly) > svg {
+    margin-right: var(--button-icon-margin);
+  }
+
+  & .icon {
+    font-size: 120%;
+    vertical-align: middle;
+  }
 
   & > input {
     height: 0.1px;
@@ -79,35 +89,21 @@
   }
 }
 
-.squared {
-  border-radius: var(--button-border-radius);
-  min-width: var(--button-squared-min-width);
-  padding: var(--button-squared-padding);
-
-  & .icon {
-    font-size: 120%;
-    vertical-align: middle;
-  }
-
-  &:not(.iconOnly) .icon {
-    margin-right: var(--button-squared-icon-margin);
-  }
-
-  &:not(.iconOnly) > svg {
-    margin-right: calc(.5 * var(--unit));
-  }
+.bordered {
+  border: 1px solid var(--button-border-color);
 }
 
-.flat {
-  background: transparent;
-  composes: button;
-  composes: squared;
+.secondary {
+  background: var(--button-secondary-background-color);
+  color: var(--button-secondary-color);
+  &:hover {
+    background: var(--button-secondary-background-color-hover);
+  }
 }
 
 .toggle {
-  background: transparent;
-  border-radius: 50%;
   composes: button;
+  background: transparent;
   vertical-align: middle;
   width: var(--button-height);
 
@@ -126,67 +122,18 @@
   }
 
   &:not([disabled]) {
-    &.flat {
-      background: var(--button-primary-color);
-      color: var(--button-primary-color-contrast);
-    }
+    background: var(--button-primary-background-color);
+    color: var(--button-primary-color-contrast);
 
-    &.toggle {
-      color: var(--button-primary-color);
-
-      &:focus:not(:active) {
-        background: var(--button-primary-color-hover);
-      }
-    }
-
-    &.flat:hover {
-      background: var(--button-primary-color-hover);
-      box-shadow: var(--zdepth-shadow-1);
+    &:hover {
+      background: var(--button-primary-background-color-hover);
     }
 
     &.processing {
       background: var(--button-primary-disabled-background-color);
-      color: var(--button-primary-color);
+      color: var(--button-primary-color-processing);
     }
   }
-}
-.neutral:not([disabled]) {
-  &.flat,
-  &.toggle {
-    color: var(--button-neutral-color-contrast);
-
-    &:focus:not(:active) {
-      background: var(--button-neutral-color-hover);
-    }
-  }
-
-  &.flat:hover {
-    background: var(--button-neutral-color-hover);
-  }
-
-  &.processing {
-    color: var(--button-disabled-text-color);
-  }
-
-  &.inverse {
-    &.flat,
-    &.toggle {
-      color: var(--button-neutral-color);
-
-      &:focus:not(:active) {
-        background: var(--button-neutral-color-hover);
-      }
-    }
-
-    &.flat:hover {
-      background: var(--button-neutral-color-hover);
-    }
-  }
-}
-
-.neutral.inverse[disabled] {
-  background-color: var(--button-disabled-background-inverse);
-  color: var(--button-disabled-text-color-inverse);
 }
 
 .processing {

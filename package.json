@@ -114,7 +114,7 @@
     "karma-mocha-reporter": "^2.0.0",
     "karma-phantomjs-launcher": "^1.0.2",
     "karma-webpack-with-fast-source-maps": "^1.9.2",
-    "lodash.throttle": "4.1.1",
+    "lodash": "^4.17.4",
     "mocha": "^3.0.1",
     "phantomjs-prebuilt": "^2.1.12",
     "postcss": "^5.2.16",
