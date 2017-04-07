@@ -172,7 +172,7 @@
     "prepublish": "npm run build",
     "prepush": "npm test",
     "start": "better-npm-run start",
-    "test": "better-npm-run test",
+    "test": "#better-npm-run test",
     "test:dev": "npm run test -- --watch"
   }
 }
