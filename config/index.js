@@ -31,11 +31,6 @@ const config = {
   // ----------------------------------
   // Compiler Configuration
   // ----------------------------------
-  compiler_babel: {
-    cacheDirectory: true,
-    plugins: [ 'transform-runtime' ],
-    presets: [ 'es2015', 'react', 'stage-1' ]
-  },
   compiler_css_modules: true,
   compiler_devtool: 'eval-source-map',
   compiler_hash_type: 'hash',
@@ -75,7 +70,6 @@ const globals = {
   },
   'NODE_ENV': config.env,
   '__DEV__': config.env === 'development',
-  '__STAGING__': config.env === 'staging',
   '__PROD__': config.env === 'production',
   '__TEST__': config.env === 'test',
   '__DEBUG__': (config.env === 'development' || config.env === 'staging') && !argv.no_debug,

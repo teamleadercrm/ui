@@ -3,9 +3,6 @@
   "description": "Teamleader UI library",
   "version": "0.0.9-alpha",
   "author": "Teamleader <development@teamleader.eu>",
-  "contributors": [
-    "Dries Decramer <dries.decramer@teamleader.eu>"
-  ],
   "betterScripts": {
     "compile": {
       "command": "node bin/compile",
@@ -57,6 +54,11 @@
   "bugs": {
     "url": "https://github.com/teamleadercrm/teamleader-ui/issues"
   },
+  "contributors": [
+    "Dries Decramer <dries.decramer@teamleader.eu>",
+    "Nick Waelkens <nick.waelkens@teamleader.eu>",
+    "Lowie Benoot <lowie.benoot@teamleader.eu>"
+  ],
   "dependencies": {
     "classnames": "^2.2.5",
     "react": "^15.4.1",
@@ -95,7 +97,7 @@
     "eslint-plugin-react": "^6.0.0",
     "eslint-plugin-standard": "^2.0.0",
     "express": "^4.14.0",
-    "extract-text-webpack-plugin": "^1.0.0",
+    "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.9.0",
     "fs-extra": "^0.30.0",
     "gulp": "^3.9.1",
@@ -115,12 +117,14 @@
     "lodash.throttle": "4.1.1",
     "mocha": "^3.0.1",
     "phantomjs-prebuilt": "^2.1.12",
+    "postcss": "^5.2.16",
     "postcss-cssnext": "^2.9.0",
     "postcss-each": "^0.9.3",
     "postcss-import": "^9.0.0",
-    "postcss-loader": "^0.13.0",
+    "postcss-loader": "^1.3.3",
     "postcss-mixins": "^5.4.1",
     "postcss-nested": "^1.0.0",
+    "postcss-pseudoelements": "^4.0.0",
     "postcss-reporter": "^3.0.0",
     "promise-polyfill": "^6.0.2",
     "react-addons-test-utils": "^15.4.1",
@@ -132,10 +136,9 @@
     "sinon-chai": "^2.8.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.6",
-    "webpack": "^1.14.0",
-    "webpack-bundle-tracker": "0.0.93",
-    "webpack-dev-middleware": "^1.6.1",
-    "webpack-hot-middleware": "^2.12.2",
+    "webpack": "^2.3.3",
+    "webpack-dev-middleware": "^1.10.1",
+    "webpack-hot-middleware": "^2.18.0",
     "yargs": "^5.0.0"
   },
   "directories": {
@@ -153,8 +156,6 @@
     "url": "git+https://github.com/teamleadercrm/teamleader-ui.git"
   },
   "scripts": {
-    "precommit": "npm run lint:fix",
-    "prepush": "npm test",
     "babel": "babel ./components/**/*.js --out-dir ./lib",
     "build": "NODE_ENV=production rimraf lib && gulp",
     "clean": "rimraf dist",
@@ -167,7 +168,9 @@
     "dmc": "npm start",
     "lint": "eslint components spec",
     "lint:fix": "npm run lint -- --fix",
+    "precommit": "npm run lint:fix",
     "prepublish": "npm run build",
+    "prepush": "npm test",
     "start": "better-npm-run start",
     "test": "better-npm-run test",
     "test:dev": "npm run test -- --watch"

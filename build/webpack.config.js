@@ -12,7 +12,6 @@ const port = config.server_port;
 const paths = config.utils_paths;
 const __DEV__ = config.globals.__DEV__;
 const __PROD__ = config.globals.__PROD__;
-const __STAGING__ = config.globals.__STAGING__;
 const __TEST__ = config.globals.__TEST__;
 
 debug('Creating configuration.');
@@ -21,8 +20,8 @@ const webpackConfig = {
   target: 'web',
   devtool: config.compiler_devtool,
   resolve: {
-    root: paths.client(),
-    extensions: [ '', '.js', '.jsx', '.json' ]
+    modules: [ paths.client(), 'node_modules' ],
+    extensions: [ '.js', '.jsx', '.json' ]
   },
   module: {}
 };
@@ -36,8 +35,11 @@ webpackConfig.entry = {
   app: __DEV__
     ? [ 'react-hot-loader/patch', APP_ENTRY, WEBPACK_HMR_ENTRY ]
     : [ APP_ENTRY ],
-  vendor: config.compiler_vendors
 };
+
+if (config.compiler_vendors.length) {
+  webpackConfig.entry.vendor = config.compiler_vendors;
+}
 
 // ------------------------------------
 // Bundle Output
@@ -70,19 +72,31 @@ if (__DEV__) {
   debug('Enable plugins for live development (HMR, NoErrors).');
   webpackConfig.plugins.push(
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin()
   );
-} else if (__STAGING__ || __PROD__) {
+} else if (__PROD__) {
   debug('Enable plugins for production (OccurenceOrder, Dedupe & UglifyJS).');
   webpackConfig.plugins.push(
-    new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.optimize.DedupePlugin(),
+    new webpack.LoaderOptionsPlugin({
+      minimize: true,
+      debug: false,
+    }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
+        warnings: false,
+        screw_ie8: true,
+        conditionals: true,
         unused: true,
+        comparisons: true,
+        sequences: true,
         dead_code: true,
-        warnings: false
-      }
+        evaluate: true,
+        if_return: true,
+        join_vars: true,
+      },
+      output: {
+        comments: false,
+      },
     })
   );
 }
@@ -100,14 +114,13 @@ if (!__TEST__) {
 // Loaders
 // ------------------------------------
 // JavaScript / JSON
-webpackConfig.module.loaders = [ {
+webpackConfig.module.rules = [ {
   test: /\.(js|jsx)$/,
   exclude: /node_modules/,
-  loader: 'babel',
-  query: config.compiler_babel
+  loader: 'babel-loader',
 }, {
   test: /\.json$/,
-  loader: 'json'
+  loader: 'json-loader'
 } ];
 
 // ------------------------------------
@@ -115,7 +128,7 @@ webpackConfig.module.loaders = [ {
 // ------------------------------------
 // We use cssnano with the postcss loader, so we tell
 // css-loader not to duplicate minimization.
-const BASE_CSS_LOADER = 'css?sourceMap&-minimize';
+const BASE_CSS_LOADER = 'css-loader?sourceMap&-minimize';
 
 // Add any packge names here whose styles need to be treated as CSS modules.
 // These paths will be combined into a single regex.
@@ -139,68 +152,63 @@ if (isUsingCSSModules) {
     BASE_CSS_LOADER,
     'modules',
     'importLoaders=1',
-    (__DEV__ || __STAGING__) ? 'localIdentName=[name]__[local]___[hash:base64:5]' : 'localIdentName=[hash:base64:7]'
+    (__DEV__) ? 'localIdentName=[name]__[local]___[hash:base64:5]' : 'localIdentName=[hash:base64:7]'
   ].join('&');
 
-  webpackConfig.module.loaders.push({
+  webpackConfig.module.rules.push({
     test: /\.css$/,
     include: cssModulesRegex,
-    loaders: [
-      'style',
+    use: [
+      'style-loader',
       cssModulesLoader,
-      'postcss'
+      'postcss-loader'
     ]
   });
 }
 
 // Loaders for files that should not be treated as CSS modules.
 const excludeCSSModules = isUsingCSSModules ? cssModulesRegex : false;
-webpackConfig.module.loaders.push({
+webpackConfig.module.rules.push({
   test: /\.css$/,
   exclude: excludeCSSModules,
-  loaders: [
+  use: [
     'style',
     BASE_CSS_LOADER,
-    'postcss'
+    'postcss-loader'
   ]
 });
 
-// ------------------------------------
-// Style Configuration
-// ------------------------------------
-webpackConfig.postcss = () => {
-  return [
-    require('postcss-import')({
-      root: __dirname,
-      path: [path.join(__dirname, './components')]
-    }),
-    require('postcss-mixins')(),
-    require('postcss-each')(),
-    require('postcss-cssnext')(),
-    require('postcss-nested')(),
-    require('postcss-reporter')({ clearMessages: true })
-  ];
-};
-
 // File loaders
 /* eslint-disable */
-webpackConfig.module.loaders.push(
+webpackConfig.module.rules.push(
   {
     test: /\.woff(\?.*)?$/,
-    loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/font-woff'
+    loader: 'url-loader?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/font-woff',
   },
   {
     test: /\.woff2(\?.*)?$/,
-    loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/font-woff2'
+    loader: 'url-loader?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/font-woff2',
   },
-  {test: /\.otf(\?.*)?$/, loader: 'file?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=font/opentype'},
+  {
+    test: /\.otf(\?.*)?$/,
+    loader: 'file-loader?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=font/opentype',
+  },
   {
     test: /\.ttf(\?.*)?$/,
-    loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/octet-stream'
+    loader: 'url-loader?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/octet-stream',
   },
-  {test: /\.eot(\?.*)?$/, loader: 'file?prefix=fonts/&name=[path][name].[ext]'},
-  {test: /\.svg(\?.*)?$/, loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=image/svg+xml'},
-  {test: /\.(png|jpg)$/, loader: 'url?limit=8192'}
+  {
+    test: /\.eot(\?.*)?$/,
+    loader: 'file-loader?prefix=fonts/&name=[path][name].[ext]',
+  },
+  {
+    test: /\.svg(\?.*)?$/,
+    loader: 'url-loader?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=image/svg+xml',
+  },
+  {
+    test: /\.(png|jpg)$/,
+    loader: 'url-loader?limit=8192',
+  }
 );
 /* eslint-enable */
 
@@ -210,20 +218,23 @@ webpackConfig.module.loaders.push(
 // when we don't know the public path (we know it only when HMR is enabled [in development]) we
 // need to use the extractTextPlugin to fix this issue:
 // http://stackoverflow.com/questions/34133808/webpack-ots-parsing-error-loading-fonts/34133809#34133809
-if (!__DEV__ && !__STAGING__) {
+if (!__DEV__) {
   debug('Apply ExtractTextPlugin to CSS loaders.');
-  webpackConfig.module.loaders.filter((loader) =>
-    loader.loaders && loader.loaders.find((name) => /css/.test(name.split('?')[ 0 ]))
-  ).forEach((loader) => {
-    const first = loader.loaders[ 0 ];
-    const rest = loader.loaders.slice(1);
-    loader.loader = ExtractTextPlugin.extract(first, rest.join('!'));
-    delete loader.loaders;
+  webpackConfig.module.rules.filter((rule) =>
+    rule.use && rule.use.find((name) => /css/.test(name.split('?')[ 0 ]))
+  ).forEach((rule) => {
+    const fallback = rule.use[ 0 ];
+    const rest = rule.use.slice(1);
+    rule.loader = ExtractTextPlugin.extract({fallback, use: rest.join('!')});
+    delete rule.use;
   });
 
+  const filename = config.compiler_hash_type ? `[name].[${config.compiler_hash_type}].css` : '[name].css';
+
   webpackConfig.plugins.push(
-    new ExtractTextPlugin('[name].[contenthash].css', {
-      allChunks: true
+    new ExtractTextPlugin({
+      filename,
+      allChunks: true,
     })
   );
 }

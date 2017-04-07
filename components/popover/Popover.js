@@ -22,7 +22,6 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
       anchorEl: PropTypes.object,
       backdrop: PropTypes.string,
       children: PropTypes.node,
-      className: PropTypes.string,
       onCloseClick: PropTypes.func,
       onEscKeyDown: PropTypes.func,
       onOverlayClick: PropTypes.func,
