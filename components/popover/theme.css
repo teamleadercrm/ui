@@ -18,6 +18,7 @@
 
 .popover {
   background: var(--popover-background-color);
+  box-shadow: var(--shadow-2p);
   position: absolute;
   opacity: 0;
   min-width: 300px;
