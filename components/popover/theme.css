@@ -18,7 +18,7 @@
 
 .popover {
   background: var(--popover-background-color);
-  box-shadow: var(--shadow-2p);
+  box-shadow: var(--popover-box-shadow);
   position: absolute;
   opacity: 0;
   min-width: 300px;
@@ -30,7 +30,7 @@
 
 .arrow {
   background: var(--color-white);
-  box-shadow: var(--shadow-2p);
+  box-shadow: var(--popover-box-shadow);
   content: "";
   height: calc(1.4 * var(--unit));
   position: absolute;
