@@ -46,12 +46,14 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
       subtitle: React.PropTypes.oneOfType([ React.PropTypes.object, React.PropTypes.string ]),
       position: PropTypes.string.isRequired,
       direction: PropTypes.string.isRequired,
+      offsetCorrection: PropTypes.number,
     };
 
     static defaultProps = {
       actions: [],
       active: true,
       backdrop: 'dark',
+      offsetCorrection: 0,
     };
 
     constructor () {
@@ -89,12 +91,12 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
     }
 
     setPlacement () {
-      const { anchorEl, direction, position } = this.props;
+      const { anchorEl, direction, position, offsetCorrection } = this.props;
       const targetEl = document.querySelectorAll(`[data-teamleader-ui="popover-${axis}"]`)[0];
 
       this.setState(
         {
-          positioning: calculatePositions(anchorEl, targetEl, direction, position),
+          positioning: calculatePositions(anchorEl, targetEl, direction, position, offsetCorrection),
         }
       );
     }
