@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import classnames from 'classnames';
+import cx from 'classnames';
 import { throttle } from 'lodash';
 import ActivableRenderer from '../hoc/ActivableRenderer';
 import Portal from '../hoc/Portal';
@@ -22,12 +22,15 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
       anchorEl: PropTypes.object,
       backdrop: PropTypes.string,
       children: PropTypes.node,
+      className : PropTypes.string,
+      direction: PropTypes.string.isRequired,
       onCloseClick: PropTypes.func,
       onEscKeyDown: PropTypes.func,
       onOverlayClick: PropTypes.func,
       onOverlayMouseDown: PropTypes.func,
       onOverlayMouseMove: PropTypes.func,
       onOverlayMouseUp: PropTypes.func,
+      position: PropTypes.string.isRequired,
       theme: PropTypes.shape({
         active: PropTypes.string,
         arrow: PropTypes.string,
@@ -43,15 +46,15 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
         wrapper: PropTypes.string,
       }),
       title: PropTypes.string,
+      showHeader: PropTypes.bool.isRequired,
       subtitle: React.PropTypes.oneOfType([ React.PropTypes.object, React.PropTypes.string ]),
-      position: PropTypes.string.isRequired,
-      direction: PropTypes.string.isRequired,
     };
 
     static defaultProps = {
       actions: [],
       active: true,
       backdrop: 'dark',
+      showHeader: true,
     };
 
     constructor () {
@@ -90,7 +93,7 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
 
     setPlacement () {
       const { anchorEl, direction, position } = this.props;
-      const targetEl = document.querySelectorAll(`[data-teamleader-ui="popover-${axis}"]`)[0];
+      const targetEl = document.querySelectorAll(`[data-teamleader-ui="popover-${axis}"]`)[ 0 ];
 
       this.setState(
         {
@@ -107,35 +110,38 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
         active,
         backdrop,
         children,
-        subtitle,
-        theme,
-        title,
+        className,
         onCloseClick,
         onOverlayClick,
         onEscKeyDown,
         onOverlayMouseDown,
         onOverlayMouseMove,
         onOverlayMouseUp,
+        subtitle,
+        showHeader,
+        theme,
+        title,
       } = this.props;
 
       const actionButtons = actions.map((action, idx) => {
-        const className = classnames(
+        const className = cx(
           theme.button,
           {
             [action.className]: action.className,
           }
         );
 
-        return <Button key={idx} {...action} className={className} />; // eslint-disable-line
+        return <Button key={idx} {...action} className={className}/>; // eslint-disable-line
       });
 
-      const className = classnames(
+      const customClassName = cx(
         [
           theme.popover,
         ],
         {
           [theme.active]: active,
-        }
+        },
+        className
       );
 
       return (
@@ -154,27 +160,23 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
           />
           <div
             data-teamleader-ui={`popover-${axis}`}
-            className={className}
+            className={customClassName}
             style={{ left: `${left}px`, top: `${top}px` }}
           >
-            <div className={theme.arrow} style={{ left : `${arrowLeft}px`, top : `${arrowTop}px` }} />
-            <header className={theme.header}>
-              {title
-                ? <h6 className={theme.title}>{title}</h6>
-                : null
-              }
-              {subtitle
-                ? <p className={theme.subtitle}>{subtitle}</p>
-                : null
-              }
-              <Button icon="close" className={theme.close} onMouseUp={onCloseClick} />
-            </header>
+            <div className={theme.arrow} style={{ left: `${arrowLeft}px`, top: `${arrowTop}px` }} />
+            {showHeader &&
+              <header className={theme.header}>
+                { title && <h6 className={theme.title}>{title}</h6> }
+                { subtitle && <p className={theme.subtitle}>{subtitle}</p> }
+                <Button icon="close" className={theme.close} onMouseUp={onCloseClick} />
+              </header>
+            }
             <section role="body" className={theme.body}>
               {children}
             </section>
-            {actionButtons.length
+            { actionButtons.length
               ? <nav role="navigation" className={theme.navigation}>
-                {actionButtons}
+                { actionButtons }
               </nav>
               : null
             }
