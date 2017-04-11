@@ -42,14 +42,14 @@ const positionMiddle = (anchorPosition, targetPosition) => ({
   arrowTop: targetPosition.height / 2 - ARROW_OFFSET,
 });
 
-const positionTop = (anchorPosition, targetPosition) => ({
-  top: anchorPosition.top - POPUP_OFFSET * 0.75,
+const positionTop = (anchorPosition, targetPosition, offsetCorrection) => ({
+  top: anchorPosition.top - POPUP_OFFSET * 0.75 - offsetCorrection,
   arrowTop: ARROW_OFFSET * 2.35,
 });
 
-const positionBottom = (anchorPosition, targetPosition) => ({
-  top: anchorPosition.bottom - targetPosition.height + POPUP_OFFSET * 0.75,
-  arrowTop: targetPosition.height - 4.5 * ARROW_OFFSET,
+const positionBottom = (anchorPosition, targetPosition, offsetCorrection) => ({
+  top: anchorPosition.bottom - targetPosition.height + POPUP_OFFSET * 0.75 + offsetCorrection,
+  arrowTop: targetPosition.height - ARROW_OFFSET * 4.5,
 });
 
 const directionWest = (anchorPosition, targetPosition) => ({
@@ -98,13 +98,13 @@ const positionCenter = (anchorPosition, targetPosition) => ({
   arrowLeft: targetPosition.width / 2 - ARROW_OFFSET,
 });
 
-const positionLeft = (anchorPosition, targetPosition) => ({
-  left: anchorPosition.left,
+const positionLeft = (anchorPosition, targetPosition, offsetCorrection) => ({
+  left: anchorPosition.left - offsetCorrection,
   arrowLeft: 2 * POPUP_OFFSET,
 });
 
-const positionRight = (anchorPosition, targetPosition) => ({
-  left: anchorPosition.right - targetPosition.width,
+const positionRight = (anchorPosition, targetPosition, offsetCorrection) => ({
+  left: anchorPosition.right - targetPosition.width + offsetCorrection,
   arrowLeft: targetPosition.width - POPUP_OFFSET * 3,
 });
 
@@ -149,7 +149,13 @@ const updatePositionIfNeeded = (position, anchorPosition, targetPosition) => {
 
 // EXPORT
 
-export function calculateHorizontalPositions (anchorEl, targetEl, inputDirection, inputPosition) {
+export function calculateHorizontalPositions (
+  anchorEl,
+  targetEl,
+  inputDirection,
+  inputPosition,
+  inputOffsetCorrection
+) {
   const anchorPosition = getAnchorPosition(anchorEl);
   const targetPosition = getTargetPosition(targetEl);
 
@@ -165,17 +171,23 @@ export function calculateHorizontalPositions (anchorEl, targetEl, inputDirection
 
   let position;
   if (positionToRender === 'top') {
-    position = positionTop(anchorPosition, targetPosition);
+    position = positionTop(anchorPosition, targetPosition, inputOffsetCorrection);
   } else if (positionToRender === 'middle') {
     position = positionMiddle(anchorPosition, targetPosition);
   } else {
-    position = positionBottom(anchorPosition, targetPosition);
+    position = positionBottom(anchorPosition, targetPosition, inputOffsetCorrection);
   }
 
   return { ...direction, ...position };
 }
 
-export function calculateVerticalPositions (anchorEl, targetEl, inputDirection, inputPosition) {
+export function calculateVerticalPositions (
+  anchorEl,
+  targetEl,
+  inputDirection,
+  inputPosition,
+  inputOffsetCorrection
+) {
   const anchorPosition = getAnchorPosition(anchorEl);
   const targetPosition = getTargetPosition(targetEl);
 
@@ -191,11 +203,11 @@ export function calculateVerticalPositions (anchorEl, targetEl, inputDirection, 
 
   let position;
   if (positionToRender === 'left') {
-    position = positionLeft(anchorPosition, targetPosition);
+    position = positionLeft(anchorPosition, targetPosition, inputOffsetCorrection);
   } else if (positionToRender === 'center') {
     position = positionCenter(anchorPosition, targetPosition);
   } else {
-    position = positionRight(anchorPosition, targetPosition);
+    position = positionRight(anchorPosition, targetPosition, inputOffsetCorrection);
   }
 
   return { ...direction, ...position };
