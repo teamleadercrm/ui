@@ -36,7 +36,6 @@ function getTargetPosition (targetEl) {
 }
 
 // HORIZONTAL
-
 const positionMiddle = (anchorPosition, targetPosition) => ({
   top: anchorPosition.middle - targetPosition.height / 2,
   arrowTop: targetPosition.height / 2 - ARROW_OFFSET,
@@ -64,7 +63,7 @@ const directionEast = (anchorPosition, targetPosition) => ({
 
 const updateHorizontalDirectionIfNeeded = (direction, anchorPosition, targetPosition) => {
   if (direction === 'west') {
-    return anchorPosition.left + targetPosition.width + POPUP_OFFSET < window.innerWidth ? 'west' : 'east';
+    return anchorPosition.left - targetPosition.width - POPUP_OFFSET < 0 ? 'east' : 'west';
   }
 
   return anchorPosition.right + targetPosition.width + POPUP_OFFSET < window.innerWidth ? 'east' : 'west';
@@ -92,7 +91,6 @@ const updateHorizontalPositionIfNeeded = (position, anchorPosition, targetPositi
 };
 
 // VERTICAL
-
 const positionCenter = (anchorPosition, targetPosition) => ({
   left: anchorPosition.center - targetPosition.width / 2,
   arrowLeft: targetPosition.width / 2 - ARROW_OFFSET,
@@ -148,7 +146,6 @@ const updatePositionIfNeeded = (position, anchorPosition, targetPosition) => {
 };
 
 // EXPORT
-
 export function calculateHorizontalPositions (
   anchorEl,
   targetEl,
@@ -158,7 +155,6 @@ export function calculateHorizontalPositions (
 ) {
   const anchorPosition = getAnchorPosition(anchorEl);
   const targetPosition = getTargetPosition(targetEl);
-
   const directionToRender = updateHorizontalDirectionIfNeeded(inputDirection, anchorPosition, targetPosition);
   const positionToRender = updateHorizontalPositionIfNeeded(inputPosition, anchorPosition, targetPosition);
 
