@@ -193,11 +193,17 @@ const factory = (MenuItem) => {
     }
 
     renderItems () {
+      // Because React Hot Loader creates proxied versions of your components,
+      // comparing reference types of elements won't work
+      // https://github.com/gaearon/react-hot-loader/blob/master/docs/Known%20Limitations.md#checking-element-types
+      const MenuItemType = (<MenuItem />).type;
+
       return React.Children.map(this.props.children, (item) => {
         if (!item) {
           return item;
         }
-        if (item.type === MenuItem) {
+
+        if (item.type === MenuItemType) {
           return React.cloneElement(item, {
             selected: typeof item.props.value !== 'undefined' &&
               this.props.selectable &&
