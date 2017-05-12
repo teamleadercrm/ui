@@ -54,9 +54,10 @@
   ],
   "dependencies": {
     "classnames": "^2.2.5",
-    "react": "^15.4.1",
+    "prop-types": "^15.5.9",
+    "react": "^15.5.4",
     "react-css-themr": "^2.0.0",
-    "react-dom": "^15.4.1"
+    "react-dom": "^15.5.4"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
