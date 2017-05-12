@@ -33,8 +33,7 @@
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
-  transition: box-shadow 0.2s var(--animation-curve-fast-out-linear-in),
-  background-color 0.2s var(--animation-curve-default),
+  transition: background-color 0.2s var(--animation-curve-default),
   color 0.2s var(--animation-curve-default);
   white-space: nowrap;
 
