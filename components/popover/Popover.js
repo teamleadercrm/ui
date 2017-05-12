@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { throttle } from 'lodash';
 import ActivableRenderer from '../hoc/ActivableRenderer';
@@ -48,7 +49,7 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
       }),
       title: PropTypes.string,
       showHeader: PropTypes.bool.isRequired,
-      subtitle: React.PropTypes.oneOfType([ React.PropTypes.object, React.PropTypes.string ]),
+      subtitle: PropTypes.oneOfType([ PropTypes.object, PropTypes.string ]),
     };
 
     static defaultProps = {
