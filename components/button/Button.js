@@ -27,7 +27,6 @@ class Button extends Component {
       inverse: PropTypes.string,
       primary: PropTypes.string,
       secondary: PropTypes.string,
-      toggle: PropTypes.string,
     }),
     type: PropTypes.string,
   };
