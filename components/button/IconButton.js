@@ -25,6 +25,7 @@ const factory = (FontIcon) => {
         button: PropTypes.string,
         flat: PropTypes.string,
         icon: PropTypes.string,
+        iconOnly: PropTypes.string,
         inverse: PropTypes.string,
         mini: PropTypes.string,
         neutral: PropTypes.string,
@@ -79,10 +80,15 @@ const factory = (FontIcon) => {
       const element = href ? 'a' : 'button';
       const level = this.getLevel();
 
-      const classes = classnames([ theme.toggle ], {
-        [theme[ level ]]: neutral,
-        [theme.inverse]: inverse,
-      }, className);
+      const classes = classnames(
+        [ theme.iconOnly ],
+        [ theme.toggle ],
+        {
+          [theme[ level ]]: neutral,
+          [theme.inverse]: inverse,
+        },
+        className
+      );
 
       const props = {
         ...others,
