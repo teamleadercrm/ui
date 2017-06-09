@@ -1,4 +1,4 @@
 :root {
-  --overlay-color: var(--color-black);
-  --overlay-opacity: 0.6;
+  --overlay-color: var(--palette-bluewood-lighter);
+  --overlay-opacity: .85;
 }
