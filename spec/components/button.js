@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '../../components';
+import { Button, IconButton } from '../../components';
 
 const handleItemClick = () => {
   console.log('This item is so special that has a special handler');
@@ -63,6 +63,8 @@ const ButtonTest = () => (
     </p>
 
     <hr />
+
+    <p><IconButton icon="search" /></p>
   </section>
 );
 
