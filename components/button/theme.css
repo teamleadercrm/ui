@@ -1,6 +1,36 @@
 @import '../colors.css';
 @import '../variables.css';
-@import './config.css';
+
+:root {
+  --button-border-radius: calc(.2 * var(--unit));
+  --button-border-color: var(--palette-grey-400);
+  --button-small-padding: 0 calc(1.4 * var(--unit));
+  --button-medium-padding: calc(.2 * var(--unit)) calc(1.6 * var(--unit));
+  --button-large-padding: calc(.4 * var(--unit)) calc(1.8 * var(--unit));
+  --button-font-weight: var(--font-weight-normal);
+  --button-small-height: calc(3 * var(--unit));
+  --button-medium-height: calc(3.8 * var(--unit));
+  --button-large-height: calc(4.5 * var(--unit));
+  --button-small-line-height: calc(3 * var(--unit));
+  --button-medium-line-height: calc(3.6 * var(--unit));
+  --button-large-line-height: calc(4.1 * var(--unit));
+  --button-toggle-font-size: calc(2 * var(--unit));
+  --button-primary-color-processing: var(--color-primary);
+  --button-primary-background-color: var(--color-primary);
+  --button-primary-background-color-hover: color(var(--color-primary-dark));
+  --button-primary-color-contrast: var(--color-primary-contrast);
+  --button-primary-disabled-background-color: var(--palette-teal-lightest);
+  --button-secondary-color : var(--palette-bluewood-lighter);
+  --button-secondary-background-color : transparent;
+  --button-secondary-background-color-hover : var(--palette-grey-200);
+  --button-disabled-text-color: var(--palette-grey-500);
+  --button-disabled-background-color: color(var(--color-black) a(12%));
+  --button-disabled-text-color-inverse: color(var(--color-black) a(54%));
+  --button-disabled-background-inverse: color(var(--color-black) a(8%));
+  --button-icon-margin: calc(0.6 * var(--unit));
+  --button-squared-min-width: calc(4 * var(--unit));
+}
+
 
 @keyframes spin {
   0% {
@@ -23,18 +53,18 @@
   flex-direction: row;
   font-size: calc(1.4 * var(--unit));
   font-weight: var(--button-font-weight);
-  height: var(--button-height);
+  height: var(--button-small-height);
+  line-height: var(--button-small-line-height);
   justify-content: center;
   letter-spacing: 0;
-  line-height: var(--button-height);
   outline: none;
-  padding: var(--button-padding);
+  padding: 0;
   position: relative;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
   transition: background-color 0.2s var(--animation-curve-default),
-  color 0.2s var(--animation-curve-default);
+  color .2s var(--animation-curve-default);
   white-space: nowrap;
 
   &:not(.iconOnly) .icon,
@@ -64,7 +94,7 @@
 
   & > span:not([data-teamleader-ui='tooltip']) {
     display: inline-block;
-    line-height: var(--button-height);
+    line-height: calc(3 * var(--unit));
     vertical-align: top;
   }
 
@@ -72,7 +102,7 @@
     display: inline-block;
     fill: currentColor;
     font-size: 120%;
-    height: var(--button-height);
+    height: calc(3 * var(--unit));
     vertical-align: top;
     width: 1em;
   }
@@ -95,6 +125,7 @@
 .secondary {
   background: var(--button-secondary-background-color);
   color: var(--button-secondary-color);
+
   &:hover {
     background: var(--button-secondary-background-color-hover);
   }
@@ -103,14 +134,26 @@
 .toggle {
   composes: button;
   background: transparent;
+  color: var(--palette-bluewood-lighter);
   vertical-align: middle;
-  width: var(--button-height);
+  width: calc(3 * var(--unit));
 
   & > .icon,
   & svg {
     font-size: var(--button-toggle-font-size);
-    line-height: var(--button-height);
+    line-height: calc(3 * var(--unit));
+    margin: 0;
     vertical-align: top;
+  }
+
+  &[disabled] {
+    color: var(--button-primary-color-contrast);
+  }
+
+  &:not([disabled]) {
+    &:hover {
+      color: var(--palette-bluewood);
+    }
   }
 }
 
@@ -133,6 +176,27 @@
       color: var(--button-primary-color-processing);
     }
   }
+}
+
+.small {
+  font-size: calc(1.4 * var(--unit));
+  height: var(--button-small-height);
+  line-height: var(--button-small-line-height);
+  padding: var(--button-small-padding);
+}
+
+.medium {
+  font-size: calc(1.6 * var(--unit));
+  height: var(--button-medium-height);
+  line-height: var(--button-medium-line-height);
+  padding: var(--button-medium-padding);
+}
+
+.large {
+  font-size: calc(1.8 * var(--unit));
+  height: var(--button-large-height);
+  line-height: var(--button-large-line-height);
+  padding: var(--button-large-padding);
 }
 
 .processing {

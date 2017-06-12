@@ -16,6 +16,8 @@ class Button extends Component {
       PropTypes.element,
     ]),
     label: PropTypes.string,
+    large: PropTypes.bool,
+    medium: PropTypes.bool,
     onMouseLeave: PropTypes.func,
     onMouseUp: PropTypes.func,
     primary: PropTypes.bool,
@@ -27,6 +29,9 @@ class Button extends Component {
       inverse: PropTypes.string,
       primary: PropTypes.string,
       secondary: PropTypes.string,
+      small: PropTypes.string,
+      medium: PropTypes.string,
+      large: PropTypes.string,
     }),
     type: PropTypes.string,
   };
@@ -36,6 +41,9 @@ class Button extends Component {
     bordered: false,
     primary: false,
     processing: false,
+    small: true,
+    medium: false,
+    large: false,
     type: 'button',
   };
 
@@ -56,6 +64,15 @@ class Button extends Component {
     if (this.props.processing) {
       return 'processing';
     }
+  };
+
+  getSize = () => {
+    if (this.props.medium) {
+      return 'medium';
+    } else if (this.props.large) {
+      return 'large';
+    }
+    return 'small';
   };
 
   handleMouseUp = (event) => {
@@ -91,6 +108,7 @@ class Button extends Component {
     const level = this.getLevel();
     const shape = this.getShape();
     const state = this.getState();
+    const size = this.getSize();
 
     const classes = classnames(
       theme.button,
@@ -98,7 +116,8 @@ class Button extends Component {
         [theme[ level ]]: theme[ level ],
         [theme[ shape ]]: theme[ shape ],
         [theme[ state ]]: theme[ state ],
-        [theme.iconOnly]: !this.props.label && !this.props.children,
+        [theme[ size ]]: theme[ size ],
+        [theme.iconOnly]: !label && !children,
       },
       className
     );
