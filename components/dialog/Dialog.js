@@ -6,9 +6,10 @@ import { DIALOG } from '../identifiers.js';
 import Portal from '../hoc/Portal';
 import ActivableRenderer from '../hoc/ActivableRenderer';
 import InjectButton from '../button/Button.js';
+import InjectIconButton from '../button/IconButton';
 import InjectOverlay from '../overlay/Overlay';
 
-const factory = (Overlay, Button) => {
+const factory = (Overlay, Button, IconButton) => {
   class Dialog extends Component {
     static propTypes = {
       actions: PropTypes.arrayOf(PropTypes.shape({
@@ -51,57 +52,75 @@ const factory = (Overlay, Button) => {
     };
 
     render () {
-      const actions = this.props.actions.map((action, idx) => {
+      const {
+        actions,
+        active,
+        backdrop,
+        children,
+        className,
+        onCloseClick,
+        onEscKeyDown,
+        onOverlayClick,
+        onOverlayMouseDown,
+        onOverlayMouseMove,
+        onOverlayMouseUp,
+        theme,
+        title,
+        type,
+      } = this.props;
+
+      const actionButtons = actions.map((action, idx) => {
         const className = classnames(
-          this.props.theme.button,
-          { [action.className]: action.className }
+          theme.button,
+          {
+            [action.className]: action.className,
+          }
         );
-        return <Button key={idx} {...action} className={className} />; // eslint-disable-line
+        return <Button key={idx} {...action} className={className} medium />; // eslint-disable-line
       });
 
-      const className = classnames(
+      const dialogClassNames = classnames(
         [
-          this.props.theme.dialog,
-          this.props.theme[this.props.type],
+          theme.dialog,
+          theme[type],
         ],
         {
-          [this.props.theme.active]: this.props.active,
+          [theme.active]: active,
         },
-        this.props.className
+        className
       );
 
       return (
-        <Portal className={this.props.theme.wrapper}>
+        <Portal className={theme.wrapper}>
           <Overlay
-            active={this.props.active}
-            backdrop={this.props.backdrop}
-            className={this.props.theme.overlay}
-            onClick={this.props.onOverlayClick}
-            onEscKeyDown={this.props.onEscKeyDown}
-            onMouseDown={this.props.onOverlayMouseDown}
-            onMouseMove={this.props.onOverlayMouseMove}
-            onMouseUp={this.props.onOverlayMouseUp}
-            theme={this.props.theme}
+            active={active}
+            backdrop={backdrop}
+            className={theme.overlay}
+            onClick={onOverlayClick}
+            onEscKeyDown={onEscKeyDown}
+            onMouseDown={onOverlayMouseDown}
+            onMouseMove={onOverlayMouseMove}
+            onMouseUp={onOverlayMouseUp}
+            theme={theme}
             themeNamespace="overlay"
-
           />
           <div
             data-teamleader-ui="dialog"
-            className={className}
+            className={dialogClassNames}
           >
-            <header className={this.props.theme.header}>
-              {this.props.title
-                ? <h6 className={this.props.theme.title}>{this.props.title}</h6>
+            <header className={theme.header}>
+              {title
+                ? <h6 className={theme.title}>{title}</h6>
                 : null
               }
-              <Button icon="close" className={this.props.theme.close} onMouseUp={this.props.onCloseClick} />
+              <IconButton icon="close" className={theme.close} onMouseUp={onCloseClick} />
             </header>
-            <section role="body" className={this.props.theme.body}>
-              {this.props.children}
+            <section role="body" className={theme.body}>
+              {children}
             </section>
-            {actions.length
-              ? <nav role="navigation" className={this.props.theme.navigation}>
-                {actions}
+            {actionButtons.length
+              ? <nav role="navigation" className={theme.navigation}>
+                {actionButtons}
               </nav>
               : null
             }
@@ -114,7 +133,7 @@ const factory = (Overlay, Button) => {
   return ActivableRenderer()(Dialog);
 };
 
-const Dialog = factory(InjectOverlay, InjectButton);
+const Dialog = factory(InjectOverlay, InjectButton, InjectIconButton);
 export default themr(DIALOG)(Dialog);
 export { Dialog };
 export { factory as dialogFactory };
