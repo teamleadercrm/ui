@@ -1,0 +1,20 @@
+@font-face {
+  font-family: "proximanova";
+  src: url("https://s.dcdn.eu/images/fonts/proximanova-reg-webfont.woff") format('woff');
+}
+
+@font-face {
+  font-family: "proximanova";
+  src: url("https://s.dcdn.eu/images/fonts/proximanova-sbold-webfont.woff") format('woff');
+  font-weight: 700;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: 'proximanova', trebuchet ms, Verdana, 'Arial', sans-serif;
+  font-size: 14px;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  text-size-adjust: 100%;
+}
