@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import { themr } from 'react-css-themr';
 import { BUTTON } from '../identifiers';
 import InjectFontIcon from '../font_icon/FontIcon';
+import { omit } from 'lodash';
 
 const factory = (FontIcon) => {
   class IconButton extends Component {
@@ -76,6 +77,8 @@ const factory = (FontIcon) => {
         ...others
       } = this.props;
 
+      const rest = omit(others, [ 'small', 'medium', 'large' ]);
+
       const element = href ? 'a' : 'button';
       const level = this.getLevel();
 
@@ -90,7 +93,7 @@ const factory = (FontIcon) => {
       );
 
       const props = {
-        ...others,
+        ...rest,
         href,
         ref: (node) => {
           this.buttonNode = node;

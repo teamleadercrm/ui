@@ -102,7 +102,7 @@ class Button extends Component {
       ...others
     } = this.props;
 
-    const rest = omit(others, [ 'primary', 'bordered' ]);
+    const rest = omit(others, [ 'primary', 'bordered', 'small', 'medium', 'large' ]);
 
     const element = href ? 'a' : 'button';
     const level = this.getLevel();
