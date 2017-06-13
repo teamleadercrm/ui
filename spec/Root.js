@@ -5,6 +5,7 @@ import Dialog from './components/dialog';
 import PopoverVertical from './components/popoverVertical';
 import PopoverHorizontal from './components/popoverHorizontal';
 import LoadingMolecule from './components/loadingMolecule';
+import Toast from './components/toast';
 
 const Root = () => (
   <div>
@@ -15,6 +16,7 @@ const Root = () => (
     <PopoverHorizontal />
     <Menu />
     <Dialog />
+    <Toast />
     <LoadingMolecule />
   </div>
 );
