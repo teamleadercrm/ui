@@ -5,6 +5,7 @@ import Menu, { IconMenu, MenuItem, MenuDivider } from './menu';
 import Overlay from './overlay';
 import LoadingMolecule from './loadingMolecule';
 import { PopoverHorizontal, PopoverVertical } from './popover';
+import { Toast } from './toast';
 
 export {
   Button,
@@ -19,4 +20,5 @@ export {
   Overlay,
   PopoverHorizontal,
   PopoverVertical,
+  Toast,
 };
