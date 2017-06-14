@@ -41,14 +41,14 @@ const factory = (Overlay, Button, IconButton) => {
         wrapper: PropTypes.string,
       }),
       title: PropTypes.string,
-      type: PropTypes.string,
+      size: PropTypes.oneOf([ 'small', 'normal', 'large', 'fullscreen' ]),
     };
 
     static defaultProps = {
       actions: [],
       active: false,
       backdrop: 'dark',
-      type: 'normal',
+      size: 'normal',
     };
 
     render () {
@@ -66,7 +66,7 @@ const factory = (Overlay, Button, IconButton) => {
         onOverlayMouseUp,
         theme,
         title,
-        type,
+        size,
       } = this.props;
 
       const actionButtons = actions.map((action, idx) => {
@@ -82,7 +82,7 @@ const factory = (Overlay, Button, IconButton) => {
       const dialogClassNames = classnames(
         [
           theme.dialog,
-          theme[type],
+          theme[size],
         ],
         {
           [theme.active]: active,
