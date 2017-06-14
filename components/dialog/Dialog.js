@@ -5,6 +5,7 @@ import { themr } from 'react-css-themr';
 import { DIALOG } from '../identifiers.js';
 import Portal from '../hoc/Portal';
 import ActivableRenderer from '../hoc/ActivableRenderer';
+import FontIcon from '../font_icon';
 import InjectButton from '../button/Button.js';
 import InjectIconButton from '../button/IconButton';
 import InjectOverlay from '../overlay/Overlay';
@@ -27,6 +28,7 @@ const factory = (Overlay, Button, IconButton) => {
       onOverlayMouseDown: PropTypes.func,
       onOverlayMouseMove: PropTypes.func,
       onOverlayMouseUp: PropTypes.func,
+      size: PropTypes.oneOf([ 'small', 'normal', 'large', 'fullscreen' ]),
       theme: PropTypes.shape({
         active: PropTypes.string,
         arrow: PropTypes.string,
@@ -41,7 +43,7 @@ const factory = (Overlay, Button, IconButton) => {
         wrapper: PropTypes.string,
       }),
       title: PropTypes.string,
-      size: PropTypes.oneOf([ 'small', 'normal', 'large', 'fullscreen' ]),
+      type: PropTypes.oneOf([ 'regular', 'warning' ]),
     };
 
     static defaultProps = {
@@ -49,6 +51,7 @@ const factory = (Overlay, Button, IconButton) => {
       active: false,
       backdrop: 'dark',
       size: 'normal',
+      type: 'regular',
     };
 
     render () {
@@ -64,9 +67,10 @@ const factory = (Overlay, Button, IconButton) => {
         onOverlayMouseDown,
         onOverlayMouseMove,
         onOverlayMouseUp,
+        size,
         theme,
         title,
-        size,
+        type,
       } = this.props;
 
       const actionButtons = actions.map((action, idx) => {
@@ -83,6 +87,7 @@ const factory = (Overlay, Button, IconButton) => {
         [
           theme.dialog,
           theme[size],
+          theme[type],
         ],
         {
           [theme.active]: active,
@@ -109,6 +114,7 @@ const factory = (Overlay, Button, IconButton) => {
             className={dialogClassNames}
           >
             <header className={theme.header}>
+              {type === 'warning' ? <FontIcon className={theme.icon} value="alert_circle" /> : null}
               {title
                 ? <h6 className={theme.title}>{title}</h6>
                 : null
