@@ -95,6 +95,15 @@
   border-radius: 4px 4px 0 0;
   padding: var(--dialog-header-padding);
   position: relative;
+
+  .warning & {
+    text-align: center;
+
+    .icon {
+      color: var(--palette-orange);
+      font-size: 40px;
+    }
+  }
 }
 
 .title {
