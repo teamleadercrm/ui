@@ -1,5 +1,6 @@
 {
   "presets": [
+    "transform-runtime",
     "es2015",
     "stage-0",
     "react"
