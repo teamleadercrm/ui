@@ -1,11 +1,8 @@
 {
   "presets": [
-    ["es2015", { "modules" : false }],
-    "react",
-    "stage-1"
-  ],
-  "plugins": [
-    "transform-runtime"
+    "es2015",
+    "stage-0",
+    "react"
   ],
   "env": {
     "development": {
