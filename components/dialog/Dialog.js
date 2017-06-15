@@ -50,7 +50,7 @@ const factory = (Overlay, Button, IconButton) => {
       actions: [],
       active: false,
       backdrop: 'dark',
-      size: 'normal',
+      size: 'medium',
       type: 'regular',
     };
 
