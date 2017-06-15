@@ -54,15 +54,7 @@
 }
 
 .small {
-  width: 30vw;
-
-  @media screen and (--sm-tablet-viewport) {
-    width: 50vw;
-  }
-
-  @media screen and (--xs-viewport) {
-    width: 75vw;
-  }
+  max-width: 400px;
 }
 
 .normal {
