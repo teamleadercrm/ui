@@ -57,7 +57,7 @@
   max-width: 400px;
 }
 
-.normal {
+.medium {
   width: 50vw;
 
   @media screen and (--xs-viewport) {

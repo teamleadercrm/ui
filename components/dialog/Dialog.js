@@ -48,7 +48,7 @@ const factory = (Overlay, Button, IconButton) => {
       actions: [],
       active: false,
       backdrop: 'dark',
-      type: 'normal',
+      type: 'medium',
     };
 
     render () {
