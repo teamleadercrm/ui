@@ -38,7 +38,7 @@
   display: flex;
   flex-direction: column;
   max-height: 96vh;
-  max-width: 96vw;
+  max-width: 90vw;
   position: absolute;
   opacity: 0;
   transform: translateY(var(--dialog-translate-y));
@@ -55,19 +55,19 @@
 }
 
 .small {
-  max-width: 400px;
+  width: 400px;
 }
 
 .medium {
-  max-width: 540px;
+  width: 540px;
 }
 
 .large {
-  max-width: 700px;
+  width: 700px;
 }
 
 .fullscreen {
-  width: 96vw;
+  width: 1300px;
 
   @media screen and (--xs-viewport) {
     border-radius: 0;
