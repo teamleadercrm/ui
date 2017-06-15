@@ -62,7 +62,7 @@
 }
 
 .large {
-  width: 96vw;
+  max-width: 700px;
 }
 
 .fullscreen {
