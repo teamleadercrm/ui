@@ -5,6 +5,7 @@ import { themr } from 'react-css-themr';
 import { DIALOG } from '../identifiers.js';
 import Portal from '../hoc/Portal';
 import ActivableRenderer from '../hoc/ActivableRenderer';
+import FontIcon from '../font_icon';
 import InjectButton from '../button/Button.js';
 import InjectIconButton from '../button/IconButton';
 import InjectOverlay from '../overlay/Overlay';
@@ -27,6 +28,7 @@ const factory = (Overlay, Button, IconButton) => {
       onOverlayMouseDown: PropTypes.func,
       onOverlayMouseMove: PropTypes.func,
       onOverlayMouseUp: PropTypes.func,
+      size: PropTypes.oneOf([ 'small', 'normal', 'large', 'fullscreen' ]),
       theme: PropTypes.shape({
         active: PropTypes.string,
         arrow: PropTypes.string,
@@ -41,14 +43,15 @@ const factory = (Overlay, Button, IconButton) => {
         wrapper: PropTypes.string,
       }),
       title: PropTypes.string,
-      type: PropTypes.string,
+      type: PropTypes.oneOf([ 'regular', 'warning' ]),
     };
 
     static defaultProps = {
       actions: [],
       active: false,
       backdrop: 'dark',
-      type: 'normal',
+      size: 'normal',
+      type: 'regular',
     };
 
     render () {
@@ -64,6 +67,7 @@ const factory = (Overlay, Button, IconButton) => {
         onOverlayMouseDown,
         onOverlayMouseMove,
         onOverlayMouseUp,
+        size,
         theme,
         title,
         type,
@@ -82,6 +86,7 @@ const factory = (Overlay, Button, IconButton) => {
       const dialogClassNames = classnames(
         [
           theme.dialog,
+          theme[size],
           theme[type],
         ],
         {
@@ -109,6 +114,7 @@ const factory = (Overlay, Button, IconButton) => {
             className={dialogClassNames}
           >
             <header className={theme.header}>
+              {type === 'warning' ? <FontIcon className={theme.icon} value="alert_circle" /> : null}
               {title
                 ? <h6 className={theme.title}>{title}</h6>
                 : null
