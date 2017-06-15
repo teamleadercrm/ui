@@ -28,7 +28,7 @@ const factory = (Overlay, Button, IconButton) => {
       onOverlayMouseDown: PropTypes.func,
       onOverlayMouseMove: PropTypes.func,
       onOverlayMouseUp: PropTypes.func,
-      size: PropTypes.oneOf([ 'small', 'normal', 'large', 'fullscreen' ]),
+      size: PropTypes.oneOf([ 'small', 'medium', 'large', 'fullscreen' ]),
       theme: PropTypes.shape({
         active: PropTypes.string,
         arrow: PropTypes.string,
