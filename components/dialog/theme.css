@@ -58,11 +58,7 @@
 }
 
 .medium {
-  width: 50vw;
-
-  @media screen and (--xs-viewport) {
-    width: 96vw;
-  }
+  max-width: 540px;
 }
 
 .large {
