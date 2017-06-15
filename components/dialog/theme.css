@@ -46,6 +46,7 @@
     opacity var(--animation-duration) var(--animation-curve-default),
     transform var(--animation-duration) var(--animation-curve-default);
   transition-delay: var(--animation-delay);
+  width: 100vw;
 
   &.active {
     opacity: 1;
