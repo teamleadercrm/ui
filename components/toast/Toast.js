@@ -79,7 +79,7 @@ const factory = (Button, IconButton) => {
 
       const className = classnames([
         theme.toast,
-        theme[type],
+        theme[ type ],
       ], {
         [theme.active]: active,
       },
@@ -89,7 +89,7 @@ const factory = (Button, IconButton) => {
       return (
         <Portal className={theme.portal}>
           <div
-            data-react-toolbox="toast"
+            data-teamleader-ui="toast"
             className={className}
           >
             <span className={theme.label}>
@@ -98,7 +98,7 @@ const factory = (Button, IconButton) => {
             </span>
             {
               onClick ? action ? <Button className={theme.button} label={action} onClick={onClick} />
-              : <IconButton className={theme.iconButton} icon="close" onClick={onClick} /> : null
+                : <IconButton className={theme.iconButton} icon="close" onClick={onClick} /> : null
             }
           </div>
         </Portal>

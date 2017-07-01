@@ -99,7 +99,6 @@ class Portal extends Component {
   render () {
     return null;
   }
-
 }
 
 function getContainer (container) {

@@ -3,7 +3,6 @@ import { LoadingMolecule } from '../../components';
 import theme from './loadingMolecule.css';
 
 class LoadingMoleculeTest extends React.Component {
-
   render () {
     return (
       <section>
