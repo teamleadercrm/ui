@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
+import cx from 'classnames';
 import { themr } from 'react-css-themr';
 import { MENU } from '../identifiers.js';
 import FontIcon from '../font_icon/FontIcon.js';
@@ -53,7 +53,7 @@ const factory = () => {
         ...others
       } = this.props;
 
-      const className = classnames(
+      const className = cx(
         theme.menuItem,
         {
           [theme.selected]: selected,

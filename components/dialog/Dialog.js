@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
+import cx from 'classnames';
 import { themr } from 'react-css-themr';
 import { DIALOG } from '../identifiers.js';
 import Portal from '../hoc/Portal';
@@ -74,7 +74,7 @@ const factory = (Overlay, Button, IconButton) => {
       } = this.props;
 
       const actionButtons = actions.map((action, idx) => {
-        const className = classnames(
+        const className = cx(
           theme.button,
           {
             [action.className]: action.className,
@@ -83,7 +83,7 @@ const factory = (Overlay, Button, IconButton) => {
         return <Button key={idx} {...action} className={className} medium />; // eslint-disable-line
       });
 
-      const dialogClassNames = classnames(
+      const dialogClassNames = cx(
         [
           theme.dialog,
           theme[size],

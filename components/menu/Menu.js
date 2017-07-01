@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
-import classnames from 'classnames';
+import cx from 'classnames';
 import { themr } from 'react-css-themr';
 import { MENU } from '../identifiers.js';
 import { events } from '../utils';
@@ -229,7 +229,7 @@ const factory = (MenuItem) => {
     render () {
       const { theme } = this.props;
       const outlineStyle = { width: this.state.width, height: this.state.height };
-      const className = classnames([ theme.menu, theme[this.state.position] ], {
+      const className = cx([ theme.menu, theme[this.state.position] ], {
         [theme.active]: this.state.active,
       }, this.props.className);
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
+import cx from 'classnames';
 import { themr } from 'react-css-themr';
 import { BUTTON } from '../identifiers';
 import InjectFontIcon from '../font_icon/FontIcon';
@@ -82,7 +82,7 @@ const factory = (FontIcon) => {
       const element = href ? 'a' : 'button';
       const level = this.getLevel();
 
-      const classes = classnames(
+      const classes = cx(
         [ theme.iconOnly ],
         [ theme.toggle ],
         {

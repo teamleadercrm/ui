@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
+import cx from 'classnames';
 import { themr } from 'react-css-themr';
 import { MENU } from '../identifiers.js';
 import InjectIconButton from '../button/IconButton.js';
@@ -60,7 +60,7 @@ const factory = (IconButton, Menu) => {
       } = this.props;
 
       return (
-        <div {...other} className={classnames(theme.iconMenu, className)}>
+        <div {...other} className={cx(theme.iconMenu, className)}>
           <IconButton
             className={theme.icon}
             icon={icon}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
+import cx from 'classnames';
 import { themr } from 'react-css-themr';
 import { OVERLAY } from '../identifiers';
 
@@ -97,7 +97,7 @@ class Overlay extends Component {
       <div
         {...other}
         onClick={this.handleClick}
-        className={classnames(
+        className={cx(
           theme.overlay,
           theme[backdrop],
           {

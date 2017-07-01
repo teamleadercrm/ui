@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
+import cx from 'classnames';
 import FontIcon from '../font_icon';
 import { omit } from 'lodash';
 
@@ -110,7 +110,7 @@ class Button extends Component {
     const state = this.getState();
     const size = this.getSize();
 
-    const classes = classnames(
+    const classes = cx(
       theme.button,
       {
         [theme[ level ]]: theme[ level ],

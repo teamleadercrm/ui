@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
+import cx from 'classnames';
 import { themr } from 'react-css-themr';
 import { TOAST } from '../identifiers';
 import ActivableRenderer from '../hoc/ActivableRenderer';
@@ -77,7 +77,7 @@ const factory = (Button, IconButton) => {
         type,
       } = this.props;
 
-      const className = classnames([
+      const className = cx([
         theme.toast,
         theme[ type ],
       ], {
