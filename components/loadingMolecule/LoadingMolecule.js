@@ -6,12 +6,14 @@ import { LOADING_MOLECULE } from '../identifiers.js';
 
 class LoadingMolecule extends Component {
   static defaultProps = {
+    className: '',
     startColor: '#BABABA',
     stopColor: '#DADADA',
     type: 'normal',
-  }
+  };
 
   static propTypes = {
+    className: PropTypes.string,
     theme: PropTypes.shape({
       loadingMolecule: PropTypes.string,
     }),
@@ -28,6 +30,7 @@ class LoadingMolecule extends Component {
 
   render () {
     const {
+      className,
       theme,
       basePath,
       startColor,
@@ -36,13 +39,19 @@ class LoadingMolecule extends Component {
       ...others
     } = this.props;
 
+    const classes = cx(
+      theme['loading-molecule'],
+      theme[type],
+      className
+    );
+
     const gradient1Name = `linearGradient-1-${this.randomGradientPostFix}`;
     const gradient2Name = `linearGradient-2-${this.randomGradientPostFix}`;
     const grandient1Source = `url(${basePath}#${gradient1Name})`;
     const grandient2Source = `url(${basePath}#${gradient2Name})`;
 
     return (
-      <div className={cx(theme['loading-molecule'], theme[type])} {...others}>
+      <div className={classes} {...others}>
         <svg className="loader" width="100px" height="56px" version="1.1">
           <defs>
             <linearGradient x1="63.2191022%" y1="50%" x2="21.8036493%" y2="115.713387%" id={gradient1Name}>
