@@ -147,7 +147,7 @@
     "lint": "eslint components spec",
     "lint:fix": "npm run lint -- --fix",
     "precommit": "npm run lint:fix",
-    "prepublish": "npm run build",
+    "prepare": "npm run build",
     "start": "better-npm-run start"
   }
 }
