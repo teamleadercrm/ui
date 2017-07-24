@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import FontIcon from '../font_icon';
-import { omit } from 'lodash';
+import omit from 'lodash.omit';
 
 class Button extends Component {
   static propTypes = {
