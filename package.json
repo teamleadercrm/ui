@@ -54,6 +54,8 @@
   ],
   "dependencies": {
     "classnames": "^2.2.5",
+    "lodash.omit": "^4.5.0",
+    "lodash.throttle": "^4.1.1",
     "prop-types": "^15.5.9",
     "react": "^15.5.4",
     "react-css-themr": "^2.0.0",
@@ -97,8 +99,6 @@
     "imports-loader": "^0.6.5",
     "ip": "^1.1.2",
     "json-loader": "^0.5.4",
-    "lodash.omit": "^4.5.0",
-    "lodash.throttle": "^4.1.1",
     "postcss": "^5.2.16",
     "postcss-cssnext": "^2.9.0",
     "postcss-each": "^0.9.3",
