@@ -4,7 +4,7 @@ import cx from 'classnames';
 import { themr } from 'react-css-themr';
 import { BUTTON } from '../identifiers';
 import InjectFontIcon from '../font_icon/FontIcon';
-import { omit } from 'lodash';
+import omit from 'lodash.omit';
 
 const factory = (FontIcon) => {
   class IconButton extends Component {

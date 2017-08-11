@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import { throttle } from 'lodash';
+import throttle from 'lodash.throttle';
 import ActivableRenderer from '../hoc/ActivableRenderer';
 import Portal from '../hoc/Portal';
 import InjectButton from '../button';
