@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
+import cx from 'classnames';
 import { themr } from 'react-css-themr';
 import { RADIO } from '../identifiers';
 import Radio from './Radio';
@@ -74,7 +74,7 @@ const factory = (Radio) => {
         theme,
         ...others
       } = this.props;
-      const _className = classnames(theme[disabled ? 'disabled' : 'field'], className);
+      const _className = cx(theme[disabled ? 'disabled' : 'field'], className);
       return (
         <label
           data-teamleader-ui="radio-button"
