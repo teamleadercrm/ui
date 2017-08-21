@@ -40,7 +40,7 @@ const factory = (RadioButton) => {
 
     render () {
       return (
-        <div data-react-toolbox="radio-group" className={this.props.className}>
+        <div data-teamleader-ui="radio-group" className={this.props.className}>
           {this.renderRadioButtons()}
         </div>
       );

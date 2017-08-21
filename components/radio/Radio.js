@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Radio = ({ checked, onMouseDown, theme, ...other }) => (
   <div
-    data-react-toolbox="radio"
+    data-teamleader-ui="radio"
     className={theme[checked ? 'radioChecked' : 'radio']}
     onMouseDown={onMouseDown}
     {...other}
