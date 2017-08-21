@@ -5,7 +5,7 @@ import Menu, { IconMenu, MenuItem, MenuDivider } from './menu';
 import Overlay from './overlay';
 import LoadingMolecule from './loadingMolecule';
 import { PopoverHorizontal, PopoverVertical } from './popover';
-import Radio from './radio';
+import { RadioButton, RadioGroup } from './radio';
 import { Toast } from './toast';
 
 export {
@@ -21,6 +21,7 @@ export {
   Overlay,
   PopoverHorizontal,
   PopoverVertical,
-  Radio,
+  RadioButton,
+  RadioGroup,
   Toast,
 };
