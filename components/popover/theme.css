@@ -4,13 +4,15 @@
 :root {
   --popover-background-color: var(--color-white);
   --popover-body-text-color: var(--color-text-secondary);
-  --popover-body-padding: calc(1.4 * var(--unit));
+  --popover-body-padding: calc(2.0 * var(--unit));
+  --popover-border-radius: calc(0.4 * var(--unit));
   --popover-box-shadow: 0 0 5px rgba(0, 0, 0, .5);
-  --popover-header-border-color: var(--palette-grey-400);
-  --popover-header-padding: calc(1.4 * var(--unit)) calc(7.2 * var(--unit)) calc(1.4 * var(--unit)) calc(1.4 * var(--unit));
-  --popover-header-title-text-color: var(--color-text-secondary);
+  --popover-header-background-color: var(--palette-grey-100);
+  --popover-header-border-color: var(--palette-grey-300);
+  --popover-header-padding: calc(2.0 * var(--unit)) calc(7.2 * var(--unit)) calc(2.0 * var(--unit)) calc(2.0 * var(--unit));
+  --popover-header-title-text-color: var(--color-secondary);
   --popover-header-subtitle-text-color: var(--color-text-secondary);
-  --popover-navigation-padding: calc(0.8 * var(--unit));
+  --popover-navigation-padding: calc(2.0 * var(--unit));
 }
 
 .wrapper {
@@ -29,6 +31,7 @@
 
 .popover {
   background: var(--popover-background-color);
+  border-radius: var(--popover-border-radius);
   box-shadow: var(--popover-box-shadow);
   position: absolute;
   opacity: 0;
@@ -52,8 +55,9 @@
 }
 
 .header {
-  background: var(--popover-background-color);
+  background: var(--popover-header-background-color);
   border-bottom: 1px solid var(--popover-header-border-color);
+  border-radius: var(--popover-border-radius) var(--popover-border-radius) 0 0;
   padding: var(--popover-header-padding);
   position: relative;
 }
@@ -61,8 +65,8 @@
 .title {
   color: var(--popover-header-title-text-color);
   flex-grow: 0;
-  font-size: calc(1.6 * var(--unit));
-  font-weight: var(--font-weight-bold);
+  font-size: calc(1.8 * var(--unit));
+  font-weight: var(--font-weight-normal);
   line-height: 1.4;
   margin: 0;
 }
@@ -72,13 +76,13 @@
   flex-grow: 0;
   font-size: calc(1.4 * var(--unit));
   line-height: 1.4;
-  margin: 0;
+  margin: 3px 0 0 0;
 }
 
 .close {
   position: absolute;
   right: var(--unit);
-  top: calc(.85 * var(--unit));
+  top: calc(1.8 * var(--unit));
 }
 
 .body {
@@ -99,6 +103,7 @@
 
 .navigation {
   background: var(--popover-background-color);
+  border-radius: 0 0 var(--popover-border-radius) var(--popover-border-radius) ;
   flex-grow: 0;
   padding: var(--popover-navigation-padding);
   position: relative;
