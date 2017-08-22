@@ -1,0 +1,111 @@
+@import '../colors.css';
+@import '../variables.css';
+
+:root {
+  --radio-field-margin-bottom: calc(1.5 * var(--unit));
+  --radio-button-size: calc(1.8 * var(--unit));
+  --radio-border-color: var(--palette-grey-500);
+  --radio-border-thickness: calc(0.1 * var(--unit));
+  --radio-inner-margin: calc(var(--radio-button-size) / 4);
+  --radio-inner-color: var(--color-primary);
+  --radio-focus-color: color(var(--color-black) a(10%));
+  --radio-checked-focus-color: color(var(--color-primary) a(26%));
+  --radio-text-color: var(--color-black);
+  --radio-disabled-color: var(--palette-grey-500);
+  --radio-disabled-background: var(--palette-grey-200);
+  --radio-text-font-size: calc(1.4 * var(--unit));
+}
+
+.radio {
+  border: var(--radio-border-thickness) solid var(--radio-border-color);
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-block;
+  height: var(--radio-button-size);
+  position: relative;
+  vertical-align: top;
+  width: var(--radio-button-size);
+
+  @apply --reset;
+
+  &::before {
+    background-color: var(--radio-inner-color);
+    border-radius: 50%;
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transform: scale(0);
+    transition: transform 0.2s var(--animation-curve-default);
+    width: 100%;
+  }
+}
+
+.radioChecked {
+  composes: radio;
+
+  &::before {
+    transform: scale(0.5);
+  }
+}
+
+.field {
+  display: block;
+  height: var(--radio-button-size);
+  margin-bottom: var(--radio-field-margin-bottom);
+  position: relative;
+  white-space: nowrap;
+}
+
+.text {
+  color: var(--radio-text-color);
+  display: inline-block;
+  font-size: var(--radio-text-font-size);
+  line-height: var(--radio-button-size);
+  padding-left: var(--unit);
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.input {
+  appearance: none;
+  border: 0;
+  height: 0;
+  margin: 0;
+  opacity: 0;
+  padding: 0;
+  position: absolute;
+  width: 0;
+
+  &:focus ~ .radio {
+    box-shadow: 0 0 0 var(--unit) var(--radio-focus-color);
+  }
+
+  &:focus ~ .radioChecked {
+    box-shadow: 0 0 0 var(--unit) var(--radio-checked-focus-color);
+  }
+}
+
+.disabled {
+  composes: field;
+
+  & .text {
+    color: var(--radio-disabled-color);
+  }
+
+  & .radio {
+    background: var(--radio-disabled-background);
+    border-color: var(--radio-disabled-color);
+    cursor: auto;
+  }
+
+  & .radioChecked {
+    border-color: var(--radio-disabled-color);
+    cursor: auto;
+
+    &::before {
+      background-color: var(--radio-disabled-color);
+    }
+  }
+}

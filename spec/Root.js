@@ -11,6 +11,7 @@ import Dialog from './components/dialog';
 import PopoverVertical from './components/popoverVertical';
 import PopoverHorizontal from './components/popoverHorizontal';
 import LoadingMolecule from './components/loadingMolecule';
+import Radio from './components/radio';
 import Toast from './components/toast';
 
 const Root = () => (
@@ -34,6 +35,9 @@ const Root = () => (
       </Section>
       <Section id="dialogs">
         <Dialog />
+      </Section>
+      <Section id="radios">
+        <Radio />
       </Section>
       <Section id="toasts">
         <Toast />
