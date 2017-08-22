@@ -6,7 +6,7 @@
   --popover-body-text-color: var(--color-text-secondary);
   --popover-body-padding: calc(2.0 * var(--unit));
   --popover-border-radius: calc(0.4 * var(--unit));
-  --popover-box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+  --popover-box-shadow: 0 1px 30px 0 rgba(70, 86, 104, 0.4);
   --popover-header-background-color: var(--palette-grey-100);
   --popover-header-border-color: var(--palette-grey-300);
   --popover-header-padding: calc(2.0 * var(--unit)) calc(7.2 * var(--unit)) calc(2.0 * var(--unit)) calc(2.0 * var(--unit));
