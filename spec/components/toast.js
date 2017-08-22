@@ -37,26 +37,34 @@ class ToastTest extends React.Component {
 
   render () {
     return (
-      <section>
-        <h2>Toast</h2>
+      <article>
+        <header>
+          <h1>Toast</h1>
+        </header>
 
-        <h3>Properties</h3>
+        <div className="component-spec">
+          <div className="properties">
+            <h3>Properties</h3>
 
-        <h4>Type</h4>
-        <RadioGroup name="type" value={this.state.type} onChange={this.handleTypeChange}>
-          <RadioButton label="Accept" value="accept" />
-          <RadioButton label="Cancel" value="cancel" />
-          <RadioButton label="Warning" value="warning" />
-        </RadioGroup>
+            <h4>Type</h4>
+            <RadioGroup name="type" value={this.state.type} onChange={this.handleTypeChange}>
+              <RadioButton label="Accept" value="accept" />
+              <RadioButton label="Cancel" value="cancel" />
+              <RadioButton label="Warning" value="warning" />
+            </RadioGroup>
 
-        <h4>Label</h4>
-        <p><input type="text" value={this.state.label} onChange={event => this.handleLabelChange(event)} /></p>
+            <h4>Label</h4>
+            <p><input type="text" value={this.state.label} onChange={event => this.handleLabelChange(event)} /></p>
 
-        <h4>Action</h4>
-        <p><input type="text" value={this.state.action} onChange={event => this.handleActionChange(event)} /></p>
+            <h4>Action</h4>
+            <p><input type="text" value={this.state.action} onChange={event => this.handleActionChange(event)} /></p>
+          </div>
 
-        <h3>Preview</h3>
-        <Button label="Make a toast" primary onClick={this.handleClick} />
+          <div className="preview">
+            <h3>Preview</h3>
+            <Button label="Make a toast" primary onClick={this.handleClick} />
+          </div>
+        </div>
 
         <Toast
           action={this.state.action}
@@ -67,7 +75,7 @@ class ToastTest extends React.Component {
           onTimeout={this.handleSnackbarTimeout}
           type={this.state.type}
         />
-      </section>
+      </article>
     );
   }
 }

@@ -47,42 +47,51 @@ class PopoverTest extends React.Component {
     const { direction, position } = this.state;
 
     return (
-      <section>
-        <h2>Vertical Popover</h2>
+      <article>
+        <header>
+          <h1>Vertical Popover</h1>
+        </header>
 
-        <h3>Properties</h3>
+        <div className="component-spec">
+          <div className="properties">
+            <h3>Properties</h3>
 
-        <h4>Direction</h4>
-        <RadioGroup name="direction" value={direction} onChange={this.handleDirectionChange}>
-          <RadioButton label="North" value="north" />
-          <RadioButton label="South" value="south" />
-        </RadioGroup>
+            <h4>Direction</h4>
+            <RadioGroup name="direction" value={direction} onChange={this.handleDirectionChange}>
+              <RadioButton label="North" value="north" />
+              <RadioButton label="South" value="south" />
+            </RadioGroup>
 
-        <h4>Position</h4>
-        <RadioGroup name="position" value={position} onChange={this.handlePositionChange}>
-          <RadioButton label="Left" value="left" />
-          <RadioButton label="Center" value="center" />
-          <RadioButton label="Right" value="right" />
-        </RadioGroup>
+            <h4>Position</h4>
+            <RadioGroup name="position" value={position} onChange={this.handlePositionChange}>
+              <RadioButton label="Left" value="left" />
+              <RadioButton label="Center" value="center" />
+              <RadioButton label="Right" value="right" />
+            </RadioGroup>
 
-        <h4>Title</h4>
-        <p><input type="text" value={this.state.title} onChange={event => this.handleTitleChange(event)} /></p>
+            <h4>Title</h4>
+            <p><input type="text" value={this.state.title} onChange={event => this.handleTitleChange(event)} /></p>
 
-        <h4>Subtitle</h4>
-        <p><input type="text" value={this.state.subtitle} onChange={event => this.handleSubtitleChange(event)} /></p>
+            <h4>Subtitle</h4>
+            <p>
+              <input type="text" value={this.state.subtitle} onChange={event => this.handleSubtitleChange(event)} />
+            </p>
+          </div>
 
-        <h3>Preview</h3>
-        <Button
-          primary
-          style={{ 'marginLeft': '50%' }}
-          label="Show a vertical popover"
-          onClick={this.handleToggle}
-          ref={
-            (button) => {
-              this.popoverToggleButton = button;
-            }
-          }
-        />
+          <div className="preview">
+            <h3>Preview</h3>
+            <Button
+              primary
+              label="Show a vertical popover"
+              onClick={this.handleToggle}
+              ref={
+                (button) => {
+                  this.popoverToggleButton = button;
+                }
+              }
+            />
+          </div>
+        </div>
 
         { this.anchorEl &&
           <PopoverVertical
@@ -103,7 +112,7 @@ class PopoverTest extends React.Component {
             </div>
           </PopoverVertical>
         }
-      </section>
+      </article>
     );
   }
 }

@@ -1,3 +1,7 @@
+:root {
+  --border-color: #D1D1D1;
+}
+
 @font-face {
   font-family: "proximanova";
   src: url("https://s.dcdn.eu/images/fonts/proximanova-reg-webfont.woff") format('woff');
@@ -18,4 +22,26 @@ body {
   font-smoothing: antialiased;
   text-size-adjust: 100%;
   margin: 0;
+}
+
+.component-spec {
+  display: flex;
+  flex-direction: row;
+}
+
+.properties {
+  flex: 1;
+}
+
+.preview {
+  flex: 1;
+}
+
+.properties + .preview {
+  border-left: 1px solid var(--border-color);
+  padding-left: 20px;
+}
+
+article header h1 {
+  font-size: 2em
 }

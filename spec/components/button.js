@@ -1,73 +1,96 @@
 import React from 'react';
 import { Button, IconButton } from '../../components';
 
-const handleItemClick = () => {
-  console.log('This item is so special that has a special handler');
-};
+class ButtonTest extends React.Component {
+  state = {
+    icon: 'search',
+    text: 'button text',
+  };
 
-const ButtonTest = () => (
-  <section>
-    <h2>Buttons</h2>
-    <h3>Primary</h3>
-    <p>
-      <Button primary onMouseUp={handleItemClick}>Primary</Button>&nbsp;
-      <Button primary icon="search">Primary with icon</Button>&nbsp;
-      <Button primary icon="search" />
-    </p>
-    <p>
-      <Button primary processing>Primary processing</Button>&nbsp;
-      <Button primary processing icon="search">Primary processing with icon</Button>&nbsp;
-      <Button primary processing />
-    </p>
-    <p>
-      <Button primary disabled>Primary  disabled</Button>&nbsp;
-      <Button primary disabled icon="search">Primary disabled with icon</Button>&nbsp;
-      <Button primary disabled icon="search" />
-    </p>
+  handleIconChange = (event) => {
+    this.setState({ icon: event.target.value });
+  };
 
-    <hr />
-    <h3>Secondary</h3>
+  handleTextChange = (event) => {
+    this.setState({ text: event.target.value });
+  };
 
-    <p>
-      <Button>Secondary</Button>&nbsp;
-      <Button icon="search">Secondary with icon</Button>&nbsp;
-      <Button icon="search" />
-    </p>
+  render () {
+    return (
+      <article>
+        <header>
+          <h1>Buttons</h1>
+        </header>
+        <h2>Primary</h2>
+        <div className="component-spec">
+          <div className="properties">
+            <h3>Properties</h3>
+            <h4>Text</h4>
+            <p><input type="text" value={this.state.text} onChange={event => this.handleTextChange(event)} /></p>
 
-    <p>
-      <Button bordered>Secondary bordered</Button>&nbsp;
-      <Button bordered icon="search">Secondary with icon and border</Button>&nbsp;
-    </p>
+            <h4>Icon</h4>
+            <p><input type="text" value={this.state.icon} onChange={event => this.handleIconChange(event)} /></p>
+          </div>
+          <div className="preview">
+            <h3>Preview</h3>
+            <p>
+              <Button primary icon={this.state.icon}>{ this.state.text }</Button>
+            </p>
+            <p>
+              <Button primary processing icon={this.state.icon}>{ this.state.text }</Button>
+            </p>
+            <p>
+              <Button primary disabled icon={this.state.icon}>{ this.state.text }</Button>
+            </p>
+          </div>
+        </div>
+        <h2>Secondary</h2>
+        <div className="component-spec">
+          <div className="properties">
+            <h3>Properties</h3>
+            <h4>Text</h4>
+            <p><input type="text" value={this.state.text} onChange={event => this.handleTextChange(event)} /></p>
 
-    <p>
-      <Button processing>Secondary processing</Button>&nbsp;
-      <Button processing icon="search">Secondary processing with icon</Button>&nbsp;
-      <Button processing />
-    </p>
-
-    <p>
-      <Button bordered processing>Secondary bordered processing</Button>&nbsp;
-      <Button bordered processing icon="search">Secondary processing with icon</Button>&nbsp;
-      <Button bordered processing />
-    </p>
-
-    <p>
-      <Button disabled>Secondary disabled</Button>&nbsp;
-      <Button disabled icon="search">Secondary disabled with icon</Button>&nbsp;
-      <Button disabled icon="search" />
-    </p>
-
-    <p>
-      <Button bordered disabled>Secondary bordered disabled</Button>&nbsp;
-      <Button bordered disabled icon="search">Secondary disabled with icon</Button>&nbsp;
-      <Button bordered disabled icon="search" />
-    </p>
-
-    <hr />
-    <h3>Icon only</h3>
-
-    <p><IconButton icon="search" /></p>
-  </section>
-);
+            <h4>Icon</h4>
+            <p><input type="text" value={this.state.icon} onChange={event => this.handleIconChange(event)} /></p>
+          </div>
+          <div className="preview">
+            <h3>Preview</h3>
+            <p>
+              <Button icon={this.state.icon}>{ this.state.text }</Button>
+            </p>
+            <p>
+              <Button bordered icon={this.state.icon}>{ this.state.text }</Button>
+            </p>
+            <p>
+              <Button processing icon={this.state.icon}>{ this.state.text }</Button>
+            </p>
+            <p>
+              <Button bordered processing icon={this.state.icon}>{ this.state.text }</Button>
+            </p>
+            <p>
+              <Button disabled icon={this.state.icon}>{ this.state.text }</Button>
+            </p>
+            <p>
+              <Button bordered disabled icon={this.state.icon}>{ this.state.text }</Button>
+            </p>
+          </div>
+        </div>
+        <h2>Icon only</h2>
+        <div className="component-spec">
+          <div className="properties">
+            <h3>Properties</h3>
+            <h4>Icon</h4>
+            <p><input type="text" value={this.state.icon} onChange={event => this.handleIconChange(event)} /></p>
+          </div>
+          <div className="preview">
+            <h3>Preview</h3>
+            <p><IconButton icon={this.state.icon} /></p>
+          </div>
+        </div>
+      </article>
+    );
+  }
+}
 
 export default ButtonTest;

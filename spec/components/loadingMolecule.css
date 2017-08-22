@@ -4,13 +4,6 @@
 
 .loading-molecule-container {
   height: 200px;
-  margin-right: 10px;
   flex: 1;
-  border: 1px solid #DADADA;
-  margin-bottom: 10px;
   position: relative;
-}
-
-.loading-molecule-container h4 {
-  text-align: center;
 }

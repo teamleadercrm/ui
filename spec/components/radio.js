@@ -21,16 +21,24 @@ class RadioGroupTest extends React.Component {
 
   render () {
     return (
-      <section>
-        <h2>Radio Button</h2>
+      <article>
+        <header>
+          <h1>Radio Button</h1>
+        </header>
 
-        <RadioGroup name="comic" value={this.state.value} onChange={this.handleChange}>
-          <RadioButton label="The Walking Dead" value="thewalkingdead" />
-          <RadioButton label="From Hell" value="fromhell" disabled />
-          <RadioButton label="V for a Vendetta" value="vvendetta" onFocus={this.handleFocus} />
-          <RadioButton label="Watchmen" value="watchmen" onBlur={this.handleBlur} />
-        </RadioGroup>
-      </section>
+        <div className="component-spec">
+          <div className="preview">
+            <h3>Preview</h3>
+
+            <RadioGroup name="comic" value={this.state.value} onChange={this.handleChange}>
+              <RadioButton label="The Walking Dead" value="thewalkingdead" />
+              <RadioButton label="From Hell" value="fromhell" disabled />
+              <RadioButton label="V for a Vendetta" value="vvendetta" onFocus={this.handleFocus} />
+              <RadioButton label="Watchmen" value="watchmen" onBlur={this.handleBlur} />
+            </RadioGroup>
+          </div>
+        </div>
+      </article>
     );
   }
 }
