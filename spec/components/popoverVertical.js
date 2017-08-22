@@ -86,7 +86,6 @@ class PopoverTest extends React.Component {
             </div>
           </PopoverVertical>
         }
-        <hr />
       </section>
     );
   }

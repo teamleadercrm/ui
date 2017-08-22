@@ -85,7 +85,6 @@ class PopoverHorizontalTest extends React.Component {
             </div>
           </PopoverHorizontal>
         }
-        <hr />
       </section>
     );
   }
