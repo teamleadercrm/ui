@@ -7,6 +7,7 @@ import Button from '../../components/button';
 class PopoverHorizontalTest extends React.Component {
   state = {
     active: false,
+    backdrop: 'dark',
     direction: 'west',
     position: 'middle',
     subtitle:'',
@@ -17,6 +18,10 @@ class PopoverHorizontalTest extends React.Component {
     this.anchorEl = ReactDOM.findDOMNode(this.popoverToggleButton);
     this.forceUpdate();
   }
+
+  handleBackdropChange = (value) => {
+    this.setState({ backdrop: value });
+  };
 
   handleTitleChange = (event) => {
     this.setState({ title: event.target.value });
@@ -44,7 +49,7 @@ class PopoverHorizontalTest extends React.Component {
   ];
 
   render () {
-    const { direction, position } = this.state;
+    const { backdrop, direction, position } = this.state;
 
     return (
       <article>
@@ -55,6 +60,12 @@ class PopoverHorizontalTest extends React.Component {
         <div className="component-spec">
           <div className="properties">
             <h3>Properties</h3>
+
+            <h4>Backdrop</h4>
+            <RadioGroup name="direction" value={backdrop} onChange={this.handleBackdropChange}>
+              <RadioButton label="Dark" value="dark" />
+              <RadioButton label="Transparent" value="" />
+            </RadioGroup>
 
             <h4>Direction</h4>
             <RadioGroup name="direction" value={direction} onChange={this.handleDirectionChange}>
@@ -99,6 +110,7 @@ class PopoverHorizontalTest extends React.Component {
             actions={this.actions}
             active={this.state.active}
             anchorEl={this.anchorEl}
+            backdrop={this.state.backdrop}
             direction={this.state.direction}
             position={this.state.position}
             onCloseClick={this.handleToggle}
