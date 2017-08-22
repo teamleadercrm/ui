@@ -40,18 +40,6 @@ class PopoverHorizontalTest extends React.Component {
       <section>
         <h2>Horizontal Popover</h2>
 
-        <Button
-          primary
-          style={{ 'marginLeft': '50%' }}
-          label="Show a horizontal popover"
-          onClick={this.handleToggle}
-          ref={
-            (button) => {
-              this.popoverToggleButton = button;
-            }
-          }
-        />
-
         <h3>Direction</h3>
         <RadioGroup name="direction" value={direction} onChange={this.handleDirectionChange}>
           <RadioButton label="West" value="west" />
@@ -64,6 +52,18 @@ class PopoverHorizontalTest extends React.Component {
           <RadioButton label="Middle" value="middle" />
           <RadioButton label="Bottom" value="bottom" />
         </RadioGroup>
+
+        <Button
+          primary
+          style={{ 'marginLeft': '50%' }}
+          label="Show a horizontal popover"
+          onClick={this.handleToggle}
+          ref={
+            (button) => {
+              this.popoverToggleButton = button;
+            }
+          }
+        />
 
         { this.anchorEl &&
           <PopoverHorizontal
