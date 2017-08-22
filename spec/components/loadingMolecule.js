@@ -60,8 +60,6 @@ class LoadingMoleculeTest extends React.Component {
           </div>
         </div>
 
-        <hr />
-
       </section>
     );
   }
