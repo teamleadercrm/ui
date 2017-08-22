@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { PopoverVertical } from '../../components/popover/';
+import { RadioGroup, RadioButton } from '../../components/radio';
 import Button from '../../components/button';
 
 class PopoverTest extends React.Component {
@@ -17,6 +18,14 @@ class PopoverTest extends React.Component {
 
   handleToggle = () => {
     this.setState({ active: !this.state.active });
+  };
+
+  handleDirectionChange = (value) => {
+    this.setState({ direction: value });
+  };
+
+  handlePositionChange = (value) => {
+    this.setState({ position: value });
   };
 
   actions = [
@@ -43,29 +52,18 @@ class PopoverTest extends React.Component {
           }
         />
 
-        <h4>Direction</h4>
-        <label>
-          <input type="radio" onChange={() => this.setState({ direction: 'north' })} checked={direction === 'north'} />
-          north
-        </label>
-        <label>
-          <input type="radio" onChange={() => this.setState({ direction: 'south' })} checked={direction === 'south'} />
-          south
-        </label>
+        <h3>Direction</h3>
+        <RadioGroup name="direction" value={direction} onChange={this.handleDirectionChange}>
+          <RadioButton label="North" value="north" />
+          <RadioButton label="South" value="south" />
+        </RadioGroup>
 
-        <h4>Position</h4>
-        <label>
-          <input type="radio" onChange={() => this.setState({ position: 'left' })} checked={position === 'left'} />
-          left
-        </label>
-        <label>
-          <input type="radio" onChange={() => this.setState({ position: 'center' })} checked={position === 'center'} />
-          center
-        </label>
-        <label>
-          <input type="radio" onChange={() => this.setState({ position: 'right' })} checked={position === 'right'} />
-          right
-        </label>
+        <h3>Position</h3>
+        <RadioGroup name="position" value={position} onChange={this.handlePositionChange}>
+          <RadioButton label="Left" value="left" />
+          <RadioButton label="Center" value="center" />
+          <RadioButton label="Right" value="right" />
+        </RadioGroup>
 
         { this.anchorEl &&
           <PopoverVertical
