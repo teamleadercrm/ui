@@ -8,7 +8,7 @@ const handleItemClick = () => {
 const ButtonTest = () => (
   <section>
     <h2>Buttons</h2>
-
+    <h3>Primary</h3>
     <p>
       <Button primary onMouseUp={handleItemClick}>Primary</Button>&nbsp;
       <Button primary icon="search">Primary with icon</Button>&nbsp;
@@ -26,6 +26,7 @@ const ButtonTest = () => (
     </p>
 
     <hr />
+    <h3>Secondary</h3>
 
     <p>
       <Button>Secondary</Button>&nbsp;
@@ -63,6 +64,7 @@ const ButtonTest = () => (
     </p>
 
     <hr />
+    <h3>Icon only</h3>
 
     <p><IconButton icon="search" /></p>
   </section>
