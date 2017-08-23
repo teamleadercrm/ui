@@ -59,7 +59,6 @@
 }
 
 .text {
-  color: var(--radio-text-color);
   display: inline-block;
   font-size: var(--radio-text-font-size);
   line-height: var(--radio-button-size);
