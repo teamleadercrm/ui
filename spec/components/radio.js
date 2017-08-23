@@ -45,7 +45,7 @@ class RadioGroupTest extends React.Component {
 
             <h4>Boolean example</h4>
             <RadioGroup name="booleanValue" value={this.state.booleanValue} onChange={this.handleBooleanChange}>
-              <RadioButton label="True" value={true} />
+              <RadioButton label="True" value />
               <RadioButton label="False" value={false} />
             </RadioGroup>
           </div>
