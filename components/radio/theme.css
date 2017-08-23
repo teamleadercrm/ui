@@ -10,10 +10,8 @@
   --radio-inner-color: var(--color-primary);
   --radio-focus-color: color(var(--color-black) a(10%));
   --radio-checked-focus-color: color(var(--color-primary) a(26%));
-  --radio-text-color: var(--color-black);
   --radio-disabled-color: var(--palette-grey-500);
   --radio-disabled-background: var(--palette-grey-200);
-  --radio-text-font-size: calc(1.4 * var(--unit));
 }
 
 .radio {
@@ -60,7 +58,6 @@
 
 .text {
   display: inline-block;
-  font-size: var(--radio-text-font-size);
   line-height: var(--radio-button-size);
   padding-left: var(--unit);
   vertical-align: top;
