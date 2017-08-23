@@ -11,7 +11,10 @@ class RadioGroup extends Component {
     className: PropTypes.string,
     disabled: PropTypes.bool,
     onChange: PropTypes.func,
-    value: PropTypes.string,
+    value: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.bool,
+    ]),
   };
 
   static defaultProps = {

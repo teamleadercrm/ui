@@ -27,7 +27,10 @@ class RadioButton extends Component {
       input: PropTypes.string,
       text: PropTypes.string,
     }),
-    value: PropTypes.string,
+    value: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.bool,
+    ]),
   };
 
   static defaultProps = {
