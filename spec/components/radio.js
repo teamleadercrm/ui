@@ -3,12 +3,18 @@ import { RadioGroup, RadioButton } from '../../components/radio';
 
 class RadioGroupTest extends React.Component {
   state = {
-    value: 'vvendetta',
+    stringValue: 'vvendetta',
+    booleanValue: false,
   };
 
-  handleChange = (value) => {
-    console.log('Changed!', { comic: value });
-    this.setState({ value });
+  handleStringChange = (value) => {
+    console.log('Changed the string value!', { stringValue: value });
+    this.setState({ stringValue: value });
+  };
+
+  handleBooleanChange = (value) => {
+    console.log('Changed the boolean value!', { booleanValue: value });
+    this.setState({ booleanValue: value });
   };
 
   handleFocus = () => {
@@ -29,12 +35,18 @@ class RadioGroupTest extends React.Component {
         <div className="component-spec">
           <div className="preview">
             <h3>Preview</h3>
-
-            <RadioGroup name="comic" value={this.state.value} onChange={this.handleChange}>
+            <h4>String example</h4>
+            <RadioGroup name="stringValue" value={this.state.stringValue} onChange={this.handleStringChange}>
               <RadioButton label="The Walking Dead" value="thewalkingdead" />
               <RadioButton label="From Hell" value="fromhell" disabled />
               <RadioButton label="V for a Vendetta" value="vvendetta" onFocus={this.handleFocus} />
               <RadioButton label="Watchmen" value="watchmen" onBlur={this.handleBlur} />
+            </RadioGroup>
+
+            <h4>Boolean example</h4>
+            <RadioGroup name="booleanValue" value={this.state.booleanValue} onChange={this.handleBooleanChange}>
+              <RadioButton label="True" value />
+              <RadioButton label="False" value={false} />
             </RadioGroup>
           </div>
         </div>
