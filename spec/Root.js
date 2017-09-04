@@ -13,6 +13,7 @@ import PopoverHorizontal from './components/popoverHorizontal';
 import LoadingMolecule from './components/loadingMolecule';
 import Radio from './components/radio';
 import Toast from './components/toast';
+import Toggle from './components/toggle';
 
 const Root = () => (
   <div className={s.root}>
@@ -21,6 +22,9 @@ const Root = () => (
       <h1>Teamleader UI v{__VERSION__}</h1>
       {__DEV__}
 
+      <Section id="toggles">
+        <Toggle />
+      </Section>
       <Section id="buttons">
         <Button />
       </Section>

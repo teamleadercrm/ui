@@ -1,0 +1,106 @@
+@import '../colors.css';
+@import '../variables.css';
+@import '@teamleader/ui-colors/index.css';
+
+:root {
+  --toggle-track-border-radius: calc(var(--toggle-track-height) / 2);
+  --toggle-thumb-border-radius: calc(var(--toggle-thumb-height) / 2);
+  --toggle-thumb-background: var(--color-white);
+  --toggle-track-padding: calc((var(--toggle-track-height) - var(--toggle-thumb-height)) / 2);
+}
+
+.toggle {
+  --toggle-track-background: var(--color-aqua);
+  --toggle-track-background-checked: var(--color-aqua-dark);
+
+  &.small {
+    .track {
+      --toggle-track-width: calc(4.2 * var(--unit));
+      --toggle-track-height: calc(2.4 * var(--unit));
+    }
+
+    .thumb {
+      --toggle-thumb-width: calc(1.8 * var(--unit));
+      --toggle-thumb-height: var(--toggle-thumb-width);
+    }
+  }
+
+  .input {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    margin: 0;
+  }
+
+  .track {
+    --toggle-track-width: calc(5.4 * var(--unit));
+    --toggle-track-height: calc(3 * var(--unit));
+
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    width: var(--toggle-track-width);
+    height: var(--toggle-track-height);
+    border-radius: var(--toggle-track-border-radius);
+    background: var(--toggle-track-background);
+    cursor: pointer;
+    transition: all .1s ease;
+  }
+
+  .thumb {
+    --toggle-thumb-width: calc(2.4 * var(--unit));
+    --toggle-thumb-height: var(--toggle-thumb-width);
+
+    display: inline-block;
+    width: var(--toggle-thumb-width);
+    height: var(--toggle-thumb-height);
+    border-radius: var(--toggle-track-border-radius);
+    background: var(--toggle-thumb-background);
+    position: absolute;
+    left: var(--toggle-track-padding);
+    top: var(--toggle-track-padding);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
+    transition: all .1s ease;
+  }
+
+  &.checked {
+    .thumb {
+      transform: translateX(calc(var(--toggle-track-width) - var(--toggle-thumb-width) - calc(2 * var(--toggle-track-padding))));
+    }
+
+    .track {
+      background: var(--toggle-track-background-checked);
+    }
+  }
+}
+
+.teal {
+  --toggle-track-background: var(--color-teal);
+  --toggle-track-background-checked: var(--color-teal-dark);
+}
+
+.mint {
+  --toggle-track-background: var(--color-mint);
+  --toggle-track-background-checked: var(--color-mint-dark);
+}
+
+.violet {
+  --toggle-track-background: var(--color-violet);
+  --toggle-track-background-checked: var(--color-violet-dark);
+}
+
+.ruby {
+  --toggle-track-background: var(--color-ruby);
+  --toggle-track-background-checked: var(--color-ruby-dark);
+}
+
+.gold {
+  --toggle-track-background: var(--color-gold);
+  --toggle-track-background-checked: var(--color-gold-dark);
+}
+
+.aqua {
+  --toggle-track-background: var(--color-aqua);
+  --toggle-track-background-checked: var(--color-aqua-dark);
+}
