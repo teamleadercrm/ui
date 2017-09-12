@@ -65,14 +65,14 @@ class Section extends Component {
     } = this.props;
 
     const color = this.getColor();
-    const dark = this.isDark(color);
+    const isDark = this.isDark(color);
 
     const classes = cx(
       theme.section,
       className,
       theme[color],
       {
-        [theme.dark]: dark,
+        [theme.dark]: isDark,
       }
     );
 
