@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import omit from 'lodash.omit';
 import theme from './theme.css';
 
 class Section extends Component {
@@ -75,8 +76,19 @@ class Section extends Component {
       }
     );
 
+    const rest = omit(others, [
+      'white',
+      'grey',
+      'mint',
+      'violet',
+      'ruby',
+      'gold',
+      'aqua',
+      'dark',
+    ]);
+
     return (
-      <div className={classes} {...others}>
+      <div className={classes} {...rest}>
         {children}
       </div>
     );
