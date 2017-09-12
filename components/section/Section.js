@@ -30,7 +30,7 @@ class Section extends Component {
     dark: false,
   };
 
-  getColor() {
+  getColor () {
     const colors = [
       'grey',
       'mint',
@@ -38,7 +38,7 @@ class Section extends Component {
       'ruby',
       'gold',
       'aqua',
-      'white'
+      'white',
     ];
 
     for (var i = 0; i < colors.length; i++) {
