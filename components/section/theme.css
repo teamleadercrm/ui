@@ -4,7 +4,7 @@
 .section {
   border-bottom: 1px solid var(--border-color);
   background: var(--background-color);
-  padding: var(--spacer-smaller);
+  padding: var(--spacer-small);
 }
 
 .white {
