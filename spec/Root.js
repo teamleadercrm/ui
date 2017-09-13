@@ -13,6 +13,7 @@ import PopoverHorizontal from './components/popoverHorizontal';
 import LoadingMolecule from './components/loadingMolecule';
 import Radio from './components/radio';
 import SectionTest from './components/section';
+import IslandTest from './components/island';
 import Toast from './components/toast';
 
 const Root = () => (
@@ -42,6 +43,9 @@ const Root = () => (
       </Section>
       <Section id="sections">
         <SectionTest />
+      </Section>
+      <Section id="islands">
+        <IslandTest />
       </Section>
       <Section id="toasts">
         <Toast />
