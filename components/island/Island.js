@@ -19,7 +19,6 @@ class Island extends Component {
   };
 
   static defaultProps = {
-    className: '',
     white: true,
     neutral: false,
     mint: false,
