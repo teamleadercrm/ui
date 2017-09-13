@@ -7,6 +7,7 @@ import LoadingMolecule from './loadingMolecule';
 import { PopoverHorizontal, PopoverVertical } from './popover';
 import { RadioButton, RadioGroup } from './radio';
 import Section from './section';
+import Island from './island';
 import { Toast } from './toast';
 
 export {
@@ -25,5 +26,6 @@ export {
   RadioButton,
   RadioGroup,
   Section,
+  Island,
   Toast,
 };
