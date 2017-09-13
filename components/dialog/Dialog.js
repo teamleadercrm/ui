@@ -91,8 +91,6 @@ const factory = (Overlay, Button, IconButton) => {
             onMouseDown={onOverlayMouseDown}
             onMouseMove={onOverlayMouseMove}
             onMouseUp={onOverlayMouseUp}
-            theme={theme}
-            themeNamespace="overlay"
           />
           <div
             data-teamleader-ui="dialog"

@@ -142,8 +142,6 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
             onMouseDown={onOverlayMouseDown}
             onMouseMove={onOverlayMouseMove}
             onMouseUp={onOverlayMouseUp}
-            theme={theme}
-            themeNamespace="overlay"
           />
           <div
             data-teamleader-ui={`popover-${axis}`}

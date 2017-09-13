@@ -69,7 +69,6 @@ const factory = (IconButton, Menu) => {
             position={position}
             selectable={selectable}
             selected={selected}
-            theme={theme}
           >
             {children}
           </Menu>
