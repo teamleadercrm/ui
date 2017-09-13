@@ -70,7 +70,7 @@ class ToastTest extends React.Component {
           action={this.state.action}
           active={this.state.active}
           label={this.state.label}
-          timeout={3000}
+          timeout={9999999}
           onClick={this.handleSnackbarClick}
           onTimeout={this.handleSnackbarTimeout}
           type={this.state.type}
