@@ -6,6 +6,7 @@ import Section from './Section';
 
 // components
 import Button from './components/button';
+import Typography from './components/typography';
 import Menu from './components/menu';
 import Dialog from './components/dialog';
 import PopoverVertical from './components/popoverVertical';
@@ -24,6 +25,9 @@ const Root = () => (
 
       <Section id="buttons">
         <Button />
+      </Section>
+      <Section id="typography">
+        <Typography />
       </Section>
       <Section id="popovers">
         <PopoverVertical />
