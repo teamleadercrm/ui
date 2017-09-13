@@ -12,7 +12,6 @@ const factory = (defaultElement) => {
     };
 
     static defaultProps = {
-      className: '',
       element: null,
     };
 
