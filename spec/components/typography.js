@@ -5,7 +5,7 @@ import {
   Heading3,
   Heading4,
   Monospaced,
-  OldStyle,
+  OldStyleNumber,
   TextBody,
   TextSmall,
   TextTiny,
@@ -22,32 +22,32 @@ class TypographyTest extends PureComponent {
           <div className="preview">
             <Heading1>
               I'm a Header 1 containing a <a href="#">link</a> -
-              0123456789 - <OldStyle>0123456789</OldStyle> - <Monospaced>0123456789</Monospaced>
+              0123456789 - <OldStyleNumber>0123456789</OldStyleNumber> - <Monospaced>0123456789</Monospaced>
             </Heading1>
             <Heading2>
               I'm a Header 2 containing a <a href="#">link</a> -
-              0123456789 - <OldStyle>0123456789</OldStyle> - <Monospaced>0123456789</Monospaced>
+              0123456789 - <OldStyleNumber>0123456789</OldStyleNumber> - <Monospaced>0123456789</Monospaced>
             </Heading2>
             <Heading3>
               I'm a Header 3 containing a <a href="#">link</a> -
-              0123456789 - <OldStyle>0123456789</OldStyle> - <Monospaced>0123456789</Monospaced>
+              0123456789 - <OldStyleNumber>0123456789</OldStyleNumber> - <Monospaced>0123456789</Monospaced>
             </Heading3>
             <Heading4>
               I'm a Header 4 containing a <a href="#">link</a> -
-              0123456789 - <OldStyle>0123456789</OldStyle> - <Monospaced>0123456789</Monospaced>
+              0123456789 - <OldStyleNumber>0123456789</OldStyleNumber> - <Monospaced>0123456789</Monospaced>
             </Heading4>
 
             <TextBody>
               I am body text containing a <strong>strong word</strong> and a <a href="#">link</a> -
-              0123456789 - <OldStyle>0123456789</OldStyle> - <Monospaced>0123456789</Monospaced>
+              0123456789 - <OldStyleNumber>0123456789</OldStyleNumber> - <Monospaced>0123456789</Monospaced>
             </TextBody>
             <TextSmall>
               I am small text containing a <strong>strong word</strong> and a <a href="#">link</a> -
-              0123456789 - <OldStyle>0123456789</OldStyle> - <Monospaced>0123456789</Monospaced>
+              0123456789 - <OldStyleNumber>0123456789</OldStyleNumber> - <Monospaced>0123456789</Monospaced>
             </TextSmall>
             <TextTiny>
               I am tiny text containing a <strong>strong word</strong> and a <a href="#">link</a> -
-              0123456789 - <OldStyle>0123456789</OldStyle> - <Monospaced>0123456789</Monospaced>
+              0123456789 - <OldStyleNumber>0123456789</OldStyleNumber> - <Monospaced>0123456789</Monospaced>
             </TextTiny>
           </div>
         </div>

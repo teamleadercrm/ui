@@ -4,7 +4,7 @@ import cx from 'classnames';
 import s from './theme.css';
 
 const factory = (defaultElement) => {
-  class OldStyle extends PureComponent {
+  class OldStyleNumber extends PureComponent {
     static propTypes = {
       children: PropTypes.node,
       className: PropTypes.string,
@@ -36,7 +36,7 @@ const factory = (defaultElement) => {
     }
   }
 
-  return OldStyle;
+  return OldStyleNumber;
 };
 
-export { factory as oldStyleFactory };
+export { factory as oldStyleNumberFactory };
