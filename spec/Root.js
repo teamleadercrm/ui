@@ -11,6 +11,7 @@ import Dialog from './components/dialog';
 import PopoverVertical from './components/popoverVertical';
 import PopoverHorizontal from './components/popoverHorizontal';
 import LoadingMolecule from './components/loadingMolecule';
+import Link from './components/link';
 import Radio from './components/radio';
 import SectionTest from './components/section';
 import Toast from './components/toast';
@@ -24,6 +25,9 @@ const Root = () => (
 
       <Section id="buttons">
         <Button />
+      </Section>
+      <Section id="links">
+        <Link />
       </Section>
       <Section id="popovers">
         <PopoverVertical />
