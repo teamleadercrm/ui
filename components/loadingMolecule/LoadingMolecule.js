@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { themr } from 'react-css-themr';
 import cx from 'classnames';
-import { LOADING_MOLECULE } from '../identifiers.js';
+import theme from './theme.css';
 
 class LoadingMolecule extends Component {
   static defaultProps = {
@@ -14,9 +13,6 @@ class LoadingMolecule extends Component {
 
   static propTypes = {
     className: PropTypes.string,
-    theme: PropTypes.shape({
-      loadingMolecule: PropTypes.string,
-    }),
     basePath: PropTypes.string.isRequired,
     startColor: PropTypes.string.isRequired,
     stopColor: PropTypes.string.isRequired,
@@ -31,7 +27,6 @@ class LoadingMolecule extends Component {
   render () {
     const {
       className,
-      theme,
       basePath,
       startColor,
       stopColor,
@@ -95,5 +90,4 @@ class LoadingMolecule extends Component {
   }
 }
 
-export default themr(LOADING_MOLECULE)(LoadingMolecule);
-export { LoadingMolecule };
+export default LoadingMolecule;
