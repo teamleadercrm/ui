@@ -17,6 +17,7 @@ import Overlay from './overlay';
 import LoadingMolecule from './loadingMolecule';
 import { PopoverHorizontal, PopoverVertical } from './popover';
 import { RadioButton, RadioGroup } from './radio';
+import Section from './section';
 import { Toast } from './toast';
 
 export {
@@ -43,5 +44,6 @@ export {
   TextBody,
   TextSmall,
   TextTiny,
+  Section,
   Toast,
 };
