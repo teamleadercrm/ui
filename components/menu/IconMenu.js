@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import { themr } from 'react-css-themr';
-import { MENU } from '../identifiers.js';
 import InjectIconButton from '../button/IconButton.js';
 import InjectMenu from './Menu.js';
+import theme from './theme.css';
 
 const factory = (IconButton, Menu) => {
   class IconMenu extends Component {
@@ -22,10 +21,6 @@ const factory = (IconButton, Menu) => {
       position: PropTypes.string,
       selectable: PropTypes.bool,
       selected: PropTypes.any,
-      theme: PropTypes.shape({
-        icon: PropTypes.string,
-        iconMenu: PropTypes.string,
-      }),
     };
 
     static defaultProps = {
@@ -56,7 +51,7 @@ const factory = (IconButton, Menu) => {
     render () {
       const {
         children, className, icon, onHide, // eslint-disable-line
-        onSelect, onShow, position, selectable, selected, theme, ...other
+        onSelect, onShow, position, selectable, selected, ...other
       } = this.props;
 
       return (
@@ -87,6 +82,9 @@ const factory = (IconButton, Menu) => {
 };
 
 const IconMenu = factory(InjectIconButton, InjectMenu);
-export default themr(MENU)(IconMenu);
-export { factory as iconMenuFactory };
-export { IconMenu };
+
+export default IconMenu;
+export {
+  factory as iconMenuFactory,
+  IconMenu,
+};
