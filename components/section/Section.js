@@ -9,7 +9,7 @@ class Section extends Component {
     children: PropTypes.node,
     className: PropTypes.string,
     white: PropTypes.bool,
-    grey: PropTypes.bool,
+    neutral: PropTypes.bool,
     mint: PropTypes.bool,
     violet: PropTypes.bool,
     ruby: PropTypes.bool,
@@ -21,7 +21,7 @@ class Section extends Component {
   static defaultProps = {
     className: '',
     white: true,
-    grey: false,
+    neutral: false,
     mint: false,
     violet: false,
     ruby: false,
@@ -32,7 +32,7 @@ class Section extends Component {
 
   getColor () {
     const colors = [
-      'grey',
+      'neutral',
       'mint',
       'violet',
       'ruby',
@@ -50,7 +50,7 @@ class Section extends Component {
   }
 
   isDark (color) {
-    if (color !== 'white' && color !== 'grey') {
+    if (color !== 'white' && color !== 'neutral') {
       return false;
     }
 
@@ -78,7 +78,7 @@ class Section extends Component {
 
     const rest = omit(others, [
       'white',
-      'grey',
+      'neutral',
       'mint',
       'violet',
       'ruby',

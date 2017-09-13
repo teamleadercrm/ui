@@ -16,8 +16,8 @@ class SectionTest extends React.Component {
             <h3>Neutrals</h3>
             <Section className={style.section} white>White normal</Section>
             <Section className={style.section} white dark>White dark</Section>
-            <Section className={style.section} grey>Grey normal</Section>
-            <Section className={style.section} grey dark>Grey dark</Section>
+            <Section className={style.section} neutral>Grey normal</Section>
+            <Section className={style.section} neutral dark>Grey dark</Section>
 
             <h3>Color</h3>
             <Section className={style.section} mint>Mint</Section>

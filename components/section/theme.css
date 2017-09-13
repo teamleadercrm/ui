@@ -16,7 +16,7 @@
   }
 }
 
-.grey {
+.neutral {
   --background-color: var(--color-neutral-light);
   --border-color: var(--color-neutral);
 
