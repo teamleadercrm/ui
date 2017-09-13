@@ -19,7 +19,6 @@ class Section extends Component {
   };
 
   static defaultProps = {
-    className: '',
     white: true,
     neutral: false,
     mint: false,
