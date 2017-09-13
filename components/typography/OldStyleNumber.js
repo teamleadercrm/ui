@@ -3,39 +3,35 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import s from './theme.css';
 
-const factory = (defaultElement) => {
-  class OldStyleNumber extends PureComponent {
-    static propTypes = {
-      children: PropTypes.node,
-      className: PropTypes.string,
-      element: PropTypes.node,
-    };
+class OldStyleNumber extends PureComponent {
+  static propTypes = {
+    children: PropTypes.node,
+    className: PropTypes.string,
+    element: PropTypes.node,
+  };
 
-    static defaultProps = {
-      element: null,
-    };
+  static defaultProps = {
+    element: 'span',
+  };
 
-    render () {
-      const {
-        children,
-        className,
-        element,
-      } = this.props;
+  render () {
+    const {
+      children,
+      className,
+      element,
+    } = this.props;
 
-      const classNames = cx(
-        s['old-styled-number'],
-        className,
-      );
+    const classNames = cx(
+      s['old-styled-number'],
+      className,
+    );
 
-      const Element = element || defaultElement;
+    const Element = element;
 
-      return (
-        <Element className={classNames}>{children}</Element>
-      );
-    }
+    return (
+      <Element className={classNames}>{children}</Element>
+    );
   }
+}
 
-  return OldStyleNumber;
-};
-
-export { factory as oldStyleNumberFactory };
+export default OldStyleNumber;
