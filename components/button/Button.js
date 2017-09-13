@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import FontIcon from '../font_icon';
 import omit from 'lodash.omit';
+import theme from './theme.css';
 
 class Button extends Component {
   static propTypes = {
@@ -22,17 +23,6 @@ class Button extends Component {
     onMouseUp: PropTypes.func,
     primary: PropTypes.bool,
     processing: PropTypes.bool,
-    theme: PropTypes.shape({
-      button: PropTypes.string,
-      bordered: PropTypes.string,
-      icon: PropTypes.string,
-      inverse: PropTypes.string,
-      primary: PropTypes.string,
-      secondary: PropTypes.string,
-      small: PropTypes.string,
-      medium: PropTypes.string,
-      large: PropTypes.string,
-    }),
     type: PropTypes.string,
   };
 
@@ -96,7 +86,6 @@ class Button extends Component {
       href,
       icon,
       label,
-      theme,
       type,
       processing,
       ...others
