@@ -20,13 +20,6 @@ class Section extends Component {
 
   static defaultProps = {
     white: true,
-    neutral: false,
-    mint: false,
-    violet: false,
-    ruby: false,
-    gold: false,
-    aqua: false,
-    dark: false,
   };
 
   getColor () {
