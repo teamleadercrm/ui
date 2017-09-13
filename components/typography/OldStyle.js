@@ -24,7 +24,7 @@ const factory = (defaultElement) => {
       } = this.props;
 
       const classNames = cx(
-        s['old-style'],
+        s['old-styled-number'],
         className,
       );
 
