@@ -5,7 +5,7 @@ import s from './theme.css';
 
 class Link extends PureComponent {
   static propTypes = {
-    children: PropTypes.node,
+    children: PropTypes.node.isRequired,
     className: PropTypes.string,
     external: PropTypes.bool,
     onClick: PropTypes.func,
@@ -38,12 +38,12 @@ class Link extends PureComponent {
     return (
       url
         ? (
-          <a target={target} {...rest} href={url} rel={rel} className={classNames}>
+          <a target={target} {...rest} href={url} rel={rel} className={classNames} data-teamleader-ui="link">
             {children}
           </a>
         )
         : (
-          <button onClick={onClick} className={classNames}>
+          <button onClick={onClick} className={classNames} data-teamleader-ui="link">
             {children}
           </button>
         )
