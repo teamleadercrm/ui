@@ -14,7 +14,6 @@ class StatusLabel extends Component {
     ruby: PropTypes.bool,
     gold: PropTypes.bool,
     aqua: PropTypes.bool,
-    dark: PropTypes.bool,
     small: PropTypes.bool,
   };
 
