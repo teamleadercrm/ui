@@ -29,7 +29,7 @@ class OldStyleNumber extends PureComponent {
     const Element = element;
 
     return (
-      <Element className={classNames}>{children}</Element>
+      <Element data-teamleader-ui="old-styled-number" className={classNames}>{children}</Element>
     );
   }
 }

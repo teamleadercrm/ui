@@ -80,7 +80,7 @@ class Island extends Component {
     ]);
 
     return (
-      <div className={classes} {...rest}>
+      <div data-teamleader-ui="island" className={classes} {...rest}>
         {children}
       </div>
     );

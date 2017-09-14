@@ -80,7 +80,7 @@ class Section extends Component {
     ]);
 
     return (
-      <div className={classes} {...rest}>
+      <div data-teamleader-ui="section" className={classes} {...rest}>
         {children}
       </div>
     );

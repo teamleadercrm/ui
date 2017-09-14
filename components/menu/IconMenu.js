@@ -60,7 +60,7 @@ const factory = (IconButton, Menu) => {
       } = this.props;
 
       return (
-        <div {...other} className={cx(theme.iconMenu, className)}>
+        <div data-teamleader-ui="icon-menu" {...other} className={cx(theme.iconMenu, className)}>
           <IconButton
             className={theme.icon}
             icon={icon}

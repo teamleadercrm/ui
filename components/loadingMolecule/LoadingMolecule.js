@@ -51,7 +51,7 @@ class LoadingMolecule extends Component {
     const grandient2Source = `url(${basePath}#${gradient2Name})`;
 
     return (
-      <div className={classes} {...others}>
+      <div data-teamleader-ui="loading-molecule" className={classes} {...others}>
         <svg className="loader" width="100px" height="56px" version="1.1">
           <defs>
             <linearGradient x1="63.2191022%" y1="50%" x2="21.8036493%" y2="115.713387%" id={gradient1Name}>
