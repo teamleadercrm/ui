@@ -44,14 +44,14 @@
 
 .medium {
   font-size: calc(1.4 * var(--unit));
-  line-height:calc(1.8 * var(--unit));
+  line-height: calc(1.8 * var(--unit));
   padding: var(--spacer-smallest) var(--spacer-smaller);
 }
 
 .small {
   font-size: calc(1.2 * var(--unit));
   font-variant: small-caps;
-  line-height:calc(1.8 * var(--unit));
+  line-height: calc(1.8 * var(--unit));
   padding: 0 var(--spacer-smaller);
   text-transform: uppercase;
 }
