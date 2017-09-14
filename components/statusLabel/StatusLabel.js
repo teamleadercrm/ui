@@ -6,7 +6,7 @@ import theme from './theme.css';
 
 class StatusLabel extends Component {
   static propTypes = {
-    children: PropTypes.node,
+    children: PropTypes.node.isRequired,
     className: PropTypes.string,
     mint: PropTypes.bool,
     teal: PropTypes.bool,
@@ -67,7 +67,7 @@ class StatusLabel extends Component {
     ]);
 
     return (
-      <span className={classes} {...rest}>
+      <span className={classes} {...rest} data-teamleader-ui="status-label">
         {children}
       </span>
     );
