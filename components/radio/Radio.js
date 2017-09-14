@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import theme from './theme.css';
 
-const Radio = ({ checked, onMouseDown, theme, ...other }) => (
+const Radio = ({ checked, onMouseDown, ...other }) => (
   <div
     data-teamleader-ui="radio"
     className={theme[checked ? 'radioChecked' : 'radio']}
@@ -14,10 +15,6 @@ Radio.propTypes = {
   checked: PropTypes.bool,
   children: PropTypes.node,
   onMouseDown: PropTypes.func,
-  theme: PropTypes.shape({
-    radio: PropTypes.string,
-    radioChecked: PropTypes.string,
-  }),
 };
 
 export default Radio;

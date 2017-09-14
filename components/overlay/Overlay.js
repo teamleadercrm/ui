@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import { themr } from 'react-css-themr';
-import { OVERLAY } from '../identifiers';
+import theme from './theme.css';
 
 class Overlay extends Component {
   static propTypes = {
@@ -13,11 +12,6 @@ class Overlay extends Component {
     lockScroll: PropTypes.bool,
     onClick: PropTypes.func,
     onEscKeyDown: PropTypes.func,
-    theme: PropTypes.shape({
-      active: PropTypes.string,
-      backdrop: PropTypes.string,
-      overlay: PropTypes.string,
-    }),
   };
 
   static defaultProps = {
@@ -88,7 +82,6 @@ class Overlay extends Component {
       className,
       backdrop,
       lockScroll, // eslint-disable-line
-      theme,
       onEscKeyDown, // eslint-disable-line
       ...other
     } = this.props; // eslint-disable-line
@@ -111,5 +104,5 @@ class Overlay extends Component {
   }
 }
 
-export default themr(OVERLAY)(Overlay);
+export default Overlay;
 export { Overlay };

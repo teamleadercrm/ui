@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import { themr } from 'react-css-themr';
-import { BUTTON } from '../identifiers';
 import InjectFontIcon from '../font_icon/FontIcon';
 import omit from 'lodash.omit';
+import theme from './theme.css';
 
 const factory = (FontIcon) => {
   class IconButton extends Component {
@@ -22,16 +21,6 @@ const factory = (FontIcon) => {
       onMouseLeave: PropTypes.func,
       onMouseUp: PropTypes.func,
       primary: PropTypes.bool,
-      theme: PropTypes.shape({
-        button: PropTypes.string,
-        flat: PropTypes.string,
-        icon: PropTypes.string,
-        iconOnly: PropTypes.string,
-        inverse: PropTypes.string,
-        neutral: PropTypes.string,
-        primary: PropTypes.string,
-        toggle: PropTypes.string,
-      }),
       type: PropTypes.string,
     };
 
@@ -72,7 +61,6 @@ const factory = (FontIcon) => {
         inverse,
         neutral,
         primary,   // eslint-disable-line
-        theme,
         type,
         ...others
       } = this.props;
@@ -121,6 +109,9 @@ const factory = (FontIcon) => {
 };
 
 const IconButton = factory(InjectFontIcon);
-export default themr(BUTTON)(IconButton);
-export { factory as iconButtonFactory };
-export { IconButton };
+
+export default IconButton;
+export {
+  factory as iconButtonFactory,
+  IconButton,
+};
