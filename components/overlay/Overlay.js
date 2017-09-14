@@ -95,6 +95,7 @@ class Overlay extends Component {
 
     return (
       <div
+        data-teamleader-ui="overlay"
         {...other}
         onClick={this.handleClick}
         className={cx(
