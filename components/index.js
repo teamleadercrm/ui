@@ -19,6 +19,7 @@ import { PopoverHorizontal, PopoverVertical } from './popover';
 import { RadioButton, RadioGroup } from './radio';
 import Section from './section';
 import Island from './island';
+import StatusLabel from './statusLabel';
 import { Toast } from './toast';
 
 export {
@@ -46,6 +47,7 @@ export {
   TextSmall,
   TextTiny,
   Section,
+  StatusLabel,
   Island,
   Toast,
 };
