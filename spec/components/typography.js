@@ -6,18 +6,19 @@ import {
   Heading4,
   Monospaced,
   OldStyleNumber,
+  Section,
   TextBody,
   TextSmall,
   TextTiny,
-} from '../../components/typography';
+} from '../../components';
 
 class TypographyTest extends PureComponent {
   render () {
     return (
       <article>
-        <header>
-          <h1>Typography</h1>
-        </header>
+        <Section neutral dark>
+          <Heading1>Typography</Heading1>
+        </Section>
         <div className="component-spec">
           <div className="preview">
             <Heading1>
