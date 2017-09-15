@@ -27,8 +27,7 @@ class StatusLabel extends Component {
       'teal',
     ];
 
-    const color = colors.filter(color => this.props.hasOwnProperty(color));
-    return color[0];
+    return colors.find(color => this.props[color]);
   }
 
   getSize () {
