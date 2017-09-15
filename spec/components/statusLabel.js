@@ -1,14 +1,14 @@
 import React from 'react';
-import { Heading1, Heading2, Heading3, Heading4, TextBody, TextSmall, StatusLabel } from '../../components';
+import { Heading1, Heading2, Heading3, Heading4, TextBody, TextSmall, Section, StatusLabel } from '../../components';
 
 class StatusLabelTest extends React.Component {
 
   render () {
     return (
       <article>
-        <header>
-          <h1>Status labels</h1>
-        </header>
+        <Section neutral dark>
+          <Heading1>Status labels</Heading1>
+        </Section>
 
         <div className="component-spec">
           <div className="properties">

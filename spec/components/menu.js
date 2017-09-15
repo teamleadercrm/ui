@@ -1,5 +1,6 @@
 import React from 'react';
 import { Menu, MenuItem, MenuDivider, IconMenu } from '../../components/menu';
+import { Heading1, Heading2, Heading3, Section } from '../../components';
 
 class MenuTest extends React.Component {
   state = {
@@ -18,14 +19,14 @@ class MenuTest extends React.Component {
   render () {
     return (
       <article>
-        <header>
-          <h1>Menus</h1>
-        </header>
+        <Section neutral dark>
+          <Heading1>Menus</Heading1>
+        </Section>
 
-        <h2>Menu</h2>
+        <Heading2>Menu</Heading2>
         <div className="component-spec">
           <div className="preview">
-            <h3>Preview</h3>
+            <Heading3>Preview</Heading3>
             <Menu onSelect={this.handleSelect} selectable={false} selected={this.state.value}>
               <MenuItem value="foo" caption="Caption" />
               <MenuItem onClick={this.handleItemClick} value="bar" caption="Caption & Shortcut" shortcut="Ctrl + P" />
@@ -38,10 +39,10 @@ class MenuTest extends React.Component {
           </div>
         </div>
 
-        <h2>IconMenu</h2>
+        <Heading2>IconMenu</Heading2>
         <div className="component-spec">
           <div className="preview">
-            <h3>Preview</h3>
+            <Heading3>Preview</Heading3>
             <IconMenu icon="dots_vert" position="topLeft">
               <MenuItem value="download" icon="user_two" caption="Download" />
               <MenuDivider />
