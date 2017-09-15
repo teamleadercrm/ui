@@ -15,6 +15,7 @@ import LoadingMolecule from './components/loadingMolecule';
 import Radio from './components/radio';
 import SectionTest from './components/section';
 import StatusLabelTest from './components/statusLabel';
+import StatusBulletTest from './components/statusBullet';
 import IslandTest from './components/island';
 import Toast from './components/toast';
 
@@ -54,6 +55,9 @@ const Root = () => (
       </Section>
       <Section id="status-labels">
         <StatusLabelTest />
+      </Section>
+      <Section id="status-bullets">
+        <StatusBulletTest />
       </Section>
       <Section id="toasts">
         <Toast />
