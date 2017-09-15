@@ -1,0 +1,35 @@
+@import '@teamleader/ui-colors';
+@import '@teamleader/ui-utilities';
+
+.counter {
+  background: var(--color-ruby);
+  border-radius: 50%;
+  color: var(--color-white);
+  display: inline-block;
+  font-size: calc(1.4 * var(--unit));
+  font-family: var(--font-family-semi-bold);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.medium {
+  min-height: 9px;
+  min-width: 9px;
+}
+
+.small {
+  min-height: 6px;
+  min-width: 6px;
+}
+
+.with-children {
+  border-radius: 4px;
+}
+
+.with-children.medium {
+  padding: 4px 4px;
+}
+
+.with-children.small {
+  padding: 2px 4px;
+}
