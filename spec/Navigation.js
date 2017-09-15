@@ -13,6 +13,7 @@ const Navigation = () => (
       <li><a href="#toasts">Toasts</a></li>
       <li><a href="#sections">Sections</a></li>
       <li><a href="#islands">Islands</a></li>
+      <li><a href="#status-labels">Status labels</a></li>
       <li><a href="#loading-molecules">Loading molecules</a></li>
     </ul>
   </nav>
