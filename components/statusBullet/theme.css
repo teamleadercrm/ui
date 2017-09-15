@@ -32,8 +32,8 @@
   --background-color: var(--color-violet);
 }
 
-.teal::before {
-  --background-color: var(--color-teal-light);
+.neutral::before {
+  --background-color: var(--color-neutral);
 }
 
 .ruby::before {

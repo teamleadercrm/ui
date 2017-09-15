@@ -25,7 +25,7 @@ class StatusBullet extends Component {
       'ruby',
       'gold',
       'aqua',
-      'teal',
+      'neutral',
     ];
 
     const color = colors.filter(color => this.props.hasOwnProperty(color));
@@ -59,7 +59,7 @@ class StatusBullet extends Component {
       'ruby',
       'gold',
       'aqua',
-      'teal',
+      'neutral',
       'large',
       'small',
     ]);
