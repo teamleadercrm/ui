@@ -6,6 +6,7 @@ import Section from './Section';
 
 // components
 import Button from './components/button';
+import Counter from './components/counter';
 import Typography from './components/typography';
 import Menu from './components/menu';
 import Dialog from './components/dialog';
@@ -28,6 +29,9 @@ const Root = () => (
 
       <Section id="buttons">
         <Button />
+      </Section>
+      <Section id="counters">
+        <Counter />
       </Section>
       <Section id="typography">
         <Typography />
