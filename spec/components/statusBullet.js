@@ -1,5 +1,5 @@
 import React from 'react';
-import { StatusBullet } from '../../components';
+import { Heading1, Section, StatusBullet } from '../../components';
 import style from './statusBullet.css';
 
 class StatusBulletTest extends React.Component {
@@ -7,9 +7,9 @@ class StatusBulletTest extends React.Component {
   render () {
     return (
       <article>
-        <header>
-          <h1>Status bullets</h1>
-        </header>
+        <Section neutral dark>
+          <Heading1>Status bullets</Heading1>
+        </Section>
 
         <div className="component-spec">
           <div className="properties">
