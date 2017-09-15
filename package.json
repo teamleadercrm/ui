@@ -54,7 +54,7 @@
   ],
   "dependencies": {
     "@teamleader/ui-colors": "0.0.4",
-    "@teamleader/ui-typography": "0.0.3",
+    "@teamleader/ui-typography": "0.0.5",
     "@teamleader/ui-utilities": "0.0.2",
     "classnames": "^2.2.5",
     "lodash.omit": "^4.5.0",

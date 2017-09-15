@@ -48,6 +48,6 @@
   background: var(--color-primary-background);
   box-shadow: 0 0 5px var(--color-shadow);
   border-radius: 4px;
-  padding: 5px 15px 15px 15px;
+  padding: 15px;
   margin-bottom: 20px;
 }
