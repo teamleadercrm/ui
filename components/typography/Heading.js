@@ -31,7 +31,7 @@ const factory = (type, defaultElement) => {
       const Element = element || defaultElement;
 
       return (
-        <Element className={classNames}>{children}</Element>
+        <Element data-teamleader-ui="heading" className={classNames}>{children}</Element>
       );
     }
   }

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { themr } from 'react-css-themr';
 import cx from 'classnames';
-import { LOADING_MOLECULE } from '../identifiers.js';
+import theme from './theme.css';
 
 class LoadingMolecule extends Component {
   static defaultProps = {
@@ -14,9 +13,6 @@ class LoadingMolecule extends Component {
 
   static propTypes = {
     className: PropTypes.string,
-    theme: PropTypes.shape({
-      loadingMolecule: PropTypes.string,
-    }),
     basePath: PropTypes.string.isRequired,
     startColor: PropTypes.string.isRequired,
     stopColor: PropTypes.string.isRequired,
@@ -31,7 +27,6 @@ class LoadingMolecule extends Component {
   render () {
     const {
       className,
-      theme,
       basePath,
       startColor,
       stopColor,
@@ -51,7 +46,7 @@ class LoadingMolecule extends Component {
     const grandient2Source = `url(${basePath}#${gradient2Name})`;
 
     return (
-      <div className={classes} {...others}>
+      <div data-teamleader-ui="loading-molecule" className={classes} {...others}>
         <svg className="loader" width="100px" height="56px" version="1.1">
           <defs>
             <linearGradient x1="63.2191022%" y1="50%" x2="21.8036493%" y2="115.713387%" id={gradient1Name}>
@@ -95,5 +90,4 @@ class LoadingMolecule extends Component {
   }
 }
 
-export default themr(LOADING_MOLECULE)(LoadingMolecule);
-export { LoadingMolecule };
+export default LoadingMolecule;

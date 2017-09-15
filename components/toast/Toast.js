@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import { themr } from 'react-css-themr';
-import { TOAST } from '../identifiers';
 import ActivableRenderer from '../hoc/ActivableRenderer';
 import { Button, IconButton } from '../button';
 import Portal from '../hoc/Portal';
+import theme from './theme.css';
 
 const factory = (Button, IconButton) => {
   class Toast extends Component {
@@ -20,16 +19,6 @@ const factory = (Button, IconButton) => {
       ]),
       onClick: PropTypes.func,
       onTimeout: PropTypes.func,
-      theme: PropTypes.shape({
-        accept: PropTypes.string,
-        active: PropTypes.string,
-        button: PropTypes.string,
-        cancel: PropTypes.string,
-        iconButton: PropTypes.string,
-        label: PropTypes.string,
-        toast: PropTypes.string,
-        warning: PropTypes.string,
-      }),
       timeout: PropTypes.number,
       type: PropTypes.oneOf([ 'accept', 'cancel', 'warning' ]),
     };
@@ -73,7 +62,6 @@ const factory = (Button, IconButton) => {
         children,
         label,
         onClick,
-        theme,
         type,
       } = this.props;
 
@@ -110,6 +98,9 @@ const factory = (Button, IconButton) => {
 };
 
 const Toast = factory(Button, IconButton);
-export default themr(TOAST)(Toast);
-export { factory as toastFactory };
-export { Toast };
+
+export default Toast;
+export {
+  factory as toastFactory,
+  Toast,
+};

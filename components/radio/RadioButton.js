@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import { themr } from 'react-css-themr';
-import { RADIO } from '../identifiers';
 import Radio from './Radio';
+import theme from './theme.css';
 
 class RadioButton extends Component {
   static propTypes = {
@@ -21,12 +20,6 @@ class RadioButton extends Component {
     onFocus: PropTypes.func,
     onMouseEnter: PropTypes.func,
     onMouseLeave: PropTypes.func,
-    theme: PropTypes.shape({
-      disabled: PropTypes.string,
-      field: PropTypes.string,
-      input: PropTypes.string,
-      text: PropTypes.string,
-    }),
     value: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.bool,
@@ -73,7 +66,6 @@ class RadioButton extends Component {
       onChange, // eslint-disable-line
       onMouseEnter,
       onMouseLeave,
-      theme,
       ...others
     } = this.props;
     const _className = cx(theme[disabled ? 'disabled' : 'field'], className);
@@ -97,7 +89,7 @@ class RadioButton extends Component {
           }}
           type="radio"
         />
-        <Radio checked={checked} disabled={disabled} theme={theme} />
+        <Radio checked={checked} disabled={disabled} />
         {label ? <span className={theme.text}>{label}</span> : null}
         {children}
       </label>
@@ -105,5 +97,5 @@ class RadioButton extends Component {
   }
 }
 
-export default themr(RADIO)(RadioButton);
+export default RadioButton;
 export { RadioButton };

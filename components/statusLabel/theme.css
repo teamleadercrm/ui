@@ -53,5 +53,4 @@
   font-variant: small-caps;
   line-height: calc(1.8 * var(--unit));
   padding: 0 var(--spacer-smaller);
-  text-transform: uppercase;
 }

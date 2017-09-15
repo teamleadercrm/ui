@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import cx from 'classnames';
-import { themr } from 'react-css-themr';
-import { MENU } from '../identifiers.js';
 import { events } from '../utils';
 import { getViewport } from '../utils/utils';
 import InjectMenuItem from './MenuItem.js';
+import theme from './theme.css';
 
 const POSITION = {
   AUTO: 'auto',
@@ -30,17 +29,6 @@ const factory = (MenuItem) => {
       position: PropTypes.oneOf(Object.keys(POSITION).map(key => POSITION[key])),
       selectable: PropTypes.bool,
       selected: PropTypes.any,
-      theme: PropTypes.shape({
-        active: PropTypes.string,
-        bottomLeft: PropTypes.string,
-        bottomRight: PropTypes.string,
-        menu: PropTypes.string,
-        menuInner: PropTypes.string,
-        outline: PropTypes.string,
-        static: PropTypes.string,
-        topLeft: PropTypes.string,
-        topRight: PropTypes.string,
-      }),
     };
 
     static defaultProps = {
@@ -227,7 +215,6 @@ const factory = (MenuItem) => {
     }
 
     render () {
-      const { theme } = this.props;
       const outlineStyle = { width: this.state.width, height: this.state.height };
       const className = cx([ theme.menu, theme[this.state.position] ], {
         [theme.active]: this.state.active,
@@ -250,6 +237,8 @@ const factory = (MenuItem) => {
 };
 
 const Menu = factory(InjectMenuItem);
-export default themr(MENU)(Menu);
-export { factory as menuFactory };
-export { Menu };
+export default Menu;
+export {
+  factory as menuFactory,
+  Menu,
+};

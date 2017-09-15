@@ -29,7 +29,7 @@ class Monospaced extends PureComponent {
     const Element = element;
 
     return (
-      <Element className={classNames}>{children}</Element>
+      <Element data-teamleader-ui="monospaced" className={classNames}>{children}</Element>
     );
   }
 }
