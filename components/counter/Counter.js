@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import omit from 'lodash.omit';
+import { Monospaced } from '../typography';
 import theme from './theme.css';
 
 class Counter extends PureComponent {
@@ -28,7 +29,6 @@ class Counter extends PureComponent {
 
     const classes = cx(
       theme.counter,
-      theme.monospaced,
       theme[color],
       theme[size],
       {
@@ -45,7 +45,7 @@ class Counter extends PureComponent {
 
     return (
       <span className={classes} {...rest} data-teamleader-ui="counter">
-        {children}
+        <Monospaced>{children}</Monospaced>
       </span>
     );
   }
