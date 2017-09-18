@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import theme from './theme.css';
 
-class LoadingMolecule extends Component {
+class LoadingMolecule extends PureComponent {
   static defaultProps = {
     className: '',
     startColor: '#BABABA',
