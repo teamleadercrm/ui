@@ -12,6 +12,11 @@
   vertical-align: middle;
 }
 
+.neutral {
+  --background-color: var(--color-neutral);
+  --text-color: var(--color-neutral-darkest);
+}
+
 .mint {
   --background-color: var(--color-mint-lightest);
   --text-color: var(--color-mint-darkest);
