@@ -33,7 +33,7 @@ class Counter extends PureComponent {
       theme[color],
       theme[size],
       {
-        [theme.rounded]: count,
+        [theme.rounded]: typeof (count) !== 'undefined',
       },
       className,
     );
