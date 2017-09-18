@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import omit from 'lodash.omit';
 import { Monospaced } from '../typography';
 import theme from './theme.css';
 
@@ -38,13 +37,8 @@ class Counter extends PureComponent {
       className,
     );
 
-    const rest = omit(others, [
-      'color',
-      'size',
-    ]);
-
     return (
-      <span className={classes} {...rest} data-teamleader-ui="counter">
+      <span className={classes} {...others} data-teamleader-ui="counter">
         <Monospaced>{children}</Monospaced>
       </span>
     );
