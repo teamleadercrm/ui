@@ -32,7 +32,8 @@ class Counter extends PureComponent {
       theme[color],
       theme[size],
       {
-        [theme['with-children']]: children,
+        [theme.circular]: !children,
+        [theme.rounded]: children,
       },
       className,
     );
