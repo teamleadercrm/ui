@@ -16,8 +16,10 @@ class CounterTest extends PureComponent {
             <p>
               <Counter className={style.counter} count={999} />
               <Counter className={style.counter} count={9} size="small" />
+              <Counter className={style.counter} count={0} size="small" />
               <Counter className={style.counter} color="ruby" count={100} maxCount={99} />
               <Counter className={style.counter} color="ruby" count={9} size="small" />
+              <Counter className={style.counter} color="ruby" count={0} size="small" />
               <Counter className={style.counter} color="ruby" />
               <Counter className={style.counter} color="ruby" size="small" />
             </p>
