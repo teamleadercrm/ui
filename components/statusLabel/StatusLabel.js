@@ -14,7 +14,7 @@ class StatusLabel extends Component {
     ruby: PropTypes.bool,
     gold: PropTypes.bool,
     aqua: PropTypes.bool,
-    size: PropTypes.oneOf(['small', 'medium']),
+    size: PropTypes.oneOf([ 'small', 'medium' ]),
   };
 
   static defaultProps = {
