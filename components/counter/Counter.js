@@ -8,24 +8,28 @@ class Counter extends PureComponent {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
-    small: PropTypes.bool,
+    color: PropTypes.oneOf(['neutral', 'ruby']),
+    size: PropTypes.oneOf(['small', 'medium']),
   };
 
-  getSize () {
-    return this.props.small ? 'small' : 'medium';
-  }
+  static defaultProps = {
+    color: 'neutral',
+    size: 'medium',
+  };
 
   render () {
     const {
       children,
       className,
+      color,
+      size,
       ...others
     } = this.props;
 
-    const size = this.getSize();
-
     const classes = cx(
       theme.counter,
+      theme.monospaced,
+      theme[color],
       theme[size],
       {
         [theme['with-children']]: children,
@@ -34,7 +38,8 @@ class Counter extends PureComponent {
     );
 
     const rest = omit(others, [
-      'small',
+      'color',
+      'size',
     ]);
 
     return (
