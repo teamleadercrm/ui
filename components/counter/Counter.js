@@ -8,8 +8,8 @@ class Counter extends PureComponent {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
-    color: PropTypes.oneOf(['neutral', 'ruby']),
-    size: PropTypes.oneOf(['small', 'medium']),
+    color: PropTypes.oneOf([ 'neutral', 'ruby' ]),
+    size: PropTypes.oneOf([ 'small', 'medium' ]),
   };
 
   static defaultProps = {
