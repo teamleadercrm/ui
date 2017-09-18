@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import Portal from '../hoc/Portal';
@@ -10,7 +10,7 @@ import InjectOverlay from '../overlay/Overlay';
 import theme from './theme.css';
 
 const factory = (Overlay, Button, IconButton) => {
-  class Dialog extends Component {
+  class Dialog extends PureComponent {
     static propTypes = {
       actions: PropTypes.arrayOf(PropTypes.shape({
         className: PropTypes.string,
