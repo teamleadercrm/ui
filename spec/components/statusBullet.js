@@ -14,12 +14,12 @@ class StatusBulletTest extends React.Component {
         <div className="component-spec">
           <div className="properties">
             <p>
-              <StatusBullet className={style['status-bullet']} neutral large>Neutral</StatusBullet>
-              <StatusBullet className={style['status-bullet']} aqua large>Aqua</StatusBullet>
-              <StatusBullet className={style['status-bullet']} violet large>Violet</StatusBullet>
-              <StatusBullet className={style['status-bullet']} gold large>Gold</StatusBullet>
-              <StatusBullet className={style['status-bullet']} ruby large>Ruby</StatusBullet>
-              <StatusBullet className={style['status-bullet']} mint large>Mint</StatusBullet>
+              <StatusBullet className={style['status-bullet']} neutral size="large">Neutral</StatusBullet>
+              <StatusBullet className={style['status-bullet']} aqua size="large">Aqua</StatusBullet>
+              <StatusBullet className={style['status-bullet']} violet size="large">Violet</StatusBullet>
+              <StatusBullet className={style['status-bullet']} gold size="large">Gold</StatusBullet>
+              <StatusBullet className={style['status-bullet']} ruby size="large">Ruby</StatusBullet>
+              <StatusBullet className={style['status-bullet']} mint size="large">Mint</StatusBullet>
             </p>
             <p>
               <StatusBullet className={style['status-bullet']} neutral>Neutral</StatusBullet>
@@ -30,12 +30,12 @@ class StatusBulletTest extends React.Component {
               <StatusBullet className={style['status-bullet']} mint>Mint</StatusBullet>
             </p>
             <p>
-              <StatusBullet className={style['status-bullet']} neutral small>Neutral</StatusBullet>
-              <StatusBullet className={style['status-bullet']} aqua small>Aqua</StatusBullet>
-              <StatusBullet className={style['status-bullet']} violet small>Violet</StatusBullet>
-              <StatusBullet className={style['status-bullet']} gold small>Gold</StatusBullet>
-              <StatusBullet className={style['status-bullet']} ruby small>Ruby</StatusBullet>
-              <StatusBullet className={style['status-bullet']} mint small>Mint</StatusBullet>
+              <StatusBullet className={style['status-bullet']} neutral size="small">Neutral</StatusBullet>
+              <StatusBullet className={style['status-bullet']} aqua size="small">Aqua</StatusBullet>
+              <StatusBullet className={style['status-bullet']} violet size="small">Violet</StatusBullet>
+              <StatusBullet className={style['status-bullet']} gold size="small">Gold</StatusBullet>
+              <StatusBullet className={style['status-bullet']} ruby size="small">Ruby</StatusBullet>
+              <StatusBullet className={style['status-bullet']} mint size="small">Mint</StatusBullet>
             </p>
           </div>
         </div>

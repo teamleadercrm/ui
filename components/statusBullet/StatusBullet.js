@@ -8,14 +8,17 @@ class StatusBullet extends Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
     className: PropTypes.string,
+    size: PropTypes.oneOf(['small', 'medium', 'large']),
     mint: PropTypes.bool,
     teal: PropTypes.bool,
     violet: PropTypes.bool,
     ruby: PropTypes.bool,
     gold: PropTypes.bool,
     aqua: PropTypes.bool,
-    small: PropTypes.bool,
-    large: PropTypes.bool,
+  };
+
+  static defaultProps = {
+    size: 'medium',
   };
 
   getColor () {
@@ -31,19 +34,15 @@ class StatusBullet extends Component {
     return colors.find(color => this.props[color]);
   }
 
-  getSize () {
-    return this.props.small ? 'small' : this.props.large ? 'large' : 'medium';
-  }
-
   render () {
     const {
       children,
       className,
+      size,
       ...others
     } = this.props;
 
     const color = this.getColor();
-    const size = this.getSize();
 
     const classes = cx(
       theme.bullet,
@@ -59,8 +58,6 @@ class StatusBullet extends Component {
       'gold',
       'aqua',
       'neutral',
-      'large',
-      'small',
     ]);
 
     return (
