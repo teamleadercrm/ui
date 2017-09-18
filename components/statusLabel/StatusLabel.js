@@ -14,7 +14,11 @@ class StatusLabel extends Component {
     ruby: PropTypes.bool,
     gold: PropTypes.bool,
     aqua: PropTypes.bool,
-    small: PropTypes.bool,
+    size: PropTypes.oneOf(['small', 'medium']),
+  };
+
+  static defaultProps = {
+    size: 'medium',
   };
 
   getColor () {
@@ -30,19 +34,15 @@ class StatusLabel extends Component {
     return colors.find(color => this.props[color]);
   }
 
-  getSize () {
-    return this.props.small ? 'small' : 'medium';
-  }
-
   render () {
     const {
       children,
       className,
+      size,
       ...others
     } = this.props;
 
     const color = this.getColor();
-    const size = this.getSize();
 
     const classes = cx(
       theme.label,
@@ -58,7 +58,6 @@ class StatusLabel extends Component {
       'gold',
       'aqua',
       'teal',
-      'small',
     ]);
 
     return (

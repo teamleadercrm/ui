@@ -21,12 +21,12 @@ class StatusLabelTest extends React.Component {
               <StatusLabel ruby>Ruby</StatusLabel>
             </p>
             <p>
-              <StatusLabel mint small>Mint</StatusLabel>
-              <StatusLabel teal small>Teal</StatusLabel>
-              <StatusLabel aqua small>Aqua</StatusLabel>
-              <StatusLabel violet small>Violet</StatusLabel>
-              <StatusLabel gold small>Gold</StatusLabel>
-              <StatusLabel ruby small>Ruby</StatusLabel>
+              <StatusLabel mint size="small">Mint</StatusLabel>
+              <StatusLabel teal size="small">Teal</StatusLabel>
+              <StatusLabel aqua size="small">Aqua</StatusLabel>
+              <StatusLabel violet size="small">Violet</StatusLabel>
+              <StatusLabel gold size="small">Gold</StatusLabel>
+              <StatusLabel ruby size="small">Ruby</StatusLabel>
             </p>
 
             <Heading1>
@@ -34,23 +34,23 @@ class StatusLabelTest extends React.Component {
             </Heading1>
 
             <Heading2>
-              I'm a Heading 2 with status label <StatusLabel teal small>Teal</StatusLabel>
+              I'm a Heading 2 with status label <StatusLabel teal size="small">Teal</StatusLabel>
             </Heading2>
 
             <Heading3>
-              I'm a Heading 3 with status label <StatusLabel aqua small>Aqua</StatusLabel>
+              I'm a Heading 3 with status label <StatusLabel aqua size="small">Aqua</StatusLabel>
             </Heading3>
 
             <Heading4>
-              I'm a Heading 4 with status label <StatusLabel violet small>Violet</StatusLabel>
+              I'm a Heading 4 with status label <StatusLabel violet size="small">Violet</StatusLabel>
             </Heading4>
 
             <TextBody>
-              I'm body text with status label <StatusLabel gold small>Gold</StatusLabel>
+              I'm body text with status label <StatusLabel gold size="small">Gold</StatusLabel>
             </TextBody>
 
             <TextSmall>
-              I'm small text with status label <StatusLabel ruby small>Ruby</StatusLabel>
+              I'm small text with status label <StatusLabel ruby size="small">Ruby</StatusLabel>
             </TextSmall>
           </div>
         </div>
