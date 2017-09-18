@@ -4,7 +4,7 @@
 
 .counter {
   background: var(--background-color);
-  border-radius: var(--border-radius);
+  border-radius: 50%;
   color: var(--color-white);
   display: inline-block;
   font-family: var(--font-family-bold);
@@ -24,12 +24,8 @@
   --min-size: 6px;
 }
 
-.circular {
-  --border-radius: 50%;
-}
-
 .rounded {
-  --border-radius: 4px;
+  border-radius: 4px;
   padding: var(--padding);
 }
 
