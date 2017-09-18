@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import ActivableRenderer from '../hoc/ActivableRenderer';
@@ -7,7 +7,7 @@ import Portal from '../hoc/Portal';
 import theme from './theme.css';
 
 const factory = (Button, IconButton) => {
-  class Toast extends Component {
+  class Toast extends PureComponent {
     static propTypes = {
       action: PropTypes.string,
       active: PropTypes.bool,
