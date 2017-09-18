@@ -6,9 +6,10 @@ import theme from './theme.css';
 
 class Counter extends PureComponent {
   static propTypes = {
-    children: PropTypes.node,
     className: PropTypes.string,
     color: PropTypes.oneOf([ 'neutral', 'ruby' ]),
+    count: PropTypes.number,
+    maxCount: PropTypes.number,
     size: PropTypes.oneOf([ 'small', 'medium' ]),
   };
 
@@ -19,9 +20,10 @@ class Counter extends PureComponent {
 
   render () {
     const {
-      children,
       className,
       color,
+      count,
+      maxCount,
       size,
       ...others
     } = this.props;
@@ -31,15 +33,15 @@ class Counter extends PureComponent {
       theme[color],
       theme[size],
       {
-        [theme.circular]: !children,
-        [theme.rounded]: children,
+        [theme.circular]: !count,
+        [theme.rounded]: count,
       },
       className,
     );
 
     return (
       <span className={classes} {...others} data-teamleader-ui="counter">
-        <Monospaced>{children}</Monospaced>
+        <Monospaced>{ count > maxCount ? `${maxCount}+` : count }</Monospaced>
       </span>
     );
   }
