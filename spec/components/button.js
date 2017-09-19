@@ -18,7 +18,7 @@ class ButtonTest extends React.Component {
   render () {
     return (
       <article>
-        <Section neutral dark>
+        <Section color="neutral" dark>
           <Heading1>Buttons</Heading1>
         </Section>
         <Heading2>Primary</Heading2>

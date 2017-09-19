@@ -7,7 +7,7 @@ class IslandTest extends React.Component {
   render () {
     return (
       <article>
-        <Section neutral dark>
+        <Section color="neutral" dark>
           <Heading1>Island</Heading1>
         </Section>
 
