@@ -31,11 +31,11 @@
 }
 
 .rounded.medium {
-  --padding: 5px 4px 3px 4px;
+  --padding: 7px 6px 5px;
 }
 
 .rounded.small {
-  --padding: 3px 4px 1px 4px;
+  --padding: 4px 5px 2px;
 }
 
 .neutral {
