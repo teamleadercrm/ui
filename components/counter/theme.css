@@ -39,9 +39,33 @@
 }
 
 .neutral {
-  --background-color: var(--color-neutral-darkest);
+  --background-color: var(--color-neutral-dark);
+
+  &.dark {
+    --background-color: var(--color-neutral-darkest);
+  }
+}
+
+.mint {
+  --background-color: var(--color-mint);
+}
+
+.violet {
+  --background-color: var(--color-violet);
+}
+
+.teal {
+  --background-color: var(--color-teal);
 }
 
 .ruby {
   --background-color: var(--color-ruby);
+}
+
+.gold {
+  --background-color: var(--color-gold);
+}
+
+.aqua {
+  --background-color: var(--color-aqua);
 }

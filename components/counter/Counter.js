@@ -1,14 +1,16 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import omit from 'lodash.omit';
 import { Monospaced } from '../typography';
 import theme from './theme.css';
 
 class Counter extends PureComponent {
   static propTypes = {
     className: PropTypes.string,
-    color: PropTypes.oneOf([ 'neutral', 'ruby' ]),
+    color: PropTypes.oneOf([ 'neutral', 'mint', 'aqua', 'violet', 'teal', 'gold', 'ruby' ]),
     count: PropTypes.number,
+    dark: PropTypes.bool,
     maxCount: PropTypes.number,
     size: PropTypes.oneOf([ 'small', 'medium' ]),
   };
@@ -23,6 +25,7 @@ class Counter extends PureComponent {
       className,
       color,
       count,
+      dark,
       maxCount,
       size,
       ...others
@@ -33,13 +36,18 @@ class Counter extends PureComponent {
       theme[color],
       theme[size],
       {
+        [theme.dark]: dark,
         [theme.rounded]: typeof (count) !== 'undefined',
       },
       className,
     );
 
+    const rest = omit(others, [
+      'dark',
+    ]);
+
     return (
-      <span className={classes} {...others} data-teamleader-ui="counter">
+      <span className={classes} {...rest} data-teamleader-ui="counter">
         <Monospaced>{ count > maxCount ? `${maxCount}+` : count }</Monospaced>
       </span>
     );
