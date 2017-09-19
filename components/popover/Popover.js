@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import throttle from 'lodash.throttle';
@@ -11,7 +11,7 @@ import { calculateHorizontalPositions, calculateVerticalPositions } from './posi
 import theme from './theme.css';
 
 const factory = (axis, calculatePositions, Overlay, Button) => {
-  class Popover extends Component {
+  class Popover extends PureComponent {
     static propTypes = {
       actions: PropTypes.arrayOf(PropTypes.shape({
         className: PropTypes.string,

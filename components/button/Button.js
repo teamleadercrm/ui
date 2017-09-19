@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import FontIcon from '../font_icon';
 import omit from 'lodash.omit';
 import theme from './theme.css';
 
-class Button extends Component {
+class Button extends PureComponent {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
