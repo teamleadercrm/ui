@@ -7,12 +7,6 @@ class StatusLabel extends Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
     className: PropTypes.string,
-    mint: PropTypes.bool,
-    teal: PropTypes.bool,
-    violet: PropTypes.bool,
-    ruby: PropTypes.bool,
-    gold: PropTypes.bool,
-    aqua: PropTypes.bool,
     color: PropTypes.oneOf([ 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'teal' ]),
     size: PropTypes.oneOf([ 'small', 'medium' ]),
   };
