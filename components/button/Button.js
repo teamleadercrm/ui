@@ -17,12 +17,11 @@ class Button extends PureComponent {
       PropTypes.element,
     ]),
     label: PropTypes.string,
-    large: PropTypes.bool,
-    medium: PropTypes.bool,
     onMouseLeave: PropTypes.func,
     onMouseUp: PropTypes.func,
     primary: PropTypes.bool,
     processing: PropTypes.bool,
+    size: PropTypes.oneOf([ 'small', 'medium', 'large' ]),
     type: PropTypes.string,
   };
 
@@ -31,9 +30,7 @@ class Button extends PureComponent {
     bordered: false,
     primary: false,
     processing: false,
-    small: true,
-    medium: false,
-    large: false,
+    size: 'medium',
     type: 'button',
   };
 
@@ -54,15 +51,6 @@ class Button extends PureComponent {
     if (this.props.processing) {
       return 'processing';
     }
-  };
-
-  getSize = () => {
-    if (this.props.medium) {
-      return 'medium';
-    } else if (this.props.large) {
-      return 'large';
-    }
-    return 'small';
   };
 
   handleMouseUp = (event) => {
@@ -86,18 +74,18 @@ class Button extends PureComponent {
       href,
       icon,
       label,
+      size,
       type,
       processing,
       ...others
     } = this.props;
 
-    const rest = omit(others, [ 'primary', 'bordered', 'small', 'medium', 'large' ]);
+    const rest = omit(others, [ 'primary', 'bordered' ]);
 
     const element = href ? 'a' : 'button';
     const level = this.getLevel();
     const shape = this.getShape();
     const state = this.getState();
-    const size = this.getSize();
 
     const classes = cx(
       theme.button,
