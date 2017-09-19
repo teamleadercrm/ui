@@ -8,7 +8,7 @@ import {
   TextBody,
   TextSmall,
   TextTiny,
-  Section
+  Section,
 } from '../../components';
 import style from './counter.css';
 
