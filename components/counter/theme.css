@@ -14,6 +14,7 @@
   letter-spacing: .25px;
   min-height: var(--min-size);
   min-width: var(--min-size);
+  vertical-align: middle;
 }
 
 .medium {
