@@ -10,6 +10,7 @@ import {
   TextSmall,
   TextTiny,
 } from './typography';
+import Counter from './counter';
 import Dialog from './dialog';
 import { FontIcon } from './font_icon';
 import Menu, { IconMenu, MenuItem, MenuDivider } from './menu';
@@ -25,6 +26,7 @@ import { Toast } from './toast';
 
 export {
   Button,
+  Counter,
   IconButton,
   Dialog,
   FontIcon,

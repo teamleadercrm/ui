@@ -1,0 +1,71 @@
+@import '@teamleader/ui-colors';
+@import '@teamleader/ui-utilities';
+@import '@teamleader/ui-typography';
+
+.counter {
+  background: var(--background-color);
+  border-radius: 50%;
+  color: var(--color-white);
+  display: inline-block;
+  font-family: var(--font-family-bold);
+  font-size: calc(1.24 * var(--unit));
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: .25px;
+  min-height: var(--min-size);
+  min-width: var(--min-size);
+  vertical-align: middle;
+}
+
+.medium {
+  --min-size: 9px;
+}
+
+.small {
+  --min-size: 6px;
+}
+
+.rounded {
+  border-radius: 4px;
+  padding: var(--padding);
+}
+
+.rounded.medium {
+  --padding: 7px 6px 5px;
+}
+
+.rounded.small {
+  --padding: 4px 5px 2px;
+}
+
+.neutral {
+  --background-color: var(--color-neutral-dark);
+
+  &.dark {
+    --background-color: var(--color-neutral-darkest);
+  }
+}
+
+.mint {
+  --background-color: var(--color-mint);
+}
+
+.violet {
+  --background-color: var(--color-violet);
+}
+
+.teal {
+  --background-color: var(--color-teal);
+}
+
+.ruby {
+  --background-color: var(--color-ruby);
+}
+
+.gold {
+  --background-color: var(--color-gold);
+}
+
+.aqua {
+  --background-color: var(--color-aqua);
+}

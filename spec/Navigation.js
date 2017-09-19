@@ -5,6 +5,7 @@ const Navigation = () => (
   <nav className={s.navigation}>
     <ul>
       <li><a href="#buttons">Buttons</a></li>
+      <li><a href="#counters">Counters</a></li>
       <li><a href="#typography">Typography</a></li>
       <li><a href="#popovers">Popovers</a></li>
       <li><a href="#menus">Menus</a></li>
