@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import omit from 'lodash.omit';
 import theme from './theme.css';
 
 class Section extends PureComponent {
@@ -12,7 +13,7 @@ class Section extends PureComponent {
   };
 
   static defaultProps = {
-    white: true,
+    color: 'white',
   };
 
   isDark (color) {
@@ -42,8 +43,12 @@ class Section extends PureComponent {
       }
     );
 
+    const rest = omit(others, [
+      'dark',
+    ]);
+
     return (
-      <div data-teamleader-ui="section" className={classes} {...others}>
+      <div data-teamleader-ui="section" className={classes} {...rest}>
         {children}
       </div>
     );
