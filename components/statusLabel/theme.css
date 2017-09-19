@@ -13,8 +13,8 @@
 }
 
 .neutral {
-  --background-color: var(--color-neutral);
-  --text-color: var(--color-neutral-darkest);
+  --background-color: var(--color-teal-light);
+  --text-color: var(--color-teal-darkest);
 }
 
 .mint {
@@ -25,11 +25,6 @@
 .violet {
   --background-color: var(--color-violet-light);
   --text-color: var(--color-violet-darkest);
-}
-
-.teal {
-  --background-color: var(--color-teal-light);
-  --text-color: var(--color-teal-darkest);
 }
 
 .ruby {

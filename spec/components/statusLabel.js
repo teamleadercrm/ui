@@ -15,7 +15,6 @@ class StatusLabelTest extends React.Component {
             <p>
               <StatusLabel color="neutral">Neutral</StatusLabel>
               <StatusLabel color="mint">Mint</StatusLabel>
-              <StatusLabel color="teal">Teal</StatusLabel>
               <StatusLabel color="aqua">Aqua</StatusLabel>
               <StatusLabel color="violet">Violet</StatusLabel>
               <StatusLabel color="gold">Gold</StatusLabel>
@@ -24,7 +23,6 @@ class StatusLabelTest extends React.Component {
             <p>
               <StatusLabel color="neutral" size="small">Neutral</StatusLabel>
               <StatusLabel color="mint" size="small">Mint</StatusLabel>
-              <StatusLabel color="teal" size="small">Teal</StatusLabel>
               <StatusLabel color="aqua" size="small">Aqua</StatusLabel>
               <StatusLabel color="violet" size="small">Violet</StatusLabel>
               <StatusLabel color="gold" size="small">Gold</StatusLabel>
@@ -32,11 +30,11 @@ class StatusLabelTest extends React.Component {
             </p>
 
             <Heading1>
-              I'm a Heading 1 with status label <StatusLabel color="mint">Mint</StatusLabel>
+              I'm a Heading 1 with status label <StatusLabel color="neutral">Mint</StatusLabel>
             </Heading1>
 
             <Heading2>
-              I'm a Heading 2 with status label <StatusLabel color="teal" size="small">Teal</StatusLabel>
+              I'm a Heading 2 with status label <StatusLabel color="mint" size="small">Teal</StatusLabel>
             </Heading2>
 
             <Heading3>
