@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Counter, Heading1, Section } from '../../components';
+import { Counter, Heading1, Heading2, Heading3, Heading4, TextBody, TextSmall, Section } from '../../components';
 import style from './counter.css';
 
 class CounterTest extends PureComponent {
@@ -23,6 +23,30 @@ class CounterTest extends PureComponent {
               <Counter className={style.counter} color="ruby" />
               <Counter className={style.counter} color="ruby" size="small" />
             </p>
+
+            <Heading1>
+              I'm a Heading 1 with a counter <Counter color="ruby" count={100} maxCount={99} />
+            </Heading1>
+
+            <Heading2>
+              I'm a Heading 2 with a counter <Counter color="ruby" size="small" count={100} maxCount={99} />
+            </Heading2>
+
+            <Heading3>
+              I'm a Heading 3 with a counter <Counter color="ruby" size="small" count={100} maxCount={99} />
+            </Heading3>
+
+            <Heading4>
+              I'm a Heading 4 with a counter <Counter color="ruby" size="small" count={100} maxCount={99} />
+            </Heading4>
+
+            <TextBody>
+              I'm body text with a counter <Counter color="ruby" size="small" count={100} maxCount={99} />
+            </TextBody>
+
+            <TextSmall>
+              I'm small text with a counter <Counter color="ruby" size="small" count={100} maxCount={99} />
+            </TextSmall>
           </div>
         </div>
       </article>
