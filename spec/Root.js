@@ -33,8 +33,17 @@ const Root = () => (
       <Section id="counters">
         <Counter />
       </Section>
-      <Section id="typography">
-        <Typography />
+      <Section id="dialogs">
+        <Dialog />
+      </Section>
+      <Section id="islands">
+        <IslandTest />
+      </Section>
+      <Section id="loading-molecules">
+        <LoadingMolecule />
+      </Section>
+      <Section id="menus">
+        <Menu />
       </Section>
       <Section id="popovers">
         <PopoverVertical />
@@ -42,20 +51,11 @@ const Root = () => (
       <Section>
         <PopoverHorizontal />
       </Section>
-      <Section id="menus">
-        <Menu />
-      </Section>
-      <Section id="dialogs">
-        <Dialog />
-      </Section>
       <Section id="radios">
         <Radio />
       </Section>
       <Section id="sections">
         <SectionTest />
-      </Section>
-      <Section id="islands">
-        <IslandTest />
       </Section>
       <Section id="status-labels">
         <StatusLabelTest />
@@ -66,8 +66,8 @@ const Root = () => (
       <Section id="toasts">
         <Toast />
       </Section>
-      <Section id="loading-molecules">
-        <LoadingMolecule />
+      <Section id="typography">
+        <Typography />
       </Section>
     </Content>
   </div>
