@@ -53,7 +53,7 @@
     "Lowie Benoot <lowie.benoot@teamleader.eu>"
   ],
   "dependencies": {
-    "@teamleader/ui-colors": "0.0.4",
+    "@teamleader/ui-colors": "0.0.5",
     "@teamleader/ui-typography": "0.0.5",
     "@teamleader/ui-utilities": "0.0.2",
     "classnames": "^2.2.5",

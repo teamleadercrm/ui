@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import omit from 'lodash.omit';
 import theme from './theme.css';
 
-class Island extends Component {
+class Island extends PureComponent {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,

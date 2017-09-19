@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import FontIcon from '../font_icon/FontIcon.js';
 import theme from './theme.css';
 
 const factory = () => {
-  class MenuItem extends Component {
+  class MenuItem extends PureComponent {
     static propTypes = {
       caption: PropTypes.string,
       children: PropTypes.any,

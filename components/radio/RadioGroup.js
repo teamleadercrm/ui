@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import RadioButton from './index';
 import isComponentOfType from '../utils/is-component-of-type';
 
-class RadioGroup extends Component {
+class RadioGroup extends PureComponent {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,

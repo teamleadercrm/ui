@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import theme from './theme.css';
 
-class Overlay extends Component {
+class Overlay extends PureComponent {
   static propTypes = {
     active: PropTypes.bool,
     backdrop: PropTypes.string,
