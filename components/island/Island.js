@@ -12,7 +12,7 @@ class Island extends PureComponent {
   };
 
   static defaultProps = {
-    white: true,
+    color: 'white',
   };
 
   isDark (color) {
