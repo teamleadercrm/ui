@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import Radio from './Radio';
 import theme from './theme.css';
 
-class RadioButton extends Component {
+class RadioButton extends PureComponent {
   static propTypes = {
     checked: PropTypes.bool,
     children: PropTypes.node,
