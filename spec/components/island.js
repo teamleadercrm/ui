@@ -14,17 +14,17 @@ class IslandTest extends React.Component {
         <div className="component-spec">
           <div className="properties">
             <Heading3>Neutrals</Heading3>
-            <Island className={style.section} white>White normal</Island>
-            <Island className={style.section} white dark>White dark</Island>
-            <Island className={style.section} neutral>Grey normal</Island>
-            <Island className={style.section} neutral dark>Grey dark</Island>
+            <Island className={style.section} color="white">White normal</Island>
+            <Island className={style.section} color="white" dark>White dark</Island>
+            <Island className={style.section} color="neutral">Grey normal</Island>
+            <Island className={style.section} color="neutral" dark>Grey dark</Island>
 
             <Heading3>Color</Heading3>
-            <Island className={style.section} mint>Mint</Island>
-            <Island className={style.section} violet>Violet</Island>
-            <Island className={style.section} ruby>Ruby</Island>
-            <Island className={style.section} gold>Gold</Island>
-            <Island className={style.section} aqua>Aqua</Island>
+            <Island className={style.section} color="mint">Mint</Island>
+            <Island className={style.section} color="violet">Violet</Island>
+            <Island className={style.section} color="ruby">Ruby</Island>
+            <Island className={style.section} color="gold">Gold</Island>
+            <Island className={style.section} color="aqua">Aqua</Island>
           </div>
         </div>
       </article>
