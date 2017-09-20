@@ -19,7 +19,7 @@ class MenuTest extends React.Component {
   render () {
     return (
       <article>
-        <Section neutral dark>
+        <Section color="neutral" dark>
           <Heading1>Menus</Heading1>
         </Section>
 

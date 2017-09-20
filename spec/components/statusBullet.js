@@ -7,7 +7,7 @@ class StatusBulletTest extends React.Component {
   render () {
     return (
       <article>
-        <Section neutral dark>
+        <Section color="neutral" dark>
           <Heading1>Status bullets</Heading1>
         </Section>
 

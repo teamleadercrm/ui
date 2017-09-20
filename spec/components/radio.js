@@ -29,7 +29,7 @@ class RadioGroupTest extends React.Component {
   render () {
     return (
       <article>
-        <Section neutral dark>
+        <Section color="neutral" dark>
           <Heading1>Radio Button</Heading1>
         </Section>
 
