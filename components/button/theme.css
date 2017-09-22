@@ -16,9 +16,6 @@
   color: var(--text-color);
   cursor: pointer;
   display: inline-block;
-  /*align-items: center;
-  display: inline-flex;
-  flex-direction: row;*/
   font-size: var(--font-size);
   font-family: var(--font-family-semi-bold);
   height: var(--height);
