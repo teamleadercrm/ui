@@ -19,7 +19,7 @@ class DialogTest extends React.Component {
 
   actions = [
     { label: 'Cancel', onClick: this.handleToggle },
-    { label: 'Save', onClick: this.handleToggle, primary: true },
+    { label: 'Save', onClick: this.handleToggle, color: 'mint' },
   ];
 
   render () {
@@ -36,7 +36,7 @@ class DialogTest extends React.Component {
           </div>
           <div className="preview">
             <Heading3>Preview</Heading3>
-            <Button primary label="Show my dialog" onClick={this.handleToggle} />
+            <Button label="Show my dialog" onClick={this.handleToggle} />
           </div>
         </div>
         <Dialog

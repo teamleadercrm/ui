@@ -82,7 +82,7 @@
 .close {
   position: absolute;
   right: var(--unit);
-  top: calc(1.8 * var(--unit));
+  top: calc(1.5 * var(--unit));
 }
 
 .body {

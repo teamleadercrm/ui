@@ -10,10 +10,7 @@ const factory = (IconButton, Menu) => {
     static propTypes = {
       children: PropTypes.node,
       className: PropTypes.string,
-      icon: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.element,
-      ]),
+      icon: PropTypes.element,
       onClick: PropTypes.func,
       onHide: PropTypes.func,
       onSelect: PropTypes.func,

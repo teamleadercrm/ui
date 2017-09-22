@@ -62,7 +62,7 @@ class ToastTest extends React.Component {
 
           <div className="preview">
             <Heading3>Preview</Heading3>
-            <Button label="Make a toast" primary onClick={this.handleClick} />
+            <Button label="Make a toast" onClick={this.handleClick} />
           </div>
         </div>
 

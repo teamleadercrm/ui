@@ -1,6 +1,7 @@
 import React from 'react';
 import { Menu, MenuItem, MenuDivider, IconMenu } from '../../components/menu';
 import { Heading1, Heading2, Heading3, Section } from '../../components';
+import { IconHamburgerMediumOutline } from '@teamleader/ui-icons';
 
 class MenuTest extends React.Component {
   state = {
@@ -43,7 +44,7 @@ class MenuTest extends React.Component {
         <div className="component-spec">
           <div className="preview">
             <Heading3>Preview</Heading3>
-            <IconMenu icon="dots_vert" position="topLeft">
+            <IconMenu icon={<IconHamburgerMediumOutline />} position="topLeft">
               <MenuItem value="download" icon="user_two" caption="Download" />
               <MenuDivider />
               <MenuItem caption="Disabled ..." icon="close" shortcut="Ctrl + P" disabled />

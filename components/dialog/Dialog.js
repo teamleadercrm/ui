@@ -7,6 +7,7 @@ import FontIcon from '../font_icon';
 import InjectButton from '../button/Button.js';
 import InjectIconButton from '../button/IconButton';
 import InjectOverlay from '../overlay/Overlay';
+import { IconCloseMediumOutline } from '@teamleader/ui-icons';
 import theme from './theme.css';
 
 const factory = (Overlay, Button, IconButton) => {
@@ -65,7 +66,7 @@ const factory = (Overlay, Button, IconButton) => {
             [action.className]: action.className,
           }
         );
-        return <Button key={idx} {...action} className={className} medium />; // eslint-disable-line
+        return <Button key={idx} {...action} className={className} />; // eslint-disable-line
       });
 
       const dialogClassNames = cx(
@@ -102,7 +103,7 @@ const factory = (Overlay, Button, IconButton) => {
                 ? <h6 className={theme.title}>{title}</h6>
                 : null
               }
-              <IconButton icon="close" className={theme.close} onMouseUp={onCloseClick} />
+              <IconButton icon={<IconCloseMediumOutline />} className={theme.close} onMouseUp={onCloseClick} />
             </header>
             <section role="body" className={theme.body}>
               {children}
