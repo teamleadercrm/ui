@@ -43,7 +43,9 @@ class Message extends PureComponent {
     return (
       <div data-teamleader-ui="message" className={classes} {...others}>
         <Island color={color} dark={dark}>
-          { closeable && <IconButton className={theme.close} icon={<IconCloseMediumOutline />} onMouseUp={onCloseClick} />}
+          { closeable &&
+            <IconButton className={theme.close} icon={<IconCloseMediumOutline />} onMouseUp={onCloseClick} />
+          }
           {children}
         </Island>
       </div>
