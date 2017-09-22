@@ -1,25 +1,21 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import FontIcon from '../font_icon';
-import omit from 'lodash.omit';
 import theme from './theme.css';
 
 class Button extends PureComponent {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
+    color: PropTypes.oneOf([ 'outline', 'mint', 'neutral', 'ruby' ]),
     disabled: PropTypes.bool,
-    bordered: PropTypes.bool,
     href: PropTypes.string,
-    icon: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.element,
-    ]),
+    icon: PropTypes.element,
+    iconPlacement: PropTypes.oneOf([ 'left', 'right' ]),
+    inverse: PropTypes.bool,
     label: PropTypes.string,
     onMouseLeave: PropTypes.func,
     onMouseUp: PropTypes.func,
-    primary: PropTypes.bool,
     processing: PropTypes.bool,
     size: PropTypes.oneOf([ 'small', 'medium', 'large' ]),
     type: PropTypes.string,
@@ -27,30 +23,12 @@ class Button extends PureComponent {
 
   static defaultProps = {
     className: '',
-    bordered: false,
-    primary: false,
+    color: 'neutral',
+    iconPlacement: 'left',
+    inverse: false,
     processing: false,
     size: 'medium',
     type: 'button',
-  };
-
-  getLevel = () => {
-    if (this.props.primary) {
-      return 'primary';
-    }
-    return 'secondary';
-  };
-
-  getShape = () => {
-    if (this.props.bordered) {
-      return 'bordered';
-    }
-  };
-
-  getState = () => {
-    if (this.props.processing) {
-      return 'processing';
-    }
   };
 
   handleMouseUp = (event) => {
@@ -71,8 +49,12 @@ class Button extends PureComponent {
     const {
       children,
       className,
+      color,
+      disabled,
       href,
       icon,
+      iconPlacement,
+      inverse,
       label,
       size,
       type,
@@ -80,33 +62,28 @@ class Button extends PureComponent {
       ...others
     } = this.props;
 
-    const rest = omit(others, [ 'primary', 'bordered' ]);
-
     const element = href ? 'a' : 'button';
-    const level = this.getLevel();
-    const shape = this.getShape();
-    const state = this.getState();
 
     const classes = cx(
       theme.button,
+      theme[ color ],
       {
-        [theme[ level ]]: theme[ level ],
-        [theme[ shape ]]: theme[ shape ],
-        [theme[ state ]]: theme[ state ],
-        [theme[ size ]]: theme[ size ],
         [theme.iconOnly]: !label && !children,
+        [theme.inverse]: inverse && color === 'outline',
+        [theme.processing]: processing,
+        [theme[ size ]]: theme[ size ],
       },
       className
     );
 
     const props = {
-      ...rest,
+      ...others,
       href,
       ref: (node) => {
         this.buttonNode = node;
       },
       className: classes,
-      disabled: this.props.disabled,
+      disabled,
       onMouseUp: this.handleMouseUp,
       onMouseLeave: this.handleMouseLeave,
       type: !href ? type : null,
@@ -114,10 +91,10 @@ class Button extends PureComponent {
     };
 
     return React.createElement(element, props,
-      icon && !processing ? <FontIcon className={theme.icon} value={icon} /> : null,
-      processing ? <FontIcon className={theme.icon} value="spinner" /> : null,
-      label,
-      children
+      icon && iconPlacement === 'left' ? icon : null,
+      label || children ? <span className={theme.children}>{label}{children}</span> : null,
+      icon && iconPlacement === 'right' ? icon : null,
+      processing ? <div className={theme.spinner} /> : null
     );
   }
 }
