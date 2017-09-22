@@ -37,7 +37,7 @@ class MessageTest extends PureComponent {
   }
 
   handleColorChange = (value) => {
-    this.setState({ color: value});
+    this.setState({ color: value });
   };
 
   handleDarkChange = (value) => {
@@ -77,8 +77,8 @@ class MessageTest extends PureComponent {
           </div>
           <div className="preview">
             <Heading3>Preview</Heading3>
-            { this.state.active ?
-              (
+            { this.state.active
+              ? (
                 <Message
                   color={this.state.color}
                   dark={this.state.dark}
@@ -97,9 +97,9 @@ class MessageTest extends PureComponent {
                     <a href="#">I'm a link</a>
                   </ButtonGroup>
                 </Message>
-              ) :
-              (
-                <Button onMouseUp={this.handleResetClick}>Reset</Button>
+              )
+              : (
+                <Button onMouseUp={this.handleResetClick}>Show message</Button>
               )
             }
           </div>
