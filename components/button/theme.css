@@ -370,7 +370,6 @@
   > * {
     margin-left: var(--button-margin);
     margin-right: var(--button-margin);
-    margin-top: var(--button-margin);
   }
 
   > *:first-child {
