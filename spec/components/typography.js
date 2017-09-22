@@ -16,7 +16,7 @@ class TypographyTest extends PureComponent {
   render () {
     return (
       <article>
-        <Section neutral dark>
+        <Section color="neutral" dark>
           <Heading1>Typography</Heading1>
         </Section>
         <div className="component-spec">

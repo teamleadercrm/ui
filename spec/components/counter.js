@@ -17,7 +17,7 @@ class CounterTest extends PureComponent {
   render () {
     return (
       <article>
-        <Section neutral dark>
+        <Section color="neutral" dark>
           <Heading1>Counters</Heading1>
         </Section>
 

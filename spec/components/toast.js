@@ -38,7 +38,7 @@ class ToastTest extends React.Component {
   render () {
     return (
       <article>
-        <Section neutral dark>
+        <Section color="neutral" dark>
           <Heading1>Toast</Heading1>
         </Section>
 

@@ -25,7 +25,7 @@ class DialogTest extends React.Component {
   render () {
     return (
       <article>
-        <Section neutral dark>
+        <Section color="neutral" dark>
           <Heading1>Dialog</Heading1>
         </Section>
         <div className="component-spec">

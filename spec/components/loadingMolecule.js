@@ -35,7 +35,7 @@ class LoadingMoleculeTest extends React.Component {
 
     return (
       <article>
-        <Section neutral dark>
+        <Section color="neutral" dark>
           <Heading1>Loading Molecules</Heading1>
         </Section>
 

@@ -71,7 +71,7 @@ class ButtonTest extends PureComponent {
     const Icon = this.state.size === 'small' ? IconAddSmallOutline : IconAddMediumOutline;
     return (
       <article>
-        <Section neutral dark>
+        <Section color="neutral" dark>
           <Heading1>Buttons</Heading1>
         </Section>
         <div className="component-spec">

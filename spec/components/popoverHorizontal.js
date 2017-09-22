@@ -54,7 +54,7 @@ class PopoverHorizontalTest extends React.Component {
 
     return (
       <article>
-        <Section neutral dark>
+        <Section color="neutral" dark>
           <Heading1>Horizontal Popover</Heading1>
         </Section>
         <div className="component-spec">
