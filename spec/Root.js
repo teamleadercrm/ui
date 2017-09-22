@@ -18,6 +18,7 @@ import SectionTest from './components/section';
 import StatusLabelTest from './components/statusLabel';
 import StatusBulletTest from './components/statusBullet';
 import IslandTest from './components/island';
+import MessageTest from './components/message';
 import Toast from './components/toast';
 
 const Root = () => (
@@ -44,6 +45,9 @@ const Root = () => (
       </Section>
       <Section id="menus">
         <Menu />
+      </Section>
+      <Section id="messages">
+        <MessageTest />
       </Section>
       <Section id="popovers">
         <PopoverVertical />

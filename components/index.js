@@ -20,6 +20,7 @@ import { PopoverHorizontal, PopoverVertical } from './popover';
 import { RadioButton, RadioGroup } from './radio';
 import Section from './section';
 import Island from './island';
+import Message from './message';
 import StatusBullet from './statusBullet';
 import StatusLabel from './statusLabel';
 import { Toast } from './toast';
@@ -36,6 +37,7 @@ export {
   Heading3,
   Heading4,
   Menu,
+  Message,
   Monospaced,
   IconMenu,
   MenuItem,
