@@ -5,7 +5,7 @@
   border: 1px solid var(--border-color);
   border-radius: 4px;
   background: var(--background-color);
-  padding: var(--spacer-small);
+  padding: var(--padding);
 }
 
 .white {
@@ -51,3 +51,14 @@
   --border-color: var(--color-aqua);
 }
 
+.small {
+  --padding: var(--spacer-small);
+}
+
+.medium {
+  --padding: var(--spacer-medium);
+}
+
+.large {
+  --padding: var(--spacer-big);
+}
