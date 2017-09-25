@@ -27,7 +27,6 @@
   min-width: var(--height);
   outline: none;
   padding: var(--padding);
-  position: relative;
   text-align: center;
   text-decoration: none;
   transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
@@ -349,6 +348,7 @@
 /* Button states */
 .processing {
   color: var(--background-color);
+  position: relative;
   pointer-events: none;
 }
 
