@@ -1,5 +1,8 @@
 import React, { PureComponent } from 'react';
-import Link from '../../components/link';
+import { Link, Heading1, Section } from '../../components/';
+import { BrowserRouter as Router, Link as ReactRouterLink } from 'react-router-dom';
+
+Link.use(ReactRouterLink);
 
 class LinkTest extends PureComponent {
   handleClick = () => {
@@ -8,17 +11,19 @@ class LinkTest extends PureComponent {
 
   render () {
     return (
-      <article>
-        <header>
-          <h1>Links</h1>
-        </header>
-        <div className="component-spec">
-          <div className="preview">
-            <p><Link url="#">I'm a link</Link></p>
-            <p><Link onClick={this.handleClick}>I'm a link</Link></p>
+      <Router>
+        <article>
+          <Section color="neutral" dark>
+            <Heading1>Links</Heading1>
+          </Section>
+          <div className="component-spec">
+            <div className="preview">
+              <p><Link to="http://www.facebook.com" target="_blank">I'm an external link</Link></p>
+              <p><Link to="#" onClick={this.handleClick}>I'm an internal link</Link></p>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
+      </Router>
     );
   }
 }
