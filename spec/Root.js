@@ -13,6 +13,7 @@ import Dialog from './components/dialog';
 import PopoverVertical from './components/popoverVertical';
 import PopoverHorizontal from './components/popoverHorizontal';
 import LoadingMolecule from './components/loadingMolecule';
+import Link from './components/link';
 import Radio from './components/radio';
 import SectionTest from './components/section';
 import StatusLabelTest from './components/statusLabel';
@@ -30,42 +31,59 @@ const Root = () => (
       <Section id="buttons">
         <Button />
       </Section>
+
       <Section id="counters">
         <Counter />
       </Section>
+
       <Section id="dialogs">
         <Dialog />
       </Section>
+
       <Section id="islands">
         <IslandTest />
       </Section>
+
+      <Section id="links">
+        <Link />
+      </Section>
+
       <Section id="loading-molecules">
         <LoadingMolecule />
       </Section>
+
       <Section id="menus">
         <Menu />
       </Section>
+
       <Section id="popovers">
         <PopoverVertical />
       </Section>
+
       <Section>
         <PopoverHorizontal />
       </Section>
+
       <Section id="radios">
         <Radio />
       </Section>
+
       <Section id="sections">
         <SectionTest />
       </Section>
+
       <Section id="status-labels">
         <StatusLabelTest />
       </Section>
+
       <Section id="status-bullets">
         <StatusBulletTest />
       </Section>
+
       <Section id="toasts">
         <Toast />
       </Section>
+
       <Section id="typography">
         <Typography />
       </Section>

@@ -9,6 +9,8 @@ const Navigation = () => (
       <li><a href="#dialogs">Dialogs</a></li>
       <li><a href="#islands">Islands</a></li>
       <li><a href="#loading-molecules">Loading molecules</a></li>
+      <li><a href="#links">Links</a></li>
+      <li><a href="#menus">Menus</a></li>
       <li><a href="#menus">Menus</a></li>
       <li><a href="#popovers">Popovers</a></li>
       <li><a href="#radios">Radios</a></li>
