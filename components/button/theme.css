@@ -41,7 +41,7 @@
   }
 
   * + .children,
-  .children + * {
+  .children + *:not(.spinner) {
     margin-left: var(--button-icon-children-margin);
   }
 
