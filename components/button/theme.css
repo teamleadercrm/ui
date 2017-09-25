@@ -5,6 +5,7 @@
   --button-border-radius: calc(.4 * var(--unit));
   --button-margin: calc(0.6 * var(--unit));
   --button-icon-margin: calc(0.6 * var(--unit));
+  --button-icon-children-margin: calc(0.6 * var(--unit));
   --spinner-border-width: 2px;
 }
 
@@ -312,7 +313,6 @@
   --line-height: calc(2.8 * var(--unit));
   --padding: 0 calc(1.2 * var(--unit));
   --spinner-size: calc(1.4 * var(--unit));
-  --button-icon-children-margin: calc(.6 * var(--unit));
 
   &.iconOnly {
     --padding: 0 calc(.7 * var(--unit));
@@ -323,9 +323,8 @@
   --font-size: calc(1.6 * var(--unit));
   --height: calc(3.6 * var(--unit));
   --line-height: calc(3.4 * var(--unit));
-  --padding: 0 calc(1.8 * var(--unit));
+  --padding: 0 calc(1.2 * var(--unit));
   --spinner-size: calc(2.2 * var(--unit));
-  --button-icon-children-margin: calc(1.2 * var(--unit));
 
   &.iconOnly {
     --padding: 0 calc(.5 * var(--unit));
@@ -336,9 +335,8 @@
   --font-size: calc(1.6 * var(--unit));
   --height: calc(4.8 * var(--unit));
   --line-height: calc(4.6 * var(--unit));
-  --padding: 0 calc(2.4 * var(--unit));
+  --padding: 0 calc(1.8 * var(--unit));
   --spinner-size: calc(2.2 * var(--unit));
-  --button-icon-children-margin: calc(1.2 * var(--unit));
 
   &.iconOnly {
     --padding: 0 calc(1.1 * var(--unit));
