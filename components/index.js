@@ -1,4 +1,4 @@
-import Button, { IconButton } from './button';
+import Button, { ButtonGroup, IconButton } from './button';
 import {
   Heading1,
   Heading2,
@@ -27,6 +27,7 @@ import { Toast } from './toast';
 
 export {
   Button,
+  ButtonGroup,
   Counter,
   IconButton,
   Dialog,

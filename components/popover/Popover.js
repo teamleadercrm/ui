@@ -4,10 +4,11 @@ import cx from 'classnames';
 import throttle from 'lodash.throttle';
 import ActivableRenderer from '../hoc/ActivableRenderer';
 import Portal from '../hoc/Portal';
-import InjectButton from '../button';
+import InjectButton, { IconButton } from '../button';
 import InjectOverlay from '../overlay';
 import { events } from '../utils';
 import { calculateHorizontalPositions, calculateVerticalPositions } from './positionCalculation';
+import { IconCloseMediumOutline } from '@teamleader/ui-icons';
 import theme from './theme.css';
 
 const factory = (axis, calculatePositions, Overlay, Button) => {
@@ -153,7 +154,7 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
               <header className={theme.header}>
                 { title && <h6 className={theme.title}>{title}</h6> }
                 { subtitle && <p className={theme.subtitle}>{subtitle}</p> }
-                <Button icon="close" className={theme.close} onMouseUp={onCloseClick} />
+                <IconButton icon={<IconCloseMediumOutline />} className={theme.close} onMouseUp={onCloseClick} />
               </header>
             }
             <section role="body" className={theme.body}>

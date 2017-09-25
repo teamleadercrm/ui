@@ -46,7 +46,7 @@ class PopoverHorizontalTest extends React.Component {
 
   actions = [
     { label: 'Cancel', onClick: this.handleToggle },
-    { label: 'Save', onClick: this.handleToggle, primary: true },
+    { label: 'Save', onClick: this.handleToggle, color: 'mint' },
   ];
 
   render () {
@@ -93,7 +93,6 @@ class PopoverHorizontalTest extends React.Component {
             <Heading3>Preview</Heading3>
 
             <Button
-              primary
               label="Show a horizontal popover"
               onClick={this.handleToggle}
               ref={
