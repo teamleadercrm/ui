@@ -25,6 +25,7 @@
   min-width: var(--height);
   outline: none;
   padding: var(--padding);
+  position: relative;
   text-align: center;
   text-decoration: none;
   transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
@@ -62,18 +63,8 @@
 
   &[disabled] {
     cursor: auto;
-    pointer-events: none;
-  }
-}
-
-/* Button colors */
-.iconButton,
-.neutral,
-.mint,
-.outline,
-.ruby {
-  &[disabled] {
     opacity: .5;
+    pointer-events: none;
   }
 
   &:not([disabled]) {
@@ -96,6 +87,7 @@
   }
 }
 
+/* Button colors */
 .iconButton {
   &:not(.inverse) {
     --spinner-color: color(var(--color-teal-darkest) a(20%));
