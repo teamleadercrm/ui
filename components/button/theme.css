@@ -9,6 +9,7 @@
 }
 
 .button {
+  align-items: center;
   background: var(--background-color);
   border: var(--border);
   border-radius: var(--button-border-radius);
@@ -16,6 +17,7 @@
   color: var(--text-color);
   cursor: pointer;
   display: inline-block;
+  display: inline-flex;
   font-size: var(--font-size);
   font-family: var(--font-family-semi-bold);
   height: var(--height);
@@ -32,6 +34,10 @@
   user-select: none;
   white-space: nowrap;
   vertical-align: middle;
+
+  .children {
+    padding-top: 1px;
+  }
 
   * + .children,
   .children + * {
@@ -303,7 +309,7 @@
 .small {
   --font-size: calc(1.4 * var(--unit));
   --height: calc(3 * var(--unit));
-  --line-height: calc(3 * var(--unit));
+  --line-height: calc(2.8 * var(--unit));
   --padding: 0 calc(1.2 * var(--unit));
   --spinner-size: calc(1.4 * var(--unit));
   --button-icon-children-margin: calc(.6 * var(--unit));
