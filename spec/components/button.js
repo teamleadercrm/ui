@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, IconButton } from '../../components';
+import { Button, IconButton, Heading1, Heading2, Heading3, Heading4, Section } from '../../components';
 
 class ButtonTest extends React.Component {
   state = {
@@ -18,21 +18,21 @@ class ButtonTest extends React.Component {
   render () {
     return (
       <article>
-        <header>
-          <h1>Buttons</h1>
-        </header>
-        <h2>Primary</h2>
+        <Section color="neutral" dark>
+          <Heading1>Buttons</Heading1>
+        </Section>
+        <Heading2>Primary</Heading2>
         <div className="component-spec">
           <div className="properties">
-            <h3>Properties</h3>
-            <h4>Text</h4>
+            <Heading3>Properties</Heading3>
+            <Heading4>Text</Heading4>
             <p><input type="text" value={this.state.text} onChange={event => this.handleTextChange(event)} /></p>
 
-            <h4>Icon</h4>
+            <Heading4>Icon</Heading4>
             <p><input type="text" value={this.state.icon} onChange={event => this.handleIconChange(event)} /></p>
           </div>
           <div className="preview">
-            <h3>Preview</h3>
+            <Heading3>Preview</Heading3>
             <p>
               <Button primary icon={this.state.icon}>{ this.state.text }</Button>
             </p>
@@ -44,18 +44,18 @@ class ButtonTest extends React.Component {
             </p>
           </div>
         </div>
-        <h2>Secondary</h2>
+        <Heading2>Secondary</Heading2>
         <div className="component-spec">
           <div className="properties">
-            <h3>Properties</h3>
-            <h4>Text</h4>
+            <Heading3>Properties</Heading3>
+            <Heading4>Text</Heading4>
             <p><input type="text" value={this.state.text} onChange={event => this.handleTextChange(event)} /></p>
 
-            <h4>Icon</h4>
+            <Heading4>Icon</Heading4>
             <p><input type="text" value={this.state.icon} onChange={event => this.handleIconChange(event)} /></p>
           </div>
           <div className="preview">
-            <h3>Preview</h3>
+            <Heading3>Preview</Heading3>
             <p>
               <Button icon={this.state.icon}>{ this.state.text }</Button>
             </p>
@@ -76,15 +76,15 @@ class ButtonTest extends React.Component {
             </p>
           </div>
         </div>
-        <h2>Icon only</h2>
+        <Heading2>Icon only</Heading2>
         <div className="component-spec">
           <div className="properties">
-            <h3>Properties</h3>
-            <h4>Icon</h4>
+            <Heading3>Properties</Heading3>
+            <Heading4>Icon</Heading4>
             <p><input type="text" value={this.state.icon} onChange={event => this.handleIconChange(event)} /></p>
           </div>
           <div className="preview">
-            <h3>Preview</h3>
+            <Heading3>Preview</Heading3>
             <p><IconButton icon={this.state.icon} /></p>
           </div>
         </div>

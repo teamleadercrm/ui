@@ -1,45 +1,20 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import omit from 'lodash.omit';
 import theme from './theme.css';
 
-class Section extends Component {
+class Section extends PureComponent {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
-    white: PropTypes.bool,
-    neutral: PropTypes.bool,
-    mint: PropTypes.bool,
-    violet: PropTypes.bool,
-    ruby: PropTypes.bool,
-    gold: PropTypes.bool,
-    aqua: PropTypes.bool,
+    color: PropTypes.oneOf([ 'white', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua' ]),
     dark: PropTypes.bool,
   };
 
   static defaultProps = {
-    white: true,
+    color: 'white',
   };
-
-  getColor () {
-    const colors = [
-      'neutral',
-      'mint',
-      'violet',
-      'ruby',
-      'gold',
-      'aqua',
-      'white',
-    ];
-
-    for (var i = 0; i < colors.length; i++) {
-      const color = colors[i];
-      if (this.props[color]) {
-        return color;
-      }
-    }
-  }
 
   isDark (color) {
     if (color !== 'white' && color !== 'neutral') {
@@ -53,10 +28,10 @@ class Section extends Component {
     const {
       children,
       className,
+      color,
       ...others
     } = this.props;
 
-    const color = this.getColor();
     const isDark = this.isDark(color);
 
     const classes = cx(
@@ -69,18 +44,11 @@ class Section extends Component {
     );
 
     const rest = omit(others, [
-      'white',
-      'neutral',
-      'mint',
-      'violet',
-      'ruby',
-      'gold',
-      'aqua',
       'dark',
     ]);
 
     return (
-      <div className={classes} {...rest}>
+      <div data-teamleader-ui="section" className={classes} {...rest}>
         {children}
       </div>
     );

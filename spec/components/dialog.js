@@ -1,6 +1,7 @@
 import React from 'react';
 import Dialog from '../../components/dialog';
 import Button from '../../components/button';
+import { Heading1, Heading3, Heading4, Section } from '../../components';
 
 class DialogTest extends React.Component {
   state = {
@@ -24,17 +25,17 @@ class DialogTest extends React.Component {
   render () {
     return (
       <article>
-        <header>
-          <h1>Dialog</h1>
-        </header>
+        <Section color="neutral" dark>
+          <Heading1>Dialog</Heading1>
+        </Section>
         <div className="component-spec">
           <div className="properties">
-            <h3>Properties</h3>
-            <h4>Title</h4>
+            <Heading3>Properties</Heading3>
+            <Heading4>Title</Heading4>
             <p><input type="text" value={this.state.title} onChange={event => this.handleTitleChange(event)} /></p>
           </div>
           <div className="preview">
-            <h3>Preview</h3>
+            <Heading3>Preview</Heading3>
             <Button primary label="Show my dialog" onClick={this.handleToggle} />
           </div>
         </div>

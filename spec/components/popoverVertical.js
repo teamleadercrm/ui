@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { PopoverVertical } from '../../components/popover/';
 import { RadioGroup, RadioButton } from '../../components/radio';
 import Button from '../../components/button';
+import { Heading1, Heading3, Heading4, Section } from '../../components';
 
 class PopoverTest extends React.Component {
   state = {
@@ -53,44 +54,43 @@ class PopoverTest extends React.Component {
 
     return (
       <article>
-        <header>
-          <h1>Vertical Popover</h1>
-        </header>
-
+        <Section color="neutral" dark>
+          <Heading1>Vertical Popover</Heading1>
+        </Section>
         <div className="component-spec">
           <div className="properties">
-            <h3>Properties</h3>
+            <Heading3>Properties</Heading3>
 
-            <h4>Backdrop</h4>
+            <Heading4>Backdrop</Heading4>
             <RadioGroup name="direction" value={backdrop} onChange={this.handleBackdropChange}>
               <RadioButton label="Dark" value="dark" />
               <RadioButton label="Transparent" value="" />
             </RadioGroup>
 
-            <h4>Direction</h4>
+            <Heading4>Direction</Heading4>
             <RadioGroup name="direction" value={direction} onChange={this.handleDirectionChange}>
               <RadioButton label="North" value="north" />
               <RadioButton label="South" value="south" />
             </RadioGroup>
 
-            <h4>Position</h4>
+            <Heading4>Position</Heading4>
             <RadioGroup name="position" value={position} onChange={this.handlePositionChange}>
               <RadioButton label="Left" value="left" />
               <RadioButton label="Center" value="center" />
               <RadioButton label="Right" value="right" />
             </RadioGroup>
 
-            <h4>Title</h4>
+            <Heading4>Title</Heading4>
             <p><input type="text" value={this.state.title} onChange={event => this.handleTitleChange(event)} /></p>
 
-            <h4>Subtitle</h4>
+            <Heading4>Subtitle</Heading4>
             <p>
               <input type="text" value={this.state.subtitle} onChange={event => this.handleSubtitleChange(event)} />
             </p>
           </div>
 
           <div className="preview">
-            <h3>Preview</h3>
+            <Heading3>Preview</Heading3>
             <Button
               primary
               label="Show a vertical popover"

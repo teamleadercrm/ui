@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import { themr } from 'react-css-themr';
-import { MENU } from '../identifiers.js';
 import FontIcon from '../font_icon/FontIcon.js';
+import theme from './theme.css';
 
 const factory = () => {
-  class MenuItem extends Component {
+  class MenuItem extends PureComponent {
     static propTypes = {
       caption: PropTypes.string,
       children: PropTypes.any,
@@ -19,14 +18,6 @@ const factory = () => {
       onClick: PropTypes.func,
       selected: PropTypes.bool,
       shortcut: PropTypes.string,
-      theme: PropTypes.shape({
-        caption: PropTypes.string,
-        disabled: PropTypes.string,
-        icon: PropTypes.string,
-        menuItem: PropTypes.string,
-        selected: PropTypes.string,
-        shortcut: PropTypes.string,
-      }),
     };
 
     static defaultProps = {
@@ -49,7 +40,6 @@ const factory = () => {
         shortcut,
         selected,
         disabled,
-        theme,
         ...others
       } = this.props;
 
@@ -77,6 +67,9 @@ const factory = () => {
 };
 
 const MenuItem = factory();
-export default themr(MENU)(MenuItem);
-export { factory as menuItemFactory };
-export { MenuItem };
+
+export default MenuItem;
+export {
+  factory as menuItemFactory,
+  MenuItem,
+};

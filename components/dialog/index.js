@@ -1,12 +1,10 @@
-import { themr } from 'react-css-themr';
-import { DIALOG } from '../identifiers';
 import { dialogFactory } from './Dialog';
 import { Overlay } from '../overlay';
 import { Button, IconButton } from '../button';
-import theme from './theme.css';
 
 const Dialog = dialogFactory(Overlay, Button, IconButton);
-const ThemedDialog = themr(DIALOG, theme)(Dialog);
 
-export default ThemedDialog;
-export { ThemedDialog as Dialog };
+export default Dialog;
+export {
+  Dialog,
+};
