@@ -37,7 +37,7 @@
   vertical-align: middle;
 
   .children {
-    padding-top: 1px;
+    padding-top: var(--button-children-padding-correction);
   }
 
   * + .children,
@@ -308,6 +308,7 @@
 
 /* Button sizes */
 .small {
+  --button-children-padding-correction: 0;
   --font-size: calc(1.4 * var(--unit));
   --height: calc(3 * var(--unit));
   --line-height: calc(2.8 * var(--unit));
@@ -320,6 +321,7 @@
 }
 
 .medium {
+  --button-children-padding-correction: 1px;
   --font-size: calc(1.6 * var(--unit));
   --height: calc(3.6 * var(--unit));
   --line-height: calc(3.4 * var(--unit));
@@ -332,6 +334,7 @@
 }
 
 .large {
+  --button-children-padding-correction: 1px;
   --font-size: calc(1.6 * var(--unit));
   --height: calc(4.8 * var(--unit));
   --line-height: calc(4.6 * var(--unit));
