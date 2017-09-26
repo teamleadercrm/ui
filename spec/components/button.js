@@ -45,7 +45,7 @@ class ButtonTest extends PureComponent {
     this.setState({
       level: value,
       inverse: false,
-      previewBackgroundColor
+      previewBackgroundColor,
     });
   };
 
