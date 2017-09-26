@@ -1,5 +1,5 @@
-@import '../colors.css';
-@import '../variables.css';
+@import 'colors.css';
+@import 'variables.css';
 
 :root {
   --popover-background-color: var(--color-white);

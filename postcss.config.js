@@ -8,13 +8,19 @@ module.exports = ctx => {
     to: ctx.to,
     plugins: {
       'postcss-import': {
-        root: __dirname,
+        root: './',
         path: [path.join(__dirname, './components')]
       },
       'postcss-pseudoelements': {},
       'postcss-mixins': {},
       'postcss-each': {},
-      'postcss-cssnext': {},
+      'postcss-cssnext': {
+        features: {
+          'customProperties' : {
+            warnings: false,
+          }
+        }
+      },
       'postcss-nested': {},
       'postcss-reporter': {
         clearMessages: true,

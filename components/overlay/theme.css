@@ -1,6 +1,10 @@
-@import '../colors.css';
-@import '../variables.css';
-@import './config.css';
+@import 'colors.css';
+@import 'variables.css';
+
+:root {
+  --overlay-color: var(--palette-bluewood-lighter);
+  --overlay-opacity: .85;
+}
 
 .overlay {
   bottom: 0;
