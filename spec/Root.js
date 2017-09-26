@@ -5,6 +5,7 @@ import s from './styles.css';
 import Section from './Section';
 
 // components
+import Avatar from './components/avatar';
 import Button from './components/button';
 import Counter from './components/counter';
 import Typography from './components/typography';
@@ -27,6 +28,9 @@ const Root = () => (
       <h1>Teamleader UI v{__VERSION__}</h1>
       {__DEV__}
 
+      <Section id="avatars">
+        <Avatar />
+      </Section>
       <Section id="buttons">
         <Button />
       </Section>

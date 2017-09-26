@@ -1,3 +1,4 @@
+import Avatar from './avatar';
 import Button, { ButtonGroup, IconButton } from './button';
 import {
   Heading1,
@@ -25,6 +26,7 @@ import StatusLabel from './statusLabel';
 import { Toast } from './toast';
 
 export {
+  Avatar,
   Button,
   ButtonGroup,
   Counter,

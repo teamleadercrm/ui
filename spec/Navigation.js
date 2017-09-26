@@ -4,6 +4,7 @@ import s from './styles.css';
 const Navigation = () => (
   <nav className={s.navigation}>
     <ul>
+      <li><a href="#avatars">Avatars</a></li>
       <li><a href="#buttons">Buttons</a></li>
       <li><a href="#counters">Counters</a></li>
       <li><a href="#dialogs">Dialogs</a></li>
