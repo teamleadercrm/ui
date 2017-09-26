@@ -4,6 +4,7 @@ import cx from 'classnames';
 import ActivableRenderer from '../hoc/ActivableRenderer';
 import { Button, IconButton } from '../button';
 import Portal from '../hoc/Portal';
+import { IconCloseMediumOutline } from '@teamleader/ui-icons';
 import theme from './theme.css';
 
 const factory = (Button, IconButton) => {
@@ -85,8 +86,14 @@ const factory = (Button, IconButton) => {
               { children }
             </span>
             {
-              onClick ? action ? <Button className={theme.button} label={action} onClick={onClick} />
-                : <IconButton className={theme.iconButton} icon="close" onClick={onClick} /> : null
+              onClick ? action
+                ? <Button color="outline" className={theme.button} label={action} onClick={onClick} size="small" />
+                : <IconButton
+                  className={theme.iconButton}
+                  icon={<IconCloseMediumOutline />}
+                  inverse
+                  onClick={onClick}
+                /> : null
             }
           </div>
         </Portal>

@@ -1,11 +1,10 @@
 import Button from './Button';
-import { iconButtonFactory } from './IconButton';
-import { FontIcon } from '../font_icon/FontIcon';
-
-const IconButton = iconButtonFactory(FontIcon);
+import ButtonGroup from './ButtonGroup';
+import IconButton from './IconButton';
 
 export default Button;
 export {
   Button,
+  ButtonGroup,
   IconButton,
 };

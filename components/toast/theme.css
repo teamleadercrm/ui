@@ -54,10 +54,6 @@
 .button,
 .iconButton {
   margin: 0 -14px 0 28px;
-
-  &:hover {
-    background: transparent;
-  }
 }
 
 .iconButton {
