@@ -10,10 +10,12 @@ class Island extends PureComponent {
     className: PropTypes.string,
     color: PropTypes.oneOf([ 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'white' ]),
     dark: PropTypes.bool,
+    size: PropTypes.oneOf([ 'small', 'medium', 'large' ]),
   };
 
   static defaultProps = {
     color: 'white',
+    size: 'medium',
   };
 
   isDark (color) {
@@ -29,6 +31,7 @@ class Island extends PureComponent {
       children,
       className,
       color,
+      size,
       ...others
     } = this.props;
 
@@ -40,6 +43,7 @@ class Island extends PureComponent {
       theme[color],
       {
         [theme.dark]: isDark,
+        [theme[ size ]]: theme[ size ],
       }
     );
 
