@@ -19,7 +19,7 @@ class DialogTest extends React.Component {
 
   actions = [
     { label: 'Cancel', onClick: this.handleToggle },
-    { label: 'Save', onClick: this.handleToggle, color: 'mint' },
+    { label: 'Save', onClick: this.handleToggle, level: 'primary' },
   ];
 
   render () {

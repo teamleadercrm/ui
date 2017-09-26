@@ -7,7 +7,7 @@ class Button extends PureComponent {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
-    color: PropTypes.oneOf([ 'outline', 'mint', 'neutral', 'ruby' ]),
+    level: PropTypes.oneOf([ 'outline', 'primary', 'secondary', 'destructive' ]),
     disabled: PropTypes.bool,
     href: PropTypes.string,
     icon: PropTypes.element,
@@ -23,7 +23,7 @@ class Button extends PureComponent {
 
   static defaultProps = {
     className: '',
-    color: 'neutral',
+    level: 'secondary',
     iconPlacement: 'left',
     inverse: false,
     processing: false,
@@ -49,7 +49,7 @@ class Button extends PureComponent {
     const {
       children,
       className,
-      color,
+      level,
       disabled,
       href,
       icon,
@@ -66,10 +66,10 @@ class Button extends PureComponent {
 
     const classes = cx(
       theme.button,
-      theme[ color ],
+      theme[ level ],
       {
         [theme.iconOnly]: !label && !children,
-        [theme.inverse]: inverse && color === 'outline',
+        [theme.inverse]: inverse && level === 'outline',
         [theme.processing]: processing,
         [theme[ size ]]: theme[ size ],
       },

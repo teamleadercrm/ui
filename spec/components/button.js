@@ -16,7 +16,7 @@ import {
 class ButtonTest extends PureComponent {
   state = {
     previewBackgroundColor: '#fff',
-    color: 'neutral',
+    level: 'secondary',
     disabled: false,
     inverse: false,
     processing: false,
@@ -33,7 +33,7 @@ class ButtonTest extends PureComponent {
     this.setState({ processing: value });
   };
 
-  handleColorChange = (value) => {
+  handleLevelChange = (value) => {
     let previewBackgroundColor = this.state.previewBackgroundColor;
 
     if (value === 'outline') {
@@ -42,21 +42,18 @@ class ButtonTest extends PureComponent {
       previewBackgroundColor = '#fff';
     }
 
-    this.setState({ color: value, inverse: false, previewBackgroundColor });
+    this.setState({
+      level: value,
+      inverse: false,
+      previewBackgroundColor
+    });
   };
 
   handleInverseChange = (value) => {
-    let previewBackgroundColor = this.state.previewBackgroundColor;
-
-    if (value) {
-      previewBackgroundColor = '#00b3b3';
-    } else if (this.state.color === 'outline') {
-      previewBackgroundColor = '#f0f0ff';
-    } else {
-      previewBackgroundColor = '#fff';
-    }
-
-    this.setState({ inverse: value, previewBackgroundColor });
+    this.setState({
+      inverse: value,
+      previewBackgroundColor: value ? '#00b3b3' : this.state.level === 'outline' ? '#f0f0ff' : '#fff',
+    });
   };
 
   handleSizeChange = (value) => {
@@ -109,16 +106,16 @@ class ButtonTest extends PureComponent {
             </RadioGroup>
 
             <Heading4>Color</Heading4>
-            <RadioGroup name="color" value={this.state.color} onChange={this.handleColorChange}>
+            <RadioGroup name="level" value={this.state.level} onChange={this.handleLevelChange}>
               <RadioButton label="Outline" value="outline" />
-              <RadioButton label="Neutral" value="neutral" />
-              <RadioButton label="Mint" value="mint" />
-              <RadioButton label="Ruby" value="ruby" />
+              <RadioButton label="Secondary" value="secondary" />
+              <RadioButton label="Primary" value="primary" />
+              <RadioButton label="Destructive" value="destructive" />
             </RadioGroup>
 
             <Heading4>Inverse?</Heading4>
             <RadioGroup
-              disabled={this.state.color !== 'outline'}
+              disabled={this.state.level !== 'outline'}
               name="inverse"
               value={this.state.inverse}
               onChange={this.handleInverseChange}
@@ -138,7 +135,7 @@ class ButtonTest extends PureComponent {
             <Heading3>Preview</Heading3>
             <ButtonGroup segmented={this.state.segmented}>
               <Button
-                color={this.state.color}
+                level={this.state.level}
                 icon={<Icon />}
                 inverse={this.state.inverse}
                 size={this.state.size}
@@ -146,7 +143,7 @@ class ButtonTest extends PureComponent {
                 processing={this.state.processing}
               />
               <Button
-                color={this.state.color}
+                level={this.state.level}
                 disabled={this.state.disabled}
                 icon={<Icon />}
                 inverse={this.state.inverse}
@@ -156,7 +153,7 @@ class ButtonTest extends PureComponent {
                 {this.state.text}
               </Button>
               <Button
-                color={this.state.color}
+                level={this.state.level}
                 disabled={this.state.disabled}
                 icon={this.state.icon}
                 inverse={this.state.inverse}
@@ -166,7 +163,7 @@ class ButtonTest extends PureComponent {
                 {this.state.text}
               </Button>
               <Button
-                color={this.state.color}
+                level={this.state.level}
                 disabled={this.state.disabled}
                 icon={<Icon />}
                 iconPlacement="right"

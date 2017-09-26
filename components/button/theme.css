@@ -198,7 +198,7 @@
   }
 }
 
-.neutral {
+.secondary {
   --spinner-color: color(var(--color-teal-darkest) a(20%));
   --text-color: var(--color-teal-darkest);
 
@@ -231,7 +231,7 @@
   }
 }
 
-.mint {
+.primary {
   --spinner-color: color(var(--color-white) a(20%));
   --text-color: var(--color-white);
 
@@ -263,7 +263,7 @@
   }
 }
 
-.ruby {
+.destructive {
   --spinner-color: color(var(--color-white) a(20%));
   --text-color: var(--color-white);
 
