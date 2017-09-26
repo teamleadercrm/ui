@@ -1,5 +1,5 @@
-@import '../colors.css';
-@import '../variables.css';
+@import 'colors.css';
+@import 'variables.css';
 
 :root {
   --button-border-radius: calc(.2 * var(--unit));

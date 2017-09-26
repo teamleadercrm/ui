@@ -1,6 +1,6 @@
-@import '../colors.css';
-@import '../variables.css';
-@import '../media.css';
+@import 'colors.css';
+@import 'variables.css';
+@import 'media.css';
 
 :root {
   --snackbar-background-color: var(--color-secondary);
