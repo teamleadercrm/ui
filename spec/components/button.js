@@ -12,6 +12,7 @@ import {
   RadioButton,
   Section,
 } from '../../components';
+import s from '../styles.css';
 
 class ButtonTest extends PureComponent {
   state = {
@@ -71,8 +72,8 @@ class ButtonTest extends PureComponent {
         <Section color="neutral" dark>
           <Heading1>Buttons</Heading1>
         </Section>
-        <div className="component-spec">
-          <div className="properties">
+        <div className={s['component-spec']}>
+          <div className={s['properties']}>
             <Heading2>ButtonGroup</Heading2>
             <Heading4>Segmented</Heading4>
 
@@ -131,7 +132,7 @@ class ButtonTest extends PureComponent {
               <RadioButton label="Large" value="large" />
             </RadioGroup>
           </div>
-          <div className="preview" style={{ backgroundColor: this.state.previewBackgroundColor }}>
+          <div className={s['preview']} style={{ backgroundColor: this.state.previewBackgroundColor }}>
             <Heading3>Preview</Heading3>
             <ButtonGroup segmented={this.state.segmented}>
               <Button

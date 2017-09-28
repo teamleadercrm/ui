@@ -2,6 +2,7 @@ import React from 'react';
 import Button from '../../components/button';
 import Toast from '../../components/toast';
 import { Heading1, Heading3, Heading4, RadioGroup, RadioButton, Section } from '../../components';
+import s from '../styles.css';
 
 class ToastTest extends React.Component {
   handleActionChange = (event) => {
@@ -42,8 +43,8 @@ class ToastTest extends React.Component {
           <Heading1>Toast</Heading1>
         </Section>
 
-        <div className="component-spec">
-          <div className="properties">
+        <div className={s['component-spec']}>
+          <div className={s['properties']}>
             <Heading3>Properties</Heading3>
 
             <Heading4>Type</Heading4>
@@ -60,7 +61,7 @@ class ToastTest extends React.Component {
             <p><input type="text" value={this.state.action} onChange={event => this.handleActionChange(event)} /></p>
           </div>
 
-          <div className="preview">
+          <div className={s['preview']}>
             <Heading3>Preview</Heading3>
             <Button label="Make a toast" onClick={this.handleClick} />
           </div>

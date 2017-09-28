@@ -1,6 +1,7 @@
 import React from 'react';
 import { RadioGroup, RadioButton } from '../../components/radio';
 import { Heading1, Heading3, Heading4, Section } from '../../components';
+import s from '../styles.css';
 
 class RadioGroupTest extends React.Component {
   state = {
@@ -33,8 +34,8 @@ class RadioGroupTest extends React.Component {
           <Heading1>Radio Button</Heading1>
         </Section>
 
-        <div className="component-spec">
-          <div className="preview">
+        <div className={s['component-spec']}>
+          <div className={s['preview']}>
             <Heading3>Preview</Heading3>
             <Heading4>String example</Heading4>
             <RadioGroup name="stringValue" value={this.state.stringValue} onChange={this.handleStringChange}>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Heading1, Section, StatusBullet } from '../../components';
 import style from './statusBullet.css';
+import s from '../styles.css';
 
 class StatusBulletTest extends React.Component {
 
@@ -11,8 +12,8 @@ class StatusBulletTest extends React.Component {
           <Heading1>Status bullets</Heading1>
         </Section>
 
-        <div className="component-spec">
-          <div className="properties">
+        <div className={s['component-spec']}>
+          <div className={s['properties']}>
             <p>
               <StatusBullet className={style['status-bullet']} color="neutral" size="large">Neutral</StatusBullet>
               <StatusBullet className={style['status-bullet']} color="aqua" size="large">Aqua</StatusBullet>

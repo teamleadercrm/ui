@@ -1,6 +1,7 @@
 import React from 'react';
 import { Heading1, Heading3, Section } from '../../components';
 import style from './section.css';
+import s from '../styles.css';
 
 class SectionTest extends React.Component {
 
@@ -11,8 +12,8 @@ class SectionTest extends React.Component {
           <Heading1>Section</Heading1>
         </Section>
 
-        <div className="component-spec">
-          <div className="properties">
+        <div className={s['component-spec']}>
+          <div className={s['properties']}>
             <Heading3>Neutrals</Heading3>
             <Section className={style.section} color="white">White normal</Section>
             <Section className={style.section} color="white" dark>White dark</Section>

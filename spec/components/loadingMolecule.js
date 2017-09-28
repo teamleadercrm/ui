@@ -1,6 +1,7 @@
 import React from 'react';
 import { Heading1, Heading3, Heading4, LoadingMolecule, RadioGroup, RadioButton, Section } from '../../components';
 import theme from './loadingMolecule.css';
+import s from '../styles.css';
 
 class LoadingMoleculeTest extends React.Component {
   state = {
@@ -39,8 +40,8 @@ class LoadingMoleculeTest extends React.Component {
           <Heading1>Loading Molecules</Heading1>
         </Section>
 
-        <div className="component-spec">
-          <div className="properties">
+        <div className={s['component-spec']}>
+          <div className={s['properties']}>
             <Heading3>Properties</Heading3>
 
             <Heading4>Type</Heading4>
@@ -57,7 +58,7 @@ class LoadingMoleculeTest extends React.Component {
             </RadioGroup>
           </div>
 
-          <div className="preview">
+          <div className={s['preview']}>
             <Heading3>Preview</Heading3>
 
             <div className={theme['loading-molecule-row']}>

@@ -11,6 +11,7 @@ import {
   Section,
 } from '../../components';
 import style from './counter.css';
+import s from '../styles.css';
 
 class CounterTest extends PureComponent {
 
@@ -21,8 +22,8 @@ class CounterTest extends PureComponent {
           <Heading1>Counters</Heading1>
         </Section>
 
-        <div className="component-spec">
-          <div className="properties">
+        <div className={s['component-spec']}>
+          <div className={s['properties']}>
             <p>
               <Counter className={style.counter} count={999} dark />
               <Counter className={style.counter} count={9} size="small" />

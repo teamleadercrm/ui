@@ -1,5 +1,6 @@
 import React from 'react';
 import { Heading1, Heading2, Heading3, Heading4, TextBody, TextSmall, Section, StatusLabel } from '../../components';
+import s from '../styles.css';
 
 class StatusLabelTest extends React.Component {
 
@@ -10,8 +11,8 @@ class StatusLabelTest extends React.Component {
           <Heading1>Status labels</Heading1>
         </Section>
 
-        <div className="component-spec">
-          <div className="properties">
+        <div className={s['component-spec']}>
+          <div className={s['properties']}>
             <p>
               <StatusLabel color="neutral">Neutral</StatusLabel>
               <StatusLabel color="mint">Mint</StatusLabel>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Heading1, Heading4, Island, RadioButton, RadioGroup, Section, TextBody } from '../../components';
 import style from './island.css';
+import s from '../styles.css';
 
 class IslandTest extends React.Component {
   state = {
@@ -28,8 +29,8 @@ class IslandTest extends React.Component {
           <Heading1>Island</Heading1>
         </Section>
 
-        <div className="component-spec">
-          <div className="properties">
+        <div className={s['component-spec']}>
+          <div className={s['properties']}>
             <Heading4>Color</Heading4>
             <RadioGroup name="color" value={this.state.color} onChange={this.handleColorChange}>
               <RadioButton label="Aqua" value="aqua" />
@@ -59,7 +60,7 @@ class IslandTest extends React.Component {
               <RadioButton label="Large" value="large" />
             </RadioGroup>
           </div>
-          <div className="preview">
+          <div className={s['preview']}>
             <Island
               className={style.island}
               color={this.state.color}

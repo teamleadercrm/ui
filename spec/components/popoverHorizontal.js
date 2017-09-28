@@ -4,6 +4,7 @@ import { PopoverHorizontal } from '../../components/popover/';
 import { RadioGroup, RadioButton } from '../../components/radio';
 import Button from '../../components/button';
 import { Heading1, Heading3, Heading4, Section } from '../../components';
+import s from '../styles.css';
 
 class PopoverHorizontalTest extends React.Component {
   state = {
@@ -57,8 +58,8 @@ class PopoverHorizontalTest extends React.Component {
         <Section color="neutral" dark>
           <Heading1>Horizontal Popover</Heading1>
         </Section>
-        <div className="component-spec">
-          <div className="properties">
+        <div className={s['component-spec']}>
+          <div className={s['properties']}>
             <Heading3>Properties</Heading3>
 
             <Heading4>Backdrop</Heading4>
@@ -89,7 +90,7 @@ class PopoverHorizontalTest extends React.Component {
             </p>
           </div>
 
-          <div className="preview">
+          <div className={s['preview']}>
             <Heading3>Preview</Heading3>
 
             <Button

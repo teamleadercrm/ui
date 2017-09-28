@@ -11,6 +11,7 @@ import {
   TextSmall,
   TextTiny,
 } from '../../components';
+import s from '../styles.css';
 
 class TypographyTest extends PureComponent {
   render () {
@@ -19,8 +20,8 @@ class TypographyTest extends PureComponent {
         <Section color="neutral" dark>
           <Heading1>Typography</Heading1>
         </Section>
-        <div className="component-spec">
-          <div className="preview">
+        <div className={s['component-spec']}>
+          <div className={s['preview']}>
             <Heading1>
               I'm a Header 1 containing a <a href="#">link</a> -
               0123456789 - <OldStyleNumber>0123456789</OldStyleNumber> - <Monospaced>0123456789</Monospaced>

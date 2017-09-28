@@ -2,6 +2,7 @@ import React from 'react';
 import { Menu, MenuItem, MenuDivider, IconMenu } from '../../components/menu';
 import { Heading1, Heading2, Heading3, Section } from '../../components';
 import { IconMoreMediumOutline } from '@teamleader/ui-icons';
+import s from '../styles.css';
 
 class MenuTest extends React.Component {
   state = {
@@ -25,8 +26,8 @@ class MenuTest extends React.Component {
         </Section>
 
         <Heading2>Menu</Heading2>
-        <div className="component-spec">
-          <div className="preview">
+        <div className={s['component-spec']}>
+          <div className={s['preview']}>
             <Heading3>Preview</Heading3>
             <Menu onSelect={this.handleSelect} selectable={false} selected={this.state.value}>
               <MenuItem value="foo" caption="Caption" />
@@ -41,8 +42,8 @@ class MenuTest extends React.Component {
         </div>
 
         <Heading2>IconMenu</Heading2>
-        <div className="component-spec">
-          <div className="preview">
+        <div className={s['component-spec']}>
+          <div className={s['preview']}>
             <Heading3>Preview</Heading3>
             <IconMenu icon={<IconMoreMediumOutline />} position="topLeft">
               <MenuItem value="download" icon="user_two" caption="Download" />
