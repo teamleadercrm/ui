@@ -4,6 +4,7 @@
 
 .counter {
   background: var(--background-color);
+  box-shadow: 0 0 0 2px var(--border-color);
   border-radius: 50%;
   color: var(--color-white);
   display: inline-block;
@@ -23,6 +24,38 @@
 
 .small {
   --min-size: 6px;
+}
+
+.border-neutral {
+  --border-color: var(--color-neutral-lightest);
+}
+
+.border-mint {
+  --border-color: var(--color-mint-lightest);
+}
+
+.border-teal {
+  --border-color: var(--color-teal-lightest);
+}
+
+.border-ruby {
+  --border-color: var(--color-ruby-lightest);
+}
+
+.border-violet {
+  --border-color: var(--color-violet-lightest);
+}
+
+.border-gold {
+  --border-color: var(--color-gold-lightest);
+}
+
+.border-aqua {
+  --border-color: var(--color-aqua-lightest);
+}
+
+.border-tealdark {
+  --border-color: var(--color-teal-dark);
 }
 
 .rounded {

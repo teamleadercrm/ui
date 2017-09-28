@@ -6,6 +6,7 @@ import theme from './theme.css';
 
 class Counter extends PureComponent {
   static propTypes = {
+    borderColor: PropTypes.oneOf([ 'neutral', 'mint', 'aqua', 'violet', 'teal', 'gold', 'ruby', 'tealdark' ]),
     className: PropTypes.string,
     color: PropTypes.oneOf([ 'neutral', 'mint', 'aqua', 'violet', 'teal', 'gold', 'ruby' ]),
     count: PropTypes.number,
@@ -15,12 +16,14 @@ class Counter extends PureComponent {
   };
 
   static defaultProps = {
+    borderColor: 'neutral',
     color: 'neutral',
     size: 'medium',
   };
 
   render () {
     const {
+      borderColor,
       className,
       color,
       count,
@@ -34,6 +37,7 @@ class Counter extends PureComponent {
       theme.counter,
       theme[color],
       theme[size],
+      theme[`border-${borderColor}`],
       {
         [theme.dark]: dark,
         [theme.rounded]: typeof (count) !== 'undefined',
