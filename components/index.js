@@ -1,4 +1,4 @@
-import Avatar from './avatar';
+import Avatar, { AvatarStack } from './avatar';
 import Button, { ButtonGroup, IconButton } from './button';
 import {
   Heading1,
@@ -27,6 +27,7 @@ import { Toast } from './toast';
 
 export {
   Avatar,
+  AvatarStack,
   Button,
   ButtonGroup,
   Counter,
