@@ -72,10 +72,10 @@
 }
 
 .neutral {
-  --background-color: var(--color-neutral-dark);
+  --background-color: var(--color-neutral-darkest);
 
-  &.dark {
-    --background-color: var(--color-neutral-darkest);
+  &.inactive {
+    --background-color: var(--color-neutral-dark);
   }
 }
 

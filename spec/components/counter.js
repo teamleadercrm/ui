@@ -25,7 +25,7 @@ class CounterTest extends PureComponent {
         <div className={s['component-spec']}>
           <div className={s['properties']}>
             <p>
-              <Counter className={style.counter} count={999} dark />
+              <Counter className={style.counter} count={999} inactive />
               <Counter className={style.counter} count={9} size="small" />
               <Counter className={style.counter} count={0} size="small" />
               <Counter className={style.counter} color="ruby" count={100} maxCount={99} />
@@ -36,7 +36,7 @@ class CounterTest extends PureComponent {
             </p>
 
             <Heading1>
-              I'm a Heading 1 with a counter <Counter color="neutral" dark count={100} maxCount={99} />
+              I'm a Heading 1 with a counter <Counter color="neutral" inactive count={100} maxCount={99} />
             </Heading1>
 
             <Heading2>

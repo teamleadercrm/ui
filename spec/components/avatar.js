@@ -141,7 +141,7 @@ class AvatarTest extends PureComponent {
                 size={this.state.size}
             >
                 {
-                avatars.map(({ image, count, color, dark, maxCount }, index) => (
+                avatars.map(({ image, count, color, inactive, maxCount }, index) => (
                   <Avatar
                     borderColor={this.state.previewBackgroundColor}
                     counter={
@@ -149,7 +149,7 @@ class AvatarTest extends PureComponent {
                         borderColor={this.state.previewBackgroundColor}
                         color={color}
                         count={count}
-                        dark={dark}
+                        inactive={inactive}
                         maxCount={maxCount}
                         size="small"
                       />
@@ -172,14 +172,14 @@ class AvatarTest extends PureComponent {
                 size={this.state.size}
             >
                 {
-                avatars.map(({ image, color, dark }, index) => (
+                avatars.map(({ image, color, inactive }, index) => (
                   <Avatar
                     borderColor={this.state.previewBackgroundColor}
                     counter={
                       <Counter
                         borderColor={this.state.previewBackgroundColor}
                         color={color}
-                        dark={dark}
+                        inactive={inactive}
                         size="medium"
                       />
                     }

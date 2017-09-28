@@ -10,7 +10,7 @@ class Counter extends PureComponent {
     className: PropTypes.string,
     color: PropTypes.oneOf([ 'neutral', 'mint', 'aqua', 'violet', 'teal', 'gold', 'ruby' ]),
     count: PropTypes.number,
-    dark: PropTypes.bool,
+    inactive: PropTypes.bool,
     maxCount: PropTypes.number,
     size: PropTypes.oneOf([ 'small', 'medium' ]),
   };
@@ -18,6 +18,7 @@ class Counter extends PureComponent {
   static defaultProps = {
     borderColor: 'neutral',
     color: 'neutral',
+    inactive: false,
     size: 'medium',
   };
 
@@ -27,7 +28,7 @@ class Counter extends PureComponent {
       className,
       color,
       count,
-      dark,
+      inactive,
       maxCount,
       size,
       ...others
@@ -39,7 +40,7 @@ class Counter extends PureComponent {
       theme[size],
       theme[`border-${borderColor}`],
       {
-        [theme.dark]: dark,
+        [theme.inactive]: inactive,
         [theme.rounded]: typeof (count) !== 'undefined',
       },
       className,
