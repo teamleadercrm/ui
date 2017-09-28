@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const cssnano = require('cssnano');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const config = require('../config');
@@ -71,8 +72,10 @@ webpackConfig.plugins = [
 if (__DEV__) {
   debug('Enable plugins for live development (HMR, NoErrors).');
   webpackConfig.plugins.push(
+    new CopyWebpackPlugin([{ from: paths.client('static') }]),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin()
+
   );
 } else if (__PROD__) {
   debug('Enable plugins for production (OccurenceOrder, Dedupe & UglifyJS).');
