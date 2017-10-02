@@ -1,6 +1,86 @@
 @import '@teamleader/ui-colors';
 @import '@teamleader/ui-typography';
 
+$iconbutton-border: 0;
+$iconbutton-background-color: transparent;
+$iconbutton-background-color-hover: color(var(--color-teal-darkest) a(5%));
+$iconbutton-text-color: var(--color-teal-darkest);
+$iconbutton-box-shadow-focus: inset 0 0 0 1px var(--color-teal-darkest);
+$iconbutton-box-shadow-active: none;
+
+$iconbutton-inverse-border: 0;
+$iconbutton-inverse-background-color: transparent;
+$iconbutton-inverse-background-color-hover: color(var(--color-white) a(10%));
+$iconbutton-inverse-text-color: var(--color-neutral-lightest);
+$iconbutton-inverse-box-shadow-focus: inset 0 0 0 2px var(--color-neutral-lightest);
+$iconbutton-inverse-box-shadow-active: none;
+
+$outline-background-color: transparent;
+$outline-background-color-hover: color(var(--color-teal-darkest) a(5%));
+$outline-border-color-disabled: var(--color-neutral-dark);
+$outline-border-color: color(var(--color-teal-darkest) a(75%));
+$outline-border-color-hover: var(--color-teal-darkest);
+$outline-text-color: var(--color-teal-darkest);
+$outline-box-shadow-focus: inset 0 0 0 1px var(--color-teal-darkest);
+$outline-box-shadow-active: none;
+$outline-spinner-color: color(var(--color-teal-darkest) a(20%));
+
+$outline-inverse-background-color: transparent;
+$outline-inverse-background-color-hover: color(var(--color-white) a(10%));
+$outline-inverse-border-color-disabled: color(var(--color-white) a(75%));
+$outline-inverse-border-color: color(var(--color-white) a(75%));
+$outline-inverse-border-color-hover: var(--color-neutral-lightest);
+$outline-inverse-text-color: var(--color-neutral-lightest);
+$outline-inverse-box-shadow-focus: inset 0 0 0 1px var(--color-neutral-lightest);
+$outline-inverse-box-shadow-active: none;
+$outline-inverse-spinner-color: color(var(--color-teal-darkest) a(20%));
+
+$secondary-background-color: var(--color-neutral-light);
+$secondary-background-color-hover: var(--color-neutral);
+$secondary-border-color: var(--color-neutral-dark);
+$secondary-border-color-hover: var(--color-neutral-darkest);
+$secondary-text-color: var(--color-teal-darkest);
+$secondary-box-shadow-focus: inset 0 0 0 1px var(--color-neutral-darkest);
+$secondary-box-shadow-active: none;
+$secondary-spinner-color: color(var(--color-teal-darkest) a(20%));
+
+$primary-background-color: var(--color-mint);
+$primary-background-color-hover: var(--color-mint-dark);
+$primary-border-color: var(--color-mint-dark);
+$primary-border-color-hover: var(--color-mint-darkest);
+$primary-text-color: var(--color-white);
+$primary-box-shadow-focus: inset 0 0 0 1px var(--color-mint-dark);
+$primary-box-shadow-active: none;
+$primary-spinner-color: color(var(--color-white) a(20%));
+
+$destructive-background-color: var(--color-ruby);
+$destructive-background-color-hover: var(--color-ruby-dark);
+$destructive-border-color: var(--color-ruby-dark);
+$destructive-border-color-hover: var(--color-ruby-darkest);
+$destructive-text-color: var(--color-white);
+$destructive-box-shadow-focus: inset 0 0 0 1px var(--color-ruby-darkest);
+$destructive-box-shadow-active: none;
+$destructive-spinner-color: color(var(--color-white) a(20%));
+
+$medium-font-size: calc(1.6 * var(--unit));
+$medium-height: calc(3.6 * var(--unit));
+$medium-line-height: calc(3.4 * var(--unit));
+$medium-padding: 0 calc(1.2 * var(--unit));
+$medium-icon-only-padding: 0 calc(.5 * var(--unit));
+$medium-spinner-size: calc(2.2 * var(--unit));
+$small-font-size: calc(1.4 * var(--unit));
+$small-height: calc(3 * var(--unit));
+$small-line-height: calc(2.8 * var(--unit));
+$small-padding: 0 calc(1.2 * var(--unit));
+$small-icon-only-padding: 0 calc(.7 * var(--unit));
+$small-spinner-size: calc(1.4 * var(--unit));
+$large-font-size: calc(1.6 * var(--unit));
+$large-height: calc(4.8 * var(--unit));
+$large-line-height: calc(4.6 * var(--unit));
+$large-padding: 0 calc(1.8 * var(--unit));
+$large-icon-only-padding: 0 calc(1.1 * var(--unit));
+$large-spinner-size: calc(2.2 * var(--unit));
+
 :root {
   --button-border-radius: calc(.4 * var(--unit));
   --button-margin: calc(0.6 * var(--unit));
@@ -34,9 +114,9 @@
   white-space: nowrap;
   vertical-align: middle;
 
-  .children {
+ /* .children {
     padding-top: var(--button-children-padding-correction);
-  }
+  }*/
 
   * + .children,
   .children + *:not(.spinner) {
@@ -91,23 +171,30 @@
 .iconButton {
   &:not(.inverse) {
     --spinner-color: color(var(--color-teal-darkest) a(20%));
+    color: $iconbutton-text-color;
     --text-color: var(--color-teal-darkest);
+    background-color: $iconbutton-background-color;
+    --background-color: transparent;
+    border: $iconbutton-border;
     --border: 0;
 
     &:not([disabled]) {
-      --background-color: transparent;
-
       &:hover {
+        background-color: $iconbutton-background-color-hover;
         --background-color: color(var(--color-teal-darkest) a(5%));
+        color: $iconbutton-text-color;
         --text-color: var(--color-teal-darkest);
       }
 
       &:focus {
+        box-shadow: $iconbutton-box-shadow-focus;
         --box-shadow: inset 0 0 0 2px var(--color-teal-darkest);
       }
 
       &:active {
+        background-color: $iconbutton-background-color-hover;
         --background-color: color(var(--color-teal-darkest) a(5%));
+        box-shadow: $iconbutton-box-shadow-active;
         --box-shadow: none;
       }
     }
@@ -115,21 +202,28 @@
 
   &.inverse {
     --spinner-color: color(var(--color-neutral-lightest) a(20%));
+    color: $iconbutton-inverse-text-color;
     --text-color: var(--color-neutral-lightest);
+    background-color: $iconbutton-inverse-background-color;
+    --background-color: transparent;
+    border: $iconbutton-inverse-border;
+    --border: 0;
 
     &:not([disabled]) {
-      --background-color: transparent;
-
       &:hover {
+        background-color: $iconbutton-inverse-background-color-hover;
         --background-color: color(var(--color-white) a(10%));
       }
 
       &:focus {
+        box-shadow: $iconbutton-inverse-box-shadow-focus;
         --box-shadow: inset 0 0 0 2px var(--color-neutral-lightest);
       }
 
       &:active {
+        background-color: $iconbutton-inverse-background-color-hover;
         --background-color: color(var(--color-white) a(10%));
+        box-shadow: $iconbutton-inverse-box-shadow-active;
         --box-shadow: none;
       }
     }
@@ -139,30 +233,42 @@
 .outline {
   &:not(.inverse) {
     --spinner-color: color(var(--color-teal-darkest) a(20%));
+    background-color: $outline-background-color;
+    --background-color: transparent;
+    color: $outline-text-color;
     --text-color: var(--color-teal-darkest);
 
     &[disabled] {
+      border: 1px solid $outline-border-color-disabled;
       --border: 1px solid var(--color-neutral-dark);
     }
 
     &:not([disabled]) {
-      --background-color: transparent;
+      border: 1px solid $outline-border-color;
       --border: 1px solid color(var(--color-teal-darkest) a(75%));
 
       &:hover {
+        background: $outline-background-color-hover;
         --background-color: color(var(--color-teal-darkest) a(5%));
+        border: 1px solid $outline-border-color-hover;
         --border: 1px solid var(--color-teal-darkest);
+        color: $outline-text-color;
         --text-color: var(--color-teal-darkest);
       }
 
       &:focus {
+        border: 1px solid $outline-border-color-hover;
         --border: 1px solid var(--color-teal-darkest);
+        box-shadow: $outline-box-shadow-focus;
         --box-shadow: inset 0 0 0 1px var(--color-teal-darkest);
       }
 
       &:active {
+        background: $outline-background-color-hover;
         --background-color: color(var(--color-teal-darkest) a(5%));
+        border: 1px solid $outline-border-color-hover;
         --border: 1px solid var(--color-teal-darkest);
+        box-shadow: $outline-box-shadow-active;
         --box-shadow: none;
       }
     }
@@ -170,28 +276,38 @@
 
   &.inverse {
     --spinner-color: color(var(--color-neutral-lightest) a(20%));
+    background-color: $outline-inverse-background-color;
+    --background-color: transparent;
+    color: $outline-inverse-text-color;
     --text-color: var(--color-neutral-lightest);
 
     &[disabled] {
+      border: 1px solid $outline-inverse-border-color-disabled;
       --border: 1px solid color(var(--color-white) a(75%));
     }
 
     &:not([disabled]) {
-      --background-color: transparent;
+      border: 1px solid $outline-inverse-border-color;
       --border: 1px solid color(var(--color-white) a(75%));
 
       &:hover {
+        background: $outline-inverse-background-color-hover;
         --background-color: color(var(--color-white) a(10%));
+        border: 1px solid $outline-inverse-border-color-hover;
         --border: 1px solid var(--color-neutral-lightest);
       }
 
       &:focus {
+        border: 1px solid $outline-inverse-border-color-hover;
         --border: 1px solid var(--color-neutral-lightest);
+        box-shadow: $outline-inverse-box-shadow-focus;
         --box-shadow: inset 0 0 0 1px var(--color-neutral-lightest);
       }
 
       &:active {
+        background: $outline-inverse-background-color-hover;
         --background-color: color(var(--color-white) a(10%));
+        box-shadow: $outline-inverse-box-shadow-active;
         --box-shadow: none;
       }
     }
@@ -200,32 +316,46 @@
 
 .secondary {
   --spinner-color: color(var(--color-teal-darkest) a(20%));
+  color: $secondary-text-color;
   --text-color: var(--color-teal-darkest);
 
   &[disabled] {
+    background: $secondary-background-color;
     --background-color: var(--color-neutral-light);
+    border: 1px solid $secondary-border-color;
     --border: 1px solid var(--color-neutral-dark);
   }
 
   &:not([disabled]) {
+    background: $secondary-background-color;
     --background-color: var(--color-neutral-light);
+    border: 1px solid $secondary-border-color;
     --border: 1px solid var(--color-neutral-dark);
 
     &:hover {
+      background: $secondary-background-color-hover;
       --background-color: var(--color-neutral);
+      border: 1px solid $secondary-border-color-hover;
       --border: 1px solid var(--color-neutral-darkest);
+      color: $secondary-text-color;
       --text-color: var(--color-teal-darkest);
     }
 
     &:focus {
+      background: $secondary-background-color;
       --background-color: var(--color-neutral-light);
+      border: 1px solid $secondary-border-color-hover;
       --border: 1px solid var(--color-neutral-darkest);
+      box-shadow: $secondary-box-shadow-focus;
       --box-shadow: inset 0 0 0 1px var(--color-neutral-darkest);
     }
 
     &:active {
+      background: $secondary-background-color-hover;
       --background-color: var(--color-neutral);
+      border: 1px solid $secondary-border-color-hover;
       --border: 1px solid var(--color-neutral-darkest);
+      box-shadow: $secondary-box-shadow-active;
       --box-shadow: none;
     }
   }
@@ -233,31 +363,44 @@
 
 .primary {
   --spinner-color: color(var(--color-white) a(20%));
+  color: $primary-text-color;
   --text-color: var(--color-white);
 
   &[disabled] {
+    background: $primary-background-color;
     --background-color: var(--color-mint);
+    border: 1px solid $primary-border-color;
     --border: 1px solid var(--color-mint-dark);
   }
 
   &:not([disabled]) {
+    background: $primary-background-color;
     --background-color: var(--color-mint);
+    border: 1px solid $primary-border-color;
     --border: 1px solid var(--color-mint-dark);
 
     &:hover {
+      background: $primary-background-color-hover;
       --background-color: var(--color-mint-dark);
+      border: 1px solid $primary-border-color-hover;
       --border: 1px solid var(--color-mint-darkest);
     }
 
     &:focus {
+      background: $primary-background-color;
       --background-color: var(--color-mint);
+      border: 1px solid $primary-border-color-hover;
       --border: 1px solid var(--color-mint-dark);
+      box-shadow: $primary-box-shadow-focus;
       --box-shadow: inset 0 0 0 1px var(--color-mint-dark);
     }
 
     &:active {
+      background: $primary-background-color-hover;
       --background-color: var(--color-mint-dark);
+      border: 1px solid $primary-border-color-hover;
       --border: 1px solid var(--color-mint-darkest);
+      box-shadow: $primary-box-shadow-active;
       --box-shadow: none;
     }
   }
@@ -265,31 +408,44 @@
 
 .destructive {
   --spinner-color: color(var(--color-white) a(20%));
+  color: $destructive-text-color;
   --text-color: var(--color-white);
 
   &[disabled] {
+    background: $destructive-background-color;
     --background-color: var(--color-ruby);
+    border: 1px solid $destructive-border-color;
     --border: 1px solid var(--color-ruby-dark);
   }
 
   &:not([disabled]) {
+    background: $destructive-background-color;
     --background-color: var(--color-ruby);
+    border: 1px solid $destructive-border-color;
     --border: 1px solid var(--color-ruby-dark);
 
     &:hover {
+      background: $destructive-background-color-hover;
       --background-color: var(--color-ruby-dark);
+      border: 1px solid $destructive-border-color-hover;
       --border: 1px solid var(--color-ruby-darkest);
     }
 
     &:focus {
+      background: $destructive-background-color;
       --background-color: var(--color-ruby);
+      border: 1px solid $destructive-border-color-hover;
       --border: 1px solid var(--color-ruby-darkest);
+      box-shadow: $destructive-box-shadow-focus;
       --box-shadow: inset 0 0 0 1px var(--color-ruby-darkest);
     }
 
     &:active {
+      background: $destructive-background-color-hover;
       --background-color: var(--color-ruby-dark);
+      border: 1px solid $destructive-border-color-hover;
       --border: 1px solid var(--color-ruby-darkest);
+      box-shadow: $destructive-box-shadow-active;
       --box-shadow: none;
     }
   }
@@ -297,40 +453,55 @@
 
 /* Button sizes */
 .small {
-  --button-children-padding-correction: 0;
+  /*--button-children-padding-correction: 0;*/
+  font-size: $small-font-size;
   --font-size: calc(1.4 * var(--unit));
+  height: $small-height;
   --height: calc(3 * var(--unit));
+  line-height: $small-line-height;
   --line-height: calc(2.8 * var(--unit));
+  padding: $small-padding;
   --padding: 0 calc(1.2 * var(--unit));
   --spinner-size: calc(1.4 * var(--unit));
 
   &.iconOnly {
+    padding: $small-icon-only-padding;
     --padding: 0 calc(.7 * var(--unit));
   }
 }
 
 .medium {
-  --button-children-padding-correction: 1px;
+  /*--button-children-padding-correction: 1px;*/
+  font-size: $medium-font-size;
   --font-size: calc(1.6 * var(--unit));
+  height: $medium-height;
   --height: calc(3.6 * var(--unit));
+  line-height: $medium-line-height;
   --line-height: calc(3.4 * var(--unit));
+  padding: $medium-padding;
   --padding: 0 calc(1.2 * var(--unit));
   --spinner-size: calc(2.2 * var(--unit));
 
   &.iconOnly {
+    padding: $medium-icon-only-padding;
     --padding: 0 calc(.5 * var(--unit));
   }
 }
 
 .large {
-  --button-children-padding-correction: 1px;
+  /*--button-children-padding-correction: 1px;*/
+  font-size: $large-font-size;
   --font-size: calc(1.6 * var(--unit));
+  height: $large-height;
   --height: calc(4.8 * var(--unit));
+  line-height: $large-line-height;
   --line-height: calc(4.6 * var(--unit));
+  padding: $large-padding;
   --padding: 0 calc(1.8 * var(--unit));
   --spinner-size: calc(2.2 * var(--unit));
 
   &.iconOnly {
+    padding: $large-icon-only-padding;
     --padding: 0 calc(1.1 * var(--unit));
   }
 }
@@ -340,6 +511,26 @@
   color: var(--background-color);
   position: relative;
   pointer-events: none;
+}
+
+.outline:not(.inverse).processing {
+  color: $outline-background-color;
+}
+
+.outline.inverse.processing {
+  color: $outline-inverse-background-color;
+}
+
+.secondary.processing {
+  color: $secondary-background-color;
+}
+
+.primary.processing {
+  color: $primary-background-color;
+}
+
+.destructive.processing {
+  color: $destructive-background-color;
 }
 
 @keyframes spin {
@@ -360,6 +551,52 @@
   border: 2px solid var(--spinner-color);
   border-top-color: var(--text-color);
   animation: spin .6s linear infinite;
+}
+
+.outline:not(.inverse) .spinner:before {
+  border: 2px solid $outline-spinner-color;
+  border-top-color: $outline-text-color;
+}
+
+.outline.inverse .spinner:before {
+  border: 2px solid $outline-inverse-spinner-color;
+  border-top-color: $outline-inverse-text-color;
+}
+
+.secondary .spinner:before {
+  border: 2px solid $secondary-spinner-color;
+  border-top-color: $secondary-text-color;
+}
+
+.primary .spinner:before {
+  border: 2px solid $primary-spinner-color;
+  border-top-color: $primary-text-color;
+}
+
+.destructive .spinner:before {
+  border: 2px solid $destructive-spinner-color;
+  border-top-color: $destructive-text-color;
+}
+
+.small .spinner:before {
+  margin-top: calc(-.5 * $small-spinner-size);
+  margin-left: calc(-.5 * $small-spinner-size);
+  height: $small-spinner-size;
+  width: $small-spinner-size;
+}
+
+.medium .spinner:before {
+  margin-top: calc(-.5 * $medium-spinner-size);
+  margin-left: calc(-.5 * $medium-spinner-size);
+  height: $medium-spinner-size;
+  width: $medium-spinner-size;
+}
+
+.large .spinner:before {
+  margin-top: calc(-.5 * $large-spinner-size);
+  margin-left: calc(-.5 * $large-spinner-size);
+  height: $large-spinner-size;
+  width: $large-spinner-size;
 }
 
 /* ButtonGroup */
