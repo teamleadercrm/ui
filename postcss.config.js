@@ -11,6 +11,7 @@ module.exports = ctx => {
         root: './',
         path: [path.join(__dirname, './components')]
       },
+      'postcss-simple-vars': {},
       'postcss-pseudoelements': {},
       'postcss-mixins': {},
       'postcss-each': {},
