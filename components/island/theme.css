@@ -1,6 +1,27 @@
 @import '@teamleader/ui-colors';
 @import '@teamleader/ui-utilities';
 
+$white-background-color: var(--color-white);
+$white-border: 1px solid var(--color-neutral);
+$white-dark-border: 1px solid var(--color-neutral-dark);
+$neutral-background-color: var(--color-neutral-light);
+$neutral-border: 1px solid var(--color-neutral);
+$neutral-dark-border: 1px solid var(--color-neutral-dark);
+$mint-background-color: var(--color-mint-lightest);
+$mint-border: 1px solid var(--color-mint);
+$violet-background-color: var(--color-violet-lightest);
+$violet-border: 1px solid var(--color-violet);
+$ruby-background-color: var(--color-ruby-lightest);
+$ruby-border: 1px solid var(--color-ruby);
+$gold-background-color: var(--color-gold-lightest);
+$gold-border: 1px solid var(--color-gold);
+$aqua-background-color: var(--color-aqua-lightest);
+$aqua-border: 1px solid var(--color-aqua);
+
+$small-padding: var(--spacer-small);
+$medium-padding: var(--spacer-medium);
+$large-padding: var(--spacer-big);
+
 .island {
   border: 1px solid var(--border-color);
   border-radius: 4px;
@@ -9,56 +30,75 @@
 }
 
 .white {
+  background-color: $white-background-color;
   --background-color: var(--color-white);
+  border: $white-border;
   --border-color: var(--color-neutral);
 
   &.dark {
+    border: $white-dark-border;
     --border-color: var(--color-neutral-dark);
   }
 }
 
 .neutral {
+  background-color: $neutral-background-color;
   --background-color: var(--color-neutral-light);
+  border: $neutral-border;
   --border-color: var(--color-neutral);
 
   &.dark {
+    border: $neutral-dark-border;
     --border-color: var(--color-neutral-dark);
   }
 }
 
 .mint {
+  background-color: $mint-background-color;
   --background-color: var(--color-mint-lightest);
+  border: $mint-border;
   --border-color: var(--color-mint);
 }
 
 .violet {
+  background-color: $violet-background-color;
   --background-color: var(--color-violet-lightest);
+  border: $violet-border;
   --border-color: var(--color-violet);
 }
 
 .ruby {
+  background-color: $ruby-background-color;
   --background-color: var(--color-ruby-lightest);
+  border: $ruby-border;
   --border-color: var(--color-ruby);
 }
 
 .gold {
+  background-color: $gold-background-color;
   --background-color: var(--color-gold-lightest);
+  border: $gold-border;
   --border-color: var(--color-gold);
 }
 
 .aqua {
+  background-color: $aqua-background-color;
   --background-color: var(--color-aqua-lightest);
+  border: $aqua-border;
   --border-color: var(--color-aqua);
 }
 
 .small {
+  padding: $small-padding;
   --padding: var(--spacer-small);
 }
 
 .medium {
+  padding: $medium-padding;
   --padding: var(--spacer-medium);
 }
 
 .large {
+  padding: $large-padding;
   --padding: var(--spacer-big);
 }
