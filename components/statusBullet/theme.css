@@ -2,6 +2,28 @@
 @import '@teamleader/ui-typography';
 @import '@teamleader/ui-utilities';
 
+$mint-background-color: var(--color-mint-light);
+$violet-background-color: var(--color-violet);
+$neutral-background-color: var(--color-neutral);
+$ruby-background-color: var(--color-ruby);
+$gold-background-color: var(--color-gold);
+$aqua-background-color: var(--color-aqua);
+
+$small-font-family: var(--font-family-regular);
+$small-font-size: calc(1.4 * var(--unit));
+$small-font-weight: 400;
+$small-line-height: calc(1.8 * var(--unit));
+
+$medium-font-family: var(--font-family-regular);
+$medium-font-size: calc(1.6 * var(--unit));
+$medium-font-weight: 400;
+$medium-line-height: calc(1.8 * var(--unit));
+
+$large-font-family: var(--font-family-semi-bold);
+$large-font-size: calc(2.0 * var(--unit));
+$large-font-weight: 500;
+$large-line-height: calc(2.4 * var(--unit));
+
 .bullet {
   color: var(--text-color);
   display: inline-block;
@@ -29,46 +51,64 @@
 }
 
 .mint::before {
+  background-color: $mint-background-color;
   --background-color: var(--color-mint-light);
 }
 
 .violet::before {
+  background-color: $violet-background-color;
   --background-color: var(--color-violet);
 }
 
 .neutral::before {
+  background-color: $neutral-background-color;
   --background-color: var(--color-neutral);
 }
 
 .ruby::before {
+  background-color: $ruby-background-color;
   --background-color: var(--color-ruby);
 }
 
 .gold::before {
+  background-color: $gold-background-color;
   --background-color: var(--color-gold);
 }
 
 .aqua::before {
+  background-color: $aqua-background-color;
   --background-color: var(--color-aqua);
 }
 
 .large {
+  font-family: $large-font-family;
   --font-family: var(--font-family-semi-bold);
+  font-size: $large-font-size;
   --font-size: calc(2.0 * var(--unit));
+  font-weight: $large-font-weight;
   --font-weight: 500;
+  line-height: $large-line-height;
   --line-height: calc(2.4 * var(--unit));
 }
 
 .medium {
+  font-family: $medium-font-family;
   --font-family: var(--font-family-regular);
+  font-size: $medium-font-size;
   --font-size: calc(1.6 * var(--unit));
+  font-weight: $medium-font-weight;
   --font-weight: 400;
+  line-height: $medium-line-height;
   --line-height: calc(1.8 * var(--unit));
 }
 
 .small {
+  font-family: $small-font-family;
   --font-family: var(--font-family-regular);
+  font-size: $small-font-size;
   --font-size: calc(1.4 * var(--unit));
+  font-weight: $small-font-weight;
   --font-weight: 400;
+  line-height: $small-line-height;
   --line-height: calc(1.8 * var(--unit));
 }
