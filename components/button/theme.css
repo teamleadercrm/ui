@@ -114,9 +114,10 @@ $large-spinner-size: calc(2.2 * var(--unit));
   white-space: nowrap;
   vertical-align: middle;
 
- /* .children {
-    padding-top: var(--button-children-padding-correction);
-  }*/
+  & > * {
+    display: inline-block;
+    pointer-events: none;
+  }
 
   * + .children,
   .children + *:not(.spinner) {
@@ -129,16 +130,12 @@ $large-spinner-size: calc(2.2 * var(--unit));
 
   svg {
     color: inherit;
-    display: inline-block;
     fill: currentColor;
+    -ms-transform: translateY(-1px);
 
     * {
       fill: currentColor;
     }
-  }
-
-  & > * {
-    pointer-events: none;
   }
 
   &[disabled] {
@@ -453,7 +450,6 @@ $large-spinner-size: calc(2.2 * var(--unit));
 
 /* Button sizes */
 .small {
-  /*--button-children-padding-correction: 0;*/
   font-size: $small-font-size;
   --font-size: calc(1.4 * var(--unit));
   height: $small-height;
@@ -471,7 +467,6 @@ $large-spinner-size: calc(2.2 * var(--unit));
 }
 
 .medium {
-  /*--button-children-padding-correction: 1px;*/
   font-size: $medium-font-size;
   --font-size: calc(1.6 * var(--unit));
   height: $medium-height;
@@ -489,7 +484,6 @@ $large-spinner-size: calc(2.2 * var(--unit));
 }
 
 .large {
-  /*--button-children-padding-correction: 1px;*/
   font-size: $large-font-size;
   --font-size: calc(1.6 * var(--unit));
   height: $large-height;
