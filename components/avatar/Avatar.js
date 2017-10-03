@@ -43,11 +43,7 @@ class Avatar extends PureComponent {
         <span className={imageClasses}>
           <img src={image} />
         </span>
-        { counter && (
-          <span className={theme.counter}>
-            {counter}
-          </span>)
-        }
+        { counter && <span className={theme.counter}>{counter}</span> }
       </span>
     );
   }
