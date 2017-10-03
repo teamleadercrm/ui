@@ -3,22 +3,31 @@
 @import '@teamleader/ui-utilities';
 
 $mint-background-color: var(--color-mint-light);
-$violet-background-color: var(--color-violet);
-$neutral-background-color: var(--color-neutral);
-$ruby-background-color: var(--color-ruby);
-$gold-background-color: var(--color-gold);
-$aqua-background-color: var(--color-aqua);
+$mint-border-color: var(--color-mint-dark);
+$violet-background-color: var(--color-violet-light);
+$violet-border-color: var(--color-violet-dark);
+$neutral-background-color: var(--color-teal-light);
+$neutral-border-color: var(--color-teal-dark);
+$ruby-background-color: var(--color-ruby-light);
+$ruby-border-color: var(--color-ruby-dark);
+$gold-background-color: var(--color-gold-light);
+$gold-border-color: var(--color-gold-dark);
+$aqua-background-color: var(--color-aqua-light);
+$aqua-border-color: var(--color-aqua-dark);
 
+$small-bullet-size: 9px;
 $small-font-family: var(--font-family-regular);
 $small-font-size: calc(1.4 * var(--unit));
 $small-font-weight: 400;
 $small-line-height: calc(1.8 * var(--unit));
 
+$medium-bullet-size: 9px;
 $medium-font-family: var(--font-family-regular);
 $medium-font-size: calc(1.6 * var(--unit));
 $medium-font-weight: 400;
 $medium-line-height: calc(1.8 * var(--unit));
 
+$large-bullet-size: 13px;
 $large-font-family: var(--font-family-semi-bold);
 $large-font-size: calc(2.0 * var(--unit));
 $large-font-weight: 500;
@@ -32,52 +41,61 @@ $large-line-height: calc(2.4 * var(--unit));
   font-weight: var(--font-weight);
   line-height: var(--line-height);
   margin: auto var(--spacer-smallest);
-  padding: 0 0 0 15px;
   position: relative;
   vertical-align: middle;
 
   &:before {
     background: var(--background-color);
     border-radius: 50%;
+    box-shadow: inset 0 0 0 2px var(--bullet-border-color);
     content: '';
     display: inline-block;
-    height: 9px;
-    left: 0;
-    position: absolute;
-    top: 50%;
-    width: 9px;
-    margin-top: -6px;
+    height: var(--bullet-size);
+    margin-right: var(--spacer-smaller);
+    width: var(--bullet-size);
   }
 }
 
 .mint::before {
   background-color: $mint-background-color;
   --background-color: var(--color-mint-light);
+  box-shadow: inset 0 0 0 2px $mint-border-color;
+  --bullet-border-color: var(--color-mint-dark);
 }
 
 .violet::before {
   background-color: $violet-background-color;
-  --background-color: var(--color-violet);
+  --background-color: var(--color-violet-light);
+  box-shadow: inset 0 0 0 2px $violet-border-color;
+  --bullet-border-color: var(--color-violet-dark);
 }
 
 .neutral::before {
   background-color: $neutral-background-color;
-  --background-color: var(--color-neutral);
+  --background-color: var(--color-teal-light);
+  box-shadow: inset 0 0 0 2px $neutral-border-color;
+  --bullet-border-color: var(--color-teal-dark);
 }
 
 .ruby::before {
   background-color: $ruby-background-color;
-  --background-color: var(--color-ruby);
+  --background-color: var(--color-ruby-light);
+  box-shadow: inset 0 0 0 2px $ruby-border-color;
+  --bullet-border-color: var(--color-ruby-dark);
 }
 
 .gold::before {
   background-color: $gold-background-color;
-  --background-color: var(--color-gold);
+  --background-color: var(--color-gold-light);
+  box-shadow: inset 0 0 0 2px $gold-border-color;
+  --bullet-border-color: var(--color-gold-dark);
 }
 
 .aqua::before {
   background-color: $aqua-background-color;
-  --background-color: var(--color-aqua);
+  --background-color: var(--color-aqua-light);
+  box-shadow: inset 0 0 0 2px $aqua-border-color;
+  --bullet-border-color: var(--color-aqua-dark);
 }
 
 .large {
@@ -89,6 +107,12 @@ $large-line-height: calc(2.4 * var(--unit));
   --font-weight: 500;
   line-height: $large-line-height;
   --line-height: calc(2.4 * var(--unit));
+
+  &::before {
+    height: $large-bullet-size;
+    width: $large-bullet-size;
+    --bullet-size: 13px;
+  }
 }
 
 .medium {
@@ -100,6 +124,12 @@ $large-line-height: calc(2.4 * var(--unit));
   --font-weight: 400;
   line-height: $medium-line-height;
   --line-height: calc(1.8 * var(--unit));
+
+  &::before {
+    height: $medium-bullet-size;
+    width: $medium-bullet-size;
+    --bullet-size: 9px;
+  }
 }
 
 .small {
@@ -111,4 +141,10 @@ $large-line-height: calc(2.4 * var(--unit));
   --font-weight: 400;
   line-height: $small-line-height;
   --line-height: calc(1.8 * var(--unit));
+
+  &::before {
+    height: $small-bullet-size;
+    width: $small-bullet-size;
+    --bullet-size: 9px;
+  }
 }
