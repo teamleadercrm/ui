@@ -2,6 +2,19 @@
 @import '@teamleader/ui-typography';
 @import '@teamleader/ui-utilities';
 
+$neutral-background-color: var(--color-teal-light);
+$neutral-text-color: var(--color-teal-darkest);
+$mint-background-color: var(--color-mint-lightest);
+$mint-text-color: var(--color-mint-darkest);
+$violet-background-color: var(--color-violet-light);
+$violet-text-color: var(--color-violet-darkest);
+$ruby-background-color: var(--color-ruby-light);
+$ruby-text-color: var(--color-ruby-darkest);
+$gold-background-color: var(--color-gold-light);
+$gold-text-color: var(--color-gold-darkest);
+$aqua-background-color: var(--color-aqua-light);
+$aqua-text-color: var(--color-aqua-darkest);
+
 .label {
   background: var(--background-color);
   color: var(--text-color);
@@ -13,32 +26,44 @@
 }
 
 .neutral {
+  background-color: $neutral-background-color;
   --background-color: var(--color-teal-light);
+  color: $neutral-text-color;
   --text-color: var(--color-teal-darkest);
 }
 
 .mint {
+  background-color: $mint-background-color;
   --background-color: var(--color-mint-lightest);
+  color: $mint-text-color;
   --text-color: var(--color-mint-darkest);
 }
 
 .violet {
+  background-color: $violet-background-color;
   --background-color: var(--color-violet-light);
+  color: $violet-text-color;
   --text-color: var(--color-violet-darkest);
 }
 
 .ruby {
+  background-color: $ruby-background-color;
   --background-color: var(--color-ruby-light);
+  color: $ruby-text-color;
   --text-color: var(--color-ruby-darkest);
 }
 
 .gold {
+  background-color: $gold-background-color;
   --background-color: var(--color-gold-light);
+  color: $gold-text-color;
   --text-color: var(--color-gold-darkest);
 }
 
 .aqua {
+  background-color: $aqua-background-color;
   --background-color: var(--color-aqua-light);
+  color: $aqua-text-color;
   --text-color: var(--color-aqua-darkest);
 }
 
