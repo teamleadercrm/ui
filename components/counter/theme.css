@@ -2,6 +2,20 @@
 @import '@teamleader/ui-utilities';
 @import '@teamleader/ui-typography';
 
+$small-min-size: 9px;
+$small-rounded-padding: 4px 5px 2px;
+$medium-min-size: 6px;
+$medium-rounded-padding: 7px 6px 5px;
+
+$neutral-background-color: var(--color-neutral-dark);
+$neutral-dark-background-color: var(--color-neutral-darkest);
+$mint-background-color: var(--color-mint);
+$violet-background-color: var(--color-violet);
+$teal-background-color: var(--color-teal);
+$ruby-background-color: var(--color-ruby);
+$gold-background-color: var(--color-gold);
+$aqua-background-color: var(--color-aqua);
+
 .counter {
   background: var(--background-color);
   border-radius: 50%;
@@ -18,10 +32,14 @@
 }
 
 .medium {
+  min-height: $medium-min-size;
+  min-width: $medium-min-size;
   --min-size: 9px;
 }
 
 .small {
+  min-height: $small-min-size;
+  min-width: $small-min-size;
   --min-size: 6px;
 }
 
@@ -31,41 +49,51 @@
 }
 
 .rounded.medium {
+  padding: $medium-rounded-padding;
   --padding: 7px 6px 5px;
 }
 
 .rounded.small {
+  padding: $small-rounded-padding;
   --padding: 4px 5px 2px;
 }
 
 .neutral {
+  background-color: $neutral-background-color;
   --background-color: var(--color-neutral-dark);
 
   &.dark {
+    background-color: $neutral-dark-background-color;
     --background-color: var(--color-neutral-darkest);
   }
 }
 
 .mint {
+  background-color: $mint-background-color;
   --background-color: var(--color-mint);
 }
 
 .violet {
+  background-color: $violet-background-color;
   --background-color: var(--color-violet);
 }
 
 .teal {
+  background-color: $teal-background-color;
   --background-color: var(--color-teal);
 }
 
 .ruby {
+  background-color: $ruby-background-color;
   --background-color: var(--color-ruby);
 }
 
 .gold {
+  background-color: $gold-background-color;
   --background-color: var(--color-gold);
 }
 
 .aqua {
+  background-color: $aqua-background-color;
   --background-color: var(--color-aqua);
 }
