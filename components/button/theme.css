@@ -28,6 +28,11 @@
   white-space: nowrap;
   vertical-align: middle;
 
+  & > * {
+    display: inline-block;
+    pointer-events: none;
+  }
+
   * + .children,
   .children + *:not(.spinner) {
     margin-left: var(--button-icon-children-margin);
@@ -39,16 +44,12 @@
 
   svg {
     color: inherit;
-    display: inline-block;
     fill: currentColor;
+    -ms-transform: translateY(-1px);
 
     * {
       fill: currentColor;
     }
-  }
-
-  & > * {
-    pointer-events: none;
   }
 
   &[disabled] {
