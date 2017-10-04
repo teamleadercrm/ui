@@ -10,6 +10,7 @@
 
   &:before {
     border-radius: 50%;
+    border: 2px solid;
     content: '';
     display: inline-block;
     height: 9px;
@@ -20,26 +21,32 @@
 
 .mint::before {
   background-color: var(--color-mint-light);
+  border-color: var(--color-mint-dark);
 }
 
 .violet::before {
   background-color: var(--color-violet-light);
+  border-color: var(--color-violet-dark);
 }
 
 .neutral::before {
   background-color: var(--color-teal-light);
+  border-color: var(--color-teal-dark);
 }
 
 .ruby::before {
   background-color: var(--color-ruby-light);
+  border-color: var(--color-ruby-dark);
 }
 
 .gold::before {
   background-color: var(--color-gold-light);
+  border-color: var(--color-gold-dark);
 }
 
 .aqua::before {
   background-color: var(--color-aqua-light);
+  border-color: var(--color-aqua-dark);
 }
 
 .large {
