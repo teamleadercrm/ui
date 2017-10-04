@@ -5,7 +5,6 @@
 .bullet {
   display: inline-block;
   margin: auto var(--spacer-smallest);
-  padding: 0 0 0 15px;
   position: relative;
   vertical-align: middle;
 
@@ -14,11 +13,8 @@
     content: '';
     display: inline-block;
     height: 9px;
-    left: 0;
-    position: absolute;
-    top: 50%;
+    margin-right: var(--spacer-smaller);
     width: 9px;
-    margin-top: -6px;
   }
 }
 
