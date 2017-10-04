@@ -76,6 +76,11 @@
       }
     }
   }
+
+  &.processing {
+    position: relative;
+    pointer-events: none;
+  }
 }
 
 /* Button colors */
@@ -378,12 +383,6 @@
     margin-top: calc(-.5 * var(--large-spinner-size));
     margin-left: calc(-.5 * var(--large-spinner-size));
   }
-}
-
-/* Button states */
-.processing {
-  position: relative;
-  pointer-events: none;
 }
 
 @keyframes spin {
