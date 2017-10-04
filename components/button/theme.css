@@ -98,7 +98,8 @@
       }
 
       &:focus {
-        box-shadow: inset 0 0 0 2px var(--color-teal-darkest);
+        border: 1px solid var(--color-teal-darkest);
+        box-shadow: inset 0 0 0 1px var(--color-teal-darkest);
       }
 
       &:active {
@@ -117,7 +118,8 @@
       }
 
       &:focus {
-        box-shadow: inset 0 0 0 2px var(--color-neutral-lightest);
+        border: 1px solid var(--color-neutral-lightest);
+        box-shadow: inset 0 0 0 1px var(--color-neutral-lightest);
       }
 
       &:active {
