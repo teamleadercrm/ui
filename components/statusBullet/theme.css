@@ -2,6 +2,12 @@
 @import '@teamleader/ui-typography';
 @import '@teamleader/ui-utilities';
 
+:root {
+  --small-bullet-size: 6px;
+  --medium-bullet-size: 6px;
+  --large-bullet-size: 9px;
+}
+
 .bullet {
   display: inline-block;
   margin: auto var(--spacer-smallest);
@@ -13,9 +19,7 @@
     border: 2px solid;
     content: '';
     display: inline-block;
-    height: 9px;
     margin-right: var(--spacer-smaller);
-    width: 9px;
   }
 }
 
@@ -54,6 +58,11 @@
   font-size: calc(2.0 * var(--unit));
   font-weight: 500;
   line-height: calc(2.4 * var(--unit));
+
+  &:before {
+    height: var(--large-bullet-size);
+    width: var(--large-bullet-size);
+  }
 }
 
 .medium {
@@ -61,6 +70,11 @@
   font-size: calc(1.6 * var(--unit));
   font-weight: 400;
   line-height: calc(1.8 * var(--unit));
+
+  &:before {
+    height: var(--medium-bullet-size);
+    width: var(--medium-bullet-size);
+  }
 }
 
 .small {
@@ -68,4 +82,9 @@
   font-size: calc(1.4 * var(--unit));
   font-weight: 400;
   line-height: calc(1.8 * var(--unit));
+
+  &:before {
+    height: var(--small-bullet-size);
+    width: var(--small-bullet-size);
+  }
 }
