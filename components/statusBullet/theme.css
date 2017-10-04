@@ -27,23 +27,23 @@
 }
 
 .violet::before {
-  background-color: var(--color-violet);
+  background-color: var(--color-violet-light);
 }
 
 .neutral::before {
-  background-color: var(--color-neutral);
+  background-color: var(--color-teal-light);
 }
 
 .ruby::before {
-  background-color: var(--color-ruby);
+  background-color: var(--color-ruby-light);
 }
 
 .gold::before {
-  background-color: var(--color-gold);
+  background-color: var(--color-gold-light);
 }
 
 .aqua::before {
-  background-color: var(--color-aqua);
+  background-color: var(--color-aqua-light);
 }
 
 .large {
