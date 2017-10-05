@@ -82,9 +82,6 @@
 }
 
 .tiny {
-  height: var(--tiny-size);
-  width: var(--tiny-size);
-
   .counter {
     bottom: 50%;
     left: 60%;
@@ -109,9 +106,6 @@
 }
 
 .small {
-  height: var(--small-size);
-  width: var(--small-size);
-
   .counter {
     bottom: 60%;
     left: 76%;
@@ -136,9 +130,6 @@
 }
 
 .medium {
-  height: var(--medium-size);
-  width: var(--medium-size);
-
   .counter {
     bottom: 65%;
     left: 80%;
