@@ -2,8 +2,12 @@
 @import '@teamleader/ui-utilities';
 @import '@teamleader/ui-typography';
 
+:root {
+  --medium-mininmum-size: 9px;
+  --small-minimum-size: 6px;
+}
+
 .counter {
-  background: var(--background-color);
   border-radius: 50%;
   color: var(--color-white);
   display: inline-block;
@@ -12,60 +16,59 @@
   font-weight: 500;
   line-height: 1;
   letter-spacing: .25px;
-  min-height: var(--min-size);
-  min-width: var(--min-size);
   vertical-align: middle;
 }
 
 .medium {
-  --min-size: 9px;
+  min-height: var(--medium-mininmum-size);
+  min-width: var(--medium-mininmum-size);
 }
 
 .small {
-  --min-size: 6px;
+  min-height: var(--small-minimum-size);
+  min-width: var(--small-minimum-size);
 }
 
 .rounded {
   border-radius: 4px;
-  padding: var(--padding);
 }
 
 .rounded.medium {
-  --padding: 7px 6px 5px;
+  padding: 7px 6px 5px;
 }
 
 .rounded.small {
-  --padding: 4px 5px 2px;
+  padding: 4px 5px 2px;
 }
 
 .neutral {
-  --background-color: var(--color-neutral-dark);
+  background-color: var(--color-neutral-dark);
 
   &.dark {
-    --background-color: var(--color-neutral-darkest);
+    background-color: var(--color-neutral-darkest);
   }
 }
 
 .mint {
-  --background-color: var(--color-mint);
+  background-color: var(--color-mint);
 }
 
 .violet {
-  --background-color: var(--color-violet);
+  background-color: var(--color-violet);
 }
 
 .teal {
-  --background-color: var(--color-teal);
+  background-color: var(--color-teal);
 }
 
 .ruby {
-  --background-color: var(--color-ruby);
+  background-color: var(--color-ruby);
 }
 
 .gold {
-  --background-color: var(--color-gold);
+  background-color: var(--color-gold);
 }
 
 .aqua {
-  --background-color: var(--color-aqua);
+  background-color: var(--color-aqua);
 }
