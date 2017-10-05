@@ -164,7 +164,7 @@
     }
 
     .spinner:before {
-      border: 2px solid color(var(--color-teal-darkest) a(20%));
+      border: var(--spinner-border-width) solid color(var(--color-teal-darkest) a(20%));
       border-top-color: var(--color-teal-darkest);
     }
   }
@@ -202,7 +202,7 @@
     }
 
     .spinner:before {
-      border: 2px solid color(var(--color-neutral-lightest) a(20%));
+      border: var(--spinner-border-width) solid color(var(--color-neutral-lightest) a(20%));
       border-top-color: var(--color-neutral-lightest);
     }
   }
@@ -244,7 +244,7 @@
   }
 
   .spinner:before {
-    border: 2px solid color(var(--color-teal-darkest) a(20%));
+    border: var(--spinner-border-width) solid color(var(--color-teal-darkest) a(20%));
     border-top-color: var(--color-teal-darkest);
   }
 }
@@ -284,7 +284,7 @@
   }
 
   .spinner:before {
-    border: 2px solid color(var(--color-white) a(20%));
+    border: var(--spinner-border-width) solid color(var(--color-white) a(20%));
     border-top-color: var(--color-white);
   }
 }
@@ -324,7 +324,7 @@
   }
 
   .spinner:before {
-    border: 2px solid color(var(--color-white) a(20%));
+    border: var(--spinner-border-width) solid color(var(--color-white) a(20%));
     border-top-color: var(--color-white);
   }
 }
