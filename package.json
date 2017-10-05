@@ -58,7 +58,6 @@
     "@teamleader/ui-typography": "0.0.5",
     "@teamleader/ui-utilities": "0.0.2",
     "classnames": "^2.2.5",
-    "copy-webpack-plugin": "^4.0.1",
     "lodash.omit": "^4.5.0",
     "lodash.throttle": "^4.1.1",
     "prop-types": "^15.5.9",
