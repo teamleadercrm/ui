@@ -64,7 +64,7 @@ class AvatarTest extends PureComponent {
 
         <div className={s['component-spec']}>
           <div className={s['properties']}>
-            <Heading2>AvatarGroup</Heading2>
+            <Heading2>AvatarStack</Heading2>
             <Heading4>Direction</Heading4>
 
             <RadioGroup name="direction" value={this.state.direction} onChange={this.handleDirectionChange}>
