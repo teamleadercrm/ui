@@ -3,19 +3,13 @@
 @import '@teamleader/ui-utilities';
 
 .bullet {
-  color: var(--text-color);
   display: inline-block;
-  font-family: var(--font-family);
-  font-size: var(--font-size);
-  font-weight: var(--font-weight);
-  line-height: var(--line-height);
   margin: auto var(--spacer-smallest);
   padding: 0 0 0 15px;
   position: relative;
   vertical-align: middle;
 
   &:before {
-    background: var(--background-color);
     border-radius: 50%;
     content: '';
     display: inline-block;
@@ -29,46 +23,46 @@
 }
 
 .mint::before {
-  --background-color: var(--color-mint-light);
+  background-color: var(--color-mint-light);
 }
 
 .violet::before {
-  --background-color: var(--color-violet);
+  background-color: var(--color-violet);
 }
 
 .neutral::before {
-  --background-color: var(--color-neutral);
+  background-color: var(--color-neutral);
 }
 
 .ruby::before {
-  --background-color: var(--color-ruby);
+  background-color: var(--color-ruby);
 }
 
 .gold::before {
-  --background-color: var(--color-gold);
+  background-color: var(--color-gold);
 }
 
 .aqua::before {
-  --background-color: var(--color-aqua);
+  background-color: var(--color-aqua);
 }
 
 .large {
-  --font-family: var(--font-family-semi-bold);
-  --font-size: calc(2.0 * var(--unit));
-  --font-weight: 500;
-  --line-height: calc(2.4 * var(--unit));
+  font-family: var(--font-family-semi-bold);
+  font-size: calc(2.0 * var(--unit));
+  font-weight: 500;
+  line-height: calc(2.4 * var(--unit));
 }
 
 .medium {
-  --font-family: var(--font-family-regular);
-  --font-size: calc(1.6 * var(--unit));
-  --font-weight: 400;
-  --line-height: calc(1.8 * var(--unit));
+  font-family: var(--font-family-regular);
+  font-size: calc(1.6 * var(--unit));
+  font-weight: 400;
+  line-height: calc(1.8 * var(--unit));
 }
 
 .small {
-  --font-family: var(--font-family-regular);
-  --font-size: calc(1.4 * var(--unit));
-  --font-weight: 400;
-  --line-height: calc(1.8 * var(--unit));
+  font-family: var(--font-family-regular);
+  font-size: calc(1.4 * var(--unit));
+  font-weight: 400;
+  line-height: calc(1.8 * var(--unit));
 }
