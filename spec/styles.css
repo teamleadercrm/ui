@@ -93,34 +93,33 @@ body {
 }
 
 .neutral {
-  --background-color: var(--color-white);
+  background-color: var(--color-neutral-lightest);
 }
 
 .mint {
   background-color: var(--color-mint-lightest);
-  --background-color: var(--color-mint-lightest);
 }
 
 .aqua {
-  --background-color: var(--color-aqua-lightest);
+  background-color: var(--color-aqua-lightest);
 }
 
 .violet {
-  --background-color: var(--color-violet-lightest);
+  background-color: var(--color-violet-lightest);
 }
 
 .ruby {
-  --background-color: var(--color-ruby-lightest);
+  background-color: var(--color-ruby-lightest);
 }
 
 .gold {
-  --background-color: var(--color-gold-lightest);
+  background-color: var(--color-gold-lightest);
 }
 
 .teal {
-  --background-color: var(--color-teal-lightest);
+  background-color: var(--color-teal-lightest);
 }
 
 .tealdark {
-  --background-color: var(--color-teal-dark);
+  background-color: var(--color-teal-dark);
 }
