@@ -51,7 +51,7 @@ class AvatarStack extends PureComponent {
         {...others}
       >
         { overflowAmount > 0 &&
-          <span className={theme.overflow} onClick={onOverflowClick}>{`+${overflowAmount}`}</span>
+          <div className={theme.overflow} onClick={onOverflowClick}>{`+${overflowAmount}`}</div>
         }
         { childrenToDisplay }
       </div>

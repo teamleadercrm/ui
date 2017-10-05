@@ -39,12 +39,12 @@ class Avatar extends PureComponent {
     );
 
     return (
-      <span className={avatarClasses} {...others} data-teamleader-ui="avatar">
-        <span className={imageClasses}>
+      <div className={avatarClasses} {...others} data-teamleader-ui="avatar">
+        <div className={imageClasses}>
           <img src={image} />
-        </span>
-        { counter && <span className={theme.counter}>{counter}</span> }
-      </span>
+        </div>
+        { counter && <div className={theme.counter}>{counter}</div> }
+      </div>
     );
   }
 }
