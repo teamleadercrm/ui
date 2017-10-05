@@ -2,36 +2,33 @@
 @import '@teamleader/ui-typography';
 
 :root {
+  --border-width: 2px;
   --overflow-padding-horizontal: 8px;
+  --stacked-avatars-overlap-margin: -4px;
+
+  --tiny-size: 21px;
+  --small-size: 32px;
+  --medium-size: 44px;
 }
 
 /* Avatar */
 .avatar {
   display: inline-block;
   position: relative;
-  height: var(--size);
-  width: var(--size);
 }
 
 .counter {
   position: absolute;
-  bottom: var(--counter-position-bottom);
-  left: var(--counter-position-left);
   z-index: 1;
 }
 
 .image {
   display: block;
   border-radius: 50%;
-  box-shadow: 0 0 0 2px var(--border-color);
-  height: var(--size);
   overflow: hidden;
-  width: var(--size);
 
   img {
     display: block;
-    height: var(--size);
-    width: var(--size);
   }
 }
 
@@ -39,104 +36,160 @@
 .stack {
   align-items: center;
   display: flex;
-  flex-direction: var(--direction);
   justify-content: flex-end;
 }
 
 .overflow {
   align-items: center;
   align-self: center;
-  background: var(--overflow-background);
-  box-shadow: var(--overflow-box-shadow);
-  border-radius: var(--size);
-  color: var(--overflow-color);
   display: flex;
   font-family: var(--font-family-semi-bold);
-  font-size: var(--overflow-font-size);
   justify-content: center;
   line-height: 1;
-  height: var(--size);
-  min-width: calc(var(--size) - var(--overflow-padding-horizontal) * 2);
   padding: 0 var(--overflow-padding-horizontal);
 }
 
 .dark {
-  --overflow-background: color(var(--color-teal-darkest) a(10%));
-  --overflow-box-shadow: 0 0 0 2px color(var(--color-teal-darkest) a(10%));
-  --overflow-color: var(--color-neutral-darkest);
+  .overflow {
+    background: color(var(--color-teal-darkest) a(10%));
+    box-shadow: 0 0 0 var(--border-width) color(var(--color-teal-darkest) a(10%));
+    color: var(--color-neutral-darkest);
+  }
 }
 
 .light {
-  --overflow-background: color(var(--color-white) a(10%));
-  --overflow-box-shadow: 0 0 0 2px color(var(--color-white) a(10%));
-  --overflow-color: var(--color-white);
+  .overflow {
+    background: color(var(--color-white) a(10%));
+    box-shadow: 0 0 0 var(--border-width) color(var(--color-white) a(10%));
+    color: var(--color-white);
+  }
 }
 
 .horizontal {
-  --direction: row-reverse;
+  flex-direction: row-reverse;
 
   > *:not(:last-child) {
-    margin-left: -4px;
+    margin-left: var(--stacked-avatars-overlap-margin);
   }
 }
 
 .vertical {
-  --direction: column-reverse;
+  flex-direction: column-reverse;
 
   > *:not(:last-child) {
-    margin-top: -4px;
+    margin-top: var(--stacked-avatars-overlap-margin);
   }
 }
 
 .tiny {
-  --counter-position-bottom: 50%;
-  --counter-position-left: 60%;
-  --overflow-font-size: calc(1.2 * var(--unit));
-  --size: 21px;
+  height: var(--tiny-size);
+  width: var(--tiny-size);
+
+  .counter {
+    bottom: 50%;
+    left: 60%;
+  }
+
+  .image {
+    height: var(--tiny-size);
+    width: var(--tiny-size);
+
+    img {
+      height: var(--tiny-size);
+      width: var(--tiny-size);
+    }
+  }
+
+  .overflow {
+    border-radius: var(--tiny-size);
+    font-size: calc(1.2 * var(--unit));
+    height: var(--tiny-size);
+    min-width: calc(var(--tiny-size) - var(--overflow-padding-horizontal) * 2);
+  }
 }
 
 .small {
-  --counter-position-bottom: 60%;
-  --counter-position-left: 76%;
-  --overflow-font-size: calc(1.4 * var(--unit));
-  --size: 32px;
+  height: var(--small-size);
+  width: var(--small-size);
+
+  .counter {
+    bottom: 60%;
+    left: 76%;
+  }
+
+  .image {
+    height: var(--small-size);
+    width: var(--small-size);
+
+    img {
+      height: var(--small-size);
+      width: var(--small-size);
+    }
+  }
+
+  .overflow {
+    border-radius: var(--small-size);
+    font-size: calc(1.4 * var(--unit));
+    height: var(--small-size);
+    min-width: calc(var(--small-size) - var(--overflow-padding-horizontal) * 2);
+  }
 }
 
 .medium {
-  --counter-position-bottom: 65%;
-  --counter-position-left: 80%;
-  --overflow-font-size: calc(1.6 * var(--unit));
-  --size: 44px;
+  height: var(--medium-size);
+  width: var(--medium-size);
+
+  .counter {
+    bottom: 65%;
+    left: 80%;
+  }
+
+  .image {
+    height: var(--medium-size);
+    width: var(--medium-size);
+
+    img {
+      height: var(--medium-size);
+      width: var(--medium-size);
+    }
+  }
+
+  .overflow {
+    border-radius: var(--medium-size);
+    font-size: calc(1.6 * var(--unit));
+    height: var(--medium-size);
+    min-width: calc(var(--medium-size) - var(--overflow-padding-horizontal) * 2);
+  }
 }
 
-.border-neutral {
-  --border-color: var(--color-neutral-lightest);
+.border-neutral .image {
+  box-shadow: 0 0 0 var(--border-width) var(--color-neutral-lightest);
 }
 
 .border-mint {
-  --border-color: var(--color-mint-lightest);
+  box-shadow: 0 0 0 var(--border-width) var(--color-mint-lightest);
 }
 
 .border-teal {
-  --border-color: var(--color-teal-lightest);
+  box-shadow: 0 0 0 var(--border-width) var(--color-teal-lightest);
 }
 
 .border-ruby {
-  --border-color: var(--color-ruby-lightest);
+  box-shadow: 0 0 0 var(--border-width) var(--color-ruby-lightest);
 }
 
 .border-violet {
-  --border-color: var(--color-violet-lightest);
+  box-shadow: 0 0 0 var(--border-width) var(--color-violet-lightest);
 }
 
 .border-gold {
-  --border-color: var(--color-gold-lightest);
+  box-shadow: 0 0 0 var(--border-width) var(--color-gold-lightest);
 }
 
 .border-aqua {
-  --border-color: var(--color-aqua-lightest);
+  box-shadow: 0 0 0 var(--border-width) var(--color-aqua-lightest);
 }
 
 .border-tealdark {
-  --border-color: var(--color-teal-dark);
+  box-shadow: 0 0 0 var(--border-width) var(--color-teal-dark);
 }
