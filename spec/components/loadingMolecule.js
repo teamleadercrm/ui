@@ -10,27 +10,27 @@ class LoadingMoleculeTest extends React.Component {
     type: 'normal',
   };
 
-  handleTypeChange = (value) => {
+  handleTypeChange = value => {
     this.setState({ type: value });
   };
 
-  handleTintChange = (value) => {
+  handleTintChange = value => {
     if (value === 'color') {
       this.setState({
-        tint:'color',
+        tint: 'color',
         startColor: '#00ACA9',
         stopColor: '#1F7F79',
       });
     } else {
       this.setState({
-        tint:'blackandwhite',
+        tint: 'blackandwhite',
         startColor: '#BABABA',
         stopColor: '#DADADA',
       });
     }
   };
 
-  render () {
+  render() {
     const basePath = window.location.pathname + window.location.search;
 
     return (

@@ -11,24 +11,24 @@ class PopoverHorizontalTest extends React.Component {
     backdrop: 'dark',
     direction: 'west',
     position: 'middle',
-    subtitle:'',
+    subtitle: '',
     title: 'My awesome Horizontal Popover',
   };
 
-  componentDidMount () {
+  componentDidMount() {
     this.anchorEl = ReactDOM.findDOMNode(this.popoverToggleButton);
     this.forceUpdate();
   }
 
-  handleBackdropChange = (value) => {
+  handleBackdropChange = value => {
     this.setState({ backdrop: value });
   };
 
-  handleTitleChange = (event) => {
+  handleTitleChange = event => {
     this.setState({ title: event.target.value });
   };
 
-  handleSubtitleChange = (event) => {
+  handleSubtitleChange = event => {
     this.setState({ subtitle: event.target.value });
   };
 
@@ -36,11 +36,11 @@ class PopoverHorizontalTest extends React.Component {
     this.setState({ active: !this.state.active });
   };
 
-  handleDirectionChange = (value) => {
+  handleDirectionChange = value => {
     this.setState({ direction: value });
   };
 
-  handlePositionChange = (value) => {
+  handlePositionChange = value => {
     this.setState({ position: value });
   };
 
@@ -49,7 +49,7 @@ class PopoverHorizontalTest extends React.Component {
     { label: 'Save', onClick: this.handleToggle, level: 'primary' },
   ];
 
-  render () {
+  render() {
     const { backdrop, direction, position } = this.state;
 
     return (
@@ -81,7 +81,9 @@ class PopoverHorizontalTest extends React.Component {
             </RadioGroup>
 
             <Heading4>Title</Heading4>
-            <p><input type="text" value={this.state.title} onChange={event => this.handleTitleChange(event)} /></p>
+            <p>
+              <input type="text" value={this.state.title} onChange={event => this.handleTitleChange(event)} />
+            </p>
 
             <Heading4>Subtitle</Heading4>
             <p>
@@ -95,16 +97,14 @@ class PopoverHorizontalTest extends React.Component {
             <Button
               label="Show a horizontal popover"
               onClick={this.handleToggle}
-              ref={
-                (button) => {
-                  this.popoverToggleButton = button;
-                }
-              }
+              ref={button => {
+                this.popoverToggleButton = button;
+              }}
             />
           </div>
         </div>
 
-        { this.anchorEl &&
+        {this.anchorEl && (
           <PopoverHorizontal
             actions={this.actions}
             active={this.state.active}
@@ -123,7 +123,7 @@ class PopoverHorizontalTest extends React.Component {
               <p>Here you can highlight some content.</p>
             </div>
           </PopoverHorizontal>
-        }
+        )}
       </article>
     );
   }

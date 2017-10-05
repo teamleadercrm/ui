@@ -9,19 +9,19 @@ class IslandTest extends React.Component {
     size: 'medium',
   };
 
-  handleColorChange = (value) => {
+  handleColorChange = value => {
     this.setState({ color: value });
   };
 
-  handleDarkChange = (value) => {
+  handleDarkChange = value => {
     this.setState({ dark: value });
   };
 
-  handleSizeChange = (value) => {
+  handleSizeChange = value => {
     this.setState({ size: value });
   };
 
-  render () {
+  render() {
     return (
       <article>
         <Section color="neutral" dark>
@@ -60,12 +60,7 @@ class IslandTest extends React.Component {
             </RadioGroup>
           </div>
           <div className="preview">
-            <Island
-              className={style.island}
-              color={this.state.color}
-              size={this.state.size}
-              dark={this.state.dark}
-            >
+            <Island className={style.island} color={this.state.color} size={this.state.size} dark={this.state.dark}>
               <TextBody>I am the island content</TextBody>
             </Island>
           </div>

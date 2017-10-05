@@ -13,7 +13,7 @@ class IconButton extends Component {
     inverse: PropTypes.bool,
     onMouseLeave: PropTypes.func,
     onMouseUp: PropTypes.func,
-    size: PropTypes.oneOf([ 'small', 'medium', 'large' ]),
+    size: PropTypes.oneOf(['small', 'medium', 'large']),
     type: PropTypes.string,
   };
 
@@ -24,32 +24,22 @@ class IconButton extends Component {
     type: 'button',
   };
 
-  handleMouseUp = (event) => {
+  handleMouseUp = event => {
     this.buttonNode.blur();
     if (this.props.onMouseUp) {
       this.props.onMouseUp(event);
     }
   };
 
-  handleMouseLeave = (event) => {
+  handleMouseLeave = event => {
     this.buttonNode.blur();
     if (this.props.onMouseLeave) {
       this.props.onMouseLeave(event);
     }
   };
 
-  render () {
-    const {
-      children,
-      className,
-      disabled,
-      href,
-      icon,
-      inverse,
-      size,
-      type,
-      ...others
-    } = this.props;
+  render() {
+    const { children, className, disabled, href, icon, inverse, size, type, ...others } = this.props;
 
     const element = href ? 'a' : 'button';
 
@@ -59,15 +49,15 @@ class IconButton extends Component {
       theme.iconOnly,
       {
         [theme.inverse]: inverse,
-        [theme[ size ]]: theme[ size ],
+        [theme[size]]: theme[size],
       },
-      className
+      className,
     );
 
     const props = {
       ...others,
       href,
-      ref: (node) => {
+      ref: node => {
         this.buttonNode = node;
       },
       className: classes,
@@ -78,10 +68,7 @@ class IconButton extends Component {
       'data-teamleader-ui': 'button',
     };
 
-    return React.createElement(element, props,
-      icon,
-      children,
-    );
+    return React.createElement(element, props, icon, children);
   }
 }
 

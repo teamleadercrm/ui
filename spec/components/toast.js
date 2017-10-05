@@ -4,11 +4,11 @@ import Toast from '../../components/toast';
 import { Heading1, Heading3, Heading4, RadioGroup, RadioButton, Section } from '../../components';
 
 class ToastTest extends React.Component {
-  handleActionChange = (event) => {
+  handleActionChange = event => {
     this.setState({ action: event.target.value });
   };
 
-  handleLabelChange = (event) => {
+  handleLabelChange = event => {
     this.setState({ label: event.target.value });
   };
 
@@ -24,7 +24,7 @@ class ToastTest extends React.Component {
     this.setState({ active: true });
   };
 
-  handleTypeChange = (value) => {
+  handleTypeChange = value => {
     this.setState({ type: value });
   };
 
@@ -35,7 +35,7 @@ class ToastTest extends React.Component {
     type: 'accept',
   };
 
-  render () {
+  render() {
     return (
       <article>
         <Section color="neutral" dark>
@@ -54,10 +54,14 @@ class ToastTest extends React.Component {
             </RadioGroup>
 
             <Heading4>Label</Heading4>
-            <p><input type="text" value={this.state.label} onChange={event => this.handleLabelChange(event)} /></p>
+            <p>
+              <input type="text" value={this.state.label} onChange={event => this.handleLabelChange(event)} />
+            </p>
 
             <Heading4>Action</Heading4>
-            <p><input type="text" value={this.state.action} onChange={event => this.handleActionChange(event)} /></p>
+            <p>
+              <input type="text" value={this.state.action} onChange={event => this.handleActionChange(event)} />
+            </p>
           </div>
 
           <div className="preview">

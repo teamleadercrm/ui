@@ -8,12 +8,12 @@ class RadioGroupTest extends React.Component {
     booleanValue: false,
   };
 
-  handleStringChange = (value) => {
+  handleStringChange = value => {
     console.log('Changed the string value!', { stringValue: value });
     this.setState({ stringValue: value });
   };
 
-  handleBooleanChange = (value) => {
+  handleBooleanChange = value => {
     console.log('Changed the boolean value!', { booleanValue: value });
     this.setState({ booleanValue: value });
   };
@@ -26,7 +26,7 @@ class RadioGroupTest extends React.Component {
     console.log('Blurred Watchmen');
   };
 
-  render () {
+  render() {
     return (
       <article>
         <Section color="neutral" dark>

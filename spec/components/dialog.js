@@ -9,7 +9,7 @@ class DialogTest extends React.Component {
     title: 'My awesome dialog',
   };
 
-  handleTitleChange = (event) => {
+  handleTitleChange = event => {
     this.setState({ title: event.target.value });
   };
 
@@ -22,7 +22,7 @@ class DialogTest extends React.Component {
     { label: 'Save', onClick: this.handleToggle, level: 'primary' },
   ];
 
-  render () {
+  render() {
     return (
       <article>
         <Section color="neutral" dark>
@@ -32,7 +32,9 @@ class DialogTest extends React.Component {
           <div className="properties">
             <Heading3>Properties</Heading3>
             <Heading4>Title</Heading4>
-            <p><input type="text" value={this.state.title} onChange={event => this.handleTitleChange(event)} /></p>
+            <p>
+              <input type="text" value={this.state.title} onChange={event => this.handleTitleChange(event)} />
+            </p>
           </div>
           <div className="preview">
             <Heading3>Preview</Heading3>

@@ -1,10 +1,10 @@
 const ARROW_OFFSET = 7;
 const POPUP_OFFSET = 12;
 
-function getAnchorPosition (anchorEl) {
+function getAnchorPosition(anchorEl) {
   const anchorRect = anchorEl.getBoundingClientRect();
 
-  let anchorPosition = {
+  const anchorPosition = {
     top: anchorRect.top,
     left: anchorRect.left,
     width: anchorEl.offsetWidth,
@@ -13,13 +13,13 @@ function getAnchorPosition (anchorEl) {
 
   anchorPosition.right = anchorRect.right || anchorPosition.left + anchorPosition.width;
   anchorPosition.bottom = anchorRect.bottom || anchorPosition.top + anchorPosition.height;
-  anchorPosition.center = anchorPosition.left + ((anchorPosition.right - anchorPosition.left) / 2);
-  anchorPosition.middle = anchorPosition.top + ((anchorPosition.bottom - anchorPosition.top) / 2);
+  anchorPosition.center = anchorPosition.left + (anchorPosition.right - anchorPosition.left) / 2;
+  anchorPosition.middle = anchorPosition.top + (anchorPosition.bottom - anchorPosition.top) / 2;
 
   return anchorPosition;
 }
 
-function getTargetPosition (targetEl) {
+function getTargetPosition(targetEl) {
   const width = targetEl.offsetWidth;
   const height = targetEl.offsetHeight;
 
@@ -79,14 +79,14 @@ const updateHorizontalPositionIfNeeded = (position, anchorPosition, targetPositi
   const bottomIsPossible = anchorPosition.bottom - targetPosition.height > 0;
 
   if (position === 'top') {
-    return topIsPossible ? 'top' : (middleIsPossible ? 'middle' : 'bottom');
+    return topIsPossible ? 'top' : middleIsPossible ? 'middle' : 'bottom';
   }
   if (position === 'middle') {
-    return middleIsPossible ? 'middle' : (topIsPossible ? 'top' : (bottomIsPossible ? 'bottom' : 'middle'));
+    return middleIsPossible ? 'middle' : topIsPossible ? 'top' : bottomIsPossible ? 'bottom' : 'middle';
   }
 
   if (position === 'bottom') {
-    return bottomIsPossible ? 'bottom' : (middleIsPossible ? 'middle' : 'top');
+    return bottomIsPossible ? 'bottom' : middleIsPossible ? 'middle' : 'top';
   }
 };
 
@@ -134,25 +134,19 @@ const updatePositionIfNeeded = (position, anchorPosition, targetPosition) => {
   const rightIsPossible = anchorPosition.right - targetPosition.width > 0;
 
   if (position === 'left') {
-    return leftIsPossible ? 'left' : (centerIsPossible ? 'center' : 'right');
+    return leftIsPossible ? 'left' : centerIsPossible ? 'center' : 'right';
   }
   if (position === 'center') {
-    return centerIsPossible ? 'center' : (leftIsPossible ? 'left' : (rightIsPossible ? 'right' : 'center'));
+    return centerIsPossible ? 'center' : leftIsPossible ? 'left' : rightIsPossible ? 'right' : 'center';
   }
 
   if (position === 'right') {
-    return rightIsPossible ? 'right' : (centerIsPossible ? 'center' : 'left');
+    return rightIsPossible ? 'right' : centerIsPossible ? 'center' : 'left';
   }
 };
 
 // EXPORT
-export function calculateHorizontalPositions (
-  anchorEl,
-  targetEl,
-  inputDirection,
-  inputPosition,
-  inputOffsetCorrection
-) {
+export function calculateHorizontalPositions(anchorEl, targetEl, inputDirection, inputPosition, inputOffsetCorrection) {
   const anchorPosition = getAnchorPosition(anchorEl);
   const targetPosition = getTargetPosition(targetEl);
   const directionToRender = updateHorizontalDirectionIfNeeded(inputDirection, anchorPosition, targetPosition);
@@ -177,13 +171,7 @@ export function calculateHorizontalPositions (
   return { ...direction, ...position };
 }
 
-export function calculateVerticalPositions (
-  anchorEl,
-  targetEl,
-  inputDirection,
-  inputPosition,
-  inputOffsetCorrection
-) {
+export function calculateVerticalPositions(anchorEl, targetEl, inputDirection, inputPosition, inputOffsetCorrection) {
   const anchorPosition = getAnchorPosition(anchorEl);
   const targetPosition = getTargetPosition(targetEl);
 

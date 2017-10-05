@@ -25,15 +25,15 @@ class ButtonTest extends PureComponent {
     text: 'Button',
   };
 
-  handleDisabledChange = (value) => {
+  handleDisabledChange = value => {
     this.setState({ disabled: value });
   };
 
-  handleProcessingChange = (value) => {
+  handleProcessingChange = value => {
     this.setState({ processing: value });
   };
 
-  handleLevelChange = (value) => {
+  handleLevelChange = value => {
     let previewBackgroundColor = this.state.previewBackgroundColor;
 
     if (value === 'outline') {
@@ -49,22 +49,22 @@ class ButtonTest extends PureComponent {
     });
   };
 
-  handleInverseChange = (value) => {
+  handleInverseChange = value => {
     this.setState({
       inverse: value,
       previewBackgroundColor: value ? '#00b3b3' : this.state.level === 'outline' ? '#f0f0ff' : '#fff',
     });
   };
 
-  handleSizeChange = (value) => {
+  handleSizeChange = value => {
     this.setState({ size: value });
   };
 
-  handleSegmentedChange = (value) => {
+  handleSegmentedChange = value => {
     this.setState({ segmented: value });
   };
 
-  render () {
+  render() {
     const Icon = this.state.size === 'small' ? IconAddSmallOutline : IconAddMediumOutline;
     return (
       <article>
