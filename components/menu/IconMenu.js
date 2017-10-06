@@ -1,20 +1,16 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import { themr } from 'react-css-themr';
-import { MENU } from '../identifiers.js';
 import InjectIconButton from '../button/IconButton.js';
 import InjectMenu from './Menu.js';
+import theme from './theme.css';
 
 const factory = (IconButton, Menu) => {
-  class IconMenu extends Component {
+  class IconMenu extends PureComponent {
     static propTypes = {
       children: PropTypes.node,
       className: PropTypes.string,
-      icon: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.element,
-      ]),
+      icon: PropTypes.element,
       onClick: PropTypes.func,
       onHide: PropTypes.func,
       onSelect: PropTypes.func,
@@ -22,10 +18,6 @@ const factory = (IconButton, Menu) => {
       position: PropTypes.string,
       selectable: PropTypes.bool,
       selected: PropTypes.any,
-      theme: PropTypes.shape({
-        icon: PropTypes.string,
-        iconMenu: PropTypes.string,
-      }),
     };
 
     static defaultProps = {
@@ -56,11 +48,11 @@ const factory = (IconButton, Menu) => {
     render () {
       const {
         children, className, icon, onHide, // eslint-disable-line
-        onSelect, onShow, position, selectable, selected, theme, ...other
+        onSelect, onShow, position, selectable, selected, ...other
       } = this.props;
 
       return (
-        <div {...other} className={cx(theme.iconMenu, className)}>
+        <div data-teamleader-ui="icon-menu" {...other} className={cx(theme.iconMenu, className)}>
           <IconButton
             className={theme.icon}
             icon={icon}
@@ -74,7 +66,6 @@ const factory = (IconButton, Menu) => {
             position={position}
             selectable={selectable}
             selected={selected}
-            theme={theme}
           >
             {children}
           </Menu>
@@ -87,6 +78,9 @@ const factory = (IconButton, Menu) => {
 };
 
 const IconMenu = factory(InjectIconButton, InjectMenu);
-export default themr(MENU)(IconMenu);
-export { factory as iconMenuFactory };
-export { IconMenu };
+
+export default IconMenu;
+export {
+  factory as iconMenuFactory,
+  IconMenu,
+};

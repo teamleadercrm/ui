@@ -1,5 +1,5 @@
-@import '../colors.css';
-@import '../variables.css';
+@import 'colors.css';
+@import 'variables.css';
 
 :root {
   --radio-field-margin-bottom: calc(1.5 * var(--unit));

@@ -1,17 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { themr } from 'react-css-themr';
-import { MENU } from '../identifiers.js';
+import theme from './theme.css';
 
-const MenuDivider = ({ theme }) => (
+const MenuDivider = () => (
   <hr data-teamleader-ui="menu-divider" className={theme.menuDivider} />
 );
 
-MenuDivider.propTypes = {
-  theme: PropTypes.shape({
-    menuDivider: PropTypes.string,
-  }),
+export default MenuDivider;
+export {
+  MenuDivider,
 };
-
-export default themr(MENU)(MenuDivider);
-export { MenuDivider };

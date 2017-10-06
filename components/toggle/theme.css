@@ -1,5 +1,4 @@
-@import '../colors.css';
-@import '../variables.css';
+@import 'variables.css';
 @import '@teamleader/ui-colors/index.css';
 
 :root {

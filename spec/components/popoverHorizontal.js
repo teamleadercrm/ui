@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { PopoverHorizontal } from '../../components/popover/';
 import { RadioGroup, RadioButton } from '../../components/radio';
 import Button from '../../components/button';
+import { Heading1, Heading3, Heading4, Section } from '../../components';
 
 class PopoverHorizontalTest extends React.Component {
   state = {
@@ -45,7 +46,7 @@ class PopoverHorizontalTest extends React.Component {
 
   actions = [
     { label: 'Cancel', onClick: this.handleToggle },
-    { label: 'Save', onClick: this.handleToggle, primary: true },
+    { label: 'Save', onClick: this.handleToggle, level: 'primary' },
   ];
 
   render () {
@@ -53,47 +54,45 @@ class PopoverHorizontalTest extends React.Component {
 
     return (
       <article>
-        <header>
-          <h1>Horizontal Popover</h1>
-        </header>
-
+        <Section color="neutral" dark>
+          <Heading1>Horizontal Popover</Heading1>
+        </Section>
         <div className="component-spec">
           <div className="properties">
-            <h3>Properties</h3>
+            <Heading3>Properties</Heading3>
 
-            <h4>Backdrop</h4>
+            <Heading4>Backdrop</Heading4>
             <RadioGroup name="direction" value={backdrop} onChange={this.handleBackdropChange}>
               <RadioButton label="Dark" value="dark" />
               <RadioButton label="Transparent" value="" />
             </RadioGroup>
 
-            <h4>Direction</h4>
+            <Heading4>Direction</Heading4>
             <RadioGroup name="direction" value={direction} onChange={this.handleDirectionChange}>
               <RadioButton label="West" value="west" />
               <RadioButton label="East" value="east" />
             </RadioGroup>
 
-            <h4>Position</h4>
+            <Heading4>Position</Heading4>
             <RadioGroup name="position" value={position} onChange={this.handlePositionChange}>
               <RadioButton label="Top" value="top" />
               <RadioButton label="Middle" value="middle" />
               <RadioButton label="Bottom" value="bottom" />
             </RadioGroup>
 
-            <h4>Title</h4>
+            <Heading4>Title</Heading4>
             <p><input type="text" value={this.state.title} onChange={event => this.handleTitleChange(event)} /></p>
 
-            <h4>Subtitle</h4>
+            <Heading4>Subtitle</Heading4>
             <p>
               <input type="text" value={this.state.subtitle} onChange={event => this.handleSubtitleChange(event)} />
             </p>
           </div>
 
           <div className="preview">
-            <h3>Preview</h3>
+            <Heading3>Preview</Heading3>
 
             <Button
-              primary
               label="Show a horizontal popover"
               onClick={this.handleToggle}
               ref={
