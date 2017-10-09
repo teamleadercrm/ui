@@ -18,10 +18,16 @@ if (__DEV__) {
       render(
         <HmrContainer errorReporter={Redbox}>
           <NextApp />
-        </HmrContainer>
-        , MOUNT_NODE);
+        </HmrContainer>,
+        MOUNT_NODE,
+      );
     });
   }
 }
 
-render(<HmrContainer><Root /></HmrContainer>, MOUNT_NODE);
+render(
+  <HmrContainer>
+    <Root />
+  </HmrContainer>,
+  MOUNT_NODE,
+);

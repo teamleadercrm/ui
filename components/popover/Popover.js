@@ -15,16 +15,18 @@ import theme from './theme.css';
 const factory = (axis, calculatePositions, Overlay, Button) => {
   class Popover extends PureComponent {
     static propTypes = {
-      actions: PropTypes.arrayOf(PropTypes.shape({
-        className: PropTypes.string,
-        label: PropTypes.string,
-        children: PropTypes.node,
-      })),
+      actions: PropTypes.arrayOf(
+        PropTypes.shape({
+          className: PropTypes.string,
+          label: PropTypes.string,
+          children: PropTypes.node,
+        }),
+      ),
       active: PropTypes.bool,
       anchorEl: PropTypes.object,
       backdrop: PropTypes.string,
       children: PropTypes.node,
-      className : PropTypes.string,
+      className: PropTypes.string,
       direction: PropTypes.string.isRequired,
       offsetCorrection: PropTypes.number,
       onCloseClick: PropTypes.func,
@@ -36,7 +38,7 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
       position: PropTypes.string.isRequired,
       title: PropTypes.string,
       showHeader: PropTypes.bool.isRequired,
-      subtitle: PropTypes.oneOfType([ PropTypes.object, PropTypes.string ]),
+      subtitle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
     };
 
     static defaultProps = {
@@ -47,7 +49,7 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
       showHeader: true,
     };
 
-    constructor () {
+    constructor() {
       super(...arguments);
 
       this.setPlacement = this.setPlacement.bind(this);
@@ -65,7 +67,7 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
 
     _setPlacementThrottled = throttle(this.setPlacement, 16);
 
-    componentDidMount () {
+    componentDidMount() {
       this.setPlacement();
 
       events.addEventsToWindow({
@@ -74,25 +76,23 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
       });
     }
 
-    componentWillUnmount () {
+    componentWillUnmount() {
       events.removeEventsFromWindow({
         resize: this._setPlacementThrottled,
         scroll: this._setPlacementThrottled,
       });
     }
 
-    setPlacement () {
+    setPlacement() {
       const { anchorEl, direction, position, offsetCorrection } = this.props;
-      const targetEl = document.querySelectorAll(`[data-teamleader-ui="popover-${axis}"]`)[ 0 ];
+      const targetEl = document.querySelectorAll(`[data-teamleader-ui="popover-${axis}"]`)[0];
 
-      this.setState(
-        {
-          positioning: calculatePositions(anchorEl, targetEl, direction, position, offsetCorrection),
-        }
-      );
+      this.setState({
+        positioning: calculatePositions(anchorEl, targetEl, direction, position, offsetCorrection),
+      });
     }
 
-    render () {
+    render() {
       const { left, top, arrowLeft, arrowTop } = this.state.positioning;
 
       const {
@@ -113,24 +113,19 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
       } = this.props;
 
       const actionButtons = actions.map((action, idx) => {
-        const className = cx(
-          theme.button,
-          {
-            [action.className]: action.className,
-          }
-        );
+        const className = cx(theme.button, {
+          [action.className]: action.className,
+        });
 
         return <Button key={idx} {...action} className={className}/>; // eslint-disable-line
       });
 
       const customClassName = cx(
-        [
-          theme.popover,
-        ],
+        [theme.popover],
         {
           [theme.active]: active,
         },
-        className
+        className,
       );
 
       return (
@@ -151,22 +146,21 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
             style={{ left: `${left}px`, top: `${top}px` }}
           >
             <div className={theme.arrow} style={{ left: `${arrowLeft}px`, top: `${arrowTop}px` }} />
-            {showHeader &&
+            {showHeader && (
               <header className={theme.header}>
-                { title && <h6 className={theme.title}>{title}</h6> }
-                { subtitle && <p className={theme.subtitle}>{subtitle}</p> }
+                {title && <h6 className={theme.title}>{title}</h6>}
+                {subtitle && <p className={theme.subtitle}>{subtitle}</p>}
                 <IconButton icon={<IconCloseMediumOutline />} className={theme.close} onMouseUp={onCloseClick} />
               </header>
-            }
+            )}
             <section role="body" className={theme.body}>
               {children}
             </section>
-            { actionButtons.length
-              ? <nav role="navigation" className={theme.navigation}>
-                { actionButtons }
+            {actionButtons.length ? (
+              <nav role="navigation" className={theme.navigation}>
+                {actionButtons}
               </nav>
-              : null
-            }
+            ) : null}
             <ReactResizeDetector handleHeight onResize={this._setPlacementThrottled} />
           </div>
         </Portal>
@@ -177,16 +171,6 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
   return ActivableRenderer()(Popover);
 };
 
-export const PopoverHorizontal = factory(
-  'horizontal',
-  calculateHorizontalPositions,
-  InjectOverlay,
-  InjectButton,
-);
+export const PopoverHorizontal = factory('horizontal', calculateHorizontalPositions, InjectOverlay, InjectButton);
 
-export const PopoverVertical = factory(
-  'vertical',
-  calculateVerticalPositions,
-  InjectOverlay,
-  InjectButton,
-);
+export const PopoverVertical = factory('vertical', calculateVerticalPositions, InjectOverlay, InjectButton);

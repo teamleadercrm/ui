@@ -7,17 +7,17 @@ class Button extends PureComponent {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
-    level: PropTypes.oneOf([ 'outline', 'primary', 'secondary', 'destructive' ]),
+    level: PropTypes.oneOf(['outline', 'primary', 'secondary', 'destructive']),
     disabled: PropTypes.bool,
     href: PropTypes.string,
     icon: PropTypes.element,
-    iconPlacement: PropTypes.oneOf([ 'left', 'right' ]),
+    iconPlacement: PropTypes.oneOf(['left', 'right']),
     inverse: PropTypes.bool,
     label: PropTypes.string,
     onMouseLeave: PropTypes.func,
     onMouseUp: PropTypes.func,
     processing: PropTypes.bool,
-    size: PropTypes.oneOf([ 'small', 'medium', 'large' ]),
+    size: PropTypes.oneOf(['small', 'medium', 'large']),
     type: PropTypes.string,
   };
 
@@ -31,21 +31,21 @@ class Button extends PureComponent {
     type: 'button',
   };
 
-  handleMouseUp = (event) => {
+  handleMouseUp = event => {
     this.buttonNode.blur();
     if (this.props.onMouseUp) {
       this.props.onMouseUp(event);
     }
   };
 
-  handleMouseLeave = (event) => {
+  handleMouseLeave = event => {
     this.buttonNode.blur();
     if (this.props.onMouseLeave) {
       this.props.onMouseLeave(event);
     }
   };
 
-  render () {
+  render() {
     const {
       children,
       className,
@@ -66,20 +66,20 @@ class Button extends PureComponent {
 
     const classes = cx(
       theme.button,
-      theme[ level ],
+      theme[level],
       {
         [theme.iconOnly]: !label && !children,
         [theme.inverse]: inverse && level === 'outline',
         [theme.processing]: processing,
-        [theme[ size ]]: theme[ size ],
+        [theme[size]]: theme[size],
       },
-      className
+      className,
     );
 
     const props = {
       ...others,
       href,
-      ref: (node) => {
+      ref: node => {
         this.buttonNode = node;
       },
       className: classes,
@@ -90,11 +90,18 @@ class Button extends PureComponent {
       'data-teamleader-ui': 'button',
     };
 
-    return React.createElement(element, props,
+    return React.createElement(
+      element,
+      props,
       icon && iconPlacement === 'left' ? icon : null,
-      label || children ? <span className={theme.children}>{label}{children}</span> : null,
+      label || children ? (
+        <span className={theme.children}>
+          {label}
+          {children}
+        </span>
+      ) : null,
       icon && iconPlacement === 'right' ? icon : null,
-      processing ? <div className={theme.spinner} /> : null
+      processing ? <div className={theme.spinner} /> : null,
     );
   }
 }

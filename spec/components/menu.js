@@ -8,7 +8,7 @@ class MenuTest extends React.Component {
     value: undefined,
   };
 
-  handleSelect = (item) => {
+  handleSelect = item => {
     console.log('Menu selection changed!!, now its', item);
     this.setState({ value: item });
   };
@@ -17,7 +17,7 @@ class MenuTest extends React.Component {
     console.log('This item is so special that has a special handler');
   };
 
-  render () {
+  render() {
     return (
       <article>
         <Section color="neutral" dark>

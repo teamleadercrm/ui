@@ -13,8 +13,7 @@ import {
 import style from './counter.css';
 
 class CounterTest extends PureComponent {
-
-  render () {
+  render() {
     return (
       <article>
         <Section color="neutral" dark>

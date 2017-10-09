@@ -31,7 +31,7 @@ const factory = (IconButton, Menu) => {
       active: false,
     };
 
-    handleButtonClick = (event) => {
+    handleButtonClick = event => {
       this.setState({ active: !this.state.active });
       if (this.props.onClick) {
         this.props.onClick(event);
@@ -45,19 +45,20 @@ const factory = (IconButton, Menu) => {
       }
     };
 
-    render () {
+    render() {
       const {
         children, className, icon, onHide, // eslint-disable-line
-        onSelect, onShow, position, selectable, selected, ...other
+        onSelect,
+        onShow,
+        position,
+        selectable,
+        selected,
+        ...other
       } = this.props;
 
       return (
         <div data-teamleader-ui="icon-menu" {...other} className={cx(theme.iconMenu, className)}>
-          <IconButton
-            className={theme.icon}
-            icon={icon}
-            onClick={this.handleButtonClick}
-          />
+          <IconButton className={theme.icon} icon={icon} onClick={this.handleButtonClick} />
           <Menu
             active={this.state.active}
             onHide={this.handleMenuHide}
@@ -80,7 +81,4 @@ const factory = (IconButton, Menu) => {
 const IconMenu = factory(InjectIconButton, InjectMenu);
 
 export default IconMenu;
-export {
-  factory as iconMenuFactory,
-  IconMenu,
-};
+export { factory as iconMenuFactory, IconMenu };

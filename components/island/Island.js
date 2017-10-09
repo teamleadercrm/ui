@@ -8,9 +8,9 @@ class Island extends PureComponent {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
-    color: PropTypes.oneOf([ 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'white' ]),
+    color: PropTypes.oneOf(['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'white']),
     dark: PropTypes.bool,
-    size: PropTypes.oneOf([ 'small', 'medium', 'large' ]),
+    size: PropTypes.oneOf(['small', 'medium', 'large']),
   };
 
   static defaultProps = {
@@ -18,7 +18,7 @@ class Island extends PureComponent {
     size: 'medium',
   };
 
-  isDark (color) {
+  isDark(color) {
     if (color !== 'white' && color !== 'neutral') {
       return false;
     }
@@ -26,30 +26,17 @@ class Island extends PureComponent {
     return this.props.dark;
   }
 
-  render () {
-    const {
-      children,
-      className,
-      color,
-      size,
-      ...others
-    } = this.props;
+  render() {
+    const { children, className, color, size, ...others } = this.props;
 
     const isDark = this.isDark(color);
 
-    const classes = cx(
-      theme.island,
-      className,
-      theme[color],
-      {
-        [theme.dark]: isDark,
-        [theme[ size ]]: theme[ size ],
-      }
-    );
+    const classes = cx(theme.island, className, theme[color], {
+      [theme.dark]: isDark,
+      [theme[size]]: theme[size],
+    });
 
-    const rest = omit(others, [
-      'dark',
-    ]);
+    const rest = omit(others, ['dark']);
 
     return (
       <div data-teamleader-ui="island" className={classes} {...rest}>

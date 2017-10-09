@@ -13,11 +13,13 @@ import theme from './theme.css';
 const factory = (Overlay, Button, IconButton) => {
   class Dialog extends PureComponent {
     static propTypes = {
-      actions: PropTypes.arrayOf(PropTypes.shape({
-        className: PropTypes.string,
-        label: PropTypes.string,
-        children: PropTypes.node,
-      })),
+      actions: PropTypes.arrayOf(
+        PropTypes.shape({
+          className: PropTypes.string,
+          label: PropTypes.string,
+          children: PropTypes.node,
+        }),
+      ),
       active: PropTypes.bool,
       backdrop: PropTypes.string,
       children: PropTypes.node,
@@ -28,9 +30,9 @@ const factory = (Overlay, Button, IconButton) => {
       onOverlayMouseDown: PropTypes.func,
       onOverlayMouseMove: PropTypes.func,
       onOverlayMouseUp: PropTypes.func,
-      size: PropTypes.oneOf([ 'small', 'medium', 'large', 'fullscreen' ]),
+      size: PropTypes.oneOf(['small', 'medium', 'large', 'fullscreen']),
       title: PropTypes.string,
-      type: PropTypes.oneOf([ 'regular', 'warning' ]),
+      type: PropTypes.oneOf(['regular', 'warning']),
     };
 
     static defaultProps = {
@@ -41,7 +43,7 @@ const factory = (Overlay, Button, IconButton) => {
       type: 'regular',
     };
 
-    render () {
+    render() {
       const {
         actions,
         active,
@@ -60,25 +62,18 @@ const factory = (Overlay, Button, IconButton) => {
       } = this.props;
 
       const actionButtons = actions.map((action, idx) => {
-        const className = cx(
-          theme.button,
-          {
-            [action.className]: action.className,
-          }
-        );
+        const className = cx(theme.button, {
+          [action.className]: action.className,
+        });
         return <Button key={idx} {...action} className={className} />; // eslint-disable-line
       });
 
       const dialogClassNames = cx(
-        [
-          theme.dialog,
-          theme[size],
-          theme[type],
-        ],
+        [theme.dialog, theme[size], theme[type]],
         {
           [theme.active]: active,
         },
-        className
+        className,
       );
 
       return (
@@ -93,27 +88,20 @@ const factory = (Overlay, Button, IconButton) => {
             onMouseMove={onOverlayMouseMove}
             onMouseUp={onOverlayMouseUp}
           />
-          <div
-            data-teamleader-ui="dialog"
-            className={dialogClassNames}
-          >
+          <div data-teamleader-ui="dialog" className={dialogClassNames}>
             <header className={theme.header}>
               {type === 'warning' ? <FontIcon className={theme.icon} value="alert_circle" /> : null}
-              {title
-                ? <h6 className={theme.title}>{title}</h6>
-                : null
-              }
+              {title ? <h6 className={theme.title}>{title}</h6> : null}
               <IconButton icon={<IconCloseMediumOutline />} className={theme.close} onMouseUp={onCloseClick} />
             </header>
             <section role="body" className={theme.body}>
               {children}
             </section>
-            {actionButtons.length
-              ? <nav role="navigation" className={theme.navigation}>
+            {actionButtons.length ? (
+              <nav role="navigation" className={theme.navigation}>
                 {actionButtons}
               </nav>
-              : null
-            }
+            ) : null}
           </div>
         </Portal>
       );
@@ -126,7 +114,4 @@ const factory = (Overlay, Button, IconButton) => {
 const Dialog = factory(InjectOverlay, InjectButton, InjectIconButton);
 
 export default Dialog;
-export {
-  Dialog,
-  factory as dialogFactory,
-};
+export { Dialog, factory as dialogFactory };

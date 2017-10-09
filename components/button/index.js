@@ -3,8 +3,4 @@ import ButtonGroup from './ButtonGroup';
 import IconButton from './IconButton';
 
 export default Button;
-export {
-  Button,
-  ButtonGroup,
-  IconButton,
-};
+export { Button, ButtonGroup, IconButton };

@@ -19,7 +19,7 @@ class Overlay extends PureComponent {
     lockScroll: true,
   };
 
-  componentDidMount () {
+  componentDidMount() {
     const { active, lockScroll, onEscKeyDown } = this.props;
     if (onEscKeyDown) {
       document.body.addEventListener('keydown', this.handleEscKey.bind(this));
@@ -29,7 +29,7 @@ class Overlay extends PureComponent {
     }
   }
 
-  componentWillUpdate (nextProps) {
+  componentWillUpdate(nextProps) {
     if (this.props.lockScroll) {
       const becomingActive = nextProps.active && !this.props.active;
       const becomingUnactive = !nextProps.active && this.props.active;
@@ -44,13 +44,13 @@ class Overlay extends PureComponent {
     }
   }
 
-  componentDidUpdate (prevProps) {
+  componentDidUpdate(prevProps) {
     if (this.props.active && !prevProps.active && this.props.onEscKeyDown) {
       document.body.addEventListener('keydown', this.handleEscKey.bind(this));
     }
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     if (this.props.active && this.props.lockScroll) {
       if (!document.querySelectorAll('[data-teamleader-ui="overlay"]')[1]) {
         document.body.style.overflow = '';
@@ -62,13 +62,13 @@ class Overlay extends PureComponent {
     }
   }
 
-  handleEscKey = (e) => {
+  handleEscKey = e => {
     if (this.props.active && this.props.onEscKeyDown && e.which === 27) {
       this.props.onEscKeyDown(e);
     }
   };
 
-  handleClick = (event) => {
+  handleClick = event => {
     event.preventDefault();
     event.stopPropagation();
     if (this.props.onClick) {
@@ -76,7 +76,7 @@ class Overlay extends PureComponent {
     }
   };
 
-  render () {
+  render() {
     const {
       active,
       className,
@@ -97,7 +97,7 @@ class Overlay extends PureComponent {
           {
             [theme.active]: active,
           },
-          className
+          className,
         )}
       />
     );

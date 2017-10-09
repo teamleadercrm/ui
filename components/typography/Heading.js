@@ -15,23 +15,17 @@ const factory = (type, defaultElement) => {
       element: null,
     };
 
-    render () {
-      const {
-        children,
-        className,
-        element,
-      } = this.props;
+    render() {
+      const { children, className, element } = this.props;
 
-      const classNames = cx(
-        s['heading'],
-        [ s[type] ],
-        className,
-      );
+      const classNames = cx(s['heading'], [s[type]], className);
 
       const Element = element || defaultElement;
 
       return (
-        <Element data-teamleader-ui="heading" className={classNames}>{children}</Element>
+        <Element data-teamleader-ui="heading" className={classNames}>
+          {children}
+        </Element>
       );
     }
   }

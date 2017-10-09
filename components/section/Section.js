@@ -8,7 +8,7 @@ class Section extends PureComponent {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
-    color: PropTypes.oneOf([ 'white', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua' ]),
+    color: PropTypes.oneOf(['white', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua']),
     dark: PropTypes.bool,
   };
 
@@ -16,7 +16,7 @@ class Section extends PureComponent {
     color: 'white',
   };
 
-  isDark (color) {
+  isDark(color) {
     if (color !== 'white' && color !== 'neutral') {
       return false;
     }
@@ -24,28 +24,16 @@ class Section extends PureComponent {
     return this.props.dark;
   }
 
-  render () {
-    const {
-      children,
-      className,
-      color,
-      ...others
-    } = this.props;
+  render() {
+    const { children, className, color, ...others } = this.props;
 
     const isDark = this.isDark(color);
 
-    const classes = cx(
-      theme.section,
-      className,
-      theme[color],
-      {
-        [theme.dark]: isDark,
-      }
-    );
+    const classes = cx(theme.section, className, theme[color], {
+      [theme.dark]: isDark,
+    });
 
-    const rest = omit(others, [
-      'dark',
-    ]);
+    const rest = omit(others, ['dark']);
 
     return (
       <div data-teamleader-ui="section" className={classes} {...rest}>
