@@ -48,9 +48,9 @@ class Section extends PureComponent {
     ]);
 
     return (
-      <div data-teamleader-ui="section" className={classes} {...rest}>
+      <section data-teamleader-ui="section" className={classes} {...rest}>
         {children}
-      </div>
+      </section>
     );
   }
 }
