@@ -10,6 +10,7 @@ import { events } from '../utils';
 import { themr } from 'react-css-themr';
 import { POPOVER_HORIZONTAL, POPOVER_VERTICAL } from '../identifiers';
 import { calculateHorizontalPositions, calculateVerticalPositions } from './positionCalculation';
+import ReactResizeDetector from 'react-resize-detector';
 
 const factory = (axis, calculatePositions, Overlay, Button) => {
   class Popover extends Component {
@@ -183,6 +184,7 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
               </nav>
               : null
             }
+            <ReactResizeDetector handleHeight onResize={this._setPlacementThrottled} />
           </div>
         </Portal>
       );
