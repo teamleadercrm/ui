@@ -36,9 +36,9 @@ class Section extends PureComponent {
     const rest = omit(others, ['dark']);
 
     return (
-      <div data-teamleader-ui="section" className={classes} {...rest}>
+      <section data-teamleader-ui="section" className={classes} {...rest}>
         {children}
-      </div>
+      </section>
     );
   }
 }
