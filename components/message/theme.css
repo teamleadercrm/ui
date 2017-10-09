@@ -1,0 +1,11 @@
+@import '@teamleader/ui-utilities';
+
+.message {
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  right: var(--spacer-smaller);
+  top: var(--spacer-smaller);
+}

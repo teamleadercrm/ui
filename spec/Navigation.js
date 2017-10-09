@@ -10,6 +10,7 @@ const Navigation = () => (
       <li><a href="#islands">Islands</a></li>
       <li><a href="#loading-molecules">Loading molecules</a></li>
       <li><a href="#menus">Menus</a></li>
+      <li><a href="#messages">Messages</a></li>
       <li><a href="#popovers">Popovers</a></li>
       <li><a href="#radios">Radios</a></li>
       <li><a href="#sections">Sections</a></li>
