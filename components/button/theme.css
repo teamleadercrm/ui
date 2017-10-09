@@ -104,6 +104,7 @@
 
       &:active {
         background-color: color(var(--color-teal-darkest) a(5%));
+        border: 0;
         box-shadow: none;
       }
     }
@@ -124,6 +125,7 @@
 
       &:active {
         background-color: color(var(--color-white) a(10%));
+        border: 0;
         box-shadow: none;
       }
     }
