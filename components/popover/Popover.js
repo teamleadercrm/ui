@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import throttle from 'lodash.throttle';
 import ActivableRenderer from '../hoc/ActivableRenderer';
 import Portal from '../hoc/Portal';
-import InjectButton from '../button';
+import InjectButton, { IconButton } from '../button';
 import InjectOverlay from '../overlay';
 import { events } from '../utils';
-import { themr } from 'react-css-themr';
-import { POPOVER_HORIZONTAL, POPOVER_VERTICAL } from '../identifiers';
 import { calculateHorizontalPositions, calculateVerticalPositions } from './positionCalculation';
+import { IconCloseMediumOutline } from '@teamleader/ui-icons';
 import ReactResizeDetector from 'react-resize-detector';
+import theme from './theme.css';
 
 const factory = (axis, calculatePositions, Overlay, Button) => {
-  class Popover extends Component {
+  class Popover extends PureComponent {
     static propTypes = {
       actions: PropTypes.arrayOf(PropTypes.shape({
         className: PropTypes.string,
@@ -34,20 +34,6 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
       onOverlayMouseMove: PropTypes.func,
       onOverlayMouseUp: PropTypes.func,
       position: PropTypes.string.isRequired,
-      theme: PropTypes.shape({
-        active: PropTypes.string,
-        arrow: PropTypes.string,
-        body: PropTypes.string,
-        button: PropTypes.string,
-        close: PropTypes.string,
-        dialog: PropTypes.string,
-        header: PropTypes.string,
-        navigation: PropTypes.string,
-        overlay: PropTypes.string,
-        title: PropTypes.string,
-        subtitle: PropTypes.string,
-        wrapper: PropTypes.string,
-      }),
       title: PropTypes.string,
       showHeader: PropTypes.bool.isRequired,
       subtitle: PropTypes.oneOfType([ PropTypes.object, PropTypes.string ]),
@@ -123,7 +109,6 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
         onOverlayMouseUp,
         subtitle,
         showHeader,
-        theme,
         title,
       } = this.props;
 
@@ -159,8 +144,6 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
             onMouseDown={onOverlayMouseDown}
             onMouseMove={onOverlayMouseMove}
             onMouseUp={onOverlayMouseUp}
-            theme={theme}
-            themeNamespace="overlay"
           />
           <div
             data-teamleader-ui={`popover-${axis}`}
@@ -172,7 +155,7 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
               <header className={theme.header}>
                 { title && <h6 className={theme.title}>{title}</h6> }
                 { subtitle && <p className={theme.subtitle}>{subtitle}</p> }
-                <Button icon="close" className={theme.close} onMouseUp={onCloseClick} />
+                <IconButton icon={<IconCloseMediumOutline />} className={theme.close} onMouseUp={onCloseClick} />
               </header>
             }
             <section role="body" className={theme.body}>
@@ -194,10 +177,16 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
   return ActivableRenderer()(Popover);
 };
 
-export const PopoverHorizontal = themr(POPOVER_HORIZONTAL)(
-  factory('horizontal', calculateHorizontalPositions, InjectOverlay, InjectButton)
+export const PopoverHorizontal = factory(
+  'horizontal',
+  calculateHorizontalPositions,
+  InjectOverlay,
+  InjectButton,
 );
 
-export const PopoverVertical = themr(POPOVER_VERTICAL)(
-  factory('vertical', calculateVerticalPositions, InjectOverlay, InjectButton)
+export const PopoverVertical = factory(
+  'vertical',
+  calculateVerticalPositions,
+  InjectOverlay,
+  InjectButton,
 );

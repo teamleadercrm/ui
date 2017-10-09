@@ -7,7 +7,7 @@ Teamleader UI is a set of [React](http://facebook.github.io/react/) components t
 Teamleader UI can be installed as an [npm package](https://www.npmjs.com/package/teamleader-ui):
 
 ```bash
-$ npm install --save teamleader-ui
+$ npm install --save @teamleader/ui
 ```
 
 ## Basic usage

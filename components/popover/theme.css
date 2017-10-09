@@ -1,5 +1,5 @@
-@import '../colors.css';
-@import '../variables.css';
+@import 'colors.css';
+@import 'variables.css';
 
 :root {
   --popover-background-color: var(--color-white);
@@ -82,7 +82,7 @@
 .close {
   position: absolute;
   right: var(--unit);
-  top: calc(1.8 * var(--unit));
+  top: calc(1.5 * var(--unit));
 }
 
 .body {

@@ -1,78 +1,34 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import FontIcon from '../font_icon';
-import omit from 'lodash.omit';
+import theme from './theme.css';
 
-class Button extends Component {
+class Button extends PureComponent {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
+    level: PropTypes.oneOf([ 'outline', 'primary', 'secondary', 'destructive' ]),
     disabled: PropTypes.bool,
-    bordered: PropTypes.bool,
     href: PropTypes.string,
-    icon: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.element,
-    ]),
+    icon: PropTypes.element,
+    iconPlacement: PropTypes.oneOf([ 'left', 'right' ]),
+    inverse: PropTypes.bool,
     label: PropTypes.string,
-    large: PropTypes.bool,
-    medium: PropTypes.bool,
     onMouseLeave: PropTypes.func,
     onMouseUp: PropTypes.func,
-    primary: PropTypes.bool,
     processing: PropTypes.bool,
-    theme: PropTypes.shape({
-      button: PropTypes.string,
-      bordered: PropTypes.string,
-      icon: PropTypes.string,
-      inverse: PropTypes.string,
-      primary: PropTypes.string,
-      secondary: PropTypes.string,
-      small: PropTypes.string,
-      medium: PropTypes.string,
-      large: PropTypes.string,
-    }),
+    size: PropTypes.oneOf([ 'small', 'medium', 'large' ]),
     type: PropTypes.string,
   };
 
   static defaultProps = {
     className: '',
-    bordered: false,
-    primary: false,
+    level: 'secondary',
+    iconPlacement: 'left',
+    inverse: false,
     processing: false,
-    small: true,
-    medium: false,
-    large: false,
+    size: 'medium',
     type: 'button',
-  };
-
-  getLevel = () => {
-    if (this.props.primary) {
-      return 'primary';
-    }
-    return 'secondary';
-  };
-
-  getShape = () => {
-    if (this.props.bordered) {
-      return 'bordered';
-    }
-  };
-
-  getState = () => {
-    if (this.props.processing) {
-      return 'processing';
-    }
-  };
-
-  getSize = () => {
-    if (this.props.medium) {
-      return 'medium';
-    } else if (this.props.large) {
-      return 'large';
-    }
-    return 'small';
   };
 
   handleMouseUp = (event) => {
@@ -93,43 +49,41 @@ class Button extends Component {
     const {
       children,
       className,
+      level,
+      disabled,
       href,
       icon,
+      iconPlacement,
+      inverse,
       label,
-      theme,
+      size,
       type,
       processing,
       ...others
     } = this.props;
 
-    const rest = omit(others, [ 'primary', 'bordered', 'small', 'medium', 'large' ]);
-
     const element = href ? 'a' : 'button';
-    const level = this.getLevel();
-    const shape = this.getShape();
-    const state = this.getState();
-    const size = this.getSize();
 
     const classes = cx(
       theme.button,
+      theme[ level ],
       {
-        [theme[ level ]]: theme[ level ],
-        [theme[ shape ]]: theme[ shape ],
-        [theme[ state ]]: theme[ state ],
-        [theme[ size ]]: theme[ size ],
         [theme.iconOnly]: !label && !children,
+        [theme.inverse]: inverse && level === 'outline',
+        [theme.processing]: processing,
+        [theme[ size ]]: theme[ size ],
       },
       className
     );
 
     const props = {
-      ...rest,
+      ...others,
       href,
       ref: (node) => {
         this.buttonNode = node;
       },
       className: classes,
-      disabled: this.props.disabled,
+      disabled,
       onMouseUp: this.handleMouseUp,
       onMouseLeave: this.handleMouseLeave,
       type: !href ? type : null,
@@ -137,10 +91,10 @@ class Button extends Component {
     };
 
     return React.createElement(element, props,
-      icon && !processing ? <FontIcon className={theme.icon} value={icon} /> : null,
-      processing ? <FontIcon className={theme.icon} value="spinner" /> : null,
-      label,
-      children
+      icon && iconPlacement === 'left' ? icon : null,
+      label || children ? <span className={theme.children}>{label}{children}</span> : null,
+      icon && iconPlacement === 'right' ? icon : null,
+      processing ? <div className={theme.spinner} /> : null
     );
   }
 }
