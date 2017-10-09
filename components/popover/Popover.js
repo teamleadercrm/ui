@@ -9,6 +9,7 @@ import InjectOverlay from '../overlay';
 import { events } from '../utils';
 import { calculateHorizontalPositions, calculateVerticalPositions } from './positionCalculation';
 import { IconCloseMediumOutline } from '@teamleader/ui-icons';
+import ReactResizeDetector from 'react-resize-detector';
 import theme from './theme.css';
 
 const factory = (axis, calculatePositions, Overlay, Button) => {
@@ -166,6 +167,7 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
               </nav>
               : null
             }
+            <ReactResizeDetector handleHeight onResize={this._setPlacementThrottled} />
           </div>
         </Portal>
       );

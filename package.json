@@ -62,7 +62,8 @@
     "lodash.throttle": "^4.1.1",
     "prop-types": "^15.5.9",
     "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "react-dom": "^15.5.4",
+    "react-resize-detector": "^0.6.0"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
