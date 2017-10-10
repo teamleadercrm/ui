@@ -4,7 +4,8 @@
 :root {
   --unit: 10px;
 
-  --tooltip-arrow-size: calc(1.2 * var(--unit));
+  --tooltip-arrow-size: calc(.8 * var(--unit));
+  --tooltip-arrow-position-correction: calc(0.45 * var(--unit));
   --tooltip-margin: calc(0.8 * var(--unit));
   --tooltip-border-radius: calc(0.4 * var(--unit));
   --tooltip-border-width: 1px;
@@ -13,23 +14,19 @@
   --tooltip-padding-horizontal: calc(1.2 * var(--unit));
   --tooltip-padding-vertical: calc(0.8 * var(--unit));
   --tooltip-animation-duration: 200ms;
+  --tooltip-z-index: 200;
 }
 
 .tooltip {
   display: block;
-  font-family: var(--preferred-font);
-  font-weight: var(--font-weight-bold);
-  line-height: var(--font-size-small);
   max-width: var(--tooltip-max-width);
   padding: var(--tooltip-margin);
   pointer-events: none;
   position: absolute;
-  text-align: center;
-  text-transform: none;
-  transform: scale(0) translateX(-50%);
+  text-align: left;
   transform-origin: top left;
-  transition: var(--animation-curve-default) var(--tooltip-animation-duration) transform;
-  z-index: var(--z-index-higher);
+  transition: cubic-bezier(0.4, 0, 0.2, 1) var(--tooltip-animation-duration) transform;
+  z-index: var(--tooltip-z-index);
 
   svg {
     color: inherit;
@@ -42,14 +39,15 @@
   }
 
   &.tooltipBottom {
-    transform: scale(0) translateX(-50%) translateY(-100%);
+    transform: scale(0) translateX(-50%);
 
     &.tooltipActive {
       transform: scale(1) translateX(-50%);
     }
 
     .tooltipArrow {
-      bottom: calc(100% - var(--tooltip-arrow-size) * 1.4142);
+      border-width: var(--tooltip-border-width) 0 0 var(--tooltip-border-width);
+      bottom: calc(100% - var(--tooltip-arrow-size) - var(--tooltip-arrow-position-correction));
       left: calc(50% - (var(--tooltip-arrow-size) + var(--tooltip-border-width) * 2) / 2);
     }
   }
@@ -62,8 +60,9 @@
     }
 
     .tooltipArrow {
+      border-width: 0 var(--tooltip-border-width) var(--tooltip-border-width) 0;
       left: calc(50% - (var(--tooltip-arrow-size) + var(--tooltip-border-width) * 2) / 2);
-      top: calc(100% - var(--tooltip-arrow-size) * 1.4142);
+      top: calc(100% - var(--tooltip-arrow-size) - var(--tooltip-arrow-position-correction));
     }
   }
 
@@ -75,7 +74,8 @@
     }
 
     .tooltipArrow {
-      left: calc(100% - var(--tooltip-arrow-size) * 1.4142);
+      border-width: var(--tooltip-border-width) var(--tooltip-border-width) 0 0;
+      left: calc(100% - var(--tooltip-arrow-size) - var(--tooltip-arrow-position-correction));
       top: calc(50% - (var(--tooltip-arrow-size) + var(--tooltip-border-width) * 2) / 2);
     }
   }
@@ -88,7 +88,8 @@
     }
 
     .tooltipArrow {
-      right: calc(100% - var(--tooltip-arrow-size) * 1.4142);
+      border-width: 0 0 var(--tooltip-border-width) var(--tooltip-border-width);
+      right: calc(100% - var(--tooltip-arrow-size) - var(--tooltip-arrow-position-correction));
       top: calc(50% - (var(--tooltip-arrow-size) + var(--tooltip-border-width) * 2) / 2);
     }
   }
@@ -99,23 +100,15 @@
   border-radius: var(--tooltip-border-radius);
   box-shadow: var(--tooltip-box-shadow);
   display: block;
+  padding: var(--tooltip-padding-vertical) var(--tooltip-padding-horizontal);
 }
 
 .tooltipArrow {
-  border: var(--tooltip-border-width) solid;
-  border-radius: var(--tooltip-border-radius);
-  box-shadow: var(--tooltip-box-shadow);
+  border-style: solid;
   height: var(--tooltip-arrow-size);
   position: absolute;
   width: var(--tooltip-arrow-size);
   transform: rotate(45deg);
-}
-
-.tooltipContent {
-  border-radius: var(--tooltip-border-radius);
-  display: block;
-  padding: var(--tooltip-padding-vertical) var(--tooltip-padding-horizontal);
-  position: relative;
 }
 
 .tooltipIcon {
@@ -131,31 +124,25 @@
 
 .aqua {
   .tooltipInner {
+    background: var(--color-aqua-lightest);
     border-color: var(--color-aqua);
   }
 
   .tooltipArrow {
     background: var(--color-aqua-lightest);
     border-color: var(--color-aqua);
-  }
-
-  .tooltipContent {
-    background: var(--color-aqua-lightest);
   }
 }
 
 .gold {
   .tooltipInner {
+    background: var(--color-gold-lightest);
     border-color: var(--color-gold);
   }
 
   .tooltipArrow {
     background: var(--color-gold-lightest);
     border-color: var(--color-gold);
-  }
-
-  .tooltipContent {
-    background: var(--color-gold-lightest);
   }
 }
 
@@ -163,61 +150,49 @@
   color: var(--color-teal-light);
 
   .tooltipInner {
+    background: var(--color-teal-dark);
     border-color: var(--color-teal-darkest);
   }
 
   .tooltipArrow {
     background: var(--color-teal-dark);
     border-color: var(--color-teal-darkest);
-  }
-
-  .tooltipContent {
-    background: var(--color-teal-dark);
   }
 }
 
 .neutral {
   .tooltipInner {
+    background: var(--color-neutral-light);
     border-color: var(--color-neutral);
   }
 
   .tooltipArrow {
     background: var(--color-neutral-light);
     border-color: var(--color-neutral);
-  }
-
-  .tooltipContent {
-    background: var(--color-neutral-light);
   }
 }
 
 .mint {
   .tooltipInner {
+    background: var(--color-mint-lightest);
     border-color: var(--color-mint);
   }
 
   .tooltipArrow {
     background: var(--color-mint-lightest);
     border-color: var(--color-mint);
-  }
-
-  .tooltipContent {
-    background: var(--color-mint-lightest);
   }
 }
 
 .ruby {
   .tooltipInner {
+    background: var(--color-ruby-lightest);
     border-color: var(--color-ruby);
   }
 
   .tooltipArrow {
     background: var(--color-ruby-lightest);
     border-color: var(--color-ruby);
-  }
-
-  .tooltipContent {
-    background: var(--color-ruby-lightest);
   }
 }
 
@@ -225,30 +200,24 @@
   color: var(--color-violet-darkest);
 
   .tooltipInner {
+    background: var(--color-violet-lightest);
     border-color: var(--color-violet);
   }
 
   .tooltipArrow {
     background: var(--color-violet-lightest);
     border-color: var(--color-violet);
-  }
-
-  .tooltipContent {
-    background: var(--color-violet-lightest);
   }
 }
 
 .white {
   .tooltipInner {
+    background: var(--color-neutral-lightest);
     border-color: var(--color-neutral);
   }
 
   .tooltipArrow {
     background: var(--color-neutral-lightest);
     border-color: var(--color-neutral);
-  }
-
-  .tooltipContent {
-    background: var(--color-neutral-lightest);
   }
 }

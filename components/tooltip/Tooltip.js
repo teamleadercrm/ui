@@ -177,7 +177,7 @@ const tooltipFactory = (options = {}) => {
       };
 
       handleMouseLeave = event => {
-        // this.deactivate();
+        this.deactivate();
 
         if (this.props.onMouseLeave) {
           this.props.onMouseLeave(event);
@@ -249,10 +249,8 @@ const tooltipFactory = (options = {}) => {
               >
                 <span className={theme.tooltipInner}>
                   <span className={theme.tooltipArrow} />
-                  <span className={theme.tooltipContent}>
-                    {tooltipIcon && <span className={theme.tooltipIcon}>{tooltipIcon}</span>}
-                    <span className={theme.tooltipText}>{tooltip}</span>
-                  </span>
+                  {tooltipIcon && <span className={theme.tooltipIcon}>{tooltipIcon}</span>}
+                  <span className={theme.tooltipText}>{tooltip}</span>
                 </span>
               </span>
             </Portal>
