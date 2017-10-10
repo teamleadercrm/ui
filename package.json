@@ -44,7 +44,7 @@
       }
     },
     "start": {
-      "command": "node bin/server",
+      "command": "npm run storybook",
       "env": {
         "DEBUG": "app:*"
       }
