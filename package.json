@@ -4,12 +4,6 @@
   "version": "0.1.5-beta",
   "author": "Teamleader <development@teamleader.eu>",
   "betterScripts": {
-    "storybook": {
-      "command": "start-storybook -p 3000",
-      "env": {
-        "DEBUG": "app:*"
-      }
-    },
     "compile": {
       "command": "build-storybook -o dist",
       "env": {
@@ -44,7 +38,7 @@
       }
     },
     "start": {
-      "command": "npm run storybook",
+      "command": "start-storybook",
       "env": {
         "DEBUG": "app:*"
       }
