@@ -1,0 +1,254 @@
+@import '@teamleader/ui-colors';
+@import '@teamleader/ui-utilities';
+
+:root {
+  --unit: 10px;
+
+  --tooltip-arrow-size: calc(1.2 * var(--unit));
+  --tooltip-margin: calc(0.8 * var(--unit));
+  --tooltip-border-radius: calc(0.4 * var(--unit));
+  --tooltip-border-width: 1px;
+  --tooltip-box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.1);
+  --tooltip-max-width: calc(18 * var(--unit));
+  --tooltip-padding-horizontal: calc(1.2 * var(--unit));
+  --tooltip-padding-vertical: calc(0.8 * var(--unit));
+  --tooltip-animation-duration: 200ms;
+}
+
+.tooltip {
+  display: block;
+  font-family: var(--preferred-font);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--font-size-small);
+  max-width: var(--tooltip-max-width);
+  padding: var(--tooltip-margin);
+  pointer-events: none;
+  position: absolute;
+  text-align: center;
+  text-transform: none;
+  transform: scale(0) translateX(-50%);
+  transform-origin: top left;
+  transition: var(--animation-curve-default) var(--tooltip-animation-duration) transform;
+  z-index: var(--z-index-higher);
+
+  svg {
+    color: inherit;
+    fill: currentColor;
+    -ms-transform: translateY(-1px);
+
+    * {
+      fill: currentColor;
+    }
+  }
+
+  &.tooltipBottom {
+    transform: scale(0) translateX(-50%) translateY(-100%);
+
+    &.tooltipActive {
+      transform: scale(1) translateX(-50%);
+    }
+
+    .tooltipArrow {
+      bottom: calc(100% - var(--tooltip-arrow-size) * 1.4142);
+      left: calc(50% - (var(--tooltip-arrow-size) + var(--tooltip-border-width) * 2) / 2);
+    }
+  }
+
+  &.tooltipTop {
+    transform: scale(0) translateX(-50%) translateY(-100%);
+
+    &.tooltipActive {
+      transform: scale(1) translateX(-50%) translateY(-100%);
+    }
+
+    .tooltipArrow {
+      left: calc(50% - (var(--tooltip-arrow-size) + var(--tooltip-border-width) * 2) / 2);
+      top: calc(100% - var(--tooltip-arrow-size) * 1.4142);
+    }
+  }
+
+  &.tooltipLeft {
+    transform: scale(0) translateX(-100%) translateY(-50%);
+
+    &.tooltipActive {
+      transform: scale(1) translateX(-100%) translateY(-50%);
+    }
+
+    .tooltipArrow {
+      left: calc(100% - var(--tooltip-arrow-size) * 1.4142);
+      top: calc(50% - (var(--tooltip-arrow-size) + var(--tooltip-border-width) * 2) / 2);
+    }
+  }
+
+  &.tooltipRight {
+    transform: scale(0) translateX(0) translateY(-50%);
+
+    &.tooltipActive {
+      transform: scale(1) translateX(0) translateY(-50%);
+    }
+
+    .tooltipArrow {
+      right: calc(100% - var(--tooltip-arrow-size) * 1.4142);
+      top: calc(50% - (var(--tooltip-arrow-size) + var(--tooltip-border-width) * 2) / 2);
+    }
+  }
+}
+
+.tooltipInner {
+  border: var(--tooltip-border-width) solid;
+  border-radius: var(--tooltip-border-radius);
+  box-shadow: var(--tooltip-box-shadow);
+  display: block;
+}
+
+.tooltipArrow {
+  border: var(--tooltip-border-width) solid;
+  border-radius: var(--tooltip-border-radius);
+  box-shadow: var(--tooltip-box-shadow);
+  height: var(--tooltip-arrow-size);
+  position: absolute;
+  width: var(--tooltip-arrow-size);
+  transform: rotate(45deg);
+}
+
+.tooltipContent {
+  border-radius: var(--tooltip-border-radius);
+  display: block;
+  padding: var(--tooltip-padding-vertical) var(--tooltip-padding-horizontal);
+  position: relative;
+}
+
+.tooltipIcon {
+  display: inline-block;
+  margin-right: var(--spacer-smaller);
+  vertical-align: middle;
+}
+
+.tooltipText {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.aqua {
+  .tooltipInner {
+    border-color: var(--color-aqua);
+  }
+
+  .tooltipArrow {
+    background: var(--color-aqua-lightest);
+    border-color: var(--color-aqua);
+  }
+
+  .tooltipContent {
+    background: var(--color-aqua-lightest);
+  }
+}
+
+.gold {
+  .tooltipInner {
+    border-color: var(--color-gold);
+  }
+
+  .tooltipArrow {
+    background: var(--color-gold-lightest);
+    border-color: var(--color-gold);
+  }
+
+  .tooltipContent {
+    background: var(--color-gold-lightest);
+  }
+}
+
+.inverse {
+  color: var(--color-teal-light);
+
+  .tooltipInner {
+    border-color: var(--color-teal-darkest);
+  }
+
+  .tooltipArrow {
+    background: var(--color-teal-dark);
+    border-color: var(--color-teal-darkest);
+  }
+
+  .tooltipContent {
+    background: var(--color-teal-dark);
+  }
+}
+
+.neutral {
+  .tooltipInner {
+    border-color: var(--color-neutral);
+  }
+
+  .tooltipArrow {
+    background: var(--color-neutral-light);
+    border-color: var(--color-neutral);
+  }
+
+  .tooltipContent {
+    background: var(--color-neutral-light);
+  }
+}
+
+.mint {
+  .tooltipInner {
+    border-color: var(--color-mint);
+  }
+
+  .tooltipArrow {
+    background: var(--color-mint-lightest);
+    border-color: var(--color-mint);
+  }
+
+  .tooltipContent {
+    background: var(--color-mint-lightest);
+  }
+}
+
+.ruby {
+  .tooltipInner {
+    border-color: var(--color-ruby);
+  }
+
+  .tooltipArrow {
+    background: var(--color-ruby-lightest);
+    border-color: var(--color-ruby);
+  }
+
+  .tooltipContent {
+    background: var(--color-ruby-lightest);
+  }
+}
+
+.violet {
+  color: var(--color-violet-darkest);
+
+  .tooltipInner {
+    border-color: var(--color-violet);
+  }
+
+  .tooltipArrow {
+    background: var(--color-violet-lightest);
+    border-color: var(--color-violet);
+  }
+
+  .tooltipContent {
+    background: var(--color-violet-lightest);
+  }
+}
+
+.white {
+  .tooltipInner {
+    border-color: var(--color-neutral);
+  }
+
+  .tooltipArrow {
+    background: var(--color-neutral-lightest);
+    border-color: var(--color-neutral);
+  }
+
+  .tooltipContent {
+    background: var(--color-neutral-lightest);
+  }
+}
