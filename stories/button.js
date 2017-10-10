@@ -3,12 +3,18 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
+import styles from '@sambego/storybook-styles';
 import { IconAddMediumOutline, IconMagicMediumOutline } from '@teamleader/ui-icons';
 import { Button, ButtonGroup } from '../components/button';
 
 storiesOf('Buttons', module)
   .addDecorator((story, context) => withInfo('')(story)(context))
   .addDecorator(checkA11y)
+  .addDecorator(
+    styles({
+      fontFamily: 'ProximaNova-Semibold, trebuchet ms, Verdana, Arial, sans-serif',
+    }),
+  )
   .add('with text', () => (
     <ButtonGroup>
       <Button onClick={action('clicked button 1')}>button 1</Button>

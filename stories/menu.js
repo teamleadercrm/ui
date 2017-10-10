@@ -3,11 +3,17 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
+import styles from '@sambego/storybook-styles';
 import { Menu, MenuItem, MenuDivider } from '../components';
 
 storiesOf('Menus', module)
   .addDecorator((story, context) => withInfo('common info')(story)(context))
   .addDecorator(checkA11y)
+  .addDecorator(
+    styles({
+      fontFamily: 'ProximaNova-Semibold, trebuchet ms, Verdana, Arial, sans-serif',
+    }),
+  )
   .add('Menu', () => (
     <Menu onSelect={action('select')} selectable={false} selected>
       <MenuItem value="foo" caption="Caption" />

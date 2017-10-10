@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
+import styles from '@sambego/storybook-styles';
 import Counter from '../components/counter';
 
 const colors = ['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua'];
@@ -9,6 +10,11 @@ const colors = ['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua'];
 storiesOf('Counters', module)
   .addDecorator((story, context) => withInfo('common info')(story)(context))
   .addDecorator(checkA11y)
+  .addDecorator(
+    styles({
+      fontFamily: 'ProximaNova-Semibold, trebuchet ms, Verdana, Arial, sans-serif',
+    }),
+  )
   .add('colors', () => (
     <div>
       {colors.map(color => <Counter count={99} color={color} />)}

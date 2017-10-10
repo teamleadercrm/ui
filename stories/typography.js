@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
+import styles from '@sambego/storybook-styles';
 import {
   Heading1,
   Heading2,
@@ -17,6 +18,11 @@ import {
 storiesOf('Typography', module)
   .addDecorator((story, context) => withInfo('common info')(story)(context))
   .addDecorator(checkA11y)
+  .addDecorator(
+    styles({
+      fontFamily: 'ProximaNova-Semibold, trebuchet ms, Verdana, Arial, sans-serif',
+    }),
+  )
   .add('Headings', () => (
     <div>
       <Heading1>Heading 1</Heading1>
