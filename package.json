@@ -4,8 +4,14 @@
   "version": "0.1.5-beta",
   "author": "Teamleader <development@teamleader.eu>",
   "betterScripts": {
+    "storybook": {
+      "command": "start-storybook -p 6000",
+      "env": {
+        "DEBUG": "app:*"
+      }
+    },
     "compile": {
-      "command": "node bin/compile",
+      "command": "build-storybook -o dist",
       "env": {
         "DEBUG": "app:*"
       }
@@ -158,7 +164,7 @@
     "precommit": "npm run lint:fix",
     "prepare": "npm run build",
     "start": "better-npm-run start",
-    "storybook": "start-storybook -p 6000",
-    "build-storybook": "build-storybook -o dist"
+    "storybook": "better-npm-run storybook",
+    "build-storybook": " better-npm-run compile"
   }
 }
