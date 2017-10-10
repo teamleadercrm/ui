@@ -9,7 +9,7 @@
   --tooltip-margin: calc(0.8 * var(--unit));
   --tooltip-border-radius: calc(0.4 * var(--unit));
   --tooltip-border-width: 1px;
-  --tooltip-box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.1);
+  --tooltip-box-shadow: 0 3px 12px 0 color(var(--color-teal-darkest) a(10%));
   --tooltip-max-width: calc(18 * var(--unit));
   --tooltip-padding-horizontal: calc(1.2 * var(--unit));
   --tooltip-padding-vertical: calc(0.8 * var(--unit));
