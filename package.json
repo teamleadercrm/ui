@@ -159,6 +159,6 @@
     "prepare": "npm run build",
     "start": "better-npm-run start",
     "storybook": "start-storybook -p 6000",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook -o dist"
   }
 }
