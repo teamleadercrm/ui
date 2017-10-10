@@ -19,6 +19,7 @@ import StatusLabelTest from './components/statusLabel';
 import StatusBulletTest from './components/statusBullet';
 import IslandTest from './components/island';
 import Toast from './components/toast';
+import Tooltip from './components/tooltip';
 
 const Root = () => (
   <div className={s.root}>
@@ -65,6 +66,9 @@ const Root = () => (
       </Section>
       <Section id="toasts">
         <Toast />
+      </Section>
+      <Section id="tooltips">
+        <Tooltip />
       </Section>
       <Section id="typography">
         <Typography />

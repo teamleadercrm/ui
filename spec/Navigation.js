@@ -41,6 +41,9 @@ const Navigation = () => (
         <a href="#toasts">Toasts</a>
       </li>
       <li>
+        <a href="#tooltips">Tooltips</a>
+      </li>
+      <li>
         <a href="#typography">Typography</a>
       </li>
     </ul>
