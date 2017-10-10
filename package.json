@@ -135,10 +135,7 @@
     "doc": "docs"
   },
   "homepage": "https://github.com/teamleadercrm/teamleader-ui#readme",
-  "keywords": [
-    "teamleader",
-    "ui"
-  ],
+  "keywords": ["teamleader", "ui"],
   "license": "MIT",
   "main": "./lib",
   "repository": {
@@ -161,7 +158,7 @@
     "precommit": "npm run lint:fix",
     "prepare": "npm run build",
     "start": "better-npm-run start",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6000",
     "build-storybook": "build-storybook"
   }
 }
