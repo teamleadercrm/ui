@@ -4,7 +4,7 @@ import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import Counter from '../components/counter';
 
-const colors = ['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'white'];
+const colors = ['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua'];
 
 storiesOf('Counters', module)
   .addDecorator((story, context) => withInfo('common info')(story)(context))
