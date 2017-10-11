@@ -23,6 +23,7 @@ const defaults = {
   icon: null,
   passthrough: true,
   showOnClick: false,
+  size: 'medium',
   position: POSITION.VERTICAL,
 };
 
@@ -34,6 +35,7 @@ const tooltipFactory = (options = {}) => {
     hideOnClick: defaultHideOnClick,
     icon: defaultIcon,
     showOnClick: defaultShowOnClick,
+    size: defaultSize,
     passthrough: defaultPassthrough,
     position: defaultPosition,
   } = { ...defaults, ...options };
@@ -53,6 +55,7 @@ const tooltipFactory = (options = {}) => {
         tooltipIcon: PropTypes.element,
         tooltipPosition: PropTypes.oneOf(Object.keys(POSITION).map(key => POSITION[key])),
         tooltipShowOnClick: PropTypes.bool,
+        tooltipSize: PropTypes.oneOf(['small', 'medium']),
       };
 
       static defaultProps = {
@@ -63,6 +66,7 @@ const tooltipFactory = (options = {}) => {
         tooltipIcon: defaultIcon,
         tooltipPosition: defaultPosition,
         tooltipShowOnClick: defaultShowOnClick,
+        tooltipSize: defaultSize,
       };
 
       state = {
@@ -214,10 +218,11 @@ const tooltipFactory = (options = {}) => {
           tooltipIcon,
           tooltipPosition, // eslint-disable-line no-unused-vars
           tooltipShowOnClick, // eslint-disable-line no-unused-vars
+          tooltipSize,
           ...other
         } = this.props;
 
-        const _className = cx(theme.tooltip, theme[tooltipColor], {
+        const _className = cx(theme.tooltip, theme[tooltipColor], theme[tooltipSize], {
           [theme.tooltipActive]: active,
           [theme[positionClass]]: theme[positionClass],
         });
@@ -239,7 +244,7 @@ const tooltipFactory = (options = {}) => {
           children,
           visible && (
             <Portal>
-              <span
+              <div
                 ref={node => {
                   this.tooltipNode = node;
                 }}
@@ -247,12 +252,12 @@ const tooltipFactory = (options = {}) => {
                 data-teamleader-ui="tooltip"
                 style={{ top, left }}
               >
-                <span className={theme.tooltipInner}>
-                  <span className={theme.tooltipArrow} />
-                  {tooltipIcon && <span className={theme.tooltipIcon}>{tooltipIcon}</span>}
-                  <span className={theme.tooltipText}>{tooltip}</span>
-                </span>
-              </span>
+                <div className={theme.tooltipInner}>
+                  <div className={theme.tooltipArrow} />
+                  {tooltipIcon && <div className={theme.tooltipIcon}>{tooltipIcon}</div>}
+                  <div className={theme.tooltipText}>{tooltip}</div>
+                </div>
+              </div>
             </Portal>
           ),
         );
