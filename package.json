@@ -136,12 +136,12 @@
     "doc": "docs"
   },
   "homepage": "https://github.com/teamleadercrm/teamleader-ui#readme",
-  "keywords": [
-    "teamleader",
-    "ui"
-  ],
+  "keywords": ["teamleader", "ui"],
   "license": "MIT",
   "main": "./lib",
+  "engines": {
+    "node": ">=8.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/teamleadercrm/teamleader-ui.git"
