@@ -5,15 +5,12 @@ import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import styles from '@sambego/storybook-styles';
 import { Menu, MenuItem, MenuDivider } from '../components';
+import { baseStyles, centerStyles } from '../.storybook/styles';
 
 storiesOf('Menus', module)
   .addDecorator((story, context) => withInfo('common info')(story)(context))
   .addDecorator(checkA11y)
-  .addDecorator(
-    styles({
-      fontFamily: 'ProximaNova-Semibold, trebuchet ms, Verdana, Arial, sans-serif',
-    }),
-  )
+  .addDecorator(styles({ ...baseStyles, ...centerStyles }))
   .add('Menu', () => (
     <Menu onSelect={action('select')} selectable={false} selected>
       <MenuItem value="foo" caption="Caption" />

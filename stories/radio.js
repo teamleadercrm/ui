@@ -5,6 +5,7 @@ import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import styles from '@sambego/storybook-styles';
 import { RadioGroup, RadioButton } from '../components';
+import { baseStyles, centerStyles } from '../.storybook/styles';
 
 let stringValue = 'thewalkingdead';
 const changeValue = value => {
@@ -15,11 +16,7 @@ const changeValue = value => {
 storiesOf('Radio', module)
   .addDecorator((story, context) => withInfo('common info')(story)(context))
   .addDecorator(checkA11y)
-  .addDecorator(
-    styles({
-      fontFamily: 'ProximaNova-Semibold, trebuchet ms, Verdana, Arial, sans-serif',
-    }),
-  )
+  .addDecorator(styles({ ...baseStyles, ...centerStyles }))
   .add('Enabled', () => (
     <RadioGroup name="stringValue" value={stringValue} onChange={changeValue}>
       <RadioButton label="The Walking Dead" value="thewalkingdead" />

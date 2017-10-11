@@ -14,15 +14,12 @@ import {
   TextSmall,
   TextTiny,
 } from '../components';
+import { baseStyles } from '../.storybook/styles';
 
 storiesOf('Typography', module)
   .addDecorator((story, context) => withInfo('common info')(story)(context))
   .addDecorator(checkA11y)
-  .addDecorator(
-    styles({
-      fontFamily: 'ProximaNova-Semibold, trebuchet ms, Verdana, Arial, sans-serif',
-    }),
-  )
+  .addDecorator(styles(baseStyles))
   .add('Headings', () => (
     <div>
       <Heading1>Heading 1</Heading1>
@@ -31,7 +28,7 @@ storiesOf('Typography', module)
       <Heading4>Heading 4</Heading4>
     </div>
   ))
-  .add('Cancel', () => (
+  .add('Body', () => (
     <div>
       <Monospaced>Monospaced</Monospaced>
       <OldStyleNumber>Old style number</OldStyleNumber>

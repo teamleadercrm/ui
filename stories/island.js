@@ -5,6 +5,7 @@ import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { Island, TextBody } from '../components';
 import styles from '@sambego/storybook-styles';
+import { baseStyles } from '../.storybook/styles';
 
 const colors = ['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'white'];
 const sizes = ['small', 'medium', 'large'];
@@ -12,11 +13,7 @@ const sizes = ['small', 'medium', 'large'];
 storiesOf('Island', module)
   .addDecorator((story, context) => withInfo('common info')(story)(context))
   .addDecorator(checkA11y)
-  .addDecorator(
-    styles({
-      fontFamily: 'ProximaNova-Semibold, trebuchet ms, Verdana, Arial, sans-serif',
-    }),
-  )
+  .addDecorator(styles(baseStyles))
   .add('colors', () => (
     <div>
       {colors.map(color => (

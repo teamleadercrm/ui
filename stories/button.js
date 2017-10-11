@@ -6,15 +6,12 @@ import { withInfo } from '@storybook/addon-info';
 import styles from '@sambego/storybook-styles';
 import { IconAddMediumOutline, IconMagicMediumOutline } from '@teamleader/ui-icons';
 import { Button, ButtonGroup } from '../components/button';
+import { baseStyles, centerStyles } from '../.storybook/styles';
 
 storiesOf('Buttons', module)
   .addDecorator((story, context) => withInfo('')(story)(context))
   .addDecorator(checkA11y)
-  .addDecorator(
-    styles({
-      fontFamily: 'ProximaNova-Semibold, trebuchet ms, Verdana, Arial, sans-serif',
-    }),
-  )
+  .addDecorator(styles({ ...baseStyles, ...centerStyles }))
   .add('with text', () => (
     <ButtonGroup>
       <Button onClick={action('clicked button 1')}>button 1</Button>

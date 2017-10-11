@@ -4,17 +4,14 @@ import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import styles from '@sambego/storybook-styles';
 import Counter from '../components/counter';
+import { baseStyles, centerStyles } from '../.storybook/styles';
 
 const colors = ['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua'];
 
 storiesOf('Counters', module)
   .addDecorator((story, context) => withInfo('common info')(story)(context))
   .addDecorator(checkA11y)
-  .addDecorator(
-    styles({
-      fontFamily: 'ProximaNova-Semibold, trebuchet ms, Verdana, Arial, sans-serif',
-    }),
-  )
+  .addDecorator(styles({ ...baseStyles, ...centerStyles }))
   .add('colors', () => (
     <div>
       {colors.map(color => <Counter count={99} color={color} />)}

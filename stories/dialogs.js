@@ -5,6 +5,7 @@ import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import styles from '@sambego/storybook-styles';
 import Dialog from '../components/dialog';
+import { baseStyles } from '../.storybook/styles';
 
 const openDialog = () => {
   return action('action button clicked');
@@ -14,11 +15,7 @@ const actions = [{ label: 'Cancel', onClick: openDialog }, { label: 'Save', onCl
 storiesOf('Dialogs', module)
   .addDecorator((story, context) => withInfo('common info')(story)(context))
   .addDecorator(checkA11y)
-  .addDecorator(
-    styles({
-      fontFamily: 'ProximaNova-Semibold, trebuchet ms, Verdana, Arial, sans-serif',
-    }),
-  )
+  .addDecorator(styles(baseStyles))
   .add('colors', () => (
     <Dialog
       actions={actions}
