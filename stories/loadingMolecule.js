@@ -4,14 +4,14 @@ import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { LoadingMolecule } from '../components';
 import styles from '@sambego/storybook-styles';
-import { baseStyles, centerStyles } from '../.storybook/styles';
+import { baseStyles } from '../.storybook/styles';
 
 const basePath = window.location.pathname + window.location.search;
 
 storiesOf('Loading molecules', module)
   .addDecorator((story, context) => withInfo('common info')(story)(context))
   .addDecorator(checkA11y)
-  .addDecorator(styles({ ...baseStyles, ...centerStyles }))
+  .addDecorator(styles(baseStyles))
   .add('color', () => (
     <div style={{ height: '300px' }}>
       <LoadingMolecule basePath={basePath} startColor="#00ACA9" stopColor="#1F7F79" />
