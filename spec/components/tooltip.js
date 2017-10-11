@@ -10,20 +10,23 @@ import {
   TextSmall,
   TextTiny,
   Section,
+  StatusLabel,
 } from '../../components';
-import Tooltip from '../../components/tooltip';
-import { IconHelpMediumOutline, IconMeetingSmallOutline } from '@teamleader/ui-icons';
+import Tooltip, { TooltipLabel } from '../../components/tooltip';
+import { IconHelpMediumOutline, IconBuildingMediumOutline, IconMeetingSmallOutline } from '@teamleader/ui-icons';
 
-const TooltipButton = Tooltip(Button);
-const TooltipStrongDirect = Tooltip('span');
+const TooltippedLabel = Tooltip(TooltipLabel);
+const TooltippedStatusLabel = Tooltip(StatusLabel);
+const TooltippedButton = Tooltip(Button);
+const TooltippedStrong = Tooltip('strong');
 
-const textSmallOnlyTooltip = <TextSmall color="gold">I am small text</TextSmall>;
+const textSmallOnlyTooltip = <TextSmall>I am small text</TextSmall>;
 
-const textBodyOnlyTooltip = <TextBody color="aqua">I am body text</TextBody>;
+const textBodyOnlyTooltip = <TextBody>I am body text</TextBody>;
 
 const textTinyWithHeadingTooltip = (
   <div>
-    <TextTiny>I am tiny text</TextTiny>
+    <TextTiny>I am tiny text in a multi line tooltip</TextTiny>
     <Heading2>123456</Heading2>
   </div>
 );
@@ -39,94 +42,104 @@ class TooltipTest extends PureComponent {
         <div className="component-spec">
           <div className="properties">
             <ButtonGroup>
-              <TooltipButton tooltip="Hi there!" level="outline" tooltipPosition="left">
+              <TooltippedButton tooltip="Hi there!" level="outline" tooltipPosition="left">
                 Hover me
-              </TooltipButton>
-              <TooltipButton tooltip="Hi there!" level="secondary" tooltipPosition="top" tooltipColor="neutral">
+              </TooltippedButton>
+              <TooltippedButton tooltip="Hi there!" level="secondary" tooltipPosition="top" tooltipColor="neutral">
                 Hover me
-              </TooltipButton>
-              <TooltipButton
-                tooltip={<TextBody color="mint">Hello there!</TextBody>}
+              </TooltippedButton>
+              <TooltippedButton
+                tooltip={<TextBody>Hello there!</TextBody>}
                 level="primary"
                 tooltipPosition="bottom"
                 tooltipColor="mint"
               >
                 Hover me
-              </TooltipButton>
-              <TooltipButton
-                tooltip={<TextBody color="ruby">Hello there!</TextBody>}
+              </TooltippedButton>
+              <TooltippedButton
+                tooltip={<TextBody>Hello there!</TextBody>}
                 level="destructive"
                 tooltipPosition="right"
                 tooltipColor="ruby"
               >
                 Hover me
-              </TooltipButton>
+              </TooltippedButton>
             </ButtonGroup>
 
             <Heading1>
-              I'm a Heading 1 with a
-              <TooltipStrongDirect tooltipPosition="top" tooltip={textSmallOnlyTooltip} tooltipColor="gold">
-                <span style={{ borderRadius: '4px', backgroundColor: '#CCC', padding: '0 6px' }}>
-                  <IconMeetingSmallOutline />
-                  tooltip
-                </span>
-              </TooltipStrongDirect>{' '}
-              action
+              I'm a Heading 1 with a{' '}
+              <TooltippedLabel
+                icon={<IconBuildingMediumOutline />}
+                tooltipPosition="top"
+                tooltip={textSmallOnlyTooltip}
+                tooltipColor="gold"
+              >
+                tooltip
+              </TooltippedLabel>{' '}
+              action{' '}
+              <TooltippedStatusLabel tooltip="This thing has the completed status" color="mint">
+                Completed
+              </TooltippedStatusLabel>
             </Heading1>
 
             <Heading2>
-              I'm a Heading 2 with a
-              <TooltipStrongDirect
+              I'm a Heading 2 with a{' '}
+              <TooltippedLabel
+                icon={<IconMeetingSmallOutline />}
                 tooltipIcon={<IconMeetingSmallOutline />}
-                tooltip={<TextSmall color="violet">I am small text</TextSmall>}
+                tooltip={<TextSmall>I am small text</TextSmall>}
                 tooltipColor="violet"
               >
                 tooltip
-              </TooltipStrongDirect>{' '}
+              </TooltippedLabel>{' '}
               action
             </Heading2>
 
             <Heading3>
-              I'm a Heading 3 with a
-              <TooltipStrongDirect tooltip={textBodyOnlyTooltip} tooltipColor="aqua">
+              I'm a Heading 3 with a{' '}
+              <TooltippedLabel tooltip={textBodyOnlyTooltip} tooltipColor="aqua">
                 tooltip
-              </TooltipStrongDirect>{' '}
+              </TooltippedLabel>{' '}
               action
             </Heading3>
 
             <Heading4>
-              I'm a Heading 4 with a
-              <TooltipStrongDirect
+              I'm a Heading 4 with a{' '}
+              <TooltippedLabel
+                inverse
                 tooltipIcon={<IconHelpMediumOutline />}
                 tooltip={<TextBody>I am body text</TextBody>}
               >
                 tooltip
-              </TooltipStrongDirect>{' '}
+              </TooltippedLabel>{' '}
               action
             </Heading4>
 
             <TextBody>
-              I'm body text with a
-              <TooltipStrongDirect
+              I'm body text with a{' '}
+              <TooltippedLabel
+                icon={<IconMeetingSmallOutline />}
+                inverse
                 tooltipIcon={<IconHelpMediumOutline />}
                 tooltip={textTinyWithHeadingTooltip}
                 tooltipColor="inverse"
+                tooltipSize="small"
               >
                 tooltip
-              </TooltipStrongDirect>{' '}
+              </TooltippedLabel>{' '}
               action
             </TextBody>
 
             <TextSmall>
-              I'm small text with a
-              <TooltipStrongDirect tooltip="I am the tooltip content">tooltip</TooltipStrongDirect> action
+              I'm small text with a <TooltippedStrong tooltip="I am the tooltip content">tooltip</TooltippedStrong>{' '}
+              action
             </TextSmall>
 
             <TextTiny>
-              I'm small text with a
-              <TooltipStrongDirect tooltip="I am the tooltip content" tooltipColor="inverse">
+              I'm small text with a{' '}
+              <TooltippedStrong tooltip="I am the tooltip content" tooltipColor="inverse">
                 tooltip
-              </TooltipStrongDirect>{' '}
+              </TooltippedStrong>{' '}
               action
             </TextTiny>
           </div>
