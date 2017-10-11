@@ -13,22 +13,22 @@ storiesOf('Loading molecules', module)
   .addDecorator(checkA11y)
   .addDecorator(styles(baseStyles))
   .add('color', () => (
-    <div style={{ height: '300px' }}>
+    <div style={{ height: '300px', position: 'relative' }}>
       <LoadingMolecule basePath={basePath} startColor="#00ACA9" stopColor="#1F7F79" />
     </div>
   ))
   .add('grayscale', () => (
-    <div style={{ height: '300px' }}>
+    <div style={{ height: '300px', position: 'relative' }}>
       <LoadingMolecule basePath={basePath} startColor="#BABABA" stopColor="#DADADA" />
     </div>
   ))
   .add('small', () => (
-    <div style={{ height: '300px' }}>
+    <div style={{ height: '300px', position: 'relative' }}>
       <LoadingMolecule basePath={basePath} startColor="#00ACA9" stopColor="#1F7F79" type="small" />
     </div>
   ))
   .add('large', () => (
-    <div style={{ height: '300px' }}>
+    <div style={{ height: '300px', position: 'relative' }}>
       <LoadingMolecule basePath={basePath} startColor="#00ACA9" stopColor="#1F7F79" type="large" />
     </div>
   ));
