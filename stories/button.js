@@ -11,7 +11,7 @@ import { baseStyles, centerStyles } from '../.storybook/styles';
 storiesOf('Buttons', module)
   .addDecorator((story, context) => withInfo('')(story)(context))
   .addDecorator(checkA11y)
-  .addDecorator(styles({ ...baseStyles, ...centerStyles }))
+  .addDecorator(styles({ ...baseStyles, ...centerStyles, background: '#d3d1fe' }))
   .add('with text', () => (
     <ButtonGroup>
       <Button onClick={action('clicked button 1')}>button 1</Button>
