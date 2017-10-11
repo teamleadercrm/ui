@@ -11,7 +11,10 @@ import { baseStyles, centerStyles } from '../.storybook/styles';
 const store = new Store({
   value: 'thewalkingdead',
 });
-const updateState = value => store.set({ value });
+const updateState = value => {
+  store.set({ value });
+  action(`Selected: ${value}`)();
+};
 
 storiesOf('Radio', module)
   .addDecorator((story, context) => withInfo('common info')(story)(context))
