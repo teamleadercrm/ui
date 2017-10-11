@@ -11,7 +11,7 @@ import { baseStyles, centerStyles } from '../.storybook/styles';
 storiesOf('Buttons', module)
   .addDecorator((story, context) => withInfo('')(story)(context))
   .addDecorator(checkA11y)
-  .addDecorator(styles({ ...baseStyles, ...centerStyles, background: '#d3d1fe' }))
+  .addDecorator(styles({ ...baseStyles, ...centerStyles }))
   .add('with text', () => (
     <ButtonGroup>
       <Button onClick={action('clicked button 1')}>button 1</Button>
@@ -69,22 +69,6 @@ storiesOf('Buttons', module)
       </Button>
     </ButtonGroup>
   ))
-  .add('themes', () => (
-    <ButtonGroup>
-      <Button onClick={action('clicked primary button')} level="primary">
-        Primary button
-      </Button>
-      <Button onClick={action('clicked secondary button')} level="secondary">
-        Secondary button
-      </Button>
-      <Button onClick={action('clicked ouline button')} level="outline">
-        Outline button
-      </Button>
-      <Button onClick={action('clicked destructive button')} level="destructive">
-        Destructive button
-      </Button>
-    </ButtonGroup>
-  ))
   .add('inverse', () => (
     <ButtonGroup>
       <Button onClick={action('clicked button 1')} inverse>
@@ -105,6 +89,23 @@ storiesOf('Buttons', module)
       </Button>
       <Button onClick={action('clicked button large')} size="large">
         button large
+      </Button>
+    </ButtonGroup>
+  ))
+  .addDecorator(styles({ background: '#d3d1fe' }))
+  .add('themes', () => (
+    <ButtonGroup>
+      <Button onClick={action('clicked primary button')} level="primary">
+        Primary button
+      </Button>
+      <Button onClick={action('clicked secondary button')} level="secondary">
+        Secondary button
+      </Button>
+      <Button onClick={action('clicked ouline button')} level="outline">
+        Outline button
+      </Button>
+      <Button onClick={action('clicked destructive button')} level="destructive">
+        Destructive button
       </Button>
     </ButtonGroup>
   ));
