@@ -15,7 +15,7 @@ setDefaults({
 });
 setOptions({
   name: `Version ${process.env.__VERSION__}`,
-  url: 'http://teamleader.design'
+  url: 'https://teamleader.design'
 });
 
 const req = require.context('../stories', true, /\.js$/);
