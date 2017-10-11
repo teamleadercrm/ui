@@ -1,11 +1,15 @@
-// you can use this file to add your custom webpack plugins, loaders and anything you like.
-// This is just the basic way to add additional webpack configurations.
-// For more information refer the docs: https://storybook.js.org/configurations/custom-webpack-config
+const webpack = require('webpack');
+const config = require('../config');
+const pkg = require('../package.json');
+const argv = require('yargs').argv;
 
-// IMPORTANT
-// When you add this file, we won't add the default configurations which is similar
-// to "React Create App". This only has babel loader to load JavaScript.
-
+const globals = {
+  __DEV__: config.env === 'development',
+  __PROD__: config.env === 'production',
+  __TEST__: config.env === 'test',
+  __BASENAME__: JSON.stringify(process.env.BASENAME || ''),
+  __VERSION__: JSON.stringify(pkg.version)
+};
 const cssModulesLoader = [
   'css-loader?sourceMap&-minimize',
   'modules',
@@ -13,16 +17,23 @@ const cssModulesLoader = [
   'localIdentName=[name]__[local]___[hash:base64:5]'
 ].join('&');
 
-module.exports = {
-  plugins: [
-    // your custom plugins
-  ],
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: ['style-loader', cssModulesLoader, 'postcss-loader']
-      }
-    ]
-  }
+const path = require('path');
+
+// Export a function. Accept the base config as the only param.
+module.exports = (storybookBaseConfig, configType) => {
+  storybookBaseConfig.module.rules.push({
+    test: /\.css$/,
+    use: ['style-loader', cssModulesLoader, 'postcss-loader']
+  });
+
+  // The baseConfig already uses a definePlugin instance, webpack ignores
+  // every instance but the first, so we need to add our globals to the existing
+  // ones. Yep this is dirty!
+  storybookBaseConfig.plugins[0].definitions['process.env'] = {
+    ...storybookBaseConfig.plugins[0].definitions['process.env'],
+    ...globals
+  };
+
+  // Return the altered config
+  return storybookBaseConfig;
 };
