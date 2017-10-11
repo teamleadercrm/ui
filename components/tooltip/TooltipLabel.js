@@ -25,7 +25,7 @@ class TooltipLabel extends PureComponent {
 
     return (
       <span data-teamleader-ui="tooltip-label" className={classes} {...others}>
-        { icon }
+        {icon}
         <OldStyleNumber>{children}</OldStyleNumber>
       </span>
     );
