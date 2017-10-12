@@ -13,6 +13,7 @@ import {
 import Counter from './counter';
 import Dialog from './dialog';
 import { FontIcon } from './font_icon';
+import Input from './input';
 import Menu, { IconMenu, MenuItem, MenuDivider } from './menu';
 import Overlay from './overlay';
 import LoadingMolecule from './loadingMolecule';
@@ -35,6 +36,7 @@ export {
   Heading2,
   Heading3,
   Heading4,
+  Input,
   Menu,
   Monospaced,
   IconMenu,

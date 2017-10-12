@@ -1,0 +1,94 @@
+@import '@teamleader/ui-colors';
+@import '@teamleader/ui-typography';
+
+:root {
+  --input-height-large: calc(4.6 * var(--unit));
+  --input-height-medium: calc(3.4 * var(--unit));
+  --input-height-small: calc(2.8 * var(--unit));
+  --input-horizontal-padding: calc(0.9 * var(--unit));
+  --input-horizontal-padding-small: calc(0.6 * var(--unit));
+  --input-horizontal-padding-icon: calc(3.9 * var(--unit));
+  --input-horizontal-padding-icon-small: calc(2.6 * var(--unit));
+  --input-text-color: var(--color-teal-darkest);
+  --input-text-size: calc(1.6 * var(--unit));
+  --input-text-size-small: calc(1.4 * var(--unit));
+  --input-border-radius: calc(0.4 * var(--unit));
+  --input-border-color: var(--color-neutral-dark);
+  --input-placeholder-color: var(--color-neutral-dark);
+
+  --icon-top-large: calc(1.4 * var(--unit));
+  --icon-top: calc(0.8 * var(--unit));
+  --icon-left: calc(0.9 * var(--unit));
+  --icon-left-small: calc(0.6 * var(--unit));
+  --icon-height: calc(1.9 * var(--unit));
+  --icon-height-small: calc(1.4 * var(--unit));
+  --icon-color: var(--color-neutral-darkest);
+}
+
+.wrapper {
+  position: relative;
+}
+
+.input {
+  height: var(--input-height-medium);
+  padding: 0 var(--input-horizontal-padding);
+
+  border: 1px solid var(--input-border-color);
+  border-radius: var(--input-border-radius);
+
+  color: var(--input-text-color);
+  line-height: var(--input-height-medium);
+  font-size: var(--input-text-size);
+
+  &::placeholder {
+    color: var(--input-placeholder-color);
+  }
+
+  &.has-icon {
+    padding: 0 var(--input-horizontal-padding) 0
+      var(--input-horizontal-padding-icon);
+  }
+}
+
+.icon {
+  position: absolute;
+  top: var(--icon-top);
+  left: var(--icon-left);
+
+  max-height: var(--icon-height);
+
+  fill: var(--icon-color);
+}
+
+.large {
+  .input {
+    height: var(--input-height-large);
+
+    line-height: var(--input-height-large);
+    font-size: var(--input-text-size);
+  }
+
+  .icon {
+    top: var(--icon-top-large);
+  }
+}
+
+.small {
+  .input {
+    height: var(--input-height-small);
+    padding: 0 var(--input-horizontal-padding-small);
+
+    line-height: var(--input-height-small);
+    font-size: var(--input-text-size-small);
+
+    &.has-icon {
+      padding: 0 var(--input-horizontal-padding-small) 0
+        var(--input-horizontal-padding-icon-small);
+    }
+  }
+
+  .icon {
+    left: var(--icon-left-small);
+    max-height: var(--icon-height-small);
+  }
+}
