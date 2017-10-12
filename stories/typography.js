@@ -28,7 +28,7 @@ storiesOf('Typography', module)
       <Heading4>Heading 4</Heading4>
     </div>
   ))
-  .add('Body', () => (
+  .add('Text', () => (
     <div>
       <Monospaced>Monospaced</Monospaced>
       <OldStyleNumber>Old style number</OldStyleNumber>
