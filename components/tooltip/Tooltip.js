@@ -168,8 +168,6 @@ const tooltipFactory = (options = {}) => {
             position,
           };
         }
-
-        return undefined;
       }
 
       handleMouseEnter = event => {
