@@ -251,7 +251,6 @@ const tooltipFactory = (options = {}) => {
                 style={{ top, left }}
               >
                 <div className={theme.tooltipInner}>
-                  <div className={theme.tooltipArrow} />
                   {tooltipIcon && <div className={theme.tooltipIcon}>{tooltipIcon}</div>}
                   <div className={theme.tooltipText}>{tooltip}</div>
                 </div>
