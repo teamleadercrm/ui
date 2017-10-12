@@ -97,14 +97,14 @@ const tooltipFactory = (options = {}) => {
 
         if (tooltipPosition === POSITION.HORIZONTAL) {
           const origin = element.getBoundingClientRect();
-          const { width: ww } = getViewport();
-          const toRight = origin.left < ww / 2 - origin.width / 2;
+          const { width: windowWidth } = getViewport();
+          const toRight = origin.left < windowWidth / 2 - origin.width / 2;
 
           return toRight ? POSITION.RIGHT : POSITION.LEFT;
         } else if (tooltipPosition === POSITION.VERTICAL) {
           const origin = element.getBoundingClientRect();
-          const { height: wh } = getViewport();
-          const toBottom = origin.top < wh / 2 - origin.height / 2;
+          const { height: windowHeight } = getViewport();
+          const toBottom = origin.top < windowHeight / 2 - origin.height / 2;
 
           return toBottom ? POSITION.BOTTOM : POSITION.TOP;
         }
