@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import s from './theme.css';
 
-const factory = (type, defaultElement) => {
+const factory = (baseType, type, defaultElement) => {
   class Text extends PureComponent {
     static propTypes = {
       children: PropTypes.node,
@@ -32,7 +32,7 @@ const factory = (type, defaultElement) => {
       const isSoft = this.isSoft(color);
 
       const classNames = cx(
-        s['text'],
+        s[baseType],
         s[type],
         s[color],
         {
@@ -44,7 +44,7 @@ const factory = (type, defaultElement) => {
       const Element = element || defaultElement;
 
       return (
-        <Element data-teamleader-ui="text" className={classNames}>
+        <Element data-teamleader-ui={baseType} className={classNames}>
           {children}
         </Element>
       );
