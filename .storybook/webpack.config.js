@@ -1,7 +1,5 @@
-const webpack = require('webpack');
 const config = require('../config');
 const pkg = require('../package.json');
-const argv = require('yargs').argv;
 
 const globals = {
   __DEV__: config.env === 'development',
@@ -16,8 +14,6 @@ const cssModulesLoader = [
   'importLoaders=1',
   'localIdentName=[name]__[local]___[hash:base64:5]'
 ].join('&');
-
-const path = require('path');
 
 // Export a function. Accept the base config as the only param.
 module.exports = (storybookBaseConfig, configType) => {
