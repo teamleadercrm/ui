@@ -1,3 +1,4 @@
+@import '@teamleader/ui-animations';
 @import '@teamleader/ui-colors';
 @import '@teamleader/ui-typography';
 
@@ -387,10 +388,6 @@
     margin-top: calc(-.5 * var(--large-spinner-size));
     margin-left: calc(-.5 * var(--large-spinner-size));
   }
-}
-
-@keyframes spin {
-  to {transform: rotate(360deg);}
 }
 
 .spinner:before {
