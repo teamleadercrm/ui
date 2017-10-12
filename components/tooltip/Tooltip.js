@@ -222,7 +222,7 @@ const tooltipFactory = (options = {}) => {
           ...other
         } = this.props;
 
-        const _className = cx(theme.tooltip, theme[tooltipColor], theme[tooltipSize], {
+        const classNames = cx(theme.tooltip, theme[tooltipColor], theme[tooltipSize], {
           [theme.tooltipActive]: active,
           [theme[positionClass]]: theme[positionClass],
         });
@@ -248,7 +248,7 @@ const tooltipFactory = (options = {}) => {
                 ref={node => {
                   this.tooltipNode = node;
                 }}
-                className={_className}
+                className={classNames}
                 data-teamleader-ui="tooltip"
                 style={{ top, left }}
               >

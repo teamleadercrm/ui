@@ -19,12 +19,12 @@ class TooltipLabel extends PureComponent {
   render() {
     const { children, className, icon, inverse, ...others } = this.props;
 
-    const classes = cx(theme.label, className, {
+    const classNames = cx(theme.label, className, {
       [theme.inverse]: inverse,
     });
 
     return (
-      <span data-teamleader-ui="tooltip-label" className={classes} {...others}>
+      <span data-teamleader-ui="tooltip-label" className={classNames} {...others}>
         {icon}
         <OldStyleNumber>{children}</OldStyleNumber>
       </span>
