@@ -65,7 +65,7 @@ const factory = (Button, IconButton) => {
       );
 
       return (
-        <Portal className={theme.portal}>
+        <Portal>
           <div data-teamleader-ui="toast" className={className}>
             <span className={theme.label}>
               {label}
