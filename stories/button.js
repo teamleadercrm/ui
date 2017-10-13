@@ -14,8 +14,8 @@ storiesOf('Buttons', module)
   .addDecorator(styles({ ...baseStyles, ...centerStyles }))
   .add('with text', () => (
     <ButtonGroup>
-      <Button onClick={action('clicked button 1')}>button 1</Button>
-      <Button onClick={action('clicked button 2')}>button 2</Button>
+      <Button onClick={action('clicked button 1')}>Button 1</Button>
+      <Button onClick={action('clicked button 2')}>Button 2</Button>
     </ButtonGroup>
   ))
   .add('with icon', () => (
@@ -27,25 +27,25 @@ storiesOf('Buttons', module)
   .add('with text and icon', () => (
     <ButtonGroup>
       <Button icon={<IconAddMediumOutline />} onClick={action('clicked button 1')}>
-        button
+        Button
       </Button>
       <Button icon={<IconAddMediumOutline />} iconPlacement="right" onClick={action('clicked button 2')}>
-        button
+        Button
       </Button>
     </ButtonGroup>
   ))
   .add('segmented', () => (
     <ButtonGroup segmented>
       <Button icon={<IconAddMediumOutline />} onClick={action('clicked')} />
-      <Button onClick={action('clicked button 1')}>button 1</Button>
-      <Button onClick={action('clicked button 2')}>button 2</Button>
+      <Button onClick={action('clicked button 1')}>Button 1</Button>
+      <Button onClick={action('clicked button 2')}>Button 2</Button>
     </ButtonGroup>
   ))
   .add('disabled', () => (
     <ButtonGroup>
       <Button icon={<IconAddMediumOutline />} onClick={action('clicked button 1')} disabled/>
       <Button onClick={action('clicked button 2')} disabled>
-        button
+        Button
       </Button>
     </ButtonGroup>
   ))
@@ -53,30 +53,30 @@ storiesOf('Buttons', module)
     <ButtonGroup>
       <Button icon={<IconAddMediumOutline />} onClick={action('clicked button 1')} processing />
       <Button onClick={action('clicked button 2')} processing>
-        button
+        Button
       </Button>
     </ButtonGroup>
   ))
   .add('inverse', () => (
     <ButtonGroup>
       <Button onClick={action('clicked button 1')} inverse>
-        button 1
+        Button 1
       </Button>
       <Button onClick={action('clicked button 2')} inverse>
-        button 2
+        Button 2
       </Button>
     </ButtonGroup>
   ))
   .add('size', () => (
     <ButtonGroup>
       <Button onClick={action('clicked button small')} size="small">
-        button small
+        Button small
       </Button>
       <Button onClick={action('clicked button medium')} size="medium">
-        button medium
+        Button medium
       </Button>
       <Button onClick={action('clicked button large')} size="large">
-        button large
+        Button large
       </Button>
     </ButtonGroup>
   ))
