@@ -23,8 +23,10 @@ const factory = () => {
     };
 
     handleClick = event => {
-      if (this.props.onClick && !this.props.disabled) {
-        this.props.onClick(event, this);
+      const { disabled, onClick } = this.props;
+
+      if (onClick && !disabled) {
+        onClick(event, this);
       }
     };
 
