@@ -31,7 +31,7 @@ const factory = () => {
     render() {
       const { icon, caption, children, shortcut, selected, disabled, ...others } = this.props;
 
-      const className = cx(
+      const classNames = cx(
         theme.menuItem,
         {
           [theme.selected]: selected,
@@ -41,7 +41,7 @@ const factory = () => {
       );
 
       return (
-        <li {...others} data-teamleader-ui="menu-item" className={className} onClick={this.handleClick}>
+        <li {...others} data-teamleader-ui="menu-item" className={classNames} onClick={this.handleClick}>
           {icon && <span className={theme.icon}>{icon}</span>}
           <span className={theme.caption}>{caption}</span>
           {shortcut && <small className={theme.shortcut}>{shortcut}</small>}
