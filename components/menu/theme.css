@@ -4,7 +4,6 @@
 :root {
   --menu-expand-duration: 0.3s;
   --menu-fade-duration: 0.2s;
-  --menu-ripple-delay: 0.3s;
   --menu-background-color: var(--color-white);
   --menu-padding: calc(0.8 * var(--unit)) 0;
   --menu-outline-border-radius: calc(0.2 * var(--unit));
@@ -17,7 +16,6 @@
   --menu-item-font-size: calc(1.6 * var(--unit));
   --menu-divider-height: calc((2.8 / 4) * var(--unit));
   --menu-icon-size: calc(2.3 * var(--unit));
-  --menu-icon-ripple-duration: 650ms;
 }
 
 .iconMenu {
@@ -96,16 +94,6 @@
       top: 0;
     }
 
-    &.rippled:not(.active) {
-      & > .outline {
-        transition-delay: var(--menu-ripple-delay);
-      }
-
-      & > .menuInner {
-        transition-delay: var(--menu-ripple-delay);
-      }
-    }
-
     &.active {
       pointer-events: all;
 
@@ -167,10 +155,6 @@
   &.selected {
     background-color: var(--menu-item-selected-background);
     font-weight: 500;
-  }
-
-  & .ripple {
-    color: var(--color-text-secondary);
   }
 
   & .icon {
