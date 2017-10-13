@@ -57,16 +57,6 @@ storiesOf('Buttons', module)
       </Button>
     </ButtonGroup>
   ))
-  .add('inverse', () => (
-    <ButtonGroup>
-      <Button onClick={action('clicked button 1')} inverse>
-        Button 1
-      </Button>
-      <Button onClick={action('clicked button 2')} inverse>
-        Button 2
-      </Button>
-    </ButtonGroup>
-  ))
   .add('size', () => (
     <ButtonGroup>
       <Button onClick={action('clicked button small')} size="small">
@@ -92,8 +82,16 @@ storiesOf('Buttons', module)
       <Button onClick={action('clicked ouline button')} level="outline">
         Outline button
       </Button>
+      <Button onClick={action('clicked ouline inverse button')} inverse level="outline">
+        Outline inverse button
+      </Button>
       <Button onClick={action('clicked destructive button')} level="destructive">
         Destructive button
       </Button>
     </ButtonGroup>
+  ))
+  .add('inverse', () => (
+    <Button inverse level="outline" onClick={action('clicked button outline')}>
+      Button outline inverse
+    </Button>
   ));
