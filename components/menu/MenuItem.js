@@ -44,7 +44,7 @@ const factory = () => {
         <li {...others} data-teamleader-ui="menu-item" className={className} onClick={this.handleClick}>
           {icon && <span className={theme.icon}>{icon}</span>}
           <span className={theme.caption}>{caption}</span>
-          {shortcut ? <small className={theme.shortcut}>{shortcut}</small> : null}
+          {shortcut && <small className={theme.shortcut}>{shortcut}</small>}
           {children}
         </li>
       );
