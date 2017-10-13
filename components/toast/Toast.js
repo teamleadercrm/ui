@@ -54,14 +54,14 @@ const factory = (Button, IconButton) => {
     };
 
     render() {
-      const { action, active, children, label, onClick, type } = this.props;
+      const { action, active, children, className, label, onClick, type } = this.props;
 
       const classNames = cx(
         [theme.toast, theme[type]],
         {
           [theme.active]: active,
         },
-        this.props.className,
+        className,
       );
 
       return (
