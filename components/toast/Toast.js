@@ -73,7 +73,7 @@ const factory = (Button, IconButton) => {
             </span>
             {onClick ? (
               action ? (
-                <Button color="outline" className={theme.button} label={action} onClick={onClick} size="small" />
+                <Button className={theme.button} label={action} level="outline" onClick={onClick} size="small" />
               ) : (
                 <IconButton className={theme.iconButton} icon={<IconCloseMediumOutline />} inverse onClick={onClick} />
               )
