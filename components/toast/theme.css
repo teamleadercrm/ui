@@ -1,4 +1,5 @@
 @import 'colors.css';
+@import '@teamleader/ui-typography';
 @import 'variables.css';
 @import 'media.css';
 
@@ -21,6 +22,7 @@
   box-shadow: var(--snackbar-box-shadow);
   color:  var(--snackbar-color);
   display: flex;
+  font-family: var(--font-family-regular);
   font-size: var(--font-size);
   padding: var(--snackbar-padding);
   position: fixed;
