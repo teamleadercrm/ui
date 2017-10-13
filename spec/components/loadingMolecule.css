@@ -1,9 +1,0 @@
-.loading-molecule-row {
-  display: flex;
-}
-
-.loading-molecule-container {
-  height: 200px;
-  flex: 1;
-  position: relative;
-}

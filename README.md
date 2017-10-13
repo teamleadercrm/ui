@@ -35,7 +35,7 @@ To start the spec site locally, follow these simple steps:
 $ git clone https://github.com/teamleadercrm/teamleader-ui
 $ cd teamleader-ui/
 $ npm i
-$ npm start
+$ npm start -- --port 3000
 ```
 
 Open up a browser and the local spec will be available at [http://localhost:3000/](http://localhost:3000/).
