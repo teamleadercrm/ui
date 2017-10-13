@@ -4,42 +4,42 @@
 @import 'media.css';
 
 :root {
-  --snackbar-background-color: var(--color-secondary);
-  --snackbar-border-radius: calc(0.4 * var(--unit));
-  --snackbar-box-shadow: 0 0 10px 0 rgba(0, 0, 0, .2);
-  --snackbar-color-cancel: var(--palette-red);
-  --snackbar-color-accept: var(--palette-green);
-  --snackbar-color-warning: var(--palette-orange);
-  --snackbar-color: var(--color-white);
-  --snackbar-padding: calc(1.2 * var(--unit)) calc(2 * var(--unit));
+  --toast-background-color: var(--color-secondary);
+  --toast-border-radius: calc(0.4 * var(--unit));
+  --toast-box-shadow: 0 0 10px 0 rgba(0, 0, 0, .2);
+  --toast-color-cancel: var(--palette-red);
+  --toast-color-accept: var(--palette-green);
+  --toast-color-warning: var(--palette-orange);
+  --toast-color: var(--color-white);
+  --toast-padding: calc(1.2 * var(--unit)) calc(2 * var(--unit));
 }
 
 .toast {
   align-items: center;
-  border-radius: var(--snackbar-border-radius);
-  background-color: var(--snackbar-background-color);
+  border-radius: var(--toast-border-radius);
+  background-color: var(--toast-background-color);
   bottom: 30px;
-  box-shadow: var(--snackbar-box-shadow);
-  color:  var(--snackbar-color);
+  box-shadow: var(--toast-box-shadow);
+  color:  var(--toast-color);
   display: flex;
   font-family: var(--font-family-regular);
   font-size: var(--font-size);
-  padding: var(--snackbar-padding);
+  padding: var(--toast-padding);
   position: fixed;
   right: 30px;
   transition: all var(--animation-duration) var(--animation-curve-default) var(--animation-duration);
   z-index: var(--z-index-high);
 
   &.accept .button {
-    color: var(--snackbar-color-accept);
+    color: var(--toast-color-accept);
   }
 
   &.warning .button {
-    color: var(--snackbar-color-warning);
+    color: var(--toast-color-warning);
   }
 
   &.cancel .button {
-    color: var(--snackbar-color-cancel);
+    color: var(--toast-color-cancel);
   }
 
   &:not(.active) {
@@ -59,14 +59,14 @@
 }
 
 .iconButton {
-  color: var(--snackbar-color);
+  color: var(--toast-color);
 
   > span {
     font-size: 14px !important;
   }
 
   &:hover {
-    color: var(--snackbar-color) !important;
+    color: var(--toast-color) !important;
   }
 }
 
