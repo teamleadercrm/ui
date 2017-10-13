@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import FontIcon from '../font_icon/FontIcon.js';
 import theme from './theme.css';
 
 const factory = () => {
@@ -43,7 +42,7 @@ const factory = () => {
 
       return (
         <li {...others} data-teamleader-ui="menu-item" className={className} onClick={this.handleClick}>
-          {icon ? <FontIcon value={icon} className={theme.icon} /> : null}
+          {icon && <span className={theme.icon}>{icon}</span>}
           <span className={theme.caption}>{caption}</span>
           {shortcut ? <small className={theme.shortcut}>{shortcut}</small> : null}
           {children}

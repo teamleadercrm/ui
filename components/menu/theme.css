@@ -1,4 +1,5 @@
 @import 'colors.css';
+@import '@teamleader/ui-utilities';
 @import 'variables.css';
 
 :root {
@@ -157,9 +158,18 @@
     font-weight: 500;
   }
 
-  & .icon {
-    font-size: var(--menu-item-icon-font-size);
-    width: var(--menu-item-icon-size);
+  .icon {
+    margin-right: var(--spacer-small);
+  }
+
+  svg {
+    color: inherit;
+    fill: currentColor;
+    -ms-transform: translateY(-1px);
+
+    * {
+      fill: currentColor;
+    }
   }
 }
 
