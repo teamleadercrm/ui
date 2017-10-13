@@ -56,7 +56,7 @@ const factory = (Button, IconButton) => {
     render() {
       const { action, active, children, label, onClick, type } = this.props;
 
-      const className = cx(
+      const classNames = cx(
         [theme.toast, theme[type]],
         {
           [theme.active]: active,
@@ -66,7 +66,7 @@ const factory = (Button, IconButton) => {
 
       return (
         <Portal>
-          <div data-teamleader-ui="toast" className={className}>
+          <div data-teamleader-ui="toast" className={classNames}>
             <span className={theme.label}>
               {label}
               {children}
