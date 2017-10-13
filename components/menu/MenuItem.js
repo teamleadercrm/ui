@@ -29,7 +29,7 @@ const factory = () => {
     };
 
     render() {
-      const { icon, caption, children, shortcut, selected, disabled, ...others } = this.props;
+      const { icon, caption, children, className, shortcut, selected, disabled, ...others } = this.props;
 
       const classNames = cx(
         theme.menuItem,
@@ -37,7 +37,7 @@ const factory = () => {
           [theme.selected]: selected,
           [theme.disabled]: disabled,
         },
-        this.props.className,
+        className,
       );
 
       return (
