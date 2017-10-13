@@ -1,22 +1,4 @@
 :root {
-  --color-divider: var(--palette-grey-200);
-  --color-background: var(--color-white);
-  --color-text: var(--palette-bluewood-lighter);
-  --color-text-secondary: var(--palette-bluewood-lighter);
-
-  --color-primary: var(--palette-teal);
-  --color-primary-dark: var(--palette-teal-darker);
-  --color-secondary: var(--palette-bluewood);
-
-  --color-primary-contrast: var(--color-dark-contrast);
-
-  /* Functional */
-  --color-danger: var(--palette-red);
-  --color-warning: var(--palette-orange);
-  --color-valid: var(--palette-green);
-  --color-information: var(--palette-blue-lighter);
-
-
   --unit: 10px;
 
   --preferred-font: 'proximanova', trebuchet ms, Verdana, 'Arial', sans-serif;

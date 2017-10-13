@@ -1,14 +1,14 @@
-@import 'colors.css';
+@import '@teamleader/ui-colors';
 @import 'variables.css';
 @import 'media.css';
 
 :root {
-  --snackbar-background-color: var(--color-secondary);
+  --snackbar-background-color: var(--color-teal-darkest);
   --snackbar-border-radius: calc(0.4 * var(--unit));
   --snackbar-box-shadow: 0 0 10px 0 rgba(0, 0, 0, .2);
-  --snackbar-color-cancel: var(--palette-red);
-  --snackbar-color-accept: var(--palette-green);
-  --snackbar-color-warning: var(--palette-orange);
+  --snackbar-color-cancel: var(--color-ruby-darkest);
+  --snackbar-color-accept: var(--color-mint-dark);
+  --snackbar-color-warning: var(--color-gold-dark);
   --snackbar-color: var(--color-white);
   --snackbar-padding: calc(1.2 * var(--unit)) calc(2 * var(--unit));
 }
