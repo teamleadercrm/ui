@@ -20,40 +20,30 @@ storiesOf('Buttons', module)
   ))
   .add('with icon', () => (
     <ButtonGroup>
-      <Button onClick={action('clicked button 1')}>
-        <IconAddMediumOutline />
-      </Button>
-      <Button onClick={action('clicked button 2')}>
-        <IconMagicMediumOutline />
-      </Button>
+      <Button icon={<IconAddMediumOutline />} onClick={action('clicked button 1')} />
+      <Button icon={<IconMagicMediumOutline />} onClick={action('clicked button 2')} />
     </ButtonGroup>
   ))
   .add('with text and icon', () => (
     <ButtonGroup>
-      <Button onClick={action('clicked button 1')}>
-        <IconAddMediumOutline />
+      <Button icon={<IconAddMediumOutline />} onClick={action('clicked button 1')}>
         button
       </Button>
-      <Button onClick={action('clicked button 2')}>
+      <Button icon={<IconAddMediumOutline />} onClick={action('clicked button 2')}>
         button
-        <IconAddMediumOutline />
       </Button>
     </ButtonGroup>
   ))
   .add('segmented', () => (
     <ButtonGroup segmented>
-      <Button onClick={action('clicked')}>
-        <IconAddMediumOutline />
-      </Button>
+      <Button icon={<IconAddMediumOutline />} onClick={action('clicked')} />
       <Button onClick={action('clicked button 1')}>button 1</Button>
       <Button onClick={action('clicked button 2')}>button 2</Button>
     </ButtonGroup>
   ))
   .add('disabled', () => (
     <ButtonGroup>
-      <Button onClick={action('clicked button 1')} disabled>
-        <IconAddMediumOutline />
-      </Button>
+      <Button icon={<IconAddMediumOutline />} onClick={action('clicked button 1')} disabled/>
       <Button onClick={action('clicked button 2')} disabled>
         button
       </Button>
@@ -61,9 +51,7 @@ storiesOf('Buttons', module)
   ))
   .add('processing', () => (
     <ButtonGroup>
-      <Button onClick={action('clicked button 1')} processing>
-        <IconAddMediumOutline />
-      </Button>
+      <Button icon={<IconAddMediumOutline />} onClick={action('clicked button 1')} processing />
       <Button onClick={action('clicked button 2')} processing>
         button
       </Button>
@@ -93,7 +81,7 @@ storiesOf('Buttons', module)
     </ButtonGroup>
   ))
   .addDecorator(styles({ background: '#d3d1fe' }))
-  .add('themes', () => (
+  .add('level', () => (
     <ButtonGroup>
       <Button onClick={action('clicked primary button')} level="primary">
         Primary button
