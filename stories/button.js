@@ -29,7 +29,7 @@ storiesOf('Buttons', module)
       <Button icon={<IconAddMediumOutline />} onClick={action('clicked button 1')}>
         button
       </Button>
-      <Button icon={<IconAddMediumOutline />} onClick={action('clicked button 2')}>
+      <Button icon={<IconAddMediumOutline />} iconPlacement="right" onClick={action('clicked button 2')}>
         button
       </Button>
     </ButtonGroup>
