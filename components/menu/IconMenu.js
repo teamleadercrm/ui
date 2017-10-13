@@ -59,7 +59,7 @@ const factory = (IconButton, Menu) => {
         ...other
       } = this.props;
 
-      const buttonIcon = icon ? icon : <IconMoreMediumOutline />;
+      const buttonIcon = icon || <IconMoreMediumOutline />;
 
       return (
         <div data-teamleader-ui="icon-menu" {...other} className={cx(theme.iconMenu, className)}>
