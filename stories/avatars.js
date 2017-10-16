@@ -4,8 +4,7 @@ import { action } from '@storybook/addon-actions';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import styles from '@sambego/storybook-styles';
-import Avatar, { AvatarStack } from '../components/avatar';
-import Counter from '../components/counter';
+import { Avatar, AvatarStack, Counter } from '../components';
 import { baseStyles, centerStyles } from '../.storybook/styles';
 
 import Image1 from '../static/avatars/1.png';
