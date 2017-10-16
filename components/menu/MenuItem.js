@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import FontIcon from '../font_icon/FontIcon.js';
 import theme from './theme.css';
 
 const factory = () => {
@@ -24,28 +23,30 @@ const factory = () => {
     };
 
     handleClick = event => {
-      if (this.props.onClick && !this.props.disabled) {
-        this.props.onClick(event, this);
+      const { disabled, onClick } = this.props;
+
+      if (onClick && !disabled) {
+        onClick(event, this);
       }
     };
 
     render() {
-      const { icon, caption, children, shortcut, selected, disabled, ...others } = this.props;
+      const { icon, caption, children, className, shortcut, selected, disabled, ...others } = this.props;
 
-      const className = cx(
+      const classNames = cx(
         theme.menuItem,
         {
           [theme.selected]: selected,
           [theme.disabled]: disabled,
         },
-        this.props.className,
+        className,
       );
 
       return (
-        <li {...others} data-teamleader-ui="menu-item" className={className} onClick={this.handleClick}>
-          {icon ? <FontIcon value={icon} className={theme.icon} /> : null}
+        <li {...others} data-teamleader-ui="menu-item" className={classNames} onClick={this.handleClick}>
+          {icon && <span className={theme.icon}>{icon}</span>}
           <span className={theme.caption}>{caption}</span>
-          {shortcut ? <small className={theme.shortcut}>{shortcut}</small> : null}
+          {shortcut && <small className={theme.shortcut}>{shortcut}</small>}
           {children}
         </li>
       );

@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import { IconMoreMediumOutline } from '@teamleader/ui-icons';
 import InjectIconButton from '../button/IconButton.js';
 import InjectMenu from './Menu.js';
 import theme from './theme.css';
@@ -22,7 +23,6 @@ const factory = (IconButton, Menu) => {
 
     static defaultProps = {
       className: '',
-      icon: 'more_vert',
       position: 'auto',
       selectable: false,
     };
@@ -47,7 +47,10 @@ const factory = (IconButton, Menu) => {
 
     render() {
       const {
-        children, className, icon, onHide, // eslint-disable-line
+        children,
+        className,
+        icon,
+        onHide, // eslint-disable-line
         onSelect,
         onShow,
         position,
@@ -56,9 +59,11 @@ const factory = (IconButton, Menu) => {
         ...other
       } = this.props;
 
+      const buttonIcon = icon || <IconMoreMediumOutline />;
+
       return (
         <div data-teamleader-ui="icon-menu" {...other} className={cx(theme.iconMenu, className)}>
-          <IconButton className={theme.icon} icon={icon} onClick={this.handleButtonClick} />
+          <IconButton className={theme.icon} icon={buttonIcon} onClick={this.handleButtonClick} />
           <Menu
             active={this.state.active}
             onHide={this.handleMenuHide}
