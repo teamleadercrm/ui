@@ -30,8 +30,6 @@ const avatars = [
   { image: Image2, count: 0, color: 'ruby' },
 ];
 
-const colors = ['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua'];
-
 storiesOf('Avatars', module)
   .addDecorator((story, context) => withInfo('common info')(story)(context))
   .addDecorator(checkA11y)
