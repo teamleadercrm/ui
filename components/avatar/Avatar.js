@@ -14,7 +14,7 @@ class Avatar extends PureComponent {
   };
 
   static defaultProps = {
-    borderColor: 'white',
+    borderColor: 'neutral',
     size: 'medium',
   };
 
