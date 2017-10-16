@@ -16,8 +16,6 @@ import Image5 from '../static/avatars/5.png';
 import Image6 from '../static/avatars/6.png';
 import Image7 from '../static/avatars/7.png';
 import Image8 from '../static/avatars/8.png';
-import Image9 from '../static/avatars/9.png';
-import Image10 from '../static/avatars/10.png';
 
 const avatars = [
   { image: Image1, count: 21, color: 'ruby', maxCount: 20 },
@@ -28,8 +26,8 @@ const avatars = [
   { image: Image6, count: 4, color: 'ruby' },
   { image: Image7, count: 5, color: 'neutral', inactive: true },
   { image: Image8, count: 2, color: 'neutral', inactive: true },
-  { image: Image9, count: 8, color: 'ruby' },
-  { image: Image10, count: 0, color: 'ruby' },
+  { image: Image1, count: 8, color: 'ruby' },
+  { image: Image2, count: 0, color: 'ruby' },
 ];
 
 const colors = ['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua'];
