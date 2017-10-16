@@ -92,7 +92,7 @@
   padding: var(--popover-body-padding);
   position: relative;
 
-  & p {
+  p {
     font-size: calc(1.4 * var(--unit));
     font-weight: var(--font-weight-normal);
     letter-spacing: 0;

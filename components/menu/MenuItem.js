@@ -11,10 +11,7 @@ const factory = () => {
       children: PropTypes.any,
       className: PropTypes.string,
       disabled: PropTypes.bool,
-      icon: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.element,
-      ]),
+      icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
       onClick: PropTypes.func,
       selected: PropTypes.bool,
       shortcut: PropTypes.string,
@@ -26,22 +23,14 @@ const factory = () => {
       selected: false,
     };
 
-    handleClick = (event) => {
+    handleClick = event => {
       if (this.props.onClick && !this.props.disabled) {
         this.props.onClick(event, this);
       }
     };
 
-    render () {
-      const {
-        icon,
-        caption,
-        children,
-        shortcut,
-        selected,
-        disabled,
-        ...others
-      } = this.props;
+    render() {
+      const { icon, caption, children, shortcut, selected, disabled, ...others } = this.props;
 
       const className = cx(
         theme.menuItem,
@@ -49,7 +38,7 @@ const factory = () => {
           [theme.selected]: selected,
           [theme.disabled]: disabled,
         },
-        this.props.className
+        this.props.className,
       );
 
       return (
@@ -69,7 +58,4 @@ const factory = () => {
 const MenuItem = factory();
 
 export default MenuItem;
-export {
-  factory as menuItemFactory,
-  MenuItem,
-};
+export { factory as menuItemFactory, MenuItem };

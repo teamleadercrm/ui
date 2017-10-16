@@ -3,8 +3,6 @@
 @import '@teamleader/ui-utilities';
 
 .label {
-  background: var(--background-color);
-  color: var(--text-color);
   display: inline-block;
   font-family: var(--font-family-semi-bold);
   font-weight: 500;
@@ -13,33 +11,33 @@
 }
 
 .neutral {
-  --background-color: var(--color-teal-light);
-  --text-color: var(--color-teal-darkest);
+  background-color: var(--color-teal-light);
+  color: var(--color-teal-darkest);
 }
 
 .mint {
-  --background-color: var(--color-mint-lightest);
-  --text-color: var(--color-mint-darkest);
+  background-color: var(--color-mint-lightest);
+  color: var(--color-mint-darkest);
 }
 
 .violet {
-  --background-color: var(--color-violet-light);
-  --text-color: var(--color-violet-darkest);
+  background-color: var(--color-violet-light);
+  color: var(--color-violet-darkest);
 }
 
 .ruby {
-  --background-color: var(--color-ruby-light);
-  --text-color: var(--color-ruby-darkest);
+  background-color: var(--color-ruby-light);
+  color: var(--color-ruby-darkest);
 }
 
 .gold {
-  --background-color: var(--color-gold-light);
-  --text-color: var(--color-gold-darkest);
+  background-color: var(--color-gold-light);
+  color: var(--color-gold-darkest);
 }
 
 .aqua {
-  --background-color: var(--color-aqua-light);
-  --text-color: var(--color-aqua-darkest);
+  background-color: var(--color-aqua-light);
+  color: var(--color-aqua-darkest);
 }
 
 .medium {

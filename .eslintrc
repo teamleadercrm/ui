@@ -2,12 +2,15 @@
   "parser"  : "babel-eslint",
   "extends" : [
     "standard",
-    "standard-react"
+    "standard-react",
+    "prettier",
+    "prettier/react"
   ],
   "plugins": [
     "babel",
     "react",
-    "promise"
+    "promise",
+    "prettier"
   ],
   "env"     : {
     "browser" : true
@@ -21,19 +24,15 @@
     "__VERSION__"  : false
   },
   "rules": {
-    "key-spacing"                  : 0,
-    "comma-dangle"                 : ["error", "always-multiline"],
-    "semi"                         : [2, "always"],
-    "curly"                        : [2, "all"],
-    "brace-style"                  : [2, "1tbs", {}],
-    "jsx-quotes"                   : [2, "prefer-double"],
-    "max-len"                      : [2, 120, 2],
-    "space-before-function-paren"  : ["error", "always"],
-    "array-bracket-spacing"        : ["error", "always"],
-    "object-curly-spacing"         : ["error", "always"],
-    "no-tabs"                      : 0,
-    "indent"                       : [2, 2],
-    "react/jsx-indent"             : [2, 2],
-    "react/jsx-indent-props"       : [2, 2]
+    "prettier/prettier": ["error", {
+      "printWidth": 120,
+      "singleQuote": true,
+      "trailingComma": "all"
+    }],
+    "prefer-const": ["error", {
+      "destructuring": "any",
+      "ignoreReadBeforeAssign": false
+    }],
+    "curly": ["error", "all"]
   }
 }

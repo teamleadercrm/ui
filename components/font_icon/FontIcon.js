@@ -16,10 +16,7 @@ const FontIcon = ({ children, className, value, ...other }) => (
 FontIcon.propTypes = {
   children: PropTypes.any,
   className: PropTypes.string,
-  value: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.element,
-  ]),
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 };
 
 FontIcon.defaultProps = {

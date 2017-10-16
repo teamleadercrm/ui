@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-const ActivableRendererFactory = (options = { delay: 500 }) =>
-  ActivableComponent => class ActivableRenderer extends Component {
+const ActivableRendererFactory = (options = { delay: 500 }) => ActivableComponent =>
+  class ActivableRenderer extends Component {
     static propTypes = {
       active: PropTypes.bool.isRequired,
       children: PropTypes.node,
@@ -11,14 +11,14 @@ const ActivableRendererFactory = (options = { delay: 500 }) =>
 
     static defaultProps = {
       delay: options.delay,
-    }
+    };
 
     state = {
       active: this.props.active,
       rendered: this.props.active,
     };
 
-    componentWillReceiveProps (nextProps) {
+    componentWillReceiveProps(nextProps) {
       if (nextProps.active && !this.props.active) {
         this.renderAndActivate();
       }
@@ -27,12 +27,12 @@ const ActivableRendererFactory = (options = { delay: 500 }) =>
       }
     }
 
-    componentWillUnmount () {
+    componentWillUnmount() {
       clearTimeout(this.activateTimeout);
       clearTimeout(this.unrenderTimeout);
     }
 
-    renderAndActivate () {
+    renderAndActivate() {
       if (this.unrenderTimeout) {
         clearTimeout(this.unrenderTimeout);
       }
@@ -41,7 +41,7 @@ const ActivableRendererFactory = (options = { delay: 500 }) =>
       });
     }
 
-    deactivateAndUnrender () {
+    deactivateAndUnrender() {
       this.setState({ rendered: true, active: false }, () => {
         this.unrenderTimeout = setTimeout(() => {
           this.setState({ rendered: false });
@@ -50,12 +50,10 @@ const ActivableRendererFactory = (options = { delay: 500 }) =>
       });
     }
 
-    render () {
+    render() {
       const { delay, ...others } = this.props; // eslint-disable-line no-unused-vars
       const { active, rendered } = this.state;
-      return rendered
-        ? <ActivableComponent {...others} active={active} />
-        : null;
+      return rendered ? <ActivableComponent {...others} active={active} /> : null;
     }
   };
 
