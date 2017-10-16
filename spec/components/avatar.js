@@ -23,23 +23,23 @@ class AvatarTest extends PureComponent {
     size: 'medium',
   };
 
-  handleSizeChange = (value) => {
+  handleSizeChange = value => {
     this.setState({ size: value });
   };
 
-  handleDirectionChange = (value) => {
+  handleDirectionChange = value => {
     this.setState({ direction: value });
   };
 
-  handleDisplayMaxChange = (event) => {
+  handleDisplayMaxChange = event => {
     this.setState({ displayMax: parseInt(event.target.value) });
   };
 
-  handleInverseChange = (value) => {
+  handleInverseChange = value => {
     this.setState({ inverse: value });
   };
 
-  handlePreviewBackgroundChange = (event) => {
+  handlePreviewBackgroundChange = event => {
     if (event.target.value === 'tealdark') {
       this.setState({ previewBackgroundColor: event.target.value, inverse: true });
     } else {
@@ -47,18 +47,20 @@ class AvatarTest extends PureComponent {
     }
   };
 
-  render () {
+  render() {
     return (
       <article>
         <Section color="neutral" dark>
           <Heading1>Avatars</Heading1>
           <label>Preview background color: </label>
           <select value={this.state.previewBackgroundColor} onChange={this.handlePreviewBackgroundChange}>
-            {
-              previewBackgroundColors.map((color, index) => {
-                return <option key={`color${index}`} value={color.key}>{color.label}</option>;
-              })
-            }
+            {previewBackgroundColors.map((color, index) => {
+              return (
+                <option key={`color${index}`} value={color.key}>
+                  {color.label}
+                </option>
+              );
+            })}
           </select>
         </Section>
 
@@ -74,9 +76,11 @@ class AvatarTest extends PureComponent {
 
             <Heading4>Max items to display</Heading4>
             <select name="displayMax" value={this.state.displayMax} onChange={this.handleDisplayMaxChange}>
-              {
-                avatars.map((avatar, index) => <option key={`option${index}`} value={index + 1}>{index + 1}</option>)
-              }
+              {avatars.map((avatar, index) => (
+                <option key={`option${index}`} value={index + 1}>
+                  {index + 1}
+                </option>
+              ))}
             </select>
 
             <Heading4>Inverse color</Heading4>
@@ -95,22 +99,13 @@ class AvatarTest extends PureComponent {
           </div>
           <div className={cx(s['preview'], s[this.state.previewBackgroundColor])}>
             <p>
-              <Avatar
-                borderColor={this.state.previewBackgroundColor}
-                image={avatars[0].image}
-                size={this.state.size}
-              />
+              <Avatar borderColor={this.state.previewBackgroundColor} image={avatars[0].image} size={this.state.size} />
             </p>
 
             <p>
               <Avatar
                 borderColor={this.state.previewBackgroundColor}
-                counter={
-                  <Counter
-                    borderColor={this.state.previewBackgroundColor}
-                    color="ruby"
-                  />
-                }
+                counter={<Counter borderColor={this.state.previewBackgroundColor} color="ruby" />}
                 image={avatars[0].image}
                 size={this.state.size}
               />
@@ -139,9 +134,8 @@ class AvatarTest extends PureComponent {
                 inverse={this.state.inverse}
                 onOverflowClick={() => console.log('clicked on AvatarStack overflow')}
                 size={this.state.size}
-            >
-                {
-                avatars.map(({ image, count, color, inactive, maxCount }, index) => (
+              >
+                {avatars.map(({ image, count, color, inactive, maxCount }, index) => (
                   <Avatar
                     borderColor={this.state.previewBackgroundColor}
                     counter={
@@ -158,8 +152,7 @@ class AvatarTest extends PureComponent {
                     image={image}
                     size={this.state.size}
                   />
-                ))
-              }
+                ))}
               </AvatarStack>
             </p>
 
@@ -170,9 +163,8 @@ class AvatarTest extends PureComponent {
                 inverse={this.state.inverse}
                 onOverflowClick={() => console.log('clicked on AvatarStack overflow')}
                 size={this.state.size}
-            >
-                {
-                avatars.map(({ image, color, inactive }, index) => (
+              >
+                {avatars.map(({ image, color, inactive }, index) => (
                   <Avatar
                     borderColor={this.state.previewBackgroundColor}
                     counter={
@@ -187,8 +179,7 @@ class AvatarTest extends PureComponent {
                     image={image}
                     size={this.state.size}
                   />
-                ))
-              }
+                ))}
               </AvatarStack>
             </p>
           </div>

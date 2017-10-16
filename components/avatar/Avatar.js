@@ -5,11 +5,11 @@ import theme from './theme.css';
 
 class Avatar extends PureComponent {
   static propTypes = {
-    borderColor: PropTypes.oneOf([ 'neutral', 'mint', 'aqua', 'violet', 'teal', 'gold', 'ruby', 'tealdark' ]),
+    borderColor: PropTypes.oneOf(['neutral', 'mint', 'aqua', 'violet', 'teal', 'gold', 'ruby', 'tealdark']),
     className: PropTypes.string,
     counter: PropTypes.element,
     image: PropTypes.string,
-    size: PropTypes.oneOf([ 'tiny', 'small', 'medium' ]),
+    size: PropTypes.oneOf(['tiny', 'small', 'medium']),
   };
 
   static defaultProps = {
@@ -17,33 +17,19 @@ class Avatar extends PureComponent {
     size: 'medium',
   };
 
-  render () {
-    const {
-      borderColor,
-      className,
-      counter,
-      image,
-      size,
-      ...others
-    } = this.props;
+  render() {
+    const { borderColor, className, counter, image, size, ...others } = this.props;
 
-    const avatarClasses = cx(
-      theme.avatar,
-      theme[size],
-      className,
-    );
+    const avatarClasses = cx(theme.avatar, theme[size], className);
 
-    const imageClasses = cx(
-      theme.image,
-      theme[`border-${borderColor}`],
-    );
+    const imageClasses = cx(theme.image, theme[`border-${borderColor}`]);
 
     return (
       <div className={avatarClasses} {...others} data-teamleader-ui="avatar">
         <div className={imageClasses}>
           <img src={image} />
         </div>
-        { counter && <div className={theme.counter}>{counter}</div> }
+        {counter && <div className={theme.counter}>{counter}</div>}
       </div>
     );
   }
