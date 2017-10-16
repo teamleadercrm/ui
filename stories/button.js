@@ -14,86 +14,64 @@ storiesOf('Buttons', module)
   .addDecorator(styles({ ...baseStyles, ...centerStyles }))
   .add('with text', () => (
     <ButtonGroup>
-      <Button onClick={action('clicked button 1')}>button 1</Button>
-      <Button onClick={action('clicked button 2')}>button 2</Button>
+      <Button onClick={action('clicked button 1')}>Button 1</Button>
+      <Button onClick={action('clicked button 2')}>Button 2</Button>
     </ButtonGroup>
   ))
   .add('with icon', () => (
     <ButtonGroup>
-      <Button onClick={action('clicked button 1')}>
-        <IconAddMediumOutline />
-      </Button>
-      <Button onClick={action('clicked button 2')}>
-        <IconMagicMediumOutline />
-      </Button>
+      <Button icon={<IconAddMediumOutline />} onClick={action('clicked button 1')} />
+      <Button icon={<IconMagicMediumOutline />} onClick={action('clicked button 2')} />
     </ButtonGroup>
   ))
   .add('with text and icon', () => (
     <ButtonGroup>
-      <Button onClick={action('clicked button 1')}>
-        <IconAddMediumOutline />
-        button
+      <Button icon={<IconAddMediumOutline />} onClick={action('clicked button 1')}>
+        Button
       </Button>
-      <Button onClick={action('clicked button 2')}>
-        button
-        <IconAddMediumOutline />
+      <Button icon={<IconAddMediumOutline />} iconPlacement="right" onClick={action('clicked button 2')}>
+        Button
       </Button>
     </ButtonGroup>
   ))
   .add('segmented', () => (
     <ButtonGroup segmented>
-      <Button onClick={action('clicked')}>
-        <IconAddMediumOutline />
-      </Button>
-      <Button onClick={action('clicked button 1')}>button 1</Button>
-      <Button onClick={action('clicked button 2')}>button 2</Button>
+      <Button icon={<IconAddMediumOutline />} onClick={action('clicked')} />
+      <Button onClick={action('clicked button 1')}>Button 1</Button>
+      <Button onClick={action('clicked button 2')}>Button 2</Button>
     </ButtonGroup>
   ))
   .add('disabled', () => (
     <ButtonGroup>
-      <Button onClick={action('clicked button 1')} disabled>
-        <IconAddMediumOutline />
-      </Button>
+      <Button icon={<IconAddMediumOutline />} onClick={action('clicked button 1')} disabled/>
       <Button onClick={action('clicked button 2')} disabled>
-        button
+        Button
       </Button>
     </ButtonGroup>
   ))
   .add('processing', () => (
     <ButtonGroup>
-      <Button onClick={action('clicked button 1')} processing>
-        <IconAddMediumOutline />
-      </Button>
+      <Button icon={<IconAddMediumOutline />} onClick={action('clicked button 1')} processing />
       <Button onClick={action('clicked button 2')} processing>
-        button
-      </Button>
-    </ButtonGroup>
-  ))
-  .add('inverse', () => (
-    <ButtonGroup>
-      <Button onClick={action('clicked button 1')} inverse>
-        button 1
-      </Button>
-      <Button onClick={action('clicked button 2')} inverse>
-        button 2
+        Button
       </Button>
     </ButtonGroup>
   ))
   .add('size', () => (
     <ButtonGroup>
       <Button onClick={action('clicked button small')} size="small">
-        button small
+        Button small
       </Button>
       <Button onClick={action('clicked button medium')} size="medium">
-        button medium
+        Button medium
       </Button>
       <Button onClick={action('clicked button large')} size="large">
-        button large
+        Button large
       </Button>
     </ButtonGroup>
   ))
   .addDecorator(styles({ background: '#d3d1fe' }))
-  .add('themes', () => (
+  .add('level', () => (
     <ButtonGroup>
       <Button onClick={action('clicked primary button')} level="primary">
         Primary button
@@ -104,8 +82,16 @@ storiesOf('Buttons', module)
       <Button onClick={action('clicked ouline button')} level="outline">
         Outline button
       </Button>
+      <Button onClick={action('clicked ouline inverse button')} inverse level="outline">
+        Outline inverse button
+      </Button>
       <Button onClick={action('clicked destructive button')} level="destructive">
         Destructive button
       </Button>
     </ButtonGroup>
+  ))
+  .add('inverse', () => (
+    <Button inverse level="outline" onClick={action('clicked button outline')}>
+      Button outline inverse
+    </Button>
   ));
