@@ -1,1 +1,38 @@
+@import '@teamleader/ui-colors';
 @import '@teamleader/ui-typography';
+
+.aqua {
+  color: var(--color-aqua-darkest);
+}
+
+.gold {
+  color: var(--color-gold-darkest);
+}
+
+.neutral {
+  color: var(--color-neutral-darkest);
+}
+
+.mint {
+  color: var(--color-mint-darkest);
+}
+
+.ruby {
+  color: var(--color-ruby-darkest);
+}
+
+.teal {
+  color: var(--color-teal-darkest);
+}
+
+.violet {
+  color: var(--color-violet-darkest);
+}
+
+.white {
+  color: var(--color-white);
+
+  &.soft {
+    color: var(--color-teal-light);
+  }
+}
