@@ -92,7 +92,6 @@ storiesOf('Buttons', module)
       </Button>
     </ButtonGroup>
   ))
-  .addDecorator(styles({ background: '#d3d1fe' }))
   .add('themes', () => (
     <ButtonGroup>
       <Button onClick={action('clicked primary button')} level="primary">
