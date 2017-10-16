@@ -10,20 +10,14 @@ class RadioButton extends PureComponent {
     children: PropTypes.node,
     className: PropTypes.string,
     disabled: PropTypes.bool,
-    label: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.node,
-    ]),
+    label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
     name: PropTypes.string,
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
     onMouseEnter: PropTypes.func,
     onMouseLeave: PropTypes.func,
-    value: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.bool,
-    ]),
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   };
 
   static defaultProps = {
@@ -32,7 +26,7 @@ class RadioButton extends PureComponent {
     disabled: false,
   };
 
-  handleClick = (event) => {
+  handleClick = event => {
     const { checked, disabled, onChange } = this.props;
 
     if (event.pageX !== 0 && event.pageY !== 0) {
@@ -43,19 +37,19 @@ class RadioButton extends PureComponent {
     }
   };
 
-  blur () {
+  blur() {
     if (this.inputNode) {
       this.inputNode.blur();
     }
   }
 
-  focus () {
+  focus() {
     if (this.inputNode) {
       this.inputNode.focus();
     }
   }
 
-  render () {
+  render() {
     const {
       checked,
       children,
@@ -84,7 +78,7 @@ class RadioButton extends PureComponent {
           name={name}
           onChange={() => {}}
           onClick={this.handleClick}
-          ref={(node) => {
+          ref={node => {
             this.inputNode = node;
           }}
           type="radio"

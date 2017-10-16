@@ -1,48 +1,48 @@
 export default {
-  getMousePosition (event) {
+  getMousePosition(event) {
     return {
       x: event.pageX - (window.scrollX || window.pageXOffset),
       y: event.pageY - (window.scrollY || window.pageYOffset),
     };
   },
 
-  getTouchPosition (event) {
+  getTouchPosition(event) {
     return {
       x: event.touches[0].pageX - (window.scrollX || window.pageXOffset),
       y: event.touches[0].pageY - (window.scrollY || window.pageYOffset),
     };
   },
 
-  pauseEvent (event) {
+  pauseEvent(event) {
     event.stopPropagation();
     event.preventDefault();
   },
 
-  addEventsToDocument (eventMap) {
+  addEventsToDocument(eventMap) {
     for (const key in eventMap) {
       document.addEventListener(key, eventMap[key], false);
     }
   },
 
-  removeEventsFromDocument (eventMap) {
+  removeEventsFromDocument(eventMap) {
     for (const key in eventMap) {
       document.removeEventListener(key, eventMap[key], false);
     }
   },
 
-  addEventsToWindow (eventMap) {
+  addEventsToWindow(eventMap) {
     for (const key in eventMap) {
       window.addEventListener(key, eventMap[key], false);
     }
   },
 
-  removeEventsFromWindow (eventMap) {
+  removeEventsFromWindow(eventMap) {
     for (const key in eventMap) {
       window.removeEventListener(key, eventMap[key], false);
     }
   },
 
-  targetIsDescendant (event, parent) {
+  targetIsDescendant(event, parent) {
     let node = event.target;
     while (node !== null) {
       if (node === parent) {
@@ -53,7 +53,7 @@ export default {
     return false;
   },
 
-  addEventListenerOnTransitionEnded (element, fn) {
+  addEventListenerOnTransitionEnded(element, fn) {
     const eventName = transitionEventNamesFor(element);
     if (!eventName) {
       return false;
@@ -62,7 +62,7 @@ export default {
     return true;
   },
 
-  removeEventListenerOnTransitionEnded (element, fn) {
+  removeEventListenerOnTransitionEnded(element, fn) {
     const eventName = transitionEventNamesFor(element);
     if (!eventName) {
       return false;
@@ -73,13 +73,13 @@ export default {
 };
 
 const TRANSITIONS = {
-  'transition': 'transitionend',
-  'OTransition': 'oTransitionEnd',
-  'MozTransition': 'transitionend',
-  'WebkitTransition': 'webkitTransitionEnd',
+  transition: 'transitionend',
+  OTransition: 'oTransitionEnd',
+  MozTransition: 'transitionend',
+  WebkitTransition: 'webkitTransitionEnd',
 };
 
-function transitionEventNamesFor (element) {
+function transitionEventNamesFor(element) {
   for (const transition in TRANSITIONS) {
     if (element && element.style[transition] !== undefined) {
       return TRANSITIONS[transition];

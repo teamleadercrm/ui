@@ -14,22 +14,17 @@ class OldStyleNumber extends PureComponent {
     element: 'span',
   };
 
-  render () {
-    const {
-      children,
-      className,
-      element,
-    } = this.props;
+  render() {
+    const { children, className, element } = this.props;
 
-    const classNames = cx(
-      s['old-styled-number'],
-      className,
-    );
+    const classNames = cx(s['old-styled-number'], className);
 
     const Element = element;
 
     return (
-      <Element data-teamleader-ui="old-styled-number" className={classNames}>{children}</Element>
+      <Element data-teamleader-ui="old-styled-number" className={classNames}>
+        {children}
+      </Element>
     );
   }
 }

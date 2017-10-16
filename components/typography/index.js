@@ -12,14 +12,4 @@ const TextBody = textFactory('text-body', 'p');
 const TextSmall = textFactory('text-small', 'p');
 const TextTiny = textFactory('text-tiny', 'p');
 
-export {
-  Heading1,
-  Heading2,
-  Heading3,
-  Heading4,
-  Monospaced,
-  OldStyleNumber,
-  TextBody,
-  TextSmall,
-  TextTiny,
-};
+export { Heading1, Heading2, Heading3, Heading4, Monospaced, OldStyleNumber, TextBody, TextSmall, TextTiny };

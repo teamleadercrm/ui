@@ -9,9 +9,4 @@ const Menu = menuFactory(MenuItem);
 const IconMenu = iconMenuFactory(IconButton, Menu);
 
 export default Menu;
-export {
-  MenuDivider,
-  MenuItem,
-  Menu,
-  IconMenu,
-};
+export { MenuDivider, MenuItem, Menu, IconMenu };

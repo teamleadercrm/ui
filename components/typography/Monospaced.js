@@ -14,22 +14,17 @@ class Monospaced extends PureComponent {
     element: 'span',
   };
 
-  render () {
-    const {
-      children,
-      className,
-      element,
-    } = this.props;
+  render() {
+    const { children, className, element } = this.props;
 
-    const classNames = cx(
-      s['monospaced'],
-      className,
-    );
+    const classNames = cx(s['monospaced'], className);
 
     const Element = element;
 
     return (
-      <Element data-teamleader-ui="monospaced" className={classNames}>{children}</Element>
+      <Element data-teamleader-ui="monospaced" className={classNames}>
+        {children}
+      </Element>
     );
   }
 }

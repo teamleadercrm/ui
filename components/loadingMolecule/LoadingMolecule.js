@@ -19,26 +19,17 @@ class LoadingMolecule extends PureComponent {
     type: PropTypes.string,
   };
 
-  constructor () {
+  constructor() {
     super(...arguments);
-    this.randomGradientPostFix = Math.random().toString(16).slice(2);
+    this.randomGradientPostFix = Math.random()
+      .toString(16)
+      .slice(2);
   }
 
-  render () {
-    const {
-      className,
-      basePath,
-      startColor,
-      stopColor,
-      type,
-      ...others
-    } = this.props;
+  render() {
+    const { className, basePath, startColor, stopColor, type, ...others } = this.props;
 
-    const classes = cx(
-      theme['loading-molecule'],
-      theme[type],
-      className
-    );
+    const classes = cx(theme['loading-molecule'], theme[type], className);
 
     const gradient1Name = `linearGradient-1-${this.randomGradientPostFix}`;
     const gradient2Name = `linearGradient-2-${this.randomGradientPostFix}`;

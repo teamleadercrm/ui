@@ -8,11 +8,11 @@ class Counter extends PureComponent {
   static propTypes = {
     borderColor: PropTypes.oneOf([ 'neutral', 'mint', 'aqua', 'violet', 'teal', 'gold', 'ruby', 'tealdark' ]),
     className: PropTypes.string,
-    color: PropTypes.oneOf([ 'neutral', 'mint', 'aqua', 'violet', 'teal', 'gold', 'ruby' ]),
+    color: PropTypes.oneOf(['neutral', 'mint', 'aqua', 'violet', 'teal', 'gold', 'ruby']),
     count: PropTypes.number,
     inactive: PropTypes.bool,
     maxCount: PropTypes.number,
-    size: PropTypes.oneOf([ 'small', 'medium' ]),
+    size: PropTypes.oneOf(['small', 'medium']),
   };
 
   static defaultProps = {
@@ -48,7 +48,7 @@ class Counter extends PureComponent {
 
     return (
       <span className={classes} {...others} data-teamleader-ui="counter">
-        <Monospaced>{ count > maxCount ? `${maxCount}+` : count }</Monospaced>
+        <Monospaced>{count > maxCount ? `${maxCount}+` : count}</Monospaced>
       </span>
     );
   }
