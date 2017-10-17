@@ -13,12 +13,14 @@
   --input-text-color: var(--color-teal-darkest);
   --input-text-size: calc(1.6 * var(--unit));
   --input-text-size-small: calc(1.4 * var(--unit));
+  --input-background: var(--color-white);
   --input-border-radius: calc(0.4 * var(--unit));
   --input-border-color: var(--color-neutral-dark);
   --input-placeholder-color: var(--color-neutral-dark);
 
   --input-disabled-background: var(--color-neutral);
-  --input-disabled-text: var(--color-neutral-dark);
+  --input-disabled-border: var(--color-neutral-dark);
+  --input-not-selectable-color: var(--color-neutral-darkest);
 
   --icon-top-large: calc(1.4 * var(--unit));
   --icon-top: calc(0.8 * var(--unit));
@@ -34,6 +36,8 @@
 }
 
 .input {
+  transition: 0.3s ease-in-out border, 0.3s ease-in-out box-shadow;
+
   position: relative;
 
   height: var(--input-height-medium);
@@ -41,7 +45,7 @@
   min-width: var(--input-width);
   padding: 0 var(--input-horizontal-padding);
 
-  background: var(--color-white);
+  background: var(--input-background);
 
   border: 1px solid var(--input-border-color);
   border-radius: var(--input-border-radius);
@@ -64,10 +68,18 @@
     box-shadow: 0 0 0 1px var(--color-aqua);
   }
 
+  &.is-bold {
+    font-weight: bold;
+  }
+
   &.is-disabled {
     background-color: var(--input-disabled-background);
 
-    border-color: var(--input-diabled-border);
+    border-color: var(--input-disabled-border);
+  }
+
+  &.is-not-selectable {
+    color: var(--input-not-selectable-color);
   }
 }
 
@@ -93,7 +105,12 @@
 
   max-height: var(--icon-height);
 
-  fill: var(--icon-color);
+  &,
+  svg,
+  g,
+  path {
+    fill: var(--icon-color);
+  }
 }
 
 .large {

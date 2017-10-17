@@ -6,6 +6,7 @@ import theme from './theme.css';
 
 export default class Input extends Component {
   static propTypes = {
+    bold: PropTypes.bool,
     className: PropTypes.string,
     disabled: PropTypes.bool,
     icon: PropTypes.oneOfType([PropTypes.func, PropTypes.element]),
@@ -13,12 +14,14 @@ export default class Input extends Component {
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
     placeholder: PropTypes.string,
+    selection: PropTypes.bool,
     size: PropTypes.oneOf(['small', 'medium', 'large']),
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   };
 
   static defaultProps = {
     placeholder: '',
+    selection: true,
     size: 'medium',
   };
 
@@ -78,12 +81,14 @@ export default class Input extends Component {
   }
 
   render() {
-    const { className, disabled, icon, size } = this.props;
+    const { bold, className, disabled, icon, selection, size } = this.props;
     const wrapperClasses = cx(theme.wrapper, theme[size], className);
     const inputClasses = cx(theme.input, {
       [theme['has-icon']]: icon,
       [theme['is-focussed']]: this.state.isFocussed,
       [theme['is-disabled']]: disabled,
+      [theme['is-not-selectable']]: !selection,
+      [theme['is-bold']]: bold,
     });
 
     return (

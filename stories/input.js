@@ -14,7 +14,6 @@ const props = {
   onFocus: action('focus'),
   value: 'lorem ipsum',
   placeholder: 'placeholder',
-  disabled: true,
 };
 
 storiesOf('Inputs', module)
@@ -23,8 +22,8 @@ storiesOf('Inputs', module)
   .addDecorator(styles({ ...baseStyles, ...centerStyles }))
   .add('default', () => (
     <div>
-      <Input icon={IconCalendarMediumOutline} size="large" {...props} />
       <Input icon={IconCalendarMediumOutline} {...props} />
-      <Input icon={IconCalendarMediumOutline} size="small" {...props} />
+      <br />
+      <Input bold icon={IconCalendarMediumOutline} {...props} />
     </div>
   ));
