@@ -2,6 +2,7 @@ import React, { Component, createElement } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import ContentEditable from './ContentEditable';
+import Counter from '../counter';
 import theme from './theme.css';
 
 export default class Input extends Component {
@@ -11,6 +12,7 @@ export default class Input extends Component {
     disabled: PropTypes.bool,
     icon: PropTypes.oneOfType([PropTypes.func, PropTypes.element]),
     iconPlacement: PropTypes.oneOf(['left', 'right']),
+    counter: PropTypes.number,
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
@@ -64,7 +66,7 @@ export default class Input extends Component {
   }
 
   renderContent() {
-    const { disabled, onChange } = this.props;
+    const { counter, disabled, onChange } = this.props;
     const props = {
       className: theme.content,
       editable: !disabled,
@@ -73,7 +75,16 @@ export default class Input extends Component {
       onFocus: this.onFocus,
     };
 
-    return <ContentEditable {...props}>{this.props.value}</ContentEditable>;
+    return (
+      <ContentEditable {...props}>
+        {this.props.value}{' '}
+        {counter && (
+          <span className={theme.counter} contentEditable={false}>
+            <Counter count={counter} color="ruby" />
+          </span>
+        )}
+      </ContentEditable>
+    );
   }
 
   renderPlaceholder() {

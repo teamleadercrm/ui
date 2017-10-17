@@ -25,5 +25,7 @@ storiesOf('Inputs', module)
       <Input icon={IconCalendarMediumOutline} {...props} />
       <br />
       <Input bold icon={IconCalendarMediumOutline} iconPlacement="right" {...props} />
+      <br />
+      <Input {...props} counter={9} />
     </div>
   ));
