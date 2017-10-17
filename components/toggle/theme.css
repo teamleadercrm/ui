@@ -1,5 +1,5 @@
 @import 'variables.css';
-@import '@teamleader/ui-colors/index.css';
+@import '@teamleader/ui-colors';
 
 :root {
   --toggle-track-height-small: 18px;
