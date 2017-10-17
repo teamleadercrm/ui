@@ -220,8 +220,8 @@ const tooltipFactory = (options = {}) => {
           ...other
         } = this.props;
 
-        const classNames = cx(theme.tooltip, theme[tooltipColor], theme[tooltipSize], {
-          [theme.tooltipActive]: active,
+        const classNames = cx(theme['tooltip'], theme[tooltipColor], theme[tooltipSize], {
+          [theme['tooltipActive']]: active,
           [theme[positionClass]]: theme[positionClass],
         });
 

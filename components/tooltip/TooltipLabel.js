@@ -20,7 +20,7 @@ class TooltipLabel extends PureComponent {
     const { children, className, icon, inverse, ...others } = this.props;
 
     const classNames = cx(theme.label, className, {
-      [theme.inverse]: inverse,
+      [theme['inverse']]: inverse,
     });
 
     return (
