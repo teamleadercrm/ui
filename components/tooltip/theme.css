@@ -68,10 +68,10 @@
     transform: rotate(45deg);
   }
 
-  &.tooltipBottom {
+  &.bottom {
     transform: scale(0) translateX(-50%);
 
-    &.tooltipActive {
+    &.active {
       transform: scale(1) translateX(-50%);
     }
 
@@ -82,10 +82,10 @@
     }
   }
 
-  &.tooltipTop {
+  &.top {
     transform: scale(0) translateX(-50%) translateY(-100%);
 
-    &.tooltipActive {
+    &.active {
       transform: scale(1) translateX(-50%) translateY(-100%);
     }
 
@@ -96,10 +96,10 @@
     }
   }
 
-  &.tooltipLeft {
+  &.left {
     transform: scale(0) translateX(-100%) translateY(-50%);
 
-    &.tooltipActive {
+    &.active {
       transform: scale(1) translateX(-100%) translateY(-50%);
     }
 
@@ -110,10 +110,10 @@
     }
   }
 
-  &.tooltipRight {
+  &.right {
     transform: scale(0) translateX(0) translateY(-50%);
 
-    &.tooltipActive {
+    &.active {
       transform: scale(1) translateX(0) translateY(-50%);
     }
 
@@ -125,20 +125,20 @@
   }
 }
 
-.tooltipInner {
+.inner {
   border: var(--tooltip-border-width) solid color(var(--color-teal-dark) a(20%));
   border-radius: var(--tooltip-border-radius);
   box-shadow: var(--tooltip-box-shadow);
   display: block;
 }
 
-.tooltipIcon {
+.icon {
   display: inline-block;
   margin-right: var(--spacer-smaller);
   vertical-align: middle;
 }
 
-.tooltipText {
+.text {
   display: inline-block;
   max-width: var(--tooltip-max-width);
   vertical-align: middle;
@@ -148,7 +148,7 @@
   color: var(--color-aqua-darkest);
 
   &::before,
-  .tooltipInner {
+  .inner {
     background: var(--color-aqua-light);
   }
 }
@@ -157,7 +157,7 @@
   color: var(--color-gold-darkest);
 
   &::before,
-  .tooltipInner {
+  .inner {
     background: var(--color-gold-light);
   }
 }
@@ -166,7 +166,7 @@
   color: var(--color-teal-light);
 
   &::before,
-  .tooltipInner {
+  .inner {
     background: var(--color-teal-darkest);
   }
 }
@@ -175,7 +175,7 @@
   color: var(--color-teal-darkest);
 
   &::before,
-  .tooltipInner {
+  .inner {
     background: var(--color-neutral-light);
   }
 }
@@ -184,7 +184,7 @@
   color: var(--color-mint-darkest);
 
   &::before,
-  .tooltipInner {
+  .inner {
     background: var(--color-mint-light);
   }
 }
@@ -193,7 +193,7 @@
   color: var(--color-ruby-darkest);
 
   &::before,
-  .tooltipInner {
+  .inner {
     background: var(--color-ruby-light);
   }
 }
@@ -202,7 +202,7 @@
   color: var(--color-violet-darkest);
 
   &::before,
-  .tooltipInner {
+  .inner {
     background: var(--color-violet-light);
   }
 }
@@ -211,19 +211,19 @@
   color: var(--color-teal-darkest);
 
   &::before,
-  .tooltipInner {
+  .inner {
     background: var(--color-white);
   }
 }
 
 .small {
-  .tooltipInner {
+  .inner {
     padding: var(--tooltip-small-padding-vertical) var(--tooltip-small-padding-horizontal);
   }
 }
 
 .medium {
-  .tooltipInner {
+  .inner {
     padding: var(--tooltip-medium-padding-vertical) var(--tooltip-medium-padding-horizontal);
   }
 }
