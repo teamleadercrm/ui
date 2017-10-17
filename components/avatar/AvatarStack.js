@@ -24,13 +24,13 @@ class AvatarStack extends PureComponent {
   render() {
     const { children, className, direction, displayMax, inverse, onOverflowClick, size, ...others } = this.props;
 
-    const classes = cx(theme.stack, theme[direction], theme[size], inverse ? [theme.light] : [theme.dark], className);
+    const classNames = cx(theme.stack, theme[direction], theme[size], inverse ? [theme.light] : [theme.dark], className);
 
     const childrenToDisplay = displayMax > 0 ? children.slice(0, displayMax) : children;
     const overflowAmount = children.length - displayMax;
 
     return (
-      <div data-teamleader-ui="avatar-stack" className={classes} {...others}>
+      <div data-teamleader-ui="avatar-stack" className={classNames} {...others}>
         {overflowAmount > 0 && <div className={theme.overflow} onClick={onOverflowClick}>{`+${overflowAmount}`}</div>}
         {childrenToDisplay}
       </div>
