@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import { OldStyleNumber } from '../typography'
 import theme from './theme.css';
 
 class StatusLabel extends PureComponent {
@@ -23,7 +24,7 @@ class StatusLabel extends PureComponent {
 
     return (
       <span className={classNames} {...others} data-teamleader-ui="status-label">
-        {children}
+        <OldStyleNumber>{children}</OldStyleNumber>
       </span>
     );
   }
