@@ -24,7 +24,7 @@ const defaults = {
   passthrough: true,
   showOnClick: false,
   size: 'medium',
-  position: POSITION.VERTICAL,
+  position: POSITION.TOP,
 };
 
 const tooltipFactory = (options = {}) => {
