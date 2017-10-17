@@ -50,25 +50,25 @@
 }
 
 .mint {
-  background-color: var(--color-mint);
+  background-color: var(--color-mint-dark);
 }
 
 .violet {
-  background-color: var(--color-violet);
+  background-color: var(--color-violet-dark);
 }
 
 .teal {
-  background-color: var(--color-teal);
+  background-color: var(--color-teal-dark);
 }
 
 .ruby {
-  background-color: var(--color-ruby);
+  background-color: var(--color-ruby-dark);
 }
 
 .gold {
-  background-color: var(--color-gold);
+  background-color: var(--color-gold-dark);
 }
 
 .aqua {
-  background-color: var(--color-aqua);
+  background-color: var(--color-aqua-dark);
 }
