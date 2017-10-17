@@ -202,7 +202,6 @@ const tooltipFactory = (options = {}) => {
 
       render() {
         const { active, left, top, position, visible } = this.state;
-        const positionClass = `tooltip${position.charAt(0).toUpperCase() + position.slice(1)}`;
         const {
           children,
           className,
@@ -221,8 +220,8 @@ const tooltipFactory = (options = {}) => {
         } = this.props;
 
         const classNames = cx(theme['tooltip'], theme[tooltipColor], theme[tooltipSize], {
-          [theme['tooltipActive']]: active,
-          [theme[positionClass]]: theme[positionClass],
+          [theme['active']]: active,
+          [theme[position]]: theme[position],
         });
 
         const childProps = {
@@ -250,9 +249,9 @@ const tooltipFactory = (options = {}) => {
                 data-teamleader-ui="tooltip"
                 style={{ top, left }}
               >
-                <div className={theme.tooltipInner}>
-                  {tooltipIcon && <div className={theme.tooltipIcon}>{tooltipIcon}</div>}
-                  <div className={theme.tooltipText}>{tooltip}</div>
+                <div className={theme['inner']}>
+                  {tooltipIcon && <div className={theme['icon']}>{tooltipIcon}</div>}
+                  <div className={theme['text']}>{tooltip}</div>
                 </div>
               </div>
             </Portal>
