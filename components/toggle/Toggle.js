@@ -8,6 +8,7 @@ class Toggle extends PureComponent {
     checked: PropTypes.bool,
     disabled: PropTypes.bool,
     name: PropTypes.string,
+    className: PropTypes.string,
     onChange: PropTypes.func,
     size: PropTypes.oneOf(['small', 'medium', 'large']),
     color: PropTypes.oneOf(['neutral', 'teal', 'ruby', 'mint', 'violet', 'gold', 'aqua']),
@@ -20,40 +21,29 @@ class Toggle extends PureComponent {
     color: 'neutral',
   };
 
-  constructor () {
+  constructor() {
     super(...arguments);
     this.handleToggle = ::this.handleToggle;
   }
 
-  handleToggle () {
+  handleToggle() {
     if (!this.props.disabled && this.props.onChange) {
       this.props.onChange(!this.props.checked, event);
     }
-  };
+  }
 
-  render () {
-    const {
-      checked,
-      disabled,
-      className,
-      size,
-      color
-    } = this.props;
+  render() {
+    const { checked, disabled, className, size, color, ...others } = this.props;
 
-    const classNames = cx(
-      theme['toggle'],
-      className,
-      theme[size],
-      theme[color],
-      {
-        [theme['checked']]: checked,
-        [theme['disabled']]: disabled,
-      }
-    );
+    const classNames = cx(theme['toggle'], className, theme[size], theme[color], {
+      [theme['checked']]: checked,
+      [theme['disabled']]: disabled,
+    });
 
     return (
       <label data-teamleader-ui="toggle" className={classNames}>
         <input
+          {...others}
           className={theme.input}
           type="checkbox"
           checked={checked}
