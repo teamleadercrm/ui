@@ -24,13 +24,13 @@ storiesOf('Toggles', module)
   .add('size', () => (
     <div>
       <State store={store}>
-          <Toggle size="small" onChange={handleOnChange} />
+        <Toggle size="small" onChange={handleOnChange} />
       </State>
       <State store={store}>
-          <Toggle size="medium" onChange={handleOnChange} />
+        <Toggle size="medium" onChange={handleOnChange} />
       </State>
       <State store={store}>
-          <Toggle size="large" onChange={handleOnChange} />
+        <Toggle size="large" onChange={handleOnChange} />
       </State>
     </div>
   ))
@@ -38,37 +38,37 @@ storiesOf('Toggles', module)
     <div>
       <Island color="white">
         <State store={store}>
-            <Toggle color="neutral" onChange={handleOnChange} />
+          <Toggle color="neutral" onChange={handleOnChange} />
         </State>
       </Island>
       <Island color="neutral" style={{ background: '#354B62'}}> {/*we don't have a teal island, so faking one*/}
         <State store={store}>
-            <Toggle color="teal" onChange={handleOnChange} />
+          <Toggle color="teal" onChange={handleOnChange} />
         </State>
       </Island>
       <Island color="violet">
         <State store={store}>
-            <Toggle color="violet" onChange={handleOnChange} />
+          <Toggle color="violet" onChange={handleOnChange} />
         </State>
       </Island>
       <Island color="ruby">
         <State store={store}>
-            <Toggle color="ruby" onChange={handleOnChange} />
+          <Toggle color="ruby" onChange={handleOnChange} />
         </State>
       </Island>
       <Island color="mint">
         <State store={store}>
-            <Toggle color="mint" onChange={handleOnChange} />
+          <Toggle color="mint" onChange={handleOnChange} />
         </State>
       </Island>
       <Island color="gold">
         <State store={store}>
-            <Toggle color="gold" onChange={handleOnChange} />
+          <Toggle color="gold" onChange={handleOnChange} />
         </State>
       </Island>
       <Island color="aqua">
         <State store={store}>
-            <Toggle color="aqua" onChange={handleOnChange} />
+          <Toggle color="aqua" onChange={handleOnChange} />
         </State>
       </Island>
     </div>
