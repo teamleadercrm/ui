@@ -10,6 +10,7 @@ export default class Input extends Component {
     className: PropTypes.string,
     disabled: PropTypes.bool,
     icon: PropTypes.oneOfType([PropTypes.func, PropTypes.element]),
+    iconPlacement: PropTypes.oneOf(['left', 'right']),
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
@@ -20,6 +21,7 @@ export default class Input extends Component {
   };
 
   static defaultProps = {
+    iconPlacement: 'left',
     placeholder: '',
     selection: true,
     size: 'medium',
@@ -81,10 +83,11 @@ export default class Input extends Component {
   }
 
   render() {
-    const { bold, className, disabled, icon, selection, size } = this.props;
-    const wrapperClasses = cx(theme.wrapper, theme[size], className);
+    const { bold, className, disabled, icon, iconPlacement, selection, size } = this.props;
+    const wrapperClasses = cx(theme.wrapper, theme[size], className, {
+      [theme[`has-icon-${iconPlacement}`]]: icon,
+    });
     const inputClasses = cx(theme.input, {
-      [theme['has-icon']]: icon,
       [theme['is-focussed']]: this.state.isFocussed,
       [theme['is-disabled']]: disabled,
       [theme['is-not-selectable']]: !selection,

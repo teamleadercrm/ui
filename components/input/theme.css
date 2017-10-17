@@ -24,8 +24,8 @@
 
   --icon-top-large: calc(1.4 * var(--unit));
   --icon-top: calc(0.8 * var(--unit));
-  --icon-left: calc(0.9 * var(--unit));
-  --icon-left-small: calc(0.6 * var(--unit));
+  --icon-horizontal: calc(0.9 * var(--unit));
+  --icon-horizontal-small: calc(0.6 * var(--unit));
   --icon-height: calc(1.9 * var(--unit));
   --icon-height-small: calc(1.4 * var(--unit));
   --icon-color: var(--color-neutral-darkest);
@@ -39,6 +39,7 @@
   transition: 0.3s ease-in-out border, 0.3s ease-in-out box-shadow;
 
   position: relative;
+  box-sizing: border-box;
 
   height: var(--input-height-medium);
   width: 100%;
@@ -53,15 +54,6 @@
   color: var(--input-text-color);
   line-height: var(--input-height-medium);
   font-size: var(--input-text-size);
-
-  &.has-icon {
-    padding: 0 var(--input-horizontal-padding) 0
-      var(--input-horizontal-padding-icon);
-
-    .placeholder {
-      left: var(--input-horizontal-padding-icon);
-    }
-  }
 
   &.is-focussed {
     border: 1px solid var(--color-aqua);
@@ -101,7 +93,7 @@
   position: absolute;
   z-index: 1;
   top: var(--icon-top);
-  left: var(--icon-left);
+  left: var(--icon-horizontal);
 
   max-height: var(--icon-height);
 
@@ -134,9 +126,18 @@
     line-height: var(--input-height-small);
     font-size: var(--input-text-size-small);
 
-    &.has-icon {
+    &.has-icon-left {
       padding: 0 var(--input-horizontal-padding-small) 0
         var(--input-horizontal-padding-icon-small);
+
+      .placeholder {
+        left: var(--input-horizontal-padding-icon-small);
+      }
+    }
+
+    &.has-icon-right {
+      padding: 0 var(--input-horizontal-padding-icon-small) 0
+        var(--input-horizontal-padding-small);
 
       .placeholder {
         left: var(--input-horizontal-padding-icon-small);
@@ -145,7 +146,34 @@
   }
 
   .icon {
-    left: var(--icon-left-small);
+    left: var(--icon-horizontal-small);
     max-height: var(--icon-height-small);
+  }
+}
+
+.has-icon-left {
+  .input {
+    padding: 0 var(--input-horizontal-padding) 0
+      var(--input-horizontal-padding-icon);
+  }
+
+  .placeholder {
+    left: var(--input-horizontal-padding-icon);
+  }
+}
+
+.has-icon-right {
+  .input {
+    padding: 0 var(--input-horizontal-padding-icon) 0
+      var(--input-horizontal-padding);
+  }
+
+  .placeholder {
+    left: var(--input-horizontal-padding);
+  }
+
+  .icon {
+    left: auto;
+    right: var(--icon-horizontal);
   }
 }
