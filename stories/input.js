@@ -21,7 +21,7 @@ storiesOf('Inputs', module)
   .addDecorator(checkA11y)
   .addDecorator(styles({ ...baseStyles, ...centerStyles }))
   .add('default', () => (
-    <div>
+    <div style={{ width: '400px' }}>
       <Input icon={IconCalendarMediumOutline} {...props} />
       <br />
       <Input bold icon={IconCalendarMediumOutline} iconPlacement="right" {...props} />

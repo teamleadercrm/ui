@@ -5,7 +5,7 @@
   --input-height-large: calc(4.6 * var(--unit));
   --input-height-medium: calc(3.4 * var(--unit));
   --input-height-small: calc(2.8 * var(--unit));
-  --input-width: calc(24 * var(--unit));
+  --input-width: calc(30 * var(--unit));
   --input-horizontal-padding: calc(0.9 * var(--unit));
   --input-horizontal-padding-small: calc(0.6 * var(--unit));
   --input-horizontal-padding-icon: calc(3.9 * var(--unit));
@@ -30,7 +30,7 @@
   --icon-height-small: calc(1.4 * var(--unit));
   --icon-color: var(--color-neutral-darkest);
 
-  --counter-margin-top: calc(0.4 * var(--unit));
+  --counter-margin-top: calc(0.7 * var(--unit));
   --counter-margin-left: calc(0.5 * var(--unit));
   --counter-width: calc(3 * var(--unit));
 }

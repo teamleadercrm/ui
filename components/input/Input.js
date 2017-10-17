@@ -86,7 +86,7 @@ export default class Input extends Component {
 
   renderCounter() {
     if (this.props.counter) {
-      return <Counter className={theme.counter} count={this.props.counter} color="ruby" />;
+      return <Counter className={theme.counter} count={this.props.counter} color="ruby" size="small" />;
     }
   }
 
