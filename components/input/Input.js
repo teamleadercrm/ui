@@ -66,7 +66,7 @@ export default class Input extends Component {
   }
 
   renderContent() {
-    const { counter, disabled, onChange } = this.props;
+    const { disabled, onChange } = this.props;
     const props = {
       className: theme.content,
       editable: !disabled,
@@ -75,16 +75,7 @@ export default class Input extends Component {
       onFocus: this.onFocus,
     };
 
-    return (
-      <ContentEditable {...props}>
-        {this.props.value}{' '}
-        {counter && (
-          <span className={theme.counter} contentEditable={false}>
-            <Counter count={counter} color="ruby" />
-          </span>
-        )}
-      </ContentEditable>
-    );
+    return <ContentEditable {...props}>{this.props.value}</ContentEditable>;
   }
 
   renderPlaceholder() {
@@ -93,10 +84,17 @@ export default class Input extends Component {
     }
   }
 
+  renderCounter() {
+    if (this.props.counter) {
+      return <Counter className={theme.counter} count={this.props.counter} color="ruby" />;
+    }
+  }
+
   render() {
-    const { bold, className, disabled, icon, iconPlacement, selection, size } = this.props;
+    const { bold, className, counter, disabled, icon, iconPlacement, selection, size } = this.props;
     const wrapperClasses = cx(theme.wrapper, theme[size], className, {
       [theme[`has-icon-${iconPlacement}`]]: icon,
+      [theme['has-counter']]: counter,
     });
     const inputClasses = cx(theme.input, {
       [theme['is-focussed']]: this.state.isFocussed,
@@ -114,6 +112,7 @@ export default class Input extends Component {
         <div className={inputClasses}>
           {this.renderContent()}
           {this.renderPlaceholder()}
+          {this.renderCounter()}
         </div>
       </div>
     );

@@ -29,10 +29,17 @@
   --icon-height: calc(1.9 * var(--unit));
   --icon-height-small: calc(1.4 * var(--unit));
   --icon-color: var(--color-neutral-darkest);
+
+  --counter-margin-top: calc(0.4 * var(--unit));
+  --counter-margin-left: calc(0.5 * var(--unit));
+  --counter-width: calc(3 * var(--unit));
 }
 
 .wrapper {
   position: relative;
+
+  width: 100%;
+  max-width: var(--input-width);
 }
 
 .input {
@@ -43,7 +50,6 @@
 
   height: var(--input-height-medium);
   width: 100%;
-  min-width: var(--input-width);
   padding: 0 var(--input-horizontal-padding);
 
   background: var(--input-background);
@@ -77,6 +83,7 @@
 
 .placeholder {
   position: absolute;
+  overflow: hidden;
   z-index: 0;
   top: 0;
   left: var(--input-horizontal-padding);
@@ -87,6 +94,12 @@
 .content {
   position: relative;
   z-index: 1;
+  overflow: hidden;
+  white-space: nowrap;
+
+  display: inline-block;
+  width: auto;
+  max-width: 100%;
 }
 
 .icon {
@@ -175,5 +188,16 @@
   .icon {
     left: auto;
     right: var(--icon-horizontal);
+  }
+}
+
+.counter {
+  vertical-align: top;
+  margin: var(--counter-margin-top) 0 0 var(--counter-margin-left);
+}
+
+.has-counter {
+  .content {
+    max-width: calc(100% - var(--counter-width));
   }
 }
