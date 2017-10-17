@@ -19,7 +19,7 @@ class StatusBullet extends PureComponent {
   render() {
     const { children, className, color, size, ...others } = this.props;
 
-    const classNames = cx(theme.bullet, theme[color], theme[size], className);
+    const classNames = cx(theme['bullet'], theme[color], theme[size], className);
 
     return (
       <span className={classNames} {...others} data-teamleader-ui="status-bullet">

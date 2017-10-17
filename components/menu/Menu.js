@@ -214,21 +214,22 @@ const factory = MenuItem => {
     render() {
       const outlineStyle = { width: this.state.width, height: this.state.height };
       const className = cx(
-        [theme.menu, theme[this.state.position]],
+        theme['menu'],
+        theme[this.state.position],
         {
-          [theme.active]: this.state.active,
+          [theme['active']]: this.state.active,
         },
         this.props.className,
       );
 
       return (
         <div data-teamleader-ui="menu" className={className} style={this.getRootStyle()}>
-          {this.props.outline ? <div className={theme.outline} style={outlineStyle} /> : null}
+          {this.props.outline ? <div className={theme['outline']} style={outlineStyle} /> : null}
           <ul
             ref={node => {
               this.menuNode = node;
             }}
-            className={theme.menuInner}
+            className={theme['menuInner']}
             style={this.getMenuStyle()}
           >
             {this.renderItems()}

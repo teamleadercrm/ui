@@ -73,7 +73,7 @@ class RadioButton extends PureComponent {
         <input
           {...others}
           checked={checked}
-          className={theme.input}
+          className={theme['input']}
           disabled={disabled}
           name={name}
           onChange={() => {}}
@@ -84,7 +84,7 @@ class RadioButton extends PureComponent {
           type="radio"
         />
         <Radio checked={checked} disabled={disabled} />
-        {label ? <span className={theme.text}>{label}</span> : null}
+        {label ? <span className={theme['text']}>{label}</span> : null}
         {children}
       </label>
     );

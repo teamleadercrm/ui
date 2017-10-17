@@ -57,9 +57,9 @@ const factory = (Button, IconButton) => {
       const { action, active, children, className, label, onClick, type } = this.props;
 
       const classNames = cx(
-        [theme.toast, theme[type]],
+        [theme['toast'], theme[type]],
         {
-          [theme.active]: active,
+          [theme['active']]: active,
         },
         className,
       );
@@ -67,15 +67,15 @@ const factory = (Button, IconButton) => {
       return (
         <Portal>
           <div data-teamleader-ui="toast" className={classNames}>
-            <span className={theme.label}>
+            <span className={theme['label']}>
               {label}
               {children}
             </span>
             {onClick ? (
               action ? (
-                <Button className={theme.button} label={action} level="outline" onClick={onClick} size="small" />
+                <Button className={theme['button']} label={action} level="outline" onClick={onClick} size="small" />
               ) : (
-                <IconButton className={theme.iconButton} icon={<IconCloseMediumOutline />} inverse onClick={onClick} />
+                <IconButton className={theme['iconButton']} icon={<IconCloseMediumOutline />} inverse onClick={onClick} />
               )
             ) : null}
           </div>

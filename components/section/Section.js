@@ -29,8 +29,8 @@ class Section extends PureComponent {
 
     const isDark = this.isDark(color);
 
-    const classNames = cx(theme.section, className, theme[color], {
-      [theme.dark]: isDark,
+    const classNames = cx(theme['section'], className, theme[color], {
+      [theme['dark']]: isDark,
     });
 
     const rest = omit(others, ['dark']);

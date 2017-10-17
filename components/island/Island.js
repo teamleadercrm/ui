@@ -31,8 +31,8 @@ class Island extends PureComponent {
 
     const isDark = this.isDark(color);
 
-    const classNames = cx(theme.island, className, theme[color], {
-      [theme.dark]: isDark,
+    const classNames = cx(theme['island'], className, theme[color], {
+      [theme['dark']]: isDark,
       [theme[size]]: theme[size],
     });
 

@@ -44,11 +44,11 @@ class IconButton extends Component {
     const element = href ? 'a' : 'button';
 
     const classNames = cx(
-      theme.button,
-      theme.iconButton,
-      theme.iconOnly,
+      theme['button'],
+      theme['iconButton'],
+      theme['iconOnly'],
       {
-        [theme.inverse]: inverse,
+        [theme['inverse']]: inverse,
         [theme[size]]: theme[size],
       },
       className,

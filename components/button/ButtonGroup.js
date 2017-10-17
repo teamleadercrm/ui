@@ -14,9 +14,9 @@ class ButtonGroup extends PureComponent {
     const { children, className, segmented, ...others } = this.props;
 
     const classNames = cx(
-      [theme.group],
+      [theme['group']],
       {
-        [theme.segmented]: segmented,
+        [theme['segmented']]: segmented,
       },
       className,
     );
