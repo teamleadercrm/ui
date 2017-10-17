@@ -1,3 +1,4 @@
+@import '@teamleader/ui-animations';
 @import 'colors.css';
 @import 'variables.css';
 
@@ -35,7 +36,7 @@
     position: absolute;
     top: 0;
     transform: scale(0);
-    transition: transform 0.2s var(--animation-curve-default);
+    transition: transform var(--animation-duration) var(--animation-curve-default);
     width: 100%;
   }
 }
