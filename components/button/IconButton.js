@@ -43,7 +43,7 @@ class IconButton extends Component {
 
     const element = href ? 'a' : 'button';
 
-    const classes = cx(
+    const classNames = cx(
       theme.button,
       theme.iconButton,
       theme.iconOnly,
@@ -60,7 +60,7 @@ class IconButton extends Component {
       ref: node => {
         this.buttonNode = node;
       },
-      className: classes,
+      className: classNames,
       disabled,
       onMouseUp: this.handleMouseUp,
       onMouseLeave: this.handleMouseLeave,

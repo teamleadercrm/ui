@@ -64,7 +64,7 @@ class Button extends PureComponent {
 
     const element = href ? 'a' : 'button';
 
-    const classes = cx(
+    const classNames = cx(
       theme.button,
       theme[level],
       {
@@ -82,7 +82,7 @@ class Button extends PureComponent {
       ref: node => {
         this.buttonNode = node;
       },
-      className: classes,
+      className: classNames,
       disabled,
       onMouseUp: this.handleMouseUp,
       onMouseLeave: this.handleMouseLeave,
