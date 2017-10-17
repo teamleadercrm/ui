@@ -196,8 +196,14 @@
       background: var(--color-violet);
     }
 
-    &.disabled .track {
-      background: var(--color-violet-light);
+    &.disabled {
+      .track {
+        background: var(--color-violet-light);
+      }
+
+      .thumb {
+        background: var(--color-violet-lightest);
+      }
     }
   }
 
