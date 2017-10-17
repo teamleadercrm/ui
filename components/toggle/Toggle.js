@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import theme from './theme.css';
 import cx from 'classnames';
+import omit from 'lodash.omit';
 
 class Toggle extends PureComponent {
   static propTypes = {
@@ -34,6 +35,7 @@ class Toggle extends PureComponent {
 
   render() {
     const { checked, disabled, className, size, color, ...others } = this.props;
+    const rest = omit(others, ['onChange']);
 
     const classNames = cx(theme['toggle'], className, theme[size], theme[color], {
       [theme['checked']]: checked,
@@ -43,7 +45,7 @@ class Toggle extends PureComponent {
     return (
       <label data-teamleader-ui="toggle" className={classNames}>
         <input
-          {...others}
+          {...rest}
           className={theme.input}
           type="checkbox"
           checked={checked}
