@@ -5,6 +5,7 @@
   --input-height-large: calc(4.6 * var(--unit));
   --input-height-medium: calc(3.4 * var(--unit));
   --input-height-small: calc(2.8 * var(--unit));
+  --input-width: calc(24 * var(--unit));
   --input-horizontal-padding: calc(0.9 * var(--unit));
   --input-horizontal-padding-small: calc(0.6 * var(--unit));
   --input-horizontal-padding-icon: calc(3.9 * var(--unit));
@@ -30,8 +31,14 @@
 }
 
 .input {
+  position: relative;
+
   height: var(--input-height-medium);
+  width: 100%;
+  min-width: var(--input-width);
   padding: 0 var(--input-horizontal-padding);
+
+  background: var(--color-white);
 
   border: 1px solid var(--input-border-color);
   border-radius: var(--input-border-radius);
@@ -40,18 +47,38 @@
   line-height: var(--input-height-medium);
   font-size: var(--input-text-size);
 
-  &::placeholder {
-    color: var(--input-placeholder-color);
-  }
-
   &.has-icon {
     padding: 0 var(--input-horizontal-padding) 0
       var(--input-horizontal-padding-icon);
+
+    .placeholder {
+      left: var(--input-horizontal-padding-icon);
+    }
   }
+
+  &.is-focussed {
+    border: 1px solid var(--color-aqua);
+    box-shadow: 0 0 0 1px var(--color-aqua);
+  }
+}
+
+.placeholder {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: var(--input-horizontal-padding);
+
+  color: var(--input-placeholder-color);
+}
+
+.content {
+  position: relative;
+  z-index: 1;
 }
 
 .icon {
   position: absolute;
+  z-index: 1;
   top: var(--icon-top);
   left: var(--icon-left);
 
@@ -84,6 +111,10 @@
     &.has-icon {
       padding: 0 var(--input-horizontal-padding-small) 0
         var(--input-horizontal-padding-icon-small);
+
+      .placeholder {
+        left: var(--input-horizontal-padding-icon-small);
+      }
     }
   }
 

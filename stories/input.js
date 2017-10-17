@@ -13,6 +13,7 @@ const props = {
   onChange: action('change'),
   onFocus: action('focus'),
   value: 'lorem ipsum',
+  placeholder: 'placeholder',
 };
 
 storiesOf('Inputs', module)
