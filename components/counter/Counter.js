@@ -25,7 +25,7 @@ class Counter extends PureComponent {
   render() {
     const { borderColor, className, color, count, inactive, maxCount, size, ...others } = this.props;
 
-    const classes = cx(
+    const classNames = cx(
       theme['counter'],
       theme[color],
       theme[size],
@@ -38,7 +38,7 @@ class Counter extends PureComponent {
     );
 
     return (
-      <span className={classes} {...others} data-teamleader-ui="counter">
+      <span className={classNames} {...others} data-teamleader-ui="counter">
         <Monospaced>{count > maxCount ? `${maxCount}+` : count}</Monospaced>
       </span>
     );
