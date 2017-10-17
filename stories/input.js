@@ -14,6 +14,7 @@ const props = {
   onFocus: action('focus'),
   value: 'lorem ipsum',
   placeholder: 'placeholder',
+  disabled: true,
 };
 
 storiesOf('Inputs', module)

@@ -17,6 +17,9 @@
   --input-border-color: var(--color-neutral-dark);
   --input-placeholder-color: var(--color-neutral-dark);
 
+  --input-disabled-background: var(--color-neutral);
+  --input-disabled-text: var(--color-neutral-dark);
+
   --icon-top-large: calc(1.4 * var(--unit));
   --icon-top: calc(0.8 * var(--unit));
   --icon-left: calc(0.9 * var(--unit));
@@ -59,6 +62,12 @@
   &.is-focussed {
     border: 1px solid var(--color-aqua);
     box-shadow: 0 0 0 1px var(--color-aqua);
+  }
+
+  &.is-disabled {
+    background-color: var(--input-disabled-background);
+
+    border-color: var(--input-diabled-border);
   }
 }
 

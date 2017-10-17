@@ -78,11 +78,12 @@ export default class Input extends Component {
   }
 
   render() {
-    const { className, icon, size } = this.props;
+    const { className, disabled, icon, size } = this.props;
     const wrapperClasses = cx(theme.wrapper, theme[size], className);
     const inputClasses = cx(theme.input, {
       [theme['has-icon']]: icon,
       [theme['is-focussed']]: this.state.isFocussed,
+      [theme['is-disabled']]: disabled,
     });
 
     return (
