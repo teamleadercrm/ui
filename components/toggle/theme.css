@@ -2,28 +2,22 @@
 @import '@teamleader/ui-colors/index.css';
 
 :root {
-  --toggle-track-border-radius: calc(var(--toggle-track-height) / 2);
-  --toggle-thumb-border-radius: calc(var(--toggle-thumb-height) / 2);
-  --toggle-thumb-background: var(--color-white);
-  --toggle-track-padding: calc((var(--toggle-track-height) - var(--toggle-thumb-height)) / 2);
+  --toggle-track-height-small: 18px;
+  --toggle-track-width-small: 30px;
+  --toggle-thumb-width-small: 12px;
+
+  --toggle-track-height-medium: 24px;
+  --toggle-track-width-medium: 42px;
+  --toggle-thumb-width-medium: 18px;
+
+  --toggle-track-height-large: 30px;
+  --toggle-track-width-large: 54px;
+  --toggle-thumb-width-large: 24px;
+
+  --toggle-track-padding: 3px;
 }
 
 .toggle {
-  --toggle-track-background: var(--color-aqua);
-  --toggle-track-background-checked: var(--color-aqua-dark);
-
-  &.small {
-    .track {
-      --toggle-track-width: calc(4.2 * var(--unit));
-      --toggle-track-height: calc(2.4 * var(--unit));
-    }
-
-    .thumb {
-      --toggle-thumb-width: calc(1.8 * var(--unit));
-      --toggle-thumb-height: var(--toggle-thumb-width);
-    }
-  }
-
   .input {
     width: 0;
     height: 0;
@@ -33,73 +27,332 @@
   }
 
   .track {
-    --toggle-track-width: calc(5.4 * var(--unit));
-    --toggle-track-height: calc(3 * var(--unit));
-
     box-sizing: border-box;
     position: relative;
     display: inline-block;
-    width: var(--toggle-track-width);
-    height: var(--toggle-track-height);
-    border-radius: var(--toggle-track-border-radius);
-    background: var(--toggle-track-background);
+    padding: var(--toggle-track-padding);
     cursor: pointer;
     transition: all .1s ease;
   }
 
   .thumb {
-    --toggle-thumb-width: calc(2.4 * var(--unit));
-    --toggle-thumb-height: var(--toggle-thumb-width);
-
     display: inline-block;
-    width: var(--toggle-thumb-width);
-    height: var(--toggle-thumb-height);
-    border-radius: var(--toggle-track-border-radius);
-    background: var(--toggle-thumb-background);
     position: absolute;
-    left: var(--toggle-track-padding);
-    top: var(--toggle-track-padding);
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
     transition: all .1s ease;
   }
 
   &.checked {
-    .thumb {
-      transform: translateX(calc(var(--toggle-track-width) - var(--toggle-thumb-width) - calc(2 * var(--toggle-track-padding))));
+    .track {
+      box-shadow: none;
     }
 
+    .thumb {
+      background: var(--color-neutral-lightest);
+    }
+  }
+
+  &.disabled {
+    pointer-events: none;
+  }
+
+  &.small {
     .track {
-      background: var(--toggle-track-background-checked);
+      width: var(--toggle-track-width-small);
+      height: var(--toggle-track-height-small);
+      border-radius: var(--toggle-track-height-small);
+    }
+
+    .thumb {
+      width: var(--toggle-thumb-width-small);
+      height: var(--toggle-thumb-width-small);
+      border-radius: var(--toggle-thumb-width-small);
+    }
+
+    &.checked {
+      .thumb {
+        transform: translateX(calc(var(--toggle-track-width-small) - var(--toggle-thumb-width-small) - calc(2 * --var(--toggle-track-padding))));
+      }
+    }
+  }
+
+  &.medium {
+    .track {
+      width: var(--toggle-track-width-medium);
+      height: var(--toggle-track-height-medium);
+      border-radius: var(--toggle-track-height-medium);
+    }
+
+    .thumb {
+      width: var(--toggle-thumb-width-medium);
+      height: var(--toggle-thumb-width-medium);
+      border-radius: var(--toggle-thumb-width-medium);
+    }
+
+    &.checked {
+      .thumb {
+        transform: translateX(calc(var(--toggle-track-width-medium) - var(--toggle-thumb-width-medium) - calc(2 * --var(--toggle-track-padding))));
+      }
+    }
+  }
+
+  &.large {
+    .track {
+      width: var(--toggle-track-width-large);
+      height: var(--toggle-track-height-large);
+      border-radius: var(--toggle-track-height-large);
+    }
+
+    .thumb {
+      width: var(--toggle-thumb-width-large);
+      height: var(--toggle-thumb-width-large);
+      border-radius: var(--toggle-thumb-width-large);
+    }
+
+    &.checked {
+      .thumb {
+        transform: translateX(calc(var(--toggle-track-width-large) - var(--toggle-thumb-width-large) - calc(2 * --var(--toggle-track-padding))));
+      }
+    }
+  }
+}
+
+.neutral {
+  .track {
+    box-shadow: inset 0 0 0 1px var(--color-neutral-darkest);
+  }
+
+  .thumb {
+    background: var(--color-neutral-darkest);
+  }
+
+  &.checked {
+    .track {
+      background: var(--color-mint);
+    }
+
+    &.disabled .track {
+      background: var(--color-neutral);
+    }
+  }
+
+  &.disabled:not(.checked) {
+    .track {
+      box-shadow: inset 0 0 0 1px var(--color-neutral);
+    }
+
+    .thumb {
+      background: var(--color-neutral);
     }
   }
 }
 
 .teal {
-  --toggle-track-background: var(--color-teal);
-  --toggle-track-background-checked: var(--color-teal-dark);
-}
+  .track {
+    box-shadow: inset 0 0 0 1px var(--color-teal-light);
+  }
 
-.mint {
-  --toggle-track-background: var(--color-mint);
-  --toggle-track-background-checked: var(--color-mint-dark);
+  .thumb {
+    background: var(--color-teal-light);
+  }
+
+  &.checked {
+    .track {
+      background: var(--color-mint);
+    }
+
+    &.disabled {
+      .track {
+        background: var(--color-teal);
+      }
+
+      .thumb {
+        background: var(--color-teal-dark);
+      }
+    }
+  }
+
+  &.disabled:not(.checked) {
+    .track {
+      box-shadow: inset 0 0 0 1px var(--color-teal);
+    }
+
+    .thumb {
+      background: var(--color-teal);
+    }
+  }
 }
 
 .violet {
-  --toggle-track-background: var(--color-violet);
-  --toggle-track-background-checked: var(--color-violet-dark);
+  .track {
+    box-shadow: inset 0 0 0 1px var(--color-violet);
+  }
+
+  .thumb {
+    background: var(--color-violet);
+  }
+
+  &.checked {
+    .track {
+      background: var(--color-violet);
+    }
+
+    &.disabled .track {
+      background: var(--color-violet-light);
+    }
+  }
+
+  &.disabled:not(.checked) {
+    .track {
+      box-shadow: inset 0 0 0 1px var(--color-violet-light);
+    }
+
+    .thumb {
+      background: var(--color-violet-light);
+    }
+  }
 }
 
 .ruby {
-  --toggle-track-background: var(--color-ruby);
-  --toggle-track-background-checked: var(--color-ruby-dark);
+  .track {
+    box-shadow: inset 0 0 0 1px var(--color-ruby);
+  }
+
+  .thumb {
+    background: var(--color-ruby);
+  }
+
+  &.checked {
+    .track {
+      background: var(--color-ruby);
+    }
+
+    &.disabled {
+      .track {
+        background: var(--color-ruby-light);
+      }
+
+      .thumb {
+        background: var(--color-ruby-lightest);
+      }
+    }
+  }
+
+  &.disabled:not(.checked) {
+    .track {
+      box-shadow: inset 0 0 0 1px var(--color-ruby-light);
+    }
+
+    .thumb {
+      background: var(--color-ruby-light);
+    }
+  }
+}
+
+.mint {
+  .track {
+    box-shadow: inset 0 0 0 1px var(--color-mint);
+  }
+
+  .thumb {
+    background: var(--color-mint);
+  }
+
+  &.checked {
+    .track {
+      background: var(--color-mint);
+    }
+
+    &.disabled {
+      .track {
+        background: var(--color-mint-light);
+      }
+
+      .thumb {
+        background: var(--color-mint-lightest);
+      }
+    }
+  }
+
+  &.disabled:not(.checked) {
+    .track {
+      box-shadow: inset 0 0 0 1px var(--color-mint-light);
+    }
+
+    .thumb {
+      background: var(--color-mint-light);
+    }
+  }
 }
 
 .gold {
-  --toggle-track-background: var(--color-gold);
-  --toggle-track-background-checked: var(--color-gold-dark);
+  .track {
+    box-shadow: inset 0 0 0 1px var(--color-gold);
+  }
+
+  .thumb {
+    background: var(--color-gold);
+  }
+
+  &.checked {
+    .track {
+      background: var(--color-gold);
+    }
+
+    &.disabled {
+      .track {
+        background: var(--color-gold-light);
+      }
+
+      .thumb {
+        background: var(--color-gold-lightest);
+      }
+    }
+  }
+
+  &.disabled:not(.checked) {
+    .track {
+      box-shadow: inset 0 0 0 1px var(--color-gold-light);
+    }
+
+    .thumb {
+      background: var(--color-gold-light);
+    }
+  }
 }
 
 .aqua {
-  --toggle-track-background: var(--color-aqua);
-  --toggle-track-background-checked: var(--color-aqua-dark);
+  .track {
+    box-shadow: inset 0 0 0 1px var(--color-aqua);
+  }
+
+  .thumb {
+    background: var(--color-aqua);
+  }
+
+  &.checked {
+    .track {
+      background: var(--color-aqua);
+    }
+
+    &.disabled {
+      .track {
+        background: var(--color-aqua-light);
+      }
+
+      .thumb {
+        background: var(--color-aqua-lightest);
+      }
+    }
+  }
+
+  &.disabled:not(.checked) {
+    .track {
+      box-shadow: inset 0 0 0 1px var(--color-aqua-light);
+    }
+
+    .thumb {
+      background: var(--color-aqua-light);
+    }
+  }
 }

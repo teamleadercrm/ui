@@ -23,6 +23,7 @@ import Island from './island';
 import StatusBullet from './statusBullet';
 import StatusLabel from './statusLabel';
 import { Toast } from './toast';
+import Toggle from './toggle';
 
 export {
   Button,
@@ -55,4 +56,5 @@ export {
   StatusLabel,
   Island,
   Toast,
+  Toggle,
 };

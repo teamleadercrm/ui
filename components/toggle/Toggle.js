@@ -9,23 +9,15 @@ class Toggle extends PureComponent {
     disabled: PropTypes.bool,
     name: PropTypes.string,
     onChange: PropTypes.func,
-    teal: PropTypes.bool,
-    mint: PropTypes.bool,
-    violet: PropTypes.bool,
-    ruby: PropTypes.bool,
-    gold: PropTypes.bool,
-    aqua: PropTypes.bool,
+    size: PropTypes.oneOf(['small', 'medium', 'large']),
+    color: PropTypes.oneOf(['neutral', 'teal', 'ruby', 'mint', 'violet', 'gold', 'aqua']),
   };
 
   static defaultProps = {
     checked: false,
     disabled: false,
-    teal: false,
-    mint: false,
-    violet: false,
-    ruby: false,
-    gold: false,
-    aqua: false,
+    size: 'medium',
+    color: 'neutral',
   };
 
   constructor () {
@@ -42,26 +34,22 @@ class Toggle extends PureComponent {
   render () {
     const {
       checked,
-      small,
+      disabled,
       className,
-      teal,
-      mint,
-      violet,
-      ruby,
-      gold,
-      aqua,
+      size,
+      color
     } = this.props;
 
-    const classNames = cx(theme.toggle, className, {
-      [theme.checked]: checked,
-      [theme.small]: small,
-      [theme.teal]: teal,
-      [theme.mint]: mint,
-      [theme.violet]: violet,
-      [theme.ruby]: ruby,
-      [theme.gold]: gold,
-      [theme.aqua]: aqua,
-    });
+    const classNames = cx(
+      theme['toggle'],
+      className,
+      theme[size],
+      theme[color],
+      {
+        [theme['checked']]: checked,
+        [theme['disabled']]: disabled,
+      }
+    );
 
     return (
       <label data-teamleader-ui="toggle" className={classNames}>
