@@ -19,10 +19,10 @@ class StatusLabel extends PureComponent {
   render() {
     const { children, className, color, size, ...others } = this.props;
 
-    const classes = cx(theme.label, theme[color], theme[size], className);
+    const classNames = cx(theme.label, theme[color], theme[size], className);
 
     return (
-      <span className={classes} {...others} data-teamleader-ui="status-label">
+      <span className={classNames} {...others} data-teamleader-ui="status-label">
         {children}
       </span>
     );
