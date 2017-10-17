@@ -53,6 +53,7 @@
     "Lowie Benoot <lowie.benoot@teamleader.eu>"
   ],
   "dependencies": {
+    "@teamleader/ui-animations": "0.0.2",
     "@teamleader/ui-colors": "0.0.5",
     "@teamleader/ui-icons": "0.0.6",
     "@teamleader/ui-typography": "0.0.5",
@@ -122,6 +123,7 @@
     "prettier": "^1.4.4",
     "proptypes": "^1.1.0",
     "react-hot-loader": "^3.0.0-beta.6",
+    "react-storybook-decorator-background": "^1.0.5",
     "redbox-react": "^1.3.2",
     "rimraf": "^2.5.4",
     "run-sequence": "^1.2.2",

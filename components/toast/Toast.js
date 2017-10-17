@@ -54,26 +54,26 @@ const factory = (Button, IconButton) => {
     };
 
     render() {
-      const { action, active, children, label, onClick, type } = this.props;
+      const { action, active, children, className, label, onClick, type } = this.props;
 
-      const className = cx(
+      const classNames = cx(
         [theme.toast, theme[type]],
         {
           [theme.active]: active,
         },
-        this.props.className,
+        className,
       );
 
       return (
-        <Portal className={theme.portal}>
-          <div data-teamleader-ui="toast" className={className}>
+        <Portal>
+          <div data-teamleader-ui="toast" className={classNames}>
             <span className={theme.label}>
               {label}
               {children}
             </span>
             {onClick ? (
               action ? (
-                <Button color="outline" className={theme.button} label={action} onClick={onClick} size="small" />
+                <Button className={theme.button} label={action} level="outline" onClick={onClick} size="small" />
               ) : (
                 <IconButton className={theme.iconButton} icon={<IconCloseMediumOutline />} inverse onClick={onClick} />
               )
