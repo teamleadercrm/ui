@@ -26,13 +26,13 @@ class Counter extends PureComponent {
     const { borderColor, className, color, count, inactive, maxCount, size, ...others } = this.props;
 
     const classes = cx(
-      theme.counter,
+      theme['counter'],
       theme[color],
       theme[size],
       theme[`border-${borderColor}`],
       {
-        [theme.inactive]: inactive,
-        [theme.rounded]: typeof count !== 'undefined',
+        [theme['inactive']]: inactive,
+        [theme['rounded']]: typeof count !== 'undefined',
       },
       className,
     );

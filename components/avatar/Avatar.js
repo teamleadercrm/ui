@@ -21,8 +21,8 @@ class Avatar extends PureComponent {
   render() {
     const { borderColor, className, counter, image, imageAlt, size, ...others } = this.props;
 
-    const avatarClassNames = cx(theme.avatar, theme[size], className);
-    const imageClassNames = cx(theme.image, theme[`border-${borderColor}`]);
+    const avatarClassNames = cx(theme['avatar'], theme[size], className);
+    const imageClassNames = cx(theme['image'], theme[`border-${borderColor}`]);
 
     return (
       <div className={avatarClassNames} {...others} data-teamleader-ui="avatar">
