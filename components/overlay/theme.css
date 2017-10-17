@@ -1,5 +1,5 @@
+@import '@teamleader/ui-animations';
 @import 'colors.css';
-@import 'variables.css';
 
 :root {
   --overlay-color: var(--palette-bluewood-lighter);
