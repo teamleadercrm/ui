@@ -68,7 +68,7 @@ class Button extends PureComponent {
       theme['button'],
       theme[level],
       {
-        [theme['iconOnly']]: !label && !children,
+        [theme['icon-only']]: !label && !children,
         [theme['inverse']]: inverse && level === 'outline',
         [theme['processing']]: processing,
         [theme[size]]: theme[size],
