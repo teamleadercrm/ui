@@ -29,7 +29,7 @@ class Avatar extends PureComponent {
         <div className={imageClassNames}>
           <img alt={imageAlt} src={image} />
         </div>
-        {counter && <div className={theme.counter}>{counter}</div>}
+        {counter && <div className={theme['counter']}>{counter}</div>}
       </div>
     );
   }
