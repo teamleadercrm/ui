@@ -37,10 +37,16 @@ class Toggle extends PureComponent {
     const { checked, disabled, className, size, color, ...others } = this.props;
     const rest = omit(others, ['onChange']);
 
-    const classNames = cx(theme['toggle'], className, theme[size], theme[color], {
-      [theme['checked']]: checked,
-      [theme['disabled']]: disabled,
-    });
+    const classNames = cx(
+      theme['toggle'],
+      theme[size],
+      theme[color],
+      {
+        [theme['checked']]: checked,
+        [theme['disabled']]: disabled,
+      },
+      className,
+    );
 
     return (
       <label data-teamleader-ui="toggle" className={classNames}>
