@@ -57,7 +57,8 @@ const factory = (Button, IconButton) => {
       const { action, active, children, className, label, onClick, type } = this.props;
 
       const classNames = cx(
-        [theme['toast'], theme[type]],
+        theme['toast'],
+        theme[type],
         {
           [theme['active']]: active,
         },
@@ -76,7 +77,7 @@ const factory = (Button, IconButton) => {
                 <Button className={theme['button']} label={action} level="outline" onClick={onClick} size="small" />
               ) : (
                 <IconButton
-                  className={theme['iconButton']}
+                  className={theme['icon-button']}
                   icon={<IconCloseMediumOutline />}
                   inverse
                   onClick={onClick}

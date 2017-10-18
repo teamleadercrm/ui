@@ -55,11 +55,11 @@
 }
 
 .button,
-.iconButton {
+.icon-button {
   margin: 0 -14px 0 28px;
 }
 
-.iconButton {
+.icon-button {
   color: var(--toast-color);
 
   > span {
