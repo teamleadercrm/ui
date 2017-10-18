@@ -22,9 +22,9 @@ class Box extends PureComponent {
     const classNames = cx(
       theme['box'],
       {
-        [theme[`margin-top-${marginTop}`]]: marginTop > 0
+        [theme[`margin-top-${marginTop}`]]: marginTop > 0,
       },
-      className
+      className,
     );
 
     const Element = element;
