@@ -10,10 +10,10 @@ import theme from './theme.css';
 const POSITION = {
   AUTO: 'auto',
   STATIC: 'static',
-  TOP_LEFT: 'topLeft',
-  TOP_RIGHT: 'topRight',
-  BOTTOM_LEFT: 'bottomLeft',
-  BOTTOM_RIGHT: 'bottomRight',
+  TOP_LEFT: 'top-left',
+  TOP_RIGHT: 'top-right',
+  BOTTOM_LEFT: 'bottom-left',
+  BOTTOM_RIGHT: 'bottom-right',
 };
 
 const factory = MenuItem => {
@@ -229,7 +229,7 @@ const factory = MenuItem => {
             ref={node => {
               this.menuNode = node;
             }}
-            className={theme['menuInner']}
+            className={theme['menu-inner']}
             style={this.getMenuStyle()}
           >
             {this.renderItems()}

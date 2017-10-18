@@ -62,7 +62,7 @@ const factory = (IconButton, Menu) => {
       const buttonIcon = icon || <IconMoreMediumOutline />;
 
       return (
-        <div data-teamleader-ui="icon-menu" {...other} className={cx(theme['iconMenu'], className)}>
+        <div data-teamleader-ui="icon-menu" {...other} className={cx(theme['icon-menu'], className)}>
           <IconButton className={theme['icon']} icon={buttonIcon} onClick={this.handleButtonClick} />
           <Menu
             active={this.state.active}

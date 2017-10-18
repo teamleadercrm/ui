@@ -34,7 +34,7 @@ const factory = () => {
       const { icon, caption, children, className, shortcut, selected, disabled, ...others } = this.props;
 
       const classNames = cx(
-        theme['menuItem'],
+        theme['menu-item'],
         {
           [theme['selected']]: selected,
           [theme['disabled']]: disabled,

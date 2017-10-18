@@ -24,7 +24,7 @@ storiesOf('Menus', module)
     </Menu>
   ))
   .add('IconMenu', () => (
-    <IconMenu onSelect={action('select')} position="topLeft">
+    <IconMenu onSelect={action('select')} position="top-left">
       <MenuItem value="foo" caption="Caption" />
       <MenuItem onClick={action('click')} value="bar" caption="Caption & Shortcut" shortcut="Ctrl + P" />
       <MenuItem caption="Disabled ..." disabled shortcut="Ctrl + P" />
