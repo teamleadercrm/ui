@@ -1,3 +1,4 @@
+import Avatar, { AvatarStack } from './avatar';
 import Button, { ButtonGroup, IconButton } from './button';
 import {
   Heading1,
@@ -26,6 +27,8 @@ import { Toast } from './toast';
 import Tooltip, { TooltipLabel } from './tooltip';
 
 export {
+  Avatar,
+  AvatarStack,
   Button,
   ButtonGroup,
   Counter,

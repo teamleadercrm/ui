@@ -3,6 +3,8 @@
 @import '@teamleader/ui-typography';
 
 :root {
+  --border-width: 2px;
+
   --medium-mininmum-size: 9px;
   --small-minimum-size: 6px;
 }
@@ -29,6 +31,38 @@
   min-width: var(--small-minimum-size);
 }
 
+.border-neutral {
+  box-shadow: 0 0 0 var(--border-width) var(--color-neutral-lightest);
+}
+
+.border-mint {
+  box-shadow: 0 0 0 var(--border-width) var(--color-mint-lightest);
+}
+
+.border-teal {
+  box-shadow: 0 0 0 var(--border-width) var(--color-teal-lightest);
+}
+
+.border-ruby {
+  box-shadow: 0 0 0 var(--border-width) var(--color-ruby-lightest);
+}
+
+.border-violet {
+  box-shadow: 0 0 0 var(--border-width) var(--color-violet-lightest);
+}
+
+.border-gold {
+  box-shadow: 0 0 0 var(--border-width) var(--color-gold-lightest);
+}
+
+.border-aqua {
+  box-shadow: 0 0 0 var(--border-width) var(--color-aqua-lightest);
+}
+
+.border-tealdark {
+  box-shadow: 0 0 0 var(--border-width) var(--color-teal-dark);
+}
+
 .rounded {
   border-radius: 4px;
 }
@@ -42,10 +76,10 @@
 }
 
 .neutral {
-  background-color: var(--color-neutral-dark);
+  background-color: var(--color-neutral-darkest);
 
-  &.dark {
-    background-color: var(--color-neutral-darkest);
+  &.inactive {
+    background-color: var(--color-neutral-dark);
   }
 }
 
