@@ -8,7 +8,7 @@ class Box extends PureComponent {
     children: PropTypes.node,
     className: PropTypes.string,
     element: PropTypes.node,
-    marginTop: PropTypes.number,
+    marginTop: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8]),
   };
 
   static defaultProps = {
