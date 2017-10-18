@@ -46,14 +46,14 @@ class Toggle extends PureComponent {
       <label data-teamleader-ui="toggle" className={classNames}>
         <input
           {...rest}
-          className={theme.input}
+          className={theme['input']}
           type="checkbox"
           checked={checked}
           onClick={this.handleToggle}
           readOnly
         />
-        <span className={theme.track}>
-          <span className={theme.thumb} />
+        <span className={theme['track']}>
+          <span className={theme['thumb']} />
         </span>
       </label>
     );
