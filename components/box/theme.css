@@ -2,14 +2,39 @@
 
 .box {
   margin-bottom: 0;
-  margin-left: 0;
-  margin-right: 0;
   margin-top: 0;
 }
 
-@each $factor in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16) {
-  .margin-top-$(factor) {
-    margin-top: calc($factor * var(--spacer-smallest));
-  }
+.margin-top-1 {
+  margin-top: var(--spacer-smallest);
 }
+
+.margin-top-2 {
+  margin-top: var(--spacer-smaller);
+}
+
+.margin-top-3 {
+  margin-top: var(--spacer-small);
+}
+
+.margin-top-4 {
+  margin-top: var(--spacer-regular);
+}
+
+.margin-top-5 {
+  margin-top: var(--spacer-medium);
+}
+
+.margin-top-6 {
+  margin-top: var(--spacer-big);
+}
+
+.margin-top-7 {
+  margin-top: var(--spacer-bigger);
+}
+
+.margin-top-8 {
+  margin-top: var(--spacer-biggest);
+}
+
 
