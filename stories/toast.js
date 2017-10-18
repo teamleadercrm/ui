@@ -11,9 +11,18 @@ storiesOf('Toast', module)
   .addDecorator((story, context) => withInfo('common info')(story)(context))
   .addDecorator(checkA11y)
   .addDecorator(styles(baseStyles))
+  .add('Close', () => (
+    <Toast
+      active
+      label="Toast label"
+      timeout={3000}
+      onClick={action('toast click')}
+      onTimeout={action('toast timeout')}
+    />
+  ))
   .add('Accept', () => (
     <Toast
-      action=""
+      action="Confirm"
       active
       label="Toast label"
       timeout={3000}
@@ -24,7 +33,7 @@ storiesOf('Toast', module)
   ))
   .add('Cancel', () => (
     <Toast
-      action=""
+      action="Abort"
       active
       label="Toast label"
       timeout={3000}
@@ -35,7 +44,7 @@ storiesOf('Toast', module)
   ))
   .add('Warning', () => (
     <Toast
-      action=""
+      action="I'm warned!"
       active
       label="Toast label"
       timeout={3000}
