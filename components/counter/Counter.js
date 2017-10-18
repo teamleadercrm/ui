@@ -6,35 +6,39 @@ import theme from './theme.css';
 
 class Counter extends PureComponent {
   static propTypes = {
+    borderColor: PropTypes.oneOf(['neutral', 'mint', 'aqua', 'violet', 'teal', 'gold', 'ruby', 'tealdark']),
     className: PropTypes.string,
     color: PropTypes.oneOf(['neutral', 'mint', 'aqua', 'violet', 'teal', 'gold', 'ruby']),
     count: PropTypes.number,
-    dark: PropTypes.bool,
+    inactive: PropTypes.bool,
     maxCount: PropTypes.number,
     size: PropTypes.oneOf(['small', 'medium']),
   };
 
   static defaultProps = {
+    borderColor: 'neutral',
     color: 'neutral',
+    inactive: false,
     size: 'medium',
   };
 
   render() {
-    const { className, color, count, dark, maxCount, size, ...others } = this.props;
+    const { borderColor, className, color, count, inactive, maxCount, size, ...others } = this.props;
 
-    const classes = cx(
-      theme.counter,
+    const classNames = cx(
+      theme['counter'],
       theme[color],
       theme[size],
+      theme[`border-${borderColor}`],
       {
-        [theme.dark]: dark,
-        [theme.rounded]: typeof count !== 'undefined',
+        [theme['inactive']]: inactive,
+        [theme['rounded']]: typeof count !== 'undefined',
       },
       className,
     );
 
     return (
-      <span className={classes} {...others} data-teamleader-ui="counter">
+      <span className={classNames} {...others} data-teamleader-ui="counter">
         <Monospaced>{count > maxCount ? `${maxCount}+` : count}</Monospaced>
       </span>
     );
