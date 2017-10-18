@@ -1,6 +1,5 @@
 export const baseStyles = {
   height: '100vh',
-  padding: '20px'
 };
 
 export const centerStyles = {
