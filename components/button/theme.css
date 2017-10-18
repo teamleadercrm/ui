@@ -1,3 +1,4 @@
+@import '@teamleader/ui-animations';
 @import '@teamleader/ui-colors';
 @import '@teamleader/ui-typography';
 
@@ -22,8 +23,9 @@
   position: relative;
   text-align: center;
   text-decoration: none;
-  transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-    color .2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color var(--animation-duration) var(--animation-curve-fast-out-slow-in),
+    border-color var(--animation-duration) var(--animation-curve-fast-out-slow-in),
+    color var(--animation-duration) var(--animation-curve-fast-out-slow-in);
   user-select: none;
   white-space: nowrap;
   vertical-align: middle;
@@ -386,10 +388,6 @@
     margin-top: calc(-.5 * var(--large-spinner-size));
     margin-left: calc(-.5 * var(--large-spinner-size));
   }
-}
-
-@keyframes spin {
-  to {transform: rotate(360deg);}
 }
 
 .spinner:before {

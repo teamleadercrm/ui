@@ -70,7 +70,6 @@ storiesOf('Buttons', module)
       </Button>
     </ButtonGroup>
   ))
-  .addDecorator(styles({ background: '#d3d1fe' }))
   .add('level', () => (
     <ButtonGroup>
       <Button onClick={action('clicked primary button')} level="primary">
@@ -81,9 +80,6 @@ storiesOf('Buttons', module)
       </Button>
       <Button onClick={action('clicked ouline button')} level="outline">
         Outline button
-      </Button>
-      <Button onClick={action('clicked ouline inverse button')} inverse level="outline">
-        Outline inverse button
       </Button>
       <Button onClick={action('clicked destructive button')} level="destructive">
         Destructive button

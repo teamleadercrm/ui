@@ -1,3 +1,4 @@
+@import '@teamleader/ui-animations';
 @import 'colors.css';
 @import 'variables.css';
 
@@ -47,13 +48,3 @@
 .large svg {
   transform: scale(var(--loading-moledule-scale-large));
 }
-
-@keyframes pulse {
-  0% { opacity: .25; }
-  25% { opacity: .25; }
-  35% { opacity: 1; }
-  55% { opacity: 1; }
-  75% { opacity: .25; }
-  100% { opacity: .25; }
-}
-
