@@ -28,8 +28,10 @@ class Toggle extends PureComponent {
   }
 
   handleToggle() {
-    if (!this.props.disabled && this.props.onChange) {
-      this.props.onChange(!this.props.checked, event);
+    const { disabled, checked, onChange } = this.props;
+
+    if (!disabled && onChange) {
+      onChange(!checked, event);
     }
   }
 
