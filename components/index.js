@@ -24,6 +24,7 @@ import Island from './island';
 import StatusBullet from './statusBullet';
 import StatusLabel from './statusLabel';
 import { Toast } from './toast';
+import Tooltip, { TooltipLabel } from './tooltip';
 
 export {
   Avatar,
@@ -58,4 +59,6 @@ export {
   StatusLabel,
   Island,
   Toast,
+  Tooltip,
+  TooltipLabel,
 };
