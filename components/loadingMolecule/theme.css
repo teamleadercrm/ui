@@ -1,6 +1,4 @@
 @import '@teamleader/ui-animations';
-@import 'colors.css';
-@import 'variables.css';
 
 :root {
   --loading-molecule-animation-delay: .15s;
