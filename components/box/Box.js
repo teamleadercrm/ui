@@ -14,6 +14,10 @@ class Box extends PureComponent {
     marginLeft: PropTypes.oneOf(spacings),
     marginRight: PropTypes.oneOf(spacings),
     marginTop: PropTypes.oneOf(spacings),
+    paddingBottom: PropTypes.oneOf(spacings),
+    paddingLeft: PropTypes.oneOf(spacings),
+    paddingRight: PropTypes.oneOf(spacings),
+    paddingTop: PropTypes.oneOf(spacings),
   };
 
   static defaultProps = {
@@ -22,10 +26,14 @@ class Box extends PureComponent {
     marginLeft: 0,
     marginRight: 0,
     marginTop: 0,
+    paddingBottom: 0,
+    paddingLeft: 0,
+    paddingRight: 0,
+    paddingTop: 0,
   };
 
   render() {
-    const { children, className, element, marginBottom, marginLeft, marginRight, marginTop, ...others } = this.props;
+    const { children, className, element, marginBottom, marginLeft, marginRight, marginTop, paddingBottom, paddingLeft, paddingRight, paddingTop, ...others } = this.props;
 
     const classNames = cx(
       theme['box'],
@@ -34,6 +42,10 @@ class Box extends PureComponent {
         [theme[`margin-left-${marginLeft}`]]: marginLeft > 0,
         [theme[`margin-right-${marginRight}`]]: marginRight > 0,
         [theme[`margin-top-${marginTop}`]]: marginTop > 0,
+        [theme[`padding-bottom-${paddingBottom}`]]: paddingBottom > 0,
+        [theme[`padding-left-${paddingLeft}`]]: paddingLeft > 0,
+        [theme[`padding-right-${paddingRight}`]]: paddingRight > 0,
+        [theme[`padding-top-${paddingTop}`]]: paddingTop > 0,
       },
       className,
     );

@@ -8,7 +8,8 @@
   margin-top: 0;
 }
 
-@each $factor, $spacer in (1, 2, 3, 4, 5, 6, 7, 8), (var(--spacer-smallest), var(--spacer-smaller), var(--spacer-small), var(--spacer-regular), var(--spacer-medium), var(--spacer-big), var(--spacer-bigger), var(--spacer-biggest)) {
+@each
+  $factor, $spacer in (1, 2, 3, 4, 5, 6, 7, 8), (var(--spacer-smallest), var(--spacer-smaller), var(--spacer-small), var(--spacer-regular), var(--spacer-medium), var(--spacer-big), var(--spacer-bigger), var(--spacer-biggest)) {
   .margin-bottom-$(factor) {
     margin-bottom: $spacer;
   }
@@ -23,6 +24,22 @@
 
   .margin-top-$(factor) {
     margin-top: $spacer;
+  }
+
+  .padding-bottom-$(factor) {
+    padding-bottom: $spacer;
+  }
+
+  .padding-left-$(factor) {
+    padding-left: $spacer;
+  }
+
+  .padding-right-$(factor) {
+    padding-right: $spacer;
+  }
+
+  .padding-top-$(factor) {
+    padding-top: $spacer;
   }
 }
 
