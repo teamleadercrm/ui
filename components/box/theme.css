@@ -38,4 +38,36 @@
   margin-top: var(--spacer-biggest);
 }
 
+.margin-bottom-1 {
+  margin-bottom: var(--spacer-smallest);
+}
+
+.margin-bottom-2 {
+  margin-bottom: var(--spacer-smaller);
+}
+
+.margin-bottom-3 {
+  margin-bottom: var(--spacer-small);
+}
+
+.margin-bottom-4 {
+  margin-bottom: var(--spacer-regular);
+}
+
+.margin-bottom-5 {
+  margin-bottom: var(--spacer-medium);
+}
+
+.margin-bottom-6 {
+  margin-bottom: var(--spacer-big);
+}
+
+.margin-bottom-7 {
+  margin-bottom: var(--spacer-bigger);
+}
+
+.margin-bottom-8 {
+  margin-bottom: var(--spacer-biggest);
+}
+
 
