@@ -10,6 +10,7 @@ class Box extends PureComponent {
     children: PropTypes.node,
     className: PropTypes.string,
     element: PropTypes.node,
+    margin: PropTypes.oneOf(spacings),
     marginBottom: PropTypes.oneOf(spacings),
     marginLeft: PropTypes.oneOf(spacings),
     marginRight: PropTypes.oneOf(spacings),
@@ -22,6 +23,7 @@ class Box extends PureComponent {
 
   static defaultProps = {
     element: 'div',
+    margin: 0,
     marginBottom: 0,
     marginLeft: 0,
     marginRight: 0,
@@ -37,6 +39,7 @@ class Box extends PureComponent {
       children,
       className,
       element,
+      margin,
       marginBottom,
       marginLeft,
       marginRight,
@@ -51,6 +54,7 @@ class Box extends PureComponent {
     const classNames = cx(
       theme['box'],
       {
+        [theme[`margin-${margin}`]]: margin > 0,
         [theme[`margin-bottom-${marginBottom}`]]: marginBottom > 0,
         [theme[`margin-left-${marginLeft}`]]: marginLeft > 0,
         [theme[`margin-right-${marginRight}`]]: marginRight > 0,
