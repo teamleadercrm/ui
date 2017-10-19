@@ -22,7 +22,7 @@ storiesOf('Typography', module)
   .addDecorator(checkA11y)
   .addDecorator(styles(baseStyles))
   .add('Headings', () => (
-    <Box>
+    <Box padding={5}>
       <Heading1 marginTop={4}>Heading 1</Heading1>
       <Heading2 marginTop={4}>Heading 2</Heading2>
       <Heading3 marginTop={4}>Heading 3</Heading3>
@@ -30,7 +30,7 @@ storiesOf('Typography', module)
     </Box>
   ))
   .add('Text', () => (
-    <Box>
+    <Box padding={5}>
       <TextBody>Text body</TextBody>
       <TextSmall marginTop={2}>Text small</TextSmall>
       <TextTiny marginTop={2}>Text tiny</TextTiny>
