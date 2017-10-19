@@ -62,18 +62,20 @@ class RadioButton extends PureComponent {
       onMouseLeave,
       ...others
     } = this.props;
-    const _className = cx(theme[disabled ? 'disabled' : 'field'], className);
+
+    const classNames = cx(theme[disabled ? 'disabled' : 'field'], className);
+
     return (
       <label
         data-teamleader-ui="radio-button"
-        className={_className}
+        className={classNames}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
       >
         <input
           {...others}
           checked={checked}
-          className={theme.input}
+          className={theme['input']}
           disabled={disabled}
           name={name}
           onChange={() => {}}
@@ -84,7 +86,7 @@ class RadioButton extends PureComponent {
           type="radio"
         />
         <Radio checked={checked} disabled={disabled} />
-        {label ? <span className={theme.text}>{label}</span> : null}
+        {label ? <span className={theme['text']}>{label}</span> : null}
         {children}
       </label>
     );
