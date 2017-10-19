@@ -6,7 +6,6 @@
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
-  padding: 0;
   padding-bottom: 0;
   padding-left: 0;
   padding-right: 0;
@@ -15,10 +14,6 @@
 
 @each
   $factor, $spacer in (1, 2, 3, 4, 5, 6, 7, 8), (var(--spacer-smallest), var(--spacer-smaller), var(--spacer-small), var(--spacer-regular), var(--spacer-medium), var(--spacer-big), var(--spacer-bigger), var(--spacer-biggest)) {
-  .margin-$(factor) {
-    margin: $spacer;
-  }
-
   .margin-bottom-$(factor) {
     margin-bottom: $spacer;
   }
@@ -33,10 +28,6 @@
 
   .margin-top-$(factor) {
     margin-top: $spacer;
-  }
-
-  .padding-$(factor) {
-    padding: $spacer;
   }
 
   .padding-bottom-$(factor) {
