@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import theme from './theme.css';
 import cx from 'classnames';
 import omit from 'lodash.omit';
+import { TextBody } from '../typography';
 
 class Toggle extends PureComponent {
   static propTypes = {
@@ -10,6 +11,7 @@ class Toggle extends PureComponent {
     disabled: PropTypes.bool,
     name: PropTypes.string,
     className: PropTypes.string,
+    label: PropTypes.string,
     onChange: PropTypes.func,
     size: PropTypes.oneOf(['small', 'medium', 'large']),
     color: PropTypes.oneOf(['neutral', 'teal', 'ruby', 'mint', 'violet', 'gold', 'aqua']),
@@ -35,8 +37,16 @@ class Toggle extends PureComponent {
     }
   }
 
+  getTextColor() {
+    if (this.props.color === 'teal') {
+      return 'white';
+    }
+
+    return 'teal';
+  }
+
   render() {
-    const { checked, disabled, className, size, color, ...others } = this.props;
+    const { checked, disabled, className, size, color, label, ...others } = this.props;
     const rest = omit(others, ['onChange']);
 
     const classNames = cx(
@@ -63,6 +73,11 @@ class Toggle extends PureComponent {
         <span className={theme['track']}>
           <span className={theme['thumb']} />
         </span>
+        {label && (
+          <TextBody element="span" color={this.getTextColor()} soft={disabled} className={theme['label']}>
+            {label}
+          </TextBody>
+        )}
       </label>
     );
   }

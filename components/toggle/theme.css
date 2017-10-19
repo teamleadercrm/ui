@@ -1,4 +1,5 @@
 @import '@teamleader/ui-colors';
+@import '@teamleader/ui-utilities';
 
 :root {
   --toggle-track-height-small: 18px;
@@ -17,6 +18,9 @@
 }
 
 .toggle {
+  align-items: center;
+  display: flex;
+
   .input {
     width: 0;
     height: 0;
@@ -112,6 +116,10 @@
         transform: translateX(calc(var(--toggle-track-width-large) - var(--toggle-thumb-width-large) - calc(2 * --var(--toggle-track-padding))));
       }
     }
+  }
+
+  .label {
+    margin-left: var(--spacer-regular);
   }
 }
 
