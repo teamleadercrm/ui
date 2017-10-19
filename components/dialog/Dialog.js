@@ -3,11 +3,10 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import Portal from '../hoc/Portal';
 import ActivableRenderer from '../hoc/ActivableRenderer';
-import FontIcon from '../font_icon';
 import InjectButton from '../button/Button.js';
 import InjectIconButton from '../button/IconButton';
 import InjectOverlay from '../overlay/Overlay';
-import { IconCloseMediumOutline } from '@teamleader/ui-icons';
+import { IconCloseMediumOutline, IconWarningMediumOutline } from '@teamleader/ui-icons';
 import theme from './theme.css';
 
 const factory = (Overlay, Button, IconButton) => {
@@ -90,7 +89,7 @@ const factory = (Overlay, Button, IconButton) => {
           />
           <div data-teamleader-ui="dialog" className={dialogClassNames}>
             <header className={theme.header}>
-              {type === 'warning' ? <FontIcon className={theme.icon} value="alert_circle" /> : null}
+              {type === 'warning' ? <IconWarningMediumOutline className={theme.icon} /> : null}
               {title ? <h6 className={theme.title}>{title}</h6> : null}
               <IconButton icon={<IconCloseMediumOutline />} className={theme.close} onMouseUp={onCloseClick} />
             </header>
