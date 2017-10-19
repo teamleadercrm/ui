@@ -29,14 +29,14 @@ class Section extends PureComponent {
 
     const isDark = this.isDark(color);
 
-    const classes = cx(theme.section, className, theme[color], {
-      [theme.dark]: isDark,
+    const classNames = cx(theme['section'], className, theme[color], {
+      [theme['dark']]: isDark,
     });
 
     const rest = omit(others, ['dark']);
 
     return (
-      <section data-teamleader-ui="section" className={classes} {...rest}>
+      <section data-teamleader-ui="section" className={classNames} {...rest}>
         {children}
       </section>
     );

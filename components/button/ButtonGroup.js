@@ -13,16 +13,16 @@ class ButtonGroup extends PureComponent {
   render() {
     const { children, className, segmented, ...others } = this.props;
 
-    const classes = cx(
-      [theme.group],
+    const classNames = cx(
+      [theme['group']],
       {
-        [theme.segmented]: segmented,
+        [theme['segmented']]: segmented,
       },
       className,
     );
 
     return (
-      <div data-teamleader-ui="button-group" className={classes} {...others}>
+      <div data-teamleader-ui="button-group" className={classNames} {...others}>
         {children}
       </div>
     );
