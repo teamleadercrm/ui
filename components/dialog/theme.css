@@ -1,5 +1,6 @@
 @import '@teamleader/ui-animations';
 @import '@teamleader/ui-colors';
+@import '@teamleader/ui-utilities';
 @import 'variables.css';
 @import 'media.css';
 
@@ -91,7 +92,7 @@
 
     .icon {
       color: var(--color-gold-dark);
-      font-size: 40px;
+      margin-bottom: var(--spacer-small);
     }
   }
 }
