@@ -61,26 +61,29 @@ const factory = (Overlay, Button, IconButton) => {
       } = this.props;
 
       const actionButtons = actions.map((action, idx) => {
-        const className = cx(theme.button, {
+        const className = cx(theme['button'], {
           [action.className]: action.className,
         });
+
         return <Button key={idx} {...action} className={className} />; // eslint-disable-line
       });
 
       const dialogClassNames = cx(
-        [theme.dialog, theme[size], theme[type]],
+        theme['dialog'],
+        theme[size],
+        theme[type],
         {
-          [theme.active]: active,
+          [theme['active']]: active,
         },
         className,
       );
 
       return (
-        <Portal className={theme.wrapper}>
+        <Portal className={theme['wrapper']}>
           <Overlay
             active={active}
             backdrop={backdrop}
-            className={theme.overlay}
+            className={theme['overlay']}
             onClick={onOverlayClick}
             onEscKeyDown={onEscKeyDown}
             onMouseDown={onOverlayMouseDown}
@@ -88,16 +91,16 @@ const factory = (Overlay, Button, IconButton) => {
             onMouseUp={onOverlayMouseUp}
           />
           <div data-teamleader-ui="dialog" className={dialogClassNames}>
-            <header className={theme.header}>
-              {type === 'warning' && <IconWarningMediumOutline className={theme.icon} />}
-              {title && <h6 className={theme.title}>{title}</h6>}
-              <IconButton icon={<IconCloseMediumOutline />} className={theme.close} onMouseUp={onCloseClick} />
+            <header className={theme['header']}>
+              {type === 'warning' && <IconWarningMediumOutline className={theme['icon']} />}
+              {title && <h6 className={theme['title']}>{title}</h6>}
+              <IconButton icon={<IconCloseMediumOutline />} className={theme['close']} onMouseUp={onCloseClick} />
             </header>
-            <section role="body" className={theme.body}>
+            <section role="body" className={theme['body']}>
               {children}
             </section>
             {actionButtons.length && (
-              <nav role="navigation" className={theme.navigation}>
+              <nav role="navigation" className={theme['navigation']}>
                 {actionButtons}
               </nav>
             )}
