@@ -33,7 +33,20 @@ class Box extends PureComponent {
   };
 
   render() {
-    const { children, className, element, marginBottom, marginLeft, marginRight, marginTop, paddingBottom, paddingLeft, paddingRight, paddingTop, ...others } = this.props;
+    const {
+      children,
+      className,
+      element,
+      marginBottom,
+      marginLeft,
+      marginRight,
+      marginTop,
+      paddingBottom,
+      paddingLeft,
+      paddingRight,
+      paddingTop,
+      ...others
+    } = this.props;
 
     const classNames = cx(
       theme['box'],
