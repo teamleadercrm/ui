@@ -19,7 +19,7 @@ const factory = (baseType, type, defaultElement) => {
     };
 
     isSoft(color) {
-      if (color !== 'white') {
+      if (color !== 'white' && color !== 'teal') {
         return false;
       }
 
