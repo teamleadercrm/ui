@@ -37,7 +37,9 @@ class AvatarStack extends PureComponent {
 
     return (
       <div data-teamleader-ui="avatar-stack" className={classNames} {...others}>
-        {overflowAmount > 0 && <div className={theme['overflow']} onClick={onOverflowClick}>{`+${overflowAmount}`}</div>}
+        {overflowAmount > 0 && (
+          <div className={theme['overflow']} onClick={onOverflowClick}>{`+${overflowAmount}`}</div>
+        )}
         {childrenToDisplay}
       </div>
     );

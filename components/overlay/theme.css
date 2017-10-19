@@ -1,8 +1,8 @@
+@import '@teamleader/ui-colors';
 @import '@teamleader/ui-animations';
-@import 'colors.css';
 
 :root {
-  --overlay-color: var(--palette-bluewood-lighter);
+  --overlay-color: var(--color-teal-dark);
   --overlay-opacity: .85;
 }
 
