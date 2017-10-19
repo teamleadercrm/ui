@@ -6,68 +6,14 @@
   margin-top: 0;
 }
 
-.margin-top-1 {
-  margin-top: var(--spacer-smallest);
-}
+@each $factor, $spacer in (1, 2, 3, 4, 5, 6, 7, 8), (var(--spacer-smallest), var(--spacer-smaller), var(--spacer-small), var(--spacer-regular), var(--spacer-medium), var(--spacer-big), var(--spacer-bigger), var(--spacer-biggest)) {
+  .margin-bottom-$(factor) {
+    margin-bottom: $spacer;
+  }
 
-.margin-top-2 {
-  margin-top: var(--spacer-smaller);
-}
-
-.margin-top-3 {
-  margin-top: var(--spacer-small);
-}
-
-.margin-top-4 {
-  margin-top: var(--spacer-regular);
-}
-
-.margin-top-5 {
-  margin-top: var(--spacer-medium);
-}
-
-.margin-top-6 {
-  margin-top: var(--spacer-big);
-}
-
-.margin-top-7 {
-  margin-top: var(--spacer-bigger);
-}
-
-.margin-top-8 {
-  margin-top: var(--spacer-biggest);
-}
-
-.margin-bottom-1 {
-  margin-bottom: var(--spacer-smallest);
-}
-
-.margin-bottom-2 {
-  margin-bottom: var(--spacer-smaller);
-}
-
-.margin-bottom-3 {
-  margin-bottom: var(--spacer-small);
-}
-
-.margin-bottom-4 {
-  margin-bottom: var(--spacer-regular);
-}
-
-.margin-bottom-5 {
-  margin-bottom: var(--spacer-medium);
-}
-
-.margin-bottom-6 {
-  margin-bottom: var(--spacer-big);
-}
-
-.margin-bottom-7 {
-  margin-bottom: var(--spacer-bigger);
-}
-
-.margin-bottom-8 {
-  margin-bottom: var(--spacer-biggest);
+  .margin-top-$(factor) {
+    margin-top: $spacer;
+  }
 }
 
 
