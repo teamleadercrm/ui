@@ -23,6 +23,10 @@
 
 .teal {
   color: var(--color-teal-darkest);
+
+  &.soft {
+    color: var(--color-neutral-darkest);
+  }
 }
 
 .violet {
