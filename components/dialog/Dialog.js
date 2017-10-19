@@ -89,18 +89,18 @@ const factory = (Overlay, Button, IconButton) => {
           />
           <div data-teamleader-ui="dialog" className={dialogClassNames}>
             <header className={theme.header}>
-              {type === 'warning' ? <IconWarningMediumOutline className={theme.icon} /> : null}
-              {title ? <h6 className={theme.title}>{title}</h6> : null}
+              {type === 'warning' && <IconWarningMediumOutline className={theme.icon} />}
+              {title && <h6 className={theme.title}>{title}</h6>}
               <IconButton icon={<IconCloseMediumOutline />} className={theme.close} onMouseUp={onCloseClick} />
             </header>
             <section role="body" className={theme.body}>
               {children}
             </section>
-            {actionButtons.length ? (
+            {actionButtons.length && (
               <nav role="navigation" className={theme.navigation}>
                 {actionButtons}
               </nav>
-            ) : null}
+            )}
           </div>
         </Portal>
       );
