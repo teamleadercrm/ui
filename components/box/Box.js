@@ -12,6 +12,7 @@ class Box extends PureComponent {
     element: PropTypes.node,
     marginBottom: PropTypes.oneOf(spacings),
     marginLeft: PropTypes.oneOf(spacings),
+    marginRight: PropTypes.oneOf(spacings),
     marginTop: PropTypes.oneOf(spacings),
   };
 
@@ -19,17 +20,19 @@ class Box extends PureComponent {
     element: 'div',
     marginBottom: 0,
     marginLeft: 0,
+    marginRight: 0,
     marginTop: 0,
   };
 
   render() {
-    const { children, className, element, marginBottom, marginLeft, marginTop, ...others } = this.props;
+    const { children, className, element, marginBottom, marginLeft, marginRight, marginTop, ...others } = this.props;
 
     const classNames = cx(
       theme['box'],
       {
         [theme[`margin-bottom-${marginBottom}`]]: marginBottom > 0,
         [theme[`margin-left-${marginLeft}`]]: marginLeft > 0,
+        [theme[`margin-right-${marginRight}`]]: marginRight > 0,
         [theme[`margin-top-${marginTop}`]]: marginTop > 0,
       },
       className,
