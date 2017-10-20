@@ -4,6 +4,7 @@ import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import styles from '@sambego/storybook-styles';
 import {
+  Box,
   Heading1,
   Heading2,
   Heading3,
@@ -21,19 +22,19 @@ storiesOf('Typography', module)
   .addDecorator(checkA11y)
   .addDecorator(styles(baseStyles))
   .add('Headings', () => (
-    <div>
-      <Heading1>Heading 1</Heading1>
-      <Heading2>Heading 2</Heading2>
-      <Heading3>Heading 3</Heading3>
-      <Heading4>Heading 4</Heading4>
-    </div>
+    <Box padding={5}>
+      <Heading1 marginTop={4}>Heading 1</Heading1>
+      <Heading2 marginTop={4}>Heading 2</Heading2>
+      <Heading3 marginTop={4}>Heading 3</Heading3>
+      <Heading4 marginTop={4}>Heading 4</Heading4>
+    </Box>
   ))
   .add('Text', () => (
-    <div>
-      <Monospaced>Monospaced</Monospaced>
-      <OldStyleNumber>Old style number</OldStyleNumber>
+    <Box padding={5}>
       <TextBody>Text body</TextBody>
-      <TextSmall>Text small</TextSmall>
-      <TextTiny>Text tiny</TextTiny>
-    </div>
+      <TextSmall marginTop={2}>Text small</TextSmall>
+      <TextTiny marginTop={2}>Text tiny</TextTiny>
+      <TextBody marginTop={4}><Monospaced>Monospaced number 1234567890</Monospaced></TextBody>
+      <TextBody marginTop={2}><OldStyleNumber>Old style number 1234567890</OldStyleNumber></TextBody>
+    </Box>
   ));

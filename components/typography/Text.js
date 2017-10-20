@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react';
+import Box from '../box';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import omit from 'lodash.omit';
 import theme from './theme.css';
 
 const factory = (baseType, type, defaultElement) => {
@@ -27,7 +29,7 @@ const factory = (baseType, type, defaultElement) => {
     }
 
     render() {
-      const { children, className, color, element } = this.props;
+      const { children, className, color, element, ...others } = this.props;
 
       const isSoft = this.isSoft(color);
 
@@ -43,10 +45,12 @@ const factory = (baseType, type, defaultElement) => {
 
       const Element = element || defaultElement;
 
+      const rest = omit(others, ['soft']);
+
       return (
-        <Element data-teamleader-ui={baseType} className={classNames}>
+        <Box className={classNames} data-teamleader-ui={baseType} element={Element} {...rest}>
           {children}
-        </Element>
+        </Box>
       );
     }
   }

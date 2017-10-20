@@ -1,0 +1,50 @@
+@import '@teamleader/ui-utilities';
+
+.box {
+  box-sizing: border-box;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+}
+
+@each
+  $factor, $spacer in (1, 2, 3, 4, 5, 6, 7, 8), (var(--spacer-smallest), var(--spacer-smaller), var(--spacer-small), var(--spacer-regular), var(--spacer-medium), var(--spacer-big), var(--spacer-bigger), var(--spacer-biggest)) {
+  .margin-bottom-$(factor) {
+    margin-bottom: $spacer;
+  }
+
+  .margin-left-$(factor) {
+    margin-left: $spacer;
+  }
+
+  .margin-right-$(factor) {
+    margin-right: $spacer;
+  }
+
+  .margin-top-$(factor) {
+    margin-top: $spacer;
+  }
+
+  .padding-bottom-$(factor) {
+    padding-bottom: $spacer;
+  }
+
+  .padding-left-$(factor) {
+    padding-left: $spacer;
+  }
+
+  .padding-right-$(factor) {
+    padding-right: $spacer;
+  }
+
+  .padding-top-$(factor) {
+    padding-top: $spacer;
+  }
+}
+
+
