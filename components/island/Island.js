@@ -38,14 +38,14 @@ class Island extends PureComponent {
 
     const isDark = this.isDark(color);
 
-    const classes = cx(theme.island, className, theme[color], {
-      [theme.dark]: isDark,
+    const classNames = cx(theme['island'], className, theme[color], {
+      [theme['dark']]: isDark,
     });
 
     const rest = omit(others, ['dark']);
 
     return (
-      <Box data-teamleader-ui="island" className={classes} padding={spacings[size]} {...rest}>
+      <Box data-teamleader-ui="island" className={classNames} padding={spacings[size]} {...rest}>
         {children}
       </Box>
     );

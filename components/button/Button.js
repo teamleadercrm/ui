@@ -64,13 +64,13 @@ class Button extends PureComponent {
 
     const element = href ? 'a' : 'button';
 
-    const classes = cx(
-      theme.button,
+    const classNames = cx(
+      theme['button'],
       theme[level],
       {
-        [theme.iconOnly]: !label && !children,
-        [theme.inverse]: inverse && level === 'outline',
-        [theme.processing]: processing,
+        [theme['icon-only']]: !label && !children,
+        [theme['inverse']]: inverse && level === 'outline',
+        [theme['processing']]: processing,
         [theme[size]]: theme[size],
       },
       className,
@@ -82,7 +82,7 @@ class Button extends PureComponent {
       ref: node => {
         this.buttonNode = node;
       },
-      className: classes,
+      className: classNames,
       disabled,
       onMouseUp: this.handleMouseUp,
       onMouseLeave: this.handleMouseLeave,
@@ -95,13 +95,13 @@ class Button extends PureComponent {
       props,
       icon && iconPlacement === 'left' ? icon : null,
       label || children ? (
-        <span className={theme.children}>
+        <span className={theme['children']}>
           {label}
           {children}
         </span>
       ) : null,
       icon && iconPlacement === 'right' ? icon : null,
-      processing ? <div className={theme.spinner} /> : null,
+      processing ? <div className={theme['spinner']} /> : null,
     );
   }
 }

@@ -20,7 +20,7 @@
   --menu-icon-size: calc(2.3 * var(--unit));
 }
 
-.iconMenu {
+.icon-menu {
   display: inline-block;
   position: relative;
   text-align: center;
@@ -35,7 +35,7 @@
   display: inline-block;
   position: relative;
 
-  &.topLeft {
+  &.top-left {
     left: 0;
     position: absolute;
     top: 0;
@@ -45,7 +45,7 @@
     }
   }
 
-  &.topRight {
+  &.top-right {
     position: absolute;
     right: 0;
     top: 0;
@@ -55,7 +55,7 @@
     }
   }
 
-  &.bottomLeft {
+  &.bottom-left {
     bottom: 0;
     left: 0;
     position: absolute;
@@ -65,7 +65,7 @@
     }
   }
 
-  &.bottomRight {
+  &.bottom-right {
     bottom: 0;
     position: absolute;
     right: 0;
@@ -88,7 +88,7 @@
       will-change: transform;
     }
 
-    & > .menuInner {
+    & > .menu-inner {
       left: 0;
       margin: 0;
       opacity: 0;
@@ -104,7 +104,7 @@
         transform: scale(1);
       }
 
-      & > .menuInner {
+      & > .menu-inner {
         opacity: 1;
         transition:
           opacity var(--menu-fade-duration) var(--animation-curve-default),
@@ -124,7 +124,7 @@
   top: 0;
 }
 
-.menuInner {
+.menu-inner {
   display: block;
   list-style: none;
   margin: 0;
@@ -134,7 +134,7 @@
   white-space: nowrap;
 }
 
-.menuItem {
+.menu-item {
   align-items: center;
   color: var(--color-teal-dark);
   display: flex;
@@ -183,7 +183,7 @@
   margin-left: var(--menu-item-padding);
 }
 
-.menuDivider {
+.divider {
   background-color: var(--color-neutral-light);
   border: 0;
   display: block;

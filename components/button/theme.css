@@ -86,7 +86,7 @@
 }
 
 /* Button colors */
-.iconButton {
+.icon-button {
   background-color: transparent;
   border: 0;
 
@@ -341,7 +341,7 @@
   min-width: calc(3 * var(--unit));
   padding: 0 calc(1.2 * var(--unit));
 
-  &.iconOnly {
+  &.icon-only {
     padding: 0 calc(.7 * var(--unit));
   }
 
@@ -360,7 +360,7 @@
   min-width: calc(3.4 * var(--unit));
   padding: 0 calc(1.2 * var(--unit));
 
-  &.iconOnly {
+  &.icon-only {
     padding: 0 calc(.5 * var(--unit));
   }
 
@@ -379,7 +379,7 @@
   min-width: calc(4.8 * var(--unit));
   padding: 0 calc(1.8 * var(--unit));
 
-  &.iconOnly {
+  &.icon-only {
     padding: 0 calc(1.1 * var(--unit));
   }
 
