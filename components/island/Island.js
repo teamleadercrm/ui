@@ -6,9 +6,9 @@ import omit from 'lodash.omit';
 import theme from './theme.css';
 
 const spacings = {
-  'small' : 3,
-  'medium' : 4,
-  'large' : 5,
+  small: 3,
+  medium: 4,
+  large: 5,
 };
 
 class Island extends PureComponent {
