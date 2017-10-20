@@ -30,6 +30,10 @@
   white-space: nowrap;
   vertical-align: middle;
 
+  svg {
+    -ms-transform: translateY(-1px);
+  }
+  
   & > * {
     display: inline-block;
     pointer-events: none;

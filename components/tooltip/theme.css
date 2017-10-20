@@ -19,6 +19,13 @@
   --tooltip-z-index: 200;
 }
 
+.label,
+.tooltip {
+  svg {
+    -ms-transform: translateY(-1px);
+  }
+}
+
 .label {
   background: color(var(--color-teal-darkest) a(8%));
   border-radius: var(--tooltip-border-radius);

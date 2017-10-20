@@ -162,6 +162,10 @@
   .icon {
     margin-right: var(--spacer-small);
   }
+
+  svg {
+    -ms-transform: translateY(-1px);
+  }
 }
 
 .caption {
