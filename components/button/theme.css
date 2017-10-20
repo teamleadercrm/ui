@@ -91,12 +91,11 @@
   border: 0;
 
   &:not(.inverse) {
-    color: var(--color-teal-darkest);
+    color: var(--color-neutral-darkest);
 
     &:not([disabled]) {
       &:hover {
         background-color: color(var(--color-teal-darkest) a(5%));
-        color: var(--color-teal-darkest);
       }
 
       &:focus {
