@@ -6,7 +6,6 @@
   display: inline-block;
   font-family: var(--font-family-semi-bold);
   font-weight: 500;
-  margin: auto var(--spacer-smallest);
   vertical-align: middle;
 }
 

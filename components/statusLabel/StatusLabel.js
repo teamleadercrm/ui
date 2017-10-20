@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import Box from '../box';
 import cx from 'classnames';
 import { OldStyleNumber } from '../typography';
 import theme from './theme.css';
@@ -23,9 +24,9 @@ class StatusLabel extends PureComponent {
     const classNames = cx(theme['label'], theme[color], theme[size], className);
 
     return (
-      <span className={classNames} {...others} data-teamleader-ui="status-label">
+      <Box className={classNames} element="span" {...others} data-teamleader-ui="status-label">
         <OldStyleNumber>{children}</OldStyleNumber>
-      </span>
+      </Box>
     );
   }
 }
