@@ -1,7 +1,6 @@
 @import '@teamleader/ui-animations';
 @import '@teamleader/ui-colors';
 @import '@teamleader/ui-utilities';
-@import 'media.css';
 
 :root {
   --dialog-background-color: var(--color-white);
