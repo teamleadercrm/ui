@@ -19,19 +19,6 @@
   --tooltip-z-index: 200;
 }
 
-.label,
-.tooltip {
-  svg {
-    color: inherit;
-    fill: currentColor;
-    -ms-transform: translateY(-1px);
-
-    * {
-      fill: currentColor;
-    }
-  }
-}
-
 .label {
   background: color(var(--color-teal-darkest) a(8%));
   border-radius: var(--tooltip-border-radius);
