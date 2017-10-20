@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
 
@@ -37,9 +38,9 @@ class Counter extends PureComponent {
     );
 
     return (
-      <span className={classNames} {...others} data-teamleader-ui="counter">
+      <Box className={classNames} element="span" {...others} data-teamleader-ui="counter">
         {count > maxCount ? `${maxCount}+` : count}
-      </span>
+      </Box>
     );
   }
 }
