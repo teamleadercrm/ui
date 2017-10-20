@@ -1,6 +1,5 @@
 @import '@teamleader/ui-colors';
 @import '@teamleader/ui-utilities';
-@import 'variables.css';
 
 :root {
   --popover-background-color: var(--color-white);
