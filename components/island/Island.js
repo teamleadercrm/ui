@@ -31,15 +31,15 @@ class Island extends PureComponent {
 
     const isDark = this.isDark(color);
 
-    const classes = cx(theme.island, className, theme[color], {
-      [theme.dark]: isDark,
+    const classNames = cx(theme['island'], className, theme[color], {
+      [theme['dark']]: isDark,
       [theme[size]]: theme[size],
     });
 
     const rest = omit(others, ['dark']);
 
     return (
-      <div data-teamleader-ui="island" className={classes} {...rest}>
+      <div data-teamleader-ui="island" className={classNames} {...rest}>
         {children}
       </div>
     );

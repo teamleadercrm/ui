@@ -10,10 +10,10 @@ import theme from './theme.css';
 const POSITION = {
   AUTO: 'auto',
   STATIC: 'static',
-  TOP_LEFT: 'topLeft',
-  TOP_RIGHT: 'topRight',
-  BOTTOM_LEFT: 'bottomLeft',
-  BOTTOM_RIGHT: 'bottomRight',
+  TOP_LEFT: 'top-left',
+  TOP_RIGHT: 'top-right',
+  BOTTOM_LEFT: 'bottom-left',
+  BOTTOM_RIGHT: 'bottom-right',
 };
 
 const factory = MenuItem => {
@@ -214,21 +214,22 @@ const factory = MenuItem => {
     render() {
       const outlineStyle = { width: this.state.width, height: this.state.height };
       const className = cx(
-        [theme.menu, theme[this.state.position]],
+        theme['menu'],
+        theme[this.state.position],
         {
-          [theme.active]: this.state.active,
+          [theme['active']]: this.state.active,
         },
         this.props.className,
       );
 
       return (
         <div data-teamleader-ui="menu" className={className} style={this.getRootStyle()}>
-          {this.props.outline ? <div className={theme.outline} style={outlineStyle} /> : null}
+          {this.props.outline ? <div className={theme['outline']} style={outlineStyle} /> : null}
           <ul
             ref={node => {
               this.menuNode = node;
             }}
-            className={theme.menuInner}
+            className={theme['menu-inner']}
             style={this.getMenuStyle()}
           >
             {this.renderItems()}

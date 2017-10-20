@@ -29,7 +29,7 @@ class LoadingMolecule extends PureComponent {
   render() {
     const { className, basePath, startColor, stopColor, type, ...others } = this.props;
 
-    const classes = cx(theme['loading-molecule'], theme[type], className);
+    const classNames = cx(theme['loading-molecule'], theme[type], className);
 
     const gradient1Name = `linearGradient-1-${this.randomGradientPostFix}`;
     const gradient2Name = `linearGradient-2-${this.randomGradientPostFix}`;
@@ -37,7 +37,7 @@ class LoadingMolecule extends PureComponent {
     const grandient2Source = `url(${basePath}#${gradient2Name})`;
 
     return (
-      <div data-teamleader-ui="loading-molecule" className={classes} {...others}>
+      <div data-teamleader-ui="loading-molecule" className={classNames} {...others}>
         <svg className="loader" width="100px" height="56px" version="1.1">
           <defs>
             <linearGradient x1="63.2191022%" y1="50%" x2="21.8036493%" y2="115.713387%" id={gradient1Name}>

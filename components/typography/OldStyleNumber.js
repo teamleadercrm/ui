@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import s from './theme.css';
+import theme from './theme.css';
 
 class OldStyleNumber extends PureComponent {
   static propTypes = {
@@ -17,7 +17,7 @@ class OldStyleNumber extends PureComponent {
   render() {
     const { children, className, element } = this.props;
 
-    const classNames = cx(s['old-styled-number'], className);
+    const classNames = cx(theme['old-styled-number'], className);
 
     const Element = element;
 

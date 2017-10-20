@@ -3,7 +3,7 @@ import Box from '../box';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import omit from 'lodash.omit';
-import s from './theme.css';
+import theme from './theme.css';
 
 const factory = (baseType, type, defaultElement) => {
   class Text extends PureComponent {
@@ -21,7 +21,7 @@ const factory = (baseType, type, defaultElement) => {
     };
 
     isSoft(color) {
-      if (color !== 'white') {
+      if (color !== 'white' && color !== 'teal') {
         return false;
       }
 
@@ -34,11 +34,11 @@ const factory = (baseType, type, defaultElement) => {
       const isSoft = this.isSoft(color);
 
       const classNames = cx(
-        s[baseType],
-        s[type],
-        s[color],
+        theme[baseType],
+        theme[type],
+        theme[color],
         {
-          [s['soft']]: isSoft,
+          [theme['soft']]: isSoft,
         },
         className,
       );
