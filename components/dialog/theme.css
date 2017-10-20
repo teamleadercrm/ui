@@ -28,12 +28,9 @@
   top: 0;
   width: 100vw;
   z-index: var(--z-index-higher);
-
-  @apply --reset;
 }
 
 .dialog {
-  @apply --reset;
   background-color: var(--dialog-background-color);
   border-radius: var(--dialog-border-radius);
   box-shadow: var(--dialog-box-shadow);
