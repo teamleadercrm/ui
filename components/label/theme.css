@@ -2,7 +2,7 @@
 @import '@teamleader/ui-typography';
 
 :root {
-  --label-font-size: calc(1.6 * var(--unit)) 0;
+  --label-font-size: calc(1.6 * var(--unit));
   --label-line-height: 1.5;
   --label-color: var(--color-teal-darkest);
 }

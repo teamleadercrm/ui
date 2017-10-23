@@ -33,7 +33,7 @@
   --input-read-only-border: var(--color-neutral-dark);
 
   --icon-top-large: calc(1.4 * var(--unit));
-  --icon-top: calc(0.8 * var(--unit));
+  --icon-top: calc(0.7 * var(--unit));
   --icon-horizontal: calc(0.9 * var(--unit));
   --icon-horizontal-small: calc(0.6 * var(--unit));
   --icon-height: calc(1.9 * var(--unit));
@@ -226,13 +226,16 @@
 
     line-height: var(--input-height-small);
     font-size: var(--input-text-size-small);
-
-    &.has-icon-left {
+  }
+  &.has-icon-left {
+    .input {
       padding: 0 var(--input-horizontal-padding-small) 0
         var(--input-horizontal-padding-icon-small);
     }
+  }
 
-    &.has-icon-right {
+  &.has-icon-right {
+    .input {
       padding: 0 var(--input-horizontal-padding-icon-small) 0
         var(--input-horizontal-padding-small);
     }
