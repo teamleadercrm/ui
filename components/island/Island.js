@@ -1,8 +1,15 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import Box from '../box';
 import cx from 'classnames';
 import omit from 'lodash.omit';
 import theme from './theme.css';
+
+const SIZES = {
+  small: 3,
+  medium: 4,
+  large: 5,
+};
 
 class Island extends PureComponent {
   static propTypes = {
@@ -10,7 +17,7 @@ class Island extends PureComponent {
     className: PropTypes.string,
     color: PropTypes.oneOf(['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'white']),
     dark: PropTypes.bool,
-    size: PropTypes.oneOf(['small', 'medium', 'large']),
+    size: PropTypes.oneOf(Object.keys(SIZES)),
   };
 
   static defaultProps = {
@@ -33,15 +40,14 @@ class Island extends PureComponent {
 
     const classNames = cx(theme['island'], className, theme[color], {
       [theme['dark']]: isDark,
-      [theme[size]]: theme[size],
     });
 
     const rest = omit(others, ['dark']);
 
     return (
-      <div data-teamleader-ui="island" className={classNames} {...rest}>
+      <Box data-teamleader-ui="island" className={classNames} padding={SIZES[size]} {...rest}>
         {children}
-      </div>
+      </Box>
     );
   }
 }
