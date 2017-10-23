@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import styles from '@sambego/storybook-styles';
-import { Avatar, AvatarStack, Counter } from '../components';
+import { Avatar, AvatarStack, Box, Counter } from '../components';
 import { baseStyles, centerStyles } from '../.storybook/styles';
 
 import Image1 from '../static/avatars/1.png';
@@ -34,14 +34,14 @@ storiesOf('Avatars', module)
   .addDecorator(checkA11y)
   .addDecorator(styles({ ...baseStyles, ...centerStyles }))
   .add('sizes', () => (
-    <div>
+    <Box>
       <Avatar image={avatars[0].image} size="tiny" marginHorizontal={4} />
       <Avatar image={avatars[0].image} size="small" marginHorizontal={4} />
       <Avatar image={avatars[0].image} size="medium" marginHorizontal={4} />
-    </div>
+    </Box>
   ))
   .add('with counter', () => (
-    <div>
+    <Box>
       <Avatar
         counter={<Counter color="ruby" />}
         image={avatars[0].image}
@@ -60,10 +60,10 @@ storiesOf('Avatars', module)
         size="medium"
         marginHorizontal={4}
       />
-    </div>
+    </Box>
   ))
   .add('stacked', () => (
-    <div>
+    <Box>
       <AvatarStack
         direction="horizontal"
         displayMax={5}
@@ -112,5 +112,5 @@ storiesOf('Avatars', module)
           />
         ))}
       </AvatarStack>
-    </div>
+    </Box>
   ));
