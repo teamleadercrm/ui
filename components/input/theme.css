@@ -178,10 +178,6 @@
     height: 12px;
     vertical-align: initial !important;
   }
-
-  svg {
-    color: var(--error-color);
-  }
 }
 
 /**
