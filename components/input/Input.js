@@ -58,20 +58,20 @@ export default class Input extends Component {
   onChange(event) {
     const value = event.target.value;
 
-    this.setState(state => ({
+    this.setState(() => ({
       value: this.isNumberInput ? Number(value) : value,
     }));
   }
 
   increaseValue() {
-    this.setState((state, props) => ({
-      value: state.value ? state.value + props.step : props.step,
+    this.setState((previousState, props) => ({
+      value: previousState.value ? previousState.value + props.step : props.step,
     }));
   }
 
   decreaseValue() {
-    this.setState((state, props) => ({
-      value: state.value ? state.value - props.step : -props.step,
+    this.setState((previousState, props) => ({
+      value: previousState.value ? previousState.value - props.step : -props.step,
     }));
   }
 
