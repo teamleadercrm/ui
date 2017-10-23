@@ -207,14 +207,3 @@
   }
 }
 
-.small {
-  .inner {
-    padding: var(--tooltip-small-padding-vertical) var(--tooltip-small-padding-horizontal);
-  }
-}
-
-.medium {
-  .inner {
-    padding: var(--tooltip-medium-padding-vertical) var(--tooltip-medium-padding-horizontal);
-  }
-}

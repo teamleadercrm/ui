@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Box from '../box';
 import cx from 'classnames';
 import Portal from '../hoc/Portal';
 import { getViewport } from '../utils/utils';
@@ -13,6 +14,16 @@ const POSITION = {
   RIGHT: 'right',
   TOP: 'top',
   VERTICAL: 'vertical',
+};
+
+const SIZES = {
+  medium: {
+    padding: 3,
+  },
+  small: {
+    paddingHorizontal: 3,
+    paddingVertical: 2,
+  },
 };
 
 const defaults = {
@@ -55,7 +66,7 @@ const tooltipFactory = (options = {}) => {
         tooltipIcon: PropTypes.element,
         tooltipPosition: PropTypes.oneOf(Object.keys(POSITION).map(key => POSITION[key])),
         tooltipShowOnClick: PropTypes.bool,
-        tooltipSize: PropTypes.oneOf(['small', 'medium']),
+        tooltipSize: PropTypes.oneOf(Object.keys(SIZES)),
       };
 
       static defaultProps = {
@@ -249,10 +260,10 @@ const tooltipFactory = (options = {}) => {
                 data-teamleader-ui="tooltip"
                 style={{ top, left }}
               >
-                <div className={theme['inner']}>
+                <Box className={theme['inner']} {...SIZES[tooltipSize]} >
                   {tooltipIcon && <div className={theme['icon']}>{tooltipIcon}</div>}
                   <div className={theme['text']}>{tooltip}</div>
-                </div>
+                </Box>
               </div>
             </Portal>
           ),
