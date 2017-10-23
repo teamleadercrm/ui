@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import Box from '../box';
 import cx from 'classnames';
 import { OldStyleNumber } from '../typography';
 import theme from './theme.css';
@@ -24,10 +25,17 @@ class TooltipLabel extends PureComponent {
     });
 
     return (
-      <span data-teamleader-ui="tooltip-label" className={classNames} {...others}>
+      <Box
+        className={classNames}
+        data-teamleader-ui="tooltip-label"
+        element="span"
+        paddingHorizontal={2}
+        paddingVertical={1}
+        {...others}
+      >
         {icon}
         <OldStyleNumber>{children}</OldStyleNumber>
-      </span>
+      </Box>
     );
   }
 }

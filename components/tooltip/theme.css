@@ -28,7 +28,6 @@
   background: color(var(--color-teal-darkest) a(8%));
   border-radius: var(--tooltip-border-radius);
   color: var(--color-teal-darkest);
-  padding: var(--spacer-smallest) var(--spacer-smaller);
 
   svg {
     margin-right: var(--spacer-smallest)
