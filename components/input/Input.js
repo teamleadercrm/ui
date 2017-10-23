@@ -40,9 +40,9 @@ export default class Input extends Component {
     super(props);
 
     this.isNumberInput = Boolean(props.type === 'number');
-    this.handleChange = this.onChange.bind(this);
-    this.handleIncreaseValue = this.increaseValue.bind(this);
-    this.handleDecreaseValue = this.decreaseValue.bind(this);
+    this.handleChange = ::this.onChange;
+    this.handleIncreaseValue = ::this.increaseValue;
+    this.handleDecreaseValue = ::this.decreaseValue;
 
     this.state = {
       value: this.isNumberInput ? Number(props.value) || '' : props.value || '',
@@ -55,28 +55,24 @@ export default class Input extends Component {
     }
   }
 
-  onChange(value) {
-    if (this.isNumberInput) {
-      this.setState({ value: Number(value.target.value) });
-    } else {
-      this.setState({ value: value.target.value });
-    }
+  onChange(event) {
+    const value = event.target.value;
+
+    this.setState(state => ({
+      value: this.isNumberInput ? Number(value) : value,
+    }));
   }
 
   increaseValue() {
-    if (this.state.value) {
-      return this.setState({ value: this.state.value + this.props.step });
-    }
-
-    return this.setState({ value: this.props.step });
+    this.setState((state, props) => ({
+      value: state.value ? state.value + props.step : props.step,
+    }));
   }
 
   decreaseValue() {
-    if (this.state.value) {
-      return this.setState({ value: this.state.value - this.props.step });
-    }
-
-    return this.setState({ value: -this.props.step });
+    this.setState((state, props) => ({
+      value: state.value ? state.value - props.step : -props.step,
+    }));
   }
 
   renderInput() {
