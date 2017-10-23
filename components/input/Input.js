@@ -42,7 +42,7 @@ export default class Input extends PureComponent {
     this.handleIncreaseValue = this.increaseValue.bind(this);
     this.handleDecreaseValue = this.decreaseValue.bind(this);
 
-    if (this.isNumber) {
+    if (this.isNumberInput) {
       this.state = {
         value: Number(props.value) || undefined,
       };
