@@ -128,12 +128,7 @@
 
   max-height: var(--icon-height);
 
-  &,
-  svg,
-  g,
-  path {
-    fill: var(--icon-color);
-  }
+  color: var(--icon-color);
 }
 
 .counter {
@@ -164,12 +159,7 @@
   border-radius: 0 4px 0 0;
   border: solid 1px var(--spinner-border);
 
-  &,
-  svg,
-  g,
-  path {
-    color: var(--spinner-color);
-  }
+  color: var(--spinner-color);
 }
 
 .spinner-down {
@@ -189,10 +179,8 @@
     vertical-align: initial !important;
   }
 
-  svg,
-  g,
-  path {
-    fill: var(--error-color);
+  svg {
+    color: var(--error-color);
   }
 }
 
