@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
-import { LoadingMolecule } from '../components';
+import { Box, LoadingMolecule } from '../components';
 import styles from '@sambego/storybook-styles';
 import { baseStyles } from '../.storybook/styles';
 
@@ -11,22 +11,22 @@ storiesOf('Loading molecules', module)
   .addDecorator(checkA11y)
   .addDecorator(styles(baseStyles))
   .add('color', () => (
-    <div style={{ height: '300px', position: 'relative' }}>
+    <Box style={{ height: '300px', position: 'relative' }}>
       <LoadingMolecule basePath="" startColor="#00ACA9" stopColor="#1F7F79" />
-    </div>
+    </Box>
   ))
   .add('grayscale', () => (
-    <div style={{ height: '300px', position: 'relative' }}>
+    <Box style={{ height: '300px', position: 'relative' }}>
       <LoadingMolecule basePath="" startColor="#BABABA" stopColor="#DADADA" />
-    </div>
+    </Box>
   ))
   .add('small', () => (
-    <div style={{ height: '300px', position: 'relative' }}>
+    <Box style={{ height: '300px', position: 'relative' }}>
       <LoadingMolecule basePath="" startColor="#00ACA9" stopColor="#1F7F79" type="small" />
-    </div>
+    </Box>
   ))
   .add('large', () => (
-    <div style={{ height: '300px', position: 'relative' }}>
+    <Box style={{ height: '300px', position: 'relative' }}>
       <LoadingMolecule basePath="" startColor="#00ACA9" stopColor="#1F7F79" type="large" />
-    </div>
+    </Box>
   ));
