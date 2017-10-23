@@ -65,12 +65,12 @@ export default class Input extends PureComponent {
         this.setState({ value: value.target.value });
       }
 
-      return this.props.onChange(value);
+      return this.props.onChange(this.state.value);
     }
 
     this.setState({ value });
 
-    return this.props.onChange(new Event('input', { bubbles: true, value }));
+    return this.props.onChange(value);
   }
 
   increaseValue() {
