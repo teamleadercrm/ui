@@ -185,7 +185,8 @@
   color: var(--error-color);
 
   svg {
-    width: 12px;
+    height: 12px;
+    vertical-align: initial !important;
   }
 
   svg,
@@ -217,6 +218,13 @@
   .spinner {
     width: var(--spinner-width-large);
   }
+
+  .spinner-up,
+  .spinner-down {
+    svg {
+      height: 14px;
+    }
+  }
 }
 
 .is-small {
@@ -227,6 +235,23 @@
     line-height: var(--input-height-small);
     font-size: var(--input-text-size-small);
   }
+
+  .spinner-up,
+  .spinner-down {
+    svg {
+      height: 9px;
+    }
+  }
+
+  .icon {
+    left: var(--icon-horizontal-small);
+    max-height: var(--icon-height-small);
+  }
+
+  .counter {
+    top: var(--counter-margin-small);
+  }
+
   &.has-icon-left {
     .input {
       padding: 0 var(--input-horizontal-padding-small) 0
@@ -239,15 +264,6 @@
       padding: 0 var(--input-horizontal-padding-icon-small) 0
         var(--input-horizontal-padding-small);
     }
-  }
-
-  .icon {
-    left: var(--icon-horizontal-small);
-    max-height: var(--icon-height-small);
-  }
-
-  .counter {
-    top: var(--counter-margin-small);
   }
 }
 
