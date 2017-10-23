@@ -46,7 +46,7 @@ export default class Input extends Component {
 
     if (this.isNumberInput) {
       this.state = {
-        value: Number(props.value) || undefined,
+        value: Number(props.value) || '',
       };
     } else {
       this.state = {
@@ -56,35 +56,33 @@ export default class Input extends Component {
   }
 
   componentWillUpdate(props, state) {
-    this.props.onChange(state.value);
+    if (state.value) {
+      this.props.onChange(state.value);
+    }
   }
 
   onChange(value) {
-    if (value.target) {
-      if (this.isNumberInput) {
-        this.setState({ value: Number(value.target.value) });
-      } else {
-        this.setState({ value: value.target.value });
-      }
+    if (this.isNumberInput) {
+      this.setState({ value: Number(value.target.value) });
     } else {
-      this.setState({ value });
+      this.setState({ value: value.target.value });
     }
   }
 
   increaseValue() {
     if (this.state.value) {
-      return this.onChange(this.state.value + this.props.step);
+      return this.setState({ value: this.state.value + this.props.step });
     }
 
-    return this.onChange(this.props.step);
+    return this.setState({ value: this.props.step });
   }
 
   decreaseValue() {
     if (this.state.value) {
-      return this.onChange(this.state.value - this.props.step);
+      return this.setState({ value: this.state.value - this.props.step });
     }
 
-    return this.onChange(-this.props.step);
+    return this.setState({ value: -this.props.step });
   }
 
   renderInput() {
