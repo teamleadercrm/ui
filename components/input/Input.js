@@ -44,15 +44,9 @@ export default class Input extends Component {
     this.handleIncreaseValue = this.increaseValue.bind(this);
     this.handleDecreaseValue = this.decreaseValue.bind(this);
 
-    if (this.isNumberInput) {
-      this.state = {
-        value: Number(props.value) || '',
-      };
-    } else {
-      this.state = {
-        value: props.value || '',
-      };
-    }
+    this.state = {
+      value: this.isNumberInput ? Number(props.value) || '' : props.value || '',
+    };
   }
 
   componentWillUpdate(props, state) {
