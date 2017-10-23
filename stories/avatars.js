@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import styles from '@sambego/storybook-styles';
-import { Avatar, AvatarStack, Counter } from '../components';
+import { Avatar, AvatarStack, Box, Counter } from '../components';
 import { baseStyles, centerStyles } from '../.storybook/styles';
 
 import Image1 from '../static/avatars/1.png';
@@ -34,18 +34,19 @@ storiesOf('Avatars', module)
   .addDecorator(checkA11y)
   .addDecorator(styles({ ...baseStyles, ...centerStyles }))
   .add('sizes', () => (
-    <div>
-      <Avatar image={avatars[0].image} size="tiny" />
-      <Avatar image={avatars[0].image} size="small" />
-      <Avatar image={avatars[0].image} size="medium" />
-    </div>
+    <Box>
+      <Avatar image={avatars[0].image} size="tiny" marginHorizontal={4} />
+      <Avatar image={avatars[0].image} size="small" marginHorizontal={4} />
+      <Avatar image={avatars[0].image} size="medium" marginHorizontal={4} />
+    </Box>
   ))
   .add('with counter', () => (
-    <div>
+    <Box>
       <Avatar
         counter={<Counter color="ruby" />}
         image={avatars[0].image}
         size="medium"
+        marginHorizontal={4}
       />
       <Avatar
         counter={
@@ -57,11 +58,12 @@ storiesOf('Avatars', module)
         }
         image={avatars[0].image}
         size="medium"
+        marginHorizontal={4}
       />
-    </div>
+    </Box>
   ))
   .add('stacked', () => (
-    <div>
+    <Box>
       <AvatarStack
         direction="horizontal"
         displayMax={5}
@@ -93,6 +95,7 @@ storiesOf('Avatars', module)
         inverse={false}
         onOverflowClick={action('clicked on AvatarStack 2 overflow')}
         size="medium"
+        marginTop={8}
       >
         {avatars.map(({ image, color, inactive }, index) => (
           <Avatar
@@ -109,5 +112,5 @@ storiesOf('Avatars', module)
           />
         ))}
       </AvatarStack>
-    </div>
+    </Box>
   ));

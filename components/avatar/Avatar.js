@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
 
@@ -25,12 +26,12 @@ class Avatar extends PureComponent {
     const imageClassNames = cx(theme['image'], theme[`border-${borderColor}`]);
 
     return (
-      <div className={avatarClassNames} {...others} data-teamleader-ui="avatar">
+      <Box className={avatarClassNames} {...others} data-teamleader-ui="avatar">
         <div className={imageClassNames}>
           <img alt={imageAlt} src={image} />
         </div>
         {counter && <div className={theme['counter']}>{counter}</div>}
-      </div>
+      </Box>
     );
   }
 }
