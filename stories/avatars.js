@@ -35,9 +35,9 @@ storiesOf('Avatars', module)
   .addDecorator(styles({ ...baseStyles, ...centerStyles }))
   .add('sizes', () => (
     <div>
-      <Avatar image={avatars[0].image} size="tiny" />
-      <Avatar image={avatars[0].image} size="small" />
-      <Avatar image={avatars[0].image} size="medium" />
+      <Avatar image={avatars[0].image} size="tiny" marginHorizontal={4} />
+      <Avatar image={avatars[0].image} size="small" marginHorizontal={4} />
+      <Avatar image={avatars[0].image} size="medium" marginHorizontal={4} />
     </div>
   ))
   .add('with counter', () => (
@@ -46,6 +46,7 @@ storiesOf('Avatars', module)
         counter={<Counter color="ruby" />}
         image={avatars[0].image}
         size="medium"
+        marginHorizontal={4}
       />
       <Avatar
         counter={
@@ -57,6 +58,7 @@ storiesOf('Avatars', module)
         }
         image={avatars[0].image}
         size="medium"
+        marginHorizontal={4}
       />
     </div>
   ))
@@ -93,6 +95,7 @@ storiesOf('Avatars', module)
         inverse={false}
         onOverflowClick={action('clicked on AvatarStack 2 overflow')}
         size="medium"
+        marginTop={8}
       >
         {avatars.map(({ image, color, inactive }, index) => (
           <Avatar

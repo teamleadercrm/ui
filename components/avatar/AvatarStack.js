@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
 
@@ -36,12 +37,12 @@ class AvatarStack extends PureComponent {
     const overflowAmount = children.length - displayMax;
 
     return (
-      <div data-teamleader-ui="avatar-stack" className={classNames} {...others}>
+      <Box data-teamleader-ui="avatar-stack" className={classNames} {...others}>
         {overflowAmount > 0 && (
           <div className={theme['overflow']} onClick={onOverflowClick}>{`+${overflowAmount}`}</div>
         )}
         {childrenToDisplay}
-      </div>
+      </Box>
     );
   }
 }
