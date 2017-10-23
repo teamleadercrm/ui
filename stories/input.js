@@ -19,6 +19,22 @@ storiesOf('Inputs', module)
   .addDecorator((story, context) => withInfo('')(story)(context))
   .addDecorator(checkA11y)
   .addDecorator(styles({ ...baseStyles, ...centerStyles }))
+  .add('types', () => (
+    <div style={{ width: '400px' }}>
+      <Label for="input1">
+        Text input
+        <Input id="input1" {...props} />
+      </Label>
+      <Label for="input2">
+        Password input
+        <Input id="input2" type="password" {...props} />
+      </Label>
+      <Label for="input3">
+        Number input
+        <Input id="input3" type="number" {...props} />
+      </Label>
+    </div>
+  ))
   .add('sizes', () => (
     <div style={{ width: '400px' }}>
       <Label for="input1">
