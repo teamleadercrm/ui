@@ -1,15 +1,26 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import Box from '../box';
 import cx from 'classnames';
 import { OldStyleNumber } from '../typography';
 import theme from './theme.css';
+
+const SIZES = {
+  medium: {
+    paddingHorizontal: 2,
+    paddingVertical: 1,
+  },
+  small: {
+    paddingHorizontal: 2,
+  },
+};
 
 class StatusLabel extends PureComponent {
   static propTypes = {
     children: PropTypes.node.isRequired,
     className: PropTypes.string,
     color: PropTypes.oneOf(['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua']),
-    size: PropTypes.oneOf(['small', 'medium']),
+    size: PropTypes.oneOf(Object.keys(SIZES)),
   };
 
   static defaultProps = {
@@ -23,9 +34,9 @@ class StatusLabel extends PureComponent {
     const classNames = cx(theme['label'], theme[color], theme[size], className);
 
     return (
-      <span className={classNames} {...others} data-teamleader-ui="status-label">
+      <Box className={classNames} element="span" {...SIZES[size]} {...others} data-teamleader-ui="status-label">
         <OldStyleNumber>{children}</OldStyleNumber>
-      </span>
+      </Box>
     );
   }
 }
