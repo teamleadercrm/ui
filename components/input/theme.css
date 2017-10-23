@@ -1,6 +1,9 @@
 @import '@teamleader/ui-colors';
 @import '@teamleader/ui-typography';
 
+/**
+ * Variables
+ */
 :root {
   --input-height-large: calc(4.6 * var(--unit));
   --input-height-medium: calc(3.4 * var(--unit));
@@ -20,6 +23,8 @@
   --input-focus-border: var(--color-aqua);
   --input-active-border: var(--color-neutral-darkest);
   --input-active-box-shadow: rgba(130, 130, 140, 0.5);
+  --input-error-background: var(--color-ruby-lightest);
+  --input-error-border: var(--color-ruby-dark);
 
   --input-disabled-background: var(--color-neutral);
   --input-disabled-border: var(--color-neutral-dark);
@@ -46,8 +51,14 @@
   --spinner-background: var(--color-neutral-light);
   --spinner-border: var(--color-neutral-dark);
   --spinner-color: var(--color-neutral-darkest);
+
+  --error-font-size: calc(1.4 * var(--unit));
+  --error-color: var(--color-ruby-dark);
 }
 
+/**
+ * Components
+ */
 .wrapper {
   position: relative;
 
@@ -77,12 +88,12 @@
   font-family: var(--font-family-regular);
 
   &:focus {
-    border: 1px solid var(--input-focus-border);
+    border-color: var(--input-focus-border);
     box-shadow: 0 0 0 1px var(--input-focus-border);
   }
 
   &:active {
-    border: 1px solid var(--input-active-border);
+    border-color: var(--input-active-border);
     box-shadow: inset 0 3px 6px 0 var(input-active-box-shadow);
   }
 
@@ -166,7 +177,28 @@
   border-top: 0;
 }
 
-.large {
+.error {
+  margin: 6px 0 0;
+
+  font-size: var(--error-font-size);
+  line-height: 1.3;
+  color: var(--error-color);
+
+  svg {
+    width: 12px;
+  }
+
+  svg,
+  g,
+  path {
+    fill: var(--error-color);
+  }
+}
+
+/**
+ * Modifiers
+ */
+.is-large {
   .input {
     height: var(--input-height-large);
 
@@ -187,7 +219,7 @@
   }
 }
 
-.small {
+.is-small {
   .input {
     height: var(--input-height-small);
     padding: 0 var(--input-horizontal-padding-small);
@@ -233,5 +265,13 @@
   .icon {
     left: auto;
     right: var(--icon-horizontal);
+  }
+}
+
+.has-errors {
+  .input {
+    background-color: var(--input-error-background);
+
+    border-color: var(--input-error-border);
   }
 }

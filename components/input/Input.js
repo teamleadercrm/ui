@@ -1,7 +1,8 @@
 import React, { PureComponent, createElement } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import { IconChevronUpSmallOutline, IconChevronDownSmallOutline } from '@teamleader/ui-icons';
+import { IconChevronUpSmallOutline, IconChevronDownSmallOutline, IconErrorSmallOutline } from '@teamleader/ui-icons';
+import InputMetaPropTypes from './InputMetaPropTypes';
 import Counter from '../counter';
 import theme from './theme.css';
 
@@ -14,6 +15,7 @@ export default class Input extends PureComponent {
     icon: PropTypes.oneOfType([PropTypes.func, PropTypes.element]),
     iconPlacement: PropTypes.oneOf(['left', 'right']),
     id: PropTypes.string,
+    meta: InputMetaPropTypes,
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
@@ -133,23 +135,38 @@ export default class Input extends PureComponent {
     }
   }
 
+  renderError() {
+    if (this.props.meta && this.props.meta.error) {
+      return (
+        <p className={theme['error']}>
+          <IconErrorSmallOutline /> {this.props.meta.error}
+        </p>
+      );
+    }
+  }
+
   render() {
-    const { className, counter, icon, iconPlacement, size } = this.props;
-    const classNames = cx(theme.wrapper, theme[size], className, {
+    const { className, counter, icon, iconPlacement, size, meta } = this.props;
+    const classNames = cx(theme.wrapper, theme[`is-${size}`], className, {
       [theme[`has-icon-${iconPlacement}`]]: icon,
       [theme['has-counter']]: counter,
+      [theme['has-errors']]: Boolean(meta && meta.error),
     });
 
     return (
-      <div className={classNames}>
-        {icon &&
-          createElement(icon, {
-            className: theme.icon,
-          })}
+      <div>
+        <div className={classNames}>
+          {icon &&
+            createElement(icon, {
+              className: theme.icon,
+            })}
 
-        {this.renderInput()}
-        {this.renderCounter()}
-        {this.renderSpinnerControls()}
+          {this.renderInput()}
+          {this.renderCounter()}
+          {this.renderSpinnerControls()}
+        </div>
+
+        {this.renderError()}
       </div>
     );
   }

@@ -31,7 +31,7 @@ storiesOf('Inputs', module)
       </Label>
       <Label for="input3">
         Number input
-        <Input id="input3" type="number" {...props} />
+        <Input id="input3" type="number" {...props} meta={{ error: 'This is an error' }} />
       </Label>
     </div>
   ))
