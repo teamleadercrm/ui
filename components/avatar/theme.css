@@ -1,5 +1,6 @@
 @import '@teamleader/ui-colors';
 @import '@teamleader/ui-typography';
+@import '@teamleader/ui-utilities';
 
 :root {
   --border-width: 2px;

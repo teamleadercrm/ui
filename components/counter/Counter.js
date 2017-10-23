@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import { Monospaced } from '../typography';
 import theme from './theme.css';
 
 class Counter extends PureComponent {
@@ -39,7 +38,7 @@ class Counter extends PureComponent {
 
     return (
       <span className={classNames} {...others} data-teamleader-ui="counter">
-        <Monospaced>{count > maxCount ? `${maxCount}+` : count}</Monospaced>
+        {count > maxCount ? `${maxCount}+` : count}
       </span>
     );
   }

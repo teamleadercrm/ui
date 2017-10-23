@@ -1,6 +1,7 @@
 @import '@teamleader/ui-animations';
 @import '@teamleader/ui-colors';
 @import '@teamleader/ui-typography';
+@import '@teamleader/ui-utilities';
 
 :root {
   --button-border-radius: calc(.4 * var(--unit));
@@ -91,12 +92,11 @@
   border: 0;
 
   &:not(.inverse) {
-    color: var(--color-teal-darkest);
+    color: var(--color-neutral-darkest);
 
     &:not([disabled]) {
       &:hover {
         background-color: color(var(--color-teal-darkest) a(5%));
-        color: var(--color-teal-darkest);
       }
 
       &:focus {

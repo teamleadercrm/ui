@@ -1,5 +1,5 @@
 @import '@teamleader/ui-colors';
-@import 'variables.css';
+@import '@teamleader/ui-utilities';
 
 :root {
   --popover-background-color: var(--color-white);
@@ -16,6 +16,7 @@
 }
 
 .wrapper {
+  composes: reset;
   align-items: center;
   display: flex;
   height: 100vh;
@@ -25,8 +26,6 @@
   left: 0;
   width: 100vw;
   z-index: var(--z-index-higher);
-
-  @apply --reset;
 }
 
 .popover {
@@ -66,7 +65,7 @@
   color: var(--popover-header-title-text-color);
   flex-grow: 0;
   font-size: calc(1.8 * var(--unit));
-  font-weight: var(--font-weight-normal);
+  font-weight: 400;
   line-height: 1.4;
   margin: 0;
 }
@@ -94,7 +93,7 @@
 
   p {
     font-size: calc(1.4 * var(--unit));
-    font-weight: var(--font-weight-normal);
+    font-weight: 400;
     letter-spacing: 0;
     line-height: calc(2.4 * var(--unit));
     margin: 0;

@@ -1,7 +1,7 @@
 @import '@teamleader/ui-animations';
 @import '@teamleader/ui-colors';
 @import '@teamleader/ui-typography';
-@import 'variables.css';
+@import '@teamleader/ui-utilities';
 
 :root {
   --toast-background-color: var(--color-teal-darkest);
@@ -23,7 +23,7 @@
   color:  var(--toast-color);
   display: flex;
   font-family: var(--font-family-regular);
-  font-size: var(--font-size);
+  font-size: calc(1.4 * var(--unit));
   padding: var(--toast-padding);
   position: fixed;
   right: 30px;
