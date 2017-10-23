@@ -87,7 +87,11 @@ class RadioButton extends PureComponent {
           type="radio"
         />
         <Radio checked={checked} disabled={disabled} />
-        {label ? <TextBody element="span" className={theme['text']}>{label}</TextBody> : null}
+        {label && (
+          <TextBody element="span" className={theme['text']}>
+            {label}
+          </TextBody>
+        )}
         {children}
       </label>
     );
