@@ -76,7 +76,7 @@ export default class Input extends Component {
   }
 
   renderInput() {
-    const { bold, disabled, id, onBlur, onFocus, placeholder, readOnly, type } = this.props;
+    const { bold, disabled, id, onBlur, onFocus, placeholder, readOnly, step, type } = this.props;
     const classNames = cx(theme['input'], {
       [theme['is-disabled']]: disabled,
       [theme['is-read-only']]: readOnly,
@@ -91,6 +91,7 @@ export default class Input extends Component {
       onFocus: onFocus,
       placeholder,
       readOnly,
+      step,
       type,
       value: this.state.value,
     };
