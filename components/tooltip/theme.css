@@ -9,10 +9,6 @@
   --tooltip-border-width: 1px;
   --tooltip-box-shadow: 0 3px 12px 0 color(var(--color-teal-darkest) a(10%));
   --tooltip-max-width: calc(18 * var(--unit));
-  --tooltip-small-padding-horizontal: calc(1.2 * var(--unit));
-  --tooltip-small-padding-vertical: calc(0.6 * var(--unit));
-  --tooltip-medium-padding-horizontal: calc(1.2 * var(--unit));
-  --tooltip-medium-padding-vertical: calc(1.2 * var(--unit));
   --tooltip-animation-duration: 200ms;
   --tooltip-z-index: 200;
 }
