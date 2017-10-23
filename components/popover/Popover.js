@@ -113,7 +113,7 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
       } = this.props;
 
       const actionButtons = actions.map((action, idx) => {
-        const className = cx(theme.button, {
+        const className = cx(theme['button'], {
           [action.className]: action.className,
         });
 
@@ -121,19 +121,19 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
       });
 
       const customClassName = cx(
-        [theme.popover],
+        theme['popover'],
         {
-          [theme.active]: active,
+          [theme['active']]: active,
         },
         className,
       );
 
       return (
-        <Portal className={theme.wrapper}>
+        <Portal className={theme['wrapper']}>
           <Overlay
             active={active}
             backdrop={backdrop}
-            className={theme.overlay}
+            className={theme['overlay']}
             onClick={onOverlayClick}
             onEscKeyDown={onEscKeyDown}
             onMouseDown={onOverlayMouseDown}
@@ -145,19 +145,19 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
             className={customClassName}
             style={{ left: `${left}px`, top: `${top}px` }}
           >
-            <div className={theme.arrow} style={{ left: `${arrowLeft}px`, top: `${arrowTop}px` }} />
+            <div className={theme['arrow']} style={{ left: `${arrowLeft}px`, top: `${arrowTop}px` }} />
             {showHeader && (
-              <header className={theme.header}>
-                {title && <h6 className={theme.title}>{title}</h6>}
-                {subtitle && <p className={theme.subtitle}>{subtitle}</p>}
-                <IconButton icon={<IconCloseMediumOutline />} className={theme.close} onMouseUp={onCloseClick} />
+              <header className={theme['header']}>
+                {title && <h6 className={theme['title']}>{title}</h6>}
+                {subtitle && <p className={theme['subtitle']}>{subtitle}</p>}
+                <IconButton icon={<IconCloseMediumOutline />} className={theme['close']} onMouseUp={onCloseClick} />
               </header>
             )}
-            <section role="body" className={theme.body}>
+            <section role="body" className={theme['body']}>
               {children}
             </section>
             {actionButtons.length ? (
-              <nav role="navigation" className={theme.navigation}>
+              <nav role="navigation" className={theme['navigation']}>
                 {actionButtons}
               </nav>
             ) : null}

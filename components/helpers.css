@@ -1,9 +1,0 @@
-@import './variables.css';
-
-.reset {
-  @apply --reset;
-}
-
-.no-text-decoration {
-  @apply --no-text-decoration;
-}

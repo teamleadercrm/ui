@@ -1,3 +1,5 @@
+import Avatar, { AvatarStack } from './avatar';
+import Box from './box';
 import Button, { ButtonGroup, IconButton } from './button';
 import {
   Heading1,
@@ -24,8 +26,12 @@ import Island from './island';
 import StatusBullet from './statusBullet';
 import StatusLabel from './statusLabel';
 import { Toast } from './toast';
+import Tooltip, { TooltipLabel } from './tooltip';
 
 export {
+  Avatar,
+  AvatarStack,
+  Box,
   Button,
   ButtonGroup,
   Counter,
@@ -57,4 +63,6 @@ export {
   StatusLabel,
   Island,
   Toast,
+  Tooltip,
+  TooltipLabel,
 };

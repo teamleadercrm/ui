@@ -1,16 +1,15 @@
 @import '@teamleader/ui-animations';
-@import 'colors.css';
+@import '@teamleader/ui-colors';
 @import '@teamleader/ui-typography';
-@import 'variables.css';
-@import 'media.css';
+@import '@teamleader/ui-utilities';
 
 :root {
-  --toast-background-color: var(--color-secondary);
+  --toast-background-color: var(--color-teal-darkest);
   --toast-border-radius: calc(0.4 * var(--unit));
   --toast-box-shadow: 0 0 10px 0 rgba(0, 0, 0, .2);
-  --toast-color-cancel: var(--palette-red);
-  --toast-color-accept: var(--palette-green);
-  --toast-color-warning: var(--palette-orange);
+  --toast-color-cancel: var(--color-ruby-darkest);
+  --toast-color-accept: var(--color-mint-dark);
+  --toast-color-warning: var(--color-gold-dark);
   --toast-color: var(--color-white);
   --toast-padding: calc(1.2 * var(--unit)) calc(2 * var(--unit));
 }
@@ -24,7 +23,7 @@
   color:  var(--toast-color);
   display: flex;
   font-family: var(--font-family-regular);
-  font-size: var(--font-size);
+  font-size: calc(1.4 * var(--unit));
   padding: var(--toast-padding);
   position: fixed;
   right: 30px;
@@ -55,11 +54,11 @@
 }
 
 .button,
-.iconButton {
+.icon-button {
   margin: 0 -14px 0 28px;
 }
 
-.iconButton {
+.icon-button {
   color: var(--toast-color);
 
   > span {

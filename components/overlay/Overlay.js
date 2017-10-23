@@ -92,10 +92,10 @@ class Overlay extends PureComponent {
         {...other}
         onClick={this.handleClick}
         className={cx(
-          theme.overlay,
+          theme['overlay'],
           theme[backdrop],
           {
-            [theme.active]: active,
+            [theme['active']]: active,
           },
           className,
         )}
