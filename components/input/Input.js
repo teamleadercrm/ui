@@ -1,11 +1,11 @@
-import React, { Component, createElement } from 'react';
+import React, { PureComponent, createElement } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import ContentEditable from './ContentEditable';
 import Counter from '../counter';
 import theme from './theme.css';
 
-export default class Input extends Component {
+export default class Input extends PureComponent {
   static propTypes = {
     bold: PropTypes.bool,
     className: PropTypes.string,
@@ -13,11 +13,12 @@ export default class Input extends Component {
     disabled: PropTypes.bool,
     icon: PropTypes.oneOfType([PropTypes.func, PropTypes.element]),
     iconPlacement: PropTypes.oneOf(['left', 'right']),
+    id: PropTypes.string,
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
     placeholder: PropTypes.string,
-    readonly: PropTypes.bool,
+    readOnly: PropTypes.bool,
     size: PropTypes.oneOf(['small', 'medium', 'large']),
     type: PropTypes.string,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -27,25 +28,26 @@ export default class Input extends Component {
     iconPlacement: 'left',
     disabled: false,
     placeholder: '',
-    readonly: false,
+    readOnly: false,
     size: 'medium',
   };
 
   renderInput() {
-    const { bold, disabled, onBlur, onChange, onFocus, placeholder, readonly, type, value } = this.props;
+    const { bold, disabled, id, onBlur, onChange, onFocus, placeholder, readOnly, type, value } = this.props;
     const classNames = cx(theme['input'], {
       [theme['is-disabled']]: disabled,
-      [theme['is-read-only']]: readonly,
+      [theme['is-read-only']]: readOnly,
       [theme['is-bold']]: bold,
     });
     const props = {
       className: classNames,
       disabled: disabled,
+      id,
       onBlur: onBlur,
       onChange: onChange,
       onFocus: onFocus,
       placeholder,
-      readonly,
+      readOnly,
       type,
       value,
     };

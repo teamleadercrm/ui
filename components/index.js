@@ -27,6 +27,7 @@ import StatusBullet from './statusBullet';
 import StatusLabel from './statusLabel';
 import { Toast } from './toast';
 import Tooltip, { TooltipLabel } from './tooltip';
+import Label from './label';
 
 export {
   Avatar,
@@ -43,6 +44,7 @@ export {
   Heading3,
   Heading4,
   Input,
+  Label,
   Menu,
   Monospaced,
   IconMenu,

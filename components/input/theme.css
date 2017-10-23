@@ -68,6 +68,7 @@
   color: var(--input-text-color);
   line-height: var(--input-height-medium);
   font-size: var(--input-text-size);
+  font-family: var(--font-family-regular);
 
   &:focus {
     border: 1px solid var(--input-focus-border);
@@ -80,7 +81,7 @@
   }
 
   &.is-bold {
-    font-weight: bold;
+    font-family: var(--font-family-semi-bold);
   }
 
   &.is-disabled {

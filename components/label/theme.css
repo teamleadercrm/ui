@@ -1,0 +1,17 @@
+@import '@teamleader/ui-colors';
+@import '@teamleader/ui-typography';
+
+:root {
+  --label-font-size: calc(1.6 * var(--unit)) 0;
+  --label-line-height: 1.5;
+  --label-color: var(--color-teal-darkest);
+}
+
+.label {
+  display: block;
+
+  font-size: var(--label-font-size);
+  font-family: var(--font-family-semi-bold);
+  line-height: var(--label-line-height);
+  color: var(--label-color);
+}
