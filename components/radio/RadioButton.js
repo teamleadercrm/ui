@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import Radio from './Radio';
+import { TextBody } from '../typography';
 import theme from './theme.css';
 
 class RadioButton extends PureComponent {
@@ -86,7 +87,7 @@ class RadioButton extends PureComponent {
           type="radio"
         />
         <Radio checked={checked} disabled={disabled} />
-        {label ? <span className={theme['text']}>{label}</span> : null}
+        {label ? <TextBody element="span" className={theme['text']}>{label}</TextBody> : null}
         {children}
       </label>
     );

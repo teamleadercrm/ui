@@ -59,8 +59,6 @@
 
 .text {
   display: inline-block;
-  font-family: var(--font-family-regular);
-  line-height: var(--radio-button-size);
   padding-left: var(--unit);
   vertical-align: top;
   white-space: nowrap;
