@@ -1,4 +1,4 @@
-import React, { PureComponent, createElement } from 'react';
+import React, { Component, createElement } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { IconChevronUpSmallOutline, IconChevronDownSmallOutline, IconErrorSmallOutline } from '@teamleader/ui-icons';
@@ -6,7 +6,7 @@ import InputMetaPropTypes from './InputMetaPropTypes';
 import Counter from '../counter';
 import theme from './theme.css';
 
-export default class Input extends PureComponent {
+export default class Input extends Component {
   static propTypes = {
     bold: PropTypes.bool,
     className: PropTypes.string,
@@ -55,8 +55,8 @@ export default class Input extends PureComponent {
     }
   }
 
-  createEvent() {
-    return new Event('input', { bubbles: true });
+  componentWillUpdate(props, state) {
+    this.props.onChange(state.value);
   }
 
   onChange(value) {
@@ -66,13 +66,9 @@ export default class Input extends PureComponent {
       } else {
         this.setState({ value: value.target.value });
       }
-
-      return this.props.onChange(this.state.value);
+    } else {
+      this.setState({ value });
     }
-
-    this.setState({ value });
-
-    return this.props.onChange(value);
   }
 
   increaseValue() {
