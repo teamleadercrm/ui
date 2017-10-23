@@ -1,8 +1,15 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import Box from '../box';
 import cx from 'classnames';
 import omit from 'lodash.omit';
 import theme from './theme.css';
+
+const SIZES = {
+  small: 3,
+  medium: 4,
+  large: 5,
+};
 
 class Section extends PureComponent {
   static propTypes = {
@@ -10,10 +17,12 @@ class Section extends PureComponent {
     className: PropTypes.string,
     color: PropTypes.oneOf(['white', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua']),
     dark: PropTypes.bool,
+    size: PropTypes.oneOf(Object.keys(SIZES)),
   };
 
   static defaultProps = {
     color: 'white',
+    size: 'medium',
   };
 
   isDark(color) {
@@ -25,7 +34,7 @@ class Section extends PureComponent {
   }
 
   render() {
-    const { children, className, color, ...others } = this.props;
+    const { children, className, color, size, ...others } = this.props;
 
     const isDark = this.isDark(color);
 
@@ -36,9 +45,9 @@ class Section extends PureComponent {
     const rest = omit(others, ['dark']);
 
     return (
-      <section data-teamleader-ui="section" className={classNames} {...rest}>
+      <Box data-teamleader-ui="section" className={classNames} element="section" padding={SIZES[size]} {...rest}>
         {children}
-      </section>
+      </Box>
     );
   }
 }
