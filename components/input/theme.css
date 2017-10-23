@@ -17,10 +17,15 @@
   --input-border-radius: calc(0.4 * var(--unit));
   --input-border-color: var(--color-neutral-dark);
   --input-placeholder-color: var(--color-neutral-dark);
+  --input-focus-border: var(--color-aqua);
+  --input-active-border: var(--color-neutral-darkest);
+  --input-active-box-shadow: rgba(130, 130, 140, 0.5);
 
   --input-disabled-background: var(--color-neutral);
   --input-disabled-border: var(--color-neutral-dark);
-  --input-not-selectable-color: var(--color-neutral-darkest);
+  --input-disabled-color: var(--color-neutral-darkest);
+  --input-read-only-background: var(--color-neutral);
+  --input-read-only-border: var(--color-neutral-dark);
 
   --icon-top-large: calc(1.4 * var(--unit));
   --icon-top: calc(0.8 * var(--unit));
@@ -31,6 +36,8 @@
   --icon-color: var(--color-neutral-darkest);
 
   --counter-margin-top: calc(0.7 * var(--unit));
+  --counter-margin-small: calc(0.5 * var(--unit));
+  --counter-margin-large: calc(1.4 * var(--unit));
   --counter-margin-left: calc(0.5 * var(--unit));
   --counter-width: calc(3 * var(--unit));
 }
@@ -56,14 +63,20 @@
 
   border: 1px solid var(--input-border-color);
   border-radius: var(--input-border-radius);
+  box-shadow: 0;
 
   color: var(--input-text-color);
   line-height: var(--input-height-medium);
   font-size: var(--input-text-size);
 
-  &.is-focussed {
-    border: 1px solid var(--color-aqua);
-    box-shadow: 0 0 0 1px var(--color-aqua);
+  &:focus {
+    border: 1px solid var(--input-focus-border);
+    box-shadow: 0 0 0 1px var(--input-focus-border);
+  }
+
+  &:active {
+    border: 1px solid var(--input-active-border);
+    box-shadow: inset 0 3px 6px 0 var(input-active-box-shadow);
   }
 
   &.is-bold {
@@ -74,32 +87,19 @@
     background-color: var(--input-disabled-background);
 
     border-color: var(--input-disabled-border);
+
+    color: var(--input-disabled-color);
   }
 
-  &.is-not-selectable {
-    color: var(--input-not-selectable-color);
+  &.is-read-only {
+    background-color: var(--input-read-only-background);
+
+    border-color: var(--input-read-only-border);
   }
-}
 
-.placeholder {
-  position: absolute;
-  overflow: hidden;
-  z-index: 0;
-  top: 0;
-  left: var(--input-horizontal-padding);
-
-  color: var(--input-placeholder-color);
-}
-
-.content {
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
-  white-space: nowrap;
-
-  display: inline-block;
-  width: auto;
-  max-width: 100%;
+  &::placeholder {
+    color: var(--input-placeholder-color);
+  }
 }
 
 .icon {
@@ -118,6 +118,13 @@
   }
 }
 
+.counter {
+  position: absolute;
+  z-index: 1;
+  top: var(--icon-top);
+  right: var(--icon-horizontal);
+}
+
 .large {
   .input {
     height: var(--input-height-large);
@@ -128,6 +135,10 @@
 
   .icon {
     top: var(--icon-top-large);
+  }
+
+  .counter {
+    top: var(--counter-margin-large);
   }
 }
 
@@ -142,25 +153,21 @@
     &.has-icon-left {
       padding: 0 var(--input-horizontal-padding-small) 0
         var(--input-horizontal-padding-icon-small);
-
-      .placeholder {
-        left: var(--input-horizontal-padding-icon-small);
-      }
     }
 
     &.has-icon-right {
       padding: 0 var(--input-horizontal-padding-icon-small) 0
         var(--input-horizontal-padding-small);
-
-      .placeholder {
-        left: var(--input-horizontal-padding-icon-small);
-      }
     }
   }
 
   .icon {
     left: var(--icon-horizontal-small);
     max-height: var(--icon-height-small);
+  }
+
+  .counter {
+    top: var(--counter-margin-small);
   }
 }
 
@@ -169,35 +176,17 @@
     padding: 0 var(--input-horizontal-padding) 0
       var(--input-horizontal-padding-icon);
   }
-
-  .placeholder {
-    left: var(--input-horizontal-padding-icon);
-  }
 }
 
-.has-icon-right {
+.has-icon-right,
+.has-counter {
   .input {
     padding: 0 var(--input-horizontal-padding-icon) 0
       var(--input-horizontal-padding);
   }
 
-  .placeholder {
-    left: var(--input-horizontal-padding);
-  }
-
   .icon {
     left: auto;
     right: var(--icon-horizontal);
-  }
-}
-
-.counter {
-  vertical-align: top;
-  margin: var(--counter-margin-top) 0 0 var(--counter-margin-left);
-}
-
-.has-counter {
-  .content {
-    max-width: calc(100% - var(--counter-width));
   }
 }

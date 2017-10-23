@@ -9,79 +9,48 @@ export default class Input extends Component {
   static propTypes = {
     bold: PropTypes.bool,
     className: PropTypes.string,
+    counter: PropTypes.number,
     disabled: PropTypes.bool,
     icon: PropTypes.oneOfType([PropTypes.func, PropTypes.element]),
     iconPlacement: PropTypes.oneOf(['left', 'right']),
-    counter: PropTypes.number,
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
     placeholder: PropTypes.string,
-    selection: PropTypes.bool,
+    readonly: PropTypes.bool,
     size: PropTypes.oneOf(['small', 'medium', 'large']),
+    type: PropTypes.string,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   };
 
   static defaultProps = {
     iconPlacement: 'left',
+    disabled: false,
     placeholder: '',
-    selection: true,
+    readonly: false,
     size: 'medium',
   };
 
-  state = {
-    value: this.props.value,
-    isFocussed: false,
-  };
-
-  constructor(args) {
-    super(args);
-
-    this.onBlur = this.handleBlur.bind(this);
-    this.onFocus = this.handleFocus.bind(this);
-  }
-
-  changeHandler(eventHandler) {
-    return event => {
-      this.setState({ value: event.target.value });
-
-      return eventHandler({
-        target: {
-          value: event.target.value,
-        },
-      });
-    };
-  }
-
-  handleFocus() {
-    this.setState({ isFocussed: true });
-
-    return this.changeHandler(this.props.onFocus);
-  }
-
-  handleBlur() {
-    this.setState({ isFocussed: false });
-
-    return this.changeHandler(this.props.onBlur);
-  }
-
-  renderContent() {
-    const { disabled, onChange } = this.props;
+  renderInput() {
+    const { bold, disabled, onBlur, onChange, onFocus, placeholder, readonly, type, value } = this.props;
+    const classNames = cx(theme['input'], {
+      [theme['is-disabled']]: disabled,
+      [theme['is-read-only']]: readonly,
+      [theme['is-bold']]: bold,
+    });
     const props = {
-      className: theme.content,
-      editable: !disabled,
-      onBlur: this.onBlur,
-      onChange: this.changeHandler(onChange),
-      onFocus: this.onFocus,
+      className: classNames,
+      disabled: disabled,
+      onBlur: onBlur,
+      onChange: onChange,
+      onFocus: onFocus,
+      placeholder,
+      readonly,
+      type,
+      value,
     };
 
-    return <ContentEditable {...props}>{this.props.value}</ContentEditable>;
-  }
-
-  renderPlaceholder() {
-    if (this.state.value === '') {
-      return <div className={theme.placeholder}>{this.props.placeholder}</div>;
-    }
+    return <input {...props} />;
   }
 
   renderCounter() {
@@ -91,29 +60,21 @@ export default class Input extends Component {
   }
 
   render() {
-    const { bold, className, counter, disabled, icon, iconPlacement, selection, size } = this.props;
-    const wrapperClasses = cx(theme.wrapper, theme[size], className, {
+    const { className, counter, icon, iconPlacement, size } = this.props;
+    const classNames = cx(theme.wrapper, theme[size], className, {
       [theme[`has-icon-${iconPlacement}`]]: icon,
       [theme['has-counter']]: counter,
     });
-    const inputClasses = cx(theme.input, {
-      [theme['is-focussed']]: this.state.isFocussed,
-      [theme['is-disabled']]: disabled,
-      [theme['is-not-selectable']]: !selection,
-      [theme['is-bold']]: bold,
-    });
 
     return (
-      <div className={wrapperClasses}>
+      <div className={classNames}>
         {icon &&
           createElement(icon, {
             className: theme.icon,
           })}
-        <div className={inputClasses}>
-          {this.renderContent()}
-          {this.renderPlaceholder()}
-          {this.renderCounter()}
-        </div>
+
+        {this.renderInput()}
+        {counter && this.renderCounter()}
       </div>
     );
   }
