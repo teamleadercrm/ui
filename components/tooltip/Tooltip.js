@@ -260,7 +260,7 @@ const tooltipFactory = (options = {}) => {
                 data-teamleader-ui="tooltip"
                 style={{ top, left }}
               >
-                <Box className={theme['inner']} {...SIZES[tooltipSize]} >
+                <Box className={theme['inner']} {...SIZES[tooltipSize]}>
                   {tooltipIcon && <div className={theme['icon']}>{tooltipIcon}</div>}
                   <div className={theme['text']}>{tooltip}</div>
                 </Box>
