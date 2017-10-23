@@ -31,6 +31,10 @@
   white-space: nowrap;
   vertical-align: middle;
 
+  svg {
+    -ms-transform: translateY(-1px);
+  }
+  
   & > * {
     display: inline-block;
     pointer-events: none;
@@ -43,16 +47,6 @@
 
   &::-moz-focus-inner {
     border: 0;
-  }
-
-  svg {
-    color: inherit;
-    fill: currentColor;
-    -ms-transform: translateY(-1px);
-
-    * {
-      fill: currentColor;
-    }
   }
 
   &[disabled] {

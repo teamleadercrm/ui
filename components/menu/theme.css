@@ -165,13 +165,7 @@
   }
 
   svg {
-    color: inherit;
-    fill: currentColor;
     -ms-transform: translateY(-1px);
-
-    * {
-      fill: currentColor;
-    }
   }
 }
 
