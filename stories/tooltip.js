@@ -4,6 +4,7 @@ import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import styles from '@sambego/storybook-styles';
 import {
+  Box,
   Button,
   ButtonGroup,
   Heading1,
@@ -38,10 +39,10 @@ storiesOf('Tooltip', module)
   .addDecorator(checkA11y)
   .addDecorator(styles({ ...baseStyles, ...centerStyles }))
   .add('colors', () => (
-    <div>
+    <Box>
       {colors.map((color, index) => {
         return (
-          <TextBody key={index}>
+          <TextBody key={index} marginTop={4}>
             <TooltippedStrong
               tooltip={textSmallTooltipContent}
               tooltipColor={color}
@@ -51,13 +52,13 @@ storiesOf('Tooltip', module)
           </TextBody>
         )
       })}
-    </div>
+    </Box>
   ))
   .add('sizes', () => (
-    <div>
+    <Box>
       {sizes.map((size, index) => {
         return (
-          <TextBody key={index}>
+          <TextBody key={index} marginTop={4}>
             <TooltippedStrong
               tooltip={textSmallTooltipContent}
               tooltipSize={size}
@@ -67,13 +68,13 @@ storiesOf('Tooltip', module)
           </TextBody>
         )
       })}
-    </div>
+    </Box>
   ))
   .add('positions', () => (
-    <div>
+    <Box>
       {positions.map((position, index)=> {
         return (
-          <TextBody key={index}>
+          <TextBody key={index} marginTop={4}>
             <TooltippedStrong
               tooltip={textSmallTooltipContent}
               tooltipPosition={position}
@@ -83,7 +84,7 @@ storiesOf('Tooltip', module)
           </TextBody>
         )
       })}
-    </div>
+    </Box>
   ))
   .add('with Icon', () => (
     <TextBody>
@@ -96,7 +97,7 @@ storiesOf('Tooltip', module)
     </TextBody>
   ))
   .add('from TooltipLabel', () => (
-    <div>
+    <Box>
       <Heading1>
         I'm a Heading 1 with a{' '}
         <TooltippedLabel
@@ -108,7 +109,7 @@ storiesOf('Tooltip', module)
         tooltip action
       </Heading1>
 
-      <Heading2>
+      <Heading2 marginTop={4}>
         I'm a Heading 2 with a{' '}
         <TooltippedLabel
           icon={<IconMeetingSmallOutline />}
@@ -119,7 +120,7 @@ storiesOf('Tooltip', module)
         tooltip action
       </Heading2>
 
-      <Heading3>
+      <Heading3 marginTop={4}>
         I'm a Heading 3 with a{' '}
         <TooltippedLabel
           icon={<IconMeetingSmallOutline />}
@@ -130,7 +131,7 @@ storiesOf('Tooltip', module)
         tooltip action
       </Heading3>
 
-      <Heading4>
+      <Heading4 marginTop={4}>
         I'm a Heading 4 with a{' '}
         <TooltippedLabel
           icon={<IconMeetingSmallOutline />}
@@ -143,7 +144,7 @@ storiesOf('Tooltip', module)
         tooltip action
       </Heading4>
 
-      <TextBody>
+      <TextBody marginTop={4}>
         I'm body text with a{' '}
         <TooltippedLabel
           icon={<IconMeetingSmallOutline />}
@@ -156,19 +157,19 @@ storiesOf('Tooltip', module)
         tooltip action
       </TextBody>
 
-      <TextSmall>
+      <TextSmall marginTop={4}>
         I'm small text with a <TooltippedLabel tooltip={textSmallTooltipContent}>hover me</TooltippedLabel>{' '}
         tooltip action
       </TextSmall>
 
-      <TextTiny>
+      <TextTiny marginTop={4}>
         I'm small text with a{' '}
         <TooltippedLabel tooltip={textSmallTooltipContent}>
           hover me
         </TooltippedLabel>{' '}
         tooltip action
       </TextTiny>
-    </div>
+    </Box>
   ))
   .add('from Button', () => (
     <ButtonGroup>

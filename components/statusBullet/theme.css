@@ -10,7 +10,6 @@
 
 .bullet {
   display: inline-block;
-  margin: auto var(--spacer-smallest);
   position: relative;
   vertical-align: middle;
 

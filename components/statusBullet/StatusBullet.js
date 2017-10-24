@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
 
@@ -22,9 +23,9 @@ class StatusBullet extends PureComponent {
     const classNames = cx(theme['bullet'], theme[color], theme[size], className);
 
     return (
-      <span className={classNames} {...others} data-teamleader-ui="status-bullet">
+      <Box className={classNames} element="span" {...others} data-teamleader-ui="status-bullet">
         {children}
-      </span>
+      </Box>
     );
   }
 }
