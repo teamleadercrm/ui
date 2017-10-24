@@ -2,8 +2,6 @@
 @import '@teamleader/ui-utilities';
 
 :root {
-  --unit: 10px;
-
   --tooltip-arrow-size: calc(.8 * var(--unit));
   --tooltip-arrow-position-correction: calc(0.45 * var(--unit));
   --tooltip-margin: calc(0.8 * var(--unit));
@@ -11,10 +9,6 @@
   --tooltip-border-width: 1px;
   --tooltip-box-shadow: 0 3px 12px 0 color(var(--color-teal-darkest) a(10%));
   --tooltip-max-width: calc(18 * var(--unit));
-  --tooltip-small-padding-horizontal: calc(1.2 * var(--unit));
-  --tooltip-small-padding-vertical: calc(0.6 * var(--unit));
-  --tooltip-medium-padding-horizontal: calc(1.2 * var(--unit));
-  --tooltip-medium-padding-vertical: calc(1.2 * var(--unit));
   --tooltip-animation-duration: 200ms;
   --tooltip-z-index: 200;
 }
@@ -22,13 +16,7 @@
 .label,
 .tooltip {
   svg {
-    color: inherit;
-    fill: currentColor;
     -ms-transform: translateY(-1px);
-
-    * {
-      fill: currentColor;
-    }
   }
 }
 
@@ -36,7 +24,6 @@
   background: color(var(--color-teal-darkest) a(8%));
   border-radius: var(--tooltip-border-radius);
   color: var(--color-teal-darkest);
-  padding: var(--spacer-smallest) var(--spacer-smaller);
 
   svg {
     margin-right: var(--spacer-smallest)
@@ -216,14 +203,3 @@
   }
 }
 
-.small {
-  .inner {
-    padding: var(--tooltip-small-padding-vertical) var(--tooltip-small-padding-horizontal);
-  }
-}
-
-.medium {
-  .inner {
-    padding: var(--tooltip-medium-padding-vertical) var(--tooltip-medium-padding-horizontal);
-  }
-}

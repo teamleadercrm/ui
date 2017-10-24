@@ -1,6 +1,6 @@
-@import '@teamleader/ui-colors';
 @import '@teamleader/ui-animations';
-@import 'variables.css';
+@import '@teamleader/ui-colors';
+@import '@teamleader/ui-utilities';
 
 :root {
   --radio-field-margin-bottom: calc(1.5 * var(--unit));
@@ -16,6 +16,7 @@
 }
 
 .radio {
+  composes: reset;
   border: var(--radio-border-thickness) solid var(--radio-border-color);
   border-radius: 50%;
   cursor: pointer;
@@ -24,8 +25,6 @@
   position: relative;
   vertical-align: top;
   width: var(--radio-button-size);
-
-  @apply --reset;
 
   &::before {
     background-color: var(--radio-inner-color);

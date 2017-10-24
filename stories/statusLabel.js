@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import styles from '@sambego/storybook-styles';
-import { StatusLabel } from '../components';
+import { Box, StatusLabel } from '../components';
 import { baseStyles, centerStyles } from '../.storybook/styles';
 
 const colors = ['mint', 'violet', 'ruby', 'gold', 'aqua', 'neutral'];
@@ -14,20 +14,20 @@ storiesOf('Status Labels', module)
   .addDecorator(checkA11y)
   .addDecorator(styles({ ...baseStyles, ...centerStyles }))
   .add('colors', () => (
-    <div>
+    <Box>
       {colors.map((color, key) => (
-        <StatusLabel color={color} key={key}>
+        <StatusLabel color={color} key={key} marginHorizontal={1}>
           {color}
         </StatusLabel>
       ))}
-    </div>
+    </Box>
   ))
   .add('sizes', () => (
-    <div>
+    <Box>
       {sizes.map((size, key) => (
-        <StatusLabel size={size} key={key}>
+        <StatusLabel size={size} key={key} marginHorizontal={1}>
           {size}
         </StatusLabel>
       ))}
-    </div>
+    </Box>
   ));

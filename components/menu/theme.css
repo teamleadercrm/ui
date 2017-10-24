@@ -1,7 +1,6 @@
 @import '@teamleader/ui-animations';
 @import '@teamleader/ui-colors';
 @import '@teamleader/ui-utilities';
-@import 'variables.css';
 
 :root {
   --menu-expand-duration: 0.3s;
@@ -20,7 +19,7 @@
   --menu-icon-size: calc(2.3 * var(--unit));
 }
 
-.iconMenu {
+.icon-menu {
   display: inline-block;
   position: relative;
   text-align: center;
@@ -31,11 +30,11 @@
 }
 
 .menu {
-  @apply --reset;
+  composes: reset;
   display: inline-block;
   position: relative;
 
-  &.topLeft {
+  &.top-left {
     left: 0;
     position: absolute;
     top: 0;
@@ -45,7 +44,7 @@
     }
   }
 
-  &.topRight {
+  &.top-right {
     position: absolute;
     right: 0;
     top: 0;
@@ -55,7 +54,7 @@
     }
   }
 
-  &.bottomLeft {
+  &.bottom-left {
     bottom: 0;
     left: 0;
     position: absolute;
@@ -65,7 +64,7 @@
     }
   }
 
-  &.bottomRight {
+  &.bottom-right {
     bottom: 0;
     position: absolute;
     right: 0;
@@ -88,7 +87,7 @@
       will-change: transform;
     }
 
-    & > .menuInner {
+    & > .menu-inner {
       left: 0;
       margin: 0;
       opacity: 0;
@@ -104,7 +103,7 @@
         transform: scale(1);
       }
 
-      & > .menuInner {
+      & > .menu-inner {
         opacity: 1;
         transition:
           opacity var(--menu-fade-duration) var(--animation-curve-default),
@@ -117,14 +116,16 @@
 .outline {
   background-color: var(--menu-background-color);
   border-radius: var(--menu-outline-border-radius);
-  box-shadow: var(--shadow-2p);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+  0 3px 1px -2px rgba(0, 0, 0, 0.2),
+  0 1px 5px 0 rgba(0, 0, 0, 0.12);
   display: block;
   left: 0;
   position: absolute;
   top: 0;
 }
 
-.menuInner {
+.menu-inner {
   display: block;
   list-style: none;
   margin: 0;
@@ -134,7 +135,7 @@
   white-space: nowrap;
 }
 
-.menuItem {
+.menu-item {
   align-items: center;
   color: var(--color-teal-dark);
   display: flex;
@@ -164,26 +165,20 @@
   }
 
   svg {
-    color: inherit;
-    fill: currentColor;
     -ms-transform: translateY(-1px);
-
-    * {
-      fill: currentColor;
-    }
   }
 }
 
 .caption {
   flex-grow: 1;
-  font-size: var(--font-size-normal);
+  font-size: calc(1.4 * var(--unit))
 }
 
 .shortcut {
   margin-left: var(--menu-item-padding);
 }
 
-.menuDivider {
+.divider {
   background-color: var(--color-neutral-light);
   border: 0;
   display: block;

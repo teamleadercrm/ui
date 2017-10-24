@@ -48,15 +48,3 @@
   background-color: var(--color-aqua-lightest);
   border-color: var(--color-aqua);
 }
-
-.small {
-  padding: var(--spacer-small);
-}
-
-.medium {
-  padding: var(--spacer-medium);
-}
-
-.large {
-  padding: var(--spacer-big);
-}

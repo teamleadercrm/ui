@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
-import { Island, TextBody } from '../components';
+import { Box, Island, TextBody } from '../components';
 
 const colors = ['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'white'];
 const sizes = ['small', 'medium', 'large'];
@@ -11,23 +11,23 @@ storiesOf('Island', module)
   .addDecorator((story, context) => withInfo('common info')(story)(context))
   .addDecorator(checkA11y)
   .add('colors', () => (
-    <div>
-      {colors.map(color => (
-        <Island color={color}>
+    <Box padding={5}>
+      {colors.map((color, index) => (
+        <Island key={index} color={color} marginTop={4}>
           <TextBody>I am a {color} island.</TextBody>
         </Island>
       ))}
-      <Island dark>
+      <Island marginTop={4} dark>
         <TextBody>I am a dark island.</TextBody>
       </Island>
-    </div>
+    </Box>
   ))
   .add('sizes', () => (
-    <div>
-      {sizes.map(size => (
-        <Island size={size}>
+    <Box padding={5}>
+      {sizes.map((size, index) => (
+        <Island key={index} size={size} marginTop={4}>
           <TextBody>I am a {size} island.</TextBody>
         </Island>
       ))}
-    </div>
+    </Box>
   ));

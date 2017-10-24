@@ -1,7 +1,6 @@
 @import '@teamleader/ui-animations';
 @import '@teamleader/ui-colors';
-@import 'variables.css';
-@import 'media.css';
+@import '@teamleader/ui-utilities';
 
 :root {
   --dialog-background-color: var(--color-white);
@@ -27,12 +26,9 @@
   top: 0;
   width: 100vw;
   z-index: var(--z-index-higher);
-
-  @apply --reset;
 }
 
 .dialog {
-  @apply --reset;
   background-color: var(--dialog-background-color);
   border-radius: var(--dialog-border-radius);
   box-shadow: var(--dialog-box-shadow);
@@ -91,7 +87,7 @@
 
     .icon {
       color: var(--color-gold-dark);
-      font-size: 40px;
+      margin-bottom: var(--spacer-small);
     }
   }
 }
