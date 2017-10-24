@@ -17,7 +17,7 @@
 .button {
   border-radius: var(--button-border-radius);
   cursor: pointer;
-  display: inline-block;
+  display: flex;
   font-family: var(--font-family-semi-bold);
   letter-spacing: 0;
   outline: none;
@@ -29,15 +29,22 @@
     color var(--animation-duration) var(--animation-curve-fast-out-slow-in);
   user-select: none;
   white-space: nowrap;
-  vertical-align: middle;
+  /*vertical-align: middle;*/
+  align-items: center;
+  justify-content: center;
 
-  svg {
-    -ms-transform: translateY(-1px);
-  }
-  
+  /*svg {
+    transform: translateY(-1px);
+  }*/
+
+  /*.children {
+    transform: translateY(1px);
+  }*/
+
   & > * {
-    display: inline-block;
+    /*display: inline-block;*/
     pointer-events: none;
+    /*vertical-align: middle;*/
   }
 
   * + .children,
@@ -397,6 +404,8 @@
 
 /* ButtonGroup */
 .group {
+  display: flex;
+
   > * {
     margin-left: var(--button-margin);
     margin-right: var(--button-margin);
