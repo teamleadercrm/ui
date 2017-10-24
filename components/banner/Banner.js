@@ -30,6 +30,16 @@ class Banner extends PureComponent {
     this.props.onClose();
   }
 
+  getCloseButtonColor() {
+    const { color } = this.props;
+
+    if (color === 'white') {
+      return 'neutral';
+    }
+
+    return color;
+  }
+
   render() {
     const { children, className, color, icon, onClose, fullWidth, ...others } = this.props;
 
@@ -40,7 +50,13 @@ class Banner extends PureComponent {
       <Element data-teamleader-ui="banner" color={color} className={classNames} {...others}>
         {icon && <span className={theme['icon']}>{icon}</span>}
         <span className={theme['content']}>{children}</span>
-        {onClose && <IconButton icon={<IconCloseMediumOutline />} onClick={this.handleOnClick} />}
+        {onClose && (
+          <IconButton
+            icon={<IconCloseMediumOutline />}
+            color={this.getCloseButtonColor()}
+            onClick={this.handleOnClick}
+          />
+        )}
       </Element>
     );
   }
