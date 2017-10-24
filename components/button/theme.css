@@ -1,7 +1,8 @@
 @import '@teamleader/ui-animations';
 @import '@teamleader/ui-colors';
-@import '@teamleader/ui-typography';
+/*@import '@teamleader/ui-typography';*/
 @import '@teamleader/ui-utilities';
+@import 'font-inter-ui.css';
 
 :root {
   --button-border-radius: calc(.4 * var(--unit));
