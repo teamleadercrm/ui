@@ -5,7 +5,7 @@ import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import styles from '@sambego/storybook-styles';
 import { IconAddMediumOutline, IconMagicMediumOutline } from '@teamleader/ui-icons';
-import { Button, ButtonGroup } from '../components/button';
+import { Button, ButtonGroup, IconButton } from '../components';
 import { baseStyles, centerStyles } from '../.storybook/styles';
 
 storiesOf('Buttons', module)
@@ -90,4 +90,15 @@ storiesOf('Buttons', module)
     <Button inverse level="outline" onClick={action('clicked button outline')}>
       Button outline inverse
     </Button>
+  ))
+  .add('icon button', () => (
+    <ButtonGroup>
+      <IconButton icon={<IconAddMediumOutline />} onClick={action('clicked icon button')} />
+      <IconButton icon={<IconAddMediumOutline />} color="mint" onClick={action('clicked icon button')} />
+      <IconButton icon={<IconAddMediumOutline />} color="violet" onClick={action('clicked icon button')} />
+      <IconButton icon={<IconAddMediumOutline />} color="ruby" onClick={action('clicked icon button')} />
+      <IconButton icon={<IconAddMediumOutline />} color="gold" onClick={action('clicked icon button')} />
+      <IconButton icon={<IconAddMediumOutline />} color="aqua" onClick={action('clicked icon button')} />
+      <IconButton icon={<IconAddMediumOutline />} inverse onClick={action('clicked icon button')} />
+    </ButtonGroup>
   ));

@@ -14,6 +14,7 @@ class IconButton extends Component {
     onMouseLeave: PropTypes.func,
     onMouseUp: PropTypes.func,
     size: PropTypes.oneOf(['small', 'medium', 'large']),
+    color: PropTypes.oneOf(['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua']),
     type: PropTypes.string,
   };
 
@@ -21,6 +22,7 @@ class IconButton extends Component {
     className: '',
     inverse: false,
     size: 'medium',
+    color: 'neutral',
     type: 'button',
   };
 
@@ -39,16 +41,19 @@ class IconButton extends Component {
   };
 
   render() {
-    const { children, className, disabled, href, icon, inverse, size, type, ...others } = this.props;
+    const { children, className, disabled, href, icon, inverse, size, color, type, ...others } = this.props;
 
     const element = href ? 'a' : 'button';
+
+    const isInverse = inverse && color === 'neutral';
 
     const classNames = cx(
       theme['button'],
       theme['icon-button'],
       theme['icon-only'],
+      theme[color],
       {
-        [theme['inverse']]: inverse,
+        [theme['inverse']]: isInverse,
         [theme[size]]: theme[size],
       },
       className,

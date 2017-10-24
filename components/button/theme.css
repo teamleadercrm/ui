@@ -34,7 +34,7 @@
   svg {
     -ms-transform: translateY(-1px);
   }
-  
+
   & > * {
     display: inline-block;
     pointer-events: none;
@@ -86,7 +86,29 @@
   border: 0;
 
   &:not(.inverse) {
-    color: var(--color-neutral-darkest);
+    &.neutral {
+      color: var(--color-neutral-darkest);
+    }
+
+    &.mint {
+      color: var(--color-mint-darkest);
+    }
+
+    &.violet {
+      color: var(--color-violet-darkest);
+    }
+
+    &.ruby {
+      color: var(--color-ruby-darkest);
+    }
+
+    &.gold {
+      color: var(--color-gold-darkest);
+    }
+
+    &.aqua {
+      color: var(--color-aqua-darkest);
+    }
 
     &:not([disabled]) {
       &:hover {
