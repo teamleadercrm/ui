@@ -1,0 +1,36 @@
+:root {
+  --unit: 10px;
+
+  --font-family-regular: 'Inter-UI-Regular';
+  --font-family-medium: 'Inter-UI-Medium';
+  --font-family-semi-bold: 'Inter-UI-Semibold';
+  --font-family-bold: 'Inter-UI-Bold';
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Inter-UI-Regular';
+  src: url('../../static/fonts/Inter-UI/Inter-UI-Regular.woff2') format('woff2'),
+  url('../../static/fonts/Inter-UI/Inter-UI-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Inter-UI-Medium';
+  src: url('../../static/fonts/Inter-UI/Inter-UI-Medium.woff2') format('woff2'),
+  url('../../static/fonts/Inter-UI/Inter-UI-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Inter-UI-Semibold';
+  src: url('../../static/fonts/Inter-UI/Inter-UI-Medium.woff2') format('woff2'),
+  url('../../static/fonts/Inter-UI/Inter-UI-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Inter-UI-Bold';
+  src: url('../../static/fonts/Inter-UI/Inter-UI-Bold.woff2') format('woff2'),
+  url('../../static/fonts/Inter-UI/Inter-UI-Bold.woff') format('woff');
+}
