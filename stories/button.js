@@ -5,7 +5,7 @@ import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import styles from '@sambego/storybook-styles';
 import { IconAddMediumOutline, IconMagicMediumOutline } from '@teamleader/ui-icons';
-import { Button, ButtonGroup, IconButton } from '../components';
+import { Button, ButtonGroup, IconButton, Island, Box } from '../components';
 import { baseStyles, centerStyles } from '../.storybook/styles';
 
 storiesOf('Buttons', module)
@@ -92,13 +92,27 @@ storiesOf('Buttons', module)
     </Button>
   ))
   .add('icon button', () => (
-    <ButtonGroup>
-      <IconButton icon={<IconAddMediumOutline />} onClick={action('clicked icon button')} />
-      <IconButton icon={<IconAddMediumOutline />} color="mint" onClick={action('clicked icon button')} />
-      <IconButton icon={<IconAddMediumOutline />} color="violet" onClick={action('clicked icon button')} />
-      <IconButton icon={<IconAddMediumOutline />} color="ruby" onClick={action('clicked icon button')} />
-      <IconButton icon={<IconAddMediumOutline />} color="gold" onClick={action('clicked icon button')} />
-      <IconButton icon={<IconAddMediumOutline />} color="aqua" onClick={action('clicked icon button')} />
-      <IconButton icon={<IconAddMediumOutline />} color="white" onClick={action('clicked icon button')} />
-    </ButtonGroup>
+    <Box>
+      <Island color="neutral" marginBottom={2}>
+        <IconButton icon={<IconAddMediumOutline />} onClick={action('clicked icon button')} />
+      </Island>
+      <Island color="mint" marginBottom={2}>
+        <IconButton color="mint" icon={<IconAddMediumOutline />} onClick={action('clicked icon button')} />
+      </Island>
+      <Island color="violet" marginBottom={2}>
+        <IconButton color="violet" icon={<IconAddMediumOutline />} onClick={action('clicked icon button')} />
+      </Island>
+      <Island color="ruby" marginBottom={2}>
+        <IconButton color="ruby" icon={<IconAddMediumOutline />} onClick={action('clicked icon button')} />
+      </Island>
+      <Island color="gold" marginBottom={2}>
+        <IconButton color="gold" icon={<IconAddMediumOutline />} onClick={action('clicked icon button')} />
+      </Island>
+      <Island color="aqua" marginBottom={2}>
+        <IconButton color="aqua" icon={<IconAddMediumOutline />} onClick={action('clicked icon button')} />
+      </Island>
+      <Island color="neutral" marginBottom={2} style={{backgroundColor: '#2a3b4d'}}> {/* There is no teal island, so just changing the background with inline style */}
+        <IconButton color="white" icon={<IconAddMediumOutline />} onClick={action('clicked icon button')} />
+      </Island>
+    </Box>
   ));
