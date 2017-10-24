@@ -99,6 +99,6 @@ storiesOf('Buttons', module)
       <IconButton icon={<IconAddMediumOutline />} color="ruby" onClick={action('clicked icon button')} />
       <IconButton icon={<IconAddMediumOutline />} color="gold" onClick={action('clicked icon button')} />
       <IconButton icon={<IconAddMediumOutline />} color="aqua" onClick={action('clicked icon button')} />
-      <IconButton icon={<IconAddMediumOutline />} inverse onClick={action('clicked icon button')} />
+      <IconButton icon={<IconAddMediumOutline />} color="white" onClick={action('clicked icon button')} />
     </ButtonGroup>
   ));

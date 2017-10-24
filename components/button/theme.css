@@ -85,7 +85,7 @@
   background-color: transparent;
   border: 0;
 
-  &:not(.inverse) {
+  &:not(.white) {
     &.neutral {
       color: var(--color-neutral-darkest);
     }
@@ -128,7 +128,7 @@
     }
   }
 
-  &.inverse {
+  &.white {
     color: var(--color-neutral-lightest);
 
     &:not([disabled]) {
