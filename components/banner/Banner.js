@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Island from '../island';
+import Section from '../section';
 import { IconButton } from '../button';
 import cx from 'classnames';
 import theme from './theme.css';
@@ -30,16 +31,17 @@ class Banner extends PureComponent {
   }
 
   render() {
-    const { children, className, color, icon, onClose, ...others } = this.props;
+    const { children, className, color, icon, onClose, fullWidth, ...others } = this.props;
 
     const classNames = cx(theme['banner'], theme[color], className);
+    const Element = fullWidth ? Section : Island;
 
     return (
-      <Island data-teamleader-ui="banner" color={color} className={classNames} {...others}>
+      <Element data-teamleader-ui="banner" color={color} className={classNames} {...others}>
         {icon && <span className={theme['icon']}>{icon}</span>}
         <span className={theme['content']}>{children}</span>
         {onClose && <IconButton icon={<IconCloseMediumOutline />} onClick={this.handleOnClick} />}
-      </Island>
+      </Element>
     );
   }
 }
