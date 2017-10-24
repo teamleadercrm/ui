@@ -53,6 +53,26 @@ module.exports = (storybookBaseConfig, configType) => {
       }]
   });
 
+  storybookBaseConfig.module.rules.push({
+    test: /\.(woff|woff2|ttf)$/i,
+    use: [
+      {
+        loader: 'url-loader',
+        options: {
+          query: {
+            prefix: 'static/fonts',
+            name: '[path][name].[ext]',
+            limit: '10000',
+            mimetype: 'application/octet-stream'
+          }
+        }
+      }
+    ]
+  });
+
+
+
+
   // The baseConfig already uses a definePlugin instance, webpack ignores
   // every instance but the first, so we need to add our globals to the existing
   // ones. Yep this is dirty!
