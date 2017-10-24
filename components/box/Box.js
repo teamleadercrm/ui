@@ -4,6 +4,22 @@ import cx from 'classnames';
 import theme from './theme.css';
 
 const spacings = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+const availableProps = [
+  'margin',
+  'marginHorizontal',
+  'marginVertical',
+  'marginBottom',
+  'marginLeft',
+  'marginRight',
+  'marginTop',
+  'padding',
+  'paddingHorizontal',
+  'paddingVertical',
+  'paddingBottom',
+  'paddingLeft',
+  'paddingRight',
+  'paddingTop',
+];
 
 class Box extends PureComponent {
   static propTypes = {
@@ -31,6 +47,23 @@ class Box extends PureComponent {
     margin: 0,
     padding: 0,
   };
+
+  static splitProps(props) {
+    const boxProps = {};
+    const otherProps = {};
+
+    Object.keys(props).forEach(key => {
+      const value = props[key];
+
+      if (availableProps.includes(key)) {
+        boxProps[key] = value;
+      } else {
+        otherProps[key] = value;
+      }
+    });
+
+    return { boxProps, otherProps };
+  }
 
   render() {
     const {
