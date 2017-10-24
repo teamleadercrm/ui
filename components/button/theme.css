@@ -34,7 +34,7 @@
   svg {
     -ms-transform: translateY(-1px);
   }
-  
+
   & > * {
     display: inline-block;
     pointer-events: none;
@@ -85,28 +85,31 @@
   background-color: transparent;
   border: 0;
 
-  &:not(.inverse) {
+  &.neutral {
     color: var(--color-neutral-darkest);
-
-    &:not([disabled]) {
-      &:hover {
-        background-color: color(var(--color-teal-darkest) a(5%));
-      }
-
-      &:focus {
-        border: 1px solid var(--color-teal-darkest);
-        box-shadow: inset 0 0 0 1px var(--color-teal-darkest);
-      }
-
-      &:active {
-        background-color: color(var(--color-teal-darkest) a(5%));
-        border: 0;
-        box-shadow: none;
-      }
-    }
   }
 
-  &.inverse {
+  &.mint {
+    color: var(--color-mint-darkest);
+  }
+
+  &.violet {
+    color: var(--color-violet-darkest);
+  }
+
+  &.ruby {
+    color: var(--color-ruby-darkest);
+  }
+
+  &.gold {
+    color: var(--color-gold-darkest);
+  }
+
+  &.aqua {
+    color: var(--color-aqua-darkest);
+  }
+
+  &.white {
     color: var(--color-neutral-lightest);
 
     &:not([disabled]) {
@@ -124,6 +127,23 @@
         border: 0;
         box-shadow: none;
       }
+    }
+  }
+
+  &:not([disabled]) {
+    &:hover {
+      background-color: color(var(--color-teal-darkest) a(5%));
+    }
+
+    &:focus {
+      border: 1px solid var(--color-teal-darkest);
+      box-shadow: inset 0 0 0 1px var(--color-teal-darkest);
+    }
+
+    &:active {
+      background-color: color(var(--color-teal-darkest) a(5%));
+      border: 0;
+      box-shadow: none;
     }
   }
 }
