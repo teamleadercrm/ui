@@ -43,7 +43,7 @@ class Banner extends PureComponent {
   render() {
     const { children, className, color, icon, onClose, fullWidth, ...others } = this.props;
 
-    const classNames = cx(theme['banner'], theme[color], className);
+    const classNames = cx(theme[color], className);
     const Element = fullWidth ? Section : Island;
 
     return (
