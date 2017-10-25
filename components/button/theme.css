@@ -34,9 +34,10 @@
   align-items: center;
   justify-content: center;
 
-  /*svg {
-    transform: translateY(-1px);
-  }*/
+  svg {
+    margin: auto;
+    /*transform: translateY(-1px);*/
+  }
 
   /*.children {
     transform: translateY(1px);
