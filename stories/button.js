@@ -93,6 +93,9 @@ storiesOf('Buttons', module)
   ))
   .add('icon button', () => (
     <Box>
+      <Island color="white" marginBottom={2}>
+        <IconButton icon={<IconAddMediumOutline />} onClick={action('clicked icon button')} />
+      </Island>
       <Island color="neutral" marginBottom={2}>
         <IconButton icon={<IconAddMediumOutline />} onClick={action('clicked icon button')} />
       </Island>
