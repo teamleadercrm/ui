@@ -13,6 +13,7 @@ import {
   TextTiny,
 } from './typography';
 import Counter from './counter';
+import DataGrid from './datagrid';
 import Dialog from './dialog';
 import { FontIcon } from './font_icon';
 import Menu, { IconMenu, MenuItem, MenuDivider } from './menu';
@@ -35,6 +36,7 @@ export {
   ButtonGroup,
   Counter,
   IconButton,
+  DataGrid,
   Dialog,
   FontIcon,
   Heading1,
