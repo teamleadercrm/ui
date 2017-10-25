@@ -48,15 +48,18 @@ class Banner extends PureComponent {
 
     return (
       <Element data-teamleader-ui="banner" color={color} className={classNames} {...others}>
-        {icon && <span className={theme['icon']}>{icon}</span>}
-        <span className={theme['content']}>{children}</span>
-        {onClose && (
-          <IconButton
-            icon={<IconCloseMediumOutline />}
-            color={this.getCloseButtonColor()}
-            onClick={this.handleOnClick}
-          />
-        )}
+        <div className={theme['inner']}>
+          {icon && <span className={theme['icon']}>{icon}</span>}
+          <span className={theme['content']}>{children}</span>
+          {onClose && (
+            <IconButton
+              className={theme['close-button']}
+              icon={<IconCloseMediumOutline />}
+              color={this.getCloseButtonColor()}
+              onClick={this.handleOnClick}
+            />
+          )}
+        </div>
       </Element>
     );
   }

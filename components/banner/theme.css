@@ -1,17 +1,25 @@
 @import '@teamleader/ui-colors';
 @import '@teamleader/ui-utilities';
 
-.banner {
-  display: flex;
-  align-items: baseline;
-}
-
 .icon {
   margin-right: var(--spacer-small);
 }
 
+.inner {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+}
+
 .content {
   flex: 1;
+  padding-right: var(--spacer-big);
+}
+
+.close-button {
+  position: absolute;
+  top: -6px;
+  right: -6px;
 }
 
 .white,
