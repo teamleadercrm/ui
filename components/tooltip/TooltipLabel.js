@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../box';
 import cx from 'classnames';
-import { OldStyleNumber } from '../typography';
 import theme from './theme.css';
 
 class TooltipLabel extends PureComponent {
@@ -34,7 +33,7 @@ class TooltipLabel extends PureComponent {
         {...others}
       >
         {icon}
-        <OldStyleNumber>{children}</OldStyleNumber>
+        {children}
       </Box>
     );
   }
