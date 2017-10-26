@@ -23,10 +23,10 @@ class Banner extends PureComponent {
 
   constructor() {
     super(...arguments);
-    this.handleOnClick = ::this.handleOnClick;
+    this.handleClick = ::this.handleClick;
   }
 
-  handleOnClick() {
+  handleClick() {
     this.props.onClose();
   }
 
@@ -56,7 +56,7 @@ class Banner extends PureComponent {
               className={theme['close-button']}
               icon={<IconCloseMediumOutline />}
               color={this.getCloseButtonColor()}
-              onClick={this.handleOnClick}
+              onClick={this.handleClick}
             />
           )}
         </div>
