@@ -1,4 +1,5 @@
 import Avatar, { AvatarStack } from './avatar';
+import Banner from './banner';
 import Box from './box';
 import Button, { ButtonGroup, IconButton } from './button';
 import { Heading1, Heading2, Heading3, Heading4, Monospaced, TextBody, TextSmall, TextTiny } from './typography';
@@ -19,6 +20,7 @@ import Tooltip, { TooltipLabel } from './tooltip';
 export {
   Avatar,
   AvatarStack,
+  Banner,
   Box,
   Button,
   ButtonGroup,

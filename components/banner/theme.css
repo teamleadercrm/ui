@@ -1,0 +1,48 @@
+@import '@teamleader/ui-colors';
+@import '@teamleader/ui-utilities';
+
+.icon {
+  margin-right: var(--spacer-small);
+}
+
+.inner {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+}
+
+.content {
+  flex: 1;
+  padding-right: var(--spacer-big);
+}
+
+.close-button {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+}
+
+.white,
+.neutral {
+  color: var(--color-teal-darkest);
+}
+
+.mint {
+  color: var(--color-mint-darkest);
+}
+
+.violet {
+  color: var(--color-violet-darkest);
+}
+
+.ruby {
+  color: var(--color-ruby-darkest);
+}
+
+.gold {
+  color: var(--color-gold-darkest);
+}
+
+.aqua {
+  color: var(--color-aqua-darkest);
+}
