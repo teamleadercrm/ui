@@ -1,16 +1,7 @@
 import Avatar, { AvatarStack } from './avatar';
 import Box from './box';
 import Button, { ButtonGroup, IconButton } from './button';
-import {
-  Heading1,
-  Heading2,
-  Heading3,
-  Heading4,
-  Monospaced,
-  TextBody,
-  TextSmall,
-  TextTiny,
-} from './typography';
+import { Heading1, Heading2, Heading3, Heading4, Monospaced, TextBody, TextSmall, TextTiny } from './typography';
 import Counter from './counter';
 import Dialog from './dialog';
 import Menu, { IconMenu, MenuItem, MenuDivider } from './menu';
