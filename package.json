@@ -56,6 +56,7 @@
     "@teamleader/ui-animations": "0.0.2",
     "@teamleader/ui-colors": "0.0.6",
     "@teamleader/ui-icons": "0.0.7",
+    "@teamleader/ui-illustrations": "0.0.2",
     "@teamleader/ui-typography": "0.0.8",
     "@teamleader/ui-utilities": "0.0.3",
     "classnames": "^2.2.5",
