@@ -13,7 +13,7 @@ class Banner extends PureComponent {
     className: PropTypes.string,
     color: PropTypes.oneOf(['white', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua']),
     icon: PropTypes.element,
-    onClose: PropTypes.function,
+    onClose: PropTypes.func,
     fullWidth: PropTypes.bool,
   };
 
