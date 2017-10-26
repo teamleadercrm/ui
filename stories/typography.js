@@ -10,7 +10,6 @@ import {
   Heading3,
   Heading4,
   Monospaced,
-  OldStyleNumber,
   TextBody,
   TextSmall,
   TextTiny,
@@ -23,10 +22,10 @@ storiesOf('Typography', module)
   .addDecorator(styles(baseStyles))
   .add('Headings', () => (
     <Box padding={5}>
-      <Heading1>Heading 1 / font-size: 25px / line-height: 30px / weight: medium (500) / tracking: 0</Heading1>
+      <Heading1>Heading 1 / font-size: 24px / line-height: 30px / weight: medium (500) / tracking: 0</Heading1>
       <Heading2 marginTop={4}>Heading 2 / font-size: 20px / line-height: 24px / weight: medium (500) / tracking: 0</Heading2>
-      <Heading3 marginTop={4}>Heading 3 / font-size: 16px / line-height: 21px / weight: semi-bold (600) / tracking: 0</Heading3>
-      <Heading4 marginTop={4}>Heading 4 / font-size: 12.4px / line-height: 18px / weight: black (700) / tracking: 0.25</Heading4>
+      <Heading3 marginTop={4}>Heading 3 / font-size: 18px / line-height: 24px / weight: medium (500) / tracking: 0</Heading3>
+      <Heading4 marginTop={4}>Heading 4 / font-size: 12px / line-height: 18px / weight: black (900) / tracking: 0.6px</Heading4>
     </Box>
   ))
   .add('Text', () => (
@@ -45,16 +44,5 @@ storiesOf('Typography', module)
       <TextBody marginTop={6}><Monospaced>1234567890</Monospaced></TextBody>
       <TextSmall marginTop={2}><Monospaced>1234567890</Monospaced></TextSmall>
       <TextTiny marginTop={2}><Monospaced>1234567890</Monospaced></TextTiny>
-    </Box>
-  ))
-  .add('Old styled', () => (
-    <Box padding={5}>
-      <Heading1><OldStyleNumber>1234567890</OldStyleNumber></Heading1>
-      <Heading2 marginTop={2}><OldStyleNumber>1234567890</OldStyleNumber></Heading2>
-      <Heading3 marginTop={2}><OldStyleNumber>1234567890</OldStyleNumber></Heading3>
-      <Heading4 marginTop={2}><OldStyleNumber>1234567890</OldStyleNumber></Heading4>
-      <TextBody marginTop={6}><OldStyleNumber>1234567890</OldStyleNumber></TextBody>
-      <TextSmall marginTop={2}><OldStyleNumber>1234567890</OldStyleNumber></TextSmall>
-      <TextTiny marginTop={2}><OldStyleNumber>1234567890</OldStyleNumber></TextTiny>
     </Box>
   ));
