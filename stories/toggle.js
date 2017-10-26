@@ -24,26 +24,26 @@ storiesOf('Toggles', module)
   .add('size', () => (
     <div>
       <State store={store}>
-        <Toggle size="small" onChange={handleOnChange} />
+        <Toggle size="small" margin={2} onChange={handleOnChange} />
       </State>
       <State store={store}>
-        <Toggle size="medium" onChange={handleOnChange} />
+        <Toggle size="medium" margin={2} onChange={handleOnChange} />
       </State>
       <State store={store}>
-        <Toggle size="large" onChange={handleOnChange} />
+        <Toggle size="large" margin={2} onChange={handleOnChange} />
       </State>
     </div>
   ))
   .add('labels', () => (
     <div>
       <State store={store}>
-        <Toggle size="small" onChange={handleOnChange} label="I'm a small toggle" />
+        <Toggle size="small" margin={2} onChange={handleOnChange} label="I'm a small toggle" />
       </State>
       <State store={store}>
-        <Toggle size="medium" onChange={handleOnChange} label="I'm a medium toggle" />
+        <Toggle size="medium" margin={2} onChange={handleOnChange} label="I'm a medium toggle" />
       </State>
       <State store={store}>
-        <Toggle size="large" onChange={handleOnChange} label="I'm a large toggle" />
+        <Toggle size="large" margin={2} onChange={handleOnChange} label="I'm a large toggle" />
       </State>
     </div>
   ))
@@ -89,32 +89,32 @@ storiesOf('Toggles', module)
   .add('disabled', () => (
     <div>
       <Island color="white">
-        <Toggle disabled color="neutral" label="I'm a disabled toggle" />
-        <Toggle disabled checked color="neutral" label="I'm a disabled toggle" />
+        <Toggle disabled margin={2} color="neutral" label="I'm a disabled toggle" />
+        <Toggle disabled margin={2} checked color="neutral" label="I'm a disabled toggle" />
       </Island>
       <Island color="neutral" style={{ background: '#354B62'}}> {/*we don't have a teal island, so faking one*/}
-        <Toggle disabled color="teal" label="I'm a disabled toggle" />
-        <Toggle disabled checked color="teal" label="I'm a disabled toggle" />
+        <Toggle disabled margin={2} color="teal" label="I'm a disabled toggle" />
+        <Toggle disabled margin={2} checked color="teal" label="I'm a disabled toggle" />
       </Island>
       <Island color="violet">
-        <Toggle disabled color="violet" label="I'm a disabled toggle" />
-        <Toggle disabled checked color="violet" label="I'm a disabled toggle" />
+        <Toggle disabled margin={2} color="violet" label="I'm a disabled toggle" />
+        <Toggle disabled margin={2} checked color="violet" label="I'm a disabled toggle" />
       </Island>
       <Island color="ruby">
-        <Toggle disabled color="ruby" label="I'm a disabled toggle" />
-        <Toggle disabled checked color="ruby" label="I'm a disabled toggle" />
+        <Toggle disabled margin={2} color="ruby" label="I'm a disabled toggle" />
+        <Toggle disabled margin={2} checked color="ruby" label="I'm a disabled toggle" />
       </Island>
       <Island color="mint">
-        <Toggle disabled color="mint" label="I'm a disabled toggle" />
-        <Toggle disabled checked color="mint" label="I'm a disabled toggle" />
+        <Toggle disabled margin={2} color="mint" label="I'm a disabled toggle" />
+        <Toggle disabled margin={2} checked color="mint" label="I'm a disabled toggle" />
       </Island>
       <Island color="gold">
-        <Toggle disabled color="gold" label="I'm a disabled toggle" />
-        <Toggle disabled checked color="gold" label="I'm a disabled toggle" />
+        <Toggle disabled margin={2} color="gold" label="I'm a disabled toggle" />
+        <Toggle disabled margin={2} checked color="gold" label="I'm a disabled toggle" />
       </Island>
       <Island color="aqua">
-        <Toggle disabled color="aqua" label="I'm a disabled toggle" />
-        <Toggle disabled checked color="aqua" label="I'm a disabled toggle" />
+        <Toggle disabled margin={2} color="aqua" label="I'm a disabled toggle" />
+        <Toggle disabled margin={2} checked color="aqua" label="I'm a disabled toggle" />
       </Island>
     </div>
   ));

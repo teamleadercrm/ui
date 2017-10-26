@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import theme from './theme.css';
 import cx from 'classnames';
 import omit from 'lodash.omit';
+import Box from '../box';
 import { TextBody } from '../typography';
 
 class Toggle extends PureComponent {
@@ -45,9 +46,44 @@ class Toggle extends PureComponent {
     return 'teal';
   }
 
+  splitProps(props) {
+    const availableBoxProps = [
+      'margin',
+      'marginVertical',
+      'marginHorizontal',
+      'marginBottom',
+      'marginLeft',
+      'marginRight',
+      'marginTop',
+      'padding',
+      'paddingHorizontal',
+      'paddingVertical',
+      'paddingBottom',
+      'paddingLeft',
+      'paddingRight',
+      'paddingTop',
+    ];
+
+    const boxProps = {};
+    const inputProps = {};
+
+    Object.keys(props).forEach(key => {
+      const value = props[key];
+
+      if (availableBoxProps.includes(key)) {
+        boxProps[key] = value;
+      } else {
+        inputProps[key] = value;
+      }
+    });
+
+    return { boxProps, inputProps };
+  }
+
   render() {
     const { checked, disabled, className, size, color, label, ...others } = this.props;
     const rest = omit(others, ['onChange']);
+    const { boxProps, inputProps } = this.splitProps(rest);
 
     const classNames = cx(
       theme['toggle'],
@@ -61,15 +97,15 @@ class Toggle extends PureComponent {
     );
 
     return (
-      <label data-teamleader-ui="toggle" className={classNames}>
+      <Box element="label" data-teamleader-ui="toggle" className={classNames} {...boxProps}>
         <input
-          {...rest}
           className={theme['input']}
           type="checkbox"
           checked={checked}
           disabled={disabled}
           onClick={this.handleToggle}
           readOnly
+          {...inputProps}
         />
         <span className={theme['track']}>
           <span className={theme['thumb']} />
@@ -79,7 +115,7 @@ class Toggle extends PureComponent {
             {label}
           </TextBody>
         )}
-      </label>
+      </Box>
     );
   }
 }
