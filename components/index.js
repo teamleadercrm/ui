@@ -1,4 +1,5 @@
 import Avatar, { AvatarStack } from './avatar';
+import Banner from './banner';
 import Box from './box';
 import Button, { ButtonGroup, IconButton } from './button';
 import {
@@ -29,6 +30,7 @@ import Tooltip, { TooltipLabel } from './tooltip';
 export {
   Avatar,
   AvatarStack,
+  Banner,
   Box,
   Button,
   ButtonGroup,
