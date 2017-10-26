@@ -10,7 +10,6 @@ import {
   Heading3,
   Heading4,
   Monospaced,
-  OldStyleNumber,
   TextBody,
   TextSmall,
   TextTiny,
@@ -35,6 +34,5 @@ storiesOf('Typography', module)
       <TextSmall marginTop={2}>Text small</TextSmall>
       <TextTiny marginTop={2}>Text tiny</TextTiny>
       <TextBody marginTop={4}><Monospaced>Monospaced number 1234567890</Monospaced></TextBody>
-      <TextBody marginTop={2}><OldStyleNumber>Old style number 1234567890</OldStyleNumber></TextBody>
     </Box>
   ));
