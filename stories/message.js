@@ -12,8 +12,8 @@ const image = <IllustrationInvoices120X120Static />;
 const imageSmall = <IllustrationInvoices120X120Static />;
 const content = (
   <div>
-    <Heading2>The title</Heading2>
-    <TextBody marginVertical={2}>Rinking vinegar adaptogen taiyaki thundercats yr street art. Cardigan beard PBR&B organic small batch church-key mustache unicorn vexillologist humblebrag coloring book helvetica.</TextBody>
+    <Heading2 color="teal">The title</Heading2>
+    <TextBody color="teal" marginVertical={2}>Rinking vinegar adaptogen taiyaki thundercats yr street art. Cardigan beard PBR&B organic small batch church-key mustache unicorn vexillologist humblebrag coloring book helvetica.</TextBody>
   </div>
 );
 
