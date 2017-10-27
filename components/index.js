@@ -13,6 +13,7 @@ import {
   TextSmall,
   TextTiny,
 } from './typography';
+import CompactMessage from './compactMessage';
 import Counter from './counter';
 import Dialog from './dialog';
 import Menu, { IconMenu, MenuItem, MenuDivider } from './menu';
@@ -35,6 +36,7 @@ export {
   Box,
   Button,
   ButtonGroup,
+  CompactMessage,
   Counter,
   IconButton,
   Dialog,

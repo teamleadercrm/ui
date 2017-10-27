@@ -3,12 +3,13 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
-import { Banner, Box, Button, Message, Island, Heading2, TextBody } from '../components';
+import { Banner, Box, Button, Message, CompactMessage, Island, Heading2, TextBody } from '../components';
 import { IllustrationInvoices120X120Static } from '@teamleader/ui-illustrations';
 
 const button = <Button level="primary">Button text</Button>;
 const link = <span>I'm a link</span>; // @todo replace this with a real link component
 const image = <IllustrationInvoices120X120Static />;
+const imageSmall = <IllustrationInvoices120X120Static />;
 const content = (
   <div>
     <Heading2>The title</Heading2>
@@ -41,6 +42,17 @@ storiesOf('Message', module)
           <Message button={button} link={link} image={image} imagePositioning="center">
             {content}
           </Message>
+        </Island>
+      </div>
+    </Box>
+  ))
+  .add('compact', () => (
+    <Box padding={5}>
+      <div>
+        <Island marginBottom={2}>
+          <CompactMessage button={button} image={imageSmall}>
+            {content}
+          </CompactMessage>
         </Island>
       </div>
     </Box>
