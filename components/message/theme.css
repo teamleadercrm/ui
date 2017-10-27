@@ -37,10 +37,6 @@
   flex: 2;
 }
 
-.text {
-  margin: var(--spacer-small) 0;
-}
-
 .actions {
   display: flex;
   align-items: center;
