@@ -29,6 +29,7 @@
 }
 
 .dialog {
+  composes: reset;
   background-color: var(--dialog-background-color);
   border-radius: var(--dialog-border-radius);
   box-shadow: var(--dialog-box-shadow);
@@ -36,7 +37,6 @@
   flex-direction: column;
   max-height: 96vh;
   max-width: 90vw;
-  position: absolute;
   opacity: 0;
   transform: translateY(var(--dialog-translate-y));
   transition:
@@ -133,9 +133,11 @@
 }
 
 .navigation {
+  justify-content: flex-end;
   background: var(--dialog-background-color);
   border-radius: 0 0 4px 4px;
   border-top: 1px solid var(--dialog-navigation-border-color);
+  display: flex;
   flex-grow: 0;
   padding: var(--dialog-navigation-padding);
   position: relative;

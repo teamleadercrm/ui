@@ -1,5 +1,4 @@
 import Monospaced from './Monospaced';
-import OldStyleNumber from './OldStyleNumber';
 import { textFactory } from './Text';
 
 const Heading1 = textFactory('heading', 'heading-1', 'h1');
@@ -11,4 +10,4 @@ const TextBody = textFactory('text', 'text-body', 'p');
 const TextSmall = textFactory('text', 'text-small', 'p');
 const TextTiny = textFactory('text', 'text-tiny', 'p');
 
-export { Heading1, Heading2, Heading3, Heading4, Monospaced, OldStyleNumber, TextBody, TextSmall, TextTiny };
+export { Heading1, Heading2, Heading3, Heading4, Monospaced, TextBody, TextSmall, TextTiny };

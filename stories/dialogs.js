@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import styles from '@sambego/storybook-styles';
-import Dialog from '../components/dialog';
+import { Dialog, TextBody } from '../components/';
 import { baseStyles } from '../.storybook/styles';
 
 const openDialog = () => {
@@ -25,6 +25,6 @@ storiesOf('Dialogs', module)
       onOverlayClick={openDialog}
       title="Dialog title"
     >
-      <p>Here you can add arbitrary content.</p>
+      <TextBody>Here you can add arbitrary content.</TextBody>
     </Dialog>
   ));
