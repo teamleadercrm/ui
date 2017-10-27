@@ -58,12 +58,6 @@
   margin: 0 -14px 0 28px;
 }
 
-.icon-button {
-  > span {
-    font-size: 14px !important;
-  }
-}
-
 .label {
   flex-grow: 1;
 }
