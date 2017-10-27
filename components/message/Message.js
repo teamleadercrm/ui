@@ -24,6 +24,7 @@ class Message extends PureComponent {
     const { className, title, text, image, imagePositioning, button, link, ...others } = this.props;
 
     const classNames = cx(theme['message'], theme[`is-image-${imagePositioning}`], className);
+    const hasAction = Boolean(button || link);
 
     return (
       <Box data-teamleader-ui="message" className={classNames} {...others}>
@@ -31,10 +32,13 @@ class Message extends PureComponent {
         <div className={theme['content']}>
           {title && <Heading2>{title}</Heading2>}
           <TextBody className={theme['text']}>{text}</TextBody>
-          <div className={theme['actions']}>
-            <span className={theme['button']}>{button}</span>
-            {link}
-          </div>
+
+          {hasAction &&
+            <div className={theme['actions']}>
+              {button && <span className={theme['button']}>{button}</span>}
+              {link}
+            </div>
+          }
         </div>
       </Box>
     );
