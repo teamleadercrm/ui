@@ -12,10 +12,6 @@ class CompactMessage extends PureComponent {
     button: PropTypes.element,
   };
 
-  static defaultProps = {
-    imagePositioning: 'left',
-  };
-
   render() {
     const { className, children, image, button, ...others } = this.props;
 
