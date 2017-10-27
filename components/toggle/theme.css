@@ -30,7 +30,9 @@
   }
 
   .track {
+    background: var(--color-neutral-lightest);
     box-sizing: border-box;
+    box-shadow: inset 0 0 0 1px var(--color-neutral-darkest);
     position: relative;
     display: inline-block;
     padding: var(--toggle-track-padding);
@@ -39,6 +41,7 @@
   }
 
   .thumb {
+    background: var(--color-neutral-darkest);
     display: inline-block;
     position: absolute;
     transition: all .1s ease;
@@ -46,6 +49,7 @@
 
   &.checked {
     .track {
+      background: var(--color-mint);
       box-shadow: none;
     }
 
@@ -56,6 +60,22 @@
 
   &.disabled {
     pointer-events: none;
+
+    &.checked {
+      .track {
+        background: var(--color-neutral);
+      }
+    }
+
+    &:not(.checked) {
+      .track {
+          box-shadow: inset 0 0 0 1px var(--color-neutral);
+      }
+
+      .thumb {
+        background: var(--color-neutral);
+      }
+    }
   }
 
   &.small {
@@ -120,251 +140,5 @@
 
   .label {
     margin-left: var(--spacer-regular);
-  }
-}
-
-.neutral {
-  .track {
-    box-shadow: inset 0 0 0 1px var(--color-neutral-darkest);
-  }
-
-  .thumb {
-    background: var(--color-neutral-darkest);
-  }
-
-  &.checked {
-    .track {
-      background: var(--color-mint);
-    }
-
-    &.disabled .track {
-      background: var(--color-neutral);
-    }
-  }
-
-  &.disabled:not(.checked) {
-    .track {
-      box-shadow: inset 0 0 0 1px var(--color-neutral);
-    }
-
-    .thumb {
-      background: var(--color-neutral);
-    }
-  }
-}
-
-.teal {
-  .track {
-    box-shadow: inset 0 0 0 1px var(--color-teal-light);
-  }
-
-  .thumb {
-    background: var(--color-teal-light);
-  }
-
-  &.checked {
-    .track {
-      background: var(--color-mint);
-    }
-
-    &.disabled {
-      .track {
-        background: var(--color-teal);
-      }
-
-      .thumb {
-        background: var(--color-teal-dark);
-      }
-    }
-  }
-
-  &.disabled:not(.checked) {
-    .track {
-      box-shadow: inset 0 0 0 1px var(--color-teal);
-    }
-
-    .thumb {
-      background: var(--color-teal);
-    }
-  }
-}
-
-.violet {
-  .track {
-    box-shadow: inset 0 0 0 1px var(--color-violet);
-  }
-
-  .thumb {
-    background: var(--color-violet);
-  }
-
-  &.checked {
-    .track {
-      background: var(--color-violet);
-    }
-
-    &.disabled {
-      .track {
-        background: var(--color-violet-light);
-      }
-
-      .thumb {
-        background: var(--color-violet-lightest);
-      }
-    }
-  }
-
-  &.disabled:not(.checked) {
-    .track {
-      box-shadow: inset 0 0 0 1px var(--color-violet-light);
-    }
-
-    .thumb {
-      background: var(--color-violet-light);
-    }
-  }
-}
-
-.ruby {
-  .track {
-    box-shadow: inset 0 0 0 1px var(--color-ruby);
-  }
-
-  .thumb {
-    background: var(--color-ruby);
-  }
-
-  &.checked {
-    .track {
-      background: var(--color-ruby);
-    }
-
-    &.disabled {
-      .track {
-        background: var(--color-ruby-light);
-      }
-
-      .thumb {
-        background: var(--color-ruby-lightest);
-      }
-    }
-  }
-
-  &.disabled:not(.checked) {
-    .track {
-      box-shadow: inset 0 0 0 1px var(--color-ruby-light);
-    }
-
-    .thumb {
-      background: var(--color-ruby-light);
-    }
-  }
-}
-
-.mint {
-  .track {
-    box-shadow: inset 0 0 0 1px var(--color-mint);
-  }
-
-  .thumb {
-    background: var(--color-mint);
-  }
-
-  &.checked {
-    .track {
-      background: var(--color-mint);
-    }
-
-    &.disabled {
-      .track {
-        background: var(--color-mint-light);
-      }
-
-      .thumb {
-        background: var(--color-mint-lightest);
-      }
-    }
-  }
-
-  &.disabled:not(.checked) {
-    .track {
-      box-shadow: inset 0 0 0 1px var(--color-mint-light);
-    }
-
-    .thumb {
-      background: var(--color-mint-light);
-    }
-  }
-}
-
-.gold {
-  .track {
-    box-shadow: inset 0 0 0 1px var(--color-gold);
-  }
-
-  .thumb {
-    background: var(--color-gold);
-  }
-
-  &.checked {
-    .track {
-      background: var(--color-gold);
-    }
-
-    &.disabled {
-      .track {
-        background: var(--color-gold-light);
-      }
-
-      .thumb {
-        background: var(--color-gold-lightest);
-      }
-    }
-  }
-
-  &.disabled:not(.checked) {
-    .track {
-      box-shadow: inset 0 0 0 1px var(--color-gold-light);
-    }
-
-    .thumb {
-      background: var(--color-gold-light);
-    }
-  }
-}
-
-.aqua {
-  .track {
-    box-shadow: inset 0 0 0 1px var(--color-aqua);
-  }
-
-  .thumb {
-    background: var(--color-aqua);
-  }
-
-  &.checked {
-    .track {
-      background: var(--color-aqua);
-    }
-
-    &.disabled {
-      .track {
-        background: var(--color-aqua-light);
-      }
-
-      .thumb {
-        background: var(--color-aqua-lightest);
-      }
-    }
-  }
-
-  &.disabled:not(.checked) {
-    .track {
-      box-shadow: inset 0 0 0 1px var(--color-aqua-light);
-    }
-
-    .thumb {
-      background: var(--color-aqua-light);
-    }
   }
 }
