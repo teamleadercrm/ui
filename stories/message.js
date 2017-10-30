@@ -4,12 +4,12 @@ import { action } from '@storybook/addon-actions';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { Banner, Box, Button, Message, CompactMessage, Island, Heading2, TextBody } from '../components';
-import { IllustrationInvoices120X120Static } from '@teamleader/ui-illustrations';
+import { IllustrationInvoices120X120Static, IllustrationSharpie48X48Static } from '@teamleader/ui-illustrations';
 
 const button = <Button level="primary">Button text</Button>;
 const link = <span>I'm a link</span>; // @todo replace this with a real link component
 const image = <IllustrationInvoices120X120Static />;
-const imageSmall = <IllustrationInvoices120X120Static />;
+const imageSmall = <IllustrationSharpie48X48Static />;
 const content = (
   <div>
     <Heading2 color="teal">The title</Heading2>
@@ -47,11 +47,12 @@ storiesOf('Message', module)
     </Box>
   ))
   .add('compact', () => (
-    <Box padding={5}>
+    <Box padding={6}>
       <div>
         <Island marginBottom={2}>
           <CompactMessage button={button} image={imageSmall}>
-            {content}
+            <Heading2 color="teal">Compact version</Heading2>
+            <TextBody color="teal" marginVertical={2}>I don't have a lot to say so I'll just leave it there.</TextBody>
           </CompactMessage>
         </Island>
       </div>
