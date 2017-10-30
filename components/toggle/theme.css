@@ -41,7 +41,7 @@
     display: inline-block;
     padding: var(--toggle-track-padding);
     cursor: pointer;
-    transition: all .1s ease;
+    transition: all .2s ease;
   }
 
   .thumb {
