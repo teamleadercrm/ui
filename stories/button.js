@@ -47,7 +47,7 @@ storiesOf('Buttons', module)
         <ButtonGroup>
           <Button level="primary" icon={<IconAddMediumOutline />} onClick={action('clicked button 1')} disabled/>
           <Button level="primary" onClick={action('clicked button 2')} disabled>
-            Button
+            Disabled primary
           </Button>
         </ButtonGroup>
       </Box>
@@ -55,7 +55,7 @@ storiesOf('Buttons', module)
         <ButtonGroup>
           <Button icon={<IconAddMediumOutline />} onClick={action('clicked button 1')} disabled/>
           <Button onClick={action('clicked button 2')} disabled>
-            Button
+            Disabled secondary
           </Button>
         </ButtonGroup>
       </Box>
@@ -63,7 +63,7 @@ storiesOf('Buttons', module)
         <ButtonGroup>
           <Button level="destructive" icon={<IconAddMediumOutline />} onClick={action('clicked button 1')} disabled/>
           <Button level="destructive" onClick={action('clicked button 2')} disabled>
-            Button
+            Disabled destructive
           </Button>
         </ButtonGroup>
       </Box>
@@ -71,7 +71,7 @@ storiesOf('Buttons', module)
         <ButtonGroup>
           <Button level="outline" icon={<IconAddMediumOutline />} onClick={action('clicked button 1')} disabled/>
           <Button level="outline" onClick={action('clicked button 2')} disabled>
-            Button
+            Disabled outline
           </Button>
         </ButtonGroup>
       </Box>
@@ -79,7 +79,7 @@ storiesOf('Buttons', module)
         <ButtonGroup>
           <Button level="outline" inverse icon={<IconAddMediumOutline />} onClick={action('clicked button 1')} disabled/>
           <Button level="outline" inverse onClick={action('clicked button 2')} disabled>
-            Button
+            Disabled inverse outline
           </Button>
         </ButtonGroup>
       </Box>
