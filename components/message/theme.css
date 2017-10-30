@@ -46,6 +46,7 @@
 
     .button {
       margin-bottom: var(--spacer-regular);
+      margin-right: 0;
     }
   }
 }
