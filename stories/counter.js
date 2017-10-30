@@ -24,6 +24,11 @@ storiesOf('Counters', module)
       {sizes.map((size, index) => <Counter count={99} color="neutral" key={index} size={size} marginHorizontal={1} />)}
     </Box>
   ))
+  .add('no count', () => (
+    <Box>
+      {sizes.map((size, index) => <Counter color="neutral" key={index} size={size} marginHorizontal={2} />)}
+    </Box>
+  ))
   .add('maximum count', () => (
     <Box>
       <Counter count={116} color="neutral" maxCount={99} />

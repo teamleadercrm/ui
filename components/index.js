@@ -2,17 +2,7 @@ import Avatar, { AvatarStack } from './avatar';
 import Banner from './banner';
 import Box from './box';
 import Button, { ButtonGroup, IconButton } from './button';
-import {
-  Heading1,
-  Heading2,
-  Heading3,
-  Heading4,
-  Monospaced,
-  OldStyleNumber,
-  TextBody,
-  TextSmall,
-  TextTiny,
-} from './typography';
+import { Heading1, Heading2, Heading3, Heading4, Monospaced, TextBody, TextSmall, TextTiny } from './typography';
 import CompactMessage from './compactMessage';
 import Counter from './counter';
 import Dialog from './dialog';
@@ -51,7 +41,6 @@ export {
   MenuItem,
   MenuDivider,
   LoadingMolecule,
-  OldStyleNumber,
   Overlay,
   PopoverHorizontal,
   PopoverVertical,

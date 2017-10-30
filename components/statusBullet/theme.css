@@ -10,6 +10,7 @@
 
 .bullet {
   display: inline-block;
+  font-family: var(--font-family-regular);
   position: relative;
   vertical-align: middle;
 
@@ -53,9 +54,7 @@
 }
 
 .large {
-  font-family: var(--font-family-semi-bold);
   font-size: calc(2.0 * var(--unit));
-  font-weight: 500;
   line-height: calc(2.4 * var(--unit));
 
   &:before {
@@ -65,9 +64,7 @@
 }
 
 .medium {
-  font-family: var(--font-family-regular);
   font-size: calc(1.6 * var(--unit));
-  font-weight: 400;
   line-height: calc(1.8 * var(--unit));
 
   &:before {
@@ -77,9 +74,7 @@
 }
 
 .small {
-  font-family: var(--font-family-regular);
   font-size: calc(1.4 * var(--unit));
-  font-weight: 400;
   line-height: calc(1.8 * var(--unit));
 
   &:before {

@@ -15,10 +15,13 @@
 }
 
 .button {
+  composes: reset;
+  align-items: center;
   border-radius: var(--button-border-radius);
   cursor: pointer;
-  display: inline-block;
-  font-family: var(--font-family-semi-bold);
+  display: flex;
+  font-family: var(--font-family-medium);
+  justify-content: center;
   letter-spacing: 0;
   outline: none;
   position: relative;
@@ -32,11 +35,10 @@
   vertical-align: middle;
 
   svg {
-    -ms-transform: translateY(-1px);
+    margin: auto;
   }
 
   & > * {
-    display: inline-block;
     pointer-events: none;
   }
 
@@ -441,6 +443,9 @@
 
 /* ButtonGroup */
 .group {
+  display: flex;
+  align-items: center;
+
   > * {
     margin-left: var(--button-margin);
     margin-right: var(--button-margin);

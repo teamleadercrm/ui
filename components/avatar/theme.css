@@ -44,7 +44,7 @@
   align-items: center;
   align-self: center;
   display: flex;
-  font-family: var(--font-family-semi-bold);
+  font-family: var(--font-family-medium);
   justify-content: center;
   line-height: 1;
   padding: 0 var(--overflow-padding-horizontal);

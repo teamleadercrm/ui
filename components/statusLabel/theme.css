@@ -4,8 +4,7 @@
 
 .label {
   display: inline-block;
-  font-family: var(--font-family-semi-bold);
-  font-weight: 500;
+  font-family: var(--font-family-medium);
   vertical-align: middle;
 }
 
@@ -46,6 +45,5 @@
 
 .small {
   font-size: calc(1.2 * var(--unit));
-  font-variant-caps: small-caps;
   line-height: calc(1.8 * var(--unit));
 }
