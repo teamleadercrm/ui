@@ -15,10 +15,13 @@
 }
 
 .button {
+  composes: reset;
+  align-items: center;
   border-radius: var(--button-border-radius);
   cursor: pointer;
-  display: inline-block;
-  font-family: var(--font-family-semi-bold);
+  display: flex;
+  font-family: var(--font-family-medium);
+  justify-content: center;
   letter-spacing: 0;
   outline: none;
   position: relative;
@@ -32,11 +35,10 @@
   vertical-align: middle;
 
   svg {
-    -ms-transform: translateY(-1px);
+    margin: auto;
   }
-  
+
   & > * {
-    display: inline-block;
     pointer-events: none;
   }
 
@@ -51,7 +53,6 @@
 
   &[disabled] {
     cursor: auto;
-    opacity: .5;
     pointer-events: none;
   }
 
@@ -85,55 +86,97 @@
   background-color: transparent;
   border: 0;
 
-  &:not(.inverse) {
+  &.neutral {
     color: var(--color-neutral-darkest);
+
+    &:focus {
+      box-shadow: inset 0 0 0 2px color(var(--color-neutral-darkest) a(50%));
+    }
+  }
+
+  &.mint {
+    color: var(--color-mint-darkest);
+
+    &:focus {
+      box-shadow: inset 0 0 0 2px color(var(--color-mint-darkest) a(50%));
+    }
+  }
+
+  &.violet {
+    color: var(--color-violet-darkest);
+
+    &:focus {
+      box-shadow: inset 0 0 0 2px color(var(--color-violet-darkest) a(50%));
+    }
+  }
+
+  &.ruby {
+    color: var(--color-ruby-darkest);
+
+    &:focus {
+      box-shadow: inset 0 0 0 2px color(var(--color-ruby-darkest) a(50%));
+    }
+  }
+
+  &.gold {
+    color: var(--color-gold-darkest);
+
+    &:focus {
+      box-shadow: inset 0 0 0 2px color(var(--color-gold-darkest) a(50%));
+    }
+  }
+
+  &.aqua {
+    color: var(--color-aqua-darkest);
+
+    &:focus {
+      box-shadow: inset 0 0 0 2px color(var(--color-aqua-darkest) a(50%));
+    }
+  }
+
+  &.white {
+    color: var(--color-white);
 
     &:not([disabled]) {
       &:hover {
-        background-color: color(var(--color-teal-darkest) a(5%));
+        background-color: color(var(--color-white) a(10%));
       }
 
       &:focus {
-        border: 1px solid var(--color-teal-darkest);
-        box-shadow: inset 0 0 0 1px var(--color-teal-darkest);
+        box-shadow: inset 0 0 0 2px color(var(--color-white) a(50%));
       }
 
       &:active {
-        background-color: color(var(--color-teal-darkest) a(5%));
-        border: 0;
+        background-color: color(var(--color-white) a(10%));
         box-shadow: none;
       }
     }
   }
 
-  &.inverse {
-    color: var(--color-neutral-lightest);
+  &[disabled] {
+    opacity: .25;
+  }
 
-    &:not([disabled]) {
-      &:hover {
-        background-color: color(var(--color-white) a(10%));
-      }
+  &:not([disabled]) {
+    &:hover {
+      background-color: color(var(--color-teal-darkest) a(5%));
+    }
 
-      &:focus {
-        border: 1px solid var(--color-neutral-lightest);
-        box-shadow: inset 0 0 0 1px var(--color-neutral-lightest);
-      }
-
-      &:active {
-        background-color: color(var(--color-white) a(10%));
-        border: 0;
-        box-shadow: none;
-      }
+    &:active {
+      background-color: color(var(--color-teal-darkest) a(5%));
+      box-shadow: none;
     }
   }
 }
 
 .outline {
   &:not(.inverse) {
-    color: var(--color-teal-darkest);
+    color: color(var(--color-teal-darkest) a(75%));
 
     &[disabled] {
-      border: 1px solid var(--color-neutral-dark);
+      background-color: color(var(--color-teal-darkest) a(10%));
+      border: 1px solid color(var(--color-teal-darkest) a(10%));
+      color: color(var(--color-teal-darkest) a(35%));
     }
 
     &:not([disabled]) {
@@ -168,7 +211,7 @@
   }
 
   &.inverse {
-    color: var(--color-neutral-lightest);
+    color: color(var(--color-neutral-lightest) a(75%));
 
     &[disabled] {
       border: 1px solid color(var(--color-white) a(75%));
@@ -176,10 +219,10 @@
 
     &:not([disabled]) {
       background-color: transparent;
-      border: 1px solid color(var(--color-white) a(75%));
+      border: 1px solid color(var(--color-neutral-lightest) a(75%));
 
       &:hover {
-        background-color: color(var(--color-white) a(10%));
+        background-color: color(var(--color-neutral-lightest) a(10%));
         border: 1px solid var(--color-neutral-lightest);
       }
 
@@ -189,7 +232,7 @@
       }
 
       &:active {
-        background-color: color(var(--color-white) a(10%));
+        background-color: color(var(--color-neutral-lightest) a(10%));
         border: 1px solid var(--color-neutral-lightest);
         box-shadow: none;
       }
@@ -210,8 +253,9 @@
   color: var(--color-teal-darkest);
 
   &[disabled] {
-    background-color: var(--color-neutral-light);
-    border: 1px solid var(--color-neutral-dark);
+    background-color: color(var(--color-teal-darkest) a(10%));
+    border: 1px solid color(var(--color-teal-darkest) a(10%));
+    color: color(var(--color-teal-darkest) a(35%));
   }
 
   &:not([disabled]) {
@@ -248,11 +292,12 @@
 }
 
 .primary {
-  color: var(--color-white);
+  color: var(--color-neutral-lightest);
 
   &[disabled] {
-    background-color: var(--color-mint);
-    border: 1px solid var(--color-mint-dark);
+    background-color: color(var(--color-teal-darkest) a(10%));
+    border: 1px solid color(var(--color-teal-darkest) a(10%));
+    color: color(var(--color-teal-darkest) a(35%));
   }
 
   &:not([disabled]) {
@@ -288,11 +333,12 @@
 }
 
 .destructive {
-  color: var(--color-white);
+  color: var(--color-neutral-lightest);
 
   &[disabled] {
     background-color: var(--color-ruby);
     border: 1px solid var(--color-ruby-dark);
+    opacity: .5;
   }
 
   &:not([disabled]) {
@@ -397,6 +443,9 @@
 
 /* ButtonGroup */
 .group {
+  display: flex;
+  align-items: center;
+
   > * {
     margin-left: var(--button-margin);
     margin-right: var(--button-margin);

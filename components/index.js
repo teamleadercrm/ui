@@ -1,20 +1,10 @@
 import Avatar, { AvatarStack } from './avatar';
+import Banner from './banner';
 import Box from './box';
 import Button, { ButtonGroup, IconButton } from './button';
-import {
-  Heading1,
-  Heading2,
-  Heading3,
-  Heading4,
-  Monospaced,
-  OldStyleNumber,
-  TextBody,
-  TextSmall,
-  TextTiny,
-} from './typography';
+import { Heading1, Heading2, Heading3, Heading4, Monospaced, TextBody, TextSmall, TextTiny } from './typography';
 import Counter from './counter';
 import Dialog from './dialog';
-import { FontIcon } from './font_icon';
 import Menu, { IconMenu, MenuItem, MenuDivider } from './menu';
 import Overlay from './overlay';
 import LoadingMolecule from './loadingMolecule';
@@ -31,13 +21,13 @@ import Tooltip, { TooltipLabel } from './tooltip';
 export {
   Avatar,
   AvatarStack,
+  Banner,
   Box,
   Button,
   ButtonGroup,
   Counter,
   IconButton,
   Dialog,
-  FontIcon,
   Heading1,
   Heading2,
   Heading3,
@@ -48,7 +38,6 @@ export {
   MenuItem,
   MenuDivider,
   LoadingMolecule,
-  OldStyleNumber,
   Overlay,
   PopoverHorizontal,
   PopoverVertical,

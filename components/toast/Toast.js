@@ -79,7 +79,7 @@ const factory = (Button, IconButton) => {
                 <IconButton
                   className={theme['icon-button']}
                   icon={<IconCloseMediumOutline />}
-                  inverse
+                  color="white"
                   onClick={onClick}
                 />
               )

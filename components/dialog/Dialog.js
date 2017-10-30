@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import Portal from '../hoc/Portal';
 import ActivableRenderer from '../hoc/ActivableRenderer';
+import { Heading3 } from '../typography';
 import InjectButton from '../button/Button.js';
 import InjectIconButton from '../button/IconButton';
 import InjectOverlay from '../overlay/Overlay';
@@ -93,7 +94,7 @@ const factory = (Overlay, Button, IconButton) => {
           <div data-teamleader-ui="dialog" className={dialogClassNames}>
             <header className={theme['header']}>
               {type === 'warning' && <IconWarningMediumOutline className={theme['icon']} />}
-              {title && <h6 className={theme['title']}>{title}</h6>}
+              {title && <Heading3 className={theme['title']}>{title}</Heading3>}
               <IconButton icon={<IconCloseMediumOutline />} className={theme['close']} onMouseUp={onCloseClick} />
             </header>
             <section role="body" className={theme['body']}>
