@@ -58,18 +58,6 @@
   margin: 0 -14px 0 28px;
 }
 
-.icon-button {
-  color: var(--toast-color);
-
-  > span {
-    font-size: 14px !important;
-  }
-
-  &:hover {
-    color: var(--toast-color) !important;
-  }
-}
-
 .label {
   flex-grow: 1;
 }
