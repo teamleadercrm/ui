@@ -77,10 +77,10 @@ class Toggle extends PureComponent {
 
     const classNames = cx(
       theme['toggle'],
-      theme[size],
+      theme[`is-${size}`],
       {
-        [theme['checked']]: checked,
-        [theme['disabled']]: disabled,
+        [theme['is-checked']]: checked,
+        [theme['is-disabled']]: disabled,
       },
       className,
     );
