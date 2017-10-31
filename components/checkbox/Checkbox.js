@@ -80,10 +80,10 @@ class Checkbox extends PureComponent {
 
     const classNames = cx(
       theme['checkbox'],
-      theme[size],
+      theme[`is-${size}`],
       {
-        [theme['checked']]: checked,
-        [theme['disabled']]: disabled,
+        [theme['is-checked']]: checked,
+        [theme['is-disabled']]: disabled,
       },
       className,
     );
