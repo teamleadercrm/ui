@@ -4,7 +4,7 @@ import theme from './theme.css';
 import cx from 'classnames';
 import omit from 'lodash.omit';
 import Box from '../box';
-import { TextBody } from '../typography';
+import { TextBody, TextSmall } from '../typography';
 
 class Toggle extends PureComponent {
   static propTypes = {
@@ -85,6 +85,8 @@ class Toggle extends PureComponent {
       className,
     );
 
+    const TextElement = size === 'small' ? TextSmall : TextBody;
+
     return (
       <Box element="label" data-teamleader-ui="toggle" className={classNames} {...boxProps}>
         <input
@@ -100,9 +102,9 @@ class Toggle extends PureComponent {
           <span className={theme['thumb']} />
         </span>
         {label && (
-          <TextBody element="span" color="teal" soft={disabled} className={theme['label']}>
+          <TextElement element="span" color="teal" soft={disabled} className={theme['label']}>
             {label}
-          </TextBody>
+          </TextElement>
         )}
       </Box>
     );
