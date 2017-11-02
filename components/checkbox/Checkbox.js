@@ -32,8 +32,24 @@ class Checkbox extends PureComponent {
   handleToggle(event) {
     const { disabled, checked, onChange } = this.props;
 
+    if (event.pageX !== 0 && event.pageY !== 0) {
+      this.blur();
+    }
+
     if (!disabled && onChange) {
       onChange(!checked, event);
+    }
+  }
+
+  blur() {
+    if (this.inputNode) {
+      this.inputNode.blur();
+    }
+  }
+
+  focus() {
+    if (this.inputNode) {
+      this.inputNode.focus();
     }
   }
 
@@ -96,6 +112,9 @@ class Checkbox extends PureComponent {
           checked={checked}
           disabled={disabled}
           onClick={this.handleToggle}
+          ref={node => {
+            this.inputNode = node;
+          }}
           readOnly
           {...inputProps}
         />
