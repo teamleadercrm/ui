@@ -43,6 +43,7 @@
 
   .checkmark {
     transform: scale(0);
+    opacity: 0;
     transition: all var(--animation-duration) var(--animation-curve-default);
   }
 
@@ -66,6 +67,7 @@
 
     .checkmark {
       transform: scale(1);
+      opacity: 1;
     }
 
     input:focus + .shape {
