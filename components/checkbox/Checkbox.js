@@ -10,6 +10,7 @@ import { IconCheckmarkSmallOutline, IconCheckmarkMediumOutline } from '@teamlead
 class Checkbox extends PureComponent {
   static propTypes = {
     checked: PropTypes.bool,
+    children: PropTypes.node,
     disabled: PropTypes.bool,
     name: PropTypes.string,
     className: PropTypes.string,
@@ -88,7 +89,7 @@ class Checkbox extends PureComponent {
   }
 
   render() {
-    const { checked, disabled, className, size, label, ...others } = this.props;
+    const { checked, disabled, className, size, label, children, ...others } = this.props;
     const rest = omit(others, ['onChange']);
     const { boxProps, inputProps } = this.splitProps(rest);
     const TextElement = size === 'small' ? TextSmall : TextBody;
@@ -121,10 +122,15 @@ class Checkbox extends PureComponent {
         <span className={theme['shape']}>
           <IconCheckmark className={theme['checkmark']} />
         </span>
-        {label && (
-          <TextElement element="span" color="teal" soft={disabled} className={theme['label']}>
-            {label}
-          </TextElement>
+        {(label || children) && (
+          <span className={theme['label']}>
+            {label && (
+              <TextElement element="span" color="teal" soft={disabled}>
+                {label}
+              </TextElement>
+            )}
+            {children}
+          </span>
         )}
       </Box>
     );
