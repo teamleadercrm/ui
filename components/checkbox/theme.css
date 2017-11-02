@@ -1,5 +1,6 @@
 @import '@teamleader/ui-colors';
 @import '@teamleader/ui-utilities';
+@import '@teamleader/ui-animations';
 
 :root {
   --checkbox-border-width: 1px;
@@ -37,12 +38,12 @@
     align-items: center;
     padding: var(--checkbox-shape-padding);
     cursor: pointer;
-    transition: all .2s ease;
+    transition: all var(--animation-duration) var(--animation-curve-default);
   }
 
   .checkmark {
     transform: scale(0);
-    transition: all .2s ease;
+    transition: all var(--animation-duration) var(--animation-curve-default);
   }
 
   &:hover {
