@@ -9,6 +9,7 @@ import { TextBody, TextSmall } from '../typography';
 class Toggle extends PureComponent {
   static propTypes = {
     checked: PropTypes.bool,
+    children: PropTypes.node,
     disabled: PropTypes.bool,
     name: PropTypes.string,
     className: PropTypes.string,
@@ -71,7 +72,7 @@ class Toggle extends PureComponent {
   }
 
   render() {
-    const { checked, disabled, className, size, label, ...others } = this.props;
+    const { checked, disabled, className, size, label, children, ...others } = this.props;
     const rest = omit(others, ['onChange']);
     const { boxProps, inputProps } = this.splitProps(rest);
 
@@ -101,10 +102,15 @@ class Toggle extends PureComponent {
         <span className={theme['track']}>
           <span className={theme['thumb']} />
         </span>
-        {label && (
-          <TextElement element="span" color="teal" soft={disabled} className={theme['label']}>
-            {label}
-          </TextElement>
+        {(label || children) && (
+          <span className={theme['label']}>
+            {label && (
+              <TextElement element="span" color="teal" soft={disabled}>
+                {label}
+              </TextElement>
+            )}
+            {children}
+          </span>
         )}
       </Box>
     );
