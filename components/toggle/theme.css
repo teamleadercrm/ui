@@ -1,5 +1,6 @@
 @import '@teamleader/ui-colors';
 @import '@teamleader/ui-utilities';
+@import '@teamleader/ui-animations';
 
 :root {
   --toggle-border-width: 1px;
@@ -41,7 +42,7 @@
     display: inline-block;
     padding: var(--toggle-track-padding);
     cursor: pointer;
-    transition: all .2s ease;
+    transition: all calc(var(--animation-duration) / 2) var(--animation-curve-default);
   }
 
   .thumb {
@@ -50,7 +51,7 @@
     border: var(--toggle-border-width) solid var(--color-neutral-dark);
     display: block;
     position: absolute;
-    transition: all .1s ease;
+    transition: all calc(var(--animation-duration) / 2) var(--animation-curve-default);
   }
 
   &:hover {
