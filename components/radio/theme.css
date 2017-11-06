@@ -1,5 +1,6 @@
 @import '@teamleader/ui-animations';
 @import '@teamleader/ui-colors';
+@import '@teamleader/ui-typography';
 @import '@teamleader/ui-utilities';
 
 :root {
@@ -58,7 +59,6 @@
 
 .text {
   display: inline-block;
-  line-height: var(--radio-button-size);
   padding-left: var(--unit);
   vertical-align: top;
   white-space: nowrap;
