@@ -4,9 +4,11 @@ import Box from './box';
 import Button, { ButtonGroup, IconButton } from './button';
 import { Heading1, Heading2, Heading3, Heading4, Monospaced, TextBody, TextSmall, TextTiny } from './typography';
 import Checkbox from './checkbox';
+import CompactMessage from './compactMessage';
 import Counter from './counter';
 import Dialog from './dialog';
 import Menu, { IconMenu, MenuItem, MenuDivider } from './menu';
+import Message from './message';
 import Overlay from './overlay';
 import LoadingMolecule from './loadingMolecule';
 import { PopoverHorizontal, PopoverVertical } from './popover';
@@ -26,6 +28,7 @@ export {
   Button,
   ButtonGroup,
   Checkbox,
+  CompactMessage,
   Counter,
   IconButton,
   Dialog,
@@ -34,6 +37,7 @@ export {
   Heading3,
   Heading4,
   Menu,
+  Message,
   Monospaced,
   IconMenu,
   MenuItem,

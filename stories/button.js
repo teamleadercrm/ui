@@ -42,12 +42,48 @@ storiesOf('Buttons', module)
     </ButtonGroup>
   ))
   .add('disabled', () => (
-    <ButtonGroup>
-      <Button icon={<IconAddMediumOutline />} onClick={action('clicked button 1')} disabled/>
-      <Button onClick={action('clicked button 2')} disabled>
-        Button
-      </Button>
-    </ButtonGroup>
+    <div>
+      <Box margin={2}>
+        <ButtonGroup>
+          <Button level="primary" icon={<IconAddMediumOutline />} onClick={action('clicked button 1')} disabled/>
+          <Button level="primary" onClick={action('clicked button 2')} disabled>
+            Disabled primary
+          </Button>
+        </ButtonGroup>
+      </Box>
+      <Box margin={2}>
+        <ButtonGroup>
+          <Button icon={<IconAddMediumOutline />} onClick={action('clicked button 1')} disabled/>
+          <Button onClick={action('clicked button 2')} disabled>
+            Disabled secondary
+          </Button>
+        </ButtonGroup>
+      </Box>
+      <Box margin={2}>
+        <ButtonGroup>
+          <Button level="destructive" icon={<IconAddMediumOutline />} onClick={action('clicked button 1')} disabled/>
+          <Button level="destructive" onClick={action('clicked button 2')} disabled>
+            Disabled destructive
+          </Button>
+        </ButtonGroup>
+      </Box>
+      <Box margin={2}>
+        <ButtonGroup>
+          <Button level="outline" icon={<IconAddMediumOutline />} onClick={action('clicked button 1')} disabled/>
+          <Button level="outline" onClick={action('clicked button 2')} disabled>
+            Disabled outline
+          </Button>
+        </ButtonGroup>
+      </Box>
+      <Box margin={2}>
+        <ButtonGroup>
+          <Button level="outline" inverse icon={<IconAddMediumOutline />} onClick={action('clicked button 1')} disabled/>
+          <Button level="outline" inverse onClick={action('clicked button 2')} disabled>
+            Disabled inverse outline
+          </Button>
+        </ButtonGroup>
+      </Box>
+    </div>
   ))
   .add('processing', () => (
     <ButtonGroup>
