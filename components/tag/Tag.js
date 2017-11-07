@@ -11,11 +11,11 @@ const SIZES = {
     paddingHorizontal: 2,
     paddingVertical: 1,
   },
-  medium:  {
+  medium: {
     paddingHorizontal: 3,
     paddingVertical: 2,
   },
-  large:  {
+  large: {
     paddingHorizontal: 3,
     paddingVertical: 2,
   },
@@ -69,13 +69,13 @@ class Tag extends PureComponent {
         <span className={theme['inner']}>
           <span className={theme['label']}>{label}</span>
           {onClose && (
-          <IconButton
-            className={theme['close-button']}
-            icon={<IconCloseSmallOutline />}
-            onClick={this.handleClose}
-            size="small"
-          />
-        )}
+            <IconButton
+              className={theme['close-button']}
+              icon={<IconCloseSmallOutline />}
+              onClick={this.handleClose}
+              size="small"
+            />
+          )}
         </span>
       </Box>
     );
