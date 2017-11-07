@@ -1,0 +1,35 @@
+@import '@teamleader/ui-colors';
+@import '@teamleader/ui-typography';
+@import '@teamleader/ui-utilities';
+
+:root {
+  --tag-border-radius: calc(0.4 * var(--unit));
+}
+
+.tag {
+  background-color: color(var(--color-neutral-darkest) a(18%));
+  border-radius: var(--tag-border-radius);
+  color: var(--color-teal-darkest);
+  display: inline-block;
+  font-family: var(--font-family-medium);
+  font-size: calc(1.4 * var(--unit));
+  white-space: nowrap;
+
+  /*&.inverse {
+    background: var(--color-teal-darkest);
+    color: var(--color-teal-lightest);
+  }*/
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+}
+
+.label {
+}
+
+.close-button {
+  height: calc(1.4 * var(--unit));
+  padding: 0 3px;
+}
