@@ -177,15 +177,15 @@
   }
 
   &.white {
-    color: var(--color-white);
+    color: var(--color-neutral-lightest);
 
     &:not([disabled]) {
       &:hover {
-        background-color: color(var(--color-white) a(18%));
+        background-color: color(var(--color-neutral-lightest) a(18%));
       }
 
       &:focus {
-        box-shadow: 0 0 0 2px color(var(--color-white) a(50%));
+        box-shadow: 0 0 0 2px color(var(--color-neutral-lightest) a(50%));
       }
     }
   }
@@ -230,8 +230,8 @@
     color: var(--color-neutral-lightest);
 
     &[disabled] {
-      border: 1px solid color(var(--color-white) a(12%));
-      background-color: color(var(--color-white) a(12%));
+      border: 1px solid color(var(--color-neutral-lightest) a(12%));
+      background-color: color(var(--color-neutral-lightest) a(12%));
       color: color(var(--color-neutral-lightest) a(36%));
     }
 
@@ -332,8 +332,8 @@
   }
 
   .spinner:before {
-    border: var(--spinner-border-width) solid color(var(--color-white) a(18%));
-    border-top-color: var(--color-white);
+    border: var(--spinner-border-width) solid color(var(--color-neutral-lightest) a(18%));
+    border-top-color: var(--color-neutral-lightest);
   }
 }
 
@@ -370,8 +370,8 @@
   }
 
   .spinner:before {
-    border: var(--spinner-border-width) solid color(var(--color-white) a(18%));
-    border-top-color: var(--color-white);
+    border: var(--spinner-border-width) solid color(var(--color-neutral-lightest) a(18%));
+    border-top-color: var(--color-neutral-lightest);
   }
 }
 
