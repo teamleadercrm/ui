@@ -32,12 +32,12 @@
   border: 0 !important;
   height: 100%;
 
-  &:not(.inverse):focus {
+  &:not(.is-inverse):focus {
     box-shadow: 0 0 0 var(--tag-border-width) color(var(--color-teal-darkest) a(36%)) !important;
   }
 }
 
-.inverse {
+.is-inverse {
   background: color(var(--color-neutral-lightest) a(18%));
 
   .label {
@@ -49,14 +49,14 @@
   }
 }
 
-.removable {
+.is-removable {
   .label-button {
     border-radius: var(--tag-border-radius) 0 0 var(--tag-border-radius);
   }
 }
 
 /* Tag sizes */
-.small {
+.is-small {
   height: var(--tag-size-small);
 
   .remove-button {
@@ -71,7 +71,7 @@
   }
 }
 
-.medium {
+.is-medium {
   height: var(--tag-size-medium);
 
   .remove-button {
@@ -86,7 +86,7 @@
   }
 }
 
-.large {
+.is-large {
   height: var(--tag-size-large);
 
   .remove-button {

@@ -34,10 +34,10 @@ class Tag extends PureComponent {
 
     const classNames = cx(
       theme.tag,
+      theme[`is-${size}`],
       {
-        [theme['removable']]: onRemoveClick,
-        [theme['inverse']]: inverse,
-        [theme[size]]: theme[size],
+        [theme['is-removable']]: onRemoveClick,
+        [theme['is-inverse']]: inverse,
       },
       className,
     );
