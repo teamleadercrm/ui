@@ -32,12 +32,14 @@
   border: 0 !important;
   height: 100%;
 
-  &:not(.is-inverse):focus {
-    box-shadow: 0 0 0 var(--tag-border-width) color(var(--color-teal-darkest) a(36%)) !important;
-  }
+  &:not(.is-inverse) {
+    &:focus {
+      box-shadow: 0 0 0 var(--tag-border-width) color(var(--color-teal-darkest) a(36%)) !important;
+    }
 
-  &:not(.is-inverse):active {
-    box-shadow: none !important;
+    &:active {
+      box-shadow: none !important;
+    }
   }
 }
 
@@ -48,8 +50,14 @@
     color: var(--color-neutral-lightest);
   }
 
-  .label-button:focus {
-    box-shadow: 0 0 0 var(--tag-border-width) color(var(--color-neutral-lightest) a(50%)) !important;
+  .label-button {
+    &:focus {
+      box-shadow: 0 0 0 var(--tag-border-width) color(var(--color-neutral-lightest) a(50%)) !important;
+    }
+
+    &:active {
+      box-shadow: none !important;
+    }
   }
 }
 
