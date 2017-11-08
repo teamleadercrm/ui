@@ -35,6 +35,10 @@
   &:not(.is-inverse):focus {
     box-shadow: 0 0 0 var(--tag-border-width) color(var(--color-teal-darkest) a(36%)) !important;
   }
+
+  &:not(.is-inverse):active {
+    box-shadow: none !important;
+  }
 }
 
 .is-inverse {
