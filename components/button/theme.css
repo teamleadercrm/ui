@@ -193,7 +193,7 @@
 
 .outline {
   &:not(.inverse) {
-    color: color(var(--color-teal-darkest) a(72%));
+    color: var(--color-teal-darkest);
 
     &[disabled] {
       background-color: color(var(--color-teal-darkest) a(12%));
@@ -227,7 +227,7 @@
   }
 
   &.inverse {
-    color: color(var(--color-neutral-lightest) a(72%));
+    color: var(--color-neutral-lightest);
 
     &[disabled] {
       border: 1px solid color(var(--color-white) a(12%));
