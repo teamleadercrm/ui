@@ -12,7 +12,7 @@
 
 .tag {
   composes: reset;
-  background-color: color(var(--color-neutral-darkest) a(18%));
+  background-color: color(var(--color-neutral-darkest) a(12%));
   border-radius: var(--tag-border-radius);
   display: inline-flex;
   align-items: center;
@@ -44,7 +44,7 @@
 }
 
 .is-inverse {
-  background: color(var(--color-neutral-lightest) a(18%));
+  background: color(var(--color-neutral-lightest) a(12%));
 
   .label {
     color: var(--color-neutral-lightest);
