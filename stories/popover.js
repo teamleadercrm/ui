@@ -36,6 +36,7 @@ storiesOf('Popover', module)
       <Button onClick={handleButtonClick} label="Open a horizontalPopover" />
       <State store={store}>
         <PopoverHorizontal
+          active={false}
           backdrop="transparent"
           direction="west"
           position="middle"
@@ -53,6 +54,7 @@ storiesOf('Popover', module)
       <Button onClick={handleButtonClick} label="Open a vertical Popover" />
       <State store={store}>
         <PopoverVertical
+          active={false}
           backdrop="transparent"
           direction="south"
           position="center"
@@ -70,6 +72,7 @@ storiesOf('Popover', module)
       <Button onClick={handleButtonClick} label="Open titled Popover" />
       <State store={store}>
         <PopoverVertical
+          active={false}
           backdrop="transparent"
           direction="south"
           position="center"
@@ -88,6 +91,7 @@ storiesOf('Popover', module)
       <Button onClick={handleButtonClick} label="Open titled & subtitled Popover" />
       <State store={store}>
         <PopoverVertical
+          active={false}
           backdrop="transparent"
           direction="south"
           position="center"
@@ -107,6 +111,7 @@ storiesOf('Popover', module)
       <Button onClick={handleButtonClick} label="Open Popover with actions" />
       <State store={store}>
         <PopoverVertical
+          active={false}
           actions={actions}
           backdrop="transparent"
           direction="south"
@@ -125,6 +130,7 @@ storiesOf('Popover', module)
       <Button onClick={handleButtonClick} label="Open a vertical Popover" />
       <State store={store}>
         <PopoverVertical
+          active={false}
           backdrop="dark"
           direction="south"
           position="center"
@@ -142,6 +148,7 @@ storiesOf('Popover', module)
       <Button onClick={handleButtonClick} label="Open titled & subtitled Popover" />
       <State store={store}>
         <PopoverVertical
+          active={false}
           actions={actions}
           backdrop="transparent"
           direction="south"
