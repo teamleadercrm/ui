@@ -145,7 +145,7 @@ storiesOf('Popover', module)
   ))
   .add('full-option', () => (
     <Box>
-      <Button onClick={handleButtonClick} label="Open titled & subtitled Popover" />
+      <Button onClick={handleButtonClick} label="Open a full-option Popover" />
       <State store={store}>
         <PopoverVertical
           active={false}
