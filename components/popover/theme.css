@@ -34,6 +34,7 @@
   box-shadow: var(--popover-box-shadow);
   position: absolute;
   opacity: 0;
+  max-width: 50vw;
   min-width: 300px;
 
   &.active {
