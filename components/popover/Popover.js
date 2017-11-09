@@ -38,7 +38,6 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
       onOverlayMouseUp: PropTypes.func,
       position: PropTypes.string.isRequired,
       title: PropTypes.string,
-      showHeader: PropTypes.bool.isRequired,
       subtitle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
     };
 
@@ -47,7 +46,6 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
       active: true,
       backdrop: 'dark',
       offsetCorrection: 0,
-      showHeader: true,
     };
 
     constructor() {
@@ -109,7 +107,6 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
         onOverlayMouseMove,
         onOverlayMouseUp,
         subtitle,
-        showHeader,
         title,
       } = this.props;
 
@@ -147,17 +144,21 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
             style={{ left: `${left}px`, top: `${top}px` }}
           >
             <div className={theme['arrow']} style={{ left: `${arrowLeft}px`, top: `${arrowTop}px` }} />
-            {showHeader && (
+            {(title || subtitle || onCloseClick) && (
               <header className={theme['header']}>
                 {title && <Heading3 className={theme['title']}>{title}</Heading3>}
                 {subtitle && <TextSmall className={theme['subtitle']}>{subtitle}</TextSmall>}
-                <IconButton icon={<IconCloseMediumOutline />} className={theme['close']} onMouseUp={onCloseClick} />
+                {onCloseClick && <IconButton icon={<IconCloseMediumOutline />} className={theme['close']} onMouseUp={onCloseClick} />}
               </header>
             )}
             <section role="body" className={theme['body']}>
               {children}
             </section>
-            {actionButtons.length ? <ButtonGroup className={theme['navigation']}>{actionButtons}</ButtonGroup> : null}
+            {actionButtons.length ? (
+              <ButtonGroup className={theme['navigation']}>
+                {actionButtons}
+              </ButtonGroup>
+            ) : null}
             <ReactResizeDetector handleHeight onResize={this._setPlacementThrottled} />
           </div>
         </Portal>
