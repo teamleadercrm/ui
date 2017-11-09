@@ -4,8 +4,9 @@ import cx from 'classnames';
 import throttle from 'lodash.throttle';
 import ActivableRenderer from '../hoc/ActivableRenderer';
 import Portal from '../hoc/Portal';
-import InjectButton, { IconButton } from '../button';
+import InjectButton, { IconButton, ButtonGroup } from '../button';
 import InjectOverlay from '../overlay';
+import { Heading3, TextSmall } from "../typography";
 import { events } from '../utils';
 import { calculateHorizontalPositions, calculateVerticalPositions } from './positionCalculation';
 import { IconCloseMediumOutline } from '@teamleader/ui-icons';
@@ -148,8 +149,8 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
             <div className={theme['arrow']} style={{ left: `${arrowLeft}px`, top: `${arrowTop}px` }} />
             {showHeader && (
               <header className={theme['header']}>
-                {title && <h6 className={theme['title']}>{title}</h6>}
-                {subtitle && <p className={theme['subtitle']}>{subtitle}</p>}
+                {title && <Heading3 className={theme['title']}>{title}</Heading3>}
+                {subtitle && <TextSmall className={theme['subtitle']}>{subtitle}</TextSmall>}
                 <IconButton icon={<IconCloseMediumOutline />} className={theme['close']} onMouseUp={onCloseClick} />
               </header>
             )}
@@ -157,9 +158,9 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
               {children}
             </section>
             {actionButtons.length ? (
-              <nav role="navigation" className={theme['navigation']}>
+              <ButtonGroup className={theme['navigation']}>
                 {actionButtons}
-              </nav>
+              </ButtonGroup>
             ) : null}
             <ReactResizeDetector handleHeight onResize={this._setPlacementThrottled} />
           </div>

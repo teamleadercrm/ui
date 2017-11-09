@@ -64,17 +64,12 @@
 .title {
   color: var(--popover-header-title-text-color);
   flex-grow: 0;
-  font-size: calc(1.8 * var(--unit));
-  font-weight: 400;
-  line-height: 1.4;
   margin: 0;
 }
 
 .subtitle {
   color: var(--popover-header-subtitle-text-color);
   flex-grow: 0;
-  font-size: calc(1.4 * var(--unit));
-  line-height: 1.4;
   margin: 3px 0 0 0;
 }
 
