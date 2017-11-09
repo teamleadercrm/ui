@@ -148,17 +148,15 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
               <header className={theme['header']}>
                 {title && <Heading3 className={theme['title']}>{title}</Heading3>}
                 {subtitle && <TextSmall className={theme['subtitle']}>{subtitle}</TextSmall>}
-                {onCloseClick && <IconButton icon={<IconCloseMediumOutline />} className={theme['close']} onMouseUp={onCloseClick} />}
+                {onCloseClick && (
+                  <IconButton icon={<IconCloseMediumOutline />} className={theme['close']} onMouseUp={onCloseClick} />
+                )}
               </header>
             )}
             <section role="body" className={theme['body']}>
               {children}
             </section>
-            {actionButtons.length ? (
-              <ButtonGroup className={theme['navigation']}>
-                {actionButtons}
-              </ButtonGroup>
-            ) : null}
+            {actionButtons.length ? <ButtonGroup className={theme['navigation']}>{actionButtons}</ButtonGroup> : null}
             <ReactResizeDetector handleHeight onResize={this._setPlacementThrottled} />
           </div>
         </Portal>
