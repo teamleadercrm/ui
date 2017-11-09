@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import RadioButton from './index';
+import Box from '../box';
 import isComponentOfType from '../utils/is-component-of-type';
 
 class RadioGroup extends PureComponent {
@@ -30,20 +31,22 @@ class RadioGroup extends PureComponent {
   }
 
   render() {
+    const { children, className, disabled, value, ...others } = this.props;
+
     return (
-      <div data-teamleader-ui="radio-group" className={this.props.className}>
+      <Box data-teamleader-ui="radio-group" className={className} {...others}>
         {React.Children.map(
-          this.props.children,
+          children,
           child =>
             !isComponentOfType(RadioButton, child)
               ? child
               : React.cloneElement(child, {
-                  checked: child.props.value === this.props.value,
-                  disabled: this.props.disabled || child.props.disabled,
+                  checked: child.props.value === value,
+                  disabled: disabled || child.props.disabled,
                   onChange: event => this.handleChange(child.props.value, event),
                 }),
         )}
-      </div>
+      </Box>
     );
   }
 }

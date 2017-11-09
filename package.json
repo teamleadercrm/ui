@@ -1,7 +1,7 @@
 {
   "name": "@teamleader/ui",
   "description": "Teamleader UI library",
-  "version": "0.1.6-beta",
+  "version": "0.2.1-beta",
   "author": "Teamleader <development@teamleader.eu>",
   "betterScripts": {
     "compile": {
@@ -54,8 +54,9 @@
   ],
   "dependencies": {
     "@teamleader/ui-animations": "0.0.2",
-    "@teamleader/ui-colors": "0.0.6",
+    "@teamleader/ui-colors": "0.0.7",
     "@teamleader/ui-icons": "0.0.7",
+    "@teamleader/ui-illustrations": "0.0.3",
     "@teamleader/ui-typography": "0.0.9",
     "@teamleader/ui-utilities": "0.0.3",
     "classnames": "^2.2.5",

@@ -1,0 +1,189 @@
+@import '@teamleader/ui-colors';
+@import '@teamleader/ui-utilities';
+@import '@teamleader/ui-animations';
+
+:root {
+  --toggle-border-width: 1px;
+
+  --toggle-track-height-small: 18px;
+  --toggle-track-width-small: 30px;
+  --toggle-thumb-width-small: 12px;
+
+  --toggle-track-height-medium: 24px;
+  --toggle-track-width-medium: 42px;
+  --toggle-thumb-width-medium: 18px;
+
+  --toggle-track-height-large: 30px;
+  --toggle-track-width-large: 54px;
+  --toggle-thumb-width-large: 24px;
+
+  --toggle-track-padding: 2px;
+}
+
+.toggle {
+  composes: reset;
+  align-items: center;
+  display: flex;
+  user-select: none;
+
+  .input {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    margin: 0;
+  }
+
+  .track {
+    box-sizing: border-box;
+    background: var(--color-neutral-light);
+    border: var(--toggle-border-width) solid var(--color-neutral-dark);
+    position: relative;
+    display: inline-block;
+    padding: var(--toggle-track-padding);
+    cursor: pointer;
+    transition: all calc(var(--animation-duration) / 2) var(--animation-curve-default);
+  }
+
+  .thumb {
+    box-sizing: border-box;
+    background: var(--color-neutral-lightest);
+    border: var(--toggle-border-width) solid var(--color-neutral-dark);
+    display: block;
+    position: absolute;
+    transition: all calc(var(--animation-duration) / 2) var(--animation-curve-default);
+  }
+
+  &:hover {
+    .track {
+      background-color: var(--color-neutral);
+      border-color: var(--color-neutral-darkest);
+    }
+  }
+
+  &.is-checked {
+    .track {
+      background: var(--color-mint);
+      border-color: var(--color-mint-dark);
+    }
+
+    .thumb {
+      border-color: var(--color-mint-dark);
+    }
+
+    &:hover .track {
+      background: var(--color-mint-dark);
+      border-color: var(--color-mint-darkest);
+    }
+
+    input:focus + .track {
+      box-shadow: 0 0 0 1px var(--color-mint-darkest);
+      border-color: var(--color-mint-darkest);
+    }
+
+    input:active + .track {
+      box-shadow: 0 1px 3px 0 var(--color-mint-darkest);
+    }
+  }
+
+  &.is-disabled {
+    pointer-events: none;
+
+    .track {
+      background: var(--color-neutral);
+      border-color: transparent;
+    }
+
+    .thumb {
+      background: var(--color-neutral-light);
+      border-color: transparent;
+    }
+
+    .label {
+      color: var(--color-neutral-dark);
+    }
+
+    &.is-checked {
+      .track {
+        background: var(--color-mint-lightest);
+      }
+
+      .thumb {
+        background: var(--color-neutral-lightest);
+      }
+    }
+  }
+
+  input:focus + .track {
+    border-color: var(--color-neutral-darkest);
+    box-shadow: 0 0 0 1px var(--color-neutral-darkest)
+  }
+
+  input:active + .track {
+    box-shadow: 0 1px 3px 0 var(--color-neutral-darkest);
+  }
+
+  &.is-small {
+    .track {
+      width: var(--toggle-track-width-small);
+      height: var(--toggle-track-height-small);
+      border-radius: var(--toggle-track-height-small);
+    }
+
+    .thumb {
+      width: var(--toggle-thumb-width-small);
+      height: var(--toggle-thumb-width-small);
+      border-radius: var(--toggle-thumb-width-small);
+    }
+
+    &.is-checked {
+      .thumb {
+        transform: translateX(calc(var(--toggle-track-width-small) - var(--toggle-thumb-width-small) - calc(2 * var(--toggle-border-width)) - calc(2 * var(--toggle-track-padding))));
+      }
+    }
+  }
+
+  &.is-medium {
+    .track {
+      width: var(--toggle-track-width-medium);
+      height: var(--toggle-track-height-medium);
+      border-radius: var(--toggle-track-height-medium);
+    }
+
+    .thumb {
+      width: var(--toggle-thumb-width-medium);
+      height: var(--toggle-thumb-width-medium);
+      border-radius: var(--toggle-thumb-width-medium);
+    }
+
+    &.is-checked {
+      .thumb {
+        transform: translateX(calc(var(--toggle-track-width-medium) - var(--toggle-thumb-width-medium) - calc(2 * var(--toggle-border-width)) - calc(2 * var(--toggle-track-padding))));
+      }
+    }
+  }
+
+  &.is-large {
+    .track {
+      width: var(--toggle-track-width-large);
+      height: var(--toggle-track-height-large);
+      border-radius: var(--toggle-track-height-large);
+    }
+
+    .thumb {
+      width: var(--toggle-thumb-width-large);
+      height: var(--toggle-thumb-width-large);
+      border-radius: var(--toggle-thumb-width-large);
+    }
+
+    &.is-checked {
+      .thumb {
+        transform: translateX(calc(var(--toggle-track-width-large) - var(--toggle-thumb-width-large) - calc(2 * var(--toggle-border-width)) - calc(2 * var(--toggle-track-padding))));
+      }
+    }
+  }
+
+  .label {
+    margin-left: var(--spacer-regular);
+  }
+}
