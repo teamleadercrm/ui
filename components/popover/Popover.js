@@ -6,7 +6,7 @@ import ActivableRenderer from '../hoc/ActivableRenderer';
 import Portal from '../hoc/Portal';
 import InjectButton, { IconButton, ButtonGroup } from '../button';
 import InjectOverlay from '../overlay';
-import { Heading3, TextSmall } from "../typography";
+import { Heading3, TextSmall } from '../typography';
 import { events } from '../utils';
 import { calculateHorizontalPositions, calculateVerticalPositions } from './positionCalculation';
 import { IconCloseMediumOutline } from '@teamleader/ui-icons';
@@ -157,11 +157,7 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
             <section role="body" className={theme['body']}>
               {children}
             </section>
-            {actionButtons.length ? (
-              <ButtonGroup className={theme['navigation']}>
-                {actionButtons}
-              </ButtonGroup>
-            ) : null}
+            {actionButtons.length ? <ButtonGroup className={theme['navigation']}>{actionButtons}</ButtonGroup> : null}
             <ReactResizeDetector handleHeight onResize={this._setPlacementThrottled} />
           </div>
         </Portal>
