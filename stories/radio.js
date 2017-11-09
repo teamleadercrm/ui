@@ -22,20 +22,12 @@ storiesOf('Radio', module)
   .addDecorator(styles({ ...baseStyles, ...centerStyles }))
   .add('Enabled', () => (
     <State store={store}>
-      <div>
-        <RadioGroup name="stringValue" onChange={updateState}>
-          <RadioButton size="small" marginBottom={2} label="The Walking Dead" value="thewalkingdead" />
-          <RadioButton size="medium" marginBottom={2} label="From Hell" value="fromhell" />
-          <RadioButton size="medium" marginBottom={2} label="V for a Vendetta" value="vvendetta" onFocus={action('Focus')} />
-          <RadioButton size="large" marginBottom={2} label="Watchmen" value="watchmen" onBlur={action('blur')} />
-        </RadioGroup>
-        <RadioGroup name="stringValue" onChange={updateState} marginTop={6}>
-          <RadioButton size="small" marginBottom={2} label="The Walking Dead" value="thewalkingdead" />
-          <RadioButton size="medium" marginBottom={2} label="From Hell" value="fromhell" />
-          <RadioButton size="medium" marginBottom={2} label="V for a Vendetta" value="vvendetta" onFocus={action('Focus')} />
-          <RadioButton size="large" marginBottom={2} label="Watchmen" value="watchmen" onBlur={action('blur')} />
-        </RadioGroup>
-      </div>
+      <RadioGroup name="stringValue" onChange={updateState}>
+        <RadioButton size="small" marginBottom={2} label="The Walking Dead" value="thewalkingdead" />
+        <RadioButton size="medium" marginBottom={2} label="From Hell" value="fromhell" />
+        <RadioButton size="medium" marginBottom={2} label="V for a Vendetta" value="vvendetta" onFocus={action('Focus')} />
+        <RadioButton size="large" marginBottom={2} label="Watchmen" value="watchmen" onBlur={action('blur')} />
+      </RadioGroup>
     </State>
   ))
   .add('Disabled', () => (
