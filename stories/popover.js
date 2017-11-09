@@ -40,7 +40,6 @@ storiesOf('Popover', module)
           backdrop="transparent"
           direction="west"
           position="middle"
-          onCloseClick={handleCloseClick}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
         >
@@ -58,7 +57,6 @@ storiesOf('Popover', module)
           backdrop="transparent"
           direction="south"
           position="center"
-          onCloseClick={handleCloseClick}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
         >
@@ -77,7 +75,6 @@ storiesOf('Popover', module)
           direction="south"
           position="center"
           title="Popover Title"
-          onCloseClick={handleCloseClick}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
         >
@@ -97,6 +94,24 @@ storiesOf('Popover', module)
           position="center"
           title="Popover Title"
           subtitle="And this is the subtitle"
+          onEscKeyDown={handleCloseClick}
+          onOverlayClick={handleCloseClick}
+        >
+          <TextBody>This is the popover content</TextBody>
+        </PopoverVertical>
+      </State>
+    </Box>
+  ))
+  .add('with close button', () => (
+    <Box>
+      <Button onClick={handleButtonClick} label="Open Popover with close button" />
+      <State store={store}>
+        <PopoverVertical
+          active={false}
+          backdrop="transparent"
+          direction="south"
+          position="center"
+          title="Popover Title"
           onCloseClick={handleCloseClick}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
@@ -116,7 +131,6 @@ storiesOf('Popover', module)
           backdrop="transparent"
           direction="south"
           position="center"
-          onCloseClick={handleCloseClick}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
         >
@@ -134,7 +148,6 @@ storiesOf('Popover', module)
           backdrop="dark"
           direction="south"
           position="center"
-          onCloseClick={handleCloseClick}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
         >
