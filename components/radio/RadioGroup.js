@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import RadioButton from './index';
 import Box from '../box';
 import isComponentOfType from '../utils/is-component-of-type';
+import omit from 'lodash.omit';
 
 class RadioGroup extends PureComponent {
   static propTypes = {
@@ -32,9 +33,10 @@ class RadioGroup extends PureComponent {
 
   render() {
     const { children, className, disabled, value, ...others } = this.props;
+    const rest = omit(others, ['onChange']);
 
     return (
-      <Box data-teamleader-ui="radio-group" className={className} {...others}>
+      <Box data-teamleader-ui="radio-group" className={className} {...rest}>
         {React.Children.map(
           children,
           child =>
