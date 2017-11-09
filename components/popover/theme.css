@@ -85,26 +85,13 @@
   flex-grow: 2;
   padding: var(--popover-body-padding);
   position: relative;
-
-  p {
-    font-size: calc(1.4 * var(--unit));
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: calc(2.4 * var(--unit));
-    margin: 0;
-  }
 }
 
 .navigation {
   background: var(--popover-background-color);
   border-radius: 0 0 var(--popover-border-radius) var(--popover-border-radius) ;
   flex-grow: 0;
+  justify-content: flex-end;
   padding: var(--popover-navigation-padding);
   position: relative;
-  text-align: right;
-}
-
-.button {
-  margin-left: var(--popover-navigation-padding);
-  min-width: 0;
 }
