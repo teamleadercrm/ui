@@ -1,9 +1,8 @@
 import React, { PureComponent } from 'react';
+import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import throttle from 'lodash.throttle';
-import ActivableRenderer from '../hoc/ActivableRenderer';
-import Portal from '../hoc/Portal';
 import InjectButton, { IconButton, ButtonGroup } from '../button';
 import InjectOverlay from '../overlay';
 import { Heading3, TextSmall } from '../typography';
@@ -51,6 +50,9 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
     constructor() {
       super(...arguments);
 
+      this.popoverRoot = document.createElement('div');
+      this.popoverRoot.id = 'popover-root';
+
       this.setPlacement = this.setPlacement.bind(this);
       this._setPlacementThrottled = this._setPlacementThrottled.bind(this);
 
@@ -67,7 +69,7 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
     _setPlacementThrottled = throttle(this.setPlacement, 16);
 
     componentDidMount() {
-      this.setPlacement();
+      document.body.appendChild(this.popoverRoot);
 
       events.addEventsToWindow({
         resize: this._setPlacementThrottled,
@@ -76,19 +78,28 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
     }
 
     componentWillUnmount() {
+      document.body.removeChild(this.popoverRoot);
+
       events.removeEventsFromWindow({
         resize: this._setPlacementThrottled,
         scroll: this._setPlacementThrottled,
       });
     }
 
+    componentDidUpdate(prevProps, prevState) {
+      if (this.props.active && (prevProps !== this.props)) {
+        this.setPlacement();
+      }
+    }
+
     setPlacement() {
       const { anchorEl, direction, position, offsetCorrection } = this.props;
-      const targetEl = document.querySelectorAll(`[data-teamleader-ui="popover-${axis}"]`)[0];
 
-      this.setState({
-        positioning: calculatePositions(anchorEl, targetEl, direction, position, offsetCorrection),
-      });
+      if(this.popoverNode) {
+        this.setState({
+          positioning: calculatePositions(anchorEl, this.popoverNode, direction, position, offsetCorrection),
+        });
+      }
     }
 
     render() {
@@ -126,8 +137,8 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
         className,
       );
 
-      return (
-        <Portal className={theme['wrapper']}>
+      const popover = active && (
+        <div className={theme['wrapper']}>
           <Overlay
             active={active}
             backdrop={backdrop}
@@ -142,6 +153,9 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
             data-teamleader-ui={`popover-${axis}`}
             className={customClassName}
             style={{ left: `${left}px`, top: `${top}px` }}
+            ref={node => {
+              this.popoverNode = node;
+            }}
           >
             <div className={theme['arrow']} style={{ left: `${arrowLeft}px`, top: `${arrowTop}px` }} />
             {(title || subtitle || onCloseClick) && (
@@ -159,12 +173,14 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
             {actionButtons.length ? <ButtonGroup className={theme['navigation']}>{actionButtons}</ButtonGroup> : null}
             <ReactResizeDetector handleHeight onResize={this._setPlacementThrottled} />
           </div>
-        </Portal>
+        </div>
       );
+
+      return createPortal(popover, this.popoverRoot);
     }
   }
 
-  return ActivableRenderer()(Popover);
+  return Popover;
 };
 
 export const PopoverHorizontal = factory('horizontal', calculateHorizontalPositions, InjectOverlay, InjectButton);
