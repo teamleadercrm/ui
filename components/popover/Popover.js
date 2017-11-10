@@ -5,11 +5,12 @@ import cx from 'classnames';
 import throttle from 'lodash.throttle';
 import InjectButton, { IconButton, ButtonGroup } from '../button';
 import InjectOverlay from '../overlay';
+import Transition from 'react-transition-group/Transition';
+import ReactResizeDetector from 'react-resize-detector';
 import { Heading3, TextSmall } from '../typography';
 import { events } from '../utils';
 import { calculateHorizontalPositions, calculateVerticalPositions } from './positionCalculation';
 import { IconCloseMediumOutline } from '@teamleader/ui-icons';
-import ReactResizeDetector from 'react-resize-detector';
 import theme from './theme.css';
 
 const factory = (axis, calculatePositions, Overlay, Button) => {
@@ -87,7 +88,7 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
     }
 
     componentDidUpdate(prevProps, prevState) {
-      if (this.props.active && (prevProps !== this.props)) {
+      if (this.props.active && prevProps !== this.props) {
         this.setPlacement();
       }
     }
@@ -95,7 +96,7 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
     setPlacement() {
       const { anchorEl, direction, position, offsetCorrection } = this.props;
 
-      if(this.popoverNode) {
+      if (this.popoverNode) {
         this.setState({
           positioning: calculatePositions(anchorEl, this.popoverNode, direction, position, offsetCorrection),
         });
@@ -121,6 +122,10 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
         title,
       } = this.props;
 
+      if (!active) {
+        return null;
+      }
+
       const actionButtons = actions.map((action, idx) => {
         const className = cx(theme['button'], {
           [action.className]: action.className,
@@ -129,51 +134,62 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
         return <Button key={idx} {...action} className={className}/>; // eslint-disable-line
       });
 
-      const customClassName = cx(
-        theme['popover'],
-        {
-          [theme['active']]: active,
-        },
-        className,
-      );
+      const customClassName = cx(theme['popover'], className);
 
-      const popover = active && (
-        <div className={theme['wrapper']}>
-          <Overlay
-            active={active}
-            backdrop={backdrop}
-            className={theme['overlay']}
-            onClick={onOverlayClick}
-            onEscKeyDown={onEscKeyDown}
-            onMouseDown={onOverlayMouseDown}
-            onMouseMove={onOverlayMouseMove}
-            onMouseUp={onOverlayMouseUp}
-          />
-          <div
-            data-teamleader-ui={`popover-${axis}`}
-            className={customClassName}
-            style={{ left: `${left}px`, top: `${top}px` }}
-            ref={node => {
-              this.popoverNode = node;
-            }}
-          >
-            <div className={theme['arrow']} style={{ left: `${arrowLeft}px`, top: `${arrowTop}px` }} />
-            {(title || subtitle || onCloseClick) && (
-              <header className={theme['header']}>
-                {title && <Heading3 className={theme['title']}>{title}</Heading3>}
-                {subtitle && <TextSmall className={theme['subtitle']}>{subtitle}</TextSmall>}
-                {onCloseClick && (
-                  <IconButton icon={<IconCloseMediumOutline />} className={theme['close']} onMouseUp={onCloseClick} />
-                )}
-              </header>
-            )}
-            <section role="body" className={theme['body']}>
-              {children}
-            </section>
-            {actionButtons.length ? <ButtonGroup className={theme['navigation']}>{actionButtons}</ButtonGroup> : null}
-            <ReactResizeDetector handleHeight onResize={this._setPlacementThrottled} />
-          </div>
-        </div>
+      const popover = (
+        <Transition timeout={0} in={active} appear>
+          {state => {
+            return (
+              <div
+                className={cx(theme['wrapper'], {
+                  [theme['is-entering']]: state === 'entering',
+                  [theme['is-entered']]: state === 'entered',
+                })}
+              >
+                <Overlay
+                  active={active}
+                  backdrop={backdrop}
+                  className={theme['overlay']}
+                  onClick={onOverlayClick}
+                  onEscKeyDown={onEscKeyDown}
+                  onMouseDown={onOverlayMouseDown}
+                  onMouseMove={onOverlayMouseMove}
+                  onMouseUp={onOverlayMouseUp}
+                />
+                <div
+                  data-teamleader-ui={`popover-${axis}`}
+                  className={customClassName}
+                  style={{ left: `${left}px`, top: `${top}px` }}
+                  ref={node => {
+                    this.popoverNode = node;
+                  }}
+                >
+                  <div className={theme['arrow']} style={{ left: `${arrowLeft}px`, top: `${arrowTop}px` }} />
+                  {(title || subtitle || onCloseClick) && (
+                    <header className={theme['header']}>
+                      {title && <Heading3 className={theme['title']}>{title}</Heading3>}
+                      {subtitle && <TextSmall className={theme['subtitle']}>{subtitle}</TextSmall>}
+                      {onCloseClick && (
+                        <IconButton
+                          icon={<IconCloseMediumOutline />}
+                          className={theme['close']}
+                          onMouseUp={onCloseClick}
+                        />
+                      )}
+                    </header>
+                  )}
+                  <section role="body" className={theme['body']}>
+                    {children}
+                  </section>
+                  {actionButtons.length ? (
+                    <ButtonGroup className={theme['navigation']}>{actionButtons}</ButtonGroup>
+                  ) : null}
+                  <ReactResizeDetector handleHeight onResize={this._setPlacementThrottled} />
+                </div>
+              </div>
+            );
+          }}
+        </Transition>
       );
 
       return createPortal(popover, this.popoverRoot);
