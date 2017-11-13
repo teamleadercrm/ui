@@ -14,33 +14,30 @@ const factory = (Button, IconButton) => {
       active: PropTypes.bool,
       children: PropTypes.node,
       className: PropTypes.string,
-      label: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.element,
-      ]),
+      label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
       onClick: PropTypes.func,
       onTimeout: PropTypes.func,
       timeout: PropTypes.number,
-      type: PropTypes.oneOf([ 'accept', 'cancel', 'warning' ]),
+      type: PropTypes.oneOf(['accept', 'cancel', 'warning']),
     };
 
-    componentDidMount () {
+    componentDidMount() {
       if (this.props.active && this.props.timeout) {
         this._scheduleTimeout(this.props);
       }
     }
 
-    componentWillReceiveProps (nextProps) {
+    componentWillReceiveProps(nextProps) {
       if (nextProps.active && nextProps.timeout) {
         this._scheduleTimeout(nextProps);
       }
     }
 
-    componentWillUnmount () {
+    componentWillUnmount() {
       clearTimeout(this.currentTimeout);
     }
 
-    _scheduleTimeout = (props) => {
+    _scheduleTimeout = props => {
       const { onTimeout, timeout } = props;
 
       if (this.currentTimeout) {
@@ -56,45 +53,37 @@ const factory = (Button, IconButton) => {
       }, timeout);
     };
 
-    render () {
-      const {
-        action,
-        active,
-        children,
-        label,
-        onClick,
-        type,
-      } = this.props;
+    render() {
+      const { action, active, children, className, label, onClick, type } = this.props;
 
-      const className = cx([
-        theme.toast,
-        theme[ type ],
-      ], {
-        [theme.active]: active,
-      },
-        this.props.className
+      const classNames = cx(
+        theme['toast'],
+        theme[type],
+        {
+          [theme['active']]: active,
+        },
+        className,
       );
 
       return (
-        <Portal className={theme.portal}>
-          <div
-            data-teamleader-ui="toast"
-            className={className}
-          >
-            <span className={theme.label}>
-              { label }
-              { children }
+        <Portal>
+          <div data-teamleader-ui="toast" className={classNames}>
+            <span className={theme['label']}>
+              {label}
+              {children}
             </span>
-            {
-              onClick ? action
-                ? <Button color="outline" className={theme.button} label={action} onClick={onClick} size="small" />
-                : <IconButton
-                  className={theme.iconButton}
+            {onClick ? (
+              action ? (
+                <Button className={theme['button']} label={action} level="outline" onClick={onClick} size="small" />
+              ) : (
+                <IconButton
+                  className={theme['icon-button']}
                   icon={<IconCloseMediumOutline />}
-                  inverse
+                  color="white"
                   onClick={onClick}
-                /> : null
-            }
+                />
+              )
+            ) : null}
           </div>
         </Portal>
       );
@@ -107,7 +96,4 @@ const factory = (Button, IconButton) => {
 const Toast = factory(Button, IconButton);
 
 export default Toast;
-export {
-  factory as toastFactory,
-  Toast,
-};
+export { factory as toastFactory, Toast };

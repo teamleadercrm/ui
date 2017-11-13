@@ -10,67 +10,57 @@ class IconButton extends Component {
     disabled: PropTypes.bool,
     href: PropTypes.string,
     icon: PropTypes.element,
-    inverse: PropTypes.bool,
     onMouseLeave: PropTypes.func,
     onMouseUp: PropTypes.func,
-    size: PropTypes.oneOf([ 'small', 'medium', 'large' ]),
+    size: PropTypes.oneOf(['small', 'medium', 'large']),
+    color: PropTypes.oneOf(['neutral', 'white', 'mint', 'violet', 'ruby', 'gold', 'aqua']),
     type: PropTypes.string,
   };
 
   static defaultProps = {
     className: '',
-    inverse: false,
     size: 'medium',
+    color: 'neutral',
     type: 'button',
   };
 
-  handleMouseUp = (event) => {
+  handleMouseUp = event => {
     this.buttonNode.blur();
     if (this.props.onMouseUp) {
       this.props.onMouseUp(event);
     }
   };
 
-  handleMouseLeave = (event) => {
+  handleMouseLeave = event => {
     this.buttonNode.blur();
     if (this.props.onMouseLeave) {
       this.props.onMouseLeave(event);
     }
   };
 
-  render () {
-    const {
-      children,
-      className,
-      disabled,
-      href,
-      icon,
-      inverse,
-      size,
-      type,
-      ...others
-    } = this.props;
+  render() {
+    const { children, className, disabled, href, icon, size, color, type, ...others } = this.props;
 
     const element = href ? 'a' : 'button';
 
-    const classes = cx(
-      theme.button,
-      theme.iconButton,
-      theme.iconOnly,
+    const classNames = cx(
+      theme['button'],
+      theme['icon-button'],
+      theme['icon-only'],
+      theme[color],
       {
-        [theme.inverse]: inverse,
-        [theme[ size ]]: theme[ size ],
+        [theme[size]]: theme[size],
       },
-      className
+      className,
     );
 
     const props = {
       ...others,
       href,
-      ref: (node) => {
+      ref: node => {
         this.buttonNode = node;
       },
-      className: classes,
+      className: classNames,
       disabled,
       onMouseUp: this.handleMouseUp,
       onMouseLeave: this.handleMouseLeave,
@@ -78,10 +68,7 @@ class IconButton extends Component {
       'data-teamleader-ui': 'button',
     };
 
-    return React.createElement(element, props,
-      icon,
-      children,
-    );
+    return React.createElement(element, props, icon, children);
   }
 }
 

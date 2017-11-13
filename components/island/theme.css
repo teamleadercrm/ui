@@ -2,52 +2,49 @@
 @import '@teamleader/ui-utilities';
 
 .island {
-  border: 1px solid var(--border-color);
+  border: 1px solid;
   border-radius: 4px;
-  background: var(--background-color);
-  padding: var(--spacer-small);
 }
 
 .white {
-  --background-color: var(--color-white);
-  --border-color: var(--color-neutral);
+  background-color: var(--color-white);
+  border-color: var(--color-neutral);
 
   &.dark {
-    --border-color: var(--color-neutral-dark);
+    border-color: var(--color-neutral-dark);
   }
 }
 
 .neutral {
-  --background-color: var(--color-neutral-light);
-  --border-color: var(--color-neutral);
+  background-color: var(--color-neutral-light);
+  border-color: var(--color-neutral);
 
   &.dark {
-    --border-color: var(--color-neutral-dark);
+    border-color: var(--color-neutral-dark);
   }
 }
 
 .mint {
-  --background-color: var(--color-mint-lightest);
-  --border-color: var(--color-mint);
+  background-color: var(--color-mint-lightest);
+  border-color: var(--color-mint);
 }
 
 .violet {
-  --background-color: var(--color-violet-lightest);
-  --border-color: var(--color-violet);
+  background-color: var(--color-violet-lightest);
+  border-color: var(--color-violet);
 }
 
 .ruby {
-  --background-color: var(--color-ruby-lightest);
-  --border-color: var(--color-ruby);
+  background-color: var(--color-ruby-lightest);
+  border-color: var(--color-ruby);
 }
 
 .gold {
-  --background-color: var(--color-gold-lightest);
-  --border-color: var(--color-gold);
+  background-color: var(--color-gold-lightest);
+  border-color: var(--color-gold);
 }
 
 .aqua {
-  --background-color: var(--color-aqua-lightest);
-  --border-color: var(--color-aqua);
+  background-color: var(--color-aqua-lightest);
+  border-color: var(--color-aqua);
 }
-

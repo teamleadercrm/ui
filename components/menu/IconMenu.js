@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import { IconMoreMediumOutline } from '@teamleader/ui-icons';
 import InjectIconButton from '../button/IconButton.js';
 import InjectMenu from './Menu.js';
 import theme from './theme.css';
@@ -22,7 +23,6 @@ const factory = (IconButton, Menu) => {
 
     static defaultProps = {
       className: '',
-      icon: 'more_vert',
       position: 'auto',
       selectable: false,
     };
@@ -31,7 +31,7 @@ const factory = (IconButton, Menu) => {
       active: false,
     };
 
-    handleButtonClick = (event) => {
+    handleButtonClick = event => {
       this.setState({ active: !this.state.active });
       if (this.props.onClick) {
         this.props.onClick(event);
@@ -45,19 +45,25 @@ const factory = (IconButton, Menu) => {
       }
     };
 
-    render () {
+    render() {
       const {
-        children, className, icon, onHide, // eslint-disable-line
-        onSelect, onShow, position, selectable, selected, ...other
+        children,
+        className,
+        icon,
+        onHide, // eslint-disable-line
+        onSelect,
+        onShow,
+        position,
+        selectable,
+        selected,
+        ...other
       } = this.props;
 
+      const buttonIcon = icon || <IconMoreMediumOutline />;
+
       return (
-        <div data-teamleader-ui="icon-menu" {...other} className={cx(theme.iconMenu, className)}>
-          <IconButton
-            className={theme.icon}
-            icon={icon}
-            onClick={this.handleButtonClick}
-          />
+        <div data-teamleader-ui="icon-menu" {...other} className={cx(theme['icon-menu'], className)}>
+          <IconButton className={theme['icon']} icon={buttonIcon} onClick={this.handleButtonClick} />
           <Menu
             active={this.state.active}
             onHide={this.handleMenuHide}
@@ -80,7 +86,4 @@ const factory = (IconButton, Menu) => {
 const IconMenu = factory(InjectIconButton, InjectMenu);
 
 export default IconMenu;
-export {
-  factory as iconMenuFactory,
-  IconMenu,
-};
+export { factory as iconMenuFactory, IconMenu };

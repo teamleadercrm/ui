@@ -1,17 +1,17 @@
-@import '../colors.css';
-@import '../variables.css';
-@import '../media.css';
+@import '@teamleader/ui-animations';
+@import '@teamleader/ui-colors';
+@import '@teamleader/ui-utilities';
 
 :root {
   --dialog-background-color: var(--color-white);
   --dialog-border-radius: calc(0.4 * var(--unit));
-  --dialog-box-shadow: 0 2px 100px 0 var(--color-secondary);
-  --dialog-color-title: var(--color-secondary);
+  --dialog-box-shadow: 0 2px 100px 0 var(--color-teal-darkest);
+  --dialog-color-title: var(--color-teal-darkest);
   --dialog-content-padding: calc(3 * var(--unit));
-  --dialog-header-background-color: var(--palette-grey-100);
-  --dialog-header-border-color: var(--palette-grey-300);
+  --dialog-header-background-color: var(--color-neutral-light);
+  --dialog-header-border-color: var(--color-neutral);
   --dialog-header-padding: calc(2.5 * var(--unit)) calc(3 * var(--unit));
-  --dialog-navigation-border-color: var(--palette-grey-300);
+  --dialog-navigation-border-color: var(--color-neutral);
   --dialog-navigation-padding: calc(2.5 * var(--unit)) calc(3 * var(--unit));
   --dialog-translate-y: calc(-4 * var(--unit));
   --dialog-overflow: hidden;
@@ -26,12 +26,10 @@
   top: 0;
   width: 100vw;
   z-index: var(--z-index-higher);
-
-  @apply --reset;
 }
 
 .dialog {
-  @apply --reset;
+  composes: reset;
   background-color: var(--dialog-background-color);
   border-radius: var(--dialog-border-radius);
   box-shadow: var(--dialog-box-shadow);
@@ -39,7 +37,6 @@
   flex-direction: column;
   max-height: 96vh;
   max-width: 90vw;
-  position: absolute;
   opacity: 0;
   transform: translateY(var(--dialog-translate-y));
   transition:
@@ -89,8 +86,8 @@
     text-align: center;
 
     .icon {
-      color: var(--palette-orange);
-      font-size: 40px;
+      color: var(--color-gold-dark);
+      margin-bottom: var(--spacer-small);
     }
   }
 }
@@ -106,7 +103,7 @@
 
 .close {
   top: calc(-2.6 * var(--unit));
-  color: var(--palette-grey-500) !important;
+  color: var(--color-neutral-dark) !important;
   position: absolute !important;
   right: calc(-2.6 * var(--unit));
 
@@ -115,13 +112,13 @@
   }
 
   &:hover {
-    color: var(--palette-grey-400) !important;
+    color: var(--color-neutral) !important;
   }
 }
 
 .body {
   background: var(--dialog-background-color);
-  color: var(--color-text-secondary);
+  color: var(--color-teal-dark);
   flex-grow: 2;
   padding: var(--dialog-content-padding);
   position: relative;
@@ -136,9 +133,11 @@
 }
 
 .navigation {
+  justify-content: flex-end;
   background: var(--dialog-background-color);
   border-radius: 0 0 4px 4px;
   border-top: 1px solid var(--dialog-navigation-border-color);
+  display: flex;
   flex-grow: 0;
   padding: var(--dialog-navigation-padding);
   position: relative;

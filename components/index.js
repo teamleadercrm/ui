@@ -1,20 +1,15 @@
+import Avatar, { AvatarStack } from './avatar';
+import Banner from './banner';
+import Box from './box';
 import Button, { ButtonGroup, IconButton } from './button';
-import {
-  Heading1,
-  Heading2,
-  Heading3,
-  Heading4,
-  Monospaced,
-  OldStyleNumber,
-  TextBody,
-  TextSmall,
-  TextTiny,
-} from './typography';
+import { Heading1, Heading2, Heading3, Heading4, Monospaced, TextBody, TextSmall, TextTiny } from './typography';
+import Checkbox from './checkbox';
+import CompactMessage from './compactMessage';
 import Counter from './counter';
 import Dialog from './dialog';
-import { FontIcon } from './font_icon';
 import Menu, { IconMenu, MenuItem, MenuDivider } from './menu';
 import Link from './link';
+import Message from './message';
 import Overlay from './overlay';
 import LoadingMolecule from './loadingMolecule';
 import { PopoverHorizontal, PopoverVertical } from './popover';
@@ -24,26 +19,33 @@ import Island from './island';
 import StatusBullet from './statusBullet';
 import StatusLabel from './statusLabel';
 import { Toast } from './toast';
+import Toggle from './toggle';
+import Tooltip, { TooltipLabel } from './tooltip';
 
 export {
+  Avatar,
+  AvatarStack,
+  Banner,
+  Box,
   Button,
   ButtonGroup,
+  Checkbox,
+  CompactMessage,
   Counter,
   IconButton,
   Dialog,
-  FontIcon,
   Heading1,
   Heading2,
   Heading3,
   Heading4,
   Menu,
+  Message,
   Monospaced,
   IconMenu,
   MenuItem,
   MenuDivider,
   Link,
   LoadingMolecule,
-  OldStyleNumber,
   Overlay,
   PopoverHorizontal,
   PopoverVertical,
@@ -57,4 +59,7 @@ export {
   StatusLabel,
   Island,
   Toast,
+  Toggle,
+  Tooltip,
+  TooltipLabel,
 };

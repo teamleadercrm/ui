@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import s from './theme.css';
+import theme from './theme.css';
 
 class Monospaced extends PureComponent {
   static propTypes = {
@@ -14,22 +14,17 @@ class Monospaced extends PureComponent {
     element: 'span',
   };
 
-  render () {
-    const {
-      children,
-      className,
-      element,
-    } = this.props;
+  render() {
+    const { children, className, element } = this.props;
 
-    const classNames = cx(
-      s['monospaced'],
-      className,
-    );
+    const classNames = cx(theme['monospaced'], className);
 
     const Element = element;
 
     return (
-      <Element data-teamleader-ui="monospaced" className={classNames}>{children}</Element>
+      <Element data-teamleader-ui="monospaced" className={classNames}>
+        {children}
+      </Element>
     );
   }
 }

@@ -10,13 +10,13 @@ import theme from './theme.css';
 const POSITION = {
   AUTO: 'auto',
   STATIC: 'static',
-  TOP_LEFT: 'topLeft',
-  TOP_RIGHT: 'topRight',
-  BOTTOM_LEFT: 'bottomLeft',
-  BOTTOM_RIGHT: 'bottomRight',
+  TOP_LEFT: 'top-left',
+  TOP_RIGHT: 'top-right',
+  BOTTOM_LEFT: 'bottom-left',
+  BOTTOM_RIGHT: 'bottom-right',
 };
 
-const factory = (MenuItem) => {
+const factory = MenuItem => {
   class Menu extends PureComponent {
     static propTypes = {
       active: PropTypes.bool,
@@ -42,21 +42,17 @@ const factory = (MenuItem) => {
       active: this.props.active,
     };
 
-    componentDidMount () {
+    componentDidMount() {
       this.positionTimeoutHandle = setTimeout(() => {
         const { width, height } = this.menuNode.getBoundingClientRect();
-        const position = this.props.position === POSITION.AUTO
-          ? this.calculatePosition()
-          : this.props.position;
+        const position = this.props.position === POSITION.AUTO ? this.calculatePosition() : this.props.position;
         this.setState({ position, width, height });
       });
     }
 
-    componentWillReceiveProps (nextProps) {
+    componentWillReceiveProps(nextProps) {
       if (this.props.position !== nextProps.position) {
-        const position = nextProps.position === POSITION.AUTO
-          ? this.calculatePosition()
-          : nextProps.position;
+        const position = nextProps.position === POSITION.AUTO ? this.calculatePosition() : nextProps.position;
         this.setState({ position });
       }
 
@@ -91,7 +87,7 @@ const factory = (MenuItem) => {
       }
     }
 
-    componentWillUpdate (nextProps, nextState) {
+    componentWillUpdate(nextProps, nextState) {
       if (!this.state.active && nextState.active) {
         events.addEventsToDocument({
           click: this.handleDocumentClick,
@@ -100,7 +96,7 @@ const factory = (MenuItem) => {
       }
     }
 
-    componentDidUpdate (prevProps, prevState) {
+    componentDidUpdate(prevProps, prevState) {
       if (prevState.active && !this.state.active) {
         if (this.props.onHide) {
           this.props.onHide();
@@ -114,7 +110,7 @@ const factory = (MenuItem) => {
       }
     }
 
-    componentWillUnmount () {
+    componentWillUnmount() {
       if (this.state.active) {
         events.removeEventsFromDocument({
           click: this.handleDocumentClick,
@@ -125,7 +121,7 @@ const factory = (MenuItem) => {
       clearTimeout(this.activateTimeoutHandle);
     }
 
-    handleDocumentClick = (event) => {
+    handleDocumentClick = event => {
       if (this.state.active && !events.targetIsDescendant(event, ReactDOM.findDOMNode(this))) {
         this.setState({ active: false });
       }
@@ -146,19 +142,19 @@ const factory = (MenuItem) => {
       });
     };
 
-    calculatePosition () {
+    calculatePosition() {
       const parentNode = ReactDOM.findDOMNode(this).parentNode;
       if (!parentNode) {
         return;
       }
       const { top, left, height, width } = parentNode.getBoundingClientRect();
       const { height: wh, width: ww } = getViewport();
-      const toTop = top < ((wh / 2) - height / 2);
-      const toLeft = left < ((ww / 2) - width / 2);
+      const toTop = top < wh / 2 - height / 2;
+      const toLeft = left < ww / 2 - width / 2;
       return `${toTop ? 'top' : 'bottom'}${toLeft ? 'Left' : 'Right'}`;
     }
 
-    getMenuStyle () {
+    getMenuStyle() {
       const { width, height, position } = this.state;
       if (position !== POSITION.STATIC) {
         if (this.state.active) {
@@ -175,26 +171,27 @@ const factory = (MenuItem) => {
       }
     }
 
-    getRootStyle () {
+    getRootStyle() {
       if (this.state.position !== POSITION.STATIC) {
         return { width: this.state.width, height: this.state.height };
       }
     }
 
-    renderItems () {
+    renderItems() {
       // Because React Hot Loader creates proxied versions of your components,
       // comparing reference types of elements won't work
       // https://github.com/gaearon/react-hot-loader/blob/master/docs/Known%20Limitations.md#checking-element-types
-      const MenuItemType = (<MenuItem />).type;
+      const MenuItemType = <MenuItem />.type;
 
-      return React.Children.map(this.props.children, (item) => {
+      return React.Children.map(this.props.children, item => {
         if (!item) {
           return item;
         }
 
         if (item.type === MenuItemType) {
           return React.cloneElement(item, {
-            selected: typeof item.props.value !== 'undefined' &&
+            selected:
+              typeof item.props.value !== 'undefined' &&
               this.props.selectable &&
               item.props.value === this.props.selected,
             onClick: this.handleSelect.bind(this, item),
@@ -205,27 +202,36 @@ const factory = (MenuItem) => {
       });
     }
 
-    show () {
+    show() {
       const { width, height } = this.menuNode.getBoundingClientRect();
       this.setState({ active: true, width, height });
     }
 
-    hide () {
+    hide() {
       this.setState({ active: false });
     }
 
-    render () {
+    render() {
       const outlineStyle = { width: this.state.width, height: this.state.height };
-      const className = cx([ theme.menu, theme[this.state.position] ], {
-        [theme.active]: this.state.active,
-      }, this.props.className);
+      const className = cx(
+        theme['menu'],
+        theme[this.state.position],
+        {
+          [theme['active']]: this.state.active,
+        },
+        this.props.className,
+      );
 
       return (
         <div data-teamleader-ui="menu" className={className} style={this.getRootStyle()}>
-          {this.props.outline ? <div className={theme.outline} style={outlineStyle} /> : null}
-          <ul ref={(node) => {
-            this.menuNode = node;
-          }} className={theme.menuInner} style={this.getMenuStyle()}>
+          {this.props.outline ? <div className={theme['outline']} style={outlineStyle} /> : null}
+          <ul
+            ref={node => {
+              this.menuNode = node;
+            }}
+            className={theme['menu-inner']}
+            style={this.getMenuStyle()}
+          >
             {this.renderItems()}
           </ul>
         </div>
@@ -238,7 +244,4 @@ const factory = (MenuItem) => {
 
 const Menu = factory(InjectMenuItem);
 export default Menu;
-export {
-  factory as menuFactory,
-  Menu,
-};
+export { factory as menuFactory, Menu };

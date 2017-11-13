@@ -2,73 +2,83 @@
 @import '@teamleader/ui-typography';
 @import '@teamleader/ui-utilities';
 
+:root {
+  --small-bullet-size: 6px;
+  --medium-bullet-size: 6px;
+  --large-bullet-size: 9px;
+}
+
 .bullet {
-  color: var(--text-color);
   display: inline-block;
-  font-family: var(--font-family);
-  font-size: var(--font-size);
-  font-weight: var(--font-weight);
-  line-height: var(--line-height);
-  margin: auto var(--spacer-smallest);
-  padding: 0 0 0 15px;
+  font-family: var(--font-family-regular);
   position: relative;
   vertical-align: middle;
 
   &:before {
-    background: var(--background-color);
     border-radius: 50%;
+    border: 2px solid;
     content: '';
     display: inline-block;
-    height: 9px;
-    left: 0;
-    position: absolute;
-    top: 50%;
-    width: 9px;
-    margin-top: -6px;
+    margin-right: var(--spacer-smaller);
   }
 }
 
 .mint::before {
-  --background-color: var(--color-mint-light);
+  background-color: var(--color-mint-light);
+  border-color: var(--color-mint-dark);
 }
 
 .violet::before {
-  --background-color: var(--color-violet);
+  background-color: var(--color-violet-light);
+  border-color: var(--color-violet-dark);
 }
 
 .neutral::before {
-  --background-color: var(--color-neutral);
+  background-color: var(--color-teal-light);
+  border-color: var(--color-teal-dark);
 }
 
 .ruby::before {
-  --background-color: var(--color-ruby);
+  background-color: var(--color-ruby-light);
+  border-color: var(--color-ruby-dark);
 }
 
 .gold::before {
-  --background-color: var(--color-gold);
+  background-color: var(--color-gold-light);
+  border-color: var(--color-gold-dark);
 }
 
 .aqua::before {
-  --background-color: var(--color-aqua);
+  background-color: var(--color-aqua-light);
+  border-color: var(--color-aqua-dark);
 }
 
 .large {
-  --font-family: var(--font-family-semi-bold);
-  --font-size: calc(2.0 * var(--unit));
-  --font-weight: 500;
-  --line-height: calc(2.4 * var(--unit));
+  font-size: calc(2.0 * var(--unit));
+  line-height: calc(2.4 * var(--unit));
+
+  &:before {
+    height: var(--large-bullet-size);
+    width: var(--large-bullet-size);
+  }
 }
 
 .medium {
-  --font-family: var(--font-family-regular);
-  --font-size: calc(1.6 * var(--unit));
-  --font-weight: 400;
-  --line-height: calc(1.8 * var(--unit));
+  font-size: calc(1.6 * var(--unit));
+  line-height: calc(1.8 * var(--unit));
+
+  &:before {
+    height: var(--medium-bullet-size);
+    width: var(--medium-bullet-size);
+  }
 }
 
 .small {
-  --font-family: var(--font-family-regular);
-  --font-size: calc(1.4 * var(--unit));
-  --font-weight: 400;
-  --line-height: calc(1.8 * var(--unit));
+  font-size: calc(1.4 * var(--unit));
+  line-height: calc(1.8 * var(--unit));
+
+  &:before {
+    height: var(--small-bullet-size);
+    width: var(--small-bullet-size);
+  }
 }

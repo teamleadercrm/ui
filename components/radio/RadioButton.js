@@ -1,98 +1,143 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import cx from 'classnames';
-import Radio from './Radio';
 import theme from './theme.css';
+import cx from 'classnames';
+import omit from 'lodash.omit';
+import Box from '../box';
+import { TextBody, TextSmall } from '../typography';
 
 class RadioButton extends PureComponent {
   static propTypes = {
     checked: PropTypes.bool,
     children: PropTypes.node,
-    className: PropTypes.string,
     disabled: PropTypes.bool,
-    label: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.node,
-    ]),
     name: PropTypes.string,
-    onBlur: PropTypes.func,
+    className: PropTypes.string,
+    label: PropTypes.string,
     onChange: PropTypes.func,
-    onFocus: PropTypes.func,
     onMouseEnter: PropTypes.func,
     onMouseLeave: PropTypes.func,
-    value: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.bool,
-    ]),
+    size: PropTypes.oneOf(['small', 'medium', 'large']),
   };
 
   static defaultProps = {
     checked: false,
-    className: '',
     disabled: false,
+    size: 'medium',
   };
 
-  handleClick = (event) => {
-    const { checked, disabled, onChange } = this.props;
+  constructor() {
+    super(...arguments);
+    this.handleToggle = ::this.handleToggle;
+  }
+
+  handleToggle(event) {
+    const { disabled, checked, onChange } = this.props;
 
     if (event.pageX !== 0 && event.pageY !== 0) {
       this.blur();
     }
-    if (!disabled && !checked && onChange) {
-      onChange(event, this);
-    }
-  };
 
-  blur () {
+    if (!disabled && onChange) {
+      onChange(!checked, event);
+    }
+  }
+
+  splitProps(props) {
+    const availableBoxProps = [
+      'margin',
+      'marginVertical',
+      'marginHorizontal',
+      'marginBottom',
+      'marginLeft',
+      'marginRight',
+      'marginTop',
+      'padding',
+      'paddingHorizontal',
+      'paddingVertical',
+      'paddingBottom',
+      'paddingLeft',
+      'paddingRight',
+      'paddingTop',
+    ];
+
+    const boxProps = {};
+    const inputProps = {};
+
+    Object.keys(props).forEach(key => {
+      const value = props[key];
+
+      if (availableBoxProps.includes(key)) {
+        boxProps[key] = value;
+      } else {
+        inputProps[key] = value;
+      }
+    });
+
+    return { boxProps, inputProps };
+  }
+
+  blur() {
     if (this.inputNode) {
       this.inputNode.blur();
     }
   }
 
-  focus () {
+  focus() {
     if (this.inputNode) {
       this.inputNode.focus();
     }
   }
 
-  render () {
-    const {
-      checked,
-      children,
+  render() {
+    const { checked, disabled, className, size, label, children, onMouseEnter, onMouseLeave, ...others } = this.props;
+    const rest = omit(others, ['onChange']);
+    const { boxProps, inputProps } = this.splitProps(rest);
+    const TextElement = size === 'small' ? TextSmall : TextBody;
+
+    const classNames = cx(
+      theme['radiobutton'],
+      theme[`is-${size}`],
+      {
+        [theme['is-checked']]: checked,
+        [theme['is-disabled']]: disabled,
+      },
       className,
-      disabled,
-      label,
-      name,
-      onChange, // eslint-disable-line
-      onMouseEnter,
-      onMouseLeave,
-      ...others
-    } = this.props;
-    const _className = cx(theme[disabled ? 'disabled' : 'field'], className);
+    );
+
     return (
-      <label
-        data-teamleader-ui="radio-button"
-        className={_className}
+      <Box
+        element="label"
+        data-teamleader-ui="radiobutton"
+        className={classNames}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
+        {...boxProps}
       >
         <input
-          {...others}
+          className={theme['input']}
+          type="radio"
           checked={checked}
-          className={theme.input}
           disabled={disabled}
-          name={name}
-          onChange={() => {}}
-          onClick={this.handleClick}
-          ref={(node) => {
+          onClick={this.handleToggle}
+          readOnly
+          ref={node => {
             this.inputNode = node;
           }}
-          type="radio"
+          {...inputProps}
         />
-        <Radio checked={checked} disabled={disabled} />
-        {label ? <span className={theme.text}>{label}</span> : null}
-        {children}
-      </label>
+        <span className={theme['shape']} />
+        {(label || children) && (
+          <span className={theme['label']}>
+            {label && (
+              <TextElement element="span" color="teal" soft={disabled}>
+                {label}
+              </TextElement>
+            )}
+            {children}
+          </span>
+        )}
+      </Box>
     );
   }
 }

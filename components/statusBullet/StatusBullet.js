@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
 
@@ -7,8 +8,8 @@ class StatusBullet extends PureComponent {
   static propTypes = {
     children: PropTypes.node.isRequired,
     className: PropTypes.string,
-    color: PropTypes.oneOf([ 'mint', 'violet', 'ruby', 'gold', 'aqua', 'neutral' ]),
-    size: PropTypes.oneOf([ 'small', 'medium', 'large' ]),
+    color: PropTypes.oneOf(['mint', 'violet', 'ruby', 'gold', 'aqua', 'neutral']),
+    size: PropTypes.oneOf(['small', 'medium', 'large']),
   };
 
   static defaultProps = {
@@ -16,26 +17,15 @@ class StatusBullet extends PureComponent {
     size: 'medium',
   };
 
-  render () {
-    const {
-      children,
-      className,
-      color,
-      size,
-      ...others
-    } = this.props;
+  render() {
+    const { children, className, color, size, ...others } = this.props;
 
-    const classes = cx(
-      theme.bullet,
-      theme[color],
-      theme[size],
-      className,
-    );
+    const classNames = cx(theme['bullet'], theme[color], theme[size], className);
 
     return (
-      <span className={classes} {...others} data-teamleader-ui="status-bullet">
+      <Box className={classNames} element="span" {...others} data-teamleader-ui="status-bullet">
         {children}
-      </span>
+      </Box>
     );
   }
 }
