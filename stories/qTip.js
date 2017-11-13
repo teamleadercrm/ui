@@ -14,7 +14,6 @@ const store = new Store({
 });
 
 const updateState = () => {
-  console.log('new value', !store.get('closed'));
   store.set({ closed: !store.get('closed') });
 };
 
