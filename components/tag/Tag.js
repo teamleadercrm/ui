@@ -21,14 +21,6 @@ class Tag extends PureComponent {
     size: 'medium',
   };
 
-  getCloseButtonColor() {
-    return this.props.inverse ? 'white' : 'neutral';
-  }
-
-  getCloseIcon() {
-    return this.props.size === 'large' ? <IconCloseMediumOutline /> : <IconCloseSmallOutline />;
-  }
-
   render() {
     const { className, inverse, label, onLabelClick, onRemoveClick, size, ...others } = this.props;
 
@@ -41,6 +33,9 @@ class Tag extends PureComponent {
       },
       className,
     );
+
+    const closeButtonColor= inverse ? 'white' : 'neutral';
+    const closeButtonIcon = size === 'large' ? <IconCloseMediumOutline /> : <IconCloseSmallOutline />
 
     return (
       <Box className={classNames} data-teamleader-ui="tag" {...others}>
@@ -55,8 +50,8 @@ class Tag extends PureComponent {
         {onRemoveClick && (
           <IconButton
             className={theme['remove-button']}
-            color={this.getCloseButtonColor()}
-            icon={this.getCloseIcon()}
+            color={closeButtonColor}
+            icon={closeButtonIcon}
             onClick={onRemoveClick}
             size="small"
           />
