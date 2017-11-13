@@ -109,7 +109,7 @@
     "image-webpack-loader": "^3.4.2",
     "imports-loader": "^0.6.5",
     "json-loader": "^0.5.4",
-    "postcss": "^5.2.16",
+    "postcss": "^6.0.14",
     "postcss-cssnext": "^3.0.2",
     "postcss-each": "^0.10.0",
     "postcss-import": "^11.0.0",
