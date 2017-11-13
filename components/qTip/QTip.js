@@ -38,9 +38,7 @@ class QTip extends PureComponent {
       <div className={classNames}>
         <Overlay active={!closed} onEscKeyDown={this.handleToggle} />
         <div className={theme['qtip']}>
-          <Button className={theme['icon']} level={level} onClick={this.handleToggle}>
-            {icon}
-          </Button>
+          <Button className={theme['icon']} level={level} onClick={this.handleToggle} icon={icon} />
           <div className={theme['inner-container']}>
             <div className={theme['content']}>{children}</div>
             <IconButton
