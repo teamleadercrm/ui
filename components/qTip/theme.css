@@ -27,6 +27,7 @@
 }
 
 .icon {
+  flex-shrink: 0;
   color: var(--color-neutral-darkest);
   border-radius: 4px 0 0 4px;
   width: var(--tip-width);
