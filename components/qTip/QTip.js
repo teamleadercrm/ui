@@ -5,6 +5,7 @@ import theme from './theme.css';
 import Button, { IconButton } from '../button';
 import Overlay from '../overlay';
 import { IconArrowRightSmallOutline } from '@teamleader/ui-icons';
+import Box from '../box';
 
 class QTip extends PureComponent {
   static propTypes = {
@@ -26,7 +27,7 @@ class QTip extends PureComponent {
     const level = highlighted ? 'primary' : 'secondary';
 
     return (
-      <div className={classNames} {...others}>
+      <Box className={classNames} {...others}>
         <Overlay active={!closed} onEscKeyDown={onChange} />
         <div className={theme['qtip']}>
           <Button className={theme['icon']} level={level} onClick={onChange} icon={icon} />
@@ -40,7 +41,7 @@ class QTip extends PureComponent {
             />
           </div>
         </div>
-      </div>
+      </Box>
     );
   }
 }
