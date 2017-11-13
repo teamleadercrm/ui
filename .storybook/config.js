@@ -9,10 +9,6 @@ setDefaults({
   inline: false,
   source: true,
   propTablesExclude: [],
-  styles: stylesheet => {
-    stylesheet.link.topRight.zIndex = 99999999;
-    return stylesheet;
-  }
 });
 
 setOptions({
