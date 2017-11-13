@@ -19,7 +19,7 @@
   align-items: center;
   border-radius: var(--button-border-radius);
   cursor: pointer;
-  display: flex;
+  display: inline-flex;
   font-family: var(--font-family-medium);
   justify-content: center;
   letter-spacing: 0;

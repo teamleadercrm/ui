@@ -5,8 +5,9 @@ import cx from 'classnames';
 import omit from 'lodash.omit';
 import Box from '../box';
 import { TextBody, TextSmall } from '../typography';
+import { IconCheckmarkSmallOutline, IconCheckmarkMediumOutline } from '@teamleader/ui-icons';
 
-class RadioButton extends PureComponent {
+class Checkbox extends PureComponent {
   static propTypes = {
     checked: PropTypes.bool,
     children: PropTypes.node,
@@ -15,8 +16,6 @@ class RadioButton extends PureComponent {
     className: PropTypes.string,
     label: PropTypes.string,
     onChange: PropTypes.func,
-    onMouseEnter: PropTypes.func,
-    onMouseLeave: PropTypes.func,
     size: PropTypes.oneOf(['small', 'medium', 'large']),
   };
 
@@ -40,6 +39,18 @@ class RadioButton extends PureComponent {
 
     if (!disabled && onChange) {
       onChange(!checked, event);
+    }
+  }
+
+  blur() {
+    if (this.inputNode) {
+      this.inputNode.blur();
+    }
+  }
+
+  focus() {
+    if (this.inputNode) {
+      this.inputNode.focus();
     }
   }
 
@@ -77,26 +88,15 @@ class RadioButton extends PureComponent {
     return { boxProps, inputProps };
   }
 
-  blur() {
-    if (this.inputNode) {
-      this.inputNode.blur();
-    }
-  }
-
-  focus() {
-    if (this.inputNode) {
-      this.inputNode.focus();
-    }
-  }
-
   render() {
-    const { checked, disabled, className, size, label, children, onMouseEnter, onMouseLeave, ...others } = this.props;
+    const { checked, disabled, className, size, label, children, ...others } = this.props;
     const rest = omit(others, ['onChange']);
     const { boxProps, inputProps } = this.splitProps(rest);
     const TextElement = size === 'small' ? TextSmall : TextBody;
+    const IconCheckmark = size === 'large' ? IconCheckmarkMediumOutline : IconCheckmarkSmallOutline;
 
     const classNames = cx(
-      theme['radiobutton'],
+      theme['checkbox'],
       theme[`is-${size}`],
       {
         [theme['is-checked']]: checked,
@@ -106,27 +106,22 @@ class RadioButton extends PureComponent {
     );
 
     return (
-      <Box
-        element="label"
-        data-teamleader-ui="radiobutton"
-        className={classNames}
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
-        {...boxProps}
-      >
+      <Box element="label" data-teamleader-ui="checkbox" className={classNames} {...boxProps}>
         <input
           className={theme['input']}
-          type="radio"
+          type="checkbox"
           checked={checked}
           disabled={disabled}
           onClick={this.handleToggle}
-          readOnly
           ref={node => {
             this.inputNode = node;
           }}
+          readOnly
           {...inputProps}
         />
-        <span className={theme['shape']} />
+        <span className={theme['shape']}>
+          <IconCheckmark className={theme['checkmark']} />
+        </span>
         {(label || children) && (
           <span className={theme['label']}>
             {label && (
@@ -142,5 +137,5 @@ class RadioButton extends PureComponent {
   }
 }
 
-export default RadioButton;
-export { RadioButton };
+export default Checkbox;
+export { Checkbox };
