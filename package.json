@@ -65,7 +65,7 @@
     "prop-types": "^15.5.9",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "react-resize-detector": "^0.6.0"
+    "react-resize-detector": "^1.1.0"
   },
   "devDependencies": {
     "@sambego/storybook-state": "^1.0.3",
