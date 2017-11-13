@@ -15,17 +15,8 @@ class QTip extends PureComponent {
     onChange: PropTypes.func.isRequired,
   };
 
-  constructor() {
-    super(...arguments);
-    this.handleToggle = ::this.handleToggle;
-  }
-
-  handleToggle() {
-    this.props.onChange();
-  }
-
   render() {
-    const { children, closed, highlighted, icon } = this.props;
+    const { children, closed, highlighted, icon, onChange } = this.props;
 
     const classNames = cx(theme['container'], {
       [theme['is-closed']]: closed,
@@ -36,15 +27,15 @@ class QTip extends PureComponent {
 
     return (
       <div className={classNames}>
-        <Overlay active={!closed} onEscKeyDown={this.handleToggle} />
+        <Overlay active={!closed} onEscKeyDown={onChange} />
         <div className={theme['qtip']}>
-          <Button className={theme['icon']} level={level} onClick={this.handleToggle} icon={icon} />
+          <Button className={theme['icon']} level={level} onClick={onChange} icon={icon} />
           <div className={theme['inner-container']}>
             <div className={theme['content']}>{children}</div>
             <IconButton
               className={theme['close-button']}
               size="small"
-              onClick={this.handleToggle}
+              onClick={onChange}
               icon={<IconArrowRightSmallOutline />}
             />
           </div>
