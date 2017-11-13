@@ -79,12 +79,12 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
     }
 
     componentWillUnmount() {
-      document.body.removeChild(this.popoverRoot);
-
       events.removeEventsFromWindow({
         resize: this._setPlacementThrottled,
         scroll: this._setPlacementThrottled,
       });
+      
+      document.body.removeChild(this.popoverRoot);
     }
 
     componentDidUpdate(prevProps, prevState) {
