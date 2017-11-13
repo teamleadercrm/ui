@@ -1,10 +1,10 @@
-const config = require('../config');
 const pkg = require('../package.json');
+const env = process.env.NODE_ENV || 'development';
 
 const globals = {
-  __DEV__: config.env === 'development',
-  __PROD__: config.env === 'production',
-  __TEST__: config.env === 'test',
+  __DEV__: env === 'development',
+  __PROD__: env === 'production',
+  __TEST__: env === 'test',
   __BASENAME__: JSON.stringify(process.env.BASENAME || ''),
   __VERSION__: JSON.stringify(pkg.version)
 };
