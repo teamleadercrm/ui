@@ -38,6 +38,7 @@
 
 .content {
   flex: 1;
+  padding: var(--spacer-small) 0;
 }
 
 .close-button {
