@@ -83,7 +83,7 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
         resize: this._setPlacementThrottled,
         scroll: this._setPlacementThrottled,
       });
-      
+
       document.body.removeChild(this.popoverRoot);
     }
 
@@ -134,8 +134,6 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
         return <Button key={idx} {...action} className={className}/>; // eslint-disable-line
       });
 
-      const customClassName = cx(theme['popover'], className);
-
       const popover = (
         <Transition timeout={0} in={active} appear>
           {state => {
@@ -158,7 +156,7 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
                 />
                 <div
                   data-teamleader-ui={`popover-${axis}`}
-                  className={customClassName}
+                  className={cx(theme['popover'], className)}
                   style={{ left: `${left}px`, top: `${top}px` }}
                   ref={node => {
                     this.popoverNode = node;
