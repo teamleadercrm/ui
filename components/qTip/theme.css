@@ -22,7 +22,7 @@
   transition: all var(--animation-duration) var(--animation-curve-default);
 
   .is-closed & {
-    transform: translateX(calc(100% - var(--tip-width) + 1px));
+    transform: translateX(100%) translateX(calc(-1 * var(--tip-width) + 1px)); /* split into 2 separete translate, otherwise IE can't handle it */
   }
 }
 
