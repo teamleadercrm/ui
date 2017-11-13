@@ -33,7 +33,7 @@ class Tag extends PureComponent {
     const { className, inverse, label, onLabelClick, onRemoveClick, size, ...others } = this.props;
 
     const classNames = cx(
-      theme.tag,
+      theme['tag'],
       theme[`is-${size}`],
       {
         [theme['is-removable']]: onRemoveClick,
