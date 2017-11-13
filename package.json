@@ -79,7 +79,7 @@
     "babel-cli": "^6.18.0",
     "babel-core": "^6.17.0",
     "babel-eslint": "^8.0.2",
-    "babel-loader": "^6.2.5",
+    "babel-loader": "^7.1.2",
     "babel-plugin-istanbul": "^2.0.1",
     "babel-plugin-transform-runtime": "^6.15.0",
     "babel-polyfill": "^6.16.0",
