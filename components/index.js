@@ -20,6 +20,7 @@ import StatusLabel from './statusLabel';
 import { Toast } from './toast';
 import Toggle from './toggle';
 import Tooltip, { TooltipLabel } from './tooltip';
+import QTip from './qTip';
 
 export {
   Avatar,
@@ -60,4 +61,5 @@ export {
   Toggle,
   Tooltip,
   TooltipLabel,
+  QTip,
 };
