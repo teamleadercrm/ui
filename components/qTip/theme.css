@@ -14,7 +14,7 @@
 .qtip {
   composes: reset;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   position: relative;
   background: var(--color-neutral-lightest);
   box-shadow: inset 0 0 0 1px var(--color-neutral-dark);
@@ -34,6 +34,7 @@
   border-radius: 3px 0 0 3px;
   width: var(--tip-width);
   min-height: 48px;
+  height: auto;
 }
 
 .content {
@@ -43,6 +44,8 @@
 
 .close-button {
   margin: 0 var(--spacer-regular) 0 var(--spacer-small);
+  display: flex;
+  align-items: center;
 }
 
 .is-highlighted .icon {
