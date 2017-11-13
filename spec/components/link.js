@@ -6,7 +6,7 @@ class LinkTest extends PureComponent {
     console.log('Clicked on a link');
   };
 
-  render () {
+  render() {
     return (
       <article>
         <Section color="neutral" dark>
@@ -14,8 +14,16 @@ class LinkTest extends PureComponent {
         </Section>
         <div className="component-spec">
           <div className="preview">
-            <p><Link href="http://www.facebook.com" target="_blank">I'm an external link</Link></p>
-            <p><Link href="#" onClick={this.handleClick}>I'm an internal link</Link></p>
+            <p>
+              <Link href="http://www.facebook.com" target="_blank">
+                I'm an external link
+              </Link>
+            </p>
+            <p>
+              <Link href="#" onClick={this.handleClick}>
+                I'm an internal link
+              </Link>
+            </p>
           </div>
         </div>
       </article>

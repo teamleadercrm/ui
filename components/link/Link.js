@@ -15,20 +15,14 @@ class Link extends PureComponent {
     className: '',
   };
 
-  static use (LinkComponentToUse) {
+  static use(LinkComponentToUse) {
     LinkComponent = LinkComponentToUse;
   }
 
-  render () {
-    const {
-      children,
-      className,
-    } = this.props;
+  render() {
+    const { children, className } = this.props;
 
-    const classNames = cx(
-      s['link'],
-      className,
-    );
+    const classNames = cx(s['link'], className);
 
     if (LinkComponent) {
       return <LinkComponent {...this.props} className={classNames} />;

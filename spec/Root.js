@@ -87,7 +87,6 @@ const Root = () => (
       <Section id="typography">
         <Typography />
       </Section>
-
     </Content>
   </div>
 );
