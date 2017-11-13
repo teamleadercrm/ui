@@ -16,7 +16,7 @@ class QTip extends PureComponent {
   };
 
   render() {
-    const { children, closed, highlighted, icon, onChange } = this.props;
+    const { children, closed, highlighted, icon, onChange, ...others } = this.props;
 
     const classNames = cx(theme['container'], {
       [theme['is-closed']]: closed,
@@ -26,7 +26,7 @@ class QTip extends PureComponent {
     const level = highlighted ? 'primary' : 'secondary';
 
     return (
-      <div className={classNames}>
+      <div className={classNames} {...others}>
         <Overlay active={!closed} onEscKeyDown={onChange} />
         <div className={theme['qtip']}>
           <Button className={theme['icon']} level={level} onClick={onChange} icon={icon} />
