@@ -35,7 +35,7 @@
   vertical-align: middle;
 
   svg {
-    margin: auto;
+    margin: auto 0; /* fix for vertical centering in safari */
   }
 
   & > * {
