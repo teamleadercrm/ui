@@ -54,8 +54,8 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
       this.popoverRoot = document.createElement('div');
       this.popoverRoot.id = 'popover-root';
 
-      this.setPlacement = this.setPlacement.bind(this);
-      this._setPlacementThrottled = this._setPlacementThrottled.bind(this);
+      this.setPlacement = ::this.setPlacement;
+      this._setPlacementThrottled = ::this._setPlacementThrottled;
 
       this.state = {
         positioning: {
