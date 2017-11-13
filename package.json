@@ -127,7 +127,7 @@
     "storybook-addon-a11y": "^3.1.9",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.6",
-    "webpack": "^2.3.3"
+    "webpack": "^3.8.1"
   },
   "directories": {
     "doc": "docs"
