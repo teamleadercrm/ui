@@ -34,8 +34,8 @@ class Tag extends PureComponent {
       className,
     );
 
-    const closeButtonColor= inverse ? 'white' : 'neutral';
-    const closeButtonIcon = size === 'large' ? <IconCloseMediumOutline /> : <IconCloseSmallOutline />
+    const closeButtonColor = inverse ? 'white' : 'neutral';
+    const closeButtonIcon = size === 'large' ? <IconCloseMediumOutline /> : <IconCloseSmallOutline />;
 
     return (
       <Box className={classNames} data-teamleader-ui="tag" {...others}>
