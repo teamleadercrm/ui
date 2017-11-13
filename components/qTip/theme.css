@@ -34,21 +34,22 @@
   height: auto;
 }
 
-.content {
-  flex: 1;
+.inner-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
   background: var(--color-neutral-lightest);
-  padding: var(--spacer-small) var(--spacer-regular);
   border-top: 1px solid var(--color-neutral-dark);
   border-bottom: 1px solid var(--color-neutral-dark);
 }
 
+.content {
+  flex: 1;
+  padding: var(--spacer-small) var(--spacer-regular);
+}
+
 .close-button {
-  padding-right: var(--spacer-regular);
-  display: flex;
-  align-items: center;
-  background: var(--color-neutral-lightest);
-  border-top: 1px solid var(--color-neutral-dark);
-  border-bottom: 1px solid var(--color-neutral-dark);
+  margin-right: var(--spacer-regular);
 }
 
 .is-highlighted .icon {
