@@ -5,7 +5,7 @@ import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import styles from '@sambego/storybook-styles';
 import { Store, State } from '@sambego/storybook-state';
-import { Island, QTip } from '../components';
+import { Island, QTip, TextSmall } from '../components';
 import { baseStyles, centerStyles } from '../.storybook/styles';
 import { IconIdeaMediumOutline } from '@teamleader/ui-icons';
 
@@ -25,14 +25,18 @@ storiesOf('Q-tip', module)
   .add('Default', () => (
     <Island paddingHorizontal={0} paddingVertical={6} style={{ width: '500px' }}>
       <State store={store}>
-          <QTip onChange={updateState} icon={<IconIdeaMediumOutline />}>Halloo</QTip>
+        <QTip onChange={updateState} icon={<IconIdeaMediumOutline />}>
+          <TextSmall color="teal">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</TextSmall>
+        </QTip>
       </State>
     </Island>
   ))
   .add('Highlighted', () => (
     <Island paddingHorizontal={0} paddingVertical={6} style={{ width: '500px' }}>
       <State store={store}>
-          <QTip highlighted onChange={updateState} icon={<IconIdeaMediumOutline />}>Halloo</QTip>
+        <QTip highlighted onChange={updateState} icon={<IconIdeaMediumOutline />}>
+          <TextSmall color="teal">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</TextSmall>
+        </QTip>
       </State>
     </Island>
   ));
