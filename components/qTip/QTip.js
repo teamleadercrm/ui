@@ -43,7 +43,7 @@ class QTip extends PureComponent {
           </Button>
           <div className={theme['content']}>{children}</div>
           <div className={theme['close-button']}>
-            <IconButton size="small" monClick={this.handleToggle} icon={<IconArrowRightSmallOutline />} />
+            <IconButton size="small" onClick={this.handleToggle} icon={<IconArrowRightSmallOutline />} />
           </div>
         </div>
       </div>
