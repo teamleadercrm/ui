@@ -55,7 +55,7 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
       this.popoverRoot.id = 'popover-root';
 
       this.setPlacement = ::this.setPlacement;
-      this._setPlacementThrottled = ::this._setPlacementThrottled;
+      this.setPlacementThrottled = ::this.setPlacementThrottled;
 
       this.state = {
         positioning: {
@@ -67,21 +67,21 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
       };
     }
 
-    _setPlacementThrottled = throttle(this.setPlacement, 16);
+    setPlacementThrottled = throttle(this.setPlacement, 16);
 
     componentDidMount() {
       document.body.appendChild(this.popoverRoot);
 
       events.addEventsToWindow({
-        resize: this._setPlacementThrottled,
-        scroll: this._setPlacementThrottled,
+        resize: this.setPlacementThrottled,
+        scroll: this.setPlacementThrottled,
       });
     }
 
     componentWillUnmount() {
       events.removeEventsFromWindow({
-        resize: this._setPlacementThrottled,
-        scroll: this._setPlacementThrottled,
+        resize: this.setPlacementThrottled,
+        scroll: this.setPlacementThrottled,
       });
 
       document.body.removeChild(this.popoverRoot);
@@ -182,7 +182,7 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
                   {actionButtons.length ? (
                     <ButtonGroup className={theme['navigation']}>{actionButtons}</ButtonGroup>
                   ) : null}
-                  <ReactResizeDetector handleHeight onResize={this._setPlacementThrottled} />
+                  <ReactResizeDetector handleHeight onResize={this.setPlacementThrottled} />
                 </div>
               </div>
             );
