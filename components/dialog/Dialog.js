@@ -1,8 +1,7 @@
 import React, { PureComponent } from 'react';
+import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import Portal from '../hoc/Portal';
-import ActivableRenderer from '../hoc/ActivableRenderer';
 import { Heading3 } from '../typography';
 import InjectButton from '../button/Button.js';
 import InjectIconButton from '../button/IconButton';
@@ -43,6 +42,21 @@ const factory = (Overlay, Button, IconButton) => {
       type: 'regular',
     };
 
+    constructor() {
+      super(...arguments);
+
+      this.dialogRoot = document.createElement('div');
+      this.dialogRoot.id = 'dialog-root';
+    }
+
+    componentDidMount() {
+      document.body.appendChild(this.dialogRoot);
+    }
+
+    componentWillUnmount() {
+      document.body.removeChild(this.dialogRoot);
+    }
+
     render() {
       const {
         actions,
@@ -60,6 +74,10 @@ const factory = (Overlay, Button, IconButton) => {
         title,
         type,
       } = this.props;
+
+      if (!active) {
+        return null;
+      }
 
       const actionButtons = actions.map((action, idx) => {
         const className = cx(theme['button'], {
@@ -79,8 +97,8 @@ const factory = (Overlay, Button, IconButton) => {
         className,
       );
 
-      return (
-        <Portal className={theme['wrapper']}>
+      const dialog = (
+        <div className={theme['wrapper']}>
           <Overlay
             active={active}
             backdrop={backdrop}
@@ -106,12 +124,14 @@ const factory = (Overlay, Button, IconButton) => {
               </nav>
             )}
           </div>
-        </Portal>
+        </div>
       );
+
+      return createPortal(dialog, this.dialogRoot);
     }
   }
 
-  return ActivableRenderer()(Dialog);
+  return Dialog;
 };
 
 const Dialog = factory(InjectOverlay, InjectButton, InjectIconButton);
