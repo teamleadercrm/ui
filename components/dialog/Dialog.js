@@ -80,9 +80,7 @@ const factory = (Overlay, Button, IconButton) => {
         return null;
       }
 
-      const actionButtons = actions.map((action, index) => {
-        return <Button key={index} {...action} />;
-      });
+      const actionButtons = actions.map((action, index) => <Button key={index} {...action} />);
 
       const dialogClassNames = cx(theme['dialog'], theme[`is-${size}`], theme[`is-${type}`], className);
 
