@@ -55,19 +55,19 @@
   transform: translateY(0%);
 }
 
-.small {
+.is-small {
   width: 400px;
 }
 
-.medium {
+.is-medium {
   width: 540px;
 }
 
-.large {
+.is-large {
   width: 700px;
 }
 
-.fullscreen {
+.is-fullscreen {
   width: 1300px;
 
   @media screen and (--xs-viewport) {
