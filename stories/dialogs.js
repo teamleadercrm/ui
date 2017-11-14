@@ -102,4 +102,22 @@ storiesOf('Dialogs', module)
         </Dialog>
       </State>
     </Box>
+  ))
+  .add('warning style', () => (
+    <Box>
+      <Button onClick={handleButtonClick} label="Open a dialog" />
+      <State store={store}>
+        <Dialog
+          actions={actions}
+          active={false}
+          onCloseClick={handleCloseClick}
+          onEscKeyDown={handleCloseClick}
+          onOverlayClick={handleCloseClick}
+          title="Dialog title"
+          type="warning"
+        >
+          <TextBody>Here you can add arbitrary content.</TextBody>
+        </Dialog>
+      </State>
+    </Box>
   ));
