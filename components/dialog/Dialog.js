@@ -119,11 +119,11 @@ const factory = (Overlay, Button, IconButton) => {
                   <section role="body" className={theme['body']}>
                     {children}
                   </section>
-                  {actionButtons.length && (
+                  {actionButtons.length ? (
                     <ButtonGroup role="navigation" className={theme['navigation']}>
                       {actionButtons}
                     </ButtonGroup>
-                  )}
+                  ) : null}
                 </div>
               </div>
             );
