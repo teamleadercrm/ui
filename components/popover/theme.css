@@ -69,14 +69,10 @@
 
 .title {
   color: var(--popover-header-title-text-color);
-  flex-grow: 0;
-  margin: 0;
 }
 
 .subtitle {
   color: var(--popover-header-subtitle-text-color);
-  flex-grow: 0;
-  margin: 3px 0 0 0;
 }
 
 .close {
