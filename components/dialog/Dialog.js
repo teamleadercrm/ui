@@ -88,7 +88,7 @@ const factory = (Overlay, Button, IconButton) => {
         return <Button key={idx} {...action} className={className} />; // eslint-disable-line
       });
 
-      const dialogClassNames = cx(theme['dialog'], theme[`is-${size}`], theme[type], className);
+      const dialogClassNames = cx(theme['dialog'], theme[`is-${size}`], theme[`is-${type}`], className);
 
       const dialog = (
         <Transition timeout={0} in={active} appear>
