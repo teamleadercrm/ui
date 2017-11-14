@@ -1,9 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import ActivableRenderer from '../hoc/ActivableRenderer';
 import { Button, IconButton } from '../button';
-import Portal from '../hoc/Portal';
+import { createPortal } from 'react-dom';
 import { IconCloseMediumOutline } from '@teamleader/ui-icons';
 import theme from './theme.css';
 
@@ -21,7 +20,16 @@ const factory = (Button, IconButton) => {
       type: PropTypes.oneOf(['accept', 'cancel', 'warning']),
     };
 
+    constructor() {
+      super(...arguments);
+
+      this.toastRoot = document.createElement('div');
+      this.toastRoot.id = 'toast-root';
+    }
+
     componentDidMount() {
+      document.body.appendChild(this.toastRoot);
+
       if (this.props.active && this.props.timeout) {
         this._scheduleTimeout(this.props);
       }
@@ -35,6 +43,7 @@ const factory = (Button, IconButton) => {
 
     componentWillUnmount() {
       clearTimeout(this.currentTimeout);
+      document.body.removeChild(this.toastRoot);
     }
 
     _scheduleTimeout = props => {
@@ -65,32 +74,32 @@ const factory = (Button, IconButton) => {
         className,
       );
 
-      return (
-        <Portal>
-          <div data-teamleader-ui="toast" className={classNames}>
-            <span className={theme['label']}>
-              {label}
-              {children}
-            </span>
-            {onClick ? (
-              action ? (
-                <Button className={theme['button']} label={action} level="outline" onClick={onClick} size="small" />
-              ) : (
-                <IconButton
-                  className={theme['icon-button']}
-                  icon={<IconCloseMediumOutline />}
-                  color="white"
-                  onClick={onClick}
-                />
-              )
-            ) : null}
-          </div>
-        </Portal>
+      const toast = (
+        <div data-teamleader-ui="toast" className={classNames}>
+          <span className={theme['label']}>
+            {label}
+            {children}
+          </span>
+          {onClick ? (
+            action ? (
+              <Button className={theme['button']} label={action} level="outline" onClick={onClick} size="small" />
+            ) : (
+              <IconButton
+                className={theme['icon-button']}
+                icon={<IconCloseMediumOutline />}
+                color="white"
+                onClick={onClick}
+              />
+            )
+          ) : null}
+        </div>
       );
+
+      return createPortal(toast, this.toastRoot);
     }
   }
 
-  return ActivableRenderer()(Toast);
+  return Toast;
 };
 
 const Toast = factory(Button, IconButton);
