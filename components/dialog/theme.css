@@ -106,10 +106,6 @@
   position: absolute !important;
   right: calc(-2.6 * var(--unit));
 
-  > span {
-    font-size: calc(1.6 * var(--unit)) !important;
-  }
-
   &:hover {
     color: var(--color-neutral) !important;
   }
