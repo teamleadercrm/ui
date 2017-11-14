@@ -31,7 +31,7 @@ storiesOf('Dialogs', module)
   .addDecorator((story, context) => withInfo('common info')(story)(context))
   .addDecorator(checkA11y)
   .addDecorator(styles({ ...baseStyles, ...centerStyles }))
-  .add('colors', () => (
+  .add('small', () => (
     <Box>
       <Button onClick={handleButtonClick} label="Open a dialog" />
       <State store={store}>
@@ -42,6 +42,61 @@ storiesOf('Dialogs', module)
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
           title="Dialog title"
+          size="small"
+        >
+          <TextBody>Here you can add arbitrary content.</TextBody>
+        </Dialog>
+      </State>
+    </Box>
+  ))
+  .add('medium', () => (
+    <Box>
+      <Button onClick={handleButtonClick} label="Open a dialog" />
+      <State store={store}>
+        <Dialog
+          actions={actions}
+          active={false}
+          onCloseClick={handleCloseClick}
+          onEscKeyDown={handleCloseClick}
+          onOverlayClick={handleCloseClick}
+          title="Dialog title"
+          size="medium"
+        >
+          <TextBody>Here you can add arbitrary content.</TextBody>
+        </Dialog>
+      </State>
+    </Box>
+  ))
+  .add('large', () => (
+    <Box>
+      <Button onClick={handleButtonClick} label="Open a dialog" />
+      <State store={store}>
+        <Dialog
+          actions={actions}
+          active={false}
+          onCloseClick={handleCloseClick}
+          onEscKeyDown={handleCloseClick}
+          onOverlayClick={handleCloseClick}
+          title="Dialog title"
+          size="large"
+        >
+          <TextBody>Here you can add arbitrary content.</TextBody>
+        </Dialog>
+      </State>
+    </Box>
+  ))
+  .add('fullscreen', () => (
+    <Box>
+      <Button onClick={handleButtonClick} label="Open a dialog" />
+      <State store={store}>
+        <Dialog
+          actions={actions}
+          active={false}
+          onCloseClick={handleCloseClick}
+          onEscKeyDown={handleCloseClick}
+          onOverlayClick={handleCloseClick}
+          title="Dialog title"
+          size="fullscreen"
         >
           <TextBody>Here you can add arbitrary content.</TextBody>
         </Dialog>
