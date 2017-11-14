@@ -126,13 +126,7 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
         return null;
       }
 
-      const actionButtons = actions.map((action, idx) => {
-        const className = cx(theme['button'], {
-          [action.className]: action.className,
-        });
-
-        return <Button key={idx} {...action} className={className}/>; // eslint-disable-line
-      });
+      const actionButtons = actions.map((action, idx) => <Button key={idx} {...action} />);
 
       const popover = (
         <Transition timeout={0} in={active} appear>
@@ -166,7 +160,7 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
                   {(title || subtitle || onCloseClick) && (
                     <header className={theme['header']}>
                       {title && <Heading3 className={theme['title']}>{title}</Heading3>}
-                      {subtitle && <TextSmall className={theme['subtitle']}>{subtitle}</TextSmall>}
+                      {subtitle && <TextSmall className={theme['subtitle']} marginTop={1}>{subtitle}</TextSmall>}
                       {onCloseClick && (
                         <IconButton
                           icon={<IconCloseMediumOutline />}
