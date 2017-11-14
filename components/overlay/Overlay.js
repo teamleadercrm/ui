@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import Transition from 'react-transition-group/Transition';
 import cx from 'classnames';
 import theme from './theme.css';
 
@@ -87,19 +88,26 @@ class Overlay extends PureComponent {
     } = this.props; // eslint-disable-line
 
     return (
-      <div
-        data-teamleader-ui="overlay"
-        {...other}
-        onClick={this.handleClick}
-        className={cx(
-          theme['overlay'],
-          theme[backdrop],
-          {
-            [theme['active']]: active,
-          },
-          className,
-        )}
-      />
+      <Transition timeout={0} in={active} appear>
+        {state => {
+          return (
+            <div
+              data-teamleader-ui="overlay"
+              {...other}
+              onClick={this.handleClick}
+              className={cx(
+                theme['overlay'],
+                theme[backdrop],
+                {
+                  [theme['is-entering']]: state === 'entering',
+                  [theme['is-entered']]: state === 'entered',
+                },
+                className,
+              )}
+            />
+          );
+        }}
+      </Transition>
     );
   }
 }
