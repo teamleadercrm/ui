@@ -160,7 +160,11 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
                   {(title || subtitle || onCloseClick) && (
                     <header className={theme['header']}>
                       {title && <Heading3 className={theme['title']}>{title}</Heading3>}
-                      {subtitle && <TextSmall className={theme['subtitle']} marginTop={1}>{subtitle}</TextSmall>}
+                      {subtitle && (
+                        <TextSmall className={theme['subtitle']} marginTop={1}>
+                          {subtitle}
+                        </TextSmall>
+                      )}
                       {onCloseClick && (
                         <IconButton
                           icon={<IconCloseMediumOutline />}
