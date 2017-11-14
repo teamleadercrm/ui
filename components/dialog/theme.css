@@ -132,10 +132,3 @@
   padding: var(--dialog-navigation-padding);
   position: relative;
 }
-
-.button {
-  margin-left: var(--dialog-navigation-padding);
-  min-width: 0;
-  padding-left: var(--dialog-navigation-padding);
-  padding-right: var(--dialog-navigation-padding);
-}
