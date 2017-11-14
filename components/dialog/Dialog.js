@@ -114,7 +114,7 @@ const factory = (Overlay, Button, IconButton) => {
                   <header className={theme['header']}>
                     {type === 'warning' && <IconWarningMediumOutline className={theme['icon']} />}
                     {title && <Heading3 className={theme['title']}>{title}</Heading3>}
-                    <IconButton icon={<IconCloseMediumOutline />} className={theme['close']} onMouseUp={onCloseClick} />
+                    <IconButton icon={<IconCloseMediumOutline />} className={theme['close']} onClick={onCloseClick} />
                   </header>
                   <section role="body" className={theme['body']}>
                     {children}
