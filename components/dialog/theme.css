@@ -82,7 +82,7 @@
 .header {
   background: var(--dialog-header-background-color);
   border-bottom: 1px solid var(--dialog-header-border-color);
-  border-radius: 4px 4px 0 0;
+  border-radius: var(--dialog-border-radius) var(--dialog-border-radius) 0 0;
   padding: var(--dialog-header-padding);
   position: relative;
 
@@ -139,7 +139,7 @@
 .navigation {
   justify-content: flex-end;
   background: var(--dialog-background-color);
-  border-radius: 0 0 4px 4px;
+  border-radius: 0 0 var(--dialog-border-radius) var(--dialog-border-radius);
   border-top: 1px solid var(--dialog-navigation-border-color);
   display: flex;
   flex-grow: 0;
