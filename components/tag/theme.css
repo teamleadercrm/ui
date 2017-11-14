@@ -1,0 +1,114 @@
+@import '@teamleader/ui-colors';
+@import '@teamleader/ui-typography';
+@import '@teamleader/ui-utilities';
+
+:root {
+  --tag-border-radius: calc(.4 * var(--unit));
+  --tag-border-width: 2px;
+  --tag-size-small: 24px;
+  --tag-size-medium: 30px;
+  --tag-size-large: 36px;
+}
+
+.tag {
+  composes: reset;
+  background-color: color(var(--color-neutral-darkest) a(12%));
+  border-radius: var(--tag-border-radius);
+  display: inline-flex;
+  align-items: center;
+}
+
+.label {
+  color: var(--color-teal-darkest);
+  font-family: var(--font-family-medium);
+}
+
+.remove-button {
+  border-radius: 0 var(--tag-border-radius) var(--tag-border-radius) 0;
+  height: 100%;
+}
+
+.label-button {
+  border: 0 !important;
+  height: 100%;
+
+  &:not(.is-inverse) {
+    &:focus {
+      box-shadow: 0 0 0 var(--tag-border-width) color(var(--color-teal-darkest) a(36%)) !important;
+    }
+
+    &:active {
+      box-shadow: none !important;
+    }
+  }
+}
+
+.is-inverse {
+  background: color(var(--color-neutral-lightest) a(12%));
+
+  .label {
+    color: var(--color-neutral-lightest);
+  }
+
+  .label-button {
+    &:focus {
+      box-shadow: 0 0 0 var(--tag-border-width) color(var(--color-neutral-lightest) a(50%)) !important;
+    }
+
+    &:active {
+      box-shadow: none !important;
+    }
+  }
+}
+
+.is-removable {
+  .label-button {
+    border-radius: var(--tag-border-radius) 0 0 var(--tag-border-radius);
+  }
+}
+
+/* Tag sizes */
+.is-small {
+  height: var(--tag-size-small);
+
+  .remove-button {
+    margin-left: calc(-1 * var(--spacer-smallest));
+  }
+
+  .label,
+  .label-button {
+    font-size: calc(1.2 * var(--unit));
+    line-height: var(--tag-size-small);
+    padding: 0 var(--spacer-smaller);
+  }
+}
+
+.is-medium {
+  height: var(--tag-size-medium);
+
+  .remove-button {
+    margin-left: calc(-1 * var(--spacer-smaller));
+  }
+
+  .label,
+  .label-button {
+    font-size: calc(1.4 * var(--unit));
+    line-height: var(--tag-size-medium);
+    padding: 0 var(--spacer-small);
+  }
+}
+
+.is-large {
+  height: var(--tag-size-large);
+
+  .remove-button {
+    margin-left: calc(-1 * var(--spacer-smaller));
+  }
+
+  .label,
+  .label-button {
+    font-size: calc(1.4 * var(--unit));
+    line-height: var(--tag-size-large);
+    padding: 0 var(--spacer-small);
+  }
+}
