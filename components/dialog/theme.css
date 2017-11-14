@@ -137,19 +137,13 @@
 }
 
 .navigation {
-  justify-content: flex-end;
   background: var(--dialog-background-color);
   border-radius: 0 0 var(--dialog-border-radius) var(--dialog-border-radius);
   border-top: 1px solid var(--dialog-navigation-border-color);
-  display: flex;
   flex-grow: 0;
+  justify-content: flex-end;
   padding: var(--dialog-navigation-padding);
   position: relative;
-  text-align: right;
-
-  .button {
-    margin-left: calc(var(--unit));
-  }
 }
 
 .button {

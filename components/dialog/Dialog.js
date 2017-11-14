@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { Heading3 } from '../typography';
-import InjectButton from '../button/Button.js';
+import InjectButton, { ButtonGroup } from '../button';
 import InjectIconButton from '../button/IconButton';
 import InjectOverlay from '../overlay/Overlay';
 import Transition from 'react-transition-group/Transition';
@@ -120,9 +120,9 @@ const factory = (Overlay, Button, IconButton) => {
                     {children}
                   </section>
                   {actionButtons.length && (
-                    <nav role="navigation" className={theme['navigation']}>
+                    <ButtonGroup role="navigation" className={theme['navigation']}>
                       {actionButtons}
-                    </nav>
+                    </ButtonGroup>
                   )}
                 </div>
               </div>
