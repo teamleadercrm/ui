@@ -121,14 +121,6 @@
   flex-grow: 2;
   padding: var(--dialog-content-padding);
   position: relative;
-
-  & p {
-    font-size: calc(1.8 * var(--unit));
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: 1.33;
-    margin: 0;
-  }
 }
 
 .navigation {
