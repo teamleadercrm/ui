@@ -44,11 +44,15 @@
     transform var(--animation-duration) var(--animation-curve-default);
   transition-delay: var(--animation-delay);
   width: 100vw;
+}
 
-  &.active {
-    opacity: 1;
-    transform: translateY(0%);
-  }
+.is-entering .dialog {
+  opacity: 0;
+}
+
+.is-entered .dialog {
+  opacity: 1;
+  transform: translateY(0%);
 }
 
 .small {

@@ -6,6 +6,7 @@ import { Heading3 } from '../typography';
 import InjectButton from '../button/Button.js';
 import InjectIconButton from '../button/IconButton';
 import InjectOverlay from '../overlay/Overlay';
+import Transition from 'react-transition-group/Transition';
 import { IconCloseMediumOutline, IconWarningMediumOutline } from '@teamleader/ui-icons';
 import theme from './theme.css';
 
@@ -87,44 +88,47 @@ const factory = (Overlay, Button, IconButton) => {
         return <Button key={idx} {...action} className={className} />; // eslint-disable-line
       });
 
-      const dialogClassNames = cx(
-        theme['dialog'],
-        theme[size],
-        theme[type],
-        {
-          [theme['active']]: active,
-        },
-        className,
-      );
+      const dialogClassNames = cx(theme['dialog'], theme[size], theme[type], className);
 
       const dialog = (
-        <div className={theme['wrapper']}>
-          <Overlay
-            active={active}
-            backdrop={backdrop}
-            className={theme['overlay']}
-            onClick={onOverlayClick}
-            onEscKeyDown={onEscKeyDown}
-            onMouseDown={onOverlayMouseDown}
-            onMouseMove={onOverlayMouseMove}
-            onMouseUp={onOverlayMouseUp}
-          />
-          <div data-teamleader-ui="dialog" className={dialogClassNames}>
-            <header className={theme['header']}>
-              {type === 'warning' && <IconWarningMediumOutline className={theme['icon']} />}
-              {title && <Heading3 className={theme['title']}>{title}</Heading3>}
-              <IconButton icon={<IconCloseMediumOutline />} className={theme['close']} onMouseUp={onCloseClick} />
-            </header>
-            <section role="body" className={theme['body']}>
-              {children}
-            </section>
-            {actionButtons.length && (
-              <nav role="navigation" className={theme['navigation']}>
-                {actionButtons}
-              </nav>
-            )}
-          </div>
-        </div>
+        <Transition timeout={0} in={active} appear>
+          {state => {
+            return (
+              <div
+                className={cx(theme['wrapper'], {
+                  [theme['is-entering']]: state === 'entering',
+                  [theme['is-entered']]: state === 'entered',
+                })}
+              >
+                <Overlay
+                  active={active}
+                  backdrop={backdrop}
+                  className={theme['overlay']}
+                  onClick={onOverlayClick}
+                  onEscKeyDown={onEscKeyDown}
+                  onMouseDown={onOverlayMouseDown}
+                  onMouseMove={onOverlayMouseMove}
+                  onMouseUp={onOverlayMouseUp}
+                />
+                <div data-teamleader-ui="dialog" className={dialogClassNames}>
+                  <header className={theme['header']}>
+                    {type === 'warning' && <IconWarningMediumOutline className={theme['icon']} />}
+                    {title && <Heading3 className={theme['title']}>{title}</Heading3>}
+                    <IconButton icon={<IconCloseMediumOutline />} className={theme['close']} onMouseUp={onCloseClick} />
+                  </header>
+                  <section role="body" className={theme['body']}>
+                    {children}
+                  </section>
+                  {actionButtons.length && (
+                    <nav role="navigation" className={theme['navigation']}>
+                      {actionButtons}
+                    </nav>
+                  )}
+                </div>
+              </div>
+            );
+          }}
+        </Transition>
       );
 
       return createPortal(dialog, this.dialogRoot);
