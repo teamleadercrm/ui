@@ -80,12 +80,8 @@ const factory = (Overlay, Button, IconButton) => {
         return null;
       }
 
-      const actionButtons = actions.map((action, idx) => {
-        const className = cx(theme['button'], {
-          [action.className]: action.className,
-        });
-
-        return <Button key={idx} {...action} className={className} />; // eslint-disable-line
+      const actionButtons = actions.map((action, index) => {
+        return <Button key={index} {...action} />;
       });
 
       const dialogClassNames = cx(theme['dialog'], theme[`is-${size}`], theme[`is-${type}`], className);
