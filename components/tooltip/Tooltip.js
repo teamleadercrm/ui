@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../box';
 import cx from 'classnames';
-import Portal from '../hoc/Portal';
+import { createPortal } from 'react-dom';
 import { getViewport } from '../utils/utils';
 import events from '../utils/events';
 import theme from './theme.css';
@@ -86,6 +86,17 @@ const tooltipFactory = (options = {}) => {
         visible: false,
       };
 
+      constructor() {
+        super(...arguments);
+
+        this.tooltipRoot = document.createElement('div');
+        this.tooltipRoot.id = 'tooltip-root';
+      }
+
+      componentDidMount() {
+        document.body.appendChild(this.tooltipRoot);
+      }
+
       componentWillUnmount() {
         if (this.tooltipNode) {
           events.removeEventListenerOnTransitionEnded(this.tooltipNode, this.onTransformEnd);
@@ -94,6 +105,8 @@ const tooltipFactory = (options = {}) => {
         if (this.timeout) {
           clearTimeout(this.timeout);
         }
+
+        document.body.removeChild(this.tooltipRoot);
       }
 
       onTransformEnd = e => {
@@ -190,7 +203,7 @@ const tooltipFactory = (options = {}) => {
       };
 
       handleMouseLeave = event => {
-        this.deactivate();
+        // this.deactivate();
 
         if (this.props.onMouseLeave) {
           this.props.onMouseLeave(event);
@@ -246,28 +259,28 @@ const tooltipFactory = (options = {}) => {
         const shouldPass = typeof ComposedComponent !== 'string' && defaultPassthrough;
         const finalProps = shouldPass ? { ...childProps } : childProps;
 
-        return React.createElement(
+        const tooltipComponent = React.createElement(
           ComposedComponent,
           finalProps,
           children,
           visible && (
-            <Portal>
-              <div
-                ref={node => {
-                  this.tooltipNode = node;
-                }}
-                className={classNames}
-                data-teamleader-ui="tooltip"
-                style={{ top, left }}
-              >
-                <Box className={theme['inner']} {...SIZES[tooltipSize]}>
-                  {tooltipIcon && <div className={theme['icon']}>{tooltipIcon}</div>}
-                  <div className={theme['text']}>{tooltip}</div>
-                </Box>
-              </div>
-            </Portal>
+            <div
+              ref={node => {
+                this.tooltipNode = node;
+              }}
+              className={classNames}
+              data-teamleader-ui="tooltip"
+              style={{ top, left }}
+            >
+              <Box className={theme['inner']} {...SIZES[tooltipSize]}>
+                {tooltipIcon && <div className={theme['icon']}>{tooltipIcon}</div>}
+                <div className={theme['text']}>{tooltip}</div>
+              </Box>
+            </div>
           ),
         );
+
+        return createPortal(tooltipComponent, this.tooltipRoot);
       }
     }
 
