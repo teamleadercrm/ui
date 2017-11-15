@@ -83,7 +83,7 @@ const factory = (Button, IconButton) => {
 
             const classNames = cx(
               theme['toast'],
-              theme[type],
+              theme[`is-${type}`],
               {
                 [theme['is-entering']]: state === 'entering',
                 [theme['is-entered']]: state === 'entered',
