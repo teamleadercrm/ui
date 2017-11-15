@@ -42,12 +42,13 @@
     color: var(--toast-color-cancel);
   }
 
-  &:not(.active) {
+  &.is-exiting,
+  &.is-entering {
     opacity: 0;
     transform: translateY(100%);
   }
 
-  &.active {
+  &.is-entered {
     opacity: 1;
     transform: translateY(0%);
   }
