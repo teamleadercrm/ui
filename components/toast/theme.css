@@ -12,13 +12,14 @@
   --toast-color-warning: var(--color-gold-dark);
   --toast-color: var(--color-white);
   --toast-padding: calc(1.2 * var(--unit)) calc(2 * var(--unit));
+  --toast-offset: 30px;
 }
 
 .toast {
   align-items: center;
   border-radius: var(--toast-border-radius);
   background-color: var(--toast-background-color);
-  bottom: 30px;
+  bottom: var(--toast-offset);
   box-shadow: var(--toast-box-shadow);
   color:  var(--toast-color);
   display: flex;
@@ -26,7 +27,7 @@
   font-size: calc(1.4 * var(--unit));
   padding: var(--toast-padding);
   position: fixed;
-  right: 30px;
+  right: var(--toast-offset);
   transition: all var(--animation-duration) var(--animation-curve-default) var(--animation-duration);
   z-index: var(--z-index-high);
 }
