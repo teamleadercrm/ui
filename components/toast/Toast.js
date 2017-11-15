@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import Transition from 'react-transition-group/Transition';
 import cx from 'classnames';
 import { Button, IconButton } from '../button';
 import { createPortal } from 'react-dom';
@@ -65,34 +66,54 @@ const factory = (Button, IconButton) => {
     render() {
       const { action, active, children, className, label, onClick, type } = this.props;
 
-      const classNames = cx(
-        theme['toast'],
-        theme[type],
-        {
-          [theme['active']]: active,
-        },
-        className,
-      );
-
       const toast = (
-        <div data-teamleader-ui="toast" className={classNames}>
-          <span className={theme['label']}>
-            {label}
-            {children}
-          </span>
-          {onClick ? (
-            action ? (
-              <Button className={theme['button']} label={action} level="outline" onClick={onClick} size="small" />
-            ) : (
-              <IconButton
-                className={theme['icon-button']}
-                icon={<IconCloseMediumOutline />}
-                color="white"
-                onClick={onClick}
-              />
-            )
-          ) : null}
-        </div>
+        <Transition
+          in={active}
+          timeout={{
+            // Set 'enter' timeout to '0' so that enter animation will start immediately.
+            enter: 0,
+            // Set 'exit' timeout to 'duration' so that the 'exited' status won't be applied until animation completes.
+            exit: 1000,
+          }}
+        >
+          {state => {
+            if (state === 'exited') {
+              return null;
+            }
+
+            const classNames = cx(
+              theme['toast'],
+              theme[type],
+              {
+                [theme['is-entering']]: state === 'entering',
+                [theme['is-entered']]: state === 'entered',
+                [theme['is-exiting']]: state === 'exiting',
+              },
+              className,
+            );
+
+            return (
+              <div data-teamleader-ui="toast" className={classNames}>
+                <span className={theme['label']}>
+                  {label}
+                  {children}
+                </span>
+                {onClick ? (
+                  action ? (
+                    <Button className={theme['button']} label={action} level="outline" onClick={onClick} size="small" />
+                  ) : (
+                    <IconButton
+                      className={theme['icon-button']}
+                      icon={<IconCloseMediumOutline />}
+                      color="white"
+                      onClick={onClick}
+                    />
+                  )
+                ) : null}
+              </div>
+            );
+          }}
+        </Transition>
       );
 
       return createPortal(toast, this.toastRoot);
