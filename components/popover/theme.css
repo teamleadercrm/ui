@@ -57,6 +57,10 @@
   left: calc(-.5 * var(--unit));
   top: calc(1.4 * var(--unit));
   width: calc(1.4 * var(--unit));
+
+  &.at-header {
+    background: var(--popover-header-background-color);
+  }
 }
 
 .header {
