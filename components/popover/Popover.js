@@ -128,6 +128,13 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
 
       const actionButtons = actions.map((action, idx) => <Button key={idx} {...action} />);
 
+      const arrowClassNames = cx(
+        theme['arrow'],
+        {
+          [theme['at-header']]: (title || subtitle || onCloseClick) && (arrowTop < 0) ,
+        }
+      );
+
       const popover = (
         <Transition timeout={0} in={active} appear>
           {state => {
@@ -156,7 +163,7 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
                     this.popoverNode = node;
                   }}
                 >
-                  <div className={theme['arrow']} style={{ left: `${arrowLeft}px`, top: `${arrowTop}px` }} />
+                  <div className={arrowClassNames} style={{ left: `${arrowLeft}px`, top: `${arrowTop}px` }} />
                   {(title || subtitle || onCloseClick) && (
                     <header className={theme['header']}>
                       {title && <Heading3 className={theme['title']}>{title}</Heading3>}
