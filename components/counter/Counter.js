@@ -28,9 +28,6 @@ class Counter extends PureComponent {
       theme[color],
       theme[size],
       theme[`border-${borderColor}`],
-      {
-        [theme['rounded']]: typeof count !== 'undefined',
-      },
       className,
     );
 

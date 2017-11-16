@@ -11,8 +11,8 @@
 }
 
 .counter {
+  border-radius: var(--border-radius);
   composes: reset;
-  border-radius: 50%;
   color: var(--color-white);
   display: inline-block;
   font-family: var(--font-family-black);
@@ -24,11 +24,13 @@
 .medium {
   min-height: var(--medium-mininmum-size);
   min-width: var(--medium-mininmum-size);
+  padding: var(--spacer-smaller);
 }
 
 .small {
   min-height: var(--small-minimum-size);
   min-width: var(--small-minimum-size);
+  padding: var(--spacer-smallest) var(--spacer-smaller);
 }
 
 .border-neutral {
@@ -61,18 +63,6 @@
 
 .border-tealdark {
   box-shadow: 0 0 0 var(--border-width) var(--color-teal-dark);
-}
-
-.rounded {
-  border-radius: var(--border-radius);
-}
-
-.rounded.medium {
-  padding: var(--spacer-smaller);
-}
-
-.rounded.small {
-  padding: var(--spacer-smallest) var(--spacer-smaller);
 }
 
 .neutral {
