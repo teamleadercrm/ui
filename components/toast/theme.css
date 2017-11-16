@@ -12,13 +12,14 @@
   --toast-color-warning: var(--color-gold-dark);
   --toast-color: var(--color-white);
   --toast-padding: calc(1.2 * var(--unit)) calc(2 * var(--unit));
+  --toast-offset: 30px;
 }
 
 .toast {
   align-items: center;
   border-radius: var(--toast-border-radius);
   background-color: var(--toast-background-color);
-  bottom: 30px;
+  bottom: var(--toast-offset);
   box-shadow: var(--toast-box-shadow);
   color:  var(--toast-color);
   display: flex;
@@ -26,31 +27,9 @@
   font-size: calc(1.4 * var(--unit));
   padding: var(--toast-padding);
   position: fixed;
-  right: 30px;
+  right: var(--toast-offset);
   transition: all var(--animation-duration) var(--animation-curve-default) var(--animation-duration);
   z-index: var(--z-index-high);
-
-  &.accept .button {
-    color: var(--toast-color-accept);
-  }
-
-  &.warning .button {
-    color: var(--toast-color-warning);
-  }
-
-  &.cancel .button {
-    color: var(--toast-color-cancel);
-  }
-
-  &:not(.active) {
-    opacity: 0;
-    transform: translateY(100%);
-  }
-
-  &.active {
-    opacity: 1;
-    transform: translateY(0%);
-  }
 }
 
 .button,
@@ -60,4 +39,27 @@
 
 .label {
   flex-grow: 1;
+}
+
+.is-accept .button {
+  color: var(--toast-color-accept);
+}
+
+.is-warning .button {
+  color: var(--toast-color-warning);
+}
+
+.is-cancel .button {
+  color: var(--toast-color-cancel);
+}
+
+.is-exiting,
+.is-entering {
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+.is-entered {
+  opacity: 1;
+  transform: translateY(0%);
 }

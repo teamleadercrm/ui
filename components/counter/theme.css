@@ -62,7 +62,7 @@
 }
 
 .border-tealdark {
-  box-shadow: 0 0 0 var(--border-width) var(--color-teal-dark);
+  box-shadow: 0 0 0 var(--border-width) var(--color-teal-darkest);
 }
 
 .neutral {
