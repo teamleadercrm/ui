@@ -20,9 +20,7 @@ class Bullet extends PureComponent {
     const { className, color, size, ...others } = this.props;
     const classNames = cx(theme['bullet'], theme[color], theme[size], className);
 
-    return (
-      <Box data-teamleader-ui="bullet" className={classNames} {...others}/>
-    );
+    return <Box data-teamleader-ui="bullet" className={classNames} {...others} />;
   }
 }
 
