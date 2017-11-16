@@ -20,9 +20,7 @@ class LoadingSpinner extends PureComponent {
     const { className, color, size, ...others } = this.props;
     const classNames = cx(theme['loading-spinner'], theme[`is-${color}`], theme[`is-${size}`], className);
 
-    return (
-      <Box data-teamleader-ui="loading-spinner" className={classNames} {...others}/>
-    );
+    return <Box data-teamleader-ui="loading-spinner" className={classNames} {...others} />;
   }
 }
 
