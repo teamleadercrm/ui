@@ -9,7 +9,7 @@ class Counter extends PureComponent {
     borderColor: PropTypes.oneOf(['neutral', 'mint', 'aqua', 'violet', 'teal', 'gold', 'ruby', 'tealdark']),
     className: PropTypes.string,
     color: PropTypes.oneOf(['neutral', 'mint', 'aqua', 'violet', 'teal', 'gold', 'ruby']),
-    count: PropTypes.number,
+    count: PropTypes.number.isRequired,
     maxCount: PropTypes.number,
     size: PropTypes.oneOf(['small', 'medium']),
   };
@@ -23,13 +23,7 @@ class Counter extends PureComponent {
   render() {
     const { borderColor, className, color, count, maxCount, size, ...others } = this.props;
 
-    const classNames = cx(
-      theme['counter'],
-      theme[color],
-      theme[size],
-      theme[`border-${borderColor}`],
-      className,
-    );
+    const classNames = cx(theme['counter'], theme[color], theme[size], theme[`border-${borderColor}`], className);
 
     return (
       <Box className={classNames} element="span" {...others} data-teamleader-ui="counter">
