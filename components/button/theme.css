@@ -8,10 +8,6 @@
   --button-margin: calc(0.6 * var(--unit));
   --button-icon-margin: calc(0.6 * var(--unit));
   --button-icon-children-margin: calc(0.6 * var(--unit));
-  --spinner-border-width: 2px;
-  --small-spinner-size: calc(1.4 * var(--unit));
-  --large-spinner-size: calc(2.2 * var(--unit));
-  --medium-spinner-size: calc(2.2 * var(--unit));
 }
 
 .button {
@@ -219,11 +215,6 @@
     &.processing {
       color: transparent;
     }
-
-    .spinner:before {
-      border: var(--spinner-border-width) solid color(var(--color-teal-darkest) a(18%));
-      border-top-color: var(--color-teal-darkest);
-    }
   }
 
   &.inverse {
@@ -252,11 +243,6 @@
 
     &.processing {
       color: transparent;
-    }
-
-    .spinner:before {
-      border: var(--spinner-border-width) solid color(var(--color-neutral-lightest) a(18%));
-      border-top-color: var(--color-neutral-lightest);
     }
   }
 }
@@ -296,11 +282,6 @@
   &.processing {
     color: var(--color-neutral-light);
   }
-
-  .spinner:before {
-    border: var(--spinner-border-width) solid color(var(--color-teal-darkest) a(18%));
-    border-top-color: var(--color-teal-darkest);
-  }
 }
 
 .primary {
@@ -329,11 +310,6 @@
 
   &.processing {
     color: var(--color-mint);
-  }
-
-  .spinner:before {
-    border: var(--spinner-border-width) solid color(var(--color-neutral-lightest) a(18%));
-    border-top-color: var(--color-neutral-lightest);
   }
 }
 
@@ -368,11 +344,6 @@
   &.processing {
     color: var(--color-ruby);
   }
-
-  .spinner:before {
-    border: var(--spinner-border-width) solid color(var(--color-neutral-lightest) a(18%));
-    border-top-color: var(--color-neutral-lightest);
-  }
 }
 
 /* Button sizes */
@@ -386,13 +357,6 @@
   &.icon-only {
     padding: 0 calc(.7 * var(--unit));
   }
-
-  .spinner:before {
-    width: var(--small-spinner-size);
-    height: var(--small-spinner-size);
-    margin-top: calc(-.5 * var(--small-spinner-size));
-    margin-left: calc(-.5 * var(--small-spinner-size));
-  }
 }
 
 .medium {
@@ -404,13 +368,6 @@
 
   &.icon-only {
     padding: 0 calc(.5 * var(--unit));
-  }
-
-  .spinner:before {
-    width: var(--medium-spinner-size);
-    height: var(--medium-spinner-size);
-    margin-top: calc(-.5 * var(--medium-spinner-size));
-    margin-left: calc(-.5 * var(--medium-spinner-size));
   }
 }
 
@@ -424,23 +381,13 @@
   &.icon-only {
     padding: 0 calc(1.1 * var(--unit));
   }
-
-  .spinner:before {
-    width: var(--large-spinner-size);
-    height: var(--large-spinner-size);
-    margin-top: calc(-.5 * var(--large-spinner-size));
-    margin-left: calc(-.5 * var(--large-spinner-size));
-  }
 }
 
-.spinner:before {
-  content: '';
-  box-sizing: border-box;
+.spinner {
+  left: 50%;
   position: absolute;
   top: 50%;
-  left: 50%;
-  border-radius: 50%;
-  animation: spin .6s linear infinite;
+  transform: translate(-50%, -50%);
 }
 
 /* ButtonGroup */
