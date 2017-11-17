@@ -12,6 +12,7 @@ import Menu, { IconMenu, MenuItem, MenuDivider } from './menu';
 import Message from './message';
 import Overlay from './overlay';
 import LoadingMolecule from './loadingMolecule';
+import LoadingSpinner from './loadingSpinner';
 import { PopoverHorizontal, PopoverVertical } from './popover';
 import { RadioButton, RadioGroup } from './radio';
 import Section from './section';
@@ -48,6 +49,7 @@ export {
   MenuItem,
   MenuDivider,
   LoadingMolecule,
+  LoadingSpinner,
   Overlay,
   PopoverHorizontal,
   PopoverVertical,
