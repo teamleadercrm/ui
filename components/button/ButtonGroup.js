@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
 
@@ -22,9 +23,9 @@ class ButtonGroup extends PureComponent {
     );
 
     return (
-      <div data-teamleader-ui="button-group" className={classNames} {...others}>
+      <Box data-teamleader-ui="button-group" className={classNames} {...others}>
         {children}
-      </div>
+      </Box>
     );
   }
 }
