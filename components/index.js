@@ -3,6 +3,7 @@ import Banner from './banner';
 import Box from './box';
 import Button, { ButtonGroup, IconButton } from './button';
 import { Heading1, Heading2, Heading3, Heading4, Monospaced, TextBody, TextSmall, TextTiny } from './typography';
+import Bullet from './bullet';
 import Checkbox from './checkbox';
 import CompactMessage from './compactMessage';
 import Counter from './counter';
@@ -28,6 +29,7 @@ export {
   AvatarStack,
   Banner,
   Box,
+  Bullet,
   Button,
   ButtonGroup,
   Checkbox,

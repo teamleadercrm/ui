@@ -1,0 +1,50 @@
+@import '@teamleader/ui-colors';
+
+:root {
+  --medium-size: 9px;
+  --small-size: 6px;
+}
+
+.bullet {
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.medium {
+  height: var(--medium-size);
+  width: var(--medium-size);
+}
+
+.small {
+  height: var(--small-size);
+  width: var(--small-size);
+}
+
+.neutral {
+  background-color: var(--color-neutral-dark);
+}
+
+.mint {
+  background-color: var(--color-mint-dark);
+}
+
+.violet {
+  background-color: var(--color-violet-dark);
+}
+
+.teal {
+  background-color: var(--color-teal-dark);
+}
+
+.ruby {
+  background-color: var(--color-ruby-dark);
+}
+
+.gold {
+  background-color: var(--color-gold-dark);
+}
+
+.aqua {
+  background-color: var(--color-aqua-dark);
+}
