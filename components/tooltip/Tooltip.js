@@ -203,7 +203,7 @@ const tooltipFactory = (options = {}) => {
       };
 
       handleMouseLeave = event => {
-        // this.deactivate();
+        this.deactivate();
 
         if (this.props.onMouseLeave) {
           this.props.onMouseLeave(event);
@@ -259,11 +259,11 @@ const tooltipFactory = (options = {}) => {
         const shouldPass = typeof ComposedComponent !== 'string' && defaultPassthrough;
         const finalProps = shouldPass ? { ...childProps } : childProps;
 
-        const tooltipComponent = React.createElement(
+        return React.createElement(
           ComposedComponent,
           finalProps,
           children,
-          visible && (
+          visible && createPortal((
             <div
               ref={node => {
                 this.tooltipNode = node;
@@ -277,10 +277,8 @@ const tooltipFactory = (options = {}) => {
                 <div className={theme['text']}>{tooltip}</div>
               </Box>
             </div>
-          ),
+          ), this.tooltipRoot),
         );
-
-        return createPortal(tooltipComponent, this.tooltipRoot);
       }
     }
 
