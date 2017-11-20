@@ -3,6 +3,7 @@ import Banner from './banner';
 import Box from './box';
 import Button, { ButtonGroup, IconButton } from './button';
 import { Heading1, Heading2, Heading3, Heading4, Monospaced, TextBody, TextSmall, TextTiny } from './typography';
+import Bullet from './bullet';
 import Checkbox from './checkbox';
 import CompactMessage from './compactMessage';
 import Counter from './counter';
@@ -11,6 +12,7 @@ import Menu, { IconMenu, MenuItem, MenuDivider } from './menu';
 import Message from './message';
 import Overlay from './overlay';
 import LoadingMolecule from './loadingMolecule';
+import LoadingSpinner from './loadingSpinner';
 import { PopoverHorizontal, PopoverVertical } from './popover';
 import { RadioButton, RadioGroup } from './radio';
 import Section from './section';
@@ -28,6 +30,7 @@ export {
   AvatarStack,
   Banner,
   Box,
+  Bullet,
   Button,
   ButtonGroup,
   Checkbox,
@@ -46,6 +49,7 @@ export {
   MenuItem,
   MenuDivider,
   LoadingMolecule,
+  LoadingSpinner,
   Overlay,
   PopoverHorizontal,
   PopoverVertical,
