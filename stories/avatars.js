@@ -5,7 +5,7 @@ import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { Store, State } from '@sambego/storybook-state';
 import styles from '@sambego/storybook-styles';
-import { Avatar, AvatarStack, Box, Counter } from '../components';
+import { Avatar, AvatarStack, Box, Bullet, Counter } from '../components';
 import { baseStyles, centerStyles } from '../.storybook/styles';
 
 import Image1 from '../static/avatars/1.png';
@@ -26,16 +26,14 @@ const avatars = [
   { image: Image6, count: 4, color: 'ruby' },
   { image: Image7, count: 5, color: 'neutral', inactive: true },
   { image: Image8, count: 2, color: 'neutral', inactive: true },
-  { image: Image1, count: 8, color: 'ruby' },
-  { image: Image2, count: 0, color: 'ruby' },
 ];
 
 const store = new Store({
   displayMax: 5,
 });
 
-const handleOnOverflowClick = value => {
-  store.set({ displayMax: value });
+const handleOnOverflowClick = () => {
+  store.set({ displayMax: 0 });
   action('clicked on AvatarStack overflow')();
 };
 
@@ -50,12 +48,31 @@ storiesOf('Avatars', module)
       <Avatar image={avatars[0].image} size="medium" marginHorizontal={4} />
     </Box>
   ))
+  .add('with bullet', () => (
+    <Box>
+      <Avatar
+        counter={<Bullet color="ruby" size="small" />}
+        image={avatars[0].image}
+        size="small"
+        marginHorizontal={4}
+      />
+      <Avatar
+        counter={
+          <Bullet
+            color="ruby"
+          />
+        }
+        image={avatars[0].image}
+        marginHorizontal={4}
+      />
+    </Box>
+  ))
   .add('with counter', () => (
     <Box>
       <Avatar
-        counter={<Counter color="ruby" />}
+        counter={<Counter color="ruby" count={avatars[0].count} size="small" />}
         image={avatars[0].image}
-        size="medium"
+        size="small"
         marginHorizontal={4}
       />
       <Avatar
@@ -67,7 +84,6 @@ storiesOf('Avatars', module)
           />
         }
         image={avatars[0].image}
-        size="medium"
         marginHorizontal={4}
       />
     </Box>
@@ -84,15 +100,6 @@ storiesOf('Avatars', module)
         >
           {avatars.map(({ image, count, color, inactive, maxCount }, index) => (
             <Avatar
-              counter={
-                <Counter
-                  color={color}
-                  count={count}
-                  inactive={inactive}
-                  maxCount={maxCount}
-                  size="small"
-                />
-              }
               key={index}
               image={image}
               size="medium"
@@ -115,13 +122,6 @@ storiesOf('Avatars', module)
         >
           {avatars.map(({ image, color, inactive }, index) => (
             <Avatar
-              counter={
-                <Counter
-                  color={color}
-                  inactive={inactive}
-                  size="medium"
-                />
-              }
               key={index}
               image={image}
               size="medium"
