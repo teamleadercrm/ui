@@ -6,7 +6,6 @@ import theme from './theme.css';
 
 class Avatar extends PureComponent {
   static propTypes = {
-    borderColor: PropTypes.oneOf(['neutral', 'mint', 'aqua', 'violet', 'teal', 'gold', 'ruby', 'tealdark']),
     className: PropTypes.string,
     counter: PropTypes.element,
     image: PropTypes.string,
@@ -15,21 +14,17 @@ class Avatar extends PureComponent {
   };
 
   static defaultProps = {
-    borderColor: 'neutral',
     size: 'medium',
   };
 
   render() {
-    const { borderColor, className, counter, image, imageAlt, size, ...others } = this.props;
+    const { className, counter, image, imageAlt, size, ...others } = this.props;
 
     const avatarClassNames = cx(theme['avatar'], theme[size], className);
-    const imageClassNames = cx(theme['image'], theme[`border-${borderColor}`]);
 
     return (
       <Box className={avatarClassNames} {...others} data-teamleader-ui="avatar">
-        <div className={imageClassNames}>
-          <img alt={imageAlt} src={image} />
-        </div>
+        <img alt={imageAlt} src={image} className={theme['image']} />
         {counter && <div className={theme['counter']}>{counter}</div>}
       </Box>
     );

@@ -3,7 +3,6 @@
 @import '@teamleader/ui-utilities';
 
 :root {
-  --border-width: 2px;
   --overflow-padding-horizontal: 8px;
   --stacked-avatars-overlap-margin: -4px;
 
@@ -27,10 +26,6 @@
   display: block;
   border-radius: 50%;
   overflow: hidden;
-
-  img {
-    display: block;
-  }
 }
 
 /* AvatarStack */
@@ -53,7 +48,6 @@
 .dark {
   .overflow {
     background: color(var(--color-teal-darkest) a(10%));
-    box-shadow: 0 0 0 var(--border-width) color(var(--color-teal-darkest) a(10%));
     color: var(--color-neutral-darkest);
   }
 }
@@ -61,7 +55,6 @@
 .light {
   .overflow {
     background: color(var(--color-white) a(10%));
-    box-shadow: 0 0 0 var(--border-width) color(var(--color-white) a(10%));
     color: var(--color-white);
   }
 }
@@ -152,36 +145,4 @@
     height: var(--medium-size);
     min-width: calc(var(--medium-size) - var(--overflow-padding-horizontal) * 2);
   }
-}
-
-.border-neutral {
-  box-shadow: 0 0 0 var(--border-width) var(--color-neutral-lightest);
-}
-
-.border-mint {
-  box-shadow: 0 0 0 var(--border-width) var(--color-mint-lightest);
-}
-
-.border-teal {
-  box-shadow: 0 0 0 var(--border-width) var(--color-teal-lightest);
-}
-
-.border-ruby {
-  box-shadow: 0 0 0 var(--border-width) var(--color-ruby-lightest);
-}
-
-.border-violet {
-  box-shadow: 0 0 0 var(--border-width) var(--color-violet-lightest);
-}
-
-.border-gold {
-  box-shadow: 0 0 0 var(--border-width) var(--color-gold-lightest);
-}
-
-.border-aqua {
-  box-shadow: 0 0 0 var(--border-width) var(--color-aqua-lightest);
-}
-
-.border-tealdark {
-  box-shadow: 0 0 0 var(--border-width) var(--color-teal-dark);
 }
