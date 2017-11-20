@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
+import { Store, State } from '@sambego/storybook-state';
 import styles from '@sambego/storybook-styles';
 import { Avatar, AvatarStack, Box, Counter } from '../components';
 import { baseStyles, centerStyles } from '../.storybook/styles';
@@ -28,6 +29,15 @@ const avatars = [
   { image: Image1, count: 8, color: 'ruby' },
   { image: Image2, count: 0, color: 'ruby' },
 ];
+
+const store = new Store({
+  displayMax: 5,
+});
+
+const handleOnOverflowClick = value => {
+  store.set({ displayMax: value });
+  action('clicked on AvatarStack overflow')();
+};
 
 storiesOf('Avatars', module)
   .addDecorator((story, context) => withInfo('common info')(story)(context))
@@ -62,55 +72,62 @@ storiesOf('Avatars', module)
       />
     </Box>
   ))
-  .add('stacked', () => (
+  .add('stacked horizontal', () => (
     <Box>
-      <AvatarStack
-        direction="horizontal"
-        displayMax={5}
-        inverse={false}
-        onOverflowClick={action('clicked on AvatarStack 1 overflow')}
-        size="medium"
-      >
-        {avatars.map(({ image, count, color, inactive, maxCount }, index) => (
-          <Avatar
-            counter={
-              <Counter
-                color={color}
-                count={count}
-                inactive={inactive}
-                maxCount={maxCount}
-                size="small"
-              />
-            }
-            key={index}
-            image={image}
-            size="medium"
-          />
-        ))}
-      </AvatarStack>
-
-      <AvatarStack
-        direction="vertical"
-        displayMax={3}
-        inverse={false}
-        onOverflowClick={action('clicked on AvatarStack 2 overflow')}
-        size="medium"
-        marginTop={8}
-      >
-        {avatars.map(({ image, color, inactive }, index) => (
-          <Avatar
-            counter={
-              <Counter
-                color={color}
-                inactive={inactive}
-                size="medium"
-              />
-            }
-            key={index}
-            image={image}
-            size="medium"
-          />
-        ))}
-      </AvatarStack>
+      <State store={store}>
+        <AvatarStack
+          direction="horizontal"
+          displayMax={5}
+          inverse={false}
+          onOverflowClick={handleOnOverflowClick}
+          size="medium"
+        >
+          {avatars.map(({ image, count, color, inactive, maxCount }, index) => (
+            <Avatar
+              counter={
+                <Counter
+                  color={color}
+                  count={count}
+                  inactive={inactive}
+                  maxCount={maxCount}
+                  size="small"
+                />
+              }
+              key={index}
+              image={image}
+              size="medium"
+            />
+          ))}
+        </AvatarStack>
+      </State>
+    </Box>
+  ))
+  .add('stacked vertical', () => (
+    <Box>
+      <State store={store}>
+        <AvatarStack
+          direction="vertical"
+          displayMax={3}
+          inverse={false}
+          onOverflowClick={handleOnOverflowClick}
+          size="medium"
+          marginTop={8}
+        >
+          {avatars.map(({ image, color, inactive }, index) => (
+            <Avatar
+              counter={
+                <Counter
+                  color={color}
+                  inactive={inactive}
+                  size="medium"
+                />
+              }
+              key={index}
+              image={image}
+              size="medium"
+            />
+          ))}
+        </AvatarStack>
+      </State>
     </Box>
   ));
