@@ -6,6 +6,7 @@ import theme from './theme.css';
 
 class Avatar extends PureComponent {
   static propTypes = {
+    bullet: PropTypes.element,
     className: PropTypes.string,
     counter: PropTypes.element,
     image: PropTypes.string,
@@ -19,14 +20,18 @@ class Avatar extends PureComponent {
   };
 
   render() {
-    const { className, counter, image, imageAlt, imageClassName, size, ...others } = this.props;
+    const { bullet, className, counter, image, imageAlt, imageClassName, size, ...others } = this.props;
 
     const avatarClassNames = cx(theme['avatar'], theme[size], className);
 
     return (
       <Box className={avatarClassNames} {...others} data-teamleader-ui="avatar">
         <img alt={imageAlt} src={image} className={cx(theme['image'], imageClassName)} />
-        {counter && <div className={theme['counter']}>{counter}</div>}
+        {bullet ? (
+          <div className={theme['bullet']}>{bullet}</div>
+        ) : counter ? (
+          <div className={theme['counter']}>{counter}</div>
+        ) : null}
       </Box>
     );
   }
