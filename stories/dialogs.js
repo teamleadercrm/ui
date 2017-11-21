@@ -43,7 +43,7 @@ storiesOf('Dialogs', module)
           <Box padding={4}>
             <TextBody>Here you can add arbitrary content.</TextBody>
           </Box>
-          <ButtonGroup padding={4}>
+          <ButtonGroup alignItems="right" padding={4}>
             <Button label="Cancel"/>
             <Button label="Confirm" level="primary"/>
           </ButtonGroup>
@@ -67,7 +67,7 @@ storiesOf('Dialogs', module)
           <Box padding={4}>
             <TextBody>Here you can add arbitrary content.</TextBody>
           </Box>
-          <ButtonGroup padding={4}>
+          <ButtonGroup alignItems="right" padding={4}>
             <Button label="Cancel"/>
             <Button label="Confirm" level="primary"/>
           </ButtonGroup>
@@ -91,7 +91,7 @@ storiesOf('Dialogs', module)
           <Box padding={4}>
             <TextBody>Here you can add arbitrary content.</TextBody>
           </Box>
-          <ButtonGroup padding={4}>
+          <ButtonGroup alignItems="right" padding={4}>
             <Button label="Cancel"/>
             <Button label="Confirm" level="primary"/>
           </ButtonGroup>
@@ -115,7 +115,7 @@ storiesOf('Dialogs', module)
           <Box padding={4}>
             <TextBody>Here you can add arbitrary content.</TextBody>
           </Box>
-          <ButtonGroup padding={4}>
+          <ButtonGroup alignItems="right" padding={4}>
             <Button label="Cancel"/>
             <Button label="Confirm" level="primary"/>
           </ButtonGroup>
@@ -138,7 +138,7 @@ storiesOf('Dialogs', module)
           <Box padding={4}>
             <TextBody>Here you can add arbitrary content.</TextBody>
           </Box>
-          <ButtonGroup padding={4}>
+          <ButtonGroup alignItems="right" padding={4}>
             <Button label="Cancel"/>
             <Button label="Confirm" level="primary"/>
           </ButtonGroup>
@@ -161,7 +161,7 @@ storiesOf('Dialogs', module)
           <Box padding={4}>
             <TextBody>Here you can add arbitrary content.</TextBody>
           </Box>
-          <ButtonGroup padding={4}>
+          <ButtonGroup alignItems="right" padding={4}>
             <Button label="Cancel"/>
             <Button label="Confirm" level="primary"/>
           </ButtonGroup>
@@ -181,7 +181,7 @@ storiesOf('Dialogs', module)
           <Banner color="ruby" fullWidth icon={<IconWarningMediumOutline />} onClose={handleCloseClick}>
             <Heading3>Succes: Dialog title</Heading3>
           </Banner>
-          <ButtonGroup padding={4}>
+          <ButtonGroup alignItems="right" padding={4}>
             <Button label="Cancel"/>
             <Button label="Confirm" level="destructive"/>
           </ButtonGroup>
