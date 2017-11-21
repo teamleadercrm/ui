@@ -124,9 +124,9 @@ storiesOf('Popover', module)
           <Banner onClose={handleCloseClick} fullWidth={true}>
             <Heading3>I am a heading 3</Heading3>
           </Banner>
-          <Section>
+          <Box padding={4}>
             <TextBody>This is the popover content</TextBody>
-          </Section>
+          </Box>
         </PopoverVertical>
       </State>
     </Box>
@@ -143,10 +143,10 @@ storiesOf('Popover', module)
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
         >
-          <Section>
+          <Box padding={4}>
             <TextBody>This is the popover content</TextBody>
-          </Section>
-          <ButtonGroup padding={4}>
+          </Box>
+          <ButtonGroup alignItems="right" padding={4}>
             <Button label="Cancel" />
             <Button level="primary" label="Confirm" />
           </ButtonGroup>
