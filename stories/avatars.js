@@ -51,13 +51,13 @@ storiesOf('Avatars', module)
   .add('with bullet', () => (
     <Box>
       <Avatar
-        counter={<Bullet color="ruby" size="small" />}
+        bullet={<Bullet color="ruby" size="small" />}
         image={avatars[0].image}
         size="small"
         marginHorizontal={4}
       />
       <Avatar
-        counter={
+        bullet={
           <Bullet
             color="ruby"
           />
