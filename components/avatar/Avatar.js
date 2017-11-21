@@ -10,6 +10,7 @@ class Avatar extends PureComponent {
     counter: PropTypes.element,
     image: PropTypes.string,
     imageAlt: PropTypes.string,
+    imageClassName: PropTypes.string,
     size: PropTypes.oneOf(['tiny', 'small', 'medium']),
   };
 
@@ -18,13 +19,13 @@ class Avatar extends PureComponent {
   };
 
   render() {
-    const { className, counter, image, imageAlt, size, ...others } = this.props;
+    const { className, counter, image, imageAlt, imageClassName, size, ...others } = this.props;
 
     const avatarClassNames = cx(theme['avatar'], theme[size], className);
 
     return (
       <Box className={avatarClassNames} {...others} data-teamleader-ui="avatar">
-        <img alt={imageAlt} src={image} className={theme['image']} />
+        <img alt={imageAlt} src={image} className={cx(theme['image'], imageClassName)} />
         {counter && <div className={theme['counter']}>{counter}</div>}
       </Box>
     );
