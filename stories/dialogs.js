@@ -5,13 +5,9 @@ import { Store, State } from '@sambego/storybook-state';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import styles from '@sambego/storybook-styles';
-import { Box, Button, Dialog, TextBody } from '../components/';
+import { Banner, Box, Button, ButtonGroup, Dialog, Heading3, TextBody } from '../components/';
 import { baseStyles, centerStyles } from '../.storybook/styles';
-
-const actions = [
-  { label: 'Cancel', onClick: action('Cancel clicked') },
-  { label: 'Save', onClick: action('Save clicked'), level: "primary" },
-];
+import { IconWarningMediumOutline, IconCheckmarkMediumOutline } from '@teamleader/ui-icons';
 
 const store = new Store({
   active: false,
@@ -36,15 +32,21 @@ storiesOf('Dialogs', module)
       <Button onClick={handleButtonClick} label="Open a dialog" />
       <State store={store}>
         <Dialog
-          actions={actions}
           active={false}
-          onCloseClick={handleCloseClick}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
-          title="Dialog title"
           size="small"
         >
-          <TextBody>Here you can add arbitrary content.</TextBody>
+          <Banner color="neutral" fullWidth onClose={handleCloseClick}>
+            <Heading3>Dialog title</Heading3>
+          </Banner>
+          <Box padding={4}>
+            <TextBody>Here you can add arbitrary content.</TextBody>
+          </Box>
+          <ButtonGroup alignItems="right" padding={4}>
+            <Button label="Cancel"/>
+            <Button label="Confirm" level="primary"/>
+          </ButtonGroup>
         </Dialog>
       </State>
     </Box>
@@ -54,15 +56,21 @@ storiesOf('Dialogs', module)
       <Button onClick={handleButtonClick} label="Open a dialog" />
       <State store={store}>
         <Dialog
-          actions={actions}
           active={false}
-          onCloseClick={handleCloseClick}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
-          title="Dialog title"
           size="medium"
         >
-          <TextBody>Here you can add arbitrary content.</TextBody>
+          <Banner color="neutral" fullWidth onClose={handleCloseClick}>
+            <Heading3>Dialog title</Heading3>
+          </Banner>
+          <Box padding={4}>
+            <TextBody>Here you can add arbitrary content.</TextBody>
+          </Box>
+          <ButtonGroup alignItems="right" padding={4}>
+            <Button label="Cancel"/>
+            <Button label="Confirm" level="primary"/>
+          </ButtonGroup>
         </Dialog>
       </State>
     </Box>
@@ -72,15 +80,21 @@ storiesOf('Dialogs', module)
       <Button onClick={handleButtonClick} label="Open a dialog" />
       <State store={store}>
         <Dialog
-          actions={actions}
           active={false}
-          onCloseClick={handleCloseClick}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
-          title="Dialog title"
           size="large"
         >
-          <TextBody>Here you can add arbitrary content.</TextBody>
+          <Banner color="neutral" fullWidth onClose={handleCloseClick}>
+            <Heading3>Dialog title</Heading3>
+          </Banner>
+          <Box padding={4}>
+            <TextBody>Here you can add arbitrary content.</TextBody>
+          </Box>
+          <ButtonGroup alignItems="right" padding={4}>
+            <Button label="Cancel"/>
+            <Button label="Confirm" level="primary"/>
+          </ButtonGroup>
         </Dialog>
       </State>
     </Box>
@@ -90,15 +104,44 @@ storiesOf('Dialogs', module)
       <Button onClick={handleButtonClick} label="Open a dialog" />
       <State store={store}>
         <Dialog
-          actions={actions}
           active={false}
-          onCloseClick={handleCloseClick}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
-          title="Dialog title"
           size="fullscreen"
         >
-          <TextBody>Here you can add arbitrary content.</TextBody>
+          <Banner color="neutral" fullWidth onClose={handleCloseClick}>
+            <Heading3>Dialog title</Heading3>
+          </Banner>
+          <Box padding={4}>
+            <TextBody>Here you can add arbitrary content.</TextBody>
+          </Box>
+          <ButtonGroup alignItems="right" padding={4}>
+            <Button label="Cancel"/>
+            <Button label="Confirm" level="primary"/>
+          </ButtonGroup>
+        </Dialog>
+      </State>
+    </Box>
+  ))
+  .add('succes style', () => (
+    <Box>
+      <Button onClick={handleButtonClick} label="Open a dialog" />
+      <State store={store}>
+        <Dialog
+          active={false}
+          onEscKeyDown={handleCloseClick}
+          onOverlayClick={handleCloseClick}
+        >
+          <Banner color="mint" fullWidth icon={<IconCheckmarkMediumOutline />} onClose={handleCloseClick}>
+            <Heading3>Succes: Dialog title</Heading3>
+          </Banner>
+          <Box padding={4}>
+            <TextBody>Here you can add arbitrary content.</TextBody>
+          </Box>
+          <ButtonGroup alignItems="right" padding={4}>
+            <Button label="Cancel"/>
+            <Button label="Confirm" level="primary"/>
+          </ButtonGroup>
         </Dialog>
       </State>
     </Box>
@@ -108,15 +151,40 @@ storiesOf('Dialogs', module)
       <Button onClick={handleButtonClick} label="Open a dialog" />
       <State store={store}>
         <Dialog
-          actions={actions}
           active={false}
-          onCloseClick={handleCloseClick}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
-          title="Dialog title"
-          type="warning"
         >
-          <TextBody>Here you can add arbitrary content.</TextBody>
+          <Banner color="gold" fullWidth icon={<IconWarningMediumOutline />} onClose={handleCloseClick}>
+            <Heading3>Warning: Dialog title</Heading3>
+          </Banner>
+          <Box padding={4}>
+            <TextBody>Here you can add arbitrary content.</TextBody>
+          </Box>
+          <ButtonGroup alignItems="right" padding={4}>
+            <Button label="Cancel"/>
+            <Button label="Confirm" level="primary"/>
+          </ButtonGroup>
+        </Dialog>
+      </State>
+    </Box>
+  ))
+  .add('destructive style', () => (
+    <Box>
+      <Button onClick={handleButtonClick} label="Open a dialog" />
+      <State store={store}>
+        <Dialog
+          active={false}
+          onEscKeyDown={handleCloseClick}
+          onOverlayClick={handleCloseClick}
+        >
+          <Banner color="ruby" fullWidth icon={<IconWarningMediumOutline />} onClose={handleCloseClick}>
+            <Heading3>Succes: Dialog title</Heading3>
+          </Banner>
+          <ButtonGroup alignItems="right" padding={4}>
+            <Button label="Cancel"/>
+            <Button label="Confirm" level="destructive"/>
+          </ButtonGroup>
         </Dialog>
       </State>
     </Box>
