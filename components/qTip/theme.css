@@ -9,6 +9,7 @@
 .container {
   position: relative;
   overflow: hidden;
+  pointer-events: none;
 }
 
 .qtip {
@@ -20,6 +21,7 @@
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
   transition: all var(--animation-duration) var(--animation-curve-default);
+  pointer-events: all;
 
   .is-closed & {
     transform: translateX(100%) translateX(calc(-1 * var(--tip-width) + 1px)); /* split into 2 separete translate, otherwise IE can't handle it */

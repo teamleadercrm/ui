@@ -1,8 +1,4 @@
-import { dialogFactory } from './Dialog';
-import { Overlay } from '../overlay';
-import { Button, IconButton } from '../button';
-
-const Dialog = dialogFactory(Overlay, Button, IconButton);
+import Dialog from './Dialog';
 
 export default Dialog;
 export { Dialog };

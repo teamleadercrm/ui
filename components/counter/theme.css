@@ -3,7 +3,6 @@
 @import '@teamleader/ui-typography';
 
 :root {
-  --border-width: 2px;
   --border-radius: 4px;
 
   --medium-mininmum-size: 9px;
@@ -31,38 +30,6 @@
   min-height: var(--small-minimum-size);
   min-width: var(--small-minimum-size);
   padding: var(--spacer-smallest) var(--spacer-smaller);
-}
-
-.border-neutral {
-  box-shadow: 0 0 0 var(--border-width) var(--color-neutral-lightest);
-}
-
-.border-mint {
-  box-shadow: 0 0 0 var(--border-width) var(--color-mint-lightest);
-}
-
-.border-teal {
-  box-shadow: 0 0 0 var(--border-width) var(--color-teal-lightest);
-}
-
-.border-ruby {
-  box-shadow: 0 0 0 var(--border-width) var(--color-ruby-lightest);
-}
-
-.border-violet {
-  box-shadow: 0 0 0 var(--border-width) var(--color-violet-lightest);
-}
-
-.border-gold {
-  box-shadow: 0 0 0 var(--border-width) var(--color-gold-lightest);
-}
-
-.border-aqua {
-  box-shadow: 0 0 0 var(--border-width) var(--color-aqua-lightest);
-}
-
-.border-tealdark {
-  box-shadow: 0 0 0 var(--border-width) var(--color-teal-darkest);
 }
 
 .neutral {
