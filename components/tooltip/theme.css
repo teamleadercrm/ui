@@ -56,9 +56,12 @@
   }
 
   &.bottom {
-    transform: scale(0) translateX(-50%);
+    &.is-exiting,
+    &.is-entering {
+      transform: scale(0) translateX(-50%);
+    }
 
-    &.active {
+    &.is-entered {
       transform: scale(1) translateX(-50%);
     }
 
@@ -70,9 +73,12 @@
   }
 
   &.top {
-    transform: scale(0) translateX(-50%) translateY(-100%);
+    &.is-exiting,
+    &.is-entering {
+      transform: scale(0) translateX(-50%) translateY(-100%);
+    }
 
-    &.active {
+    &.is-entered {
       transform: scale(1) translateX(-50%) translateY(-100%);
     }
 
@@ -84,9 +90,12 @@
   }
 
   &.left {
-    transform: scale(0) translateX(-100%) translateY(-50%);
+    &.is-exiting,
+    &.is-entering {
+      transform: scale(0) translateX(-100%) translateY(-50%);
+    }
 
-    &.active {
+    &.is-entered {
       transform: scale(1) translateX(-100%) translateY(-50%);
     }
 
@@ -98,9 +107,12 @@
   }
 
   &.right {
-    transform: scale(0) translateX(0) translateY(-50%);
+    &.is-exiting,
+    &.is-entering {
+      transform: scale(0) translateX(0) translateY(-50%);
+    }
 
-    &.active {
+    &.is-entered {
       transform: scale(1) translateX(0) translateY(-50%);
     }
 
