@@ -23,20 +23,20 @@ storiesOf('Radio', module)
   .add('Enabled', () => (
     <State store={store}>
       <RadioGroup name="stringValue" onChange={updateState}>
-        <RadioButton label="The Walking Dead" value="thewalkingdead" />
-        <RadioButton label="From Hell" value="fromhell" />
-        <RadioButton label="V for a Vendetta" value="vvendetta" onFocus={action('Focus')} />
-        <RadioButton label="Watchmen" value="watchmen" onBlur={action('blur')} />
+        <RadioButton size="small" marginBottom={2} label="The Walking Dead" value="thewalkingdead" />
+        <RadioButton size="medium" marginBottom={2} label="From Hell" value="fromhell" />
+        <RadioButton size="medium" marginBottom={2} label="V for a Vendetta" value="vvendetta" onFocus={action('Focus')} />
+        <RadioButton size="large" marginBottom={2} label="Watchmen" value="watchmen" onBlur={action('blur')} />
       </RadioGroup>
     </State>
   ))
   .add('Disabled', () => (
     <State store={store}>
       <RadioGroup name="stringValue" onChange={updateState}>
-        <RadioButton label="The Walking Dead" value="thewalkingdead" disabled />
-        <RadioButton label="From Hell" value="fromhell" disabled />
-        <RadioButton label="V for a Vendetta" value="vvendetta" disabled />
-        <RadioButton label="Watchmen" value="watchmen" disabled />
+        <RadioButton marginBottom={2} label="The Walking Dead" value="thewalkingdead" disabled />
+        <RadioButton marginBottom={2} label="From Hell" value="fromhell" disabled />
+        <RadioButton marginBottom={2} label="V for a Vendetta" value="vvendetta" disabled />
+        <RadioButton marginBottom={2} label="Watchmen" value="watchmen" disabled />
       </RadioGroup>
     </State>
   ));

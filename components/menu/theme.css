@@ -1,6 +1,7 @@
 @import '@teamleader/ui-animations';
 @import '@teamleader/ui-colors';
 @import '@teamleader/ui-utilities';
+@import '@teamleader/ui-typography';
 
 :root {
   --menu-expand-duration: 0.3s;
@@ -32,6 +33,7 @@
 .menu {
   composes: reset;
   display: inline-block;
+  font-family: var(--font-family-regular);
   position: relative;
 
   &.top-left {
