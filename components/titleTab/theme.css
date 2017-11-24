@@ -1,7 +1,30 @@
+@import '@teamleader/ui-colors';
+
 :root {
 
 }
 
 .title-tab {
+  color: var(--color-neutral-darkest);
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: 0;
+  user-select: none;
 
+  &:hover{
+    background-color: rgba(130, 130, 140, 0.24);
+    cursor: pointer;
+  }
+
+  &:focus{
+    background-color: rgba(130, 130, 140, 0.12);
+    box-shadow: 0 0 0 2px rgba(130, 130, 140, 0.24);
+  }
+}
+
+.is-active {
+  color: var(--color-teal-darkest);
+  box-shadow: inset 0px -3px 0px 0px var(--color-mint);
 }

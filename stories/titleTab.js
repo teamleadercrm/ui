@@ -3,7 +3,7 @@ import styles from '@sambego/storybook-styles';
 import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
-import { Box, TitleTab } from '../components';
+import { Island, TitleTab } from '../components';
 import { baseStyles, centerStyles } from '../.storybook/styles';
 
 storiesOf('TitleTab', module)
@@ -11,7 +11,8 @@ storiesOf('TitleTab', module)
   .addDecorator(checkA11y)
   .addDecorator(styles({ ...baseStyles, ...centerStyles }))
   .add('general', () => (
-    <Box padding={5}>
-      <TitleTab/>
-    </Box>
+    <Island style={{display: 'flex'}}>
+      <TitleTab>Default</TitleTab>
+      <TitleTab active={true}>Active</TitleTab>
+    </Island>
   ));
