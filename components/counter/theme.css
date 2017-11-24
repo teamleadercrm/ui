@@ -4,9 +4,6 @@
 
 :root {
   --border-radius: 4px;
-
-  --medium-mininmum-size: 9px;
-  --small-minimum-size: 6px;
 }
 
 .counter {
@@ -21,14 +18,10 @@
 }
 
 .medium {
-  min-height: var(--medium-mininmum-size);
-  min-width: var(--medium-mininmum-size);
   padding: var(--spacer-smaller);
 }
 
 .small {
-  min-height: var(--small-minimum-size);
-  min-width: var(--small-minimum-size);
   padding: var(--spacer-smallest) var(--spacer-smaller);
 }
 
