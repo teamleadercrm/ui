@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Box from '../box';
 import Transition from 'react-transition-group/Transition';
 import cx from 'classnames';
+import omit from 'lodash.omit';
 import { createPortal } from 'react-dom';
 import { getViewport } from '../utils/utils';
 import theme from './theme.css';
@@ -31,7 +32,6 @@ const defaults = {
   color: 'white',
   hideOnClick: true,
   icon: null,
-  passthrough: true,
   showOnClick: false,
   size: 'medium',
   position: POSITIONS.TOP,
@@ -45,7 +45,6 @@ const tooltipFactory = (options = {}) => {
     icon: defaultIcon,
     showOnClick: defaultShowOnClick,
     size: defaultSize,
-    passthrough: defaultPassthrough,
     position: defaultPosition,
   } = { ...defaults, ...options };
 
@@ -186,36 +185,28 @@ const tooltipFactory = (options = {}) => {
 
       render() {
         const { active, left, top, position } = this.state;
-        const {
-          children,
-          className,
-          onClick, // eslint-disable-line no-unused-vars
-          onMouseEnter, // eslint-disable-line no-unused-vars
-          onMouseLeave, // eslint-disable-line no-unused-vars
-          tooltip,
-          tooltipColor,
-          tooltipHideOnClick, // eslint-disable-line no-unused-vars
-          tooltipIcon,
-          tooltipPosition, // eslint-disable-line no-unused-vars
-          tooltipShowOnClick, // eslint-disable-line no-unused-vars
-          tooltipSize,
-          ...other
-        } = this.props;
+        const { children, className, tooltip, tooltipColor, tooltipIcon, tooltipSize, ...other } = this.props;
+
+        const rest = omit(other, [
+          'onClick',
+          'onMouseEnter',
+          'onMouseLeave',
+          'tooltipHideOnClick',
+          'tooltipPosition',
+          'tooltipShowOnClick',
+        ]);
 
         const childProps = {
-          ...other,
+          ...rest,
           className,
           onClick: this.handleClick,
           onMouseEnter: this.handleMouseEnter,
           onMouseLeave: this.handleMouseLeave,
         };
 
-        const shouldPass = typeof ComposedComponent !== 'string' && defaultPassthrough;
-        const finalProps = shouldPass ? { ...childProps } : childProps;
-
         return React.createElement(
           ComposedComponent,
-          finalProps,
+          childProps,
           children,
           createPortal(
             <Transition in={active} onExited={this.handleTransitionExited} timeout={{ enter: 0, exit: 1000 }}>
