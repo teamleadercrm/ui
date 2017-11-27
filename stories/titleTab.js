@@ -40,18 +40,20 @@ storiesOf('TitleTab', module)
   .addDecorator((story, context) => withInfo('common info')(story)(context))
   .addDecorator(checkA11y)
   .addDecorator(styles({ ...baseStyles, ...centerStyles }))
-  .add('general', () => {
-    return (
-      <Island style={{ display: 'flex' }}>
-        {store.state.items.map((item, key) => {
-          return (
-            <State store={store}>
-              <TitleTab onClick={() => handleClick(item.title)} active={item.active} key={key}>
-                {item.title}
-              </TitleTab>
-            </State>
-          );
-        })}
-      </Island>
-    );
-  });
+  .add('general', () => (
+    <State store={store}>
+      <Container />
+    </State>
+  ));
+
+const Container = () => (
+  <Island style={{ display: 'flex' }}>
+    {store.get('items').map((item, key) => {
+      return (
+        <TitleTab onClick={() => handleClick(item.title)} active={item.active} key={key}>
+          {item.title}
+        </TitleTab>
+      );
+    })}
+  </Island>
+);
