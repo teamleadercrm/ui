@@ -7,7 +7,7 @@ import { createPortal } from 'react-dom';
 import { getViewport } from '../utils/utils';
 import theme from './theme.css';
 
-const POSITION = {
+const POSITIONS = {
   BOTTOM: 'bottom',
   HORIZONTAL: 'horizontal',
   LEFT: 'left',
@@ -34,7 +34,7 @@ const defaults = {
   passthrough: true,
   showOnClick: false,
   size: 'medium',
-  position: POSITION.TOP,
+  position: POSITIONS.TOP,
 };
 
 const tooltipFactory = (options = {}) => {
@@ -61,7 +61,7 @@ const tooltipFactory = (options = {}) => {
         tooltipColor: PropTypes.oneOf(['white', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'inverse']),
         tooltipHideOnClick: PropTypes.bool,
         tooltipIcon: PropTypes.element,
-        tooltipPosition: PropTypes.oneOf(Object.keys(POSITION).map(key => POSITION[key])),
+        tooltipPosition: PropTypes.oneOf(Object.keys(POSITIONS).map(key => POSITIONS[key])),
         tooltipShowOnClick: PropTypes.bool,
         tooltipSize: PropTypes.oneOf(Object.keys(SIZES)),
       };
@@ -91,18 +91,18 @@ const tooltipFactory = (options = {}) => {
       getPosition(element) {
         const { tooltipPosition } = this.props;
 
-        if (tooltipPosition === POSITION.HORIZONTAL) {
+        if (tooltipPosition === POSITIONS.HORIZONTAL) {
           const origin = element.getBoundingClientRect();
           const { width: windowWidth } = getViewport();
           const toRight = origin.left < windowWidth / 2 - origin.width / 2;
 
-          return toRight ? POSITION.RIGHT : POSITION.LEFT;
-        } else if (tooltipPosition === POSITION.VERTICAL) {
+          return toRight ? POSITIONS.RIGHT : POSITIONS.LEFT;
+        } else if (tooltipPosition === POSITIONS.VERTICAL) {
           const origin = element.getBoundingClientRect();
           const { height: windowHeight } = getViewport();
           const toBottom = origin.top < windowHeight / 2 - origin.height / 2;
 
-          return toBottom ? POSITION.BOTTOM : POSITION.TOP;
+          return toBottom ? POSITIONS.BOTTOM : POSITIONS.TOP;
         }
 
         return tooltipPosition;
@@ -123,25 +123,25 @@ const tooltipFactory = (options = {}) => {
         const xOffset = window.scrollX || window.pageXOffset;
         const yOffset = window.scrollY || window.pageYOffset;
 
-        if (position === POSITION.BOTTOM) {
+        if (position === POSITIONS.BOTTOM) {
           return {
             top: top + height + yOffset,
             left: left + width / 2 + xOffset,
             position,
           };
-        } else if (position === POSITION.TOP) {
+        } else if (position === POSITIONS.TOP) {
           return {
             top: top + yOffset,
             left: left + width / 2 + xOffset,
             position,
           };
-        } else if (position === POSITION.LEFT) {
+        } else if (position === POSITIONS.LEFT) {
           return {
             top: top + height / 2 + yOffset,
             left: left + xOffset,
             position,
           };
-        } else if (position === POSITION.RIGHT) {
+        } else if (position === POSITIONS.RIGHT) {
           return {
             top: top + height / 2 + yOffset,
             left: left + width + xOffset,
@@ -218,11 +218,7 @@ const tooltipFactory = (options = {}) => {
           finalProps,
           children,
           createPortal(
-            <Transition
-              in={active}
-              onExited={this.handleTransitionExited}
-              timeout={{ enter: 0, exit: 1000 }}
-            >
+            <Transition in={active} onExited={this.handleTransitionExited} timeout={{ enter: 0, exit: 1000 }}>
               {state => {
                 const classNames = cx(theme['tooltip'], theme[tooltipColor], theme[tooltipSize], {
                   [theme['is-entering']]: state === 'entering',
