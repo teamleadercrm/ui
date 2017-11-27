@@ -180,6 +180,10 @@ const tooltipFactory = (options = {}) => {
         }
       };
 
+      handleTransitionExited = () => {
+        document.body.removeChild(this.tooltipRoot);
+      };
+
       render() {
         const { active, left, top, position } = this.state;
         const {
@@ -216,9 +220,7 @@ const tooltipFactory = (options = {}) => {
           createPortal(
             <Transition
               in={active}
-              onExited={() => {
-                document.body.removeChild(this.tooltipRoot);
-              }}
+              onExited={this.handleTransitionExited}
               timeout={{ enter: 0, exit: 1000 }}
             >
               {state => {
