@@ -11,7 +11,6 @@ import Dialog from './dialog';
 import Menu, { IconMenu, MenuItem, MenuDivider } from './menu';
 import Message from './message';
 import Overlay from './overlay';
-import IconTab from './iconTab';
 import LoadingMolecule from './loadingMolecule';
 import LoadingSpinner from './loadingSpinner';
 import { PopoverHorizontal, PopoverVertical } from './popover';
@@ -20,8 +19,8 @@ import Section from './section';
 import Island from './island';
 import StatusBullet from './statusBullet';
 import StatusLabel from './statusLabel';
+import Tab from './tab';
 import { Toast } from './toast';
-import TitleTab from './titleTab';
 import Toggle from './toggle';
 import Tooltip, { TooltipLabel } from './tooltip';
 import QTip from './qTip';
@@ -47,7 +46,6 @@ export {
   Message,
   Monospaced,
   IconMenu,
-  IconTab,
   MenuItem,
   MenuDivider,
   LoadingMolecule,
@@ -64,7 +62,7 @@ export {
   StatusBullet,
   StatusLabel,
   Island,
-  TitleTab,
+  Tab,
   Toast,
   Toggle,
   Tooltip,

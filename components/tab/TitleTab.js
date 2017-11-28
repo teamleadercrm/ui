@@ -11,6 +11,7 @@ class TitleTab extends PureComponent {
     active: PropTypes.bool,
     children: PropTypes.node,
     className: PropTypes.string,
+    counter: PropTypes.node,
     element: PropTypes.node,
   };
 
@@ -20,12 +21,13 @@ class TitleTab extends PureComponent {
   };
 
   render() {
-    const { active, children, className, ...others } = this.props;
+    const { active, children, className, counter = null, ...others } = this.props;
     const classNames = cx(theme['title-tab'], { [theme['is-active']]: active }, className);
 
     return (
-      <Box data-teamleader-ui="title-tab" className={classNames} {...others}>
-        <Heading4 paddingHorizontal={3}>{children}</Heading4>
+      <Box data-teamleader-ui="title-tab" className={classNames} marginHorizontal={3} paddingHorizontal={3} {...others}>
+        <Heading4>{children}</Heading4>
+        {counter}
       </Box>
     );
   }
