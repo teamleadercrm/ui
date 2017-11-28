@@ -6,7 +6,7 @@ import theme from './theme.css';
 const Cell = props => {
   const { align, children, className, flex, soft, strong } = props;
 
-  const cellClassNames = cx(
+  const classNames = cx(
     theme['cell'],
     theme[`align-${align}`],
     theme[`flex-${flex}`],
@@ -18,7 +18,7 @@ const Cell = props => {
   );
 
   return (
-    <div className={cellClassNames} data-teamleader-ui="datagrid-cell">
+    <div className={classNames} data-teamleader-ui="datagrid-cell">
       {children}
     </div>
   );
