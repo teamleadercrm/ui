@@ -1,5 +1,6 @@
 @import '@teamleader/ui-colors';
 @import '@teamleader/ui-utilities';
+@import '@teamleader/ui-typography';
 
 .row {
   border-bottom: 1px solid var(--color-neutral);
@@ -15,5 +16,13 @@
 
 .header-cell {
   background: var(--color-neutral-light);
+  color: var(--color-neutral-darkest);
+  font-family: var(--font-family-medium);
+  font-size: 12px;
+  text-transform: uppercase;
   padding: var(--spacer-small);
+
+  svg {
+    margin-left: var(--spacer-smaller);
+  }
 }
