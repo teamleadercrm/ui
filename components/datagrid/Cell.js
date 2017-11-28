@@ -4,10 +4,11 @@ import cx from 'classnames';
 import theme from './theme.css';
 
 const Cell = props => {
-  const { children, className, flex, soft, strong } = props;
+  const { align, children, className, flex, soft, strong } = props;
 
   const cellClassNames = cx(
     theme['cell'],
+    theme[`align-${align}`],
     theme[`flex-${flex}`],
     {
       [theme['is-soft']]: soft,
@@ -24,6 +25,7 @@ const Cell = props => {
 };
 
 Cell.propTypes = {
+  align: PropTypes.oneOf(['left', 'center', 'right']),
   children: PropTypes.any,
   className: PropTypes.string,
   flex: PropTypes.oneOf(['fit-content', 'min-width', '1', '2', '3', '4']),

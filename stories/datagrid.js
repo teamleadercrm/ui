@@ -84,7 +84,7 @@ storiesOf('DataGrids', module)
           rows.map((row, index) => {
             return (
               <DataGrid.Row key={index}>
-                <DataGrid.Cell flex="min-width">
+                <DataGrid.Cell align="center" flex="min-width">
                   <TooltippedStatusBullet
                     color={row.column1}
                     tooltip={<TextTiny>Overdue</TextTiny>}
@@ -97,7 +97,7 @@ storiesOf('DataGrids', module)
                 <DataGrid.Cell strong> {`€ ${row.column3}`}</DataGrid.Cell>
                 <DataGrid.Cell soft>{row.column4}</DataGrid.Cell>
                 <DataGrid.Cell soft> {row.column5} </DataGrid.Cell>
-                <DataGrid.Cell flex="min-width">
+                <DataGrid.Cell align="right" flex="min-width">
                   <IconMenu position="top-right">
                     <MenuItem>Remove row</MenuItem>
                   </IconMenu>
