@@ -64,10 +64,6 @@ class DataGrid extends PureComponent {
     return (
       <Box data-teamleader-ui="data-grid" className={classNames} {...others}>
         {React.Children.map(children, child => {
-          if (!isComponentOfType(Row, child) && !isComponentOfType(HeaderRow, child)) {
-            return child;
-          }
-
           if (isComponentOfType(HeaderRow, child)) {
             return React.cloneElement(child, {
               onSelectionChange: event => this.handleHeaderRowSelectionChange(event),
@@ -83,6 +79,8 @@ class DataGrid extends PureComponent {
               selectable,
             });
           }
+
+          return child;
         })}
       </Box>
     );
