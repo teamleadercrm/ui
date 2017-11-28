@@ -1,0 +1,20 @@
+@import '@teamleader/ui-colors';
+@import '@teamleader/ui-utilities';
+@import '@teamleader/ui-typography';
+
+.row {
+  border-bottom: 1px solid var(--color-neutral);
+  display: flex;
+}
+
+.cell {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  padding: var(--spacer-smaller) var(--spacer-small);
+}
+
+.header-cell {
+  background: var(--color-neutral-light);
+  padding: var(--spacer-small);
+}
