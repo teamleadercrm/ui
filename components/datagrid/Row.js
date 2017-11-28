@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import Box from '../box';
 import Cell from './Cell';
 import Checkbox from '../checkbox';
 import cx from 'classnames';
@@ -16,19 +15,19 @@ class Row extends PureComponent {
   };
 
   render() {
-    const { className, children, onSelectionChange, selected, selectable, ...others } = this.props;
+    const { className, children, onSelectionChange, selected, selectable } = this.props;
 
     const classNames = cx(theme['row'], className);
 
     return (
-      <Box className={classNames} data-teamleader-ui="datagrid-row" {...others}>
+      <div className={classNames} data-teamleader-ui="datagrid-row">
         {selectable && (
-          <Cell>
+          <Cell className={theme['flex-fit-content']}>
             <Checkbox checked={selected} onChange={onSelectionChange} />
           </Cell>
         )}
         {children}
-      </Box>
+      </div>
     );
   }
 }

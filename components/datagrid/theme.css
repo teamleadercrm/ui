@@ -9,8 +9,11 @@
 
 .cell {
   align-items: center;
+  color: var(--color-teal-darkest);
   display: flex;
+  font-size: 14px;
   flex: 1;
+  font-family: var(--font-family-regular);
   padding: var(--spacer-smaller) var(--spacer-small);
 }
 
@@ -25,4 +28,50 @@
   svg {
     margin-left: var(--spacer-smaller);
   }
+}
+
+.is-soft {
+  color: var(--color-neutral-darkest);
+}
+
+.is-strong {
+  font-family: var(--font-family-black);
+}
+
+/* Widths */
+.flex-fit-content {
+  flex: 0 0 auto;
+}
+
+.flex-min-width {
+  flex: 0 0 48px;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.flex-2 {
+  flex: 2;
+}
+
+.flex-3 {
+  flex: 3;
+}
+
+.flex-4 {
+  flex: 4;
+}
+
+/* Alignment */
+.align-leftt {
+  justify-content: flex-start;
+}
+
+.align-center {
+  justify-content: center;
+}
+
+.align-right {
+  justify-content: flex-end;
 }

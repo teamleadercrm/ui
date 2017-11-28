@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import Box from '../box';
 import HeaderCell from './HeaderCell';
 import Checkbox from '../checkbox';
 import cx from 'classnames';
@@ -16,19 +15,19 @@ class HeaderRow extends PureComponent {
   };
 
   render() {
-    const { className, children, onSelectionChange, selected, selectable, ...others } = this.props;
+    const { className, children, onSelectionChange, selected, selectable } = this.props;
 
     const classNames = cx(theme['row'], className);
 
     return (
-      <Box className={classNames} data-teamleader-ui="datagrid-header-row" {...others}>
+      <div className={classNames} data-teamleader-ui="datagrid-header-row">
         {selectable && (
-          <HeaderCell>
+          <HeaderCell className={theme['flex-fit-content']}>
             <Checkbox checked={selected} onChange={onSelectionChange} />
           </HeaderCell>
         )}
         {children}
-      </Box>
+      </div>
     );
   }
 }

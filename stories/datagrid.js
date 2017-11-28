@@ -73,33 +73,31 @@ storiesOf('DataGrids', module)
     <Box paddingVertical={5}>
       <DataGrid selectable>
         <DataGrid.HeaderRow>
-          <DataGrid.HeaderCell/>
-          <DataGrid.HeaderCell onClick={action('onClick: column sort')}>Customer</DataGrid.HeaderCell>
+          <DataGrid.HeaderCell flex="min-width" />
+          <DataGrid.HeaderCell flex="4" onClick={action('onClick: column sort')}>Customer</DataGrid.HeaderCell>
           <DataGrid.HeaderCell>Amount</DataGrid.HeaderCell>
           <DataGrid.HeaderCell>Due date</DataGrid.HeaderCell>
           <DataGrid.HeaderCell>Reference</DataGrid.HeaderCell>
-          <DataGrid.HeaderCell/>
+          <DataGrid.HeaderCell flex="min-width"/>
         </DataGrid.HeaderRow>
         {
           rows.map((row, index) => {
             return (
               <DataGrid.Row key={index}>
-                <DataGrid.Cell>
-                  <TooltippedStatusBullet color={row.column1} tooltip={<TextTiny>Overdue</TextTiny>} tooltipColor={row.column1} tooltipSize="small" size="large"/>
+                <DataGrid.Cell flex="min-width">
+                  <TooltippedStatusBullet
+                    color={row.column1}
+                    tooltip={<TextTiny>Overdue</TextTiny>}
+                    tooltipColor={row.column1}
+                    tooltipSize="small"
+                    size="large"
+                  />
                 </DataGrid.Cell>
-                <DataGrid.Cell>
-                  <TextTiny>{row.column2}</TextTiny>
-                </DataGrid.Cell>
-                <DataGrid.Cell>
-                  <TextTiny><strong>{`€ ${row.column3}`}</strong></TextTiny>
-                </DataGrid.Cell>
-                <DataGrid.Cell>
-                  <TextTiny color="neutral">{row.column4}</TextTiny>
-                </DataGrid.Cell>
-                <DataGrid.Cell>
-                  <TextTiny color="neutral">{row.column5}</TextTiny>
-                </DataGrid.Cell>
-                <DataGrid.Cell>
+                <DataGrid.Cell flex="4"> {row.column2}</DataGrid.Cell>
+                <DataGrid.Cell strong> {`€ ${row.column3}`}</DataGrid.Cell>
+                <DataGrid.Cell soft>{row.column4}</DataGrid.Cell>
+                <DataGrid.Cell soft> {row.column5} </DataGrid.Cell>
+                <DataGrid.Cell flex="min-width">
                   <IconMenu position="top-right">
                     <MenuItem>Remove row</MenuItem>
                   </IconMenu>
