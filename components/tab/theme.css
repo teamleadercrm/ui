@@ -29,7 +29,7 @@
     height: 3px;
     width: 100%;
     bottom: 0;
-    transition: transform .35s ease-in-out;
+    transition: transform .25s ease-in-out;
     transform: scale(0, 1);
   }
 }
