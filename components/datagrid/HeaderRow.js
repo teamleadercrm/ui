@@ -1,9 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import Row from './Row';
 import HeaderCell from './HeaderCell';
 import Checkbox from '../checkbox';
-import cx from 'classnames';
-import theme from './theme.css';
 
 class HeaderRow extends PureComponent {
   static propTypes = {
@@ -15,19 +14,17 @@ class HeaderRow extends PureComponent {
   };
 
   render() {
-    const { className, children, onSelectionChange, selected, selectable } = this.props;
-
-    const classNames = cx(theme['row'], className);
+    const { className, children, onSelectionChange, selected, selectable, ...others } = this.props;
 
     return (
-      <div className={classNames} data-teamleader-ui="datagrid-header-row">
+      <Row backgroundColor="neutral" className={className} data-teamleader-ui="datagrid-header-row" {...others}>
         {selectable && (
           <HeaderCell flex="min-width">
             <Checkbox checked={selected} onChange={onSelectionChange} />
           </HeaderCell>
         )}
         {children}
-      </div>
+      </Row>
     );
   }
 }

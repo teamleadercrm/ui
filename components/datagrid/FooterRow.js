@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import cx from 'classnames';
-import theme from './theme.css';
+import Row from './Row';
 
 class FooterRow extends PureComponent {
   static propTypes = {
@@ -10,14 +9,12 @@ class FooterRow extends PureComponent {
   };
 
   render() {
-    const { className, children } = this.props;
-
-    const classNames = cx(theme['row'], className);
+    const { className, children, ...others } = this.props;
 
     return (
-      <div className={classNames} data-teamleader-ui="datagrid-footer-row">
+      <Row className={className} data-teamleader-ui="datagrid-footer-row" {...others}>
         {children}
-      </div>
+      </Row>
     );
   }
 }
