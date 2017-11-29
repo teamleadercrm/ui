@@ -6,7 +6,7 @@ import theme from './theme.css';
 class Cell extends PureComponent {
   static propTypes = {
     align: PropTypes.oneOf(['left', 'center', 'right']),
-    backgroundColor: PropTypes.oneOf(['white', 'neutral']),
+    backgroundColor: PropTypes.oneOf(['transparent', 'white', 'neutral']),
     children: PropTypes.any,
     className: PropTypes.string,
     flex: PropTypes.oneOf(['fit-content', 'min-width', '1', '2', '3', '4']),
@@ -16,7 +16,7 @@ class Cell extends PureComponent {
 
   static defaultProps = {
     align: 'left',
-    backgroundColor: 'white',
+    backgroundColor: 'transparent',
     flex: '1',
     soft: false,
     strong: false,
