@@ -46,6 +46,10 @@
 .inverted {
   .title-tab {
     color: var(--color-teal-light);
+
+    &:focus {
+      background-color: transparent;
+    }
   }
   .is-active.title-tab {
     color: var(--color-neutral-lightest);
