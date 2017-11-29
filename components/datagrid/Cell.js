@@ -6,6 +6,7 @@ import theme from './theme.css';
 class Cell extends PureComponent {
   static propTypes = {
     align: PropTypes.oneOf(['left', 'center', 'right']),
+    backgroundColor: PropTypes.oneOf(['white', 'neutral']),
     children: PropTypes.any,
     className: PropTypes.string,
     flex: PropTypes.oneOf(['fit-content', 'min-width', '1', '2', '3', '4']),
@@ -15,18 +16,20 @@ class Cell extends PureComponent {
 
   static defaultProps = {
     align: 'left',
+    backgroundColor: 'white',
     flex: '1',
     soft: false,
     strong: false,
   };
 
   render() {
-    const { align, children, className, flex, soft, strong, ...others } = this.props;
+    const { align, backgroundColor, children, className, flex, soft, strong, ...others } = this.props;
 
     const classNames = cx(
       theme['cell'],
       theme[`align-${align}`],
       theme[`flex-${flex}`],
+      theme[`has-background-${backgroundColor}`],
       {
         [theme['is-soft']]: soft,
         [theme['is-strong']]: strong,
