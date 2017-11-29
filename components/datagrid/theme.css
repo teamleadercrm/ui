@@ -33,6 +33,10 @@
   background-color: var(--color-neutral-light);
 }
 
+.has-background-transparent {
+  background-color: transparent;
+}
+
 .has-background-white {
   background-color: var(--color-white);
 }
