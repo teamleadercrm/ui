@@ -25,7 +25,7 @@ class TitleTab extends PureComponent {
     const classNames = cx(theme['title-tab'], { [theme['is-active']]: active }, className);
 
     return (
-      <Box data-teamleader-ui="title-tab" className={classNames} marginHorizontal={3} paddingHorizontal={3} {...others}>
+      <Box data-teamleader-ui="title-tab" className={classNames} marginHorizontal={3} paddingHorizontal={3} paddingVertical={4} {...others}>
         <Heading4>{children}</Heading4>
         {counter}
       </Box>
