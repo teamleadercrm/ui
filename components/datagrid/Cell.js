@@ -13,6 +13,13 @@ class Cell extends PureComponent {
     strong: PropTypes.bool,
   };
 
+  static defaultProps = {
+    align: 'left',
+    flex: '1',
+    soft: false,
+    strong: false,
+  };
+
   render() {
     const { align, children, className, flex, soft, strong, ...others } = this.props;
 
