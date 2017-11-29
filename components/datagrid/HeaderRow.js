@@ -22,7 +22,7 @@ class HeaderRow extends PureComponent {
     return (
       <div className={classNames} data-teamleader-ui="datagrid-header-row">
         {selectable && (
-          <HeaderCell className={theme['flex-fit-content']}>
+          <HeaderCell flex="min-width">
             <Checkbox checked={selected} onChange={onSelectionChange} />
           </HeaderCell>
         )}

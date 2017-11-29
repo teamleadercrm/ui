@@ -22,7 +22,7 @@ class Row extends PureComponent {
     return (
       <div className={classNames} data-teamleader-ui="datagrid-row">
         {selectable && (
-          <Cell className={theme['flex-fit-content']}>
+          <Cell flex="min-width">
             <Checkbox checked={selected} onChange={onSelectionChange} />
           </Cell>
         )}
