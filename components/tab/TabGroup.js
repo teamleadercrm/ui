@@ -6,7 +6,7 @@ import theme from './theme.css';
 
 class TabGroup extends PureComponent {
   static propTypes = {
-    children: PropTypes.node,
+    children: PropTypes.node.isRequired,
     className: PropTypes.string,
     inverted: PropTypes.bool,
   };
