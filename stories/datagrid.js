@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
-import { Box, Checkbox, DataGrid, IconMenu, MenuItem, StatusBullet, TextTiny, Tooltip } from '../components';
+import { Box, DataGrid, IconMenu, MenuItem, StatusBullet, TextTiny, Tooltip } from '../components';
 
 const rows = [
   {
@@ -74,8 +74,8 @@ storiesOf('DataGrids', module)
       <DataGrid selectable>
         <DataGrid.HeaderRow>
           <DataGrid.HeaderCell flex="min-width" />
-          <DataGrid.HeaderCell flex="4" onClick={action('onClick: column sort')}>Customer</DataGrid.HeaderCell>
-          <DataGrid.HeaderCell>Amount</DataGrid.HeaderCell>
+          <DataGrid.HeaderCell flex="2" onClick={action('onClick: column sort')}>Customer</DataGrid.HeaderCell>
+          <DataGrid.HeaderCell align="right">Amount</DataGrid.HeaderCell>
           <DataGrid.HeaderCell>Due date</DataGrid.HeaderCell>
           <DataGrid.HeaderCell>Reference</DataGrid.HeaderCell>
           <DataGrid.HeaderCell flex="min-width"/>
@@ -83,7 +83,7 @@ storiesOf('DataGrids', module)
         {
           rows.map((row, index) => {
             return (
-              <DataGrid.Row key={index}>
+              <DataGrid.BodyRow key={index}>
                 <DataGrid.Cell align="center" flex="min-width">
                   <TooltippedStatusBullet
                     color={row.column1}
@@ -93,8 +93,8 @@ storiesOf('DataGrids', module)
                     size="large"
                   />
                 </DataGrid.Cell>
-                <DataGrid.Cell flex="4"> {row.column2}</DataGrid.Cell>
-                <DataGrid.Cell strong> {`€ ${row.column3}`}</DataGrid.Cell>
+                <DataGrid.Cell flex="2"> {row.column2}</DataGrid.Cell>
+                <DataGrid.Cell align="right" strong> {`€ ${row.column3}`}</DataGrid.Cell>
                 <DataGrid.Cell soft>{row.column4}</DataGrid.Cell>
                 <DataGrid.Cell soft> {row.column5} </DataGrid.Cell>
                 <DataGrid.Cell align="right" flex="min-width">
@@ -102,10 +102,49 @@ storiesOf('DataGrids', module)
                     <MenuItem>Remove row</MenuItem>
                   </IconMenu>
                 </DataGrid.Cell>
-              </DataGrid.Row>
+              </DataGrid.BodyRow>
             );
           })
         }
+        <DataGrid.FooterRow backgroundColor="neutral">
+          <DataGrid.Cell flex="min-width"/>
+          <DataGrid.Cell flex="min-width"/>
+          <DataGrid.Cell align="right" flex="2">
+            Total Excl Btw
+          </DataGrid.Cell>
+          <DataGrid.Cell align="right" strong>
+            € 13460.52
+          </DataGrid.Cell>
+          <DataGrid.Cell/>
+          <DataGrid.Cell/>
+          <DataGrid.Cell flex="min-width"/>
+        </DataGrid.FooterRow>
+        <DataGrid.FooterRow backgroundColor="neutral">
+          <DataGrid.Cell flex="min-width"/>
+          <DataGrid.Cell flex="min-width"/>
+          <DataGrid.Cell align="right" flex="2">
+            + VAT
+          </DataGrid.Cell>
+          <DataGrid.Cell align="right" strong>
+            € 2826.71
+          </DataGrid.Cell>
+          <DataGrid.Cell/>
+          <DataGrid.Cell/>
+          <DataGrid.Cell flex="min-width"/>
+        </DataGrid.FooterRow>
+        <DataGrid.FooterRow backgroundColor="neutral">
+          <DataGrid.Cell flex="min-width"/>
+          <DataGrid.Cell flex="min-width"/>
+          <DataGrid.Cell align="right" flex="2">
+            Total Incl Btw
+          </DataGrid.Cell>
+          <DataGrid.Cell align="right" strong backgroundColor="white">
+            € 16287.23
+          </DataGrid.Cell>
+          <DataGrid.Cell/>
+          <DataGrid.Cell/>
+          <DataGrid.Cell flex="min-width"/>
+        </DataGrid.FooterRow>
       </DataGrid>
     </Box>
   ));
