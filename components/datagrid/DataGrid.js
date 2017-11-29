@@ -6,7 +6,7 @@ import HeaderCell from './HeaderCell';
 import isComponentOfType from '../utils/is-component-of-type';
 import FooterRow from './FooterRow';
 import HeaderRow from './HeaderRow';
-import Row from './Row';
+import BodyRow from './BodyRow';
 import cx from 'classnames';
 import theme from './theme.css';
 
@@ -73,7 +73,7 @@ class DataGrid extends PureComponent {
             });
           }
 
-          if (isComponentOfType(Row, child)) {
+          if (isComponentOfType(BodyRow, child)) {
             return React.cloneElement(child, {
               onSelectionChange: event => this.handleRowSelectionChange(child.key),
               selected: selectedRows.indexOf(child.key) !== -1,
@@ -90,7 +90,7 @@ class DataGrid extends PureComponent {
 
 DataGrid.HeaderRow = HeaderRow;
 DataGrid.HeaderCell = HeaderCell;
-DataGrid.Row = Row;
+DataGrid.BodyRow = BodyRow;
 DataGrid.Cell = Cell;
 DataGrid.FooterRow = FooterRow;
 
