@@ -10,13 +10,13 @@
   position: relative;
 
   &:hover {
-    background-color: rgba(130, 130, 140, 0.24);
+    background-color: color(var(--color-neutral-darkest) a(24%));
     cursor: pointer;
   }
 
   &:focus {
-    background-color: rgba(130, 130, 140, 0.12);
-    box-shadow: 0 0 0 2px rgba(130, 130, 140, 0.24);
+    background-color: color(var(--color-neutral-darkest) a(12%));
+    box-shadow: 0 0 0 2px color(var(--color-neutral-darkest) a(24%));
   }
 
   &::after {
