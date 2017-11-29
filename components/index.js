@@ -20,6 +20,7 @@ import Island from './island';
 import StatusBullet from './statusBullet';
 import StatusLabel from './statusLabel';
 import Tab from './tab';
+import Tag from './tag';
 import { Toast } from './toast';
 import Toggle from './toggle';
 import Tooltip, { TooltipLabel } from './tooltip';
@@ -63,6 +64,7 @@ export {
   StatusLabel,
   Island,
   Tab,
+  Tag,
   Toast,
   Toggle,
   Tooltip,
