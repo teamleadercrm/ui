@@ -7,6 +7,8 @@ class Cell extends PureComponent {
   static propTypes = {
     align: PropTypes.oneOf(['left', 'center', 'right']),
     backgroundColor: PropTypes.oneOf(['transparent', 'white', 'neutral']),
+    border: PropTypes.oneOf(['none', 'around', 'left', 'right']),
+    bordered: PropTypes.bool,
     children: PropTypes.any,
     className: PropTypes.string,
     flex: PropTypes.oneOf(['fit-content', 'min-width', '1', '2', '3', '4']),
@@ -17,19 +19,21 @@ class Cell extends PureComponent {
   static defaultProps = {
     align: 'left',
     backgroundColor: 'transparent',
+    border: 'none',
     flex: '1',
     soft: false,
     strong: false,
   };
 
   render() {
-    const { align, backgroundColor, children, className, flex, soft, strong, ...others } = this.props;
+    const { align, backgroundColor, border, children, className, flex, soft, strong, ...others } = this.props;
 
     const classNames = cx(
       theme['cell'],
       theme[`align-${align}`],
       theme[`flex-${flex}`],
       theme[`has-background-${backgroundColor}`],
+      theme[`has-border-${border}`],
       {
         [theme['is-soft']]: soft,
         [theme['is-strong']]: strong,

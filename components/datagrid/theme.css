@@ -29,6 +29,7 @@
   }
 }
 
+/* Cell backgrounds */
 .has-background-neutral {
   background-color: var(--color-neutral-light);
 }
@@ -41,6 +42,24 @@
   background-color: var(--color-white);
 }
 
+/* Cell borders */
+.has-border-none {
+  box-shadow: none;
+}
+
+.has-border-around {
+  box-shadow: inset 0 0 0 1px var(--color-neutral-dark), 0 0 0 1px var(--color-neutral-dark);
+}
+
+.has-border-left {
+  box-shadow: inset 1px 0 0 0 var(--color-neutral-dark);
+}
+
+.has-border-right {
+  box-shadow: inset -1px 0 0 0 var(--color-neutral-dark);
+}
+
+/* Cell text */
 .is-soft {
   color: var(--color-neutral-darkest);
 }
@@ -50,7 +69,7 @@
   font-weight: 900;
 }
 
-/* Widths */
+/* Cell widths */
 .flex-fit-content {
   flex: 0 0 auto;
 }
@@ -75,7 +94,7 @@
   flex: 4;
 }
 
-/* Alignment */
+/* Cell alignment */
 .align-left {
   justify-content: flex-start;
 }

@@ -74,7 +74,7 @@ storiesOf('DataGrids', module)
       <DataGrid selectable>
         <DataGrid.HeaderRow>
           <DataGrid.HeaderCell flex="min-width" />
-          <DataGrid.HeaderCell flex="2" onClick={action('onClick: column sort')}>Customer</DataGrid.HeaderCell>
+          <DataGrid.HeaderCell border="right" flex="2" onClick={action('onClick: column sort')}>Customer</DataGrid.HeaderCell>
           <DataGrid.HeaderCell align="right">Amount</DataGrid.HeaderCell>
           <DataGrid.HeaderCell>Due date</DataGrid.HeaderCell>
           <DataGrid.HeaderCell>Reference</DataGrid.HeaderCell>
@@ -93,7 +93,7 @@ storiesOf('DataGrids', module)
                     size="large"
                   />
                 </DataGrid.Cell>
-                <DataGrid.Cell flex="2"> {row.column2}</DataGrid.Cell>
+                <DataGrid.Cell border="right" flex="2"> {row.column2}</DataGrid.Cell>
                 <DataGrid.Cell align="right" strong> {`€ ${row.column3}`}</DataGrid.Cell>
                 <DataGrid.Cell soft>{row.column4}</DataGrid.Cell>
                 <DataGrid.Cell soft> {row.column5} </DataGrid.Cell>
@@ -109,7 +109,7 @@ storiesOf('DataGrids', module)
         <DataGrid.FooterRow backgroundColor="neutral">
           <DataGrid.Cell flex="min-width"/>
           <DataGrid.Cell flex="min-width"/>
-          <DataGrid.Cell align="right" flex="2">
+          <DataGrid.Cell align="right" border="right" flex="2">
             Total Excl Btw
           </DataGrid.Cell>
           <DataGrid.Cell align="right" strong>
@@ -122,7 +122,7 @@ storiesOf('DataGrids', module)
         <DataGrid.FooterRow backgroundColor="neutral">
           <DataGrid.Cell flex="min-width"/>
           <DataGrid.Cell flex="min-width"/>
-          <DataGrid.Cell align="right" flex="2">
+          <DataGrid.Cell align="right" border="right" flex="2">
             + VAT
           </DataGrid.Cell>
           <DataGrid.Cell align="right" strong>
@@ -135,10 +135,10 @@ storiesOf('DataGrids', module)
         <DataGrid.FooterRow backgroundColor="neutral">
           <DataGrid.Cell flex="min-width"/>
           <DataGrid.Cell flex="min-width"/>
-          <DataGrid.Cell align="right" flex="2">
+          <DataGrid.Cell align="right" border="right" flex="2">
             Total Incl Btw
           </DataGrid.Cell>
-          <DataGrid.Cell align="right" strong backgroundColor="white">
+          <DataGrid.Cell align="right" strong backgroundColor="white" border="around">
             € 16287.23
           </DataGrid.Cell>
           <DataGrid.Cell/>
