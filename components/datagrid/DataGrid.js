@@ -4,6 +4,7 @@ import Box from '../box';
 import Cell from './Cell';
 import HeaderCell from './HeaderCell';
 import isComponentOfType from '../utils/is-component-of-type';
+import FooterRow from './FooterRow';
 import HeaderRow from './HeaderRow';
 import Row from './Row';
 import cx from 'classnames';
@@ -91,5 +92,6 @@ DataGrid.HeaderRow = HeaderRow;
 DataGrid.HeaderCell = HeaderCell;
 DataGrid.Row = Row;
 DataGrid.Cell = Cell;
+DataGrid.FooterRow = FooterRow;
 
 export default DataGrid;
