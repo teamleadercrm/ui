@@ -33,7 +33,7 @@ class TitleTab extends PureComponent {
         paddingVertical={4}
         {...others}
       >
-        <Heading4>{children}</Heading4>
+        <Heading4 element="span">{children}</Heading4>
         {counter}
       </Box>
     );
