@@ -7,7 +7,7 @@ import { IconSortSmallOutline } from '@teamleader/ui-icons';
 
 const HeaderCell = ({ children, className, onClick, ...others }) => {
   return (
-    <Cell className={cx(theme['header-cell'], className)} onClick={onClick} {...others}>
+    <Cell backgroundColor="neutral" className={cx(theme['header-cell'], className)} onClick={onClick} {...others}>
       {children}
       {onClick && <IconSortSmallOutline />}
     </Cell>
