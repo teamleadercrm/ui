@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
-import { Box, DataGrid, IconMenu, MenuItem, StatusBullet, TextTiny, Tooltip } from '../components';
+import { Box, DataGrid, Heading4, IconMenu, MenuItem, StatusBullet, TextTiny, Tooltip } from '../components';
 
 const rows = [
   {
@@ -109,8 +109,8 @@ storiesOf('DataGrids', module)
         <DataGrid.FooterRow backgroundColor="neutral">
           <DataGrid.Cell flex="min-width"/>
           <DataGrid.Cell flex="min-width"/>
-          <DataGrid.Cell align="right" border="right" flex="2">
-            Total Excl Btw
+          <DataGrid.Cell align="right" border="right" flex="2" soft>
+            <Heading4>Total Excl Btw</Heading4>
           </DataGrid.Cell>
           <DataGrid.Cell align="right" strong>
             € 13460.52
@@ -122,8 +122,8 @@ storiesOf('DataGrids', module)
         <DataGrid.FooterRow backgroundColor="neutral">
           <DataGrid.Cell flex="min-width"/>
           <DataGrid.Cell flex="min-width"/>
-          <DataGrid.Cell align="right" border="right" flex="2">
-            + VAT
+          <DataGrid.Cell align="right" border="right" flex="2" soft>
+            <Heading4>+ VAT</Heading4>
           </DataGrid.Cell>
           <DataGrid.Cell align="right" strong>
             € 2826.71
@@ -135,8 +135,8 @@ storiesOf('DataGrids', module)
         <DataGrid.FooterRow backgroundColor="neutral">
           <DataGrid.Cell flex="min-width"/>
           <DataGrid.Cell flex="min-width"/>
-          <DataGrid.Cell align="right" border="right" flex="2">
-            Total Incl Btw
+          <DataGrid.Cell align="right" border="right" flex="2" soft>
+            <Heading4>Total Incl Btw</Heading4>
           </DataGrid.Cell>
           <DataGrid.Cell align="right" strong backgroundColor="white" border="around">
             € 16287.23
