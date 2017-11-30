@@ -72,8 +72,7 @@
 }
 
 .is-strong {
-  font-family: var(--font-family-black);
-  font-weight: 900;
+  font-family: var(--font-family-medium);
 }
 
 /* Cell widths */
