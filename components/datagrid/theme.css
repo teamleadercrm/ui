@@ -23,9 +23,16 @@
   font-family: var(--font-family-medium);
   font-size: 12px;
   text-transform: uppercase;
+}
 
+.is-sortable {
   svg {
     margin-left: var(--spacer-smaller);
+  }
+
+  &:hover {
+    color: var(--color-teal-darkest);
+    cursor: pointer;
   }
 }
 
