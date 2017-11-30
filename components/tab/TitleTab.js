@@ -9,7 +9,7 @@ import { Heading4 } from '../typography';
 class TitleTab extends PureComponent {
   static propTypes = {
     active: PropTypes.bool,
-    children: PropTypes.node,
+    children: PropTypes.node.isRequired,
     className: PropTypes.string,
     counter: PropTypes.node,
     element: PropTypes.node,
