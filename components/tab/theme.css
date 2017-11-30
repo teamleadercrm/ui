@@ -8,6 +8,7 @@
   outline: 0;
   user-select: none;
   position: relative;
+  text-decoration: none;
   background-color: var(--color-neutral-lightest);
   border: none;
   border-radius: 0;
