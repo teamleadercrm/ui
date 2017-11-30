@@ -15,7 +15,13 @@ class HeaderCell extends PureComponent {
   render() {
     const { children, className, onClick, ...others } = this.props;
 
-    const classNames = cx(theme['header-cell'], className);
+    const classNames = cx(
+      theme['header-cell'],
+      {
+        [theme['is-sortable']]: onClick
+      },
+      className,
+    );
 
     return (
       <Cell className={classNames} onClick={onClick} {...others}>
