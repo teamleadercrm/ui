@@ -18,7 +18,7 @@ class HeaderCell extends PureComponent {
     const classNames = cx(
       theme['header-cell'],
       {
-        [theme['is-sortable']]: onClick
+        [theme['is-sortable']]: onClick,
       },
       className,
     );
