@@ -8,6 +8,9 @@
   outline: 0;
   user-select: none;
   position: relative;
+  background-color: var(--color-neutral-lightest);
+  border: none;
+  border-radius: 0;
 
   &:hover {
     background-color: color(var(--color-neutral-darkest) a(24%));
@@ -44,10 +47,15 @@
 
 .inverted {
   .title-tab {
+    background-color: var(--color-teal-darkest);
     color: var(--color-teal-light);
 
     &:focus {
       background-color: transparent;
+    }
+
+    &:hover {
+      background-color: color(var(--color-neutral-darkest) a(24%));
     }
   }
   .is-active.title-tab {
