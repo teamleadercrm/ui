@@ -1,4 +1,5 @@
 @import '@teamleader/ui-colors';
+@import '@teamleader/ui-animations';
 
 .title-tab {
   color: var(--color-neutral-darkest);
