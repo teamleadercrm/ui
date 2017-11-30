@@ -28,7 +28,7 @@
     height: 3px;
     width: 100%;
     bottom: 0;
-    transition: transform .25s ease-in-out;
+    transition: transform var(--animation-duration) var(--animation-curve-fast-out-slow-in);
     transform: scale(0, 1);
   }
 }
