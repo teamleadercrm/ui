@@ -31,29 +31,22 @@ class DataGrid extends PureComponent {
   handleHeaderRowSelectionChange(value) {
     const allChildrenIndexes = React.Children.map(this.props.children, child => child.key);
 
-    if (value) {
-      this.setState({
-        selectedRows: allChildrenIndexes,
-      });
-    } else {
-      this.setState({
-        selectedRows: [],
-      });
-    }
+    this.setState({
+      selectedRows: value ? allChildrenIndexes : [],
+    });
   }
 
   handleRowSelectionChange(rowIndex) {
-    const { selectedRows } = this.state;
+    this.setState(prevState => {
+      const selectedRows = prevState.selectedRows.includes(rowIndex)
+        ? prevState.selectedRows.filter(row => row !== rowIndex)
+        :  [...prevState.selectedRows, rowIndex];
 
-    if (selectedRows.includes(rowIndex)) {
-      this.setState({
-        selectedRows: selectedRows.filter(row => row !== rowIndex),
-      });
-    } else {
-      this.setState({
-        selectedRows: [...selectedRows, rowIndex],
-      });
-    }
+      return {
+        ...prevState,
+        selectedRows,
+      };
+    });
   }
 
   render() {
