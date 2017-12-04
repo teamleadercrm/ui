@@ -19,8 +19,12 @@
     border: 2px solid;
     content: '';
     display: inline-block;
-    margin-right: var(--spacer-smaller);
   }
+}
+
+.label {
+  display: inline-block;
+  margin-left: var(--spacer-smaller);
 }
 
 .mint::before {
