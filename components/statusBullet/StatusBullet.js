@@ -6,7 +6,7 @@ import theme from './theme.css';
 
 class StatusBullet extends PureComponent {
   static propTypes = {
-    children: PropTypes.node.isRequired,
+    children: PropTypes.node,
     className: PropTypes.string,
     color: PropTypes.oneOf(['mint', 'violet', 'ruby', 'gold', 'aqua', 'neutral']),
     size: PropTypes.oneOf(['small', 'medium', 'large']),
