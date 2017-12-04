@@ -40,7 +40,7 @@ class DataGrid extends PureComponent {
     this.setState(prevState => {
       const selectedRows = prevState.selectedRows.includes(rowIndex)
         ? prevState.selectedRows.filter(row => row !== rowIndex)
-        :  [...prevState.selectedRows, rowIndex];
+        : [...prevState.selectedRows, rowIndex];
 
       return {
         ...prevState,
