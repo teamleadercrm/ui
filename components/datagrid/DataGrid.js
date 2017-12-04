@@ -29,7 +29,11 @@ class DataGrid extends PureComponent {
   }
 
   handleHeaderRowSelectionChange(value) {
-    const allChildrenIndexes = React.Children.map(this.props.children, child => child.key);
+    const allChildrenIndexes = React.Children.map(this.props.children, child => {
+      if (isComponentOfType(BodyRow, child)) {
+        return child.key;
+      }
+    });
 
     this.setState({
       selectedRows: value ? allChildrenIndexes : [],
