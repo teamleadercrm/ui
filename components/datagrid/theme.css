@@ -20,7 +20,7 @@
 
 .header-cell {
   color: var(--color-neutral-darkest);
-  font-family: var(--font-family-medium);
+  font-family: var(--font-family-bold);
   font-size: 12px;
   text-transform: uppercase;
 }
