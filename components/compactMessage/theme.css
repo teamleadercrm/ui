@@ -1,0 +1,19 @@
+@import '@teamleader/ui-utilities';
+
+.compact-message {
+  composes: reset;
+  display: flex;
+  align-items: center;
+}
+
+.image {
+  margin-right: var(--spacer-regular);
+}
+
+.content {
+  flex: 1;
+}
+
+.button {
+  margin-left: var(--spacer-big);
+}

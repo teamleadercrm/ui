@@ -3,29 +3,28 @@ import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import styles from '@sambego/storybook-styles';
-import Counter from '../components/counter';
+import { Box, Counter } from '../components';
 import { baseStyles, centerStyles } from '../.storybook/styles';
 
-const colors = ['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua'];
+const colors = ['neutral', 'mint', 'aqua', 'violet', 'teal', 'gold', 'ruby'];
+const sizes = ['small', 'medium'];
 
 storiesOf('Counters', module)
   .addDecorator((story, context) => withInfo('common info')(story)(context))
   .addDecorator(checkA11y)
   .addDecorator(styles({ ...baseStyles, ...centerStyles }))
   .add('colors', () => (
-    <div>
-      {colors.map(color => <Counter count={99} color={color} />)}
-      <Counter count={99} dark />
-    </div>
+    <Box>
+      {colors.map((color, index) => <Counter count={99} color={color} key={index} marginHorizontal={3} />)}
+    </Box>
   ))
-  .add('size', () => (
-    <div>
-      <Counter count={99} color="neutral" size="small" />
-      <Counter count={99} color="neutral" size="medium" />
-    </div>
+  .add('sizes', () => (
+    <Box>
+      {sizes.map((size, index) => <Counter count={99} color="ruby" key={index} size={size} marginHorizontal={3} />)}
+    </Box>
   ))
   .add('maximum count', () => (
-    <div>
-      <Counter count={116} color="neutral" maxCount="99" />
-    </div>
+    <Box>
+      <Counter count={116} color="ruby" maxCount={99} />
+    </Box>
   ));

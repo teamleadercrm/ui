@@ -1,119 +1,98 @@
 import React, { PureComponent } from 'react';
+import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import Portal from '../hoc/Portal';
-import ActivableRenderer from '../hoc/ActivableRenderer';
-import InjectButton from '../button/Button.js';
-import InjectIconButton from '../button/IconButton';
-import InjectOverlay from '../overlay/Overlay';
-import { IconCloseMediumOutline, IconWarningMediumOutline } from '@teamleader/ui-icons';
+import Overlay from '../overlay/Overlay';
+import Transition from 'react-transition-group/Transition';
 import theme from './theme.css';
 
-const factory = (Overlay, Button, IconButton) => {
-  class Dialog extends PureComponent {
-    static propTypes = {
-      actions: PropTypes.arrayOf(
-        PropTypes.shape({
-          className: PropTypes.string,
-          label: PropTypes.string,
-          children: PropTypes.node,
-        }),
-      ),
-      active: PropTypes.bool,
-      backdrop: PropTypes.string,
-      children: PropTypes.node,
-      className: PropTypes.string,
-      onCloseClick: PropTypes.func,
-      onEscKeyDown: PropTypes.func,
-      onOverlayClick: PropTypes.func,
-      onOverlayMouseDown: PropTypes.func,
-      onOverlayMouseMove: PropTypes.func,
-      onOverlayMouseUp: PropTypes.func,
-      size: PropTypes.oneOf(['small', 'medium', 'large', 'fullscreen']),
-      title: PropTypes.string,
-      type: PropTypes.oneOf(['regular', 'warning']),
-    };
+class Dialog extends PureComponent {
+  static propTypes = {
+    active: PropTypes.bool,
+    backdrop: PropTypes.string,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    onEscKeyDown: PropTypes.func,
+    onOverlayClick: PropTypes.func,
+    onOverlayMouseDown: PropTypes.func,
+    onOverlayMouseMove: PropTypes.func,
+    onOverlayMouseUp: PropTypes.func,
+    size: PropTypes.oneOf(['small', 'medium', 'large', 'fullscreen']),
+  };
 
-    static defaultProps = {
-      actions: [],
-      active: false,
-      backdrop: 'dark',
-      size: 'medium',
-      type: 'regular',
-    };
+  static defaultProps = {
+    active: false,
+    backdrop: 'dark',
+    size: 'medium',
+  };
 
-    render() {
-      const {
-        actions,
-        active,
-        backdrop,
-        children,
-        className,
-        onCloseClick,
-        onEscKeyDown,
-        onOverlayClick,
-        onOverlayMouseDown,
-        onOverlayMouseMove,
-        onOverlayMouseUp,
-        size,
-        title,
-        type,
-      } = this.props;
+  constructor() {
+    super(...arguments);
 
-      const actionButtons = actions.map((action, idx) => {
-        const className = cx(theme['button'], {
-          [action.className]: action.className,
-        });
-
-        return <Button key={idx} {...action} className={className} />; // eslint-disable-line
-      });
-
-      const dialogClassNames = cx(
-        theme['dialog'],
-        theme[size],
-        theme[type],
-        {
-          [theme['active']]: active,
-        },
-        className,
-      );
-
-      return (
-        <Portal className={theme['wrapper']}>
-          <Overlay
-            active={active}
-            backdrop={backdrop}
-            className={theme['overlay']}
-            onClick={onOverlayClick}
-            onEscKeyDown={onEscKeyDown}
-            onMouseDown={onOverlayMouseDown}
-            onMouseMove={onOverlayMouseMove}
-            onMouseUp={onOverlayMouseUp}
-          />
-          <div data-teamleader-ui="dialog" className={dialogClassNames}>
-            <header className={theme['header']}>
-              {type === 'warning' && <IconWarningMediumOutline className={theme['icon']} />}
-              {title && <h6 className={theme['title']}>{title}</h6>}
-              <IconButton icon={<IconCloseMediumOutline />} className={theme['close']} onMouseUp={onCloseClick} />
-            </header>
-            <section role="body" className={theme['body']}>
-              {children}
-            </section>
-            {actionButtons.length && (
-              <nav role="navigation" className={theme['navigation']}>
-                {actionButtons}
-              </nav>
-            )}
-          </div>
-        </Portal>
-      );
-    }
+    this.dialogRoot = document.createElement('div');
+    this.dialogRoot.id = 'dialog-root';
   }
 
-  return ActivableRenderer()(Dialog);
-};
+  componentDidMount() {
+    document.body.appendChild(this.dialogRoot);
+  }
 
-const Dialog = factory(InjectOverlay, InjectButton, InjectIconButton);
+  componentWillUnmount() {
+    document.body.removeChild(this.dialogRoot);
+  }
+
+  render() {
+    const {
+      active,
+      backdrop,
+      children,
+      className,
+      onEscKeyDown,
+      onOverlayClick,
+      onOverlayMouseDown,
+      onOverlayMouseMove,
+      onOverlayMouseUp,
+      size,
+    } = this.props;
+
+    if (!active) {
+      return null;
+    }
+
+    const dialogClassNames = cx(theme['dialog'], theme[`is-${size}`], className);
+
+    const dialog = (
+      <Transition timeout={0} in={active} appear>
+        {state => {
+          return (
+            <div
+              className={cx(theme['wrapper'], {
+                [theme['is-entering']]: state === 'entering',
+                [theme['is-entered']]: state === 'entered',
+              })}
+            >
+              <Overlay
+                active={active}
+                backdrop={backdrop}
+                className={theme['overlay']}
+                onClick={onOverlayClick}
+                onEscKeyDown={onEscKeyDown}
+                onMouseDown={onOverlayMouseDown}
+                onMouseMove={onOverlayMouseMove}
+                onMouseUp={onOverlayMouseUp}
+              />
+              <div data-teamleader-ui="dialog" className={dialogClassNames}>
+                <div className={theme['inner']}>{children}</div>
+              </div>
+            </div>
+          );
+        }}
+      </Transition>
+    );
+
+    return createPortal(dialog, this.dialogRoot);
+  }
+}
 
 export default Dialog;
-export { Dialog, factory as dialogFactory };
+export { Dialog };

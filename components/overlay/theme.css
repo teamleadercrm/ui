@@ -17,7 +17,11 @@
   transition: opacity var(--animation-duration) var(--animation-curve-default);
   width: 100vw;
 
-  &.active {
+  &.is-entering {
+    opacity: 0;
+  }
+
+  &.is-entered {
     opacity: var(--overlay-opacity);
     pointer-events: all;
   }

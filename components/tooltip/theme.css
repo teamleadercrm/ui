@@ -9,10 +9,6 @@
   --tooltip-border-width: 1px;
   --tooltip-box-shadow: 0 3px 12px 0 color(var(--color-teal-darkest) a(10%));
   --tooltip-max-width: calc(18 * var(--unit));
-  --tooltip-small-padding-horizontal: calc(1.2 * var(--unit));
-  --tooltip-small-padding-vertical: calc(0.6 * var(--unit));
-  --tooltip-medium-padding-horizontal: calc(1.2 * var(--unit));
-  --tooltip-medium-padding-vertical: calc(1.2 * var(--unit));
   --tooltip-animation-duration: 200ms;
   --tooltip-z-index: 200;
 }
@@ -28,7 +24,6 @@
   background: color(var(--color-teal-darkest) a(8%));
   border-radius: var(--tooltip-border-radius);
   color: var(--color-teal-darkest);
-  padding: var(--spacer-smallest) var(--spacer-smaller);
 
   svg {
     margin-right: var(--spacer-smallest)
@@ -61,9 +56,12 @@
   }
 
   &.bottom {
-    transform: scale(0) translateX(-50%);
+    &.is-exiting,
+    &.is-entering {
+      transform: scale(0) translateX(-50%);
+    }
 
-    &.active {
+    &.is-entered {
       transform: scale(1) translateX(-50%);
     }
 
@@ -75,9 +73,12 @@
   }
 
   &.top {
-    transform: scale(0) translateX(-50%) translateY(-100%);
+    &.is-exiting,
+    &.is-entering {
+      transform: scale(0) translateX(-50%) translateY(-100%);
+    }
 
-    &.active {
+    &.is-entered {
       transform: scale(1) translateX(-50%) translateY(-100%);
     }
 
@@ -89,9 +90,12 @@
   }
 
   &.left {
-    transform: scale(0) translateX(-100%) translateY(-50%);
+    &.is-exiting,
+    &.is-entering {
+      transform: scale(0) translateX(-100%) translateY(-50%);
+    }
 
-    &.active {
+    &.is-entered {
       transform: scale(1) translateX(-100%) translateY(-50%);
     }
 
@@ -103,9 +107,12 @@
   }
 
   &.right {
-    transform: scale(0) translateX(0) translateY(-50%);
+    &.is-exiting,
+    &.is-entering {
+      transform: scale(0) translateX(0) translateY(-50%);
+    }
 
-    &.active {
+    &.is-entered {
       transform: scale(1) translateX(0) translateY(-50%);
     }
 
@@ -208,14 +215,3 @@
   }
 }
 
-.small {
-  .inner {
-    padding: var(--tooltip-small-padding-vertical) var(--tooltip-small-padding-horizontal);
-  }
-}
-
-.medium {
-  .inner {
-    padding: var(--tooltip-medium-padding-vertical) var(--tooltip-medium-padding-horizontal);
-  }
-}

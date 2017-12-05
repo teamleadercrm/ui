@@ -1,27 +1,18 @@
 import React, { PureComponent } from 'react';
+import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import throttle from 'lodash.throttle';
-import ActivableRenderer from '../hoc/ActivableRenderer';
-import Portal from '../hoc/Portal';
-import InjectButton, { IconButton } from '../button';
 import InjectOverlay from '../overlay';
+import Transition from 'react-transition-group/Transition';
+import ReactResizeDetector from 'react-resize-detector';
 import { events } from '../utils';
 import { calculateHorizontalPositions, calculateVerticalPositions } from './positionCalculation';
-import { IconCloseMediumOutline } from '@teamleader/ui-icons';
-import ReactResizeDetector from 'react-resize-detector';
 import theme from './theme.css';
 
-const factory = (axis, calculatePositions, Overlay, Button) => {
+const factory = (axis, calculatePositions, Overlay) => {
   class Popover extends PureComponent {
     static propTypes = {
-      actions: PropTypes.arrayOf(
-        PropTypes.shape({
-          className: PropTypes.string,
-          label: PropTypes.string,
-          children: PropTypes.node,
-        }),
-      ),
       active: PropTypes.bool,
       anchorEl: PropTypes.object,
       backdrop: PropTypes.string,
@@ -29,31 +20,28 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
       className: PropTypes.string,
       direction: PropTypes.string.isRequired,
       offsetCorrection: PropTypes.number,
-      onCloseClick: PropTypes.func,
       onEscKeyDown: PropTypes.func,
       onOverlayClick: PropTypes.func,
       onOverlayMouseDown: PropTypes.func,
       onOverlayMouseMove: PropTypes.func,
       onOverlayMouseUp: PropTypes.func,
       position: PropTypes.string.isRequired,
-      title: PropTypes.string,
-      showHeader: PropTypes.bool.isRequired,
-      subtitle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
     };
 
     static defaultProps = {
-      actions: [],
       active: true,
       backdrop: 'dark',
       offsetCorrection: 0,
-      showHeader: true,
     };
 
     constructor() {
       super(...arguments);
 
-      this.setPlacement = this.setPlacement.bind(this);
-      this._setPlacementThrottled = this._setPlacementThrottled.bind(this);
+      this.popoverRoot = document.createElement('div');
+      this.popoverRoot.id = 'popover-root';
+
+      this.setPlacement = ::this.setPlacement;
+      this.setPlacementThrottled = ::this.setPlacementThrottled;
 
       this.state = {
         positioning: {
@@ -65,112 +53,108 @@ const factory = (axis, calculatePositions, Overlay, Button) => {
       };
     }
 
-    _setPlacementThrottled = throttle(this.setPlacement, 16);
+    setPlacementThrottled = throttle(this.setPlacement, 16);
 
     componentDidMount() {
-      this.setPlacement();
+      document.body.appendChild(this.popoverRoot);
 
       events.addEventsToWindow({
-        resize: this._setPlacementThrottled,
-        scroll: this._setPlacementThrottled,
+        resize: this.setPlacementThrottled,
+        scroll: this.setPlacementThrottled,
       });
     }
 
     componentWillUnmount() {
       events.removeEventsFromWindow({
-        resize: this._setPlacementThrottled,
-        scroll: this._setPlacementThrottled,
+        resize: this.setPlacementThrottled,
+        scroll: this.setPlacementThrottled,
       });
+
+      document.body.removeChild(this.popoverRoot);
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+      if (this.props.active && prevProps !== this.props) {
+        this.setPlacement();
+      }
     }
 
     setPlacement() {
       const { anchorEl, direction, position, offsetCorrection } = this.props;
-      const targetEl = document.querySelectorAll(`[data-teamleader-ui="popover-${axis}"]`)[0];
 
-      this.setState({
-        positioning: calculatePositions(anchorEl, targetEl, direction, position, offsetCorrection),
-      });
+      if (this.popoverNode) {
+        this.setState({
+          positioning: calculatePositions(anchorEl, this.popoverNode, direction, position, offsetCorrection),
+        });
+      }
     }
 
     render() {
       const { left, top, arrowLeft, arrowTop } = this.state.positioning;
 
       const {
-        actions,
         active,
         backdrop,
         children,
         className,
-        onCloseClick,
         onOverlayClick,
         onEscKeyDown,
         onOverlayMouseDown,
         onOverlayMouseMove,
         onOverlayMouseUp,
-        subtitle,
-        showHeader,
-        title,
       } = this.props;
 
-      const actionButtons = actions.map((action, idx) => {
-        const className = cx(theme['button'], {
-          [action.className]: action.className,
-        });
+      if (!active) {
+        return null;
+      }
 
-        return <Button key={idx} {...action} className={className}/>; // eslint-disable-line
-      });
-
-      const customClassName = cx(
-        theme['popover'],
-        {
-          [theme['active']]: active,
-        },
-        className,
+      const popover = (
+        <Transition timeout={0} in={active} appear>
+          {state => {
+            return (
+              <div
+                className={cx(theme['wrapper'], {
+                  [theme['is-entering']]: state === 'entering',
+                  [theme['is-entered']]: state === 'entered',
+                })}
+              >
+                <Overlay
+                  active={active}
+                  backdrop={backdrop}
+                  className={theme['overlay']}
+                  onClick={onOverlayClick}
+                  onEscKeyDown={onEscKeyDown}
+                  onMouseDown={onOverlayMouseDown}
+                  onMouseMove={onOverlayMouseMove}
+                  onMouseUp={onOverlayMouseUp}
+                />
+                <div
+                  data-teamleader-ui={`popover-${axis}`}
+                  className={cx(theme['popover'], className)}
+                  style={{ left: `${left}px`, top: `${top}px` }}
+                  ref={node => {
+                    this.popoverNode = node;
+                  }}
+                >
+                  <div className={theme['arrow']} style={{ left: `${arrowLeft}px`, top: `${arrowTop}px` }} />
+                  <div className={theme['inner']}>
+                    {children}
+                    <ReactResizeDetector handleHeight onResize={this.setPlacementThrottled} />
+                  </div>
+                </div>
+              </div>
+            );
+          }}
+        </Transition>
       );
 
-      return (
-        <Portal className={theme['wrapper']}>
-          <Overlay
-            active={active}
-            backdrop={backdrop}
-            className={theme['overlay']}
-            onClick={onOverlayClick}
-            onEscKeyDown={onEscKeyDown}
-            onMouseDown={onOverlayMouseDown}
-            onMouseMove={onOverlayMouseMove}
-            onMouseUp={onOverlayMouseUp}
-          />
-          <div
-            data-teamleader-ui={`popover-${axis}`}
-            className={customClassName}
-            style={{ left: `${left}px`, top: `${top}px` }}
-          >
-            <div className={theme['arrow']} style={{ left: `${arrowLeft}px`, top: `${arrowTop}px` }} />
-            {showHeader && (
-              <header className={theme['header']}>
-                {title && <h6 className={theme['title']}>{title}</h6>}
-                {subtitle && <p className={theme['subtitle']}>{subtitle}</p>}
-                <IconButton icon={<IconCloseMediumOutline />} className={theme['close']} onMouseUp={onCloseClick} />
-              </header>
-            )}
-            <section role="body" className={theme['body']}>
-              {children}
-            </section>
-            {actionButtons.length ? (
-              <nav role="navigation" className={theme['navigation']}>
-                {actionButtons}
-              </nav>
-            ) : null}
-            <ReactResizeDetector handleHeight onResize={this._setPlacementThrottled} />
-          </div>
-        </Portal>
-      );
+      return createPortal(popover, this.popoverRoot);
     }
   }
 
-  return ActivableRenderer()(Popover);
+  return Popover;
 };
 
-export const PopoverHorizontal = factory('horizontal', calculateHorizontalPositions, InjectOverlay, InjectButton);
+export const PopoverHorizontal = factory('horizontal', calculateHorizontalPositions, InjectOverlay);
 
-export const PopoverVertical = factory('vertical', calculateVerticalPositions, InjectOverlay, InjectButton);
+export const PopoverVertical = factory('vertical', calculateVerticalPositions, InjectOverlay);

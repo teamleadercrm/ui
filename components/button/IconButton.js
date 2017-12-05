@@ -10,17 +10,17 @@ class IconButton extends Component {
     disabled: PropTypes.bool,
     href: PropTypes.string,
     icon: PropTypes.element,
-    inverse: PropTypes.bool,
     onMouseLeave: PropTypes.func,
     onMouseUp: PropTypes.func,
-    size: PropTypes.oneOf(['small', 'medium', 'large']),
+    size: PropTypes.oneOf(['small', 'medium']),
+    color: PropTypes.oneOf(['neutral', 'white', 'mint', 'violet', 'ruby', 'gold', 'aqua']),
     type: PropTypes.string,
   };
 
   static defaultProps = {
     className: '',
-    inverse: false,
     size: 'medium',
+    color: 'neutral',
     type: 'button',
   };
 
@@ -39,7 +39,7 @@ class IconButton extends Component {
   };
 
   render() {
-    const { children, className, disabled, href, icon, inverse, size, type, ...others } = this.props;
+    const { children, className, disabled, href, icon, size, color, type, ...others } = this.props;
 
     const element = href ? 'a' : 'button';
 
@@ -47,8 +47,8 @@ class IconButton extends Component {
       theme['button'],
       theme['icon-button'],
       theme['icon-only'],
+      theme[color],
       {
-        [theme['inverse']]: inverse,
         [theme[size]]: theme[size],
       },
       className,
