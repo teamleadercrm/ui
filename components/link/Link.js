@@ -24,7 +24,7 @@ class Link extends PureComponent {
       {
         [theme['inherit']]: inherit,
       },
-      className
+      className,
     );
 
     const Element = element || 'a';
