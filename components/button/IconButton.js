@@ -12,7 +12,7 @@ class IconButton extends Component {
     icon: PropTypes.element,
     onMouseLeave: PropTypes.func,
     onMouseUp: PropTypes.func,
-    size: PropTypes.oneOf(['small', 'medium', 'large']),
+    size: PropTypes.oneOf(['small', 'medium']),
     color: PropTypes.oneOf(['neutral', 'white', 'mint', 'violet', 'ruby', 'gold', 'aqua']),
     type: PropTypes.string,
   };
