@@ -36,6 +36,10 @@
   }
 }
 
+.is-sorted {
+  color: var(--color-teal-darkest);
+}
+
 /* Cell backgrounds */
 .has-background-neutral {
   background-color: var(--color-neutral-light);

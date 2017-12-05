@@ -24,6 +24,7 @@ class HeaderCell extends PureComponent {
       theme['header-cell'],
       {
         [theme['is-sortable']]: onClick,
+        [theme['is-sorted']]: sorted !== 'none',
       },
       className,
     );
