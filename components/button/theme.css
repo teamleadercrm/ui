@@ -8,10 +8,6 @@
   --button-margin: calc(0.6 * var(--unit));
   --button-icon-margin: calc(0.6 * var(--unit));
   --button-icon-children-margin: calc(0.6 * var(--unit));
-  --spinner-border-width: 2px;
-  --small-spinner-size: calc(1.4 * var(--unit));
-  --large-spinner-size: calc(2.2 * var(--unit));
-  --medium-spinner-size: calc(2.2 * var(--unit));
 }
 
 .button {
@@ -35,7 +31,7 @@
   vertical-align: middle;
 
   svg {
-    margin: auto;
+    margin: auto 0; /* fix for vertical centering in safari */
   }
 
   & > * {
@@ -177,15 +173,15 @@
   }
 
   &.white {
-    color: var(--color-white);
+    color: var(--color-neutral-lightest);
 
     &:not([disabled]) {
       &:hover {
-        background-color: color(var(--color-white) a(18%));
+        background-color: color(var(--color-neutral-lightest) a(18%));
       }
 
       &:focus {
-        box-shadow: 0 0 0 2px color(var(--color-white) a(50%));
+        box-shadow: 0 0 0 2px color(var(--color-neutral-lightest) a(50%));
       }
     }
   }
@@ -193,7 +189,7 @@
 
 .outline {
   &:not(.inverse) {
-    color: color(var(--color-teal-darkest) a(72%));
+    color: var(--color-teal-darkest);
 
     &[disabled] {
       background-color: color(var(--color-teal-darkest) a(12%));
@@ -219,19 +215,14 @@
     &.processing {
       color: transparent;
     }
-
-    .spinner:before {
-      border: var(--spinner-border-width) solid color(var(--color-teal-darkest) a(18%));
-      border-top-color: var(--color-teal-darkest);
-    }
   }
 
   &.inverse {
-    color: color(var(--color-neutral-lightest) a(72%));
+    color: var(--color-neutral-lightest);
 
     &[disabled] {
-      border: 1px solid color(var(--color-white) a(12%));
-      background-color: color(var(--color-white) a(12%));
+      border: 1px solid color(var(--color-neutral-lightest) a(12%));
+      background-color: color(var(--color-neutral-lightest) a(12%));
       color: color(var(--color-neutral-lightest) a(36%));
     }
 
@@ -252,11 +243,6 @@
 
     &.processing {
       color: transparent;
-    }
-
-    .spinner:before {
-      border: var(--spinner-border-width) solid color(var(--color-neutral-lightest) a(18%));
-      border-top-color: var(--color-neutral-lightest);
     }
   }
 }
@@ -296,11 +282,6 @@
   &.processing {
     color: var(--color-neutral-light);
   }
-
-  .spinner:before {
-    border: var(--spinner-border-width) solid color(var(--color-teal-darkest) a(18%));
-    border-top-color: var(--color-teal-darkest);
-  }
 }
 
 .primary {
@@ -329,11 +310,6 @@
 
   &.processing {
     color: var(--color-mint);
-  }
-
-  .spinner:before {
-    border: var(--spinner-border-width) solid color(var(--color-white) a(18%));
-    border-top-color: var(--color-white);
   }
 }
 
@@ -368,11 +344,6 @@
   &.processing {
     color: var(--color-ruby);
   }
-
-  .spinner:before {
-    border: var(--spinner-border-width) solid color(var(--color-white) a(18%));
-    border-top-color: var(--color-white);
-  }
 }
 
 /* Button sizes */
@@ -387,11 +358,10 @@
     padding: 0 calc(.7 * var(--unit));
   }
 
-  .spinner:before {
-    width: var(--small-spinner-size);
-    height: var(--small-spinner-size);
-    margin-top: calc(-.5 * var(--small-spinner-size));
-    margin-left: calc(-.5 * var(--small-spinner-size));
+  &.icon-button {
+    height: calc(1.8 * var(--unit));
+    min-width: calc(1.8 * var(--unit));
+    padding: 0 calc(.2 * var(--unit));
   }
 }
 
@@ -406,11 +376,10 @@
     padding: 0 calc(.5 * var(--unit));
   }
 
-  .spinner:before {
-    width: var(--medium-spinner-size);
-    height: var(--medium-spinner-size);
-    margin-top: calc(-.5 * var(--medium-spinner-size));
-    margin-left: calc(-.5 * var(--medium-spinner-size));
+  &.icon-button {
+    height: calc(3.0 * var(--unit));
+    min-width: calc(3.0 * var(--unit));
+    padding: 0 var(--spacer-smallest);
   }
 }
 
@@ -424,23 +393,13 @@
   &.icon-only {
     padding: 0 calc(1.1 * var(--unit));
   }
-
-  .spinner:before {
-    width: var(--large-spinner-size);
-    height: var(--large-spinner-size);
-    margin-top: calc(-.5 * var(--large-spinner-size));
-    margin-left: calc(-.5 * var(--large-spinner-size));
-  }
 }
 
-.spinner:before {
-  content: '';
-  box-sizing: border-box;
+.spinner {
+  left: 50%;
   position: absolute;
   top: 50%;
-  left: 50%;
-  border-radius: 50%;
-  animation: spin .6s linear infinite;
+  transform: translate(-50%, -50%);
 }
 
 /* ButtonGroup */
@@ -477,4 +436,12 @@
   > *:last-child {
     border-radius: 0 var(--button-border-radius) var(--button-border-radius) 0;
   }
+}
+
+.align-left {
+  justify-content: flex-start;
+}
+
+.align-right {
+  justify-content: flex-end;
 }

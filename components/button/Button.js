@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import LoadingSpinner from '../loadingSpinner';
 import cx from 'classnames';
 import theme from './theme.css';
 
@@ -30,6 +31,12 @@ class Button extends PureComponent {
     size: 'medium',
     type: 'button',
   };
+
+  getSpinnerColor() {
+    const { inverse, level } = this.props;
+
+    return level === 'secondary' || (level === 'outline' && !inverse) ? 'teal' : 'white';
+  }
 
   handleMouseUp = event => {
     this.buttonNode.blur();
@@ -101,7 +108,13 @@ class Button extends PureComponent {
         </span>
       ) : null,
       icon && iconPlacement === 'right' ? icon : null,
-      processing ? <div className={theme['spinner']} /> : null,
+      processing ? (
+        <LoadingSpinner
+          className={theme['spinner']}
+          color={this.getSpinnerColor()}
+          size={size === 'small' ? 'small' : 'medium'}
+        />
+      ) : null,
     );
   }
 }

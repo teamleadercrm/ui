@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import styles from '@sambego/storybook-styles';
-import { IconAddMediumOutline, IconMagicMediumOutline } from '@teamleader/ui-icons';
+import { IconAddMediumOutline, IconAddSmallOutline,IconMagicMediumOutline } from '@teamleader/ui-icons';
 import { Button, ButtonGroup, IconButton, Island, Box } from '../components';
 import { baseStyles, centerStyles } from '../.storybook/styles';
 
@@ -45,40 +45,40 @@ storiesOf('Buttons', module)
     <div>
       <Box margin={2}>
         <ButtonGroup>
-          <Button level="primary" icon={<IconAddMediumOutline />} onClick={action('clicked button 1')} disabled/>
-          <Button level="primary" onClick={action('clicked button 2')} disabled>
+          <Button level="primary" icon={<IconAddMediumOutline />} disabled/>
+          <Button level="primary" disabled>
             Disabled primary
           </Button>
         </ButtonGroup>
       </Box>
       <Box margin={2}>
         <ButtonGroup>
-          <Button icon={<IconAddMediumOutline />} onClick={action('clicked button 1')} disabled/>
-          <Button onClick={action('clicked button 2')} disabled>
+          <Button icon={<IconAddMediumOutline />} disabled/>
+          <Button disabled>
             Disabled secondary
           </Button>
         </ButtonGroup>
       </Box>
       <Box margin={2}>
         <ButtonGroup>
-          <Button level="destructive" icon={<IconAddMediumOutline />} onClick={action('clicked button 1')} disabled/>
-          <Button level="destructive" onClick={action('clicked button 2')} disabled>
+          <Button level="destructive" icon={<IconAddMediumOutline />} disabled/>
+          <Button level="destructive" disabled>
             Disabled destructive
           </Button>
         </ButtonGroup>
       </Box>
       <Box margin={2}>
         <ButtonGroup>
-          <Button level="outline" icon={<IconAddMediumOutline />} onClick={action('clicked button 1')} disabled/>
-          <Button level="outline" onClick={action('clicked button 2')} disabled>
+          <Button level="outline" icon={<IconAddMediumOutline />} disabled/>
+          <Button level="outline" disabled>
             Disabled outline
           </Button>
         </ButtonGroup>
       </Box>
       <Box margin={2}>
         <ButtonGroup>
-          <Button level="outline" inverse icon={<IconAddMediumOutline />} onClick={action('clicked button 1')} disabled/>
-          <Button level="outline" inverse onClick={action('clicked button 2')} disabled>
+          <Button level="outline" inverse icon={<IconAddMediumOutline />} disabled/>
+          <Button level="outline" inverse disabled>
             Disabled inverse outline
           </Button>
         </ButtonGroup>
@@ -86,12 +86,32 @@ storiesOf('Buttons', module)
     </div>
   ))
   .add('processing', () => (
-    <ButtonGroup>
-      <Button icon={<IconAddMediumOutline />} onClick={action('clicked button 1')} processing />
-      <Button onClick={action('clicked button 2')} processing>
-        Button
-      </Button>
-    </ButtonGroup>
+    <Box>
+      <ButtonGroup>
+        <Button icon={<IconAddSmallOutline />} processing size="small" />
+        <Button processing label="Button" size="small"/>
+        <Button level="primary" processing label="Button" size="small"/>
+        <Button level="destructive" processing label="Button" size="small"/>
+        <Button level="outline" processing label="Button" size="small"/>
+        <Button level="outline" processing inverse label="Button" size="small"/>
+      </ButtonGroup>
+      <ButtonGroup marginTop={3}>
+        <Button icon={<IconAddMediumOutline />} processing />
+        <Button processing label="Button"/>
+        <Button level="primary" processing label="Button"/>
+        <Button level="destructive" processing label="Button"/>
+        <Button level="outline" processing label="Button"/>
+        <Button level="outline" processing inverse label="Button"/>
+      </ButtonGroup>
+      <ButtonGroup marginTop={3}>
+        <Button icon={<IconAddMediumOutline />} processing size="large" />
+        <Button processing label="Button" size="large"/>
+        <Button level="primary" processing label="Button" size="large"/>
+        <Button level="destructive" processing label="Button" size="large"/>
+        <Button level="outline" processing label="Button" size="large"/>
+        <Button level="outline" processing inverse label="Button" size="large"/>
+      </ButtonGroup>
+    </Box>
   ))
   .add('size', () => (
     <ButtonGroup>
@@ -126,32 +146,4 @@ storiesOf('Buttons', module)
     <Button inverse level="outline" onClick={action('clicked button outline')}>
       Button outline inverse
     </Button>
-  ))
-  .add('icon button', () => (
-    <Box>
-      <Island color="white" marginBottom={2}>
-        <IconButton icon={<IconAddMediumOutline />} onClick={action('clicked icon button')} />
-      </Island>
-      <Island color="neutral" marginBottom={2}>
-        <IconButton icon={<IconAddMediumOutline />} onClick={action('clicked icon button')} />
-      </Island>
-      <Island color="mint" marginBottom={2}>
-        <IconButton color="mint" icon={<IconAddMediumOutline />} onClick={action('clicked icon button')} />
-      </Island>
-      <Island color="violet" marginBottom={2}>
-        <IconButton color="violet" icon={<IconAddMediumOutline />} onClick={action('clicked icon button')} />
-      </Island>
-      <Island color="ruby" marginBottom={2}>
-        <IconButton color="ruby" icon={<IconAddMediumOutline />} onClick={action('clicked icon button')} />
-      </Island>
-      <Island color="gold" marginBottom={2}>
-        <IconButton color="gold" icon={<IconAddMediumOutline />} onClick={action('clicked icon button')} />
-      </Island>
-      <Island color="aqua" marginBottom={2}>
-        <IconButton color="aqua" icon={<IconAddMediumOutline />} onClick={action('clicked icon button')} />
-      </Island>
-      <Island color="neutral" marginBottom={2} style={{backgroundColor: '#2a3b4d'}}> {/* There is no teal island, so just changing the background with inline style */}
-        <IconButton color="white" icon={<IconAddMediumOutline />} onClick={action('clicked icon button')} />
-      </Island>
-    </Box>
   ));

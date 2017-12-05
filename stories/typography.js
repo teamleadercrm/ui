@@ -25,7 +25,7 @@ storiesOf('Typography', module)
       <Heading1>Heading 1 / font-size: 24px / line-height: 30px / weight: medium (500) / tracking: 0</Heading1>
       <Heading2 marginTop={4}>Heading 2 / font-size: 20px / line-height: 24px / weight: medium (500) / tracking: 0</Heading2>
       <Heading3 marginTop={4}>Heading 3 / font-size: 18px / line-height: 24px / weight: medium (500) / tracking: 0</Heading3>
-      <Heading4 marginTop={4}>Heading 4 / font-size: 12px / line-height: 18px / weight: black (900) / tracking: 0.6px</Heading4>
+      <Heading4 marginTop={4}>Heading 4 / font-size: 12px / line-height: 18px / weight: bold (700) / tracking: 0.6px</Heading4>
     </Box>
   ))
   .add('Text', () => (

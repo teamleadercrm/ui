@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
 
@@ -8,13 +9,19 @@ class ButtonGroup extends PureComponent {
     children: PropTypes.node,
     className: PropTypes.string,
     segmented: PropTypes.bool,
+    alignItems: PropTypes.oneOf(['left', 'right']),
+  };
+
+  static defaultProps = {
+    alignItems: 'left',
   };
 
   render() {
-    const { children, className, segmented, ...others } = this.props;
+    const { alignItems, children, className, segmented, ...others } = this.props;
 
     const classNames = cx(
-      [theme['group']],
+      theme[`align-${alignItems}`],
+      theme['group'],
       {
         [theme['segmented']]: segmented,
       },
@@ -22,9 +29,9 @@ class ButtonGroup extends PureComponent {
     );
 
     return (
-      <div data-teamleader-ui="button-group" className={classNames} {...others}>
+      <Box data-teamleader-ui="button-group" className={classNames} {...others}>
         {children}
-      </div>
+      </Box>
     );
   }
 }

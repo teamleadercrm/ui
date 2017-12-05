@@ -1,32 +1,28 @@
 @import '@teamleader/ui-colors';
-@import '@teamleader/ui-utilities';
-@import '@teamleader/ui-typography';
 
 :root {
-  --border-radius: 4px;
+  --medium-size: 9px;
+  --small-size: 6px;
 }
 
-.counter {
-  border-radius: var(--border-radius);
-  composes: reset;
-  color: var(--color-white);
+.bullet {
+  border-radius: 50%;
   display: inline-block;
-  font-family: var(--font-family-black);
-  font-size: calc(1.2 * var(--unit));
-  line-height: 1;
   vertical-align: middle;
 }
 
 .medium {
-  padding: var(--spacer-smaller);
+  height: var(--medium-size);
+  width: var(--medium-size);
 }
 
 .small {
-  padding: var(--spacer-smallest) var(--spacer-smaller);
+  height: var(--small-size);
+  width: var(--small-size);
 }
 
 .neutral {
-  background-color: var(--color-neutral-darkest);
+  background-color: var(--color-neutral-dark);
 }
 
 .mint {

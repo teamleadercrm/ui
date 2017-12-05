@@ -1,18 +1,11 @@
+@import '@teamleader/ui-animations';
 @import '@teamleader/ui-colors';
 @import '@teamleader/ui-utilities';
 
 :root {
   --popover-background-color: var(--color-white);
-  --popover-body-text-color: var(--color-teal-dark);
-  --popover-body-padding: calc(2.0 * var(--unit));
   --popover-border-radius: calc(0.4 * var(--unit));
   --popover-box-shadow: 0 1px 30px 0 rgba(70, 86, 104, 0.4);
-  --popover-header-background-color: var(--color-neutral-light);
-  --popover-header-border-color: var(--color-neutral);
-  --popover-header-padding: calc(2.0 * var(--unit)) calc(7.2 * var(--unit)) calc(2.0 * var(--unit)) calc(2.0 * var(--unit));
-  --popover-header-title-text-color: var(--color-teal-darkest);
-  --popover-header-subtitle-text-color: var(--color-teal-dark);
-  --popover-navigation-padding: calc(2.0 * var(--unit));
 }
 
 .wrapper {
@@ -26,19 +19,26 @@
   left: 0;
   width: 100vw;
   z-index: var(--z-index-higher);
+  transition: opacity .2s ease-out;
 }
 
 .popover {
   background: var(--popover-background-color);
   border-radius: var(--popover-border-radius);
   box-shadow: var(--popover-box-shadow);
-  position: absolute;
   opacity: 0;
+  position: absolute;
+  transition: opacity var(--animation-duration) var(--animation-curve-default);
+  max-width: 50vw;
   min-width: 300px;
+}
 
-  &.active {
-    opacity: 1;
-  }
+.is-entering .popover {
+  opacity: 0;
+}
+
+.is-entered .popover {
+  opacity: 1;
 }
 
 .arrow {
@@ -53,63 +53,10 @@
   width: calc(1.4 * var(--unit));
 }
 
-.header {
-  background: var(--popover-header-background-color);
-  border-bottom: 1px solid var(--popover-header-border-color);
-  border-radius: var(--popover-border-radius) var(--popover-border-radius) 0 0;
-  padding: var(--popover-header-padding);
+.inner {
+  background: var(--color-white);
+  border: 1px solid var(--color-white);
+  border-radius: var(--popover-border-radius);
+  overflow: hidden;
   position: relative;
-}
-
-.title {
-  color: var(--popover-header-title-text-color);
-  flex-grow: 0;
-  font-size: calc(1.8 * var(--unit));
-  font-weight: 400;
-  line-height: 1.4;
-  margin: 0;
-}
-
-.subtitle {
-  color: var(--popover-header-subtitle-text-color);
-  flex-grow: 0;
-  font-size: calc(1.4 * var(--unit));
-  line-height: 1.4;
-  margin: 3px 0 0 0;
-}
-
-.close {
-  position: absolute;
-  right: var(--unit);
-  top: calc(1.5 * var(--unit));
-}
-
-.body {
-  background: var(--popover-background-color);
-  color: var(--popover-body-text-color);
-  flex-grow: 2;
-  padding: var(--popover-body-padding);
-  position: relative;
-
-  p {
-    font-size: calc(1.4 * var(--unit));
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: calc(2.4 * var(--unit));
-    margin: 0;
-  }
-}
-
-.navigation {
-  background: var(--popover-background-color);
-  border-radius: 0 0 var(--popover-border-radius) var(--popover-border-radius) ;
-  flex-grow: 0;
-  padding: var(--popover-navigation-padding);
-  position: relative;
-  text-align: right;
-}
-
-.button {
-  margin-left: var(--popover-navigation-padding);
-  min-width: 0;
 }

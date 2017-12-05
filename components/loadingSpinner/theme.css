@@ -1,0 +1,47 @@
+@import '@teamleader/ui-animations';
+@import '@teamleader/ui-colors';
+@import '@teamleader/ui-utilities';
+
+:root {
+  --spinner-border-width: 2px;
+  --small-spinner-size: calc(1.4 * var(--unit));
+  --medium-spinner-size: calc(2.2 * var(--unit));
+}
+
+.loading-spinner {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+
+  &:before {
+    box-sizing: border-box;
+    content: '';
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    animation: spin .6s linear infinite;
+    width: 100%;
+  }
+}
+
+.is-teal:before {
+  border: var(--spinner-border-width) solid color(var(--color-teal-darkest) a(18%));
+  border-top-color: var(--color-teal-darkest);
+}
+
+.is-white:before {
+  border: var(--spinner-border-width) solid color(var(--color-neutral-lightest) a(18%));
+  border-top-color: var(--color-neutral-lightest);
+}
+
+.is-small {
+  height: var(--small-spinner-size);
+  width: var(--small-spinner-size);
+}
+
+.is-medium {
+  height: var(--medium-spinner-size);
+  width: var(--medium-spinner-size);
+}
