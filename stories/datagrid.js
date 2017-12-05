@@ -17,9 +17,9 @@ storiesOf('DataGrids', module)
         <DataGrid.HeaderRow>
           <DataGrid.HeaderCell flex="min-width" />
           <DataGrid.HeaderCell border="right" flex="2" onClick={action('onClick: column sort')} sorted="asc">Customer</DataGrid.HeaderCell>
-          <DataGrid.HeaderCell align="right">Amount</DataGrid.HeaderCell>
-          <DataGrid.HeaderCell>Due date</DataGrid.HeaderCell>
-          <DataGrid.HeaderCell>Reference</DataGrid.HeaderCell>
+          <DataGrid.HeaderCell onClick={action('onClick: column sort')} align="right">Amount</DataGrid.HeaderCell>
+          <DataGrid.HeaderCell onClick={action('onClick: column sort')}>Due date</DataGrid.HeaderCell>
+          <DataGrid.HeaderCell onClick={action('onClick: column sort')}>Reference</DataGrid.HeaderCell>
           <DataGrid.HeaderCell flex="min-width"/>
         </DataGrid.HeaderRow>
         {
