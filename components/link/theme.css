@@ -2,11 +2,6 @@
 @import '@teamleader/ui-typography';
 
 .link {
-  &:hover,
-  &:active {
-    outline: none;
-  }
-
   &:not(.inherit) {
     color: var(--color-aqua-dark);
     font-family: var(--font-family-regular);
@@ -20,10 +15,10 @@
 
   &.inherit {
     color: inherit;
+    text-decoration: underline;
 
     &:hover,
     &:active {
-      outline: none;
       color: inherit;
       text-decoration: none;
     }
