@@ -1,37 +1,38 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import s from './theme.css';
-
-let LinkComponent;
+import theme from './theme.css';
 
 class Link extends PureComponent {
   static propTypes = {
     children: PropTypes.node.isRequired,
     className: PropTypes.string,
+    inherit: PropTypes.bool,
+    element: PropTypes.element,
   };
 
   static defaultProps = {
     className: '',
+    inherit: true,
   };
 
-  static use(LinkComponentToUse) {
-    LinkComponent = LinkComponentToUse;
-  }
-
   render() {
-    const { children, className } = this.props;
+    const { children, className, element, inherit, ...others } = this.props;
 
-    const classNames = cx(s['link'], className);
+    const classNames = cx(
+      theme['link'],
+      {
+        [theme['inherit']]: inherit,
+      },
+      className
+    );
 
-    if (LinkComponent) {
-      return <LinkComponent {...this.props} className={classNames} />;
-    }
+    const Element = element || 'a';
 
     return (
-      <a {...this.props} className={classNames} data-teamleader-ui="link">
+      <Element className={classNames} data-teamleader-ui="link" {...others}>
         {children}
-      </a>
+      </Element>
     );
   }
 }
