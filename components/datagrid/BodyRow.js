@@ -20,7 +20,7 @@ class BodyRow extends PureComponent {
       <Row className={className} data-teamleader-ui="datagrid-body-row" {...others}>
         {selectable && (
           <Cell flex="min-width">
-            <Checkbox checked={selected} onChange={onSelectionChange} />
+            <Checkbox checked={selected} onChange={onSelectionChange} size="large" />
           </Cell>
         )}
         {children}
