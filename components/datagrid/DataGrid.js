@@ -8,12 +8,14 @@ import FooterRow from './FooterRow';
 import HeaderRow from './HeaderRow';
 import BodyRow from './BodyRow';
 import cx from 'classnames';
+import omit from 'lodash.omit';
 import theme from './theme.css';
 
 class DataGrid extends PureComponent {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
+    comparableId: PropTypes.any,
     selectable: PropTypes.bool,
   };
 
@@ -26,6 +28,14 @@ class DataGrid extends PureComponent {
     this.state = {
       selectedRows: [],
     };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.comparableId !== this.props.comparableId) {
+      this.setState({
+        selectedRows: [],
+      });
+    }
   }
 
   handleHeaderRowSelectionChange(value) {
@@ -58,9 +68,10 @@ class DataGrid extends PureComponent {
     const { selectedRows } = this.state;
 
     const classNames = cx(theme['data-grid'], className);
+    const rest = omit(others, ['comparableId']);
 
     return (
-      <Box data-teamleader-ui="data-grid" className={classNames} {...others}>
+      <Box data-teamleader-ui="data-grid" className={classNames} {...rest}>
         {React.Children.map(children, child => {
           if (isComponentOfType(HeaderRow, child)) {
             return React.cloneElement(child, {
