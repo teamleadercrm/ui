@@ -16,10 +16,10 @@ storiesOf('DataGrids', module)
       <DataGrid selectable>
         <DataGrid.HeaderRow>
           <DataGrid.HeaderCell flex="min-width" />
-          <DataGrid.HeaderCell border="right" flex="2" onClick={action('onClick: column sort')} sorted="asc">Customer</DataGrid.HeaderCell>
+          <DataGrid.HeaderCell border="right" onClick={action('onClick: column sort')} sorted="asc">Invoice</DataGrid.HeaderCell>
           <DataGrid.HeaderCell onClick={action('onClick: column sort')} align="right">Amount</DataGrid.HeaderCell>
+          <DataGrid.HeaderCell flex="2" onClick={action('onClick: column sort')}>Customer</DataGrid.HeaderCell>
           <DataGrid.HeaderCell onClick={action('onClick: column sort')}>Due date</DataGrid.HeaderCell>
-          <DataGrid.HeaderCell onClick={action('onClick: column sort')}>Reference</DataGrid.HeaderCell>
           <DataGrid.HeaderCell flex="min-width"/>
         </DataGrid.HeaderRow>
         {
@@ -35,10 +35,10 @@ storiesOf('DataGrids', module)
                     size="large"
                   />
                 </DataGrid.Cell>
-                <DataGrid.Cell border="right" flex="2"> {row.column2}</DataGrid.Cell>
+                <DataGrid.Cell border="right" soft> {row.column5} </DataGrid.Cell>
                 <DataGrid.Cell align="right" strong> {`€ ${row.column3}`}</DataGrid.Cell>
+                <DataGrid.Cell flex="2"> {row.column2}</DataGrid.Cell>
                 <DataGrid.Cell soft>{row.column4}</DataGrid.Cell>
-                <DataGrid.Cell soft> {row.column5} </DataGrid.Cell>
                 <DataGrid.Cell align="right" flex="min-width">
                   <IconMenu position="top-right">
                     <MenuItem>Remove row</MenuItem>
@@ -51,39 +51,40 @@ storiesOf('DataGrids', module)
         <DataGrid.FooterRow backgroundColor="neutral">
           <DataGrid.Cell flex="min-width"/>
           <DataGrid.Cell flex="min-width"/>
-          <DataGrid.Cell align="right" border="right" flex="2" soft>
+          <DataGrid.Cell align="right" border="right" soft>
             <Heading4>Total Excl Btw</Heading4>
           </DataGrid.Cell>
           <DataGrid.Cell align="right" strong>
             € 13460.52
           </DataGrid.Cell>
-          <DataGrid.Cell/>
+          <DataGrid.Cell flex="2"/>
           <DataGrid.Cell/>
           <DataGrid.Cell flex="min-width"/>
         </DataGrid.FooterRow>
+
         <DataGrid.FooterRow backgroundColor="neutral">
           <DataGrid.Cell flex="min-width"/>
           <DataGrid.Cell flex="min-width"/>
-          <DataGrid.Cell align="right" border="right" flex="2" soft>
+          <DataGrid.Cell align="right" border="right" soft>
             <Heading4>+ VAT</Heading4>
           </DataGrid.Cell>
           <DataGrid.Cell align="right" strong>
             € 2826.71
           </DataGrid.Cell>
-          <DataGrid.Cell/>
+          <DataGrid.Cell flex="2"/>
           <DataGrid.Cell/>
           <DataGrid.Cell flex="min-width"/>
         </DataGrid.FooterRow>
         <DataGrid.FooterRow backgroundColor="neutral">
           <DataGrid.Cell flex="min-width"/>
           <DataGrid.Cell flex="min-width"/>
-          <DataGrid.Cell align="right" border="right" flex="2" soft>
+          <DataGrid.Cell align="right" border="right" soft>
             <Heading4>Total Incl Btw</Heading4>
           </DataGrid.Cell>
           <DataGrid.Cell align="right" strong backgroundColor="white" border="around">
             € 16287.23
           </DataGrid.Cell>
-          <DataGrid.Cell/>
+          <DataGrid.Cell flex="2"/>
           <DataGrid.Cell/>
           <DataGrid.Cell flex="min-width"/>
         </DataGrid.FooterRow>
