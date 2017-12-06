@@ -2,6 +2,13 @@
 @import '@teamleader/ui-utilities';
 @import '@teamleader/ui-typography';
 
+.data-grid {
+  display: inline-flex;
+  flex-direction: column;
+  min-width: 100%;
+  overflow: auto;
+}
+
 .row {
   border-bottom: 1px solid var(--color-neutral);
   display: flex;
@@ -27,7 +34,7 @@
 
 .is-sortable {
   svg {
-    margin-left: var(--spacer-smaller);
+    margin-left: var(--spacer-smallest);
   }
 
   &:hover {
@@ -86,33 +93,41 @@
 
 .flex-min-width {
   flex: 0 0 30px;
+  min-width: 30px;
 }
 
 .flex-1 {
-  flex: 1;
+  flex: 1 0 100px;
+  min-width: 100px;
 }
 
 .flex-2 {
-  flex: 2;
+  flex: 2 0 200px;
+  min-width: 200px;
 }
 
 .flex-3 {
-  flex: 3;
+  flex: 3 0 300px;
+  min-width: 300px;
 }
 
 .flex-4 {
-  flex: 4;
+  flex: 4 0 400px;
+  min-width: 400px;
 }
 
 /* Cell alignment */
 .align-left {
   justify-content: flex-start;
+  text-align: left;
 }
 
 .align-center {
   justify-content: center;
+  text-align: center;
 }
 
 .align-right {
   justify-content: flex-end;
+  text-align: right;
 }
