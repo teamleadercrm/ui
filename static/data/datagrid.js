@@ -18,14 +18,14 @@ const rows = [
     column2: "Davitamon",
     column3: 2500.00,
     column4: "28 July 2017",
-    column5: "Not booked",
+    column5: "Draft",
   },
   {
     column1: "gold",
     column2: "Dog Studio",
     column3: 199.95,
     column4: "1 Aug 2017",
-    column5: "Not booked",
+    column5: "Draft",
   },
   {
     column1: "neutral",
