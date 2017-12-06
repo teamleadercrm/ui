@@ -50,7 +50,8 @@
   "contributors": [
     "Dries Decramer <dries.decramer@teamleader.eu>",
     "Nick Waelkens <nick.waelkens@teamleader.eu>",
-    "Lowie Benoot <lowie.benoot@teamleader.eu>"
+    "Lowie Benoot <lowie.benoot@teamleader.eu>",
+    "Kevin Waelkens <kevin.waelkens@teamleader.eu>"
   ],
   "dependencies": {
     "@teamleader/ui-animations": "0.0.2",
