@@ -11,7 +11,7 @@
   display: block;
 
   font-size: var(--label-font-size);
-  font-family: var(--font-family-semi-bold);
+  font-family: var(--font-family-regular);
   line-height: var(--label-line-height);
   color: var(--label-color);
 }
