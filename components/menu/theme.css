@@ -13,7 +13,7 @@
   --menu-item-selected-background: transparent;
   --menu-item-height: calc(2.8 * var(--unit));
   --menu-item-padding: calc(1.6 * var(--unit));
-  --menu-item-font-size: calc(1.6 * var(--unit));
+  --menu-item-font-size: calc(1.4 * var(--unit));
   --menu-divider-height: calc((2.8 / 4) * var(--unit));
 }
 
@@ -170,7 +170,7 @@
 
 .caption {
   flex-grow: 1;
-  font-size: calc(1.4 * var(--unit))
+  font-size: var(--menu-item-font-size);
 }
 
 .shortcut {
