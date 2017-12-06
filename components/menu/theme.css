@@ -13,7 +13,6 @@
   --menu-item-selected-background: transparent;
   --menu-item-height: calc(2.8 * var(--unit));
   --menu-item-padding: calc(1.6 * var(--unit));
-  --menu-item-font-size: calc(1.4 * var(--unit));
   --menu-divider-height: calc((2.8 / 4) * var(--unit));
 }
 
@@ -30,7 +29,6 @@
 .menu {
   composes: reset;
   display: inline-block;
-  font-family: var(--font-family-regular);
   position: relative;
 
   &.top-left {
@@ -138,7 +136,6 @@
   align-items: center;
   color: var(--color-teal-dark);
   display: flex;
-  font-size: var(--menu-item-font-size);
   height: var(--menu-item-height);
   overflow: hidden;
   padding: 0 var(--menu-item-padding);
@@ -170,7 +167,6 @@
 
 .caption {
   flex-grow: 1;
-  font-size: var(--menu-item-font-size);
 }
 
 .shortcut {
