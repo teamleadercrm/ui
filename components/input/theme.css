@@ -90,6 +90,7 @@
   &:focus {
     border-color: var(--input-focus-border);
     box-shadow: 0 0 0 1px var(--input-focus-border);
+    outline: none;
   }
 
   &:active {
