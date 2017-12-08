@@ -5,7 +5,7 @@
 :root {
   --popover-background-color: var(--color-white);
   --popover-border-radius: calc(0.4 * var(--unit));
-  --popover-box-shadow: 0 1px 30px 0 rgba(70, 86, 104, 0.4);
+  --popover-box-shadow: 0 0 0 1px color(var(--color-teal-dark) a(20%));
 }
 
 .wrapper {
@@ -23,6 +23,7 @@
 }
 
 .popover {
+  composes: box-shadow-200;
   background: var(--popover-background-color);
   border-radius: var(--popover-border-radius);
   box-shadow: var(--popover-box-shadow);

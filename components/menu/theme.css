@@ -8,7 +8,8 @@
   --menu-fade-duration: 0.2s;
   --menu-background-color: var(--color-white);
   --menu-padding: calc(0.8 * var(--unit)) 0;
-  --menu-outline-border-radius: calc(0.2 * var(--unit));
+  --menu-outline-border-radius: calc(0.4 * var(--unit));
+  --menu-outline-box-shadow: 0 0 0 1px color(var(--color-teal-darkest) a(24%));
   --menu-item-hover-background: var(--color-neutral-light);
   --menu-item-selected-background: transparent;
   --menu-item-height: calc(2.8 * var(--unit));
@@ -111,11 +112,10 @@
 }
 
 .outline {
+  composes: box-shadow-200;
   background-color: var(--menu-background-color);
   border-radius: var(--menu-outline-border-radius);
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-  0 3px 1px -2px rgba(0, 0, 0, 0.2),
-  0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: var(--menu-outline-box-shadow);
   display: block;
   left: 0;
   position: absolute;
