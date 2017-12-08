@@ -26,6 +26,7 @@
 .remove-button {
   border-radius: 0 var(--tag-border-radius) var(--tag-border-radius) 0;
   height: 100% !important;
+  padding: 0 var(--spacer-smaller) !important;
 }
 
 .label-button {
