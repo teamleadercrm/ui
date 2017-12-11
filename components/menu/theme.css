@@ -86,11 +86,17 @@
     }
 
     & > .menu-inner {
+      background: var(--color-white);
+      border-radius: var(--menu-outline-border-radius);
       left: 0;
       margin: 0;
       opacity: 0;
+      overflow: hidden;
       position: absolute;
       top: 0;
+      transition:
+      opacity var(--menu-fade-duration) var(--animation-curve-default),
+      clip var(--menu-expand-duration) var(--animation-curve-default);
     }
 
     &.active {
@@ -103,9 +109,6 @@
 
       & > .menu-inner {
         opacity: 1;
-        transition:
-          opacity var(--menu-fade-duration) var(--animation-curve-default),
-          clip var(--menu-expand-duration) var(--animation-curve-default);
       }
     }
   }
@@ -123,6 +126,7 @@
 }
 
 .menu-inner {
+  border-radius: var(--menu-outline-border-radius);
   display: block;
   list-style: none;
   margin: 0;
