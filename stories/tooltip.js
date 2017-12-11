@@ -11,6 +11,7 @@ import {
   Heading2,
   Heading3,
   Heading4,
+  Link,
   StatusLabel,
   TextBody,
   TextSmall,
@@ -28,6 +29,7 @@ const positions = ['horizontal', 'vertical', 'top', 'bottom', 'left', 'right'];
 
 const TooltippedButton = Tooltip(Button);
 const TooltippedLabel = Tooltip(TooltipLabel);
+const TooltippedLink = Tooltip(Link);
 const TooltippedStatusLabel = Tooltip(StatusLabel);
 const TooltippedStrong = Tooltip('strong');
 
@@ -181,6 +183,9 @@ storiesOf('Tooltip', module)
         )
       })}
     </ButtonGroup>
+  ))
+  .add('from Link', () => (
+    <TooltippedLink tooltip={textBodyTooltipContent} href="#" inherit={false}>Hover me</TooltippedLink>
   ))
   .add('from StatusLabel', () => (
     <TooltippedStatusLabel tooltip={textSmallTooltipContent}>Hover me</TooltippedStatusLabel>
