@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import theme from './theme.css';
 import Cell from './Cell';
 import cx from 'classnames';
-import { IconChevronTinyDownSmallOutline, IconChevronTinyUpSmallOutline } from '@teamleader/ui-icons';
+import { IconChevronDownSmallOutline, IconChevronUpSmallOutline } from '@teamleader/ui-icons';
 
 class HeaderCell extends PureComponent {
   static propTypes = {
@@ -34,9 +34,9 @@ class HeaderCell extends PureComponent {
         {children}
         {sorted !== 'none' ? (
           sorted === 'asc' ? (
-            <IconChevronTinyUpSmallOutline />
+            <IconChevronUpSmallOutline />
           ) : (
-            <IconChevronTinyDownSmallOutline />
+            <IconChevronDownSmallOutline />
           )
         ) : null}
       </Cell>
