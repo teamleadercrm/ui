@@ -4,7 +4,7 @@ import { Store, State } from '@sambego/storybook-state';
 import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
-import { Box, Button, DataGrid, Heading4, IconMenu, MenuItem, Section, StatusBullet, TextTiny, Tooltip } from '../components';
+import { Box, Button, DataGrid, Heading4, IconMenu, MenuItem, Link, Section, StatusBullet, TextTiny, Tooltip } from '../components';
 import rows from '../static/data/datagrid';
 
 const TooltippedStatusBullet = Tooltip(StatusBullet);
@@ -49,7 +49,7 @@ storiesOf('DataGrids', module)
                       size="large"
                     />
                   </DataGrid.Cell>
-                  <DataGrid.Cell border="right" soft> {row.column5} </DataGrid.Cell>
+                  <DataGrid.Cell border="right"><Link href="#" inherit={false}>{row.column5}</Link> </DataGrid.Cell>
                   <DataGrid.Cell align="right" strong> {`€ ${row.column3}`}</DataGrid.Cell>
                   <DataGrid.Cell flex="2"> {row.column2}</DataGrid.Cell>
                   <DataGrid.Cell soft>{row.column4}</DataGrid.Cell>
