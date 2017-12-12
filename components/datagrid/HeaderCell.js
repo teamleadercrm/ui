@@ -32,13 +32,7 @@ class HeaderCell extends PureComponent {
     return (
       <Cell className={classNames} onClick={onClick} {...others}>
         {children}
-        {sorted !== 'none' ? (
-          sorted === 'asc' ? (
-            <IconChevronUpSmallOutline />
-          ) : (
-            <IconChevronDownSmallOutline />
-          )
-        ) : null}
+        {sorted !== 'none' ? sorted === 'asc' ? <IconChevronUpSmallOutline /> : <IconChevronDownSmallOutline /> : null}
       </Cell>
     );
   }
