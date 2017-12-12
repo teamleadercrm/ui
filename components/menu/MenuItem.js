@@ -35,6 +35,7 @@ const factory = () => {
 
       const classNames = cx(
         theme['menu-item'],
+        theme['text-small'],
         {
           [theme['selected']]: selected,
           [theme['disabled']]: disabled,

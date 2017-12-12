@@ -10,6 +10,7 @@ import Counter from './counter';
 import DataGrid from './datagrid';
 import Dialog from './dialog';
 import Menu, { IconMenu, MenuItem, MenuDivider } from './menu';
+import Link from './link';
 import Message from './message';
 import Overlay from './overlay';
 import LoadingMolecule from './loadingMolecule';
@@ -50,6 +51,7 @@ export {
   IconMenu,
   MenuItem,
   MenuDivider,
+  Link,
   LoadingMolecule,
   LoadingSpinner,
   Overlay,
