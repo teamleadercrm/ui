@@ -7,7 +7,7 @@ import { withInfo } from '@storybook/addon-info';
 import styles from '@sambego/storybook-styles';
 import { Banner, Box, Button, ButtonGroup, Dialog, Heading3, TextBody } from '../components/';
 import { baseStyles, centerStyles } from '../.storybook/styles';
-import { IconWarningMediumOutline, IconCheckmarkMediumOutline } from '@teamleader/ui-icons';
+import { IconWarningBadgedMediumOutline, IconCheckmarkMediumOutline } from '@teamleader/ui-icons';
 
 const store = new Store({
   active: false,
@@ -155,7 +155,7 @@ storiesOf('Dialogs', module)
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
         >
-          <Banner color="gold" fullWidth icon={<IconWarningMediumOutline />} onClose={handleCloseClick}>
+          <Banner color="gold" fullWidth icon={<IconWarningBadgedMediumOutline />} onClose={handleCloseClick}>
             <Heading3>Warning: Dialog title</Heading3>
           </Banner>
           <Box padding={4}>
@@ -178,7 +178,7 @@ storiesOf('Dialogs', module)
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
         >
-          <Banner color="ruby" fullWidth icon={<IconWarningMediumOutline />} onClose={handleCloseClick}>
+          <Banner color="ruby" fullWidth icon={<IconWarningBadgedMediumOutline />} onClose={handleCloseClick}>
             <Heading3>Succes: Dialog title</Heading3>
           </Banner>
           <ButtonGroup alignItems="right" padding={4}>
