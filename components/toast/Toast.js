@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Transition from 'react-transition-group/Transition';
 import cx from 'classnames';
 import { IconButton } from '../button';
+import { TextSmall } from '../typography';
 import Link from '../link';
 import { createPortal } from 'react-dom';
 import { IconCloseMediumOutline } from '@teamleader/ui-icons';
@@ -85,18 +86,18 @@ const factory = (Link, IconButton) => {
 
             return (
               <div data-teamleader-ui="toast" className={classNames}>
-                <span className={theme['label']}>
+                <TextSmall className={theme['label']} color="white" soft>
                   {label}
                   {children}
-                </span>
+                </TextSmall>
                 {onClick ? (
                   action ? (
-                    <Link className={theme['action']} onClick={onClick}>
-                      {action}
-                    </Link>
+                    <TextSmall className={theme['action-link']} color="white">
+                      <Link onClick={onClick}>{action}</Link>
+                    </TextSmall>
                   ) : (
                     <IconButton
-                      className={theme['action']}
+                      className={theme['action-button']}
                       icon={<IconCloseMediumOutline />}
                       color="white"
                       onClick={onClick}
