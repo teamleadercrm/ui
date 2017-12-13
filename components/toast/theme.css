@@ -12,7 +12,7 @@
   --toast-color-warning: var(--color-gold-dark);
   --toast-color: var(--color-white);
   --toast-padding: calc(1.2 * var(--unit)) calc(2 * var(--unit));
-  --toast-offset: 30px;
+  --toast-offset: calc(3 * var(--unit));
 }
 
 .toast {
