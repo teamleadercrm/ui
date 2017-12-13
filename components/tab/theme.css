@@ -1,7 +1,8 @@
 @import '@teamleader/ui-colors';
 @import '@teamleader/ui-animations';
 
-.title-tab {
+.title-tab,
+.icon-tab {
   color: var(--color-neutral-darkest);
   display: flex;
   align-items: center;
@@ -14,21 +15,24 @@
   border: none;
   border-radius: 0;
 
-  &:hover {
-    background-color: color(var(--color-neutral-darkest) a(24%));
-    cursor: pointer;
+  &:focus {
+    background-color: var(--color-neutral-light);
+    box-shadow: 0 0 0 2px var(--color-neutral);
+
+    .counter {
+      box-shadow: 0 0 0 2px var(--color-neutral-light);
+    }
   }
 
-  &:focus {
-    background-color: color(var(--color-neutral-darkest) a(12%));
-    box-shadow: 0 0 0 2px color(var(--color-neutral-darkest) a(24%));
+  &:hover {
+    background-color: var(--color-neutral);
+    cursor: pointer;
   }
 
   &::after {
     content: '';
     position: absolute;
     display: block;
-    color: var(--color-teal-darkest);
     box-shadow: inset 0px -3px 0px 0px var(--color-mint);
     height: 3px;
     width: 100%;
@@ -38,29 +42,65 @@
   }
 }
 
+.counter {
+  position: absolute;
+  left: 54%;
+  top: 10%;
+  box-shadow: 0 0 0 2px var(--color-neutral-lightest);
+  user-select: none;
+}
+
+.icon-tab {
+  &:hover {
+    .counter {
+      box-shadow: 0 0 0 2px var(--color-neutral);
+    }
+  }
+}
+
 .is-active {
-  &.title-tab {
+
+  &.title-tab,
+  &.icon-tab {
     color: var(--color-teal-darkest);
   }
+
   &::after {
     transform: scale(1, 1);
   }
 }
 
 .inverted {
-  .title-tab {
+
+  .is-active.title-tab,
+  .is-active.icon-tab {
+    color: var(--color-neutral-lightest);
+
+    .counter {
+      box-shadow: 0 0 0 2px var(--color-teal-darkest);
+    }
+  }
+
+  .title-tab,
+  .icon-tab {
     background-color: var(--color-teal-darkest);
     color: var(--color-teal-light);
 
     &:focus {
       background-color: transparent;
+      box-shadow: 0 0 0 2px var(--color-teal-dark);
     }
 
     &:hover {
-      background-color: color(var(--color-neutral-darkest) a(24%));
+      background-color: var(--color-teal-dark);
+
+      .counter {
+        box-shadow: 0 0 0 2px var(--color-teal-dark);
+      }
     }
   }
-  .is-active.title-tab {
-    color: var(--color-neutral-lightest);
+
+  .counter {
+    box-shadow: 0 0 0 2px var(--color-teal-darkest);
   }
 }
