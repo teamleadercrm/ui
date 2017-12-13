@@ -7,7 +7,7 @@ const spacings = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 
 class Box extends PureComponent {
   static propTypes = {
-    children: PropTypes.node,
+    children: PropTypes.any,
     className: PropTypes.string,
     element: PropTypes.node,
     margin: PropTypes.oneOf(spacings),
