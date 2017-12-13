@@ -18,7 +18,6 @@ const factory = (Button, IconButton) => {
       onClick: PropTypes.func,
       onTimeout: PropTypes.func,
       timeout: PropTypes.number,
-      type: PropTypes.oneOf(['accept', 'cancel', 'warning']),
     };
 
     constructor() {
@@ -64,7 +63,7 @@ const factory = (Button, IconButton) => {
     };
 
     render() {
-      const { action, active, children, className, label, onClick, type } = this.props;
+      const { action, active, children, className, label, onClick } = this.props;
 
       const toast = (
         <Transition in={active} timeout={{ enter: 0, exit: 1000 }}>
@@ -75,7 +74,6 @@ const factory = (Button, IconButton) => {
 
             const classNames = cx(
               theme['toast'],
-              theme[`is-${type}`],
               {
                 [theme['is-entering']]: state === 'entering',
                 [theme['is-entered']]: state === 'entered',
