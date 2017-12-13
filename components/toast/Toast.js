@@ -96,14 +96,14 @@ const factory = (Link, IconButton) => {
                 {onClose ? (
                   action ? (
                     <TextSmall className={theme['action-link']} color="white">
-                      <Link onClose={onClose}>{action}</Link>
+                      <Link onClick={onClose}>{action}</Link>
                     </TextSmall>
                   ) : (
                     <IconButton
                       className={theme['action-button']}
                       icon={<IconCloseMediumOutline />}
                       color="white"
-                      onClose={onClose}
+                      onClick={onClose}
                     />
                   )
                 ) : null}
