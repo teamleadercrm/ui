@@ -32,8 +32,7 @@
   z-index: var(--z-index-high);
 }
 
-.button,
-.icon-button {
+.action {
   margin: 0 -14px 0 28px;
 }
 

@@ -91,12 +91,12 @@ const factory = (Link, IconButton) => {
                 </span>
                 {onClick ? (
                   action ? (
-                    <Link className={theme['button']} onClick={onClick}>
+                    <Link className={theme['action']} onClick={onClick}>
                       {action}
                     </Link>
                   ) : (
                     <IconButton
-                      className={theme['icon-button']}
+                      className={theme['action']}
                       icon={<IconCloseMediumOutline />}
                       color="white"
                       onClick={onClick}
