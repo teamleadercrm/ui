@@ -67,15 +67,7 @@ const factory = (Button, IconButton) => {
       const { action, active, children, className, label, onClick, type } = this.props;
 
       const toast = (
-        <Transition
-          in={active}
-          timeout={{
-            // Set 'enter' timeout to '0' so that enter animation will start immediately.
-            enter: 0,
-            // Set 'exit' timeout to 'duration' so that the 'exited' status won't be applied until animation completes.
-            exit: 1000,
-          }}
-        >
+        <Transition in={active} timeout={{ enter: 0, exit: 1000 }}>
           {state => {
             if (state === 'exited') {
               return null;
