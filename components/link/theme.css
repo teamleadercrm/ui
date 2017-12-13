@@ -2,6 +2,8 @@
 @import '@teamleader/ui-typography';
 
 .link {
+  cursor: pointer;
+
   &:not(.inherit) {
     color: var(--color-aqua-dark);
     font-family: var(--font-family-regular);
