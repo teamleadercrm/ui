@@ -2,12 +2,13 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Transition from 'react-transition-group/Transition';
 import cx from 'classnames';
-import { Button, IconButton } from '../button';
+import { IconButton } from '../button';
+import Link from '../link';
 import { createPortal } from 'react-dom';
 import { IconCloseMediumOutline } from '@teamleader/ui-icons';
 import theme from './theme.css';
 
-const factory = (Button, IconButton) => {
+const factory = (Link, IconButton) => {
   class Toast extends PureComponent {
     static propTypes = {
       action: PropTypes.string,
@@ -90,7 +91,9 @@ const factory = (Button, IconButton) => {
                 </span>
                 {onClick ? (
                   action ? (
-                    <Button className={theme['button']} label={action} level="outline" onClick={onClick} size="small" />
+                    <Link className={theme['button']} onClick={onClick}>
+                      {action}
+                    </Link>
                   ) : (
                     <IconButton
                       className={theme['icon-button']}
@@ -113,7 +116,7 @@ const factory = (Button, IconButton) => {
   return Toast;
 };
 
-const Toast = factory(Button, IconButton);
+const Toast = factory(Link, IconButton);
 
 export default Toast;
 export { factory as toastFactory, Toast };
