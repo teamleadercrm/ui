@@ -12,32 +12,44 @@ import { baseStyles, centerStyles } from '../.storybook/styles';
 const store = new Store({
   items: [
     {
-      title: 'Invoices',
       active: false,
+      href: '#',
+      icon: 'Invoices',
+      title: 'Invoices',
     },
     {
-      title: 'CRM',
       active: true,
+      href: '#',
+      icon: 'CRM',
+      title: 'CRM',
     },
     {
-      title: 'Planning',
       active: false,
       count: 30,
+      href: '#',
+      icon: 'Planning',
+      title: 'Planning',
     },
   ],
   invertedItems: [
     {
-      title: 'Products',
       active: true,
-      count: 15,
+      count: 8,
+      href: '#',
+      icon: 'Products',
+      title: 'Products',
     },
     {
+      active: false,
+      href: '#',
+      icon: 'Deals',
       title: 'Deals',
-      active: false,
     },
     {
-      title: 'Stats',
       active: false,
+      href: '#',
+      icon: 'Stats',
+      title: 'Stats',
     },
   ],
 });
