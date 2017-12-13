@@ -6,24 +6,22 @@
 :root {
   --toast-background-color: var(--color-teal-darkest);
   --toast-border-radius: calc(0.4 * var(--unit));
-  --toast-color-cancel: var(--color-ruby-darkest);
-  --toast-color-accept: var(--color-mint-dark);
-  --toast-color-warning: var(--color-gold-dark);
-  --toast-color: var(--color-white);
-  --toast-padding: calc(1.2 * var(--unit)) calc(2 * var(--unit));
+  --toast-max-width: calc(37.2 * var(--unit));
+  --toast-min-height: calc(6 * var(--unit));
+  --toast-padding: calc(2.1 * var(--unit));
   --toast-offset: calc(3 * var(--unit));
 }
 
 .toast {
   composes: box-shadow-400;
+  composes: reset;
   align-items: center;
   border-radius: var(--toast-border-radius);
   background-color: var(--toast-background-color);
   bottom: var(--toast-offset);
-  color:  var(--toast-color);
   display: flex;
-  font-family: var(--font-family-regular);
-  font-size: calc(1.4 * var(--unit));
+  min-height: var(--toast-min-height);
+  max-width: var(--toast-max-width);
   padding: var(--toast-padding);
   position: fixed;
   right: var(--toast-offset);
@@ -31,8 +29,13 @@
   z-index: var(--z-index-high);
 }
 
-.action {
-  margin: 0 -14px 0 28px;
+.action-button {
+  margin: calc(-1 * var(--spacer-smaller)) -8px calc(-1 * var(--spacer-smaller)) var(--spacer-medium);
+}
+
+.action-link {
+  margin-left: var(--spacer-medium);
+  white-space: nowrap;
 }
 
 .label {
