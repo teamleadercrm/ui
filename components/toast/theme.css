@@ -42,6 +42,10 @@
   flex-grow: 1;
 }
 
+.spinner {
+  margin-right: var(--spacer-small);
+}
+
 .is-exiting,
 .is-entering {
   opacity: 0;

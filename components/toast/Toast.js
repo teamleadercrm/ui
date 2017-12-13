@@ -5,6 +5,7 @@ import cx from 'classnames';
 import { IconButton } from '../button';
 import { TextSmall } from '../typography';
 import Link from '../link';
+import LoadingSpinner from '../loadingSpinner';
 import { createPortal } from 'react-dom';
 import { IconCloseMediumOutline } from '@teamleader/ui-icons';
 import theme from './theme.css';
@@ -19,6 +20,7 @@ const factory = (Link, IconButton) => {
       label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
       onClick: PropTypes.func,
       onTimeout: PropTypes.func,
+      processing: PropTypes.bool,
       timeout: PropTypes.number,
     };
 
@@ -65,7 +67,7 @@ const factory = (Link, IconButton) => {
     };
 
     render() {
-      const { action, active, children, className, label, onClick } = this.props;
+      const { action, active, children, className, label, onClick, processing } = this.props;
 
       const toast = (
         <Transition in={active} timeout={{ enter: 0, exit: 1000 }}>
@@ -86,6 +88,7 @@ const factory = (Link, IconButton) => {
 
             return (
               <div data-teamleader-ui="toast" className={classNames}>
+                {processing && <LoadingSpinner className={theme['spinner']} color="white"/>}
                 <TextSmall className={theme['label']} color="white" soft>
                   {label}
                   {children}
