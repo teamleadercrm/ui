@@ -6,7 +6,7 @@ import { withInfo } from '@storybook/addon-info';
 import { Box, Island, Counter as UICounter } from '../components';
 import { Store, State } from '@sambego/storybook-state';
 import { action } from '@storybook/addon-actions';
-import { TabGroup, TitleTab } from '../components/tab';
+import { IconTab, TabGroup, TitleTab } from '../components/tab';
 import { baseStyles, centerStyles } from '../.storybook/styles';
 
 const store = new Store({
@@ -62,7 +62,8 @@ const handleInvertedClick = title => {
   });
 };
 
-const Counter = props => <UICounter color="ruby" marginLeft={3} {...props} />
+const TitleCounter = props => <UICounter color="ruby" marginLeft={3} {...props} />
+const IconCounter = props => <UICounter color="ruby" {...props} />
 
 storiesOf('Tab', module)
   .addDecorator((story, context) => withInfo('common info')(story)(context))
@@ -77,15 +78,25 @@ storiesOf('Tab', module)
         <InvertedTitleTabContainer />
       </State>
     </Box>
+  ))
+  .add('icontab', () => (
+    <Box>
+      <State store={store}>
+        <IconTabContainer />
+      </State>
+      <State store={store}>
+        <InvertedIconTabContainer />
+      </State>
+    </Box>
   ));
 
 const TitleTabContainer = () => (
   <TabGroup>
     <Island style={{ display: 'flex' }}>
       {store.get('items').map((item, key) => {
-        const optionalProps = item.count ? {counter: React.createElement(Counter, {count: item.count, color: "mint"})} : {};
+        const optionalProps = item.count ? {counter: React.createElement(TitleCounter, {count: item.count, color: "mint"})} : {};
         return (
-          <TitleTab onClick={() => handleClick(item.title)} active={item.active} {...optionalProps} key={key}>
+          <TitleTab active={item.active} href={item.href} onClick={() => handleClick(item.title)} {...optionalProps} key={key}>
             {item.title}
           </TitleTab>
         );
@@ -95,14 +106,44 @@ const TitleTabContainer = () => (
 );
 
 const InvertedTitleTabContainer = () => (
-  <TabGroup inverted={true}>
+  <TabGroup inverted>
     <Island style={{ display: 'flex', background: '#2a3b4d' }}>
       {store.get('invertedItems').map((invertedItem, key) => {
-        const optionalProps = invertedItem.count ? {counter: React.createElement(Counter, {count: invertedItem.count})} : {};
+        const optionalProps = invertedItem.count ? {counter: React.createElement(TitleCounter, {count: invertedItem.count})} : {};
         return (
-          <TitleTab onClick={() => handleInvertedClick(invertedItem.title)} active={invertedItem.active} {...optionalProps} key={key}>
+          <TitleTab active={invertedItem.active} href={invertedItem.href} onClick={() => handleInvertedClick(invertedItem.title)} {...optionalProps} key={key}>
             {invertedItem.title}
           </TitleTab>
+        );
+      })}
+    </Island>
+  </TabGroup>
+);
+
+const IconTabContainer = () => (
+  <TabGroup>
+    <Island style={{ display: 'flex' }}>
+      {store.get('items').map((item, key) => {
+        const optionalProps = item.count ? {counter: React.createElement(IconCounter, {count: item.count, color: "mint"})} : {};
+        return (
+          <IconTab active={item.active} href={item.href} onClick={() => handleClick(item.title)} icon={item.icon} {...optionalProps} key={key}>
+            {item.title}
+          </IconTab>
+        );
+      })}
+    </Island>
+  </TabGroup>
+);
+
+const InvertedIconTabContainer = () => (
+  <TabGroup inverted>
+    <Island style={{ display: 'flex', background: '#2a3b4d' }}>
+      {store.get('invertedItems').map((invertedItem, key) => {
+        const optionalProps = invertedItem.count ? {counter: React.createElement(IconCounter, {count: invertedItem.count})} : {};
+        return (
+          <IconTab active={invertedItem.active} href={invertedItem.href} onClick={() => handleInvertedClick(invertedItem.title)} icon={invertedItem.icon} {...optionalProps} key={key}>
+            {invertedItem.title}
+          </IconTab>
         );
       })}
     </Island>
