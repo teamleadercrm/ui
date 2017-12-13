@@ -32,13 +32,13 @@ const factory = (Button, IconButton) => {
       document.body.appendChild(this.toastRoot);
 
       if (this.props.active && this.props.timeout) {
-        this._scheduleTimeout(this.props);
+        this.scheduleTimeout(this.props);
       }
     }
 
     componentWillReceiveProps(nextProps) {
       if (nextProps.active && nextProps.timeout) {
-        this._scheduleTimeout(nextProps);
+        this.scheduleTimeout(nextProps);
       }
     }
 
@@ -47,7 +47,7 @@ const factory = (Button, IconButton) => {
       document.body.removeChild(this.toastRoot);
     }
 
-    _scheduleTimeout = props => {
+    scheduleTimeout = props => {
       const { onTimeout, timeout } = props;
 
       if (this.currentTimeout) {
