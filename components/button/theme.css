@@ -357,6 +357,12 @@
   &.icon-only {
     padding: 0 calc(.7 * var(--unit));
   }
+
+  &.icon-button {
+    height: calc(1.8 * var(--unit));
+    min-width: calc(1.8 * var(--unit));
+    padding: 0 calc(.2 * var(--unit));
+  }
 }
 
 .medium {
@@ -368,6 +374,12 @@
 
   &.icon-only {
     padding: 0 calc(.5 * var(--unit));
+  }
+
+  &.icon-button {
+    height: calc(3.0 * var(--unit));
+    min-width: calc(3.0 * var(--unit));
+    padding: 0 var(--spacer-smallest);
   }
 }
 

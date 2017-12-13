@@ -3,11 +3,11 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
-import { Banner, Box, Button, Message, CompactMessage, Island, Heading2, TextBody } from '../components';
+import { Banner, Box, Button, Message, CompactMessage, Island, Heading2, Link, TextBody, TextSmall } from '../components';
 import { IllustrationInvoices120X120Static, IllustrationSharpie48X48Static } from '@teamleader/ui-illustrations';
 
 const button = <Button level="primary">Button text</Button>;
-const link = <span>I'm a link</span>; // @todo replace this with a real link component
+const link = <TextSmall><Link href="https://teamleader.eu" inherit={false}>I'm a link</Link></TextSmall>;
 const image = <IllustrationInvoices120X120Static />;
 const imageSmall = <IllustrationSharpie48X48Static />;
 const content = (

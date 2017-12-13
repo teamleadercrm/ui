@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 import { Store, State } from '@sambego/storybook-state';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
-import { Banner, Box, Button, ButtonGroup, Heading3, PopoverHorizontal, PopoverVertical, Section, TextBody, TextSmall } from '../components';
+import { Banner, Box, Button, ButtonGroup, Heading3, Link, PopoverHorizontal, PopoverVertical, Section, TextBody, TextSmall } from '../components';
 import { baseStyles, centerStyles } from '../.storybook/styles';
 import styles from '@sambego/storybook-styles';
 
@@ -22,6 +22,12 @@ const handleCloseClick = () => {
   action('onClick - active: false')();
 };
 
+const contentBoxWithSingleTextLine = (
+  <Box padding={4}>
+    <TextBody>This is the popover content with a <Link href="#" inherit={false}>link</Link> inside</TextBody>
+  </Box>
+);
+
 storiesOf('Popover', module)
   .addDecorator((story, context) => withInfo('common info')(story)(context))
   .addDecorator(checkA11y)
@@ -38,9 +44,7 @@ storiesOf('Popover', module)
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
         >
-          <Box padding={4}>
-            <TextBody>This is the popover content</TextBody>
-          </Box>
+          {contentBoxWithSingleTextLine}
         </PopoverHorizontal>
       </State>
     </Box>
@@ -57,9 +61,7 @@ storiesOf('Popover', module)
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
         >
-          <Box padding={4}>
-            <TextBody>This is the popover content</TextBody>
-          </Box>
+          {contentBoxWithSingleTextLine}
         </PopoverVertical>
       </State>
     </Box>
@@ -79,9 +81,7 @@ storiesOf('Popover', module)
           <Banner fullWidth={true}>
             <Heading3>Popover Title</Heading3>
           </Banner>
-          <Box padding={4}>
-            <TextBody>This is the popover content</TextBody>
-          </Box>
+          {contentBoxWithSingleTextLine}
         </PopoverVertical>
       </State>
     </Box>
@@ -102,9 +102,7 @@ storiesOf('Popover', module)
             <Heading3>Popover Title</Heading3>
             <TextSmall marginTop={1}>This is the popover content</TextSmall>
           </Banner>
-          <Box padding={4}>
-            <TextBody>This is the popover content</TextBody>
-          </Box>
+          {contentBoxWithSingleTextLine}
         </PopoverVertical>
       </State>
     </Box>
@@ -124,9 +122,7 @@ storiesOf('Popover', module)
           <Banner onClose={handleCloseClick} fullWidth={true}>
             <Heading3>I am a heading 3</Heading3>
           </Banner>
-          <Box padding={4}>
-            <TextBody>This is the popover content</TextBody>
-          </Box>
+          {contentBoxWithSingleTextLine}
         </PopoverVertical>
       </State>
     </Box>
@@ -143,9 +139,7 @@ storiesOf('Popover', module)
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
         >
-          <Box padding={4}>
-            <TextBody>This is the popover content</TextBody>
-          </Box>
+          {contentBoxWithSingleTextLine}
           <ButtonGroup alignItems="right" padding={4}>
             <Button label="Cancel" />
             <Button level="primary" label="Confirm" />
@@ -166,9 +160,7 @@ storiesOf('Popover', module)
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
         >
-          <Box padding={4}>
-            <TextBody>This is the popover content</TextBody>
-          </Box>
+          {contentBoxWithSingleTextLine}
         </PopoverVertical>
       </State>
     </Box>

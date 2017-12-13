@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
-import { Box, Banner, Island, TextBody } from '../components';
+import { Box, Banner, Link, TextBody } from '../components';
 import { IconIdeaMediumOutline, IconCalendarMediumOutline as IconSettingsMediumOutline } from '@teamleader/ui-icons';
 
 const colors = ['white', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua'];
@@ -16,7 +16,7 @@ storiesOf('Banner', module)
       {colors.map((color, index) => (
         <Banner key={index} color={color} marginTop={4} icon={<IconIdeaMediumOutline />} onClose={() => action('close')}>
           <TextBody marginRight={3}>
-            I am a {color} banner.
+            I am a {color} banner with an <Link href="http://teamleader.eu">optional link</Link> inside.
           </TextBody>
         </Banner>
       ))}
@@ -26,7 +26,7 @@ storiesOf('Banner', module)
     <Box>
       <Banner color="violet" fullWidth icon={<IconIdeaMediumOutline />} onClose={() => action('close')}>
         <TextBody>
-          I'm a full width banner
+          I'm a full width banner with an <Link href="http://teamleader.eu">optional link</Link> inside.
         </TextBody>
       </Banner>
     </Box>
