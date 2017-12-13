@@ -5,7 +5,6 @@
 :root {
   --dialog-background-color: var(--color-white);
   --dialog-border-radius: calc(0.4 * var(--unit));
-  --dialog-box-shadow: 0 2px 100px 0 var(--color-teal-darkest);
   --dialog-translate-y: calc(-4 * var(--unit));
 }
 
@@ -22,9 +21,9 @@
 
 .dialog {
   composes: reset;
+  composes: box-shadow-300;
   background-color: var(--dialog-background-color);
   border-radius: var(--dialog-border-radius);
-  box-shadow: var(--dialog-box-shadow);
   display: flex;
   flex-direction: column;
   max-height: 96vh;
