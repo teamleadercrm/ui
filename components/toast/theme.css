@@ -41,18 +41,6 @@
   flex-grow: 1;
 }
 
-.is-accept .button {
-  color: var(--toast-color-accept);
-}
-
-.is-warning .button {
-  color: var(--toast-color-warning);
-}
-
-.is-cancel .button {
-  color: var(--toast-color-cancel);
-}
-
 .is-exiting,
 .is-entering {
   opacity: 0;
