@@ -14,12 +14,12 @@ const store = new Store({
 
 const handleButtonClick = () => {
   store.set({ active: true });
-  action('onClick - active: true')();
+  action('onClose - active: true')();
 };
 
 const handleToastCloseButtonClick = () => {
   store.set({ active: false });
-  action('onClick - active: false')();
+  action('onClose - active: false')();
 };
 
 const handleToastTimeout = () => {
@@ -39,7 +39,7 @@ storiesOf('Toast', module)
           active={false}
           label="Toast label"
           timeout={3000}
-          onClick={handleToastCloseButtonClick}
+          onClose={handleToastCloseButtonClick}
           onTimeout={handleToastTimeout}
         />
       </State>
@@ -54,7 +54,7 @@ storiesOf('Toast', module)
           active={false}
           label="Toast label"
           timeout={3000}
-          onClick={handleToastCloseButtonClick}
+          onClose={handleToastCloseButtonClick}
           onTimeout={handleToastTimeout}
         />
       </State>
@@ -69,7 +69,7 @@ storiesOf('Toast', module)
           active={false}
           label="Connection timed out. Showing limited amount of messages."
           timeout={3000}
-          onClick={handleToastCloseButtonClick}
+          onClose={handleToastCloseButtonClick}
           onTimeout={handleToastTimeout}
         />
       </State>
@@ -83,7 +83,7 @@ storiesOf('Toast', module)
           active={false}
           label="Working..."
           timeout={3000}
-          onClick={handleToastCloseButtonClick}
+          onClose={handleToastCloseButtonClick}
           onTimeout={handleToastTimeout}
           processing
         />

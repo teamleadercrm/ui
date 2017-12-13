@@ -18,7 +18,7 @@ const factory = (Link, IconButton) => {
       children: PropTypes.node,
       className: PropTypes.string,
       label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-      onClick: PropTypes.func,
+      onClose: PropTypes.func,
       onTimeout: PropTypes.func,
       processing: PropTypes.bool,
       timeout: PropTypes.number,
@@ -67,7 +67,7 @@ const factory = (Link, IconButton) => {
     };
 
     render() {
-      const { action, active, children, className, label, onClick, processing } = this.props;
+      const { action, active, children, className, label, onClose, processing } = this.props;
 
       const toast = (
         <Transition in={active} timeout={{ enter: 0, exit: 1000 }}>
@@ -93,17 +93,17 @@ const factory = (Link, IconButton) => {
                   {label}
                   {children}
                 </TextSmall>
-                {onClick ? (
+                {onClose ? (
                   action ? (
                     <TextSmall className={theme['action-link']} color="white">
-                      <Link onClick={onClick}>{action}</Link>
+                      <Link onClose={onClose}>{action}</Link>
                     </TextSmall>
                   ) : (
                     <IconButton
                       className={theme['action-button']}
                       icon={<IconCloseMediumOutline />}
                       color="white"
-                      onClick={onClick}
+                      onClose={onClose}
                     />
                   )
                 ) : null}
