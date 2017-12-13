@@ -88,7 +88,7 @@ const factory = (Link, IconButton) => {
 
             return (
               <div data-teamleader-ui="toast" className={classNames}>
-                {processing && <LoadingSpinner className={theme['spinner']} color="white"/>}
+                {processing && <LoadingSpinner className={theme['spinner']} color="white" />}
                 <TextSmall className={theme['label']} color="white" soft>
                   {label}
                   {children}
