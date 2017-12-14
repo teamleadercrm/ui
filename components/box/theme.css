@@ -52,3 +52,9 @@
     display: $display;
   }
 }
+
+@each $direction in (row, row-reverse, column, column-reverse) {
+  .flex-direction-$(direction) {
+    flex-direction: $direction;
+  }
+}
