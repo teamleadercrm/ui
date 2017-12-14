@@ -48,7 +48,7 @@ class IconTab extends PureComponent {
 
     return (
       <Box
-        data-teamleader-ui="title-tab"
+        data-teamleader-ui="icon-tab"
         className={classNames}
         marginHorizontal={3}
         paddingHorizontal={3}
