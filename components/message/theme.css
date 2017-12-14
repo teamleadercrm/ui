@@ -7,6 +7,15 @@
   align-items: center;
 }
 
+.content {
+  flex: 2;
+}
+
+.image {
+  flex: 1;
+  text-align: center;
+}
+
 .is-image-left {
   .image {
     margin-right: var(--spacer-regular);
@@ -28,20 +37,7 @@
   margin-left: auto;
   margin-right: auto;
 
-  .image {
-    margin-bottom: var(--spacer-small);
-  }
-}
-
-.content {
-  flex: 2;
-}
-
-.actions {
-  display: flex;
-  align-items: center;
-
-  .is-image-center & {
+  .actions {
     flex-direction: column;
 
     .button {
@@ -49,13 +45,8 @@
       margin-right: 0;
     }
   }
-}
 
-.button {
-  margin-right: var(--spacer-small);
-}
-
-.image {
-  flex: 1;
-  text-align: center;
+  .image {
+    margin-bottom: var(--spacer-small);
+  }
 }
