@@ -56,7 +56,7 @@ class IconTab extends PureComponent {
         {...others}
       >
         <IconToRender element="span">{children}</IconToRender>
-        {counter && React.cloneElement(counter, { className: theme['counter'], koekoek: 'jongen' })}
+        {counter && React.cloneElement(counter, { className: theme['counter'] })}
       </Box>
     );
   }
