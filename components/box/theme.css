@@ -47,4 +47,8 @@
   }
 }
 
-
+@each $display in (inline, inline-block, block, flex, inline-flex) {
+  .display-$(display) {
+    display: $display;
+  }
+}
