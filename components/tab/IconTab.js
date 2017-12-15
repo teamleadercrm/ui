@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
+import omit from 'lodash.omit';
 
 import {
   IconCalendarMediumOutline,
@@ -33,6 +34,7 @@ class IconTab extends PureComponent {
     element: PropTypes.node,
     href: PropTypes.string.isRequired,
     icon: PropTypes.string.isRequired,
+    onClick: PropTypes.func,
   };
 
   static defaultProps = {
@@ -40,9 +42,31 @@ class IconTab extends PureComponent {
     active: false,
   };
 
+  constructor() {
+    super(...arguments);
+    this.handleClick = ::this.handleClick;
+  }
+
+  handleClick(event) {
+    if (this.props.onClick) {
+      this.props.onClick(event);
+    }
+    if (event.pageX !== 0 && event.pageY !== 0) {
+      this.blur();
+    }
+  }
+
+  blur() {
+    if (this.tabNode) {
+      this.tabNode.getNode().blur();
+    }
+  }
+
   render() {
     const { active, children, className, counter = null, icon, ...others } = this.props;
     const classNames = cx(theme['icon-tab'], { [theme['is-active']]: active }, className);
+
+    const rest = omit(others, ['onClick']);
 
     const IconToRender = iconMap[icon.toLowerCase()];
 
@@ -53,7 +77,11 @@ class IconTab extends PureComponent {
         marginHorizontal={3}
         paddingHorizontal={3}
         paddingVertical={4}
-        {...others}
+        ref={node => {
+          this.tabNode = node;
+        }}
+        onClick={this.handleClick}
+        {...rest}
       >
         <IconToRender element="span">{children}</IconToRender>
         {counter && React.cloneElement(counter, { className: theme['counter'] })}

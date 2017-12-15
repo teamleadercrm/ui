@@ -32,6 +32,10 @@ class Box extends PureComponent {
     padding: 0,
   };
 
+  getNode() {
+    return this.node;
+  }
+
   render() {
     const {
       children,
@@ -72,7 +76,13 @@ class Box extends PureComponent {
     const Element = element;
 
     return (
-      <Element className={classNames} {...others}>
+      <Element
+        ref={node => {
+          this.node = node;
+        }}
+        className={classNames}
+        {...others}
+      >
         {children}
       </Element>
     );
