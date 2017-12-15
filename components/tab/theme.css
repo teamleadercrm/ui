@@ -16,7 +16,6 @@
   border-radius: 0;
 
   &:focus {
-    background-color: var(--color-neutral-light);
     box-shadow: 0 0 0 2px var(--color-neutral);
 
     .counter {
@@ -89,6 +88,10 @@
     &:focus {
       background-color: transparent;
       box-shadow: 0 0 0 2px var(--color-teal-dark);
+
+      .counter {
+        box-shadow: 0 0 0 2px var(--color-teal-darkest);
+      }
     }
 
     &:hover {
