@@ -65,6 +65,12 @@
   }
 }
 
+@each $content-alignment in (center, flex-start, flex-end, space-around, space-between, space-evenly) {
+  .align-content-$(content-alignment) {
+    align-content: $content-alignment;
+  }
+}
+
 @each $item-alignment in (center, flex-start, flex-end) {
   .align-items-$(item-alignment) {
     align-items: $item-alignment;
