@@ -16,6 +16,7 @@ class Box extends PureComponent {
       'space-evenly',
     ]),
     alignItems: PropTypes.oneOf(['center', 'flex-start', 'flex-end']),
+    alignSelf: PropTypes.oneOf(['center', 'flex-start', 'flex-end', 'stretch']),
     children: PropTypes.any,
     className: PropTypes.string,
     display: PropTypes.oneOf(['inline', 'inline-block', 'block', 'flex', 'inline-flex']),
@@ -55,6 +56,7 @@ class Box extends PureComponent {
     const {
       alignContent,
       alignItems,
+      alignSelf,
       children,
       className,
       display,
@@ -83,6 +85,7 @@ class Box extends PureComponent {
       {
         [theme[`align-content-${alignContent}`]]: alignContent,
         [theme[`align-items-${alignItems}`]]: alignItems,
+        [theme[`align-self-${alignSelf}`]]: alignSelf,
         [theme[`display-${display}`]]: display,
         [theme[`flex-direction-${flexDirection}`]]: flexDirection,
         [theme[`justify-content-${justifyContent}`]]: justifyContent,

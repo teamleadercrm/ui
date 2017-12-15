@@ -76,3 +76,9 @@
     align-items: $item-alignment;
   }
 }
+
+@each $self-alignment in (center, flex-start, flex-end, stretch) {
+  .align-self-$(self-alignment) {
+    align-self: $self-alignment;
+  }
+}
