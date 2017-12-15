@@ -64,3 +64,9 @@
     justify-content: $justify;
   }
 }
+
+@each $item-alignment in (center, flex-start, flex-end) {
+  .align-items-$(item-alignment) {
+    align-items: $item-alignment;
+  }
+}

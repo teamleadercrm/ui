@@ -7,6 +7,7 @@ const spacings = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 
 class Box extends PureComponent {
   static propTypes = {
+    alignItems: PropTypes.oneOf(['center', 'flex-start', 'flex-end']),
     children: PropTypes.any,
     className: PropTypes.string,
     display: PropTypes.oneOf(['inline', 'inline-block', 'block', 'flex', 'inline-flex']),
@@ -44,6 +45,7 @@ class Box extends PureComponent {
 
   render() {
     const {
+      alignItems,
       children,
       className,
       display,
@@ -70,6 +72,7 @@ class Box extends PureComponent {
     const classNames = cx(
       theme['box'],
       {
+        [theme[`align-items-${alignItems}`]]: alignItems,
         [theme[`display-${display}`]]: display,
         [theme[`flex-direction-${flexDirection}`]]: flexDirection,
         [theme[`justify-content-${justifyContent}`]]: justifyContent,
