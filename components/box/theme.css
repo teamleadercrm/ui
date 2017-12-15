@@ -59,6 +59,12 @@
   }
 }
 
+@each $wrap in (nowrap, wrap, wrap-reverse) {
+  .flex-wrap-$(wrap) {
+    flex-wrap: $wrap;
+  }
+}
+
 @each $justify in (center, flex-start, flex-end, space-around, space-between, space-evenly) {
   .justify-content-$(justify) {
     justify-content: $justify;

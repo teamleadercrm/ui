@@ -22,6 +22,7 @@ class Box extends PureComponent {
     display: PropTypes.oneOf(['inline', 'inline-block', 'block', 'flex', 'inline-flex']),
     element: PropTypes.node,
     flexDirection: PropTypes.oneOf(['row', 'row-reverse', 'column', 'column-reverse']),
+    flexWrap: PropTypes.oneOf(['nowrap', 'wrap', 'wrap-reverse']),
     justifyContent: PropTypes.oneOf([
       'center',
       'flex-start',
@@ -62,6 +63,7 @@ class Box extends PureComponent {
       display,
       element,
       flexDirection,
+      flexWrap,
       justifyContent,
       margin,
       marginHorizontal = margin,
@@ -88,6 +90,7 @@ class Box extends PureComponent {
         [theme[`align-self-${alignSelf}`]]: alignSelf,
         [theme[`display-${display}`]]: display,
         [theme[`flex-direction-${flexDirection}`]]: flexDirection,
+        [theme[`flex-wrap-${flexWrap}`]]: flexWrap,
         [theme[`justify-content-${justifyContent}`]]: justifyContent,
         [theme[`margin-bottom-${marginBottom}`]]: marginBottom > 0,
         [theme[`margin-left-${marginLeft}`]]: marginLeft > 0,
