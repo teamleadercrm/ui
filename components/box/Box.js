@@ -22,6 +22,7 @@ class Box extends PureComponent {
     display: PropTypes.oneOf(['inline', 'inline-block', 'block', 'flex', 'inline-flex']),
     element: PropTypes.node,
     flex: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    flexBasis: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     flexDirection: PropTypes.oneOf(['row', 'row-reverse', 'column', 'column-reverse']),
     flexWrap: PropTypes.oneOf(['nowrap', 'wrap', 'wrap-reverse']),
     justifyContent: PropTypes.oneOf([
@@ -64,6 +65,7 @@ class Box extends PureComponent {
       display,
       element,
       flex,
+      flexBasis,
       flexDirection,
       flexWrap,
       justifyContent,
@@ -107,7 +109,8 @@ class Box extends PureComponent {
     );
 
     const styles = {
-      ...flex && {flex},
+      ...(flex && { flex }),
+      ...(flexBasis && { flexBasis }),
     };
 
     const Element = element;
