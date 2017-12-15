@@ -25,6 +25,7 @@ class Box extends PureComponent {
     flexBasis: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     flexDirection: PropTypes.oneOf(['row', 'row-reverse', 'column', 'column-reverse']),
     flexGrow: PropTypes.number,
+    flexShrink: PropTypes.number,
     flexWrap: PropTypes.oneOf(['nowrap', 'wrap', 'wrap-reverse']),
     justifyContent: PropTypes.oneOf([
       'center',
@@ -41,6 +42,7 @@ class Box extends PureComponent {
     marginLeft: PropTypes.oneOf(spacings),
     marginRight: PropTypes.oneOf(spacings),
     marginTop: PropTypes.oneOf(spacings),
+    order: PropTypes.number,
     padding: PropTypes.oneOf(spacings),
     paddingHorizontal: PropTypes.oneOf(spacings),
     paddingVertical: PropTypes.oneOf(spacings),
@@ -69,6 +71,7 @@ class Box extends PureComponent {
       flexBasis,
       flexDirection,
       flexGrow,
+      flexShrink,
       flexWrap,
       justifyContent,
       margin,
@@ -78,6 +81,7 @@ class Box extends PureComponent {
       marginLeft = marginHorizontal,
       marginRight = marginHorizontal,
       marginTop = marginVertical,
+      order,
       padding,
       paddingHorizontal = padding,
       paddingVertical = padding,
@@ -114,6 +118,8 @@ class Box extends PureComponent {
       ...(flex && { flex }),
       ...(flexBasis && { flexBasis }),
       ...(flexGrow && { flexGrow }),
+      ...(flexShrink && { flexShrink }),
+      ...(order && { order }),
     };
 
     const Element = element;
