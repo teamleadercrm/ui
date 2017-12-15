@@ -24,6 +24,7 @@ class Box extends PureComponent {
     flex: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     flexBasis: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     flexDirection: PropTypes.oneOf(['row', 'row-reverse', 'column', 'column-reverse']),
+    flexGrow: PropTypes.number,
     flexWrap: PropTypes.oneOf(['nowrap', 'wrap', 'wrap-reverse']),
     justifyContent: PropTypes.oneOf([
       'center',
@@ -67,6 +68,7 @@ class Box extends PureComponent {
       flex,
       flexBasis,
       flexDirection,
+      flexGrow,
       flexWrap,
       justifyContent,
       margin,
@@ -111,6 +113,7 @@ class Box extends PureComponent {
     const styles = {
       ...(flex && { flex }),
       ...(flexBasis && { flexBasis }),
+      ...(flexGrow && { flexGrow }),
     };
 
     const Element = element;
