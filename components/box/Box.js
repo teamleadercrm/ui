@@ -21,6 +21,7 @@ class Box extends PureComponent {
     className: PropTypes.string,
     display: PropTypes.oneOf(['inline', 'inline-block', 'block', 'flex', 'inline-flex']),
     element: PropTypes.node,
+    flex: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     flexDirection: PropTypes.oneOf(['row', 'row-reverse', 'column', 'column-reverse']),
     flexWrap: PropTypes.oneOf(['nowrap', 'wrap', 'wrap-reverse']),
     justifyContent: PropTypes.oneOf([
@@ -62,6 +63,7 @@ class Box extends PureComponent {
       className,
       display,
       element,
+      flex,
       flexDirection,
       flexWrap,
       justifyContent,
@@ -104,10 +106,14 @@ class Box extends PureComponent {
       className,
     );
 
+    const styles = {
+      ...flex && {flex},
+    };
+
     const Element = element;
 
     return (
-      <Element className={classNames} {...others}>
+      <Element className={classNames} style={styles} {...others}>
         {children}
       </Element>
     );
