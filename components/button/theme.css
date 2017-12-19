@@ -191,6 +191,50 @@
   }
 }
 
+.link-button {
+  border: 0;
+  composes: button-base;
+  color: var(--color-aqua-dark);
+  display: inline-block;
+  font-family: var(--font-family-regular);
+
+  &:not(.active) {
+    background: transparent;
+
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+
+  &.active {
+    font-family: var(--font-family-medium);
+    pointer-events: none;
+  }
+
+  &:not(.inverse) {
+    &.active {
+      background-color: var(--color-neutral);
+      color: var(--color-teal-darkest);
+    }
+  }
+
+  &.inverse {
+    color: var(--color-teal-light);
+
+    &.active {
+      background-color: color(var(--color-neutral-lightest) a(.15));
+      color: var(--color-neutral-lightest);
+    }
+  }
+
+  &.icon-only {
+    &:hover {
+      background: color(var(--color-teal-darkest) a(.24));
+    }
+  }
+}
+
 .outline {
   &:not(.inverse) {
     color: var(--color-teal-darkest);
