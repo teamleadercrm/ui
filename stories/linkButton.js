@@ -37,21 +37,6 @@ storiesOf('LinkButtons', module)
       <LinkButton label="link text" disabled />
     </Box>
   ))
-  .add('normal', () => (
-    <Island>
-      <ButtonGroup>
-        <LinkButton icon={<IconChevronLeftMediumOutline />}>Previous</LinkButton>
-        <LinkButton>1</LinkButton>
-        ...
-        <LinkButton>13</LinkButton>
-        <LinkButton>14</LinkButton>
-        <LinkButton>15</LinkButton>
-        ...
-        <LinkButton>19</LinkButton>
-        <LinkButton icon={<IconChevronRightMediumOutline />} iconPlacement="right">Next</LinkButton>
-      </ButtonGroup>
-    </Island>
-  ))
   .add('size', () => (
     <Island>
       <ButtonGroup>
@@ -63,16 +48,6 @@ storiesOf('LinkButtons', module)
   ))
   .add('inverse', () => (
     <Island style={{backgroundColor: '#2a3b4d'}}>
-      <ButtonGroup>
-        <LinkButton icon={<IconChevronLeftMediumOutline />} inverse>Previous</LinkButton>
-        <LinkButton inverse>1</LinkButton>
-        ...
-        <LinkButton inverse>13</LinkButton>
-        <LinkButton inverse>14</LinkButton>
-        <LinkButton inverse>15</LinkButton>
-        ...
-        <LinkButton inverse>19</LinkButton>
-        <LinkButton icon={<IconChevronRightMediumOutline />} iconPlacement="right" inverse>Next</LinkButton>
-      </ButtonGroup>
+      <LinkButton label="link text" inverse />
     </Island>
   ));
