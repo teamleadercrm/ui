@@ -34,7 +34,7 @@ storiesOf('LinkButtons', module)
   ))
   .add('disabled', () => (
     <Box>
-      <LinkButton label="link text" active />
+      <LinkButton label="link text" disabled />
     </Box>
   ))
   .add('normal', () => (

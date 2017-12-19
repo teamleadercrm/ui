@@ -198,6 +198,11 @@
   display: inline-block;
   font-family: var(--font-family-regular);
 
+  &.disabled {
+    opacity: .24;
+    pointer-events: none;
+  }
+
   &:not(.active) {
     background: transparent;
 
