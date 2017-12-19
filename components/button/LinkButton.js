@@ -5,7 +5,6 @@ import theme from './theme.css';
 
 class LinkButton extends PureComponent {
   static propTypes = {
-    active: PropTypes.bool,
     children: PropTypes.node,
     className: PropTypes.string,
     disabled: PropTypes.bool,
@@ -20,7 +19,6 @@ class LinkButton extends PureComponent {
   };
 
   static defaultProps = {
-    active: false,
     className: '',
     iconPlacement: 'left',
     inverse: false,
@@ -43,7 +41,6 @@ class LinkButton extends PureComponent {
 
   render() {
     const {
-      active,
       children,
       className,
       disabled,
@@ -61,7 +58,6 @@ class LinkButton extends PureComponent {
     const classNames = cx(
       theme['link-button'],
       {
-        [theme['active']]: active,
         [theme['disabled']]: disabled,
         [theme['icon-only']]: !label && !children,
         [theme['inverse']]: inverse,

@@ -44,7 +44,7 @@ storiesOf('LinkButtons', module)
         <LinkButton>1</LinkButton>
         ...
         <LinkButton>13</LinkButton>
-        <LinkButton active>14</LinkButton>
+        <LinkButton>14</LinkButton>
         <LinkButton>15</LinkButton>
         ...
         <LinkButton>19</LinkButton>
@@ -55,9 +55,9 @@ storiesOf('LinkButtons', module)
   .add('size', () => (
     <Island>
       <ButtonGroup>
-        <LinkButton active size="small">13</LinkButton>
-        <LinkButton active>14</LinkButton>
-        <LinkButton active size="large">15</LinkButton>
+        <LinkButton size="small">13</LinkButton>
+        <LinkButton>14</LinkButton>
+        <LinkButton size="large">15</LinkButton>
       </ButtonGroup>
     </Island>
   ))
@@ -68,7 +68,7 @@ storiesOf('LinkButtons', module)
         <LinkButton inverse>1</LinkButton>
         ...
         <LinkButton inverse>13</LinkButton>
-        <LinkButton active inverse>14</LinkButton>
+        <LinkButton inverse>14</LinkButton>
         <LinkButton inverse>15</LinkButton>
         ...
         <LinkButton inverse>19</LinkButton>

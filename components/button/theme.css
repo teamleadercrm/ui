@@ -192,44 +192,24 @@
 }
 
 .link-button {
+  background: transparent;
   border: 0;
   composes: button-base;
   color: var(--color-aqua-dark);
   font-family: var(--font-family-regular);
+
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
 
   &.disabled {
     opacity: .24;
     pointer-events: none;
   }
 
-  &:not(.active) {
-    background: transparent;
-
-    &:hover {
-      cursor: pointer;
-      text-decoration: underline;
-    }
-  }
-
-  &.active {
-    font-family: var(--font-family-medium);
-    pointer-events: none;
-  }
-
-  &:not(.inverse) {
-    &.active {
-      background-color: var(--color-neutral);
-      color: var(--color-teal-darkest);
-    }
-  }
-
   &.inverse {
     color: var(--color-teal-light);
-
-    &.active {
-      background-color: color(var(--color-neutral-lightest) a(.15));
-      color: var(--color-neutral-lightest);
-    }
   }
 
   &.icon-only {
