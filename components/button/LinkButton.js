@@ -40,18 +40,7 @@ class LinkButton extends PureComponent {
   };
 
   render() {
-    const {
-      children,
-      className,
-      disabled,
-      element,
-      icon,
-      iconPlacement,
-      inverse,
-      label,
-      size,
-      ...others
-    } = this.props;
+    const { children, className, disabled, element, icon, iconPlacement, inverse, label, size, ...others } = this.props;
 
     const Element = element || 'button';
 
