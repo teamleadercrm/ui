@@ -195,7 +195,6 @@
   border: 0;
   composes: button-base;
   color: var(--color-aqua-dark);
-  display: inline-block;
   font-family: var(--font-family-regular);
 
   &.disabled {
@@ -416,13 +415,17 @@
     min-width: calc(1.8 * var(--unit));
     padding: 0 calc(.2 * var(--unit));
   }
+
+  &.link-button {
+    padding: 0 calc(.6 * var(--unit));
+  }
 }
 
 .medium {
   font-size: calc(1.4 * var(--unit));
   height: calc(3.6 * var(--unit));
   line-height: calc(3.4 * var(--unit));
-  min-width: calc(3.4 * var(--unit));
+  min-width: calc(3.6 * var(--unit));
   padding: 0 calc(1.2 * var(--unit));
 
   &.icon-only {
@@ -433,6 +436,10 @@
     height: calc(3.0 * var(--unit));
     min-width: calc(3.0 * var(--unit));
     padding: 0 var(--spacer-smallest);
+  }
+
+  &.link-button {
+    padding: 0 calc(.6 * var(--unit));
   }
 }
 
@@ -445,6 +452,10 @@
 
   &.icon-only {
     padding: 0 calc(1.1 * var(--unit));
+  }
+
+  &.link-button {
+    padding: 0 calc(.9 * var(--unit));
   }
 }
 
