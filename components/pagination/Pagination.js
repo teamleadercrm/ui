@@ -96,7 +96,7 @@ class Pagination extends PureComponent {
                   </TextSmall>
                 ) : (
                   <LinkButton
-                    className={page === currentPage ? theme['current'] : ''}
+                    className={page === currentPage && theme['current']}
                     inverse={inverse}
                     label={page}
                     onClick={() => onPageChange(page)}
