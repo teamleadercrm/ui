@@ -84,6 +84,7 @@ class Pagination extends PureComponent {
                 inverse={inverse}
                 label={prevPageText}
                 onClick={() => onPageChange(currentPage - 1)}
+                size="small"
               />
             </li>
           )}
@@ -114,6 +115,7 @@ class Pagination extends PureComponent {
                 inverse={inverse}
                 label={nextPageText}
                 onClick={() => onPageChange(currentPage + 1)}
+                size="small"
               />
             </li>
           )}
