@@ -13,7 +13,7 @@ const store = new Store({
   numItems: 200,
 });
 
-const handlePageChange = (page) => {
+const handlePageChange = page => {
   store.set({ currentPage: page });
   action(`onChange - go to page ${page}`)();
 };
