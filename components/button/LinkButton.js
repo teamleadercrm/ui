@@ -12,7 +12,7 @@ class LinkButton extends PureComponent {
     icon: PropTypes.element,
     iconPlacement: PropTypes.oneOf(['left', 'right']),
     inverse: PropTypes.bool,
-    label: PropTypes.string,
+    label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     onMouseLeave: PropTypes.func,
     onMouseUp: PropTypes.func,
     size: PropTypes.oneOf(['small', 'medium', 'large']),
