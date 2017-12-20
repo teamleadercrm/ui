@@ -5,7 +5,7 @@ import theme from './theme.css';
 
 class LinkButton extends PureComponent {
   static propTypes = {
-    children: PropTypes.node,
+    children: PropTypes.any,
     className: PropTypes.string,
     disabled: PropTypes.bool,
     element: PropTypes.element,
