@@ -27,16 +27,6 @@ class Pagination extends PureComponent {
     maxNumPagesVisible: 7,
   };
 
-  constructor() {
-    super(...arguments);
-
-    this.handleChange = ::this.handleChange;
-  }
-
-  handleChange(page) {
-    this.props.onPageChange(page);
-  }
-
   render() {
     const {
       className,
@@ -46,6 +36,7 @@ class Pagination extends PureComponent {
       nextPageText,
       numItems,
       numItemsPerPage,
+      onPageChange,
       prevPageText,
       ...others
     } = this.props;
@@ -92,7 +83,7 @@ class Pagination extends PureComponent {
                 icon={<IconChevronLeftMediumOutline />}
                 inverse={inverse}
                 label={prevPageText}
-                onClick={() => this.handleChange(currentPage - 1)}
+                onClick={() => onPageChange(currentPage - 1)}
               />
             </li>
           )}
@@ -108,7 +99,7 @@ class Pagination extends PureComponent {
                     className={page === currentPage ? theme['current'] : ''}
                     inverse={inverse}
                     label={page}
-                    onClick={() => this.handleChange(page)}
+                    onClick={() => onPageChange(page)}
                     size="small"
                   />
                 )}
@@ -122,7 +113,7 @@ class Pagination extends PureComponent {
                 iconPlacement="right"
                 inverse={inverse}
                 label={nextPageText}
-                onClick={() => this.handleChange(currentPage + 1)}
+                onClick={() => onPageChange(currentPage + 1)}
               />
             </li>
           )}
