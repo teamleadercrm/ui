@@ -90,7 +90,7 @@ class Pagination extends PureComponent {
           {iterator.map(page => {
             return (
               <li key={page} className={theme['list-item']}>
-                {('' + page).includes('ellipsis') ? (
+                {String(page).startsWith('ellipsis') ? (
                   <TextSmall className={theme['ellipsis']} element="span">
                     ...
                   </TextSmall>
