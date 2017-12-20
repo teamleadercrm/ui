@@ -99,7 +99,11 @@ class Pagination extends PureComponent {
           {iterator.map(page => {
             return (
               <li key={page} className={theme['list-item']}>
-                {('' + page).indexOf('ellipsis') === -1 ? (
+                {('' + page).includes('ellipsis') ? (
+                  <TextSmall className={theme['ellipsis']} element="span">
+                    ...
+                  </TextSmall>
+                ) : (
                   <LinkButton
                     className={page === currentPage ? theme['current'] : ''}
                     inverse={inverse}
@@ -107,10 +111,6 @@ class Pagination extends PureComponent {
                     onClick={() => this.handleChange(page)}
                     size="small"
                   />
-                ) : (
-                  <TextSmall className={theme['ellipsis']} element="span">
-                    ...
-                  </TextSmall>
                 )}
               </li>
             );
