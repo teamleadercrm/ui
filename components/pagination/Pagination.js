@@ -5,7 +5,6 @@ import { LinkButton } from '../button';
 import { TextSmall } from '../typography';
 import { IconChevronLeftMediumOutline, IconChevronRightMediumOutline } from '@teamleader/ui-icons';
 import cx from 'classnames';
-import omit from 'lodash.omit';
 import theme from './theme.css';
 
 class Pagination extends PureComponent {
@@ -34,17 +33,24 @@ class Pagination extends PureComponent {
     this.handleChange = ::this.handleChange;
   }
 
-  getNumPages() {
-    return Math.ceil(this.props.numItems / this.props.numItemsPerPage);
-  }
-
   handleChange(page) {
     this.props.onPageChange(page);
   }
 
   render() {
-    const { className, currentPage, inverse, maxNumPagesVisible, nextPageText, prevPageText, ...others } = this.props;
-    const numPages = this.getNumPages();
+    const {
+      className,
+      currentPage,
+      inverse,
+      maxNumPagesVisible,
+      nextPageText,
+      numItems,
+      numItemsPerPage,
+      prevPageText,
+      ...others
+    } = this.props;
+
+    const numPages = Math.ceil(numItems / numItemsPerPage);
 
     if (numPages < 2) {
       return null;
@@ -52,7 +58,6 @@ class Pagination extends PureComponent {
 
     const classNames = cx(theme['pagination'], { [theme['inverse']]: inverse }, className);
     const iterator = [currentPage];
-    const rest = omit(others, ['numItems', 'numItemsPerPage']);
 
     let counter = 0;
 
@@ -79,7 +84,7 @@ class Pagination extends PureComponent {
     }
 
     return (
-      <Box data-teamleader-ui="pagination" className={classNames} element="nav" {...rest}>
+      <Box data-teamleader-ui="pagination" className={classNames} element="nav" {...others}>
         <ul className={theme['list']}>
           {currentPage > 1 && (
             <li className={theme['list-item']}>
