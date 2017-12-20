@@ -37,6 +37,13 @@
         "DEBUG": "app:*"
       }
     },
+    "build": {
+      "command": "rimraf lib && gulp",
+      "env": {
+        "NODE_ENV": "production",
+        "DEBUG": "app:*"
+      }
+    },
     "start": {
       "command": "start-storybook",
       "env": {
@@ -149,7 +156,7 @@
   },
   "scripts": {
     "babel": "babel ./components/**/*.js --out-dir ./lib",
-    "build": "NODE_ENV=production rimraf lib && gulp",
+    "build": "better-npm-run build",
     "clean": "rimraf dist",
     "codecov": "cat coverage/*/lcov.info | codecov",
     "compile": "better-npm-run compile",
