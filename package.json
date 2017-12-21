@@ -52,7 +52,7 @@
     }
   },
   "bugs": {
-    "url": "https://github.com/teamleadercrm/teamleader-ui/issues"
+    "url": "https://github.com/teamleadercrm/ui/issues"
   },
   "contributors": [
     "Dries Decramer <dries.decramer@teamleader.eu>",
@@ -140,7 +140,7 @@
   "directories": {
     "doc": "docs"
   },
-  "homepage": "https://github.com/teamleadercrm/teamleader-ui#readme",
+  "homepage": "https://github.com/teamleadercrm/ui#readme",
   "keywords": [
     "teamleader",
     "ui"
@@ -152,7 +152,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/teamleadercrm/teamleader-ui.git"
+    "url": "git+https://github.com/teamleadercrm/ui.git"
   },
   "scripts": {
     "babel": "babel ./components/**/*.js --out-dir ./lib",
