@@ -32,7 +32,6 @@ class IconTab extends PureComponent {
     className: PropTypes.string,
     counter: PropTypes.node,
     element: PropTypes.node,
-    href: PropTypes.string.isRequired,
     icon: PropTypes.string.isRequired,
     onClick: PropTypes.func,
   };
