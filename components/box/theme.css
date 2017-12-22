@@ -47,4 +47,44 @@
   }
 }
 
+@each $display in (inline, inline-block, block, flex, inline-flex) {
+  .display-$(display) {
+    display: $display;
+  }
+}
 
+@each $direction in (row, row-reverse, column, column-reverse) {
+  .flex-direction-$(direction) {
+    flex-direction: $direction;
+  }
+}
+
+@each $wrap in (nowrap, wrap, wrap-reverse) {
+  .flex-wrap-$(wrap) {
+    flex-wrap: $wrap;
+  }
+}
+
+@each $justify in (center, flex-start, flex-end, space-around, space-between, space-evenly) {
+  .justify-content-$(justify) {
+    justify-content: $justify;
+  }
+}
+
+@each $content-alignment in (center, flex-start, flex-end, space-around, space-between, space-evenly) {
+  .align-content-$(content-alignment) {
+    align-content: $content-alignment;
+  }
+}
+
+@each $item-alignment in (center, flex-start, flex-end) {
+  .align-items-$(item-alignment) {
+    align-items: $item-alignment;
+  }
+}
+
+@each $self-alignment in (center, flex-start, flex-end, stretch) {
+  .align-self-$(self-alignment) {
+    align-self: $self-alignment;
+  }
+}
