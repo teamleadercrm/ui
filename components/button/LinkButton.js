@@ -69,14 +69,14 @@ class LinkButton extends PureComponent {
     return React.createElement(
       Element,
       props,
-      icon && iconPlacement === 'left' ? icon : null,
+      icon && iconPlacement === 'left' && icon,
       label || children ? (
         <span className={theme['children']}>
           {label}
           {children}
         </span>
       ) : null,
-      icon && iconPlacement === 'right' ? icon : null,
+      icon && iconPlacement === 'right' && icon,
     );
   }
 }
