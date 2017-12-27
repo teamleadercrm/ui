@@ -27,7 +27,7 @@ storiesOf('Pagination', module)
       <State store={store}>
         <Pagination
           numItems={store.get('numItems')}
-          onPageChange={handlePageChange}
+          onChange={handlePageChange}
         />
       </State>
     </Island>
@@ -39,7 +39,7 @@ storiesOf('Pagination', module)
           numItems={store.get('numItems')}
           nextPageText="Next"
           prevPageText="Previous"
-          onPageChange={handlePageChange}
+          onChange={handlePageChange}
         />
       </State>
     </Island>
@@ -52,7 +52,7 @@ storiesOf('Pagination', module)
           numItems={store.get('numItems')}
           nextPageText="Next"
           prevPageText="Previous"
-          onPageChange={handlePageChange}
+          onChange={handlePageChange}
         />
       </State>
     </Island>

@@ -15,7 +15,7 @@ class Pagination extends PureComponent {
     numItemsPerPage: PropTypes.number,
     maxNumPagesVisible: PropTypes.number,
     currentPage: PropTypes.number.isRequired,
-    onPageChange: PropTypes.func.isRequired,
+    onChange: PropTypes.func.isRequired,
     prevPageText: PropTypes.string,
     className: PropTypes.string,
   };
@@ -36,7 +36,7 @@ class Pagination extends PureComponent {
       nextPageText,
       numItems,
       numItemsPerPage,
-      onPageChange,
+      onChange,
       prevPageText,
       ...others
     } = this.props;
@@ -83,7 +83,7 @@ class Pagination extends PureComponent {
                 icon={<IconChevronLeftMediumOutline />}
                 inverse={inverse}
                 label={prevPageText}
-                onClick={() => onPageChange(currentPage - 1)}
+                onClick={() => onChange(currentPage - 1)}
                 size="small"
               />
             </li>
@@ -100,7 +100,7 @@ class Pagination extends PureComponent {
                     className={page === currentPage && theme['current']}
                     inverse={inverse}
                     label={page}
-                    onClick={() => onPageChange(page)}
+                    onClick={() => onChange(page)}
                     size="small"
                   />
                 )}
@@ -114,7 +114,7 @@ class Pagination extends PureComponent {
                 iconPlacement="right"
                 inverse={inverse}
                 label={nextPageText}
-                onClick={() => onPageChange(currentPage + 1)}
+                onClick={() => onChange(currentPage + 1)}
                 size="small"
               />
             </li>
