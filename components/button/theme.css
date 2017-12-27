@@ -203,19 +203,19 @@
     text-decoration: underline;
   }
 
-  &.disabled {
+  &.has-icon-only {
+    &:hover {
+       background: color(var(--color-teal-darkest) a(.24));
+    }
+  }
+
+  &.is-disabled {
     opacity: .24;
     pointer-events: none;
   }
 
-  &.inverse {
+  &.is-inverse {
     color: var(--color-teal-light);
-  }
-
-  &.icon-only {
-    &:hover {
-      background: color(var(--color-teal-darkest) a(.24));
-    }
   }
 }
 
