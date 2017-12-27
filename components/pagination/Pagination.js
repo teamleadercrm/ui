@@ -47,7 +47,7 @@ class Pagination extends PureComponent {
       return null;
     }
 
-    const classNames = cx(theme['pagination'], { [theme['inverse']]: inverse }, className);
+    const classNames = cx(theme['pagination'], { [theme['is-inverse']]: inverse }, className);
     const iterator = [currentPage];
 
     let counter = 0;

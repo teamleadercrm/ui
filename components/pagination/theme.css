@@ -7,7 +7,7 @@
 }
 
 .pagination {
-  &:not(.inverse) {
+  &:not(.is-inverse) {
     .current {
       background: var(--color-neutral);
       color: var(--color-teal-darkest);
@@ -18,7 +18,7 @@
     }
   }
 
-  &.inverse {
+  &.is-inverse {
     .current {
       background: color(var(--color-teal-light) a(.24));
       color: var(--color-neutral-lightest);
