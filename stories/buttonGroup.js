@@ -3,8 +3,8 @@ import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import styles from '@sambego/storybook-styles';
-import { IconAddMediumOutline, IconAddSmallOutline,IconMagicMediumOutline } from '@teamleader/ui-icons';
-import { Button, ButtonGroup, IconButton, Island, Box } from '../components';
+import { IconAddMediumOutline } from '@teamleader/ui-icons';
+import { Button, ButtonGroup } from '../components';
 import { baseStyles, centerStyles } from '../.storybook/styles';
 
 storiesOf('Button groups', module)
