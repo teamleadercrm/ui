@@ -10,7 +10,7 @@ import { RadioGroup, RadioButton } from '../components';
 import { baseStyles, centerStyles } from '../.storybook/styles';
 
 const store = new Store({
-  value: 'thewalkingdead',
+  value: 'option1',
 });
 const updateState = value => {
   store.set({ value });
@@ -28,23 +28,23 @@ storiesOf('Radio', module)
         <RadioButton
           size="small"
           marginBottom={2}
-          label="The Walking Dead"
-          value="thewalkingdead"
+          label="Option 1"
+          value="option1"
           disabled={boolean('Disabled', false)}
         />
         <RadioButton
           size="medium"
           marginBottom={2}
-          label="V for a Vendetta"
-          value="vvendetta"
+          label="Option 2"
+          value="option2"
           onFocus={action('Focus')}
           disabled={boolean('Disabled', false)}
         />
         <RadioButton
           size="large"
           marginBottom={2}
-          label="Watchmen"
-          value="watchmen"
+          label="Option 3"
+          value="option3"
           onBlur={action('blur')}
           disabled={boolean('Disabled', false)}
         />
