@@ -196,23 +196,35 @@
   border: 0;
   composes: button-base;
   color: var(--color-aqua-dark);
-  font-family: var(--font-family-regular);
+  font-family: var(--font-family-medium);
 
-  &:hover {
-    cursor: pointer;
-    text-decoration: underline;
+  &:not(.is-disabled) {
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px var(--color-aqua-dark);
+    }
+
+    &:active {
+      background-color: var(--color-neutral-light);
+      box-shadow: none;
+      text-decoration: none;
+    }
   }
 
   &.has-icon-only {
     transition: background-color var(--animation-duration) var(--animation-curve-fast-out-slow-in);
-   
+
     &:hover {
        background: color(var(--color-teal-darkest) a(.24));
     }
   }
 
   &.is-disabled {
-    opacity: .24;
+    color: var(--color-neutral);
     pointer-events: none;
   }
 
