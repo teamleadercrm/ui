@@ -35,13 +35,6 @@ storiesOf('Buttons', module)
       </Button>
     </ButtonGroup>
   ))
-  .add('segmented', () => (
-    <ButtonGroup segmented>
-      <Button icon={<IconAddMediumOutline />} onClick={action('clicked')} />
-      <Button onClick={action('clicked button 1')}>Button 1</Button>
-      <Button onClick={action('clicked button 2')}>Button 2</Button>
-    </ButtonGroup>
-  ))
   .add('disabled', () => (
     <div>
       <Box margin={2}>
