@@ -397,10 +397,6 @@
     min-width: calc(1.8 * var(--unit));
     padding: 0 calc(.2 * var(--unit));
   }
-
-  &.link-button {
-    padding: 0 calc(.6 * var(--unit));
-  }
 }
 
 .medium {
@@ -419,10 +415,6 @@
     min-width: calc(3.0 * var(--unit));
     padding: 0 var(--spacer-smallest);
   }
-
-  &.link-button {
-    padding: 0 calc(.6 * var(--unit));
-  }
 }
 
 .large {
@@ -434,10 +426,6 @@
 
   &.icon-only {
     padding: 0 calc(1.1 * var(--unit));
-  }
-
-  &.link-button {
-    padding: 0 calc(.9 * var(--unit));
   }
 }
 
