@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
+import { withKnobs, boolean } from '@storybook/addon-knobs/react';
 import { action } from '@storybook/addon-actions';
 import styles from '@sambego/storybook-styles';
 import { Box, Tag } from '../components';
@@ -12,11 +13,12 @@ const sizes = ['small', 'medium', 'large'];
 storiesOf('Tags', module)
   .addDecorator((story, context) => withInfo('common info')(story)(context))
   .addDecorator(checkA11y)
+  .addDecorator(withKnobs)
   .addDecorator(styles({ ...baseStyles, ...centerStyles }))
   .add('size', () => (
     <Box>
       {sizes.map((size, index) => (
-        <Tag key={index} label={`${size} tag`} marginHorizontal={3} size={size}/>
+        <Tag key={index} label={`${size} tag`} marginHorizontal={3} size={size} inverse={boolean('Inverse', false)}/>
       ))}
     </Box>
   ))
@@ -24,6 +26,7 @@ storiesOf('Tags', module)
     <Box>
       {sizes.map((size, index) => (
         <Tag
+          inverse={boolean('Inverse', false)}
           key={index}
           label={`${size} tag`}
           marginHorizontal={3}
@@ -37,6 +40,7 @@ storiesOf('Tags', module)
     <Box>
       {sizes.map((size, index) => (
         <Tag
+          inverse={boolean('Inverse', false)}
           key={index}
           label={`${size} tag`}
           marginHorizontal={3}
@@ -50,6 +54,7 @@ storiesOf('Tags', module)
     <Box>
       {sizes.map((size, index) => (
         <Tag
+          inverse={boolean('Inverse', false)}
           key={index}
           label={`${size} tag`}
           marginHorizontal={3}
@@ -58,15 +63,5 @@ storiesOf('Tags', module)
           size={size}
         />
       ))}
-    </Box>
-  ))
-  .add('inverse', () => (
-    <Box>
-      <Tag
-        inverse={true}
-        label="Inverse tag"
-        onLabelClick={action('Tag label clicked')}
-        onRemoveClick={action('Tag removed')}
-      />
     </Box>
   ));
