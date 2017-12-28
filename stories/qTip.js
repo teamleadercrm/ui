@@ -26,7 +26,9 @@ storiesOf('Q-tip', module)
     <Island paddingHorizontal={0} paddingVertical={6} style={{ width: '500px' }}>
       <State store={store}>
         <QTip highlighted={boolean('Highlighted', false)} onChange={updateState} icon={<IconIdeaMediumOutline />}>
-          <TextSmall color="teal">Lorem ipsum dolor sit amet, consectetur <Link href="#" inherit={false}>adipiscing</Link> elit.</TextSmall>
+          <TextSmall color="teal">
+            Lorem ipsum dolor sit amet, consectetur <Link href="#" inherit={false}>adipiscing</Link> elit.
+          </TextSmall>
         </QTip>
       </State>
     </Island>
