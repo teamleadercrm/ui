@@ -39,13 +39,31 @@ storiesOf('Checkboxes', module)
   .add('with labels', () => (
     <div>
       <State store={store}>
-        <Checkbox size="small" margin={2} onChange={handleOnChange} label="I'm a small Checkbox" disabled={boolean('Disabled', false)}/>
+        <Checkbox
+          size="small"
+          margin={2}
+          onChange={handleOnChange}
+          label="I'm a small Checkbox" 
+          disabled={boolean('Disabled', false)}
+        />
       </State>
       <State store={store}>
-        <Checkbox size="medium" margin={2} onChange={handleOnChange} label="I'm a medium Checkbox" disabled={boolean('Disabled', false)}/>
+        <Checkbox
+          size="medium"
+          margin={2}
+          onChange={handleOnChange}
+          label="I'm a medium Checkbox"
+          disabled={boolean('Disabled', false)}
+        />
       </State>
       <State store={store}>
-        <Checkbox size="large" margin={2} onChange={handleOnChange} label="I'm a large Checkbox" disabled={boolean('Disabled', false)}/>
+        <Checkbox
+          size="large"
+          margin={2}
+          onChange={handleOnChange}
+          label="I'm a large Checkbox"
+          disabled={boolean('Disabled', false)}
+        />
       </State>
     </div>
   ));
