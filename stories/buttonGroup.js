@@ -19,8 +19,8 @@ storiesOf('Button groups', module)
   ))
   .add('segmented', () => (
     <ButtonGroup segmented>
-      <Button icon={<IconAddMediumOutline />} />
       <Button label="Button 1"/>
       <Button label="Button 2"/>
+      <Button icon={<IconAddMediumOutline />} />
     </ButtonGroup>
   ));
