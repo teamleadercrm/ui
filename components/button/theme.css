@@ -198,20 +198,40 @@
   color: var(--color-aqua-dark);
   font-family: var(--font-family-medium);
 
+  &.is-disabled {
+    color: var(--color-neutral);
+    pointer-events: none;
+  }
+
   &:not(.is-disabled) {
     &:hover {
       cursor: pointer;
       text-decoration: underline;
     }
 
-    &:focus {
-      box-shadow: 0 0 0 2px var(--color-aqua-dark);
+    &:not(.inverse) {
+      &:focus {
+        box-shadow: 0 0 0 2px var(--color-aqua-dark);
+      }
+
+      &:active {
+        background-color: var(--color-neutral-light);
+        box-shadow: none;
+        text-decoration: none;
+      }
     }
 
-    &:active {
-      background-color: var(--color-neutral-light);
-      box-shadow: none;
-      text-decoration: none;
+    &.is-inverse {
+      color: var(--color-teal-light);
+
+      &:focus {
+        box-shadow: 0 0 0 2px var(--color-teal-light);
+      }
+
+      &:active {
+        background: color(var(--color-teal-lightest) a(.24));
+        box-shadow: none;
+      }
     }
   }
 
@@ -221,15 +241,6 @@
     &:hover {
        background: color(var(--color-teal-darkest) a(.24));
     }
-  }
-
-  &.is-disabled {
-    color: var(--color-neutral);
-    pointer-events: none;
-  }
-
-  &.is-inverse {
-    color: var(--color-teal-light);
   }
 }
 
