@@ -239,7 +239,7 @@
     transition: background-color var(--animation-duration) var(--animation-curve-fast-out-slow-in);
 
     &:hover {
-       background: color(var(--color-teal-darkest) a(.24));
+       background: color(var(--color-neutral-darkest) a(.24));
     }
   }
 }
