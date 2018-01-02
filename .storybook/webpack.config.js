@@ -1,5 +1,6 @@
 const pkg = require('../package.json');
 const env = process.env.NODE_ENV || 'development';
+const webpack = require('webpack');
 
 const globals = {
   __DEV__: env === 'development',
@@ -53,13 +54,16 @@ module.exports = (storybookBaseConfig, configType) => {
       }]
   });
 
-  // The baseConfig already uses a definePlugin instance, webpack ignores
-  // every instance but the first, so we need to add our globals to the existing
-  // ones. Yep this is dirty!
-  Object.assign(
-    storybookBaseConfig.plugins[0].definitions['process.env'],
-    globals
-  );
+
+  storybookBaseConfig.plugins.map(plugin => {
+    if (plugin instanceof webpack.DefinePlugin) {
+      plugin.definitions = {
+        ...plugin.definitions,
+        'process.env': globals,
+      }
+    }
+    return plugin;
+  });
 
   // Return the altered config
   return storybookBaseConfig;
