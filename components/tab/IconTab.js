@@ -60,9 +60,7 @@ class IconTab extends PureComponent {
         onClick={this.handleClick}
         {...rest}
       >
-        {
-          React.cloneElement(icon, { element: "span" })
-        }
+        {React.cloneElement(icon, { element: 'span' })}
         {counter && React.cloneElement(counter, { className: theme['counter'] })}
       </Box>
     );
