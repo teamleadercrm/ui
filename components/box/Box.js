@@ -58,6 +58,10 @@ class Box extends PureComponent {
     padding: 0,
   };
 
+  getNode() {
+    return this.node;
+  }
+
   render() {
     const {
       alignContent,
@@ -125,7 +129,14 @@ class Box extends PureComponent {
     const Element = element;
 
     return (
-      <Element className={classNames} style={styles} {...others}>
+      <Element
+        ref={node => {
+          this.node = node;
+        }}
+        className={classNames}
+        styles={styles}
+        {...others}
+      >
         {children}
       </Element>
     );
