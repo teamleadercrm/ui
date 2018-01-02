@@ -20,8 +20,9 @@ storiesOf('Buttons', module)
   ))
   .add('with icon', () => (
     <ButtonGroup>
-      <Button icon={<IconAddMediumOutline />} onClick={action('clicked button 1')} />
-      <Button icon={<IconMagicMediumOutline />} onClick={action('clicked button 2')} />
+      <Button icon={<IconAddSmallOutline />} onClick={action('clicked button 1')} size="small" />
+      <Button icon={<IconAddMediumOutline />} onClick={action('clicked button 2')} size="medium" />
+      <Button icon={<IconMagicMediumOutline />} onClick={action('clicked button 3')} size="large" />
     </ButtonGroup>
   ))
   .add('with text and icon', () => (
@@ -32,13 +33,6 @@ storiesOf('Buttons', module)
       <Button icon={<IconAddMediumOutline />} iconPlacement="right" onClick={action('clicked button 2')}>
         Button
       </Button>
-    </ButtonGroup>
-  ))
-  .add('segmented', () => (
-    <ButtonGroup segmented>
-      <Button icon={<IconAddMediumOutline />} onClick={action('clicked')} />
-      <Button onClick={action('clicked button 1')}>Button 1</Button>
-      <Button onClick={action('clicked button 2')}>Button 2</Button>
     </ButtonGroup>
   ))
   .add('disabled', () => (
