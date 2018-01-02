@@ -129,7 +129,14 @@ class Box extends PureComponent {
     const Element = element;
 
     return (
-      <Element className={classNames} style={styles} {...others}>
+      <Element
+        ref={node => {
+          this.node = node;
+        }}
+        className={classNames}
+        styles={styles}
+        {...others}
+      >
         {children}
       </Element>
     );
