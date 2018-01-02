@@ -9,6 +9,16 @@ import { action } from '@storybook/addon-actions';
 import { IconTab, TabGroup, TitleTab } from '../components/tab';
 import { baseStyles, centerStyles } from '../.storybook/styles';
 
+import {
+  IconCalendarMediumOutline,
+  IconCheckmarkMediumOutline,
+  IconContactsMediumOutline,
+  IconInvoiceMediumOutline,
+  IconProductsMediumOutline,
+  IconStatsMediumOutline,
+  IconTimerMediumOutline,
+} from '@teamleader/ui-icons';
+
 const store = new Store({
   items: [
     {
@@ -53,6 +63,16 @@ const store = new Store({
     },
   ],
 });
+
+const iconMap = {
+  crm: IconContactsMediumOutline,
+  invoices: IconInvoiceMediumOutline,
+  products: IconProductsMediumOutline,
+  stats: IconStatsMediumOutline,
+  time: IconTimerMediumOutline,
+  deals: IconCheckmarkMediumOutline,
+  planning: IconCalendarMediumOutline,
+};
 
 // Real-life tabs should not have a clickHandler but rather listen to state updates
 const handleClick = (event, title) => {
@@ -139,8 +159,9 @@ const IconTabContainer = () => (
     <Island style={{ display: 'flex' }}>
       {store.get('items').map((item, key) => {
         const optionalProps = item.count ? {counter: React.createElement(IconCounter, {count: item.count, color: "mint"})} : {};
+        const IconToRender = iconMap[item.icon.toLowerCase()];
         return (
-          <IconTab active={item.active} href={item.href} onClick={event => {handleClick(event, item.title)}} icon={item.icon} {...optionalProps} key={key}>
+          <IconTab active={item.active} href={item.href} onClick={event => {handleClick(event, item.title)}} icon={<IconToRender />} {...optionalProps} key={key}>
             {item.title}
           </IconTab>
         );
@@ -154,8 +175,9 @@ const InvertedIconTabContainer = () => (
     <Island style={{ display: 'flex', background: '#2a3b4d' }}>
       {store.get('invertedItems').map((invertedItem, key) => {
         const optionalProps = invertedItem.count ? {counter: React.createElement(IconCounter, {count: invertedItem.count})} : {};
+        const IconToRender = iconMap[invertedItem.icon.toLowerCase()];
         return (
-          <IconTab active={invertedItem.active} href={invertedItem.href} onClick={event => {handleInvertedClick(event, invertedItem.title)}} icon={invertedItem.icon} {...optionalProps} key={key}>
+          <IconTab active={invertedItem.active} href={invertedItem.href} onClick={event => {handleInvertedClick(event, invertedItem.title)}} icon={<IconToRender />} {...optionalProps} key={key}>
             {invertedItem.title}
           </IconTab>
         );

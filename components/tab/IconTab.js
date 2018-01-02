@@ -5,26 +5,6 @@ import cx from 'classnames';
 import theme from './theme.css';
 import omit from 'lodash.omit';
 
-import {
-  IconCalendarMediumOutline,
-  IconCheckmarkMediumOutline,
-  IconContactsMediumOutline,
-  IconInvoiceMediumOutline,
-  IconProductsMediumOutline,
-  IconStatsMediumOutline,
-  IconTimerMediumOutline,
-} from '@teamleader/ui-icons';
-
-const iconMap = {
-  crm: IconContactsMediumOutline,
-  invoices: IconInvoiceMediumOutline,
-  products: IconProductsMediumOutline,
-  stats: IconStatsMediumOutline,
-  time: IconTimerMediumOutline,
-  deals: IconCheckmarkMediumOutline,
-  planning: IconCalendarMediumOutline,
-};
-
 class IconTab extends PureComponent {
   static propTypes = {
     active: PropTypes.bool,
@@ -32,7 +12,7 @@ class IconTab extends PureComponent {
     className: PropTypes.string,
     counter: PropTypes.node,
     element: PropTypes.node,
-    icon: PropTypes.string.isRequired,
+    icon: PropTypes.node.isRequired,
     onClick: PropTypes.func,
   };
 
@@ -62,12 +42,10 @@ class IconTab extends PureComponent {
   }
 
   render() {
-    const { active, children, className, counter = null, icon, ...others } = this.props;
+    const { active, className, counter = null, icon, ...others } = this.props;
     const classNames = cx(theme['icon-tab'], { [theme['is-active']]: active }, className);
 
     const rest = omit(others, ['onClick']);
-
-    const IconToRender = iconMap[icon.toLowerCase()];
 
     return (
       <Box
@@ -82,7 +60,9 @@ class IconTab extends PureComponent {
         onClick={this.handleClick}
         {...rest}
       >
-        <IconToRender element="span">{children}</IconToRender>
+        {
+          React.cloneElement(icon, { element: "span" })
+        }
         {counter && React.cloneElement(counter, { className: theme['counter'] })}
       </Box>
     );
