@@ -5,14 +5,14 @@ import theme from './theme.css';
 
 class LinkButton extends PureComponent {
   static propTypes = {
-    children: PropTypes.node,
+    children: PropTypes.any,
     className: PropTypes.string,
     disabled: PropTypes.bool,
     element: PropTypes.element,
     icon: PropTypes.element,
     iconPlacement: PropTypes.oneOf(['left', 'right']),
     inverse: PropTypes.bool,
-    label: PropTypes.string,
+    label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     onMouseLeave: PropTypes.func,
     onMouseUp: PropTypes.func,
     size: PropTypes.oneOf(['small', 'medium', 'large']),
@@ -47,9 +47,9 @@ class LinkButton extends PureComponent {
     const classNames = cx(
       theme['link-button'],
       {
-        [theme['disabled']]: disabled,
-        [theme['icon-only']]: !label && !children,
-        [theme['inverse']]: inverse,
+        [theme['has-icon-only']]: !label && !children,
+        [theme['is-disabled']]: disabled,
+        [theme['is-inverse']]: inverse,
         [theme[size]]: theme[size],
       },
       className,
@@ -69,14 +69,14 @@ class LinkButton extends PureComponent {
     return React.createElement(
       Element,
       props,
-      icon && iconPlacement === 'left' ? icon : null,
+      icon && iconPlacement === 'left' && icon,
       label || children ? (
         <span className={theme['children']}>
           {label}
           {children}
         </span>
       ) : null,
-      icon && iconPlacement === 'right' ? icon : null,
+      icon && iconPlacement === 'right' && icon,
     );
   }
 }
