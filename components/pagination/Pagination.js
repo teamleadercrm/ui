@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../box';
-import { LinkButton } from '../button';
 import { TextSmall } from '../typography';
 import { IconChevronLeftMediumOutline, IconChevronRightMediumOutline } from '@teamleader/ui-icons';
 import cx from 'classnames';
@@ -15,9 +14,9 @@ class Pagination extends PureComponent {
     numItemsPerPage: PropTypes.number,
     maxNumPagesVisible: PropTypes.number,
     currentPage: PropTypes.number.isRequired,
-    onChange: PropTypes.func.isRequired,
     prevPageText: PropTypes.string,
     className: PropTypes.string,
+    children: PropTypes.func.isRequired,
   };
 
   static defaultProps = {
@@ -36,8 +35,8 @@ class Pagination extends PureComponent {
       nextPageText,
       numItems,
       numItemsPerPage,
-      onChange,
       prevPageText,
+      children,
       ...others
     } = this.props;
 
@@ -79,13 +78,7 @@ class Pagination extends PureComponent {
         <ul className={theme['list']}>
           {currentPage > 1 && (
             <li className={theme['list-item']}>
-              <LinkButton
-                icon={<IconChevronLeftMediumOutline />}
-                inverse={inverse}
-                label={prevPageText}
-                onClick={() => onChange(currentPage - 1)}
-                size="small"
-              />
+              {children(1, prevPageText, false, <IconChevronLeftMediumOutline />, 'left')}
             </li>
           )}
           {iterator.map(page => {
@@ -96,27 +89,14 @@ class Pagination extends PureComponent {
                     ...
                   </TextSmall>
                 ) : (
-                  <LinkButton
-                    className={page === currentPage && theme['current']}
-                    inverse={inverse}
-                    label={page}
-                    onClick={() => onChange(page)}
-                    size="small"
-                  />
+                  children(page, page, page === currentPage)
                 )}
               </li>
             );
           })}
           {currentPage < numPages && (
             <li className={theme['list-item']}>
-              <LinkButton
-                icon={<IconChevronRightMediumOutline />}
-                iconPlacement="right"
-                inverse={inverse}
-                label={nextPageText}
-                onClick={() => onChange(currentPage + 1)}
-                size="small"
-              />
+              {children(currentPage + 1, nextPageText, false, <IconChevronRightMediumOutline />, 'right')}
             </li>
           )}
         </ul>

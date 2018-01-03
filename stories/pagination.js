@@ -5,7 +5,7 @@ import { action } from '@storybook/addon-actions';
 import { Store, State } from '@sambego/storybook-state';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
-import { Island, Pagination } from '../components';
+import { Island, Pagination, LinkButton } from '../components';
 import { baseStyles, centerStyles } from '../.storybook/styles';
 
 const store = new Store({
@@ -25,10 +25,20 @@ storiesOf('Pagination', module)
   .add('compact', () => (
     <Island>
       <State store={store}>
-        <Pagination
-          numItems={store.get('numItems')}
-          onChange={handlePageChange}
-        />
+        <Pagination numItems={store.get('numItems')} currentPage={store.get('currentPage')}>
+          {(number, text, isActive, icon, iconPlacement) => {
+            return (
+              <LinkButton
+                label={text}
+                disabled={isActive}
+                onClick={() => handlePageChange(number)}
+                size="small"
+                icon={icon}
+                iconPlacement={iconPlacement}
+              />
+            );
+          }}
+        </Pagination>
       </State>
     </Island>
   ))
@@ -37,10 +47,23 @@ storiesOf('Pagination', module)
       <State store={store}>
         <Pagination
           numItems={store.get('numItems')}
-          nextPageText="Next"
-          prevPageText="Previous"
-          onChange={handlePageChange}
-        />
+          currentPage={store.get('currentPage')}
+          prevPageText="previous"
+          nextPageText="next"
+        >
+          {(number, text, isActive, icon, iconPlacement) => {
+            return (
+              <LinkButton
+                label={text}
+                disabled={isActive}
+                onClick={() => handlePageChange(number)}
+                size="small"
+                icon={icon}
+                iconPlacement={iconPlacement}
+              />
+            );
+          }}
+        </Pagination>
       </State>
     </Island>
   ))
@@ -48,12 +71,26 @@ storiesOf('Pagination', module)
     <Island style={{backgroundColor: '#2a3b4d'}}>
       <State store={store}>
         <Pagination
-          inverse
           numItems={store.get('numItems')}
-          nextPageText="Next"
-          prevPageText="Previous"
-          onChange={handlePageChange}
-        />
+          currentPage={store.get('currentPage')}
+          prevPageText="previous"
+          nextPageText="next"
+          inverse
+        >
+          {(number, text, isActive, icon, iconPlacement) => {
+            return (
+              <LinkButton
+                label={text}
+                disabled={isActive}
+                onClick={() => handlePageChange(number)}
+                size="small"
+                icon={icon}
+                iconPlacement={iconPlacement}
+                inverse
+              />
+            );
+          }}
+        </Pagination>
       </State>
     </Island>
   ));
