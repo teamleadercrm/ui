@@ -10,8 +10,7 @@ class Pagination extends PureComponent {
   static propTypes = {
     inverse: PropTypes.bool,
     nextPageText: PropTypes.string,
-    numItems: PropTypes.number.isRequired,
-    numItemsPerPage: PropTypes.number,
+    numPages: PropTypes.number.isRequired,
     maxNumPagesVisible: PropTypes.number,
     currentPage: PropTypes.number.isRequired,
     prevPageText: PropTypes.string,
@@ -22,7 +21,6 @@ class Pagination extends PureComponent {
   static defaultProps = {
     currentPage: 1,
     inverse: false,
-    numItemsPerPage: 10,
     maxNumPagesVisible: 7,
   };
 
@@ -33,14 +31,11 @@ class Pagination extends PureComponent {
       inverse,
       maxNumPagesVisible,
       nextPageText,
-      numItems,
-      numItemsPerPage,
+      numPages,
       prevPageText,
       children,
       ...others
     } = this.props;
-
-    const numPages = Math.ceil(numItems / numItemsPerPage);
 
     if (numPages < 2) {
       return null;

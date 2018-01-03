@@ -10,7 +10,7 @@ import { baseStyles, centerStyles } from '../.storybook/styles';
 
 const store = new Store({
   currentPage: 1,
-  numItems: 200,
+  numPages: 21,
 });
 
 const handlePageChange = page => {
@@ -25,7 +25,7 @@ storiesOf('Pagination', module)
   .add('compact', () => (
     <Island>
       <State store={store}>
-        <Pagination numItems={store.get('numItems')} currentPage={store.get('currentPage')}>
+        <Pagination numPages={store.get('numPages')} currentPage={store.get('currentPage')}>
           {(number, text, isActive, icon, iconPlacement) => {
             return (
               <LinkButton
@@ -46,7 +46,7 @@ storiesOf('Pagination', module)
     <Island>
       <State store={store}>
         <Pagination
-          numItems={store.get('numItems')}
+          numPages={store.get('numPages')}
           currentPage={store.get('currentPage')}
           prevPageText="previous"
           nextPageText="next"
@@ -71,7 +71,7 @@ storiesOf('Pagination', module)
     <Island style={{backgroundColor: '#2a3b4d'}}>
       <State store={store}>
         <Pagination
-          numItems={store.get('numItems')}
+          numPages={store.get('numPages')}
           currentPage={store.get('currentPage')}
           prevPageText="previous"
           nextPageText="next"
