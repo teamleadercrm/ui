@@ -63,7 +63,7 @@
   "dependencies": {
     "@teamleader/ui-animations": "0.0.2",
     "@teamleader/ui-colors": "0.0.7",
-    "@teamleader/ui-icons": "0.1.2",
+    "@teamleader/ui-icons": "0.1.3",
     "@teamleader/ui-illustrations": "0.0.4",
     "@teamleader/ui-typography": "0.0.10",
     "@teamleader/ui-utilities": "0.0.5",

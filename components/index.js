@@ -14,6 +14,7 @@ import Message from './message';
 import Overlay from './overlay';
 import LoadingMolecule from './loadingMolecule';
 import LoadingSpinner from './loadingSpinner';
+import Pagination from './pagination';
 import { PopoverHorizontal, PopoverVertical } from './popover';
 import { RadioButton, RadioGroup } from './radio';
 import Section from './section';
@@ -55,6 +56,7 @@ export {
   LoadingMolecule,
   LoadingSpinner,
   Overlay,
+  Pagination,
   PopoverHorizontal,
   PopoverVertical,
   RadioButton,
