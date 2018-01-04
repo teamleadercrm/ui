@@ -490,11 +490,3 @@
     border-radius: 0 var(--button-border-radius) var(--button-border-radius) 0;
   }
 }
-
-.align-left {
-  justify-content: flex-start;
-}
-
-.align-right {
-  justify-content: flex-end;
-}

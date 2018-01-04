@@ -20,8 +20,9 @@ import Section from './section';
 import Island from './island';
 import StatusBullet from './statusBullet';
 import StatusLabel from './statusLabel';
-import { Toast } from './toast';
+import Tab from './tab';
 import Tag from './tag';
+import { Toast } from './toast';
 import Toggle from './toggle';
 import Tooltip, { TooltipLabel } from './tooltip';
 import QTip from './qTip';
@@ -58,7 +59,6 @@ export {
   PopoverVertical,
   RadioButton,
   RadioGroup,
-  Tag,
   TextBody,
   TextSmall,
   TextTiny,
@@ -66,6 +66,8 @@ export {
   StatusBullet,
   StatusLabel,
   Island,
+  Tab,
+  Tag,
   Toast,
   Toggle,
   Tooltip,
