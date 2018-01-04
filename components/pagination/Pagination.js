@@ -74,7 +74,7 @@ class Pagination extends PureComponent {
           {currentPage > 1 && (
             <li className={theme['list-item']}>
               {children({
-                number: 1,
+                number: currentPage - 1,
                 text: prevPageText,
                 isActive: false,
                 icon: <IconChevronLeftMediumOutline />,
