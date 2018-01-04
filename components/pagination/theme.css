@@ -40,6 +40,10 @@
 
 .list-item {
   margin: 0 var(--spacer-smallest);
+
+  > * {
+    transition: none;
+  }
 }
 
 .is-current {
