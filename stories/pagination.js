@@ -28,7 +28,13 @@ storiesOf('Pagination', module)
         <Pagination numPages={store.get('numPages')} currentPage={store.get('currentPage')}>
           {({ number, text, isActive, ...others }) => {
             return (
-              <LinkButton label={text} disabled={isActive} onClick={() => handlePageChange(number)} size="small" />
+              <LinkButton
+                label={text}
+                disabled={isActive}
+                onClick={() => handlePageChange(number)}
+                size="small"
+                {...others}
+              />
             );
           }}
         </Pagination>
@@ -77,6 +83,7 @@ storiesOf('Pagination', module)
                 onClick={() => handlePageChange(number)}
                 size="small"
                 inverse
+                {...others}
               />
             );
           }}
