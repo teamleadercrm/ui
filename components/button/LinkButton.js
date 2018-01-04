@@ -70,12 +70,12 @@ class LinkButton extends PureComponent {
       Element,
       props,
       icon && iconPlacement === 'left' && icon,
-      label || children ? (
+      (label || children) && (
         <span className={theme['children']}>
           {label}
           {children}
         </span>
-      ) : null,
+      ),
       icon && iconPlacement === 'right' && icon,
     );
   }
