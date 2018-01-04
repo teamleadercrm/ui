@@ -96,7 +96,7 @@ class Pagination extends PureComponent {
                     number: page,
                     text: page,
                     isActive,
-                    className: isActive && theme['is-current'],
+                    className: isActive ? theme['is-current'] : '',
                   })
                 )}
               </li>
