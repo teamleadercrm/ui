@@ -26,16 +26,9 @@ storiesOf('Pagination', module)
     <Island>
       <State store={store}>
         <Pagination numPages={store.get('numPages')} currentPage={store.get('currentPage')}>
-          {(number, text, isActive, icon, iconPlacement) => {
+          {({ number, text, isActive, ...others }) => {
             return (
-              <LinkButton
-                label={text}
-                disabled={isActive}
-                onClick={() => handlePageChange(number)}
-                size="small"
-                icon={icon}
-                iconPlacement={iconPlacement}
-              />
+              <LinkButton label={text} disabled={isActive} onClick={() => handlePageChange(number)} size="small" />
             );
           }}
         </Pagination>
@@ -51,15 +44,14 @@ storiesOf('Pagination', module)
           prevPageText="previous"
           nextPageText="next"
         >
-          {(number, text, isActive, icon, iconPlacement) => {
+          {({ number, text, isActive, ...others }) => {
             return (
               <LinkButton
                 label={text}
                 disabled={isActive}
                 onClick={() => handlePageChange(number)}
                 size="small"
-                icon={icon}
-                iconPlacement={iconPlacement}
+                {...others}
               />
             );
           }}
@@ -77,15 +69,13 @@ storiesOf('Pagination', module)
           nextPageText="next"
           inverse
         >
-          {(number, text, isActive, icon, iconPlacement) => {
+          {({ number, text, isActive, ...others }) => {
             return (
               <LinkButton
                 label={text}
                 disabled={isActive}
                 onClick={() => handlePageChange(number)}
                 size="small"
-                icon={icon}
-                iconPlacement={iconPlacement}
                 inverse
               />
             );

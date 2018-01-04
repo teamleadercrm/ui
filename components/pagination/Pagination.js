@@ -73,7 +73,13 @@ class Pagination extends PureComponent {
         <ul className={theme['list']}>
           {currentPage > 1 && (
             <li className={theme['list-item']}>
-              {children(1, prevPageText, false, <IconChevronLeftMediumOutline />, 'left')}
+              {children({
+                number: 1,
+                text: prevPageText,
+                isActive: false,
+                icon: <IconChevronLeftMediumOutline />,
+                iconPlacement: 'left',
+              })}
             </li>
           )}
           {iterator.map(page => {
@@ -84,14 +90,24 @@ class Pagination extends PureComponent {
                     ...
                   </TextSmall>
                 ) : (
-                  children(page, page, page === currentPage)
+                  children({
+                    number: page,
+                    text: page,
+                    isActive: page === currentPage,
+                  })
                 )}
               </li>
             );
           })}
           {currentPage < numPages && (
             <li className={theme['list-item']}>
-              {children(currentPage + 1, nextPageText, false, <IconChevronRightMediumOutline />, 'right')}
+              {children({
+                number: currentPage + 1,
+                text: nextPageText,
+                isActive: false,
+                icon: <IconChevronRightMediumOutline />,
+                iconPlacement: 'right',
+              })}
             </li>
           )}
         </ul>
