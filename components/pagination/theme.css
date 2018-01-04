@@ -8,7 +8,7 @@
 
 .pagination {
   &:not(.is-inverse) {
-    .current {
+    .is-current {
       background: var(--color-neutral);
       color: var(--color-teal-darkest);
     }
@@ -19,7 +19,7 @@
   }
 
   &.is-inverse {
-    .current {
+    .is-current {
       background: color(var(--color-teal-light) a(.24));
       color: var(--color-neutral-lightest);
     }
@@ -42,7 +42,7 @@
   margin: 0 var(--spacer-smallest);
 }
 
-.current {
+.is-current {
   font-family: var(--font-family-medium);
   pointer-events: none;
 }
