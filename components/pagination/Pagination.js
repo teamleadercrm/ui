@@ -83,6 +83,8 @@ class Pagination extends PureComponent {
             </li>
           )}
           {iterator.map(page => {
+            const isActive = page === currentPage;
+
             return (
               <li key={page} className={theme['list-item']}>
                 {String(page).startsWith('ellipsis') ? (
@@ -93,7 +95,8 @@ class Pagination extends PureComponent {
                   children({
                     number: page,
                     text: page,
-                    isActive: page === currentPage,
+                    isActive,
+                    className: isActive && theme['current'],
                   })
                 )}
               </li>
