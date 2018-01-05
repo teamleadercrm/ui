@@ -20,7 +20,7 @@ import Section from './section';
 import Island from './island';
 import StatusBullet from './statusBullet';
 import StatusLabel from './statusLabel';
-import Tab from './tab';
+import { IconTab, TitleTab, TabGroup } from './tab';
 import Tag from './tag';
 import { Toast } from './toast';
 import Toggle from './toggle';
@@ -45,6 +45,7 @@ export {
   Heading4,
   IconButton,
   IconMenu,
+  IconTab,
   Island,
   Link,
   LoadingMolecule,
@@ -65,7 +66,9 @@ export {
   TextBody,
   TextSmall,
   TextTiny,
+  TabGroup,
   Tag,
+  TitleTab,
   Toast,
   Toggle,
   Tooltip,
