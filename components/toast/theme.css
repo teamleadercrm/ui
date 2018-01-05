@@ -30,16 +30,13 @@
 }
 
 .action-button {
-  margin: calc(-1 * var(--spacer-smaller)) -8px calc(-1 * var(--spacer-smaller)) var(--spacer-medium);
+  margin: calc(-1 * var(--spacer-smaller)) calc(-1 * var(--spacer-smaller)) calc(-1 * var(--spacer-smaller)) var(--spacer-medium);
 }
 
 .action-link {
-  margin-left: var(--spacer-medium);
+  flex-shrink: 0;
+  margin: calc(-1 * var(--spacer-smaller)) calc(-1 * var(--spacer-small)) calc(-1 * var(--spacer-smaller)) var(--spacer-small);
   white-space: nowrap;
-}
-
-.label {
-  flex-grow: 1;
 }
 
 .spinner {
