@@ -94,7 +94,7 @@ const factory = (LinkButton, IconButton) => {
                 </TextSmall>
                 {onClose ? (
                   action ? (
-                    <LinkButton className={theme['action-link']} inverse label={action} onClick={onClose}/>
+                    <LinkButton className={theme['action-link']} inverse label={action} onClick={onClose} />
                   ) : (
                     <IconButton
                       className={theme['action-button']}
