@@ -1,0 +1,58 @@
+@import '@teamleader/ui-colors';
+@import '@teamleader/ui-typography';
+@import '@teamleader/ui-utilities';
+
+:root {
+  --ellipsis-min-width: calc(3 * var(--unit));
+}
+
+.pagination {
+  &:not(.is-inverse) {
+    .is-current {
+      background: var(--color-neutral);
+      color: var(--color-teal-darkest);
+    }
+
+    .ellipsis {
+      color: var(--color-teal-darkest);
+    }
+  }
+
+  &.is-inverse {
+    .is-current {
+      background: color(var(--color-teal-light) a(.24));
+      color: var(--color-neutral-lightest);
+    }
+
+    .ellipsis {
+      color: var(--color-neutral-lightest);
+    }
+  }
+}
+
+.list {
+  align-items: center;
+  display: inline-flex;
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.list-item {
+  margin: 0 var(--spacer-smallest);
+
+  > * {
+    transition: none;
+  }
+}
+
+.is-current {
+  font-family: var(--font-family-medium);
+  pointer-events: none;
+}
+
+.ellipsis {
+  display: inline-flex;
+  justify-content: center;
+  min-width: var(--ellipsis-min-width);
+}

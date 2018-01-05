@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
+import { withKnobs, boolean } from '@storybook/addon-knobs/react';
 import { action } from '@storybook/addon-actions';
 import { Store, State } from '@sambego/storybook-state';
 import styles from '@sambego/storybook-styles';
@@ -20,38 +21,49 @@ const handleOnChange = checked => {
 storiesOf('Checkboxes', module)
   .addDecorator((story, context) => withInfo('common info')(story)(context))
   .addDecorator(checkA11y)
+  .addDecorator(withKnobs)
   .addDecorator(styles({ ...baseStyles, ...centerStyles }))
   .add('size', () => (
     <div>
       <State store={store}>
-        <Checkbox size="small" margin={2} onChange={handleOnChange} />
+        <Checkbox size="small" margin={2} onChange={handleOnChange} disabled={boolean('Disabled', false)}/>
       </State>
       <State store={store}>
-        <Checkbox size="medium" margin={2} onChange={handleOnChange} />
+        <Checkbox size="medium" margin={2} onChange={handleOnChange} disabled={boolean('Disabled', false)}/>
       </State>
       <State store={store}>
-        <Checkbox size="large" margin={2} onChange={handleOnChange} />
+        <Checkbox size="large" margin={2} onChange={handleOnChange} disabled={boolean('Disabled', false)}/>
       </State>
     </div>
   ))
-  .add('labels', () => (
+  .add('with labels', () => (
     <div>
       <State store={store}>
-        <Checkbox size="small" margin={2} onChange={handleOnChange} label="I'm a small Checkbox" />
+        <Checkbox
+          size="small"
+          margin={2}
+          onChange={handleOnChange}
+          label="I'm a small Checkbox" 
+          disabled={boolean('Disabled', false)}
+        />
       </State>
       <State store={store}>
-        <Checkbox size="medium" margin={2} onChange={handleOnChange} label="I'm a medium Checkbox" />
+        <Checkbox
+          size="medium"
+          margin={2}
+          onChange={handleOnChange}
+          label="I'm a medium Checkbox"
+          disabled={boolean('Disabled', false)}
+        />
       </State>
       <State store={store}>
-        <Checkbox size="large" margin={2} onChange={handleOnChange} label="I'm a large Checkbox" />
+        <Checkbox
+          size="large"
+          margin={2}
+          onChange={handleOnChange}
+          label="I'm a large Checkbox"
+          disabled={boolean('Disabled', false)}
+        />
       </State>
-    </div>
-  ))
-  .add('disabled', () => (
-    <div>
-      <Island color="white">
-        <Checkbox disabled margin={2} color="neutral" label="I'm a disabled Checkbox" />
-        <Checkbox disabled margin={2} checked color="neutral" label="I'm a disabled Checkbox" />
-      </Island>
     </div>
   ));

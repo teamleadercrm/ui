@@ -1,7 +1,7 @@
 import Avatar, { AvatarStack } from './avatar';
 import Banner from './banner';
 import Box from './box';
-import Button, { ButtonGroup, IconButton } from './button';
+import Button, { ButtonGroup, IconButton, LinkButton } from './button';
 import { Heading1, Heading2, Heading3, Heading4, Monospaced, TextBody, TextSmall, TextTiny } from './typography';
 import Bullet from './bullet';
 import Checkbox from './checkbox';
@@ -14,6 +14,7 @@ import Message from './message';
 import Overlay from './overlay';
 import LoadingMolecule from './loadingMolecule';
 import LoadingSpinner from './loadingSpinner';
+import Pagination from './pagination';
 import { PopoverHorizontal, PopoverVertical } from './popover';
 import { RadioButton, RadioGroup } from './radio';
 import Section from './section';
@@ -50,12 +51,14 @@ export {
   Link,
   LoadingMolecule,
   LoadingSpinner,
+  LinkButton,
   Menu,
   Message,
   Monospaced,
   MenuItem,
   MenuDivider,
   Overlay,
+  Pagination,
   PopoverHorizontal,
   PopoverVertical,
   RadioButton,

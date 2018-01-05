@@ -14,12 +14,12 @@ const store = new Store({
 
 const handleButtonClick = () => {
   store.set({ active: true });
-  action('onClick - active: true')();
+  action('onClose - active: true')();
 };
 
 const handleToastCloseButtonClick = () => {
   store.set({ active: false });
-  action('onClick - active: false')();
+  action('onClose - active: false')();
 };
 
 const handleToastTimeout = () => {
@@ -31,7 +31,7 @@ storiesOf('Toast', module)
   .addDecorator((story, context) => withInfo('common info')(story)(context))
   .addDecorator(checkA11y)
   .addDecorator(styles({ ...baseStyles, ...centerStyles }))
-  .add('Close', () => (
+  .add('with close button', () => (
     <div>
       <Button label="Make a toast" onClick={handleButtonClick} />
       <State store={store}>
@@ -39,13 +39,13 @@ storiesOf('Toast', module)
           active={false}
           label="Toast label"
           timeout={3000}
-          onClick={handleToastCloseButtonClick}
+          onClose={handleToastCloseButtonClick}
           onTimeout={handleToastTimeout}
         />
       </State>
     </div>
   ))
-  .add('Accept', () => (
+  .add('with action link', () => (
     <div>
       <Button label="Make a toast" onClick={handleButtonClick} />
       <State store={store}>
@@ -54,41 +54,38 @@ storiesOf('Toast', module)
           active={false}
           label="Toast label"
           timeout={3000}
-          onClick={handleToastCloseButtonClick}
+          onClose={handleToastCloseButtonClick}
           onTimeout={handleToastTimeout}
-          type="accept"
         />
       </State>
     </div>
   ))
-  .add('Cancel', () => (
+  .add('with multiline label', () => (
     <div>
       <Button label="Make a toast" onClick={handleButtonClick} />
       <State store={store}>
         <Toast
-          action="Abort"
+          action="Try again"
           active={false}
-          label="Toast label"
+          label="Connection timed out. Showing limited amount of messages."
           timeout={3000}
-          onClick={handleToastCloseButtonClick}
+          onClose={handleToastCloseButtonClick}
           onTimeout={handleToastTimeout}
-          type="cancel"
         />
       </State>
     </div>
   ))
-  .add('Warning', () => (
+  .add('with loading spinner', () => (
     <div>
       <Button label="Make a toast" onClick={handleButtonClick} />
       <State store={store}>
         <Toast
-          action="I'm warned!"
           active={false}
-          label="Toast label"
+          label="Working..."
           timeout={3000}
-          onClick={handleToastCloseButtonClick}
+          onClose={handleToastCloseButtonClick}
           onTimeout={handleToastTimeout}
-          type="warning"
+          processing
         />
       </State>
     </div>
