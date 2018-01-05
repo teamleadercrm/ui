@@ -6,7 +6,7 @@ import { withInfo } from '@storybook/addon-info';
 import { Box, Island, Counter as UICounter } from '../components';
 import { Store, State } from '@sambego/storybook-state';
 import { action } from '@storybook/addon-actions';
-import { IconTab, TabGroup, TitleTab } from '../components/tab';
+import { IconTab, TabGroup, TitleTab } from '../components';
 import { baseStyles, centerStyles } from '../.storybook/styles';
 
 import {
