@@ -2,15 +2,14 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Transition from 'react-transition-group/Transition';
 import cx from 'classnames';
-import { IconButton } from '../button';
+import { IconButton, LinkButton } from '../button';
 import { TextSmall } from '../typography';
-import Link from '../link';
 import LoadingSpinner from '../loadingSpinner';
 import { createPortal } from 'react-dom';
 import { IconCloseMediumOutline } from '@teamleader/ui-icons';
 import theme from './theme.css';
 
-const factory = (Link, IconButton) => {
+const factory = (LinkButton, IconButton) => {
   class Toast extends PureComponent {
     static propTypes = {
       action: PropTypes.string,
@@ -89,15 +88,13 @@ const factory = (Link, IconButton) => {
             return (
               <div data-teamleader-ui="toast" className={classNames}>
                 {processing && <LoadingSpinner className={theme['spinner']} color="white" />}
-                <TextSmall className={theme['label']} color="white" soft>
+                <TextSmall className={theme['label']} color="white">
                   {label}
                   {children}
                 </TextSmall>
                 {onClose ? (
                   action ? (
-                    <TextSmall className={theme['action-link']} color="white">
-                      <Link onClick={onClose}>{action}</Link>
-                    </TextSmall>
+                    <LinkButton className={theme['action-link']} inverse onClick={onClose}>{action}</LinkButton>
                   ) : (
                     <IconButton
                       className={theme['action-button']}
@@ -120,7 +117,7 @@ const factory = (Link, IconButton) => {
   return Toast;
 };
 
-const Toast = factory(Link, IconButton);
+const Toast = factory(LinkButton, IconButton);
 
 export default Toast;
 export { factory as toastFactory, Toast };
