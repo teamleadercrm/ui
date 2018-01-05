@@ -7,9 +7,34 @@ const spacings = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 
 class Box extends PureComponent {
   static propTypes = {
-    children: PropTypes.node,
+    alignContent: PropTypes.oneOf([
+      'center',
+      'flex-start',
+      'flex-end',
+      'space-around',
+      'space-between',
+      'space-evenly',
+    ]),
+    alignItems: PropTypes.oneOf(['center', 'flex-start', 'flex-end']),
+    alignSelf: PropTypes.oneOf(['center', 'flex-start', 'flex-end', 'stretch']),
+    children: PropTypes.any,
     className: PropTypes.string,
+    display: PropTypes.oneOf(['inline', 'inline-block', 'block', 'flex', 'inline-flex']),
     element: PropTypes.node,
+    flex: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    flexBasis: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    flexDirection: PropTypes.oneOf(['row', 'row-reverse', 'column', 'column-reverse']),
+    flexGrow: PropTypes.number,
+    flexShrink: PropTypes.number,
+    flexWrap: PropTypes.oneOf(['nowrap', 'wrap', 'wrap-reverse']),
+    justifyContent: PropTypes.oneOf([
+      'center',
+      'flex-start',
+      'flex-end',
+      'space-around',
+      'space-between',
+      'space-evenly',
+    ]),
     margin: PropTypes.oneOf(spacings),
     marginHorizontal: PropTypes.oneOf(spacings),
     marginVertical: PropTypes.oneOf(spacings),
@@ -17,6 +42,7 @@ class Box extends PureComponent {
     marginLeft: PropTypes.oneOf(spacings),
     marginRight: PropTypes.oneOf(spacings),
     marginTop: PropTypes.oneOf(spacings),
+    order: PropTypes.number,
     padding: PropTypes.oneOf(spacings),
     paddingHorizontal: PropTypes.oneOf(spacings),
     paddingVertical: PropTypes.oneOf(spacings),
@@ -32,11 +58,26 @@ class Box extends PureComponent {
     padding: 0,
   };
 
+  getNode() {
+    return this.node;
+  }
+
   render() {
     const {
+      alignContent,
+      alignItems,
+      alignSelf,
       children,
       className,
+      display,
       element,
+      flex,
+      flexBasis,
+      flexDirection,
+      flexGrow,
+      flexShrink,
+      flexWrap,
+      justifyContent,
       margin,
       marginHorizontal = margin,
       marginVertical = margin,
@@ -44,6 +85,7 @@ class Box extends PureComponent {
       marginLeft = marginHorizontal,
       marginRight = marginHorizontal,
       marginTop = marginVertical,
+      order,
       padding,
       paddingHorizontal = padding,
       paddingVertical = padding,
@@ -57,6 +99,13 @@ class Box extends PureComponent {
     const classNames = cx(
       theme['box'],
       {
+        [theme[`align-content-${alignContent}`]]: alignContent,
+        [theme[`align-items-${alignItems}`]]: alignItems,
+        [theme[`align-self-${alignSelf}`]]: alignSelf,
+        [theme[`display-${display}`]]: display,
+        [theme[`flex-direction-${flexDirection}`]]: flexDirection,
+        [theme[`flex-wrap-${flexWrap}`]]: flexWrap,
+        [theme[`justify-content-${justifyContent}`]]: justifyContent,
         [theme[`margin-bottom-${marginBottom}`]]: marginBottom > 0,
         [theme[`margin-left-${marginLeft}`]]: marginLeft > 0,
         [theme[`margin-right-${marginRight}`]]: marginRight > 0,
@@ -69,10 +118,25 @@ class Box extends PureComponent {
       className,
     );
 
+    const styles = {
+      ...(flex && { flex }),
+      ...(flexBasis && { flexBasis }),
+      ...(flexGrow && { flexGrow }),
+      ...(flexShrink && { flexShrink }),
+      ...(order && { order }),
+    };
+
     const Element = element;
 
     return (
-      <Element className={classNames} {...others}>
+      <Element
+        ref={node => {
+          this.node = node;
+        }}
+        className={classNames}
+        styles={styles}
+        {...others}
+      >
         {children}
       </Element>
     );

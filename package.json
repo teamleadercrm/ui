@@ -1,7 +1,7 @@
 {
   "name": "@teamleader/ui",
   "description": "Teamleader UI library",
-  "version": "0.3.3-beta",
+  "version": "0.4.0-beta",
   "author": "Teamleader <development@teamleader.eu>",
   "betterScripts": {
     "compile": {
@@ -37,6 +37,13 @@
         "DEBUG": "app:*"
       }
     },
+    "build": {
+      "command": "rimraf lib && gulp",
+      "env": {
+        "NODE_ENV": "production",
+        "DEBUG": "app:*"
+      }
+    },
     "start": {
       "command": "start-storybook",
       "env": {
@@ -45,7 +52,7 @@
     }
   },
   "bugs": {
-    "url": "https://github.com/teamleadercrm/teamleader-ui/issues"
+    "url": "https://github.com/teamleadercrm/ui/issues"
   },
   "contributors": [
     "Dries Decramer <dries.decramer@teamleader.eu>",
@@ -56,7 +63,7 @@
   "dependencies": {
     "@teamleader/ui-animations": "0.0.2",
     "@teamleader/ui-colors": "0.0.7",
-    "@teamleader/ui-icons": "0.1.2",
+    "@teamleader/ui-icons": "0.1.3",
     "@teamleader/ui-illustrations": "0.0.4",
     "@teamleader/ui-typography": "0.0.10",
     "@teamleader/ui-utilities": "0.0.5",
@@ -72,12 +79,13 @@
   "devDependencies": {
     "@sambego/storybook-state": "^1.0.6",
     "@sambego/storybook-styles": "^1.0.0",
-    "@storybook/addon-actions": "^3.2.12",
-    "@storybook/addon-info": "^3.2.12",
-    "@storybook/addon-links": "^3.2.12",
-    "@storybook/addon-options": "^3.2.12",
-    "@storybook/react": "^3.2.12",
-    "@storybook/ui": "^3.2.12",
+    "@storybook/addon-actions": "3.3.2",
+    "@storybook/addon-info": "3.3.2",
+    "@storybook/addon-knobs": "^3.3.2",
+    "@storybook/addon-links": "3.3.2",
+    "@storybook/addon-options": "3.3.2",
+    "@storybook/react": "3.3.2",
+    "@storybook/ui": "3.3.2",
     "babel-cli": "^6.18.0",
     "babel-core": "^6.17.0",
     "babel-eslint": "^8.0.2",
@@ -117,7 +125,7 @@
     "postcss-import": "^11.0.0",
     "postcss-loader": "^2.0.7",
     "postcss-mixins": "^6.1.0",
-    "postcss-nested": "^2.1.2",
+    "postcss-nested": "^3.0.0",
     "postcss-pseudoelements": "^5.0.0",
     "postcss-reporter": "^5.0.0",
     "prettier": "^1.4.4",
@@ -133,7 +141,7 @@
   "directories": {
     "doc": "docs"
   },
-  "homepage": "https://github.com/teamleadercrm/teamleader-ui#readme",
+  "homepage": "https://github.com/teamleadercrm/ui#readme",
   "keywords": [
     "teamleader",
     "ui"
@@ -145,11 +153,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/teamleadercrm/teamleader-ui.git"
+    "url": "git+https://github.com/teamleadercrm/ui.git"
   },
   "scripts": {
     "babel": "babel ./components/**/*.js --out-dir ./lib",
-    "build": "NODE_ENV=production rimraf lib && gulp",
+    "build": "better-npm-run build",
     "clean": "rimraf dist",
     "codecov": "cat coverage/*/lcov.info | codecov",
     "compile": "better-npm-run compile",
