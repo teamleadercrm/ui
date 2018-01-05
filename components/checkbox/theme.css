@@ -38,8 +38,9 @@
     align-items: center;
     padding: var(--checkbox-shape-padding);
     cursor: pointer;
-    transition: background-color var(--animation-duration) var(--animation-curve-default),
-    border-color var(--animation-duration) var(--animation-curve-default);
+    transition: background-color, border-color;
+    transition-duration: var(--animation-duration);
+    transition-timing-function: var(--animation-curve-default);
   }
 
   .checkmark {
