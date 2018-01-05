@@ -198,18 +198,14 @@
   color: var(--color-aqua-dark);
   font-family: var(--font-family-medium);
 
-  &.is-disabled {
-    color: var(--color-neutral);
-    pointer-events: none;
-  }
+  &:not(.inverse) {
+    text-decoration: none;
 
-  &:not(.is-disabled) {
-    &:hover {
-      cursor: pointer;
-      text-decoration: underline;
-    }
+    &:not(.is-disabled) {
+      &:hover {
+        text-decoration: underline;
+      }
 
-    &:not(.inverse) {
       &:focus {
         box-shadow: 0 0 0 2px var(--color-aqua-dark);
       }
@@ -220,9 +216,16 @@
         text-decoration: none;
       }
     }
+  }
 
-    &.is-inverse {
-      color: var(--color-teal-light);
+  &.is-inverse {
+    color: var(--color-teal-light);
+    text-decoration: underline;
+
+    &:not(.is-disabled) {
+      &:hover {
+        text-decoration: none;
+      }
 
       &:focus {
         box-shadow: 0 0 0 2px var(--color-teal-light);
@@ -233,6 +236,17 @@
         box-shadow: none;
       }
     }
+  }
+
+  &:not(.is-disabled) {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &.is-disabled {
+    color: var(--color-neutral);
+    pointer-events: none;
   }
 
   &.has-icon-only:hover {
