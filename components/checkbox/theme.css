@@ -38,7 +38,8 @@
     align-items: center;
     padding: var(--checkbox-shape-padding);
     cursor: pointer;
-    transition: all var(--animation-duration) var(--animation-curve-default);
+    transition: background-color var(--animation-duration) var(--animation-curve-default),
+    border-color var(--animation-duration) var(--animation-curve-default);
   }
 
   .checkmark {
@@ -86,6 +87,7 @@
     .shape {
       background-color: var(--color-neutral);
       border-color: transparent;
+      color: var(--color-neutral-dark);
     }
 
     .label {
