@@ -4,7 +4,7 @@ import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
 
-class TooltipLabel extends PureComponent {
+class Badge extends PureComponent {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
@@ -19,14 +19,14 @@ class TooltipLabel extends PureComponent {
   render() {
     const { children, className, icon, inverse, ...others } = this.props;
 
-    const classNames = cx(theme.label, className, {
+    const classNames = cx(theme.badge, className, {
       [theme['inverse']]: inverse,
     });
 
     return (
       <Box
         className={classNames}
-        data-teamleader-ui="tooltip-label"
+        data-teamleader-ui="badge"
         element="span"
         paddingHorizontal={2}
         paddingVertical={1}
@@ -39,4 +39,4 @@ class TooltipLabel extends PureComponent {
   }
 }
 
-export default TooltipLabel;
+export default Badge;

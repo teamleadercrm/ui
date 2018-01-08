@@ -1,0 +1,27 @@
+@import '@teamleader/ui-colors';
+@import '@teamleader/ui-utilities';
+
+:root {
+  --badge-border-radius: calc(0.4 * var(--unit));
+}
+
+.badge {
+  svg {
+    -ms-transform: translateY(-1px);
+  }
+}
+
+.badge {
+  background: color(var(--color-teal-darkest) a(8%));
+  border-radius: var(--badge-border-radius);
+  color: var(--color-teal-darkest);
+
+  svg {
+    margin-right: var(--spacer-smallest)
+  }
+
+  &.inverse {
+    background: var(--color-teal-darkest);
+    color: var(--color-teal-lightest);
+  }
+}
