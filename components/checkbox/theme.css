@@ -28,7 +28,7 @@
 
   .shape {
     box-sizing: border-box;
-    background: var(--color-neutral-light);
+    background-color: var(--color-neutral-light);
     border: var(--checkbox-border-width) solid var(--color-neutral-dark);
     border-radius: 4px;
     color: var(--color-white);
@@ -38,7 +38,9 @@
     align-items: center;
     padding: var(--checkbox-shape-padding);
     cursor: pointer;
-    transition: all var(--animation-duration) var(--animation-curve-default);
+    transition: background-color, border-color;
+    transition-duration: var(--animation-duration);
+    transition-timing-function: var(--animation-curve-default);
   }
 
   .checkmark {
@@ -56,12 +58,12 @@
 
   &.is-checked {
     .shape {
-      background: var(--color-mint);
+      background-color: var(--color-mint);
       border-color: var(--color-mint-dark);
     }
 
     &:hover .shape {
-      background: var(--color-mint-dark);
+      background-color: var(--color-mint-dark);
       border-color: var(--color-mint-darkest);
     }
 
@@ -84,8 +86,9 @@
     pointer-events: none;
 
     .shape {
-      background: var(--color-neutral);
+      background-color: var(--color-neutral);
       border-color: transparent;
+      color: var(--color-neutral-dark);
     }
 
     .label {
