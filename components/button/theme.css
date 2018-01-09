@@ -195,13 +195,14 @@
   background: transparent;
   border: 0;
   composes: button-base;
-  color: var(--color-aqua-dark);
   font-family: var(--font-family-medium);
 
   &:not(.inverse) {
     text-decoration: none;
 
     &:not(.is-disabled) {
+      color: var(--color-aqua-dark);
+
       &:hover {
         text-decoration: underline;
       }
@@ -216,13 +217,18 @@
         text-decoration: none;
       }
     }
+
+    &.is-disabled {
+      color: var(--color-neutral);
+    }
   }
 
   &.is-inverse {
-    color: var(--color-teal-light);
     text-decoration: underline;
 
     &:not(.is-disabled) {
+      color: var(--color-teal-light);
+
       &:hover {
         text-decoration: none;
       }
@@ -236,6 +242,10 @@
         box-shadow: none;
       }
     }
+
+    &.is-disabled {
+      color: var(--color-teal);
+    }
   }
 
   &:not(.is-disabled) {
@@ -245,7 +255,6 @@
   }
 
   &.is-disabled {
-    color: var(--color-neutral);
     pointer-events: none;
   }
 
