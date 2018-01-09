@@ -5,7 +5,7 @@ import { action } from '@storybook/addon-actions';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean } from '@storybook/addon-knobs/react';
-import { Box, Badge, Heading1, Heading2, Heading3, Heading4, TextTiny, TextSmall, TextBody } from '../components';
+import { Box, Badge, Heading2, Heading3, Heading4, TextTiny, TextSmall, TextBody } from '../components';
 import { baseStyles, centerStyles } from '../.storybook/styles';
 import { IconBuildingSmallOutline } from '@teamleader/ui-icons';
 
@@ -23,15 +23,6 @@ storiesOf('Badge', module)
   ))
   .add('inline', () => (
     <Box>
-      <Heading1>
-        I'm a Heading 1 with a
-        <Badge
-          disabled={boolean('Disabled', false)}
-          inherit={boolean('Inherit', true)}
-          inverse={boolean('Inverse', false)}
-        >I'm a badge</Badge>
-        inside.
-      </Heading1>
       <Heading2 marginTop={4}>
         I'm a Heading 2 with a
         <Badge

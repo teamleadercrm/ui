@@ -8,7 +8,6 @@ import {
   Box,
   Button,
   ButtonGroup,
-  Heading1,
   Heading2,
   Heading3,
   Heading4,
@@ -20,7 +19,7 @@ import {
   Tooltip
 } from '../components';
 import { baseStyles, centerStyles } from '../.storybook/styles';
-import { IconHelpBadgedMediumOutline, IconBuildingSmallOutline, IconMeetingSmallOutline } from '@teamleader/ui-icons';
+import { IconHelpBadgedMediumOutline, IconMeetingSmallOutline } from '@teamleader/ui-icons';
 
 const buttonLevels = ['outline', 'secondary', 'primary', 'destructive'];
 const colors = ['white', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'inverse'];
@@ -100,17 +99,6 @@ storiesOf('Tooltip', module)
   ))
   .add('from Badge', () => (
     <Box>
-      <Heading1>
-        I'm a Heading 1 with a{' '}
-        <TooltippedBadge
-          icon={<IconBuildingSmallOutline />}
-          tooltip={textSmallTooltipContent}
-        >
-          hover me
-        </TooltippedBadge>{' '}
-        tooltip action
-      </Heading1>
-
       <Heading2 marginTop={4}>
         I'm a Heading 2 with a{' '}
         <TooltippedBadge
