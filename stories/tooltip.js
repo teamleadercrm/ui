@@ -20,7 +20,7 @@ import {
   Tooltip
 } from '../components';
 import { baseStyles, centerStyles } from '../.storybook/styles';
-import { IconHelpBadgedMediumOutline, IconBuildingMediumOutline, IconMeetingSmallOutline } from '@teamleader/ui-icons';
+import { IconHelpBadgedMediumOutline, IconBuildingSmallOutline, IconMeetingSmallOutline } from '@teamleader/ui-icons';
 
 const buttonLevels = ['outline', 'secondary', 'primary', 'destructive'];
 const colors = ['white', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'inverse'];
@@ -103,7 +103,7 @@ storiesOf('Tooltip', module)
       <Heading1>
         I'm a Heading 1 with a{' '}
         <TooltippedBadge
-          icon={<IconBuildingMediumOutline />}
+          icon={<IconBuildingSmallOutline />}
           tooltip={textSmallTooltipContent}
         >
           hover me
