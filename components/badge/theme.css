@@ -1,27 +1,94 @@
+@import '@teamleader/ui-animations';
 @import '@teamleader/ui-colors';
 @import '@teamleader/ui-utilities';
+@import '@teamleader/ui-typography';
 
 :root {
-  --badge-border-radius: calc(0.4 * var(--unit));
+  --badge-border-radius: calc(.4 * var(--unit));
+  --badge-border-width: 2px;
 }
 
 .badge {
+  border-radius: var(--badge-border-radius);
+  border: 0;
+  display: inline-flex;
+  align-items: center;
+  outline: none;
+  position: relative;
+  text-decoration: none;
+  transition: background-color var(--animation-duration) var(--animation-curve-fast-out-slow-in);
+
   svg {
     -ms-transform: translateY(-1px);
   }
-}
 
-.badge {
-  background: color(var(--color-teal-darkest) a(8%));
-  border-radius: var(--badge-border-radius);
-  color: var(--color-teal-darkest);
-
-  svg {
-    margin-right: var(--spacer-smallest)
+  .icon + .label,
+  .label + .icon {
+    margin-left: var(--spacer-smaller);
   }
 
-  &.inverse {
-    background: var(--color-teal-darkest);
+  .icon {
+    opacity: .84;
+  }
+
+  &:not(.is-inverse) {
+    background-color: color(var(--color-neutral-darkest) a(12%));
+    color: var(--color-teal-darkest);
+
+    &:not(.is-disabled) {
+      &:hover {
+        background-color: color(var(--color-neutral-darkest) a(24%));
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 var(--badge-border-width) color(var(--color-neutral-darkest) a(24%));
+      }
+    }
+  }
+
+  &.is-inverse {
+    background-color: color(var(--color-neutral-lightest) a(12%));
     color: var(--color-teal-lightest);
+
+    &:not(.is-disabled) {
+      &:hover {
+        background-color: color(var(--color-neutral-lightest) a(24%));
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 var(--badge-border-width) color(var(--color-neutral-lightest) a(24%));
+      }
+    }
+  }
+
+  &:not(.is-disabled) {
+    cursor: pointer;
+
+    &:active {
+      box-shadow: none !important;
+
+      &:before {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+        content: '';
+        height: 10px;
+        left: 0;
+        position: absolute;
+        opacity: .05;
+        top: 0;
+        width: 100%;
+      }
+    }
+  }
+
+  &.is-disabled {
+    opacity: .48;
+    pointer-events: none;
+  }
+
+  &.is-inherit {
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    margin: auto var(--spacer-smallest);
   }
 }
