@@ -140,7 +140,7 @@ storiesOf('Popover', module)
           onOverlayClick={handleCloseClick}
         >
           {contentBoxWithSingleTextLine}
-          <ButtonGroup alignItems="right" padding={4}>
+          <ButtonGroup justifyContent="flex-end" padding={4}>
             <Button label="Cancel" />
             <Button level="primary" label="Confirm" />
           </ButtonGroup>

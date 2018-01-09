@@ -4,30 +4,33 @@ import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
 
-class ButtonGroup extends PureComponent {
+class TabGroup extends PureComponent {
   static propTypes = {
-    children: PropTypes.node,
+    children: PropTypes.node.isRequired,
     className: PropTypes.string,
-    segmented: PropTypes.bool,
+    inverted: PropTypes.bool,
+  };
+
+  static defaultProps = {
+    inverted: false,
   };
 
   render() {
-    const { children, className, segmented, ...others } = this.props;
+    const { children, className, inverted, ...others } = this.props;
 
     const classNames = cx(
-      theme['group'],
       {
-        [theme['segmented']]: segmented,
+        [theme['inverted']]: inverted,
       },
       className,
     );
 
     return (
-      <Box data-teamleader-ui="button-group" className={classNames} {...others}>
+      <Box data-teamleader-ui="tab-group" className={classNames} {...others}>
         {children}
       </Box>
     );
   }
 }
 
-export default ButtonGroup;
+export default TabGroup;
