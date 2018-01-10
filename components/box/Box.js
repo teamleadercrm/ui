@@ -118,7 +118,7 @@ class Box extends PureComponent {
       className,
     );
 
-    const styles = {
+    const style = {
       ...(flex && { flex }),
       ...(flexBasis && { flexBasis }),
       ...(flexGrow && { flexGrow }),
@@ -134,7 +134,7 @@ class Box extends PureComponent {
           this.node = node;
         }}
         className={classNames}
-        styles={styles}
+        style={style}
         {...others}
       >
         {children}
