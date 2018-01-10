@@ -89,6 +89,12 @@ class DataGrid extends PureComponent {
             });
           }
 
+          if (isComponentOfType(FooterRow, child)) {
+            return React.cloneElement(child, {
+              preserveSelectableSpace: selectable,
+            });
+          }
+
           return child;
         })}
       </Box>

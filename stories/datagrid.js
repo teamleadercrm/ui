@@ -64,7 +64,6 @@ storiesOf('DataGrids', module)
           }
           <DataGrid.FooterRow backgroundColor="neutral">
             <DataGrid.Cell flex="min-width"/>
-            <DataGrid.Cell flex="min-width"/>
             <DataGrid.Cell align="right" border="right" soft>
               <Heading4>Total Excl Btw</Heading4>
             </DataGrid.Cell>
@@ -78,7 +77,6 @@ storiesOf('DataGrids', module)
 
           <DataGrid.FooterRow backgroundColor="neutral">
             <DataGrid.Cell flex="min-width"/>
-            <DataGrid.Cell flex="min-width"/>
             <DataGrid.Cell align="right" border="right" soft>
               <Heading4>+ VAT</Heading4>
             </DataGrid.Cell>
@@ -89,8 +87,8 @@ storiesOf('DataGrids', module)
             <DataGrid.Cell/>
             <DataGrid.Cell flex="min-width"/>
           </DataGrid.FooterRow>
+
           <DataGrid.FooterRow backgroundColor="neutral">
-            <DataGrid.Cell flex="min-width"/>
             <DataGrid.Cell flex="min-width"/>
             <DataGrid.Cell align="right" border="right" soft>
               <Heading4>Total Incl Btw</Heading4>
