@@ -2,52 +2,78 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
+import { withKnobs, boolean } from '@storybook/addon-knobs/react';
 import styles from '@sambego/storybook-styles';
 import { IconChevronLeftMediumOutline, IconChevronRightMediumOutline } from '@teamleader/ui-icons';
-import { ButtonGroup, LinkButton, Island, Box } from '../components';
+import { ButtonGroup, LinkButton, Box } from '../components';
 import { baseStyles, centerStyles } from '../.storybook/styles';
 
 storiesOf('LinkButtons', module)
   .addDecorator((story, context) => withInfo('')(story)(context))
   .addDecorator(checkA11y)
+  .addDecorator(withKnobs)
   .addDecorator(styles({ ...baseStyles, ...centerStyles }))
   .add('with text', () => (
-    <Box>
-      <LinkButton label="link text"/>
-    </Box>
+    <LinkButton
+      disabled={boolean('Disabled', false)}
+      inverse={boolean('Inverse', false)}
+      label="link text"
+    />
   ))
   .add('with icon', () => (
-    <Island>
+    <Box>
       <ButtonGroup>
-        <LinkButton icon={<IconChevronLeftMediumOutline />}/>
-        <LinkButton icon={<IconChevronRightMediumOutline />}/>
+        <LinkButton
+          disabled={boolean('Disabled', false)}
+          icon={<IconChevronLeftMediumOutline />}
+          inverse={boolean('Inverse', false)}
+        />
+        <LinkButton
+          disabled={boolean('Disabled', false)}
+          icon={<IconChevronRightMediumOutline />}
+          inverse={boolean('Inverse', false)}
+        />
       </ButtonGroup>
-    </Island>
+    </Box>
   ))
   .add('with text and icon', () => (
-    <Island>
-      <ButtonGroup>
-        <LinkButton icon={<IconChevronLeftMediumOutline />} label="Previous"/>
-        <LinkButton icon={<IconChevronRightMediumOutline />} iconPlacement="right" label="Next"/>
-      </ButtonGroup>
-    </Island>
-  ))
-  .add('disabled', () => (
     <Box>
-      <LinkButton label="link text" disabled />
+      <ButtonGroup>
+        <LinkButton
+          disabled={boolean('Disabled', false)}
+          icon={<IconChevronLeftMediumOutline />}
+          inverse={boolean('Inverse', false)}
+          label="Previous"
+        />
+        <LinkButton
+          disabled={boolean('Disabled', false)}
+          icon={<IconChevronRightMediumOutline />}
+          iconPlacement="right"
+          inverse={boolean('Inverse', false)}
+          label="Next"
+        />
+      </ButtonGroup>
     </Box>
   ))
   .add('size', () => (
-    <Island>
+    <Box>
       <ButtonGroup>
-        <LinkButton size="small">13</LinkButton>
-        <LinkButton>14</LinkButton>
-        <LinkButton size="large">15</LinkButton>
+        <LinkButton
+          disabled={boolean('Disabled', false)}
+          inverse={boolean('Inverse', false)}
+          label="13"
+          size="small"
+        />
+        <LinkButton
+          disabled={boolean('Disabled', false)}
+          inverse={boolean('Inverse', false)}
+          label="14"
+        />
+        <LinkButton
+          disabled={boolean('Disabled', false)}
+          inverse={boolean('Inverse', false)}
+          label="15"
+          size="large"/>
       </ButtonGroup>
-    </Island>
-  ))
-  .add('inverse', () => (
-    <Island style={{backgroundColor: '#2a3b4d'}}>
-      <LinkButton label="link text" inverse />
-    </Island>
+    </Box>
   ));
