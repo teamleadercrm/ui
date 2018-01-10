@@ -15,9 +15,7 @@ class FooterRow extends PureComponent {
 
     return (
       <Row className={className} data-teamleader-ui="datagrid-footer-row" {...others}>
-        {preserveSelectableSpace && (
-          <Cell flex="min-width"/>
-        )}
+        {preserveSelectableSpace && <Cell flex="min-width" />}
         {children}
       </Row>
     );
