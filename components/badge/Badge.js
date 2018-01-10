@@ -28,14 +28,14 @@ class Badge extends PureComponent {
   };
 
   handleMouseUp = event => {
-    this.badgeNode.node.blur();
+    this.badgeNode.getNode().blur();
     if (this.props.onMouseUp) {
       this.props.onMouseUp(event);
     }
   };
 
   handleMouseLeave = event => {
-    this.badgeNode.node.blur();
+    this.badgeNode.getNode().blur();
     if (this.props.onMouseLeave) {
       this.props.onMouseLeave(event);
     }
