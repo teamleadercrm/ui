@@ -3,6 +3,7 @@ import { action } from '@storybook/addon-actions';
 import { Store, State } from '@sambego/storybook-state';
 import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
+import { withKnobs, boolean } from "@storybook/addon-knobs/react";
 import { withInfo } from '@storybook/addon-info';
 import { Box, Button, DataGrid, Heading4, IconMenu, MenuItem, Link, Section, StatusBullet, TextTiny, Tooltip } from '../components';
 import rows from '../static/data/datagrid';
@@ -21,13 +22,14 @@ const handleButtonClick = () => {
 storiesOf('DataGrids', module)
   .addDecorator((story, context) => withInfo('common info')(story)(context))
   .addDecorator(checkA11y)
+  .addDecorator(withKnobs)
   .add('Basic', () => (
     <Box>
       <Section color="neutral">
         <Button onClick={handleButtonClick} label="Refresh data" level="primary" />
       </Section>
       <State store={store}>
-        <DataGrid selectable comparableId={1}>
+        <DataGrid selectable={boolean('Selectable', false)} comparableId={1}>
           <DataGrid.HeaderRow>
             <DataGrid.HeaderCell flex="min-width" />
             <DataGrid.HeaderCell border="right" onClick={action('onClick: column sort')} sorted="asc">Invoice</DataGrid.HeaderCell>
