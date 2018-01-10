@@ -19,6 +19,7 @@ class TabGroup extends PureComponent {
     const { children, className, inverted, ...others } = this.props;
 
     const classNames = cx(
+      theme['tab-group'],
       {
         [theme['inverted']]: inverted,
       },

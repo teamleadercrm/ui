@@ -1,5 +1,16 @@
 @import '@teamleader/ui-colors';
 @import '@teamleader/ui-animations';
+@import '@teamleader/ui-utilities';
+
+.tab-group {
+  & > * {
+    margin-left: var(--spacer-small);
+  }
+
+  & > *:last-child {
+    margin-right: var(--spacer-small);
+  }
+}
 
 .title-tab,
 .icon-tab {
