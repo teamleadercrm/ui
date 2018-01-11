@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import Cell from './Cell';
 import Checkbox from '../checkbox';
 import Row from './Row';
+import cx from 'classnames';
+import theme from './theme.css';
 
 class BodyRow extends PureComponent {
   static propTypes = {
@@ -11,19 +13,24 @@ class BodyRow extends PureComponent {
     onSelectionChange: PropTypes.func,
     selectable: PropTypes.bool,
     selected: PropTypes.bool,
+    sliceFrom: PropTypes.number,
+    sliceTo: PropTypes.number,
   };
 
   render() {
-    const { className, children, onSelectionChange, selected, selectable, ...others } = this.props;
+    const { className, children, sliceFrom, sliceTo, onSelectionChange, selected, selectable, ...others } = this.props;
+
+    const childrenSliced = children.slice(sliceFrom, sliceTo);
+    const classNames = cx(theme['body-row'], className);
 
     return (
-      <Row className={className} data-teamleader-ui="datagrid-body-row" {...others}>
+      <Row className={classNames} data-teamleader-ui="datagrid-body-row" {...others}>
         {selectable && (
           <Cell flex="min-width">
             <Checkbox checked={selected} onChange={onSelectionChange} size="large" />
           </Cell>
         )}
-        {children}
+        {childrenSliced}
       </Row>
     );
   }
