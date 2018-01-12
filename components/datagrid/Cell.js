@@ -11,7 +11,7 @@ class Cell extends PureComponent {
     bordered: PropTypes.bool,
     children: PropTypes.any,
     className: PropTypes.string,
-    flex: PropTypes.oneOf(['fit-content', 'min-width', '1', '2', '3', '4']),
+    flex: PropTypes.oneOf(['min-width', '1', '2', '3', '4']),
     soft: PropTypes.bool,
     strong: PropTypes.bool,
   };

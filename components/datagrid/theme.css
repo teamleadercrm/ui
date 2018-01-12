@@ -156,10 +156,6 @@
 }
 
 /* Cell widths */
-.flex-fit-content {
-  flex: 0 0 auto;
-}
-
 .flex-min-width {
   flex: 0 0 30px;
   min-width: 30px;
