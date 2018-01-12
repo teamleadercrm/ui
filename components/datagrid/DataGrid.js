@@ -72,13 +72,10 @@ class DataGrid extends PureComponent {
     const classNames = cx(theme['data-grid'], className);
     const rest = omit(others, ['comparableId']);
 
-    const sectionLeftClassNames = cx(
-      theme['section'],
-      {
-        [theme['has-blend-right']]: selectable || stickyFromLeft > 0,
-        [theme['has-border-right']]: selectable || stickyFromLeft > 0,
-      }
-    );
+    const sectionLeftClassNames = cx(theme['section'], {
+      [theme['has-blend-right']]: selectable || stickyFromLeft > 0,
+      [theme['has-border-right']]: selectable || stickyFromLeft > 0,
+    });
 
     return (
       <Box data-teamleader-ui="data-grid" className={classNames} {...rest}>
