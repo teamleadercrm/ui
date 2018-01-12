@@ -2,16 +2,26 @@
 @import '@teamleader/ui-utilities';
 @import '@teamleader/ui-typography';
 
+:root {
+  --datagrid-blend-width: 18px;
+}
+
 .data-grid {
   display: inline-flex;
-  flex-direction: column;
+  flex-direction: row;
   min-width: 100%;
-  overflow: auto;
+  max-width: 100%;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
 }
 
 .row {
   border-bottom: 1px solid var(--color-neutral);
   display: flex;
+  min-width: fit-content;
 }
 
 .cell {
@@ -23,6 +33,7 @@
   font-family: var(--font-family-regular);
   min-height: 36px;
   padding: var(--spacer-smaller) var(--spacer-small);
+  white-space: nowrap;
 }
 
 .header-cell {
@@ -30,6 +41,11 @@
   font-family: var(--font-family-bold);
   font-size: 12px;
   text-transform: uppercase;
+}
+
+.is-scrollable {
+  flex: 1;
+  overflow-x: auto;
 }
 
 .is-sortable {
@@ -60,8 +76,61 @@
   background-color: var(--color-white);
 }
 
+/* Cell blending */
+.has-blend-left,
+.has-blend-right {
+  .cell {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: var(--datagrid-blend-width);
+    }
+  }
+}
+
+.has-blend-left {
+  .cell::before {
+    right: 100%;
+  }
+
+  &.has-border-left .cell::before {
+    right: calc(100% + 1px);
+  }
+
+  .has-background-white .cell::before {
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+  }
+
+  .has-background-neutral .cell::before {
+    background: linear-gradient(to right, rgba(247, 247, 250, 0) 0%, rgba(247, 247, 250, 1) 100%);
+  }
+}
+
+.has-blend-right {
+  .cell::before {
+    left: 100%;
+  }
+
+  &.has-border-right .cell::before {
+    left: calc(100% + 1px);
+  }
+
+  .has-background-white .cell::before {
+    background: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+  }
+
+  .has-background-neutral .cell::before {
+    background: linear-gradient(to left, rgba(247, 247, 250, 0) 0%, rgba(247, 247, 250, 1) 100%);
+  }
+}
+
 /* Cell borders */
 .has-border-none {
+  border: 0;
   box-shadow: none;
 }
 
@@ -70,11 +139,11 @@
 }
 
 .has-border-left {
-  box-shadow: inset 1px 0 0 0 var(--color-neutral-dark);
+  border-left: 1px solid var(--color-neutral-dark);
 }
 
 .has-border-right {
-  box-shadow: inset -1px 0 0 0 var(--color-neutral-dark);
+  border-right: 1px solid var(--color-neutral-dark);
 }
 
 /* Cell text */

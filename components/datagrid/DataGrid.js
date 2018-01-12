@@ -17,6 +17,8 @@ class DataGrid extends PureComponent {
     className: PropTypes.string,
     comparableId: PropTypes.any,
     selectable: PropTypes.bool,
+    stickyFromLeft: PropTypes.number,
+    stickyFromRight: PropTypes.number,
   };
 
   constructor() {
@@ -64,39 +66,71 @@ class DataGrid extends PureComponent {
   }
 
   render() {
-    const { children, className, selectable, ...others } = this.props;
+    const { children, className, selectable, stickyFromLeft, stickyFromRight, ...others } = this.props;
     const { selectedRows } = this.state;
 
     const classNames = cx(theme['data-grid'], className);
     const rest = omit(others, ['comparableId']);
 
+    const sectionLeftClassNames = cx(
+      theme['section'],
+      {
+        [theme['has-blend-right']]: selectable || stickyFromLeft > 0,
+        [theme['has-border-right']]: selectable || stickyFromLeft > 0,
+      }
+    );
+
     return (
       <Box data-teamleader-ui="data-grid" className={classNames} {...rest}>
-        {React.Children.map(children, child => {
-          if (isComponentOfType(HeaderRow, child)) {
-            return React.cloneElement(child, {
-              onSelectionChange: event => this.handleHeaderRowSelectionChange(event),
-              selected: selectedRows.length === children[1].length,
-              selectable,
-            });
-          }
+        {(selectable || stickyFromLeft > 0) && (
+          <div className={sectionLeftClassNames}>
+            {React.Children.map(children, child => {
+              if (isComponentOfType(HeaderRow, child)) {
+                return React.cloneElement(child, {
+                  onSelectionChange: event => this.handleHeaderRowSelectionChange(event),
+                  selected: selectedRows.length === children[1].length,
+                  selectable,
+                  sliceTo: stickyFromLeft,
+                });
+              }
 
-          if (isComponentOfType(BodyRow, child)) {
-            return React.cloneElement(child, {
-              onSelectionChange: event => this.handleRowSelectionChange(child.key),
-              selected: selectedRows.indexOf(child.key) !== -1,
-              selectable,
-            });
-          }
+              if (isComponentOfType(BodyRow, child)) {
+                return React.cloneElement(child, {
+                  onSelectionChange: event => this.handleRowSelectionChange(child.key),
+                  selected: selectedRows.indexOf(child.key) !== -1,
+                  selectable,
+                  sliceTo: stickyFromLeft,
+                });
+              }
 
-          if (isComponentOfType(FooterRow, child)) {
-            return React.cloneElement(child, {
-              preserveSelectableSpace: selectable,
-            });
-          }
+              if (isComponentOfType(FooterRow, child)) {
+                return React.cloneElement(child, {
+                  preserveSelectableSpace: selectable,
+                  sliceTo: stickyFromLeft,
+                });
+              }
+            })}
+          </div>
+        )}
 
-          return child;
-        })}
+        <div className={cx(theme['section'], theme['is-scrollable'])}>
+          {React.Children.map(children, child => {
+            return React.cloneElement(child, {
+              sliceFrom: stickyFromLeft,
+              sliceTo: stickyFromRight > 0 ? -stickyFromRight : undefined,
+            });
+          })}
+        </div>
+
+        {stickyFromRight > 0 && (
+          <div className={cx(theme['section'], theme['has-blend-left'])}>
+            {React.Children.map(children, child => {
+              return React.cloneElement(child, {
+                sliceFrom: -stickyFromRight,
+              });
+            })}
+          </div>
+        )}
       </Box>
     );
   }
