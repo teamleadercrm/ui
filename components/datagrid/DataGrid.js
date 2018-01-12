@@ -19,12 +19,13 @@ class DataGrid extends PureComponent {
     selectable: PropTypes.bool,
     stickyFromLeft: PropTypes.number,
     stickyFromRight: PropTypes.number,
+    onSelectionChange: PropTypes.func,
   };
 
   constructor() {
     super(...arguments);
 
-    this.handleRowSelectionChange = ::this.handleRowSelectionChange;
+    this.handleBodyRowSelectionChange = ::this.handleBodyRowSelectionChange;
     this.handleHeaderRowSelectionChange = ::this.handleHeaderRowSelectionChange;
 
     this.state = {
@@ -47,16 +48,22 @@ class DataGrid extends PureComponent {
       }
     });
 
+    const selectedBodyRowIndexes = value ? allBodyRowIndexes : [];
+
     this.setState({
-      selectedRows: value ? allBodyRowIndexes : [],
+      selectedRows: selectedBodyRowIndexes,
     });
+
+    this.props.onSelectionChange(selectedBodyRowIndexes);
   }
 
-  handleRowSelectionChange(rowIndex) {
+  handleBodyRowSelectionChange(rowIndex) {
     this.setState(prevState => {
       const selectedRows = prevState.selectedRows.includes(rowIndex)
         ? prevState.selectedRows.filter(row => row !== rowIndex)
         : [...prevState.selectedRows, rowIndex];
+
+      this.props.onSelectionChange(selectedRows);
 
       return {
         ...prevState,
@@ -70,7 +77,7 @@ class DataGrid extends PureComponent {
     const { selectedRows } = this.state;
 
     const classNames = cx(theme['data-grid'], className);
-    const rest = omit(others, ['comparableId']);
+    const rest = omit(others, ['comparableId', 'onSelectionChange']);
 
     const sectionLeftClassNames = cx(theme['section'], {
       [theme['has-blend-right']]: selectable || stickyFromLeft > 0,
@@ -93,7 +100,7 @@ class DataGrid extends PureComponent {
 
               if (isComponentOfType(BodyRow, child)) {
                 return React.cloneElement(child, {
-                  onSelectionChange: event => this.handleRowSelectionChange(child.key),
+                  onSelectionChange: event => this.handleBodyRowSelectionChange(child.key),
                   selected: selectedRows.indexOf(child.key) !== -1,
                   selectable,
                   sliceTo: stickyFromLeft,

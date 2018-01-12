@@ -19,6 +19,10 @@ const handleButtonClick = () => {
   action('onClick - refresh data - set comparableId to other value')();
 };
 
+const handleRowSelectionChange = (selectedRows) => {
+  action(`onSelectionChange - selected row indexes: ${selectedRows}`)();
+};
+
 storiesOf('DataGrids', module)
   .addDecorator((story, context) => withInfo('common info')(story)(context))
   .addDecorator(checkA11y)
@@ -34,6 +38,7 @@ storiesOf('DataGrids', module)
           stickyFromLeft={number('Sticky from left', 3)}
           stickyFromRight={number('Sticky from right', 1)}
           comparableId={1}
+          onSelectionChange={handleRowSelectionChange}
         >
           <DataGrid.HeaderRow>
             <DataGrid.HeaderCell flex="min-width" />
