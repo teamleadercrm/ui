@@ -1,8 +1,8 @@
 const rows = [
   {
     column1: "ruby",
-    column2: "Epic Agency",
-    column3: 412.00,
+    column2: "Lorem ipsum dolor sit amet lorem ipsum dolor sit amet",
+    column3: 412000000000.00,
     column4: "30 Jul 2017",
     column5: "2017 / 350",
   },
