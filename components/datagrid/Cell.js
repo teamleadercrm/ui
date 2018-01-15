@@ -6,7 +6,7 @@ import theme from './theme.css';
 class Cell extends PureComponent {
   static propTypes = {
     align: PropTypes.oneOf(['left', 'center', 'right']),
-    backgroundColor: PropTypes.oneOf(['transparent', 'white', 'neutral']),
+    backgroundColor: PropTypes.oneOf(['white', 'neutral']),
     border: PropTypes.oneOf(['none', 'around', 'left', 'right']),
     bordered: PropTypes.bool,
     children: PropTypes.any,
