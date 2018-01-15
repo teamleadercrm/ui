@@ -79,7 +79,7 @@ class DataGrid extends PureComponent {
     const classNames = cx(theme['data-grid'], className);
     const rest = omit(others, ['comparableId', 'onSelectionChange']);
 
-    const sectionLeftClassNames = cx(theme['section'], {
+    const sectionLeftClassNames = cx(theme['section'], theme['is-sticky-left'], {
       [theme['has-blend-right']]: selectable || stickyFromLeft > 0,
       [theme['has-border-right']]: selectable || stickyFromLeft > 0,
     });
