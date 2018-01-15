@@ -18,7 +18,6 @@ class Cell extends PureComponent {
 
   static defaultProps = {
     align: 'left',
-    backgroundColor: 'transparent',
     border: 'none',
     flex: '1',
     soft: false,
