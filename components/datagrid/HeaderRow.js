@@ -20,7 +20,8 @@ class HeaderRow extends PureComponent {
   render() {
     const { className, children, sliceFrom, sliceTo, onSelectionChange, selected, selectable, ...others } = this.props;
 
-    const childrenSliced = children.slice(sliceFrom, sliceTo);
+    const childrenArray = Array.isArray(children) ? children : [children];
+    const childrenSliced = childrenArray.slice(sliceFrom, sliceTo);
     const classNames = cx(theme['header-row'], className);
 
     return (
