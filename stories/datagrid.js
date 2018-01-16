@@ -65,7 +65,7 @@ storiesOf('DataGrids', module)
                   <DataGrid.Cell align="right" strong> {`€ ${row.column3}`}</DataGrid.Cell>
                   <DataGrid.Cell flex="2">{row.column2}</DataGrid.Cell>
                   <DataGrid.Cell soft>{row.column4}</DataGrid.Cell>
-                  <DataGrid.Cell align="right" flex="min-width">
+                  <DataGrid.Cell align="right" flex="min-width" preventOverflow={false}>
                     <IconMenu position="top-right">
                       <MenuItem onClick={action('onClick: delete row')}>Remove row</MenuItem>
                     </IconMenu>

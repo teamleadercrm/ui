@@ -12,6 +12,7 @@ class Cell extends PureComponent {
     children: PropTypes.any,
     className: PropTypes.string,
     flex: PropTypes.oneOf(['min-width', '1', '2', '3', '4']),
+    preventOverflow: PropTypes.bool,
     soft: PropTypes.bool,
     strong: PropTypes.bool,
   };
@@ -20,12 +21,24 @@ class Cell extends PureComponent {
     align: 'left',
     border: 'none',
     flex: '1',
+    preventOverflow: true,
     soft: false,
     strong: false,
   };
 
   render() {
-    const { align, backgroundColor, border, children, className, flex, soft, strong, ...others } = this.props;
+    const {
+      align,
+      backgroundColor,
+      border,
+      children,
+      className,
+      flex,
+      preventOverflow,
+      soft,
+      strong,
+      ...others
+    } = this.props;
 
     const classNames = cx(
       theme['cell'],
@@ -42,7 +55,7 @@ class Cell extends PureComponent {
 
     return (
       <div className={classNames} data-teamleader-ui="datagrid-cell" {...others}>
-        <div className={theme['has-overflow-prevention']}>{children}</div>
+        {preventOverflow ? <div className={theme['has-overflow-prevention']}>{children}</div> : children}
       </div>
     );
   }
