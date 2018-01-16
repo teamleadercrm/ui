@@ -94,7 +94,7 @@ class DataGrid extends PureComponent {
                   onSelectionChange: event => this.handleHeaderRowSelectionChange(event),
                   selected: selectedRows.length === children[1].length,
                   selectable,
-                  sliceTo: stickyFromLeft,
+                  sliceTo: stickyFromLeft > 0 ? stickyFromLeft : 0,
                 });
               }
 
@@ -103,14 +103,14 @@ class DataGrid extends PureComponent {
                   onSelectionChange: event => this.handleBodyRowSelectionChange(child.key),
                   selected: selectedRows.indexOf(child.key) !== -1,
                   selectable,
-                  sliceTo: stickyFromLeft,
+                  sliceTo: stickyFromLeft > 0 ? stickyFromLeft : 0,
                 });
               }
 
               if (isComponentOfType(FooterRow, child)) {
                 return React.cloneElement(child, {
                   preserveSelectableSpace: selectable,
-                  sliceTo: stickyFromLeft,
+                  sliceTo: stickyFromLeft > 0 ? stickyFromLeft : 0,
                 });
               }
             })}
@@ -120,7 +120,7 @@ class DataGrid extends PureComponent {
         <div className={cx(theme['section'], theme['is-scrollable'])}>
           {React.Children.map(children, child => {
             return React.cloneElement(child, {
-              sliceFrom: stickyFromLeft,
+              sliceFrom: stickyFromLeft > 0 ? stickyFromLeft : 0,
               sliceTo: stickyFromRight > 0 ? -stickyFromRight : undefined,
             });
           })}
