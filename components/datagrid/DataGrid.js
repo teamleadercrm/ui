@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import Box from '../box';
 import Cell from './Cell';
@@ -28,6 +29,8 @@ class DataGrid extends PureComponent {
     this.handleBodyRowSelectionChange = ::this.handleBodyRowSelectionChange;
     this.handleHeaderRowSelectionChange = ::this.handleHeaderRowSelectionChange;
 
+    this.rowNodes = new Map();
+
     this.state = {
       selectedRows: [],
     };
@@ -39,6 +42,10 @@ class DataGrid extends PureComponent {
         selectedRows: [],
       });
     }
+  }
+
+  componentDidUpdate() {
+    this.setCalculatedRowWidth();
   }
 
   handleHeaderRowSelectionChange(value) {
@@ -72,6 +79,25 @@ class DataGrid extends PureComponent {
     });
   }
 
+  setCalculatedRowWidth() {
+    const rowDOMNodes = [];
+    let maxRowWidth = 0;
+
+    Array.from(this.rowNodes.values())
+      .filter(rowNode => rowNode != null)
+      .forEach(rowNode => {
+        const rowDOMNode = ReactDOM.findDOMNode(rowNode);
+        const totalRowChildrenWidth = Array.from(rowDOMNode.children)
+          .map(child => child.offsetWidth)
+          .reduce((accumulatedChildWidth, currentChildWidth) => accumulatedChildWidth + currentChildWidth);
+
+        maxRowWidth = maxRowWidth < totalRowChildrenWidth ? totalRowChildrenWidth : maxRowWidth;
+        rowDOMNodes.push(rowDOMNode);
+      });
+
+    rowDOMNodes.forEach(rowDOMNode => (rowDOMNode.style.minWidth = `${maxRowWidth}px`));
+  }
+
   render() {
     const { children, className, selectable, stickyFromLeft, stickyFromRight, ...others } = this.props;
     const { selectedRows } = this.state;
@@ -100,7 +126,7 @@ class DataGrid extends PureComponent {
 
               if (isComponentOfType(BodyRow, child)) {
                 return React.cloneElement(child, {
-                  onSelectionChange: event => this.handleBodyRowSelectionChange(child.key),
+                  onSelectionChange: () => this.handleBodyRowSelectionChange(child.key),
                   selected: selectedRows.indexOf(child.key) !== -1,
                   selectable,
                   sliceTo: stickyFromLeft > 0 ? stickyFromLeft : 0,
@@ -118,10 +144,11 @@ class DataGrid extends PureComponent {
         )}
 
         <div className={cx(theme['section'], theme['is-scrollable'])}>
-          {React.Children.map(children, child => {
+          {React.Children.map(children, (child, key) => {
             return React.cloneElement(child, {
               sliceFrom: stickyFromLeft > 0 ? stickyFromLeft : 0,
               sliceTo: stickyFromRight > 0 ? -stickyFromRight : undefined,
+              ref: rowNode => this.rowNodes.set(key, rowNode),
             });
           })}
         </div>
