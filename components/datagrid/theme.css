@@ -3,7 +3,7 @@
 @import '@teamleader/ui-typography';
 
 :root {
-  --datagrid-blend-width: 18px;
+  --datagrid-blend-width: 12px;
 }
 
 .data-grid {
