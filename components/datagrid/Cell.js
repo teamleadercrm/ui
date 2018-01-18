@@ -7,7 +7,7 @@ class Cell extends PureComponent {
   static propTypes = {
     align: PropTypes.oneOf(['left', 'center', 'right']),
     backgroundColor: PropTypes.oneOf(['white', 'neutral']),
-    border: PropTypes.oneOf(['none', 'around', 'left', 'right']),
+    border: PropTypes.oneOf(['around', 'left', 'right']),
     bordered: PropTypes.bool,
     children: PropTypes.any,
     className: PropTypes.string,
@@ -19,7 +19,6 @@ class Cell extends PureComponent {
 
   static defaultProps = {
     align: 'left',
-    border: 'none',
     flex: '1',
     preventOverflow: true,
     soft: false,
