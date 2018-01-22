@@ -5,7 +5,7 @@ import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean } from '@storybook/addon-knobs/react';
 import styles from '@sambego/storybook-styles';
 import { Store, State } from '@sambego/storybook-state';
-import { Island, Link, QTip, TextSmall } from '../components';
+import { Island, Link, QTip, TextBody } from '../components';
 import { baseStyles, centerStyles } from '../.storybook/styles';
 import { IconIdeaMediumOutline } from '@teamleader/ui-icons';
 
@@ -26,9 +26,9 @@ storiesOf('Q-tip', module)
     <Island paddingHorizontal={0} paddingVertical={6} style={{ width: '500px' }}>
       <State store={store}>
         <QTip highlighted={boolean('Highlighted', false)} onChange={updateState} icon={<IconIdeaMediumOutline />}>
-          <TextSmall color="teal">
+          <TextBody color="teal">
             Lorem ipsum dolor sit amet, consectetur <Link href="#" inherit={false}>adipiscing</Link> elit.
-          </TextSmall>
+          </TextBody>
         </QTip>
       </State>
     </Island>
