@@ -19,7 +19,6 @@ const itemStyles = {
 };
 
 storiesOf('Icons', module)
-  .addDecorator((story, context) => withInfo('common info')(story)(context))
   .addDecorator(checkA11y)
   .addDecorator(styles({ ...baseStyles }))
   .add('all sizes', () => (
