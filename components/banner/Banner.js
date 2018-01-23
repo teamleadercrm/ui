@@ -31,12 +31,7 @@ class Banner extends PureComponent {
 
   getCloseButtonColor() {
     const { color } = this.props;
-
-    if (color === 'white') {
-      return 'neutral';
-    }
-
-    return color;
+    return color === 'white' ? 'neutral' : color;
   }
 
   render() {
