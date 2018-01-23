@@ -18,6 +18,7 @@ storiesOf('Buttons', module)
       <Button
         label="Button"
         disabled={boolean('Disabled', false)}
+        fullWidth={boolean('Full width', false)}
         processing={boolean('Processing', false)}
       />
     </ButtonGroup>
@@ -28,18 +29,21 @@ storiesOf('Buttons', module)
         icon={<IconAddSmallOutline />}
         size="small"
         disabled={boolean('Disabled', false)}
+        fullWidth={boolean('Full width', false)}
         processing={boolean('Processing', false)}
       />
       <Button
         icon={<IconAddMediumOutline />}
         size="medium"
         disabled={boolean('Disabled', false)}
+        fullWidth={boolean('Full width', false)}
         processing={boolean('Processing', false)}
       />
       <Button
         icon={<IconMagicMediumOutline />}
         size="large"
         disabled={boolean('Disabled', false)}
+        fullWidth={boolean('Full width', false)}
         processing={boolean('Processing', false)}
       />
     </ButtonGroup>
@@ -50,6 +54,7 @@ storiesOf('Buttons', module)
         icon={<IconAddMediumOutline />}
         label="Button"
         disabled={boolean('Disabled', false)}
+        fullWidth={boolean('Full width', false)}
         processing={boolean('Processing', false)}
       />
       <Button
@@ -57,6 +62,7 @@ storiesOf('Buttons', module)
         iconPlacement="right"
         label="Button"
         disabled={boolean('Disabled', false)}
+        fullWidth={boolean('Full width', false)}
         processing={boolean('Processing', false)}
       />
     </ButtonGroup>
@@ -67,18 +73,21 @@ storiesOf('Buttons', module)
         size="small"
         label="Button small"
         disabled={boolean('Disabled', false)}
+        fullWidth={boolean('Full width', false)}
         processing={boolean('Processing', false)}
       />
       <Button
         size="medium"
         label="Button medium"
         disabled={boolean('Disabled', false)}
+        fullWidth={boolean('Full width', false)}
         processing={boolean('Processing', false)}
       />
       <Button
         size="large"
         label="Button large"
         disabled={boolean('Disabled', false)}
+        fullWidth={boolean('Full width', false)}
         processing={boolean('Processing', false)}
       />
     </ButtonGroup>
@@ -89,18 +98,21 @@ storiesOf('Buttons', module)
         level="primary"
         label="Primary button"
         disabled={boolean('Disabled', false)}
+        fullWidth={boolean('Full width', false)}
         processing={boolean('Processing', false)}
       />
       <Button
         level="secondary"
         label="Secondary button"
         disabled={boolean('Disabled', false)}
+        fullWidth={boolean('Full width', false)}
         processing={boolean('Processing', false)}
       />
       <Button
         level="outline"
         label="Outline button"
         disabled={boolean('Disabled', false)}
+        fullWidth={boolean('Full width', false)}
         processing={boolean('Processing', false)}
         inverse={boolean('Inverse', false)}
       />
@@ -108,6 +120,7 @@ storiesOf('Buttons', module)
         level="destructive"
         label="Destructive button"
         disabled={boolean('Disabled', false)}
+        fullWidth={boolean('Full width', false)}
         processing={boolean('Processing', false)}
       />
     </ButtonGroup>
