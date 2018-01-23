@@ -121,7 +121,7 @@ class Box extends PureComponent {
     );
 
     const style = {
-      ...(boxSizing && {boxSizing}),
+      ...(boxSizing && { boxSizing }),
       ...(flex && { flex }),
       ...(flexBasis && { flexBasis }),
       ...(flexGrow && { flexGrow }),
