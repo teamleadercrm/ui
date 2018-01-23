@@ -1,11 +1,13 @@
-### Added
-- stuff you added
+### Description
+[add description here]
 
-### Changed
-- stuff you changed
+#### Screenshot before this PR
+[add screenshot here]
 
-### Fixed
-- stuff you fixed
+#### Screenshot after this PR
+[add screenshot here]
 
-### Removed
-- stuff you removed
+### Breaking changes
+* breaking change 1
+* breaking change 2
+* ...
