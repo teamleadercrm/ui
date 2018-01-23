@@ -122,18 +122,14 @@ class DataGrid extends PureComponent {
                   selectable,
                   sliceTo: stickyFromLeft > 0 ? stickyFromLeft : 0,
                 });
-              }
-
-              else if (isComponentOfType(BodyRow, child)) {
+              } else if (isComponentOfType(BodyRow, child)) {
                 return React.cloneElement(child, {
                   onSelectionChange: () => this.handleBodyRowSelectionChange(child.key),
                   selected: selectedRows.indexOf(child.key) !== -1,
                   selectable,
                   sliceTo: stickyFromLeft > 0 ? stickyFromLeft : 0,
                 });
-              }
-
-              else if (isComponentOfType(FooterRow, child)) {
+              } else if (isComponentOfType(FooterRow, child)) {
                 return React.cloneElement(child, {
                   preserveSelectableSpace: selectable,
                   sliceTo: stickyFromLeft > 0 ? stickyFromLeft : 0,
