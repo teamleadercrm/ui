@@ -3,5 +3,8 @@ export const getViewport = () => ({
   width: window.innerWidth || document.documentElement.offsetWidth,
 });
 
-export const isElementOverflowing = element =>
-  element.clientWidth < element.scrollWidth || element.clientHeight < element.scrollHeight;
+export const isElementOverflowingX = element =>
+  element.clientWidth < element.scrollWidth;
+
+export const isElementOverflowingY = element =>
+  element.clientHeight < element.scrollHeight;
