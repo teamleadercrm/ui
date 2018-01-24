@@ -5,12 +5,15 @@ import Box from '../box';
 import Cell from './Cell';
 import HeaderCell from './HeaderCell';
 import isComponentOfType from '../utils/is-component-of-type';
+import { isElementOverflowing } from '../utils/utils';
 import FooterRow from './FooterRow';
 import HeaderRow from './HeaderRow';
 import BodyRow from './BodyRow';
 import cx from 'classnames';
 import omit from 'lodash.omit';
+import throttle from 'lodash.throttle';
 import theme from './theme.css';
+import { events } from '../utils';
 
 class DataGrid extends PureComponent {
   static propTypes = {
@@ -28,12 +31,29 @@ class DataGrid extends PureComponent {
 
     this.handleBodyRowSelectionChange = ::this.handleBodyRowSelectionChange;
     this.handleHeaderRowSelectionChange = ::this.handleHeaderRowSelectionChange;
+    this.setCalculatedRowWidth = ::this.setCalculatedRowWidth;
+    this.setCalculatedRowWidthThrottled = ::this.setCalculatedRowWidthThrottled;
 
     this.rowNodes = new Map();
+    this.scrollableNode = null;
 
     this.state = {
       selectedRows: [],
     };
+  }
+
+  setCalculatedRowWidthThrottled = throttle(this.setCalculatedRowWidth, 16);
+
+  componentDidMount() {
+    events.addEventsToWindow({
+      resize: this.setCalculatedRowWidthThrottled,
+    });
+  }
+
+  componentWillUnmount() {
+    events.removeEventsFromWindow({
+      resize: this.setCalculatedRowWidthThrottled,
+    });
   }
 
   componentWillReceiveProps(nextProps) {
@@ -80,22 +100,24 @@ class DataGrid extends PureComponent {
   }
 
   setCalculatedRowWidth() {
-    const rowDOMNodes = [];
-    let maxRowWidth = 0;
+    if (isElementOverflowing(this.scrollableNode) && this.rowNodes) {
+      const rowDOMNodes = [];
+      let maxRowWidth = 0;
 
-    Array.from(this.rowNodes.values())
-      .filter(rowNode => rowNode != null)
-      .forEach(rowNode => {
-        const rowDOMNode = ReactDOM.findDOMNode(rowNode);
-        const totalRowChildrenWidth = Array.from(rowDOMNode.children)
-          .map(child => child.offsetWidth)
-          .reduce((accumulatedChildWidth, currentChildWidth) => accumulatedChildWidth + currentChildWidth);
+      Array.from(this.rowNodes.values())
+        .filter(rowNode => rowNode != null)
+        .forEach(rowNode => {
+          const rowDOMNode = ReactDOM.findDOMNode(rowNode);
+          const totalRowChildrenWidth = Array.from(rowDOMNode.children)
+            .map(child => child.offsetWidth)
+            .reduce((accumulatedChildWidth, currentChildWidth) => accumulatedChildWidth + currentChildWidth);
 
-        maxRowWidth = maxRowWidth < totalRowChildrenWidth ? totalRowChildrenWidth : maxRowWidth;
-        rowDOMNodes.push(rowDOMNode);
-      });
+          maxRowWidth = maxRowWidth < totalRowChildrenWidth ? totalRowChildrenWidth : maxRowWidth;
+          rowDOMNodes.push(rowDOMNode);
+        });
 
-    rowDOMNodes.forEach(rowDOMNode => (rowDOMNode.style.minWidth = `${maxRowWidth}px`));
+      rowDOMNodes.forEach(rowDOMNode => (rowDOMNode.style.minWidth = `${maxRowWidth}px`));
+    }
   }
 
   render() {
@@ -139,7 +161,7 @@ class DataGrid extends PureComponent {
           </div>
         )}
 
-        <div className={cx(theme['section'], theme['is-scrollable'])}>
+        <div className={cx(theme['section'], theme['is-scrollable'])} ref={node => (this.scrollableNode = node)}>
           {React.Children.map(children, (child, key) => {
             return React.cloneElement(child, {
               sliceFrom: stickyFromLeft > 0 ? stickyFromLeft : 0,
