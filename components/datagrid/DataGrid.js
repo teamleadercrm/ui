@@ -5,7 +5,7 @@ import Box from '../box';
 import Cell from './Cell';
 import HeaderCell from './HeaderCell';
 import isComponentOfType from '../utils/is-component-of-type';
-import { isElementOverflowing } from '../utils/utils';
+import { isElementOverflowingX } from '../utils/utils';
 import FooterRow from './FooterRow';
 import HeaderRow from './HeaderRow';
 import BodyRow from './BodyRow';
@@ -100,7 +100,7 @@ class DataGrid extends PureComponent {
   }
 
   setCalculatedRowWidth() {
-    if (isElementOverflowing(this.scrollableNode) && this.rowNodes) {
+    if (isElementOverflowingX(this.scrollableNode) && this.rowNodes) {
       const rowDOMNodes = [];
       let maxRowWidth = 0;
 
