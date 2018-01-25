@@ -3,6 +3,7 @@
 @import '@teamleader/ui-utilities';
 
 .label {
+  composes: reset-font-smoothing;
   display: inline-block;
   font-family: var(--font-family-medium);
   vertical-align: middle;
