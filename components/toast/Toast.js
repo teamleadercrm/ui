@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Transition from 'react-transition-group/Transition';
 import cx from 'classnames';
 import { IconButton, LinkButton } from '../button';
-import { TextSmall } from '../typography';
+import { TextBody } from '../typography';
 import LoadingSpinner from '../loadingSpinner';
 import { createPortal } from 'react-dom';
 import { IconCloseMediumOutline } from '@teamleader/ui-icons';
@@ -88,10 +88,10 @@ const factory = (LinkButton, IconButton) => {
             return (
               <div data-teamleader-ui="toast" className={classNames}>
                 {processing && <LoadingSpinner className={theme['spinner']} color="white" />}
-                <TextSmall className={theme['label']} color="white">
+                <TextBody className={theme['label']} color="white">
                   {label}
                   {children}
-                </TextSmall>
+                </TextBody>
                 {onClose ? (
                   action ? (
                     <LinkButton className={theme['action-link']} inverse label={action} onClick={onClose} />

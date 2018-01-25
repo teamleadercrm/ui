@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../box';
-import { TextSmall } from '../typography';
+import { TextBody } from '../typography';
 import cx from 'classnames';
 import theme from './theme.css';
 
@@ -70,9 +70,9 @@ class Badge extends PureComponent {
         {inherit ? (
           <span className={theme['label']}>{children}</span>
         ) : (
-          <TextSmall className={theme['label']} element="span">
+          <TextBody className={theme['label']} element="span">
             {children}
-          </TextSmall>
+          </TextBody>
         )}
         {icon && iconPlacement === 'right' && <span className={theme['icon']}>{icon}</span>}
       </Box>

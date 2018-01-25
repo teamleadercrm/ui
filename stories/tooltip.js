@@ -14,8 +14,8 @@ import {
   Link,
   StatusLabel,
   TextBody,
+  TextDisplay,
   TextSmall,
-  TextTiny,
   Tooltip
 } from '../components';
 import { baseStyles, centerStyles } from '../.storybook/styles';
@@ -134,6 +134,14 @@ storiesOf('Tooltip', module)
         tooltip action
       </Heading4>
 
+      <TextDisplay marginTop={4}>
+        I'm display text with a{' '}
+        <TooltippedBadge tooltip={textSmallTooltipContent}>
+          hover me
+        </TooltippedBadge>{' '}
+        tooltip action
+      </TextDisplay>
+
       <TextBody marginTop={4}>
         I'm body text with a{' '}
         <TooltippedBadge
@@ -151,14 +159,6 @@ storiesOf('Tooltip', module)
         I'm small text with a <TooltippedBadge tooltip={textSmallTooltipContent}>hover me</TooltippedBadge>{' '}
         tooltip action
       </TextSmall>
-
-      <TextTiny marginTop={4}>
-        I'm small text with a{' '}
-        <TooltippedBadge tooltip={textSmallTooltipContent}>
-          hover me
-        </TooltippedBadge>{' '}
-        tooltip action
-      </TextTiny>
     </Box>
   ))
   .add('from Button', () => (

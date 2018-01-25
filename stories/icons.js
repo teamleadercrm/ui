@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import styles from '@sambego/storybook-styles';
-import { Box, Heading2, Section, TextTiny } from '../components';
+import { Box, Heading2, Section, TextSmall } from '../components';
 import { baseStyles } from '../.storybook/styles';
 import * as Icons from '@teamleader/ui-icons';
 
@@ -33,7 +33,7 @@ storiesOf('Icons', module)
               return (
                 <Box element="span" key={index} style={itemStyles} padding={3}>
                   <Icon/>
-                  <TextTiny marginLeft={3} style={{ display: 'inline-block' }}>{key}</TextTiny>
+                  <TextSmall marginLeft={3} style={{ display: 'inline-block' }}>{key}</TextSmall>
                 </Box>
               );
             }
@@ -51,7 +51,7 @@ storiesOf('Icons', module)
               return (
                 <Box element="span" key={index} style={itemStyles} padding={3}>
                   <Icon/>
-                  <TextTiny marginLeft={3} style={{ display: 'inline-block' }}>{key}</TextTiny>
+                  <TextSmall marginLeft={3} style={{ display: 'inline-block' }}>{key}</TextSmall>
                 </Box>
               );
             }

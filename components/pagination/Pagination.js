@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../box';
-import { TextSmall } from '../typography';
+import { TextBody } from '../typography';
 import { IconChevronLeftMediumOutline, IconChevronRightMediumOutline } from '@teamleader/ui-icons';
 import cx from 'classnames';
 import theme from './theme.css';
@@ -88,9 +88,9 @@ class Pagination extends PureComponent {
             return (
               <li key={page} className={theme['list-item']}>
                 {String(page).startsWith('ellipsis') ? (
-                  <TextSmall className={theme['ellipsis']} element="span">
+                  <TextBody className={theme['ellipsis']} element="span">
                     ...
-                  </TextSmall>
+                  </TextBody>
                 ) : (
                   children({
                     number: page,

@@ -3,7 +3,7 @@ import Badge from './badge';
 import Banner from './banner';
 import Box from './box';
 import Button, { ButtonGroup, IconButton, LinkButton } from './button';
-import { Heading1, Heading2, Heading3, Heading4, Monospaced, TextBody, TextSmall, TextTiny } from './typography';
+import { Heading1, Heading2, Heading3, Heading4, Monospaced, TextBody, TextDisplay, TextSmall } from './typography';
 import Bullet from './bullet';
 import Checkbox from './checkbox';
 import CompactMessage from './compactMessage';
@@ -69,8 +69,8 @@ export {
   StatusBullet,
   StatusLabel,
   TextBody,
+  TextDisplay,
   TextSmall,
-  TextTiny,
   TabGroup,
   Tag,
   TitleTab,
