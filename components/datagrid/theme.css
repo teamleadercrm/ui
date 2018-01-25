@@ -1,0 +1,219 @@
+@import '@teamleader/ui-colors';
+@import '@teamleader/ui-utilities';
+@import '@teamleader/ui-typography';
+
+:root {
+  --datagrid-blend-width: 12px;
+}
+
+.data-grid {
+  display: inline-flex;
+  flex-direction: row;
+  min-width: 100%;
+  max-width: 100%;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+}
+
+.cell {
+  align-items: center;
+  border-bottom: 1px solid var(--color-neutral);
+  color: var(--color-teal-darkest);
+  display: flex;
+  font-size: 14px;
+  flex: 1;
+  font-family: var(--font-family-regular);
+  min-height: 36px;
+  padding: var(--spacer-smaller) var(--spacer-small);
+  position: relative;
+  white-space: nowrap;
+}
+
+.header-cell {
+  color: var(--color-neutral-darkest);
+  font-family: var(--font-family-bold);
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.has-overflow-prevention {
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  > * {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.is-sticky-left {
+  max-width: 60%;
+}
+
+.is-scrollable {
+  flex: 1;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.is-sortable {
+  svg {
+    margin-left: var(--spacer-smallest);
+  }
+
+  &:hover {
+    color: var(--color-teal-darkest);
+    cursor: pointer;
+  }
+}
+
+.is-sorted {
+  color: var(--color-teal-darkest);
+}
+
+/* Cell backgrounds */
+.has-background-neutral {
+  background-color: var(--color-neutral-light) !important;
+
+  .cell {
+    background-color: var(--color-neutral-light);
+  }
+}
+
+.has-background-white {
+  background-color: var(--color-white) !important;
+
+  .cell {
+    background-color: var(--color-white);
+  }
+}
+
+/* Cell blending */
+.has-blend-left {
+  .cell:first-child::before {
+    right: 100%;
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: var(--datagrid-blend-width);
+    z-index: 2;
+  }
+
+  &.has-border-left .cell:first-child::before {
+    right: calc(100% + 1px);
+  }
+
+  .has-background-white .cell:first-child::before {
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+  }
+
+  .has-background-neutral .cell:first-child::before {
+    background: linear-gradient(to right, rgba(247, 247, 250, 0) 0%, rgba(247, 247, 250, 1) 100%);
+  }
+}
+
+.has-blend-right {
+  .cell:last-child::before {
+    left: 100%;
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: var(--datagrid-blend-width);
+    z-index: 2;
+  }
+
+  &.has-border-right .cell:last-child::before {
+    left: calc(100% + 1px);
+  }
+
+  .has-background-white .cell:last-child::before {
+    background: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+  }
+
+  .has-background-neutral .cell:last-child::before {
+    background: linear-gradient(to left, rgba(247, 247, 250, 0) 0%, rgba(247, 247, 250, 1) 100%);
+  }
+}
+
+/* Cell borders */
+.has-border-around {
+  z-index: 1;
+
+  &::after {
+    box-shadow: inset 0 0 0 1px var(--color-neutral-dark), 0 0 0 1px var(--color-neutral-dark);
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+.has-border-left {
+  border-left: 1px solid var(--color-neutral-dark);
+}
+
+.has-border-right {
+  border-right: 1px solid var(--color-neutral-dark);
+}
+
+/* Cell text */
+.is-soft {
+  color: var(--color-neutral-darkest);
+}
+
+.is-strong {
+  font-family: var(--font-family-medium);
+}
+
+/* Cell widths */
+.flex-min-width {
+  flex: 0 0 30px;
+  min-width: 30px;
+}
+
+.flex-1 {
+  flex: 1 0 100px;
+  min-width: 100px;
+}
+
+.flex-2 {
+  flex: 2 0 200px;
+  min-width: 200px;
+}
+
+.flex-3 {
+  flex: 3 0 300px;
+  min-width: 300px;
+}
+
+.flex-4 {
+  flex: 4 0 400px;
+  min-width: 400px;
+}
+
+/* Cell alignment */
+.align-left {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.align-center {
+  justify-content: center;
+  text-align: center;
+}
+
+.align-right {
+  justify-content: flex-end;
+  text-align: right;
+}

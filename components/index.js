@@ -8,6 +8,7 @@ import Bullet from './bullet';
 import Checkbox from './checkbox';
 import CompactMessage from './compactMessage';
 import Counter from './counter';
+import DataGrid from './datagrid';
 import Dialog from './dialog';
 import Menu, { IconMenu, MenuItem, MenuDivider } from './menu';
 import Link from './link';
@@ -41,6 +42,7 @@ export {
   Checkbox,
   CompactMessage,
   Counter,
+  DataGrid,
   Dialog,
   Heading1,
   Heading2,
