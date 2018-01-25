@@ -18,6 +18,7 @@
 }
 
 .label {
+  composes: reset-font-smoothing;
   color: var(--color-teal-darkest);
   font-family: var(--font-family-medium);
 }
