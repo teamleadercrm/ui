@@ -125,8 +125,8 @@ storiesOf('Tab', module)
   ));
 
 const TitleTabContainer = () => (
-  <TabGroup>
-    <Island style={{ display: 'flex' }}>
+  <Island>
+    <TabGroup display={'flex'}>
       {store.get('items').map((item, key) => {
         const optionalProps = item.count
           ? { counter: React.createElement(TitleCounter, { count: item.count, color: 'mint' }) }
@@ -145,13 +145,13 @@ const TitleTabContainer = () => (
           </TitleTab>
         );
       })}
-    </Island>
-  </TabGroup>
+    </TabGroup>
+  </Island>
 );
 
 const InvertedTitleTabContainer = () => (
-  <TabGroup inverted>
-    <Island style={{ display: 'flex', background: '#2a3b4d' }}>
+  <Island style={{ background: '#2a3b4d' }}>
+    <TabGroup inverted display={'flex'}>
       {store.get('invertedItems').map((invertedItem, key) => {
         const optionalProps = invertedItem.count
           ? { counter: React.createElement(TitleCounter, { count: invertedItem.count }) }
@@ -170,13 +170,13 @@ const InvertedTitleTabContainer = () => (
           </TitleTab>
         );
       })}
-    </Island>
-  </TabGroup>
+    </TabGroup>
+  </Island>
 );
 
 const IconTabContainer = () => (
-  <TabGroup>
-    <Island style={{ display: 'flex' }}>
+  <Island>
+    <TabGroup display={'flex'}>
       {store.get('items').map((item, key) => {
         const optionalProps = item.count
           ? { counter: React.createElement(IconCounter, { count: item.count, color: 'mint' }) }
@@ -197,13 +197,13 @@ const IconTabContainer = () => (
           </IconTab>
         );
       })}
-    </Island>
-  </TabGroup>
+    </TabGroup>
+  </Island>
 );
 
 const InvertedIconTabContainer = () => (
-  <TabGroup inverted>
-    <Island style={{ display: 'flex', background: '#2a3b4d' }}>
+  <Island style={{ background: '#2a3b4d' }}>
+    <TabGroup inverted display={'flex'}>
       {store.get('invertedItems').map((invertedItem, key) => {
         const optionalProps = invertedItem.count
           ? { counter: React.createElement(IconCounter, { count: invertedItem.count }) }
@@ -224,6 +224,6 @@ const InvertedIconTabContainer = () => (
           </IconTab>
         );
       })}
-    </Island>
-  </TabGroup>
+    </TabGroup>
+  </Island>
 );

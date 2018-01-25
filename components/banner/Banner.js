@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Island from '../island';
 import Section from '../section';
 import { IconButton } from '../button';
-import cx from 'classnames';
 import theme from './theme.css';
 import { IconCloseMediumOutline } from '@teamleader/ui-icons';
 
@@ -32,22 +31,15 @@ class Banner extends PureComponent {
 
   getCloseButtonColor() {
     const { color } = this.props;
-
-    if (color === 'white') {
-      return 'neutral';
-    }
-
-    return color;
+    return color === 'white' ? 'neutral' : color;
   }
 
   render() {
-    const { children, className, color, icon, onClose, fullWidth, ...others } = this.props;
-
-    const classNames = cx(theme[color], className);
+    const { children, className, icon, onClose, fullWidth, ...others } = this.props;
     const Element = fullWidth ? Section : Island;
 
     return (
-      <Element data-teamleader-ui="banner" color={color} className={classNames} {...others}>
+      <Element data-teamleader-ui="banner" className={className} {...others}>
         <div className={theme['inner']}>
           {icon && <span className={theme['icon']}>{icon}</span>}
           <span className={theme['content']}>{children}</span>

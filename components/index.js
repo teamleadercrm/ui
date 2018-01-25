@@ -1,4 +1,5 @@
 import Avatar, { AvatarStack } from './avatar';
+import Badge from './badge';
 import Banner from './banner';
 import Box from './box';
 import Button, { ButtonGroup, IconButton, LinkButton } from './button';
@@ -26,12 +27,13 @@ import { IconTab, TitleTab, TabGroup } from './tab';
 import Tag from './tag';
 import { Toast } from './toast';
 import Toggle from './toggle';
-import Tooltip, { TooltipLabel } from './tooltip';
+import Tooltip from './tooltip';
 import QTip from './qTip';
 
 export {
   Avatar,
   AvatarStack,
+  Badge,
   Banner,
   Box,
   Bullet,
@@ -77,6 +79,5 @@ export {
   Toast,
   Toggle,
   Tooltip,
-  TooltipLabel,
   QTip,
 };

@@ -1,5 +1,16 @@
 @import '@teamleader/ui-colors';
 @import '@teamleader/ui-animations';
+@import '@teamleader/ui-utilities';
+
+.tab-group {
+  & > * {
+    margin-left: var(--spacer-small);
+
+    &:last-child{
+      margin-right: var(--spacer-small);
+    }
+  }
+}
 
 .title-tab,
 .icon-tab {
@@ -14,9 +25,10 @@
   background-color: var(--color-neutral-lightest);
   border: none;
   border-radius: 0;
+  flex-shrink: 0;
 
   &:focus {
-    box-shadow: 0 0 0 2px var(--color-neutral);
+    box-shadow: inset 0 0 0 2px var(--color-neutral);
 
     .counter {
       box-shadow: 0 0 0 2px var(--color-neutral-light);
@@ -36,6 +48,7 @@
     height: 3px;
     width: 100%;
     bottom: 0;
+    left: 0;
     transition: transform var(--animation-duration) var(--animation-curve-fast-out-slow-in);
     transform: scale(0, 1);
   }
