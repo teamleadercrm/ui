@@ -14,7 +14,7 @@
 
 .toast {
   composes: box-shadow-400;
-  composes: reset;
+  composes: reset-box-sizing;
   align-items: center;
   border-radius: var(--toast-border-radius);
   background-color: var(--toast-background-color);
