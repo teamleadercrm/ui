@@ -13,7 +13,6 @@
 }
 
 .checkbox {
-  composes: reset;
   align-items: center;
   display: flex;
   user-select: none;
