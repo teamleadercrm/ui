@@ -104,11 +104,11 @@ class DataGrid extends PureComponent {
       const rowDOMNodes = [];
       let maxRowWidth = 0;
 
-      Array.from(this.rowNodes.values())
+      [...this.rowNodes.values()]
         .filter(rowNode => rowNode != null)
         .forEach(rowNode => {
           const rowDOMNode = ReactDOM.findDOMNode(rowNode);
-          const totalRowChildrenWidth = Array.from(rowDOMNode.children)
+          const totalRowChildrenWidth = [...rowDOMNode.children]
             .map(child => child.offsetWidth)
             .reduce((accumulatedChildWidth, currentChildWidth) => accumulatedChildWidth + currentChildWidth);
 
