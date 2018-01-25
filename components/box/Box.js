@@ -17,6 +17,7 @@ class Box extends PureComponent {
     ]),
     alignItems: PropTypes.oneOf(['center', 'flex-start', 'flex-end']),
     alignSelf: PropTypes.oneOf(['center', 'flex-start', 'flex-end', 'stretch']),
+    boxSizing: PropTypes.oneOf(['border-box', 'content-box']),
     children: PropTypes.any,
     className: PropTypes.string,
     display: PropTypes.oneOf(['inline', 'inline-block', 'block', 'flex', 'inline-flex']),
@@ -67,6 +68,7 @@ class Box extends PureComponent {
       alignContent,
       alignItems,
       alignSelf,
+      boxSizing,
       children,
       className,
       display,
@@ -119,6 +121,7 @@ class Box extends PureComponent {
     );
 
     const style = {
+      ...(boxSizing && { boxSizing }),
       ...(flex && { flex }),
       ...(flexBasis && { flexBasis }),
       ...(flexGrow && { flexGrow }),
