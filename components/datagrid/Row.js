@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
 
@@ -20,9 +21,9 @@ class Row extends PureComponent {
     const classNames = cx(theme['row'], theme[`has-background-${backgroundColor}`], className);
 
     return (
-      <div className={classNames} {...others}>
+      <Box className={classNames} {...others}>
         {children}
-      </div>
+      </Box>
     );
   }
 }
