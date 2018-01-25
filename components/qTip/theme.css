@@ -13,7 +13,6 @@
 }
 
 .qtip {
-  composes: reset;
   display: flex;
   align-items: stretch;
   position: relative;
