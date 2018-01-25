@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
 
@@ -53,9 +54,9 @@ class Cell extends PureComponent {
     );
 
     return (
-      <div className={classNames} data-teamleader-ui="datagrid-cell" {...others}>
+      <Box className={classNames} data-teamleader-ui="datagrid-cell" boxSizing="content-box" {...others}>
         {preventOverflow ? <div className={theme['has-overflow-prevention']}>{children}</div> : children}
-      </div>
+      </Box>
     );
   }
 }
