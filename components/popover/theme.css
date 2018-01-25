@@ -9,7 +9,6 @@
 }
 
 .wrapper {
-  composes: reset;
   align-items: center;
   display: flex;
   height: 100vh;
