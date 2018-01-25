@@ -5,7 +5,7 @@ import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withKnobs, boolean, number } from "@storybook/addon-knobs/react";
 import { withInfo } from '@storybook/addon-info';
-import { Box, Button, DataGrid, Heading4, IconMenu, MenuItem, Link, Section, StatusBullet, TextTiny, Tooltip } from '../components';
+import { Box, Button, DataGrid, Heading4, IconMenu, MenuItem, Link, Section, StatusBullet, TextSmall, Tooltip } from '../components';
 import { rows1, rows2 } from '../static/data/datagrid';
 
 const TooltippedStatusBullet = Tooltip(StatusBullet);
@@ -48,7 +48,7 @@ const BasicDataGrid = ({rows, comparableId}) => {
             <DataGrid.Cell align="center" flex="min-width">
               <TooltippedStatusBullet
                 color={row.column1}
-                tooltip={<TextTiny>Overdue</TextTiny>}
+                tooltip={<TextSmall>Overdue</TextSmall>}
                 tooltipColor={row.column1}
                 tooltipSize="small"
                 size="large"
@@ -91,7 +91,7 @@ const DataGridWithFooter = ({rows, comparableId}) => {
             <DataGrid.Cell align="center" flex="min-width">
               <TooltippedStatusBullet
                 color={row.column1}
-                tooltip={<TextTiny>Overdue</TextTiny>}
+                tooltip={<TextSmall>Overdue</TextSmall>}
                 tooltipColor={row.column1}
                 tooltipSize="small"
                 size="large"
@@ -139,7 +139,7 @@ const DataGridWithStickyColumns = ({rows, comparableId}) => {
             <DataGrid.Cell align="center" flex="min-width">
               <TooltippedStatusBullet
                 color={row.column1}
-                tooltip={<TextTiny>Overdue</TextTiny>}
+                tooltip={<TextSmall>Overdue</TextSmall>}
                 tooltipColor={row.column1}
                 tooltipSize="small"
                 size="large"
@@ -184,7 +184,7 @@ const DataGridAdvanced = ({rows, comparableId}) => {
             <DataGrid.Cell align="center" flex="min-width">
               <TooltippedStatusBullet
                 color={row.column1}
-                tooltip={<TextTiny>Overdue</TextTiny>}
+                tooltip={<TextSmall>Overdue</TextSmall>}
                 tooltipColor={row.column1}
                 tooltipSize="small"
                 size="large"
