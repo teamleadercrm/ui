@@ -27,10 +27,9 @@ storiesOf('Toggles', module)
   .addDecorator(styles({ ...baseStyles, ...centerStyles }))
   .add('sizes', () => (
     <Box>
-      {sizes.map((size, index) => (
-        <State store={store}>
+      {sizes.map((size, key) => (
+        <State store={store} key={key}>
           <Toggle
-            key={index}
             size={size}
             marginVertical={3}
             onChange={handleOnChange}
@@ -42,10 +41,9 @@ storiesOf('Toggles', module)
   ))
   .add('labels', () => (
     <Box>
-      {sizes.map((size, index) => (
-        <State store={store}>
+      {sizes.map((size, key) => (
+        <State store={store} key={key}>
           <Toggle
-            key={index}
             size={size}
             marginVertical={3}
             onChange={handleOnChange}
