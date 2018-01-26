@@ -12,7 +12,7 @@ import { baseStyles, centerStyles } from '../.storybook/styles';
 const sizes = ['small', 'medium', 'large'];
 
 const store = new Store({
-  value: 'option1',
+  value: 'small',
 });
 const updateState = value => {
   store.set({ value });
@@ -32,8 +32,8 @@ storiesOf('Radio', module)
             key={key}
             size={size}
             marginVertical={3}
-            label={`Option ${key+1}`}
-            value={`option${key+1}`}
+            label={`I'm a ${size} radio`}
+            value={size}
             disabled={boolean('Disabled', false)}
           />
         ))}
