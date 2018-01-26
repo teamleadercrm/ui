@@ -9,6 +9,8 @@ import { Store, State } from '@sambego/storybook-state';
 import { RadioGroup, RadioButton } from '../components';
 import { baseStyles, centerStyles } from '../.storybook/styles';
 
+const sizes = ['small', 'medium', 'large'];
+
 const store = new Store({
   value: 'option1',
 });
@@ -25,29 +27,16 @@ storiesOf('Radio', module)
   .add('Sizes', () => (
     <State store={store}>
       <RadioGroup name="stringValue" onChange={updateState}>
-        <RadioButton
-          size="small"
-          marginBottom={2}
-          label="Option 1"
-          value="option1"
-          disabled={boolean('Disabled', false)}
-        />
-        <RadioButton
-          size="medium"
-          marginBottom={2}
-          label="Option 2"
-          value="option2"
-          onFocus={action('Focus')}
-          disabled={boolean('Disabled', false)}
-        />
-        <RadioButton
-          size="large"
-          marginBottom={2}
-          label="Option 3"
-          value="option3"
-          onBlur={action('blur')}
-          disabled={boolean('Disabled', false)}
-        />
+        {sizes.map((size, key) => (
+          <RadioButton
+            key={key}
+            size={size}
+            marginVertical={3}
+            label={`Option ${key+1}`}
+            value={`option${key+1}`}
+            disabled={boolean('Disabled', false)}
+          />
+        ))}
       </RadioGroup>
     </State>
   ));
