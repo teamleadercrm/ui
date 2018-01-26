@@ -9,7 +9,6 @@
 
 .bullet {
   display: inline-block;
-  font-family: var(--font-family-regular);
   position: relative;
   vertical-align: middle;
 
@@ -20,10 +19,6 @@
     display: inline-block;
     margin: 0 var(--spacer-smaller);
   }
-}
-
-.label {
-  display: inline-block;
 }
 
 .mint::before {
@@ -56,22 +51,12 @@
   border-color: var(--color-aqua-dark);
 }
 
-.medium {
-  font-size: calc(1.6 * var(--unit));
-  line-height: calc(1.8 * var(--unit));
-
-  &:before {
-    height: var(--medium-bullet-size);
-    width: var(--medium-bullet-size);
-  }
+.medium:before {
+  height: var(--medium-bullet-size);
+  width: var(--medium-bullet-size);
 }
 
-.small {
-  font-size: calc(1.4 * var(--unit));
-  line-height: calc(1.8 * var(--unit));
-
-  &:before {
-    height: var(--small-bullet-size);
-    width: var(--small-bullet-size);
-  }
+.small:before {
+  height: var(--small-bullet-size);
+  width: var(--small-bullet-size);
 }

@@ -24,7 +24,7 @@ class StatusBullet extends PureComponent {
 
     return (
       <Box className={classNames} data-teamleader-ui="status-bullet" element="span" {...others}>
-        {children && <span className={theme['label']}>{children}</span>}
+        {children}
       </Box>
     );
   }
