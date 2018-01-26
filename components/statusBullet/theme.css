@@ -8,15 +8,13 @@
 }
 
 .bullet {
-  display: inline-block;
-  position: relative;
-  vertical-align: middle;
+  display: inline-flex;
+  align-items: center;
 
   &:before {
     border-radius: 50%;
     border: 2px solid;
     content: '';
-    display: inline-block;
     margin: 0 var(--spacer-smaller);
   }
 }
