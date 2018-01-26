@@ -36,7 +36,7 @@ storiesOf('Status Bullets', module)
     <Box>
       {sizes.map((size, key) => (
         <StatusBullet size={size} key={key} marginHorizontal={4}>
-          <TextBody element="span">{size}</TextBody>
+          <TextBody>{size}</TextBody>
         </StatusBullet>
       ))}
     </Box>
