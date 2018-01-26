@@ -9,7 +9,7 @@ class StatusBullet extends PureComponent {
     children: PropTypes.any,
     className: PropTypes.string,
     color: PropTypes.oneOf(['mint', 'violet', 'ruby', 'gold', 'aqua', 'neutral']),
-    size: PropTypes.oneOf(['small', 'medium', 'large']),
+    size: PropTypes.oneOf(['small', 'medium']),
   };
 
   static defaultProps = {

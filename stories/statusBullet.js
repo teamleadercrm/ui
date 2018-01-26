@@ -7,7 +7,7 @@ import { Box, StatusBullet } from '../components';
 import { baseStyles, centerStyles } from '../.storybook/styles';
 
 const colors = ['mint', 'violet', 'ruby', 'gold', 'aqua', 'neutral'];
-const sizes = ['small', 'medium', 'large'];
+const sizes = ['small', 'medium'];
 
 storiesOf('Status Bullets', module)
   .addDecorator((story, context) => withInfo('common info')(story)(context))

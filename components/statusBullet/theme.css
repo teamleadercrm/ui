@@ -4,8 +4,7 @@
 
 :root {
   --small-bullet-size: 6px;
-  --medium-bullet-size: 6px;
-  --large-bullet-size: 9px;
+  --medium-bullet-size: 9px;
 }
 
 .bullet {
@@ -55,16 +54,6 @@
 .aqua::before {
   background-color: var(--color-aqua-light);
   border-color: var(--color-aqua-dark);
-}
-
-.large {
-  font-size: calc(2.0 * var(--unit));
-  line-height: calc(2.4 * var(--unit));
-
-  &:before {
-    height: var(--large-bullet-size);
-    width: var(--large-bullet-size);
-  }
 }
 
 .medium {
