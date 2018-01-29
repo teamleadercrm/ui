@@ -4,27 +4,19 @@
 
 :root {
   --small-bullet-size: 6px;
-  --medium-bullet-size: 6px;
-  --large-bullet-size: 9px;
+  --medium-bullet-size: 9px;
 }
 
 .bullet {
-  display: inline-block;
-  font-family: var(--font-family-regular);
-  position: relative;
-  vertical-align: middle;
+  display: inline-flex;
+  align-items: center;
 
   &:before {
     border-radius: 50%;
     border: 2px solid;
     content: '';
-    display: inline-block;
     margin: 0 var(--spacer-smaller);
   }
-}
-
-.label {
-  display: inline-block;
 }
 
 .mint::before {
@@ -57,32 +49,12 @@
   border-color: var(--color-aqua-dark);
 }
 
-.large {
-  font-size: calc(2.0 * var(--unit));
-  line-height: calc(2.4 * var(--unit));
-
-  &:before {
-    height: var(--large-bullet-size);
-    width: var(--large-bullet-size);
-  }
+.medium:before {
+  height: var(--medium-bullet-size);
+  width: var(--medium-bullet-size);
 }
 
-.medium {
-  font-size: calc(1.6 * var(--unit));
-  line-height: calc(1.8 * var(--unit));
-
-  &:before {
-    height: var(--medium-bullet-size);
-    width: var(--medium-bullet-size);
-  }
-}
-
-.small {
-  font-size: calc(1.4 * var(--unit));
-  line-height: calc(1.8 * var(--unit));
-
-  &:before {
-    height: var(--small-bullet-size);
-    width: var(--small-bullet-size);
-  }
+.small:before {
+  height: var(--small-bullet-size);
+  width: var(--small-bullet-size);
 }
