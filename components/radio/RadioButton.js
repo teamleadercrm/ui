@@ -4,7 +4,7 @@ import theme from './theme.css';
 import cx from 'classnames';
 import omit from 'lodash.omit';
 import Box from '../box';
-import { TextBody, TextDisplay } from '../typography';
+import { TextBody, TextDisplay, TextSmall } from '../typography';
 
 class RadioButton extends PureComponent {
   static propTypes = {
@@ -93,7 +93,7 @@ class RadioButton extends PureComponent {
     const { checked, disabled, className, size, label, children, onMouseEnter, onMouseLeave, ...others } = this.props;
     const rest = omit(others, ['onChange']);
     const { boxProps, inputProps } = this.splitProps(rest);
-    const TextElement = size === 'small' ? TextBody : TextDisplay;
+    const TextElement = size === 'small' ? TextSmall : size === 'medium' ? TextBody : TextDisplay;
 
     const classNames = cx(
       theme['radiobutton'],

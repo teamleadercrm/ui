@@ -25,23 +25,27 @@ storiesOf('Toggles', module)
   .addDecorator(checkA11y)
   .addDecorator(withKnobs)
   .addDecorator(styles({ ...baseStyles, ...centerStyles }))
-  .add('size', () => (
+  .add('sizes', () => (
     <Box>
-      {sizes.map((size, index) => (
-        <State store={store}>
-          <Toggle key={index} size={size} margin={2} onChange={handleOnChange} disabled={boolean('Disabled', false)}/>
+      {sizes.map((size, key) => (
+        <State store={store} key={key}>
+          <Toggle
+            size={size}
+            marginVertical={3}
+            onChange={handleOnChange}
+            disabled={boolean('Disabled', false)}
+          />
         </State>
       ))}
     </Box>
   ))
   .add('labels', () => (
     <Box>
-      {sizes.map((size, index) => (
-        <State store={store}>
+      {sizes.map((size, key) => (
+        <State store={store} key={key}>
           <Toggle
-            key={index}
             size={size}
-            margin={2}
+            marginVertical={3}
             onChange={handleOnChange}
             label={`I'm a ${size} toggle`}
             disabled={boolean('Disabled', false)}
