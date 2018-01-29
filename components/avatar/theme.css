@@ -37,6 +37,7 @@
 }
 
 .overflow {
+  composes: reset-font-smoothing;
   align-items: center;
   align-self: center;
   display: flex;

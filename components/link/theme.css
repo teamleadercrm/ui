@@ -1,7 +1,9 @@
 @import '@teamleader/ui-colors';
 @import '@teamleader/ui-typography';
+@import '@teamleader/ui-utilities';
 
 .link {
+  composes: reset-font-smoothing;
   cursor: pointer;
 
   &:not(.inherit) {

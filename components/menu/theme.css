@@ -28,7 +28,7 @@
 }
 
 .menu {
-  composes: reset;
+  composes: reset-font-smoothing;
   display: inline-block;
   position: relative;
 

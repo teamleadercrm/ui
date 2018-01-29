@@ -1,7 +1,6 @@
 @import '@teamleader/ui-utilities';
 
 .compact-message {
-  composes: reset;
   display: flex;
   align-items: center;
 }

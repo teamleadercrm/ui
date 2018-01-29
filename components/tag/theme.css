@@ -11,7 +11,6 @@
 }
 
 .tag {
-  composes: reset;
   background-color: color(var(--color-neutral-darkest) a(12%));
   border-radius: var(--tag-border-radius);
   display: inline-flex;
@@ -19,6 +18,7 @@
 }
 
 .label {
+  composes: reset-font-smoothing;
   color: var(--color-teal-darkest);
   font-family: var(--font-family-medium);
 }
