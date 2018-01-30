@@ -1,6 +1,4 @@
-export const baseStyles = {
-  height: '100vh',
-};
+export const baseStyles = {};
 
 export const centerStyles = {
   display: 'flex',
