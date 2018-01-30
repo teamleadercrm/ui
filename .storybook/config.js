@@ -5,7 +5,7 @@ import backgroundColor from 'react-storybook-decorator-background';
 
 // addon-info
 setDefaults({
-  header: false,
+  header: true,
   inline: true,
   source: true,
   propTablesExclude: [],
