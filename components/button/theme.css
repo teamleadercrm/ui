@@ -471,6 +471,10 @@
   }
 }
 
+.is-full-width {
+  width: 100%;
+}
+
 .spinner {
   left: 50%;
   position: absolute;
