@@ -99,7 +99,7 @@
   }
 
   &.is-bold {
-    font-family: var(--font-family-semi-bold);
+    font-family: var(--font-family-medium);
   }
 
   &.is-disabled {
