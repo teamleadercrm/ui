@@ -2,13 +2,14 @@ import { configure, addDecorator } from '@storybook/react';
 import { setDefaults } from '@storybook/addon-info';
 import { setOptions } from '@storybook/addon-options';
 import backgroundColor from 'react-storybook-decorator-background';
+import { State } from '@sambego/storybook-state';
 
 // addon-info
 setDefaults({
   header: true,
   inline: true,
   source: true,
-  propTablesExclude: [],
+  propTablesExclude: [State],
 });
 
 setOptions({
