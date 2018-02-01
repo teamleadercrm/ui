@@ -7,7 +7,7 @@ export default class Label extends PureComponent {
   static propTypes = {
     children: PropTypes.oneOfType([PropTypes.element, PropTypes.string, PropTypes.array]),
     for: PropTypes.string,
-    size: PropTypes.arrayOf(['small', 'medium']),
+    size: PropTypes.oneOf(['small', 'medium']),
   };
 
   static defaultProps = {
