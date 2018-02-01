@@ -9,8 +9,7 @@
   --input-height-medium: calc(3.4 * var(--unit));
   --input-height-small: calc(2.8 * var(--unit));
   --input-width: calc(30 * var(--unit));
-  --input-horizontal-padding: calc(0.9 * var(--unit));
-  --input-horizontal-padding-small: calc(0.6 * var(--unit));
+  --input-horizontal-padding: calc(0.5 * var(--unit));
   --input-horizontal-padding-icon: calc(3.9 * var(--unit));
   --input-horizontal-padding-icon-small: calc(2.6 * var(--unit));
   --input-text-color: var(--color-teal-darkest);
@@ -34,8 +33,7 @@
 
   --icon-top-large: calc(1.4 * var(--unit));
   --icon-top: calc(0.7 * var(--unit));
-  --icon-horizontal: calc(0.9 * var(--unit));
-  --icon-horizontal-small: calc(0.6 * var(--unit));
+  --icon-horizontal: calc(.5 * var(--unit));
   --icon-height: calc(1.9 * var(--unit));
   --icon-height-small: calc(1.4 * var(--unit));
   --icon-color: var(--color-neutral-darkest);
@@ -223,8 +221,6 @@
 .is-small {
   .input {
     height: var(--input-height-small);
-    padding: 0 var(--input-horizontal-padding-small);
-
     line-height: var(--input-height-small);
   }
 
@@ -236,7 +232,6 @@
   }
 
   .icon {
-    left: var(--icon-horizontal-small);
     max-height: var(--icon-height-small);
   }
 
@@ -246,31 +241,27 @@
 
   &.has-icon-left {
     .input {
-      padding: 0 var(--input-horizontal-padding-small) 0
-        var(--input-horizontal-padding-icon-small);
+      padding-left: var(--input-horizontal-padding-icon-small);
     }
   }
 
   &.has-icon-right {
     .input {
-      padding: 0 var(--input-horizontal-padding-icon-small) 0
-        var(--input-horizontal-padding-small);
+      padding-right: var(--input-horizontal-padding-icon-small);
     }
   }
 }
 
 .has-icon-left {
   .input {
-    padding: 0 var(--input-horizontal-padding) 0
-      var(--input-horizontal-padding-icon);
+    padding-left: var(--input-horizontal-padding-icon);
   }
 }
 
 .has-icon-right,
 .has-counter {
   .input {
-    padding: 0 var(--input-horizontal-padding-icon) 0
-      var(--input-horizontal-padding);
+    padding-right: var(--input-horizontal-padding-icon);
   }
 
   .icon {
