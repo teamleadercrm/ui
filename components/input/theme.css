@@ -124,8 +124,9 @@
 .icon {
   position: absolute;
   z-index: 1;
-  top: var(--icon-top);
   left: var(--icon-horizontal);
+  top: 50%;
+  transform: translateY(-50%);
 
   color: var(--icon-color);
 }
@@ -192,10 +193,6 @@
 
     line-height: var(--input-height-large);
     font-size: var(--input-text-size-large);
-  }
-
-  .icon {
-    top: var(--icon-top-large);
   }
 
   .counter {
