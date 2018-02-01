@@ -14,8 +14,8 @@
   --input-horizontal-padding-icon: calc(3.9 * var(--unit));
   --input-horizontal-padding-icon-small: calc(2.6 * var(--unit));
   --input-text-color: var(--color-teal-darkest);
-  --input-text-size: calc(1.6 * var(--unit));
-  --input-text-size-small: calc(1.4 * var(--unit));
+  --input-text-size: calc(1.4 * var(--unit));
+  --input-text-size-large: calc(1.6 * var(--unit));
   --input-background: var(--color-white);
   --input-border-radius: calc(0.4 * var(--unit));
   --input-border-color: var(--color-neutral-dark);
@@ -197,7 +197,7 @@
     height: var(--input-height-large);
 
     line-height: var(--input-height-large);
-    font-size: var(--input-text-size);
+    font-size: var(--input-text-size-large);
   }
 
   .icon {
@@ -226,7 +226,6 @@
     padding: 0 var(--input-horizontal-padding-small);
 
     line-height: var(--input-height-small);
-    font-size: var(--input-text-size-small);
   }
 
   .spinner-up,
