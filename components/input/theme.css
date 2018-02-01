@@ -144,15 +144,19 @@
   top: 0;
   bottom: 0;
   right: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 
   width: var(--spinner-width);
 }
 
 .spinner-up,
 .spinner-down {
-  display: block;
-  width: 100%;
-  height: 50%;
+  align-items: center;
+  display: flex;
+  flex: 1;
+  justify-content: center;
   margin: 0;
 
   background-color: var(--spinner-background);
