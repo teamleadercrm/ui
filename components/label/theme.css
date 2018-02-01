@@ -1,5 +1,4 @@
 @import '@teamleader/ui-colors';
-@import '@teamleader/ui-typography';
 
 :root {
   --label-color: var(--color-teal-darkest);
