@@ -1,21 +1,28 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import Box from '../box';
+import { TextBody, TextDisplay } from "../typography";
 import theme from './theme.css';
 
 export default class Label extends PureComponent {
   static propTypes = {
     children: PropTypes.oneOfType([PropTypes.element, PropTypes.string, PropTypes.array]),
     for: PropTypes.string,
+    size: PropTypes.arrayOf(['small', 'medium']),
+  };
+
+  static defaultProps = {
+    size: 'medium',
   };
 
   render() {
-    const { children } = this.props;
+    const { children, size } = this.props;
+
+    const Element = size === 'medium' ? TextDisplay : TextBody;
 
     return (
-      <Box element="label" htmlFor={this.props.for} marginBottom={3} className={theme['label']}>
+      <Element element="label" htmlFor={this.props.for} marginBottom={3} className={theme['label']}>
         {children}
-      </Box>
+      </Element>
     );
   }
 }
