@@ -6,7 +6,7 @@ import { withInfo } from '@storybook/addon-info';
 import styles from '@sambego/storybook-styles';
 import { baseStyles, centerStyles } from '../.storybook/styles';
 import { Input, Label } from '../components';
-import { IconCalendarMediumOutline } from '@teamleader/ui-icons';
+import { IconCalendarMediumOutline, IconCalendarSmallOutline } from '@teamleader/ui-icons';
 
 const props = {
   onBlur: action('blur'),
@@ -71,19 +71,19 @@ storiesOf('Inputs', module)
     <div style={{ width: '400px' }}>
       <Label for="input1">
         Small input
-        <Input icon={IconCalendarMediumOutline} id="input1" size="small" {...props} />
+        <Input icon={IconCalendarSmallOutline} id="input1" size="small" {...props} />
       </Label>
       <Label for="input2">
         Small input
-        <Input icon={IconCalendarMediumOutline} iconPlacement="right" id="input2" size="small" {...props} />
+        <Input icon={IconCalendarSmallOutline} iconPlacement="right" id="input2" size="small" {...props} />
       </Label>
       <Label for="input3">
         Medium input
-        <Input icon={IconCalendarMediumOutline} id="input3" {...props} />
+        <Input icon={IconCalendarSmallOutline} id="input3" {...props} />
       </Label>
       <Label for="input4">
         Medium input
-        <Input icon={IconCalendarMediumOutline} iconPlacement="right" id="input4" {...props} />
+        <Input icon={IconCalendarSmallOutline} iconPlacement="right" id="input4" {...props} />
       </Label>
       <Label for="input5">
         Large input
