@@ -19,7 +19,7 @@
   --input-background: var(--color-white);
   --input-border-radius: calc(0.4 * var(--unit));
   --input-border-color: var(--color-neutral-dark);
-  --input-placeholder-color: var(--color-neutral-dark);
+  --input-placeholder-color: var(--color-neutral-darkest);
   --input-focus-border: var(--color-aqua);
   --input-active-border: var(--color-neutral-darkest);
   --input-active-box-shadow: rgba(130, 130, 140, 0.5);
