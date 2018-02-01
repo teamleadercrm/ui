@@ -118,6 +118,10 @@
 
   &::placeholder {
     color: var(--input-placeholder-color);
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    text-size-adjust: 100%;
   }
 }
 
