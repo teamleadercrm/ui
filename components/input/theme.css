@@ -34,8 +34,6 @@
   --icon-top-large: calc(1.4 * var(--unit));
   --icon-top: calc(0.7 * var(--unit));
   --icon-horizontal: calc(.5 * var(--unit));
-  --icon-height: calc(1.9 * var(--unit));
-  --icon-height-small: calc(1.4 * var(--unit));
   --icon-color: var(--color-neutral-darkest);
 
   --counter-margin-top: calc(0.7 * var(--unit));
@@ -128,8 +126,6 @@
   z-index: 1;
   top: var(--icon-top);
   left: var(--icon-horizontal);
-
-  max-height: var(--icon-height);
 
   color: var(--icon-color);
 }
@@ -229,10 +225,6 @@
     svg {
       height: 9px;
     }
-  }
-
-  .icon {
-    max-height: var(--icon-height-small);
   }
 
   .counter {
