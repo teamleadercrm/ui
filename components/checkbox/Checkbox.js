@@ -4,7 +4,7 @@ import theme from './theme.css';
 import cx from 'classnames';
 import omit from 'lodash.omit';
 import Box from '../box';
-import { TextBody, TextSmall } from '../typography';
+import { TextBody, TextDisplay, TextSmall } from '../typography';
 import { IconCheckmarkSmallOutline, IconCheckmarkMediumOutline } from '@teamleader/ui-icons';
 
 class Checkbox extends PureComponent {
@@ -92,7 +92,7 @@ class Checkbox extends PureComponent {
     const { checked, disabled, className, size, label, children, ...others } = this.props;
     const rest = omit(others, ['onChange']);
     const { boxProps, inputProps } = this.splitProps(rest);
-    const TextElement = size === 'small' ? TextSmall : TextBody;
+    const TextElement = size === 'small' ? TextSmall : size === 'medium' ? TextBody : TextDisplay;
     const IconCheckmark = size === 'large' ? IconCheckmarkMediumOutline : IconCheckmarkSmallOutline;
 
     const classNames = cx(

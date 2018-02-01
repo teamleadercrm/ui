@@ -8,7 +8,7 @@
 
 .counter {
   border-radius: var(--border-radius);
-  composes: reset;
+  composes: reset-font-smoothing;
   color: var(--color-white);
   display: inline-block;
   font-family: var(--font-family-black);

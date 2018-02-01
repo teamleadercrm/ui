@@ -6,9 +6,9 @@
   --overflow-padding-horizontal: 8px;
   --stacked-avatars-overlap-margin: -4px;
 
-  --tiny-size: 21px;
-  --small-size: 32px;
-  --medium-size: 44px;
+  --tiny-size: 24px;
+  --small-size: 36px;
+  --medium-size: 48px;
 }
 
 /* Avatar */
@@ -37,6 +37,7 @@
 }
 
 .overflow {
+  composes: reset-font-smoothing;
   align-items: center;
   align-self: center;
   display: flex;

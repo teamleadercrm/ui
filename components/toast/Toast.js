@@ -2,12 +2,14 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Transition from 'react-transition-group/Transition';
 import cx from 'classnames';
-import { Button, IconButton } from '../button';
+import { IconButton, LinkButton } from '../button';
+import { TextBody } from '../typography';
+import LoadingSpinner from '../loadingSpinner';
 import { createPortal } from 'react-dom';
 import { IconCloseMediumOutline } from '@teamleader/ui-icons';
 import theme from './theme.css';
 
-const factory = (Button, IconButton) => {
+const factory = (LinkButton, IconButton) => {
   class Toast extends PureComponent {
     static propTypes = {
       action: PropTypes.string,
@@ -15,10 +17,10 @@ const factory = (Button, IconButton) => {
       children: PropTypes.node,
       className: PropTypes.string,
       label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-      onClick: PropTypes.func,
+      onClose: PropTypes.func,
       onTimeout: PropTypes.func,
+      processing: PropTypes.bool,
       timeout: PropTypes.number,
-      type: PropTypes.oneOf(['accept', 'cancel', 'warning']),
     };
 
     constructor() {
@@ -32,13 +34,13 @@ const factory = (Button, IconButton) => {
       document.body.appendChild(this.toastRoot);
 
       if (this.props.active && this.props.timeout) {
-        this._scheduleTimeout(this.props);
+        this.scheduleTimeout(this.props);
       }
     }
 
     componentWillReceiveProps(nextProps) {
       if (nextProps.active && nextProps.timeout) {
-        this._scheduleTimeout(nextProps);
+        this.scheduleTimeout(nextProps);
       }
     }
 
@@ -47,7 +49,7 @@ const factory = (Button, IconButton) => {
       document.body.removeChild(this.toastRoot);
     }
 
-    _scheduleTimeout = props => {
+    scheduleTimeout = props => {
       const { onTimeout, timeout } = props;
 
       if (this.currentTimeout) {
@@ -64,18 +66,10 @@ const factory = (Button, IconButton) => {
     };
 
     render() {
-      const { action, active, children, className, label, onClick, type } = this.props;
+      const { action, active, children, className, label, onClose, processing } = this.props;
 
       const toast = (
-        <Transition
-          in={active}
-          timeout={{
-            // Set 'enter' timeout to '0' so that enter animation will start immediately.
-            enter: 0,
-            // Set 'exit' timeout to 'duration' so that the 'exited' status won't be applied until animation completes.
-            exit: 1000,
-          }}
-        >
+        <Transition in={active} timeout={{ enter: 0, exit: 1000 }}>
           {state => {
             if (state === 'exited') {
               return null;
@@ -83,7 +77,6 @@ const factory = (Button, IconButton) => {
 
             const classNames = cx(
               theme['toast'],
-              theme[`is-${type}`],
               {
                 [theme['is-entering']]: state === 'entering',
                 [theme['is-entered']]: state === 'entered',
@@ -94,19 +87,20 @@ const factory = (Button, IconButton) => {
 
             return (
               <div data-teamleader-ui="toast" className={classNames}>
-                <span className={theme['label']}>
+                {processing && <LoadingSpinner className={theme['spinner']} color="white" />}
+                <TextBody className={theme['label']} color="white">
                   {label}
                   {children}
-                </span>
-                {onClick ? (
+                </TextBody>
+                {onClose ? (
                   action ? (
-                    <Button className={theme['button']} label={action} level="outline" onClick={onClick} size="small" />
+                    <LinkButton className={theme['action-link']} inverse label={action} onClick={onClose} />
                   ) : (
                     <IconButton
-                      className={theme['icon-button']}
+                      className={theme['action-button']}
                       icon={<IconCloseMediumOutline />}
                       color="white"
-                      onClick={onClick}
+                      onClick={onClose}
                     />
                   )
                 ) : null}
@@ -123,7 +117,7 @@ const factory = (Button, IconButton) => {
   return Toast;
 };
 
-const Toast = factory(Button, IconButton);
+const Toast = factory(LinkButton, IconButton);
 
 export default Toast;
 export { factory as toastFactory, Toast };

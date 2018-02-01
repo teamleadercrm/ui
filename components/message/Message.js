@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../box';
+import { ButtonGroup } from '../button';
 import cx from 'classnames';
 import theme from './theme.css';
 
@@ -30,10 +31,10 @@ class Message extends PureComponent {
         <div className={theme['content']}>
           {children}
           {hasAction && (
-            <div className={theme['actions']}>
-              {button && <span className={theme['button']}>{button}</span>}
+            <ButtonGroup className={theme['actions']} marginTop={4}>
+              {button && React.cloneElement(button, { className: theme['button'] })}
               {link}
-            </div>
+            </ButtonGroup>
           )}
         </div>
       </Box>

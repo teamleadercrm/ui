@@ -3,13 +3,16 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
+import { withKnobs, boolean } from '@storybook/addon-knobs/react';
 import styles from '@sambego/storybook-styles';
 import { Store, State } from '@sambego/storybook-state';
 import { RadioGroup, RadioButton } from '../components';
 import { baseStyles, centerStyles } from '../.storybook/styles';
 
+const sizes = ['small', 'medium', 'large'];
+
 const store = new Store({
-  value: 'thewalkingdead',
+  value: 'small',
 });
 const updateState = value => {
   store.set({ value });
@@ -19,24 +22,21 @@ const updateState = value => {
 storiesOf('Radio', module)
   .addDecorator((story, context) => withInfo('common info')(story)(context))
   .addDecorator(checkA11y)
+  .addDecorator(withKnobs)
   .addDecorator(styles({ ...baseStyles, ...centerStyles }))
-  .add('Enabled', () => (
+  .add('Sizes', () => (
     <State store={store}>
       <RadioGroup name="stringValue" onChange={updateState}>
-        <RadioButton size="small" marginBottom={2} label="The Walking Dead" value="thewalkingdead" />
-        <RadioButton size="medium" marginBottom={2} label="From Hell" value="fromhell" />
-        <RadioButton size="medium" marginBottom={2} label="V for a Vendetta" value="vvendetta" onFocus={action('Focus')} />
-        <RadioButton size="large" marginBottom={2} label="Watchmen" value="watchmen" onBlur={action('blur')} />
-      </RadioGroup>
-    </State>
-  ))
-  .add('Disabled', () => (
-    <State store={store}>
-      <RadioGroup name="stringValue" onChange={updateState}>
-        <RadioButton marginBottom={2} label="The Walking Dead" value="thewalkingdead" disabled />
-        <RadioButton marginBottom={2} label="From Hell" value="fromhell" disabled />
-        <RadioButton marginBottom={2} label="V for a Vendetta" value="vvendetta" disabled />
-        <RadioButton marginBottom={2} label="Watchmen" value="watchmen" disabled />
+        {sizes.map((size, key) => (
+          <RadioButton
+            key={key}
+            size={size}
+            marginVertical={3}
+            label={`I'm a ${size} radio`}
+            value={size}
+            disabled={boolean('Disabled', false)}
+          />
+        ))}
       </RadioGroup>
     </State>
   ));

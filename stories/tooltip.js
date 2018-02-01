@@ -4,22 +4,22 @@ import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import styles from '@sambego/storybook-styles';
 import {
+  Badge,
   Box,
   Button,
   ButtonGroup,
-  Heading1,
   Heading2,
   Heading3,
   Heading4,
+  Link,
   StatusLabel,
   TextBody,
+  TextDisplay,
   TextSmall,
-  TextTiny,
-  Tooltip,
-  TooltipLabel
+  Tooltip
 } from '../components';
 import { baseStyles, centerStyles } from '../.storybook/styles';
-import { IconHelpMediumOutline, IconBuildingMediumOutline, IconMeetingSmallOutline } from '@teamleader/ui-icons';
+import { IconHelpBadgedMediumOutline, IconMeetingSmallOutline } from '@teamleader/ui-icons';
 
 const buttonLevels = ['outline', 'secondary', 'primary', 'destructive'];
 const colors = ['white', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'inverse'];
@@ -27,7 +27,8 @@ const sizes = ['small', 'medium'];
 const positions = ['horizontal', 'vertical', 'top', 'bottom', 'left', 'right'];
 
 const TooltippedButton = Tooltip(Button);
-const TooltippedLabel = Tooltip(TooltipLabel);
+const TooltippedBadge = Tooltip(Badge);
+const TooltippedLink = Tooltip(Link);
 const TooltippedStatusLabel = Tooltip(StatusLabel);
 const TooltippedStrong = Tooltip('strong');
 
@@ -90,85 +91,74 @@ storiesOf('Tooltip', module)
     <TextBody>
       <TooltippedStrong
         tooltip={textSmallTooltipContent}
-        tooltipIcon={<IconHelpMediumOutline />}
+        tooltipIcon={<IconHelpBadgedMediumOutline />}
       >
         Hover me
       </TooltippedStrong>
     </TextBody>
   ))
-  .add('from TooltipLabel', () => (
+  .add('from Badge', () => (
     <Box>
-      <Heading1>
-        I'm a Heading 1 with a{' '}
-        <TooltippedLabel
-          icon={<IconBuildingMediumOutline />}
-          tooltip={textSmallTooltipContent}
-        >
-          hover me
-        </TooltippedLabel>{' '}
-        tooltip action
-      </Heading1>
-
       <Heading2 marginTop={4}>
         I'm a Heading 2 with a{' '}
-        <TooltippedLabel
+        <TooltippedBadge
           icon={<IconMeetingSmallOutline />}
           tooltip={textSmallTooltipContent}
         >
           hover me
-        </TooltippedLabel>{' '}
+        </TooltippedBadge>{' '}
         tooltip action
       </Heading2>
 
       <Heading3 marginTop={4}>
         I'm a Heading 3 with a{' '}
-        <TooltippedLabel
+        <TooltippedBadge
           icon={<IconMeetingSmallOutline />}
           tooltip={textSmallTooltipContent}
         >
           hover me
-        </TooltippedLabel>{' '}
+        </TooltippedBadge>{' '}
         tooltip action
       </Heading3>
 
       <Heading4 marginTop={4}>
         I'm a Heading 4 with a{' '}
-        <TooltippedLabel
+        <TooltippedBadge
           icon={<IconMeetingSmallOutline />}
           inverse
           tooltip={textSmallTooltipContent}
           tooltipColor="inverse"
         >
           hover me
-        </TooltippedLabel>{' '}
+        </TooltippedBadge>{' '}
         tooltip action
       </Heading4>
 
+      <TextDisplay marginTop={4}>
+        I'm display text with a{' '}
+        <TooltippedBadge tooltip={textSmallTooltipContent}>
+          hover me
+        </TooltippedBadge>{' '}
+        tooltip action
+      </TextDisplay>
+
       <TextBody marginTop={4}>
         I'm body text with a{' '}
-        <TooltippedLabel
+        <TooltippedBadge
           icon={<IconMeetingSmallOutline />}
           inverse
           tooltip={textSmallTooltipContent}
           tooltipColor="inverse"
         >
           hover me
-        </TooltippedLabel>{' '}
+        </TooltippedBadge>{' '}
         tooltip action
       </TextBody>
 
       <TextSmall marginTop={4}>
-        I'm small text with a <TooltippedLabel tooltip={textSmallTooltipContent}>hover me</TooltippedLabel>{' '}
+        I'm small text with a <TooltippedBadge tooltip={textSmallTooltipContent}>hover me</TooltippedBadge>{' '}
         tooltip action
       </TextSmall>
-
-      <TextTiny marginTop={4}>
-        I'm small text with a{' '}
-        <TooltippedLabel tooltip={textSmallTooltipContent}>
-          hover me
-        </TooltippedLabel>{' '}
-        tooltip action
-      </TextTiny>
     </Box>
   ))
   .add('from Button', () => (
@@ -181,6 +171,9 @@ storiesOf('Tooltip', module)
         )
       })}
     </ButtonGroup>
+  ))
+  .add('from Link', () => (
+    <TooltippedLink tooltip={textBodyTooltipContent} href="#" inherit={false}>Hover me</TooltippedLink>
   ))
   .add('from StatusLabel', () => (
     <TooltippedStatusLabel tooltip={textSmallTooltipContent}>Hover me</TooltippedStatusLabel>

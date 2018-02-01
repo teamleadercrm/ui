@@ -18,31 +18,6 @@
 
 .close-button {
   position: absolute;
-  top: -6px;
-  right: -6px;
-}
-
-.white,
-.neutral {
-  color: var(--color-teal-darkest);
-}
-
-.mint {
-  color: var(--color-mint-darkest);
-}
-
-.violet {
-  color: var(--color-violet-darkest);
-}
-
-.ruby {
-  color: var(--color-ruby-darkest);
-}
-
-.gold {
-  color: var(--color-gold-darkest);
-}
-
-.aqua {
-  color: var(--color-aqua-darkest);
+  top: -3px;
+  right: -3px;
 }
