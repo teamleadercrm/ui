@@ -1,7 +1,7 @@
-export const baseStyles = {};
+export const baseStyles = {
+};
 
 export const centerStyles = {
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center'
+  margin: '24px auto',
+  maxWidth: '90%',
 };
