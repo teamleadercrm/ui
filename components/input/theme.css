@@ -22,7 +22,6 @@
   --input-focus-border: var(--color-aqua);
   --input-active-border: var(--color-neutral-darkest);
   --input-active-box-shadow: rgba(130, 130, 140, 0.5);
-  --input-error-background: var(--color-ruby-lightest);
   --input-error-border: var(--color-ruby-dark);
 
   --input-disabled-background: var(--color-neutral);
@@ -261,8 +260,6 @@
 
 .has-errors {
   .input {
-    background-color: var(--input-error-background);
-
     border-color: var(--input-error-border);
   }
 }
