@@ -10,8 +10,8 @@
   --input-height-small: calc(2.8 * var(--unit));
   --input-width: calc(30 * var(--unit));
   --input-horizontal-padding: calc(0.5 * var(--unit));
-  --input-horizontal-padding-icon: calc(3.9 * var(--unit));
-  --input-horizontal-padding-icon-small: calc(2.6 * var(--unit));
+  --input-horizontal-padding-icon-large: calc(3.5 * var(--unit));
+  --input-horizontal-padding-icon: calc(2.2 * var(--unit));
   --input-text-color: var(--color-teal-darkest);
   --input-text-size: calc(1.4 * var(--unit));
   --input-text-size-large: calc(1.6 * var(--unit));
@@ -209,6 +209,18 @@
       height: 14px;
     }
   }
+
+  &.has-icon-left {
+    .input {
+      padding-left: var(--input-horizontal-padding-icon-large);
+    }
+  }
+
+  &.has-icon-right {
+    .input {
+      padding-right: var(--input-horizontal-padding-icon-large);
+    }
+  }
 }
 
 .is-small {
@@ -226,18 +238,6 @@
 
   .counter {
     top: var(--counter-margin-small);
-  }
-
-  &.has-icon-left {
-    .input {
-      padding-left: var(--input-horizontal-padding-icon-small);
-    }
-  }
-
-  &.has-icon-right {
-    .input {
-      padding-right: var(--input-horizontal-padding-icon-small);
-    }
   }
 }
 
