@@ -1,7 +1,11 @@
 import React, { Component, createElement } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import { IconChevronUpSmallOutline, IconChevronDownSmallOutline, IconWarningBadgedSmallFilled } from '@teamleader/ui-icons';
+import {
+  IconChevronUpSmallOutline,
+  IconChevronDownSmallOutline,
+  IconWarningBadgedSmallFilled,
+} from '@teamleader/ui-icons';
 import InputMetaPropTypes from './InputMetaPropTypes';
 import Counter from '../counter';
 import theme from './theme.css';
