@@ -1,7 +1,7 @@
 import React, { Component, createElement } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import { IconChevronUpSmallOutline, IconChevronDownSmallOutline, IconErrorSmallOutline } from '@teamleader/ui-icons';
+import { IconChevronUpSmallOutline, IconChevronDownSmallOutline, IconWarningBadgedSmallFilled } from '@teamleader/ui-icons';
 import InputMetaPropTypes from './InputMetaPropTypes';
 import Counter from '../counter';
 import theme from './theme.css';
@@ -124,7 +124,7 @@ export default class Input extends Component {
     if (this.props.meta && this.props.meta.error) {
       return (
         <p className={theme['error']}>
-          <IconErrorSmallOutline /> {this.props.meta.error}
+          <IconWarningBadgedSmallFilled /> {this.props.meta.error}
         </p>
       );
     }
