@@ -26,7 +26,7 @@
   --input-error-border: var(--color-ruby-dark);
 
   --input-disabled-background: var(--color-neutral);
-  --input-disabled-border: var(--color-neutral-dark);
+  --input-disabled-border: var(--color-neutral);
   --input-disabled-color: var(--color-neutral-darkest);
   --input-read-only-background: var(--color-neutral);
   --input-read-only-border: var(--color-neutral-dark);
