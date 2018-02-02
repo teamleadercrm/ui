@@ -261,5 +261,6 @@
 .has-errors {
   .input {
     border-color: var(--input-error-border);
+    box-shadow: 0 0 0 1px var(--input-error-border);
   }
 }
