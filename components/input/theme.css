@@ -120,6 +120,7 @@
   }
 }
 
+.feedback-icon,
 .icon {
   position: absolute;
   z-index: 1;
@@ -215,6 +216,7 @@
     }
   }
 
+  &.has-errors,
   &.has-icon-right {
     .input {
       padding-right: var(--input-horizontal-padding-icon-large);
@@ -259,8 +261,40 @@
 }
 
 .has-errors {
+  .feedback-icon {
+    color: var(--color-ruby-dark);
+    left: auto;
+    right: var(--icon-horizontal);
+  }
+
+  .counter,
+  &.has-icon-right .icon {
+    display: none;
+  }
+
   .input {
     border-color: var(--input-error-border);
     box-shadow: 0 0 0 1px var(--input-error-border);
+    padding-right: var(--input-horizontal-padding-icon);
+  }
+
+  &.is-numeric {
+    input {
+      padding-right: calc(var(--input-horizontal-padding-icon) + var(--spinner-width));
+    }
+
+    .feedback-icon {
+      right: calc(var(--icon-horizontal) + var(--spinner-width));
+    }
+
+    &.is-large {
+      input {
+        padding-right: calc(var(--input-horizontal-padding-icon) + var(--spinner-width-large));
+      }
+
+      .feedback-icon {
+        right: calc(var(--icon-horizontal) + var(--spinner-width-large));
+      }
+    }
   }
 }
