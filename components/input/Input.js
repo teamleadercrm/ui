@@ -21,6 +21,7 @@ export default class Input extends Component {
     icon: PropTypes.oneOfType([PropTypes.func, PropTypes.element]),
     iconPlacement: PropTypes.oneOf(['left', 'right']),
     id: PropTypes.string,
+    inverse: PropTypes.bool,
     meta: InputMetaPropTypes,
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
@@ -35,6 +36,7 @@ export default class Input extends Component {
 
   static defaultProps = {
     iconPlacement: 'left',
+    inverse: false,
     disabled: false,
     placeholder: '',
     readOnly: false,
@@ -163,7 +165,7 @@ export default class Input extends Component {
   }
 
   render() {
-    const { className, counter, icon, iconPlacement, size, meta } = this.props;
+    const { className, counter, icon, iconPlacement, inverse, size, meta } = this.props;
     const classNames = cx(
       theme.wrapper,
       theme[`is-${size}`],
@@ -172,6 +174,7 @@ export default class Input extends Component {
         [theme['has-counter']]: counter,
         [theme['has-error']]: Boolean(meta && meta.error),
         [theme['has-validation-feedback']]: meta,
+        [theme['is-inverse']]: inverse,
         [theme['is-numeric']]: this.isNumberInput,
         [theme['is-valid']]: Boolean(meta && meta.valid),
       },
