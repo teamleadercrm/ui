@@ -164,14 +164,19 @@ export default class Input extends Component {
 
   render() {
     const { className, counter, icon, iconPlacement, size, meta } = this.props;
-    const classNames = cx(theme.wrapper, theme[`is-${size}`], className, {
-      [theme[`has-icon-${iconPlacement}`]]: icon,
-      [theme['has-counter']]: counter,
-      [theme['has-error']]: Boolean(meta && meta.error),
-      [theme['has-validation-feedback']]: meta,
-      [theme['is-numeric']]: this.isNumberInput,
-      [theme['is-valid']]: Boolean(meta && meta.valid),
-    });
+    const classNames = cx(
+      theme.wrapper,
+      theme[`is-${size}`],
+      {
+        [theme[`has-icon-${iconPlacement}`]]: icon,
+        [theme['has-counter']]: counter,
+        [theme['has-error']]: Boolean(meta && meta.error),
+        [theme['has-validation-feedback']]: meta,
+        [theme['is-numeric']]: this.isNumberInput,
+        [theme['is-valid']]: Boolean(meta && meta.valid),
+      },
+      className,
+    );
 
     return (
       <div>
