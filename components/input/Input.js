@@ -126,19 +126,13 @@ export default class Input extends Component {
 
   renderErrorMessage() {
     if (this.props.meta && this.props.meta.error) {
-      return (
-        <p className={theme['error']}>
-          {this.props.meta.error}
-        </p>
-      );
+      return <p className={theme['error']}>{this.props.meta.error}</p>;
     }
   }
 
   renderErrorIcon() {
     if (this.props.meta && this.props.meta.error) {
-      return (
-        <IconWarningBadgedSmallFilled className={theme['feedback-icon']} />
-      );
+      return <IconWarningBadgedSmallFilled className={theme['feedback-icon']} />;
     }
   }
 
