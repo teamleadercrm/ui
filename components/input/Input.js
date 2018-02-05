@@ -156,9 +156,9 @@ export default class Input extends Component {
     }
 
     if (meta.error) {
-      return <IconWarningBadgedSmallFilled className={cx(theme['feedback-icon'], theme['error'])} />;
+      return <IconWarningBadgedSmallFilled className={cx(theme['validation-icon'], theme['error'])} />;
     } else if (meta.valid) {
-      return <IconCheckmarkSmallFilled className={cx(theme['feedback-icon'], theme['valid'])} />;
+      return <IconCheckmarkSmallFilled className={cx(theme['validation-icon'], theme['valid'])} />;
     }
   }
 
