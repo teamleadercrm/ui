@@ -129,7 +129,7 @@ export default class Input extends Component {
   renderValidationMessage() {
     const { meta } = this.props;
 
-    if(!meta) {
+    if (!meta) {
       return;
     }
 
@@ -151,7 +151,7 @@ export default class Input extends Component {
   renderValidationIcon() {
     const { meta } = this.props;
 
-    if(!meta) {
+    if (!meta) {
       return;
     }
 
