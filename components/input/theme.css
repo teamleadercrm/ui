@@ -73,40 +73,45 @@
   font-family: var(--font-family-regular);
 
   &:focus {
-    border-color: var(--input-focus-border);
-    box-shadow: 0 0 0 1px var(--input-focus-border);
     outline: none;
-  }
-
-  &:active {
-    border-color: var(--input-active-border);
-    box-shadow: inset 0 3px 6px 0 var(--input-active-box-shadow);
   }
 
   &.is-bold {
     font-family: var(--font-family-medium);
   }
 
-  &.is-disabled {
-    background-color: var(--input-disabled-background);
-
-    border-color: var(--input-disabled-border);
-
-    color: var(--input-disabled-color);
-  }
-
-  &.is-read-only {
-    background-color: var(--input-read-only-background);
-
-    border-color: var(--input-read-only-border);
-  }
-
   &::placeholder {
-    color: var(--input-placeholder-color);
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     font-smoothing: antialiased;
     text-size-adjust: 100%;
+  }
+
+  &:not(.is-inverse) {
+    &:focus {
+      border-color: var(--input-focus-border);
+      box-shadow: 0 0 0 1px var(--input-focus-border);
+    }
+
+    &:active {
+      border-color: var(--input-active-border);
+      box-shadow: inset 0 3px 6px 0 var(--input-active-box-shadow);
+    }
+
+    &.is-disabled {
+      background-color: var(--input-disabled-background);
+      border-color: var(--input-disabled-border);
+      color: var(--input-disabled-color);
+    }
+
+    &.is-read-only {
+      background-color: var(--input-read-only-background);
+      border-color: var(--input-read-only-border);
+    }
+
+    &::placeholder {
+      color: var(--input-placeholder-color);
+    }
   }
 }
 
@@ -275,23 +280,27 @@
 }
 
 .has-error {
-  .input {
-    border-color: var(--input-error-border);
-    box-shadow: 0 0 0 1px var(--input-error-border);
-  }
+  &:not(.is-inverse) {
+    .input {
+      border-color: var(--input-error-border);
+      box-shadow: 0 0 0 1px var(--input-error-border);
+    }
 
-  .validation-icon {
-    color: var(--color-ruby-dark);
+    .validation-icon {
+      color: var(--color-ruby-dark);
+    }
   }
 }
 
 .is-valid {
-  .input {
-    border-color: var(--input-valid-border);
-    box-shadow: 0 0 0 1px var(--input-valid-border);
-  }
+  &:not(.is-inverse) {
+    .input {
+      border-color: var(--input-valid-border);
+      box-shadow: 0 0 0 1px var(--input-valid-border);
+    }
 
-  .validation-icon {
-    color: var(--color-mint-light);
+    .validation-icon {
+      color: var(--color-mint-light);
+    }
   }
 }
