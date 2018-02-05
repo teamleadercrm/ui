@@ -40,6 +40,7 @@
   --spinner-color: var(--color-neutral-darkest);
 
   --error-color: var(--color-ruby-dark);
+  --valid-color: var(--color-mint-dark);
 }
 
 /**
@@ -167,6 +168,10 @@
   color: var(--error-color);
 }
 
+.valid {
+  color: var(--valid-color);
+}
+
 /**
  * Modifiers
  */
@@ -237,7 +242,6 @@
 
 .has-errors {
   .feedback-icon {
-    color: var(--color-ruby-dark);
     left: auto;
     right: var(--icon-horizontal);
   }

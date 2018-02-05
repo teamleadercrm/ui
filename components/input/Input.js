@@ -2,6 +2,7 @@ import React, { Component, createElement } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import {
+  IconCheckmarkSmallFilled,
   IconChevronUpSmallOutline,
   IconChevronDownSmallOutline,
   IconWarningBadgedSmallFilled,
@@ -125,21 +126,39 @@ export default class Input extends Component {
     }
   }
 
-  renderErrorMessage() {
+  renderValidationMessage() {
     const { meta } = this.props;
 
-    if (meta && meta.error) {
+    if(!meta) {
+      return;
+    }
+
+    if (meta.error) {
       return (
         <TextSmall marginTop={2} className={theme['error']}>
           {meta.error}
         </TextSmall>
       );
+    } else if (meta.valid) {
+      return (
+        <TextSmall marginTop={2} className={theme['valid']}>
+          {meta.valid}
+        </TextSmall>
+      );
     }
   }
 
-  renderErrorIcon() {
-    if (this.props.meta && this.props.meta.error) {
-      return <IconWarningBadgedSmallFilled className={theme['feedback-icon']} />;
+  renderValidationIcon() {
+    const { meta } = this.props;
+
+    if(!meta) {
+      return;
+    }
+
+    if (meta.error) {
+      return <IconWarningBadgedSmallFilled className={cx(theme['feedback-icon'], theme['error'])} />;
+    } else if (meta.valid) {
+      return <IconCheckmarkSmallFilled className={cx(theme['feedback-icon'], theme['valid'])} />;
     }
   }
 
@@ -163,10 +182,10 @@ export default class Input extends Component {
           {this.renderInput()}
           {this.renderCounter()}
           {this.renderSpinnerControls()}
-          {this.renderErrorIcon()}
+          {this.renderValidationIcon()}
         </div>
 
-        {this.renderErrorMessage()}
+        {this.renderValidationMessage()}
       </div>
     );
   }
