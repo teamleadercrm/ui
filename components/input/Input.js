@@ -167,7 +167,7 @@ export default class Input extends Component {
     const classNames = cx(theme.wrapper, theme[`is-${size}`], className, {
       [theme[`has-icon-${iconPlacement}`]]: icon,
       [theme['has-counter']]: counter,
-      [theme['has-errors']]: Boolean(meta && meta.error),
+      [theme['has-validation-feedback']]: Boolean(meta && meta.error),
       [theme['is-numeric']]: this.isNumberInput,
     });
 

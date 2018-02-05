@@ -200,7 +200,7 @@
     }
   }
 
-  &.has-errors,
+  &.has-validation-feedback,
   &.has-icon-right {
     .input {
       padding-right: var(--input-horizontal-padding-icon-large);
@@ -240,7 +240,7 @@
   }
 }
 
-.has-errors {
+.has-validation-feedback {
   .validation-icon {
     left: auto;
     right: var(--icon-horizontal);
