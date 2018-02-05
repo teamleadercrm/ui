@@ -172,16 +172,7 @@
 }
 
 .error {
-  margin: 6px 0 0;
-
-  font-size: var(--error-font-size);
-  line-height: 1.3;
   color: var(--error-color);
-
-  svg {
-    height: 12px;
-    vertical-align: initial !important;
-  }
 }
 
 /**

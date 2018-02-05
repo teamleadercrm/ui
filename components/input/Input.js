@@ -8,6 +8,7 @@ import {
 } from '@teamleader/ui-icons';
 import InputMetaPropTypes from './InputMetaPropTypes';
 import Counter from '../counter';
+import { TextSmall } from '../typography';
 import theme from './theme.css';
 
 export default class Input extends Component {
@@ -125,8 +126,14 @@ export default class Input extends Component {
   }
 
   renderErrorMessage() {
-    if (this.props.meta && this.props.meta.error) {
-      return <p className={theme['error']}>{this.props.meta.error}</p>;
+    const { meta } = this.props;
+
+    if (meta && meta.error) {
+      return (
+        <TextSmall marginTop={2} className={theme['error']}>
+          {meta.error}
+        </TextSmall>
+      );
     }
   }
 
