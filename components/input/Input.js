@@ -124,12 +124,20 @@ export default class Input extends Component {
     }
   }
 
-  renderError() {
+  renderErrorMessage() {
     if (this.props.meta && this.props.meta.error) {
       return (
         <p className={theme['error']}>
-          <IconWarningBadgedSmallFilled /> {this.props.meta.error}
+          {this.props.meta.error}
         </p>
+      );
+    }
+  }
+
+  renderErrorIcon() {
+    if (this.props.meta && this.props.meta.error) {
+      return (
+        <IconWarningBadgedSmallFilled className={theme['feedback-icon']} />
       );
     }
   }
@@ -153,9 +161,10 @@ export default class Input extends Component {
           {this.renderInput()}
           {this.renderCounter()}
           {this.renderSpinnerControls()}
+          {this.renderErrorIcon()}
         </div>
 
-        {this.renderError()}
+        {this.renderErrorMessage()}
       </div>
     );
   }
