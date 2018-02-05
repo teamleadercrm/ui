@@ -130,37 +130,36 @@ export default class Input extends Component {
 
   renderValidationMessage() {
     const { meta } = this.props;
+    const props = {
+      className: theme['validation-text'],
+      marginTop: 2,
+    };
 
     if (!meta) {
       return;
     }
 
     if (meta.error) {
-      return (
-        <TextSmall marginTop={2} className={theme['error']}>
-          {meta.error}
-        </TextSmall>
-      );
+      return <TextSmall {...props}>{meta.error}</TextSmall>;
     } else if (meta.valid) {
-      return (
-        <TextSmall marginTop={2} className={theme['valid']}>
-          {meta.valid}
-        </TextSmall>
-      );
+      return <TextSmall {...props}>{meta.valid}</TextSmall>;
     }
   }
 
   renderValidationIcon() {
     const { meta } = this.props;
+    const props = {
+      className: theme['validation-icon'],
+    };
 
     if (!meta) {
       return;
     }
 
     if (meta.error) {
-      return <IconWarningBadgedSmallFilled className={theme['validation-icon']} />;
+      return <IconWarningBadgedSmallFilled {...props} />;
     } else if (meta.valid) {
-      return <IconCheckmarkSmallFilled className={theme['validation-icon']} />;
+      return <IconCheckmarkSmallFilled {...props} />;
     }
   }
 
