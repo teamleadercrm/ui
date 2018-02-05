@@ -142,6 +142,7 @@ export default class Input extends Component {
       [theme[`has-icon-${iconPlacement}`]]: icon,
       [theme['has-counter']]: counter,
       [theme['has-errors']]: Boolean(meta && meta.error),
+      [theme['is-numeric']]: this.isNumberInput,
     });
 
     return (
