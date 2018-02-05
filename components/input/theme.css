@@ -39,7 +39,6 @@
   --spinner-border: var(--color-neutral-dark);
   --spinner-color: var(--color-neutral-darkest);
 
-  --error-font-size: calc(1.4 * var(--unit));
   --error-color: var(--color-ruby-dark);
 }
 
