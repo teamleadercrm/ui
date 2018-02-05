@@ -30,16 +30,8 @@
   --input-read-only-background: var(--color-neutral);
   --input-read-only-border: var(--color-neutral-dark);
 
-  --icon-top-large: calc(1.4 * var(--unit));
-  --icon-top: calc(0.7 * var(--unit));
   --icon-horizontal: calc(.5 * var(--unit));
   --icon-color: var(--color-neutral-darkest);
-
-  --counter-margin-top: calc(0.7 * var(--unit));
-  --counter-margin-small: calc(0.5 * var(--unit));
-  --counter-margin-large: calc(1.4 * var(--unit));
-  --counter-margin-left: calc(0.5 * var(--unit));
-  --counter-width: calc(3 * var(--unit));
 
   --spinner-width: calc(2.9 * var(--unit));
   --spinner-width-large: calc(3.6 * var(--unit));
@@ -134,7 +126,8 @@
 .counter {
   position: absolute;
   z-index: 1;
-  top: var(--icon-top);
+  top: 50%;
+  transform: translateY(-50%);
   right: var(--icon-horizontal);
 }
 
@@ -186,10 +179,6 @@
     font-size: var(--input-text-size-large);
   }
 
-  .counter {
-    top: var(--counter-margin-large);
-  }
-
   .spinner {
     width: var(--spinner-width-large);
   }
@@ -226,10 +215,6 @@
     svg {
       height: 9px;
     }
-  }
-
-  .counter {
-    top: var(--counter-margin-small);
   }
 }
 
