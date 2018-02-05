@@ -156,9 +156,9 @@ export default class Input extends Component {
     }
 
     if (meta.error) {
-      return <IconWarningBadgedSmallFilled className={cx(theme['validation-icon'], theme['error'])} />;
+      return <IconWarningBadgedSmallFilled className={theme['validation-icon']} />;
     } else if (meta.valid) {
-      return <IconCheckmarkSmallFilled className={cx(theme['validation-icon'], theme['valid'])} />;
+      return <IconCheckmarkSmallFilled className={theme['validation-icon']} />;
     }
   }
 
@@ -167,8 +167,10 @@ export default class Input extends Component {
     const classNames = cx(theme.wrapper, theme[`is-${size}`], className, {
       [theme[`has-icon-${iconPlacement}`]]: icon,
       [theme['has-counter']]: counter,
-      [theme['has-validation-feedback']]: Boolean(meta && (meta.error || meta.valid)),
+      [theme['has-error']]: Boolean(meta && meta.error),
+      [theme['has-validation-feedback']]: meta,
       [theme['is-numeric']]: this.isNumberInput,
+      [theme['is-valid']]: Boolean(meta && meta.valid),
     });
 
     return (
