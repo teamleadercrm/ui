@@ -182,8 +182,8 @@ export default class Input extends Component {
     );
 
     return (
-      <div>
-        <div className={classNames}>
+      <div className={classNames}>
+        <div className={theme['input-wrapper']}>
           {icon &&
             createElement(icon, {
               className: theme.icon,
