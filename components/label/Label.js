@@ -6,6 +6,7 @@ import cx from 'classnames';
 
 export default class Label extends PureComponent {
   static propTypes = {
+    className: PropTypes.string,
     children: PropTypes.oneOfType([PropTypes.element, PropTypes.string, PropTypes.array]),
     for: PropTypes.string,
     inverse: PropTypes.bool,
@@ -18,10 +19,10 @@ export default class Label extends PureComponent {
   };
 
   render() {
-    const { children, inverse, size } = this.props;
+    const { children, className, inverse, size } = this.props;
     const classNames = cx(theme['label'], {
       [theme['is-inverse']]: inverse,
-    });
+    }, className);
     const Element = size === 'medium' ? TextDisplay : TextBody;
 
     return (
