@@ -2,7 +2,6 @@ import React, { Component, createElement } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import {
-  IconCheckmarkSmallFilled,
   IconChevronUpSmallOutline,
   IconChevronDownSmallOutline,
   IconWarningBadgedSmallFilled,
@@ -135,31 +134,14 @@ export default class Input extends Component {
       marginTop: 2,
     };
 
-    if (!meta) {
-      return;
-    }
-
-    if (meta.error) {
+    if (meta && meta.error) {
       return <TextSmall {...props}>{meta.error}</TextSmall>;
-    } else if (meta.valid) {
-      return <TextSmall {...props}>{meta.valid}</TextSmall>;
     }
   }
 
   renderValidationIcon() {
-    const { meta } = this.props;
-    const props = {
-      className: theme['validation-icon'],
-    };
-
-    if (!meta) {
-      return;
-    }
-
-    if (meta.error) {
-      return <IconWarningBadgedSmallFilled {...props} />;
-    } else if (meta.valid) {
-      return <IconCheckmarkSmallFilled {...props} />;
+    if (this.props.meta && this.props.meta.error) {
+      return <IconWarningBadgedSmallFilled className={theme['validation-icon']} />;
     }
   }
 
@@ -172,10 +154,9 @@ export default class Input extends Component {
         [theme[`has-icon-${iconPlacement}`]]: icon,
         [theme['has-counter']]: counter,
         [theme['has-error']]: Boolean(meta && meta.error),
-        [theme['has-validation-feedback']]: meta,
+        [theme['has-validation-feedback']]: Boolean(meta && meta.error),
         [theme['is-inverse']]: inverse,
         [theme['is-numeric']]: this.isNumberInput,
-        [theme['is-valid']]: Boolean(meta && meta.valid),
       },
       className,
     );
