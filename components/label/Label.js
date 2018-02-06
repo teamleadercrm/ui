@@ -33,7 +33,7 @@ export default class Label extends PureComponent {
       },
       className,
     );
-    const Element = size === 'medium' ? TextDisplay : TextBody;
+    const Element = size === 'large' ? TextDisplay : TextBody;
 
     return (
       <Element
