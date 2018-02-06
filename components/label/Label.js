@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { TextBody, TextDisplay } from '../typography';
 import theme from './theme.css';
-import cx from 'classnames';
+import cx from "classnames";
 
 export default class Label extends PureComponent {
   static propTypes = {
