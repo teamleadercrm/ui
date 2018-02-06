@@ -14,7 +14,7 @@ const InputMetaPropTypes = PropTypes.shape({
   submitting: PropTypes.bool,
   submitFailed: PropTypes.bool,
   touched: PropTypes.bool,
-  valid: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+  valid: PropTypes.bool,
   visited: PropTypes.bool,
   warning: PropTypes.string,
 });
