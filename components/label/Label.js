@@ -1,7 +1,9 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import Input from '../input';
 import { TextBody, TextDisplay } from '../typography';
 import theme from './theme.css';
+import isComponentOfType from '../utils/is-component-of-type';
 import cx from 'classnames';
 
 export default class Label extends PureComponent {
@@ -10,7 +12,7 @@ export default class Label extends PureComponent {
     children: PropTypes.oneOfType([PropTypes.element, PropTypes.string, PropTypes.array]),
     for: PropTypes.string,
     inverse: PropTypes.bool,
-    size: PropTypes.oneOf(['small', 'medium']),
+    size: PropTypes.oneOf(['small', 'medium', 'large']),
   };
 
   static defaultProps = {
@@ -20,6 +22,10 @@ export default class Label extends PureComponent {
 
   render() {
     const { children, className, inverse, size } = this.props;
+    const childProps = {
+      inverse,
+      size,
+    };
     const classNames = cx(
       theme['label'],
       {
@@ -37,7 +43,13 @@ export default class Label extends PureComponent {
         marginBottom={3}
         className={classNames}
       >
-        {children}
+        {React.Children.map(children, child => {
+          if (isComponentOfType(Input, child)) {
+            return React.cloneElement(child, childProps);
+          }
+
+          return child;
+        })}
       </Element>
     );
   }
