@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { TextBody, TextDisplay } from '../typography';
 import theme from './theme.css';
-import cx from "classnames";
+import cx from 'classnames';
 
 export default class Label extends PureComponent {
   static propTypes = {
@@ -20,9 +20,13 @@ export default class Label extends PureComponent {
 
   render() {
     const { children, className, inverse, size } = this.props;
-    const classNames = cx(theme['label'], {
-      [theme['is-inverse']]: inverse,
-    }, className);
+    const classNames = cx(
+      theme['label'],
+      {
+        [theme['is-inverse']]: inverse,
+      },
+      className,
+    );
     const Element = size === 'medium' ? TextDisplay : TextBody;
 
     return (
