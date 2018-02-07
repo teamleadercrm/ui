@@ -9,12 +9,12 @@
   --input-height-medium: calc(3.4 * var(--unit));
   --input-height-small: calc(2.8 * var(--unit));
   --input-width: calc(30 * var(--unit));
-  --input-horizontal-padding: calc(0.5 * var(--unit));
+  --input-horizontal-padding: calc(.5 * var(--unit));
   --input-horizontal-padding-icon-large: calc(3.5 * var(--unit));
   --input-horizontal-padding-icon: calc(2.2 * var(--unit));
   --input-text-size: calc(1.4 * var(--unit));
   --input-text-size-large: calc(1.6 * var(--unit));
-  --input-border-radius: calc(0.4 * var(--unit));
+  --input-border-radius: calc(.4 * var(--unit));
   --input-error-border: var(--color-ruby-dark);
 
   --icon-horizontal: calc(.5 * var(--unit));
@@ -59,7 +59,7 @@
 
         &:active {
           border-color: var(--color-neutral-darkest);
-          box-shadow: inset 0 1px 3px 0 rgba(130, 130, 140, 0.48);
+          box-shadow: inset 0 1px 3px 0 rgba(130, 130, 140, .48);
         }
       }
 
@@ -129,7 +129,7 @@
 }
 
 .input {
-  transition: 0.3s ease-in-out border, 0.3s ease-in-out box-shadow;
+  transition: .3s ease-in-out border, .3s ease-in-out box-shadow;
 
   position: relative;
   box-sizing: border-box;
