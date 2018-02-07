@@ -12,27 +12,12 @@
   --input-horizontal-padding: calc(0.5 * var(--unit));
   --input-horizontal-padding-icon-large: calc(3.5 * var(--unit));
   --input-horizontal-padding-icon: calc(2.2 * var(--unit));
-  --input-text-color: var(--color-teal-darkest);
   --input-text-size: calc(1.4 * var(--unit));
   --input-text-size-large: calc(1.6 * var(--unit));
-  --input-background: var(--color-white);
   --input-border-radius: calc(0.4 * var(--unit));
-  --input-border-color: var(--color-neutral-dark);
-  --input-placeholder-color: var(--color-neutral-darkest);
-  --input-focus-border: var(--color-aqua);
-  --input-active-border: var(--color-neutral-darkest);
-  --input-active-box-shadow: rgba(130, 130, 140, 0.5);
   --input-error-border: var(--color-ruby-dark);
-  --input-valid-border: var(--color-mint-light);
-
-  --input-disabled-background: var(--color-neutral);
-  --input-disabled-border: var(--color-neutral);
-  --input-disabled-color: var(--color-neutral-darkest);
-  --input-read-only-background: var(--color-neutral);
-  --input-read-only-border: var(--color-neutral-dark);
 
   --icon-horizontal: calc(.5 * var(--unit));
-  --icon-color: var(--color-neutral-darkest);
 
   --spinner-width: calc(2.9 * var(--unit));
   --spinner-width-large: calc(3.6 * var(--unit));
@@ -49,67 +34,91 @@
   max-width: var(--input-width);
 
   &:not(.is-inverse) {
-    .input {
-      background: var(--input-background);
-      border: 1px solid var(--input-border-color);
-      color: var(--input-text-color);
+    .icon {
+      color: var(--color-neutral-darkest)
+    }
 
-      &:focus {
-        border-color: var(--input-focus-border);
-        box-shadow: 0 0 0 1px var(--input-focus-border);
+    .input {
+      background: var(--color-white);
+      border: 1px solid var(--color-neutral-dark);
+      color: var(--color-teal-darkest);
+
+      &::placeholder {
+        color: var(--color-neutral-darkest);
       }
 
-      &:active {
-        border-color: var(--input-active-border);
-        box-shadow: inset 0 3px 6px 0 var(--input-active-box-shadow);
+      &:not(.is-disabled):not(.is-read-only) {
+        &:hover {
+          border-color: var(--color-neutral-darkest);
+        }
+
+        &:focus {
+          border-color: var(--color-neutral-darkest);
+          box-shadow: 0 0 0 1px var(--color-neutral-darkest);
+        }
+
+        &:active {
+          border-color: var(--color-neutral-darkest);
+          box-shadow: inset 0 1px 3px 0 rgba(130, 130, 140, 0.48);
+        }
       }
 
       &.is-disabled {
-        background-color: var(--input-disabled-background);
-        border-color: var(--input-disabled-border);
-        color: var(--input-disabled-color);
+        background-color: var(--color-neutral);
+        border-color: var(--color-neutral);
+        color: var(--color-neutral-darkest);
       }
 
       &.is-read-only {
-        background-color: var(--input-read-only-background);
-        border-color: var(--input-read-only-border);
-      }
-
-      &::placeholder {
-        color: var(--input-placeholder-color);
+        background-color: var(--color-neutral);
+        border-color: var(--color-neutral);
       }
     }
   }
 
   &.is-inverse {
+    .icon {
+      color: var(--color-teal-light)
+    }
+
     .input {
       background: var(--color-teal);
       border: 1px solid var(--color-teal);
       color: var(--color-neutral-lightest);
 
-      &:focus {
-        border-color: var(--color-teal-light);
-        box-shadow: 0 0 0 1px var(--color-teal-light);
+      &::placeholder {
+        color: var(--color-teal-light);
       }
 
-      &:active {
-        border-color: var(--input-active-border);
-        box-shadow: inset 0 3px 6px 0 var(--input-active-box-shadow);
+      &:not(.is-disabled):not(.is-read-only) {
+        &:hover {
+          border-color: var(--color-teal-light);
+        }
+
+        &:focus {
+          border-color: var(--color-teal-light);
+          box-shadow: 0 0 0 1px var(--color-teal-light);
+        }
+
+        &:active {
+          border-color: var(--color-neutral-darkest);
+          box-shadow: inset 0 1px 3px 0 color(var(--color-teal-darkest) a(.48));
+        }
       }
 
       &.is-disabled {
-        background-color: var(--input-disabled-background);
-        border-color: var(--input-disabled-border);
-        color: var(--input-disabled-color);
+        background-color: var(--color-teal-dark);
+        border-color: var(--color-teal-dark);
+        color: var(--color-teal);
+
+        &::placeholder {
+          color: var(--color-teal);
+        }
       }
 
       &.is-read-only {
-        background-color: var(--input-read-only-background);
-        border-color: var(--input-read-only-border);
-      }
-
-      &::placeholder {
-        color: var(--color-teal-light);
+        background-color: var(--color-teal-dark);
+        border-color: var(--color-teal-dark);
       }
     }
   }
@@ -143,6 +152,11 @@
     font-family: var(--font-family-medium);
   }
 
+  &.is-disabled {
+    pointer-events: none;
+    user-select: none;
+  }
+
   &::placeholder {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
@@ -158,8 +172,6 @@
   left: var(--icon-horizontal);
   top: 50%;
   transform: translateY(-50%);
-
-  color: var(--icon-color);
 }
 
 .counter {
