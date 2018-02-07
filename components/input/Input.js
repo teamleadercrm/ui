@@ -7,6 +7,7 @@ import {
   IconWarningBadgedSmallFilled,
 } from '@teamleader/ui-icons';
 import InputMetaPropTypes from './InputMetaPropTypes';
+import Box from '../box';
 import Counter from '../counter';
 import { TextSmall } from '../typography';
 import theme from './theme.css';
@@ -155,7 +156,7 @@ export default class Input extends Component {
   }
 
   render() {
-    const { className, counter, icon, iconPlacement, inverse, size, meta } = this.props;
+    const { className, counter, icon, iconPlacement, inverse, size, meta, ...others } = this.props;
     const classNames = cx(
       theme.wrapper,
       theme[`is-${size}`],
@@ -171,7 +172,7 @@ export default class Input extends Component {
     );
 
     return (
-      <div className={classNames}>
+      <Box className={classNames} {...others}>
         <div className={theme['input-wrapper']}>
           {icon &&
             createElement(icon, {
@@ -185,7 +186,7 @@ export default class Input extends Component {
         </div>
         {this.renderDescription()}
         {this.renderValidationMessage()}
-      </div>
+      </Box>
     );
   }
 }
