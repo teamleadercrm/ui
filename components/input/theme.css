@@ -201,7 +201,7 @@
   flex: 1;
   justify-content: center;
   margin: 0;
-
+  outline: 0;
   background-color: var(--spinner-background);
 
   border-radius: 0 4px 0 0;
