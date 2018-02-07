@@ -24,6 +24,7 @@ export default class Label extends PureComponent {
     const { children, className, inverse, size } = this.props;
     const childProps = {
       inverse,
+      marginTop: 1,
       size,
     };
     const classNames = cx(
