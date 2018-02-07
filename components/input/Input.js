@@ -114,11 +114,15 @@ export default class Input extends Component {
     }
   }
 
-  renderDescription () {
+  renderDescription() {
     const { description, inverse } = this.props;
 
-    if(description) {
-      return <TextSmall color={inverse ? 'white' : 'neutral'} marginTop={1} soft>{description}</TextSmall>;
+    if (description) {
+      return (
+        <TextSmall color={inverse ? 'white' : 'neutral'} marginTop={1} soft>
+          {description}
+        </TextSmall>
+      );
     }
   }
 
