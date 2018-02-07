@@ -231,6 +231,25 @@
 /**
  * Modifiers
  */
+.is-disabled,
+.is-read-only {
+  pointer-events: none;
+
+  &:not(.is-inverse) {
+    .spinner-down,
+    .spinner-up {
+      border-color: var(--color-neutral);
+    }
+  }
+
+  &.is-inverse {
+    .spinner-down,
+    .spinner-up {
+      border-color: var(--color-teal-dark);
+    }
+  }
+}
+
 .is-disabled {
   .input {
     pointer-events: none;
