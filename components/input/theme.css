@@ -46,8 +46,10 @@
       &::placeholder {
         color: var(--color-neutral-darkest);
       }
+    }
 
-      &:not(.is-disabled):not(.is-read-only) {
+    &:not(.is-disabled):not(.is-read-only) {
+      .input {
         &:hover {
           border-color: var(--color-neutral-darkest);
         }
@@ -62,14 +64,18 @@
           box-shadow: inset 0 1px 3px 0 rgba(130, 130, 140, .48);
         }
       }
+    }
 
-      &.is-disabled {
+    &.is-disabled {
+      .input {
         background-color: var(--color-neutral);
         border-color: var(--color-neutral);
         color: var(--color-neutral-darkest);
       }
+    }
 
-      &.is-read-only {
+    &.is-read-only {
+      .input {
         background-color: var(--color-neutral);
         border-color: var(--color-neutral);
       }
@@ -89,8 +95,10 @@
       &::placeholder {
         color: var(--color-teal-light);
       }
+    }
 
-      &:not(.is-disabled):not(.is-read-only) {
+    &:not(.is-disabled):not(.is-read-only) {
+      .input {
         &:hover {
           border-color: var(--color-teal-light);
         }
@@ -105,8 +113,10 @@
           box-shadow: inset 0 1px 3px 0 color(var(--color-teal-darkest) a(.48));
         }
       }
+    }
 
-      &.is-disabled {
+    &.is-disabled {
+      .input {
         background-color: var(--color-teal-dark);
         border-color: var(--color-teal-dark);
         color: var(--color-teal);
@@ -115,8 +125,10 @@
           color: var(--color-teal);
         }
       }
+    }
 
-      &.is-read-only {
+    &.is-read-only {
+      .input {
         background-color: var(--color-teal-dark);
         border-color: var(--color-teal-dark);
       }
@@ -150,11 +162,6 @@
 
   &.is-bold {
     font-family: var(--font-family-medium);
-  }
-
-  &.is-disabled {
-    pointer-events: none;
-    user-select: none;
   }
 
   &::placeholder {
@@ -224,6 +231,13 @@
 /**
  * Modifiers
  */
+.is-disabled {
+  .input {
+    pointer-events: none;
+    user-select: none;
+  }
+}
+
 .is-large {
   .input {
     height: var(--input-height-large);
