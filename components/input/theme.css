@@ -219,10 +219,6 @@
   color: var(--color-ruby-dark);
 }
 
-.valid {
-  color: var(--color-mint-dark);
-}
-
 /**
  * Modifiers
  */
