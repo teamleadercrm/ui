@@ -16,7 +16,7 @@ const SIZES = {
 
 class StatusLabel extends PureComponent {
   static propTypes = {
-    children: PropTypes.node.isRequired,
+    children: PropTypes.any.isRequired,
     className: PropTypes.string,
     color: PropTypes.oneOf(['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua']),
     size: PropTypes.oneOf(Object.keys(SIZES)),
