@@ -17,6 +17,7 @@ export default class Input extends Component {
     className: PropTypes.string,
     counter: PropTypes.number,
     disabled: PropTypes.bool,
+    description: PropTypes.string,
     icon: PropTypes.oneOfType([PropTypes.func, PropTypes.element]),
     iconPlacement: PropTypes.oneOf(['left', 'right']),
     id: PropTypes.string,
@@ -112,6 +113,14 @@ export default class Input extends Component {
     }
   }
 
+  renderDescription () {
+    const { description, inverse } = this.props;
+
+    if(description) {
+      return <TextSmall color={inverse ? 'white' : 'neutral'} marginTop={1} soft>{description}</TextSmall>;
+    }
+  }
+
   renderSpinnerControls() {
     if (this.isNumberInput) {
       return (
@@ -174,7 +183,7 @@ export default class Input extends Component {
           {this.renderSpinnerControls()}
           {this.renderValidationIcon()}
         </div>
-
+        {this.renderDescription()}
         {this.renderValidationMessage()}
       </div>
     );
