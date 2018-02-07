@@ -87,8 +87,6 @@ export default class Input extends Component {
   renderInput() {
     const { bold, disabled, id, onBlur, onFocus, placeholder, readOnly, step, type } = this.props;
     const classNames = cx(theme['input'], {
-      [theme['is-disabled']]: disabled,
-      [theme['is-read-only']]: readOnly,
       [theme['is-bold']]: bold,
     });
     const props = {
@@ -160,7 +158,7 @@ export default class Input extends Component {
   }
 
   render() {
-    const { className, counter, icon, iconPlacement, inverse, size, meta, ...others } = this.props;
+    const { className, counter, disabled, icon, iconPlacement, inverse, size, meta, readOnly, ...others } = this.props;
     const classNames = cx(
       theme.wrapper,
       theme[`is-${size}`],
@@ -171,6 +169,8 @@ export default class Input extends Component {
         [theme['has-validation-feedback']]: Boolean(meta && meta.error),
         [theme['is-inverse']]: inverse,
         [theme['is-numeric']]: this.isNumberInput,
+        [theme['is-disabled']]: disabled,
+        [theme['is-read-only']]: readOnly,
       },
       className,
     );
