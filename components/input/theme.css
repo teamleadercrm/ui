@@ -165,20 +165,22 @@
   }
 }
 
-.validation-icon,
-.icon {
-  position: absolute;
-  z-index: 1;
-  left: var(--icon-horizontal);
-  top: 50%;
-  transform: translateY(-50%);
-}
 
+.validation-icon,
+.icon,
 .counter {
   position: absolute;
   z-index: 1;
   top: 50%;
   transform: translateY(-50%);
+}
+
+.validation-icon,
+.icon {
+  left: var(--icon-horizontal);
+}
+
+.counter {
   right: var(--icon-horizontal);
 }
 
