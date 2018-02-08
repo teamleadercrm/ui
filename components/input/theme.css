@@ -240,8 +240,6 @@
  */
 .is-disabled,
 .is-read-only {
-  pointer-events: none;
-
   .spinner {
     opacity: .48;
   }
