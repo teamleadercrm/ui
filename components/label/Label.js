@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Input from '../input';
-import { TextBody, TextDisplay } from '../typography';
+import Box from '../box';
+import { TextBody, TextDisplay, TextSmall } from '../typography';
 import theme from './theme.css';
 import isComponentOfType from '../utils/is-component-of-type';
 import cx from 'classnames';
@@ -12,16 +13,20 @@ export default class Label extends PureComponent {
     children: PropTypes.oneOfType([PropTypes.element, PropTypes.string, PropTypes.array]),
     for: PropTypes.string,
     inverse: PropTypes.bool,
+    optionalText: PropTypes.string,
+    required: PropTypes.bool,
     size: PropTypes.oneOf(['small', 'medium', 'large']),
   };
 
   static defaultProps = {
     inverse: false,
+    optionalText: 'Optional',
+    required: false,
     size: 'medium',
   };
 
   render() {
-    const { children, className, inverse, size } = this.props;
+    const { children, className, inverse, optionalText, required, size } = this.props;
     const childProps = {
       inverse,
       marginTop: 1,
@@ -37,21 +42,26 @@ export default class Label extends PureComponent {
     const Element = size === 'large' ? TextDisplay : TextBody;
 
     return (
-      <Element
-        color={inverse ? 'white' : 'teal'}
-        element="label"
-        htmlFor={this.props.for}
-        marginBottom={3}
-        className={classNames}
-      >
+      <Box element="label" htmlFor={this.props.for} marginBottom={3} className={classNames}>
         {React.Children.map(children, child => {
           if (isComponentOfType(Input, child)) {
             return React.cloneElement(child, childProps);
           }
 
-          return child;
+          return (
+            <div>
+              <Element color={inverse ? 'white' : 'teal'} element="span">
+                {child}
+              </Element>
+              {!required && (
+                <TextSmall element="span" marginLeft={1} color={inverse ? 'white' : 'neutral'} soft>
+                  {optionalText}
+                </TextSmall>
+              )}
+            </div>
+          );
         })}
-      </Element>
+      </Box>
     );
   }
 }
