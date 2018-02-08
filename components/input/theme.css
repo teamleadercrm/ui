@@ -156,6 +156,12 @@
   font-size: var(--input-text-size);
   font-family: var(--font-family-regular);
 
+  &[type="number"]::-webkit-outer-spin-button,
+  &[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
   &:focus {
     outline: none;
   }
