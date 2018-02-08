@@ -140,6 +140,14 @@
   position: relative;
 }
 
+.input,
+.input::placeholder {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  text-size-adjust: 100%;
+}
+
 .input {
   transition: .3s ease-in-out border, .3s ease-in-out box-shadow;
 
@@ -168,13 +176,6 @@
 
   &.is-bold {
     font-family: var(--font-family-medium);
-  }
-
-  &::placeholder {
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    font-smoothing: antialiased;
-    text-size-adjust: 100%;
   }
 }
 
