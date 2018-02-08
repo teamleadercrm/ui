@@ -18,7 +18,7 @@ export default class Input extends Component {
     className: PropTypes.string,
     counter: PropTypes.number,
     disabled: PropTypes.bool,
-    description: PropTypes.string,
+    helpText: PropTypes.string,
     icon: PropTypes.oneOfType([PropTypes.func, PropTypes.element]),
     iconPlacement: PropTypes.oneOf(['left', 'right']),
     id: PropTypes.string,
@@ -113,12 +113,12 @@ export default class Input extends Component {
   }
 
   renderDescription() {
-    const { description, inverse } = this.props;
+    const { helpText, inverse } = this.props;
 
-    if (description) {
+    if (helpText) {
       return (
         <TextSmall color={inverse ? 'white' : 'neutral'} marginTop={1} soft>
-          {description}
+          {helpText}
         </TextSmall>
       );
     }
