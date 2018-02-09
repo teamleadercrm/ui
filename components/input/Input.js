@@ -1,6 +1,7 @@
 import React, { Component, createElement } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import omit from 'lodash.omit';
 import {
   IconChevronUpSmallOutline,
   IconChevronDownSmallOutline,
@@ -175,8 +176,21 @@ export default class Input extends Component {
       className,
     );
 
+    const rest = omit(others, [
+      'bold',
+      'id',
+      'helpText',
+      'onBlur',
+      'onChange',
+      'onFocus',
+      'placeholder',
+      'step',
+      'type',
+      'value',
+    ]);
+
     return (
-      <Box className={classNames} {...others}>
+      <Box className={classNames} {...rest}>
         <div className={theme['input-wrapper']}>
           {icon &&
             createElement(icon, {
