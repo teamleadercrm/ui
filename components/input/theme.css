@@ -242,7 +242,7 @@
   outline: 0;
   background-color: var(--spinner-background);
 
-  border-radius: 0 4px 0 0;
+  border-radius: 0 var(--input-border-radius) 0 0;
   border: solid 1px var(--spinner-border);
 
   color: var(--spinner-color);
@@ -250,7 +250,7 @@
 }
 
 .spinner-down {
-  border-radius: 0 0 4px 0;
+  border-radius: 0 0 var(--input-border-radius) 0;
   border-top: 0;
 }
 
