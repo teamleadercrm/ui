@@ -112,7 +112,7 @@ export default class Input extends Component {
     }
   }
 
-  renderDescription() {
+  renderHelpText() {
     const { helpText, inverse } = this.props;
 
     if (helpText) {
@@ -188,7 +188,7 @@ export default class Input extends Component {
           {this.renderSpinnerControls()}
           {this.renderValidationIcon()}
         </div>
-        {this.renderDescription()}
+        {this.renderHelpText()}
         {this.renderValidationMessage()}
       </Box>
     );
