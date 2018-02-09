@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean, select } from "@storybook/addon-knobs/react";
@@ -14,9 +13,6 @@ const sizes = ['small', 'medium', 'large'];
 
 const props = {
   helpText: 'This is the fields help text',
-  onBlur: action('blur'),
-  onChange: action('change'),
-  onFocus: action('focus'),
   placeholder: 'Placeholder',
 };
 
