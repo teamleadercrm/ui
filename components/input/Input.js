@@ -116,10 +116,12 @@ export default class Input extends Component {
   renderHelpText() {
     const { helpText, inverse } = this.props;
 
-    return helpText && (
-      <TextSmall color={inverse ? 'white' : 'neutral'} marginTop={1} soft>
-        {helpText}
-      </TextSmall>
+    return (
+      helpText && (
+        <TextSmall color={inverse ? 'white' : 'neutral'} marginTop={1} soft>
+          {helpText}
+        </TextSmall>
+      )
     );
   }
 
