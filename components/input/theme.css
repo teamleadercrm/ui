@@ -265,6 +265,7 @@
 .is-read-only {
   .spinner {
     opacity: .48;
+    pointer-events: none;
   }
 }
 
