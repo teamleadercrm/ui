@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, select } from '@storybook/addon-knobs/react';
@@ -16,7 +15,7 @@ storiesOf('Banner', module)
   .addDecorator(withKnobs)
   .add('Colors', () => (
     <div style={centerStyles}>
-      <Banner color={select('Color', colors, 'white')} marginTop={4} icon={<IconIdeaMediumOutline />} onClose={() => action('close')}>
+      <Banner color={select('Color', colors, 'white')} marginTop={4} icon={<IconIdeaMediumOutline />} onClose={() => console.log('close')}>
         <TextDisplay marginRight={3}>
           I am a banner with an <Link href="http://teamleader.eu">optional link</Link> inside.
         </TextDisplay>
@@ -24,7 +23,7 @@ storiesOf('Banner', module)
     </div>
   ))
   .add('Full width', () => (
-    <Banner color={select('Color', colors, 'violet')} fullWidth icon={<IconIdeaMediumOutline />} onClose={() => action('close')}>
+    <Banner color={select('Color', colors, 'violet')} fullWidth icon={<IconIdeaMediumOutline />} onClose={() => console.log('close')}>
       <TextDisplay>
         I'm a full width banner with an <Link href="http://teamleader.eu">optional link</Link> inside.
       </TextDisplay>

@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withKnobs, boolean } from '@storybook/addon-knobs/react';
 import { withInfo } from '@storybook/addon-info';
-import { action } from '@storybook/addon-actions';
 import { Store, State } from '@sambego/storybook-state';
 import styles from '@sambego/storybook-styles';
 import { Box, Toggle } from '../components';
@@ -17,7 +16,6 @@ const store = new Store({
 
 const handleOnChange = checked => {
   store.set({ checked });
-  action(`onChange - checked: ${checked}`)();
 };
 
 storiesOf('Toggles', module)

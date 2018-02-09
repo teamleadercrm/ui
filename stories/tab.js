@@ -5,7 +5,6 @@ import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { Box, Island, Counter as UICounter } from '../components';
 import { Store, State } from '@sambego/storybook-state';
-import { action } from '@storybook/addon-actions';
 import { IconTab, TabGroup, TitleTab } from '../components';
 import { baseStyles, centerStyles } from '../.storybook/styles';
 
@@ -83,7 +82,6 @@ const handleClick = (event, title) => {
       active: item.title === title,
     })),
   });
-  action(`New active is ${title}`)(store.state.items);
 };
 
 const handleInvertedClick = (event, title) => {

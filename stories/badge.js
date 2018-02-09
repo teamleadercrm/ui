@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from '@sambego/storybook-styles';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean } from '@storybook/addon-knobs/react';
@@ -84,7 +83,6 @@ storiesOf('Badge', module)
       disabled={boolean('Disabled', false)}
       inherit={boolean('Inherit', false)}
       inverse={boolean('Inverse', false)}
-      onClick={action('Badge clicked')}
     >I'm a badge</Badge>
   ))
   .add('with icon', () => (
@@ -113,6 +111,5 @@ storiesOf('Badge', module)
       href="https://teamleader.eu"
       inherit={boolean('Inherit', false)}
       inverse={boolean('Inverse', false)}
-      onClick={action('Badge clicked')}
     >I'm a badge</Badge>
   ));

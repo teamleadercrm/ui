@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from '@sambego/storybook-styles';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 import { Store, State } from '@sambego/storybook-state';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
@@ -15,7 +14,6 @@ const store = new Store({
 
 const handlePageChange = page => {
   store.set({ currentPage: page });
-  action(`onChange - go to page ${page}`)();
 };
 
 storiesOf('Pagination', module)

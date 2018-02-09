@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import styles from '@sambego/storybook-styles';
@@ -13,9 +12,9 @@ storiesOf('Menus', module)
   .addDecorator(checkA11y)
   .addDecorator(styles({ ...baseStyles, ...centerStyles }))
   .add('Menu', () => (
-    <Menu onSelect={action('select')} selectable={false}>
+    <Menu selectable={false}>
       <MenuItem value="foo" caption="Caption" />
-      <MenuItem onClick={action('click')} value="bar" caption="Caption & Shortcut" shortcut="Ctrl + P" />
+      <MenuItem value="bar" caption="Caption & Shortcut" shortcut="Ctrl + P" />
       <MenuItem caption="Disabled ..." disabled shortcut="Ctrl + P" />
       <MenuDivider />
       <MenuItem caption="Caption & Icon" icon={<IconAddSmallOutline/>} />
@@ -24,9 +23,9 @@ storiesOf('Menus', module)
     </Menu>
   ))
   .add('IconMenu', () => (
-    <IconMenu onSelect={action('select')} position="top-right">
+    <IconMenu position="top-right">
       <MenuItem value="foo" caption="Caption" />
-      <MenuItem onClick={action('click')} value="bar" caption="Caption & Shortcut" shortcut="Ctrl + P" />
+      <MenuItem value="bar" caption="Caption & Shortcut" shortcut="Ctrl + P" />
       <MenuItem caption="Disabled ..." disabled shortcut="Ctrl + P" />
     </IconMenu>
   ));

@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { Store, State } from '@sambego/storybook-state';
@@ -34,7 +33,6 @@ const store = new Store({
 
 const handleOnOverflowClick = () => {
   store.set({ displayMax: 0 });
-  action('clicked on AvatarStack overflow')();
 };
 
 storiesOf('Avatars', module)

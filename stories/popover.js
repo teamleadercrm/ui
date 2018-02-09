@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 import { Store, State } from '@sambego/storybook-state';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
@@ -14,12 +13,10 @@ const store = new Store({
 
 const handleButtonClick = (event) => {
   store.set({ anchorEl: event.currentTarget, active: true });
-  action('onClick - active: true')();
 };
 
 const handleCloseClick = () => {
   store.set({ active: false });
-  action('onClick - active: false')();
 };
 
 const contentBoxWithSingleTextLine = (
