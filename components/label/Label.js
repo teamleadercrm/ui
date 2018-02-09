@@ -13,20 +13,20 @@ export default class Label extends PureComponent {
     children: PropTypes.oneOfType([PropTypes.element, PropTypes.string, PropTypes.array]),
     for: PropTypes.string,
     inverse: PropTypes.bool,
-    optionalText: PropTypes.string,
+    helpText: PropTypes.string,
     required: PropTypes.bool,
     size: PropTypes.oneOf(['small', 'medium', 'large']),
   };
 
   static defaultProps = {
     inverse: false,
-    optionalText: 'Optional',
+    helpText: 'Optional',
     required: false,
     size: 'medium',
   };
 
   render() {
-    const { children, className, inverse, optionalText, required, size } = this.props;
+    const { children, className, inverse, helpText, required, size } = this.props;
     const childProps = {
       inverse,
       marginTop: 1,
@@ -55,7 +55,7 @@ export default class Label extends PureComponent {
               </Element>
               {!required && (
                 <TextSmall element="span" marginLeft={1} color={inverse ? 'white' : 'neutral'} soft>
-                  {optionalText}
+                  {helpText}
                 </TextSmall>
               )}
             </div>
