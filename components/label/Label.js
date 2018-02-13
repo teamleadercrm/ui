@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Fragment, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Input from '../input';
 import Box from '../box';
@@ -49,7 +49,7 @@ export default class Label extends PureComponent {
           }
 
           return (
-            <div>
+            <Fragment>
               <Element color={inverse ? 'white' : 'teal'} element="span">
                 {child}
               </Element>
@@ -58,7 +58,7 @@ export default class Label extends PureComponent {
                   {helpText}
                 </TextSmall>
               )}
-            </div>
+            </Fragment>
           );
         })}
       </Box>
