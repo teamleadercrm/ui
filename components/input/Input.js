@@ -126,8 +126,8 @@ export default class Input extends Component {
   }
 
   renderSpinnerControls() {
-    return (
-      this.isNumberInput && (
+    if (this.isNumberInput) {
+      return (
         <div className={theme['spinner']}>
           <button className={theme['spinner-up']} onClick={this.handleIncreaseValue}>
             <IconChevronUpSmallOutline />
@@ -136,8 +136,8 @@ export default class Input extends Component {
             <IconChevronDownSmallOutline />
           </button>
         </div>
-      )
-    );
+      );
+    }
   }
 
   renderValidationMessage() {
