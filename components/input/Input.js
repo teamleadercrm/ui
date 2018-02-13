@@ -48,14 +48,13 @@ export default class Input extends Component {
 
   constructor(props) {
     super(props);
-
-    this.isNumberInput = Boolean(props.type === 'number');
+    
     this.handleChange = ::this.onChange;
     this.handleIncreaseValue = ::this.increaseValue;
     this.handleDecreaseValue = ::this.decreaseValue;
 
     this.state = {
-      value: this.isNumberInput ? Number(props.value) || '' : props.value || '',
+      value: props.type === 'number' ? Number(props.value) || '' : props.value || '',
     };
   }
 
@@ -69,7 +68,7 @@ export default class Input extends Component {
     const value = event.target.value;
 
     this.setState(() => ({
-      value: this.isNumberInput ? Number(value) : value,
+      value: this.props.type === 'number' ? Number(value) : value,
     }));
   }
 
@@ -126,7 +125,7 @@ export default class Input extends Component {
   }
 
   renderSpinnerControls() {
-    if (this.isNumberInput) {
+    if (this.props.type === 'number') {
       return (
         <div className={theme['spinner']}>
           <button className={theme['spinner-up']} onClick={this.handleIncreaseValue}>
@@ -159,7 +158,7 @@ export default class Input extends Component {
   }
 
   render() {
-    const { className, counter, disabled, icon, iconPlacement, inverse, size, meta, readOnly, ...others } = this.props;
+    const { className, counter, disabled, icon, iconPlacement, inverse, size, type, meta, readOnly, ...others } = this.props;
     const classNames = cx(
       theme.wrapper,
       theme[`is-${size}`],
@@ -169,7 +168,7 @@ export default class Input extends Component {
         [theme['has-error']]: Boolean(meta && meta.error),
         [theme['has-validation-feedback']]: Boolean(meta && meta.error),
         [theme['is-inverse']]: inverse,
-        [theme['is-numeric']]: this.isNumberInput,
+        [theme['is-numeric']]: type === 'number',
         [theme['is-disabled']]: disabled,
         [theme['is-read-only']]: readOnly,
       },
@@ -185,7 +184,6 @@ export default class Input extends Component {
       'onFocus',
       'placeholder',
       'step',
-      'type',
       'value',
     ]);
 
