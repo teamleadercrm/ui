@@ -38,16 +38,15 @@ const handleOnOverflowClick = () => {
 storiesOf('Avatars', module)
   .addDecorator((story, context) => withInfo('common info')(story)(context))
   .addDecorator(checkA11y)
-  .addDecorator(styles({ ...baseStyles, ...centerStyles }))
   .add('sizes', () => (
-    <Box>
+    <div style={centerStyles}>
       <Avatar image={avatars[0].image} size="tiny" marginHorizontal={4} />
       <Avatar image={avatars[0].image} size="small" marginHorizontal={4} />
       <Avatar image={avatars[0].image} size="medium" marginHorizontal={4} />
-    </Box>
+    </div>
   ))
   .add('with bullet', () => (
-    <Box>
+    <div style={centerStyles}>
       <Avatar
         bullet={<Bullet color="ruby" size="small" />}
         image={avatars[0].image}
@@ -63,10 +62,10 @@ storiesOf('Avatars', module)
         image={avatars[0].image}
         marginHorizontal={4}
       />
-    </Box>
+    </div>
   ))
   .add('with counter', () => (
-    <Box>
+    <div style={centerStyles}>
       <Avatar
         counter={<Counter color="ruby" count={avatars[0].count} size="small" />}
         image={avatars[0].image}
@@ -84,10 +83,10 @@ storiesOf('Avatars', module)
         image={avatars[0].image}
         marginHorizontal={4}
       />
-    </Box>
+    </div>
   ))
   .add('stacked horizontal', () => (
-    <Box>
+    <div style={centerStyles}>
       <State store={store}>
         <AvatarStack
           direction="horizontal"
@@ -105,10 +104,10 @@ storiesOf('Avatars', module)
           ))}
         </AvatarStack>
       </State>
-    </Box>
+    </div>
   ))
   .add('stacked vertical', () => (
-    <Box>
+    <div style={centerStyles}>
       <State store={store}>
         <AvatarStack
           direction="vertical"
@@ -127,5 +126,5 @@ storiesOf('Avatars', module)
           ))}
         </AvatarStack>
       </State>
-    </Box>
+    </div>
   ));
