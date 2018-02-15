@@ -64,7 +64,7 @@ export default class Input extends Component {
     }
   }
 
-  onChange(event) {
+  handleChange(event) {
     const value = event.target.value;
 
     this.setState(() => ({
@@ -72,13 +72,13 @@ export default class Input extends Component {
     }));
   }
 
-  increaseValue() {
+  handleIncreaseValue() {
     this.setState((previousState, props) => ({
       value: previousState.value ? previousState.value + props.step : props.step,
     }));
   }
 
-  decreaseValue() {
+  handleDecreaseValue() {
     this.setState((previousState, props) => ({
       value: previousState.value ? previousState.value - props.step : -props.step,
     }));
@@ -158,7 +158,19 @@ export default class Input extends Component {
   }
 
   render() {
-    const { className, counter, disabled, icon, iconPlacement, inverse, size, type, meta, readOnly, ...others } = this.props;
+    const {
+      className,
+      counter,
+      disabled,
+      icon,
+      iconPlacement,
+      inverse,
+      size,
+      type,
+      meta,
+      readOnly,
+      ...others
+    } = this.props;
     const classNames = cx(
       theme.wrapper,
       theme[`is-${size}`],
