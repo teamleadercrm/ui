@@ -48,10 +48,10 @@ export default class Input extends Component {
 
   constructor(props) {
     super(props);
-    
-    this.handleChange = ::this.onChange;
-    this.handleIncreaseValue = ::this.increaseValue;
-    this.handleDecreaseValue = ::this.decreaseValue;
+
+    this.handleChange = ::this.handleChange;
+    this.handleIncreaseValue = ::this.handleIncreaseValue;
+    this.handleDecreaseValue = ::this.handleDecreaseValue;
 
     this.state = {
       value: props.type === 'number' ? Number(props.value) || '' : props.value || '',
