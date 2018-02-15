@@ -10,6 +10,7 @@ import CompactMessage from './compactMessage';
 import Counter from './counter';
 import DataGrid from './datagrid';
 import Dialog from './dialog';
+import Input from './input';
 import Menu, { IconMenu, MenuItem, MenuDivider } from './menu';
 import Link from './link';
 import Message from './message';
@@ -27,6 +28,7 @@ import { IconTab, TitleTab, TabGroup } from './tab';
 import Tag from './tag';
 import { Toast } from './toast';
 import Toggle from './toggle';
+import Label from './label';
 import Tooltip from './tooltip';
 import QTip from './qTip';
 
@@ -51,16 +53,18 @@ export {
   IconButton,
   IconMenu,
   IconTab,
+  Input,
   Island,
+  Label,
   Link,
+  LinkButton,
   LoadingMolecule,
   LoadingSpinner,
-  LinkButton,
   Menu,
-  Message,
-  Monospaced,
   MenuItem,
   MenuDivider,
+  Message,
+  Monospaced,
   Overlay,
   Pagination,
   PopoverHorizontal,
