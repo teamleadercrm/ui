@@ -44,9 +44,7 @@ class Tag extends PureComponent {
             {children}
           </Button>
         ) : (
-          <span className={theme['label']}>
-            {children}
-          </span>
+          <span className={theme['label']}>{children}</span>
         )}
 
         {onRemoveClick && (
