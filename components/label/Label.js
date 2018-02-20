@@ -11,6 +11,8 @@ export default class Label extends PureComponent {
   static propTypes = {
     className: PropTypes.string,
     children: PropTypes.oneOfType([PropTypes.element, PropTypes.string, PropTypes.array]),
+    connectedLeft: PropTypes.element,
+    connectedRight: PropTypes.element,
     for: PropTypes.string,
     inverse: PropTypes.bool,
     helpText: PropTypes.string,
@@ -26,7 +28,7 @@ export default class Label extends PureComponent {
   };
 
   render() {
-    const { children, className, inverse, helpText, required, size } = this.props;
+    const { children, connectedLeft, connectedRight, className, inverse, helpText, required, size } = this.props;
     const childProps = {
       inverse,
       marginTop: 1,
@@ -50,6 +52,7 @@ export default class Label extends PureComponent {
 
           return (
             <Fragment>
+              <Box element="span" marginRight={1}>{connectedLeft}</Box>
               <Element color={inverse ? 'white' : 'teal'} element="span">
                 {child}
               </Element>
@@ -58,6 +61,7 @@ export default class Label extends PureComponent {
                   {helpText}
                 </TextSmall>
               )}
+              <Box element="span" marginLeft={1}>{connectedRight}</Box>
             </Fragment>
           );
         })}
