@@ -52,7 +52,9 @@ export default class Label extends PureComponent {
 
           return (
             <Fragment>
-              <Box element="span" marginRight={1}>{connectedLeft}</Box>
+              <Box element="span" marginRight={1}>
+                {connectedLeft}
+              </Box>
               <Element color={inverse ? 'white' : 'teal'} element="span">
                 {child}
               </Element>
@@ -61,7 +63,9 @@ export default class Label extends PureComponent {
                   {helpText}
                 </TextSmall>
               )}
-              <Box element="span" marginLeft={1}>{connectedRight}</Box>
+              <Box element="span" marginLeft={1}>
+                {connectedRight}
+              </Box>
             </Fragment>
           );
         })}

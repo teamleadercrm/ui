@@ -48,7 +48,7 @@ export default class Input extends Component {
 
   constructor(props) {
     super(props);
-    
+
     this.handleChange = ::this.onChange;
     this.handleIncreaseValue = ::this.increaseValue;
     this.handleDecreaseValue = ::this.decreaseValue;
@@ -158,7 +158,19 @@ export default class Input extends Component {
   }
 
   render() {
-    const { className, counter, disabled, icon, iconPlacement, inverse, size, type, meta, readOnly, ...others } = this.props;
+    const {
+      className,
+      counter,
+      disabled,
+      icon,
+      iconPlacement,
+      inverse,
+      size,
+      type,
+      meta,
+      readOnly,
+      ...others
+    } = this.props;
     const classNames = cx(
       theme.wrapper,
       theme[`is-${size}`],
