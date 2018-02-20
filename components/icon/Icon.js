@@ -9,22 +9,30 @@ class Icon extends PureComponent {
     children: PropTypes.any,
     className: PropTypes.string,
     color: PropTypes.oneOf(['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'teal']),
+    opacity: PropTypes.number,
     tint: PropTypes.oneOf(['lightest', 'light', 'normal', 'dark', 'darkest']),
   };
 
   static defaultProps = {
     color: 'teal',
     tint: 'normal',
+    opacity: 0.84,
   };
 
   render() {
-    const { children, className, color, tint, ...others } = this.props;
+    const { children, className, color, tint, opacity, ...others } = this.props;
 
     const classNames = cx(theme[color], theme[tint], className);
 
     return (
       <Box className={classNames} data-teamleader-ui="icon" element="span" {...others}>
-        {children}
+        {
+          React.Children.map(children, child => {
+            return React.cloneElement(child, {
+              opacity,
+            });
+          })
+        }
       </Box>
     );
   }
