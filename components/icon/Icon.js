@@ -26,13 +26,11 @@ class Icon extends PureComponent {
 
     return (
       <Box className={classNames} data-teamleader-ui="icon" element="span" {...others}>
-        {
-          React.Children.map(children, child => {
-            return React.cloneElement(child, {
-              opacity,
-            });
-          })
-        }
+        {React.Children.map(children, child => {
+          return React.cloneElement(child, {
+            opacity,
+          });
+        })}
       </Box>
     );
   }
