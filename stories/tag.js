@@ -20,7 +20,9 @@ storiesOf('Tags', module)
   .add('size', () => (
     <Box>
       {sizes.map((size, index) => (
-        <Tag key={index} label={`${size} tag`} marginHorizontal={3} size={size} inverse={boolean('Inverse', false)}/>
+        <Tag key={index} marginHorizontal={3} size={size} inverse={boolean('Inverse', false)}>
+          {`${size} tag`}
+        </Tag>
       ))}
     </Box>
   ))
@@ -30,11 +32,12 @@ storiesOf('Tags', module)
         <Tag
           inverse={boolean('Inverse', false)}
           key={index}
-          label={`${size} tag`}
           marginHorizontal={3}
           onLabelClick={action('Tag label clicked')}
           size={size}
-        />
+        >
+          {`${size} tag`}
+        </Tag>
       ))}
     </Box>
   ))
@@ -44,11 +47,12 @@ storiesOf('Tags', module)
         <Tag
           inverse={boolean('Inverse', false)}
           key={index}
-          label={`${size} tag`}
           marginHorizontal={3}
           onRemoveClick={action('Tag removed')}
           size={size}
-        />
+        >
+          {`${size} tag`}
+        </Tag>
       ))}
     </Box>
   ))
@@ -58,12 +62,13 @@ storiesOf('Tags', module)
         <Tag
           inverse={boolean('Inverse', false)}
           key={index}
-          label={`${size} tag`}
           marginHorizontal={3}
           onLabelClick={action('Tag label clicked')}
           onRemoveClick={action('Tag removed')}
           size={size}
-        />
+        >
+          {`${size} tag`}
+        </Tag>
       ))}
     </Box>
   ))
