@@ -5,10 +5,12 @@ import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean } from '@storybook/addon-knobs/react';
 import { action } from '@storybook/addon-actions';
 import styles from '@sambego/storybook-styles';
-import { Box, Tag } from '../components';
+import { Box, Tag, TextBody, Tooltip } from '../components';
 import { baseStyles, centerStyles } from '../.storybook/styles';
 
 const sizes = ['small', 'medium', 'large'];
+
+const TooltippedTag = Tooltip(Tag);
 
 storiesOf('Tags', module)
   .addDecorator((story, context) => withInfo('common info')(story)(context))
@@ -64,4 +66,9 @@ storiesOf('Tags', module)
         />
       ))}
     </Box>
+  ))
+  .add('with tooltip', () => (
+    <TooltippedTag inverse={boolean('Inverse', false)} tooltip={<TextBody>I am the tooltip</TextBody>}>
+      Tag with tooltip
+    </TooltippedTag>
   ));
