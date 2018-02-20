@@ -11,7 +11,7 @@ class Tag extends PureComponent {
     children: PropTypes.any,
     className: PropTypes.string,
     inverse: PropTypes.bool,
-    label: PropTypes.string.isRequired,
+    label: PropTypes.string,
     onLabelClick: PropTypes.func,
     onRemoveClick: PropTypes.func,
     size: PropTypes.oneOf(['small', 'medium', 'large']),
