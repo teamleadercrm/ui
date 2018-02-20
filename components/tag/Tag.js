@@ -8,6 +8,7 @@ import { IconCloseMediumOutline, IconCloseSmallOutline } from '@teamleader/ui-ic
 
 class Tag extends PureComponent {
   static propTypes = {
+    children: PropTypes.any,
     className: PropTypes.string,
     inverse: PropTypes.bool,
     label: PropTypes.string.isRequired,
@@ -22,7 +23,7 @@ class Tag extends PureComponent {
   };
 
   render() {
-    const { className, inverse, label, onLabelClick, onRemoveClick, size, ...others } = this.props;
+    const { children, className, inverse, label, onLabelClick, onRemoveClick, size, ...others } = this.props;
 
     const classNames = cx(
       theme['tag'],
@@ -42,9 +43,13 @@ class Tag extends PureComponent {
         {onLabelClick ? (
           <Button className={theme['label-button']} onClick={onLabelClick} level="outline" inverse={inverse}>
             {label}
+            {children}
           </Button>
         ) : (
-          <span className={theme['label']}>{label}</span>
+          <span className={theme['label']}>
+            {label}
+            {children}
+          </span>
         )}
 
         {onRemoveClick && (
