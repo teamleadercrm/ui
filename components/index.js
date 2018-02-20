@@ -10,6 +10,7 @@ import CompactMessage from './compactMessage';
 import Counter from './counter';
 import DataGrid from './datagrid';
 import Dialog from './dialog';
+import Icon from './icon';
 import Input from './input';
 import Menu, { IconMenu, MenuItem, MenuDivider } from './menu';
 import Link from './link';
@@ -50,6 +51,7 @@ export {
   Heading2,
   Heading3,
   Heading4,
+  Icon,
   IconButton,
   IconMenu,
   IconTab,
