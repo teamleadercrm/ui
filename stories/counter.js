@@ -3,11 +3,13 @@ import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import styles from '@sambego/storybook-styles';
-import { Box, Counter } from '../components';
+import { Box, Counter, Tooltip, TextBody } from '../components';
 import { baseStyles, centerStyles } from '../.storybook/styles';
 
 const colors = ['neutral', 'mint', 'aqua', 'violet', 'teal', 'gold', 'ruby'];
 const sizes = ['small', 'medium'];
+
+const TooltippedCounter = Tooltip(Counter);
 
 storiesOf('Counters', module)
   .addDecorator((story, context) => withInfo('common info')(story)(context))
@@ -27,4 +29,9 @@ storiesOf('Counters', module)
     <Box>
       <Counter count={116} color="ruby" maxCount={99} />
     </Box>
+  ))
+  .add('with tooltip', () => (
+    <TooltippedCounter count={116} color="ruby" maxCount={99} tooltip={<TextBody>I am the tooltip</TextBody>}>
+      tasks
+    </TooltippedCounter>
   ));

@@ -8,9 +8,9 @@ import { IconCloseMediumOutline, IconCloseSmallOutline } from '@teamleader/ui-ic
 
 class Tag extends PureComponent {
   static propTypes = {
+    children: PropTypes.any.isRequired,
     className: PropTypes.string,
     inverse: PropTypes.bool,
-    label: PropTypes.string.isRequired,
     onLabelClick: PropTypes.func,
     onRemoveClick: PropTypes.func,
     size: PropTypes.oneOf(['small', 'medium', 'large']),
@@ -22,7 +22,7 @@ class Tag extends PureComponent {
   };
 
   render() {
-    const { className, inverse, label, onLabelClick, onRemoveClick, size, ...others } = this.props;
+    const { children, className, inverse, onLabelClick, onRemoveClick, size, ...others } = this.props;
 
     const classNames = cx(
       theme['tag'],
@@ -41,10 +41,10 @@ class Tag extends PureComponent {
       <Box className={classNames} data-teamleader-ui="tag" {...others}>
         {onLabelClick ? (
           <Button className={theme['label-button']} onClick={onLabelClick} level="outline" inverse={inverse}>
-            {label}
+            {children}
           </Button>
         ) : (
-          <span className={theme['label']}>{label}</span>
+          <span className={theme['label']}>{children}</span>
         )}
 
         {onRemoveClick && (
