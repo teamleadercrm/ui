@@ -17,7 +17,7 @@
   position: relative;
 }
 
-.connected {
+.children {
   position: absolute;
   z-index: 1;
 }
@@ -77,7 +77,7 @@
 }
 
 .tiny {
-  .connected {
+  .children {
     bottom: 50%;
     left: 60%;
   }
@@ -96,7 +96,7 @@
 }
 
 .small {
-  .connected {
+  .children {
     bottom: 60%;
     left: 76%;
   }
@@ -115,7 +115,7 @@
 }
 
 .medium {
-  .connected {
+  .children {
     bottom: 65%;
     left: 80%;
   }

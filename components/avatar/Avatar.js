@@ -26,7 +26,7 @@ class Avatar extends PureComponent {
     return (
       <Box className={avatarClassNames} {...others} data-teamleader-ui="avatar">
         <img alt={imageAlt} src={image} className={cx(theme['image'], imageClassName)} />
-        {children && <div className={theme['connected']}>{children}</div>}
+        {children && <div className={theme['children']}>{children}</div>}
       </Box>
     );
   }
