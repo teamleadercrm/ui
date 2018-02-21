@@ -5,7 +5,7 @@ import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { Store, State } from '@sambego/storybook-state';
 import styles from '@sambego/storybook-styles';
-import { Avatar, AvatarStack, Box, Bullet, Counter } from '../components';
+import { Avatar, AvatarStack, Box, Bullet, Counter, TextBody, Tooltip } from '../components';
 import { baseStyles, centerStyles } from '../.storybook/styles';
 
 import Image1 from '../static/avatars/1.png';
@@ -32,6 +32,8 @@ const store = new Store({
   displayMax: 5,
 });
 
+const TooltippedAvatar = Tooltip(Avatar);
+
 const handleOnOverflowClick = () => {
   store.set({ displayMax: 0 });
   action('clicked on AvatarStack overflow')();
@@ -51,41 +53,35 @@ storiesOf('Avatars', module)
   .add('with bullet', () => (
     <Box>
       <Avatar
-        bullet={<Bullet color="ruby" size="small" />}
         image={avatars[0].image}
         size="small"
         marginHorizontal={4}
-      />
+      >
+        <Bullet color="ruby" size="small" />
+      </Avatar>
       <Avatar
-        bullet={
-          <Bullet
-            color="ruby"
-          />
-        }
         image={avatars[0].image}
         marginHorizontal={4}
-      />
+      >
+        <Bullet color="ruby" />
+      </Avatar>
     </Box>
   ))
   .add('with counter', () => (
     <Box>
       <Avatar
-        counter={<Counter color="ruby" count={avatars[0].count} size="small" />}
         image={avatars[0].image}
         size="small"
         marginHorizontal={4}
-      />
+      >
+        <Counter color="ruby" count={avatars[0].count} size="small" />
+      </Avatar>
       <Avatar
-        counter={
-          <Counter
-            color="ruby"
-            count={avatars[0].count}
-            maxCount={avatars[0].maxCount}
-          />
-        }
         image={avatars[0].image}
         marginHorizontal={4}
-      />
+      >
+        <Counter color="ruby" count={avatars[0].count} maxCount={avatars[0].maxCount}/>
+      </Avatar>
     </Box>
   ))
   .add('stacked horizontal', () => (
@@ -129,5 +125,14 @@ storiesOf('Avatars', module)
           ))}
         </AvatarStack>
       </State>
+    </Box>
+  ))
+  .add('with tooltip', () => (
+    <Box>
+      <TooltippedAvatar
+        image={avatars[0].image}
+        size="tiny"
+        tooltip={<TextBody>I am the tooltip</TextBody>}
+      />
     </Box>
   ));
