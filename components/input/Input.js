@@ -49,9 +49,9 @@ export default class Input extends Component {
   constructor(props) {
     super(props);
 
-    this.handleChange = ::this.onChange;
-    this.handleIncreaseValue = ::this.increaseValue;
-    this.handleDecreaseValue = ::this.decreaseValue;
+    this.handleChange = ::this.handleChange;
+    this.handleIncreaseValue = ::this.handleIncreaseValue;
+    this.handleDecreaseValue = ::this.handleDecreaseValue;
 
     this.state = {
       value: props.type === 'number' ? Number(props.value) || '' : props.value || '',
@@ -64,7 +64,7 @@ export default class Input extends Component {
     }
   }
 
-  onChange(event) {
+  handleChange(event) {
     const value = event.target.value;
 
     this.setState(() => ({
@@ -72,13 +72,13 @@ export default class Input extends Component {
     }));
   }
 
-  increaseValue() {
+  handleIncreaseValue() {
     this.setState((previousState, props) => ({
       value: previousState.value ? previousState.value + props.step : props.step,
     }));
   }
 
-  decreaseValue() {
+  handleDecreaseValue() {
     this.setState((previousState, props) => ({
       value: previousState.value ? previousState.value - props.step : -props.step,
     }));
