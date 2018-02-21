@@ -5,7 +5,7 @@ import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { Store, State } from '@sambego/storybook-state';
 import styles from '@sambego/storybook-styles';
-import { Avatar, AvatarStack, Box, Bullet, Counter } from '../components';
+import { Avatar, AvatarStack, Box, Bullet, Counter, TextBody, Tooltip } from '../components';
 import { baseStyles, centerStyles } from '../.storybook/styles';
 
 import Image1 from '../static/avatars/1.png';
@@ -31,6 +31,8 @@ const avatars = [
 const store = new Store({
   displayMax: 5,
 });
+
+const TooltippedAvatar = Tooltip(Avatar);
 
 const handleOnOverflowClick = () => {
   store.set({ displayMax: 0 });
@@ -129,5 +131,14 @@ storiesOf('Avatars', module)
           ))}
         </AvatarStack>
       </State>
+    </Box>
+  ))
+  .add('with tooltip', () => (
+    <Box>
+      <TooltippedAvatar
+        image={avatars[0].image}
+        size="tiny"
+        tooltip={<TextBody>I am the tooltip</TextBody>}
+      />
     </Box>
   ));
