@@ -1,0 +1,155 @@
+@import '@teamleader/ui-colors';
+
+.neutral {
+  &.lightest {
+    color: var(--color-neutral-lightest);
+  }
+
+  &.light {
+    color: var(--color-neutral-light);
+  }
+
+  &.normal {
+    color: var(--color-neutral);
+  }
+
+  &.dark {
+    color: var(--color-neutral-dark);
+  }
+
+  &.darkest {
+    color: var(--color-neutral-darkest);
+  }
+}
+
+.teal {
+  &.lightest {
+    color: var(--color-teal-lightest);
+  }
+
+  &.light {
+    color: var(--color-teal-light);
+  }
+
+  &.normal {
+    color: var(--color-teal);
+  }
+
+  &.dark {
+    color: var(--color-teal-dark);
+  }
+
+  &.darkest {
+    color: var(--color-teal-darkest);
+  }
+}
+
+.mint {
+  &.lightest {
+    color: var(--color-mint-lightest);
+  }
+
+  &.light {
+    color: var(--color-mint-light);
+  }
+
+  &.normal {
+    color: var(--color-mint);
+  }
+
+  &.dark {
+    color: var(--color-mint-dark);
+  }
+
+  &.darkest {
+    color: var(--color-mint-darkest);
+  }
+}
+
+.ruby {
+  &.lightest {
+    color: var(--color-ruby-lightest);
+  }
+
+  &.light {
+    color: var(--color-ruby-light);
+  }
+
+  &.normal {
+    color: var(--color-ruby);
+  }
+
+  &.dark {
+    color: var(--color-ruby-dark);
+  }
+
+  &.darkest {
+    color: var(--color-ruby-darkest);
+  }
+}
+
+.aqua {
+  &.lightest {
+    color: var(--color-aqua-lightest);
+  }
+
+  &.light {
+    color: var(--color-aqua-light);
+  }
+
+  &.normal {
+    color: var(--color-aqua);
+  }
+
+  &.dark {
+    color: var(--color-aqua-dark);
+  }
+
+  &.darkest {
+    color: var(--color-aqua-darkest);
+  }
+}
+
+.violet {
+  &.lightest {
+    color: var(--color-violet-lightest);
+  }
+
+  &.light {
+    color: var(--color-violet-light);
+  }
+
+  &.normal {
+    color: var(--color-violet);
+  }
+
+  &.dark {
+    color: var(--color-violet-dark);
+  }
+
+  &.darkest {
+    color: var(--color-violet-darkest);
+  }
+}
+
+.gold {
+  &.lightest {
+    color: var(--color-gold-lightest);
+  }
+
+  &.light {
+    color: var(--color-gold-light);
+  }
+
+  &.normal {
+    color: var(--color-gold);
+  }
+
+  &.dark {
+    color: var(--color-gold-dark);
+  }
+
+  &.darkest {
+    color: var(--color-gold-darkest);
+  }
+}
