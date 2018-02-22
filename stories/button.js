@@ -4,7 +4,7 @@ import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean } from '@storybook/addon-knobs/react';
 import styles from '@sambego/storybook-styles';
-import { IconAddMediumOutline, IconAddSmallOutline,IconMagicMediumOutline } from '@teamleader/ui-icons';
+import { IconAddMediumOutline, IconAddSmallOutline } from '@teamleader/ui-icons';
 import { Button, ButtonGroup } from '../components';
 import { baseStyles, centerStyles } from '../.storybook/styles';
 
@@ -40,7 +40,7 @@ storiesOf('Buttons', module)
         processing={boolean('Processing', false)}
       />
       <Button
-        icon={<IconMagicMediumOutline />}
+        icon={<IconAddMediumOutline />}
         size="large"
         disabled={boolean('Disabled', false)}
         fullWidth={boolean('Full width', false)}
