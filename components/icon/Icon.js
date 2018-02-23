@@ -27,6 +27,12 @@ class Icon extends PureComponent {
     return (
       <Box className={classNames} data-teamleader-ui="icon" element="span" {...others}>
         {React.Children.map(children, child => {
+          // Check if child is an actual React component
+          // if so, pass the needed props. If not, just render it.
+          if (!child.type) {
+            return child;
+          }
+
           return React.cloneElement(child, {
             opacity,
           });
