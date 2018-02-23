@@ -5,8 +5,9 @@ import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean, select } from "@storybook/addon-knobs/react";
 import styles from '@sambego/storybook-styles';
 import { baseStyles, centerStyles } from '../.storybook/styles';
-import { Icon, Input, Label, TextSmall, Tooltip } from '../components';
-import { IconCalendarMediumOutline, IconCalendarSmallOutline, IconWarningBadgedSmallFilled } from '@teamleader/ui-icons';
+import { Button, Icon, Input, Label, TextSmall, Tooltip } from '../components';
+import { IconCalendarMediumOutline, IconCalendarSmallOutline, IconInfoBadgedSmallFilled } from '@teamleader/ui-icons';
+import Checkbox from "../components/checkbox/Checkbox";
 
 const iconPlacement = ['left', 'right'];
 const colors = ['aqua', 'gold', 'mint', 'neutral', 'ruby', 'teal', 'violet'];
@@ -140,16 +141,14 @@ storiesOf('Inputs', module)
   ))
   .add('with label tooltip', () => (
     <Label
-      connectedRight={
-        <TooltippedIcon
-          color={select('Icon color', colors, 'teal')}
-          tint={select('Icon tint', tints, 'dark')}
-          tooltip={<TextSmall>This is the label tooltip text</TextSmall>}
-          tooltipSize="small"
+      connectedRight={<TooltippedIcon
+        color={select('Icon color', colors, 'teal')}
+        tint={select('Icon tint', tints, 'dark')}
+        tooltip={<TextSmall>This is the label tooltip text</TextSmall>}
+        tooltipSize="small"
         >
-          <IconWarningBadgedSmallFilled />
-        </TooltippedIcon>
-      }
+          <IconInfoBadgedSmallFilled />
+        </TooltippedIcon>}
       for="input1"
       inverse={boolean('Inverse', false)}
       size={select('Size', sizes, 'medium')}
@@ -162,6 +161,26 @@ storiesOf('Inputs', module)
         value="wrong value"
         bold={boolean('Bold', false)}
         disabled={boolean('Disabled', false)}
+        readOnly={boolean('Read only', false)}
+        {...props}
+      />
+    </Label>
+  ))
+  .add('with connected elements', () => (
+    <Label
+      for="input1"
+      inverse={boolean('Inverse', false)}
+      size={select('Size', sizes, 'medium')}
+    >
+      Input label
+      <Input
+        id="input1"
+        meta={{ error: 'This is an error message' }}
+        bold={boolean('Bold', false)}
+        connectedLeft={<Button size={select('Size', sizes, 'medium')} label="€" />}
+        connectedRight={<Button size={select('Size', sizes, 'medium')}><Checkbox size="small">Discount</Checkbox></Button>}
+        disabled={boolean('Disabled', false)}
+        type="number"
         readOnly={boolean('Read only', false)}
         {...props}
       />
