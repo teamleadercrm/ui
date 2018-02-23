@@ -226,8 +226,6 @@
   }
 }
 
-
-.validation-icon,
 .icon,
 .counter {
   position: absolute;
@@ -236,7 +234,6 @@
   transform: translateY(-50%);
 }
 
-.validation-icon,
 .icon {
   left: var(--icon-horizontal);
 }
@@ -383,11 +380,6 @@
 }
 
 .has-validation-feedback {
-  .validation-icon {
-    left: auto;
-    right: var(--icon-horizontal);
-  }
-
   .counter,
   &.has-icon-right .icon {
     display: none;
@@ -402,17 +394,9 @@
       padding-right: calc(var(--input-horizontal-padding-icon) + var(--spinner-width));
     }
 
-    .validation-icon {
-      right: calc(var(--icon-horizontal) + var(--spinner-width));
-    }
-
     &.is-large {
       .input {
         padding-right: calc(var(--input-horizontal-padding-icon) + var(--spinner-width-large));
-      }
-
-      .validation-icon {
-        right: calc(var(--icon-horizontal) + var(--spinner-width-large));
       }
     }
   }

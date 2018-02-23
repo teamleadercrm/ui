@@ -142,21 +142,14 @@ export default class Input extends Component {
   }
 
   renderValidationMessage() {
-    const { meta } = this.props;
-    const props = {
-      className: theme['validation-text'],
-      marginTop: 2,
-    };
-
-    if (meta && meta.error) {
-      return <TextSmall {...props}>{meta.error}</TextSmall>;
-    }
-  }
-
-  renderValidationIcon() {
-    if (this.props.meta && this.props.meta.error) {
-      return <IconWarningBadgedSmallFilled className={theme['validation-icon']} />;
-    }
+    return (
+      <Box marginTop={2}>
+        <IconWarningBadgedSmallFilled className={theme['validation-icon']} />
+        <TextSmall className={theme['validation-text']} element="span" marginLeft={1}>
+          {this.props.meta.error}
+        </TextSmall>
+      </Box>
+    );
   }
 
   render() {
@@ -222,12 +215,10 @@ export default class Input extends Component {
             {this.renderInput()}
             {this.renderCounter()}
             {this.renderSpinnerControls()}
-            {this.renderValidationIcon()}
           </div>
           {connectedRight}
         </div>
-        {this.renderHelpText()}
-        {this.renderValidationMessage()}
+        {meta && meta.error ? this.renderValidationMessage() : this.renderHelpText()}
       </Box>
     );
   }
