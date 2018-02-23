@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, boolean, select } from "@storybook/addon-knobs/react";
+import { withKnobs, boolean, number, select } from "@storybook/addon-knobs/react";
 import styles from '@sambego/storybook-styles';
 import { baseStyles, centerStyles } from '../.storybook/styles';
 import { Button, Icon, Input, Label, TextSmall, Tooltip } from '../components';
@@ -80,7 +80,10 @@ storiesOf('Inputs', module)
         bold={boolean('Bold', false)}
         disabled={boolean('Disabled', false)}
         readOnly={boolean('Read only', false)}
+        min={number('Minimum', 0)}
+        max={number('Maximum', 10)}
         meta={{ error: 'This is an error message' }}
+        step={number('Step', 1)}
         {...props}
       />
     </Label>
