@@ -165,10 +165,6 @@
   }
 }
 
-.input-inner-wrapper {
-  position: relative;
-}
-
 .input-wrapper {
   border-radius: var(--input-border-radius);
   display: flex;
@@ -184,6 +180,11 @@
   > *:last-child {
     border-radius: 0 var(--input-border-radius) var(--input-border-radius) 0;
   }
+}
+
+.input-inner-wrapper {
+  flex: 1;
+  position: relative;
 }
 
 
