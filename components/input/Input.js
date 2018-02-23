@@ -26,6 +26,8 @@ export default class Input extends Component {
     iconPlacement: PropTypes.oneOf(['left', 'right']),
     id: PropTypes.string,
     inverse: PropTypes.bool,
+    max: PropTypes.number,
+    min: PropTypes.number,
     meta: InputMetaPropTypes,
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
@@ -76,18 +78,22 @@ export default class Input extends Component {
 
   handleIncreaseValue() {
     this.setState((previousState, props) => ({
-      value: previousState.value ? previousState.value + props.step : props.step,
+      value: !previousState.value
+        ? props.step
+        : previousState.value + props.step <= props.max ? previousState.value + props.step : previousState.value,
     }));
   }
 
   handleDecreaseValue() {
     this.setState((previousState, props) => ({
-      value: previousState.value ? previousState.value - props.step : -props.step,
+      value: !previousState.value
+        ? props.min
+        : previousState.value - props.step >= props.min ? previousState.value - props.step : props.min,
     }));
   }
 
   renderInput() {
-    const { bold, disabled, id, onBlur, onFocus, placeholder, readOnly, step, type } = this.props;
+    const { bold, disabled, id, max, min, onBlur, onFocus, placeholder, readOnly, step, type } = this.props;
     const classNames = cx(theme['input'], {
       [theme['is-bold']]: bold,
     });
@@ -95,6 +101,8 @@ export default class Input extends Component {
       className: classNames,
       disabled: disabled,
       id,
+      max,
+      min,
       onBlur: onBlur,
       onChange: this.handleChange,
       onFocus: onFocus,
