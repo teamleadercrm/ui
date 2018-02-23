@@ -16,6 +16,7 @@
   --input-text-size-large: calc(1.6 * var(--unit));
   --input-border-radius: calc(.4 * var(--unit));
   --input-error-border: var(--color-ruby-dark);
+  --input-error-border-inverse: var(--color-ruby-light);
 
   --icon-horizontal: calc(.5 * var(--unit));
 
@@ -50,7 +51,6 @@
 
     &:not(.is-disabled):not(.is-read-only) {
       &:hover {
-        .input,
         .spinner-up,
         .spinner-down {
           border-color: var(--color-neutral-darkest);
@@ -58,6 +58,10 @@
       }
 
       .input {
+        &:hover {
+          border-color: var(--color-neutral-darkest);
+        }
+
         &:focus {
           border-color: var(--color-neutral-darkest);
           box-shadow: 0 0 0 1px var(--color-neutral-darkest);
@@ -110,7 +114,6 @@
 
     &:not(.is-disabled):not(.is-read-only) {
       &:hover {
-        .input,
         .spinner-up,
         .spinner-down {
           border-color: var(--color-teal-light);
@@ -118,6 +121,10 @@
       }
 
       .input {
+        &:hover {
+          border-color: var(--color-teal-light);
+        }
+
         &:focus {
           border-color: var(--color-teal-light);
           box-shadow: 0 0 0 1px var(--color-teal-light);
@@ -158,9 +165,27 @@
   }
 }
 
-.input-wrapper {
+.input-inner-wrapper {
   position: relative;
 }
+
+.input-wrapper {
+  border-radius: var(--input-border-radius);
+  display: flex;
+
+  > * {
+    border-radius: 0;
+  }
+
+  > *:first-child {
+    border-radius: var(--input-border-radius) 0 0 var(--input-border-radius);
+  }
+
+  > *:last-child {
+    border-radius: 0 var(--input-border-radius) var(--input-border-radius) 0;
+  }
+}
+
 
 .input,
 .input::placeholder {
@@ -320,6 +345,25 @@
   }
 }
 
+.has-connected-left {
+  .input {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+  }
+}
+
+.has-connected-right {
+  .input {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .spinner-up,
+  .spinner-down {
+    border-radius: 0;
+  }
+}
+
 .has-icon-left {
   .input {
     padding-left: var(--input-horizontal-padding-icon);
@@ -376,8 +420,23 @@
 
 .has-error {
   &:not(.is-inverse) {
+    &.has-connected-left .input-wrapper > *:first-child,
+    &.has-connected-right .input-wrapper > *:last-child,
     .input {
       border-color: var(--input-error-border);
+    }
+
+    .spinner-down {
+      border-bottom-color: var(--input-error-border);
+      border-right-color: var(--input-error-border);
+    }
+
+    .spinner-up {
+      border-top-color: var(--input-error-border);
+      border-right-color: var(--input-error-border);
+    }
+
+    .input-wrapper {
       box-shadow: 0 0 0 1px var(--input-error-border);
     }
 
@@ -391,9 +450,24 @@
   }
 
   &.is-inverse {
+    &.has-connected-left .input-wrapper > *:first-child,
+    &.has-connected-right .input-wrapper > *:last-child,
     .input {
-      border-color: var(--color-ruby-light);
-      box-shadow: 0 0 0 1px var(--color-ruby-light);
+      border-color: var(--input-error-border-inverse);
+    }
+
+    .spinner-down {
+      border-bottom-color: var(--input-error-border-inverse);
+      border-right-color: var(--input-error-border-inverse);
+    }
+
+    .spinner-up {
+      border-top-color: var(--input-error-border-inverse);
+      border-right-color: var(--input-error-border-inverse);
+    }
+
+    .input-wrapper {
+      box-shadow: 0 0 0 1px var(--input-error-border-inverse);
     }
 
     .validation-icon {

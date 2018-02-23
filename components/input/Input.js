@@ -17,6 +17,8 @@ export default class Input extends Component {
   static propTypes = {
     bold: PropTypes.bool,
     className: PropTypes.string,
+    connectedLeft: PropTypes.element,
+    connectedRight: PropTypes.element,
     counter: PropTypes.number,
     disabled: PropTypes.bool,
     helpText: PropTypes.string,
@@ -160,6 +162,8 @@ export default class Input extends Component {
   render() {
     const {
       className,
+      connectedLeft,
+      connectedRight,
       counter,
       disabled,
       icon,
@@ -171,6 +175,7 @@ export default class Input extends Component {
       readOnly,
       ...others
     } = this.props;
+
     const classNames = cx(
       theme.wrapper,
       theme[`is-${size}`],
@@ -179,6 +184,8 @@ export default class Input extends Component {
         [theme['has-counter']]: counter,
         [theme['has-error']]: Boolean(meta && meta.error),
         [theme['has-validation-feedback']]: Boolean(meta && meta.error),
+        [theme['has-connected-left']]: connectedLeft,
+        [theme['has-connected-right']]: connectedRight,
         [theme['is-inverse']]: inverse,
         [theme['is-numeric']]: type === 'number',
         [theme['is-disabled']]: disabled,
@@ -186,6 +193,10 @@ export default class Input extends Component {
       },
       className,
     );
+
+    const inputWrapperClassnames = cx(theme['input-wrapper'], {
+      [theme['has-error']]: Boolean(meta && meta.error),
+    });
 
     const rest = omit(others, [
       'bold',
@@ -201,16 +212,19 @@ export default class Input extends Component {
 
     return (
       <Box className={classNames} {...rest}>
-        <div className={theme['input-wrapper']}>
-          {icon &&
-            createElement(icon, {
-              className: theme.icon,
-            })}
-
-          {this.renderInput()}
-          {this.renderCounter()}
-          {this.renderSpinnerControls()}
-          {this.renderValidationIcon()}
+        <div className={inputWrapperClassnames}>
+          {connectedLeft}
+          <div className={theme['input-inner-wrapper']}>
+            {icon &&
+              createElement(icon, {
+                className: theme.icon,
+              })}
+            {this.renderInput()}
+            {this.renderCounter()}
+            {this.renderSpinnerControls()}
+            {this.renderValidationIcon()}
+          </div>
+          {connectedRight}
         </div>
         {this.renderHelpText()}
         {this.renderValidationMessage()}
