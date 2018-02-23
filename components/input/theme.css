@@ -408,7 +408,7 @@
     &.has-connected-left .input-wrapper > *:first-child,
     &.has-connected-right .input-wrapper > *:last-child,
     .input {
-      border-color: var(--input-error-border);
+      border-color: var(--input-error-border) !important;
     }
 
     .spinner-down {
@@ -438,7 +438,7 @@
     &.has-connected-left .input-wrapper > *:first-child,
     &.has-connected-right .input-wrapper > *:last-child,
     .input {
-      border-color: var(--input-error-border-inverse);
+      border-color: var(--input-error-border-inverse) !important;
     }
 
     .spinner-down {
