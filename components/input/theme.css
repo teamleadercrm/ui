@@ -22,9 +22,6 @@
 
   --spinner-width: calc(2.9 * var(--unit));
   --spinner-width-large: calc(3.6 * var(--unit));
-  --spinner-background: var(--color-neutral-light);
-  --spinner-border: var(--color-neutral-dark);
-  --spinner-color: var(--color-neutral-darkest);
 }
 
 /**
