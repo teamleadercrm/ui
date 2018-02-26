@@ -260,6 +260,10 @@
   min-width: 0;
 }
 
+.spinner-up {
+  border-radius: 0 var(--input-border-radius) 0 0;
+}
+
 .spinner-down {
   border-radius: 0 0 var(--input-border-radius) 0;
   border-top: 0 !important;
