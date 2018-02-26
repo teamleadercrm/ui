@@ -184,7 +184,6 @@
   position: relative;
 }
 
-
 .input,
 .input::placeholder {
   -moz-osx-font-smoothing: grayscale;
@@ -221,6 +220,12 @@
 
   &.is-bold {
     font-family: var(--font-family-medium);
+  }
+}
+
+.is-numeric {
+  .input {
+    padding-right: calc(var(--spinner-width) + var(--input-horizontal-padding));
   }
 }
 
@@ -289,6 +294,12 @@
 
   .spinner {
     width: var(--spinner-width-large);
+  }
+
+  &.is-numeric {
+    .input {
+      padding-right: calc(var(--spinner-width-large) + var(--input-horizontal-padding));
+    }
   }
 
   &.has-icon-left {
