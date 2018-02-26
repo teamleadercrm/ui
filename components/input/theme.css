@@ -257,24 +257,12 @@
 
 .spinner-up,
 .spinner-down {
-  align-items: center;
-  display: flex;
-  flex: 1;
-  justify-content: center;
-  margin: 0;
-  outline: 0;
-  background-color: var(--spinner-background);
-
-  border-radius: 0 var(--input-border-radius) 0 0;
-  border: solid 1px var(--spinner-border);
-
-  color: var(--spinner-color);
-  transition: .3s ease-in-out border;
+  min-width: 0;
 }
 
 .spinner-down {
   border-radius: 0 0 var(--input-border-radius) 0;
-  border-top: 0;
+  border-top: 0 !important;
 }
 
 .error {
@@ -284,14 +272,6 @@
 /**
  * Modifiers
  */
-.is-disabled,
-.is-read-only {
-  .spinner {
-    opacity: .48;
-    pointer-events: none;
-  }
-}
-
 .is-disabled {
   .input {
     pointer-events: none;

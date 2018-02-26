@@ -9,6 +9,7 @@ import {
 } from '@teamleader/ui-icons';
 import InputMetaPropTypes from './InputMetaPropTypes';
 import Box from '../box';
+import Button from '../button';
 import Counter from '../counter';
 import { TextSmall } from '../typography';
 import theme from './theme.css';
@@ -135,15 +136,17 @@ export default class Input extends Component {
   }
 
   renderSpinnerControls() {
-    if (this.props.type === 'number') {
+    const { disabled, readOnly, type } = this.props;
+
+    const props = {
+      disabled: disabled || readOnly,
+    };
+
+    if (type === 'number') {
       return (
         <div className={theme['spinner']}>
-          <button className={theme['spinner-up']} onClick={this.handleIncreaseValue}>
-            <IconChevronUpSmallOutline />
-          </button>
-          <button className={theme['spinner-down']} onClick={this.handleDecreaseValue}>
-            <IconChevronDownSmallOutline />
-          </button>
+          <Button className={theme['spinner-up']} icon={<IconChevronUpSmallOutline />} onClick={this.handleIncreaseValue} {...props}/>
+          <Button className={theme['spinner-down']} icon={<IconChevronDownSmallOutline />} onClick={this.handleDecreaseValue} {...props}/>
         </div>
       );
     }
