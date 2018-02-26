@@ -20,7 +20,7 @@
 
   --icon-horizontal: calc(.5 * var(--unit));
 
-  --spinner-width: calc(2.9 * var(--unit));
+  --spinner-width: calc(3.0 * var(--unit));
   --spinner-width-large: calc(3.6 * var(--unit));
 }
 
@@ -255,6 +255,7 @@
 .spinner-up,
 .spinner-down {
   min-width: 0;
+  padding: 0 !important;
 }
 
 .spinner-up {
@@ -290,13 +291,6 @@
     width: var(--spinner-width-large);
   }
 
-  .spinner-up,
-  .spinner-down {
-    svg {
-      height: 14px;
-    }
-  }
-
   &.has-icon-left {
     .input {
       padding-left: var(--input-horizontal-padding-icon-large);
@@ -314,13 +308,6 @@
 .is-small {
   .input {
     height: var(--input-height-small);
-  }
-
-  .spinner-up,
-  .spinner-down {
-    svg {
-      height: 9px;
-    }
   }
 }
 
