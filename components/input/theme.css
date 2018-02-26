@@ -393,10 +393,7 @@
       box-shadow: 0 0 0 1px var(--input-error-border);
     }
 
-    .validation-icon {
-      color: var(--color-ruby-dark);
-    }
-
+    .validation-icon,
     .validation-text {
       color: var(--color-ruby-dark);
     }
@@ -423,10 +420,7 @@
       box-shadow: 0 0 0 1px var(--input-error-border-inverse);
     }
 
-    .validation-icon {
-      color: var(--color-ruby-light);
-    }
-
+    .validation-icon,
     .validation-text {
       color: var(--color-ruby-light);
     }
