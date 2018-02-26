@@ -197,7 +197,6 @@ export default class Input extends Component {
         [theme[`has-icon-${iconPlacement}`]]: icon,
         [theme['has-counter']]: counter,
         [theme['has-error']]: Boolean(meta && meta.error),
-        [theme['has-validation-feedback']]: Boolean(meta && meta.error),
         [theme['has-connected-left']]: connectedLeft,
         [theme['has-connected-right']]: connectedRight,
         [theme['is-inverse']]: inverse,

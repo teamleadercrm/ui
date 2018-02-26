@@ -297,7 +297,6 @@
     }
   }
 
-  &.has-validation-feedback,
   &.has-icon-right {
     .input {
       padding-right: var(--input-horizontal-padding-icon-large);
@@ -345,29 +344,6 @@
   .icon {
     left: auto;
     right: var(--icon-horizontal);
-  }
-}
-
-.has-validation-feedback {
-  .counter,
-  &.has-icon-right .icon {
-    display: none;
-  }
-
-  .input {
-    padding-right: var(--input-horizontal-padding-icon);
-  }
-
-  &.is-numeric {
-    .input {
-      padding-right: calc(var(--input-horizontal-padding-icon) + var(--spinner-width));
-    }
-
-    &.is-large {
-      .input {
-        padding-right: calc(var(--input-horizontal-padding-icon) + var(--spinner-width-large));
-      }
-    }
   }
 }
 
