@@ -145,8 +145,18 @@ export default class Input extends Component {
     if (type === 'number') {
       return (
         <div className={theme['spinner']}>
-          <Button className={theme['spinner-up']} icon={<IconChevronUpSmallOutline />} onClick={this.handleIncreaseValue} {...props}/>
-          <Button className={theme['spinner-down']} icon={<IconChevronDownSmallOutline />} onClick={this.handleDecreaseValue} {...props}/>
+          <Button
+            className={theme['spinner-up']}
+            icon={<IconChevronUpSmallOutline />}
+            onClick={this.handleIncreaseValue}
+            {...props}
+          />
+          <Button
+            className={theme['spinner-down']}
+            icon={<IconChevronDownSmallOutline />}
+            onClick={this.handleDecreaseValue}
+            {...props}
+          />
         </div>
       );
     }
