@@ -22,6 +22,7 @@ export default class Input extends Component {
     connectedRight: PropTypes.element,
     counter: PropTypes.number,
     disabled: PropTypes.bool,
+    format: PropTypes.func,
     helpText: PropTypes.string,
     icon: PropTypes.oneOfType([PropTypes.func, PropTypes.element]),
     iconPlacement: PropTypes.oneOf(['left', 'right']),
@@ -34,6 +35,7 @@ export default class Input extends Component {
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
     placeholder: PropTypes.string,
+    precision: PropTypes.number,
     readOnly: PropTypes.bool,
     size: PropTypes.oneOf(['small', 'medium', 'large']),
     step: PropTypes.number,
@@ -46,6 +48,9 @@ export default class Input extends Component {
     inverse: false,
     disabled: false,
     placeholder: '',
+    precision: null,
+    min: -9007199254740991,
+    max: 9007199254740991,
     readOnly: false,
     size: 'medium',
     step: 1,
@@ -78,54 +83,59 @@ export default class Input extends Component {
   }
 
   handleIncreaseValue() {
-    this.setState((previousState, props) => {
-      if (typeof previousState.value === 'string') {
-        if (typeof props.max === 'undefined') {
-          return {
-            value: typeof props.min === 'undefined' ? props.step : props.min,
-          };
-        } else {
-          if (typeof props.min === 'undefined') {
-            return {
-              value: props.step < props.max ? props.step : props.max,
-            };
-          } else {
-            return {
-              value: props.min > 0 ? props.min : props.step,
-            };
-          }
-        }
-      } else {
-        if (typeof props.max === 'undefined') {
-          return {
-            value: previousState.value + props.step,
-          };
-        } else {
-          return {
-            value:
-              previousState.value + props.step <= props.max ? previousState.value + props.step : previousState.value,
-          };
-        }
-      }
-    });
+    this.step(1);
   }
 
   handleDecreaseValue() {
-    this.setState((previousState, props) => {
-      if (typeof previousState.value === 'string') {
-        return { value: typeof props.min === 'undefined' ? -props.step : props.min };
-      } else {
-        if (typeof props.min === 'undefined') {
-          return {
-            value: previousState.value - props.step,
-          };
-        } else {
-          return {
-            value: previousState.value - props.step >= props.min ? previousState.value - props.step : props.min,
-          };
-        }
-      }
-    });
+    this.step(-1);
+  }
+
+  format(number) {
+    const { format, precision } = this.props;
+
+    let formattedNumber = this.toNumber(number);
+
+    if (precision !== null) {
+      formattedNumber = number.toFixed(precision);
+    }
+
+    formattedNumber += "";
+
+    if (format) {
+      return format(formattedNumber);
+    }
+
+    return formattedNumber;
+  }
+
+  step(n) {
+    const { step } = this.props;
+
+    let number = this.toNumber((this.state.value || 0) + step * n);
+
+    if (number !== this.state.value) {
+      this.setState({ value: number });
+      return true;
+    }
+
+    return false;
+  }
+
+  toNumber(number) {
+    const { max, min, precision } = this.props;
+
+    let float = parseFloat(number);
+
+    if (isNaN(float) || !isFinite(float)) {
+      float = 0;
+    }
+
+    let q = Math.pow(10, precision === null ? 10 : precision);
+
+    float = Math.min( Math.max(float, min), max );
+    float = Math.round( float * q ) / q;
+
+    return float;
   }
 
   renderInput() {
@@ -133,6 +143,7 @@ export default class Input extends Component {
     const classNames = cx(theme['input'], {
       [theme['is-bold']]: bold,
     });
+
     const props = {
       className: classNames,
       disabled: disabled,
@@ -146,7 +157,7 @@ export default class Input extends Component {
       readOnly,
       step,
       type,
-      value: this.state.value,
+      value: type === 'number' && this.state.value ? this.format(this.state.value) : this.state.value,
     };
 
     return <input {...props} />;
