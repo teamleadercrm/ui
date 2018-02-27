@@ -99,7 +99,7 @@ export default class Input extends Component {
       formattedNumber = number.toFixed(precision);
     }
 
-    formattedNumber += "";
+    formattedNumber += '';
 
     if (format) {
       return format(formattedNumber);
@@ -111,7 +111,7 @@ export default class Input extends Component {
   step(n) {
     const { step } = this.props;
 
-    let number = this.toNumber((this.state.value || 0) + step * n);
+    const number = this.toNumber((this.state.value || 0) + step * n);
 
     if (number !== this.state.value) {
       this.setState({ value: number });
@@ -130,10 +130,10 @@ export default class Input extends Component {
       float = 0;
     }
 
-    let q = Math.pow(10, precision === null ? 10 : precision);
+    const q = Math.pow(10, precision === null ? 10 : precision);
 
-    float = Math.min( Math.max(float, min), max );
-    float = Math.round( float * q ) / q;
+    float = Math.min(Math.max(float, min), max);
+    float = Math.round(float * q) / q;
 
     return float;
   }
