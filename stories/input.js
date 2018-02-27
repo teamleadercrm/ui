@@ -83,6 +83,7 @@ storiesOf('Inputs', module)
         readOnly={boolean('Read only', false)}
         min={number('Minimum', 0)}
         max={number('Maximum', 10)}
+        precision={number('Precision', 2)}
         step={number('Step', 1)}
         {...props}
       />
