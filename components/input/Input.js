@@ -78,19 +78,54 @@ export default class Input extends Component {
   }
 
   handleIncreaseValue() {
-    this.setState((previousState, props) => ({
-      value: !previousState.value
-        ? props.step
-        : previousState.value + props.step <= props.max ? previousState.value + props.step : previousState.value,
-    }));
+    this.setState((previousState, props) => {
+      if (typeof previousState.value === 'string') {
+        if (typeof props.max === 'undefined') {
+          return {
+            value: typeof props.min === 'undefined' ? props.step : props.min,
+          };
+        } else {
+          if (typeof props.min === 'undefined') {
+            return {
+              value: props.step < props.max ? props.step : props.max,
+            };
+          } else {
+            return {
+              value: props.min > 0 ? props.min : props.step,
+            };
+          }
+        }
+      } else {
+        if (typeof props.max === 'undefined') {
+          return {
+            value: previousState.value + props.step,
+          };
+        } else {
+          return {
+            value:
+              previousState.value + props.step <= props.max ? previousState.value + props.step : previousState.value,
+          };
+        }
+      }
+    });
   }
 
   handleDecreaseValue() {
-    this.setState((previousState, props) => ({
-      value: !previousState.value
-        ? props.min
-        : previousState.value - props.step >= props.min ? previousState.value - props.step : props.min,
-    }));
+    this.setState((previousState, props) => {
+      if (typeof previousState.value === 'string') {
+        return { value: typeof props.min === 'undefined' ? -props.step : props.min };
+      } else {
+        if (typeof props.min === 'undefined') {
+          return {
+            value: previousState.value - props.step,
+          };
+        } else {
+          return {
+            value: previousState.value - props.step >= props.min ? previousState.value - props.step : props.min,
+          };
+        }
+      }
+    });
   }
 
   renderInput() {

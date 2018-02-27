@@ -17,6 +17,7 @@ const tints = ['lightest', 'light', 'normal', 'dark', 'darkest'];
 const props = {
   helpText: 'This is the fields help text',
   placeholder: 'Placeholder',
+  meta: { error: 'This is an error message' },
 };
 
 const TooltippedIcon = Tooltip(Icon);
@@ -82,7 +83,6 @@ storiesOf('Inputs', module)
         readOnly={boolean('Read only', false)}
         min={number('Minimum', 0)}
         max={number('Maximum', 10)}
-        meta={{ error: 'This is an error message' }}
         step={number('Step', 1)}
         {...props}
       />
@@ -133,7 +133,6 @@ storiesOf('Inputs', module)
       <Input
         id="input1"
         size="small"
-        meta={{ error: 'This is an error message' }}
         value="wrong value"
         bold={boolean('Bold', false)}
         disabled={boolean('Disabled', false)}
@@ -160,7 +159,6 @@ storiesOf('Inputs', module)
       <Input
         id="input1"
         size="small"
-        meta={{ error: 'This is an error message' }}
         value="wrong value"
         bold={boolean('Bold', false)}
         disabled={boolean('Disabled', false)}
@@ -178,12 +176,14 @@ storiesOf('Inputs', module)
       Input label
       <Input
         id="input1"
-        meta={{ error: 'This is an error message' }}
         bold={boolean('Bold', false)}
         connectedLeft={<Button size={select('Size', sizes, 'medium')} label="€" />}
         connectedRight={<Button size={select('Size', sizes, 'medium')}><Checkbox size="small">Discount</Checkbox></Button>}
         disabled={boolean('Disabled', false)}
         type="number"
+        min={number('Minimum', 0)}
+        max={number('Maximum', 10)}
+        step={number('Step', 1)}
         readOnly={boolean('Read only', false)}
         {...props}
       />
