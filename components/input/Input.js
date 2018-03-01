@@ -90,6 +90,11 @@ export default class Input extends Component {
     this.step(-1);
   }
 
+  hasError() {
+    const { meta } = this.props;
+    return Boolean(meta && meta.error && meta.touched);
+  }
+
   format(number) {
     const { precision } = this.props;
 
@@ -239,7 +244,7 @@ export default class Input extends Component {
       {
         [theme[`has-icon-${iconPlacement}`]]: icon,
         [theme['has-counter']]: counter,
-        [theme['has-error']]: Boolean(meta && meta.error),
+        [theme['has-error']]: this.hasError(),
         [theme['has-connected-left']]: connectedLeft,
         [theme['has-connected-right']]: connectedRight,
         [theme['is-inverse']]: inverse,
@@ -251,7 +256,7 @@ export default class Input extends Component {
     );
 
     const inputWrapperClassnames = cx(theme['input-wrapper'], {
-      [theme['has-error']]: Boolean(meta && meta.error),
+      [theme['has-error']]: this.hasError(),
     });
 
     const rest = omit(others, [
@@ -284,7 +289,7 @@ export default class Input extends Component {
           </div>
           {connectedRight}
         </div>
-        {meta && meta.error ? this.renderValidationMessage() : this.renderHelpText()}
+        {this.hasError() ? this.renderValidationMessage() : this.renderHelpText()}
       </Box>
     );
   }
