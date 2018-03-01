@@ -69,8 +69,8 @@ export default class Input extends Component {
   }
 
   componentWillUpdate(props, state) {
-    if (props.onChange && state.value) {
-      props.onChange(state.value);
+    if (props.input && props.input.onChange && state.value) {
+      props.input.onChange(state.value);
     }
   }
 
