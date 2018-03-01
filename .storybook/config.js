@@ -68,6 +68,7 @@ setDefaults({
 });
 
 setOptions({
+  siteTitle: 'Teamleader',
   name: `Version ${process.env.__VERSION__}`,
   url: 'https://teamleader.design'
 });

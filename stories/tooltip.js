@@ -19,7 +19,7 @@ import {
   Tooltip
 } from '../components';
 import { baseStyles, centerStyles } from '../.storybook/styles';
-import { IconHelpBadgedMediumOutline, IconMeetingSmallOutline } from '@teamleader/ui-icons';
+import { IconHelpBadgedMediumOutline, IconUserSmallOutline } from '@teamleader/ui-icons';
 
 const buttonLevels = ['outline', 'secondary', 'primary', 'destructive'];
 const colors = ['white', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'inverse'];
@@ -102,7 +102,7 @@ storiesOf('Tooltip', module)
       <Heading2 marginTop={4}>
         I'm a Heading 2 with a{' '}
         <TooltippedBadge
-          icon={<IconMeetingSmallOutline />}
+          icon={<IconUserSmallOutline />}
           tooltip={textSmallTooltipContent}
         >
           hover me
@@ -113,7 +113,7 @@ storiesOf('Tooltip', module)
       <Heading3 marginTop={4}>
         I'm a Heading 3 with a{' '}
         <TooltippedBadge
-          icon={<IconMeetingSmallOutline />}
+          icon={<IconUserSmallOutline />}
           tooltip={textSmallTooltipContent}
         >
           hover me
@@ -124,7 +124,7 @@ storiesOf('Tooltip', module)
       <Heading4 marginTop={4}>
         I'm a Heading 4 with a{' '}
         <TooltippedBadge
-          icon={<IconMeetingSmallOutline />}
+          icon={<IconUserSmallOutline />}
           inverse
           tooltip={textSmallTooltipContent}
           tooltipColor="inverse"
@@ -145,7 +145,7 @@ storiesOf('Tooltip', module)
       <TextBody marginTop={4}>
         I'm body text with a{' '}
         <TooltippedBadge
-          icon={<IconMeetingSmallOutline />}
+          icon={<IconUserSmallOutline />}
           inverse
           tooltip={textSmallTooltipContent}
           tooltipColor="inverse"

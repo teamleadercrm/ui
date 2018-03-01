@@ -18,7 +18,7 @@ const factory = (LinkButton, IconButton) => {
       className: PropTypes.string,
       label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
       onClose: PropTypes.func,
-      onTimeout: PropTypes.func,
+      onTimeout: PropTypes.func, // eslint-disable-line
       processing: PropTypes.bool,
       timeout: PropTypes.number,
     };

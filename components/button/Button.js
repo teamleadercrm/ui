@@ -10,6 +10,7 @@ class Button extends PureComponent {
     className: PropTypes.string,
     level: PropTypes.oneOf(['outline', 'primary', 'secondary', 'destructive']),
     disabled: PropTypes.bool,
+    fullWidth: PropTypes.bool,
     href: PropTypes.string,
     icon: PropTypes.element,
     iconPlacement: PropTypes.oneOf(['left', 'right']),
@@ -24,6 +25,7 @@ class Button extends PureComponent {
 
   static defaultProps = {
     className: '',
+    fullWidth: false,
     level: 'secondary',
     iconPlacement: 'left',
     inverse: false,
@@ -58,6 +60,7 @@ class Button extends PureComponent {
       className,
       level,
       disabled,
+      fullWidth,
       href,
       icon,
       iconPlacement,
@@ -77,6 +80,7 @@ class Button extends PureComponent {
       {
         [theme['icon-only']]: !label && !children,
         [theme['inverse']]: inverse && level === 'outline',
+        [theme['is-full-width']]: fullWidth,
         [theme['processing']]: processing,
         [theme[size]]: theme[size],
       },

@@ -4,10 +4,12 @@ import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean } from '@storybook/addon-knobs/react';
 import styles from '@sambego/storybook-styles';
-import { Box, Tag } from '../components';
+import { Box, Tag, TextBody, Tooltip } from '../components';
 import { baseStyles, centerStyles } from '../.storybook/styles';
 
 const sizes = ['small', 'medium', 'large'];
+
+const TooltippedTag = Tooltip(Tag);
 
 storiesOf('Tags', module)
   .addDecorator((story, context) => withInfo('common info')(story)(context))
@@ -17,7 +19,9 @@ storiesOf('Tags', module)
   .add('size', () => (
     <Box>
       {sizes.map((size, index) => (
-        <Tag key={index} label={`${size} tag`} marginHorizontal={3} size={size} inverse={boolean('Inverse', false)}/>
+        <Tag key={index} marginHorizontal={3} size={size} inverse={boolean('Inverse', false)}>
+          {`${size} tag`}
+        </Tag>
       ))}
     </Box>
   ))
@@ -27,11 +31,12 @@ storiesOf('Tags', module)
         <Tag
           inverse={boolean('Inverse', false)}
           key={index}
-          label={`${size} tag`}
           marginHorizontal={3}
           onLabelClick={() => console.log('Tag label clicked')}
           size={size}
-        />
+        >
+          {`${size} tag`}
+        </Tag>
       ))}
     </Box>
   ))
@@ -41,11 +46,12 @@ storiesOf('Tags', module)
         <Tag
           inverse={boolean('Inverse', false)}
           key={index}
-          label={`${size} tag`}
           marginHorizontal={3}
           onRemoveClick={() => console.log('Tag removed')}
           size={size}
-        />
+        >
+          {`${size} tag`}
+        </Tag>
       ))}
     </Box>
   ))
@@ -55,12 +61,18 @@ storiesOf('Tags', module)
         <Tag
           inverse={boolean('Inverse', false)}
           key={index}
-          label={`${size} tag`}
           marginHorizontal={3}
           onLabelClick={() => console.log('Tag label clicked')}
           onRemoveClick={() => console.log('Tag removed')}
           size={size}
-        />
+        >
+          {`${size} tag`}
+        </Tag>
       ))}
     </Box>
+  ))
+  .add('with tooltip', () => (
+    <TooltippedTag inverse={boolean('Inverse', false)} tooltip={<TextBody>I am the tooltip</TextBody>}>
+      Tag with tooltip
+    </TooltippedTag>
   ));
