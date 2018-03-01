@@ -261,12 +261,16 @@ export default class Input extends Component {
 
     const rest = omit(others, [
       'bold',
+      'format',
       'id',
       'helpText',
+      'max',
+      'min',
       'onBlur',
       'onChange',
       'onFocus',
       'placeholder',
+      'precision',
       'step',
       'value',
     ]);
