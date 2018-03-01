@@ -167,7 +167,7 @@ export default class Input extends Component {
 
   renderCounter() {
     if (this.props.counter) {
-      return <Counter className={theme.counter} count={this.props.counter} color="ruby" size="small" />;
+      return <Counter className={theme['counter']} count={this.props.counter} color="ruby" size="small" />;
     }
   }
 
@@ -239,7 +239,7 @@ export default class Input extends Component {
     } = this.props;
 
     const classNames = cx(
-      theme.wrapper,
+      theme['wrapper'],
       theme[`is-${size}`],
       {
         [theme[`has-icon-${iconPlacement}`]]: icon,
@@ -282,7 +282,7 @@ export default class Input extends Component {
           <div className={theme['input-inner-wrapper']}>
             {icon &&
               createElement(icon, {
-                className: theme.icon,
+                className: theme['icon'],
               })}
             {this.renderInput()}
             {this.renderCounter()}
