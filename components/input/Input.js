@@ -23,7 +23,6 @@ export default class Input extends Component {
     connectedRight: PropTypes.element,
     counter: PropTypes.number,
     disabled: PropTypes.bool,
-    format: PropTypes.func,
     helpText: PropTypes.string,
     icon: PropTypes.oneOfType([PropTypes.func, PropTypes.element]),
     iconPlacement: PropTypes.oneOf(['left', 'right']),
@@ -92,7 +91,7 @@ export default class Input extends Component {
   }
 
   format(number) {
-    const { format, precision } = this.props;
+    const { precision } = this.props;
 
     let formattedNumber = this.toNumber(number);
 
@@ -101,10 +100,6 @@ export default class Input extends Component {
     }
 
     formattedNumber += '';
-
-    if (format) {
-      return format(formattedNumber);
-    }
 
     return formattedNumber;
   }
@@ -261,7 +256,6 @@ export default class Input extends Component {
 
     const rest = omit(others, [
       'bold',
-      'format',
       'id',
       'helpText',
       'max',
