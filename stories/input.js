@@ -17,7 +17,7 @@ const tints = ['lightest', 'light', 'normal', 'dark', 'darkest'];
 const props = {
   helpText: 'This is the fields help text',
   placeholder: 'Placeholder',
-  meta: { error: 'This is an error message' },
+  meta: { error: 'This is an error message', touched: true, },
 };
 
 const TooltippedIcon = Tooltip(Icon);
