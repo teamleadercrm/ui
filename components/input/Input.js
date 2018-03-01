@@ -16,6 +16,7 @@ import theme from './theme.css';
 
 export default class Input extends Component {
   static propTypes = {
+    autoFocus: PropTypes.bool,
     bold: PropTypes.bool,
     className: PropTypes.string,
     connectedLeft: PropTypes.element,
@@ -139,12 +140,13 @@ export default class Input extends Component {
   }
 
   renderInput() {
-    const { bold, disabled, id, max, min, onBlur, onFocus, placeholder, readOnly, step, type } = this.props;
+    const { autoFocus, bold, disabled, id, max, min, onBlur, onFocus, placeholder, readOnly, step, type } = this.props;
     const classNames = cx(theme['input'], {
       [theme['is-bold']]: bold,
     });
 
     const props = {
+      autoFocus,
       className: classNames,
       disabled: disabled,
       id,
