@@ -16,7 +16,6 @@ setDefaults({
       fontFamily: 'Inter-UI-Regular',
       fontSize: '14px',
       margin: '48px 0',
-      maxWidth: '90%',
       padding: '0',
     };
 
