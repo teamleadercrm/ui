@@ -15,7 +15,7 @@ setDefaults({
       color: '#2a3b4d',
       fontFamily: 'Inter-UI-Regular',
       fontSize: '14px',
-      margin: '48px auto',
+      margin: '48px 0',
       maxWidth: '90%',
       padding: '0',
     };
@@ -23,21 +23,21 @@ setDefaults({
     stylesheet.header = {
       h1: {
         fontFamily: 'Inter-UI-Medium',
-        fontWeight: 500,
-        margin: 0,
         fontSize: '24px',
+        fontWeight: 500,
         lineHeight: '30px',
+        margin: 0,
       },
       h2: {
         color: '#82828c',
         fontFamily: 'Inter-UI-Medium',
-        margin: '24px 0 10px 0',
-        fontWeight: 500,
         fontSize: '18px',
+        fontWeight: 500,
         lineHeight: '24px',
+        margin: '24px 0 10px 0',
       },
       body: {
-        borderBottom: '1px solid #eee',
+        borderBottom: '1px solid #c0c0c4',
         paddingTop: 10,
         marginBottom: 10,
       },
@@ -45,17 +45,19 @@ setDefaults({
 
     stylesheet.source = {
       h1: {
+        borderBottom: '1px solid #c0c0c4',
         color: '#82828c',
         fontFamily: 'Inter-UI-Medium',
         margin: '24px 0 10px 0',
         fontWeight: 500,
         fontSize: '18px',
         lineHeight: '24px',
-        borderBottom: '1px solid #eee',
+        padding: '12px 0',
       },
     };
 
     stylesheet.propTableHead = {
+      color: '#344b63',
       fontFamily: 'Inter-UI-Medium',
       fontWeight: 500,
       fontSize: '16px',
