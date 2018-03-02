@@ -3,8 +3,6 @@ import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean, select } from "@storybook/addon-knobs/react";
-import styles from '@sambego/storybook-styles';
-import { baseStyles, centerStyles } from '../.storybook/styles';
 import { Input, Label } from '../components';
 import PropTable from './components/propTable';
 import { IconCalendarMediumOutline, IconCalendarSmallOutline } from '@teamleader/ui-icons';
@@ -21,7 +19,6 @@ storiesOf('Inputs', module)
   .addDecorator((story, context) => withInfo({TableComponent: PropTable})(story)(context))
   .addDecorator(checkA11y)
   .addDecorator(withKnobs)
-  .addDecorator(styles({ ...baseStyles, ...centerStyles }))
   .add('Input only', () => (
     <Input
       id="input1"
