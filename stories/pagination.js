@@ -1,11 +1,9 @@
 import React from 'react';
-import styles from '@sambego/storybook-styles';
 import { storiesOf } from '@storybook/react';
 import { Store, State } from '@sambego/storybook-state';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { Island, Pagination, LinkButton } from '../components';
-import { baseStyles, centerStyles } from '../.storybook/styles';
 
 const store = new Store({
   currentPage: 1,
@@ -19,7 +17,6 @@ const handlePageChange = page => {
 storiesOf('Pagination', module)
   .addDecorator((story, context) => withInfo('common info')(story)(context))
   .addDecorator(checkA11y)
-  .addDecorator(styles({ ...baseStyles, ...centerStyles }))
   .add('compact', () => (
     <Island>
       <State store={store}>
