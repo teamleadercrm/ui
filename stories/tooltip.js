@@ -2,7 +2,6 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
-import styles from '@sambego/storybook-styles';
 import {
   Badge,
   Box,
@@ -18,7 +17,6 @@ import {
   TextSmall,
   Tooltip
 } from '../components';
-import { baseStyles, centerStyles } from '../.storybook/styles';
 import { IconHelpBadgedMediumOutline, IconUserSmallOutline } from '@teamleader/ui-icons';
 
 const buttonLevels = ['outline', 'secondary', 'primary', 'destructive'];
@@ -38,7 +36,6 @@ const textSmallTooltipContent = <TextSmall>I am small sized tooltip text</TextSm
 storiesOf('Tooltip', module)
   .addDecorator((story, context) => withInfo('common info')(story)(context))
   .addDecorator(checkA11y)
-  .addDecorator(styles({ ...baseStyles, ...centerStyles }))
   .add('colors', () => (
     <Box>
       {colors.map((color, index) => {
