@@ -6,7 +6,7 @@ import { withKnobs, boolean, select } from "@storybook/addon-knobs/react";
 import styles from '@sambego/storybook-styles';
 import { baseStyles, centerStyles } from '../.storybook/styles';
 import { Input, Label } from '../components';
-import PropTable from './components/propTable/PropTable';
+import PropTable from './components/propTable';
 import { IconCalendarMediumOutline, IconCalendarSmallOutline } from '@teamleader/ui-icons';
 
 const iconPlacement = ['left', 'right'];
