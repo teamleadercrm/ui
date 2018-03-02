@@ -5,7 +5,6 @@ import { withInfo } from '@storybook/addon-info';
 import { withKnobs, select } from '@storybook/addon-knobs/react';
 import { Banner, Link, TextDisplay } from '../components';
 import { IconIdeaMediumOutline, IconCalendarMediumOutline as IconSettingsMediumOutline } from '@teamleader/ui-icons';
-import {centerStyles} from "../.storybook/styles";
 
 const colors = ['white', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua'];
 
@@ -14,7 +13,7 @@ storiesOf('Banner', module)
   .addDecorator(checkA11y)
   .addDecorator(withKnobs)
   .add('Colors', () => (
-    <div style={centerStyles}>
+    <div>
       <Banner color={select('Color', colors, 'white')} marginTop={4} icon={<IconIdeaMediumOutline />} onClose={() => console.log('close')}>
         <TextDisplay marginRight={3}>
           I am a banner with an <Link href="http://teamleader.eu">optional link</Link> inside.
