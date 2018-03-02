@@ -15,24 +15,43 @@ import theme from './theme.css';
 
 export default class Input extends Component {
   static propTypes = {
+    /** Boolean indicating whether the input text should render in bold. */
     bold: PropTypes.bool,
+    /** Sets a class name to give custom styles. */
     className: PropTypes.string,
+    /** The number to render as a counter inside the input. */
     counter: PropTypes.number,
+    /** Boolean indicating whether the input should render as disabled. */
     disabled: PropTypes.bool,
+    /** The text string to use as help text below the input. */
     helpText: PropTypes.string,
+    /** The icon displayed inside the input. */
     icon: PropTypes.oneOfType([PropTypes.func, PropTypes.element]),
+    /** The position of the icon inside the input. */
     iconPlacement: PropTypes.oneOf(['left', 'right']),
+    /** The text string to use as input identifier. */
     id: PropTypes.string,
+    /** Boolean indicating whether the input should render as inverse. */
     inverse: PropTypes.bool,
+    /** Object to provide meta information for redux forms. */
     meta: InputMetaPropTypes,
+    /** Callback function that is fired when component is blurred. */
     onBlur: PropTypes.func,
+    /** Callback function that is fired when the component's value changes. */
     onChange: PropTypes.func,
+    /** Callback function that is fired when component is focused. */
     onFocus: PropTypes.func,
+    /** The text string to use as placeholder. */
     placeholder: PropTypes.string,
+    /** Boolean indicating whether the input should render as read only. */
     readOnly: PropTypes.bool,
+    /** Size of the input element. */
     size: PropTypes.oneOf(['small', 'medium', 'large']),
+    /** Limit increment value for numeric inputs. */
     step: PropTypes.number,
+    /** Type of the input element. It can be a valid HTML5 input type. */
     type: PropTypes.string,
+    /** Current value of the input element. */
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   };
 

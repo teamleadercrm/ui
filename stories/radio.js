@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean } from '@storybook/addon-knobs/react';
@@ -16,7 +15,6 @@ const store = new Store({
 });
 const updateState = value => {
   store.set({ value });
-  action(`Selected: ${value}`)();
 };
 
 storiesOf('Radio', module)

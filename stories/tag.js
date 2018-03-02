@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean } from '@storybook/addon-knobs/react';
-import { action } from '@storybook/addon-actions';
 import styles from '@sambego/storybook-styles';
 import { Box, Tag, TextBody, Tooltip } from '../components';
 import { baseStyles, centerStyles } from '../.storybook/styles';
@@ -33,7 +32,7 @@ storiesOf('Tags', module)
           inverse={boolean('Inverse', false)}
           key={index}
           marginHorizontal={3}
-          onLabelClick={action('Tag label clicked')}
+          onLabelClick={() => console.log('Tag label clicked')}
           size={size}
         >
           {`${size} tag`}
@@ -48,7 +47,7 @@ storiesOf('Tags', module)
           inverse={boolean('Inverse', false)}
           key={index}
           marginHorizontal={3}
-          onRemoveClick={action('Tag removed')}
+          onRemoveClick={() => console.log('Tag removed')}
           size={size}
         >
           {`${size} tag`}
@@ -63,8 +62,8 @@ storiesOf('Tags', module)
           inverse={boolean('Inverse', false)}
           key={index}
           marginHorizontal={3}
-          onLabelClick={action('Tag label clicked')}
-          onRemoveClick={action('Tag removed')}
+          onLabelClick={() => console.log('Tag label clicked')}
+          onRemoveClick={() => console.log('Tag removed')}
           size={size}
         >
           {`${size} tag`}

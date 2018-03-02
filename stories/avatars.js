@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { Store, State } from '@sambego/storybook-state';
@@ -36,22 +35,20 @@ const TooltippedAvatar = Tooltip(Avatar);
 
 const handleOnOverflowClick = () => {
   store.set({ displayMax: 0 });
-  action('clicked on AvatarStack overflow')();
 };
 
 storiesOf('Avatars', module)
   .addDecorator((story, context) => withInfo('common info')(story)(context))
   .addDecorator(checkA11y)
-  .addDecorator(styles({ ...baseStyles, ...centerStyles }))
   .add('sizes', () => (
-    <Box>
+    <div style={centerStyles}>
       <Avatar image={avatars[0].image} size="tiny" marginHorizontal={4} />
       <Avatar image={avatars[0].image} size="small" marginHorizontal={4} />
       <Avatar image={avatars[0].image} size="medium" marginHorizontal={4} />
-    </Box>
+    </div>
   ))
   .add('with bullet', () => (
-    <Box>
+    <div style={centerStyles}>
       <Avatar
         image={avatars[0].image}
         size="small"
@@ -65,10 +62,10 @@ storiesOf('Avatars', module)
       >
         <Bullet color="ruby" />
       </Avatar>
-    </Box>
+    </div>
   ))
   .add('with counter', () => (
-    <Box>
+    <div style={centerStyles}>
       <Avatar
         image={avatars[0].image}
         size="small"
@@ -82,10 +79,10 @@ storiesOf('Avatars', module)
       >
         <Counter color="ruby" count={avatars[0].count} maxCount={avatars[0].maxCount}/>
       </Avatar>
-    </Box>
+    </div>
   ))
   .add('stacked horizontal', () => (
-    <Box>
+    <div style={centerStyles}>
       <State store={store}>
         <AvatarStack
           direction="horizontal"
@@ -103,10 +100,10 @@ storiesOf('Avatars', module)
           ))}
         </AvatarStack>
       </State>
-    </Box>
+    </div>
   ))
   .add('stacked vertical', () => (
-    <Box>
+    <div style={centerStyles}>
       <State store={store}>
         <AvatarStack
           direction="vertical"
@@ -125,14 +122,14 @@ storiesOf('Avatars', module)
           ))}
         </AvatarStack>
       </State>
-    </Box>
+    </div>
   ))
   .add('with tooltip', () => (
-    <Box>
+    <div>
       <TooltippedAvatar
         image={avatars[0].image}
         size="tiny"
         tooltip={<TextBody>I am the tooltip</TextBody>}
       />
-    </Box>
+    </div>
   ));

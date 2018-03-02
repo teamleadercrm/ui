@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 import { Store, State } from '@sambego/storybook-state';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
@@ -14,17 +13,14 @@ const store = new Store({
 
 const handleButtonClick = () => {
   store.set({ active: true });
-  action('onClose - active: true')();
 };
 
 const handleToastCloseButtonClick = () => {
   store.set({ active: false });
-  action('onClose - active: false')();
 };
 
 const handleToastTimeout = () => {
   store.set({ active: false });
-  action('onTimeout - active: false')();
 };
 
 storiesOf('Toast', module)

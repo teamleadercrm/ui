@@ -79,7 +79,6 @@
   "devDependencies": {
     "@sambego/storybook-state": "^1.0.6",
     "@sambego/storybook-styles": "^1.0.0",
-    "@storybook/addon-actions": "^3.3.10",
     "@storybook/addon-info": "^3.3.10",
     "@storybook/addon-knobs": "^3.3.2",
     "@storybook/addon-links": "^3.3.10",
