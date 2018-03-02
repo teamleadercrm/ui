@@ -2,7 +2,6 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
-import styles from '@sambego/storybook-styles';
 import {
   Box,
   Island,
@@ -11,12 +10,10 @@ import {
   TextDisplay,
   TextSmall,
 } from '../components';
-import { baseStyles } from '../.storybook/styles';
 
 storiesOf('Links', module)
   .addDecorator((story, context) => withInfo('common info')(story)(context))
   .addDecorator(checkA11y)
-  .addDecorator(styles(baseStyles))
   .add('Default', () => (
     <Box padding={5}>
       <Island>
