@@ -4,9 +4,7 @@ import { checkA11y } from 'storybook-addon-a11y';
 import { withKnobs, boolean } from '@storybook/addon-knobs/react';
 import { withInfo } from '@storybook/addon-info';
 import { Store, State } from '@sambego/storybook-state';
-import styles from '@sambego/storybook-styles';
 import { Box, Toggle } from '../components';
-import { baseStyles, centerStyles } from '../.storybook/styles';
 
 const sizes = ['small', 'medium', 'large'];
 
@@ -22,7 +20,6 @@ storiesOf('Toggles', module)
   .addDecorator((story, context) => withInfo('common info')(story)(context))
   .addDecorator(checkA11y)
   .addDecorator(withKnobs)
-  .addDecorator(styles({ ...baseStyles, ...centerStyles }))
   .add('sizes', () => (
     <Box>
       {sizes.map((size, key) => (

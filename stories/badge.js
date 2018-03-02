@@ -1,11 +1,9 @@
 import React from 'react';
-import styles from '@sambego/storybook-styles';
 import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean } from '@storybook/addon-knobs/react';
 import { Box, Badge, Heading2, Heading3, Heading4, TextBody, TextDisplay, TextSmall } from '../components';
-import { baseStyles, centerStyles } from '../.storybook/styles';
 import { IconBuildingSmallOutline } from '@teamleader/ui-icons';
 
 storiesOf('Badge', module)
@@ -13,7 +11,7 @@ storiesOf('Badge', module)
   .addDecorator(checkA11y)
   .addDecorator(withKnobs)
   .add('standalone', () => (
-    <div style={centerStyles}>
+    <div>
       <Badge
         disabled={boolean('Disabled', false)}
         inherit={boolean('Inherit', false)}
@@ -22,7 +20,7 @@ storiesOf('Badge', module)
     </div>
   ))
   .add('inline', () => (
-    <div style={centerStyles}>
+    <div>
       <Heading2 marginTop={4}>
         I'm a Heading 2 with a
         <Badge
@@ -80,7 +78,7 @@ storiesOf('Badge', module)
     </div>
   ))
   .add('clickable', () => (
-    <div style={centerStyles}>
+    <div>
       <Badge
         disabled={boolean('Disabled', false)}
         inherit={boolean('Inherit', false)}
@@ -89,7 +87,7 @@ storiesOf('Badge', module)
     </div>
   ))
   .add('with icon', () => (
-    <div style={centerStyles}>
+    <div>
       <Badge
         disabled={boolean('Disabled', false)}
         icon={<IconBuildingSmallOutline/>}
@@ -108,7 +106,7 @@ storiesOf('Badge', module)
     </div>
   ))
   .add('with custom element', () => (
-    <div  style={centerStyles}>
+    <div>
       <Badge
         disabled={boolean('Disabled', false)}
         element="a"

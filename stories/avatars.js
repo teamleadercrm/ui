@@ -3,9 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { Store, State } from '@sambego/storybook-state';
-import styles from '@sambego/storybook-styles';
 import { Avatar, AvatarStack, Box, Bullet, Counter, TextBody, Tooltip } from '../components';
-import { baseStyles, centerStyles } from '../.storybook/styles';
 
 import Image1 from '../static/avatars/1.png';
 import Image2 from '../static/avatars/2.png';
@@ -41,14 +39,14 @@ storiesOf('Avatars', module)
   .addDecorator((story, context) => withInfo('common info')(story)(context))
   .addDecorator(checkA11y)
   .add('sizes', () => (
-    <div style={centerStyles}>
+    <div>
       <Avatar image={avatars[0].image} size="tiny" marginHorizontal={4} />
       <Avatar image={avatars[0].image} size="small" marginHorizontal={4} />
       <Avatar image={avatars[0].image} size="medium" marginHorizontal={4} />
     </div>
   ))
   .add('with bullet', () => (
-    <div style={centerStyles}>
+    <div>
       <Avatar
         image={avatars[0].image}
         size="small"
@@ -65,7 +63,7 @@ storiesOf('Avatars', module)
     </div>
   ))
   .add('with counter', () => (
-    <div style={centerStyles}>
+    <div>
       <Avatar
         image={avatars[0].image}
         size="small"
@@ -82,7 +80,7 @@ storiesOf('Avatars', module)
     </div>
   ))
   .add('stacked horizontal', () => (
-    <div style={centerStyles}>
+    <div>
       <State store={store}>
         <AvatarStack
           direction="horizontal"
@@ -103,7 +101,7 @@ storiesOf('Avatars', module)
     </div>
   ))
   .add('stacked vertical', () => (
-    <div style={centerStyles}>
+    <div>
       <State store={store}>
         <AvatarStack
           direction="vertical"

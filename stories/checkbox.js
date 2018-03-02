@@ -5,7 +5,6 @@ import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean } from '@storybook/addon-knobs/react';
 import { Store, State } from '@sambego/storybook-state';
 import { Checkbox, Link, TextBody } from '../components';
-import { centerStyles } from '../.storybook/styles';
 
 const sizes = ['small', 'medium', 'large'];
 
@@ -22,7 +21,7 @@ storiesOf('Checkboxes', module)
   .addDecorator(checkA11y)
   .addDecorator(withKnobs)
   .add('sizes', () => (
-    <div style={centerStyles}>
+    <div>
       {sizes.map((size, key) => (
         <State store={store} key={key}>
           <Checkbox size={size} marginVertical={3} onChange={handleOnChange} disabled={boolean('Disabled', false)}/>
@@ -31,7 +30,7 @@ storiesOf('Checkboxes', module)
     </div>
   ))
   .add('with labels', () => (
-    <div style={centerStyles}>
+    <div>
       {sizes.map((size, key) => (
         <State store={store} key={key}>
           <Checkbox size={size} marginVertical={3} onChange={handleOnChange} disabled={boolean('Disabled', false)} label={`I'm a ${size} Checkbox`}/>
@@ -40,7 +39,7 @@ storiesOf('Checkboxes', module)
     </div>
   ))
   .add('with link in label', () => (
-    <div style={centerStyles}>
+    <div>
       <State store={store}>
         <Checkbox marginVertical={3} onChange={handleOnChange} disabled={boolean('Disabled', false)}>
           <TextBody>I'm a medium label with a <Link href="#" inherit={false}>link</Link> inside</TextBody>

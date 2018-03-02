@@ -1,7 +1,9 @@
+import { centerStyles } from './styles';
 import { configure, addDecorator } from '@storybook/react';
 import { setDefaults } from '@storybook/addon-info';
 import { setOptions } from '@storybook/addon-options';
 import backgroundColor from 'react-storybook-decorator-background';
+import styles from '@sambego/storybook-styles';
 import { State } from '@sambego/storybook-state';
 
 // addon-info
@@ -16,7 +18,6 @@ setDefaults({
       fontFamily: 'Inter-UI-Regular',
       fontSize: '14px',
       margin: '48px 0',
-      maxWidth: '90%',
       padding: '0',
     };
 
@@ -75,6 +76,7 @@ setOptions({
   url: 'https://teamleader.design'
 });
 
+addDecorator(styles({ ...centerStyles }));
 addDecorator(backgroundColor(['#ffffff', '#e6f2ff', '#ffeecc', '#d3f3f3', '#ffe3d9', '#e1edfa', '#f1f0ff', '#2a3b4d']));
 
 const req = require.context('../stories', true, /\.js$/);
