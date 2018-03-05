@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean, select } from '@storybook/addon-knobs/react';
-import { Box, Tag, TextBody, Tooltip } from '../components';
+import { Tag, TextBody, Tooltip } from '../components';
 
 const sizes = ['small', 'medium', 'large'];
 
