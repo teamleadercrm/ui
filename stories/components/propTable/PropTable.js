@@ -5,6 +5,10 @@ const Red = props => <span style={{ color: "red" }} {...props} />;
 const TooltippedBadge = Tooltip(Badge);
 
 const PropTypeValues = (propType) => {
+  if(typeof propType === 'string') {
+    return propType;
+  }
+
   if(!propType.value) {
     return propType.name;
   }
