@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTable from "./components/propTable";
 import { storiesOf } from '@storybook/react';
 import { Store, State } from '@sambego/storybook-state';
 import { checkA11y } from 'storybook-addon-a11y';
+import { withKnobs, boolean, select, number } from '@storybook/addon-knobs/react';
 import { withInfo } from '@storybook/addon-info';
 import { Island, Pagination, LinkButton } from '../components';
 
@@ -15,74 +17,50 @@ const handlePageChange = page => {
 };
 
 storiesOf('Pagination', module)
-  .addDecorator((story, context) => withInfo('common info')(story)(context))
+  .addDecorator((story, context) => withInfo({TableComponent: PropTable})(story)(context))
   .addDecorator(checkA11y)
-  .add('compact', () => (
-    <Island>
-      <State store={store}>
-        <Pagination numPages={store.get('numPages')} currentPage={store.get('currentPage')}>
-          {({ number, text, isActive, ...others }) => {
-            return (
-              <LinkButton
-                label={text}
-                disabled={isActive}
-                onClick={() => handlePageChange(number)}
-                size="small"
-                {...others}
-              />
-            );
-          }}
-        </Pagination>
-      </State>
+  .addDecorator(withKnobs)
+  .add('Compact', () => (
+    <Island style={boolean('Inverse', false) ? {backgroundColor: '#2a3b4d'} : {}}>
+      <Pagination
+        numPages={number('Number of pages', 21)}
+        currentPage={number('Current page', 1)}
+        inverse={boolean('Inverse', false)}
+      >
+        {({ number, text, isActive, ...others }) => {
+          return (
+            <LinkButton
+              label={text}
+              disabled={isActive}
+              inverse={boolean('Inverse', false)}
+              size="small"
+              {...others}
+            />
+          );
+        }}
+      </Pagination>
     </Island>
   ))
-  .add('normal', () => (
-    <Island>
-      <State store={store}>
-        <Pagination
-          numPages={store.get('numPages')}
-          currentPage={store.get('currentPage')}
-          prevPageText="previous"
-          nextPageText="next"
-        >
-          {({ number, text, isActive, ...others }) => {
-            return (
-              <LinkButton
-                label={text}
-                disabled={isActive}
-                onClick={() => handlePageChange(number)}
-                size="small"
-                {...others}
-              />
-            );
-          }}
-        </Pagination>
-      </State>
-    </Island>
-  ))
-  .add('inverse', () => (
-    <Island style={{backgroundColor: '#2a3b4d'}}>
-      <State store={store}>
-        <Pagination
-          numPages={store.get('numPages')}
-          currentPage={store.get('currentPage')}
-          prevPageText="previous"
-          nextPageText="next"
-          inverse
-        >
-          {({ number, text, isActive, ...others }) => {
-            return (
-              <LinkButton
-                label={text}
-                disabled={isActive}
-                onClick={() => handlePageChange(number)}
-                size="small"
-                inverse
-                {...others}
-              />
-            );
-          }}
-        </Pagination>
-      </State>
+  .add('Normal', () => (
+    <Island style={boolean('Inverse', false) ? {backgroundColor: '#2a3b4d'} : {}}>
+      <Pagination
+        numPages={number('Number of pages', 21)}
+        currentPage={number('Current page', 1)}
+        inverse={boolean('Inverse', false)}
+        prevPageText="previous"
+        nextPageText="next"
+      >
+        {({ number, text, isActive, ...others }) => {
+          return (
+            <LinkButton
+              label={text}
+              disabled={isActive}
+              inverse={boolean('Inverse', false)}
+              size="small"
+              {...others}
+            />
+          );
+        }}
+      </Pagination>
     </Island>
   ));

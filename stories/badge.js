@@ -1,118 +1,51 @@
 import React from 'react';
+import PropTable from "./components/propTable";
 import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, boolean } from '@storybook/addon-knobs/react';
-import { Box, Badge, Heading2, Heading3, Heading4, TextBody, TextDisplay, TextSmall } from '../components';
+import { withKnobs, boolean, select } from '@storybook/addon-knobs/react';
+import { Badge, TextDisplay } from '../components';
 import { IconBuildingSmallOutline } from '@teamleader/ui-icons';
 
+const iconPositions = ['left', 'right'];
+
 storiesOf('Badge', module)
-  .addDecorator((story, context) => withInfo('common info')(story)(context))
+  .addDecorator((story, context) => withInfo({TableComponent: PropTable})(story)(context))
   .addDecorator(checkA11y)
   .addDecorator(withKnobs)
-  .add('standalone', () => (
-    <div>
-      <Badge
-        disabled={boolean('Disabled', false)}
-        inherit={boolean('Inherit', false)}
-        inverse={boolean('Inverse', false)}
-      >I'm a badge</Badge>
-    </div>
-  ))
   .add('inline', () => (
-    <div>
-      <Heading2 marginTop={4}>
-        I'm a Heading 2 with a
-        <Badge
-          disabled={boolean('Disabled', false)}
-          inherit={boolean('Inherit', true)}
-          inverse={boolean('Inverse', false)}
-        >I'm a badge</Badge>
-        inside.
-      </Heading2>
-      <Heading3 marginTop={4}>
-        I'm a Heading 3 with a
-        <Badge
-          disabled={boolean('Disabled', false)}
-          inherit={boolean('Inherit', true)}
-          inverse={boolean('Inverse', false)}
-        >I'm a badge</Badge>
-        inside.
-      </Heading3>
-      <Heading4 marginTop={4}>
-        I'm a Heading 4 with a
-        <Badge
-          disabled={boolean('Disabled', false)}
-          inherit={boolean('Inherit', true)}
-          inverse={boolean('Inverse', false)}
-        >I'm a badge</Badge>
-        inside.
-      </Heading4>
-      <TextDisplay marginTop={4}>
-        I'm display text with a
-        <Badge
-          disabled={boolean('Disabled', false)}
-          inherit={boolean('Inherit', true)}
-          inverse={boolean('Inverse', false)}
-        >I'm a badge</Badge>
-        inside.
-      </TextDisplay>
-      <TextBody marginTop={4}>
-        I'm body text with a
-        <Badge
-          disabled={boolean('Disabled', false)}
-          inherit={boolean('Inherit', true)}
-          inverse={boolean('Inverse', false)}
-        >I'm a badge</Badge>
-        inside.
-      </TextBody>
-      <TextSmall marginTop={4}>
-        I'm small text with a
-        <Badge
-          disabled={boolean('Disabled', false)}
-          inherit={boolean('Inherit', true)}
-          inverse={boolean('Inverse', false)}
-        >I'm a badge</Badge>
-        inside.
-      </TextSmall>
-    </div>
-  ))
-  .add('clickable', () => (
-    <div>
+    <TextDisplay>
+      I'm display text with a
       <Badge
         disabled={boolean('Disabled', false)}
-        inherit={boolean('Inherit', false)}
+        inherit={boolean('Inherit', true)}
         inverse={boolean('Inverse', false)}
-      >I'm a badge</Badge>
-    </div>
+      >badge</Badge>
+      inside.
+    </TextDisplay>
+  ))
+  .add('standalone', () => (
+    <Badge
+      disabled={boolean('Disabled', false)}
+      inherit={boolean('Inherit', false)}
+      inverse={boolean('Inverse', false)}
+    >I'm a badge</Badge>
   ))
   .add('with icon', () => (
-    <div>
-      <Badge
-        disabled={boolean('Disabled', false)}
-        icon={<IconBuildingSmallOutline/>}
-        inherit={boolean('Inherit', false)}
-        inverse={boolean('Inverse', false)}
-        marginHorizontal={3}
-      >I'm a badge</Badge>
-      <Badge
-        disabled={boolean('Disabled', false)}
-        icon={<IconBuildingSmallOutline/>}
-        iconPlacement="right"
-        inherit={boolean('Inherit', false)}
-        inverse={boolean('Inverse', false)}
-        marginHorizontal={3}
-      >I'm a badge</Badge>
-    </div>
+    <Badge
+      disabled={boolean('Disabled', false)}
+      icon={<IconBuildingSmallOutline/>}
+      iconPlacement={select('Icon placement', iconPositions, 'left')}
+      inherit={boolean('Inherit', false)}
+      inverse={boolean('Inverse', false)}
+    >I'm a badge</Badge>
   ))
   .add('with custom element', () => (
-    <div>
-      <Badge
-        disabled={boolean('Disabled', false)}
-        element="a"
-        href="https://teamleader.eu"
-        inherit={boolean('Inherit', false)}
-        inverse={boolean('Inverse', false)}
-      >I'm a badge</Badge>
-    </div>
+    <Badge
+      disabled={boolean('Disabled', false)}
+      element="a"
+      href="https://teamleader.eu"
+      inherit={boolean('Inherit', false)}
+      inverse={boolean('Inverse', false)}
+    >I'm a badge</Badge>
   ));

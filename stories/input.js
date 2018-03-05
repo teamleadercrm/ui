@@ -1,10 +1,10 @@
 import React from 'react';
+import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean, select } from "@storybook/addon-knobs/react";
 import { Input, Label } from '../components';
-import PropTable from './components/propTable';
 import { IconCalendarMediumOutline, IconCalendarSmallOutline } from '@teamleader/ui-icons';
 
 const iconPlacement = ['left', 'right'];

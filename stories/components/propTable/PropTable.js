@@ -1,7 +1,29 @@
 import React from 'react';
-import { DataGrid } from '../../../components';
+import { Badge, DataGrid, TextSmall, Tooltip } from '../../../components';
 
 const Red = props => <span style={{ color: "red" }} {...props} />;
+const TooltippedBadge = Tooltip(Badge);
+
+const PropTypeValues = (propType) => {
+  if(!propType.value) {
+    return propType.name;
+  }
+
+  const values = propType.value.map((propTypeValue, index) => {
+    return <TextSmall key={index}>{propTypeValue.value || propTypeValue.name}</TextSmall>;
+  });
+
+  return (
+    <TooltippedBadge
+      tooltip={values}
+      tooltipColor="neutral"
+      tooltipPosition="right"
+      tooltipSize="small"
+    >
+      {propType.name}
+    </TooltippedBadge>
+  );
+};
 
 const PropTable = ({ propDefinitions }) => {
   const props = propDefinitions.map(
@@ -12,7 +34,7 @@ const PropTable = ({ propDefinitions }) => {
             {property}
             {required ? <Red>*</Red> : null}
           </DataGrid.Cell>
-          <DataGrid.Cell soft>{propType.name}</DataGrid.Cell>
+          <DataGrid.Cell soft>{PropTypeValues(propType)}</DataGrid.Cell>
           <DataGrid.Cell soft>{defaultValue}</DataGrid.Cell>
           <DataGrid.Cell flex="2" soft>{description}</DataGrid.Cell>
         </DataGrid.BodyRow>

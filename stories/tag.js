@@ -1,74 +1,56 @@
 import React from 'react';
+import PropTable from "./components/propTable";
 import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, boolean } from '@storybook/addon-knobs/react';
-import { Box, Tag, TextBody, Tooltip } from '../components';
+import { withKnobs, boolean, select } from '@storybook/addon-knobs/react';
+import { Tag, TextBody, Tooltip } from '../components';
 
 const sizes = ['small', 'medium', 'large'];
 
 const TooltippedTag = Tooltip(Tag);
 
 storiesOf('Tags', module)
-  .addDecorator((story, context) => withInfo('common info')(story)(context))
+  .addDecorator((story, context) => withInfo({TableComponent: PropTable})(story)(context))
   .addDecorator(checkA11y)
   .addDecorator(withKnobs)
-  .add('size', () => (
-    <Box>
-      {sizes.map((size, index) => (
-        <Tag key={index} marginHorizontal={3} size={size} inverse={boolean('Inverse', false)}>
-          {`${size} tag`}
-        </Tag>
-      ))}
-    </Box>
+  .add('Basic', () => (
+    <Tag
+      size={select('Size', sizes, 'medium')}
+      inverse={boolean('Inverse', false)}
+    >
+      I am a tag
+    </Tag>
   ))
-  .add('clickable', () => (
-    <Box>
-      {sizes.map((size, index) => (
-        <Tag
-          inverse={boolean('Inverse', false)}
-          key={index}
-          marginHorizontal={3}
-          onLabelClick={() => console.log('Tag label clicked')}
-          size={size}
-        >
-          {`${size} tag`}
-        </Tag>
-      ))}
-    </Box>
+  .add('Clickable', () => (
+    <Tag
+      inverse={boolean('Inverse', false)}
+      onLabelClick={() => console.log('Tag label clicked')}
+      size={select('Size', sizes, 'medium')}
+    >
+      I am a clickable tag
+    </Tag>
   ))
-  .add('closable', () => (
-    <Box>
-      {sizes.map((size, index) => (
-        <Tag
-          inverse={boolean('Inverse', false)}
-          key={index}
-          marginHorizontal={3}
-          onRemoveClick={() => console.log('Tag removed')}
-          size={size}
-        >
-          {`${size} tag`}
-        </Tag>
-      ))}
-    </Box>
+  .add('Closable', () => (
+    <Tag
+      inverse={boolean('Inverse', false)}
+      onRemoveClick={() => console.log('Tag removed')}
+      size={select('Size', sizes, 'medium')}
+    >
+      I am a closable tag
+    </Tag>
   ))
-  .add('clickable & closable', () => (
-    <Box>
-      {sizes.map((size, index) => (
-        <Tag
-          inverse={boolean('Inverse', false)}
-          key={index}
-          marginHorizontal={3}
-          onLabelClick={() => console.log('Tag label clicked')}
-          onRemoveClick={() => console.log('Tag removed')}
-          size={size}
-        >
-          {`${size} tag`}
-        </Tag>
-      ))}
-    </Box>
+  .add('Clickable & closable', () => (
+    <Tag
+      inverse={boolean('Inverse', false)}
+      onLabelClick={() => console.log('Tag label clicked')}
+      onRemoveClick={() => console.log('Tag removed')}
+      size={select('Size', sizes, 'medium')}
+    >
+      I am a clickable & closable tag
+    </Tag>
   ))
-  .add('with tooltip', () => (
+  .add('With tooltip', () => (
     <TooltippedTag inverse={boolean('Inverse', false)} tooltip={<TextBody>I am the tooltip</TextBody>}>
       Tag with tooltip
     </TooltippedTag>

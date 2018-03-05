@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTable from "./components/propTable";
 import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
-import { Store, State } from '@sambego/storybook-state';
-import { Avatar, AvatarStack, Box, Bullet, Counter, TextBody, Tooltip } from '../components';
+import { withKnobs, boolean, number, select } from '@storybook/addon-knobs/react';
+import { Avatar, AvatarStack, Bullet, Counter, TextBody, Tooltip } from '../components';
 
 import Image1 from '../static/avatars/1.png';
 import Image2 from '../static/avatars/2.png';
@@ -25,109 +26,57 @@ const avatars = [
   { image: Image8, count: 2, color: 'neutral', inactive: true },
 ];
 
-const store = new Store({
-  displayMax: 5,
-});
+const directions = ['horizontal', 'vertical'];
+const sizes = ['tiny', 'small', 'medium'];
 
 const TooltippedAvatar = Tooltip(Avatar);
 
-const handleOnOverflowClick = () => {
-  store.set({ displayMax: 0 });
-};
-
 storiesOf('Avatars', module)
-  .addDecorator((story, context) => withInfo('common info')(story)(context))
+  .addDecorator((story, context) => withInfo({TableComponent: PropTable})(story)(context))
   .addDecorator(checkA11y)
+  .addDecorator(withKnobs)
   .add('sizes', () => (
-    <div>
-      <Avatar image={avatars[0].image} size="tiny" marginHorizontal={4} />
-      <Avatar image={avatars[0].image} size="small" marginHorizontal={4} />
-      <Avatar image={avatars[0].image} size="medium" marginHorizontal={4} />
-    </div>
+    <Avatar
+      image={avatars[0].image}
+      size={select('Size', sizes, 'medium')}
+    />
+  ))
+  .add('stacked', () => (
+    <AvatarStack
+      direction={select('Direction', directions, 'horizontal')}
+      displayMax={number('Display max', 5)}
+      inverse={boolean('Inverse', false)}
+      size={select('Size', sizes, 'medium')}
+    >
+      {avatars.map(({ image }, index) => (
+        <Avatar
+          key={index}
+          image={image}
+          size={select('Size', sizes, 'medium')}
+        />
+      ))}
+    </AvatarStack>
   ))
   .add('with bullet', () => (
-    <div>
-      <Avatar
-        image={avatars[0].image}
-        size="small"
-        marginHorizontal={4}
-      >
-        <Bullet color="ruby" size="small" />
-      </Avatar>
-      <Avatar
-        image={avatars[0].image}
-        marginHorizontal={4}
-      >
-        <Bullet color="ruby" />
-      </Avatar>
-    </div>
+    <Avatar
+      image={avatars[0].image}
+      size={select('Size', sizes, 'medium')}
+    >
+      <Bullet color="ruby" />
+    </Avatar>
   ))
   .add('with counter', () => (
-    <div>
-      <Avatar
-        image={avatars[0].image}
-        size="small"
-        marginHorizontal={4}
-      >
-        <Counter color="ruby" count={avatars[0].count} size="small" />
-      </Avatar>
-      <Avatar
-        image={avatars[0].image}
-        marginHorizontal={4}
-      >
-        <Counter color="ruby" count={avatars[0].count} maxCount={avatars[0].maxCount}/>
-      </Avatar>
-    </div>
-  ))
-  .add('stacked horizontal', () => (
-    <div>
-      <State store={store}>
-        <AvatarStack
-          direction="horizontal"
-          displayMax={5}
-          inverse={false}
-          onOverflowClick={handleOnOverflowClick}
-          size="medium"
-        >
-          {avatars.map(({ image, count, color, inactive, maxCount }, index) => (
-            <Avatar
-              key={index}
-              image={image}
-              size="medium"
-            />
-          ))}
-        </AvatarStack>
-      </State>
-    </div>
-  ))
-  .add('stacked vertical', () => (
-    <div>
-      <State store={store}>
-        <AvatarStack
-          direction="vertical"
-          displayMax={3}
-          inverse={false}
-          onOverflowClick={handleOnOverflowClick}
-          size="medium"
-          marginTop={8}
-        >
-          {avatars.map(({ image, color, inactive }, index) => (
-            <Avatar
-              key={index}
-              image={image}
-              size="medium"
-            />
-          ))}
-        </AvatarStack>
-      </State>
-    </div>
+    <Avatar
+      image={avatars[0].image}
+      size={select('Size', sizes, 'medium')}
+    >
+      <Counter color="ruby" count={avatars[0].count} maxCount={avatars[0].maxCount}/>
+    </Avatar>
   ))
   .add('with tooltip', () => (
-    <div>
-      <TooltippedAvatar
-        image={avatars[0].image}
-        size="tiny"
-        tooltip={<TextBody>I am the tooltip</TextBody>}
-      />
-    </div>
+    <TooltippedAvatar
+      image={avatars[0].image}
+      size={select('Size', sizes, 'medium')}
+      tooltip={<TextBody>I am the tooltip</TextBody>}
+    />
   ));
