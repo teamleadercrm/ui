@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTable from "./components/propTable";
 import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
@@ -11,8 +12,7 @@ import {
 const colors = ['white', 'neutral', 'mint', 'teal', 'violet', 'ruby', 'gold', 'aqua'];
 
 storiesOf('Links', module)
-  .addDecorator((story, context) => withInfo('common info')(story)(context))
-  .addDecorator(checkA11y)
+  .addDecorator((story, context) => withInfo({TableComponent: PropTable})(story)(context))
   .addDecorator(withKnobs)
   .add('Basic', () => (
     <TextDisplay color={select('Color', colors, 'teal')}>

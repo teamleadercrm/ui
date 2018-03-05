@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTable from "./components/propTable";
 import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
@@ -9,7 +10,7 @@ import { IconIdeaMediumOutline } from '@teamleader/ui-icons';
 const colors = ['white', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua'];
 
 storiesOf('Banner', module)
-  .addDecorator((story, context) => withInfo('A banner is used to inform a user with a specific message.')(story)(context))
+  .addDecorator((story, context) => withInfo({TableComponent: PropTable})(story)(context))
   .addDecorator(checkA11y)
   .addDecorator(withKnobs)
   .add('Default', () => (
