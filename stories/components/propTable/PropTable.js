@@ -4,7 +4,11 @@ import { Badge, DataGrid, TextSmall, Tooltip } from '../../../components';
 const Red = props => <span style={{ color: "red" }} {...props} />;
 const TooltippedBadge = Tooltip(Badge);
 
-const PropTypeValues = (propType) => {
+const renderPropTypeValues = (propType) => {
+  if(typeof propType === 'string') {
+    return propType;
+  }
+
   if(!propType.value) {
     return propType.name;
   }
@@ -34,7 +38,7 @@ const PropTable = ({ propDefinitions }) => {
             {property}
             {required ? <Red>*</Red> : null}
           </DataGrid.Cell>
-          <DataGrid.Cell soft>{PropTypeValues(propType)}</DataGrid.Cell>
+          <DataGrid.Cell soft>{renderPropTypeValues(propType)}</DataGrid.Cell>
           <DataGrid.Cell soft>{defaultValue}</DataGrid.Cell>
           <DataGrid.Cell flex="2" soft>{description}</DataGrid.Cell>
         </DataGrid.BodyRow>
