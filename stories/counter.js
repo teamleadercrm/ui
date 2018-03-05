@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, number, select, text } from '@storybook/addon-knobs/react';
+import { withKnobs, number, select } from '@storybook/addon-knobs/react';
 import { Counter, Tooltip, TextBody } from '../components';
 
 const colors = ['neutral', 'mint', 'aqua', 'violet', 'teal', 'gold', 'ruby'];
