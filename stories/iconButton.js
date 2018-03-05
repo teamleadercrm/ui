@@ -2,47 +2,23 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, boolean } from '@storybook/addon-knobs/react';
+import { withKnobs, boolean, select } from '@storybook/addon-knobs/react';
 import { IconAddMediumOutline, IconAddSmallOutline } from '@teamleader/ui-icons';
-import { ButtonGroup, IconButton, Island, Box } from '../components';
+import { IconButton } from '../components';
+
+
+const colors = ['white', 'neutral', 'mint', 'aqua', 'violet', 'teal', 'gold', 'ruby'];
+const sizes = ['small', 'medium', 'large'];
 
 storiesOf('IconButtons', module)
   .addDecorator((story, context) => withInfo('')(story)(context))
   .addDecorator(checkA11y)
   .addDecorator(withKnobs)
-  .add('size', () => (
-    <Box>
-      <ButtonGroup>
-        <IconButton icon={<IconAddSmallOutline />} size="small" disabled={boolean('Disabled', false)}/>
-        <IconButton icon={<IconAddMediumOutline />} size="medium" disabled={boolean('Disabled', false)}/>
-      </ButtonGroup>
-    </Box>
-  ))
-  .add('colors', () => (
-    <Box>
-      <Island color="white" marginBottom={2}>
-        <IconButton icon={<IconAddMediumOutline />} disabled={boolean('Disabled', false)}/>
-      </Island>
-      <Island color="neutral" marginBottom={2}>
-        <IconButton icon={<IconAddMediumOutline />} disabled={boolean('Disabled', false)}/>
-      </Island>
-      <Island color="mint" marginBottom={2}>
-        <IconButton color="mint" icon={<IconAddMediumOutline />} disabled={boolean('Disabled', false)}/>
-      </Island>
-      <Island color="violet" marginBottom={2}>
-        <IconButton color="violet" icon={<IconAddMediumOutline />} disabled={boolean('Disabled', false)}/>
-      </Island>
-      <Island color="ruby" marginBottom={2}>
-        <IconButton color="ruby" icon={<IconAddMediumOutline />} disabled={boolean('Disabled', false)}/>
-      </Island>
-      <Island color="gold" marginBottom={2}>
-        <IconButton color="gold" icon={<IconAddMediumOutline />} disabled={boolean('Disabled', false)}/>
-      </Island>
-      <Island color="aqua" marginBottom={2}>
-        <IconButton color="aqua" icon={<IconAddMediumOutline />} disabled={boolean('Disabled', false)}/>
-      </Island>
-      <Island color="neutral" marginBottom={2} style={{backgroundColor: '#2a3b4d'}}> {/* There is no teal island, so just changing the background with inline style */}
-        <IconButton color="white" icon={<IconAddMediumOutline />} disabled={boolean('Disabled', false)}/>
-      </Island>
-    </Box>
+  .add('Basic', () => (
+      <IconButton
+        icon={select('Size', sizes, 'medium') === 'small' ? <IconAddSmallOutline /> : <IconAddMediumOutline/>}
+        color={select('Color', colors, 'neutral')}
+        size={select('Size', sizes, 'medium')}
+        disabled={boolean('Disabled', false)}
+      />
   ));
