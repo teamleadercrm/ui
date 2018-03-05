@@ -20,7 +20,7 @@ storiesOf('Menus', module)
     </Menu>
   ))
   .add('IconMenu', () => (
-    <IconMenu position="top-right">
+    <IconMenu position="top-left">
       <MenuItem value="foo" caption="Caption" />
       <MenuItem value="bar" caption="Caption & Shortcut" shortcut="Ctrl + P" />
       <MenuItem caption="Disabled ..." disabled shortcut="Ctrl + P" />
