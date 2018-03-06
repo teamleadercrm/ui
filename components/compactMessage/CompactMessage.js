@@ -20,8 +20,10 @@ class CompactMessage extends PureComponent {
     return (
       <Box data-teamleader-ui="compact-message" className={classNames} {...others}>
         {image && <div className={theme['image']}>{image}</div>}
-        <div className={theme['content']}>{children}</div>
-        {button && <div className={theme['button']}>{button}</div>}
+        <Box display="flex" flexDirection="column">
+          <div className={theme['content']}>{children}</div>
+          {button && <div className={theme['button']}>{button}</div>}
+        </Box>
       </Box>
     );
   }

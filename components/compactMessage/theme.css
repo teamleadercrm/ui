@@ -15,4 +15,5 @@
 
 .button {
   margin-left: var(--spacer-big);
+  align-self: flex-end;
 }
