@@ -111,9 +111,12 @@ export default class Input extends Component {
 
   updateStep(n) {
     const { step } = this.props;
-    const number = this.toNumber((this.state.value || 0) + step * n);
 
-    this.setState({ value: number });
+    this.setState(prevState => {
+      const number = this.toNumber((prevState.value || 0) + step * n);
+
+      return { value: number };
+    });
   }
 
   toNumber(number) {
