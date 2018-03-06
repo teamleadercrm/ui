@@ -142,13 +142,13 @@ storiesOf('Inputs', module)
   .add('with label tooltip', () => (
     <Label
       connectedRight={<TooltippedIcon
-        color={select('Icon color', colors, 'teal')}
-        tint={select('Icon tint', tints, 'dark')}
-        tooltip={<TextSmall>This is the label tooltip text</TextSmall>}
-        tooltipSize="small"
-        >
-          <IconInfoBadgedSmallFilled />
-        </TooltippedIcon>}
+      color={select('Icon color', colors, 'teal')}
+      tint={select('Icon tint', tints, 'dark')}
+      tooltip={<TextSmall>This is the label tooltip text</TextSmall>}
+      tooltipSize="small"
+      >
+        <IconInfoBadgedSmallFilled />
+      </TooltippedIcon>}
       for="input1"
       inverse={boolean('Inverse', false)}
       size={select('Size', sizes, 'medium')}
