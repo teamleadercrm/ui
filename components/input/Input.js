@@ -126,10 +126,10 @@ export default class Input extends Component {
       float = 0;
     }
 
-    const q = Math.pow(10, precision === null ? 10 : precision);
+    const baseExponent = Math.pow(10, precision === null ? 10 : precision);
 
     float = Math.min(Math.max(float, min), max);
-    float = Math.round(float * q) / q;
+    float = Math.round(float * baseExponent) / baseExponent;
 
     return float;
   }
