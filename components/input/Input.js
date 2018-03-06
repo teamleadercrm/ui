@@ -83,11 +83,11 @@ export default class Input extends Component {
   }
 
   handleIncreaseValue() {
-    this.step(1);
+    this.updateStep(1);
   }
 
   handleDecreaseValue() {
-    this.step(-1);
+    this.updateStep(-1);
   }
 
   hasError() {
@@ -109,17 +109,11 @@ export default class Input extends Component {
     return formattedNumber;
   }
 
-  step(n) {
+  updateStep(n) {
     const { step } = this.props;
-
     const number = this.toNumber((this.state.value || 0) + step * n);
 
-    if (number !== this.state.value) {
-      this.setState({ value: number });
-      return true;
-    }
-
-    return false;
+    this.setState({ value: number });
   }
 
   toNumber(number) {
@@ -270,7 +264,7 @@ export default class Input extends Component {
       'onFocus',
       'placeholder',
       'precision',
-      'step',
+      'updateStep',
       'value',
     ]);
 
