@@ -6,20 +6,35 @@ import theme from './theme.css';
 
 class Button extends PureComponent {
   static propTypes = {
+    /** The content to display inside the button. */
     children: PropTypes.node,
+    /** A class name for the button to give custom styles. */
     className: PropTypes.string,
+    /** Determines which kind of button to be rendered. */
     level: PropTypes.oneOf(['outline', 'primary', 'secondary', 'destructive']),
+    /** If true, component will be disabled. */
     disabled: PropTypes.bool,
+    /** If true, component will take the full width available. */
     fullWidth: PropTypes.bool,
+    /** If set, button will be rendered as an anchor element. */
     href: PropTypes.string,
+    /** The icon displayed inside the button. */
     icon: PropTypes.element,
+    /** The position of the icon inside the button. */
     iconPlacement: PropTypes.oneOf(['left', 'right']),
+    /** If true, component will be rendered in inverse mode. */
     inverse: PropTypes.bool,
+    /** The textual label displayed inside the button. */
     label: PropTypes.string,
+    /** Callback function that is fired when mouse leaves the component. */
     onMouseLeave: PropTypes.func,
+    /** Callback function that is fired when the mouse button is released. */
     onMouseUp: PropTypes.func,
+    /** If true, component will show a loading spinner instead of label or children. */
     processing: PropTypes.bool,
+    /** Size of the button. */
     size: PropTypes.oneOf(['small', 'medium', 'large']),
+    /** Type of the button element. */
     type: PropTypes.string,
   };
 
