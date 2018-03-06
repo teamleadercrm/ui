@@ -104,9 +104,7 @@ export default class Input extends Component {
       formattedNumber = number.toFixed(precision);
     }
 
-    formattedNumber += '';
-
-    return formattedNumber;
+    return String(formattedNumber);
   }
 
   updateStep(n) {
