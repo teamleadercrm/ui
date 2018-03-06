@@ -3,9 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, number, select } from "@storybook/addon-knobs/react";
-import styles from '@sambego/storybook-styles';
 import { Box, Heading2, Icon, Section, TextSmall } from '../components';
-import { baseStyles } from '../.storybook/styles';
 import * as Icons from '@teamleader/ui-icons';
 
 const colors = ['aqua', 'gold', 'mint', 'neutral', 'ruby', 'teal', 'violet'];
@@ -25,9 +23,8 @@ const itemStyles = {
 storiesOf('Icons', module)
   .addDecorator(checkA11y)
   .addDecorator(withKnobs)
-  .addDecorator(styles({ ...baseStyles }))
   .add('all sizes', () => (
-    <Box padding={5} style={{ width: '100vw' }}>
+    <Box>
       <Section><Heading2>Small (14x14)</Heading2></Section>
       <Box style={gridStyles}>
         {

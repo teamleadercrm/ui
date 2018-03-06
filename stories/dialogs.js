@@ -1,13 +1,14 @@
 import React from 'react';
+import PropTable from "./components/propTable";
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 import { Store, State } from '@sambego/storybook-state';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
-import styles from '@sambego/storybook-styles';
+import { withKnobs, select } from '@storybook/addon-knobs/react';
 import { Banner, Box, Button, ButtonGroup, Dialog, Heading3, TextBody } from '../components/';
-import { baseStyles, centerStyles } from '../.storybook/styles';
 import { IconWarningBadgedMediumOutline, IconCheckmarkMediumOutline } from '@teamleader/ui-icons';
+
+const sizes = ['small', 'medium', 'large', 'fullscreen'];
 
 const store = new Store({
   active: false,
@@ -15,19 +16,17 @@ const store = new Store({
 
 const handleButtonClick = () => {
   store.set({ active: true });
-  return action('onClick - active: true');
 };
 
 const handleCloseClick = () => {
   store.set({ active: false });
-  return action('onClick - active: false');
 };
 
 storiesOf('Dialogs', module)
-  .addDecorator((story, context) => withInfo('common info')(story)(context))
+  .addDecorator((story, context) => withInfo({TableComponent: PropTable})(story)(context))
   .addDecorator(checkA11y)
-  .addDecorator(styles({ ...baseStyles, ...centerStyles }))
-  .add('small', () => (
+  .addDecorator(withKnobs)
+  .add('Basic', () => (
     <Box>
       <Button onClick={handleButtonClick} label="Open a dialog" />
       <State store={store}>
@@ -35,79 +34,7 @@ storiesOf('Dialogs', module)
           active={false}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
-          size="small"
-        >
-          <Banner color="neutral" fullWidth onClose={handleCloseClick}>
-            <Heading3>Dialog title</Heading3>
-          </Banner>
-          <Box padding={4}>
-            <TextBody>Here you can add arbitrary content.</TextBody>
-          </Box>
-          <ButtonGroup justifyContent="flex-end" padding={4}>
-            <Button label="Cancel"/>
-            <Button label="Confirm" level="primary"/>
-          </ButtonGroup>
-        </Dialog>
-      </State>
-    </Box>
-  ))
-  .add('medium', () => (
-    <Box>
-      <Button onClick={handleButtonClick} label="Open a dialog" />
-      <State store={store}>
-        <Dialog
-          active={false}
-          onEscKeyDown={handleCloseClick}
-          onOverlayClick={handleCloseClick}
-          size="medium"
-        >
-          <Banner color="neutral" fullWidth onClose={handleCloseClick}>
-            <Heading3>Dialog title</Heading3>
-          </Banner>
-          <Box padding={4}>
-            <TextBody>Here you can add arbitrary content.</TextBody>
-          </Box>
-          <ButtonGroup justifyContent="flex-end" padding={4}>
-            <Button label="Cancel"/>
-            <Button label="Confirm" level="primary"/>
-          </ButtonGroup>
-        </Dialog>
-      </State>
-    </Box>
-  ))
-  .add('large', () => (
-    <Box>
-      <Button onClick={handleButtonClick} label="Open a dialog" />
-      <State store={store}>
-        <Dialog
-          active={false}
-          onEscKeyDown={handleCloseClick}
-          onOverlayClick={handleCloseClick}
-          size="large"
-        >
-          <Banner color="neutral" fullWidth onClose={handleCloseClick}>
-            <Heading3>Dialog title</Heading3>
-          </Banner>
-          <Box padding={4}>
-            <TextBody>Here you can add arbitrary content.</TextBody>
-          </Box>
-          <ButtonGroup justifyContent="flex-end" padding={4}>
-            <Button label="Cancel"/>
-            <Button label="Confirm" level="primary"/>
-          </ButtonGroup>
-        </Dialog>
-      </State>
-    </Box>
-  ))
-  .add('fullscreen', () => (
-    <Box>
-      <Button onClick={handleButtonClick} label="Open a dialog" />
-      <State store={store}>
-        <Dialog
-          active={false}
-          onEscKeyDown={handleCloseClick}
-          onOverlayClick={handleCloseClick}
-          size="fullscreen"
+          size={select('Size', sizes, 'medium')}
         >
           <Banner color="neutral" fullWidth onClose={handleCloseClick}>
             <Heading3>Dialog title</Heading3>

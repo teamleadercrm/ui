@@ -14,6 +14,7 @@
   &:before {
     border-radius: 50%;
     border: 2px solid;
+    box-sizing: content-box;
     content: '';
     margin: 0 var(--spacer-smaller);
   }

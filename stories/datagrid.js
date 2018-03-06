@@ -1,5 +1,5 @@
 import React from 'react';
-import { action } from '@storybook/addon-actions';
+import PropTable from "./components/propTable";
 import { Store, State } from '@sambego/storybook-state';
 import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
@@ -20,11 +20,11 @@ const handleButtonClick = () => {
     comparableId: store.get('comparableId') + 1,
     rows: store.get('rows') === rows1 ? rows2 : rows1,
   });
-  action('onClick - refresh data - set comparableId to other value')();
+  console.log('onClick - refresh data - set comparableId to other value');
 };
 
 const handleRowSelectionChange = (selectedRows) => {
-  action(`onSelectionChange - selected row indexes: ${selectedRows}`)();
+  console.log(`onSelectionChange - selected row indexes: ${selectedRows}`);
 };
 
 const BasicDataGrid = ({rows, comparableId}) => {
@@ -35,10 +35,10 @@ const BasicDataGrid = ({rows, comparableId}) => {
   >
     <DataGrid.HeaderRow>
       <DataGrid.HeaderCell flex="min-width" />
-      <DataGrid.HeaderCell onClick={action('onClick: column sort')} sorted="asc">Invoice</DataGrid.HeaderCell>
-      <DataGrid.HeaderCell onClick={action('onClick: column sort')} align="right">Amount</DataGrid.HeaderCell>
-      <DataGrid.HeaderCell flex="2" onClick={action('onClick: column sort')}>Customer</DataGrid.HeaderCell>
-      <DataGrid.HeaderCell onClick={action('onClick: column sort')}>Due date</DataGrid.HeaderCell>
+      <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} sorted="asc">Invoice</DataGrid.HeaderCell>
+      <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} align="right">Amount</DataGrid.HeaderCell>
+      <DataGrid.HeaderCell flex="2" onClick={() => console.log('onClick: column sort')}>Customer</DataGrid.HeaderCell>
+      <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')}>Due date</DataGrid.HeaderCell>
       <DataGrid.HeaderCell flex="min-width"/>
     </DataGrid.HeaderRow>
     {
@@ -51,7 +51,7 @@ const BasicDataGrid = ({rows, comparableId}) => {
                 tooltip={<TextSmall>Overdue</TextSmall>}
                 tooltipColor={row.column1}
                 tooltipSize="small"
-                size="large"
+                size="medium"
               />
             </DataGrid.Cell>
             <DataGrid.Cell><Link href="#" inherit={false}>{row.column5}</Link> </DataGrid.Cell>
@@ -60,7 +60,7 @@ const BasicDataGrid = ({rows, comparableId}) => {
             <DataGrid.Cell soft>{row.column4}</DataGrid.Cell>
             <DataGrid.Cell align="right" flex="min-width" preventOverflow={false}>
               <IconMenu position="top-right">
-                <MenuItem onClick={action('onClick: delete row')}>Remove row</MenuItem>
+                <MenuItem onClick={() => console.log('onClick: delete row')}>Remove row</MenuItem>
               </IconMenu>
             </DataGrid.Cell>
           </DataGrid.BodyRow>
@@ -78,10 +78,10 @@ const DataGridWithFooter = ({rows, comparableId}) => {
   >
     <DataGrid.HeaderRow>
       <DataGrid.HeaderCell flex="min-width" />
-      <DataGrid.HeaderCell onClick={action('onClick: column sort')} sorted="asc">Invoice</DataGrid.HeaderCell>
-      <DataGrid.HeaderCell onClick={action('onClick: column sort')} align="right">Amount</DataGrid.HeaderCell>
-      <DataGrid.HeaderCell flex="2" onClick={action('onClick: column sort')}>Customer</DataGrid.HeaderCell>
-      <DataGrid.HeaderCell onClick={action('onClick: column sort')}>Due date</DataGrid.HeaderCell>
+      <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} sorted="asc">Invoice</DataGrid.HeaderCell>
+      <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} align="right">Amount</DataGrid.HeaderCell>
+      <DataGrid.HeaderCell flex="2" onClick={() => console.log('onClick: column sort')}>Customer</DataGrid.HeaderCell>
+      <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')}>Due date</DataGrid.HeaderCell>
       <DataGrid.HeaderCell flex="min-width"/>
     </DataGrid.HeaderRow>
     {
@@ -94,7 +94,7 @@ const DataGridWithFooter = ({rows, comparableId}) => {
                 tooltip={<TextSmall>Overdue</TextSmall>}
                 tooltipColor={row.column1}
                 tooltipSize="small"
-                size="large"
+                size="medium"
               />
             </DataGrid.Cell>
             <DataGrid.Cell><Link href="#" inherit={false}>{row.column5}</Link> </DataGrid.Cell>
@@ -103,7 +103,7 @@ const DataGridWithFooter = ({rows, comparableId}) => {
             <DataGrid.Cell soft>{row.column4}</DataGrid.Cell>
             <DataGrid.Cell align="right" flex="min-width" preventOverflow={false}>
               <IconMenu position="top-right">
-                <MenuItem onClick={action('onClick: delete row')}>Remove row</MenuItem>
+                <MenuItem onClick={() => console.log('onClick: delete row')}>Remove row</MenuItem>
               </IconMenu>
             </DataGrid.Cell>
           </DataGrid.BodyRow>
@@ -126,10 +126,10 @@ const DataGridWithStickyColumns = ({rows, comparableId}) => {
   >
     <DataGrid.HeaderRow>
       <DataGrid.HeaderCell flex="min-width" />
-      <DataGrid.HeaderCell onClick={action('onClick: column sort')} sorted="asc">Invoice</DataGrid.HeaderCell>
-      <DataGrid.HeaderCell onClick={action('onClick: column sort')} align="right">Amount</DataGrid.HeaderCell>
-      <DataGrid.HeaderCell flex="2" onClick={action('onClick: column sort')}>Customer</DataGrid.HeaderCell>
-      <DataGrid.HeaderCell onClick={action('onClick: column sort')}>Due date</DataGrid.HeaderCell>
+      <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} sorted="asc">Invoice</DataGrid.HeaderCell>
+      <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} align="right">Amount</DataGrid.HeaderCell>
+      <DataGrid.HeaderCell flex="2" onClick={() => console.log('onClick: column sort')}>Customer</DataGrid.HeaderCell>
+      <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')}>Due date</DataGrid.HeaderCell>
       <DataGrid.HeaderCell flex="min-width"/>
     </DataGrid.HeaderRow>
     {
@@ -142,7 +142,7 @@ const DataGridWithStickyColumns = ({rows, comparableId}) => {
                 tooltip={<TextSmall>Overdue</TextSmall>}
                 tooltipColor={row.column1}
                 tooltipSize="small"
-                size="large"
+                size="medium"
               />
             </DataGrid.Cell>
             <DataGrid.Cell><Link href="#" inherit={false}>{row.column5}</Link> </DataGrid.Cell>
@@ -151,7 +151,7 @@ const DataGridWithStickyColumns = ({rows, comparableId}) => {
             <DataGrid.Cell soft>{row.column4}</DataGrid.Cell>
             <DataGrid.Cell align="right" flex="min-width" preventOverflow={false}>
               <IconMenu position="top-right">
-                <MenuItem onClick={action('onClick: delete row')}>Remove row</MenuItem>
+                <MenuItem onClick={() => console.log('onClick: delete row')}>Remove row</MenuItem>
               </IconMenu>
             </DataGrid.Cell>
           </DataGrid.BodyRow>
@@ -171,10 +171,10 @@ const DataGridAdvanced = ({rows, comparableId}) => {
   >
     <DataGrid.HeaderRow>
       <DataGrid.HeaderCell flex="min-width" />
-      <DataGrid.HeaderCell onClick={action('onClick: column sort')} sorted="asc">Invoice</DataGrid.HeaderCell>
-      <DataGrid.HeaderCell onClick={action('onClick: column sort')} align="right">Amount</DataGrid.HeaderCell>
-      <DataGrid.HeaderCell flex="2" onClick={action('onClick: column sort')}>Customer</DataGrid.HeaderCell>
-      <DataGrid.HeaderCell onClick={action('onClick: column sort')}>Due date</DataGrid.HeaderCell>
+      <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} sorted="asc">Invoice</DataGrid.HeaderCell>
+      <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} align="right">Amount</DataGrid.HeaderCell>
+      <DataGrid.HeaderCell flex="2" onClick={() => console.log('onClick: column sort')}>Customer</DataGrid.HeaderCell>
+      <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')}>Due date</DataGrid.HeaderCell>
       <DataGrid.HeaderCell flex="min-width"/>
     </DataGrid.HeaderRow>
     {
@@ -187,7 +187,7 @@ const DataGridAdvanced = ({rows, comparableId}) => {
                 tooltip={<TextSmall>Overdue</TextSmall>}
                 tooltipColor={row.column1}
                 tooltipSize="small"
-                size="large"
+                size="medium"
               />
             </DataGrid.Cell>
             <DataGrid.Cell><Link href="#" inherit={false}>{row.column5}</Link> </DataGrid.Cell>
@@ -196,7 +196,7 @@ const DataGridAdvanced = ({rows, comparableId}) => {
             <DataGrid.Cell soft>{row.column4}</DataGrid.Cell>
             <DataGrid.Cell align="right" flex="min-width" preventOverflow={false}>
               <IconMenu position="top-right">
-                <MenuItem onClick={action('onClick: delete row')}>Remove row</MenuItem>
+                <MenuItem onClick={() => console.log('onClick: delete row')}>Remove row</MenuItem>
               </IconMenu>
             </DataGrid.Cell>
           </DataGrid.BodyRow>
@@ -245,7 +245,7 @@ const DataGridAdvanced = ({rows, comparableId}) => {
 };
 
 storiesOf('DataGrids', module)
-  .addDecorator((story, context) => withInfo('common info')(story)(context))
+  .addDecorator((story, context) => withInfo({TableComponent: PropTable})(story)(context))
   .addDecorator(checkA11y)
   .addDecorator(withKnobs)
   .add('Basic', () => (

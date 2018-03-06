@@ -1,13 +1,11 @@
 import React from 'react';
+import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean, number, select } from "@storybook/addon-knobs/react";
-import styles from '@sambego/storybook-styles';
-import { baseStyles, centerStyles } from '../.storybook/styles';
-import { Button, Icon, Input, Label, TextSmall, Tooltip } from '../components';
+import { Button, Checkbox, Icon, Input, Label, TextSmall, Tooltip } from '../components';
 import { IconCalendarMediumOutline, IconCalendarSmallOutline, IconInfoBadgedSmallFilled } from '@teamleader/ui-icons';
-import Checkbox from "../components/checkbox/Checkbox";
 
 const iconPlacement = ['left', 'right'];
 const colors = ['aqua', 'gold', 'mint', 'neutral', 'ruby', 'teal', 'violet'];
@@ -23,11 +21,10 @@ const props = {
 const TooltippedIcon = Tooltip(Icon);
 
 storiesOf('Inputs', module)
-  .addDecorator((story, context) => withInfo('')(story)(context))
+  .addDecorator((story, context) => withInfo({TableComponent: PropTable})(story)(context))
   .addDecorator(checkA11y)
   .addDecorator(withKnobs)
-  .addDecorator(styles({ ...baseStyles, ...centerStyles }))
-  .add('input only', () => (
+  .add('Input only', () => (
     <Input
       id="input1"
       bold={boolean('Bold', false)}

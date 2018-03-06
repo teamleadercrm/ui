@@ -1,12 +1,10 @@
 import React from 'react';
+import PropTable from "./components/propTable";
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 import { Store, State } from '@sambego/storybook-state';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { Banner, Box, Button, ButtonGroup, Heading3, Link, PopoverHorizontal, PopoverVertical, Section, TextBody, TextSmall } from '../components';
-import { baseStyles, centerStyles } from '../.storybook/styles';
-import styles from '@sambego/storybook-styles';
 
 const store = new Store({
   active: false,
@@ -14,12 +12,10 @@ const store = new Store({
 
 const handleButtonClick = (event) => {
   store.set({ anchorEl: event.currentTarget, active: true });
-  action('onClick - active: true')();
 };
 
 const handleCloseClick = () => {
   store.set({ active: false });
-  action('onClick - active: false')();
 };
 
 const contentBoxWithSingleTextLine = (
@@ -29,9 +25,8 @@ const contentBoxWithSingleTextLine = (
 );
 
 storiesOf('Popover', module)
-  .addDecorator((story, context) => withInfo('common info')(story)(context))
+  .addDecorator((story, context) => withInfo({TableComponent: PropTable})(story)(context))
   .addDecorator(checkA11y)
-  .addDecorator(styles({ ...baseStyles, ...centerStyles }))
   .add('horizontal', () => (
     <Box>
       <Button onClick={handleButtonClick} label="Open a horizontalPopover" />

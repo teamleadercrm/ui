@@ -1,39 +1,36 @@
 import React from 'react';
+import PropTable from "./components/propTable";
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, boolean } from '@storybook/addon-knobs/react';
-import styles from '@sambego/storybook-styles';
+import { withKnobs, boolean, select } from '@storybook/addon-knobs/react';
 import { Store, State } from '@sambego/storybook-state';
 import { RadioGroup, RadioButton } from '../components';
-import { baseStyles, centerStyles } from '../.storybook/styles';
 
 const sizes = ['small', 'medium', 'large'];
+const values = ['Option one', 'Option two', 'Option three'];
 
 const store = new Store({
-  value: 'small',
+  value: 'Option one',
 });
 const updateState = value => {
   store.set({ value });
-  action(`Selected: ${value}`)();
 };
 
 storiesOf('Radio', module)
-  .addDecorator((story, context) => withInfo('common info')(story)(context))
+  .addDecorator((story, context) => withInfo({TableComponent: PropTable})(story)(context))
   .addDecorator(checkA11y)
   .addDecorator(withKnobs)
-  .addDecorator(styles({ ...baseStyles, ...centerStyles }))
-  .add('Sizes', () => (
+  .add('Basic', () => (
     <State store={store}>
       <RadioGroup name="stringValue" onChange={updateState}>
-        {sizes.map((size, key) => (
+        {values.map((value, key) => (
           <RadioButton
             key={key}
-            size={size}
+            size={select('Size', sizes, 'medium')}
             marginVertical={3}
-            label={`I'm a ${size} radio`}
-            value={size}
+            label={value}
+            value={value}
             disabled={boolean('Disabled', false)}
           />
         ))}
