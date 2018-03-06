@@ -12,6 +12,7 @@ class Banner extends PureComponent {
     children: PropTypes.node,
     /** A class name for the wrapper to give custom styles. */
     className: PropTypes.string,
+    /** The color of the banner. */
     color: PropTypes.oneOf(['white', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua']),
     /** The icon displayed on the left inside the banner. */
     icon: PropTypes.element,
