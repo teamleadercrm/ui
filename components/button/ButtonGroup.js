@@ -14,6 +14,10 @@ class ButtonGroup extends PureComponent {
     segmented: PropTypes.bool,
   };
 
+  static defaultProps = {
+    segmented: false,
+  };
+
   render() {
     const { children, className, segmented, ...others } = this.props;
 
