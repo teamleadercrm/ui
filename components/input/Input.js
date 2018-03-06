@@ -247,7 +247,6 @@ export default class Input extends Component {
       inverse,
       size,
       type,
-      meta,
       readOnly,
       ...others
     } = this.props;
@@ -278,6 +277,7 @@ export default class Input extends Component {
       'id',
       'helpText',
       'max',
+      'meta',
       'min',
       'onBlur',
       'onChange',
