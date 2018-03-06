@@ -95,7 +95,7 @@ export default class Input extends Component {
     return Boolean(meta && meta.error && meta.touched);
   }
 
-  format(number) {
+  formatNumber(number) {
     const { precision } = this.props;
 
     let formattedNumber = this.toNumber(number);
@@ -154,7 +154,7 @@ export default class Input extends Component {
       readOnly,
       step,
       type,
-      value: type === 'number' && this.state.value ? this.format(this.state.value) : this.state.value,
+      value: type === 'number' && this.state.value ? this.formatNumber(this.state.value) : this.state.value,
     };
 
     return <input {...props} />;
