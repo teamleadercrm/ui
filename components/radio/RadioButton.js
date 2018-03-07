@@ -143,4 +143,3 @@ class RadioButton extends PureComponent {
 }
 
 export default RadioButton;
-export { RadioButton };
