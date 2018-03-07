@@ -16,14 +16,12 @@
   --input-text-size-large: calc(1.6 * var(--unit));
   --input-border-radius: calc(.4 * var(--unit));
   --input-error-border: var(--color-ruby-dark);
+  --input-error-border-inverse: var(--color-ruby-light);
 
   --icon-horizontal: calc(.5 * var(--unit));
 
-  --spinner-width: calc(2.9 * var(--unit));
+  --spinner-width: calc(3.0 * var(--unit));
   --spinner-width-large: calc(3.6 * var(--unit));
-  --spinner-background: var(--color-neutral-light);
-  --spinner-border: var(--color-neutral-dark);
-  --spinner-color: var(--color-neutral-darkest);
 }
 
 /**
@@ -50,7 +48,6 @@
 
     &:not(.is-disabled):not(.is-read-only) {
       &:hover {
-        .input,
         .spinner-up,
         .spinner-down {
           border-color: var(--color-neutral-darkest);
@@ -58,6 +55,10 @@
       }
 
       .input {
+        &:hover {
+          border-color: var(--color-neutral-darkest);
+        }
+
         &:focus {
           border-color: var(--color-neutral-darkest);
           box-shadow: 0 0 0 1px var(--color-neutral-darkest);
@@ -110,7 +111,6 @@
 
     &:not(.is-disabled):not(.is-read-only) {
       &:hover {
-        .input,
         .spinner-up,
         .spinner-down {
           border-color: var(--color-teal-light);
@@ -118,6 +118,10 @@
       }
 
       .input {
+        &:hover {
+          border-color: var(--color-teal-light);
+        }
+
         &:focus {
           border-color: var(--color-teal-light);
           box-shadow: 0 0 0 1px var(--color-teal-light);
@@ -159,6 +163,24 @@
 }
 
 .input-wrapper {
+  border-radius: var(--input-border-radius);
+  display: flex;
+
+  > * {
+    border-radius: 0;
+  }
+
+  > *:first-child {
+    border-radius: var(--input-border-radius) 0 0 var(--input-border-radius);
+  }
+
+  > *:last-child {
+    border-radius: 0 var(--input-border-radius) var(--input-border-radius) 0;
+  }
+}
+
+.input-inner-wrapper {
+  flex: 1;
   position: relative;
 }
 
@@ -186,6 +208,10 @@
   font-size: var(--input-text-size);
   font-family: var(--font-family-regular);
 
+  &[type="number"]{
+    -moz-appearance: textfield;
+  }
+
   &[type="number"]::-webkit-outer-spin-button,
   &[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -201,8 +227,12 @@
   }
 }
 
+.is-numeric {
+  .input {
+    padding-right: calc(var(--spinner-width) + var(--input-horizontal-padding));
+  }
+}
 
-.validation-icon,
 .icon,
 .counter {
   position: absolute;
@@ -211,7 +241,6 @@
   transform: translateY(-50%);
 }
 
-.validation-icon,
 .icon {
   left: var(--icon-horizontal);
 }
@@ -234,24 +263,17 @@
 
 .spinner-up,
 .spinner-down {
-  align-items: center;
-  display: flex;
-  flex: 1;
-  justify-content: center;
-  margin: 0;
-  outline: 0;
-  background-color: var(--spinner-background);
+  min-width: 0;
+  padding: 0 !important;
+}
 
+.spinner-up {
   border-radius: 0 var(--input-border-radius) 0 0;
-  border: solid 1px var(--spinner-border);
-
-  color: var(--spinner-color);
-  transition: .3s ease-in-out border;
 }
 
 .spinner-down {
   border-radius: 0 0 var(--input-border-radius) 0;
-  border-top: 0;
+  border-top: 0 !important;
 }
 
 .error {
@@ -261,14 +283,6 @@
 /**
  * Modifiers
  */
-.is-disabled,
-.is-read-only {
-  .spinner {
-    opacity: .48;
-    pointer-events: none;
-  }
-}
-
 .is-disabled {
   .input {
     pointer-events: none;
@@ -286,10 +300,9 @@
     width: var(--spinner-width-large);
   }
 
-  .spinner-up,
-  .spinner-down {
-    svg {
-      height: 14px;
+  &.is-numeric {
+    .input {
+      padding-right: calc(var(--spinner-width-large) + var(--input-horizontal-padding));
     }
   }
 
@@ -299,7 +312,6 @@
     }
   }
 
-  &.has-validation-feedback,
   &.has-icon-right {
     .input {
       padding-right: var(--input-horizontal-padding-icon-large);
@@ -311,12 +323,24 @@
   .input {
     height: var(--input-height-small);
   }
+}
+
+.has-connected-left {
+  .input {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+  }
+}
+
+.has-connected-right {
+  .input {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+  }
 
   .spinner-up,
   .spinner-down {
-    svg {
-      height: 9px;
-    }
+    border-radius: 0;
   }
 }
 
@@ -338,68 +362,56 @@
   }
 }
 
-.has-validation-feedback {
-  .validation-icon {
-    left: auto;
-    right: var(--icon-horizontal);
-  }
-
-  .counter,
-  &.has-icon-right .icon {
-    display: none;
-  }
-
-  .input {
-    padding-right: var(--input-horizontal-padding-icon);
-  }
-
-  &.is-numeric {
-    .input {
-      padding-right: calc(var(--input-horizontal-padding-icon) + var(--spinner-width));
-    }
-
-    .validation-icon {
-      right: calc(var(--icon-horizontal) + var(--spinner-width));
-    }
-
-    &.is-large {
-      .input {
-        padding-right: calc(var(--input-horizontal-padding-icon) + var(--spinner-width-large));
-      }
-
-      .validation-icon {
-        right: calc(var(--icon-horizontal) + var(--spinner-width-large));
-      }
-    }
-  }
-}
-
 .has-error {
   &:not(.is-inverse) {
+    &.has-connected-left .input-wrapper > *:first-child,
+    &.has-connected-right .input-wrapper > *:last-child,
     .input {
-      border-color: var(--input-error-border);
+      border-color: var(--input-error-border) !important;
+    }
+
+    .spinner-down {
+      border-bottom-color: var(--input-error-border);
+      border-right-color: var(--input-error-border);
+    }
+
+    .spinner-up {
+      border-top-color: var(--input-error-border);
+      border-right-color: var(--input-error-border);
+    }
+
+    .input-wrapper {
       box-shadow: 0 0 0 1px var(--input-error-border);
     }
 
-    .validation-icon {
-      color: var(--color-ruby-dark);
-    }
-
+    .validation-icon,
     .validation-text {
       color: var(--color-ruby-dark);
     }
   }
 
   &.is-inverse {
+    &.has-connected-left .input-wrapper > *:first-child,
+    &.has-connected-right .input-wrapper > *:last-child,
     .input {
-      border-color: var(--color-ruby-light);
-      box-shadow: 0 0 0 1px var(--color-ruby-light);
+      border-color: var(--input-error-border-inverse) !important;
     }
 
-    .validation-icon {
-      color: var(--color-ruby-light);
+    .spinner-down {
+      border-bottom-color: var(--input-error-border-inverse);
+      border-right-color: var(--input-error-border-inverse);
     }
 
+    .spinner-up {
+      border-top-color: var(--input-error-border-inverse);
+      border-right-color: var(--input-error-border-inverse);
+    }
+
+    .input-wrapper {
+      box-shadow: 0 0 0 1px var(--input-error-border-inverse);
+    }
+
+    .validation-icon,
     .validation-text {
       color: var(--color-ruby-light);
     }

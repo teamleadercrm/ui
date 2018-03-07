@@ -9,16 +9,20 @@ import {
 } from '@teamleader/ui-icons';
 import InputMetaPropTypes from './InputMetaPropTypes';
 import Box from '../box';
+import Button from '../button';
 import Counter from '../counter';
 import { TextSmall } from '../typography';
 import theme from './theme.css';
 
 export default class Input extends Component {
   static propTypes = {
+    autoFocus: PropTypes.bool,
     /** Boolean indicating whether the input text should render in bold. */
     bold: PropTypes.bool,
     /** Sets a class name to give custom styles. */
     className: PropTypes.string,
+    connectedLeft: PropTypes.element,
+    connectedRight: PropTypes.element,
     /** The number to render as a counter inside the input. */
     counter: PropTypes.number,
     /** Boolean indicating whether the input should render as disabled. */
@@ -33,6 +37,8 @@ export default class Input extends Component {
     id: PropTypes.string,
     /** Boolean indicating whether the input should render as inverse. */
     inverse: PropTypes.bool,
+    max: PropTypes.number,
+    min: PropTypes.number,
     /** Object to provide meta information for redux forms. */
     meta: InputMetaPropTypes,
     /** Callback function that is fired when component is blurred. */
@@ -43,6 +49,7 @@ export default class Input extends Component {
     onFocus: PropTypes.func,
     /** The text string to use as placeholder. */
     placeholder: PropTypes.string,
+    precision: PropTypes.number,
     /** Boolean indicating whether the input should render as read only. */
     readOnly: PropTypes.bool,
     /** Size of the input element. */
@@ -60,6 +67,9 @@ export default class Input extends Component {
     inverse: false,
     disabled: false,
     placeholder: '',
+    precision: null,
+    min: Number.MIN_SAFE_INTEGER,
+    max: Number.MAX_SAFE_INTEGER,
     readOnly: false,
     size: 'medium',
     step: 1,
@@ -78,8 +88,8 @@ export default class Input extends Component {
   }
 
   componentWillUpdate(props, state) {
-    if (props.onChange && state.value) {
-      props.onChange(state.value);
+    if (props.input && props.input.onChange && state.value) {
+      props.input.onChange(state.value);
     }
   }
 
@@ -92,26 +102,70 @@ export default class Input extends Component {
   }
 
   handleIncreaseValue() {
-    this.setState((previousState, props) => ({
-      value: previousState.value ? previousState.value + props.step : props.step,
-    }));
+    this.updateStep(1);
   }
 
   handleDecreaseValue() {
-    this.setState((previousState, props) => ({
-      value: previousState.value ? previousState.value - props.step : -props.step,
-    }));
+    this.updateStep(-1);
+  }
+
+  hasError() {
+    const { meta } = this.props;
+    return Boolean(meta && meta.error && meta.touched);
+  }
+
+  formatNumber(number) {
+    const { precision } = this.props;
+
+    let formattedNumber = this.toNumber(number);
+
+    if (precision !== null) {
+      formattedNumber = number.toFixed(precision);
+    }
+
+    return String(formattedNumber);
+  }
+
+  updateStep(n) {
+    const { step } = this.props;
+
+    this.setState(prevState => {
+      const number = this.toNumber((prevState.value || 0) + step * n);
+
+      return { value: number };
+    });
+  }
+
+  toNumber(number) {
+    const { max, min, precision } = this.props;
+
+    let float = parseFloat(number);
+
+    if (isNaN(float) || !isFinite(float)) {
+      float = 0;
+    }
+
+    const baseExponent = Math.pow(10, precision === null ? 10 : precision);
+
+    float = Math.min(Math.max(float, min), max);
+    float = Math.round(float * baseExponent) / baseExponent;
+
+    return float;
   }
 
   renderInput() {
-    const { bold, disabled, id, onBlur, onFocus, placeholder, readOnly, step, type } = this.props;
+    const { autoFocus, bold, disabled, id, max, min, onBlur, onFocus, placeholder, readOnly, step, type } = this.props;
     const classNames = cx(theme['input'], {
       [theme['is-bold']]: bold,
     });
+
     const props = {
+      autoFocus,
       className: classNames,
       disabled: disabled,
       id,
+      max,
+      min,
       onBlur: onBlur,
       onChange: this.handleChange,
       onFocus: onFocus,
@@ -119,7 +173,7 @@ export default class Input extends Component {
       readOnly,
       step,
       type,
-      value: this.state.value,
+      value: type === 'number' && this.state.value ? this.formatNumber(this.state.value) : this.state.value,
     };
 
     return <input {...props} />;
@@ -127,7 +181,7 @@ export default class Input extends Component {
 
   renderCounter() {
     if (this.props.counter) {
-      return <Counter className={theme.counter} count={this.props.counter} color="ruby" size="small" />;
+      return <Counter className={theme['counter']} count={this.props.counter} color="ruby" size="small" />;
     }
   }
 
@@ -144,41 +198,48 @@ export default class Input extends Component {
   }
 
   renderSpinnerControls() {
-    if (this.props.type === 'number') {
+    const { disabled, readOnly, type } = this.props;
+
+    const props = {
+      disabled: disabled || readOnly,
+    };
+
+    if (type === 'number') {
       return (
         <div className={theme['spinner']}>
-          <button className={theme['spinner-up']} onClick={this.handleIncreaseValue}>
-            <IconChevronUpSmallOutline />
-          </button>
-          <button className={theme['spinner-down']} onClick={this.handleDecreaseValue}>
-            <IconChevronDownSmallOutline />
-          </button>
+          <Button
+            className={theme['spinner-up']}
+            icon={<IconChevronUpSmallOutline />}
+            onClick={this.handleIncreaseValue}
+            {...props}
+          />
+          <Button
+            className={theme['spinner-down']}
+            icon={<IconChevronDownSmallOutline />}
+            onClick={this.handleDecreaseValue}
+            {...props}
+          />
         </div>
       );
     }
   }
 
   renderValidationMessage() {
-    const { meta } = this.props;
-    const props = {
-      className: theme['validation-text'],
-      marginTop: 2,
-    };
-
-    if (meta && meta.error) {
-      return <TextSmall {...props}>{meta.error}</TextSmall>;
-    }
-  }
-
-  renderValidationIcon() {
-    if (this.props.meta && this.props.meta.error) {
-      return <IconWarningBadgedSmallFilled className={theme['validation-icon']} />;
-    }
+    return (
+      <Box marginTop={2}>
+        <IconWarningBadgedSmallFilled className={theme['validation-icon']} />
+        <TextSmall className={theme['validation-text']} element="span" marginLeft={1}>
+          {this.props.meta.error}
+        </TextSmall>
+      </Box>
+    );
   }
 
   render() {
     const {
       className,
+      connectedLeft,
+      connectedRight,
       counter,
       disabled,
       icon,
@@ -186,18 +247,19 @@ export default class Input extends Component {
       inverse,
       size,
       type,
-      meta,
       readOnly,
       ...others
     } = this.props;
+
     const classNames = cx(
-      theme.wrapper,
+      theme['wrapper'],
       theme[`is-${size}`],
       {
         [theme[`has-icon-${iconPlacement}`]]: icon,
         [theme['has-counter']]: counter,
-        [theme['has-error']]: Boolean(meta && meta.error),
-        [theme['has-validation-feedback']]: Boolean(meta && meta.error),
+        [theme['has-error']]: this.hasError(),
+        [theme['has-connected-left']]: connectedLeft,
+        [theme['has-connected-right']]: connectedRight,
         [theme['is-inverse']]: inverse,
         [theme['is-numeric']]: type === 'number',
         [theme['is-disabled']]: disabled,
@@ -206,33 +268,42 @@ export default class Input extends Component {
       className,
     );
 
+    const inputWrapperClassnames = cx(theme['input-wrapper'], {
+      [theme['has-error']]: this.hasError(),
+    });
+
     const rest = omit(others, [
       'bold',
       'id',
       'helpText',
+      'max',
+      'meta',
+      'min',
       'onBlur',
       'onChange',
       'onFocus',
       'placeholder',
-      'step',
+      'precision',
+      'updateStep',
       'value',
     ]);
 
     return (
       <Box className={classNames} {...rest}>
-        <div className={theme['input-wrapper']}>
-          {icon &&
-            createElement(icon, {
-              className: theme.icon,
-            })}
-
-          {this.renderInput()}
-          {this.renderCounter()}
-          {this.renderSpinnerControls()}
-          {this.renderValidationIcon()}
+        <div className={inputWrapperClassnames}>
+          {connectedLeft}
+          <div className={theme['input-inner-wrapper']}>
+            {icon &&
+              createElement(icon, {
+                className: theme['icon'],
+              })}
+            {this.renderInput()}
+            {this.renderCounter()}
+            {this.renderSpinnerControls()}
+          </div>
+          {connectedRight}
         </div>
-        {this.renderHelpText()}
-        {this.renderValidationMessage()}
+        {this.hasError() ? this.renderValidationMessage() : this.renderHelpText()}
       </Box>
     );
   }
