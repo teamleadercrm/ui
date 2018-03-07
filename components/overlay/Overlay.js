@@ -119,4 +119,3 @@ class Overlay extends PureComponent {
 }
 
 export default Overlay;
-export { Overlay };
