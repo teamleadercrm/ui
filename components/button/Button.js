@@ -124,4 +124,3 @@ class Button extends PureComponent {
 }
 
 export default Button;
-export { Button };
