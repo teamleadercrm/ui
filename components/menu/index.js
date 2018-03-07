@@ -1,11 +1,10 @@
 import { IconButton } from '../button';
 import { MenuDivider } from './MenuDivider';
 import { menuItemFactory } from './MenuItem';
-import { menuFactory } from './Menu';
+import Menu from './Menu';
 import { iconMenuFactory } from './IconMenu';
 
 const MenuItem = menuItemFactory();
-const Menu = menuFactory(MenuItem);
 const IconMenu = iconMenuFactory(IconButton, Menu);
 
 export default Menu;
