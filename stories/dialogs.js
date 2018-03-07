@@ -14,12 +14,8 @@ const store = new Store({
   active: false,
 });
 
-const handleButtonClick = () => {
-  store.set({ active: true });
-};
-
-const handleCloseClick = () => {
-  store.set({ active: false });
+const handleActiveToggle = () => {
+  store.set({ active: !store.get('active') });
 };
 
 storiesOf('Dialogs', module)
@@ -28,15 +24,15 @@ storiesOf('Dialogs', module)
   .addDecorator(withKnobs)
   .add('Basic', () => (
     <Box>
-      <Button onClick={handleButtonClick} label="Open a dialog" />
+      <Button onClick={handleActiveToggle} label="Open a dialog" />
       <State store={store}>
         <Dialog
           active={false}
-          onEscKeyDown={handleCloseClick}
-          onOverlayClick={handleCloseClick}
+          onEscKeyDown={handleActiveToggle}
+          onOverlayClick={handleActiveToggle}
           size={select('Size', sizes, 'medium')}
         >
-          <Banner color="neutral" fullWidth onClose={handleCloseClick}>
+          <Banner color="neutral" fullWidth onClose={handleActiveToggle}>
             <Heading3>Dialog title</Heading3>
           </Banner>
           <Box padding={4}>
@@ -52,14 +48,14 @@ storiesOf('Dialogs', module)
   ))
   .add('succes style', () => (
     <Box>
-      <Button onClick={handleButtonClick} label="Open a dialog" />
+      <Button onClick={handleActiveToggle} label="Open a dialog" />
       <State store={store}>
         <Dialog
           active={false}
-          onEscKeyDown={handleCloseClick}
-          onOverlayClick={handleCloseClick}
+          onEscKeyDown={handleActiveToggle}
+          onOverlayClick={handleActiveToggle}
         >
-          <Banner color="mint" fullWidth icon={<IconCheckmarkMediumOutline />} onClose={handleCloseClick}>
+          <Banner color="mint" fullWidth icon={<IconCheckmarkMediumOutline />} onClose={handleActiveToggle}>
             <Heading3>Succes: Dialog title</Heading3>
           </Banner>
           <Box padding={4}>
@@ -75,14 +71,14 @@ storiesOf('Dialogs', module)
   ))
   .add('warning style', () => (
     <Box>
-      <Button onClick={handleButtonClick} label="Open a dialog" />
+      <Button onClick={handleActiveToggle} label="Open a dialog" />
       <State store={store}>
         <Dialog
           active={false}
-          onEscKeyDown={handleCloseClick}
-          onOverlayClick={handleCloseClick}
+          onEscKeyDown={handleActiveToggle}
+          onOverlayClick={handleActiveToggle}
         >
-          <Banner color="gold" fullWidth icon={<IconWarningBadgedMediumOutline />} onClose={handleCloseClick}>
+          <Banner color="gold" fullWidth icon={<IconWarningBadgedMediumOutline />} onClose={handleActiveToggle}>
             <Heading3>Warning: Dialog title</Heading3>
           </Banner>
           <Box padding={4}>
@@ -98,14 +94,14 @@ storiesOf('Dialogs', module)
   ))
   .add('destructive style', () => (
     <Box>
-      <Button onClick={handleButtonClick} label="Open a dialog" />
+      <Button onClick={handleActiveToggle} label="Open a dialog" />
       <State store={store}>
         <Dialog
           active={false}
-          onEscKeyDown={handleCloseClick}
-          onOverlayClick={handleCloseClick}
+          onEscKeyDown={handleActiveToggle}
+          onOverlayClick={handleActiveToggle}
         >
-          <Banner color="ruby" fullWidth icon={<IconWarningBadgedMediumOutline />} onClose={handleCloseClick}>
+          <Banner color="ruby" fullWidth icon={<IconWarningBadgedMediumOutline />} onClose={handleActiveToggle}>
             <Heading3>Succes: Dialog title</Heading3>
           </Banner>
           <ButtonGroup justifyContent="flex-end" padding={4}>
