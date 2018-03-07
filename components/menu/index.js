@@ -1,5 +1,5 @@
 import { IconButton } from '../button';
-import { MenuDivider } from './MenuDivider';
+import MenuDivider from './MenuDivider';
 import { menuItemFactory } from './MenuItem';
 import { menuFactory } from './Menu';
 import { iconMenuFactory } from './IconMenu';
