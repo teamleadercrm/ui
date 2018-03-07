@@ -20,10 +20,16 @@ class Overlay extends PureComponent {
     lockScroll: true,
   };
 
+  constructor() {
+    super(...arguments);
+
+    this.handleEscKey = ::this.handleEscKey;
+  }
+
   componentDidMount() {
     const { active, lockScroll, onEscKeyDown } = this.props;
     if (onEscKeyDown) {
-      document.body.addEventListener('keydown', this.handleEscKey.bind(this));
+      document.body.addEventListener('keydown', this.handleEscKey);
     }
     if (active && lockScroll) {
       document.body.style.overflow = 'hidden';
@@ -47,7 +53,7 @@ class Overlay extends PureComponent {
 
   componentDidUpdate(prevProps) {
     if (this.props.active && !prevProps.active && this.props.onEscKeyDown) {
-      document.body.addEventListener('keydown', this.handleEscKey.bind(this));
+      document.body.addEventListener('keydown', this.handleEscKey);
     }
   }
 
