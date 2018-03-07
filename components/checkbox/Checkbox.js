@@ -138,4 +138,3 @@ class Checkbox extends PureComponent {
 }
 
 export default Checkbox;
-export { Checkbox };
