@@ -9,7 +9,7 @@ const renderPropTypeValues = (propType) => {
     return propType;
   }
 
-  if(!propType.value) {
+  if(!propType.value || typeof propType.value === 'string') {
     return propType.name;
   }
 
