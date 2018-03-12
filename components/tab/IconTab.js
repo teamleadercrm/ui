@@ -14,13 +14,11 @@ class IconTab extends PureComponent {
     element: PropTypes.node,
     icon: PropTypes.node.isRequired,
     onClick: PropTypes.func,
-    size: PropTypes.oneOf(['small', 'medium']),
   };
 
   static defaultProps = {
     element: 'a',
     active: false,
-    size: 'medium',
   };
 
   constructor() {
@@ -43,17 +41,6 @@ class IconTab extends PureComponent {
     }
   }
 
-  getPaddingHorizontal = () => {
-    const { size } = this.props;
-    switch (size) {
-      case 'small':
-        return 2;
-      case 'medium':
-      default:
-        return 3;
-    }
-  };
-
   render() {
     const { active, className, counter = null, icon, ...others } = this.props;
     const classNames = cx(theme['icon-tab'], { [theme['is-active']]: active }, className);
@@ -64,7 +51,7 @@ class IconTab extends PureComponent {
       <Box
         data-teamleader-ui="icon-tab"
         className={classNames}
-        paddingHorizontal={this.getPaddingHorizontal()}
+        paddingHorizontal={3}
         paddingVertical={4}
         ref={node => {
           this.tabNode = node;
