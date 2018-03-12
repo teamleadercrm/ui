@@ -26,7 +26,7 @@ class DatePicker extends PureComponent {
   };
 
   convertModifiersToClassnames(modifiers) {
-    if(!modifiers) {
+    if (!modifiers) {
       return;
     }
 
