@@ -283,6 +283,11 @@
   color: var(--color-teal-darkest);
 }
 
+.day:not(.disabled):not(.selected):hover {
+  background-color: var(--color-violet-lightest);
+  color: var(--color-violet-darkest);
+}
+
 .has-range .selected:not(.from):not(.to):not(.outside) {
   background-color: var(--color-violet-lightest) !important;
   color: var(--color-violet-darkest);
