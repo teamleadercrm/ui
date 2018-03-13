@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import DayPicker from 'react-day-picker';
 import NavigationBar from './NavigationBar';
-import WeekDay from "./WeekDay";
+import WeekDay from './WeekDay';
 import cx from 'classnames';
 import theme from './theme.css';
 
