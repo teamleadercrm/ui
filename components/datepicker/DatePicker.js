@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import DayPicker from 'react-day-picker';
 import NavigationBar from './NavigationBar';
 import WeekDay from './WeekDay';
+import { convertModifiersToClassnames, hasRange } from './utils';
 import cx from 'classnames';
 import theme from './theme.css';
 
@@ -10,37 +11,22 @@ class DatePicker extends PureComponent {
   static propTypes = {
     className: PropTypes.string,
     modifiers: PropTypes.object,
-    range: PropTypes.bool,
+    selectedDays: PropTypes.oneOfType([PropTypes.object, PropTypes.func, PropTypes.array]),
     size: PropTypes.oneOf(['small', 'medium', 'large']),
   };
 
   static defaultProps = {
-    range: false,
     size: 'medium',
   };
 
-  convertModifiersToClassnames(modifiers) {
-    if (!modifiers) {
-      return;
-    }
-
-    const convertedModifiers = {};
-
-    Object.keys(modifiers).forEach(key => {
-      convertedModifiers[theme[key]] = modifiers[key];
-    });
-
-    return convertedModifiers;
-  }
-
   render() {
-    const { className, modifiers, range, size, ...others } = this.props;
+    const { className, modifiers, selectedDays, size, ...others } = this.props;
 
     const classNames = cx(
       theme['date-picker'],
       theme[`is-${size}`],
       {
-        [theme['has-range']]: range,
+        [theme['has-range']]: hasRange(selectedDays),
       },
       className,
     );
@@ -49,8 +35,9 @@ class DatePicker extends PureComponent {
       <DayPicker
         className={classNames}
         classNames={theme}
-        modifiers={this.convertModifiersToClassnames(modifiers)}
+        modifiers={convertModifiersToClassnames(modifiers, theme)}
         navbarElement={<NavigationBar size={size} />}
+        selectedDays={selectedDays}
         weekdayElement={<WeekDay size={size} />}
         {...others}
       />
