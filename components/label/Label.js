@@ -2,6 +2,7 @@ import React, { Fragment, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Input from '../input';
 import Box from '../box';
+import { DatePickerInput, DatePickerInputRange } from '../datepicker';
 import { TextBody, TextDisplay, TextSmall } from '../typography';
 import theme from './theme.css';
 import isComponentOfType from '../utils/is-component-of-type';
@@ -46,7 +47,11 @@ export default class Label extends PureComponent {
     return (
       <Box element="label" htmlFor={this.props.for} marginBottom={3} className={classNames}>
         {React.Children.map(children, child => {
-          if (isComponentOfType(Input, child)) {
+          if (
+            isComponentOfType(Input, child) ||
+            isComponentOfType(DatePickerInput, child) ||
+            isComponentOfType(DatePickerInputRange, child)
+          ) {
             return React.cloneElement(child, childProps);
           }
 
