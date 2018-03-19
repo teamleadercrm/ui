@@ -6,7 +6,7 @@ import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean, number, select } from "@storybook/addon-knobs/react";
 import { DateUtils } from "react-day-picker/lib/src";
-import { DatePicker } from '../components';
+import { DatePicker, DatePickerInput, DatePickerInputRange, Label } from '../components';
 
 const sizes = ['small', 'medium', 'large'];
 
@@ -130,5 +130,63 @@ storiesOf('DatePicker', module)
           size={select('Size', sizes, 'medium')}
         />
       </State>
+    )
+  })
+  .add('Date input', () => {
+    const handleDayClick = (day) => {
+      basicStore.set({ selectedDays: day });
+    };
+
+    return (
+      <State store={basicStore}>
+        <DatePickerInput
+          numberOfMonths={number('Number of months', 1)}
+          onDayClick={handleDayClick}
+          showOutsideDays={boolean('Show outside days', true)}
+          showWeekNumbers={boolean('Show week numbers', true)}
+          size={select('Size', sizes, 'medium')}
+        />
+      </State>
+    )
+  })
+  .add('Date input range', () => {
+    const handleOnChange = (selectedDays) => {
+      console.log("selectedDays", selectedDays);
+    };
+
+    return (
+      <DatePickerInputRange
+        dayPickerProps={{
+          numberOfMonths: number('Number of months', 2),
+          showOutsideDays: boolean('Show outside days', true),
+          showWeekNumbers: boolean('Show week numbers', true)
+        }}
+        placeholder="D/M/YYYY"
+        onChange={handleOnChange}
+        size={select('Size', sizes, 'medium')}
+      />
+      )
+    }
+  )
+  .add('With label', () => {
+    const handleOnChange = (selectedDays) => {
+      console.log("selectedDays", selectedDays);
+    };
+
+    return (
+      <Label
+        size={select('Size', sizes, 'medium')}
+      >
+        Date
+        <DatePickerInputRange
+          dayPickerProps={{
+            numberOfMonths: number('Number of months', 2),
+            showOutsideDays: boolean('Show outside days', true),
+            showWeekNumbers: boolean('Show week numbers', true)
+          }}
+          placeholder="D/M/YYYY"
+          onChange={handleOnChange}
+        />
+      </Label>
     )
   });
