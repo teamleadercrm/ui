@@ -26,10 +26,7 @@ class DatePickerInput extends PureComponent {
   render() {
     const { className, dayPickerProps, modifiers, selectedDays, size, ...others } = this.props;
 
-    const classNames = cx(
-      theme['date-picker-input'],
-      theme[`is-${size}`],
-    );
+    const classNames = cx(theme['date-picker-input'], theme[`is-${size}`]);
 
     const dayPickerClassNames = cx(
       theme['date-picker'],
