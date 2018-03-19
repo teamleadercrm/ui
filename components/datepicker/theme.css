@@ -3,7 +3,14 @@
 @import '@teamleader/ui-utilities';
 
 :root {
-  --border-radius: 4px;
+  --border-radius: calc(.4 * var(--unit));
+  --input-height-large: calc(4.6 * var(--unit));
+  --input-height-medium: calc(3.4 * var(--unit));
+  --input-height-small: calc(2.8 * var(--unit));
+  --input-text-size: calc(1.4 * var(--unit));
+  --input-text-size-large: calc(1.6 * var(--unit));
+  --input-width: calc(7.8 * var(--unit));
+  --input-width-large: calc(9 * var(--unit));
 }
 
 .date-picker {
@@ -177,9 +184,89 @@
 }
 
 .disabled {
-  background-color: var(--color-neutral);
+  background-color: var(--color-neutral-light);
   color: var(--color-neutral-dark);
   cursor: default;
+}
+
+.selected:not(.disabled):not(.outside) {
+  background-color: var(--color-violet-darkest);
+  color: var(--color-violet-lightest);
+  position: relative;
+}
+
+.day:not(.disabled):not(.selected):not(.outside) {
+  color: var(--color-teal-darkest);
+}
+
+.day:not(.disabled):not(.selected):hover {
+  background-color: var(--color-violet-lightest);
+  color: var(--color-violet-darkest);
+}
+
+.has-range .selected:not(.from):not(.to):not(.outside) {
+  background-color: var(--color-violet-lightest) !important;
+  color: var(--color-violet-darkest);
+}
+
+/* DayPickerInput */
+.date-picker-input,
+.date-picker-input-range {
+  position: relative
+}
+
+.overlay {
+  composes: box-shadow-200;
+  background: var(--color-white);
+  border-radius: var(--border-radius);
+  left: 0;
+  margin-top: 16px;
+  position: absolute;
+  z-index: 1;
+
+  &::after {
+    border: solid var(--color-neutral);
+    border-width: 1px 0 0 1px;
+    content: '';
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    top: -8px;
+    left: 10px;
+    background: var(--color-white);
+    transform: rotate(45deg);
+    z-index: 2;
+  }
+}
+
+.input-wrapper {
+  border: 1px solid var(--color-neutral-dark);
+  border-radius: var(--border-radius);
+  display: inline-block;
+}
+
+.input-icon {
+  position: relative;
+  top: -1px;
+}
+
+.container {
+  display: inline-block;
+
+  input {
+    border: 0;
+    border-radius: var(--border-radius);
+    color: var(--color-teal-darkest);
+    font-size: var(--input-text-size);
+    outline: 0;
+    padding: 0;
+    width: var(--input-width);
+    text-align: center;
+  }
+
+  &:last-child input {
+    padding: 0 5px 0 0;
+  }
 }
 
 .is-small {
@@ -214,6 +301,12 @@
     font-size: 12px;
     padding: 6px;
   }
+
+  .container {
+    input {
+      height: var(--input-height-small);
+    }
+  }
 }
 
 .is-medium {
@@ -241,6 +334,12 @@
   .weekNumber {
     font-size: 12px;
     padding: 9px;
+  }
+
+  .container {
+    input {
+      height: var(--input-height-medium);
+    }
   }
 }
 
@@ -271,24 +370,12 @@
     font-size: 16px;
     padding: 12px;
   }
-}
 
-.selected:not(.disabled):not(.outside) {
-  background-color: var(--color-violet-darkest);
-  color: var(--color-violet-lightest);
-  position: relative;
-}
-
-.day:not(.disabled):not(.selected):not(.outside) {
-  color: var(--color-teal-darkest);
-}
-
-.day:not(.disabled):not(.selected):hover {
-  background-color: var(--color-violet-lightest);
-  color: var(--color-violet-darkest);
-}
-
-.has-range .selected:not(.from):not(.to):not(.outside) {
-  background-color: var(--color-violet-lightest) !important;
-  color: var(--color-violet-darkest);
+  .container {
+    input {
+      font-size: var(--input-text-size-large);
+      height: var(--input-height-large);
+      width: var(--input-width-large);
+    }
+  }
 }
