@@ -6,17 +6,12 @@ import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean, number, select } from "@storybook/addon-knobs/react";
 import { DateUtils } from "react-day-picker/lib/src";
-import { DatePicker, DatePickerInput, DatePickerInputRange, Label } from '../components';
+import { DatePicker, DatePickerInput, DatePickerInputRange, DatePickerRange, Label } from '../components';
 
 const sizes = ['small', 'medium', 'large'];
 
 const basicStore = new Store({
   selectedDays: undefined,
-});
-
-const rangeClickStore = new Store({
-  from: undefined,
-  to: undefined,
 });
 
 const rangeMouseEnterStore = new Store({
@@ -47,32 +42,18 @@ storiesOf('DatePicker', module)
     )
   })
   .add('Range onClick', () => {
-    const handleDayClick = (day) => {
-      const from = rangeClickStore.get('from');
-      const to = rangeClickStore.get('to');
-      const range = DateUtils.addDayToRange(day, {from, to});
-
-      rangeClickStore.set({...range});
-    };
-
-    const parseState = (state) => {
-      return {
-        ...state,
-        modifiers: {from: state.from, to: state.to},
-        selectedDays: [state.from, {from: state.from, to: state.to}],
-      };
+    const handleOnChange = (selectedRange) => {
+      console.log("selected range", selectedRange);
     };
 
     return (
-      <State store={rangeClickStore} parseState={parseState}>
-        <DatePicker
-          numberOfMonths={number('Number of months', 2)}
-          onDayClick={handleDayClick}
-          showOutsideDays={boolean('Show outside days', true)}
-          showWeekNumbers={boolean('Show week numbers', true)}
-          size={select('Size', sizes, 'medium')}
-        />
-      </State>
+      <DatePickerRange
+        numberOfMonths={number('Number of months', 2)}
+        onChange={handleOnChange}
+        showOutsideDays={boolean('Show outside days', true)}
+        showWeekNumbers={boolean('Show week numbers', true)}
+        size={select('Size', sizes, 'medium')}
+      />
     )
   })
   .add('Range onMouseEnter', () => {
