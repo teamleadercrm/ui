@@ -12,6 +12,7 @@ class DatePickerRange extends PureComponent {
   static propTypes = {
     className: PropTypes.string,
     modifiers: PropTypes.object,
+    onChange: PropTypes.func,
     selectedDays: PropTypes.oneOfType([PropTypes.object, PropTypes.func, PropTypes.array]),
     size: PropTypes.oneOf(['small', 'medium', 'large']),
   };
@@ -34,7 +35,7 @@ class DatePickerRange extends PureComponent {
   handleDayClick(day) {
     const range = DateUtils.addDayToRange(day, this.state);
     this.setState(range, () => {
-      this.props.onChange(this.state)
+      this.props.onChange(this.state);
     });
   }
 
