@@ -25,25 +25,61 @@ class DatePickerRange extends PureComponent {
     super(...arguments);
 
     this.handleDayClick = ::this.handleDayClick;
+    this.handleDayMouseEnter = ::this.handleDayMouseEnter;
 
     this.state = {
       from: null,
       to: null,
+      enteredTo: null,
     };
   }
 
   handleDayClick(day) {
-    const range = DateUtils.addDayToRange(day, this.state);
-    this.setState(range, () => {
-      this.props.onChange(this.state);
-    });
+    const { from, to } = this.state;
+
+    if (from && to && day >= from && day <= to) {
+      this.setState({
+        from: null,
+        to: null,
+        enteredTo: null,
+      });
+      return;
+    }
+    if (this.isSelectingFirstDay(from, to, day)) {
+      this.setState({
+        from: day,
+        to: null,
+        enteredTo: null,
+      });
+    } else {
+      this.setState({
+        to: day,
+        enteredTo: day,
+      });
+    }
+  }
+
+  handleDayMouseEnter(day) {
+    const { from, to } = this.state;
+
+    if (!this.isSelectingFirstDay(from, to, day)) {
+      this.setState({
+        enteredTo: day,
+      });
+    }
+  }
+
+  isSelectingFirstDay(from, to, day) {
+    const isBeforeFirstDay = from && DateUtils.isDayBefore(day, from);
+    const isRangeSelected = from && to;
+    return !from || isBeforeFirstDay || isRangeSelected;
   }
 
   render() {
     const { className, size, ...others } = this.props;
-    const { from, to } = this.state;
-    const modifiers = { from, to };
-    const selectedDays = [from, { from, to }];
+    const { from, enteredTo } = this.state;
+    const modifiers = { from, to: enteredTo };
+    const selectedDays = [from, { from, to: enteredTo }];
 
     const classNames = cx(
       theme['date-picker'],
@@ -61,6 +97,7 @@ class DatePickerRange extends PureComponent {
         modifiers={convertModifiersToClassnames(modifiers, theme)}
         navbarElement={<NavigationBar size={size} />}
         onDayClick={this.handleDayClick}
+        onDayMouseEnter={this.handleDayMouseEnter}
         selectedDays={selectedDays}
         weekdayElement={<WeekDay size={size} />}
         {...others}
