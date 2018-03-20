@@ -24,47 +24,39 @@ class DatePickerInputRange extends PureComponent {
     size: 'medium',
   };
 
-  constructor() {
-    super(...arguments);
-
-    this.handleFromChange = ::this.handleFromChange;
-    this.handleToChange = ::this.handleToChange;
-    this.handleDayMouseEnter = ::this.handleDayMouseEnter;
-
-    this.state = {
-      from: null,
-      to: null,
-      enteredTo: null,
-    };
-  }
+  state = {
+    from: null,
+    to: null,
+    enteredTo: null,
+  };
 
   componentWillUnmount() {
     clearTimeout(this.timeout);
   }
 
-  focusFrom() {
+  focusFrom = () => {
     this.timeout = setTimeout(() => this.from.getInput().focus(), 100);
-  }
+  };
 
-  focusTo() {
+  focusTo = () => {
     this.timeout = setTimeout(() => this.to.getInput().focus(), 0);
-  }
+  };
 
-  handleFromChange(day) {
+  handleFromChange = (day) => {
     this.setState({ from: day }, () => {
       if (!this.state.to) {
         this.focusTo();
       }
     });
-  }
+  };
 
-  handleToChange(day) {
+  handleToChange = (day) => {
     this.setState({ to: day, enteredTo: day }, () => {
       const { from, to } = this.state;
       this.showFromMonth();
       this.props.onChange({ from, to });
     });
-  }
+  };
 
   handleToFocus = () => {
     if (!this.state.from) {
@@ -72,7 +64,7 @@ class DatePickerInputRange extends PureComponent {
     }
   };
 
-  showFromMonth() {
+  showFromMonth = () => {
     const { from, to } = this.state;
 
     if (!from) {
@@ -80,9 +72,9 @@ class DatePickerInputRange extends PureComponent {
     }
 
     this.to.getDayPicker().showMonth(DateUtils.addMonths(to, -1));
-  }
+  };
 
-  handleDayMouseEnter(day) {
+  handleDayMouseEnter = (day) => {
     const { from, to } = this.state;
 
     if (!this.isSelectingFirstDay(from, to, day)) {
@@ -90,13 +82,13 @@ class DatePickerInputRange extends PureComponent {
         enteredTo: day,
       });
     }
-  }
+  };
 
-  isSelectingFirstDay(from, to, day) {
+  isSelectingFirstDay = (from, to, day) => {
     const isBeforeFirstDay = from && DateUtils.isDayBefore(day, from);
     const isRangeSelected = from && to;
     return !from || isBeforeFirstDay || isRangeSelected;
-  }
+  };
 
   render() {
     const { className, dayPickerProps, size, ...others } = this.props;
