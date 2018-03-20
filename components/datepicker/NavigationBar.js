@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Box } from '../box';
 import { IconButton } from '../button';
 import {
@@ -27,6 +28,16 @@ const NavigationBar = ({ nextMonth, previousMonth, onPreviousClick, onNextClick,
       />
     </Box>
   );
+};
+
+NavigationBar.propTypes = {
+  className: PropTypes.string,
+  localeUtils: PropTypes.object,
+  nextMonth: PropTypes.instanceOf(Date),
+  previousMonth: PropTypes.instanceOf(Date),
+  onNextClick: PropTypes.func,
+  onPreviousClick: PropTypes.func,
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
 };
 
 export default NavigationBar;
