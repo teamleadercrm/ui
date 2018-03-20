@@ -26,7 +26,7 @@ class DatePickerRange extends PureComponent {
     enteredTo: null,
   };
 
-  handleDayClick = (day) => {
+  handleDayClick = day => {
     const { from, to } = this.state;
 
     if (from && to && day >= from && day <= to) {
@@ -51,7 +51,7 @@ class DatePickerRange extends PureComponent {
     }
   };
 
-  handleDayMouseEnter = (day) => {
+  handleDayMouseEnter = day => {
     const { from, to } = this.state;
 
     if (!isSelectingFirstDay(from, to, day)) {

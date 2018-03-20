@@ -42,7 +42,7 @@ class DatePickerInputRange extends PureComponent {
     this.timeout = setTimeout(() => this.to.getInput().focus(), 0);
   };
 
-  handleFromChange = (day) => {
+  handleFromChange = day => {
     this.setState({ from: day }, () => {
       if (!this.state.to) {
         this.focusTo();
@@ -50,7 +50,7 @@ class DatePickerInputRange extends PureComponent {
     });
   };
 
-  handleToChange = (day) => {
+  handleToChange = day => {
     this.setState({ to: day, enteredTo: day }, () => {
       const { from, to } = this.state;
       this.showFromMonth();
@@ -74,7 +74,7 @@ class DatePickerInputRange extends PureComponent {
     this.to.getDayPicker().showMonth(DateUtils.addMonths(to, -1));
   };
 
-  handleDayMouseEnter = (day) => {
+  handleDayMouseEnter = day => {
     const { from, to } = this.state;
 
     if (!isSelectingFirstDay(from, to, day)) {

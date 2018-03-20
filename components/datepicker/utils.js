@@ -1,4 +1,4 @@
-import { DateUtils } from "react-day-picker/lib/src/index";
+import { DateUtils } from 'react-day-picker/lib/src/index';
 
 export const convertModifiersToClassnames = (modifiers, theme) => {
   if (!modifiers) {
