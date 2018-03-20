@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import DayPicker from 'react-day-picker';
 import NavigationBar from './NavigationBar';
 import WeekDay from './WeekDay';
-import { convertModifiersToClassnames, hasRange } from './utils';
-import { DateUtils } from 'react-day-picker/lib/src';
+import { convertModifiersToClassnames, hasRange, isSelectingFirstDay } from './utils';
 import cx from 'classnames';
 import theme from './theme.css';
 
@@ -38,7 +37,7 @@ class DatePickerRange extends PureComponent {
       });
       return;
     }
-    if (this.isSelectingFirstDay(from, to, day)) {
+    if (isSelectingFirstDay(from, to, day)) {
       this.setState({
         from: day,
         to: null,
@@ -55,17 +54,11 @@ class DatePickerRange extends PureComponent {
   handleDayMouseEnter = (day) => {
     const { from, to } = this.state;
 
-    if (!this.isSelectingFirstDay(from, to, day)) {
+    if (!isSelectingFirstDay(from, to, day)) {
       this.setState({
         enteredTo: day,
       });
     }
-  };
-
-  isSelectingFirstDay = (from, to, day) => {
-    const isBeforeFirstDay = from && DateUtils.isDayBefore(day, from);
-    const isRangeSelected = from && to;
-    return !from || isBeforeFirstDay || isRangeSelected;
   };
 
   render() {
