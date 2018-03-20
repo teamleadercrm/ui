@@ -5,19 +5,12 @@ import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean, number, select } from "@storybook/addon-knobs/react";
-import { DateUtils } from "react-day-picker/lib/src";
 import { DatePicker, DatePickerInput, DatePickerInputRange, DatePickerRange, Label } from '../components';
 
 const sizes = ['small', 'medium', 'large'];
 
 const basicStore = new Store({
   selectedDays: undefined,
-});
-
-const rangeMouseEnterStore = new Store({
-  from: null,
-  enteredTo: null,
-  to: null,
 });
 
 storiesOf('DatePicker', module)
@@ -43,7 +36,7 @@ storiesOf('DatePicker', module)
   })
   .add('Range onClick', () => {
     const handleOnChange = (selectedRange) => {
-      console.log("selected range", selectedRange);
+      console.log("Selected range", selectedRange);
     };
 
     return (
@@ -54,63 +47,6 @@ storiesOf('DatePicker', module)
         showWeekNumbers={boolean('Show week numbers', true)}
         size={select('Size', sizes, 'medium')}
       />
-    )
-  })
-  .add('Range onMouseEnter', () => {
-    const handleDayClick = (day) => {
-      const from = rangeMouseEnterStore.get('from');
-      const to = rangeMouseEnterStore.get('to');
-
-      if (from && to && day >= from && day <= to) {
-        resetState();
-        return;
-      }
-
-      if (isSelectingFirstDay(from, to, day)) {
-        rangeMouseEnterStore.set({from: day, to: null, enteredTo: null });
-      } else {
-        rangeMouseEnterStore.set({from, to: day, enteredTo: day });
-      }
-    };
-
-    const handleDayMouseEnter = (day) => {
-      const from = rangeMouseEnterStore.get('from');
-      const to = rangeMouseEnterStore.get('to');
-
-      if (!isSelectingFirstDay(from, to, day)) {
-        rangeMouseEnterStore.set({ from, to, enteredTo: day });
-      }
-    };
-
-    const isSelectingFirstDay = (from, to, day) => {
-      const isBeforeFirstDay = from && DateUtils.isDayBefore(day, from);
-      const isRangeSelected = from && to;
-      return !from || isBeforeFirstDay || isRangeSelected;
-    };
-
-    const parseState = (state) => {
-      return {
-        ...state,
-        modifiers: {from: state.from, to: state.enteredTo},
-        selectedDays: [state.from, {from: state.from, to: state.enteredTo}],
-      };
-    };
-
-    const resetState = () => {
-      rangeMouseEnterStore.set({ from: null, enteredTo: null, to: null });
-    };
-
-    return (
-      <State store={rangeMouseEnterStore} parseState={parseState}>
-        <DatePicker
-          numberOfMonths={number('Number of months', 2)}
-          onDayClick={handleDayClick}
-          onDayMouseEnter={handleDayMouseEnter}
-          showOutsideDays={boolean('Show outside days', true)}
-          showWeekNumbers={boolean('Show week numbers', true)}
-          size={select('Size', sizes, 'medium')}
-        />
-      </State>
     )
   })
   .add('Date input', () => {
@@ -131,8 +67,8 @@ storiesOf('DatePicker', module)
     )
   })
   .add('Date input range', () => {
-    const handleOnChange = (selectedDays) => {
-      console.log("selectedDays", selectedDays);
+    const handleOnChange = (selectedRange) => {
+      console.log("Selected range", selectedRange);
     };
 
     return (
