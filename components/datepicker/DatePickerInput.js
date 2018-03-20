@@ -38,13 +38,9 @@ class DatePickerInput extends PureComponent {
   render() {
     const { className, dayPickerProps, modifiers, selectedDays, size, ...others } = this.props;
 
-    const classNames = cx(
-      theme['date-picker-input'],
-      theme[`is-${size}`],
-      {
-        [theme['has-focus']]: this.state.inputHasFocus,
-      }
-    );
+    const classNames = cx(theme['date-picker-input'], theme[`is-${size}`], {
+      [theme['has-focus']]: this.state.inputHasFocus,
+    });
 
     const dayPickerClassNames = cx(
       theme['date-picker'],
@@ -75,7 +71,7 @@ class DatePickerInput extends PureComponent {
             hideOnDayClick={false}
             inputProps={{
               onBlur: this.handleBlur,
-              onFocus: this.handleFocus
+              onFocus: this.handleFocus,
             }}
             {...others}
           />
