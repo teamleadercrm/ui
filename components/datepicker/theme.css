@@ -212,7 +212,7 @@
 /* DayPickerInput */
 .date-picker-input,
 .date-picker-input-range {
-  position: relative
+  position: relative;
 }
 
 .overlay {
@@ -243,6 +243,16 @@
   border: 1px solid var(--color-neutral-dark);
   border-radius: var(--border-radius);
   display: inline-block;
+  transition: .3s ease-in-out border, .3s ease-in-out box-shadow;
+
+  &:hover {
+    border-color: var(--color-neutral-darkest);
+  }
+
+  .has-focus & {
+    border-color: var(--color-neutral-darkest);
+    box-shadow: 0 0 0 1px var(--color-neutral-darkest);
+  }
 }
 
 .input-icon {
