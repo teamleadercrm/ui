@@ -6,6 +6,7 @@ import Icon from '../icon';
 import NavigationBar from './NavigationBar';
 import WeekDay from './WeekDay';
 import { convertModifiersToClassnames, hasRange } from './utils';
+import { DateUtils } from 'react-day-picker/lib/src/index';
 import { IconCalendarSmallOutline } from '@teamleader/ui-icons';
 import cx from 'classnames';
 import theme from './theme.css';
@@ -28,10 +29,12 @@ class DatePickerInputRange extends PureComponent {
 
     this.handleFromChange = ::this.handleFromChange;
     this.handleToChange = ::this.handleToChange;
+    this.handleDayMouseEnter = ::this.handleDayMouseEnter;
 
     this.state = {
-      from: undefined,
-      to: undefined,
+      from: null,
+      to: null,
+      enteredTo: null,
     };
   }
 
@@ -39,24 +42,35 @@ class DatePickerInputRange extends PureComponent {
     clearTimeout(this.timeout);
   }
 
+  focusFrom() {
+    this.timeout = setTimeout(() => this.from.getInput().focus(), 100);
+  }
+
   focusTo() {
-    // Focus to `to` field. A timeout is required here because the overlays
-    // already set timeouts to work well with input fields
     this.timeout = setTimeout(() => this.to.getInput().focus(), 0);
   }
 
-  handleFromChange(from) {
-    // Change the from date and focus the "to" input field
-    this.setState({ from }, () => {
+  handleFromChange(day) {
+    this.setState({ from: day }, () => {
       if (!this.state.to) {
         this.focusTo();
       }
     });
   }
 
-  handleToChange(to) {
-    this.setState({ to }, this.showFromMonth);
+  handleToChange(day) {
+    this.setState({ to: day, enteredTo: day }, () => {
+      const { from, to } = this.state;
+      this.showFromMonth();
+      this.props.onChange({ from, to });
+    });
   }
+
+  handleToFocus = () => {
+    if (!this.state.from) {
+      this.focusFrom();
+    }
+  };
 
   showFromMonth() {
     const { from, to } = this.state;
@@ -65,18 +79,30 @@ class DatePickerInputRange extends PureComponent {
       return;
     }
 
-    this.props.onChange(this.state);
+    this.to.getDayPicker().showMonth(DateUtils.addMonths(to, -1));
+  }
 
-    // if (moment(to).diff(moment(from), 'months') < 2) {
-    this.to.getDayPicker().showMonth(from);
-    // }
+  handleDayMouseEnter(day) {
+    const { from, to } = this.state;
+
+    if (!this.isSelectingFirstDay(from, to, day)) {
+      this.setState({
+        enteredTo: day,
+      });
+    }
+  }
+
+  isSelectingFirstDay(from, to, day) {
+    const isBeforeFirstDay = from && DateUtils.isDayBefore(day, from);
+    const isRangeSelected = from && to;
+    return !from || isBeforeFirstDay || isRangeSelected;
   }
 
   render() {
     const { className, dayPickerProps, size, ...others } = this.props;
-    const { from, to } = this.state;
-    const modifiers = { from, to };
-    const selectedDays = [from, { from, to }];
+    const { from, to, enteredTo } = this.state;
+    const modifiers = { from, to: enteredTo };
+    const selectedDays = [from, { from, to: enteredTo }];
 
     const classNames = cx(theme['date-picker-input-range'], theme[`is-${size}`]);
 
@@ -117,7 +143,7 @@ class DatePickerInputRange extends PureComponent {
               ...dayPickerProps,
             }}
             onDayChange={this.handleFromChange}
-            value={from}
+            ref={el => (this.from = el)}
             {...commonDayPickerInputProps}
             {...others}
           />
@@ -128,11 +154,14 @@ class DatePickerInputRange extends PureComponent {
               disabledDays: { before: from },
               month: from,
               fromMonth: from,
+              onDayMouseEnter: this.handleDayMouseEnter,
               ...dayPickerProps,
             }}
             onDayChange={this.handleToChange}
+            inputProps={{
+              onFocus: this.handleToFocus,
+            }}
             ref={el => (this.to = el)}
-            value={to}
             {...commonDayPickerInputProps}
             {...others}
           />
