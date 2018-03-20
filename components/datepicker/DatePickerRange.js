@@ -21,20 +21,13 @@ class DatePickerRange extends PureComponent {
     size: 'medium',
   };
 
-  constructor() {
-    super(...arguments);
+  state = {
+    from: null,
+    to: null,
+    enteredTo: null,
+  };
 
-    this.handleDayClick = ::this.handleDayClick;
-    this.handleDayMouseEnter = ::this.handleDayMouseEnter;
-
-    this.state = {
-      from: null,
-      to: null,
-      enteredTo: null,
-    };
-  }
-
-  handleDayClick(day) {
+  handleDayClick = (day) => {
     const { from, to } = this.state;
 
     if (from && to && day >= from && day <= to) {
@@ -57,9 +50,9 @@ class DatePickerRange extends PureComponent {
         enteredTo: day,
       });
     }
-  }
+  };
 
-  handleDayMouseEnter(day) {
+  handleDayMouseEnter = (day) => {
     const { from, to } = this.state;
 
     if (!this.isSelectingFirstDay(from, to, day)) {
@@ -67,13 +60,13 @@ class DatePickerRange extends PureComponent {
         enteredTo: day,
       });
     }
-  }
+  };
 
-  isSelectingFirstDay(from, to, day) {
+  isSelectingFirstDay = (from, to, day) => {
     const isBeforeFirstDay = from && DateUtils.isDayBefore(day, from);
     const isRangeSelected = from && to;
     return !from || isBeforeFirstDay || isRangeSelected;
-  }
+  };
 
   render() {
     const { className, size, ...others } = this.props;
