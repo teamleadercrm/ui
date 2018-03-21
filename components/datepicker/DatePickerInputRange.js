@@ -19,12 +19,14 @@ class DatePickerInputRange extends PureComponent {
     modifiers: PropTypes.object,
     dayPickerProps: PropTypes.object,
     onChange: PropTypes.func,
+    readOnly: PropTypes.bool,
     size: PropTypes.oneOf(['small', 'medium', 'large']),
   };
 
   static defaultProps = {
     bold: false,
     disabled: false,
+    readOnly: false,
     size: 'medium',
   };
 
@@ -104,7 +106,7 @@ class DatePickerInputRange extends PureComponent {
   };
 
   render() {
-    const { bold, className, dayPickerProps, disabled, size, ...others } = this.props;
+    const { bold, className, dayPickerProps, disabled, readOnly, size, ...others } = this.props;
     const { from, to, enteredTo, inputHasFocus } = this.state;
     const modifiers = { from, to: enteredTo };
     const selectedDays = [from, { from, to: enteredTo }];
@@ -112,6 +114,7 @@ class DatePickerInputRange extends PureComponent {
     const classNames = cx(theme['date-picker-input-range'], theme[`is-${size}`], {
       [theme['is-bold']]: bold,
       [theme['is-disabled']]: disabled,
+      [theme['is-read-only']]: readOnly,
       [theme['has-focus']]: inputHasFocus,
     });
 
@@ -153,7 +156,7 @@ class DatePickerInputRange extends PureComponent {
             }}
             onDayChange={this.handleFromChange}
             inputProps={{
-              disabled,
+              disabled: disabled || readOnly,
               onBlur: this.handleFromBlur,
               onFocus: this.handleFromFocus,
             }}
@@ -172,7 +175,7 @@ class DatePickerInputRange extends PureComponent {
             }}
             onDayChange={this.handleToChange}
             inputProps={{
-              disabled,
+              disabled: disabled || readOnly,
               onBlur: this.handleToBlur,
               onFocus: this.handleToFocus,
             }}

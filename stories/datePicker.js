@@ -61,6 +61,7 @@ storiesOf('DatePicker', module)
           disabled={boolean('Disabled', false)}
           numberOfMonths={number('Number of months', 1)}
           onDayClick={handleDayClick}
+          readOnly={boolean('Read only', false)}
           showOutsideDays={boolean('Show outside days', true)}
           showWeekNumbers={boolean('Show week numbers', true)}
           size={select('Size', sizes, 'medium')}
@@ -83,6 +84,7 @@ storiesOf('DatePicker', module)
         }}
         disabled={boolean('Disabled', false)}
         placeholder="D/M/YYYY"
+        readOnly={boolean('Read only', false)}
         onChange={handleOnChange}
         size={select('Size', sizes, 'medium')}
       />
@@ -108,6 +110,7 @@ storiesOf('DatePicker', module)
           }}
           disabled={boolean('Disabled', false)}
           placeholder="D/M/YYYY"
+          readOnly={boolean('Read only', false)}
           onChange={handleOnChange}
         />
       </Label>
