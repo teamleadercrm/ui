@@ -229,12 +229,12 @@
     .input-wrapper {
       background-color: var(--color-neutral);
       border-color: var(--color-neutral);
-    }
 
-    input {
-      color: var(--color-neutral-darkest);
-      pointer-events: none;
-      user-select: none;
+      input {
+        color: var(--color-neutral-darkest);
+        pointer-events: none;
+        user-select: none;
+      }
     }
   }
 }
