@@ -288,6 +288,7 @@
     border: 0;
     border-radius: var(--border-radius);
     color: var(--color-teal-darkest);
+    font-family: var(--font-family-regular);
     font-size: var(--input-text-size);
     outline: 0;
     padding: 0;
