@@ -125,6 +125,7 @@ class DatePickerInputRange extends PureComponent {
       selectedDays,
       navbarElement: <NavigationBar size={size} />,
       weekdayElement: <WeekDay size={size} />,
+      ...dayPickerProps,
     };
 
     const commonDayPickerInputProps = {
@@ -140,10 +141,9 @@ class DatePickerInputRange extends PureComponent {
           </Icon>
           <DayPickerInput
             dayPickerProps={{
-              ...commonDayPickerProps,
               disabledDays: { after: to },
               toMonth: to,
-              ...dayPickerProps,
+              ...commonDayPickerProps,
             }}
             onDayChange={this.handleFromChange}
             inputProps={{
@@ -157,12 +157,11 @@ class DatePickerInputRange extends PureComponent {
           {` - `}
           <DayPickerInput
             dayPickerProps={{
-              ...commonDayPickerProps,
               disabledDays: { before: from },
               month: from,
               fromMonth: from,
               onDayMouseEnter: this.handleDayMouseEnter,
-              ...dayPickerProps,
+              ...commonDayPickerProps,
             }}
             onDayChange={this.handleToChange}
             inputProps={{
