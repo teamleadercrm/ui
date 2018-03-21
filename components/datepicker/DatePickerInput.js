@@ -13,6 +13,7 @@ import theme from './theme.css';
 class DatePickerInput extends PureComponent {
   static propTypes = {
     className: PropTypes.string,
+    disabled: PropTypes.bool,
     modifiers: PropTypes.object,
     dayPickerProps: PropTypes.object,
     selectedDays: PropTypes.oneOfType([PropTypes.object, PropTypes.func, PropTypes.array]),
@@ -20,6 +21,7 @@ class DatePickerInput extends PureComponent {
   };
 
   static defaultProps = {
+    disabled: false,
     size: 'medium',
   };
 
@@ -36,9 +38,10 @@ class DatePickerInput extends PureComponent {
   };
 
   render() {
-    const { className, dayPickerProps, modifiers, selectedDays, size, ...others } = this.props;
+    const { className, dayPickerProps, disabled, modifiers, selectedDays, size, ...others } = this.props;
 
     const classNames = cx(theme['date-picker-input'], theme[`is-${size}`], {
+      [theme['is-disabled']]: disabled,
       [theme['has-focus']]: this.state.inputHasFocus,
     });
 
@@ -70,6 +73,7 @@ class DatePickerInput extends PureComponent {
             }}
             hideOnDayClick={false}
             inputProps={{
+              disabled,
               onBlur: this.handleBlur,
               onFocus: this.handleFocus,
             }}

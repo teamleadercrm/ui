@@ -213,6 +213,30 @@
 .date-picker-input,
 .date-picker-input-range {
   position: relative;
+
+  &:not(.is-disabled) {
+    .input-wrapper {
+      background-color: var(--color-white);
+      border-color: var(--color-neutral-dark);
+
+      &:hover {
+        border-color: var(--color-neutral-darkest);
+      }
+    }
+  }
+
+  &.is-disabled {
+    .input-wrapper {
+      background-color: var(--color-neutral);
+      border-color: var(--color-neutral);
+    }
+
+    input {
+      color: var(--color-neutral-darkest);
+      pointer-events: none;
+      user-select: none;
+    }
+  }
 }
 
 .overlay {
@@ -240,14 +264,10 @@
 }
 
 .input-wrapper {
-  border: 1px solid var(--color-neutral-dark);
+  border: 1px solid;
   border-radius: var(--border-radius);
   display: inline-block;
   transition: .3s ease-in-out border, .3s ease-in-out box-shadow;
-
-  &:hover {
-    border-color: var(--color-neutral-darkest);
-  }
 
   .has-focus & {
     border-color: var(--color-neutral-darkest);
@@ -264,6 +284,7 @@
   display: inline-block;
 
   input {
+    background: transparent;
     border: 0;
     border-radius: var(--border-radius);
     color: var(--color-teal-darkest);
