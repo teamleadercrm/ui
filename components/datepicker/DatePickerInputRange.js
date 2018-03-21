@@ -28,6 +28,7 @@ class DatePickerInputRange extends PureComponent {
     from: null,
     to: null,
     enteredTo: null,
+    inputHasFocus: false,
   };
 
   componentWillUnmount() {
@@ -40,6 +41,14 @@ class DatePickerInputRange extends PureComponent {
 
   focusTo = () => {
     this.timeout = setTimeout(() => this.to.getInput().focus(), 0);
+  };
+
+  handleFromBlur = () => {
+    this.setState({ inputHasFocus: false });
+  };
+
+  handleFromFocus = () => {
+    this.setState({ inputHasFocus: true });
   };
 
   handleFromChange = day => {
@@ -58,7 +67,13 @@ class DatePickerInputRange extends PureComponent {
     });
   };
 
+  handleToBlur = () => {
+    this.setState({ inputHasFocus: false });
+  };
+
   handleToFocus = () => {
+    this.setState({ inputHasFocus: true });
+
     if (!this.state.from) {
       this.focusFrom();
     }
@@ -86,11 +101,13 @@ class DatePickerInputRange extends PureComponent {
 
   render() {
     const { className, dayPickerProps, size, ...others } = this.props;
-    const { from, to, enteredTo } = this.state;
+    const { from, to, enteredTo, inputHasFocus } = this.state;
     const modifiers = { from, to: enteredTo };
     const selectedDays = [from, { from, to: enteredTo }];
 
-    const classNames = cx(theme['date-picker-input-range'], theme[`is-${size}`]);
+    const classNames = cx(theme['date-picker-input-range'], theme[`is-${size}`], {
+      [theme['has-focus']]: inputHasFocus,
+    });
 
     const dayPickerClassNames = cx(
       theme['date-picker'],
@@ -129,6 +146,10 @@ class DatePickerInputRange extends PureComponent {
               ...dayPickerProps,
             }}
             onDayChange={this.handleFromChange}
+            inputProps={{
+              onBlur: this.handleFromBlur,
+              onFocus: this.handleFromFocus,
+            }}
             ref={el => (this.from = el)}
             {...commonDayPickerInputProps}
             {...others}
@@ -145,6 +166,7 @@ class DatePickerInputRange extends PureComponent {
             }}
             onDayChange={this.handleToChange}
             inputProps={{
+              onBlur: this.handleToBlur,
               onFocus: this.handleToFocus,
             }}
             ref={el => (this.to = el)}
