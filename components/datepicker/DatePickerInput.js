@@ -42,7 +42,17 @@ class DatePickerInput extends PureComponent {
   };
 
   render() {
-    const { bold, className, dayPickerProps, disabled, modifiers, selectedDays, readOnly, size, ...others } = this.props;
+    const {
+      bold,
+      className,
+      dayPickerProps,
+      disabled,
+      modifiers,
+      selectedDays,
+      readOnly,
+      size,
+      ...others
+    } = this.props;
 
     const classNames = cx(theme['date-picker-input'], theme[`is-${size}`], {
       [theme['is-bold']]: bold,
