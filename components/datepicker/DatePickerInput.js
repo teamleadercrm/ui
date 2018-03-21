@@ -12,6 +12,7 @@ import theme from './theme.css';
 
 class DatePickerInput extends PureComponent {
   static propTypes = {
+    bold: PropTypes.bool,
     className: PropTypes.string,
     disabled: PropTypes.bool,
     modifiers: PropTypes.object,
@@ -21,6 +22,7 @@ class DatePickerInput extends PureComponent {
   };
 
   static defaultProps = {
+    bold: false,
     disabled: false,
     size: 'medium',
   };
@@ -38,9 +40,10 @@ class DatePickerInput extends PureComponent {
   };
 
   render() {
-    const { className, dayPickerProps, disabled, modifiers, selectedDays, size, ...others } = this.props;
+    const { bold, className, dayPickerProps, disabled, modifiers, selectedDays, size, ...others } = this.props;
 
     const classNames = cx(theme['date-picker-input'], theme[`is-${size}`], {
+      [theme['is-bold']]: bold,
       [theme['is-disabled']]: disabled,
       [theme['has-focus']]: this.state.inputHasFocus,
     });

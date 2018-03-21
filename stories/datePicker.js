@@ -57,6 +57,7 @@ storiesOf('DatePicker', module)
     return (
       <State store={basicStore}>
         <DatePickerInput
+          bold={boolean('Bold', false)}
           disabled={boolean('Disabled', false)}
           numberOfMonths={number('Number of months', 1)}
           onDayClick={handleDayClick}
@@ -74,6 +75,7 @@ storiesOf('DatePicker', module)
 
     return (
       <DatePickerInputRange
+        bold={boolean('Bold', false)}
         dayPickerProps={{
           numberOfMonths: number('Number of months', 2),
           showOutsideDays: boolean('Show outside days', true),
@@ -98,6 +100,7 @@ storiesOf('DatePicker', module)
       >
         Date
         <DatePickerInputRange
+          bold={boolean('Bold', false)}
           dayPickerProps={{
             numberOfMonths: number('Number of months', 2),
             showOutsideDays: boolean('Show outside days', true),

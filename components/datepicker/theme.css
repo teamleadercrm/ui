@@ -229,11 +229,19 @@
     .input-wrapper {
       background-color: var(--color-neutral);
       border-color: var(--color-neutral);
+      pointer-events: none;
+      user-select: none;
 
       input {
         color: var(--color-neutral-darkest);
-        pointer-events: none;
-        user-select: none;
+      }
+    }
+  }
+
+  &.is-bold {
+    .input-wrapper {
+      input {
+        font-family: var(--font-family-medium);
       }
     }
   }
@@ -273,6 +281,19 @@
     border-color: var(--color-neutral-darkest);
     box-shadow: 0 0 0 1px var(--color-neutral-darkest);
   }
+
+  input {
+     background: transparent;
+     border: 0;
+     border-radius: var(--border-radius);
+     color: var(--color-teal-darkest);
+     font-family: var(--font-family-regular);
+     font-size: var(--input-text-size);
+     outline: 0;
+     padding: 0;
+     width: var(--input-width);
+     text-align: center;
+   }
 }
 
 .input-icon {
@@ -282,19 +303,6 @@
 
 .container {
   display: inline-block;
-
-  input {
-    background: transparent;
-    border: 0;
-    border-radius: var(--border-radius);
-    color: var(--color-teal-darkest);
-    font-family: var(--font-family-regular);
-    font-size: var(--input-text-size);
-    outline: 0;
-    padding: 0;
-    width: var(--input-width);
-    text-align: center;
-  }
 
   &:last-child input {
     padding: 0 5px 0 0;
@@ -334,7 +342,7 @@
     padding: 6px;
   }
 
-  .container {
+  .input-wrapper {
     input {
       height: var(--input-height-small);
     }
@@ -368,7 +376,7 @@
     padding: 9px;
   }
 
-  .container {
+  .input-wrapper {
     input {
       height: var(--input-height-medium);
     }
@@ -403,7 +411,7 @@
     padding: 12px;
   }
 
-  .container {
+  .input-wrapper {
     input {
       font-size: var(--input-text-size-large);
       height: var(--input-height-large);
