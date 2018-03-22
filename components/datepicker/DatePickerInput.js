@@ -7,6 +7,7 @@ import NavigationBar from './NavigationBar';
 import WeekDay from './WeekDay';
 import { convertModifiersToClassnames, hasRange } from './utils';
 import { IconCalendarSmallOutline } from '@teamleader/ui-icons';
+import { TextSmall } from '../typography';
 import cx from 'classnames';
 import theme from './theme.css';
 
@@ -15,6 +16,7 @@ class DatePickerInput extends PureComponent {
     bold: PropTypes.bool,
     className: PropTypes.string,
     disabled: PropTypes.bool,
+    helpText: PropTypes.string,
     inverse: PropTypes.bool,
     modifiers: PropTypes.object,
     dayPickerProps: PropTypes.object,
@@ -49,6 +51,7 @@ class DatePickerInput extends PureComponent {
       className,
       dayPickerProps,
       disabled,
+      helpText,
       inverse,
       modifiers,
       selectedDays,
@@ -105,6 +108,11 @@ class DatePickerInput extends PureComponent {
             {...others}
           />
         </div>
+        {helpText && (
+          <TextSmall color={inverse ? 'white' : 'neutral'} marginTop={1} soft>
+            {helpText}
+          </TextSmall>
+        )}
       </Box>
     );
   }

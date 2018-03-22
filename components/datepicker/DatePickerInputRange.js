@@ -8,6 +8,7 @@ import WeekDay from './WeekDay';
 import { convertModifiersToClassnames, hasRange, isSelectingFirstDay } from './utils';
 import { DateUtils } from 'react-day-picker/lib/src/index';
 import { IconCalendarSmallOutline } from '@teamleader/ui-icons';
+import { TextSmall } from '../typography';
 import cx from 'classnames';
 import theme from './theme.css';
 
@@ -16,6 +17,7 @@ class DatePickerInputRange extends PureComponent {
     bold: PropTypes.bool,
     className: PropTypes.string,
     disabled: PropTypes.bool,
+    helpText: PropTypes.string,
     inverse: PropTypes.bool,
     modifiers: PropTypes.object,
     dayPickerProps: PropTypes.object,
@@ -108,7 +110,7 @@ class DatePickerInputRange extends PureComponent {
   };
 
   render() {
-    const { bold, className, dayPickerProps, disabled, inverse, readOnly, size, ...others } = this.props;
+    const { bold, className, dayPickerProps, disabled, helpText, inverse, readOnly, size, ...others } = this.props;
     const { from, to, enteredTo, inputHasFocus } = this.state;
     const modifiers = { from, to: enteredTo };
     const selectedDays = [from, { from, to: enteredTo }];
@@ -191,6 +193,11 @@ class DatePickerInputRange extends PureComponent {
             {...others}
           />
         </div>
+        {helpText && (
+          <TextSmall color={inverse ? 'white' : 'neutral'} marginTop={1} soft>
+            {helpText}
+          </TextSmall>
+        )}
       </Box>
     );
   }
