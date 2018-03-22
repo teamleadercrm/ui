@@ -222,7 +222,7 @@
         border-color: var(--color-neutral-dark);
 
         input,
-        .container:not(.date-picker):last-child::before {
+        .container:not(.date-picker) + .container:not(.date-picker)::before {
           color: var(--color-teal-darkest);
         }
 
@@ -247,7 +247,7 @@
         border-color: var(--color-neutral);
 
         input,
-        .container:not(.date-picker):last-child::before {
+        .container:not(.date-picker) + .container:not(.date-picker)::before {
           color: var(--color-neutral-darkest);
         }
 
@@ -263,7 +263,7 @@
         border-color: var(--color-neutral);
 
         input,
-        .container:not(.date-picker):last-child::before {
+        .container:not(.date-picker) + .container:not(.date-picker)::before {
           color: var(--color-teal-darkest);
         }
       }
@@ -277,7 +277,7 @@
         border-color: var(--color-teal);
 
         input,
-        .container:not(.date-picker):last-child::before {
+        .container:not(.date-picker) + .container:not(.date-picker)::before {
           color: var(--color-neutral-lightest);
         }
 
@@ -303,7 +303,7 @@
 
         input,
         input::placeholder,
-        .container:not(.date-picker):last-child::before {
+        .container:not(.date-picker) + .container:not(.date-picker)::before {
           color: var(--color-teal);
         }
       }
@@ -315,7 +315,7 @@
         border-color: var(--color-teal-dark);
 
         input,
-        .container:not(.date-picker):last-child::before {
+        .container:not(.date-picker) + .container:not(.date-picker)::before {
           color: var(--color-neutral-lightest);
         }
 
@@ -393,16 +393,14 @@
 .container:not(.date-picker) {
   display: inline-block;
 
-  &:last-child {
-    input {
-      padding: 0 5px 0 0;
-    }
-
-    &::before {
-      content: '-';
-      display: inline-block;
-    }
+  &:last-child  input {
+    padding: 0 5px 0 0;
   }
+}
+
+.container:not(.date-picker) + .container:not(.date-picker)::before {
+  content: '-';
+  display: inline-block;
 }
 
 .is-small {
