@@ -15,6 +15,7 @@ class DatePickerInput extends PureComponent {
     bold: PropTypes.bool,
     className: PropTypes.string,
     disabled: PropTypes.bool,
+    inverse: PropTypes.bool,
     modifiers: PropTypes.object,
     dayPickerProps: PropTypes.object,
     readOnly: PropTypes.bool,
@@ -25,6 +26,7 @@ class DatePickerInput extends PureComponent {
   static defaultProps = {
     bold: false,
     disabled: false,
+    inverse: false,
     readOnly: false,
     size: 'medium',
   };
@@ -47,6 +49,7 @@ class DatePickerInput extends PureComponent {
       className,
       dayPickerProps,
       disabled,
+      inverse,
       modifiers,
       selectedDays,
       readOnly,
@@ -57,6 +60,7 @@ class DatePickerInput extends PureComponent {
     const classNames = cx(theme['date-picker-input'], theme[`is-${size}`], {
       [theme['is-bold']]: bold,
       [theme['is-disabled']]: disabled,
+      [theme['is-inverse']]: inverse,
       [theme['is-read-only']]: readOnly,
       [theme['has-focus']]: this.state.inputHasFocus,
     });
@@ -73,7 +77,12 @@ class DatePickerInput extends PureComponent {
     return (
       <Box className={classNames}>
         <div className={theme['input-wrapper']}>
-          <Icon className={theme['input-icon']} color="teal" tint="darkest" marginHorizontal={2}>
+          <Icon
+            className={theme['input-icon']}
+            color={inverse ? 'teal' : 'neutral'}
+            tint={inverse ? 'light' : 'darkest'}
+            marginHorizontal={2}
+          >
             <IconCalendarSmallOutline />
           </Icon>
           <DayPickerInput

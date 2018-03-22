@@ -59,6 +59,7 @@ storiesOf('DatePicker', module)
         <DatePickerInput
           bold={boolean('Bold', false)}
           disabled={boolean('Disabled', false)}
+          inverse={boolean('Inverse', false)}
           numberOfMonths={number('Number of months', 1)}
           onDayClick={handleDayClick}
           readOnly={boolean('Read only', false)}
@@ -83,6 +84,7 @@ storiesOf('DatePicker', module)
           showWeekNumbers: boolean('Show week numbers', true)
         }}
         disabled={boolean('Disabled', false)}
+        inverse={boolean('Inverse', false)}
         placeholder="D/M/YYYY"
         readOnly={boolean('Read only', false)}
         onChange={handleOnChange}
@@ -98,6 +100,7 @@ storiesOf('DatePicker', module)
 
     return (
       <Label
+        inverse={boolean('Inverse', false)}
         size={select('Size', sizes, 'medium')}
       >
         Date

@@ -212,36 +212,124 @@
 /* DayPickerInput */
 .date-picker-input,
 .date-picker-input-range {
+  composes: reset-font-smoothing;
   position: relative;
 
-  &:not(.is-disabled):not(.is-read-only) {
-    .input-wrapper {
-      background-color: var(--color-white);
-      border-color: var(--color-neutral-dark);
+  &:not(.is-inverse) {
+    &:not(.is-disabled):not(.is-read-only) {
+      .input-wrapper {
+        background-color: var(--color-white);
+        border-color: var(--color-neutral-dark);
 
-      &:hover {
+        input,
+        .container:not(.date-picker):last-child::before {
+          color: var(--color-teal-darkest);
+        }
+
+        input::placeholder {
+          color: var(--color-neutral-darkest);
+        }
+
+        &:hover {
+          border-color: var(--color-neutral-darkest);
+        }
+      }
+
+      &.has-focus .input-wrapper {
         border-color: var(--color-neutral-darkest);
+        box-shadow: 0 0 0 1px var(--color-neutral-darkest);
+      }
+    }
+
+    &.is-disabled {
+      .input-wrapper {
+        background-color: var(--color-neutral);
+        border-color: var(--color-neutral);
+
+        input,
+        .container:not(.date-picker):last-child::before {
+          color: var(--color-neutral-darkest);
+        }
+
+        input::placeholder {
+          color: var(--color-neutral-dark);
+        }
+      }
+    }
+
+    &.is-read-only {
+      .input-wrapper {
+        background-color: var(--color-neutral);
+        border-color: var(--color-neutral);
+
+        input,
+        .container:not(.date-picker):last-child::before {
+          color: var(--color-teal-darkest);
+        }
+      }
+    }
+  }
+
+  &.is-inverse {
+    &:not(.is-disabled):not(.is-read-only) {
+      .input-wrapper {
+        background-color: var(--color-teal);
+        border-color: var(--color-teal);
+
+        input,
+        .container:not(.date-picker):last-child::before {
+          color: var(--color-neutral-lightest);
+        }
+
+        input::placeholder {
+          color: var(--color-teal-light);
+        }
+
+        &:hover {
+          border-color: var(--color-teal-light);
+        }
+      }
+
+      &.has-focus .input-wrapper {
+        border-color: var(--color-teal-light);
+        box-shadow: 0 0 0 1px var(--color-teal-light);
+      }
+    }
+
+    &.is-disabled {
+      .input-wrapper {
+        background-color: var(--color-teal-dark);
+        border-color: var(--color-teal-dark);
+
+        input,
+        input::placeholder,
+        .container:not(.date-picker):last-child::before {
+          color: var(--color-teal);
+        }
+      }
+    }
+
+    &.is-read-only {
+      .input-wrapper {
+        background-color: var(--color-teal-dark);
+        border-color: var(--color-teal-dark);
+
+        input,
+        .container:not(.date-picker):last-child::before {
+          color: var(--color-neutral-lightest);
+        }
+
+        input::placeholder {
+          color: var(--color-teal);
+        }
       }
     }
   }
 
   &.is-disabled {
     .input-wrapper {
-      background-color: var(--color-neutral);
-      border-color: var(--color-neutral);
       pointer-events: none;
       user-select: none;
-
-      input {
-        color: var(--color-neutral-darkest);
-      }
-    }
-  }
-
-  &.is-read-only {
-    .input-wrapper {
-      background-color: var(--color-neutral);
-      border-color: var(--color-neutral);
     }
   }
 
@@ -284,16 +372,10 @@
   display: inline-block;
   transition: .3s ease-in-out border, .3s ease-in-out box-shadow;
 
-  .has-focus & {
-    border-color: var(--color-neutral-darkest);
-    box-shadow: 0 0 0 1px var(--color-neutral-darkest);
-  }
-
   input {
      background: transparent;
      border: 0;
      border-radius: var(--border-radius);
-     color: var(--color-teal-darkest);
      font-family: var(--font-family-regular);
      font-size: var(--input-text-size);
      outline: 0;
@@ -308,11 +390,18 @@
   top: -1px;
 }
 
-.container {
+.container:not(.date-picker) {
   display: inline-block;
 
-  &:last-child input {
-    padding: 0 5px 0 0;
+  &:last-child {
+    input {
+      padding: 0 5px 0 0;
+    }
+
+    &::before {
+      content: '-';
+      display: inline-block;
+    }
   }
 }
 

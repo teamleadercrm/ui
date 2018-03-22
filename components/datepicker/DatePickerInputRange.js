@@ -16,6 +16,7 @@ class DatePickerInputRange extends PureComponent {
     bold: PropTypes.bool,
     className: PropTypes.string,
     disabled: PropTypes.bool,
+    inverse: PropTypes.bool,
     modifiers: PropTypes.object,
     dayPickerProps: PropTypes.object,
     onChange: PropTypes.func,
@@ -26,6 +27,7 @@ class DatePickerInputRange extends PureComponent {
   static defaultProps = {
     bold: false,
     disabled: false,
+    inverse: false,
     readOnly: false,
     size: 'medium',
   };
@@ -106,7 +108,7 @@ class DatePickerInputRange extends PureComponent {
   };
 
   render() {
-    const { bold, className, dayPickerProps, disabled, readOnly, size, ...others } = this.props;
+    const { bold, className, dayPickerProps, disabled, inverse, readOnly, size, ...others } = this.props;
     const { from, to, enteredTo, inputHasFocus } = this.state;
     const modifiers = { from, to: enteredTo };
     const selectedDays = [from, { from, to: enteredTo }];
@@ -114,6 +116,7 @@ class DatePickerInputRange extends PureComponent {
     const classNames = cx(theme['date-picker-input-range'], theme[`is-${size}`], {
       [theme['is-bold']]: bold,
       [theme['is-disabled']]: disabled,
+      [theme['is-inverse']]: inverse,
       [theme['is-read-only']]: readOnly,
       [theme['has-focus']]: inputHasFocus,
     });
@@ -145,7 +148,12 @@ class DatePickerInputRange extends PureComponent {
     return (
       <Box className={classNames}>
         <div className={theme['input-wrapper']}>
-          <Icon className={theme['input-icon']} color="teal" tint="darkest" marginHorizontal={2}>
+          <Icon
+            className={theme['input-icon']}
+            color={inverse ? 'teal' : 'neutral'}
+            tint={inverse ? 'light' : 'darkest'}
+            marginHorizontal={2}
+          >
             <IconCalendarSmallOutline />
           </Icon>
           <DayPickerInput
@@ -164,7 +172,6 @@ class DatePickerInputRange extends PureComponent {
             {...commonDayPickerInputProps}
             {...others}
           />
-          {` - `}
           <DayPickerInput
             dayPickerProps={{
               disabledDays: { before: from },
