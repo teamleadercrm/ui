@@ -6,7 +6,10 @@ import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean, number, select } from "@storybook/addon-knobs/react";
 import { DatePicker, DatePickerInput, DatePickerInputRange, DatePickerRange, Label } from '../components';
+import { DateTime } from 'luxon';
+import MomentLocaleUtils from 'react-day-picker/moment';
 
+const languages = ['da', 'de', 'fr', 'en', 'es', 'fi', 'it', 'nl', 'pt', 'pl', 'sv'];
 const sizes = ['small', 'medium', 'large'];
 
 const basicStore = new Store({
@@ -25,6 +28,8 @@ storiesOf('DatePicker', module)
     return (
       <State store={basicStore}>
         <DatePicker
+          locale={select('Locale', languages, 'nl')}
+          localeUtils={MomentLocaleUtils}
           numberOfMonths={number('Number of months', 1)}
           onDayClick={handleDayClick}
           showOutsideDays={boolean('Show outside days', true)}
@@ -41,6 +46,8 @@ storiesOf('DatePicker', module)
 
     return (
       <DatePickerRange
+        locale={select('Locale', languages, 'nl')}
+        localeUtils={MomentLocaleUtils}
         numberOfMonths={number('Number of months', 2)}
         onChange={handleOnChange}
         showOutsideDays={boolean('Show outside days', true)}
@@ -57,15 +64,21 @@ storiesOf('DatePicker', module)
     return (
       <State store={basicStore}>
         <DatePickerInput
+          formatDate={date =>  DateTime.fromJSDate(date).setLocale(select('Locale', languages, 'nl')).toLocaleString(DateTime.DATE_SHORT)}
           bold={boolean('Bold', false)}
           disabled={boolean('Disabled', false)}
           inverse={boolean('Inverse', false)}
           helpText="Pick a date"
-          numberOfMonths={number('Number of months', 1)}
+          dayPickerProps={{
+            locale: select('Locale', languages, 'nl'),
+            localeUtils: MomentLocaleUtils,
+            numberOfMonths: number('Number of months', 2),
+            showOutsideDays: boolean('Show outside days', true),
+            showWeekNumbers: boolean('Show week numbers', true)
+          }}
           onDayClick={handleDayClick}
+          placeholder={DateTime.fromJSDate(new Date()).setLocale(select('Locale', languages, 'nl')).toLocaleString(DateTime.DATE_SHORT)}
           readOnly={boolean('Read only', false)}
-          showOutsideDays={boolean('Show outside days', true)}
-          showWeekNumbers={boolean('Show week numbers', true)}
           size={select('Size', sizes, 'medium')}
         />
       </State>
@@ -78,8 +91,11 @@ storiesOf('DatePicker', module)
 
     return (
       <DatePickerInputRange
+        formatDate={date =>  DateTime.fromJSDate(date).setLocale(select('Locale', languages, 'nl')).toLocaleString(DateTime.DATE_SHORT)}
         bold={boolean('Bold', false)}
         dayPickerProps={{
+          locale: select('Locale', languages, 'nl'),
+          localeUtils: MomentLocaleUtils,
           numberOfMonths: number('Number of months', 2),
           showOutsideDays: boolean('Show outside days', true),
           showWeekNumbers: boolean('Show week numbers', true)
@@ -87,7 +103,7 @@ storiesOf('DatePicker', module)
         disabled={boolean('Disabled', false)}
         helpText="Pick a start & end date"
         inverse={boolean('Inverse', false)}
-        placeholder="D/M/YYYY"
+        placeholder={DateTime.fromJSDate(new Date()).setLocale(select('Locale', languages, 'nl')).toLocaleString(DateTime.DATE_SHORT)}
         readOnly={boolean('Read only', false)}
         onChange={handleOnChange}
         size={select('Size', sizes, 'medium')}
@@ -107,15 +123,18 @@ storiesOf('DatePicker', module)
       >
         Date
         <DatePickerInputRange
+          formatDate={date =>  DateTime.fromJSDate(date).setLocale(select('Locale', languages, 'nl')).toLocaleString(DateTime.DATE_SHORT)}
           bold={boolean('Bold', false)}
           dayPickerProps={{
+            locale: select('Locale', languages, 'nl'),
+            localeUtils: MomentLocaleUtils,
             numberOfMonths: number('Number of months', 2),
             showOutsideDays: boolean('Show outside days', true),
             showWeekNumbers: boolean('Show week numbers', true)
           }}
           disabled={boolean('Disabled', false)}
           helpText="Pick a start & end date"
-          placeholder="D/M/YYYY"
+          placeholder={DateTime.fromJSDate(new Date()).setLocale(select('Locale', languages, 'nl')).toLocaleString(DateTime.DATE_SHORT)}
           readOnly={boolean('Read only', false)}
           onChange={handleOnChange}
         />
