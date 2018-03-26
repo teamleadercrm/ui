@@ -15,11 +15,13 @@ class TitleTab extends PureComponent {
     counter: PropTypes.node,
     element: PropTypes.node,
     onClick: PropTypes.func,
+    size: PropTypes.oneOf(['small', 'medium']),
   };
 
   static defaultProps = {
     element: 'a',
     active: false,
+    size: 'medium',
   };
 
   constructor() {
@@ -42,6 +44,17 @@ class TitleTab extends PureComponent {
     }
   }
 
+  getPaddingHorizontal = () => {
+    const { size } = this.props;
+    switch (size) {
+      case 'small':
+        return 2;
+      case 'medium':
+      default:
+        return 3;
+    }
+  };
+
   render() {
     const { active, children, className, counter = null, ...others } = this.props;
     const classNames = cx(theme['title-tab'], { [theme['is-active']]: active }, className);
@@ -52,7 +65,7 @@ class TitleTab extends PureComponent {
       <Box
         data-teamleader-ui="title-tab"
         className={classNames}
-        paddingHorizontal={3}
+        paddingHorizontal={this.getPaddingHorizontal()}
         paddingVertical={4}
         ref={node => {
           this.tabNode = node;

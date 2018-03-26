@@ -47,6 +47,6 @@
   }
 
   .image {
-    margin-bottom: var(--spacer-small);
+    margin-bottom: var(--spacer-regular);
   }
 }

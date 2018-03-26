@@ -4,13 +4,13 @@ import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, select } from '@storybook/addon-knobs/react';
-import { Button, Message, CompactMessage, Island, Heading2, Link, TextBody, TextSmall } from '../components';
+import { Button, Message, CompactMessage, Island, Heading2, Link, TextBody } from '../components';
 import { IllustrationInvoices120X120Static, IllustrationSharpie48X48Static } from '@teamleader/ui-illustrations';
 
 const imagePositions = ['left', 'center', 'right'];
 
 const button = <Button level="primary">Button text</Button>;
-const link = <TextSmall><Link href="https://teamleader.eu" inherit={false}>I'm a link</Link></TextSmall>;
+const link = <TextBody><Link href="https://teamleader.eu" inherit={false}>I'm a link</Link></TextBody>;
 const image = <IllustrationInvoices120X120Static />;
 const imageSmall = <IllustrationSharpie48X48Static />;
 const content = (

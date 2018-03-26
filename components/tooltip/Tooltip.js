@@ -27,27 +27,7 @@ const SIZES = {
   },
 };
 
-const defaults = {
-  className: '',
-  color: 'white',
-  hideOnClick: true,
-  icon: null,
-  showOnClick: false,
-  size: 'medium',
-  position: POSITIONS.TOP,
-};
-
-const tooltipFactory = (options = {}) => {
-  const {
-    className: defaultClassName,
-    color: defaultColor,
-    hideOnClick: defaultHideOnClick,
-    icon: defaultIcon,
-    showOnClick: defaultShowOnClick,
-    size: defaultSize,
-    position: defaultPosition,
-  } = { ...defaults, ...options };
-
+const tooltipFactory = () => {
   return ComposedComponent => {
     class TooltippedComponent extends Component {
       static propTypes = {
@@ -66,13 +46,13 @@ const tooltipFactory = (options = {}) => {
       };
 
       static defaultProps = {
-        className: defaultClassName,
-        tooltipColor: defaultColor,
-        tooltipHideOnClick: defaultHideOnClick,
-        tooltipIcon: defaultIcon,
-        tooltipPosition: defaultPosition,
-        tooltipShowOnClick: defaultShowOnClick,
-        tooltipSize: defaultSize,
+        className: '',
+        tooltipColor: 'white',
+        tooltipHideOnClick: true,
+        tooltipIcon: null,
+        tooltipPosition: POSITIONS.TOP,
+        tooltipShowOnClick: false,
+        tooltipSize: 'medium',
       };
 
       constructor() {

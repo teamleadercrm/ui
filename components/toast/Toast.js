@@ -9,115 +9,108 @@ import { createPortal } from 'react-dom';
 import { IconCloseMediumOutline } from '@teamleader/ui-icons';
 import theme from './theme.css';
 
-const factory = (LinkButton, IconButton) => {
-  class Toast extends PureComponent {
-    static propTypes = {
-      action: PropTypes.string,
-      active: PropTypes.bool,
-      children: PropTypes.node,
-      className: PropTypes.string,
-      label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-      onClose: PropTypes.func,
-      onTimeout: PropTypes.func, // eslint-disable-line
-      processing: PropTypes.bool,
-      timeout: PropTypes.number,
-    };
+class Toast extends PureComponent {
+  static propTypes = {
+    action: PropTypes.string,
+    active: PropTypes.bool,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+    onClose: PropTypes.func,
+    onTimeout: PropTypes.func, // eslint-disable-line
+    processing: PropTypes.bool,
+    timeout: PropTypes.number,
+  };
 
-    constructor() {
-      super(...arguments);
+  constructor() {
+    super(...arguments);
 
-      this.toastRoot = document.createElement('div');
-      this.toastRoot.id = 'toast-root';
-    }
+    this.toastRoot = document.createElement('div');
+    this.toastRoot.id = 'toast-root';
+  }
 
-    componentDidMount() {
-      document.body.appendChild(this.toastRoot);
+  componentDidMount() {
+    document.body.appendChild(this.toastRoot);
 
-      if (this.props.active && this.props.timeout) {
-        this.scheduleTimeout(this.props);
-      }
-    }
-
-    componentWillReceiveProps(nextProps) {
-      if (nextProps.active && nextProps.timeout) {
-        this.scheduleTimeout(nextProps);
-      }
-    }
-
-    componentWillUnmount() {
-      clearTimeout(this.currentTimeout);
-      document.body.removeChild(this.toastRoot);
-    }
-
-    scheduleTimeout = props => {
-      const { onTimeout, timeout } = props;
-
-      if (this.currentTimeout) {
-        clearTimeout(this.currentTimeout);
-      }
-
-      this.currentTimeout = setTimeout(() => {
-        if (onTimeout) {
-          onTimeout();
-        }
-
-        this.currentTimeout = null;
-      }, timeout);
-    };
-
-    render() {
-      const { action, active, children, className, label, onClose, processing } = this.props;
-
-      const toast = (
-        <Transition in={active} timeout={{ enter: 0, exit: 1000 }}>
-          {state => {
-            if (state === 'exited') {
-              return null;
-            }
-
-            const classNames = cx(
-              theme['toast'],
-              {
-                [theme['is-entering']]: state === 'entering',
-                [theme['is-entered']]: state === 'entered',
-                [theme['is-exiting']]: state === 'exiting',
-              },
-              className,
-            );
-
-            return (
-              <div data-teamleader-ui="toast" className={classNames}>
-                {processing && <LoadingSpinner className={theme['spinner']} color="white" />}
-                <TextBody className={theme['label']} color="white">
-                  {label}
-                  {children}
-                </TextBody>
-                {onClose ? (
-                  action ? (
-                    <LinkButton className={theme['action-link']} inverse label={action} onClick={onClose} />
-                  ) : (
-                    <IconButton
-                      className={theme['action-button']}
-                      icon={<IconCloseMediumOutline />}
-                      color="white"
-                      onClick={onClose}
-                    />
-                  )
-                ) : null}
-              </div>
-            );
-          }}
-        </Transition>
-      );
-
-      return createPortal(toast, this.toastRoot);
+    if (this.props.active && this.props.timeout) {
+      this.scheduleTimeout(this.props);
     }
   }
 
-  return Toast;
-};
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.active && nextProps.timeout) {
+      this.scheduleTimeout(nextProps);
+    }
+  }
 
-const Toast = factory(LinkButton, IconButton);
+  componentWillUnmount() {
+    clearTimeout(this.currentTimeout);
+    document.body.removeChild(this.toastRoot);
+  }
+
+  scheduleTimeout = props => {
+    const { onTimeout, timeout } = props;
+
+    if (this.currentTimeout) {
+      clearTimeout(this.currentTimeout);
+    }
+
+    this.currentTimeout = setTimeout(() => {
+      if (onTimeout) {
+        onTimeout();
+      }
+
+      this.currentTimeout = null;
+    }, timeout);
+  };
+
+  render() {
+    const { action, active, children, className, label, onClose, processing } = this.props;
+
+    const toast = (
+      <Transition in={active} timeout={{ enter: 0, exit: 1000 }}>
+        {state => {
+          if (state === 'exited') {
+            return null;
+          }
+
+          const classNames = cx(
+            theme['toast'],
+            {
+              [theme['is-entering']]: state === 'entering',
+              [theme['is-entered']]: state === 'entered',
+              [theme['is-exiting']]: state === 'exiting',
+            },
+            className,
+          );
+
+          return (
+            <div data-teamleader-ui="toast" className={classNames}>
+              {processing && <LoadingSpinner className={theme['spinner']} color="white" />}
+              <TextBody className={theme['label']} color="white">
+                {label}
+                {children}
+              </TextBody>
+              {onClose ? (
+                action ? (
+                  <LinkButton className={theme['action-link']} inverse label={action} onClick={onClose} />
+                ) : (
+                  <IconButton
+                    className={theme['action-button']}
+                    icon={<IconCloseMediumOutline />}
+                    color="white"
+                    onClick={onClose}
+                  />
+                )
+              ) : null}
+            </div>
+          );
+        }}
+      </Transition>
+    );
+
+    return createPortal(toast, this.toastRoot);
+  }
+}
 
 export default Toast;
-export { factory as toastFactory, Toast };
