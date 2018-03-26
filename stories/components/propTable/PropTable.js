@@ -9,6 +9,10 @@ const renderPropTypeValues = (propType) => {
     return propType;
   }
 
+  if(propType.name === 'instanceOf') {
+    return propType.value;
+  }
+
   if(!propType.value) {
     return propType.name;
   }
