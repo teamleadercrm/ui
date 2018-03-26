@@ -12,15 +12,20 @@ import MomentLocaleUtils from 'react-day-picker/moment';
 const languages = ['da', 'de', 'fr', 'en', 'es', 'fi', 'it', 'nl', 'pt', 'pl', 'sv'];
 const sizes = ['small', 'medium', 'large'];
 
+const preSelectedRange = {
+  from: DateTime.local().toJSDate(),
+  to: DateTime.local().plus({days: 5}).toJSDate(),
+};
+
 const basicStore = new Store({
-  selectedDays: undefined,
+  selectedDays: DateTime.local().toJSDate(),
 });
 
 storiesOf('DatePicker', module)
   .addDecorator((story, context) => withInfo({TableComponent: PropTable})(story)(context))
   .addDecorator(checkA11y)
   .addDecorator(withKnobs)
-  .add('Basic', () => {
+  .add('Single date', () => {
     const handleDayClick = (day) => {
       basicStore.set({ selectedDays: day });
     };
@@ -39,7 +44,7 @@ storiesOf('DatePicker', module)
       </State>
     )
   })
-  .add('Range onClick', () => {
+  .add('Range', () => {
     const handleOnChange = (selectedRange) => {
       console.log("Selected range", selectedRange);
     };
@@ -50,13 +55,14 @@ storiesOf('DatePicker', module)
         localeUtils={MomentLocaleUtils}
         numberOfMonths={number('Number of months', 2)}
         onChange={handleOnChange}
+        selectedRange={preSelectedRange}
         showOutsideDays={boolean('Show outside days', true)}
         showWeekNumbers={boolean('Show week numbers', true)}
         size={select('Size', sizes, 'medium')}
       />
     )
   })
-  .add('Date input', () => {
+  .add('Input single date', () => {
     const handleDayClick = (day) => {
       basicStore.set({ selectedDays: day });
     };
@@ -84,7 +90,7 @@ storiesOf('DatePicker', module)
       </State>
     )
   })
-  .add('Date input range', () => {
+  .add('Input range', () => {
     const handleOnChange = (selectedRange) => {
       console.log("Selected range", selectedRange);
     };
@@ -106,12 +112,13 @@ storiesOf('DatePicker', module)
         placeholder={DateTime.fromJSDate(new Date()).setLocale(select('Locale', languages, 'nl')).toLocaleString(DateTime.DATE_SHORT)}
         readOnly={boolean('Read only', false)}
         onChange={handleOnChange}
+        selectedRange={preSelectedRange}
         size={select('Size', sizes, 'medium')}
       />
       )
     }
   )
-  .add('With label', () => {
+  .add('Input with label', () => {
     const handleOnChange = (selectedDays) => {
       console.log("selectedDays", selectedDays);
     };
@@ -137,6 +144,7 @@ storiesOf('DatePicker', module)
           placeholder={DateTime.fromJSDate(new Date()).setLocale(select('Locale', languages, 'nl')).toLocaleString(DateTime.DATE_SHORT)}
           readOnly={boolean('Read only', false)}
           onChange={handleOnChange}
+          selectedRange={preSelectedRange}
         />
       </Label>
     )
