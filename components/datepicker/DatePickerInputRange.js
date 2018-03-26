@@ -21,6 +21,8 @@ class DatePickerInputRange extends PureComponent {
     inverse: PropTypes.bool,
     modifiers: PropTypes.object,
     dayPickerProps: PropTypes.object,
+    dayPickerFromProps: PropTypes.object,
+    dayPickerToProps: PropTypes.object,
     onChange: PropTypes.func,
     readOnly: PropTypes.bool,
     selectedRange: PropTypes.object,
@@ -125,7 +127,21 @@ class DatePickerInputRange extends PureComponent {
   };
 
   render() {
-    const { bold, className, dayPickerProps, disabled, helpText, inverse, readOnly, size, valueFrom, valueTo, ...others } = this.props;
+    const {
+      bold,
+      className,
+      dayPickerProps,
+      dayPickerFromProps,
+      dayPickerToProps,
+      disabled,
+      helpText,
+      inverse,
+      readOnly,
+      size,
+      valueFrom,
+      valueTo,
+      ...others
+    } = this.props;
     const { from, to, enteredTo, inputHasFocus } = this.state;
     const modifiers = { from, to: enteredTo };
     const selectedDays = [from, { from, to: enteredTo }];
@@ -178,6 +194,7 @@ class DatePickerInputRange extends PureComponent {
               disabledDays: { after: to },
               toMonth: to,
               ...commonDayPickerProps,
+              ...dayPickerFromProps,
             }}
             onDayChange={this.handleFromChange}
             inputProps={{
@@ -197,6 +214,7 @@ class DatePickerInputRange extends PureComponent {
               fromMonth: from,
               onDayMouseEnter: this.handleDayMouseEnter,
               ...commonDayPickerProps,
+              ...dayPickerToProps,
             }}
             onDayChange={this.handleToChange}
             inputProps={{
