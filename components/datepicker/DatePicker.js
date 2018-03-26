@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import DayPicker from 'react-day-picker';
 import NavigationBar from './NavigationBar';
 import WeekDay from './WeekDay';
-import { convertModifiersToClassnames, hasRange } from './utils';
+import { convertModifiersToClassnames } from './utils';
 import cx from 'classnames';
 import theme from './theme.css';
 
@@ -11,7 +11,8 @@ class DatePicker extends PureComponent {
   static propTypes = {
     className: PropTypes.string,
     modifiers: PropTypes.object,
-    selectedDays: PropTypes.oneOfType([PropTypes.object, PropTypes.func, PropTypes.array]),
+    onChange: PropTypes.func,
+    selectedDate: PropTypes.instanceOf(Date),
     size: PropTypes.oneOf(['small', 'medium', 'large']),
   };
 
@@ -19,17 +20,32 @@ class DatePicker extends PureComponent {
     size: 'medium',
   };
 
-  render() {
-    const { className, modifiers, selectedDays, size, ...others } = this.props;
+  state = {
+    selectedDate: null,
+  };
 
-    const classNames = cx(
-      theme['date-picker'],
-      theme[`is-${size}`],
+  componentWillMount() {
+    const { selectedDate } = this.props;
+
+    if (selectedDate) {
+      this.setState({ selectedDate });
+    }
+  }
+
+  handleDayClick = day => {
+    this.setState(
       {
-        [theme['has-range']]: hasRange(selectedDays),
+        selectedDate: day,
       },
-      className,
+      this.props.onChange({ selectedDate: day }),
     );
+  };
+
+  render() {
+    const { className, modifiers, size, ...others } = this.props;
+    const { selectedDate } = this.state;
+
+    const classNames = cx(theme['date-picker'], theme[`is-${size}`], className);
 
     return (
       <DayPicker
@@ -37,7 +53,8 @@ class DatePicker extends PureComponent {
         classNames={theme}
         modifiers={convertModifiersToClassnames(modifiers, theme)}
         navbarElement={<NavigationBar size={size} />}
-        selectedDays={selectedDays}
+        onDayClick={this.handleDayClick}
+        selectedDays={selectedDate}
         weekdayElement={<WeekDay size={size} />}
         {...others}
       />

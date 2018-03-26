@@ -5,7 +5,7 @@ import DayPickerInput from 'react-day-picker/DayPickerInput';
 import Icon from '../icon';
 import NavigationBar from './NavigationBar';
 import WeekDay from './WeekDay';
-import { convertModifiersToClassnames, hasRange } from './utils';
+import { convertModifiersToClassnames } from './utils';
 import { IconCalendarSmallOutline } from '@teamleader/ui-icons';
 import { TextSmall } from '../typography';
 import cx from 'classnames';
@@ -15,13 +15,14 @@ class DatePickerInput extends PureComponent {
   static propTypes = {
     bold: PropTypes.bool,
     className: PropTypes.string,
+    dayPickerProps: PropTypes.object,
     disabled: PropTypes.bool,
     helpText: PropTypes.string,
     inverse: PropTypes.bool,
     modifiers: PropTypes.object,
-    dayPickerProps: PropTypes.object,
+    onChange: PropTypes.func,
     readOnly: PropTypes.bool,
-    selectedDays: PropTypes.oneOfType([PropTypes.object, PropTypes.func, PropTypes.array]),
+    selectedDate: PropTypes.instanceOf(Date),
     size: PropTypes.oneOf(['small', 'medium', 'large']),
   };
 
@@ -35,7 +36,16 @@ class DatePickerInput extends PureComponent {
 
   state = {
     inputHasFocus: false,
+    selectedDate: null,
   };
+
+  componentWillMount() {
+    const { selectedDate } = this.props;
+
+    if (selectedDate) {
+      this.setState({ selectedDate });
+    }
+  }
 
   handleBlur = () => {
     this.setState({ inputHasFocus: false });
@@ -43,6 +53,15 @@ class DatePickerInput extends PureComponent {
 
   handleFocus = () => {
     this.setState({ inputHasFocus: true });
+  };
+
+  handleDayClick = day => {
+    this.setState(
+      {
+        selectedDate: day,
+      },
+      this.props.onChange({ selectedDate: day }),
+    );
   };
 
   render() {
@@ -54,28 +73,22 @@ class DatePickerInput extends PureComponent {
       helpText,
       inverse,
       modifiers,
-      selectedDays,
       readOnly,
       size,
       ...others
     } = this.props;
+
+    const { inputHasFocus, selectedDate } = this.state;
 
     const classNames = cx(theme['date-picker-input'], theme[`is-${size}`], {
       [theme['is-bold']]: bold,
       [theme['is-disabled']]: disabled,
       [theme['is-inverse']]: inverse,
       [theme['is-read-only']]: readOnly,
-      [theme['has-focus']]: this.state.inputHasFocus,
+      [theme['has-focus']]: inputHasFocus,
     });
 
-    const dayPickerClassNames = cx(
-      theme['date-picker'],
-      theme[`is-${size}`],
-      {
-        [theme['has-range']]: hasRange(selectedDays),
-      },
-      className,
-    );
+    const dayPickerClassNames = cx(theme['date-picker'], theme[`is-${size}`], className);
 
     return (
       <Box className={classNames}>
@@ -94,7 +107,8 @@ class DatePickerInput extends PureComponent {
               className: dayPickerClassNames,
               classNames: theme,
               modifiers: convertModifiersToClassnames(modifiers, theme),
-              selectedDays,
+              onDayClick: this.handleDayClick,
+              selectedDays: selectedDate,
               navbarElement: <NavigationBar size={size} />,
               weekdayElement: <WeekDay size={size} />,
               ...dayPickerProps,
