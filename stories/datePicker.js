@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTable from "./components/propTable";
-import { Store, State } from '@sambego/storybook-state';
 import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
@@ -12,36 +11,32 @@ import MomentLocaleUtils from 'react-day-picker/moment';
 const languages = ['da', 'de', 'fr', 'en', 'es', 'fi', 'it', 'nl', 'pt', 'pl', 'sv'];
 const sizes = ['small', 'medium', 'large'];
 
+const preSelectedDay = DateTime.local().toJSDate();
 const preSelectedRange = {
   from: DateTime.local().toJSDate(),
   to: DateTime.local().plus({days: 5}).toJSDate(),
 };
-
-const basicStore = new Store({
-  selectedDays: DateTime.local().toJSDate(),
-});
 
 storiesOf('DatePicker', module)
   .addDecorator((story, context) => withInfo({TableComponent: PropTable})(story)(context))
   .addDecorator(checkA11y)
   .addDecorator(withKnobs)
   .add('Single date', () => {
-    const handleDayClick = (day) => {
-      basicStore.set({ selectedDays: day });
+    const handleOnChange = (selectedDay) => {
+      console.log("Selected date", selectedDay);
     };
 
     return (
-      <State store={basicStore}>
-        <DatePicker
-          locale={select('Locale', languages, 'nl')}
-          localeUtils={MomentLocaleUtils}
-          numberOfMonths={number('Number of months', 1)}
-          onDayClick={handleDayClick}
-          showOutsideDays={boolean('Show outside days', true)}
-          showWeekNumbers={boolean('Show week numbers', true)}
-          size={select('Size', sizes, 'medium')}
-        />
-      </State>
+      <DatePicker
+        locale={select('Locale', languages, 'nl')}
+        localeUtils={MomentLocaleUtils}
+        numberOfMonths={number('Number of months', 1)}
+        onChange={handleOnChange}
+        selectedDate={preSelectedDay}
+        showOutsideDays={boolean('Show outside days', true)}
+        showWeekNumbers={boolean('Show week numbers', true)}
+        size={select('Size', sizes, 'medium')}
+      />
     )
   })
   .add('Range', () => {
@@ -63,31 +58,30 @@ storiesOf('DatePicker', module)
     )
   })
   .add('Input single date', () => {
-    const handleDayClick = (day) => {
-      basicStore.set({ selectedDays: day });
+    const handleOnChange = (selectedDay) => {
+      console.log("Selected date", selectedDay);
     };
 
     return (
-      <State store={basicStore}>
-        <DatePickerInput
-          formatDate={date =>  DateTime.fromJSDate(date).setLocale(select('Locale', languages, 'nl')).toLocaleString(DateTime.DATE_SHORT)}
-          bold={boolean('Bold', false)}
-          disabled={boolean('Disabled', false)}
-          inverse={boolean('Inverse', false)}
-          helpText="Pick a date"
-          dayPickerProps={{
-            locale: select('Locale', languages, 'nl'),
-            localeUtils: MomentLocaleUtils,
-            numberOfMonths: number('Number of months', 2),
-            showOutsideDays: boolean('Show outside days', true),
-            showWeekNumbers: boolean('Show week numbers', true)
-          }}
-          onDayClick={handleDayClick}
-          placeholder={DateTime.fromJSDate(new Date()).setLocale(select('Locale', languages, 'nl')).toLocaleString(DateTime.DATE_SHORT)}
-          readOnly={boolean('Read only', false)}
-          size={select('Size', sizes, 'medium')}
-        />
-      </State>
+      <DatePickerInput
+        formatDate={date =>  DateTime.fromJSDate(date).setLocale(select('Locale', languages, 'nl')).toLocaleString(DateTime.DATE_SHORT)}
+        bold={boolean('Bold', false)}
+        disabled={boolean('Disabled', false)}
+        inverse={boolean('Inverse', false)}
+        helpText="Pick a date"
+        dayPickerProps={{
+          locale: select('Locale', languages, 'nl'),
+          localeUtils: MomentLocaleUtils,
+          numberOfMonths: number('Number of months', 2),
+          showOutsideDays: boolean('Show outside days', true),
+          showWeekNumbers: boolean('Show week numbers', true)
+        }}
+        onChange={handleOnChange}
+        placeholder={DateTime.fromJSDate(new Date()).setLocale(select('Locale', languages, 'nl')).toLocaleString(DateTime.DATE_SHORT)}
+        readOnly={boolean('Read only', false)}
+        selectedDate={preSelectedDay}
+        size={select('Size', sizes, 'medium')}
+      />
     )
   })
   .add('Input range', () => {
