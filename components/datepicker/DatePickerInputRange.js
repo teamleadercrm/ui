@@ -23,6 +23,7 @@ class DatePickerInputRange extends PureComponent {
     dayPickerProps: PropTypes.object,
     onChange: PropTypes.func,
     readOnly: PropTypes.bool,
+    selectedRange: PropTypes.object,
     size: PropTypes.oneOf(['small', 'medium', 'large']),
   };
 
@@ -39,6 +40,18 @@ class DatePickerInputRange extends PureComponent {
     to: null,
     enteredTo: null,
     inputHasFocus: false,
+  };
+
+  componentWillMount() {
+    const { selectedRange } = this.props;
+
+    if(selectedRange && selectedRange.from && selectedRange.to) {
+      this.setState({
+        from: selectedRange.from,
+        to: selectedRange.to,
+        enteredTo: selectedRange.to,
+      });
+    }
   };
 
   componentWillUnmount() {

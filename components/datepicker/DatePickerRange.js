@@ -10,9 +10,8 @@ import theme from './theme.css';
 class DatePickerRange extends PureComponent {
   static propTypes = {
     className: PropTypes.string,
-    modifiers: PropTypes.object,
     onChange: PropTypes.func,
-    selectedDays: PropTypes.oneOfType([PropTypes.object, PropTypes.func, PropTypes.array]),
+    selectedRange: PropTypes.object,
     size: PropTypes.oneOf(['small', 'medium', 'large']),
   };
 
@@ -24,6 +23,18 @@ class DatePickerRange extends PureComponent {
     from: null,
     to: null,
     enteredTo: null,
+  };
+
+  componentWillMount() {
+    const { selectedRange } = this.props;
+
+    if(selectedRange && selectedRange.from && selectedRange.to) {
+      this.setState({
+        from: selectedRange.from,
+        to: selectedRange.to,
+        enteredTo: selectedRange.to,
+      });
+    }
   };
 
   handleDayClick = day => {
@@ -47,7 +58,7 @@ class DatePickerRange extends PureComponent {
       this.setState({
         to: day,
         enteredTo: day,
-      });
+      }, this.props.onChange({ from, to: day }));
     }
   };
 
