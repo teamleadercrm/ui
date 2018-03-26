@@ -28,14 +28,14 @@ class DatePickerRange extends PureComponent {
   componentWillMount() {
     const { selectedRange } = this.props;
 
-    if(selectedRange && selectedRange.from && selectedRange.to) {
+    if (selectedRange && selectedRange.from && selectedRange.to) {
       this.setState({
         from: selectedRange.from,
         to: selectedRange.to,
         enteredTo: selectedRange.to,
       });
     }
-  };
+  }
 
   handleDayClick = day => {
     const { from, to } = this.state;
@@ -55,10 +55,13 @@ class DatePickerRange extends PureComponent {
         enteredTo: null,
       });
     } else {
-      this.setState({
-        to: day,
-        enteredTo: day,
-      }, this.props.onChange({ from, to: day }));
+      this.setState(
+        {
+          to: day,
+          enteredTo: day,
+        },
+        this.props.onChange({ from, to: day }),
+      );
     }
   };
 

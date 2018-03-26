@@ -45,14 +45,14 @@ class DatePickerInputRange extends PureComponent {
   componentWillMount() {
     const { selectedRange } = this.props;
 
-    if(selectedRange && selectedRange.from && selectedRange.to) {
+    if (selectedRange && selectedRange.from && selectedRange.to) {
       this.setState({
         from: selectedRange.from,
         to: selectedRange.to,
         enteredTo: selectedRange.to,
       });
     }
-  };
+  }
 
   componentWillUnmount() {
     clearTimeout(this.timeout);
