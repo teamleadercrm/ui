@@ -78,6 +78,10 @@ storiesOf('DatePicker', module)
           showOutsideDays: boolean('Show outside days', true),
           showWeekNumbers: boolean('Show week numbers', true)
         }}
+        meta={{
+          error: 'This is an error message',
+          touched: true,
+        }}
         onChange={handleOnChange}
         placeholder={inputPlaceholder}
         readOnly={boolean('Read only', false)}
@@ -106,6 +110,10 @@ storiesOf('DatePicker', module)
         disabled={boolean('Disabled', false)}
         helpText="Pick a start & end date"
         inverse={boolean('Inverse', false)}
+        meta={{
+          error: 'This is an error message',
+          touched: true,
+        }}
         placeholder={inputPlaceholder}
         readOnly={boolean('Read only', false)}
         onChange={handleOnChange}
@@ -140,6 +148,10 @@ storiesOf('DatePicker', module)
           }}
           disabled={boolean('Disabled', false)}
           helpText="Pick a start & end date"
+          meta={{
+            error: 'This is an error message',
+            touched: true,
+          }}
           placeholder={inputPlaceholder}
           readOnly={boolean('Read only', false)}
           onChange={handleOnChange}
