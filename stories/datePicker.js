@@ -11,10 +11,12 @@ import MomentLocaleUtils from 'react-day-picker/moment';
 const languages = ['da', 'de', 'fr', 'en', 'es', 'fi', 'it', 'nl', 'pt', 'pl', 'sv'];
 const sizes = ['small', 'medium', 'large'];
 
-const preSelectedDay = DateTime.local().toJSDate();
+const inputPlaceholder = DateTime.fromJSDate(new Date()).setLocale(select('Locale', languages, 'nl')).toLocaleString(DateTime.DATE_SHORT);
+
+const preSelectedDate = DateTime.local().plus({days: 3}).toJSDate();
 const preSelectedRange = {
-  from: DateTime.local().toJSDate(),
-  to: DateTime.local().plus({days: 5}).toJSDate(),
+  from: DateTime.local().plus({days: 3}).toJSDate(),
+  to: DateTime.local().plus({days: 8}).toJSDate(),
 };
 
 storiesOf('DatePicker', module)
@@ -22,8 +24,8 @@ storiesOf('DatePicker', module)
   .addDecorator(checkA11y)
   .addDecorator(withKnobs)
   .add('Single date', () => {
-    const handleOnChange = (selectedDay) => {
-      console.log("Selected date", selectedDay);
+    const handleOnChange = (selectedDate) => {
+      console.log("Selected date", selectedDate);
     };
 
     return (
@@ -32,7 +34,7 @@ storiesOf('DatePicker', module)
         localeUtils={MomentLocaleUtils}
         numberOfMonths={number('Number of months', 1)}
         onChange={handleOnChange}
-        selectedDate={preSelectedDay}
+        selectedDate={preSelectedDate}
         showOutsideDays={boolean('Show outside days', true)}
         showWeekNumbers={boolean('Show week numbers', true)}
         size={select('Size', sizes, 'medium')}
@@ -51,15 +53,15 @@ storiesOf('DatePicker', module)
         numberOfMonths={number('Number of months', 2)}
         onChange={handleOnChange}
         selectedRange={preSelectedRange}
-        showOutsideDays={boolean('Show outside days', true)}
+        showOutsideDays={boolean('Show outside days', false)}
         showWeekNumbers={boolean('Show week numbers', true)}
         size={select('Size', sizes, 'medium')}
       />
     )
   })
   .add('Input single date', () => {
-    const handleOnChange = (selectedDay) => {
-      console.log("Selected date", selectedDay);
+    const handleOnChange = (selectedDate) => {
+      console.log("Selected date", selectedDate);
     };
 
     return (
@@ -77,10 +79,11 @@ storiesOf('DatePicker', module)
           showWeekNumbers: boolean('Show week numbers', true)
         }}
         onChange={handleOnChange}
-        placeholder={DateTime.fromJSDate(new Date()).setLocale(select('Locale', languages, 'nl')).toLocaleString(DateTime.DATE_SHORT)}
+        placeholder={inputPlaceholder}
         readOnly={boolean('Read only', false)}
-        selectedDate={preSelectedDay}
+        selectedDate={preSelectedDate}
         size={select('Size', sizes, 'medium')}
+        value={preSelectedDate}
       />
     )
   })
@@ -97,24 +100,26 @@ storiesOf('DatePicker', module)
           locale: select('Locale', languages, 'nl'),
           localeUtils: MomentLocaleUtils,
           numberOfMonths: number('Number of months', 2),
-          showOutsideDays: boolean('Show outside days', true),
+          showOutsideDays: boolean('Show outside days', false),
           showWeekNumbers: boolean('Show week numbers', true)
         }}
         disabled={boolean('Disabled', false)}
         helpText="Pick a start & end date"
         inverse={boolean('Inverse', false)}
-        placeholder={DateTime.fromJSDate(new Date()).setLocale(select('Locale', languages, 'nl')).toLocaleString(DateTime.DATE_SHORT)}
+        placeholder={inputPlaceholder}
         readOnly={boolean('Read only', false)}
         onChange={handleOnChange}
         selectedRange={preSelectedRange}
         size={select('Size', sizes, 'medium')}
+        valueFrom={preSelectedRange.from}
+        valueTo={preSelectedRange.to}
       />
       )
     }
   )
   .add('Input with label', () => {
-    const handleOnChange = (selectedDays) => {
-      console.log("selectedDays", selectedDays);
+    const handleOnChange = (selectedRange) => {
+      console.log("Selected range", selectedRange);
     };
 
     return (
@@ -130,15 +135,17 @@ storiesOf('DatePicker', module)
             locale: select('Locale', languages, 'nl'),
             localeUtils: MomentLocaleUtils,
             numberOfMonths: number('Number of months', 2),
-            showOutsideDays: boolean('Show outside days', true),
+            showOutsideDays: boolean('Show outside days', false),
             showWeekNumbers: boolean('Show week numbers', true)
           }}
           disabled={boolean('Disabled', false)}
           helpText="Pick a start & end date"
-          placeholder={DateTime.fromJSDate(new Date()).setLocale(select('Locale', languages, 'nl')).toLocaleString(DateTime.DATE_SHORT)}
+          placeholder={inputPlaceholder}
           readOnly={boolean('Read only', false)}
           onChange={handleOnChange}
           selectedRange={preSelectedRange}
+          valueFrom={preSelectedRange.from}
+          valueTo={preSelectedRange.to}
         />
       </Label>
     )
