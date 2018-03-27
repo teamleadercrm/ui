@@ -21,6 +21,9 @@ class DatePickerInputRange extends PureComponent {
     disabled: PropTypes.bool,
     helpText: PropTypes.string,
     inverse: PropTypes.bool,
+    inputProps: PropTypes.object,
+    inputFromProps: PropTypes.object,
+    inputToProps: PropTypes.object,
     meta: InputMetaPropTypes,
     modifiers: PropTypes.object,
     dayPickerProps: PropTypes.object,
@@ -117,6 +120,9 @@ class DatePickerInputRange extends PureComponent {
       dayPickerFromProps,
       dayPickerToProps,
       disabled,
+      inputProps,
+      inputFromProps,
+      inputToProps,
       readOnly,
       size,
       valueFrom,
@@ -152,6 +158,11 @@ class DatePickerInputRange extends PureComponent {
       hideOnDayClick: false,
     };
 
+    const commonInputProps = {
+      disabled: disabled || readOnly,
+      ...inputProps,
+    };
+
     const rest = omit(others, ['helpText', 'meta', 'onBlur', 'onChange', 'onFocus']);
 
     return (
@@ -165,9 +176,10 @@ class DatePickerInputRange extends PureComponent {
           }}
           onDayChange={this.handleFromChange}
           inputProps={{
-            disabled: disabled || readOnly,
             onBlur: this.handleFromBlur,
             onFocus: this.handleFromFocus,
+            ...commonInputProps,
+            ...inputFromProps,
           }}
           ref={el => (this.from = el)}
           value={valueFrom}
@@ -185,9 +197,10 @@ class DatePickerInputRange extends PureComponent {
           }}
           onDayChange={this.handleToChange}
           inputProps={{
-            disabled: disabled || readOnly,
             onBlur: this.handleToBlur,
             onFocus: this.handleToFocus,
+            ...commonInputProps,
+            ...inputToProps,
           }}
           ref={el => (this.to = el)}
           value={valueTo}
