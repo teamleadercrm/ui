@@ -4,6 +4,8 @@
 
 :root {
   --border-radius: calc(.4 * var(--unit));
+  --input-error-border: var(--color-ruby-dark);
+  --input-error-border-inverse: var(--color-ruby-light);
   --input-height-large: calc(4.6 * var(--unit));
   --input-height-medium: calc(3.4 * var(--unit));
   --input-height-small: calc(2.8 * var(--unit));
@@ -401,6 +403,32 @@
 .container:not(.date-picker) + .container:not(.date-picker)::before {
   content: '-';
   display: inline-block;
+}
+
+.has-error {
+  &:not(.is-inverse) {
+    .input-wrapper {
+      border-color: var(--input-error-border) !important;
+      box-shadow: 0 0 0 1px var(--input-error-border);
+    }
+
+    .validation-icon,
+    .validation-text {
+      color: var(--color-ruby-dark);
+    }
+  }
+
+  &.is-inverse {
+    .input-wrapper {
+      border-color: var(--input-error-border-inverse) !important;
+      box-shadow: 0 0 0 1px var(--input-error-border-inverse);
+    }
+
+    .validation-icon,
+    .validation-text {
+      color: var(--color-ruby-light);
+    }
+  }
 }
 
 .is-small {
