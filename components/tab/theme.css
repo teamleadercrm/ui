@@ -37,7 +37,9 @@
 
   &:hover {
     background-color: var(--color-neutral);
+    color: var(--color-neutral-darkest);
     cursor: pointer;
+    text-decoration: none;
   }
 
   &::after {
