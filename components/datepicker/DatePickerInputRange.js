@@ -82,11 +82,7 @@ class DatePickerInputRange extends PureComponent {
   };
 
   handleFromChange = day => {
-    this.setState({ from: day }, () => {
-      if (!this.state.to) {
-        this.focusTo();
-      }
-    });
+    this.setState({ from: day }, this.focusTo());
   };
 
   handleToChange = day => {
