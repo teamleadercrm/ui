@@ -72,6 +72,53 @@ class DatePickerInput extends PureComponent {
     return Boolean(meta && meta.error && meta.touched);
   };
 
+  renderDayPickerInput = () => {
+    const { className, dayPickerProps, disabled, modifiers, readOnly, size, ...others } = this.props;
+    const { selectedDate } = this.state;
+
+    const dayPickerClassNames = cx(theme['date-picker'], theme[`is-${size}`], className);
+
+    const rest = omit(others, ['helpText', 'meta', 'onBlur', 'onChange', 'onFocus']);
+
+    return (
+      <DayPickerInput
+        classNames={theme}
+        dayPickerProps={{
+          className: dayPickerClassNames,
+          classNames: theme,
+          modifiers: convertModifiersToClassnames(modifiers, theme),
+          onDayClick: this.handleDayClick,
+          selectedDays: selectedDate,
+          navbarElement: <NavigationBar size={size} />,
+          weekdayElement: <WeekDay size={size} />,
+          ...dayPickerProps,
+        }}
+        hideOnDayClick={false}
+        inputProps={{
+          disabled: disabled || readOnly,
+          onBlur: this.handleBlur,
+          onFocus: this.handleFocus,
+        }}
+        {...rest}
+      />
+    );
+  };
+
+  renderIcon = () => {
+    const { inverse } = this.props;
+
+    return (
+      <Icon
+        className={theme['input-icon']}
+        color={inverse ? 'teal' : 'neutral'}
+        tint={inverse ? 'light' : 'darkest'}
+        marginHorizontal={2}
+      >
+        <IconCalendarSmallOutline />
+      </Icon>
+    );
+  };
+
   renderHelpText = () => {
     const { helpText, inverse } = this.props;
 
@@ -96,8 +143,8 @@ class DatePickerInput extends PureComponent {
   };
 
   render() {
-    const { bold, className, dayPickerProps, disabled, inverse, modifiers, readOnly, size, ...others } = this.props;
-    const { inputHasFocus, selectedDate } = this.state;
+    const { bold, disabled, inverse, readOnly, size } = this.props;
+    const { inputHasFocus } = this.state;
 
     const classNames = cx(theme['date-picker-input'], theme[`is-${size}`], {
       [theme['is-bold']]: bold,
@@ -108,41 +155,11 @@ class DatePickerInput extends PureComponent {
       [theme['has-focus']]: inputHasFocus,
     });
 
-    const dayPickerClassNames = cx(theme['date-picker'], theme[`is-${size}`], className);
-
-    const rest = omit(others, ['helpText', 'meta', 'onBlur', 'onChange', 'onFocus']);
-
     return (
       <Box className={classNames}>
         <div className={theme['input-wrapper']}>
-          <Icon
-            className={theme['input-icon']}
-            color={inverse ? 'teal' : 'neutral'}
-            tint={inverse ? 'light' : 'darkest'}
-            marginHorizontal={2}
-          >
-            <IconCalendarSmallOutline />
-          </Icon>
-          <DayPickerInput
-            classNames={theme}
-            dayPickerProps={{
-              className: dayPickerClassNames,
-              classNames: theme,
-              modifiers: convertModifiersToClassnames(modifiers, theme),
-              onDayClick: this.handleDayClick,
-              selectedDays: selectedDate,
-              navbarElement: <NavigationBar size={size} />,
-              weekdayElement: <WeekDay size={size} />,
-              ...dayPickerProps,
-            }}
-            hideOnDayClick={false}
-            inputProps={{
-              disabled: disabled || readOnly,
-              onBlur: this.handleBlur,
-              onFocus: this.handleFocus,
-            }}
-            {...rest}
-          />
+          {this.renderIcon()}
+          {this.renderDayPickerInput()}
         </div>
         {this.hasError() ? this.renderValidationMessage() : this.renderHelpText()}
       </Box>

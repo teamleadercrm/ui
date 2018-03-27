@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Fragment, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../box';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
@@ -114,6 +114,109 @@ class DatePickerInputRange extends PureComponent {
     return Boolean(meta && meta.error && meta.touched);
   };
 
+  renderDayPickerInput = () => {
+    const {
+      className,
+      dayPickerProps,
+      dayPickerFromProps,
+      dayPickerToProps,
+      disabled,
+      readOnly,
+      size,
+      valueFrom,
+      valueTo,
+      ...others
+    } = this.props;
+
+    const { from, to, enteredTo } = this.state;
+    const modifiers = { from, to: enteredTo };
+    const selectedDays = [from, { from, to: enteredTo }];
+
+    const dayPickerClassNames = cx(
+      theme['date-picker'],
+      theme[`is-${size}`],
+      {
+        [theme['has-range']]: hasRange(selectedDays),
+      },
+      className,
+    );
+
+    const commonDayPickerProps = {
+      className: dayPickerClassNames,
+      classNames: theme,
+      modifiers: convertModifiersToClassnames(modifiers, theme),
+      selectedDays,
+      navbarElement: <NavigationBar size={size} />,
+      weekdayElement: <WeekDay size={size} />,
+      ...dayPickerProps,
+    };
+
+    const commonDayPickerInputProps = {
+      classNames: theme,
+      hideOnDayClick: false,
+    };
+
+    const rest = omit(others, ['helpText', 'meta', 'onBlur', 'onChange', 'onFocus']);
+
+    return (
+      <Fragment>
+        <DayPickerInput
+          dayPickerProps={{
+            disabledDays: { after: to },
+            toMonth: to,
+            ...commonDayPickerProps,
+            ...dayPickerFromProps,
+          }}
+          onDayChange={this.handleFromChange}
+          inputProps={{
+            disabled: disabled || readOnly,
+            onBlur: this.handleFromBlur,
+            onFocus: this.handleFromFocus,
+          }}
+          ref={el => (this.from = el)}
+          value={valueFrom}
+          {...commonDayPickerInputProps}
+          {...rest}
+        />
+        <DayPickerInput
+          dayPickerProps={{
+            disabledDays: { before: from },
+            month: from,
+            fromMonth: from,
+            onDayMouseEnter: this.handleDayMouseEnter,
+            ...commonDayPickerProps,
+            ...dayPickerToProps,
+          }}
+          onDayChange={this.handleToChange}
+          inputProps={{
+            disabled: disabled || readOnly,
+            onBlur: this.handleToBlur,
+            onFocus: this.handleToFocus,
+          }}
+          ref={el => (this.to = el)}
+          value={valueTo}
+          {...commonDayPickerInputProps}
+          {...rest}
+        />
+      </Fragment>
+    );
+  };
+
+  renderIcon = () => {
+    const { inverse } = this.props;
+
+    return (
+      <Icon
+        className={theme['input-icon']}
+        color={inverse ? 'teal' : 'neutral'}
+        tint={inverse ? 'light' : 'darkest'}
+        marginHorizontal={2}
+      >
+        <IconCalendarSmallOutline />
+      </Icon>
+    );
+  };
+
   renderHelpText = () => {
     const { helpText, inverse } = this.props;
 
@@ -158,23 +261,7 @@ class DatePickerInputRange extends PureComponent {
   };
 
   render() {
-    const {
-      bold,
-      className,
-      dayPickerProps,
-      dayPickerFromProps,
-      dayPickerToProps,
-      disabled,
-      inverse,
-      readOnly,
-      size,
-      valueFrom,
-      valueTo,
-      ...others
-    } = this.props;
-    const { from, to, enteredTo, inputHasFocus } = this.state;
-    const modifiers = { from, to: enteredTo };
-    const selectedDays = [from, { from, to: enteredTo }];
+    const { bold, disabled, inverse, readOnly, size } = this.props;
 
     const classNames = cx(theme['date-picker-input-range'], theme[`is-${size}`], {
       [theme['is-bold']]: bold,
@@ -182,84 +269,14 @@ class DatePickerInputRange extends PureComponent {
       [theme['is-inverse']]: inverse,
       [theme['is-read-only']]: readOnly,
       [theme['has-error']]: this.hasError(),
-      [theme['has-focus']]: inputHasFocus,
+      [theme['has-focus']]: this.state.inputHasFocus,
     });
-
-    const dayPickerClassNames = cx(
-      theme['date-picker'],
-      theme[`is-${size}`],
-      {
-        [theme['has-range']]: hasRange(selectedDays),
-      },
-      className,
-    );
-
-    const commonDayPickerProps = {
-      className: dayPickerClassNames,
-      classNames: theme,
-      modifiers: convertModifiersToClassnames(modifiers, theme),
-      selectedDays,
-      navbarElement: <NavigationBar size={size} />,
-      weekdayElement: <WeekDay size={size} />,
-      ...dayPickerProps,
-    };
-
-    const commonDayPickerInputProps = {
-      classNames: theme,
-      hideOnDayClick: false,
-    };
-
-    const rest = omit(others, ['helpText', 'meta', 'onBlur', 'onChange', 'onFocus']);
 
     return (
       <Box className={classNames}>
         <div className={theme['input-wrapper']}>
-          <Icon
-            className={theme['input-icon']}
-            color={inverse ? 'teal' : 'neutral'}
-            tint={inverse ? 'light' : 'darkest'}
-            marginHorizontal={2}
-          >
-            <IconCalendarSmallOutline />
-          </Icon>
-          <DayPickerInput
-            dayPickerProps={{
-              disabledDays: { after: to },
-              toMonth: to,
-              ...commonDayPickerProps,
-              ...dayPickerFromProps,
-            }}
-            onDayChange={this.handleFromChange}
-            inputProps={{
-              disabled: disabled || readOnly,
-              onBlur: this.handleFromBlur,
-              onFocus: this.handleFromFocus,
-            }}
-            ref={el => (this.from = el)}
-            value={valueFrom}
-            {...commonDayPickerInputProps}
-            {...rest}
-          />
-          <DayPickerInput
-            dayPickerProps={{
-              disabledDays: { before: from },
-              month: from,
-              fromMonth: from,
-              onDayMouseEnter: this.handleDayMouseEnter,
-              ...commonDayPickerProps,
-              ...dayPickerToProps,
-            }}
-            onDayChange={this.handleToChange}
-            inputProps={{
-              disabled: disabled || readOnly,
-              onBlur: this.handleToBlur,
-              onFocus: this.handleToFocus,
-            }}
-            ref={el => (this.to = el)}
-            value={valueTo}
-            {...commonDayPickerInputProps}
-            {...rest}
-          />
+          {this.renderIcon()}
+          {this.renderDayPickerInput()}
         </div>
         {this.hasError() ? this.renderValidationMessage() : this.renderHelpText()}
       </Box>
