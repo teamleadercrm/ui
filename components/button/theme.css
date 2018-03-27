@@ -64,6 +64,8 @@
   &:not([disabled]) {
     &:hover {
       z-index: 1;
+      text-decoration: none;
+      color: inherit;
     }
 
     &:active {
