@@ -8,6 +8,7 @@ import {
   IconWarningBadgedSmallFilled,
 } from '@teamleader/ui-icons';
 import InputMetaPropTypes from './InputMetaPropTypes';
+import FieldInputPropTypes from './FieldInputPropTypes';
 import Box from '../box';
 import Button from '../button';
 import Counter from '../counter';
@@ -41,6 +42,8 @@ export default class Input extends Component {
     min: PropTypes.number,
     /** Object to provide meta information for redux forms. */
     meta: InputMetaPropTypes,
+    /** Object to provide input information for redux forms. */
+    input: FieldInputPropTypes,
     /** Callback function that is fired when component is blurred. */
     onBlur: PropTypes.func,
     /** Callback function that is fired when the component's value changes. */
@@ -88,12 +91,13 @@ export default class Input extends Component {
   }
 
   parsePropsValue() {
-    const { input: { value }, type } = this.props;
+    const { type, value, input } = this.props;
+    const finalValue = input !== undefined ? input.value : value;
     if (type === 'number') {
-      return this.toNumber(value);
+      return this.toNumber(finalValue);
     }
 
-    return value || '';
+    return finalValue || '';
   }
 
   componentWillUpdate(props, state) {
