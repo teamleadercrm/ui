@@ -83,8 +83,17 @@ export default class Input extends Component {
     this.handleDecreaseValue = ::this.handleDecreaseValue;
 
     this.state = {
-      value: props.type === 'number' ? Number(props.value) || '' : props.value || '',
+      value: this.parsePropsValue(),
     };
+  }
+
+  parsePropsValue() {
+    const { input: { value }, type } = this.props;
+    if (type === 'number') {
+      return this.toNumber(value);
+    }
+
+    return value || '';
   }
 
   componentWillUpdate(props, state) {

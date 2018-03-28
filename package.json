@@ -1,7 +1,7 @@
 {
   "name": "@teamleader/ui",
   "description": "Teamleader UI library",
-  "version": "0.7.3-beta",
+  "version": "0.7.6-beta",
   "author": "Teamleader <development@teamleader.eu>",
   "betterScripts": {
     "compile": {
@@ -65,7 +65,7 @@
     "@teamleader/ui-colors": "0.0.7",
     "@teamleader/ui-icons": "^0.2.0",
     "@teamleader/ui-illustrations": "0.0.4",
-    "@teamleader/ui-typography": "0.1.1",
+    "@teamleader/ui-typography": "0.1.2",
     "@teamleader/ui-utilities": "0.0.5",
     "classnames": "^2.2.5",
     "lodash.omit": "^4.5.0",
