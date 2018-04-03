@@ -8,11 +8,17 @@ import { IconCloseMediumOutline } from '@teamleader/ui-icons';
 
 class Banner extends PureComponent {
   static propTypes = {
+    /** The content to display inside the banner. */
     children: PropTypes.node,
+    /** A class name for the wrapper to give custom styles. */
     className: PropTypes.string,
+    /** The color of the banner. */
     color: PropTypes.oneOf(['white', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua']),
+    /** The icon displayed on the left inside the banner. */
     icon: PropTypes.element,
+    /** Callback function that is fired when the close button of the banner is clicked. */
     onClose: PropTypes.func,
+    /** If true, component will take the full width of it's container. */
     fullWidth: PropTypes.bool,
   };
 
