@@ -32,7 +32,10 @@ const sizes = ['tiny', 'small', 'medium'];
 const TooltippedAvatar = Tooltip(Avatar);
 
 storiesOf('Avatars', module)
-  .addDecorator((story, context) => withInfo({TableComponent: PropTable})(story)(context))
+  .addDecorator((story, context) => withInfo({
+    propTablesExclude: [Bullet, Counter],
+    TableComponent: PropTable,
+  })(story)(context))
   .addDecorator(checkA11y)
   .addDecorator(withKnobs)
   .add('sizes', () => (
