@@ -62,9 +62,13 @@ const tooltipFactory = () => {
           active: false,
           position: this.props.tooltipPosition,
         };
+      }
 
-        this.tooltipRoot = document.createElement('div');
+      componentDidMount() {
+        this.elementDocument = this.node.ownerDocument;
+        this.tooltipRoot = this.elementDocument.createElement('div');
         this.tooltipRoot.id = 'tooltip-root';
+        this.forceUpdate();
       }
 
       getPosition(element) {
@@ -88,7 +92,7 @@ const tooltipFactory = () => {
       }
 
       activate({ top, left, position }) {
-        document.body.appendChild(this.tooltipRoot);
+        this.elementDocument.body.appendChild(this.tooltipRoot);
         this.setState({ active: true, top, left, position });
       }
 
@@ -160,10 +164,20 @@ const tooltipFactory = () => {
       };
 
       handleTransitionExited = () => {
-        document.body.removeChild(this.tooltipRoot);
+        this.elementDocument.body.removeChild(this.tooltipRoot);
       };
 
       render() {
+        if (!this.elementDocument) {
+          return (
+            <span
+              ref={ref => {
+                this.node = ref;
+              }}
+            />
+          );
+        }
+
         const { active, left, top, position } = this.state;
         const { children, className, tooltip, tooltipColor, tooltipIcon, tooltipSize, ...other } = this.props;
 
