@@ -6,6 +6,7 @@ import cx from 'classnames';
 import omit from 'lodash.omit';
 import { createPortal } from 'react-dom';
 import { getViewport } from '../utils/utils';
+import DocumentObjectProvider, { Context as DocumentObjectContext } from '../hoc/DocumentObjectProvider';
 import theme from './theme.css';
 
 const POSITIONS = {
@@ -43,6 +44,7 @@ const tooltipFactory = () => {
         tooltipPosition: PropTypes.oneOf(Object.keys(POSITIONS).map(key => POSITIONS[key])),
         tooltipShowOnClick: PropTypes.bool,
         tooltipSize: PropTypes.oneOf(Object.keys(SIZES)),
+        documentObject: PropTypes.object.isRequired,
       };
 
       static defaultProps = {
@@ -55,7 +57,7 @@ const tooltipFactory = () => {
         tooltipSize: 'medium',
       };
 
-      constructor() {
+      constructor(props) {
         super(...arguments);
 
         this.state = {
@@ -63,7 +65,7 @@ const tooltipFactory = () => {
           position: this.props.tooltipPosition,
         };
 
-        this.tooltipRoot = document.createElement('div');
+        this.tooltipRoot = props.documentObject.createElement('div');
         this.tooltipRoot.id = 'tooltip-root';
       }
 
@@ -88,7 +90,7 @@ const tooltipFactory = () => {
       }
 
       activate({ top, left, position }) {
-        document.body.appendChild(this.tooltipRoot);
+        this.props.documentObject.body.appendChild(this.tooltipRoot);
         this.setState({ active: true, top, left, position });
       }
 
@@ -160,7 +162,7 @@ const tooltipFactory = () => {
       };
 
       handleTransitionExited = () => {
-        document.body.removeChild(this.tooltipRoot);
+        this.props.documentObject.body.removeChild(this.tooltipRoot);
       };
 
       render() {
@@ -174,6 +176,7 @@ const tooltipFactory = () => {
           'tooltipHideOnClick',
           'tooltipPosition',
           'tooltipShowOnClick',
+          'documentObject',
         ]);
 
         const childProps = {
@@ -214,7 +217,13 @@ const tooltipFactory = () => {
       }
     }
 
-    return TooltippedComponent;
+    return DocumentObjectProvider(props => {
+      return (
+        <DocumentObjectContext.Consumer>
+          {documentObject => <TooltippedComponent {...props} documentObject={documentObject} />}
+        </DocumentObjectContext.Consumer>
+      );
+    });
   };
 };
 
