@@ -71,8 +71,8 @@
     "lodash.omit": "^4.5.0",
     "lodash.throttle": "^4.1.1",
     "prop-types": "^15.5.9",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1",
     "react-resize-detector": "^1.1.0",
     "react-transition-group": "^2.2.1"
   },
