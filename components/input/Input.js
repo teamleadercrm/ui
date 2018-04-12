@@ -86,32 +86,43 @@ export default class Input extends Component {
     this.handleDecreaseValue = ::this.handleDecreaseValue;
 
     this.state = {
-      value: this.parsePropsValue(),
+      value: this.parseValue(this.getPropsValue()),
     };
   }
 
-  parsePropsValue() {
-    const { type, value, input } = this.props;
-    const finalValue = input !== undefined ? input.value : value;
-    if (type === 'number') {
-      return this.toNumber(finalValue);
+  componentWillUpdate(nextProps) {
+    const value = this.getPropsValue(nextProps);
+    if (this.getPropsValue() !== value) {
+      this.updateValue(value, false);
     }
+  }
 
+  getPropsValue(props = this.props) {
+    const { value, input } = props;
+    const finalValue = input !== undefined ? input.value : value;
     return finalValue || '';
   }
 
-  componentWillUpdate(props, state) {
-    if (props.input && props.input.onChange && state.value !== undefined) {
-      props.input.onChange(state.value);
+  parseValue(value) {
+    const { type } = this.props;
+    return type === 'number' ? this.toNumber(value) : value;
+  }
+
+  updateValue(rawValue, triggerOnChange = true) {
+    const { input } = this.props;
+    const value = this.parseValue(rawValue);
+
+    this.setState({
+      value,
+    });
+
+    if (triggerOnChange && input && input.onChange) {
+      input.onChange(value);
     }
   }
 
   handleChange(event) {
-    const value = event.target.value;
-
-    this.setState(() => ({
-      value: this.props.type === 'number' ? Number(value) : value,
-    }));
+    this.updateValue(event.target.value);
   }
 
   handleIncreaseValue() {
@@ -141,12 +152,8 @@ export default class Input extends Component {
 
   updateStep(n) {
     const { step } = this.props;
-
-    this.setState(prevState => {
-      const number = this.toNumber((prevState.value || 0) + step * n);
-
-      return { value: number };
-    });
+    const { value = 0 } = this.state;
+    this.updateValue(value + step * n);
   }
 
   toNumber(number) {
