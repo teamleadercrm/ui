@@ -7,7 +7,7 @@ import theme from './theme.css';
 class Button extends PureComponent {
   static propTypes = {
     /** The content to display inside the button. */
-    children: PropTypes.node,
+    children: PropTypes.any,
     /** A class name for the button to give custom styles. */
     className: PropTypes.string,
     /** Determines which kind of button to be rendered. */
