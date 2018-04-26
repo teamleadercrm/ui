@@ -14,6 +14,8 @@ class Button extends PureComponent {
     level: PropTypes.oneOf(['outline', 'primary', 'secondary', 'destructive']),
     /** If true, component will be disabled. */
     disabled: PropTypes.bool,
+    /** If true, component will be shown in an active state */
+    active: PropTypes.bool,
     /** If true, component will take the full width available. */
     fullWidth: PropTypes.bool,
     /** If set, button will be rendered as an anchor element. */
@@ -75,6 +77,7 @@ class Button extends PureComponent {
       className,
       level,
       disabled,
+      active,
       fullWidth,
       href,
       icon,
@@ -97,6 +100,7 @@ class Button extends PureComponent {
         [theme['inverse']]: inverse && level === 'outline',
         [theme['is-full-width']]: fullWidth,
         [theme['processing']]: processing,
+        [theme['active']]: active,
         [theme[size]]: theme[size],
       },
       className,
