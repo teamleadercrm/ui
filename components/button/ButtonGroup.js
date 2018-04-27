@@ -1,7 +1,10 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import omit from 'lodash.omit';
 import Box from '../box';
+import Button from './Button';
 import cx from 'classnames';
+import isComponentOfType from '../utils/is-component-of-type';
 import theme from './theme.css';
 
 class ButtonGroup extends PureComponent {
@@ -12,14 +15,24 @@ class ButtonGroup extends PureComponent {
     className: PropTypes.string,
     /** If true, child components will be displayed segmented. */
     segmented: PropTypes.bool,
+    /** The value of the currently active button. */
+    value: PropTypes.string,
+    /** Callback function that is fired when the active button changes. */
+    onChange: PropTypes.func,
   };
 
   static defaultProps = {
     segmented: false,
   };
 
+  handleChange = (value, event) => {
+    if (this.props.onChange) {
+      this.props.onChange(value, event);
+    }
+  };
+
   render() {
-    const { children, className, segmented, ...others } = this.props;
+    const { children, className, segmented, value, ...others } = this.props;
 
     const classNames = cx(
       theme['group'],
@@ -31,7 +44,28 @@ class ButtonGroup extends PureComponent {
 
     return (
       <Box data-teamleader-ui="button-group" className={classNames} {...others}>
-        {children}
+        {React.Children.map(children, child => {
+          if (!isComponentOfType(Button, child)) {
+            return child;
+          }
+
+          let optionalChildProps = {};
+          if (value) {
+            optionalChildProps = {
+              active: child.props.value === value,
+              onClick: event => this.handleChange(child.props.value, event),
+            };
+          }
+
+          const childProps = omit(child.props, ['value']);
+          const groupProps = omit(others, ['onChange']);
+
+          return React.createElement(child.type, {
+            ...childProps,
+            ...optionalChildProps,
+            ...groupProps,
+          });
+        })}
       </Box>
     );
   }
