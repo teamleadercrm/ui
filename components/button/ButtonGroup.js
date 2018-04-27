@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash.omit';
-import Box from '../box';
+import Box, { omitBoxProps } from '../box';
 import Button from './Button';
 import cx from 'classnames';
 import isComponentOfType from '../utils/is-component-of-type';
@@ -63,7 +63,7 @@ class ButtonGroup extends PureComponent {
           return React.createElement(child.type, {
             ...childProps,
             ...optionalChildProps,
-            ...groupProps,
+            ...omitBoxProps(groupProps),
           });
         })}
       </Box>
