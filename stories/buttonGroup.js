@@ -21,7 +21,7 @@ storiesOf('Button groups', module)
   .addDecorator(checkA11y)
   .addDecorator(withKnobs)
   .add('normal', () => (
-    <ButtonGroup segmented={boolean('Semented', false)}>
+    <ButtonGroup segmented={boolean('Segmented', false)}>
       <Button label="Button 1"/>
       <Button label="Button 2"/>
       <Button icon={<IconAddMediumOutline />} />
@@ -29,7 +29,7 @@ storiesOf('Button groups', module)
   ))
   .add('with active', () => (
     <State store={store}>
-      <ButtonGroup segmented={boolean('Semented', true)} value="option2" onChange={handleChangeValue} level="secondary">
+      <ButtonGroup segmented={boolean('Segmented', true)} value="option2" onChange={handleChangeValue} level="secondary">
         <Button label="Option 1" value="option1" />
         <Button label="Option 2" value="option2" />
         <Button label="Option 3" value="option3" />
