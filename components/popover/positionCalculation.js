@@ -20,8 +20,9 @@ function getAnchorPosition(anchorEl) {
 }
 
 function getTargetPosition(targetEl) {
-  const width = targetEl.offsetWidth;
-  const height = targetEl.offsetHeight;
+  const targetRect = targetEl.getBoundingClientRect();
+  const width = Math.round(targetRect.width);
+  const height = Math.round(targetRect.height);
 
   return {
     top: 0,
