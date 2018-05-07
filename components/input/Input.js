@@ -88,7 +88,10 @@ export default class Input extends Component {
   }
 
   parsePropsValue() {
-    const { input: { value }, type } = this.props;
+    const {
+      input: { value },
+      type,
+    } = this.props;
     if (type === 'number') {
       return this.toNumber(value);
     }
