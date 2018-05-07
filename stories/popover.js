@@ -1,16 +1,27 @@
 import React from 'react';
-import PropTable from "./components/propTable";
+import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
 import { Store, State } from '@sambego/storybook-state';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
-import { Banner, Box, Button, ButtonGroup, Heading3, Link, PopoverHorizontal, PopoverVertical, Section, TextBody, TextSmall } from '../components';
+import {
+  Banner,
+  Box,
+  Button,
+  ButtonGroup,
+  Heading3,
+  Link,
+  PopoverHorizontal,
+  PopoverVertical,
+  TextBody,
+  TextSmall,
+} from '../components';
 
 const store = new Store({
   active: false,
 });
 
-const handleButtonClick = (event) => {
+const handleButtonClick = event => {
   store.set({ anchorEl: event.currentTarget, active: true });
 };
 
@@ -25,7 +36,7 @@ const contentBoxWithSingleTextLine = (
 );
 
 storiesOf('Popover', module)
-  .addDecorator((story, context) => withInfo({TableComponent: PropTable})(story)(context))
+  .addDecorator((story, context) => withInfo({ TableComponent: PropTable })(story)(context))
   .addDecorator(checkA11y)
   .add('horizontal', () => (
     <Box>

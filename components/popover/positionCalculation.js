@@ -7,8 +7,8 @@ function getAnchorPosition(anchorEl) {
   const anchorPosition = {
     top: anchorRect.top,
     left: anchorRect.left,
-    width: anchorEl.offsetWidth,
-    height: anchorEl.offsetHeight,
+    width: Math.round(anchorRect.width),
+    height: Math.round(anchorRect.height),
   };
 
   anchorPosition.right = anchorRect.right || anchorPosition.left + anchorPosition.width;
@@ -20,8 +20,9 @@ function getAnchorPosition(anchorEl) {
 }
 
 function getTargetPosition(targetEl) {
-  const width = targetEl.offsetWidth;
-  const height = targetEl.offsetHeight;
+  const targetRect = targetEl.getBoundingClientRect();
+  const width = Math.round(targetRect.width);
+  const height = Math.round(targetRect.height);
 
   return {
     top: 0,
@@ -56,7 +57,7 @@ const directionWest = (anchorPosition, targetPosition) => ({
   arrowLeft: targetPosition.width - ARROW_OFFSET,
 });
 
-const directionEast = (anchorPosition, targetPosition) => ({
+const directionEast = anchorPosition => ({
   left: anchorPosition.right + POPUP_OFFSET,
   arrowLeft: -ARROW_OFFSET,
 });
@@ -111,7 +112,7 @@ const directionNorth = (anchorPosition, targetPosition) => ({
   arrowTop: targetPosition.height - ARROW_OFFSET,
 });
 
-const directionSouth = (anchorPosition, targetPosition) => ({
+const directionSouth = anchorPosition => ({
   top: anchorPosition.top + anchorPosition.height + POPUP_OFFSET,
   arrowTop: -ARROW_OFFSET,
 });
