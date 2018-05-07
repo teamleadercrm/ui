@@ -57,7 +57,7 @@ const directionWest = (anchorPosition, targetPosition) => ({
   arrowLeft: targetPosition.width - ARROW_OFFSET,
 });
 
-const directionEast = (anchorPosition, targetPosition) => ({
+const directionEast = anchorPosition => ({
   left: anchorPosition.right + POPUP_OFFSET,
   arrowLeft: -ARROW_OFFSET,
 });
@@ -112,7 +112,7 @@ const directionNorth = (anchorPosition, targetPosition) => ({
   arrowTop: targetPosition.height - ARROW_OFFSET,
 });
 
-const directionSouth = (anchorPosition, targetPosition) => ({
+const directionSouth = anchorPosition => ({
   top: anchorPosition.top + anchorPosition.height + POPUP_OFFSET,
   arrowTop: -ARROW_OFFSET,
 });
