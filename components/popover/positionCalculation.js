@@ -7,8 +7,8 @@ function getAnchorPosition(anchorEl) {
   const anchorPosition = {
     top: anchorRect.top,
     left: anchorRect.left,
-    width: anchorEl.offsetWidth,
-    height: anchorEl.offsetHeight,
+    width: Math.round(anchorRect.width),
+    height: Math.round(anchorRect.height),
   };
 
   anchorPosition.right = anchorRect.right || anchorPosition.left + anchorPosition.width;
