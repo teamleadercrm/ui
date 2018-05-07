@@ -130,15 +130,19 @@ export default class Input extends PureComponent {
   };
 
   updateValue(rawValue, triggerOnChange = true) {
-    const { input } = this.props;
+    const { input, onChange } = this.props;
     const value = Input.parseValue(rawValue, this.props);
 
     this.setState({
       value,
     });
 
-    if (triggerOnChange && input && input.onChange) {
-      input.onChange(value);
+    if (triggerOnChange) {
+      if (input && input.onChange) {
+        input.onChange(value);
+      } else if (onChange) {
+        onChange(value);
+      }
     }
   }
 
