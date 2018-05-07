@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { Store, State } from '@sambego/storybook-state';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
-import { Banner, Box, Button, ButtonGroup, Heading3, Link, PopoverHorizontal, PopoverVertical, Section, TextBody, TextSmall } from '../components';
+import { Banner, Box, Button, ButtonGroup, Heading3, Link, PopoverHorizontal, PopoverVertical, TextBody, TextSmall } from '../components';
 
 const store = new Store({
   active: false,
