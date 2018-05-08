@@ -3,7 +3,6 @@
 @import '@teamleader/ui-utilities';
 
 :root {
-  --popover-background-color: var(--color-white);
   --popover-border-radius: calc(0.4 * var(--unit));
   --popover-box-shadow: 0 0 0 1px color(var(--color-teal-dark) a(20%));
 }
@@ -23,7 +22,6 @@
 
 .popover {
   composes: box-shadow-200;
-  background: var(--popover-background-color);
   border-radius: var(--popover-border-radius);
   box-shadow: var(--popover-box-shadow);
   opacity: 0;
@@ -42,7 +40,6 @@
 }
 
 .arrow {
-  background: var(--color-white);
   box-shadow: var(--popover-box-shadow);
   content: "";
   height: calc(1.4 * var(--unit));
@@ -55,8 +52,407 @@
 
 .inner {
   background: var(--color-white);
-  border: 1px solid var(--color-white);
+  border: 1px solid;
   border-radius: var(--popover-border-radius);
   overflow: hidden;
   position: relative;
+}
+
+.neutral {
+  &.lightest {
+    .inner {
+      background-color: var(--color-neutral-lightest);
+      border-color: var(--color-neutral-lightest);
+    }
+
+    .arrow {
+      background-color: var(--color-neutral-lightest);
+    }
+  }
+
+  &.light {
+    .inner {
+      background-color: var(--color-neutral-light);
+      border-color: var(--color-neutral-light);
+    }
+
+    .arrow {
+      background-color: var(--color-neutral-light);
+    }
+  }
+
+  &.normal {
+    .inner {
+      background-color: var(--color-neutral);
+      border-color: var(--color-neutral);
+    }
+
+    .arrow {
+      background-color: var(--color-neutral);
+    }
+  }
+
+  &.dark {
+    .inner {
+      background-color: var(--color-neutral-dark);
+      border-color: var(--color-neutral-dark);
+    }
+
+    .arrow {
+      background-color: var(--color-neutral-dark);
+    }
+  }
+
+  &.darkest {
+    .inner {
+      background-color: var(--color-neutral-darkest);
+      border-color: var(--color-neutral-darkest);
+    }
+
+    .arrow {
+      background-color: var(--color-neutral-darkest);
+    }
+  }
+}
+
+.teal {
+  &.lightest {
+    .inner {
+      background-color: var(--color-teal-lightest);
+      border-color: var(--color-teal-lightest);
+    }
+
+    .arrow {
+      background-color: var(--color-teal-lightest);
+    }
+  }
+
+  &.light {
+    .inner {
+      background-color: var(--color-teal-light);
+      border-color: var(--color-teal-light);
+    }
+
+    .arrow {
+      background-color: var(--color-teal-light);
+    }
+  }
+
+  &.normal {
+    .inner {
+      background-color: var(--color-teal);
+      border-color: var(--color-teal);
+    }
+
+    .arrow {
+      background-color: var(--color-teal);
+    }
+  }
+
+  &.dark {
+    .inner {
+      background-color: var(--color-teal-dark);
+      border-color: var(--color-teal-dark);
+    }
+
+    .arrow {
+      background-color: var(--color-teal-dark);
+    }
+  }
+
+  &.darkest {
+    .inner {
+      background-color: var(--color-teal-darkest);
+      border-color: var(--color-teal-darkest);
+    }
+
+    .arrow {
+      background-color: var(--color-teal-darkest);
+    }
+  }
+}
+
+.mint {
+  &.lightest {
+    .inner {
+      background-color: var(--color-mint-lightest);
+      border-color: var(--color-mint-lightest);
+    }
+
+    .arrow {
+      background-color: var(--color-mint-lightest);
+    }
+  }
+
+  &.light {
+    .inner {
+      background-color: var(--color-mint-light);
+      border-color: var(--color-mint-light);
+    }
+
+    .arrow {
+      background-color: var(--color-mint-light);
+    }
+  }
+
+  &.normal {
+    .inner {
+      background-color: var(--color-mint);
+      border-color: var(--color-mint);
+    }
+
+    .arrow {
+      background-color: var(--color-mint);
+    }
+  }
+
+  &.dark {
+    .inner {
+      background-color: var(--color-mint-dark);
+      border-color: var(--color-mint-dark);
+    }
+
+    .arrow {
+      background-color: var(--color-mint-dark);
+    }
+  }
+
+  &.darkest {
+    .inner {
+      background-color: var(--color-mint-darkest);
+      border-color: var(--color-mint-darkest);
+    }
+
+    .arrow {
+      background-color: var(--color-mint-darkest);
+    }
+  }
+}
+
+.ruby {
+  &.lightest {
+    .inner {
+      background-color: var(--color-ruby-lightest);
+      border-color: var(--color-ruby-lightest);
+    }
+
+    .arrow {
+      background-color: var(--color-ruby-lightest);
+    }
+  }
+
+  &.light {
+    .inner {
+      background-color: var(--color-ruby-light);
+      border-color: var(--color-ruby-light);
+    }
+
+    .arrow {
+      background-color: var(--color-ruby-light);
+    }
+  }
+
+  &.normal {
+    .inner {
+      background-color: var(--color-ruby);
+      border-color: var(--color-ruby);
+    }
+
+    .arrow {
+      background-color: var(--color-ruby);
+    }
+  }
+
+  &.dark {
+    .inner {
+      background-color: var(--color-ruby-dark);
+      border-color: var(--color-ruby-dark);
+    }
+
+    .arrow {
+      background-color: var(--color-ruby-dark);
+    }
+  }
+
+  &.darkest {
+    .inner {
+      background-color: var(--color-ruby-darkest);
+      border-color: var(--color-ruby-darkest);
+    }
+
+    .arrow {
+      background-color: var(--color-ruby-darkest);
+    }
+  }
+}
+
+.aqua {
+  &.lightest {
+    .inner {
+      background-color: var(--color-aqua-lightest);
+      border-color: var(--color-aqua-lightest);
+    }
+
+    .arrow {
+      background-color: var(--color-aqua-lightest);
+    }
+  }
+
+  &.light {
+    .inner {
+      background-color: var(--color-aqua-light);
+      border-color: var(--color-aqua-light);
+    }
+
+    .arrow {
+      background-color: var(--color-aqua-light);
+    }
+  }
+
+  &.normal {
+    .inner {
+      background-color: var(--color-aqua);
+      border-color: var(--color-aqua);
+    }
+
+    .arrow {
+      background-color: var(--color-aqua);
+    }
+  }
+
+  &.dark {
+    .inner {
+      background-color: var(--color-aqua-dark);
+      border-color: var(--color-aqua-dark);
+    }
+
+    .arrow {
+      background-color: var(--color-aqua-dark);
+    }
+  }
+
+  &.darkest {
+    .inner {
+      background-color: var(--color-aqua-darkest);
+      border-color: var(--color-aqua-darkest);
+    }
+
+    .arrow {
+      background-color: var(--color-aqua-darkest);
+    }
+  }
+}
+
+.violet {
+  &.lightest {
+    .inner {
+      background-color: var(--color-violet-lightest);
+      border-color: var(--color-violet-lightest);
+    }
+
+    .arrow {
+      background-color: var(--color-violet-lightest);
+    }
+  }
+
+  &.light {
+    .inner {
+      background-color: var(--color-violet-light);
+      border-color: var(--color-violet-light);
+    }
+
+    .arrow {
+      background-color: var(--color-violet-light);
+    }
+  }
+
+  &.normal {
+    .inner {
+      background-color: var(--color-violet);
+      border-color: var(--color-violet);
+    }
+
+    .arrow {
+      background-color: var(--color-violet);
+    }
+  }
+
+  &.dark {
+    .inner {
+      background-color: var(--color-violet-dark);
+      border-color: var(--color-violet-dark);
+    }
+
+    .arrow {
+      background-color: var(--color-violet-dark);
+    }
+  }
+
+  &.darkest {
+    .inner {
+      background-color: var(--color-violet-darkest);
+      border-color: var(--color-violet-darkest);
+    }
+
+    .arrow {
+      background-color: var(--color-violet-darkest);
+    }
+  }
+}
+
+.gold {
+  &.lightest {
+    .inner {
+      background-color: var(--color-gold-lightest);
+      border-color: var(--color-gold-lightest);
+    }
+
+    .arrow {
+      background-color: var(--color-gold-lightest);
+    }
+  }
+
+  &.light {
+    .inner {
+      background-color: var(--color-gold-light);
+      border-color: var(--color-gold-light);
+    }
+
+    .arrow {
+      background-color: var(--color-gold-light);
+    }
+  }
+
+  &.normal {
+    .inner {
+      background-color: var(--color-gold);
+      border-color: var(--color-gold);
+    }
+
+    .arrow {
+      background-color: var(--color-gold);
+    }
+  }
+
+  &.dark {
+    .inner {
+      background-color: var(--color-gold-dark);
+      border-color: var(--color-gold-dark);
+    }
+
+    .arrow {
+      background-color: var(--color-gold-dark);
+    }
+  }
+
+  &.darkest {
+    .inner {
+      background-color: var(--color-gold-darkest);
+      border-color: var(--color-gold-darkest);
+    }
+
+    .arrow {
+      background-color: var(--color-gold-darkest);
+    }
+  }
 }
