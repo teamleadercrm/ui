@@ -18,6 +18,7 @@ const factory = (axis, calculatePositions, Overlay) => {
       backdrop: PropTypes.string,
       children: PropTypes.node,
       className: PropTypes.string,
+      color: PropTypes.oneOf(['aqua', 'gold', 'mint', 'neutral', 'ruby', 'teal', 'violet']),
       direction: PropTypes.string.isRequired,
       offsetCorrection: PropTypes.number,
       onEscKeyDown: PropTypes.func,
@@ -26,12 +27,15 @@ const factory = (axis, calculatePositions, Overlay) => {
       onOverlayMouseMove: PropTypes.func,
       onOverlayMouseUp: PropTypes.func,
       position: PropTypes.string.isRequired,
+      tint: PropTypes.oneOf(['lightest', 'light', 'normal', 'dark', 'darkest']),
     };
 
     static defaultProps = {
       active: true,
       backdrop: 'dark',
+      color: 'neutral',
       offsetCorrection: 0,
+      tint: 'lightest',
     };
 
     constructor() {
@@ -97,11 +101,13 @@ const factory = (axis, calculatePositions, Overlay) => {
         backdrop,
         children,
         className,
+        color,
         onOverlayClick,
         onEscKeyDown,
         onOverlayMouseDown,
         onOverlayMouseMove,
         onOverlayMouseUp,
+        tint,
       } = this.props;
 
       if (!active) {
@@ -113,7 +119,7 @@ const factory = (axis, calculatePositions, Overlay) => {
           {state => {
             return (
               <div
-                className={cx(theme['wrapper'], {
+                className={cx(theme['wrapper'], theme[color], theme[tint], {
                   [theme['is-entering']]: state === 'entering',
                   [theme['is-entered']]: state === 'entered',
                 })}
