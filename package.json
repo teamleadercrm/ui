@@ -1,7 +1,7 @@
 {
   "name": "@teamleader/ui",
   "description": "Teamleader UI library",
-  "version": "0.7.6-beta",
+  "version": "0.8.2-beta",
   "author": "Teamleader <development@teamleader.eu>",
   "betterScripts": {
     "compile": {
@@ -61,19 +61,19 @@
     "Kevin Waelkens <kevin.waelkens@teamleader.eu>"
   ],
   "dependencies": {
-    "@teamleader/ui-animations": "0.0.2",
-    "@teamleader/ui-colors": "0.0.7",
+    "@teamleader/ui-animations": "^0.0.2",
+    "@teamleader/ui-colors": "^0.0.7",
     "@teamleader/ui-icons": "^0.2.0",
-    "@teamleader/ui-illustrations": "0.0.4",
-    "@teamleader/ui-typography": "0.1.2",
-    "@teamleader/ui-utilities": "0.0.5",
+    "@teamleader/ui-illustrations": "^0.0.4",
+    "@teamleader/ui-typography": "^0.1.2",
+    "@teamleader/ui-utilities": "^0.0.5",
     "classnames": "^2.2.5",
     "lodash.omit": "^4.5.0",
     "lodash.throttle": "^4.1.1",
     "prop-types": "^15.5.9",
-    "react": "^16.2.0",
+    "react": "^16.3.1",
     "react-day-picker": "^7.1.8",
-    "react-dom": "^16.2.0",
+    "react-dom": "^16.3.1",
     "react-resize-detector": "^1.1.0",
     "react-transition-group": "^2.2.1"
   },

@@ -7,15 +7,25 @@ import theme from './theme.css';
 
 class Badge extends PureComponent {
   static propTypes = {
+    /** The content to display inside the badge. */
     children: PropTypes.any,
+    /** A class name for the wrapper to give custom styles. */
     className: PropTypes.string,
+    /** If true, component will be disabled. */
     disabled: PropTypes.bool,
+    /** Sets a custom element to use as the badge component wrapper. */
     element: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
+    /** The icon displayed inside the badge. */
     icon: PropTypes.element,
+    /** The position of the icon inside the badge. */
     iconPlacement: PropTypes.oneOf(['left', 'right']),
+    /** If true, component will adapt styles from it's parent component. */
     inherit: PropTypes.bool,
+    /** If true, component will be rendered in inverse mode. */
     inverse: PropTypes.bool,
+    /** Callback function that is fired when mouse leaves the component. */
     onMouseLeave: PropTypes.func,
+    /** Callback function that is fired when the mouse button is released. */
     onMouseUp: PropTypes.func,
   };
 

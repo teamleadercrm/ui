@@ -65,10 +65,13 @@
     &:hover {
       z-index: 1;
       text-decoration: none;
-      color: inherit;
     }
 
-    &:active {
+    &.active {
+      pointer-events: none;
+    }
+
+    &:active, &.active {
       box-shadow: none !important;
 
       &:before {
@@ -354,6 +357,13 @@
 
     &:active {
       background-color: var(--color-neutral);
+    }
+
+    &.active {
+      background-color: var(--color-teal);
+      border: 1px solid var(--color-teal-dark);
+      color: var(--color-neutral-lightest);
+      box-shadow: 0 0 0 1px var(--color-neutral-darkest);
     }
   }
 
