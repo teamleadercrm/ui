@@ -14,29 +14,6 @@ import omit from 'lodash.omit';
 import theme from './theme.css';
 
 class DatePickerInput extends PureComponent {
-  static propTypes = {
-    bold: PropTypes.bool,
-    className: PropTypes.string,
-    dayPickerProps: PropTypes.object,
-    disabled: PropTypes.bool,
-    helpText: PropTypes.string,
-    inverse: PropTypes.bool,
-    meta: InputMetaPropTypes,
-    modifiers: PropTypes.object,
-    onChange: PropTypes.func,
-    readOnly: PropTypes.bool,
-    selectedDate: PropTypes.instanceOf(Date),
-    size: PropTypes.oneOf(['small', 'medium', 'large']),
-  };
-
-  static defaultProps = {
-    bold: false,
-    disabled: false,
-    inverse: false,
-    readOnly: false,
-    size: 'medium',
-  };
-
   state = {
     inputHasFocus: false,
     selectedDate: null,
@@ -166,5 +143,28 @@ class DatePickerInput extends PureComponent {
     );
   }
 }
+
+DatePickerInput.propTypes = {
+  bold: PropTypes.bool,
+  className: PropTypes.string,
+  dayPickerProps: PropTypes.object,
+  disabled: PropTypes.bool,
+  helpText: PropTypes.string,
+  inverse: PropTypes.bool,
+  meta: InputMetaPropTypes,
+  modifiers: PropTypes.object,
+  onChange: PropTypes.func,
+  readOnly: PropTypes.bool,
+  selectedDate: PropTypes.instanceOf(Date),
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
+};
+
+DatePickerInput.defaultProps = {
+  bold: false,
+  disabled: false,
+  inverse: false,
+  readOnly: false,
+  size: 'medium',
+};
 
 export default DatePickerInput;
