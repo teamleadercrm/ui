@@ -62,7 +62,7 @@ const factory = (axis, calculatePositions, Overlay) => {
           positioning: calculatePositions(anchorEl, this.popoverNode, direction, position, offsetCorrection),
         });
       }
-    }
+    };
 
     render() {
       const { left, top, arrowLeft, arrowTop } = this.state.positioning;
