@@ -48,7 +48,7 @@ const factory = (axis, calculatePositions, Overlay) => {
       document.body.removeChild(this.popoverRoot);
     }
 
-    componentDidUpdate(prevProps, prevState) {
+    componentDidUpdate(prevProps) {
       if (this.props.active && prevProps !== this.props) {
         this.setPlacement();
       }
