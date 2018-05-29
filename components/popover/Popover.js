@@ -20,6 +20,7 @@ const factory = (axis, calculatePositions, Overlay) => {
       className: PropTypes.string,
       color: PropTypes.oneOf(['aqua', 'gold', 'mint', 'neutral', 'ruby', 'teal', 'violet']),
       direction: PropTypes.string.isRequired,
+      lockScroll: PropTypes.bool,
       offsetCorrection: PropTypes.number,
       onEscKeyDown: PropTypes.func,
       onOverlayClick: PropTypes.func,
@@ -34,8 +35,9 @@ const factory = (axis, calculatePositions, Overlay) => {
       active: true,
       backdrop: 'dark',
       color: 'neutral',
+      lockScroll: true,
       offsetCorrection: 0,
-      tint: 'lightest',
+      tint: 'normal',
     };
 
     constructor() {
@@ -102,6 +104,7 @@ const factory = (axis, calculatePositions, Overlay) => {
         children,
         className,
         color,
+        lockScroll,
         onOverlayClick,
         onEscKeyDown,
         onOverlayMouseDown,
@@ -128,6 +131,7 @@ const factory = (axis, calculatePositions, Overlay) => {
                   active={active}
                   backdrop={backdrop}
                   className={theme['overlay']}
+                  lockScroll={lockScroll}
                   onClick={onOverlayClick}
                   onEscKeyDown={onEscKeyDown}
                   onMouseDown={onOverlayMouseDown}
