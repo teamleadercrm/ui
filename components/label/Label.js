@@ -28,7 +28,7 @@ export default class Label extends PureComponent {
   };
 
   render() {
-    const { children, connectedLeft, connectedRight, className, inverse, helpText, required, size } = this.props;
+    const { children, connectedLeft, connectedRight, className, inverse, helpText, required, size, ...others } = this.props;
     const childProps = {
       inverse,
       marginTop: 1,
@@ -44,7 +44,7 @@ export default class Label extends PureComponent {
     const Element = size === 'large' ? TextDisplay : TextBody;
 
     return (
-      <Box element="label" htmlFor={this.props.for} marginBottom={3} className={classNames}>
+      <Box element="label" htmlFor={this.props.for} marginBottom={3} className={classNames} {...others}>
         {React.Children.map(children, child => {
           if (isComponentOfType(Input, child)) {
             return React.cloneElement(child, childProps);
