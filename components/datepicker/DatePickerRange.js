@@ -8,17 +8,6 @@ import cx from 'classnames';
 import theme from './theme.css';
 
 class DatePickerRange extends PureComponent {
-  static propTypes = {
-    className: PropTypes.string,
-    onChange: PropTypes.func,
-    selectedRange: PropTypes.object,
-    size: PropTypes.oneOf(['small', 'medium', 'large']),
-  };
-
-  static defaultProps = {
-    size: 'medium',
-  };
-
   state = {
     from: null,
     to: null,
@@ -105,5 +94,16 @@ class DatePickerRange extends PureComponent {
     );
   }
 }
+
+DatePickerRange.propTypes = {
+  className: PropTypes.string,
+  onChange: PropTypes.func,
+  selectedRange: PropTypes.object,
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
+};
+
+DatePickerRange.defaultProps = {
+  size: 'medium',
+};
 
 export default DatePickerRange;
