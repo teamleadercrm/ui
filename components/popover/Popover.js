@@ -156,7 +156,7 @@ const factory = (axis, calculatePositions, Overlay) => {
     color: 'neutral',
     lockScroll: true,
     offsetCorrection: 0,
-    tint: 'normal',
+    tint: 'lightest',
   };
 
   return Popover;
