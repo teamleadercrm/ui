@@ -13,7 +13,6 @@ export default class Label extends PureComponent {
     children: PropTypes.oneOfType([PropTypes.element, PropTypes.string, PropTypes.array]),
     connectedLeft: PropTypes.element,
     connectedRight: PropTypes.element,
-		htmlFor: PropTypes.string,
     inverse: PropTypes.bool,
     helpText: PropTypes.string,
     required: PropTypes.bool,
