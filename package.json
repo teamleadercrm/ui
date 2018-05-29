@@ -78,7 +78,7 @@
     "react-transition-group": "^2.2.1"
   },
   "devDependencies": {
-    "@sambego/storybook-state": "^1.0.6",
+    "@sambego/storybook-state": "^1.0.7",
     "@sambego/storybook-styles": "^1.0.0",
     "@storybook/addon-info": "^3.3.10",
     "@storybook/addon-knobs": "^3.3.2",
