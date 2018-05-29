@@ -1,5 +1,5 @@
 import Box from './Box';
-import boxProps, { omitBoxProps } from './omitBoxProps';
+import boxProps, { omitBoxProps, pickBoxProps } from './omitBoxProps';
 
 export default Box;
-export { Box, boxProps, omitBoxProps };
+export { Box, boxProps, omitBoxProps, pickBoxProps };

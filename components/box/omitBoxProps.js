@@ -38,4 +38,4 @@ const omitBoxProps = props => omit(props, boxProps);
 const pickBoxProps = props => pick(props, boxProps);
 
 export default boxProps;
-export { omitBoxProps };
+export { omitBoxProps, pickBoxProps };
