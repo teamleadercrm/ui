@@ -15,36 +15,6 @@ import omit from 'lodash.omit';
 import theme from './theme.css';
 
 class DatePickerInputRange extends PureComponent {
-  static propTypes = {
-    bold: PropTypes.bool,
-    className: PropTypes.string,
-    disabled: PropTypes.bool,
-    helpText: PropTypes.string,
-    inverse: PropTypes.bool,
-    inputProps: PropTypes.object,
-    inputFromProps: PropTypes.object,
-    inputToProps: PropTypes.object,
-    meta: InputMetaPropTypes,
-    modifiers: PropTypes.object,
-    dayPickerProps: PropTypes.object,
-    dayPickerFromProps: PropTypes.object,
-    dayPickerToProps: PropTypes.object,
-    onChange: PropTypes.func,
-    readOnly: PropTypes.bool,
-    selectedRange: PropTypes.object,
-    size: PropTypes.oneOf(['small', 'medium', 'large']),
-    valueFrom: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]),
-    valueTo: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]),
-  };
-
-  static defaultProps = {
-    bold: false,
-    disabled: false,
-    inverse: false,
-    readOnly: false,
-    size: 'medium',
-  };
-
   state = {
     from: null,
     to: null,
@@ -292,5 +262,35 @@ class DatePickerInputRange extends PureComponent {
     );
   }
 }
+
+DatePickerInputRange.propTypes = {
+  bold: PropTypes.bool,
+  className: PropTypes.string,
+  disabled: PropTypes.bool,
+  helpText: PropTypes.string,
+  inverse: PropTypes.bool,
+  inputProps: PropTypes.object,
+  inputFromProps: PropTypes.object,
+  inputToProps: PropTypes.object,
+  meta: InputMetaPropTypes,
+  modifiers: PropTypes.object,
+  dayPickerProps: PropTypes.object,
+  dayPickerFromProps: PropTypes.object,
+  dayPickerToProps: PropTypes.object,
+  onChange: PropTypes.func,
+  readOnly: PropTypes.bool,
+  selectedRange: PropTypes.object,
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  valueFrom: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]),
+  valueTo: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]),
+};
+
+DatePickerInputRange.defaultProps = {
+  bold: false,
+  disabled: false,
+  inverse: false,
+  readOnly: false,
+  size: 'medium',
+};
 
 export default DatePickerInputRange;
