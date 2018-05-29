@@ -1,7 +1,7 @@
 import React, { Fragment, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Input from '../input';
-import Box from '../box';
+import Box, { pickBoxProps } from '../box';
 import { TextBody, TextDisplay, TextSmall } from '../typography';
 import theme from './theme.css';
 import isComponentOfType from '../utils/is-component-of-type';
@@ -28,12 +28,26 @@ export default class Label extends PureComponent {
   };
 
   render() {
-    const { children, connectedLeft, connectedRight, className, inverse, helpText, required, size } = this.props;
+    const {
+      children,
+      connectedLeft,
+      connectedRight,
+      className,
+      inverse,
+      helpText,
+      required,
+      size,
+      ...others
+    } = this.props;
+
+    const boxProps = pickBoxProps({...others});
+
     const childProps = {
       inverse,
       marginTop: 1,
       size,
     };
+
     const classNames = cx(
       theme['label'],
       {
@@ -41,10 +55,11 @@ export default class Label extends PureComponent {
       },
       className,
     );
+
     const Element = size === 'large' ? TextDisplay : TextBody;
 
     return (
-      <Box element="label" htmlFor={this.props.for} marginBottom={3} className={classNames}>
+      <Box element="label" htmlFor={this.props.for} marginBottom={3} className={classNames} {...boxProps}>
         {React.Children.map(children, child => {
           if (isComponentOfType(Input, child)) {
             return React.cloneElement(child, childProps);
