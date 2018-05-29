@@ -40,7 +40,7 @@ export default class Label extends PureComponent {
       ...others
     } = this.props;
 
-    const boxProps = pickBoxProps({...others});
+    const boxProps = pickBoxProps({ ...others });
 
     const childProps = {
       inverse,
