@@ -12,34 +12,6 @@ import theme from './theme.css';
 
 const factory = (axis, calculatePositions, Overlay) => {
   class Popover extends PureComponent {
-    static propTypes = {
-      active: PropTypes.bool,
-      anchorEl: PropTypes.object,
-      backdrop: PropTypes.string,
-      children: PropTypes.node,
-      className: PropTypes.string,
-      color: PropTypes.oneOf(['aqua', 'gold', 'mint', 'neutral', 'ruby', 'teal', 'violet']),
-      direction: PropTypes.string.isRequired,
-      lockScroll: PropTypes.bool,
-      offsetCorrection: PropTypes.number,
-      onEscKeyDown: PropTypes.func,
-      onOverlayClick: PropTypes.func,
-      onOverlayMouseDown: PropTypes.func,
-      onOverlayMouseMove: PropTypes.func,
-      onOverlayMouseUp: PropTypes.func,
-      position: PropTypes.string.isRequired,
-      tint: PropTypes.oneOf(['lightest', 'light', 'normal', 'dark', 'darkest']),
-    };
-
-    static defaultProps = {
-      active: true,
-      backdrop: 'dark',
-      color: 'neutral',
-      lockScroll: true,
-      offsetCorrection: 0,
-      tint: 'normal',
-    };
-
     constructor() {
       super(...arguments);
 
@@ -161,6 +133,34 @@ const factory = (axis, calculatePositions, Overlay) => {
       return createPortal(popover, this.popoverRoot);
     }
   }
+
+  Popover.propTypes = {
+    active: PropTypes.bool,
+    anchorEl: PropTypes.object,
+    backdrop: PropTypes.string,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    color: PropTypes.oneOf(['aqua', 'gold', 'mint', 'neutral', 'ruby', 'teal', 'violet']),
+    direction: PropTypes.string.isRequired,
+    lockScroll: PropTypes.bool,
+    offsetCorrection: PropTypes.number,
+    onEscKeyDown: PropTypes.func,
+    onOverlayClick: PropTypes.func,
+    onOverlayMouseDown: PropTypes.func,
+    onOverlayMouseMove: PropTypes.func,
+    onOverlayMouseUp: PropTypes.func,
+    position: PropTypes.string.isRequired,
+    tint: PropTypes.oneOf(['lightest', 'light', 'normal', 'dark', 'darkest']),
+  };
+
+  Popover.defaultProps = {
+    active: true,
+    backdrop: 'dark',
+    color: 'neutral',
+    lockScroll: true,
+    offsetCorrection: 0,
+    tint: 'normal',
+  };
 
   return Popover;
 };
