@@ -51,15 +51,15 @@ class DatePicker extends PureComponent {
 }
 
 DatePicker.propTypes = {
-	className: PropTypes.string,
-	modifiers: PropTypes.object,
-	onChange: PropTypes.func,
-	selectedDate: PropTypes.instanceOf(Date),
-	size: PropTypes.oneOf(['small', 'medium', 'large']),
+  className: PropTypes.string,
+  modifiers: PropTypes.object,
+  onChange: PropTypes.func,
+  selectedDate: PropTypes.instanceOf(Date),
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
 };
 
 DatePicker.defaultProps = {
-	size: 'medium',
+  size: 'medium',
 };
 
 export default DatePicker;
