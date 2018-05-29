@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean, number, select } from "@storybook/addon-knobs/react";
-import { DatePicker, DatePickerInput, DatePickerInputRange, DatePickerRange, Label } from '../components';
+import { Box, DatePicker, DatePickerInput, DatePickerInputRange, DatePickerRange, Label } from '../components';
 import { DateTime } from 'luxon';
 import MomentLocaleUtils from 'react-day-picker/moment';
 
@@ -131,11 +131,15 @@ storiesOf('DatePicker', module)
     };
 
     return (
-      <Label
-        inverse={boolean('Inverse', false)}
-        size={select('Size', sizes, 'medium')}
-      >
-        Date
+      <Box marginBottom={3}>
+        <Label
+          for="datepickerInput"
+          inverse={boolean('Inverse', false)}
+					marginBottom={0}
+          size={select('Size', sizes, 'medium')}
+        >
+          Date
+        </Label>
         <DatePickerInputRange
           formatDate={date =>  DateTime.fromJSDate(date).setLocale(select('Locale', languages, 'nl')).toLocaleString(DateTime.DATE_SHORT)}
           bold={boolean('Bold', false)}
@@ -148,6 +152,10 @@ storiesOf('DatePicker', module)
           }}
           disabled={boolean('Disabled', false)}
           helpText="Pick a start & end date"
+					inputFromProps={{
+            id: 'datepickerInput'
+          }}
+					marginTop={1}
           meta={{
             error: 'This is an error message',
             touched: true,
@@ -159,6 +167,6 @@ storiesOf('DatePicker', module)
           valueFrom={preSelectedRange.from}
           valueTo={preSelectedRange.to}
         />
-      </Label>
+      </Box>
     )
   });
