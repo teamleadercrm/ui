@@ -17,21 +17,18 @@ const factory = (axis, calculatePositions, Overlay) => {
 
       this.popoverRoot = document.createElement('div');
       this.popoverRoot.id = 'popover-root';
-
-      this.setPlacement = ::this.setPlacement;
-      this.setPlacementThrottled = ::this.setPlacementThrottled;
-
-      this.state = {
-        positioning: {
-          left: 0,
-          top: 0,
-          arrowLeft: 0,
-          arrowTop: 0,
-        },
-      };
     }
 
-    setPlacementThrottled = throttle(this.setPlacement, 16);
+    state = {
+      positioning: {
+        left: 0,
+        top: 0,
+        arrowLeft: 0,
+        arrowTop: 0,
+      },
+    };
+
+    setPlacementThrottled = () => throttle(this.setPlacement, 16);
 
     componentDidMount() {
       document.body.appendChild(this.popoverRoot);
@@ -57,7 +54,7 @@ const factory = (axis, calculatePositions, Overlay) => {
       }
     }
 
-    setPlacement() {
+    setPlacement = () => {
       const { anchorEl, direction, position, offsetCorrection } = this.props;
 
       if (this.popoverNode) {
