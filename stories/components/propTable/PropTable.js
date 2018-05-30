@@ -8,6 +8,10 @@ const renderPropTypeValues = (propType) => {
   if(typeof propType === 'string') {
     return propType;
   }
+  
+  if(propType.name === 'instanceOf') {
+    return propType.value;
+  }
 
   if(propType.name === 'instanceOf') {
     return propType.value;

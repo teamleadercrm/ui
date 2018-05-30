@@ -9,6 +9,7 @@ import Checkbox from './checkbox';
 import CompactMessage from './compactMessage';
 import Counter from './counter';
 import DataGrid from './datagrid';
+import DatePicker, { DatePickerInput, DatePickerInputRange, DatePickerRange } from './datepicker';
 import Dialog from './dialog';
 import Icon from './icon';
 import Input from './input';
@@ -46,6 +47,10 @@ export {
   CompactMessage,
   Counter,
   DataGrid,
+  DatePicker,
+  DatePickerInput,
+  DatePickerInputRange,
+  DatePickerRange,
   Dialog,
   Heading1,
   Heading2,
