@@ -13,26 +13,25 @@ const sizes = ['small', 'medium', 'large'];
 
 const preSelectedDate = DateTime.local().plus({days: 3}).toJSDate();
 
-
 storiesOf('DatePicker', module)
-		.addDecorator((story, context) => withInfo({TableComponent: PropTable})(story)(context))
-		.addDecorator(checkA11y)
-		.addDecorator(withKnobs)
-		.add('Single date', () => {
-			const handleOnChange = (selectedDate) => {
-				console.log("Selected date", selectedDate);
-			};
+  .addDecorator((story, context) => withInfo({TableComponent: PropTable})(story)(context))
+  .addDecorator(checkA11y)
+  .addDecorator(withKnobs)
+  .add('Single date', () => {
+    const handleOnChange = (selectedDate) => {
+      console.log("Selected date", selectedDate);
+    };
 
-			return (
-					<DatePicker
-							locale={select('Locale', languages, 'nl')}
-							localeUtils={MomentLocaleUtils}
-							numberOfMonths={number('Number of months', 1)}
-							onChange={handleOnChange}
-							selectedDate={preSelectedDate}
-							showOutsideDays={boolean('Show outside days', true)}
-							showWeekNumbers={boolean('Show week numbers', true)}
-							size={select('Size', sizes, 'medium')}
-					/>
-			)
-		})
+    return (
+      <DatePicker
+        locale={select('Locale', languages, 'nl')}
+        localeUtils={MomentLocaleUtils}
+        numberOfMonths={number('Number of months', 1)}
+        onChange={handleOnChange}
+        selectedDate={preSelectedDate}
+        showOutsideDays={boolean('Show outside days', true)}
+        showWeekNumbers={boolean('Show week numbers', true)}
+        size={select('Size', sizes, 'medium')}
+      />
+    )
+  });
