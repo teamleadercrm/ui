@@ -3,11 +3,10 @@ export const convertModifiersToClassnames = (modifiers, theme) => {
     return;
   }
 
-  const convertedModifiers = {};
-
-  Object.keys(modifiers).forEach(key => {
-    convertedModifiers[theme[key]] = modifiers[key];
-  });
-
-  return convertedModifiers;
+  return Object.keys(modifiers).reduce((convertedModifiers, key) => {
+    return {
+      ...convertedModifiers,
+      [theme[key]]: modifiers[key],
+    };
+  }, {});
 };
