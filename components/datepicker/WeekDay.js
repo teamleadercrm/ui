@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-const WeekDay = ({ weekday, className, localeUtils, locale, size }) => {
-  const weekdayName = localeUtils.formatWeekdayLong(weekday, locale);
+class WeekDay extends PureComponent {
+  render() {
+    const { weekday, className, localeUtils, locale, size } = this.props;
+    const weekdayName = localeUtils.formatWeekdayLong(weekday, locale);
 
-  return (
-    <div className={className} title={weekdayName}>
-      {weekdayName.slice(0, size === 'large' ? 2 : 1)}
-    </div>
-  );
-};
+    return (
+      <div className={className} title={weekdayName}>
+        {weekdayName.slice(0, size === 'large' ? 2 : 1)}
+      </div>
+    );
+  }
+}
 
 WeekDay.propTypes = {
   className: PropTypes.string,
