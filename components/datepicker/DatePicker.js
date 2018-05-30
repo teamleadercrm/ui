@@ -13,7 +13,7 @@ class DatePicker extends PureComponent {
   };
 
   static getDerivedStateFromProps(props, state) {
-    if(props.selectedDate !== undefined && props.selectedDate !== state.selectedDate){
+    if (props.selectedDate !== undefined && props.selectedDate !== state.selectedDate) {
       return {
         selectedDate: props.selectedDate,
       };
