@@ -28,6 +28,7 @@ class DatePicker extends PureComponent {
 
     return (
       <DayPicker
+        {...others}
         className={classNames}
         classNames={theme}
         modifiers={convertModifiersToClassnames(modifiers, theme)}
@@ -35,7 +36,6 @@ class DatePicker extends PureComponent {
         onDayClick={this.handleDayClick}
         selectedDays={selectedDate}
         weekdayElement={<WeekDay size={size} />}
-        {...others}
       />
     );
   }
