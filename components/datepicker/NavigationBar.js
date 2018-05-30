@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Box } from '../box';
 import { IconButton } from '../button';
@@ -9,26 +9,44 @@ import {
   IconArrowRightSmallOutline,
 } from '@teamleader/ui-icons';
 
-const NavigationBar = ({ nextMonth, previousMonth, onPreviousClick, onNextClick, className, localeUtils, size }) => {
-  const months = localeUtils.getMonths();
-  const previousMonthButtonLabel = months[previousMonth.getMonth()];
-  const nextMonthButtonLabel = months[nextMonth.getMonth()];
+class NavigationBar extends PureComponent {
+	handlePreviousClick = () => {
+		this.props.onPreviousClick();
+	};
 
-  return (
-    <Box className={className} display="flex" justifyContent="space-between">
-      <IconButton
-        icon={size === 'large' ? <IconArrowLeftMediumOutline /> : <IconArrowLeftSmallOutline />}
-        onClick={() => onPreviousClick()}
-        title={previousMonthButtonLabel}
-      />
-      <IconButton
-        icon={size === 'large' ? <IconArrowRightMediumOutline /> : <IconArrowRightSmallOutline />}
-        onClick={() => onNextClick()}
-        title={nextMonthButtonLabel}
-      />
-    </Box>
-  );
-};
+	handleNextClick = () => {
+		this.props.onNextClick();
+	};
+
+  render() {
+		const {
+			className,
+			localeUtils,
+		  nextMonth,
+      previousMonth,
+      size
+		} = this.props;
+
+    const months = localeUtils.getMonths();
+    const previousMonthButtonLabel = months[previousMonth.getMonth()];
+    const nextMonthButtonLabel = months[nextMonth.getMonth()];
+
+    return (
+      <Box className={className} display="flex" justifyContent="space-between">
+        <IconButton
+          icon={size === 'large' ? <IconArrowLeftMediumOutline /> : <IconArrowLeftSmallOutline />}
+          onClick={this.handlePreviousClick}
+          title={previousMonthButtonLabel}
+        />
+        <IconButton
+          icon={size === 'large' ? <IconArrowRightMediumOutline /> : <IconArrowRightSmallOutline />}
+          onClick={this.handleNextClick}
+          title={nextMonthButtonLabel}
+        />
+      </Box>
+    );
+	}
+}
 
 NavigationBar.propTypes = {
   className: PropTypes.string,
