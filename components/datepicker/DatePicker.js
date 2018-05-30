@@ -9,26 +9,15 @@ import theme from './theme.css';
 
 class DatePicker extends PureComponent {
   state = {
-    selectedDate: null,
+    selectedDate: this.props.selectedDate,
   };
 
-  static getDerivedStateFromProps(nextProps, prevState) {
-    if(nextProps.selectedDate !== prevState.selectedDate){
-      return {
-        selectedDate: nextProps.selectedDate,
-      };
-    }
-
-    return null;
+  componentDidUpdate() {
+    this.props.onChange({ selectedDate: this.state.selectedDate });
   }
 
   handleDayClick = day => {
-    this.setState(
-      {
-        selectedDate: day,
-      },
-      this.props.onChange({ selectedDate: day }),
-    );
+    this.setState({ selectedDate: day });
   };
 
   render() {
