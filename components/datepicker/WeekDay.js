@@ -6,7 +6,7 @@ const WeekDay = ({ weekday, className, localeUtils, locale, size }) => {
 
   return (
     <div className={className} title={weekdayName}>
-      {size === 'large' ? weekdayName.slice(0, 2) : weekdayName.slice(0, 1)}
+      {weekdayName.slice(0, size === 'large' ? 2 : 1)}
     </div>
   );
 };
