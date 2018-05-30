@@ -10,22 +10,16 @@ import {
 } from '@teamleader/ui-icons';
 
 class NavigationBar extends PureComponent {
-	handlePreviousClick = () => {
-		this.props.onPreviousClick();
-	};
+  handlePreviousClick = () => {
+    this.props.onPreviousClick();
+  };
 
-	handleNextClick = () => {
-		this.props.onNextClick();
-	};
+  handleNextClick = () => {
+    this.props.onNextClick();
+  };
 
   render() {
-		const {
-			className,
-			localeUtils,
-		  nextMonth,
-      previousMonth,
-      size
-		} = this.props;
+    const { className, localeUtils, nextMonth, previousMonth, size } = this.props;
 
     const months = localeUtils.getMonths();
     const previousMonthButtonLabel = months[previousMonth.getMonth()];
@@ -45,7 +39,7 @@ class NavigationBar extends PureComponent {
         />
       </Box>
     );
-	}
+  }
 }
 
 NavigationBar.propTypes = {
