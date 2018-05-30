@@ -73,6 +73,7 @@
     "lodash.throttle": "^4.1.1",
     "prop-types": "^15.5.9",
     "react": "^16.3.1",
+    "react-day-picker": "^7.1.8",
     "react-dom": "^16.3.1",
     "react-resize-detector": "^1.1.0",
     "react-transition-group": "^2.2.1"
@@ -119,6 +120,7 @@
     "image-webpack-loader": "^4.1.0",
     "imports-loader": "^0.7.1",
     "json-loader": "^0.5.4",
+    "luxon": "^0.5.8",
     "postcss": "^6.0.14",
     "postcss-cssnext": "^3.0.2",
     "postcss-each": "^0.10.0",
