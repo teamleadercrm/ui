@@ -1,6 +1,6 @@
 export const convertModifiersToClassnames = (modifiers, theme) => {
   if (!modifiers) {
-    return;
+    return {};
   }
 
   return Object.keys(modifiers).reduce((convertedModifiers, key) => {
