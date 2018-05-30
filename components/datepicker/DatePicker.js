@@ -12,12 +12,14 @@ class DatePicker extends PureComponent {
     selectedDate: null,
   };
 
-  componentWillMount() {
-    const { selectedDate } = this.props;
-
-    if (selectedDate) {
-      this.setState({ selectedDate });
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if(nextProps.selectedDate !== prevState.selectedDate){
+      return {
+        selectedDate: nextProps.selectedDate,
+      };
     }
+
+    return null;
   }
 
   handleDayClick = day => {
