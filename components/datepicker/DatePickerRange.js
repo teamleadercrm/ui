@@ -9,7 +9,7 @@ import theme from './theme.css';
 
 class DatePickerRange extends PureComponent {
   state = {
-    from: null,
+    selectedStartDate: null,
     to: null,
     enteredTo: null,
   };
@@ -17,10 +17,10 @@ class DatePickerRange extends PureComponent {
   static getDerivedStateFromProps(props, state) {
     if (
       props.selectedRange !== undefined &&
-      (props.selectedRange.from !== state.from || props.selectedRange.to !== state.to)
+      (props.selectedRange.selectedStartDate !== state.selectedStartDate || props.selectedRange.to !== state.to)
     ) {
       return {
-        from: props.selectedRange.from,
+        selectedStartDate: props.selectedRange.selectedStartDate,
         to: props.selectedRange.to,
         enteredTo: props.selectedRange.to,
       };
@@ -30,16 +30,16 @@ class DatePickerRange extends PureComponent {
   }
 
   handleDayClick = day => {
-    const { from, to } = this.state;
+    const { selectedStartDate, to } = this.state;
 
-    if (isSelectingFirstDay(from, to, day)) {
+    if (isSelectingFirstDay(selectedStartDate, to, day)) {
       this.setState(
         {
-          from: day,
+          selectedStartDate: day,
           to: null,
           enteredTo: null,
         },
-        () => this.props.onChange({ from: day, to: null }),
+        () => this.props.onChange({ selectedStartDate: day, to: null }),
       );
     } else {
       this.setState(
@@ -47,15 +47,15 @@ class DatePickerRange extends PureComponent {
           to: day,
           enteredTo: day,
         },
-        () => this.props.onChange({ from, to: day }),
+        () => this.props.onChange({ selectedStartDate, to: day }),
       );
     }
   };
 
   handleDayMouseEnter = day => {
-    const { from, to } = this.state;
+    const { selectedStartDate, to } = this.state;
 
-    if (!isSelectingFirstDay(from, to, day)) {
+    if (!isSelectingFirstDay(selectedStartDate, to, day)) {
       this.setState({
         enteredTo: day,
       });
@@ -64,9 +64,9 @@ class DatePickerRange extends PureComponent {
 
   render() {
     const { className, size, ...others } = this.props;
-    const { from, enteredTo } = this.state;
-    const modifiers = { from, to: enteredTo };
-    const selectedDays = [from, { from, to: enteredTo }];
+    const { selectedStartDate, enteredTo } = this.state;
+    const modifiers = { selectedStartDate, to: enteredTo };
+    const selectedDays = [selectedStartDate, { selectedStartDate, to: enteredTo }];
 
     const classNames = cx(
       theme['date-picker'],
