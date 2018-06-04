@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean, number, select } from "@storybook/addon-knobs/react";
-import { DatePicker, DatePickerInput } from '../components';
+import { DatePicker, DatePickerInput, DatePickerRange } from '../components';
 import { DateTime } from 'luxon';
 import MomentLocaleUtils from 'react-day-picker/moment';
 
@@ -14,6 +14,10 @@ const sizes = ['small', 'medium', 'large'];
 const inputPlaceholder = DateTime.fromJSDate(new Date()).setLocale(select('Locale', languages, 'nl')).toLocaleString(DateTime.DATE_SHORT);
 
 const preSelectedDate = DateTime.local().plus({days: 3}).toJSDate();
+const preSelectedRange = {
+  selectedStartDate: DateTime.local().plus({days: 3}).toJSDate(),
+  selectedEndDate: DateTime.local().plus({days: 8}).toJSDate(),
+};
 
 storiesOf('DatePicker', module)
   .addDecorator((story, context) => withInfo({TableComponent: PropTable})(story)(context))
@@ -66,6 +70,24 @@ storiesOf('DatePicker', module)
         selectedDate={preSelectedDate}
         size={select('Size', sizes, 'medium')}
         value={preSelectedDate}
+      />
+    )
+  })
+  .add('Range', () => {
+    const handleOnChange = (selectedRange) => {
+      console.log("Selected range", selectedRange);
+    };
+
+    return (
+      <DatePickerRange
+        locale={select('Locale', languages, 'nl')}
+        localeUtils={MomentLocaleUtils}
+        numberOfMonths={number('Number of months', 2)}
+        onChange={handleOnChange}
+        selectedRange={preSelectedRange}
+        showOutsideDays={boolean('Show outside days', false)}
+        showWeekNumbers={boolean('Show week numbers', true)}
+        size={select('Size', sizes, 'medium')}
       />
     )
   });
