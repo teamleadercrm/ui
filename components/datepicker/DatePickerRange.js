@@ -69,12 +69,7 @@ class DatePickerRange extends PureComponent {
     const modifiers = { from: selectedStartDate, to: mouseEnteredEndDate };
     const selectedDays = [selectedStartDate, { from: selectedStartDate, to: mouseEnteredEndDate }];
 
-    const classNames = cx(
-      theme['date-picker'],
-      theme['has-range'],
-      theme[`is-${size}`],
-      className,
-    );
+    const classNames = cx(theme['date-picker'], theme['has-range'], theme[`is-${size}`], className);
 
     return (
       <DayPicker
