@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import DayPicker from 'react-day-picker';
 import NavigationBar from './NavigationBar';
 import WeekDay from './WeekDay';
-import { convertModifiersToClassnames, hasRange, isSelectingFirstDay } from './utils';
+import { convertModifiersToClassnames, isSelectingFirstDay } from './utils';
 import cx from 'classnames';
 import theme from './theme.css';
 
@@ -71,10 +71,8 @@ class DatePickerRange extends PureComponent {
 
     const classNames = cx(
       theme['date-picker'],
+      theme['has-range'],
       theme[`is-${size}`],
-      {
-        [theme['has-range']]: hasRange(selectedDays),
-      },
       className,
     );
 
