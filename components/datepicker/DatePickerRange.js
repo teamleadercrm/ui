@@ -10,19 +10,20 @@ import theme from './theme.css';
 class DatePickerRange extends PureComponent {
   state = {
     selectedStartDate: null,
-    to: null,
+    selectedEndDate: null,
     enteredTo: null,
   };
 
   static getDerivedStateFromProps(props, state) {
     if (
       props.selectedRange !== undefined &&
-      (props.selectedRange.selectedStartDate !== state.selectedStartDate || props.selectedRange.to !== state.to)
+      (props.selectedRange.selectedStartDate !== state.selectedStartDate ||
+        props.selectedRange.selectedEndDate !== state.selectedEndDate)
     ) {
       return {
         selectedStartDate: props.selectedRange.selectedStartDate,
-        to: props.selectedRange.to,
-        enteredTo: props.selectedRange.to,
+        selectedEndDate: props.selectedRange.selectedEndDate,
+        enteredTo: props.selectedRange.selectedEndDate,
       };
     }
 
@@ -30,32 +31,32 @@ class DatePickerRange extends PureComponent {
   }
 
   handleDayClick = day => {
-    const { selectedStartDate, to } = this.state;
+    const { selectedStartDate, selectedEndDate } = this.state;
 
-    if (isSelectingFirstDay(selectedStartDate, to, day)) {
+    if (isSelectingFirstDay(selectedStartDate, selectedEndDate, day)) {
       this.setState(
         {
           selectedStartDate: day,
-          to: null,
+          selectedEndDate: null,
           enteredTo: null,
         },
-        () => this.props.onChange({ selectedStartDate: day, to: null }),
+        () => this.props.onChange({ selectedStartDate: day, selectedEndDate: null }),
       );
     } else {
       this.setState(
         {
-          to: day,
+          selectedEndDate: day,
           enteredTo: day,
         },
-        () => this.props.onChange({ selectedStartDate, to: day }),
+        () => this.props.onChange({ selectedStartDate, selectedEndDate: day }),
       );
     }
   };
 
   handleDayMouseEnter = day => {
-    const { selectedStartDate, to } = this.state;
+    const { selectedStartDate, selectedEndDate } = this.state;
 
-    if (!isSelectingFirstDay(selectedStartDate, to, day)) {
+    if (!isSelectingFirstDay(selectedStartDate, selectedEndDate, day)) {
       this.setState({
         enteredTo: day,
       });
@@ -65,8 +66,8 @@ class DatePickerRange extends PureComponent {
   render() {
     const { className, size, ...others } = this.props;
     const { selectedStartDate, enteredTo } = this.state;
-    const modifiers = { selectedStartDate, to: enteredTo };
-    const selectedDays = [selectedStartDate, { selectedStartDate, to: enteredTo }];
+    const modifiers = { from: selectedStartDate, to: enteredTo };
+    const selectedDays = [selectedStartDate, { from: selectedStartDate, to: enteredTo }];
 
     const classNames = cx(
       theme['date-picker'],
