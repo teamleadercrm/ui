@@ -11,7 +11,7 @@ class DatePickerRange extends PureComponent {
   state = {
     selectedStartDate: null,
     selectedEndDate: null,
-    enteredTo: null,
+    mouseEnteredEndDate: null,
   };
 
   static getDerivedStateFromProps(props, state) {
@@ -23,7 +23,7 @@ class DatePickerRange extends PureComponent {
       return {
         selectedStartDate: props.selectedRange.selectedStartDate,
         selectedEndDate: props.selectedRange.selectedEndDate,
-        enteredTo: props.selectedRange.selectedEndDate,
+        mouseEnteredEndDate: props.selectedRange.selectedEndDate,
       };
     }
 
@@ -38,7 +38,7 @@ class DatePickerRange extends PureComponent {
         {
           selectedStartDate: day,
           selectedEndDate: null,
-          enteredTo: null,
+          mouseEnteredEndDate: null,
         },
         () => this.props.onChange({ selectedStartDate: day, selectedEndDate: null }),
       );
@@ -46,7 +46,7 @@ class DatePickerRange extends PureComponent {
       this.setState(
         {
           selectedEndDate: day,
-          enteredTo: day,
+          mouseEnteredEndDate: day,
         },
         () => this.props.onChange({ selectedStartDate, selectedEndDate: day }),
       );
@@ -58,16 +58,16 @@ class DatePickerRange extends PureComponent {
 
     if (!isSelectingFirstDay(selectedStartDate, selectedEndDate, day)) {
       this.setState({
-        enteredTo: day,
+        mouseEnteredEndDate: day,
       });
     }
   };
 
   render() {
     const { className, size, ...others } = this.props;
-    const { selectedStartDate, enteredTo } = this.state;
-    const modifiers = { from: selectedStartDate, to: enteredTo };
-    const selectedDays = [selectedStartDate, { from: selectedStartDate, to: enteredTo }];
+    const { selectedStartDate, mouseEnteredEndDate } = this.state;
+    const modifiers = { from: selectedStartDate, to: mouseEnteredEndDate };
+    const selectedDays = [selectedStartDate, { from: selectedStartDate, to: mouseEnteredEndDate }];
 
     const classNames = cx(
       theme['date-picker'],
