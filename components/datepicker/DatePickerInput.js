@@ -37,12 +37,12 @@ class DatePickerInput extends PureComponent {
     this.setState({ inputHasFocus: true });
   };
 
-  handleDayClick = day => {
+  handleInputDateChange = date => {
     this.setState(
       {
-        selectedDate: day,
+        selectedDate: date,
       },
-      () => this.props.onChange(day),
+      () => this.props.onChange(date),
     );
   };
 
@@ -66,12 +66,13 @@ class DatePickerInput extends PureComponent {
           className: dayPickerClassNames,
           classNames: theme,
           modifiers: convertModifiersToClassnames(modifiers, theme),
-          onDayClick: this.handleDayClick,
+          onDayClick: this.handleInputDateChange,
           selectedDays: selectedDate,
           navbarElement: <NavigationBar size={size} />,
           weekdayElement: <WeekDay size={size} />,
           ...dayPickerProps,
         }}
+        onDayChange={this.handleInputDateChange}
         hideOnDayClick={false}
         inputProps={{
           disabled: disabled || readOnly,
