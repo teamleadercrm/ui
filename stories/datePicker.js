@@ -6,7 +6,7 @@ import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean, number, select } from "@storybook/addon-knobs/react";
 import { DatePicker, DatePickerInput, DatePickerRange } from '../components';
 import { DateTime } from 'luxon';
-import MomentLocaleUtils from 'react-day-picker/moment';
+import MomentLocaleUtils, { formatDate, parseDate } from 'react-day-picker/moment';
 
 const languages = ['da', 'de', 'fr', 'en', 'es', 'fi', 'it', 'nl', 'pt', 'pl', 'sv'];
 const sizes = ['small', 'medium', 'large'];
@@ -48,7 +48,8 @@ storiesOf('DatePicker', module)
 
     return (
       <DatePickerInput
-        formatDate={date =>  DateTime.fromJSDate(date).setLocale(select('Locale', languages, 'nl')).toLocaleString(DateTime.DATE_SHORT)}
+        formatDate={formatDate}
+        parseDate={parseDate}
         bold={boolean('Bold', false)}
         disabled={boolean('Disabled', false)}
         inverse={boolean('Inverse', false)}
