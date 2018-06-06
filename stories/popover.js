@@ -17,7 +17,7 @@ import {
   TextSmall,
 } from '../components';
 import { withKnobs, select } from '@storybook/addon-knobs/react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 const store = new Store({
   active: false,
@@ -36,7 +36,13 @@ const handleCloseClick = () => {
 
 const contentBoxWithSingleTextLine = (
   <Box padding={4}>
-    <TextBody>This is the popover content with a <Link href="#" inherit={false}>link</Link> inside</TextBody>
+    <TextBody>
+      This is the popover content with a{' '}
+      <Link href="#" inherit={false}>
+        link
+      </Link>{' '}
+      inside
+    </TextBody>
   </Box>
 );
 
@@ -96,7 +102,7 @@ storiesOf('Popover', module)
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
         >
-          <Banner fullWidth={true}>
+          <Banner fullWidth>
             <Heading3>Popover Title</Heading3>
           </Banner>
           {contentBoxWithSingleTextLine}
@@ -118,7 +124,7 @@ storiesOf('Popover', module)
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
         >
-          <Banner color="neutral" fullWidth={true}>
+          <Banner color="neutral" fullWidth>
             <Heading3>Popover Title</Heading3>
             <TextSmall marginTop={1}>This is the popover content</TextSmall>
           </Banner>
@@ -141,7 +147,7 @@ storiesOf('Popover', module)
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
         >
-          <Banner onClose={handleCloseClick} fullWidth={true}>
+          <Banner onClose={handleCloseClick} fullWidth>
             <Heading3>I am a heading 3</Heading3>
           </Banner>
           {contentBoxWithSingleTextLine}
@@ -208,7 +214,10 @@ storiesOf('Popover', module)
         >
           <Box padding={4}>
             <Heading3>I am a heading 3</Heading3>
-            <TextBody marginTop={2}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</TextBody>
+            <TextBody marginTop={2}>
+              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
+              et dolore magna aliquyam erat, sed diam voluptua.
+            </TextBody>
           </Box>
         </PopoverVertical>
       </State>
