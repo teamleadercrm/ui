@@ -10,7 +10,10 @@ import { IconBuildingSmallOutline } from '@teamleader/ui-icons';
 const iconPositions = ['left', 'right'];
 
 storiesOf('Badge', module)
-  .addDecorator((story, context) => withInfo({TableComponent: PropTable})(story)(context))
+  .addDecorator((story, context) => withInfo({
+    TableComponent: PropTable,
+    propTablesExclude: [TextDisplay],
+  })(story)(context))
   .addDecorator(checkA11y)
   .addDecorator(withKnobs)
   .add('inline', () => (
