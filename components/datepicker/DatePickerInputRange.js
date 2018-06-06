@@ -108,13 +108,13 @@ class DatePickerInputRange extends PureComponent {
       ...others
     } = this.props;
 
-    const dayPickerInputProps = omit(others, ['helpText', 'meta', 'onBlur', 'onChange', 'onFocus']);
-
     const { selectedStartDate, selectedEndDate, mouseEnteredEndDate } = this.state;
-    const modifiers = { from: selectedStartDate, to: mouseEnteredEndDate };
-    const selectedDays = [selectedStartDate, { from: selectedStartDate, to: mouseEnteredEndDate }];
 
     const dayPickerClassNames = cx(theme['date-picker'], theme['has-range'], theme[`is-${size}`], className);
+    const dayPickerInputProps = omit(others, ['helpText', 'meta', 'onBlur', 'onChange', 'onFocus']);
+
+    const modifiers = { from: selectedStartDate, to: mouseEnteredEndDate };
+    const selectedDays = [selectedStartDate, { from: selectedStartDate, to: mouseEnteredEndDate }];
 
     const commonDayPickerProps = {
       className: dayPickerClassNames,
