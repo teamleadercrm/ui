@@ -168,7 +168,7 @@
     "deploy:prod": "better-npm-run deploy:prod",
     "deploy:staging": "better-npm-run deploy:staging",
     "dmc": "npm start",
-    "lint": "eslint components spec",
+    "lint": "eslint components stories",
     "lint:fix": "npm run lint -- --fix",
     "precommit": "npm run lint:fix",
     "prepare": "npm run build",
