@@ -97,14 +97,14 @@ class DatePickerInputRange extends PureComponent {
       dayPickerProps,
       dayPickerStartDateProps,
       dayPickerEndDateProps,
+      dayPickerInputStartDateProps,
+      dayPickerInputEndDateProps,
       disabled,
       inputProps,
       inputStartDateProps,
       inputEndDateProps,
       readOnly,
       size,
-      valueFrom,
-      valueTo,
       ...others
     } = this.props;
 
@@ -153,8 +153,8 @@ class DatePickerInputRange extends PureComponent {
             ...inputStartDateProps,
           }}
           ref={el => (this.startDate = el)}
-          value={valueFrom}
           {...commonDayPickerInputProps}
+          {...dayPickerInputStartDateProps}
           {...rest}
         />
         <DayPickerInput
@@ -174,8 +174,8 @@ class DatePickerInputRange extends PureComponent {
             ...inputEndDateProps,
           }}
           ref={el => (this.endDate = el)}
-          value={valueTo}
           {...commonDayPickerInputProps}
+          {...dayPickerInputEndDateProps}
           {...rest}
         />
       </Fragment>
@@ -278,12 +278,14 @@ DatePickerInputRange.propTypes = {
   dayPickerProps: PropTypes.object,
   dayPickerStartDateProps: PropTypes.object,
   dayPickerEndDateProps: PropTypes.object,
+  dayPickerInputEndDateProps: PropTypes.object,
+  dayPickerInputStartDateProps: PropTypes.object,
   onChange: PropTypes.func,
   readOnly: PropTypes.bool,
   selectedRange: PropTypes.object,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
-  valueFrom: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]),
-  valueTo: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]),
+  inputStartDateValue: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]),
+  inputEndDateValue: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]),
 };
 
 DatePickerInputRange.defaultProps = {
