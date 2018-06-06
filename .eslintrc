@@ -24,11 +24,6 @@
     "__VERSION__"  : false
   },
   "rules": {
-    "prettier/prettier": ["error", {
-      "printWidth": 120,
-      "singleQuote": true,
-      "trailingComma": "all"
-    }],
     "prefer-const": ["error", {
       "destructuring": "any",
       "ignoreReadBeforeAssign": false
