@@ -108,6 +108,8 @@ class DatePickerInputRange extends PureComponent {
       ...others
     } = this.props;
 
+    const dayPickerInputProps = omit(others, ['helpText', 'meta', 'onBlur', 'onChange', 'onFocus']);
+
     const { selectedStartDate, selectedEndDate, mouseEnteredEndDate } = this.state;
     const modifiers = { from: selectedStartDate, to: mouseEnteredEndDate };
     const selectedDays = [selectedStartDate, { from: selectedStartDate, to: mouseEnteredEndDate }];
@@ -127,14 +129,13 @@ class DatePickerInputRange extends PureComponent {
     const commonDayPickerInputProps = {
       classNames: theme,
       hideOnDayClick: false,
+      ...dayPickerInputProps,
     };
 
     const commonInputProps = {
       disabled: disabled || readOnly,
       ...inputProps,
     };
-
-    const rest = omit(others, ['helpText', 'meta', 'onBlur', 'onChange', 'onFocus']);
 
     return (
       <Fragment>
@@ -155,7 +156,6 @@ class DatePickerInputRange extends PureComponent {
           ref={el => (this.startDate = el)}
           {...commonDayPickerInputProps}
           {...dayPickerInputStartDateProps}
-          {...rest}
         />
         <DayPickerInput
           dayPickerProps={{
@@ -176,7 +176,6 @@ class DatePickerInputRange extends PureComponent {
           ref={el => (this.endDate = el)}
           {...commonDayPickerInputProps}
           {...dayPickerInputEndDateProps}
-          {...rest}
         />
       </Fragment>
     );
