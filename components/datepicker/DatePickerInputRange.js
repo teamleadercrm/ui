@@ -112,12 +112,7 @@ class DatePickerInputRange extends PureComponent {
     const modifiers = { from: selectedStartDate, to: mouseEnteredEndDate };
     const selectedDays = [selectedStartDate, { from: selectedStartDate, to: mouseEnteredEndDate }];
 
-    const dayPickerClassNames = cx(
-      theme['date-picker'],
-      theme['has-range'],
-      theme[`is-${size}`],
-      className,
-    );
+    const dayPickerClassNames = cx(theme['date-picker'], theme['has-range'], theme[`is-${size}`], className);
 
     const commonDayPickerProps = {
       className: dayPickerClassNames,
