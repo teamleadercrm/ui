@@ -11,7 +11,8 @@ import MomentLocaleUtils, { formatDate, parseDate } from 'react-day-picker/momen
 const languages = ['da', 'de', 'fr', 'en', 'es', 'fi', 'it', 'nl', 'pt', 'pl', 'sv'];
 const sizes = ['small', 'medium', 'large'];
 
-const inputPlaceholder = DateTime.fromJSDate(new Date()).setLocale(select('Locale', languages, 'nl')).toLocaleString(DateTime.DATE_SHORT);
+const inputPlaceholderToday = DateTime.fromJSDate(new Date()).setLocale(select('Locale', languages, 'nl')).toLocaleString(DateTime.DATE_SHORT);
+const inputPlaceholderTomorrow = DateTime.fromJSDate(new Date()).setLocale(select('Locale', languages, 'nl')).plus({days: 1}).toLocaleString(DateTime.DATE_SHORT);
 
 const preSelectedDate = DateTime.local().plus({days: 3}).toJSDate();
 const preSelectedRange = {
@@ -76,6 +77,14 @@ storiesOf('DatePicker', module)
           showOutsideDays: boolean('Show outside days', false),
           showWeekNumbers: boolean('Show week numbers', true)
         }}
+        dayPickerInputStartDateProps={{
+          placeholder: inputPlaceholderToday,
+          value: preSelectedRange.selectedStartDate,
+        }}
+        dayPickerInputEndDateProps={{
+          placeholder: inputPlaceholderTomorrow,
+          value: preSelectedRange.selectedEndDate,
+        }}
         disabled={boolean('Disabled', false)}
         helpText="Pick a start & end date"
         inverse={boolean('Inverse', false)}
@@ -83,13 +92,10 @@ storiesOf('DatePicker', module)
           error: 'This is an error message',
           touched: true,
         }}
-        placeholder={inputPlaceholder}
         readOnly={boolean('Read only', false)}
         onChange={handleOnChange}
         selectedRange={preSelectedRange}
         size={select('Size', sizes, 'medium')}
-        valueFrom={preSelectedRange.from}
-        valueTo={preSelectedRange.to}
       />
     )
   });
