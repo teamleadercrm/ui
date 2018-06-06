@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean, number, select } from "@storybook/addon-knobs/react";
-import { DatePicker, DatePickerRange, DatePickerInputRange } from '../components';
+import { DatePicker, DatePickerRange, DatePickerInput, DatePickerInputRange } from '../components';
 import { DateTime } from 'luxon';
 import MomentLocaleUtils, { formatDate, parseDate } from 'react-day-picker/moment';
 
@@ -39,6 +39,39 @@ storiesOf('DatePicker', module)
         showOutsideDays={boolean('Show outside days', true)}
         showWeekNumbers={boolean('Show week numbers', true)}
         size={select('Size', sizes, 'medium')}
+      />
+    )
+  })
+  .add('Input single date', () => {
+    const handleOnChange = (selectedDate) => {
+      console.log("Selected date", selectedDate);
+    };
+
+    return (
+      <DatePickerInput
+        formatDate={formatDate}
+        parseDate={parseDate}
+        bold={boolean('Bold', false)}
+        disabled={boolean('Disabled', false)}
+        inverse={boolean('Inverse', false)}
+        helpText="Pick a date"
+        dayPickerProps={{
+          locale: select('Locale', languages, 'nl'),
+          localeUtils: MomentLocaleUtils,
+          numberOfMonths: number('Number of months', 2),
+          showOutsideDays: boolean('Show outside days', true),
+          showWeekNumbers: boolean('Show week numbers', true)
+        }}
+        meta={{
+          error: 'This is an error message',
+          touched: true,
+        }}
+        onChange={handleOnChange}
+        placeholder={inputPlaceholderToday}
+        readOnly={boolean('Read only', false)}
+        selectedDate={preSelectedDate}
+        size={select('Size', sizes, 'medium')}
+        value={preSelectedDate}
       />
     )
   })
