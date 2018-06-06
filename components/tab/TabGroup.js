@@ -9,6 +9,7 @@ class TabGroup extends PureComponent {
     children: PropTypes.node.isRequired,
     className: PropTypes.string,
     inverted: PropTypes.bool,
+    size: PropTypes.oneOf(['small', 'medium']),
   };
 
   static defaultProps = {
@@ -16,7 +17,7 @@ class TabGroup extends PureComponent {
   };
 
   render() {
-    const { children, className, inverted, ...others } = this.props;
+    const { children, className, inverted, size, ...others } = this.props;
 
     const classNames = cx(
       theme['tab-group'],
@@ -28,7 +29,7 @@ class TabGroup extends PureComponent {
 
     return (
       <Box data-teamleader-ui="tab-group" className={classNames} {...others}>
-        {children}
+        {React.Children.map(children, child => React.cloneElement(child, { size }))}
       </Box>
     );
   }

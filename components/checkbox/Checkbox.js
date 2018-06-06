@@ -9,13 +9,21 @@ import { IconCheckmarkSmallOutline, IconCheckmarkMediumOutline } from '@teamlead
 
 class Checkbox extends PureComponent {
   static propTypes = {
+    /** If true, the checkbox will be checked. */
     checked: PropTypes.bool,
+    /** The content to display next to the checkbox. */
     children: PropTypes.node,
+    /** If true, component will be disabled. */
     disabled: PropTypes.bool,
+    /** Name for form input. */
     name: PropTypes.string,
+    /** A class name for the wrapper to give custom styles. */
     className: PropTypes.string,
+    /** The textual label displayed next to the checkbox. */
     label: PropTypes.string,
+    /** Callback function that is fired when checkbox is toggled. */
     onChange: PropTypes.func,
+    /** Size of the checkbox. */
     size: PropTypes.oneOf(['small', 'medium', 'large']),
   };
 

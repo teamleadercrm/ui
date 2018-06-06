@@ -12,48 +12,23 @@ import theme from './theme.css';
 
 const factory = (axis, calculatePositions, Overlay) => {
   class Popover extends PureComponent {
-    static propTypes = {
-      active: PropTypes.bool,
-      anchorEl: PropTypes.object,
-      backdrop: PropTypes.string,
-      children: PropTypes.node,
-      className: PropTypes.string,
-      direction: PropTypes.string.isRequired,
-      offsetCorrection: PropTypes.number,
-      onEscKeyDown: PropTypes.func,
-      onOverlayClick: PropTypes.func,
-      onOverlayMouseDown: PropTypes.func,
-      onOverlayMouseMove: PropTypes.func,
-      onOverlayMouseUp: PropTypes.func,
-      position: PropTypes.string.isRequired,
-    };
-
-    static defaultProps = {
-      active: true,
-      backdrop: 'dark',
-      offsetCorrection: 0,
-    };
-
     constructor() {
       super(...arguments);
 
       this.popoverRoot = document.createElement('div');
       this.popoverRoot.id = 'popover-root';
-
-      this.setPlacement = ::this.setPlacement;
-      this.setPlacementThrottled = ::this.setPlacementThrottled;
-
-      this.state = {
-        positioning: {
-          left: 0,
-          top: 0,
-          arrowLeft: 0,
-          arrowTop: 0,
-        },
-      };
     }
 
-    setPlacementThrottled = throttle(this.setPlacement, 16);
+    state = {
+      positioning: {
+        left: 0,
+        top: 0,
+        arrowLeft: 0,
+        arrowTop: 0,
+      },
+    };
+
+    setPlacementThrottled = () => throttle(this.setPlacement, 16);
 
     componentDidMount() {
       document.body.appendChild(this.popoverRoot);
@@ -73,13 +48,13 @@ const factory = (axis, calculatePositions, Overlay) => {
       document.body.removeChild(this.popoverRoot);
     }
 
-    componentDidUpdate(prevProps, prevState) {
+    componentDidUpdate(prevProps) {
       if (this.props.active && prevProps !== this.props) {
         this.setPlacement();
       }
     }
 
-    setPlacement() {
+    setPlacement = () => {
       const { anchorEl, direction, position, offsetCorrection } = this.props;
 
       if (this.popoverNode) {
@@ -87,7 +62,7 @@ const factory = (axis, calculatePositions, Overlay) => {
           positioning: calculatePositions(anchorEl, this.popoverNode, direction, position, offsetCorrection),
         });
       }
-    }
+    };
 
     render() {
       const { left, top, arrowLeft, arrowTop } = this.state.positioning;
@@ -97,11 +72,14 @@ const factory = (axis, calculatePositions, Overlay) => {
         backdrop,
         children,
         className,
+        color,
+        lockScroll,
         onOverlayClick,
         onEscKeyDown,
         onOverlayMouseDown,
         onOverlayMouseMove,
         onOverlayMouseUp,
+        tint,
       } = this.props;
 
       if (!active) {
@@ -113,7 +91,7 @@ const factory = (axis, calculatePositions, Overlay) => {
           {state => {
             return (
               <div
-                className={cx(theme['wrapper'], {
+                className={cx(theme['wrapper'], theme[color], theme[tint], {
                   [theme['is-entering']]: state === 'entering',
                   [theme['is-entered']]: state === 'entered',
                 })}
@@ -122,6 +100,7 @@ const factory = (axis, calculatePositions, Overlay) => {
                   active={active}
                   backdrop={backdrop}
                   className={theme['overlay']}
+                  lockScroll={lockScroll}
                   onClick={onOverlayClick}
                   onEscKeyDown={onEscKeyDown}
                   onMouseDown={onOverlayMouseDown}
@@ -151,6 +130,34 @@ const factory = (axis, calculatePositions, Overlay) => {
       return createPortal(popover, this.popoverRoot);
     }
   }
+
+  Popover.propTypes = {
+    active: PropTypes.bool,
+    anchorEl: PropTypes.object,
+    backdrop: PropTypes.string,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    color: PropTypes.oneOf(['aqua', 'gold', 'mint', 'neutral', 'ruby', 'teal', 'violet']),
+    direction: PropTypes.string.isRequired,
+    lockScroll: PropTypes.bool,
+    offsetCorrection: PropTypes.number,
+    onEscKeyDown: PropTypes.func,
+    onOverlayClick: PropTypes.func,
+    onOverlayMouseDown: PropTypes.func,
+    onOverlayMouseMove: PropTypes.func,
+    onOverlayMouseUp: PropTypes.func,
+    position: PropTypes.string.isRequired,
+    tint: PropTypes.oneOf(['lightest', 'light', 'normal', 'dark', 'darkest']),
+  };
+
+  Popover.defaultProps = {
+    active: true,
+    backdrop: 'dark',
+    color: 'neutral',
+    lockScroll: true,
+    offsetCorrection: 0,
+    tint: 'lightest',
+  };
 
   return Popover;
 };

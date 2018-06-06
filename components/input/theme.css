@@ -8,7 +8,6 @@
   --input-height-large: calc(4.8 * var(--unit));
   --input-height-medium: calc(3.6 * var(--unit));
   --input-height-small: calc(3 * var(--unit));
-  --input-width: calc(30 * var(--unit));
   --input-horizontal-padding: calc(.5 * var(--unit));
   --input-horizontal-padding-icon-large: calc(3.5 * var(--unit));
   --input-horizontal-padding-icon: calc(2.2 * var(--unit));
@@ -29,7 +28,6 @@
  */
 .wrapper {
   width: 100%;
-  max-width: var(--input-width);
 
   &:not(.is-inverse) {
     .icon {

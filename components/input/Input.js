@@ -1,4 +1,4 @@
-import React, { Component, createElement } from 'react';
+import React, { PureComponent, createElement } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import omit from 'lodash.omit';
@@ -8,13 +8,14 @@ import {
   IconWarningBadgedSmallFilled,
 } from '@teamleader/ui-icons';
 import InputMetaPropTypes from './InputMetaPropTypes';
+import FieldInputPropTypes from './FieldInputPropTypes';
 import Box from '../box';
 import Button from '../button';
 import Counter from '../counter';
 import { TextSmall } from '../typography';
 import theme from './theme.css';
 
-export default class Input extends Component {
+export default class Input extends PureComponent {
   static propTypes = {
     autoFocus: PropTypes.bool,
     /** Boolean indicating whether the input text should render in bold. */
@@ -41,6 +42,8 @@ export default class Input extends Component {
     min: PropTypes.number,
     /** Object to provide meta information for redux forms. */
     meta: InputMetaPropTypes,
+    /** Object to provide input information for redux forms. */
+    input: FieldInputPropTypes,
     /** Callback function that is fired when component is blurred. */
     onBlur: PropTypes.func,
     /** Callback function that is fired when the component's value changes. */
@@ -75,70 +78,29 @@ export default class Input extends Component {
     step: 1,
   };
 
-  constructor(props) {
-    super(props);
-
-    this.handleChange = ::this.handleChange;
-    this.handleIncreaseValue = ::this.handleIncreaseValue;
-    this.handleDecreaseValue = ::this.handleDecreaseValue;
-
-    this.state = {
-      value: props.type === 'number' ? Number(props.value) || '' : props.value || '',
-    };
-  }
-
-  componentWillUpdate(props, state) {
-    if (props.input && props.input.onChange && state.value) {
-      props.input.onChange(state.value);
-    }
-  }
-
-  handleChange(event) {
-    const value = event.target.value;
-
-    this.setState(() => ({
-      value: this.props.type === 'number' ? Number(value) : value,
-    }));
-  }
-
-  handleIncreaseValue() {
-    this.updateStep(1);
-  }
-
-  handleDecreaseValue() {
-    this.updateStep(-1);
-  }
-
-  hasError() {
-    const { meta } = this.props;
-    return Boolean(meta && meta.error && meta.touched);
-  }
-
-  formatNumber(number) {
-    const { precision } = this.props;
-
-    let formattedNumber = this.toNumber(number);
-
-    if (precision !== null) {
-      formattedNumber = number.toFixed(precision);
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.value !== undefined) {
+      const newValue = Input.parseValue(Input.getPropsValue(nextProps), nextProps);
+      if (newValue !== prevState.value) {
+        return {
+          value: newValue,
+        };
+      }
     }
 
-    return String(formattedNumber);
+    return null;
   }
 
-  updateStep(n) {
-    const { step } = this.props;
-
-    this.setState(prevState => {
-      const number = this.toNumber((prevState.value || 0) + step * n);
-
-      return { value: number };
-    });
+  static getPropsValue({ input, value }) {
+    const finalValue = input !== undefined ? input.value : value;
+    return finalValue || '';
   }
 
-  toNumber(number) {
-    const { max, min, precision } = this.props;
+  static parseValue(value, { type, min, max, precision }) {
+    return type === 'number' ? Input.toNumber(value, min, max, precision) : value;
+  }
 
+  static toNumber(number, min, max, precision) {
     let float = parseFloat(number);
 
     if (isNaN(float) || !isFinite(float)) {
@@ -151,6 +113,62 @@ export default class Input extends Component {
     float = Math.round(float * baseExponent) / baseExponent;
 
     return float;
+  }
+
+  state = {
+    value: '',
+  };
+
+  handleChange = event => {
+    this.updateValue(event.target.value);
+  };
+
+  handleIncreaseValue = () => {
+    this.updateStep(1);
+  };
+
+  handleDecreaseValue = () => {
+    this.updateStep(-1);
+  };
+
+  updateValue(rawValue, triggerOnChange = true) {
+    const { input, onChange } = this.props;
+    const value = Input.parseValue(rawValue, this.props);
+
+    this.setState({
+      value,
+    });
+
+    if (triggerOnChange) {
+      if (input && input.onChange) {
+        input.onChange(value);
+      } else if (onChange) {
+        onChange(value);
+      }
+    }
+  }
+
+  hasError() {
+    const { meta } = this.props;
+    return Boolean(meta && meta.error && meta.touched);
+  }
+
+  formatNumber(number) {
+    const { min, max, precision } = this.props;
+
+    let formattedNumber = Input.toNumber(number, min, max, precision);
+
+    if (precision !== null) {
+      formattedNumber = number.toFixed(precision);
+    }
+
+    return String(formattedNumber);
+  }
+
+  updateStep(n) {
+    const { step } = this.props;
+    const { value = 0 } = this.state;
+    this.updateValue(value + step * n);
   }
 
   renderInput() {

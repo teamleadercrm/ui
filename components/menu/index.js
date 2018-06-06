@@ -1,12 +1,7 @@
-import { IconButton } from '../button';
 import MenuDivider from './MenuDivider';
-import { menuItemFactory } from './MenuItem';
-import { menuFactory } from './Menu';
-import { iconMenuFactory } from './IconMenu';
-
-const MenuItem = menuItemFactory();
-const Menu = menuFactory(MenuItem);
-const IconMenu = iconMenuFactory(IconButton, Menu);
+import MenuItem from './MenuItem';
+import Menu from './Menu';
+import IconMenu from './IconMenu';
 
 export default Menu;
 export { MenuDivider, MenuItem, Menu, IconMenu };

@@ -1,16 +1,32 @@
 import React from 'react';
-import PropTable from "./components/propTable";
+import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
 import { Store, State } from '@sambego/storybook-state';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
-import { Banner, Box, Button, ButtonGroup, Heading3, Link, PopoverHorizontal, PopoverVertical, Section, TextBody, TextSmall } from '../components';
+import {
+  Banner,
+  Box,
+  Button,
+  ButtonGroup,
+  Heading3,
+  Link,
+  PopoverHorizontal,
+  PopoverVertical,
+  TextBody,
+  TextSmall,
+} from '../components';
+import { withKnobs, select } from '@storybook/addon-knobs/react';
+import PropTypes from 'prop-types'
 
 const store = new Store({
   active: false,
 });
 
-const handleButtonClick = (event) => {
+const colors = ['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'teal'];
+const tints = ['lightest', 'light', 'normal', 'dark', 'darkest'];
+
+const handleButtonClick = event => {
   store.set({ anchorEl: event.currentTarget, active: true });
 };
 
@@ -25,8 +41,9 @@ const contentBoxWithSingleTextLine = (
 );
 
 storiesOf('Popover', module)
-  .addDecorator((story, context) => withInfo({TableComponent: PropTable})(story)(context))
+  .addDecorator((story, context) => withInfo({ TableComponent: PropTable })(story)(context))
   .addDecorator(checkA11y)
+  .addDecorator(withKnobs)
   .add('horizontal', () => (
     <Box>
       <Button onClick={handleButtonClick} label="Open a horizontalPopover" />
@@ -34,10 +51,12 @@ storiesOf('Popover', module)
         <PopoverHorizontal
           active={false}
           backdrop="transparent"
+          color={select('Color', colors, 'neutral')}
           direction="west"
           position="middle"
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
+          tint={select('Tint', tints, 'lightest')}
         >
           {contentBoxWithSingleTextLine}
         </PopoverHorizontal>
@@ -51,10 +70,12 @@ storiesOf('Popover', module)
         <PopoverVertical
           active={false}
           backdrop="transparent"
+          color={select('Color', colors, 'neutral')}
           direction="south"
           position="center"
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
+          tint={select('Tint', tints, 'lightest')}
         >
           {contentBoxWithSingleTextLine}
         </PopoverVertical>
@@ -68,10 +89,12 @@ storiesOf('Popover', module)
         <PopoverVertical
           active={false}
           backdrop="transparent"
+          color={select('Color', colors, 'neutral')}
           direction="south"
           position="center"
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
+          tint={select('Tint', tints, 'lightest')}
         >
           <Banner fullWidth={true}>
             <Heading3>Popover Title</Heading3>
@@ -88,10 +111,12 @@ storiesOf('Popover', module)
         <PopoverVertical
           active={false}
           backdrop="transparent"
+          color={select('Color', colors, 'neutral')}
           direction="south"
           position="center"
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
+          tint={select('Tint', tints, 'lightest')}
         >
           <Banner color="neutral" fullWidth={true}>
             <Heading3>Popover Title</Heading3>
@@ -109,10 +134,12 @@ storiesOf('Popover', module)
         <PopoverVertical
           active={false}
           backdrop="transparent"
+          color={select('Color', colors, 'neutral')}
           direction="south"
           position="center"
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
+          tint={select('Tint', tints, 'lightest')}
         >
           <Banner onClose={handleCloseClick} fullWidth={true}>
             <Heading3>I am a heading 3</Heading3>
@@ -129,10 +156,12 @@ storiesOf('Popover', module)
         <PopoverVertical
           active={false}
           backdrop="transparent"
+          color={select('Color', colors, 'neutral')}
           direction="south"
           position="center"
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
+          tint={select('Tint', tints, 'lightest')}
         >
           {contentBoxWithSingleTextLine}
           <ButtonGroup justifyContent="flex-end" padding={4}>
@@ -146,14 +175,17 @@ storiesOf('Popover', module)
   .add('with dark backdrop', () => (
     <Box>
       <Button onClick={handleButtonClick} label="Open a Popover with dark backdrop" />
+      color={select('Color', colors, 'neutral')}
       <State store={store}>
         <PopoverVertical
           active={false}
           backdrop="dark"
+          color={select('Color', colors, 'neutral')}
           direction="south"
           position="center"
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
+          tint={select('Tint', tints, 'lightest')}
         >
           {contentBoxWithSingleTextLine}
         </PopoverVertical>
@@ -167,10 +199,12 @@ storiesOf('Popover', module)
         <PopoverVertical
           active={false}
           backdrop="transparent"
+          color={select('Color', colors, 'neutral')}
           direction="south"
           position="center"
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
+          tint={select('Tint', tints, 'lightest')}
         >
           <Box padding={4}>
             <Heading3>I am a heading 3</Heading3>
@@ -187,10 +221,12 @@ storiesOf('Popover', module)
         <PopoverVertical
           active={false}
           backdrop="transparent"
+          color={select('Color', colors, 'neutral')}
           direction="south"
           position="center"
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
+          tint={select('Tint', tints, 'lightest')}
         >
           <Box padding={4}>
             <ul>
