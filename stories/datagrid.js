@@ -39,13 +39,12 @@ const handleRowSelectionChange = selectedRows => {
   console.log(`onSelectionChange - selected row indexes: ${selectedRows}`);
 };
 
-const BasicDataGrid = ({ rows, comparableId }) => {
-  return (
-    <DataGrid
-      selectable={boolean('Selectable', true)}
-      comparableId={comparableId}
-      onSelectionChange={handleRowSelectionChange}
-    >
+storiesOf('DataGrids', module)
+  .addDecorator((story, context) => withInfo({ TableComponent: PropTable })(story)(context))
+  .addDecorator(checkA11y)
+  .addDecorator(withKnobs)
+  .add('Basic', () => (
+    <DataGrid selectable={boolean('Selectable', true)} comparableId={1} onSelectionChange={handleRowSelectionChange}>
       <DataGrid.HeaderRow>
         <DataGrid.HeaderCell flex="min-width" />
         <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} sorted="asc">
@@ -60,7 +59,7 @@ const BasicDataGrid = ({ rows, comparableId }) => {
         <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')}>Due date</DataGrid.HeaderCell>
         <DataGrid.HeaderCell flex="min-width" />
       </DataGrid.HeaderRow>
-      {rows.map((row, index) => {
+      {rows1.map((row, index) => {
         return (
           <DataGrid.BodyRow key={index}>
             <DataGrid.Cell align="center" flex="min-width">
@@ -92,16 +91,9 @@ const BasicDataGrid = ({ rows, comparableId }) => {
         );
       })}
     </DataGrid>
-  );
-};
-
-const DataGridWithFooter = ({ rows, comparableId }) => {
-  return (
-    <DataGrid
-      selectable={boolean('Selectable', true)}
-      comparableId={comparableId}
-      onSelectionChange={handleRowSelectionChange}
-    >
+  ))
+  .add('with footer', () => (
+    <DataGrid selectable={boolean('Selectable', true)} comparableId={1} onSelectionChange={handleRowSelectionChange}>
       <DataGrid.HeaderRow>
         <DataGrid.HeaderCell flex="min-width" />
         <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} sorted="asc">
@@ -116,7 +108,7 @@ const DataGridWithFooter = ({ rows, comparableId }) => {
         <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')}>Due date</DataGrid.HeaderCell>
         <DataGrid.HeaderCell flex="min-width" />
       </DataGrid.HeaderRow>
-      {rows.map((row, index) => {
+      {rows1.map((row, index) => {
         return (
           <DataGrid.BodyRow key={index}>
             <DataGrid.Cell align="center" flex="min-width">
@@ -148,19 +140,16 @@ const DataGridWithFooter = ({ rows, comparableId }) => {
         );
       })}
       <DataGrid.FooterRow backgroundColor="neutral">
-        <DataGrid.Cell align="right">{`${rows.length} rows in total`}</DataGrid.Cell>
+        <DataGrid.Cell align="right">{`${rows1.length} rows in total`}</DataGrid.Cell>
       </DataGrid.FooterRow>
     </DataGrid>
-  );
-};
-
-const DataGridWithStickyColumns = ({ rows, comparableId }) => {
-  return (
+  ))
+  .add('with sticky columns', () => (
     <DataGrid
       selectable={boolean('Selectable', true)}
       stickyFromLeft={number('Sticky from left', 3)}
       stickyFromRight={number('Sticky from right', 1)}
-      comparableId={comparableId}
+      comparableId={1}
       onSelectionChange={handleRowSelectionChange}
     >
       <DataGrid.HeaderRow>
@@ -177,7 +166,7 @@ const DataGridWithStickyColumns = ({ rows, comparableId }) => {
         <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')}>Due date</DataGrid.HeaderCell>
         <DataGrid.HeaderCell flex="min-width" />
       </DataGrid.HeaderRow>
-      {rows.map((row, index) => {
+      {rows1.map((row, index) => {
         return (
           <DataGrid.BodyRow key={index}>
             <DataGrid.Cell align="center" flex="min-width">
@@ -209,16 +198,13 @@ const DataGridWithStickyColumns = ({ rows, comparableId }) => {
         );
       })}
     </DataGrid>
-  );
-};
-
-const DataGridAdvanced = ({ rows, comparableId }) => {
-  return (
+  ))
+  .add('Advanced', () => (
     <DataGrid
       selectable={boolean('Selectable', true)}
       stickyFromLeft={number('Sticky from left', 3)}
       stickyFromRight={number('Sticky from right', 1)}
-      comparableId={comparableId}
+      comparableId={1}
       onSelectionChange={handleRowSelectionChange}
     >
       <DataGrid.HeaderRow>
@@ -235,7 +221,7 @@ const DataGridAdvanced = ({ rows, comparableId }) => {
         <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')}>Due date</DataGrid.HeaderCell>
         <DataGrid.HeaderCell flex="min-width" />
       </DataGrid.HeaderRow>
-      {rows.map((row, index) => {
+      {rows1.map((row, index) => {
         return (
           <DataGrid.BodyRow key={index}>
             <DataGrid.Cell align="center" flex="min-width">
@@ -305,50 +291,4 @@ const DataGridAdvanced = ({ rows, comparableId }) => {
         <DataGrid.Cell flex="min-width" />
       </DataGrid.FooterRow>
     </DataGrid>
-  );
-};
-
-storiesOf('DataGrids', module)
-  .addDecorator((story, context) => withInfo({ TableComponent: PropTable })(story)(context))
-  .addDecorator(checkA11y)
-  .addDecorator(withKnobs)
-  .add('Basic', () => (
-    <Box>
-      <Section color="neutral">
-        <Button onClick={handleButtonClick} label="Refresh data" level="primary" />
-      </Section>
-      <State store={store}>
-        <BasicDataGrid />
-      </State>
-    </Box>
-  ))
-  .add('with footer', () => (
-    <Box>
-      <Section color="neutral">
-        <Button onClick={handleButtonClick} label="Refresh data" level="primary" />
-      </Section>
-      <State store={store}>
-        <DataGridWithFooter />
-      </State>
-    </Box>
-  ))
-  .add('with sticky columns', () => (
-    <Box>
-      <Section color="neutral">
-        <Button onClick={handleButtonClick} label="Refresh data" level="primary" />
-      </Section>
-      <State store={store}>
-        <DataGridWithStickyColumns />
-      </State>
-    </Box>
-  ))
-  .add('Advanced', () => (
-    <Box>
-      <Section color="neutral">
-        <Button onClick={handleButtonClick} label="Refresh data" level="primary" />
-      </Section>
-      <State store={store}>
-        <DataGridAdvanced />
-      </State>
-    </Box>
   ));
