@@ -99,8 +99,8 @@ class DatePickerInputRange extends PureComponent {
       dayPickerToProps,
       disabled,
       inputProps,
-      inputFromProps,
-      inputToProps,
+      inputStartDateProps,
+      inputEndDateProps,
       readOnly,
       size,
       valueFrom,
@@ -150,7 +150,7 @@ class DatePickerInputRange extends PureComponent {
             onBlur: this.handleFromBlur,
             onFocus: this.handleFromFocus,
             ...commonInputProps,
-            ...inputFromProps,
+            ...inputStartDateProps,
           }}
           ref={el => (this.startDate = el)}
           value={valueFrom}
@@ -171,7 +171,7 @@ class DatePickerInputRange extends PureComponent {
             onBlur: this.handleToBlur,
             onFocus: this.handleToFocus,
             ...commonInputProps,
-            ...inputToProps,
+            ...inputEndDateProps,
           }}
           ref={el => (this.endDate = el)}
           value={valueTo}
@@ -271,8 +271,8 @@ DatePickerInputRange.propTypes = {
   helpText: PropTypes.string,
   inverse: PropTypes.bool,
   inputProps: PropTypes.object,
-  inputFromProps: PropTypes.object,
-  inputToProps: PropTypes.object,
+  inputStartDateProps: PropTypes.object,
+  inputEndDateProps: PropTypes.object,
   meta: InputMetaPropTypes,
   modifiers: PropTypes.object,
   dayPickerProps: PropTypes.object,
