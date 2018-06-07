@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTable from "./components/propTable";
+import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
@@ -10,36 +10,44 @@ import { IllustrationInvoices120X120Static, IllustrationSharpie48X48Static } fro
 const imagePositions = ['left', 'center', 'right'];
 
 const button = <Button level="primary">Button text</Button>;
-const link = <TextBody><Link href="https://teamleader.eu" inherit={false}>I'm a link</Link></TextBody>;
+const link = (
+  <TextBody>
+    <Link href="https://teamleader.eu" inherit={false}>
+      I'm a link
+    </Link>
+  </TextBody>
+);
 const image = <IllustrationInvoices120X120Static />;
 const imageSmall = <IllustrationSharpie48X48Static />;
 const content = (
   <div>
     <Heading2 color="teal">The title</Heading2>
-    <TextBody color="teal" marginVertical={2}>Rinking vinegar adaptogen taiyaki thundercats yr street art. Cardigan beard PBR&B organic small batch church-key mustache unicorn vexillologist humblebrag coloring book helvetica.</TextBody>
+    <TextBody color="teal" marginVertical={2}>
+      Rinking vinegar adaptogen taiyaki thundercats yr street art. Cardigan beard PBR&B organic small batch church-key
+      mustache unicorn vexillologist humblebrag coloring book helvetica.
+    </TextBody>
   </div>
 );
 
 storiesOf('Message', module)
-  .addDecorator((story, context) => withInfo({TableComponent: PropTable})(story)(context))
+  .addDecorator((story, context) =>
+    withInfo({
+      TableComponent: PropTable,
+      propTablesExclude: [TextBody, Heading2, Link, Island],
+    })(story)(context),
+  )
   .addDecorator(checkA11y)
   .addDecorator(withKnobs)
   .add('Basic', () => (
     <Island>
-      <Message
-        button={button}
-        link={link}
-      >
+      <Message button={button} link={link}>
         {content}
       </Message>
     </Island>
   ))
   .add('Compact', () => (
     <Island>
-      <CompactMessage
-        button={button}
-        image={imageSmall}
-      >
+      <CompactMessage button={button} image={imageSmall}>
         {content}
       </CompactMessage>
     </Island>
