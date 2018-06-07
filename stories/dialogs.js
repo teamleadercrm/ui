@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTable from "./components/propTable";
+import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
 import { Store, State } from '@sambego/storybook-state';
 import { checkA11y } from 'storybook-addon-a11y';
@@ -19,7 +19,12 @@ const handleActiveToggle = () => {
 };
 
 storiesOf('Dialogs', module)
-  .addDecorator((story, context) => withInfo({TableComponent: PropTable})(story)(context))
+  .addDecorator((story, context) =>
+    withInfo({
+      TableComponent: PropTable,
+      propTablesExclude: [Button, ButtonGroup, Banner, TextBody, Heading3, State],
+    })(story)(context),
+  )
   .addDecorator(checkA11y)
   .addDecorator(withKnobs)
   .add('Basic', () => (
@@ -39,8 +44,8 @@ storiesOf('Dialogs', module)
             <TextBody>Here you can add arbitrary content.</TextBody>
           </Box>
           <ButtonGroup justifyContent="flex-end" padding={4}>
-            <Button label="Cancel"/>
-            <Button label="Confirm" level="primary"/>
+            <Button label="Cancel" />
+            <Button label="Confirm" level="primary" />
           </ButtonGroup>
         </Dialog>
       </State>
@@ -50,11 +55,7 @@ storiesOf('Dialogs', module)
     <Box>
       <Button onClick={handleActiveToggle} label="Open a dialog" />
       <State store={store}>
-        <Dialog
-          active={false}
-          onEscKeyDown={handleActiveToggle}
-          onOverlayClick={handleActiveToggle}
-        >
+        <Dialog active={false} onEscKeyDown={handleActiveToggle} onOverlayClick={handleActiveToggle}>
           <Banner color="mint" fullWidth icon={<IconCheckmarkMediumOutline />} onClose={handleActiveToggle}>
             <Heading3>Succes: Dialog title</Heading3>
           </Banner>
@@ -62,8 +63,8 @@ storiesOf('Dialogs', module)
             <TextBody>Here you can add arbitrary content.</TextBody>
           </Box>
           <ButtonGroup justifyContent="flex-end" padding={4}>
-            <Button label="Cancel"/>
-            <Button label="Confirm" level="primary"/>
+            <Button label="Cancel" />
+            <Button label="Confirm" level="primary" />
           </ButtonGroup>
         </Dialog>
       </State>
@@ -73,11 +74,7 @@ storiesOf('Dialogs', module)
     <Box>
       <Button onClick={handleActiveToggle} label="Open a dialog" />
       <State store={store}>
-        <Dialog
-          active={false}
-          onEscKeyDown={handleActiveToggle}
-          onOverlayClick={handleActiveToggle}
-        >
+        <Dialog active={false} onEscKeyDown={handleActiveToggle} onOverlayClick={handleActiveToggle}>
           <Banner color="gold" fullWidth icon={<IconWarningBadgedMediumOutline />} onClose={handleActiveToggle}>
             <Heading3>Warning: Dialog title</Heading3>
           </Banner>
@@ -85,8 +82,8 @@ storiesOf('Dialogs', module)
             <TextBody>Here you can add arbitrary content.</TextBody>
           </Box>
           <ButtonGroup justifyContent="flex-end" padding={4}>
-            <Button label="Cancel"/>
-            <Button label="Confirm" level="primary"/>
+            <Button label="Cancel" />
+            <Button label="Confirm" level="primary" />
           </ButtonGroup>
         </Dialog>
       </State>
@@ -96,17 +93,13 @@ storiesOf('Dialogs', module)
     <Box>
       <Button onClick={handleActiveToggle} label="Open a dialog" />
       <State store={store}>
-        <Dialog
-          active={false}
-          onEscKeyDown={handleActiveToggle}
-          onOverlayClick={handleActiveToggle}
-        >
+        <Dialog active={false} onEscKeyDown={handleActiveToggle} onOverlayClick={handleActiveToggle}>
           <Banner color="ruby" fullWidth icon={<IconWarningBadgedMediumOutline />} onClose={handleActiveToggle}>
             <Heading3>Succes: Dialog title</Heading3>
           </Banner>
           <ButtonGroup justifyContent="flex-end" padding={4}>
-            <Button label="Cancel"/>
-            <Button label="Confirm" level="destructive"/>
+            <Button label="Cancel" />
+            <Button label="Confirm" level="destructive" />
           </ButtonGroup>
         </Dialog>
       </State>
