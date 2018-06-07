@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTable from "./components/propTable";
+import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
 import { Store, State } from '@sambego/storybook-state';
 import { checkA11y } from 'storybook-addon-a11y';
@@ -17,11 +17,16 @@ const handlePageChange = page => {
 };
 
 storiesOf('Pagination', module)
-  .addDecorator((story, context) => withInfo({TableComponent: PropTable})(story)(context))
+  .addDecorator((story, context) =>
+    withInfo({
+      TableComponent: PropTable,
+      propTablesExclude: [Island],
+    })(story)(context),
+  )
   .addDecorator(checkA11y)
   .addDecorator(withKnobs)
   .add('Compact', () => (
-    <Island style={boolean('Inverse', false) ? {backgroundColor: '#2a3b4d'} : {}}>
+    <Island style={boolean('Inverse', false) ? { backgroundColor: '#2a3b4d' } : {}}>
       <Pagination
         numPages={number('Number of pages', 21)}
         currentPage={number('Current page', 1)}
@@ -29,20 +34,14 @@ storiesOf('Pagination', module)
       >
         {({ number, text, isActive, ...others }) => {
           return (
-            <LinkButton
-              label={text}
-              disabled={isActive}
-              inverse={boolean('Inverse', false)}
-              size="small"
-              {...others}
-            />
+            <LinkButton label={text} disabled={isActive} inverse={boolean('Inverse', false)} size="small" {...others} />
           );
         }}
       </Pagination>
     </Island>
   ))
   .add('Normal', () => (
-    <Island style={boolean('Inverse', false) ? {backgroundColor: '#2a3b4d'} : {}}>
+    <Island style={boolean('Inverse', false) ? { backgroundColor: '#2a3b4d' } : {}}>
       <Pagination
         numPages={number('Number of pages', 21)}
         currentPage={number('Current page', 1)}
@@ -52,13 +51,7 @@ storiesOf('Pagination', module)
       >
         {({ number, text, isActive, ...others }) => {
           return (
-            <LinkButton
-              label={text}
-              disabled={isActive}
-              inverse={boolean('Inverse', false)}
-              size="small"
-              {...others}
-            />
+            <LinkButton label={text} disabled={isActive} inverse={boolean('Inverse', false)} size="small" {...others} />
           );
         }}
       </Pagination>
