@@ -1,6 +1,7 @@
 import DatePicker from './DatePicker';
 import DatePickerInput from './DatePickerInput';
 import DatePickerRange from './DatePickerRange';
+import DatePickerInputRange from './DatePickerInputRange';
 
 export default DatePicker;
-export { DatePicker, DatePickerInput, DatePickerRange };
+export { DatePicker, DatePickerRange, DatePickerInput, DatePickerInputRange };

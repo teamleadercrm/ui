@@ -82,4 +82,3 @@ class LinkButton extends PureComponent {
 }
 
 export default LinkButton;
-export { LinkButton };

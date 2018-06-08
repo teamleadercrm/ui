@@ -105,4 +105,3 @@ class Dialog extends PureComponent {
 }
 
 export default Dialog;
-export { Dialog };
