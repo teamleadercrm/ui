@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTable from "./components/propTable";
+import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
@@ -32,18 +32,15 @@ const sizes = ['tiny', 'small', 'medium'];
 const TooltippedAvatar = Tooltip(Avatar);
 
 storiesOf('Avatars', module)
-  .addDecorator((story, context) => withInfo({
-    propTablesExclude: [Bullet, Counter],
-    TableComponent: PropTable,
-  })(story)(context))
+  .addDecorator((story, context) =>
+    withInfo({
+      propTablesExclude: [Bullet, Counter],
+      TableComponent: PropTable,
+    })(story)(context),
+  )
   .addDecorator(checkA11y)
   .addDecorator(withKnobs)
-  .add('sizes', () => (
-    <Avatar
-      image={avatars[0].image}
-      size={select('Size', sizes, 'medium')}
-    />
-  ))
+  .add('sizes', () => <Avatar image={avatars[0].image} size={select('Size', sizes, 'medium')} />)
   .add('stacked', () => (
     <AvatarStack
       direction={select('Direction', directions, 'horizontal')}
@@ -51,29 +48,17 @@ storiesOf('Avatars', module)
       inverse={boolean('Inverse', false)}
       size={select('Size', sizes, 'medium')}
     >
-      {avatars.map(({ image }, index) => (
-        <Avatar
-          key={index}
-          image={image}
-          size={select('Size', sizes, 'medium')}
-        />
-      ))}
+      {avatars.map(({ image }, index) => <Avatar key={index} image={image} size={select('Size', sizes, 'medium')} />)}
     </AvatarStack>
   ))
   .add('with bullet', () => (
-    <Avatar
-      image={avatars[0].image}
-      size={select('Size', sizes, 'medium')}
-    >
+    <Avatar image={avatars[0].image} size={select('Size', sizes, 'medium')}>
       <Bullet color="ruby" />
     </Avatar>
   ))
   .add('with counter', () => (
-    <Avatar
-      image={avatars[0].image}
-      size={select('Size', sizes, 'medium')}
-    >
-      <Counter color="ruby" count={avatars[0].count} maxCount={avatars[0].maxCount}/>
+    <Avatar image={avatars[0].image} size={select('Size', sizes, 'medium')}>
+      <Counter color="ruby" count={avatars[0].count} maxCount={avatars[0].maxCount} />
     </Avatar>
   ))
   .add('with tooltip', () => (

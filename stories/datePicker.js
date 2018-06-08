@@ -1,31 +1,43 @@
 import React from 'react';
-import PropTable from "./components/propTable";
+import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, boolean, number, select } from "@storybook/addon-knobs/react";
-import { DatePicker, DatePickerInput, DatePickerRange } from '../components';
+import { withKnobs, boolean, number, select } from '@storybook/addon-knobs/react';
+import { DatePicker, DatePickerRange, DatePickerInput, DatePickerInputRange } from '../components';
 import { DateTime } from 'luxon';
 import MomentLocaleUtils, { formatDate, parseDate } from 'react-day-picker/moment';
 
 const languages = ['da', 'de', 'fr', 'en', 'es', 'fi', 'it', 'nl', 'pt', 'pl', 'sv'];
 const sizes = ['small', 'medium', 'large'];
 
-const inputPlaceholder = DateTime.fromJSDate(new Date()).setLocale(select('Locale', languages, 'nl')).toLocaleString(DateTime.DATE_SHORT);
+const inputPlaceholderToday = DateTime.fromJSDate(new Date())
+  .setLocale(select('Locale', languages, 'nl'))
+  .toLocaleString(DateTime.DATE_SHORT);
+const inputPlaceholderTomorrow = DateTime.fromJSDate(new Date())
+  .setLocale(select('Locale', languages, 'nl'))
+  .plus({ days: 1 })
+  .toLocaleString(DateTime.DATE_SHORT);
 
-const preSelectedDate = DateTime.local().plus({days: 3}).toJSDate();
+const preSelectedDate = DateTime.local()
+  .plus({ days: 3 })
+  .toJSDate();
 const preSelectedRange = {
-  selectedStartDate: DateTime.local().plus({days: 3}).toJSDate(),
-  selectedEndDate: DateTime.local().plus({days: 8}).toJSDate(),
+  selectedStartDate: DateTime.local()
+    .plus({ days: 3 })
+    .toJSDate(),
+  selectedEndDate: DateTime.local()
+    .plus({ days: 8 })
+    .toJSDate(),
 };
 
 storiesOf('DatePicker', module)
-  .addDecorator((story, context) => withInfo({TableComponent: PropTable})(story)(context))
+  .addDecorator((story, context) => withInfo({ TableComponent: PropTable })(story)(context))
   .addDecorator(checkA11y)
   .addDecorator(withKnobs)
   .add('Single date', () => {
-    const handleOnChange = (selectedDate) => {
-      console.log("Selected date", selectedDate);
+    const handleOnChange = selectedDate => {
+      console.log('Selected date', selectedDate);
     };
 
     return (
@@ -39,11 +51,11 @@ storiesOf('DatePicker', module)
         showWeekNumbers={boolean('Show week numbers', true)}
         size={select('Size', sizes, 'medium')}
       />
-    )
+    );
   })
   .add('Input single date', () => {
-    const handleOnChange = (selectedDate) => {
-      console.log("Selected date", selectedDate);
+    const handleOnChange = selectedDate => {
+      console.log('Selected date', selectedDate);
     };
 
     return (
@@ -59,24 +71,24 @@ storiesOf('DatePicker', module)
           localeUtils: MomentLocaleUtils,
           numberOfMonths: number('Number of months', 2),
           showOutsideDays: boolean('Show outside days', true),
-          showWeekNumbers: boolean('Show week numbers', true)
+          showWeekNumbers: boolean('Show week numbers', true),
         }}
         meta={{
           error: 'This is an error message',
           touched: true,
         }}
         onChange={handleOnChange}
-        placeholder={inputPlaceholder}
+        placeholder={inputPlaceholderToday}
         readOnly={boolean('Read only', false)}
         selectedDate={preSelectedDate}
         size={select('Size', sizes, 'medium')}
         value={preSelectedDate}
       />
-    )
+    );
   })
   .add('Range', () => {
-    const handleOnChange = (selectedRange) => {
-      console.log("Selected range", selectedRange);
+    const handleOnChange = selectedRange => {
+      console.log('Selected range', selectedRange);
     };
 
     return (
@@ -90,5 +102,44 @@ storiesOf('DatePicker', module)
         showWeekNumbers={boolean('Show week numbers', true)}
         size={select('Size', sizes, 'medium')}
       />
-    )
+    );
+  })
+  .add('Input range', () => {
+    const handleOnChange = selectedRange => {
+      console.log('Selected range', selectedRange);
+    };
+
+    return (
+      <DatePickerInputRange
+        formatDate={formatDate}
+        parseDate={parseDate}
+        bold={boolean('Bold', false)}
+        dayPickerProps={{
+          locale: select('Locale', languages, 'nl'),
+          localeUtils: MomentLocaleUtils,
+          numberOfMonths: number('Number of months', 2),
+          showOutsideDays: boolean('Show outside days', false),
+          showWeekNumbers: boolean('Show week numbers', true),
+        }}
+        dayPickerInputStartDateProps={{
+          placeholder: inputPlaceholderToday,
+          value: preSelectedRange.selectedStartDate,
+        }}
+        dayPickerInputEndDateProps={{
+          placeholder: inputPlaceholderTomorrow,
+          value: preSelectedRange.selectedEndDate,
+        }}
+        disabled={boolean('Disabled', false)}
+        helpText="Pick a start & end date"
+        inverse={boolean('Inverse', false)}
+        meta={{
+          error: 'This is an error message',
+          touched: true,
+        }}
+        readOnly={boolean('Read only', false)}
+        onChange={handleOnChange}
+        selectedRange={preSelectedRange}
+        size={select('Size', sizes, 'medium')}
+      />
+    );
   });
