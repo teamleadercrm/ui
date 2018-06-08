@@ -1,19 +1,10 @@
 import React from 'react';
-import PropTable from "./components/propTable";
+import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean, select } from '@storybook/addon-knobs/react';
-import {
-  Badge,
-  Button,
-  Link,
-  StatusLabel,
-  TextBody,
-  TextDisplay,
-  TextSmall,
-  Tooltip
-} from '../components';
+import { Badge, Button, Link, StatusLabel, TextBody, TextDisplay, TextSmall, Tooltip } from '../components';
 import { IconHelpBadgedMediumOutline } from '@teamleader/ui-icons';
 
 const colors = ['white', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'inverse'];
@@ -30,7 +21,7 @@ const textBodyTooltipContent = <TextBody>I am body sized tooltip text</TextBody>
 const textSmallTooltipContent = <TextSmall>I am small sized tooltip text</TextSmall>;
 
 storiesOf('Tooltip', module)
-  .addDecorator((story, context) => withInfo({TableComponent: PropTable})(story)(context))
+  .addDecorator((story, context) => withInfo({ TableComponent: PropTable })(story)(context))
   .addDecorator(checkA11y)
   .addDecorator(withKnobs)
   .add('Basic', () => (
@@ -86,7 +77,8 @@ storiesOf('Tooltip', module)
       tooltipColor={select('Color', colors, 'white')}
       tooltipPosition={select('Position', positions, 'horizontal')}
       tooltipSize={select('Size', sizes, 'medium')}
-      href="#" inherit={false}
+      href="#"
+      inherit={false}
     >
       Hover me
     </TooltippedLink>

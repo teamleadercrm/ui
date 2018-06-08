@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTable from "./components/propTable";
+import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
@@ -11,14 +11,11 @@ const sizes = ['small', 'medium', 'large'];
 const TooltippedTag = Tooltip(Tag);
 
 storiesOf('Tags', module)
-  .addDecorator((story, context) => withInfo({TableComponent: PropTable})(story)(context))
+  .addDecorator((story, context) => withInfo({ TableComponent: PropTable })(story)(context))
   .addDecorator(checkA11y)
   .addDecorator(withKnobs)
   .add('Basic', () => (
-    <Tag
-      size={select('Size', sizes, 'medium')}
-      inverse={boolean('Inverse', false)}
-    >
+    <Tag size={select('Size', sizes, 'medium')} inverse={boolean('Inverse', false)}>
       I am a tag
     </Tag>
   ))

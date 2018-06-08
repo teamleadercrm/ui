@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTable from "./components/propTable";
+import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
@@ -17,19 +17,24 @@ const handleChangeValue = (value, event) => {
 };
 
 storiesOf('Button groups', module)
-  .addDecorator((story, context) => withInfo({TableComponent: PropTable})(story)(context))
+  .addDecorator((story, context) => withInfo({ TableComponent: PropTable })(story)(context))
   .addDecorator(checkA11y)
   .addDecorator(withKnobs)
   .add('normal', () => (
     <ButtonGroup segmented={boolean('Segmented', false)}>
-      <Button label="Button 1"/>
-      <Button label="Button 2"/>
+      <Button label="Button 1" />
+      <Button label="Button 2" />
       <Button icon={<IconAddMediumOutline />} />
     </ButtonGroup>
   ))
   .add('with active', () => (
     <State store={store}>
-      <ButtonGroup segmented={boolean('Segmented', true)} value="option2" onChange={handleChangeValue} level="secondary">
+      <ButtonGroup
+        segmented={boolean('Segmented', true)}
+        value="option2"
+        onChange={handleChangeValue}
+        level="secondary"
+      >
         <Button label="Option 1" value="option1" />
         <Button label="Option 2" value="option2" />
         <Button label="Option 3" value="option3" />

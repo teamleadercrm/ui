@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTable from "./components/propTable";
+import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
@@ -10,7 +10,7 @@ import { IconBuildingSmallOutline } from '@teamleader/ui-icons';
 const iconPositions = ['left', 'right'];
 
 storiesOf('Badge', module)
-  .addDecorator((story, context) => withInfo({TableComponent: PropTable})(story)(context))
+  .addDecorator((story, context) => withInfo({ TableComponent: PropTable })(story)(context))
   .addDecorator(checkA11y)
   .addDecorator(withKnobs)
   .add('inline', () => (
@@ -20,7 +20,9 @@ storiesOf('Badge', module)
         disabled={boolean('Disabled', false)}
         inherit={boolean('Inherit', true)}
         inverse={boolean('Inverse', false)}
-      >badge</Badge>
+      >
+        badge
+      </Badge>
       inside.
     </TextDisplay>
   ))
@@ -29,16 +31,20 @@ storiesOf('Badge', module)
       disabled={boolean('Disabled', false)}
       inherit={boolean('Inherit', false)}
       inverse={boolean('Inverse', false)}
-    >I'm a badge</Badge>
+    >
+      I'm a badge
+    </Badge>
   ))
   .add('with icon', () => (
     <Badge
       disabled={boolean('Disabled', false)}
-      icon={<IconBuildingSmallOutline/>}
+      icon={<IconBuildingSmallOutline />}
       iconPlacement={select('Icon placement', iconPositions, 'left')}
       inherit={boolean('Inherit', false)}
       inverse={boolean('Inverse', false)}
-    >I'm a badge</Badge>
+    >
+      I'm a badge
+    </Badge>
   ))
   .add('with custom element', () => (
     <Badge
@@ -47,5 +53,7 @@ storiesOf('Badge', module)
       href="https://teamleader.eu"
       inherit={boolean('Inherit', false)}
       inverse={boolean('Inverse', false)}
-    >I'm a badge</Badge>
+    >
+      I'm a badge
+    </Badge>
   ));
