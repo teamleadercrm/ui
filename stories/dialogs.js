@@ -22,7 +22,7 @@ storiesOf('Dialogs', module)
   .addDecorator((story, context) =>
     withInfo({
       TableComponent: PropTable,
-      propTablesExclude: [Button, ButtonGroup, Banner, TextBody, Heading3, State],
+      propTablesExclude: [Button, ButtonGroup, Banner, TextBody, Heading3, State, Box],
     })(story)(context),
   )
   .addDecorator(checkA11y)

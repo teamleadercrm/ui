@@ -16,7 +16,12 @@ import {
 } from '../components';
 
 storiesOf('Typography', module)
-  .addDecorator((story, context) => withInfo({ TableComponent: PropTable })(story)(context))
+  .addDecorator((story, context) =>
+    withInfo({
+      TableComponent: PropTable,
+      propTablesExclude: [Box],
+    })(story)(context),
+  )
   .addDecorator(checkA11y)
   .add('Headings', () => (
     <div>

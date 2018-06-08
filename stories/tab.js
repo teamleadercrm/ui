@@ -42,7 +42,12 @@ const TitleCounter = props => <UICounter color="ruby" marginLeft={3} {...props} 
 const IconCounter = props => <UICounter color="ruby" {...props} />;
 
 storiesOf('Tab', module)
-  .addDecorator((story, context) => withInfo({ TableComponent: PropTable })(story)(context))
+  .addDecorator((story, context) =>
+    withInfo({
+      TableComponent: PropTable,
+      propTablesExclude: [Box],
+    })(story)(context),
+  )
   .addDecorator(checkA11y)
   .addDecorator(withKnobs)
   .add('titletab', () => (
