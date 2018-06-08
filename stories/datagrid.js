@@ -43,7 +43,7 @@ storiesOf('DataGrids', module)
   .addDecorator((story, context) =>
     withInfo({
       TableComponent: PropTable,
-      propTablesExclude: [Link, TextSmall, Heading4],
+      propTablesExclude: [Link, TextSmall, Heading4, IconMenu, MenuItem],
     })(story)(context),
   )
   .addDecorator(checkA11y)
