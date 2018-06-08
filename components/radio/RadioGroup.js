@@ -54,4 +54,3 @@ class RadioGroup extends PureComponent {
 }
 
 export default RadioGroup;
-export { RadioGroup };
