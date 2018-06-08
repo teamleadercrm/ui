@@ -5,8 +5,6 @@ import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean, select, text } from '@storybook/addon-knobs/react';
 import { Checkbox, Link, TextBody, TextDisplay, TextSmall } from '../components';
-import { Text } from 'glamorous';
-import { textFactory } from '../components/typography/Text';
 
 const sizes = ['small', 'medium', 'large'];
 
