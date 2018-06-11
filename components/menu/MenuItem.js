@@ -4,23 +4,6 @@ import cx from 'classnames';
 import theme from './theme.css';
 
 class MenuItem extends PureComponent {
-  static propTypes = {
-    caption: PropTypes.string,
-    children: PropTypes.any,
-    className: PropTypes.string,
-    disabled: PropTypes.bool,
-    icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    onClick: PropTypes.func,
-    selected: PropTypes.bool,
-    shortcut: PropTypes.string,
-  };
-
-  static defaultProps = {
-    className: '',
-    disabled: false,
-    selected: false,
-  };
-
   handleClick = event => {
     const { disabled, onClick } = this.props;
 
@@ -52,5 +35,22 @@ class MenuItem extends PureComponent {
     );
   }
 }
+
+MenuItem.propTypes = {
+  caption: PropTypes.string,
+  children: PropTypes.any,
+  className: PropTypes.string,
+  disabled: PropTypes.bool,
+  icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  onClick: PropTypes.func,
+  selected: PropTypes.bool,
+  shortcut: PropTypes.string,
+};
+
+MenuItem.defaultProps = {
+  className: '',
+  disabled: false,
+  selected: false,
+};
 
 export default MenuItem;
