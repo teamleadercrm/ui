@@ -7,23 +7,6 @@ import cx from 'classnames';
 import theme from './theme.css';
 
 class Pagination extends PureComponent {
-  static propTypes = {
-    inverse: PropTypes.bool,
-    nextPageText: PropTypes.string,
-    numPages: PropTypes.number.isRequired,
-    maxNumPagesVisible: PropTypes.number,
-    currentPage: PropTypes.number.isRequired,
-    prevPageText: PropTypes.string,
-    className: PropTypes.string,
-    children: PropTypes.func.isRequired,
-  };
-
-  static defaultProps = {
-    currentPage: 1,
-    inverse: false,
-    maxNumPagesVisible: 7,
-  };
-
   render() {
     const {
       className,
@@ -118,5 +101,22 @@ class Pagination extends PureComponent {
     );
   }
 }
+
+Pagination.propTypes = {
+  inverse: PropTypes.bool,
+  nextPageText: PropTypes.string,
+  numPages: PropTypes.number.isRequired,
+  maxNumPagesVisible: PropTypes.number,
+  currentPage: PropTypes.number.isRequired,
+  prevPageText: PropTypes.string,
+  className: PropTypes.string,
+  children: PropTypes.func.isRequired,
+};
+
+Pagination.defaultProps = {
+  currentPage: 1,
+  inverse: false,
+  maxNumPagesVisible: 7,
+};
 
 export default Pagination;
