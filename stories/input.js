@@ -34,7 +34,7 @@ storiesOf('Inputs', module)
     />
   ))
   .add('text', () => (
-    <Label for="input1" inverse={boolean('Inverse', false)} size={select('Size', sizes, 'medium')}>
+    <Label htmlFor="input1" inverse={boolean('Inverse', false)} size={select('Size', sizes, 'medium')}>
       Input label
       <Input
         id="input1"
@@ -46,7 +46,7 @@ storiesOf('Inputs', module)
     </Label>
   ))
   .add('password', () => (
-    <Label for="input1" inverse={boolean('Inverse', false)} size={select('Size', sizes, 'medium')}>
+    <Label htmlFor="input1" inverse={boolean('Inverse', false)} size={select('Size', sizes, 'medium')}>
       Input label
       <Input
         id="input1"
@@ -59,7 +59,7 @@ storiesOf('Inputs', module)
     </Label>
   ))
   .add('number', () => (
-    <Label for="input1" inverse={boolean('Inverse', false)} size={select('Size', sizes, 'medium')}>
+    <Label htmlFor="input1" inverse={boolean('Inverse', false)} size={select('Size', sizes, 'medium')}>
       Input label
       <Input
         id="input1"
@@ -76,7 +76,7 @@ storiesOf('Inputs', module)
     </Label>
   ))
   .add('with icon', () => (
-    <Label for="input1" inverse={boolean('Inverse', false)} size={select('Size', sizes, 'medium')}>
+    <Label htmlFor="input1" inverse={boolean('Inverse', false)} size={select('Size', sizes, 'medium')}>
       Input label
       <Input
         icon={select('Size', sizes, 'medium') === 'large' ? IconCalendarMediumOutline : IconCalendarSmallOutline}
@@ -90,7 +90,7 @@ storiesOf('Inputs', module)
     </Label>
   ))
   .add('with counter', () => (
-    <Label for="input1" inverse={boolean('Inverse', false)} size={select('Size', sizes, 'medium')}>
+    <Label htmlFor="input1" inverse={boolean('Inverse', false)} size={select('Size', sizes, 'medium')}>
       Input label
       <Input
         id="input1"
@@ -104,7 +104,7 @@ storiesOf('Inputs', module)
     </Label>
   ))
   .add('with error', () => (
-    <Label for="input1" inverse={boolean('Inverse', false)} size={select('Size', sizes, 'medium')}>
+    <Label htmlFor="input1" inverse={boolean('Inverse', false)} size={select('Size', sizes, 'medium')}>
       Input label
       <Input
         id="input1"
@@ -129,7 +129,7 @@ storiesOf('Inputs', module)
           <IconInfoBadgedSmallFilled />
         </TooltippedIcon>
       }
-      for="input1"
+      htmlFor="input1"
       inverse={boolean('Inverse', false)}
       size={select('Size', sizes, 'medium')}
     >
@@ -146,7 +146,7 @@ storiesOf('Inputs', module)
     </Label>
   ))
   .add('with connected elements', () => (
-    <Label for="input1" inverse={boolean('Inverse', false)} size={select('Size', sizes, 'medium')}>
+    <Label htmlFor="input1" inverse={boolean('Inverse', false)} size={select('Size', sizes, 'medium')}>
       Input label
       <Input
         id="input1"
