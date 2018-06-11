@@ -6,21 +6,6 @@ import theme from './theme.css';
 import omit from 'lodash.omit';
 
 class IconTab extends PureComponent {
-  static propTypes = {
-    active: PropTypes.bool,
-    children: PropTypes.node.isRequired,
-    className: PropTypes.string,
-    counter: PropTypes.node,
-    element: PropTypes.node,
-    icon: PropTypes.node.isRequired,
-    onClick: PropTypes.func,
-  };
-
-  static defaultProps = {
-    element: 'a',
-    active: false,
-  };
-
   constructor() {
     super(...arguments);
     this.handleClick = ::this.handleClick;
@@ -65,5 +50,20 @@ class IconTab extends PureComponent {
     );
   }
 }
+
+IconTab.propTypes = {
+  active: PropTypes.bool,
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+  counter: PropTypes.node,
+  element: PropTypes.node,
+  icon: PropTypes.node.isRequired,
+  onClick: PropTypes.func,
+};
+
+IconTab.defaultProps = {
+  element: 'a',
+  active: false,
+};
 
 export default IconTab;
