@@ -7,25 +7,6 @@ import Menu from './Menu.js';
 import theme from './theme.css';
 
 class IconMenu extends PureComponent {
-  static propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    icon: PropTypes.element,
-    onClick: PropTypes.func,
-    onHide: PropTypes.func,
-    onSelect: PropTypes.func,
-    onShow: PropTypes.func,
-    position: PropTypes.string,
-    selectable: PropTypes.bool,
-    selected: PropTypes.any,
-  };
-
-  static defaultProps = {
-    className: '',
-    position: 'auto',
-    selectable: false,
-  };
-
   state = {
     active: false,
   };
@@ -78,5 +59,24 @@ class IconMenu extends PureComponent {
     );
   }
 }
+
+IconMenu.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string,
+  icon: PropTypes.element,
+  onClick: PropTypes.func,
+  onHide: PropTypes.func,
+  onSelect: PropTypes.func,
+  onShow: PropTypes.func,
+  position: PropTypes.string,
+  selectable: PropTypes.bool,
+  selected: PropTypes.any,
+};
+
+IconMenu.defaultProps = {
+  className: '',
+  position: 'auto',
+  selectable: false,
+};
 
 export default IconMenu;
