@@ -17,26 +17,6 @@ const POSITION = {
 };
 
 class Menu extends PureComponent {
-  static propTypes = {
-    active: PropTypes.bool,
-    children: PropTypes.node,
-    className: PropTypes.string,
-    onHide: PropTypes.func,
-    onSelect: PropTypes.func,
-    onShow: PropTypes.func,
-    outline: PropTypes.bool,
-    position: PropTypes.oneOf(Object.keys(POSITION).map(key => POSITION[key])),
-    selectable: PropTypes.bool,
-    selected: PropTypes.any,
-  };
-
-  static defaultProps = {
-    active: false,
-    outline: true,
-    position: POSITION.STATIC,
-    selectable: true,
-  };
-
   state = {
     active: this.props.active,
   };
@@ -237,5 +217,25 @@ class Menu extends PureComponent {
     );
   }
 }
+
+Menu.propTypes = {
+  active: PropTypes.bool,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  onHide: PropTypes.func,
+  onSelect: PropTypes.func,
+  onShow: PropTypes.func,
+  outline: PropTypes.bool,
+  position: PropTypes.oneOf(Object.keys(POSITION).map(key => POSITION[key])),
+  selectable: PropTypes.bool,
+  selected: PropTypes.any,
+};
+
+Menu.defaultProps = {
+  active: false,
+  outline: true,
+  position: POSITION.STATIC,
+  selectable: true,
+};
 
 export default Menu;
