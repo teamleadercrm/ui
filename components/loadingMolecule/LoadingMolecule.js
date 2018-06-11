@@ -4,21 +4,6 @@ import cx from 'classnames';
 import theme from './theme.css';
 
 class LoadingMolecule extends PureComponent {
-  static defaultProps = {
-    className: '',
-    startColor: '#BABABA',
-    stopColor: '#DADADA',
-    type: 'normal',
-  };
-
-  static propTypes = {
-    className: PropTypes.string,
-    basePath: PropTypes.string.isRequired,
-    startColor: PropTypes.string.isRequired,
-    stopColor: PropTypes.string.isRequired,
-    type: PropTypes.string,
-  };
-
   constructor() {
     super(...arguments);
     this.randomGradientPostFix = Math.random()
@@ -80,5 +65,20 @@ class LoadingMolecule extends PureComponent {
     );
   }
 }
+
+LoadingMolecule.defaultProps = {
+  className: '',
+  startColor: '#BABABA',
+  stopColor: '#DADADA',
+  type: 'normal',
+};
+
+LoadingMolecule.propTypes = {
+  className: PropTypes.string,
+  basePath: PropTypes.string.isRequired,
+  startColor: PropTypes.string.isRequired,
+  stopColor: PropTypes.string.isRequired,
+  type: PropTypes.string,
+};
 
 export default LoadingMolecule;
