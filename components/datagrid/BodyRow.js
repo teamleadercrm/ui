@@ -7,16 +7,6 @@ import cx from 'classnames';
 import theme from './theme.css';
 
 class BodyRow extends PureComponent {
-  static propTypes = {
-    className: PropTypes.string,
-    children: PropTypes.any,
-    onSelectionChange: PropTypes.func,
-    selectable: PropTypes.bool,
-    selected: PropTypes.bool,
-    sliceFrom: PropTypes.number,
-    sliceTo: PropTypes.number,
-  };
-
   render() {
     const { className, children, sliceFrom, sliceTo, onSelectionChange, selected, selectable, ...others } = this.props;
 
@@ -36,5 +26,15 @@ class BodyRow extends PureComponent {
     );
   }
 }
+
+BodyRow.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.any,
+  onSelectionChange: PropTypes.func,
+  selectable: PropTypes.bool,
+  selected: PropTypes.bool,
+  sliceFrom: PropTypes.number,
+  sliceTo: PropTypes.number,
+};
 
 export default BodyRow;
