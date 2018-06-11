@@ -17,7 +17,12 @@ const handlePageChange = page => {
 };
 
 storiesOf('Pagination', module)
-  .addDecorator((story, context) => withInfo({ TableComponent: PropTable })(story)(context))
+  .addDecorator((story, context) =>
+    withInfo({
+      TableComponent: PropTable,
+      propTablesExclude: [Island],
+    })(story)(context),
+  )
   .addDecorator(checkA11y)
   .addDecorator(withKnobs)
   .add('Compact', () => (

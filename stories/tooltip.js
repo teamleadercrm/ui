@@ -21,7 +21,12 @@ const textBodyTooltipContent = <TextBody>I am body sized tooltip text</TextBody>
 const textSmallTooltipContent = <TextSmall>I am small sized tooltip text</TextSmall>;
 
 storiesOf('Tooltip', module)
-  .addDecorator((story, context) => withInfo({ TableComponent: PropTable })(story)(context))
+  .addDecorator((story, context) =>
+    withInfo({
+      TableComponent: PropTable,
+      propTablesExclude: [TextSmall, TextDisplay, TextBody],
+    })(story)(context),
+  )
   .addDecorator(checkA11y)
   .addDecorator(withKnobs)
   .add('Basic', () => (

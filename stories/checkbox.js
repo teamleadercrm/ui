@@ -9,7 +9,12 @@ import { Checkbox, Link, TextBody } from '../components';
 const sizes = ['small', 'medium', 'large'];
 
 storiesOf('Checkboxes', module)
-  .addDecorator((story, context) => withInfo({ TableComponent: PropTable })(story)(context))
+  .addDecorator((story, context) =>
+    withInfo({
+      TableComponent: PropTable,
+      propTablesExclude: [Link, TextBody],
+    })(story)(context),
+  )
   .addDecorator(checkA11y)
   .addDecorator(withKnobs)
   .add('Default', () => (

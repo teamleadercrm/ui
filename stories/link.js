@@ -9,7 +9,12 @@ import { Link, TextDisplay } from '../components';
 const colors = ['white', 'neutral', 'mint', 'teal', 'violet', 'ruby', 'gold', 'aqua'];
 
 storiesOf('Links', module)
-  .addDecorator((story, context) => withInfo({ TableComponent: PropTable })(story)(context))
+  .addDecorator((story, context) =>
+    withInfo({
+      TableComponent: PropTable,
+      propTablesExclude: [TextDisplay],
+    })(story)(context),
+  )
   .addDecorator(withKnobs)
   .add('Basic', () => (
     <TextDisplay color={select('Color', colors, 'teal')}>

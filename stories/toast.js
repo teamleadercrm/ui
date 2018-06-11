@@ -23,7 +23,12 @@ const handleToastTimeout = () => {
 };
 
 storiesOf('Toast', module)
-  .addDecorator((story, context) => withInfo({ TableComponent: PropTable })(story)(context))
+  .addDecorator((story, context) =>
+    withInfo({
+      TableComponent: PropTable,
+      propTablesExclude: [Button, State],
+    })(story)(context),
+  )
   .addDecorator(checkA11y)
   .add('with close button', () => (
     <div>

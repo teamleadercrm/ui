@@ -40,7 +40,12 @@ const handleRowSelectionChange = selectedRows => {
 };
 
 storiesOf('DataGrids', module)
-  .addDecorator((story, context) => withInfo({ TableComponent: PropTable })(story)(context))
+  .addDecorator((story, context) =>
+    withInfo({
+      TableComponent: PropTable,
+      propTablesExclude: [Link, TextSmall, Heading4, IconMenu, MenuItem],
+    })(story)(context),
+  )
   .addDecorator(checkA11y)
   .addDecorator(withKnobs)
   .add('Basic', () => (
