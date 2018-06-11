@@ -6,59 +6,6 @@ import theme from './theme.css';
 const spacings = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 
 class Box extends PureComponent {
-  static propTypes = {
-    alignContent: PropTypes.oneOf([
-      'center',
-      'flex-start',
-      'flex-end',
-      'space-around',
-      'space-between',
-      'space-evenly',
-    ]),
-    alignItems: PropTypes.oneOf(['center', 'flex-start', 'flex-end']),
-    alignSelf: PropTypes.oneOf(['center', 'flex-start', 'flex-end', 'stretch']),
-    boxSizing: PropTypes.oneOf(['border-box', 'content-box']),
-    children: PropTypes.any,
-    className: PropTypes.string,
-    display: PropTypes.oneOf(['inline', 'inline-block', 'block', 'flex', 'inline-flex']),
-    element: PropTypes.node,
-    flex: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    flexBasis: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    flexDirection: PropTypes.oneOf(['row', 'row-reverse', 'column', 'column-reverse']),
-    flexGrow: PropTypes.number,
-    flexShrink: PropTypes.number,
-    flexWrap: PropTypes.oneOf(['nowrap', 'wrap', 'wrap-reverse']),
-    justifyContent: PropTypes.oneOf([
-      'center',
-      'flex-start',
-      'flex-end',
-      'space-around',
-      'space-between',
-      'space-evenly',
-    ]),
-    margin: PropTypes.oneOf(spacings),
-    marginHorizontal: PropTypes.oneOf(spacings),
-    marginVertical: PropTypes.oneOf(spacings),
-    marginBottom: PropTypes.oneOf(spacings),
-    marginLeft: PropTypes.oneOf(spacings),
-    marginRight: PropTypes.oneOf(spacings),
-    marginTop: PropTypes.oneOf(spacings),
-    order: PropTypes.number,
-    padding: PropTypes.oneOf(spacings),
-    paddingHorizontal: PropTypes.oneOf(spacings),
-    paddingVertical: PropTypes.oneOf(spacings),
-    paddingBottom: PropTypes.oneOf(spacings),
-    paddingLeft: PropTypes.oneOf(spacings),
-    paddingRight: PropTypes.oneOf(spacings),
-    paddingTop: PropTypes.oneOf(spacings),
-  };
-
-  static defaultProps = {
-    element: 'div',
-    margin: 0,
-    padding: 0,
-  };
-
   getNode() {
     return this.node;
   }
@@ -145,5 +92,58 @@ class Box extends PureComponent {
     );
   }
 }
+
+Box.propTypes = {
+  alignContent: PropTypes.oneOf([
+    'center',
+    'flex-start',
+    'flex-end',
+    'space-around',
+    'space-between',
+    'space-evenly',
+  ]),
+  alignItems: PropTypes.oneOf(['center', 'flex-start', 'flex-end']),
+  alignSelf: PropTypes.oneOf(['center', 'flex-start', 'flex-end', 'stretch']),
+  boxSizing: PropTypes.oneOf(['border-box', 'content-box']),
+  children: PropTypes.any,
+  className: PropTypes.string,
+  display: PropTypes.oneOf(['inline', 'inline-block', 'block', 'flex', 'inline-flex']),
+  element: PropTypes.node,
+  flex: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  flexBasis: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  flexDirection: PropTypes.oneOf(['row', 'row-reverse', 'column', 'column-reverse']),
+  flexGrow: PropTypes.number,
+  flexShrink: PropTypes.number,
+  flexWrap: PropTypes.oneOf(['nowrap', 'wrap', 'wrap-reverse']),
+  justifyContent: PropTypes.oneOf([
+    'center',
+    'flex-start',
+    'flex-end',
+    'space-around',
+    'space-between',
+    'space-evenly',
+  ]),
+  margin: PropTypes.oneOf(spacings),
+  marginHorizontal: PropTypes.oneOf(spacings),
+  marginVertical: PropTypes.oneOf(spacings),
+  marginBottom: PropTypes.oneOf(spacings),
+  marginLeft: PropTypes.oneOf(spacings),
+  marginRight: PropTypes.oneOf(spacings),
+  marginTop: PropTypes.oneOf(spacings),
+  order: PropTypes.number,
+  padding: PropTypes.oneOf(spacings),
+  paddingHorizontal: PropTypes.oneOf(spacings),
+  paddingVertical: PropTypes.oneOf(spacings),
+  paddingBottom: PropTypes.oneOf(spacings),
+  paddingLeft: PropTypes.oneOf(spacings),
+  paddingRight: PropTypes.oneOf(spacings),
+  paddingTop: PropTypes.oneOf(spacings),
+};
+
+Box.defaultProps = {
+  element: 'div',
+  margin: 0,
+  padding: 0,
+};
 
 export default Box;
