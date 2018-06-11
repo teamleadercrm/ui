@@ -6,14 +6,6 @@ import cx from 'classnames';
 import theme from './theme.css';
 
 class FooterRow extends PureComponent {
-  static propTypes = {
-    className: PropTypes.string,
-    children: PropTypes.any,
-    preserveSelectableSpace: PropTypes.bool,
-    sliceFrom: PropTypes.number,
-    sliceTo: PropTypes.number,
-  };
-
   render() {
     const { className, children, sliceFrom, sliceTo, preserveSelectableSpace, ...others } = this.props;
 
@@ -29,5 +21,13 @@ class FooterRow extends PureComponent {
     );
   }
 }
+
+FooterRow.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.any,
+  preserveSelectableSpace: PropTypes.bool,
+  sliceFrom: PropTypes.number,
+  sliceTo: PropTypes.number,
+};
 
 export default FooterRow;
