@@ -12,19 +12,6 @@ const SIZES = {
 };
 
 class Island extends PureComponent {
-  static propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    color: PropTypes.oneOf(['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'white']),
-    dark: PropTypes.bool,
-    size: PropTypes.oneOf(Object.keys(SIZES)),
-  };
-
-  static defaultProps = {
-    color: 'white',
-    size: 'medium',
-  };
-
   isDark(color) {
     if (color !== 'white' && color !== 'neutral') {
       return false;
@@ -51,5 +38,18 @@ class Island extends PureComponent {
     );
   }
 }
+
+Island.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string,
+  color: PropTypes.oneOf(['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'white']),
+  dark: PropTypes.bool,
+  size: PropTypes.oneOf(Object.keys(SIZES)),
+};
+
+Island.defaultProps = {
+  color: 'white',
+  size: 'medium',
+};
 
 export default Island;

@@ -7,19 +7,6 @@ import theme from './theme.css';
 
 const factory = (baseType, type, defaultElement) => {
   class Text extends PureComponent {
-    static propTypes = {
-      children: PropTypes.node,
-      className: PropTypes.string,
-      color: PropTypes.oneOf(['white', 'neutral', 'mint', 'teal', 'violet', 'ruby', 'gold', 'aqua']),
-      element: PropTypes.node,
-      soft: PropTypes.bool,
-    };
-
-    static defaultProps = {
-      element: null,
-      soft: false,
-    };
-
     isSoft(color) {
       if (color !== 'white' && color !== 'teal') {
         return false;
@@ -54,6 +41,19 @@ const factory = (baseType, type, defaultElement) => {
       );
     }
   }
+
+  Text.propTypes = {
+    children: PropTypes.node,
+    className: PropTypes.string,
+    color: PropTypes.oneOf(['white', 'neutral', 'mint', 'teal', 'violet', 'ruby', 'gold', 'aqua']),
+    element: PropTypes.node,
+    soft: PropTypes.bool,
+  };
+
+  Text.defaultProps = {
+    element: null,
+    soft: false,
+  };
 
   return Text;
 };

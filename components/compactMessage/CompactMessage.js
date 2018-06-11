@@ -5,13 +5,6 @@ import cx from 'classnames';
 import theme from './theme.css';
 
 class CompactMessage extends PureComponent {
-  static propTypes = {
-    className: PropTypes.string,
-    children: PropTypes.any.isRequired,
-    image: PropTypes.element,
-    button: PropTypes.element,
-  };
-
   render() {
     const { className, children, image, button, ...others } = this.props;
 
@@ -28,5 +21,12 @@ class CompactMessage extends PureComponent {
     );
   }
 }
+
+CompactMessage.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.any.isRequired,
+  image: PropTypes.element,
+  button: PropTypes.element,
+};
 
 export default CompactMessage;

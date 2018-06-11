@@ -8,14 +8,6 @@ import { IconArrowRightSmallOutline } from '@teamleader/ui-icons';
 import Box from '../box';
 
 class QTip extends PureComponent {
-  static propTypes = {
-    children: PropTypes.node.isRequired,
-    closed: PropTypes.bool,
-    highlighted: PropTypes.bool,
-    icon: PropTypes.element.isRequired,
-    onChange: PropTypes.func.isRequired,
-  };
-
   render() {
     const { children, closed, highlighted, icon, onChange, ...others } = this.props;
 
@@ -45,5 +37,13 @@ class QTip extends PureComponent {
     );
   }
 }
+
+QTip.propTypes = {
+  children: PropTypes.node.isRequired,
+  closed: PropTypes.bool,
+  highlighted: PropTypes.bool,
+  icon: PropTypes.element.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 
 export default QTip;

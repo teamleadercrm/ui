@@ -5,17 +5,6 @@ import cx from 'classnames';
 import theme from './theme.css';
 
 class TabGroup extends PureComponent {
-  static propTypes = {
-    children: PropTypes.node.isRequired,
-    className: PropTypes.string,
-    inverted: PropTypes.bool,
-    size: PropTypes.oneOf(['small', 'medium']),
-  };
-
-  static defaultProps = {
-    inverted: false,
-  };
-
   render() {
     const { children, className, inverted, size, ...others } = this.props;
 
@@ -34,5 +23,16 @@ class TabGroup extends PureComponent {
     );
   }
 }
+
+TabGroup.propTypes = {
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+  inverted: PropTypes.bool,
+  size: PropTypes.oneOf(['small', 'medium']),
+};
+
+TabGroup.defaultProps = {
+  inverted: false,
+};
 
 export default TabGroup;

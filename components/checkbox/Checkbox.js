@@ -8,31 +8,6 @@ import { TextBody, TextDisplay, TextSmall } from '../typography';
 import { IconCheckmarkSmallOutline, IconCheckmarkMediumOutline } from '@teamleader/ui-icons';
 
 class Checkbox extends PureComponent {
-  static propTypes = {
-    /** If true, the checkbox will be checked. */
-    checked: PropTypes.bool,
-    /** The content to display next to the checkbox. */
-    children: PropTypes.node,
-    /** If true, component will be disabled. */
-    disabled: PropTypes.bool,
-    /** Name for form input. */
-    name: PropTypes.string,
-    /** A class name for the wrapper to give custom styles. */
-    className: PropTypes.string,
-    /** The textual label displayed next to the checkbox. */
-    label: PropTypes.string,
-    /** Callback function that is fired when checkbox is toggled. */
-    onChange: PropTypes.func,
-    /** Size of the checkbox. */
-    size: PropTypes.oneOf(['small', 'medium', 'large']),
-  };
-
-  static defaultProps = {
-    checked: false,
-    disabled: false,
-    size: 'medium',
-  };
-
   constructor() {
     super(...arguments);
     this.handleToggle = ::this.handleToggle;
@@ -144,5 +119,30 @@ class Checkbox extends PureComponent {
     );
   }
 }
+
+Checkbox.propTypes = {
+  /** If true, the checkbox will be checked. */
+  checked: PropTypes.bool,
+  /** The content to display next to the checkbox. */
+  children: PropTypes.node,
+  /** If true, component will be disabled. */
+  disabled: PropTypes.bool,
+  /** Name for form input. */
+  name: PropTypes.string,
+  /** A class name for the wrapper to give custom styles. */
+  className: PropTypes.string,
+  /** The textual label displayed next to the checkbox. */
+  label: PropTypes.string,
+  /** Callback function that is fired when checkbox is toggled. */
+  onChange: PropTypes.func,
+  /** Size of the checkbox. */
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
+};
+
+Checkbox.defaultProps = {
+  checked: false,
+  disabled: false,
+  size: 'medium',
+};
 
 export default Checkbox;

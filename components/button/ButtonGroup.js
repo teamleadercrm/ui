@@ -8,23 +8,6 @@ import isComponentOfType from '../utils/is-component-of-type';
 import theme from './theme.css';
 
 class ButtonGroup extends PureComponent {
-  static propTypes = {
-    /** The content to display inside the button group. */
-    children: PropTypes.node,
-    /** A class name for the wrapper to give custom styles. */
-    className: PropTypes.string,
-    /** If true, child components will be displayed segmented. */
-    segmented: PropTypes.bool,
-    /** The value of the currently active button. */
-    value: PropTypes.string,
-    /** Callback function that is fired when the active button changes. */
-    onChange: PropTypes.func,
-  };
-
-  static defaultProps = {
-    segmented: false,
-  };
-
   handleChange = (value, event) => {
     if (this.props.onChange) {
       this.props.onChange(value, event);
@@ -70,5 +53,22 @@ class ButtonGroup extends PureComponent {
     );
   }
 }
+
+ButtonGroup.propTypes = {
+  /** The content to display inside the button group. */
+  children: PropTypes.node,
+  /** A class name for the wrapper to give custom styles. */
+  className: PropTypes.string,
+  /** If true, child components will be displayed segmented. */
+  segmented: PropTypes.bool,
+  /** The value of the currently active button. */
+  value: PropTypes.string,
+  /** Callback function that is fired when the active button changes. */
+  onChange: PropTypes.func,
+};
+
+ButtonGroup.defaultProps = {
+  segmented: false,
+};
 
 export default ButtonGroup;

@@ -7,23 +7,6 @@ import Box from '../box';
 import { TextBody, TextDisplay, TextSmall } from '../typography';
 
 class Toggle extends PureComponent {
-  static propTypes = {
-    checked: PropTypes.bool,
-    children: PropTypes.node,
-    disabled: PropTypes.bool,
-    name: PropTypes.string,
-    className: PropTypes.string,
-    label: PropTypes.string,
-    onChange: PropTypes.func,
-    size: PropTypes.oneOf(['small', 'medium', 'large']),
-  };
-
-  static defaultProps = {
-    checked: false,
-    disabled: false,
-    size: 'medium',
-  };
-
   constructor() {
     super(...arguments);
     this.handleToggle = ::this.handleToggle;
@@ -135,5 +118,22 @@ class Toggle extends PureComponent {
     );
   }
 }
+
+Toggle.propTypes = {
+  checked: PropTypes.bool,
+  children: PropTypes.node,
+  disabled: PropTypes.bool,
+  name: PropTypes.string,
+  className: PropTypes.string,
+  label: PropTypes.string,
+  onChange: PropTypes.func,
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
+};
+
+Toggle.defaultProps = {
+  checked: false,
+  disabled: false,
+  size: 'medium',
+};
 
 export default Toggle;

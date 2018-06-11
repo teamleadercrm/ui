@@ -5,18 +5,6 @@ import cx from 'classnames';
 import theme from './theme.css';
 
 class StatusBullet extends PureComponent {
-  static propTypes = {
-    children: PropTypes.any,
-    className: PropTypes.string,
-    color: PropTypes.oneOf(['mint', 'violet', 'ruby', 'gold', 'aqua', 'neutral']),
-    size: PropTypes.oneOf(['small', 'medium']),
-  };
-
-  static defaultProps = {
-    color: 'neutral',
-    size: 'medium',
-  };
-
   render() {
     const { children, className, color, size, ...others } = this.props;
 
@@ -29,5 +17,17 @@ class StatusBullet extends PureComponent {
     );
   }
 }
+
+StatusBullet.propTypes = {
+  children: PropTypes.any,
+  className: PropTypes.string,
+  color: PropTypes.oneOf(['mint', 'violet', 'ruby', 'gold', 'aqua', 'neutral']),
+  size: PropTypes.oneOf(['small', 'medium']),
+};
+
+StatusBullet.defaultProps = {
+  color: 'neutral',
+  size: 'medium',
+};
 
 export default StatusBullet;

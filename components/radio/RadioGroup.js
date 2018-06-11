@@ -6,19 +6,6 @@ import isComponentOfType from '../utils/is-component-of-type';
 import omit from 'lodash.omit';
 
 class RadioGroup extends PureComponent {
-  static propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    disabled: PropTypes.bool,
-    onChange: PropTypes.func,
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-  };
-
-  static defaultProps = {
-    className: '',
-    disabled: false,
-  };
-
   constructor() {
     super(...arguments);
 
@@ -52,5 +39,18 @@ class RadioGroup extends PureComponent {
     );
   }
 }
+
+RadioGroup.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string,
+  disabled: PropTypes.bool,
+  onChange: PropTypes.func,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+};
+
+RadioGroup.defaultProps = {
+  className: '',
+  disabled: false,
+};
 
 export default RadioGroup;

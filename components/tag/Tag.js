@@ -7,20 +7,6 @@ import theme from './theme.css';
 import { IconCloseMediumOutline, IconCloseSmallOutline } from '@teamleader/ui-icons';
 
 class Tag extends PureComponent {
-  static propTypes = {
-    children: PropTypes.any.isRequired,
-    className: PropTypes.string,
-    inverse: PropTypes.bool,
-    onLabelClick: PropTypes.func,
-    onRemoveClick: PropTypes.func,
-    size: PropTypes.oneOf(['small', 'medium', 'large']),
-  };
-
-  static defaultProps = {
-    inverse: false,
-    size: 'medium',
-  };
-
   render() {
     const { children, className, inverse, onLabelClick, onRemoveClick, size, ...others } = this.props;
 
@@ -60,5 +46,19 @@ class Tag extends PureComponent {
     );
   }
 }
+
+Tag.propTypes = {
+  children: PropTypes.any.isRequired,
+  className: PropTypes.string,
+  inverse: PropTypes.bool,
+  onLabelClick: PropTypes.func,
+  onRemoveClick: PropTypes.func,
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
+};
+
+Tag.defaultProps = {
+  inverse: false,
+  size: 'medium',
+};
 
 export default Tag;

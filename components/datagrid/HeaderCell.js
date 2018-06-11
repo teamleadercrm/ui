@@ -6,17 +6,6 @@ import cx from 'classnames';
 import { IconChevronDownSmallOutline, IconChevronUpSmallOutline } from '@teamleader/ui-icons';
 
 class HeaderCell extends PureComponent {
-  static propTypes = {
-    children: PropTypes.any,
-    className: PropTypes.string,
-    onClick: PropTypes.func,
-    sorted: PropTypes.oneOf(['none', 'asc', 'desc']),
-  };
-
-  static defaultProps = {
-    sorted: 'none',
-  };
-
   render() {
     const { children, className, onClick, sorted, ...others } = this.props;
 
@@ -37,5 +26,16 @@ class HeaderCell extends PureComponent {
     );
   }
 }
+
+HeaderCell.propTypes = {
+  children: PropTypes.any,
+  className: PropTypes.string,
+  onClick: PropTypes.func,
+  sorted: PropTypes.oneOf(['none', 'asc', 'desc']),
+};
+
+HeaderCell.defaultProps = {
+  sorted: 'none',
+};
 
 export default HeaderCell;

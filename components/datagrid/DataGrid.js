@@ -16,16 +16,6 @@ import theme from './theme.css';
 import { events } from '../utils';
 
 class DataGrid extends PureComponent {
-  static propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    comparableId: PropTypes.any,
-    selectable: PropTypes.bool,
-    stickyFromLeft: PropTypes.number,
-    stickyFromRight: PropTypes.number,
-    onSelectionChange: PropTypes.func,
-  };
-
   constructor() {
     super(...arguments);
 
@@ -182,6 +172,16 @@ class DataGrid extends PureComponent {
     );
   }
 }
+
+DataGrid.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string,
+  comparableId: PropTypes.any,
+  selectable: PropTypes.bool,
+  stickyFromLeft: PropTypes.number,
+  stickyFromRight: PropTypes.number,
+  onSelectionChange: PropTypes.func,
+};
 
 DataGrid.HeaderRow = HeaderRow;
 DataGrid.HeaderCell = HeaderCell;

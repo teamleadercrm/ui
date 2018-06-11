@@ -6,19 +6,6 @@ import cx from 'classnames';
 import theme from './theme.css';
 
 class Message extends PureComponent {
-  static propTypes = {
-    className: PropTypes.string,
-    children: PropTypes.any.isRequired,
-    image: PropTypes.element,
-    imagePositioning: PropTypes.oneOf(['center', 'left', 'right']),
-    button: PropTypes.element,
-    link: PropTypes.element,
-  };
-
-  static defaultProps = {
-    imagePositioning: 'left',
-  };
-
   render() {
     const { className, children, image, imagePositioning, button, link, ...others } = this.props;
 
@@ -41,5 +28,18 @@ class Message extends PureComponent {
     );
   }
 }
+
+Message.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.any.isRequired,
+  image: PropTypes.element,
+  imagePositioning: PropTypes.oneOf(['center', 'left', 'right']),
+  button: PropTypes.element,
+  link: PropTypes.element,
+};
+
+Message.defaultProps = {
+  imagePositioning: 'left',
+};
 
 export default Message;

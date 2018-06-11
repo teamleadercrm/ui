@@ -7,35 +7,6 @@ import Transition from 'react-transition-group/Transition';
 import theme from './theme.css';
 
 class Dialog extends PureComponent {
-  static propTypes = {
-    /** If true, the dialog will show on screen. */
-    active: PropTypes.bool,
-    /** Specify which backdrop the dialog should show. */
-    backdrop: PropTypes.string,
-    /** The content to display inside the dialog. */
-    children: PropTypes.node,
-    /** A class name for the wrapper to give custom styles. */
-    className: PropTypes.string,
-    /** Callback function that is fired when the escape key is pressed. */
-    onEscKeyDown: PropTypes.func,
-    /** Callback function that is fired when the mouse clicks on the overlay. */
-    onOverlayClick: PropTypes.func,
-    /** Callback function that is fired when the mouse button is pressed on the overlay. */
-    onOverlayMouseDown: PropTypes.func,
-    /** Callback function that is fired when the mouse moves over the overlay. */
-    onOverlayMouseMove: PropTypes.func,
-    /** Callback function that is fired when the mouse button is released from the overlay. */
-    onOverlayMouseUp: PropTypes.func,
-    /** The size of the dialog. */
-    size: PropTypes.oneOf(['small', 'medium', 'large', 'fullscreen']),
-  };
-
-  static defaultProps = {
-    active: false,
-    backdrop: 'dark',
-    size: 'medium',
-  };
-
   constructor() {
     super(...arguments);
 
@@ -103,5 +74,34 @@ class Dialog extends PureComponent {
     return createPortal(dialog, this.dialogRoot);
   }
 }
+
+Dialog.propTypes = {
+  /** If true, the dialog will show on screen. */
+  active: PropTypes.bool,
+  /** Specify which backdrop the dialog should show. */
+  backdrop: PropTypes.string,
+  /** The content to display inside the dialog. */
+  children: PropTypes.node,
+  /** A class name for the wrapper to give custom styles. */
+  className: PropTypes.string,
+  /** Callback function that is fired when the escape key is pressed. */
+  onEscKeyDown: PropTypes.func,
+  /** Callback function that is fired when the mouse clicks on the overlay. */
+  onOverlayClick: PropTypes.func,
+  /** Callback function that is fired when the mouse button is pressed on the overlay. */
+  onOverlayMouseDown: PropTypes.func,
+  /** Callback function that is fired when the mouse moves over the overlay. */
+  onOverlayMouseMove: PropTypes.func,
+  /** Callback function that is fired when the mouse button is released from the overlay. */
+  onOverlayMouseUp: PropTypes.func,
+  /** The size of the dialog. */
+  size: PropTypes.oneOf(['small', 'medium', 'large', 'fullscreen']),
+};
+
+Dialog.defaultProps = {
+  active: false,
+  backdrop: 'dark',
+  size: 'medium',
+};
 
 export default Dialog;

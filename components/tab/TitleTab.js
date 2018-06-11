@@ -8,22 +8,6 @@ import omit from 'lodash.omit';
 import { Heading4 } from '../typography';
 
 class TitleTab extends PureComponent {
-  static propTypes = {
-    active: PropTypes.bool,
-    children: PropTypes.node.isRequired,
-    className: PropTypes.string,
-    counter: PropTypes.node,
-    element: PropTypes.node,
-    onClick: PropTypes.func,
-    size: PropTypes.oneOf(['small', 'medium']),
-  };
-
-  static defaultProps = {
-    element: 'a',
-    active: false,
-    size: 'medium',
-  };
-
   constructor() {
     super(...arguments);
     this.handleClick = ::this.handleClick;
@@ -79,5 +63,21 @@ class TitleTab extends PureComponent {
     );
   }
 }
+
+TitleTab.propTypes = {
+  active: PropTypes.bool,
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+  counter: PropTypes.node,
+  element: PropTypes.node,
+  onClick: PropTypes.func,
+  size: PropTypes.oneOf(['small', 'medium']),
+};
+
+TitleTab.defaultProps = {
+  element: 'a',
+  active: false,
+  size: 'medium',
+};
 
 export default TitleTab;
