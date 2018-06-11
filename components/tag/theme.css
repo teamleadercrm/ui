@@ -3,7 +3,7 @@
 @import '@teamleader/ui-utilities';
 
 :root {
-  --tag-border-radius: calc(.4 * var(--unit));
+  --tag-border-radius: calc(0.4 * var(--unit));
   --tag-border-width: 2px;
   --tag-size-small: 24px;
   --tag-size-medium: 30px;

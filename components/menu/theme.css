@@ -79,8 +79,7 @@
     & > .outline {
       opacity: 0;
       transform: scale(0);
-      transition:
-        transform var(--menu-expand-duration) var(--animation-curve-default),
+      transition: transform var(--menu-expand-duration) var(--animation-curve-default),
         opacity var(--menu-fade-duration) var(--animation-curve-default);
       will-change: transform;
     }
@@ -94,9 +93,8 @@
       overflow: hidden;
       position: absolute;
       top: 0;
-      transition:
-      opacity var(--menu-fade-duration) var(--animation-curve-default),
-      clip var(--menu-expand-duration) var(--animation-curve-default);
+      transition: opacity var(--menu-fade-duration) var(--animation-curve-default),
+        clip var(--menu-expand-duration) var(--animation-curve-default);
     }
 
     &.active {
@@ -151,7 +149,7 @@
   }
 
   &.disabled {
-    opacity: .5;
+    opacity: 0.5;
     pointer-events: none;
   }
 

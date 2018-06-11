@@ -3,7 +3,7 @@
 
 :root {
   --overlay-color: var(--color-teal-dark);
-  --overlay-opacity: .85;
+  --overlay-opacity: 0.85;
 }
 
 .overlay {

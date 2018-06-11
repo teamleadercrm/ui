@@ -17,7 +17,7 @@
   left: 0;
   width: 100vw;
   z-index: var(--z-index-higher);
-  transition: opacity .2s ease-out;
+  transition: opacity 0.2s ease-out;
 }
 
 .popover {
@@ -39,11 +39,11 @@
 }
 
 .arrow {
-  content: "";
+  content: '';
   height: calc(1.4 * var(--unit));
   position: absolute;
   transform: rotate(45deg);
-  left: calc(-.5 * var(--unit));
+  left: calc(-0.5 * var(--unit));
   top: calc(1.4 * var(--unit));
   width: calc(1.4 * var(--unit));
 }

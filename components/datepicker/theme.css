@@ -3,7 +3,7 @@
 @import '@teamleader/ui-utilities';
 
 :root {
-  --border-radius: calc(.4 * var(--unit));
+  --border-radius: calc(0.4 * var(--unit));
   --input-error-border: var(--color-ruby-dark);
   --input-error-border-inverse: var(--color-ruby-light);
   --input-height-large: calc(4.6 * var(--unit));
@@ -42,13 +42,11 @@
   user-select: none;
 
   &:only-child {
-     margin: 0 !important;
+    margin: 0 !important;
 
     .weekdays {
       border-radius: 0;
-      box-shadow:
-        inset 0 -1px 0 0 var(--color-neutral),
-        inset 0 1px 0 0 var(--color-neutral);
+      box-shadow: inset 0 -1px 0 0 var(--color-neutral), inset 0 1px 0 0 var(--color-neutral);
     }
 
     .body {
@@ -75,11 +73,8 @@
 .weekdays {
   background-color: var(--color-neutral-light);
   border-radius: var(--border-radius) var(--border-radius) 0 0;
-  box-shadow:
-    inset 0 -1px 0 0 var(--color-neutral),
-    inset 0 1px 0 0 var(--color-neutral),
-    inset -1px 0 0 0 var(--color-neutral),
-    inset 1px 0 0 0 var(--color-neutral);
+  box-shadow: inset 0 -1px 0 0 var(--color-neutral), inset 0 1px 0 0 var(--color-neutral),
+    inset -1px 0 0 0 var(--color-neutral), inset 1px 0 0 0 var(--color-neutral);
   display: table-header-group;
   margin-top: 1rem;
 }
@@ -104,9 +99,7 @@
 
 .body {
   border-radius: 0 0 var(--border-radius) var(--border-radius);
-  box-shadow:
-    inset -1px 0 0 0 var(--color-neutral),
-    inset 1px 0 0 0 var(--color-neutral),
+  box-shadow: inset -1px 0 0 0 var(--color-neutral), inset 1px 0 0 0 var(--color-neutral),
     inset 0 -1px 0 0 var(--color-neutral);
   display: table-row-group;
 }
@@ -372,7 +365,7 @@
   border: 1px solid;
   border-radius: var(--border-radius);
   display: inline-block;
-  transition: .3s ease-in-out border, .3s ease-in-out box-shadow;
+  transition: 0.3s ease-in-out border, 0.3s ease-in-out box-shadow;
 
   input {
     background: transparent;
@@ -395,7 +388,7 @@
 .container:not(.date-picker) {
   display: inline-block;
 
-  &:last-child  input {
+  &:last-child input {
     padding: 0 5px 0 0;
   }
 }
