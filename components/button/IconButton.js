@@ -4,26 +4,6 @@ import cx from 'classnames';
 import theme from './theme.css';
 
 class IconButton extends Component {
-  static propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    disabled: PropTypes.bool,
-    href: PropTypes.string,
-    icon: PropTypes.element,
-    onMouseLeave: PropTypes.func,
-    onMouseUp: PropTypes.func,
-    size: PropTypes.oneOf(['small', 'medium']),
-    color: PropTypes.oneOf(['neutral', 'white', 'mint', 'violet', 'ruby', 'gold', 'aqua']),
-    type: PropTypes.string,
-  };
-
-  static defaultProps = {
-    className: '',
-    size: 'medium',
-    color: 'neutral',
-    type: 'button',
-  };
-
   handleMouseUp = event => {
     this.buttonNode.blur();
     if (this.props.onMouseUp) {
@@ -70,5 +50,25 @@ class IconButton extends Component {
     return React.createElement(element, props, icon, children);
   }
 }
+
+IconButton.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string,
+  disabled: PropTypes.bool,
+  href: PropTypes.string,
+  icon: PropTypes.element,
+  onMouseLeave: PropTypes.func,
+  onMouseUp: PropTypes.func,
+  size: PropTypes.oneOf(['small', 'medium']),
+  color: PropTypes.oneOf(['neutral', 'white', 'mint', 'violet', 'ruby', 'gold', 'aqua']),
+  type: PropTypes.string,
+};
+
+IconButton.defaultProps = {
+  className: '',
+  size: 'medium',
+  color: 'neutral',
+  type: 'button',
+};
 
 export default IconButton;
