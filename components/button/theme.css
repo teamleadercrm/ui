@@ -4,7 +4,7 @@
 @import '@teamleader/ui-utilities';
 
 :root {
-  --button-border-radius: calc(.4 * var(--unit));
+  --button-border-radius: calc(0.4 * var(--unit));
   --button-margin: calc(0.6 * var(--unit));
   --button-icon-margin: calc(0.6 * var(--unit));
   --button-icon-children-margin: calc(0.6 * var(--unit));
@@ -23,8 +23,8 @@
   text-align: center;
   text-decoration: none;
   transition: background-color var(--animation-duration) var(--animation-curve-fast-out-slow-in),
-  border-color var(--animation-duration) var(--animation-curve-fast-out-slow-in),
-  color var(--animation-duration) var(--animation-curve-fast-out-slow-in);
+    border-color var(--animation-duration) var(--animation-curve-fast-out-slow-in),
+    color var(--animation-duration) var(--animation-curve-fast-out-slow-in);
   user-select: none;
   white-space: nowrap;
   vertical-align: middle;
@@ -71,7 +71,8 @@
       pointer-events: none;
     }
 
-    &:active, &.active {
+    &:active,
+    &.active {
       box-shadow: none !important;
 
       &:before {
@@ -80,7 +81,7 @@
         height: 10px;
         left: 0;
         position: absolute;
-        opacity: .05;
+        opacity: 0.05;
         top: 0;
         width: 100%;
       }
@@ -94,7 +95,7 @@
   border: 0;
 
   &[disabled] {
-    opacity: .24;
+    opacity: 0.24;
   }
 
   &.neutral {
@@ -243,7 +244,7 @@
       }
 
       &:active {
-        background: color(var(--color-teal-lightest) a(.24));
+        background: color(var(--color-teal-lightest) a(0.24));
         box-shadow: none;
       }
     }
@@ -264,7 +265,7 @@
   }
 
   &.has-icon-only:hover {
-    background: color(var(--color-neutral-darkest) a(.24));
+    background: color(var(--color-neutral-darkest) a(0.24));
   }
 }
 
@@ -443,13 +444,13 @@
   padding: 0 calc(1.2 * var(--unit));
 
   &.icon-only {
-    padding: 0 calc(.7 * var(--unit));
+    padding: 0 calc(0.7 * var(--unit));
   }
 
   &.icon-button {
     height: calc(1.8 * var(--unit));
     min-width: calc(1.8 * var(--unit));
-    padding: 0 calc(.2 * var(--unit));
+    padding: 0 calc(0.2 * var(--unit));
   }
 }
 
@@ -461,12 +462,12 @@
   padding: 0 calc(1.2 * var(--unit));
 
   &.icon-only {
-    padding: 0 calc(.5 * var(--unit));
+    padding: 0 calc(0.5 * var(--unit));
   }
 
   &.icon-button {
-    height: calc(3.0 * var(--unit));
-    min-width: calc(3.0 * var(--unit));
+    height: calc(3 * var(--unit));
+    min-width: calc(3 * var(--unit));
     padding: 0 var(--spacer-smallest);
   }
 }
@@ -520,12 +521,16 @@
     margin-right: 0;
   }
 
-  > *:first-child {
+  > *:first-child:not(:only-child) {
     border-radius: var(--button-border-radius) 0 0 var(--button-border-radius);
     margin-left: 0;
   }
 
-  > *:last-child {
+  > *:last-child:not(:only-child) {
     border-radius: 0 var(--button-border-radius) var(--button-border-radius) 0;
+  }
+
+  > *:only-child {
+    border-radius: var(--button-border-radius);
   }
 }
