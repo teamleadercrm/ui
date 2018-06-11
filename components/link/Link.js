@@ -4,18 +4,6 @@ import cx from 'classnames';
 import theme from './theme.css';
 
 class Link extends PureComponent {
-  static propTypes = {
-    children: PropTypes.node.isRequired,
-    className: PropTypes.string,
-    inherit: PropTypes.bool,
-    element: PropTypes.element,
-  };
-
-  static defaultProps = {
-    className: '',
-    inherit: true,
-  };
-
   render() {
     const { children, className, element, inherit, ...others } = this.props;
 
@@ -36,5 +24,17 @@ class Link extends PureComponent {
     );
   }
 }
+
+Link.propTypes = {
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+  inherit: PropTypes.bool,
+  element: PropTypes.element,
+};
+
+Link.defaultProps = {
+  className: '',
+  inherit: true,
+};
 
 export default Link;
