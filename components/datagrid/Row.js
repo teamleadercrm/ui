@@ -5,16 +5,6 @@ import cx from 'classnames';
 import theme from './theme.css';
 
 class Row extends PureComponent {
-  static propTypes = {
-    backgroundColor: PropTypes.oneOf(['white', 'neutral']),
-    className: PropTypes.string,
-    children: PropTypes.any,
-  };
-
-  static defaultProps = {
-    backgroundColor: 'white',
-  };
-
   render() {
     const { backgroundColor, className, children, ...others } = this.props;
 
@@ -27,5 +17,15 @@ class Row extends PureComponent {
     );
   }
 }
+
+Row.propTypes = {
+  backgroundColor: PropTypes.oneOf(['white', 'neutral']),
+  className: PropTypes.string,
+  children: PropTypes.any,
+};
+
+Row.defaultProps = {
+  backgroundColor: 'white',
+};
 
 export default Row;
