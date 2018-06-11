@@ -30,32 +30,6 @@ const SIZES = {
 
 const Tooltip = ComposedComponent => {
   class TooltippedComponent extends Component {
-    static propTypes = {
-      children: PropTypes.node,
-      className: PropTypes.string,
-      onClick: PropTypes.func,
-      onMouseEnter: PropTypes.func,
-      onMouseLeave: PropTypes.func,
-      tooltip: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-      tooltipColor: PropTypes.oneOf(['white', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'inverse']),
-      tooltipHideOnClick: PropTypes.bool,
-      tooltipIcon: PropTypes.element,
-      tooltipPosition: PropTypes.oneOf(Object.keys(POSITIONS).map(key => POSITIONS[key])),
-      tooltipShowOnClick: PropTypes.bool,
-      tooltipSize: PropTypes.oneOf(Object.keys(SIZES)),
-      documentObject: PropTypes.object.isRequired,
-    };
-
-    static defaultProps = {
-      className: '',
-      tooltipColor: 'white',
-      tooltipHideOnClick: true,
-      tooltipIcon: null,
-      tooltipPosition: POSITIONS.TOP,
-      tooltipShowOnClick: false,
-      tooltipSize: 'medium',
-    };
-
     constructor(props) {
       super(...arguments);
 
@@ -215,6 +189,32 @@ const Tooltip = ComposedComponent => {
       );
     }
   }
+
+  TooltippedComponent.propTypes = {
+    children: PropTypes.node,
+    className: PropTypes.string,
+    onClick: PropTypes.func,
+    onMouseEnter: PropTypes.func,
+    onMouseLeave: PropTypes.func,
+    tooltip: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+    tooltipColor: PropTypes.oneOf(['white', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'inverse']),
+    tooltipHideOnClick: PropTypes.bool,
+    tooltipIcon: PropTypes.element,
+    tooltipPosition: PropTypes.oneOf(Object.keys(POSITIONS).map(key => POSITIONS[key])),
+    tooltipShowOnClick: PropTypes.bool,
+    tooltipSize: PropTypes.oneOf(Object.keys(SIZES)),
+    documentObject: PropTypes.object.isRequired,
+  };
+
+  TooltippedComponent.defaultProps = {
+    className: '',
+    tooltipColor: 'white',
+    tooltipHideOnClick: true,
+    tooltipIcon: null,
+    tooltipPosition: POSITIONS.TOP,
+    tooltipShowOnClick: false,
+    tooltipSize: 'medium',
+  };
 
   return DocumentObjectProvider(props => {
     return (
