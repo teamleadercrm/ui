@@ -115,7 +115,7 @@
 
   input:focus + .track {
     border-color: var(--color-neutral-darkest);
-    box-shadow: 0 0 0 1px var(--color-neutral-darkest)
+    box-shadow: 0 0 0 1px var(--color-neutral-darkest);
   }
 
   input:active + .track {
@@ -141,7 +141,12 @@
 
     &.is-checked {
       .thumb {
-        transform: translateX(calc(var(--toggle-track-width-small) - var(--toggle-thumb-width-small) - calc(2 * var(--toggle-border-width)) - calc(2 * var(--toggle-track-padding))));
+        transform: translateX(
+          calc(
+            var(--toggle-track-width-small) - var(--toggle-thumb-width-small) - calc(2 * var(--toggle-border-width)) -
+              calc(2 * var(--toggle-track-padding))
+          )
+        );
       }
     }
   }
@@ -165,7 +170,12 @@
 
     &.is-checked {
       .thumb {
-        transform: translateX(calc(var(--toggle-track-width-medium) - var(--toggle-thumb-width-medium) - calc(2 * var(--toggle-border-width)) - calc(2 * var(--toggle-track-padding))));
+        transform: translateX(
+          calc(
+            var(--toggle-track-width-medium) - var(--toggle-thumb-width-medium) - calc(2 * var(--toggle-border-width)) -
+              calc(2 * var(--toggle-track-padding))
+          )
+        );
       }
     }
   }
@@ -189,7 +199,12 @@
 
     &.is-checked {
       .thumb {
-        transform: translateX(calc(var(--toggle-track-width-large) - var(--toggle-thumb-width-large) - calc(2 * var(--toggle-border-width)) - calc(2 * var(--toggle-track-padding))));
+        transform: translateX(
+          calc(
+            var(--toggle-track-width-large) - var(--toggle-thumb-width-large) - calc(2 * var(--toggle-border-width)) -
+              calc(2 * var(--toggle-track-padding))
+          )
+        );
       }
     }
   }

@@ -4,7 +4,7 @@
 @import '@teamleader/ui-typography';
 
 :root {
-  --badge-border-radius: calc(.4 * var(--unit));
+  --badge-border-radius: calc(0.4 * var(--unit));
   --badge-border-width: 2px;
 }
 
@@ -28,7 +28,7 @@
   }
 
   .icon {
-    opacity: .84;
+    opacity: 0.84;
   }
 
   &:not(.is-inverse) {
@@ -73,7 +73,7 @@
         height: 10px;
         left: 0;
         position: absolute;
-        opacity: .05;
+        opacity: 0.05;
         top: 0;
         width: 100%;
       }
@@ -81,7 +81,7 @@
   }
 
   &.is-disabled {
-    opacity: .48;
+    opacity: 0.48;
     pointer-events: none;
   }
 

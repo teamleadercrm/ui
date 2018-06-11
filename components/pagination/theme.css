@@ -20,7 +20,7 @@
 
   &.is-inverse {
     .is-current {
-      background: color(var(--color-teal-light) a(.24));
+      background: color(var(--color-teal-light) a(0.24));
       color: var(--color-neutral-lightest);
     }
 

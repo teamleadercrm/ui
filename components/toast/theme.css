@@ -30,12 +30,14 @@
 }
 
 .action-button {
-  margin: calc(-1 * var(--spacer-smaller)) calc(-1 * var(--spacer-smaller)) calc(-1 * var(--spacer-smaller)) var(--spacer-medium);
+  margin: calc(-1 * var(--spacer-smaller)) calc(-1 * var(--spacer-smaller)) calc(-1 * var(--spacer-smaller))
+    var(--spacer-medium);
 }
 
 .action-link {
   flex-shrink: 0;
-  margin: calc(-1 * var(--spacer-smaller)) calc(-1 * var(--spacer-small)) calc(-1 * var(--spacer-smaller)) var(--spacer-small);
+  margin: calc(-1 * var(--spacer-smaller)) calc(-1 * var(--spacer-small)) calc(-1 * var(--spacer-smaller))
+    var(--spacer-small);
   white-space: nowrap;
 }
 

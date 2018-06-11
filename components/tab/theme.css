@@ -6,7 +6,7 @@
   & > * {
     margin-left: var(--spacer-small);
 
-    &:last-child{
+    &:last-child {
       margin-right: var(--spacer-small);
     }
   }
@@ -73,7 +73,6 @@
 }
 
 .is-active {
-
   &.title-tab,
   &.icon-tab {
     color: var(--color-teal-darkest);
@@ -85,7 +84,6 @@
 }
 
 .inverted {
-
   .is-active.title-tab,
   .is-active.icon-tab {
     color: var(--color-neutral-lightest);

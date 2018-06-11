@@ -1,9 +1,9 @@
 @import '@teamleader/ui-animations';
 
 :root {
-  --loading-molecule-animation-delay: .15s;
+  --loading-molecule-animation-delay: 0.15s;
   --loading-molecule-animation-duration: 2s;
-  --loading-moledule-scale-small: .5;
+  --loading-moledule-scale-small: 0.5;
   --loading-moledule-scale-large: 1.5;
 }
 
