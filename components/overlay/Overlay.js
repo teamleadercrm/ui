@@ -5,21 +5,6 @@ import cx from 'classnames';
 import theme from './theme.css';
 
 class Overlay extends PureComponent {
-  static propTypes = {
-    active: PropTypes.bool,
-    backdrop: PropTypes.string,
-    children: PropTypes.node,
-    className: PropTypes.string,
-    lockScroll: PropTypes.bool,
-    onClick: PropTypes.func,
-    onEscKeyDown: PropTypes.func,
-  };
-
-  static defaultProps = {
-    backdrop: 'dark',
-    lockScroll: true,
-  };
-
   constructor() {
     super(...arguments);
 
@@ -117,5 +102,20 @@ class Overlay extends PureComponent {
     );
   }
 }
+
+Overlay.propTypes = {
+  active: PropTypes.bool,
+  backdrop: PropTypes.string,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  lockScroll: PropTypes.bool,
+  onClick: PropTypes.func,
+  onEscKeyDown: PropTypes.func,
+};
+
+Overlay.defaultProps = {
+  backdrop: 'dark',
+  lockScroll: true,
+};
 
 export default Overlay;
