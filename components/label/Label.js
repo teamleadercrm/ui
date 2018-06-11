@@ -8,24 +8,6 @@ import isComponentOfType from '../utils/is-component-of-type';
 import cx from 'classnames';
 
 export default class Label extends PureComponent {
-  static propTypes = {
-    className: PropTypes.string,
-    children: PropTypes.oneOfType([PropTypes.element, PropTypes.string, PropTypes.array]),
-    connectedLeft: PropTypes.element,
-    connectedRight: PropTypes.element,
-    inverse: PropTypes.bool,
-    helpText: PropTypes.string,
-    required: PropTypes.bool,
-    size: PropTypes.oneOf(['small', 'medium', 'large']),
-  };
-
-  static defaultProps = {
-    inverse: false,
-    helpText: 'Optional',
-    required: false,
-    size: 'medium',
-  };
-
   render() {
     const {
       children,
@@ -89,3 +71,21 @@ export default class Label extends PureComponent {
     );
   }
 }
+
+Label.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.string, PropTypes.array]),
+  connectedLeft: PropTypes.element,
+  connectedRight: PropTypes.element,
+  inverse: PropTypes.bool,
+  helpText: PropTypes.string,
+  required: PropTypes.bool,
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
+};
+
+Label.defaultProps = {
+  inverse: false,
+  helpText: 'Optional',
+  required: false,
+  size: 'medium',
+};
