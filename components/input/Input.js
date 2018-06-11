@@ -79,7 +79,8 @@ export default class Input extends PureComponent {
   };
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.value !== undefined) {
+    const value = nextProps.input ? nextProps.input.value : nextProps.value;
+    if (value !== undefined) {
       const newValue = Input.parseValue(Input.getPropsValue(nextProps), nextProps);
       if (newValue !== prevState.value) {
         return {
