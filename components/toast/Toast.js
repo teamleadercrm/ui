@@ -10,18 +10,6 @@ import { IconCloseMediumOutline } from '@teamleader/ui-icons';
 import theme from './theme.css';
 
 class Toast extends PureComponent {
-  static propTypes = {
-    action: PropTypes.string,
-    active: PropTypes.bool,
-    children: PropTypes.node,
-    className: PropTypes.string,
-    label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    onClose: PropTypes.func,
-    onTimeout: PropTypes.func, // eslint-disable-line
-    processing: PropTypes.bool,
-    timeout: PropTypes.number,
-  };
-
   constructor() {
     super(...arguments);
 
@@ -112,5 +100,17 @@ class Toast extends PureComponent {
     return createPortal(toast, this.toastRoot);
   }
 }
+
+Toast.propTypes = {
+  action: PropTypes.string,
+  active: PropTypes.bool,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  onClose: PropTypes.func,
+  onTimeout: PropTypes.func, // eslint-disable-line
+  processing: PropTypes.bool,
+  timeout: PropTypes.number,
+};
 
 export default Toast;
