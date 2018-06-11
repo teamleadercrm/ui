@@ -12,19 +12,6 @@ const SIZES = {
 };
 
 class Section extends PureComponent {
-  static propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    color: PropTypes.oneOf(['white', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua']),
-    dark: PropTypes.bool,
-    size: PropTypes.oneOf(Object.keys(SIZES)),
-  };
-
-  static defaultProps = {
-    color: 'white',
-    size: 'medium',
-  };
-
   isDark(color) {
     if (color !== 'white' && color !== 'neutral') {
       return false;
@@ -51,5 +38,18 @@ class Section extends PureComponent {
     );
   }
 }
+
+Section.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string,
+  color: PropTypes.oneOf(['white', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua']),
+  dark: PropTypes.bool,
+  size: PropTypes.oneOf(Object.keys(SIZES)),
+};
+
+Section.defaultProps = {
+  color: 'white',
+  size: 'medium',
+};
 
 export default Section;
