@@ -4,27 +4,6 @@ import cx from 'classnames';
 import theme from './theme.css';
 
 class LinkButton extends PureComponent {
-  static propTypes = {
-    children: PropTypes.any,
-    className: PropTypes.string,
-    disabled: PropTypes.bool,
-    element: PropTypes.element,
-    icon: PropTypes.element,
-    iconPlacement: PropTypes.oneOf(['left', 'right']),
-    inverse: PropTypes.bool,
-    label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    onMouseLeave: PropTypes.func,
-    onMouseUp: PropTypes.func,
-    size: PropTypes.oneOf(['small', 'medium', 'large']),
-  };
-
-  static defaultProps = {
-    className: '',
-    iconPlacement: 'left',
-    inverse: false,
-    size: 'medium',
-  };
-
   handleMouseUp = event => {
     this.buttonNode.blur();
     if (this.props.onMouseUp) {
@@ -80,5 +59,26 @@ class LinkButton extends PureComponent {
     );
   }
 }
+
+LinkButton.propTypes = {
+  children: PropTypes.any,
+  className: PropTypes.string,
+  disabled: PropTypes.bool,
+  element: PropTypes.element,
+  icon: PropTypes.element,
+  iconPlacement: PropTypes.oneOf(['left', 'right']),
+  inverse: PropTypes.bool,
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  onMouseLeave: PropTypes.func,
+  onMouseUp: PropTypes.func,
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
+};
+
+LinkButton.defaultProps = {
+  className: '',
+  iconPlacement: 'left',
+  inverse: false,
+  size: 'medium',
+};
 
 export default LinkButton;
