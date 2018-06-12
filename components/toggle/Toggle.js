@@ -7,12 +7,7 @@ import Box from '../box';
 import { TextBody, TextDisplay, TextSmall } from '../typography';
 
 class Toggle extends PureComponent {
-  constructor() {
-    super(...arguments);
-    this.handleToggle = ::this.handleToggle;
-  }
-
-  handleToggle(event) {
+  handleToggle = (event) => {
     const { disabled, checked, onChange } = this.props;
 
     if (event.pageX !== 0 && event.pageY !== 0) {
@@ -22,7 +17,7 @@ class Toggle extends PureComponent {
     if (!disabled && onChange) {
       onChange(!checked, event);
     }
-  }
+  };
 
   blur() {
     if (this.inputNode) {
