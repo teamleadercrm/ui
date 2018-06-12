@@ -241,15 +241,15 @@
       }
     }
 
-    &:not(:focus) {
-      border-width: 1px;
-      border-style: solid;
-    }
-
     &:focus {
       border-width: 2px;
       border-style: solid;
     }
+  }
+
+  &:not(:focus) {
+    border-width: 1px;
+    border-style: solid;
   }
 
   &.is-disabled {
