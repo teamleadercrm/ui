@@ -32,9 +32,6 @@
   }
 
   &.neutral {
-    border-width: 1px;
-    border-style: solid;
-
     &:not(.is-inverse) {
       background-color: color(var(--color-neutral-darkest) a(12%));
       border-color: color(var(--color-neutral-darkest) a(12%));
@@ -92,8 +89,6 @@
     cursor: pointer;
 
     &:active {
-      box-shadow: none !important;
-
       &:before {
         background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
         content: '';
@@ -104,6 +99,16 @@
         top: 0;
         width: 100%;
       }
+    }
+
+    &:not(:focus) {
+      border-width: 1px;
+      border-style: solid;
+    }
+
+    &:focus {
+      border-width: 2px;
+      border-style: solid;
     }
   }
 
