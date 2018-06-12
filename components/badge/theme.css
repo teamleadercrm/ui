@@ -32,8 +32,12 @@
   }
 
   &.neutral {
+    border-width: 1px;
+    border-style: solid;
+
     &:not(.is-inverse) {
       background-color: color(var(--color-neutral-darkest) a(12%));
+      border-color: color(var(--color-neutral-darkest) a(12%));
       color: var(--color-teal-darkest);
 
       &:not(.is-disabled) {
@@ -49,6 +53,7 @@
 
     &.is-inverse {
       background-color: color(var(--color-neutral-lightest) a(12%));
+      border-color: color(var(--color-neutral-lightest) a(12%));
       color: var(--color-teal-lightest);
 
       &:not(.is-disabled) {
