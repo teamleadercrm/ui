@@ -31,32 +31,34 @@
     opacity: 0.84;
   }
 
-  &:not(.is-inverse) {
-    background-color: color(var(--color-neutral-darkest) a(12%));
-    color: var(--color-teal-darkest);
+  &.neutral {
+    &:not(.is-inverse) {
+      background-color: color(var(--color-neutral-darkest) a(12%));
+      color: var(--color-teal-darkest);
 
-    &:not(.is-disabled) {
-      &:hover {
-        background-color: color(var(--color-neutral-darkest) a(24%));
-      }
+      &:not(.is-disabled) {
+        &:hover {
+          background-color: color(var(--color-neutral-darkest) a(24%));
+        }
 
-      &:focus {
-        box-shadow: 0 0 0 var(--badge-border-width) color(var(--color-neutral-darkest) a(24%));
+        &:focus {
+          box-shadow: 0 0 0 var(--badge-border-width) color(var(--color-neutral-darkest) a(24%));
+        }
       }
     }
-  }
 
-  &.is-inverse {
-    background-color: color(var(--color-neutral-lightest) a(12%));
-    color: var(--color-teal-lightest);
+    &.is-inverse {
+      background-color: color(var(--color-neutral-lightest) a(12%));
+      color: var(--color-teal-lightest);
 
-    &:not(.is-disabled) {
-      &:hover {
-        background-color: color(var(--color-neutral-lightest) a(24%));
-      }
+      &:not(.is-disabled) {
+        &:hover {
+          background-color: color(var(--color-neutral-lightest) a(24%));
+        }
 
-      &:focus {
-        box-shadow: 0 0 0 var(--badge-border-width) color(var(--color-neutral-lightest) a(24%));
+        &:focus {
+          box-shadow: 0 0 0 var(--badge-border-width) color(var(--color-neutral-lightest) a(24%));
+        }
       }
     }
   }
