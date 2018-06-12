@@ -6,19 +6,14 @@ import theme from './theme.css';
 import omit from 'lodash.omit';
 
 class IconTab extends PureComponent {
-  constructor() {
-    super(...arguments);
-    this.handleClick = ::this.handleClick;
-  }
-
-  handleClick(event) {
+  handleClick = (event) => {
     if (this.props.onClick) {
       this.props.onClick(event);
     }
     if (event.pageX !== 0 && event.pageY !== 0) {
       this.blur();
     }
-  }
+  };
 
   blur() {
     if (this.tabNode) {
