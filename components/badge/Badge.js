@@ -21,10 +21,22 @@ class Badge extends PureComponent {
   };
 
   render() {
-    const { children, className, disabled, element, icon, iconPlacement, inherit, inverse, ...others } = this.props;
+    const {
+      children,
+      className,
+      disabled,
+      element,
+      icon,
+      iconPlacement,
+      inherit,
+      inverse,
+      color,
+      ...others
+    } = this.props;
 
     const classNames = cx(
       theme['badge'],
+      theme[color],
       {
         [theme['is-disabled']]: disabled,
         [theme['is-inherit']]: inherit,
@@ -80,6 +92,8 @@ Badge.propTypes = {
   onMouseLeave: PropTypes.func,
   /** Callback function that is fired when the mouse button is released. */
   onMouseUp: PropTypes.func,
+  /** Add a color theme to the badge */
+  color: PropTypes.oneOf(['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua']),
 };
 
 Badge.defaultProps = {
