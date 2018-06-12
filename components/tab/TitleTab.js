@@ -17,11 +17,11 @@ class TitleTab extends PureComponent {
     }
   };
 
-  blur() {
+  blur = () => {
     if (this.tabNode) {
       this.tabNode.getNode().blur();
     }
-  }
+  };
 
   getPaddingHorizontal = () => {
     const { size } = this.props;
