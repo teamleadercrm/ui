@@ -61,6 +61,7 @@ Tag.propTypes = {
 Tag.defaultProps = {
   inverse: false,
   size: 'medium',
+  color: 'neutral',
 };
 
 export default Tag;
