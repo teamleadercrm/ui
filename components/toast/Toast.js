@@ -10,12 +10,7 @@ import { IconCloseMediumOutline } from '@teamleader/ui-icons';
 import theme from './theme.css';
 
 class Toast extends PureComponent {
-  constructor() {
-    super(...arguments);
-
-    this.toastRoot = document.createElement('div');
-    this.toastRoot.id = 'toast-root';
-  }
+  toastRoot = document.createElement('div');
 
   componentDidMount() {
     document.body.appendChild(this.toastRoot);
