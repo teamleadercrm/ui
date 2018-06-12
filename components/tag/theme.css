@@ -11,15 +11,53 @@
 }
 
 .tag {
-  background-color: color(var(--color-neutral-darkest) a(12%));
   border-radius: var(--tag-border-radius);
   display: inline-flex;
   align-items: center;
+
+  &.neutral {
+    &:not(.is-inverse) {
+      background-color: color(var(--color-neutral-darkest) a(12%));
+
+      .label {
+        color: var(--color-teal-darkest);
+      }
+
+      .label-button {
+        &:focus {
+          box-shadow: 0 0 0 var(--tag-border-width) color(var(--color-teal-darkest) a(36%)) !important;
+        }
+
+        &:active {
+          background-color: color(var(--color-teal-darkest) a(6%));
+          box-shadow: inset 0 2px 3px 0 color(var(--color-teal-darkest) a(12%)) !important;
+        }
+      }
+    }
+
+    &.is-inverse {
+      background: color(var(--color-neutral-lightest) a(12%));
+
+      .label {
+        color: var(--color-neutral-lightest);
+      }
+
+      .label-button {
+        &:focus {
+          box-shadow: 0 0 0 var(--tag-border-width) color(var(--color-white) a(50%)) !important;
+        }
+
+        &:active {
+          background-color: color(var(--color-white) a(12%));
+          box-shadow: inset 0 2px 3px 0 color(var(--color-teal-darkest) a(12%)) !important;
+        }
+      }
+    }
+  }
 }
 
 .label {
   composes: reset-font-smoothing;
-  color: var(--color-teal-darkest);
   font-family: var(--font-family-medium);
 }
 
@@ -32,34 +70,6 @@
 .label-button {
   border: 0 !important;
   height: 100%;
-
-  &:not(.is-inverse) {
-    &:focus {
-      box-shadow: 0 0 0 var(--tag-border-width) color(var(--color-teal-darkest) a(36%)) !important;
-    }
-
-    &:active {
-      box-shadow: none !important;
-    }
-  }
-}
-
-.is-inverse {
-  background: color(var(--color-neutral-lightest) a(12%));
-
-  .label {
-    color: var(--color-neutral-lightest);
-  }
-
-  .label-button {
-    &:focus {
-      box-shadow: 0 0 0 var(--tag-border-width) color(var(--color-neutral-lightest) a(50%)) !important;
-    }
-
-    &:active {
-      box-shadow: none !important;
-    }
-  }
 }
 
 .is-removable {
