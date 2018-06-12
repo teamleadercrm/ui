@@ -102,6 +102,7 @@ Badge.defaultProps = {
   iconPlacement: 'left',
   inherit: true,
   inverse: false,
+  color: 'neutral',
 };
 
 export default Badge;
