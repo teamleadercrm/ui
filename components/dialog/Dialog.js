@@ -7,7 +7,7 @@ import Transition from 'react-transition-group/Transition';
 import theme from './theme.css';
 
 class Dialog extends PureComponent {
-  dialogRoot = document.createElement('div', { 'id': 'dialog-root' });
+  dialogRoot = document.createElement('div');
 
   componentDidMount() {
     document.body.appendChild(this.dialogRoot);
