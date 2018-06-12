@@ -8,11 +8,12 @@ import { IconCloseMediumOutline, IconCloseSmallOutline } from '@teamleader/ui-ic
 
 class Tag extends PureComponent {
   render() {
-    const { children, className, inverse, onLabelClick, onRemoveClick, size, ...others } = this.props;
+    const { children, className, inverse, onLabelClick, onRemoveClick, size, color, ...others } = this.props;
 
     const classNames = cx(
       theme['tag'],
       theme[`is-${size}`],
+      theme[color],
       {
         [theme['is-removable']]: onRemoveClick,
         [theme['is-inverse']]: inverse,
@@ -54,6 +55,7 @@ Tag.propTypes = {
   onLabelClick: PropTypes.func,
   onRemoveClick: PropTypes.func,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
+  color: PropTypes.oneOf(['neutral', 'mint', 'gold', 'ruby', 'violet', 'aqua']),
 };
 
 Tag.defaultProps = {
