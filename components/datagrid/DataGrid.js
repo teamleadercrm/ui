@@ -19,11 +19,6 @@ class DataGrid extends PureComponent {
   constructor() {
     super(...arguments);
 
-    this.handleBodyRowSelectionChange = ::this.handleBodyRowSelectionChange;
-    this.handleHeaderRowSelectionChange = ::this.handleHeaderRowSelectionChange;
-    this.setCalculatedRowWidth = ::this.setCalculatedRowWidth;
-    this.setCalculatedRowWidthThrottled = ::this.setCalculatedRowWidthThrottled;
-
     this.rowNodes = new Map();
     this.scrollableNode = null;
 
@@ -32,7 +27,7 @@ class DataGrid extends PureComponent {
     };
   }
 
-  setCalculatedRowWidthThrottled = throttle(this.setCalculatedRowWidth, 16);
+  setCalculatedRowWidthThrottled = () => throttle(this.setCalculatedRowWidth, 16);
 
   componentDidMount() {
     events.addEventsToWindow({
@@ -58,7 +53,7 @@ class DataGrid extends PureComponent {
     this.setCalculatedRowWidth();
   }
 
-  handleHeaderRowSelectionChange(value) {
+  handleHeaderRowSelectionChange = (value) => {
     const allBodyRowIndexes = React.Children.map(this.props.children, child => {
       if (isComponentOfType(BodyRow, child)) {
         return child.key;
@@ -72,9 +67,9 @@ class DataGrid extends PureComponent {
     });
 
     this.props.onSelectionChange(selectedBodyRowIndexes);
-  }
+  };
 
-  handleBodyRowSelectionChange(rowIndex) {
+  handleBodyRowSelectionChange = (rowIndex) => {
     this.setState(prevState => {
       const selectedRows = prevState.selectedRows.includes(rowIndex)
         ? prevState.selectedRows.filter(row => row !== rowIndex)
@@ -87,9 +82,9 @@ class DataGrid extends PureComponent {
         selectedRows,
       };
     });
-  }
+  };
 
-  setCalculatedRowWidth() {
+  setCalculatedRowWidth = () => {
     if (isElementOverflowingX(this.scrollableNode) && this.rowNodes) {
       const rowDOMNodes = [];
       let maxRowWidth = 0;
