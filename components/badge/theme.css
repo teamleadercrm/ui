@@ -28,7 +28,7 @@
   }
 
   .icon {
-    opacity: 0.84;
+    opacity: 0.86;
   }
 
   &.neutral {
@@ -53,6 +53,10 @@
 
         &:active {
           box-shadow: inset 0 1px 3px 0 color(var(--color-teal-darkest) a(12%));
+
+          .icon {
+            opacity: 1;
+          }
         }
       }
     }
@@ -75,6 +79,10 @@
 
         &:active {
           box-shadow: inset 0 1px 3px 0 var(--color-teal-darkest);
+
+          .icon {
+            opacity: 1;
+          }
         }
       }
     }
