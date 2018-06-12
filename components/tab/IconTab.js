@@ -15,11 +15,11 @@ class IconTab extends PureComponent {
     }
   };
 
-  blur() {
+  blur = () => {
     if (this.tabNode) {
       this.tabNode.getNode().blur();
     }
-  }
+  };
 
   render() {
     const { active, className, counter = null, icon, ...others } = this.props;
