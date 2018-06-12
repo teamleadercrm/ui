@@ -5,12 +5,6 @@ import cx from 'classnames';
 import theme from './theme.css';
 
 class Overlay extends PureComponent {
-  constructor() {
-    super(...arguments);
-
-    this.handleEscKey = ::this.handleEscKey;
-  }
-
   componentDidMount() {
     const { active, lockScroll, onEscKeyDown } = this.props;
     if (onEscKeyDown) {

@@ -7,15 +7,6 @@ import theme from './theme.css';
 import { IconCloseMediumOutline } from '@teamleader/ui-icons';
 
 class Banner extends PureComponent {
-  constructor() {
-    super(...arguments);
-    this.handleClick = ::this.handleClick;
-  }
-
-  handleClick() {
-    this.props.onClose();
-  }
-
   getCloseButtonColor() {
     const { color } = this.props;
     return color === 'white' ? 'neutral' : color;
@@ -35,7 +26,7 @@ class Banner extends PureComponent {
               className={theme['close-button']}
               icon={<IconCloseMediumOutline />}
               color={this.getCloseButtonColor()}
-              onClick={this.handleClick}
+              onClick={onClose}
             />
           )}
         </div>

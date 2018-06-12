@@ -8,25 +8,20 @@ import omit from 'lodash.omit';
 import { Heading4 } from '../typography';
 
 class TitleTab extends PureComponent {
-  constructor() {
-    super(...arguments);
-    this.handleClick = ::this.handleClick;
-  }
-
-  handleClick(event) {
+  handleClick = (event) => {
     if (this.props.onClick) {
       this.props.onClick(event);
     }
     if (event.pageX !== 0 && event.pageY !== 0) {
       this.blur();
     }
-  }
+  };
 
-  blur() {
+  blur = () => {
     if (this.tabNode) {
       this.tabNode.getNode().blur();
     }
-  }
+  };
 
   getPaddingHorizontal = () => {
     const { size } = this.props;
