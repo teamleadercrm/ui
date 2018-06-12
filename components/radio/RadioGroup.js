@@ -6,17 +6,11 @@ import isComponentOfType from '../utils/is-component-of-type';
 import omit from 'lodash.omit';
 
 class RadioGroup extends PureComponent {
-  constructor() {
-    super(...arguments);
-
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(value, event) {
+  handleChange = (value, event) => {
     if (this.props.onChange) {
       this.props.onChange(value, event);
     }
-  }
+  };
 
   render() {
     const { children, className, disabled, value, ...others } = this.props;
