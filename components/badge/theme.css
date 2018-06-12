@@ -5,12 +5,13 @@
 
 :root {
   --badge-border-radius: calc(0.4 * var(--unit));
-  --badge-border-width: 2px;
+  --badge-border-width: 1px;
 }
 
 .badge {
   border-radius: var(--badge-border-radius);
-  border: 0;
+  border-style: solid;
+  border-width: var(--badge-border-width);
   display: inline-flex;
   align-items: center;
   outline: none;
@@ -46,6 +47,7 @@
         &:focus {
           background-color: color(var(--color-teal-darkest) a(6%));
           border-color: color(var(--color-neutral-darkest) a(24%));
+          box-shadow: 0 0 0 var(--badge-border-width) color(var(--color-neutral-darkest) a(24%));
         }
 
         &:active {
@@ -72,6 +74,7 @@
         &:focus {
           background-color: color(var(--color-white) a(12%));
           border-color: color(var(--color-white: #ffffff) a(24%));
+          box-shadow: 0 0 0 var(--badge-border-width) color(var(--color-neutral-darkest) a(24%));
         }
 
         &:active {
@@ -97,6 +100,7 @@
 
       &:focus {
         border-color: color(var(--color-mint-light: #ffffff) a(100%));
+        box-shadow: 0 0 0 var(--badge-border-width) color(var(--color-mint-light) a(100%));
       }
 
       &:active {
@@ -125,6 +129,7 @@
 
       &:focus {
         border-color: color(var(--color-violet-light: #ffffff) a(100%));
+        box-shadow: 0 0 0 var(--badge-border-width) color(var(--color-violet-light) a(100%));
       }
 
       &:active {
@@ -153,6 +158,7 @@
 
       &:focus {
         border-color: color(var(--color-ruby-light: #ffffff) a(100%));
+        box-shadow: 0 0 0 var(--badge-border-width) color(var(--color-ruby-light) a(100%));
       }
 
       &:active {
@@ -181,6 +187,7 @@
 
       &:focus {
         border-color: color(var(--color-aqua-light: #ffffff) a(100%));
+        box-shadow: 0 0 0 var(--badge-border-width) color(var(--color-aqua-light) a(100%));
       }
 
       &:active {
@@ -209,6 +216,7 @@
 
       &:focus {
         border-color: color(var(--color-gold-light: #ffffff) a(100%));
+        box-shadow: 0 0 0 var(--badge-border-width) color(var(--color-gold-light) a(100%));
       }
 
       &:active {
@@ -240,16 +248,6 @@
         width: 100%;
       }
     }
-
-    &:focus {
-      border-width: 2px;
-      border-style: solid;
-    }
-  }
-
-  &:not(:focus) {
-    border-width: 1px;
-    border-style: solid;
   }
 
   &.is-disabled {
