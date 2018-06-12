@@ -7,6 +7,7 @@ import { withKnobs, boolean, select } from '@storybook/addon-knobs/react';
 import { Tag, TextBody, Tooltip } from '../components';
 
 const sizes = ['small', 'medium', 'large'];
+const colors = ['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua'];
 
 const TooltippedTag = Tooltip(Tag);
 
@@ -15,12 +16,17 @@ storiesOf('Tags', module)
   .addDecorator(checkA11y)
   .addDecorator(withKnobs)
   .add('Basic', () => (
-    <Tag size={select('Size', sizes, 'medium')} inverse={boolean('Inverse', false)}>
+    <Tag
+      color={select('Color', colors, 'neutral')}
+      size={select('Size', sizes, 'medium')}
+      inverse={boolean('Inverse', false)}
+    >
       I am a tag
     </Tag>
   ))
   .add('Clickable', () => (
     <Tag
+      color={select('Color', colors, 'neutral')}
       inverse={boolean('Inverse', false)}
       onLabelClick={() => console.log('Tag label clicked')}
       size={select('Size', sizes, 'medium')}
@@ -30,6 +36,7 @@ storiesOf('Tags', module)
   ))
   .add('Closable', () => (
     <Tag
+      color={select('Color', colors, 'neutral')}
       inverse={boolean('Inverse', false)}
       onRemoveClick={() => console.log('Tag removed')}
       size={select('Size', sizes, 'medium')}
@@ -39,6 +46,7 @@ storiesOf('Tags', module)
   ))
   .add('Clickable & closable', () => (
     <Tag
+      color={select('Color', colors, 'neutral')}
       inverse={boolean('Inverse', false)}
       onLabelClick={() => console.log('Tag label clicked')}
       onRemoveClick={() => console.log('Tag removed')}
@@ -48,7 +56,11 @@ storiesOf('Tags', module)
     </Tag>
   ))
   .add('With tooltip', () => (
-    <TooltippedTag inverse={boolean('Inverse', false)} tooltip={<TextBody>I am the tooltip</TextBody>}>
+    <TooltippedTag
+      color={select('Color', colors, 'neutral')}
+      inverse={boolean('Inverse', false)}
+      tooltip={<TextBody>I am the tooltip</TextBody>}
+    >
       Tag with tooltip
     </TooltippedTag>
   ));
