@@ -30,17 +30,12 @@ const SIZES = {
 
 const Tooltip = ComposedComponent => {
   class TooltippedComponent extends Component {
-    constructor(props) {
-      super(...arguments);
+    tooltipRoot = this.props.documentObject.createElement('div');
 
-      this.state = {
-        active: false,
-        position: this.props.tooltipPosition,
-      };
-
-      this.tooltipRoot = props.documentObject.createElement('div');
-      this.tooltipRoot.id = 'tooltip-root';
-    }
+    state = {
+      active: false,
+      position: this.props.tooltipPosition,
+    };
 
     getPosition(element) {
       const { tooltipPosition } = this.props;

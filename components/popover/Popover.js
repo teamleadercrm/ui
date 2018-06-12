@@ -12,12 +12,7 @@ import theme from './theme.css';
 
 const factory = (axis, calculatePositions, Overlay) => {
   class Popover extends PureComponent {
-    constructor() {
-      super(...arguments);
-
-      this.popoverRoot = document.createElement('div');
-      this.popoverRoot.id = 'popover-root';
-    }
+    popoverRoot = document.createElement('div');
 
     state = {
       positioning: {
