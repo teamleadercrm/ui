@@ -16,16 +16,12 @@ import theme from './theme.css';
 import { events } from '../utils';
 
 class DataGrid extends PureComponent {
-  constructor() {
-    super(...arguments);
+  state = {
+    selectedRows: [],
+  };
 
-    this.rowNodes = new Map();
-    this.scrollableNode = null;
-
-    this.state = {
-      selectedRows: [],
-    };
-  }
+  rowNodes = new Map();
+  scrollableNode = null;
 
   setCalculatedRowWidthThrottled = () => throttle(this.setCalculatedRowWidth, 16);
 
