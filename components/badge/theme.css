@@ -141,6 +141,34 @@
     }
   }
 
+  &.ruby {
+    background-color: color(var(--color-ruby-light) a(48%));
+    border-color: color(var(--color-ruby-light) a(48%));
+    color: var(--color-ruby-darkest);
+
+    &:not(.is-disabled) {
+      &:hover {
+        border-color: color(var(--color-ruby-light) a(100%));
+      }
+
+      &:focus {
+        border-color: color(var(--color-ruby-light: #ffffff) a(100%));
+      }
+
+      &:active {
+        box-shadow: inset 0 1px 3px 0 var(--color-ruby-light);
+
+        .icon {
+          opacity: 1;
+        }
+      }
+    }
+
+    .icon {
+      color: var(--color-ruby-darkest);
+    }
+  }
+
   &:not(.is-disabled) {
     cursor: pointer;
 
