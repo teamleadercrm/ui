@@ -1,0 +1,11 @@
+@import '@teamleader/ui-colors';
+@import '@teamleader/ui-utilities';
+@import '@teamleader/ui-typography';
+
+.select {
+  font-family: var(--font-family-regular);
+  font-size: calc(1.4 * var(--unit));
+  color: var(--color-teal-dark)!important;
+  border-color: var(--color-neutral-dark);
+  max-width: 360px;
+}
