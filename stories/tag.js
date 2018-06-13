@@ -20,6 +20,7 @@ storiesOf('Tags', module)
       color={select('Color', colors, 'neutral')}
       size={select('Size', sizes, 'medium')}
       inverse={boolean('Inverse', false)}
+      disabled={boolean('Disabled', false)}
     >
       I am a tag
     </Tag>
@@ -30,6 +31,7 @@ storiesOf('Tags', module)
       inverse={boolean('Inverse', false)}
       onLabelClick={() => console.log('Tag label clicked')}
       size={select('Size', sizes, 'medium')}
+      disabled={boolean('Disabled', false)}
     >
       I am a clickable tag
     </Tag>
@@ -40,6 +42,7 @@ storiesOf('Tags', module)
       inverse={boolean('Inverse', false)}
       onRemoveClick={() => console.log('Tag removed')}
       size={select('Size', sizes, 'medium')}
+      disabled={boolean('Disabled', false)}
     >
       I am a closable tag
     </Tag>
@@ -51,6 +54,7 @@ storiesOf('Tags', module)
       onLabelClick={() => console.log('Tag label clicked')}
       onRemoveClick={() => console.log('Tag removed')}
       size={select('Size', sizes, 'medium')}
+      disabled={boolean('Disabled', false)}
     >
       I am a clickable & closable tag
     </Tag>
@@ -60,6 +64,7 @@ storiesOf('Tags', module)
       color={select('Color', colors, 'neutral')}
       inverse={boolean('Inverse', false)}
       tooltip={<TextBody>I am the tooltip</TextBody>}
+      disabled={boolean('Disabled', false)}
     >
       Tag with tooltip
     </TooltippedTag>
