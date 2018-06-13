@@ -186,7 +186,6 @@ storiesOf('Popover', module)
   .add('with dark backdrop', () => (
     <Box>
       <Button onClick={handleButtonClick} label="Open a Popover with dark backdrop" />
-      color={select('Color', colors, 'neutral')}
       <State store={store}>
         <PopoverVertical
           active={false}
