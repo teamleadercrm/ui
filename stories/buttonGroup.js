@@ -20,7 +20,7 @@ storiesOf('Button groups', module)
   .addDecorator((story, context) =>
     withInfo({
       TableComponent: PropTable,
-      propTablesExclude: [Button],
+      propTablesExclude: [Button, State],
     })(story)(context),
   )
   .addDecorator(checkA11y)
