@@ -5,24 +5,24 @@ import { Button } from '../button';
 import theme from './theme.css';
 
 const customStyles = {
-  control: (base, state) => ({
+  control: (base, { isDisabled, isFocused }) => ({
     ...base,
-    backgroundColor: state.isDisabled ? '#e4e4e6' : '#fff',
+    backgroundColor: isDisabled ? '#e4e4e6' : '#fff',
     '&:hover': {
       borderColor: '#82828c'
     },
-    borderColor: state.isFocused ? '#82828c' : '#c0c0c4',
-    boxShadow: state.isFocused ? '0 0 0 1px #82828c' : 'none',
+    borderColor: isFocused ? '#82828c' : '#c0c0c4',
+    boxShadow: isFocused ? '0 0 0 1px #82828c' : 'none',
   }),
   indicatorSeparator: (base) => ({
     ...base,
     marginTop: 0,
     marginBottom: 0,
   }),
-  option: (base, state) => ({
+  option: (base, { isFocused, isSelected }) => ({
     ...base,
     color: '#344b63',
-    backgroundColor: state.isFocused ? '#e4e4e6' : state.isSelected ? '#f7f7fa' : '#fff',
+    backgroundColor: isFocused ? '#e4e4e6' : isSelected ? '#f7f7fa' : '#fff',
     '&:active': {
       backgroundColor: '#e4e4e6'
     },
