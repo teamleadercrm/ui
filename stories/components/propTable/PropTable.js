@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Badge, DataGrid, TextSmall, Tooltip } from '../../../components';
 
 const Red = props => <span style={{ color: 'red' }} {...props} />;
@@ -60,6 +61,10 @@ const PropTable = ({ propDefinitions }) => {
       {props}
     </DataGrid>
   );
+};
+
+PropTable.propTypes = {
+  propDefinitions: PropTypes.array,
 };
 
 export default PropTable;
