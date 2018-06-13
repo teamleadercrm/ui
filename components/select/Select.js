@@ -5,13 +5,19 @@ import { IconChevronDownSmallOutline } from '@teamleader/ui-icons';
 import { Button } from '../button';
 import theme from './theme.css';
 
-const DropdownIndicator = ({ isDisabled }) =>
-  <Button className={theme['dropdown-indicator']} disabled={isDisabled} icon={<IconChevronDownSmallOutline />}/>;
-
 class Select extends PureComponent {
   state = {
     selectedOptions: [],
   };
+
+  getDropDownIndicator = () => ({ isDisabled }) => (
+    <Button
+      className={theme['dropdown-indicator']}
+      disabled={isDisabled}
+      icon={<IconChevronDownSmallOutline />}
+      size={this.props.size}
+    />
+  );
 
   getStyles = (size) => ({
     control: (base, { isDisabled, isFocused }) => ({
@@ -50,7 +56,7 @@ class Select extends PureComponent {
     return (
       <ReactSelect
         className={theme['select']}
-        components={{ DropdownIndicator }}
+        components={{ DropdownIndicator: this.getDropDownIndicator() }}
         onChange={this.handleChange}
         styles={this.getStyles(size)}
         value={selectedOptions}
