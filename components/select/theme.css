@@ -9,3 +9,8 @@
   border-color: var(--color-neutral-dark);
   max-width: 360px;
 }
+
+.dropdown-indicator {
+  border: 0 !important;
+  border-radius: 0 4px 4px 0;
+}
