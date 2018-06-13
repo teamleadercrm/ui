@@ -101,6 +101,13 @@
       opacity: 1 !important;
     }
   }
+
+  .button-label,
+  .remove-button {
+    transition: background-color 0.2s var(--animation-curve-fast-out-slow-in),
+      border-color var(--animation-duration) var(--animation-curve-fast-out-slow-in),
+      color var(--animation-duration) var(--animation-curve-fast-out-slow-in);
+  }
 }
 
 .label {
