@@ -17,7 +17,6 @@ import {
   TextSmall,
 } from '../components';
 import { withKnobs, select } from '@storybook/addon-knobs/react';
-import PropTypes from 'prop-types';
 
 const store = new Store({
   active: false,
