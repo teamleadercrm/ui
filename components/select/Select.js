@@ -29,7 +29,8 @@ const customStyles = {
   }),
 };
 
-const DropdownIndicator = () => <Button className={theme['dropdown-indicator']} icon={<IconChevronDownSmallOutline />}/>;
+const DropdownIndicator = ({ isDisabled }) =>
+  <Button className={theme['dropdown-indicator']} disabled={isDisabled} icon={<IconChevronDownSmallOutline />}/>;
 
 class Select extends PureComponent {
   state = {
