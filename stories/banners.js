@@ -13,7 +13,7 @@ storiesOf('Banner', module)
   .addDecorator((story, context) =>
     withInfo({
       TableComponent: PropTable,
-      propTablesExclude: [TextDisplay],
+      propTablesExclude: [TextDisplay, Link],
     })(story)(context),
   )
   .addDecorator(checkA11y)
