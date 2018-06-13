@@ -100,7 +100,8 @@
     }
   }
 
-  .label-button {
+  .label-button,
+  .label {
     padding: 0 6px !important;
   }
 }
