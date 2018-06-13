@@ -50,7 +50,7 @@ storiesOf('Popover', module)
   .addDecorator((story, context) =>
     withInfo({
       TableComponent: PropTable,
-      propTablesExclude: [Link, TextBody, TextSmall, Button, State, Banner, Heading3, ButtonGroup],
+      propTablesExclude: [Link, TextBody, TextSmall, Button, State, Banner, Heading3, ButtonGroup, Box],
     })(story)(context),
   )
   .addDecorator(checkA11y)
@@ -186,7 +186,6 @@ storiesOf('Popover', module)
   .add('with dark backdrop', () => (
     <Box>
       <Button onClick={handleButtonClick} label="Open a Popover with dark backdrop" />
-      color={select('Color', colors, 'neutral')}
       <State store={store}>
         <PopoverVertical
           active={false}
