@@ -76,6 +76,7 @@
     "react-day-picker": "^7.1.8",
     "react-dom": "^16.3.1",
     "react-resize-detector": "^1.1.0",
+    "react-select": "^2.0.0-beta.6",
     "react-transition-group": "^2.2.1"
   },
   "devDependencies": {
@@ -135,7 +136,6 @@
     "pretty-quick": "1.6.0",
     "proptypes": "^1.1.0",
     "react-hot-loader": "^3.0.0-beta.6",
-    "react-select": "git+https://github.com/JedWatson/react-select.git#v2",
     "react-storybook-decorator-background": "^1.0.5",
     "rimraf": "^2.5.4",
     "storybook-addon-a11y": "^3.1.9",
