@@ -8,6 +8,7 @@ import { Badge, TextDisplay } from '../components';
 import { IconBuildingSmallOutline } from '@teamleader/ui-icons';
 
 const iconPositions = ['left', 'right'];
+const colors = ['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua'];
 
 storiesOf('Badge', module)
   .addDecorator((story, context) =>
@@ -22,6 +23,7 @@ storiesOf('Badge', module)
     <TextDisplay>
       I'm display text with a
       <Badge
+        color={select('Color', colors, 'neutral')}
         disabled={boolean('Disabled', false)}
         inherit={boolean('Inherit', true)}
         inverse={boolean('Inverse', false)}
@@ -33,6 +35,7 @@ storiesOf('Badge', module)
   ))
   .add('standalone', () => (
     <Badge
+      color={select('Color', colors, 'neutral')}
       disabled={boolean('Disabled', false)}
       inherit={boolean('Inherit', false)}
       inverse={boolean('Inverse', false)}
@@ -42,6 +45,7 @@ storiesOf('Badge', module)
   ))
   .add('with icon', () => (
     <Badge
+      color={select('Color', colors, 'neutral')}
       disabled={boolean('Disabled', false)}
       icon={<IconBuildingSmallOutline />}
       iconPlacement={select('Icon placement', iconPositions, 'left')}
@@ -53,6 +57,7 @@ storiesOf('Badge', module)
   ))
   .add('with custom element', () => (
     <Badge
+      color={select('Color', colors, 'neutral')}
       disabled={boolean('Disabled', false)}
       element="a"
       href="https://teamleader.eu"
