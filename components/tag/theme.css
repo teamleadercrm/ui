@@ -85,6 +85,15 @@
       }
     }
   }
+
+  &.is-disabled {
+    opacity: 0.48;
+
+    button {
+      background-color: transparent !important;
+      opacity: 1 !important;
+    }
+  }
 }
 
 .label {
