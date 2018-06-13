@@ -16,8 +16,12 @@
   align-items: center;
 
   &.neutral {
+    border-style: solid;
+    border-width: 1px;
+
     &:not(.is-inverse) {
       background-color: color(var(--color-neutral-darkest) a(12%));
+      border-color: color(var(--color-neutral-darkest) a(12%));
 
       .label {
         color: var(--color-teal-darkest);
@@ -37,6 +41,7 @@
 
     &.is-inverse {
       background: color(var(--color-neutral-lightest) a(12%));
+      border-color: color(var(--color-neutral-lightest) a(12%));
 
       .label {
         color: var(--color-neutral-lightest);
@@ -94,6 +99,10 @@
       opacity: 1 !important;
     }
   }
+
+  .label-button {
+    padding: 0 6px !important;
+  }
 }
 
 .label {
@@ -103,13 +112,11 @@
 
 .remove-button {
   border-radius: 0 var(--tag-border-radius) var(--tag-border-radius) 0;
-  height: 100% !important;
   padding: 0 var(--spacer-smaller) !important;
 }
 
 .label-button {
   border: 0 !important;
-  height: 100%;
 }
 
 .is-removable {
@@ -132,6 +139,11 @@
     line-height: var(--tag-size-small);
     padding: 0 var(--spacer-smaller);
   }
+
+  .label-button,
+  .remove-button {
+    height: var(--tag-size-small);
+  }
 }
 
 .is-medium {
@@ -147,6 +159,11 @@
     line-height: var(--tag-size-medium);
     padding: 0 var(--spacer-small);
   }
+
+  .label-button,
+  .remove-button {
+    height: var(--tag-size-medium);
+  }
 }
 
 .is-large {
@@ -161,5 +178,10 @@
     font-size: calc(1.4 * var(--unit));
     line-height: var(--tag-size-large);
     padding: 0 var(--spacer-small);
+  }
+
+  .label-button,
+  .remove-button {
+    height: var(--tag-size-large);
   }
 }
