@@ -1,20 +1,10 @@
 import React from 'react';
 import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
-import { Store, State } from '@sambego/storybook-state';
 import { checkA11y } from 'storybook-addon-a11y';
-import { withKnobs, boolean, select, number } from '@storybook/addon-knobs/react';
+import { withKnobs, boolean, number } from '@storybook/addon-knobs/react';
 import { withInfo } from '@storybook/addon-info';
 import { Island, Pagination, LinkButton } from '../components';
-
-const store = new Store({
-  currentPage: 1,
-  numPages: 21,
-});
-
-const handlePageChange = page => {
-  store.set({ currentPage: page });
-};
 
 storiesOf('Pagination', module)
   .addDecorator((story, context) =>
