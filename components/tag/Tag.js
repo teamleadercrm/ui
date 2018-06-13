@@ -8,7 +8,7 @@ import { IconCloseMediumOutline, IconCloseSmallOutline } from '@teamleader/ui-ic
 
 class Tag extends PureComponent {
   render() {
-    const { children, className, inverse, onLabelClick, onRemoveClick, size, color, ...others } = this.props;
+    const { children, className, inverse, onLabelClick, onRemoveClick, size, color, disabled, ...others } = this.props;
 
     const classNames = cx(
       theme['tag'],
@@ -17,6 +17,7 @@ class Tag extends PureComponent {
       {
         [theme['is-removable']]: onRemoveClick,
         [theme['is-inverse']]: inverse,
+        [theme['is-disabled']]: disabled,
       },
       className,
     );
@@ -27,7 +28,13 @@ class Tag extends PureComponent {
     return (
       <Box className={classNames} data-teamleader-ui="tag" {...others}>
         {onLabelClick ? (
-          <Button className={theme['label-button']} onClick={onLabelClick} level="outline" inverse={inverse}>
+          <Button
+            className={theme['label-button']}
+            onClick={onLabelClick}
+            level="outline"
+            inverse={inverse}
+            disabled={disabled}
+          >
             {children}
           </Button>
         ) : (
@@ -41,6 +48,7 @@ class Tag extends PureComponent {
             icon={closeButtonIcon}
             onClick={onRemoveClick}
             size="small"
+            disabled={disabled}
           />
         )}
       </Box>
@@ -51,6 +59,7 @@ class Tag extends PureComponent {
 Tag.propTypes = {
   children: PropTypes.any.isRequired,
   className: PropTypes.string,
+  disabled: PropTypes.bool,
   inverse: PropTypes.bool,
   onLabelClick: PropTypes.func,
   onRemoveClick: PropTypes.func,
