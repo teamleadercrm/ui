@@ -29,9 +29,13 @@ class StatusLabel extends PureComponent {
 }
 
 StatusLabel.propTypes = {
+  /** The content to display inside the status label */
   children: PropTypes.any.isRequired,
+  /** A classname to add to the status label to give custom styles */
   className: PropTypes.string,
+  /** The name of the color them you want to give to the status label */
   color: PropTypes.oneOf(['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua']),
+  /** Size of the button */
   size: PropTypes.oneOf(Object.keys(SIZES)),
 };
 
