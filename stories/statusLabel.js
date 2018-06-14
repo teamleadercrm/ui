@@ -29,7 +29,7 @@ storiesOf('Status Labels', module)
   .addDecorator(checkA11y)
   .addDecorator(withKnobs)
   .add('Basic', () => (
-    <StatusLabel color={select('Color', colors, 'neutral')} size="medium">
+    <StatusLabel color={select('Color', colors, 'neutral')} size={select('Size', sizes, 'medium')}>
       Status label
     </StatusLabel>
   ))
