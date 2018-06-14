@@ -8,7 +8,6 @@
   composes: reset-font-smoothing;
   display: inline-block;
   font-family: var(--font-family-medium);
-  padding: 3px 12px;
   vertical-align: middle;
 }
 
@@ -29,11 +28,13 @@
 .medium {
   font-size: calc(1.4 * var(--unit));
   line-height: calc(1.8 * var(--unit));
-  border-radius: 12px;
+  border-radius: 14px;
+  padding: 3px 12px;
 }
 
 .small {
   font-size: calc(1.2 * var(--unit));
-  line-height: calc(1.8 * var(--unit));
-  border-radius: 9px;
+  line-height: calc(1.4 * var(--unit));
+  border-radius: 11px;
+  padding: 2px 12px;
 }
