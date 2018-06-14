@@ -36,37 +36,37 @@ storiesOf('Status Labels', module)
           Status label
         </StatusLabel>
       </Heading1>
-      <Heading2>
+      <Heading2 marginTop={4}>
         I'm an Header 2 with a
         <StatusLabel color={select('Color', colors, 'neutral')} size={select('Size', sizes, 'medium')}>
           Status label
         </StatusLabel>
       </Heading2>
-      <Heading3>
+      <Heading3 marginTop={4}>
         I'm an Header 3 with a
         <StatusLabel color={select('Color', colors, 'neutral')} size={select('Size', sizes, 'medium')}>
           Status label
         </StatusLabel>
       </Heading3>
-      <Heading4>
+      <Heading4 marginTop={4}>
         I'm an Header 4 with a
         <StatusLabel color={select('Color', colors, 'neutral')} size={select('Size', sizes, 'medium')}>
           Status label
         </StatusLabel>
       </Heading4>
-      <TextDisplay>
+      <TextDisplay marginTop={4}>
         I'm an Text display with a
         <StatusLabel color={select('Color', colors, 'neutral')} size={select('Size', sizes, 'medium')}>
           Status label
         </StatusLabel>
       </TextDisplay>
-      <TextBody>
+      <TextBody marginTop={4}>
         I'm an text body with a
         <StatusLabel color={select('Color', colors, 'neutral')} size="small">
           Status label
         </StatusLabel>
       </TextBody>
-      <TextSmall>
+      <TextSmall marginTop={4}>
         I'm an text small with a
         <StatusLabel color={select('Color', colors, 'neutral')} size="small">
           Status label
