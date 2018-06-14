@@ -8,6 +8,7 @@
   composes: reset-font-smoothing;
   display: inline-block;
   font-family: var(--font-family-medium);
+  text-transform: none;
   vertical-align: middle;
 }
 
@@ -37,4 +38,14 @@
   line-height: calc(1.4 * var(--unit));
   border-radius: 11px;
   padding: 2px 12px;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  .label {
+    margin-left: 6px;
+  }
 }
