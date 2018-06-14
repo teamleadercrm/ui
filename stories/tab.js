@@ -4,9 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean } from '@storybook/addon-knobs/react';
-import { Box, Island, Counter as UICounter } from '../components';
-import { Store, State } from '@sambego/storybook-state';
-import { IconTab, TabGroup, TitleTab } from '../components';
+import { IconTab, TabGroup, TitleTab, Box, Counter as UICounter } from '../components';
 import { tabItems, invertedTabItems } from '../static/data/tab';
 
 import {
@@ -31,10 +29,6 @@ const iconMap = {
 
 // Real-life tabs should not have a clickHandler but rather listen to state updates
 const handleClick = (event, title) => {
-  event.preventDefault();
-};
-
-const handleInvertedClick = (event, title) => {
   event.preventDefault();
 };
 

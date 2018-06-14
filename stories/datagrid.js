@@ -1,39 +1,13 @@
 import React from 'react';
 import PropTable from './components/propTable';
-import { Store, State } from '@sambego/storybook-state';
 import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withKnobs, boolean, number } from '@storybook/addon-knobs/react';
 import { withInfo } from '@storybook/addon-info';
-import {
-  Box,
-  Button,
-  DataGrid,
-  Heading4,
-  IconMenu,
-  MenuItem,
-  Link,
-  Section,
-  StatusBullet,
-  TextSmall,
-  Tooltip,
-} from '../components';
+import { DataGrid, Heading4, IconMenu, MenuItem, Link, StatusBullet, TextSmall, Tooltip } from '../components';
 import { rows1, rows2 } from '../static/data/datagrid';
 
 const TooltippedStatusBullet = Tooltip(StatusBullet);
-
-const store = new Store({
-  comparableId: 1,
-  rows: rows1,
-});
-
-const handleButtonClick = () => {
-  store.set({
-    comparableId: store.get('comparableId') + 1,
-    rows: store.get('rows') === rows1 ? rows2 : rows1,
-  });
-  console.log('onClick - refresh data - set comparableId to other value');
-};
 
 const handleRowSelectionChange = selectedRows => {
   console.log(`onSelectionChange - selected row indexes: ${selectedRows}`);
@@ -113,7 +87,7 @@ storiesOf('DataGrids', module)
         <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')}>Due date</DataGrid.HeaderCell>
         <DataGrid.HeaderCell flex="min-width" />
       </DataGrid.HeaderRow>
-      {rows1.map((row, index) => {
+      {rows2.map((row, index) => {
         return (
           <DataGrid.BodyRow key={index}>
             <DataGrid.Cell align="center" flex="min-width">
