@@ -6,7 +6,7 @@ import theme from './theme.css';
 
 class Counter extends PureComponent {
   render() {
-    const { children, className, color, count, maxCount, size, ...others } = this.props;
+    const { children, className, color, count, maxCount, size, borderColor, borderTint, ...others } = this.props;
 
     const classNames = cx(theme['counter'], theme[color], theme[size], className);
 
@@ -19,6 +19,8 @@ class Counter extends PureComponent {
 }
 
 Counter.propTypes = {
+  borderColor: PropTypes.oneOf(['neutral', 'mint', 'aqua', 'violet', 'teal', 'gold', 'ruby']),
+  borderTint: PropTypes.oneOf(['darkest', 'dark', 'neutral', 'light', 'lightest']),
   children: PropTypes.any,
   className: PropTypes.string,
   color: PropTypes.oneOf(['neutral', 'mint', 'aqua', 'violet', 'teal', 'gold', 'ruby']),
