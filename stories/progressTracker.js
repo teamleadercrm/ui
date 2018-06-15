@@ -6,10 +6,12 @@ import { withInfo } from '@storybook/addon-info';
 import { withKnobs, select } from '@storybook/addon-knobs/react';
 import { ProgressTracker } from '../components';
 
+import { steps } from '../static/progressTracker/steps';
+
 const colors = ['neutral', 'mint', 'aqua', 'violet', 'teal', 'gold', 'ruby'];
 
 storiesOf('ProgressTracker', module)
   .addDecorator((story, context) => withInfo({ TableComponent: PropTable })(story)(context))
   .addDecorator(withKnobs)
   .addDecorator(checkA11y)
-  .add('Basic', () => <ProgressTracker color={select('Color', colors, 'neutral')} />);
+  .add('Basic', () => <ProgressTracker color={select('Color', colors, 'neutral')} steps={steps} activeStep={1} />);
