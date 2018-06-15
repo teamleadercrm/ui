@@ -14,7 +14,7 @@ class Counter extends PureComponent {
       theme[size],
       {
         [theme[`border-${borderColor}-${borderTint}`]]: borderColor && borderTint,
-        [theme[`border-${borderColor}`]]: !borderTint,
+        [theme[`border-${borderColor}`]]: borderColor && !borderTint,
       },
       className,
     );
