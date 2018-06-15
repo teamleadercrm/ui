@@ -58,7 +58,7 @@ storiesOf('Avatars', module)
   ))
   .add('with counter', () => (
     <Avatar image={avatars[0].image} size={select('Size', sizes, 'medium')}>
-      <Counter color="ruby" count={avatars[0].count} maxCount={avatars[0].maxCount} />
+      <Counter color="ruby" count={avatars[0].count} maxCount={avatars[0].maxCount} borderColor="white" />
     </Avatar>
   ))
   .add('with tooltip', () => (
