@@ -60,7 +60,7 @@
     bottom: 10px;
   }
 
-  &.is-active {
+  &.is-active:not(:first-child) {
     &:after {
       width: 50%;
     }
@@ -93,6 +93,7 @@
   .$(color) {
     .progress-step__label {
       color: var(--color-$(color)-darkest);
+      font-weight: 500;
     }
 
     &.progress-step {
