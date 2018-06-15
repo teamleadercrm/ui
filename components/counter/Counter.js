@@ -19,8 +19,6 @@ class Counter extends PureComponent {
       className,
     );
 
-    console.log(classNames);
-
     return (
       <Box className={classNames} element="span" {...others} data-teamleader-ui="counter">
         {count > maxCount ? `${maxCount}+` : count} {children}
