@@ -3,7 +3,7 @@ import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, select } from '@storybook/addon-knobs/react';
+import { withKnobs, select, number } from '@storybook/addon-knobs/react';
 import { ProgressTracker } from '../components';
 
 import { steps } from '../static/progressTracker/steps';
@@ -15,7 +15,7 @@ storiesOf('ProgressTracker', module)
   .addDecorator(withKnobs)
   .addDecorator(checkA11y)
   .add('Basic', () => (
-    <ProgressTracker color={select('Color', colors, 'neutral')} activeStep={1}>
+    <ProgressTracker color={select('Color', colors, 'neutral')} activeStep={number('Active step', 1)}>
       {steps.map(step => {
         return <ProgressTracker.ProgressStep label={step.label} />;
       })}
