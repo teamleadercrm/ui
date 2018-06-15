@@ -9,13 +9,19 @@ import { ProgressTracker } from '../components';
 import { steps } from '../static/progressTracker/steps';
 
 const colors = ['neutral', 'mint', 'aqua', 'violet', 'teal', 'gold', 'ruby'];
+const options = {
+  range: true,
+  min: 0,
+  max: steps.length,
+  step: 1,
+};
 
 storiesOf('ProgressTracker', module)
   .addDecorator((story, context) => withInfo({ TableComponent: PropTable })(story)(context))
   .addDecorator(withKnobs)
   .addDecorator(checkA11y)
   .add('Basic', () => (
-    <ProgressTracker color={select('Color', colors, 'neutral')} activeStep={number('Active step', 1)}>
+    <ProgressTracker color={select('Color', colors, 'neutral')} activeStep={number('Active step', 1, options)}>
       {steps.map(step => {
         return <ProgressTracker.ProgressStep label={step.label} />;
       })}
