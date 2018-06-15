@@ -51,16 +51,11 @@ storiesOf('Avatars', module)
       {avatars.map(({ image }, index) => <Avatar key={index} image={image} size={select('Size', sizes, 'medium')} />)}
     </AvatarStack>
   ))
-  .add('with bullet', () => {
-    const avatarSize = select('Size', sizes, 'medium');
-    const bulletSize = avatarSize === 'medium' ? 'medium' : 'small';
-
-    return (
-      <Avatar image={avatars[0].image} size={avatarSize}>
-        <Bullet color="ruby" borderColor="neutral" borderTint="lightest" size={bulletSize} />
-      </Avatar>
-    );
-  })
+  .add('with bullet', () => (
+    <Avatar image={avatars[0].image} size={select('Size', sizes, 'medium')}>
+      <Bullet color="ruby" />
+    </Avatar>
+  ))
   .add('with counter', () => (
     <Avatar image={avatars[0].image} size={select('Size', sizes, 'medium')}>
       <Counter color="ruby" count={avatars[0].count} maxCount={avatars[0].maxCount} />
