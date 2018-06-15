@@ -33,7 +33,7 @@ Counter.propTypes = {
   /** A border color to give to the counter */
   borderColor: PropTypes.oneOf(['mint', 'aqua', 'violet', 'teal', 'gold', 'ruby', 'white', 'teal']),
   /** A border tint to give to the counter */
-  borderTint: PropTypes.oneOf(['darkest', 'dark', 'none', 'light', 'lightest']),
+  borderTint: PropTypes.oneOf(['darkest', 'dark', 'light', 'lightest']),
   /** The content to display inside the Counter */
   children: PropTypes.any,
   /** A class name for the counter to give custom styles */
