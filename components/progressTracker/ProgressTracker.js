@@ -10,8 +10,11 @@ class ProgressTracker extends PureComponent {
 
     return (
       <Island color={color}>
-        {steps.map(step => {
-          return <ProgressStep label={step.label} />;
+        {steps.map((step, index) => {
+          const isActive = index === activeStep;
+          const isCompleted = index < activeStep;
+
+          return <ProgressStep label={step.label} active={isActive} completed={isCompleted} />;
         })}
       </Island>
     );
