@@ -51,11 +51,11 @@
 
 @each $color in (neutral, mint, violet, ruby, gold, aqua, teal) {
   .border-$(color) {
-    border: 1px solid var(--color-$(color));
+    box-shadow: 0 0 0 1px var(--color-$(color));
   }
   @each $tint in (darkest, dark, light, lightest) {
     .border-$(color)-$(tint) {
-      border: 1px solid var(--color-$(color)-$(tint));
+      box-shadow: 0 0 0 1px var(--color-$(color)-$(tint));
     }
   }
 }
