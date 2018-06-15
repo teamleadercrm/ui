@@ -2,12 +2,17 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 import Island from '../island';
+import ProgressStep from './ProgressStep';
 
 class ProgressTracker extends PureComponent {
   render() {
     const { color } = this.props;
 
-    return <Island color={color} />;
+    return (
+      <Island color={color}>
+        <ProgressStep />
+      </Island>
+    );
   }
 }
 
