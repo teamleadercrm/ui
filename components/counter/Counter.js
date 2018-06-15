@@ -13,7 +13,7 @@ class Counter extends PureComponent {
       theme[color],
       theme[size],
       {
-        [theme[`border-${borderColor}-${borderTint}`]]: borderTint,
+        [theme[`border-${borderColor}-${borderTint}`]]: borderColor && borderTint,
         [theme[`border-${borderColor}`]]: !borderTint,
       },
       className,
@@ -29,7 +29,7 @@ class Counter extends PureComponent {
 
 Counter.propTypes = {
   /** A border color to give to the counter */
-  borderColor: PropTypes.oneOf(['mint', 'aqua', 'violet', 'teal', 'gold', 'ruby', 'white', 'teal']),
+  borderColor: PropTypes.oneOf(['neutral', 'mint', 'aqua', 'violet', 'teal', 'gold', 'ruby']),
   /** A border tint to give to the counter */
   borderTint: PropTypes.oneOf(['darkest', 'dark', 'light', 'lightest']),
   /** The content to display inside the Counter */
