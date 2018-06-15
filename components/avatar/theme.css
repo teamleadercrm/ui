@@ -78,8 +78,8 @@
 
 .tiny {
   .children {
-    bottom: 50%;
-    left: 60%;
+    top: -3px;
+    right: -3px;
   }
 
   .image {
@@ -97,8 +97,8 @@
 
 .small {
   .children {
-    bottom: 60%;
-    left: 76%;
+    top: -1px;
+    right: -1px;
   }
 
   .image {
@@ -116,8 +116,8 @@
 
 .medium {
   .children {
-    bottom: 65%;
-    left: 80%;
+    top: -1px;
+    right: -1px;
   }
 
   .image {
