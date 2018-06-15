@@ -14,4 +14,10 @@ storiesOf('ProgressTracker', module)
   .addDecorator((story, context) => withInfo({ TableComponent: PropTable })(story)(context))
   .addDecorator(withKnobs)
   .addDecorator(checkA11y)
-  .add('Basic', () => <ProgressTracker color={select('Color', colors, 'neutral')} steps={steps} activeStep={1} />);
+  .add('Basic', () => (
+    <ProgressTracker color={select('Color', colors, 'neutral')} activeStep={1}>
+      {steps.map(step => {
+        return <ProgressTracker.ProgressStep label={step.label} />;
+      })}
+    </ProgressTracker>
+  ));

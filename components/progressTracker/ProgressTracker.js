@@ -6,15 +6,15 @@ import ProgressStep from './ProgressStep';
 
 class ProgressTracker extends PureComponent {
   render() {
-    const { activeStep, color, steps } = this.props;
-
+    const { activeStep, color, children } = this.props;
+    console.log(children);
     return (
       <Island color={color}>
-        {steps.map((step, index) => {
-          const isActive = index === activeStep;
-          const isCompleted = index < activeStep;
-
-          return <ProgressStep label={step.label} active={isActive} completed={isCompleted} />;
+        {React.Children.map(children, (child, index) => {
+          return React.cloneElement(child, {
+            active: index === activeStep,
+            completed: index < activeStep,
+          });
         })}
       </Island>
     );
@@ -23,15 +23,17 @@ class ProgressTracker extends PureComponent {
 
 ProgressTracker.propTypes = {
   /** The number of the step which is currently active */
-  activeStep: PropTypes.number,
+  activeStep: PropTypes.number.isRequired,
+  /** The steps to display inside the progress tracker */
+  children: PropTypes.node,
   /** Color theme of the progress tracker. */
   color: PropTypes.oneOf(['neutral', 'mint', 'aqua', 'violet', 'teal', 'gold', 'ruby']),
-  /** The steps of the progress tracker */
-  steps: PropTypes.array,
 };
 
 ProgressTracker.defaultProps = {
   activeStep: 0,
 };
+
+ProgressTracker.ProgressStep = ProgressStep;
 
 export default ProgressTracker;
