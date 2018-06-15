@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import theme from './theme.css';
 
+import Box from '../box';
+
 class ProgressStep extends PureComponent {
   render() {
     const { label, active, completed, color } = this.props;
@@ -13,6 +15,7 @@ class ProgressStep extends PureComponent {
     return (
       <div className={classNames}>
         <label>{label}</label>
+        <Box className={theme['status-bullet']} />
       </div>
     );
   }
