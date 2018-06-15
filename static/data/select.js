@@ -1,13 +1,33 @@
-const selectOptions = [
-  { label: 'Chocolate', value: 'chocolate', color: 'yellow' },
-  { label: 'Vanilla', value: 'vanilla', color: 'red' },
-  { label: 'Strawberry', value: 'strawberry', color: 'blue' },
-  { label: 'Caramel', value: 'caramel', color: 'yellow', disabled: true },
-  { label: 'Cookies and Cream', value: 'cookiescream', color: 'red' },
-  { label: 'Peppermint', value: 'peppermint', color: 'blue' },
+const options = [
+  { label: 'Chocolate', value: 'chocolate' },
+  { label: 'Vanilla', value: 'vanilla' },
+  { label: 'Strawberry', value: 'strawberry' },
+  { label: 'Caramel', value: 'caramel', disabled: true },
+  { label: 'Cookies and Cream', value: 'cookiescream' },
+  { label: 'Peppermint', value: 'peppermint' },
 ];
 
-export default selectOptions;
+const groupedOptions = [
+  {
+    label: "Flavors",
+    options: [
+      { label: 'Chocolate', value: 'chocolate' },
+      { label: 'Vanilla', value: 'vanilla' },
+      { label: 'Strawberry', value: 'strawberry' },
+    ]
+  },
+  {
+    label: "Colors",
+    options: [
+      { label: 'Red', value: 'red' },
+      { label: 'Green', value: 'green' },
+      { label: 'Blue', value: 'blue' },
+    ]
+  }
+];
+
+export default options;
 export {
-  selectOptions,
+  groupedOptions,
+  options,
 }
