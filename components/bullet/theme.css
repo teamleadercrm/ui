@@ -1,14 +1,14 @@
 @import '@teamleader/ui-colors';
 
 :root {
-  --medium-size: 12px;
-  --small-size: 9px;
+  --medium-size: 9px;
+  --small-size: 6px;
 }
 
 .bullet {
   border-radius: 50%;
   display: inline-block;
-  vertical-align: top;
+  vertical-align: middle;
 }
 
 .medium {
