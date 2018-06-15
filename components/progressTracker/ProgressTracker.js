@@ -1,5 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
+import theme from './theme.css';
 
 import Island from '../island';
 import ProgressStep from './ProgressStep';
@@ -8,8 +10,10 @@ class ProgressTracker extends PureComponent {
   render() {
     const { activeStep, color, children } = this.props;
 
+    const classNames = cx(theme['progress-tracker']);
+
     return (
-      <Island color={color}>
+      <Island color={color} className={classNames}>
         {React.Children.map(children, (child, index) => {
           return React.cloneElement(child, {
             active: index === activeStep,

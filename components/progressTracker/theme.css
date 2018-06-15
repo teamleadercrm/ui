@@ -1,0 +1,25 @@
+@import '@teamleader/ui-colors';
+
+.progress-tracker {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.progress-step {
+}
+.progress-step__label {
+}
+.is-active {
+}
+
+.is-completed {
+}
+
+.status-bullet {
+}
+@each $color in (neutral, mint, violet, gold, ruby, aqua) {
+  .$(color) {
+  }
+}

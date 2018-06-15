@@ -4,6 +4,7 @@ import cx from 'classnames';
 import theme from './theme.css';
 
 import Box from '../box';
+import { TextSmall } from '../typography';
 
 class ProgressStep extends PureComponent {
   render() {
@@ -14,7 +15,7 @@ class ProgressStep extends PureComponent {
     });
     return (
       <div className={classNames}>
-        <label>{label}</label>
+        <TextSmall className={theme['progress-step__label']}>{label}</TextSmall>
         <Box className={theme['status-bullet']} />
       </div>
     );
