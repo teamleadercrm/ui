@@ -7,7 +7,7 @@ import ProgressStep from './ProgressStep';
 class ProgressTracker extends PureComponent {
   render() {
     const { activeStep, color, children } = this.props;
-    console.log(children);
+
     return (
       <Island color={color}>
         {React.Children.map(children, (child, index) => {
