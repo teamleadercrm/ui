@@ -17,11 +17,14 @@ class ProgressTracker extends PureComponent {
         {React.Children.map(children, (child, index) => {
           const activeStep = Math.max(0, currentStep);
 
-          return React.cloneElement(child, {
-            active: allStepsCompleted ? false : index === activeStep,
-            completed: allStepsCompleted || index < activeStep,
-            color,
-          });
+          return (
+            <ProgressStep
+              { ...child.props} 
+              active={allStepsCompleted ? false : index === activeStep}
+              completed={allStepsCompleted || index < activeStep}
+              color={color} 
+            />
+          );
         })}
       </Box>
     );
