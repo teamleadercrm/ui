@@ -64,9 +64,39 @@
     }
   }
 
-  &:not(.is-active):not(.is-completed) {
-    .progress-step__label {
-      opacity: 0.5;
+  .status-bullet {
+    background-color: transparent;
+    transition: background-color .1s var(--animation-curve-default) calc(var(--animation-duration) - .1s);
+    align-self: center;
+    border-radius: 50%;
+    display: block;
+    height: 12px;
+    margin: 6px 0;
+    width: 12px;
+    z-index: 2;
+    position: relative;
+    &:before {
+      background-color: transparent;
+      transition: background-color 6s var(--animation-curve-default) calc(var(--animation-duration) - .1s);
+      border-radius: 50%;
+      content: '';
+      display: block;
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .progress-step__label {
+    font-family: var(--font-family-regular);
+    opacity: .5;
+    text-align: center;
+    transition: font-family .1s var(--animation-curve-default) calc(var(--animation-duration) - .1s), opacity .1s var(--animation-curve-default) calc(var(--animation-duration) - .1s);
+    &:hover {
+      cursor: normal;
     }
   }
 
@@ -76,37 +106,18 @@
     }
     .status-bullet {
       &:before {
-        background-color: var(--color-white);
-        border-radius: 50%;
-        content: '';
-        display: block;
-        position: absolute;
-        width: 6px;
-        height: 6px;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        animation: showBulletCenter .1s calc(var(--animation-duration) - .1s) forwards;
       }
     }
   }
 
-  .progress-step__label {
-    text-align: center;
-    &:hover {
-      cursor: normal;
+  &.is-completed,
+  &.is-active {
+    .progress-step__label {
+      opacity: 1;
     }
   }
 
-  .status-bullet {
-    align-self: center;
-    border-radius: 50%;
-    display: block;
-    height: 12px;
-    margin: 6px 0;
-    width: 12px;
-    z-index: 2;
-    position: relative;
-  }
 }
 
 @each $color in (mint, violet, gold, ruby, aqua) {
@@ -157,6 +168,7 @@
       .status-bullet {
         background-color: var(--color-neutral-darkest);
       }
+
     }
     &:not(.is-completed):not(.is-active) {
       .status-bullet {
@@ -164,4 +176,9 @@
       }
     }
   }
+}
+
+@keyframes showBulletCenter {
+  0%   {background-color: transparent;}
+  100% {background-color: var(--color-white);}
 }
