@@ -1,5 +1,6 @@
 @import '@teamleader/ui-colors';
 @import '@teamleader/ui-typography';
+@import '@teamleader/ui-animations';
 
 .progress-tracker {
   align-items: center;
@@ -18,36 +19,6 @@
   max-width: 180px;
   position: relative;
 
-  &:not(:first-child):not(:last-child) {
-    &:before {
-      width: 100%;
-      left: 0;
-    }
-    &:after {
-      left: 0;
-    }
-  }
-
-  &:first-child {
-    &:before {
-      width: 50%;
-      left: 50%;
-    }
-    &:after {
-      left: 50%;
-    }
-  }
-
-  &:last-child {
-    &:before {
-      width: 50%;
-      right: 50%;
-    }
-    &:after {
-      right: 50%;
-    }
-  }
-
   &:before {
     content: '';
     height: 2px;
@@ -60,15 +31,34 @@
     height: 4px;
     position: absolute;
     bottom: 10px;
+    left: 50%;
+    transition: width var(--animation-duration) var(--animation-curve-default);
+    width: 0;
+    z-index: 1;
   }
 
-  &.is-active:not(:first-child) {
-    &:after {
-      width: 50%;
+  &:not(:first-child):not(:last-child) {
+    &:before {
+      width: 100%;
+      left: 0;
     }
   }
 
-  &.is-completed {
+  &:first-child {
+    &:before {
+      width: 50%;
+      left: 50%;
+    }
+  }
+
+  &:last-child {
+    &:before {
+      width: 50%;
+      right: 50%;
+    }
+  }
+
+  &.is-completed:not(:last-child) {
     &:after {
       width: 100%;
     }
@@ -114,7 +104,7 @@
   height: 12px;
   margin: 6px 0;
   width: 12px;
-  z-index: 1;
+  z-index: 2;
   position: relative;
 }
 @each $color in (mint, violet, gold, ruby, aqua) {
