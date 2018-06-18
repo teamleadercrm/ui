@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import theme from './theme.css';
 
-import Island from '../island';
+import Box from '../box';
 import ProgressStep from './ProgressStep';
 
 class ProgressTracker extends PureComponent {
@@ -13,7 +13,7 @@ class ProgressTracker extends PureComponent {
     const classNames = cx(theme['progress-tracker']);
 
     return (
-      <div className={classNames}>
+      <Box className={classNames}>
         {React.Children.map(children, (child, index) => {
           const currentActiveStep = activeStep < 0 ? 0 : activeStep;
 
@@ -23,7 +23,7 @@ class ProgressTracker extends PureComponent {
             color: color,
           });
         })}
-      </div>
+      </Box>
     );
   }
 }
