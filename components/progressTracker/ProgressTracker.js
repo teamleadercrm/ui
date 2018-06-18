@@ -20,7 +20,7 @@ class ProgressTracker extends PureComponent {
           return React.cloneElement(child, {
             active: index === currentActiveStep,
             completed: index < currentActiveStep,
-            color: color,
+            color,
           });
         })}
       </Box>
