@@ -1,3 +1,3 @@
-const steps = ['Draft', 'Book', 'Send the document to the client before getting paid', 'Get paid'];
+const steps = ['Draft', 'Book', 'Send invoices', 'Get paid'];
 
 export { steps };

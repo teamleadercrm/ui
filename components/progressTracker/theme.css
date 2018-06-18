@@ -54,7 +54,7 @@
   &:last-child {
     &:before {
       width: 50%;
-      right: 50%;
+      left: 0;
     }
   }
 
@@ -96,18 +96,19 @@
       cursor: normal;
     }
   }
+
+  .status-bullet {
+    align-self: center;
+    border-radius: 50%;
+    display: block;
+    height: 12px;
+    margin: 6px 0;
+    width: 12px;
+    z-index: 2;
+    position: relative;
+  }
 }
 
-.status-bullet {
-  align-self: center;
-  border-radius: 50%;
-  display: block;
-  height: 12px;
-  margin: 6px 0;
-  width: 12px;
-  z-index: 2;
-  position: relative;
-}
 @each $color in (mint, violet, gold, ruby, aqua) {
   .$(color) {
     .progress-step__label {
@@ -122,17 +123,13 @@
         background-color: var(--color-$(color)-dark);
       }
 
-      &.is-completed {
-        .status-bullet {
-          background-color: var(--color-$(color)-dark);
-        }
-      }
-
+      &.is-completed,
       &.is-active {
         .status-bullet {
           background-color: var(--color-$(color)-dark);
         }
       }
+
       &:not(.is-completed):not(.is-active) {
         .status-bullet {
           background-color: var(--color-$(color));
@@ -155,13 +152,8 @@
       background-color: var(--color-neutral-darkest);
     }
 
+    &.is-active,
     &.is-completed {
-      .status-bullet {
-        background-color: var(--color-neutral-darkest);
-      }
-    }
-
-    &.is-active {
       .status-bullet {
         background-color: var(--color-neutral-darkest);
       }
