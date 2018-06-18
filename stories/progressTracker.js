@@ -8,7 +8,7 @@ import { ProgressTracker } from '../components';
 
 import { steps } from '../static/progressTracker/steps';
 
-const colors = ['neutral', 'mint', 'aqua', 'violet', 'teal', 'gold', 'ruby'];
+const colors = ['neutral', 'mint', 'aqua', 'violet', 'gold', 'ruby'];
 const options = {
   range: true,
   min: 0,

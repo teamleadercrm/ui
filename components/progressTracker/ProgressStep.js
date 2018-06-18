@@ -24,7 +24,7 @@ class ProgressStep extends PureComponent {
 
 ProgressStep.propTypes = {
   /** Color theme of the progress tracker. */
-  color: PropTypes.oneOf(['neutral', 'mint', 'aqua', 'violet', 'teal', 'gold', 'ruby']),
+  color: PropTypes.oneOf(['neutral', 'mint', 'aqua', 'violet', 'gold', 'ruby']),
   /** The label for the progress step */
   label: PropTypes.string.isRequired,
   /** Whether or not the step is active */

@@ -34,7 +34,7 @@ ProgressTracker.propTypes = {
   /** The steps to display inside the progress tracker */
   children: PropTypes.node,
   /** Color theme of the progress tracker. */
-  color: PropTypes.oneOf(['neutral', 'mint', 'aqua', 'violet', 'teal', 'gold', 'ruby']),
+  color: PropTypes.oneOf(['neutral', 'mint', 'aqua', 'violet', 'gold', 'ruby']),
 };
 
 ProgressTracker.defaultProps = {
