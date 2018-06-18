@@ -3,7 +3,7 @@
 @import '@teamleader/ui-animations';
 
 .progress-tracker {
-  align-items: center;
+  align-items: flex-end;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -91,6 +91,7 @@
   }
 
   .progress-step__label {
+    text-align: center;
     &:hover {
       cursor: normal;
     }
