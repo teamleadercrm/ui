@@ -39,6 +39,7 @@ ProgressTracker.propTypes = {
 
 ProgressTracker.defaultProps = {
   activeStep: 0,
+  color: 'neutral',
 };
 
 ProgressTracker.ProgressStep = ProgressStep;
