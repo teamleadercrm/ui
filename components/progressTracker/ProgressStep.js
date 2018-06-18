@@ -35,6 +35,8 @@ ProgressStep.propTypes = {
 
 ProgressStep.defaultProps = {
   color: 'neutral',
+  active: false,
+  completed: false,
 };
 
 export default ProgressStep;
