@@ -13,7 +13,7 @@ class ProgressTracker extends PureComponent {
     const classNames = cx(theme['progress-tracker']);
 
     return (
-      <Island color={color} className={classNames}>
+      <div className={classNames}>
         {React.Children.map(children, (child, index) => {
           const currentActiveStep = activeStep < 0 ? 0 : activeStep;
 
@@ -23,7 +23,7 @@ class ProgressTracker extends PureComponent {
             color: color,
           });
         })}
-      </Island>
+      </div>
     );
   }
 }
