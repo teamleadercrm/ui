@@ -1,16 +1,3 @@
-const steps = [
-  {
-    label: 'Draft',
-  },
-  {
-    label: 'Book',
-  },
-  {
-    label: 'Send',
-  },
-  {
-    label: 'Get paid',
-  },
-];
+const steps = ['Draft', 'Book', 'Send', 'Get paid'];
 
 export { steps };
