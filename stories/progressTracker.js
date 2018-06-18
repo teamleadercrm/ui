@@ -21,7 +21,11 @@ storiesOf('ProgressTracker', module)
   .addDecorator(withKnobs)
   .addDecorator(checkA11y)
   .add('Basic', () => (
-    <ProgressTracker color={select('Color', colors, 'neutral')} activeStep={number('Active step', 1, options)}>
+    <ProgressTracker
+      color={select('Color', colors, 'neutral')}
+      activeStep={number('Active step', 1, options)}
+      isClickable
+    >
       {steps.map((step, index) => {
         return <ProgressTracker.ProgressStep label={step.label} key={index} />;
       })}
