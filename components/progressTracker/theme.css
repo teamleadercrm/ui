@@ -1,10 +1,12 @@
 @import '@teamleader/ui-colors';
+@import '@teamleader/ui-typography';
 
 .progress-tracker {
   align-items: center;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  padding: 20px 24px;
 }
 
 .progress-step {
@@ -77,6 +79,12 @@
       opacity: 0.5;
     }
   }
+
+  &.is-active {
+    .progress-step__label {
+      font-family: var(--font-family-medium);
+    }
+  }
 }
 
 .status-bullet {
@@ -93,7 +101,6 @@
   .$(color) {
     .progress-step__label {
       color: var(--color-$(color)-darkest);
-      font-weight: 500;
     }
 
     &.progress-step {
