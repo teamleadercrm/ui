@@ -7,17 +7,8 @@ import Island from '../island';
 import ProgressStep from './ProgressStep';
 
 class ProgressTracker extends PureComponent {
-  state = {
-    activeStep: this.props.activeStep,
-  };
-  updateStep = stepId => {
-    this.setState({
-      activeStep: stepId,
-    });
-  };
   render() {
-    const { activeStep } = this.state;
-    const { color, children, isClickable } = this.props;
+    const { color, children, activeStep } = this.props;
 
     const classNames = cx(theme['progress-tracker']);
 
@@ -30,8 +21,6 @@ class ProgressTracker extends PureComponent {
             active: index === currentActiveStep,
             completed: index < currentActiveStep,
             color: color,
-            onClickHandler: isClickable ? this.updateStep : null,
-            stepId: index,
           });
         })}
       </Island>
@@ -46,8 +35,6 @@ ProgressTracker.propTypes = {
   children: PropTypes.node,
   /** Color theme of the progress tracker. */
   color: PropTypes.oneOf(['neutral', 'mint', 'aqua', 'violet', 'teal', 'gold', 'ruby']),
-  /** */
-  isClickable: PropTypes.bool,
 };
 
 ProgressTracker.defaultProps = {

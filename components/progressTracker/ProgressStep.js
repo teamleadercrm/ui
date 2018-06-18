@@ -8,17 +8,15 @@ import { TextSmall } from '../typography';
 
 class ProgressStep extends PureComponent {
   render() {
-    const { label, active, completed, color, onClickHandler, stepId } = this.props;
+    const { label, active, completed, color } = this.props;
     const classNames = cx(theme['progress-step'], theme[color], {
       [theme['is-active']]: active,
       [theme['is-completed']]: completed,
     });
     return (
       <div className={classNames}>
-        <TextSmall className={theme['progress-step__label']} onClick={() => onClickHandler(stepId)}>
-          {label}
-        </TextSmall>
-        <Box className={theme['status-bullet']} onClick={() => onClickHandler(stepId)} />
+        <TextSmall className={theme['progress-step__label']}>{label}</TextSmall>
+        <Box className={theme['status-bullet']} />
       </div>
     );
   }
@@ -33,10 +31,6 @@ ProgressStep.propTypes = {
   active: PropTypes.bool.isRequired,
   /** Whether or not the step has been completed */
   completed: PropTypes.bool.isRequired,
-  /** Function to be called when a step has been clicked */
-  onClickHandler: PropTypes.func,
-  /** Id of the step */
-  stepId: PropTypes.number.isRequired,
 };
 
 ProgressStep.defaultProps = {
