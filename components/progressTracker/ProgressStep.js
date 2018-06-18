@@ -14,10 +14,10 @@ class ProgressStep extends PureComponent {
       [theme['is-completed']]: completed,
     });
     return (
-      <div className={classNames}>
+      <Box className={classNames}>
         <TextSmall className={theme['progress-step__label']}>{label}</TextSmall>
         <Box className={theme['status-bullet']} />
-      </div>
+      </Box>
     );
   }
 }
