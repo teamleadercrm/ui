@@ -8,18 +8,18 @@ import ProgressStep from './ProgressStep';
 
 class ProgressTracker extends PureComponent {
   render() {
-    const { color, children, activeStep, allStepsCompleted } = this.props;
+    const { color, children, currentStep, allStepsCompleted } = this.props;
 
     const classNames = cx(theme['progress-tracker']);
 
     return (
       <Box className={classNames}>
         {React.Children.map(children, (child, index) => {
-          const currentActiveStep = activeStep < 0 ? 0 : activeStep;
+          const activeStep = Math.max(0, currentStep);
 
           return React.cloneElement(child, {
-            active: allStepsCompleted ? false : index === currentActiveStep,
-            completed: allStepsCompleted || index < currentActiveStep,
+            active: allStepsCompleted ? false : index === activeStep,
+            completed: allStepsCompleted || index < activeStep,
             color,
           });
         })}
@@ -32,7 +32,7 @@ ProgressTracker.propTypes = {
   /** Whether or not all steps are completed */
   allStepsCompleted: PropTypes.bool,
   /** The number of the step which is currently active */
-  activeStep: PropTypes.number.isRequired,
+  currentStep: PropTypes.number.isRequired,
   /** The steps to display inside the progress tracker */
   children: PropTypes.node,
   /** Color theme of the progress tracker. */
@@ -40,7 +40,7 @@ ProgressTracker.propTypes = {
 };
 
 ProgressTracker.defaultProps = {
-  activeStep: 0,
+  currentStep: 0,
   color: 'neutral',
 };
 
