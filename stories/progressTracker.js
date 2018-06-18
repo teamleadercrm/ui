@@ -6,8 +6,7 @@ import { withInfo } from '@storybook/addon-info';
 import { withKnobs, select, number, boolean } from '@storybook/addon-knobs/react';
 import { ProgressTracker, Island } from '../components';
 
-import { steps } from '../static/progressTracker/steps';
-
+const steps = ['Draft', 'Book', 'Send invoices', 'Get paid'];
 const colors = ['neutral', 'mint', 'aqua', 'violet', 'gold', 'ruby'];
 const options = {
   range: true,
