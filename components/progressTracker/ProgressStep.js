@@ -16,7 +16,7 @@ class ProgressStep extends PureComponent {
     return (
       <Box className={classNames}>
         <TextSmall className={theme['progress-step__label']}>{label}</TextSmall>
-        <Box className={theme['status-bullet']} />
+        <span className={theme['status-bullet']} />
       </Box>
     );
   }
