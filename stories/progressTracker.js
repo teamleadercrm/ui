@@ -28,9 +28,7 @@ storiesOf('ProgressTracker', module)
   .add('Basic', () => (
     <Island color={select('Color', colors, 'neutral')} size="small">
       <ProgressTracker color={select('Color', colors, 'neutral')} activeStep={number('Active step', 1, options)}>
-        {steps.map((step, index) => {
-          return <ProgressTracker.ProgressStep label={step} key={index} />;
-        })}
+        {steps.map((step, index) => <ProgressTracker.ProgressStep label={step} key={index} /> )}
       </ProgressTracker>
     </Island>
   ));
