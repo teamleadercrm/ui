@@ -2,6 +2,11 @@
 @import '@teamleader/ui-typography';
 @import '@teamleader/ui-animations';
 
+:root {
+  --bullet-size: 12px;
+  --bullet-center-size: calc(var(--bullet-size) / 2);
+}
+
 .tracker {
   align-items: flex-end;
   display: flex;
@@ -66,24 +71,24 @@
 
   .status-bullet {
     background-color: transparent;
-    transition: background-color .1s var(--animation-curve-default) calc(var(--animation-duration) - .1s);
+    transition: background-color 0.1s var(--animation-curve-default) calc(var(--animation-duration) - 0.1s);
     align-self: center;
     border-radius: 50%;
     display: block;
-    height: 12px;
+    height: var(--bullet-size);
     margin: 6px 0;
-    width: 12px;
+    width: var(--bullet-size);
     z-index: 2;
     position: relative;
     &:before {
       background-color: transparent;
-      transition: background-color .1s var(--animation-curve-default) calc(var(--animation-duration) - .1s);
+      transition: background-color 0.1s var(--animation-curve-default) calc(var(--animation-duration) - 0.1s);
       border-radius: 50%;
       content: '';
       display: block;
       position: absolute;
-      width: 6px;
-      height: 6px;
+      width: var(--bullet-center-size);
+      height: var(--bullet-center-size);
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -92,9 +97,10 @@
 
   .step-label {
     font-family: var(--font-family-regular);
-    opacity: .5;
+    opacity: 0.5;
     text-align: center;
-    transition: font-family .1s var(--animation-curve-default) calc(var(--animation-duration) - .1s), opacity .1s var(--animation-curve-default) calc(var(--animation-duration) - .1s);
+    transition: font-family 0.1s var(--animation-curve-default) calc(var(--animation-duration) - 0.1s),
+      opacity 0.1s var(--animation-curve-default) calc(var(--animation-duration) - 0.1s);
   }
 
   &.is-active {
@@ -103,7 +109,7 @@
     }
     .status-bullet {
       &:before {
-        animation: showBulletCenter .1s calc(var(--animation-duration) - .1s) forwards;
+        animation: showBulletCenter 0.1s calc(var(--animation-duration) - 0.1s) forwards;
       }
     }
   }
@@ -164,7 +170,6 @@
       .status-bullet {
         background-color: var(--color-neutral-darkest);
       }
-
     }
     &:not(.is-completed):not(.is-active) {
       .status-bullet {
@@ -175,6 +180,10 @@
 }
 
 @keyframes showBulletCenter {
-  0%   {background-color: transparent;}
-  100% {background-color: var(--color-white);}
+  0% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: var(--color-white);
+  }
 }
