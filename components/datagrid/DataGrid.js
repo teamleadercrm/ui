@@ -39,7 +39,7 @@ class DataGrid extends PureComponent {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.comparableId !== this.props.comparableId) {
-      this.props.onSelectionChange();
+      this.props.onSelectionChange && this.props.onSelectionChange();
 
       this.setState({
         selectedRows: [],
@@ -64,7 +64,7 @@ class DataGrid extends PureComponent {
       selectedRows: selectedBodyRowIndexes,
     });
 
-    this.props.onSelectionChange(selectedBodyRowIndexes);
+    this.props.onSelectionChange && this.props.onSelectionChange(selectedBodyRowIndexes);
   };
 
   handleBodyRowSelectionChange = (rowIndex) => {
@@ -72,8 +72,8 @@ class DataGrid extends PureComponent {
       const selectedRows = prevState.selectedRows.includes(rowIndex)
         ? prevState.selectedRows.filter(row => row !== rowIndex)
         : [...prevState.selectedRows, rowIndex];
-
-      this.props.onSelectionChange(selectedRows);
+      
+      this.props.onSelectionChange && this.props.onSelectionChange(selectedRows);
 
       return {
         ...prevState,
