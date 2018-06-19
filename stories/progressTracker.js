@@ -26,8 +26,12 @@ storiesOf('ProgressTracker', module)
   .addDecorator(checkA11y)
   .add('Basic', () => (
     <Island color={select('Color', colors, 'neutral')} size="small">
-      <ProgressTracker color={select('Color', colors, 'neutral')} currentStep={number('Current step', 1, options)} allStepsCompleted={boolean('Completed', false)}>
-        {steps.map((step, index) => <ProgressTracker.ProgressStep label={step} key={index} /> )}
+      <ProgressTracker
+        color={select('Color', colors, 'neutral')}
+        currentStep={number('Current step', 1, options)}
+        done={boolean('Completed', false)}
+      >
+        {steps.map((step, index) => <ProgressTracker.ProgressStep label={step} key={index} />)}
       </ProgressTracker>
     </Island>
   ));

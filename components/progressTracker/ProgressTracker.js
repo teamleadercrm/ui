@@ -8,7 +8,7 @@ import ProgressStep from './ProgressStep';
 
 class ProgressTracker extends PureComponent {
   render() {
-    const { color, children, currentStep, allStepsCompleted } = this.props;
+    const { color, children, currentStep, done } = this.props;
 
     const classNames = cx(theme['tracker']);
 
@@ -20,8 +20,8 @@ class ProgressTracker extends PureComponent {
           return (
             <ProgressStep
               {...child.props}
-              active={allStepsCompleted ? false : index === activeStep}
-              completed={allStepsCompleted || index < activeStep}
+              active={done ? false : index === activeStep}
+              completed={done || index < activeStep}
               color={color}
             />
           );
@@ -33,7 +33,7 @@ class ProgressTracker extends PureComponent {
 
 ProgressTracker.propTypes = {
   /** Whether or not all steps are completed */
-  allStepsCompleted: PropTypes.bool,
+  done: PropTypes.bool,
   /** The number of the step which is currently active */
   currentStep: PropTypes.number.isRequired,
   /** The steps to display inside the progress tracker */
