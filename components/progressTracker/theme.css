@@ -2,7 +2,7 @@
 @import '@teamleader/ui-typography';
 @import '@teamleader/ui-animations';
 
-.progress-tracker {
+.tracker {
   align-items: flex-end;
   display: flex;
   flex-direction: row;
@@ -10,7 +10,7 @@
   padding: 20px 24px;
 }
 
-.progress-step {
+.step {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -90,7 +90,7 @@
     }
   }
 
-  .progress-step-label {
+  .step-label {
     font-family: var(--font-family-regular);
     opacity: .5;
     text-align: center;
@@ -98,7 +98,7 @@
   }
 
   &.is-active {
-    .progress-step-label {
+    .step-label {
       font-family: var(--font-family-medium);
     }
     .status-bullet {
@@ -110,7 +110,7 @@
 
   &.is-completed,
   &.is-active {
-    .progress-step-label {
+    .step-label {
       opacity: 1;
     }
   }
@@ -118,11 +118,11 @@
 
 @each $color in (mint, violet, gold, ruby, aqua) {
   .$(color) {
-    .progress-step-label {
+    .step-label {
       color: var(--color-$(color)-darkest);
     }
 
-    &.progress-step {
+    &.step {
       &:before {
         background-color: var(--color-$(color));
       }
@@ -147,11 +147,11 @@
 }
 
 .neutral {
-  .progress-step-label {
+  .step-label {
     color: var(--color-black);
   }
 
-  &.progress-step {
+  &.step {
     &:before {
       background-color: var(--color-neutral);
     }

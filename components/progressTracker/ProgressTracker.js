@@ -10,7 +10,7 @@ class ProgressTracker extends PureComponent {
   render() {
     const { color, children, currentStep, allStepsCompleted } = this.props;
 
-    const classNames = cx(theme['progress-tracker']);
+    const classNames = cx(theme['tracker']);
 
     return (
       <Box className={classNames}>

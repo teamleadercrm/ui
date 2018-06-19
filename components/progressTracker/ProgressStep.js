@@ -9,13 +9,13 @@ import { TextSmall } from '../typography';
 class ProgressStep extends PureComponent {
   render() {
     const { label, active, completed, color } = this.props;
-    const classNames = cx(theme['progress-step'], theme[color], {
+    const classNames = cx(theme['step'], theme[color], {
       [theme['is-active']]: active,
       [theme['is-completed']]: completed,
     });
     return (
       <Box className={classNames}>
-        <TextSmall className={theme['progress-step__label']}>{label}</TextSmall>
+        <TextSmall className={theme['step-label']}>{label}</TextSmall>
         <span className={theme['status-bullet']} />
       </Box>
     );
