@@ -77,7 +77,7 @@
     position: relative;
     &:before {
       background-color: transparent;
-      transition: background-color 6s var(--animation-curve-default) calc(var(--animation-duration) - .1s);
+      transition: background-color .1s var(--animation-curve-default) calc(var(--animation-duration) - .1s);
       border-radius: 50%;
       content: '';
       display: block;
@@ -90,18 +90,15 @@
     }
   }
 
-  .progress-step__label {
+  .progress-step-label {
     font-family: var(--font-family-regular);
     opacity: .5;
     text-align: center;
     transition: font-family .1s var(--animation-curve-default) calc(var(--animation-duration) - .1s), opacity .1s var(--animation-curve-default) calc(var(--animation-duration) - .1s);
-    &:hover {
-      cursor: normal;
-    }
   }
 
   &.is-active {
-    .progress-step__label {
+    .progress-step-label {
       font-family: var(--font-family-medium);
     }
     .status-bullet {
@@ -113,16 +110,15 @@
 
   &.is-completed,
   &.is-active {
-    .progress-step__label {
+    .progress-step-label {
       opacity: 1;
     }
   }
-
 }
 
 @each $color in (mint, violet, gold, ruby, aqua) {
   .$(color) {
-    .progress-step__label {
+    .progress-step-label {
       color: var(--color-$(color)-darkest);
     }
 
@@ -151,7 +147,7 @@
 }
 
 .neutral {
-  .progress-step__label {
+  .progress-step-label {
     color: var(--color-black);
   }
 
