@@ -183,7 +183,7 @@ export default class Input extends PureComponent {
 
   renderValidationMessage() {
     return (
-      <Box marginTop={2}>
+      <Box marginTop={2} display="flex" alignItems="center">
         <IconWarningBadgedSmallFilled className={theme['validation-icon']} />
         <TextSmall className={theme['validation-text']} element="span" marginLeft={1}>
           {this.props.meta.error}
