@@ -19,10 +19,10 @@ class ProgressTracker extends PureComponent {
 
           return (
             <ProgressStep
-              { ...child.props} 
+              {...child.props}
               active={allStepsCompleted ? false : index === activeStep}
               completed={allStepsCompleted || index < activeStep}
-              color={color} 
+              color={color}
             />
           );
         })}
