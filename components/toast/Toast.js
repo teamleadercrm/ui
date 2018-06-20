@@ -48,7 +48,7 @@ class Toast extends PureComponent {
   };
 
   render() {
-    const { action, active, children, className, label, onClose, processing } = this.props;
+    const { action, actionLabel, active, children, className, label, onClose, processing } = this.props;
 
     const toast = (
       <Transition in={active} timeout={{ enter: 0, exit: 1000 }}>
@@ -76,13 +76,13 @@ class Toast extends PureComponent {
               </TextBody>
               {onClose ? (
                 action ? (
-                  <LinkButton className={theme['action-link']} inverse label={action} onClick={onClose} />
+                  <LinkButton className={theme['action-link']} inverse label={actionLabel} onClick={action} />
                 ) : (
                   <IconButton
                     className={theme['action-button']}
                     icon={<IconCloseMediumOutline />}
                     color="white"
-                    onClick={onClose}
+                    onClick={action}
                   />
                 )
               ) : null}
@@ -97,7 +97,8 @@ class Toast extends PureComponent {
 }
 
 Toast.propTypes = {
-  action: PropTypes.string,
+  action: PropTypes.func,
+  actionLabel: PropTypes.string,
   active: PropTypes.bool,
   children: PropTypes.node,
   className: PropTypes.string,
