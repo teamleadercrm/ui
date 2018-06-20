@@ -39,18 +39,18 @@ storiesOf('Island', module)
     </Island>
   ))
   .add('Segmented', () => (
-    <Island dark={boolean('Dark', false)} display="flex" flexDirection="row" padding={0}>
-      <Island segmented dark={boolean('Dark', false)}>
+    <Island dark={boolean('Dark', false)} segmented padding={0}>
+      <Island dark={boolean('Dark', false)}>
         <IllustrationInvoices120X120Static />
         <Heading3 marginBottom={3}>Invoices</Heading3>
         <TextBody align="center">Send invoices to your clients straight from Teamleader.</TextBody>
       </Island>
-      <Island segmented dark={boolean('Dark', false)}>
+      <Island dark={boolean('Dark', false)}>
         <IllustrationMeetings120X120Static />
         <Heading3 marginBottom={3}>Meetings</Heading3>
         <TextBody>Plan meetings and see them straight away in your favourite calendar.</TextBody>
       </Island>
-      <Island segmented dark={boolean('Dark', false)}>
+      <Island dark={boolean('Dark', false)}>
         <IllustrationDeals120X120Static />
         <Heading3 marginBottom={3}>Deals</Heading3>
         <TextBody>Keep track of all your deals with our fully integrated module.</TextBody>
