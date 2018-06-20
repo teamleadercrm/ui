@@ -74,17 +74,15 @@ class Toast extends PureComponent {
                 {label}
                 {children}
               </TextBody>
-              {onClose ? (
-                action ? (
-                  <LinkButton className={theme['action-link']} inverse label={actionLabel} onClick={action} />
-                ) : (
-                  <IconButton
-                    className={theme['action-button']}
-                    icon={<IconCloseMediumOutline />}
-                    color="white"
-                    onClick={action}
-                  />
-                )
+              {action ? (
+                <LinkButton className={theme['action-link']} inverse label={actionLabel} onClick={action} />
+              ) : onClose ? (
+                <IconButton
+                  className={theme['action-button']}
+                  icon={<IconCloseMediumOutline />}
+                  color="white"
+                  onClick={onClose}
+                />
               ) : null}
             </div>
           );
