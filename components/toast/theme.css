@@ -7,6 +7,7 @@
   --toast-background-color: var(--color-teal-darkest);
   --toast-border-radius: calc(0.4 * var(--unit));
   --toast-min-width: calc(18 * var(--unit));
+  --toast-max-width: calc(37.2 * var(--unit));
   --toast-min-height: calc(6 * var(--unit));
   --toast-spacing: calc(1.8 * var(--unit));
   --toast-offset: calc(3 * var(--unit));
@@ -21,6 +22,7 @@
   bottom: var(--toast-offset);
   display: flex;
   min-width: var(--toast-min-width);
+  max-width: var(--toast-max-width);
   min-height: var(--toast-min-height);
   padding: var(--toast-spacing);
   position: fixed;
