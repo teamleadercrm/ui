@@ -21,12 +21,13 @@ class Island extends PureComponent {
   }
 
   render() {
-    const { children, className, color, size, ...others } = this.props;
+    const { children, className, color, segmented, size, ...others } = this.props;
 
     const isDark = this.isDark(color);
 
     const classNames = cx(theme['island'], className, theme[color], {
       [theme['dark']]: isDark,
+      [theme['segmented']]: segmented,
     });
 
     const rest = omit(others, ['dark']);
@@ -44,6 +45,7 @@ Island.propTypes = {
   className: PropTypes.string,
   color: PropTypes.oneOf(['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'white']),
   dark: PropTypes.bool,
+  segmented: PropTypes.bool,
   size: PropTypes.oneOf(Object.keys(SIZES)),
 };
 
