@@ -97,15 +97,25 @@ class Toast extends PureComponent {
 }
 
 Toast.propTypes = {
+  /** A custom action you want to attach to the toast link */
   action: PropTypes.func,
+  /** The label for the custom action you want to show */
   actionLabel: PropTypes.string,
+  /** Show or hide the Toast  */
   active: PropTypes.bool,
+  /** The content to display inside the Toast */
   children: PropTypes.node,
+  /** A class name for the Toast to give custom styles. */
   className: PropTypes.string,
+  /** The textual label displayed inside the button. */
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  /** Action to close the Toast */
   onClose: PropTypes.func,
+  /** Action to be executed when the timeout limit has been reached */
   onTimeout: PropTypes.func, // eslint-disable-line
+  /** Show or hide the processing icon */
   processing: PropTypes.bool,
+  /** Timeout duration in milliseconds */
   timeout: PropTypes.number,
 };
 
