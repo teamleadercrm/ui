@@ -58,6 +58,7 @@ class Toast extends PureComponent {
       label,
       link,
       linkLabel,
+      linkTarget,
       onClose,
       processing,
     } = this.props;
@@ -89,7 +90,7 @@ class Toast extends PureComponent {
               {action ? (
                 <LinkButton className={theme['action-link']} inverse label={actionLabel} onClick={action} />
               ) : link ? (
-                <Link href={link} target="_blank" className={theme['action-link']}>
+                <Link href={link} target={linkTarget} className={theme['action-link']}>
                   {linkLabel}
                 </Link>
               ) : onClose ? (
@@ -127,6 +128,8 @@ Toast.propTypes = {
   link: PropTypes.string,
   /** The textual label displayed inside the link */
   linkLabel: PropTypes.string,
+  /** The target for the custom link */
+  linkTarget: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
   /** Action to close the Toast */
   onClose: PropTypes.func,
   /** Action to be executed when the timeout limit has been reached */
@@ -135,6 +138,10 @@ Toast.propTypes = {
   processing: PropTypes.bool,
   /** Timeout duration in milliseconds */
   timeout: PropTypes.number,
+};
+
+Toast.defaultProps = {
+  linkTarget: '_self',
 };
 
 export default Toast;
