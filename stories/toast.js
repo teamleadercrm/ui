@@ -46,7 +46,7 @@ storiesOf('Toast', module)
       </State>
     </div>
   ))
-  .add('with action link', () => (
+  .add('with custom action', () => (
     <div>
       <Button label="Make a toast" onClick={handleButtonClick} />
       <State store={store}>
@@ -56,6 +56,22 @@ storiesOf('Toast', module)
           active={false}
           label="Toast label"
           timeout={3000}
+          onClose={handleToastCloseButtonClick}
+          onTimeout={handleToastTimeout}
+        />
+      </State>
+    </div>
+  ))
+  .add('with custom link', () => (
+    <div>
+      <Button label="Make a toast" onClick={handleButtonClick} />
+      <State store={store}>
+        <Toast
+          linkLabel="View"
+          link="https://www.teamleader.eu/"
+          active={false}
+          label="Toast label"
+          timeout={300000000}
           onClose={handleToastCloseButtonClick}
           onTimeout={handleToastTimeout}
         />
