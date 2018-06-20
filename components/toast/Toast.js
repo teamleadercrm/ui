@@ -5,6 +5,7 @@ import cx from 'classnames';
 import { IconButton, LinkButton } from '../button';
 import { TextBody } from '../typography';
 import LoadingSpinner from '../loadingSpinner';
+import Link from '../link';
 import { createPortal } from 'react-dom';
 import { IconCloseMediumOutline } from '@teamleader/ui-icons';
 import theme from './theme.css';
@@ -48,7 +49,18 @@ class Toast extends PureComponent {
   };
 
   render() {
-    const { action, actionLabel, active, children, className, label, onClose, processing } = this.props;
+    const {
+      action,
+      actionLabel,
+      active,
+      children,
+      className,
+      label,
+      link,
+      linkLabel,
+      onClose,
+      processing,
+    } = this.props;
 
     const toast = (
       <Transition in={active} timeout={{ enter: 0, exit: 1000 }}>
@@ -76,6 +88,10 @@ class Toast extends PureComponent {
               </TextBody>
               {action ? (
                 <LinkButton className={theme['action-link']} inverse label={actionLabel} onClick={action} />
+              ) : link ? (
+                <Link href={link} target="_blank">
+                  {linkLabel}
+                </Link>
               ) : onClose ? (
                 <IconButton
                   className={theme['action-button']}
@@ -107,6 +123,10 @@ Toast.propTypes = {
   className: PropTypes.string,
   /** The textual label displayed inside the button. */
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  /** A custom link to point to */
+  link: PropTypes.string,
+  /** The textual label displayed inside the link */
+  linkLabel: PropTypes.string,
   /** Action to close the Toast */
   onClose: PropTypes.func,
   /** Action to be executed when the timeout limit has been reached */
