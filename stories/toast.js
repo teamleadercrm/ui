@@ -71,7 +71,7 @@ storiesOf('Toast', module)
           link="https://www.teamleader.eu/"
           active={false}
           label="Toast label"
-          timeout={300000000}
+          timeout={3000}
           onClose={handleToastCloseButtonClick}
           onTimeout={handleToastTimeout}
         />
