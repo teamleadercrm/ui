@@ -39,7 +39,7 @@ class DataGrid extends PureComponent {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.comparableId !== this.props.comparableId) {
-      this.props.onSelectionChange && this.props.onSelectionChange();
+      this.handleSelectionChange();
 
       this.setState({
         selectedRows: [],
@@ -51,7 +51,7 @@ class DataGrid extends PureComponent {
     this.setCalculatedRowWidth();
   }
 
-  handleHeaderRowSelectionChange = (value) => {
+  handleHeaderRowSelectionChange = value => {
     const allBodyRowIndexes = React.Children.map(this.props.children, child => {
       if (isComponentOfType(BodyRow, child)) {
         return child.key;
@@ -64,16 +64,16 @@ class DataGrid extends PureComponent {
       selectedRows: selectedBodyRowIndexes,
     });
 
-    this.props.onSelectionChange && this.props.onSelectionChange(selectedBodyRowIndexes);
+    this.handleSelectionChange(selectedBodyRowIndexes);
   };
 
-  handleBodyRowSelectionChange = (rowIndex) => {
+  handleBodyRowSelectionChange = rowIndex => {
     this.setState(prevState => {
       const selectedRows = prevState.selectedRows.includes(rowIndex)
         ? prevState.selectedRows.filter(row => row !== rowIndex)
         : [...prevState.selectedRows, rowIndex];
-      
-      this.props.onSelectionChange && this.props.onSelectionChange(selectedRows);
+
+      this.handleSelectionChange(selectedRows);
 
       return {
         ...prevState,
@@ -81,6 +81,12 @@ class DataGrid extends PureComponent {
       };
     });
   };
+
+  handleSelectionChange(selection) {
+    if (this.props.onSelectionChange) {
+      this.props.onSelectionChange(selection);
+    }
+  }
 
   setCalculatedRowWidth = () => {
     if (isElementOverflowingX(this.scrollableNode) && this.rowNodes) {
@@ -99,7 +105,7 @@ class DataGrid extends PureComponent {
 
       rowDOMNodes.forEach(rowDOMNode => (rowDOMNode.style.minWidth = `${maxRowWidth}px`));
     }
-  }
+  };
 
   render() {
     const { children, className, selectable, stickyFromLeft, stickyFromRight, ...others } = this.props;
