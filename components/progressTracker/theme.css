@@ -1,0 +1,189 @@
+@import '@teamleader/ui-colors';
+@import '@teamleader/ui-typography';
+@import '@teamleader/ui-animations';
+
+:root {
+  --bullet-size: 12px;
+  --bullet-center-size: calc(var(--bullet-size) / 2);
+}
+
+.tracker {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 20px 24px;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  max-width: 180px;
+  position: relative;
+
+  &:before {
+    content: '';
+    height: 2px;
+    position: absolute;
+    bottom: 11px;
+  }
+
+  &:after {
+    content: '';
+    height: 4px;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transition: width var(--animation-duration) var(--animation-curve-default);
+    width: 0;
+    z-index: 1;
+  }
+
+  &:not(:first-child):not(:last-child) {
+    &:before {
+      width: 100%;
+      left: 0;
+    }
+  }
+
+  &:first-child {
+    &:before {
+      width: 50%;
+      left: 50%;
+    }
+  }
+
+  &:last-child {
+    &:before {
+      width: 50%;
+      left: 0;
+    }
+  }
+
+  &.is-completed:not(:last-child) {
+    &:after {
+      width: 100%;
+    }
+  }
+
+  .status-bullet {
+    background-color: transparent;
+    transition: background-color 0.1s var(--animation-curve-default) calc(var(--animation-duration) - 0.1s);
+    align-self: center;
+    border-radius: 50%;
+    display: block;
+    height: var(--bullet-size);
+    margin: 6px 0;
+    width: var(--bullet-size);
+    z-index: 2;
+    position: relative;
+    &:before {
+      background-color: transparent;
+      transition: background-color 0.1s var(--animation-curve-default) calc(var(--animation-duration) - 0.1s);
+      border-radius: 50%;
+      content: '';
+      display: block;
+      position: absolute;
+      width: var(--bullet-center-size);
+      height: var(--bullet-center-size);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .step-label {
+    font-family: var(--font-family-regular);
+    opacity: 0.5;
+    text-align: center;
+    transition: font-family 0.1s var(--animation-curve-default) calc(var(--animation-duration) - 0.1s),
+      opacity 0.1s var(--animation-curve-default) calc(var(--animation-duration) - 0.1s);
+  }
+
+  &.is-active {
+    .step-label {
+      font-family: var(--font-family-medium);
+    }
+    .status-bullet {
+      &:before {
+        animation: showBulletCenter 0.1s calc(var(--animation-duration) - 0.1s) forwards;
+      }
+    }
+  }
+
+  &.is-completed,
+  &.is-active {
+    .step-label {
+      opacity: 1;
+    }
+  }
+}
+
+@each $color in (mint, violet, gold, ruby, aqua) {
+  .$(color) {
+    .step-label {
+      color: var(--color-$(color)-darkest);
+    }
+
+    &.step {
+      &:before {
+        background-color: var(--color-$(color));
+      }
+      &:after {
+        background-color: var(--color-$(color)-dark);
+      }
+
+      &.is-completed,
+      &.is-active {
+        .status-bullet {
+          background-color: var(--color-$(color)-dark);
+        }
+      }
+
+      &:not(.is-completed):not(.is-active) {
+        .status-bullet {
+          background-color: var(--color-$(color));
+        }
+      }
+    }
+  }
+}
+
+.neutral {
+  .step-label {
+    color: var(--color-black);
+  }
+
+  &.step {
+    &:before {
+      background-color: var(--color-neutral);
+    }
+    &:after {
+      background-color: var(--color-neutral-darkest);
+    }
+
+    &.is-active,
+    &.is-completed {
+      .status-bullet {
+        background-color: var(--color-neutral-darkest);
+      }
+    }
+    &:not(.is-completed):not(.is-active) {
+      .status-bullet {
+        background-color: var(--color-neutral);
+      }
+    }
+  }
+}
+
+@keyframes showBulletCenter {
+  0% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: var(--color-white);
+  }
+}

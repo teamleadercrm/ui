@@ -33,6 +33,7 @@ import Toggle from './toggle';
 import Label from './label';
 import Tooltip from './tooltip';
 import QTip from './qTip';
+import ProgressTracker from './progressTracker';
 
 export {
   Avatar,
@@ -76,6 +77,7 @@ export {
   Pagination,
   PopoverHorizontal,
   PopoverVertical,
+  ProgressTracker,
   RadioButton,
   RadioGroup,
   Section,
