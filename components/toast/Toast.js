@@ -89,7 +89,7 @@ class Toast extends PureComponent {
               {action ? (
                 <LinkButton className={theme['action-link']} inverse label={actionLabel} onClick={action} />
               ) : link ? (
-                <Link href={link} target="_blank">
+                <Link href={link} target="_blank" className={theme['action-link']}>
                   {linkLabel}
                 </Link>
               ) : onClose ? (
