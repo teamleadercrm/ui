@@ -10,7 +10,7 @@
   --toast-max-width: calc(37.2 * var(--unit));
   --toast-min-height: calc(6 * var(--unit));
   --toast-spacing: calc(1.8 * var(--unit));
-  --toast-offset: calc(3 * var(--unit));
+  --toast-offset: calc(2 * var(--unit));
 }
 
 .container {
@@ -55,7 +55,6 @@
   margin-right: var(--toast-spacing);
 }
 
-.is-exiting,
 .is-entering {
   opacity: 0;
   transform: translateY(100%);
@@ -64,4 +63,9 @@
 .is-entered {
   opacity: 1;
   transform: translateY(0%);
+}
+
+.is-exiting {
+  opacity: 0;
+  transform: translateX(200px);
 }
