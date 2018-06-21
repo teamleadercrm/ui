@@ -48,6 +48,36 @@ class Toast extends PureComponent {
     }, timeout);
   };
 
+  renderCustomAction = (action, actionLabel) => {
+    if (action) {
+      return <LinkButton className={theme['action-link']} inverse label={actionLabel} onClick={action} />;
+    }
+    return false;
+  };
+  renderCustomLink = (link, linkLabel, linkTarget) => {
+    if (link) {
+      return (
+        <Link href={link} target={linkTarget} className={theme['action-link']}>
+          {linkLabel}
+        </Link>
+      );
+    }
+    return false;
+  };
+  renderCloseButton = onClose => {
+    if (onClose) {
+      return (
+        <IconButton
+          className={theme['action-button']}
+          icon={<IconCloseMediumOutline />}
+          color="white"
+          onClick={onClose}
+        />
+      );
+    }
+    return null;
+  };
+
   render() {
     const {
       action,
@@ -87,20 +117,9 @@ class Toast extends PureComponent {
                 {label}
                 {children}
               </TextBody>
-              {action ? (
-                <LinkButton className={theme['action-link']} inverse label={actionLabel} onClick={action} />
-              ) : link ? (
-                <Link href={link} target={linkTarget} className={theme['action-link']}>
-                  {linkLabel}
-                </Link>
-              ) : onClose ? (
-                <IconButton
-                  className={theme['action-button']}
-                  icon={<IconCloseMediumOutline />}
-                  color="white"
-                  onClick={onClose}
-                />
-              ) : null}
+              {this.renderCustomAction(action, actionLabel) ||
+                this.renderCustomLink(link, linkLabel, linkTarget) ||
+                this.renderCloseButton(onClose)}
             </div>
           );
         }}
