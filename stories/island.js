@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean, select } from '@storybook/addon-knobs/react';
-import { Island, TextBody, Heading3 } from '../components';
+import { Island, IslandGroup, TextBody, Heading3 } from '../components';
 import {
   IllustrationInvoices120X120Static,
   IllustrationMeetings120X120Static,
@@ -39,7 +39,7 @@ storiesOf('Island', module)
     </Island>
   ))
   .add('Segmented', () => (
-    <Island dark={boolean('Dark', false)} segmented padding={0}>
+    <IslandGroup dark={boolean('Dark', false)}>
       <Island dark={boolean('Dark', false)}>
         <IllustrationInvoices120X120Static />
         <Heading3 marginBottom={3}>Invoices</Heading3>
@@ -55,5 +55,5 @@ storiesOf('Island', module)
         <Heading3 marginBottom={3}>Deals</Heading3>
         <TextBody>Keep track of all your deals with our fully integrated module.</TextBody>
       </Island>
-    </Island>
+    </IslandGroup>
   ));
