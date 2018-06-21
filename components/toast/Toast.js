@@ -7,6 +7,7 @@ import { TextBody } from '../typography';
 import LoadingSpinner from '../loadingSpinner';
 import { IconCloseMediumOutline } from '@teamleader/ui-icons';
 import theme from './theme.css';
+import Link from '../link';
 
 class Toast extends PureComponent {
   componentDidMount() {
@@ -41,8 +42,53 @@ class Toast extends PureComponent {
     }, timeout);
   };
 
+  renderCustomAction = (action, actionLabel) => {
+    if (action) {
+      return <LinkButton className={theme['action-link']} inverse label={actionLabel} onClick={action} />;
+    }
+    return false;
+  };
+  renderCustomLink = (link, linkLabel, linkTarget) => {
+    if (link) {
+      return (
+        <TextBody className={theme['label']} color="white" soft>
+          <Link href={link} target={linkTarget} className={theme['action-link']} inherit>
+            {linkLabel}
+          </Link>
+        </TextBody>
+      );
+    }
+    return false;
+  };
+  renderCloseButton = onClose => {
+    if (onClose) {
+      return (
+        <IconButton
+          className={theme['action-button']}
+          icon={<IconCloseMediumOutline />}
+          color="white"
+          onClick={onClose}
+        />
+      );
+    }
+    return null;
+  };
+
   render() {
-    const { action, active, children, className, label, onClose, processing } = this.props;
+    const {
+      action,
+      actionLabel,
+      active,
+      children,
+      className,
+      label,
+      link,
+      linkLabel,
+      linkTarget,
+      onClose,
+      processing,
+    } = this.props;
+
     return (
       <Transition in={active} timeout={{ enter: 0, exit: 1000 }}>
         {state => {
@@ -67,18 +113,9 @@ class Toast extends PureComponent {
                 {label}
                 {children}
               </TextBody>
-              {onClose ? (
-                action ? (
-                  <LinkButton className={theme['action-link']} inverse label={action} onClick={onClose} />
-                ) : (
-                  <IconButton
-                    className={theme['action-button']}
-                    icon={<IconCloseMediumOutline />}
-                    color="white"
-                    onClick={onClose}
-                  />
-                )
-              ) : null}
+              {this.renderCustomAction(action, actionLabel) ||
+                this.renderCustomLink(link, linkLabel, linkTarget) ||
+                this.renderCloseButton(onClose)}
             </div>
           );
         }}
@@ -88,15 +125,36 @@ class Toast extends PureComponent {
 }
 
 Toast.propTypes = {
-  action: PropTypes.string,
+  /** A custom action you want to attach to the toast link */
+  action: PropTypes.func,
+  /** The label for the custom action you want to show */
+  actionLabel: PropTypes.string,
+  /** Show or hide the Toast  */
   active: PropTypes.bool,
+  /** The content to display inside the Toast */
   children: PropTypes.node,
+  /** A class name for the Toast to give custom styles. */
   className: PropTypes.string,
+  /** The textual label displayed inside the button. */
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  /** A custom link to point to */
+  link: PropTypes.string,
+  /** The textual label displayed inside the link */
+  linkLabel: PropTypes.string,
+  /** The target for the custom link */
+  linkTarget: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
+  /** Action to close the Toast */
   onClose: PropTypes.func,
+  /** Action to be executed when the timeout limit has been reached */
   onTimeout: PropTypes.func, // eslint-disable-line
+  /** Show or hide the processing icon */
   processing: PropTypes.bool,
+  /** Timeout duration in milliseconds */
   timeout: PropTypes.number,
+};
+
+Toast.defaultProps = {
+  linkTarget: '_self',
 };
 
 export default Toast;

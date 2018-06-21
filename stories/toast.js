@@ -22,6 +22,8 @@ const handleToastTimeout = () => {
   store.set({ active: false });
 };
 
+const handleCustomAction = () => true;
+
 storiesOf('Toast', module)
   .addDecorator((story, context) =>
     withInfo({
@@ -44,12 +46,29 @@ storiesOf('Toast', module)
       </State>
     </div>
   ))
-  .add('with action link', () => (
+  .add('with custom action', () => (
     <div>
       <Button label="Make a toast" onClick={handleButtonClick} />
       <State store={store}>
         <Toast
-          action="Confirm"
+          actionLabel="Confirm"
+          action={handleCustomAction}
+          active={false}
+          label="Toast label"
+          timeout={3000}
+          onClose={handleToastCloseButtonClick}
+          onTimeout={handleToastTimeout}
+        />
+      </State>
+    </div>
+  ))
+  .add('with custom link', () => (
+    <div>
+      <Button label="Make a toast" onClick={handleButtonClick} />
+      <State store={store}>
+        <Toast
+          linkLabel="View"
+          link="https://www.teamleader.eu/"
           active={false}
           label="Toast label"
           timeout={3000}
@@ -64,7 +83,8 @@ storiesOf('Toast', module)
       <Button label="Make a toast" onClick={handleButtonClick} />
       <State store={store}>
         <Toast
-          action="Try again"
+          action={handleCustomAction}
+          actionLabel="Try again"
           active={false}
           label="Connection timed out. Showing limited amount of messages."
           timeout={3000}
