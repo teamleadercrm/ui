@@ -32,19 +32,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  a.action-link {
-    color: var(--color-teal-light);
-    font-family: var(--font-family-regular);
-    font-size: 14px;
-    letter-spacing: normal;
-    line-height: 19px;
-    text-align: right;
-
-    &:hover {
-      color: var(--color-teal-light);
-    }
-  }
 }
 
 .action-button {

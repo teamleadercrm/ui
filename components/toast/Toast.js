@@ -57,9 +57,11 @@ class Toast extends PureComponent {
   renderCustomLink = (link, linkLabel, linkTarget) => {
     if (link) {
       return (
-        <Link href={link} target={linkTarget} className={theme['action-link']}>
-          {linkLabel}
-        </Link>
+        <TextBody className={theme['label']} color="white" soft>
+          <Link href={link} target={linkTarget} className={theme['action-link']} inherit>
+            {linkLabel}
+          </Link>
+        </TextBody>
       );
     }
     return false;
