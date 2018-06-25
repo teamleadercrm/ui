@@ -4,7 +4,8 @@ import { storiesOf } from '@storybook/react';
 import { Store, State } from '@sambego/storybook-state';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
-import { Button, Toast } from '../components';
+import { withKnobs, boolean } from '@storybook/addon-knobs/react';
+import { Button, Toast, ToastContainer } from '../components';
 
 const store = new Store({
   active: false,
@@ -32,6 +33,7 @@ storiesOf('Toast', module)
     })(story)(context),
   )
   .addDecorator(checkA11y)
+  .addDecorator(withKnobs)
   .add('with close button', () => (
     <div>
       <Button label="Make a toast" onClick={handleButtonClick} />
@@ -108,4 +110,22 @@ storiesOf('Toast', module)
         />
       </State>
     </div>
+  ))
+  .add('Stacked toasts', () => (
+    <ToastContainer>
+      <Toast
+        active={boolean('Show 1', false)}
+        label="Toast 1 label"
+        timeout={3000}
+        onClose={handleToastCloseButtonClick}
+        onTimeout={handleToastTimeout}
+      />
+      <Toast
+        active={boolean('Show 2', false)}
+        label="Toast 2 label"
+        timeout={3000}
+        onClose={handleToastCloseButtonClick}
+        onTimeout={handleToastTimeout}
+      />
+    </ToastContainer>
   ));

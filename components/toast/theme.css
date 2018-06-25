@@ -10,7 +10,16 @@
   --toast-max-width: calc(37.2 * var(--unit));
   --toast-min-height: calc(6 * var(--unit));
   --toast-spacing: calc(1.8 * var(--unit));
-  --toast-offset: calc(3 * var(--unit));
+  --toast-offset: calc(2 * var(--unit));
+}
+
+.container {
+  bottom: 0;
+  display: flex;
+  flex-direction: column-reverse;
+  position: fixed;
+  right: var(--toast-offset);
+  z-index: var(--z-index-high);
 }
 
 .toast {
@@ -19,16 +28,13 @@
   align-items: center;
   border-radius: var(--toast-border-radius);
   background-color: var(--toast-background-color);
-  bottom: var(--toast-offset);
   display: flex;
-  min-width: var(--toast-min-width);
+  margin-bottom: var(--toast-offset);
   max-width: var(--toast-max-width);
   min-height: var(--toast-min-height);
+  min-width: var(--toast-min-width);
   padding: var(--toast-spacing);
-  position: fixed;
-  right: var(--toast-offset);
   transition: all var(--animation-duration) var(--animation-curve-default) var(--animation-duration);
-  z-index: var(--z-index-high);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -49,7 +55,6 @@
   margin-right: var(--toast-spacing);
 }
 
-.is-exiting,
 .is-entering {
   opacity: 0;
   transform: translateY(100%);
@@ -58,4 +63,9 @@
 .is-entered {
   opacity: 1;
   transform: translateY(0%);
+}
+
+.is-exiting {
+  opacity: 0;
+  transform: translateX(200px);
 }
