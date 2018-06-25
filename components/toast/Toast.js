@@ -42,52 +42,40 @@ class Toast extends PureComponent {
     }, timeout);
   };
 
-  renderCustomAction = (action, actionLabel) => {
-    if (action) {
-      return <LinkButton className={theme['action-link']} inverse label={actionLabel} onClick={action} />;
-    }
-    return false;
+  renderCustomAction = () => {
+    const { action, actionLabel } = this.props;
+    return action && <LinkButton className={theme['action-link']} inverse label={actionLabel} onClick={action} />;
   };
-  renderCustomLink = (link, linkLabel, linkTarget) => {
-    if (link) {
-      return (
+
+  renderCustomLink = () => {
+    const { link, linkLabel, linkTarget } = this.props;
+    return (
+      link && (
         <TextBody className={theme['label']} color="white" soft>
           <Link href={link} target={linkTarget} className={theme['action-link']} inherit>
             {linkLabel}
           </Link>
         </TextBody>
-      );
-    }
-    return false;
+      )
+    );
   };
-  renderCloseButton = onClose => {
-    if (onClose) {
-      return (
+
+  renderCloseButton = () => {
+    const { onClose } = this.props;
+    return (
+      onClose && (
         <IconButton
           className={theme['action-button']}
           icon={<IconCloseMediumOutline />}
           color="white"
           onClick={onClose}
         />
-      );
-    }
-    return null;
+      )
+    );
   };
 
   render() {
-    const {
-      action,
-      actionLabel,
-      active,
-      children,
-      className,
-      label,
-      link,
-      linkLabel,
-      linkTarget,
-      onClose,
-      processing,
-    } = this.props;
+    const { active, children, className, label, processing } = this.props;
 
     return (
       <Transition in={active} timeout={{ enter: 0, exit: 1000 }}>
@@ -113,9 +101,7 @@ class Toast extends PureComponent {
                 {label}
                 {children}
               </TextBody>
-              {this.renderCustomAction(action, actionLabel) ||
-                this.renderCustomLink(link, linkLabel, linkTarget) ||
-                this.renderCloseButton(onClose)}
+              {this.renderCustomAction() || this.renderCustomLink() || this.renderCloseButton()}
             </div>
           );
         }}
