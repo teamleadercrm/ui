@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import Box from '../box';
 import theme from './theme.css';
+import Island from './Island';
 
 class IslandGroup extends PureComponent {
   isDark(color) {
@@ -13,7 +14,7 @@ class IslandGroup extends PureComponent {
     return this.props.dark;
   }
   render() {
-    const { children, className, color } = this.props;
+    const { children, className, color, size } = this.props;
 
     const isDark = this.isDark(color);
 
@@ -21,7 +22,13 @@ class IslandGroup extends PureComponent {
 
     return (
       <Box className={classNames} padding={0}>
-        {children}
+        {React.Children.map(children, child => {
+          return (
+            <Island {...child.props} color={color} dark={isDark} size={size}>
+              {child.props.children}
+            </Island>
+          );
+        })}
       </Box>
     );
   }
@@ -32,6 +39,7 @@ IslandGroup.propTypes = {
   className: PropTypes.string,
   color: PropTypes.oneOf(['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'white']),
   dark: PropTypes.bool,
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
 };
 
 IslandGroup.defaultProps = {
