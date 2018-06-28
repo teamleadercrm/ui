@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { Store, State } from '@sambego/storybook-state';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
-import { Button, Toast, Link } from '../components';
+import { Button, Toast, Link, ToastContainer } from '../components';
 
 const store = new Store({
   active: false,
@@ -35,36 +35,41 @@ storiesOf('Toast', module)
   .add('with close button', () => (
     <div>
       <Button label="Make a toast" onClick={handleButtonClick} />
-      <State store={store}>
-        <Toast
-          active={false}
-          label="Toast label"
-          timeout={3000}
-          onClose={handleToastCloseButtonClick}
-          onTimeout={handleToastTimeout}
-        />
-      </State>
+      <ToastContainer>
+        <State store={store}>
+          <Toast
+            active={false}
+            label="Toast label"
+            timeout={3000}
+            onClose={handleToastCloseButtonClick}
+            onTimeout={handleToastTimeout}
+          />
+        </State>
+      </ToastContainer>
     </div>
   ))
   .add('with custom action', () => (
     <div>
       <Button label="Make a toast" onClick={handleButtonClick} />
-      <State store={store}>
-        <Toast
-          actionLabel="Confirm"
-          action={handleCustomAction}
-          active={false}
-          label="Toast label"
-          timeout={3000}
-          onClose={handleToastCloseButtonClick}
-          onTimeout={handleToastTimeout}
-        />
-      </State>
+      <ToastContainer>
+        <State store={store}>
+          <Toast
+            actionLabel="Confirm"
+            action={handleCustomAction}
+            active={false}
+            label="Toast label"
+            timeout={3000}
+            onClose={handleToastCloseButtonClick}
+            onTimeout={handleToastTimeout}
+          />
+        </State>
+      </ToastContainer>
     </div>
   ))
   .add('with custom link', () => (
     <div>
       <Button label="Make a toast" onClick={handleButtonClick} />
+      <ToastContainer />
       <State store={store}>
         <Toast
           link={<Link href="https://www.teamleader.be">link</Link>}
@@ -80,31 +85,35 @@ storiesOf('Toast', module)
   .add('with multiline label', () => (
     <div>
       <Button label="Make a toast" onClick={handleButtonClick} />
-      <State store={store}>
-        <Toast
-          action={handleCustomAction}
-          actionLabel="Try again"
-          active={false}
-          label="Connection timed out. Showing limited amount of messages."
-          timeout={3000}
-          onClose={handleToastCloseButtonClick}
-          onTimeout={handleToastTimeout}
-        />
-      </State>
+      <ToastContainer>
+        <State store={store}>
+          <Toast
+            action={handleCustomAction}
+            actionLabel="Try again"
+            active={false}
+            label="Connection timed out. Showing limited amount of messages."
+            timeout={3000}
+            onClose={handleToastCloseButtonClick}
+            onTimeout={handleToastTimeout}
+          />
+        </State>
+      </ToastContainer>
     </div>
   ))
   .add('with loading spinner', () => (
     <div>
       <Button label="Make a toast" onClick={handleButtonClick} />
-      <State store={store}>
-        <Toast
-          active={false}
-          label="Working..."
-          timeout={3000}
-          onClose={handleToastCloseButtonClick}
-          onTimeout={handleToastTimeout}
-          processing
-        />
-      </State>
+      <ToastContainer>
+        <State store={store}>
+          <Toast
+            active={false}
+            label="Working..."
+            timeout={3000}
+            onClose={handleToastCloseButtonClick}
+            onTimeout={handleToastTimeout}
+            processing
+          />
+        </State>
+      </ToastContainer>
     </div>
   ));
