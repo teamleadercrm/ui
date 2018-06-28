@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { Store, State } from '@sambego/storybook-state';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
-import { Button, Toast } from '../components';
+import { Button, Toast, Link } from '../components';
 
 const store = new Store({
   active: false,
@@ -67,8 +67,7 @@ storiesOf('Toast', module)
       <Button label="Make a toast" onClick={handleButtonClick} />
       <State store={store}>
         <Toast
-          linkLabel="View"
-          link="https://www.teamleader.eu/"
+          link={<Link href="https://www.teamleader.be">link</Link>}
           active={false}
           label="Toast label"
           timeout={3000}

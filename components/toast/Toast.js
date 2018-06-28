@@ -5,7 +5,6 @@ import cx from 'classnames';
 import { IconButton, LinkButton } from '../button';
 import { TextBody } from '../typography';
 import LoadingSpinner from '../loadingSpinner';
-import Link from '../link';
 import { createPortal } from 'react-dom';
 import { IconCloseMediumOutline } from '@teamleader/ui-icons';
 import theme from './theme.css';
@@ -54,16 +53,8 @@ class Toast extends PureComponent {
   };
 
   renderCustomLink = () => {
-    const { link, linkLabel, linkTarget } = this.props;
-    return (
-      link && (
-        <TextBody className={theme['label']} color="white" soft>
-          <Link href={link} target={linkTarget} className={theme['action-link']} inherit>
-            {linkLabel}
-          </Link>
-        </TextBody>
-      )
-    );
+    const { link } = this.props;
+    return link && <TextBody color="white">{React.cloneElement(link, { className: theme['toast-link'] })}</TextBody>;
   };
 
   renderCloseButton = () => {
@@ -71,7 +62,7 @@ class Toast extends PureComponent {
     return (
       onClose && (
         <IconButton
-          className={theme['action-button']}
+          className={theme['action-link']}
           icon={<IconCloseMediumOutline />}
           color="white"
           onClick={onClose}
@@ -131,12 +122,8 @@ Toast.propTypes = {
   className: PropTypes.string,
   /** The textual label displayed inside the button. */
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  /** A custom link to point to */
-  link: PropTypes.string,
-  /** The textual label displayed inside the link */
-  linkLabel: PropTypes.string,
-  /** The target for the custom link */
-  linkTarget: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
+  /** A custom link element to point to */
+  link: PropTypes.element,
   /** Action to close the Toast */
   onClose: PropTypes.func,
   /** Action to be executed when the timeout limit has been reached */
@@ -145,10 +132,6 @@ Toast.propTypes = {
   processing: PropTypes.bool,
   /** Timeout duration in milliseconds */
   timeout: PropTypes.number,
-};
-
-Toast.defaultProps = {
-  linkTarget: '_self',
 };
 
 export default Toast;
