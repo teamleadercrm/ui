@@ -11,6 +11,7 @@
   --toast-min-height: calc(6 * var(--unit));
   --toast-spacing: calc(1.8 * var(--unit));
   --toast-offset: calc(3 * var(--unit));
+  --toast-animation-curve: var(--animation-curve-fast-out-linear-in);
 }
 .container {
   bottom: 0;
@@ -74,7 +75,8 @@
   opacity: 1;
   transform: translateY(0%);
   max-height: 180px;
-  transition: opacity 0.3s ease-out, transform 0.3s ease-out, max-height 0.3s ease-out;
+  transition: opacity 0.3s var(--toast-animation-curve), transform 0.3s var(--toast-animation-curve),
+    max-height 0.3s var(--toast-animation-curve);
 }
 .enter-done {
   opacity: 1;
@@ -90,7 +92,8 @@
   transform: translateX(100%);
   max-height: 0px;
   margin-top: 0px;
-  transition: opacity 0.5s ease, transform 0.5s ease, max-height 0.5s ease 0.19s;
+  transition: opacity 0.5s var(--toast-animation-curve), transform 0.5s var(--toast-animation-curve),
+    max-height 0.5s var(--toast-animation-curve) 0.32s;
 }
 
 .exit-done {
