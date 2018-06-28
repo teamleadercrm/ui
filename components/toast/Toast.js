@@ -5,16 +5,11 @@ import cx from 'classnames';
 import { IconButton, LinkButton } from '../button';
 import { TextBody } from '../typography';
 import LoadingSpinner from '../loadingSpinner';
-import { createPortal } from 'react-dom';
 import { IconCloseMediumOutline } from '@teamleader/ui-icons';
 import theme from './theme.css';
 
 class Toast extends PureComponent {
-  toastRoot = document.createElement('div');
-
   componentDidMount() {
-    document.body.appendChild(this.toastRoot);
-
     if (this.props.active && this.props.timeout) {
       this.scheduleTimeout(this.props);
     }
@@ -28,7 +23,6 @@ class Toast extends PureComponent {
 
   componentWillUnmount() {
     clearTimeout(this.currentTimeout);
-    document.body.removeChild(this.toastRoot);
   }
 
   scheduleTimeout = props => {
@@ -74,7 +68,7 @@ class Toast extends PureComponent {
   render() {
     const { active, children, className, label, processing } = this.props;
 
-    const toast = (
+    return (
       <Transition in={active} timeout={{ enter: 0, exit: 1000 }}>
         {state => {
           if (state === 'exited') {
@@ -104,8 +98,6 @@ class Toast extends PureComponent {
         }}
       </Transition>
     );
-
-    return createPortal(toast, this.toastRoot);
   }
 }
 
