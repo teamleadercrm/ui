@@ -22,9 +22,7 @@
   right: var(--toast-offset);
   z-index: var(--z-index-high);
 }
-.toast-wrapper {
-  /*overflow: hidden;*/
-}
+
 .toast {
   composes: box-shadow-400;
   composes: reset-box-sizing;
@@ -40,7 +38,6 @@
   transition: all var(--animation-duration) var(--animation-curve-default) var(--animation-duration);
   display: flex;
   align-items: center;
-  justify-content: space-between;
 
   .toast-link {
     color: var(--color-teal-light);
@@ -49,6 +46,10 @@
   &:before {
     position: relative;
   }
+}
+
+.label {
+  flex-grow: 1;
 }
 
 .action-button {
