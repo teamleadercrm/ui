@@ -4,7 +4,12 @@ import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean, select } from '@storybook/addon-knobs/react';
-import { Island, TextBody } from '../components';
+import { Island, IslandGroup, TextBody, Heading3 } from '../components';
+import {
+  IllustrationInvoices120X120Static,
+  IllustrationMeetings120X120Static,
+  IllustrationDeals120X120Static,
+} from '@teamleader/ui-illustrations';
 
 const colors = ['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'white'];
 const sizes = ['small', 'medium', 'large'];
@@ -13,7 +18,13 @@ storiesOf('Island', module)
   .addDecorator((story, context) =>
     withInfo({
       TableComponent: PropTable,
-      propTablesExclude: [TextBody],
+      propTablesExclude: [
+        TextBody,
+        Heading3,
+        IllustrationInvoices120X120Static,
+        IllustrationMeetings120X120Static,
+        IllustrationDeals120X120Static,
+      ],
     })(story)(context),
   )
   .addDecorator(checkA11y)
@@ -26,4 +37,27 @@ storiesOf('Island', module)
     >
       <TextBody>I am an island.</TextBody>
     </Island>
+  ))
+  .add('Segmented', () => (
+    <IslandGroup
+      dark={boolean('Dark', false)}
+      color={select('Color', colors, 'white')}
+      size={select('Size', sizes, 'medium')}
+    >
+      <Island>
+        <IllustrationInvoices120X120Static />
+        <Heading3 marginBottom={3}>Invoices</Heading3>
+        <TextBody align="center">Send invoices to your clients straight from Teamleader.</TextBody>
+      </Island>
+      <Island>
+        <IllustrationMeetings120X120Static />
+        <Heading3 marginBottom={3}>Meetings</Heading3>
+        <TextBody>Plan meetings and see them straight away in your favourite calendar.</TextBody>
+      </Island>
+      <Island>
+        <IllustrationDeals120X120Static />
+        <Heading3 marginBottom={3}>Deals</Heading3>
+        <TextBody>Keep track of all your deals with our fully integrated module.</TextBody>
+      </Island>
+    </IslandGroup>
   ));
