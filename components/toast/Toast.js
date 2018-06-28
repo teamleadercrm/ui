@@ -54,7 +54,7 @@ class Toast extends PureComponent {
 
   renderCustomLink = () => {
     const { link } = this.props;
-    return link && <TextBody>{React.cloneElement(link, { className: theme['toast-link'] })}</TextBody>;
+    return link && <TextBody>{React.cloneElement(link, { className: theme['action-link'] })}</TextBody>;
   };
 
   renderCloseButton = () => {
@@ -62,7 +62,7 @@ class Toast extends PureComponent {
     return (
       onClose && (
         <IconButton
-          className={theme['action-link']}
+          className={theme['action-button']}
           icon={<IconCloseMediumOutline />}
           color="white"
           onClick={onClose}
