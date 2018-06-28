@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import Transition from 'react-transition-group/Transition';
 import cx from 'classnames';
 import { IconButton, LinkButton } from '../button';
 import { TextBody } from '../typography';
@@ -10,13 +9,13 @@ import theme from './theme.css';
 
 class Toast extends PureComponent {
   componentDidMount() {
-    if (this.props.active && this.props.timeout) {
+    if (this.props.timeout) {
       this.scheduleTimeout(this.props);
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.active && nextProps.timeout) {
+    if (nextProps.timeout) {
       this.scheduleTimeout(nextProps);
     }
   }
@@ -66,37 +65,21 @@ class Toast extends PureComponent {
   };
 
   render() {
-    const { active, children, className, label, processing } = this.props;
+    const { children, className, label, processing } = this.props;
+
+    const classNames = cx(theme['toast'], className);
 
     return (
-      <Transition in={active} timeout={{ enter: 0, exit: 1000 }}>
-        {state => {
-          if (state === 'exited') {
-            return null;
-          }
-
-          const classNames = cx(
-            theme['toast'],
-            {
-              [theme['is-entering']]: state === 'entering',
-              [theme['is-entered']]: state === 'entered',
-              [theme['is-exiting']]: state === 'exiting',
-            },
-            className,
-          );
-
-          return (
-            <div data-teamleader-ui="toast" className={classNames}>
-              {processing && <LoadingSpinner className={theme['spinner']} color="white" />}
-              <TextBody className={theme['label']} color="white">
-                {label}
-                {children}
-              </TextBody>
-              {this.renderCustomAction() || this.renderCustomLink() || this.renderCloseButton()}
-            </div>
-          );
-        }}
-      </Transition>
+      <div className={theme['toast-wrapper']}>
+        <div data-teamleader-ui="toast" className={classNames}>
+          {processing && <LoadingSpinner className={theme['spinner']} color="white" />}
+          <TextBody className={theme['label']} color="white">
+            {label}
+            {children}
+          </TextBody>
+          {this.renderCustomAction() || this.renderCustomLink() || this.renderCloseButton()}
+        </div>
+      </div>
     );
   }
 }
@@ -106,8 +89,6 @@ Toast.propTypes = {
   action: PropTypes.func,
   /** The label for the custom action you want to show */
   actionLabel: PropTypes.string,
-  /** Show or hide the Toast  */
-  active: PropTypes.bool,
   /** The content to display inside the Toast */
   children: PropTypes.node,
   /** A class name for the Toast to give custom styles. */
