@@ -40,7 +40,7 @@ storiesOf('Toast', module)
           <Toast
             active={false}
             label="Toast label"
-            timeout={3000}
+            timeout={300000}
             onClose={handleToastCloseButtonClick}
             onTimeout={handleToastTimeout}
           />

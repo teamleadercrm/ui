@@ -12,23 +12,28 @@
   --toast-spacing: calc(1.8 * var(--unit));
   --toast-offset: calc(3 * var(--unit));
 }
-
+.container {
+  bottom: 0;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  right: var(--toast-offset);
+  z-index: var(--z-index-high);
+}
 .toast {
   composes: box-shadow-400;
   composes: reset-box-sizing;
   align-items: center;
   border-radius: var(--toast-border-radius);
   background-color: var(--toast-background-color);
-  bottom: var(--toast-offset);
   display: flex;
   min-width: var(--toast-min-width);
   max-width: var(--toast-max-width);
   min-height: var(--toast-min-height);
+  margin-bottom: var(--toast-offset);
   padding: var(--toast-spacing);
-  position: fixed;
-  right: var(--toast-offset);
   transition: all var(--animation-duration) var(--animation-curve-default) var(--animation-duration);
-  z-index: var(--z-index-high);
   display: flex;
   align-items: center;
   justify-content: space-between;
