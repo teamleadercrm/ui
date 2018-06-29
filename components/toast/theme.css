@@ -39,24 +39,28 @@
   display: flex;
   align-items: center;
 
-  .toast-link {
+  .action-link,
+  .action-link:hover {
     color: var(--color-teal-light);
   }
 
   &:before {
     position: relative;
   }
-}
 
-.label {
-  flex-grow: 1;
-}
+  .label {
+    flex-grow: 1;
+  }
 
-.action-button {
-  margin-left: var(--toast-spacing);
+  .action-button {
+    color: var(--color-teal);
+    margin-left: var(--toast-spacing);
+  }
 }
 
 .action-link {
+  font-family: var(--font-family-medium);
+  font-size: 14px;
   flex-shrink: 0;
   white-space: nowrap;
   padding: 0;
