@@ -41,33 +41,33 @@ storiesOf('Bullets', module)
   ))
   .add('Inline with text', () => (
     <Box>
-      <Heading1>
+      <Box marginTop={4} display="flex" alignItems="center">
         <Bullet color={select('Color', colors, 'aqua')} size="medium" />
-        I'm an Header 1 with a subtle status
-      </Heading1>
-      <Heading2 marginTop={4}>
+        <Heading1>I'm an Header 1 with a subtle status</Heading1>
+      </Box>
+      <Box marginTop={4} display="flex" alignItems="center">
         <Bullet color={select('Color', colors, 'aqua')} size="medium" />
-        I'm an Header 2 with a subtle status
-      </Heading2>
-      <Heading3 marginTop={4}>
+        <Heading2>I'm an Header 2 with a subtle status</Heading2>
+      </Box>
+      <Box marginTop={4} display="flex" alignItems="center">
+        <Bullet color={select('Color', colors, 'aqua')} size="medium" />
+        <Heading3>I'm an Header 3 with a subtle status</Heading3>
+      </Box>
+      <Box marginTop={4} display="flex" alignItems="center">
         <Bullet color={select('Color', colors, 'aqua')} size="small" />
-        I'm an Header 3 with a subtle status
-      </Heading3>
-      <Heading4 marginTop={4}>
+        <Heading4>I'm an Header 4 with a subtle status</Heading4>
+      </Box>
+      <Box marginTop={4} display="flex" alignItems="center">
         <Bullet color={select('Color', colors, 'aqua')} size="small" />
-        I'm an Header 4 with a subtle status
-      </Heading4>
-      <TextDisplay marginTop={4}>
+        <TextDisplay>I'm an text display with a subtle status</TextDisplay>
+      </Box>
+      <Box marginTop={4} display="flex" alignItems="center">
         <Bullet color={select('Color', colors, 'aqua')} size="small" />
-        I'm an text display with a subtle status
-      </TextDisplay>
-      <TextBody marginTop={4}>
+        <TextBody>I'm an text body with a subtle status</TextBody>
+      </Box>
+      <Box marginTop={4} display="flex" alignItems="center">
         <Bullet color={select('Color', colors, 'aqua')} size="small" />
-        I'm an text body with a subtle status
-      </TextBody>
-      <TextSmall marginTop={4}>
-        <Bullet color={select('Color', colors, 'aqua')} size="small" />
-        I'm an text small with a subtle status
-      </TextSmall>
+        <TextSmall>I'm an text small with a subtle status</TextSmall>
+      </Box>
     </Box>
   ));
