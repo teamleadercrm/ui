@@ -78,7 +78,7 @@
 }
 .enter-active {
   opacity: 1;
-  transform: translateY(0%);
+  transform: translate3d(0, 0, 0);
   max-height: 180px;
   transition: opacity 0.3s var(--toast-animation-curve), transform 0.3s var(--toast-animation-curve),
     max-height 0.3s var(--toast-animation-curve);
@@ -94,7 +94,7 @@
 .exit-active {
   opacity: 0;
   overflow: hidden;
-  transform: translateX(100%);
+  transform: translate3d(100%, 0, 0);
   max-height: 0px;
   margin-top: 0px;
   transition: opacity 0.5s var(--toast-animation-curve), transform 0.5s var(--toast-animation-curve),
