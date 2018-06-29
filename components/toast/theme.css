@@ -6,9 +6,10 @@
 :root {
   --toast-background-color: var(--color-teal-darkest);
   --toast-border-radius: calc(0.4 * var(--unit));
+  --toast-min-width: calc(18 * var(--unit));
   --toast-max-width: calc(37.2 * var(--unit));
   --toast-min-height: calc(6 * var(--unit));
-  --toast-padding: calc(2.1 * var(--unit));
+  --toast-spacing: calc(1.8 * var(--unit));
   --toast-offset: calc(3 * var(--unit));
 }
 
@@ -20,29 +21,40 @@
   background-color: var(--toast-background-color);
   bottom: var(--toast-offset);
   display: flex;
-  min-height: var(--toast-min-height);
+  min-width: var(--toast-min-width);
   max-width: var(--toast-max-width);
-  padding: var(--toast-padding);
+  min-height: var(--toast-min-height);
+  padding: var(--toast-spacing);
   position: fixed;
   right: var(--toast-offset);
   transition: all var(--animation-duration) var(--animation-curve-default) var(--animation-duration);
   z-index: var(--z-index-high);
-}
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-.action-button {
-  margin: calc(-1 * var(--spacer-smaller)) calc(-1 * var(--spacer-smaller)) calc(-1 * var(--spacer-smaller))
-    var(--spacer-medium);
+  .action-link,
+  .action-link:hover {
+    color: var(--color-teal-light);
+  }
+
+  .action-button {
+    color: var(--color-teal);
+    margin-left: var(--toast-spacing);
+  }
 }
 
 .action-link {
+  font-family: var(--font-family-medium);
+  font-size: 14px;
   flex-shrink: 0;
-  margin: calc(-1 * var(--spacer-smaller)) calc(-1 * var(--spacer-small)) calc(-1 * var(--spacer-smaller))
-    var(--spacer-small);
   white-space: nowrap;
+  padding: 0;
+  margin-left: var(--toast-spacing);
 }
 
 .spinner {
-  margin-right: var(--spacer-small);
+  margin-right: var(--toast-spacing);
 }
 
 .is-exiting,

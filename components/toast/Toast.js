@@ -47,8 +47,36 @@ class Toast extends PureComponent {
     }, timeout);
   };
 
+  renderCustomAction = () => {
+    const { action, actionLabel } = this.props;
+    return action && <LinkButton className={theme['action-link']} inverse label={actionLabel} onClick={action} />;
+  };
+
+  renderCustomLink = () => {
+    const { link } = this.props;
+    return (
+      link && (
+        <TextBody>{React.cloneElement(link, { className: cx(link.props.className, theme['action-link']) })}</TextBody>
+      )
+    );
+  };
+
+  renderCloseButton = () => {
+    const { onClose } = this.props;
+    return (
+      onClose && (
+        <IconButton
+          className={theme['action-button']}
+          icon={<IconCloseMediumOutline />}
+          color="white"
+          onClick={onClose}
+        />
+      )
+    );
+  };
+
   render() {
-    const { action, active, children, className, label, onClose, processing } = this.props;
+    const { active, children, className, label, processing } = this.props;
 
     const toast = (
       <Transition in={active} timeout={{ enter: 0, exit: 1000 }}>
@@ -74,18 +102,7 @@ class Toast extends PureComponent {
                 {label}
                 {children}
               </TextBody>
-              {onClose ? (
-                action ? (
-                  <LinkButton className={theme['action-link']} inverse label={action} onClick={onClose} />
-                ) : (
-                  <IconButton
-                    className={theme['action-button']}
-                    icon={<IconCloseMediumOutline />}
-                    color="white"
-                    onClick={onClose}
-                  />
-                )
-              ) : null}
+              {this.renderCustomAction() || this.renderCustomLink() || this.renderCloseButton()}
             </div>
           );
         }}
@@ -97,14 +114,27 @@ class Toast extends PureComponent {
 }
 
 Toast.propTypes = {
-  action: PropTypes.string,
+  /** A custom action you want to attach to the toast link */
+  action: PropTypes.func,
+  /** The label for the custom action you want to show */
+  actionLabel: PropTypes.string,
+  /** Show or hide the Toast  */
   active: PropTypes.bool,
+  /** The content to display inside the Toast */
   children: PropTypes.node,
+  /** A class name for the Toast to give custom styles. */
   className: PropTypes.string,
+  /** The textual label displayed inside the button. */
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  /** A custom link element to point to */
+  link: PropTypes.element,
+  /** Action to close the Toast */
   onClose: PropTypes.func,
+  /** Action to be executed when the timeout limit has been reached */
   onTimeout: PropTypes.func, // eslint-disable-line
+  /** Show or hide the processing icon */
   processing: PropTypes.bool,
+  /** Timeout duration in milliseconds */
   timeout: PropTypes.number,
 };
 
