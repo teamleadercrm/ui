@@ -23,7 +23,7 @@ import Pagination from './pagination';
 import { PopoverHorizontal, PopoverVertical } from './popover';
 import { RadioButton, RadioGroup } from './radio';
 import Section from './section';
-import Island from './island';
+import { Island, IslandGroup } from './island';
 import StatusBullet from './statusBullet';
 import StatusLabel from './statusLabel';
 import { IconTab, TitleTab, TabGroup } from './tab';
@@ -63,6 +63,7 @@ export {
   IconTab,
   Input,
   Island,
+  IslandGroup,
   Label,
   Link,
   LinkButton,

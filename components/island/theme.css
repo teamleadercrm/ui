@@ -1,9 +1,13 @@
 @import '@teamleader/ui-colors';
 @import '@teamleader/ui-utilities';
 
+:root {
+  --border-radius: 4px;
+}
+
 .island {
   border: 1px solid;
-  border-radius: 4px;
+  border-radius: var(--border-radius);
 }
 
 .white {
@@ -54,4 +58,42 @@
   background-color: var(--color-aqua-lightest);
   border-color: var(--color-aqua);
   color: var(--color-aqua-darkest);
+}
+
+.segmented {
+  align-items: stretch;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+
+  .island {
+    align-items: center;
+    border-top: 0;
+    border-bottom: 0;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    &:not(:first-child),
+    &:not(:last-child) {
+      border-radius: 0;
+    }
+
+    &:not(:first-child) {
+      border-right: 0;
+    }
+
+    &:not(:last-child) {
+      border-left: 0;
+    }
+
+    &:first-child {
+      border-radius: var(--border-radius) 0 0 var(--border-radius);
+    }
+    &:last-child {
+      border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    }
+  }
 }
