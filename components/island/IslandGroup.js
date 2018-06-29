@@ -4,19 +4,13 @@ import cx from 'classnames';
 import Box from '../box';
 import theme from './theme.css';
 import Island from './Island';
+import { elementIsDark } from '../utils/utils';
 
 class IslandGroup extends PureComponent {
-  isDark(color) {
-    if (color !== 'white' && color !== 'neutral') {
-      return false;
-    }
-
-    return this.props.dark;
-  }
   render() {
-    const { children, className, color, size } = this.props;
+    const { children, className, color, dark, size } = this.props;
 
-    const isDark = this.isDark(color);
+    const isDark = elementIsDark(color, dark);
 
     const classNames = cx(theme['segmented'], theme['island'], theme[color], { [theme['dark']]: isDark }, className);
 
