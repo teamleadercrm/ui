@@ -23,10 +23,10 @@ const factory = (axis, calculatePositions, Overlay) => {
       },
     };
 
-    setPlacementThrottled = () => throttle(this.setPlacement, 16);
-
     componentDidMount() {
       document.body.appendChild(this.popoverRoot);
+
+      this.setPlacementThrottled = throttle(this.setPlacement, 250);
 
       events.addEventsToWindow({
         resize: this.setPlacementThrottled,
@@ -39,7 +39,6 @@ const factory = (axis, calculatePositions, Overlay) => {
         resize: this.setPlacementThrottled,
         scroll: this.setPlacementThrottled,
       });
-
       document.body.removeChild(this.popoverRoot);
     }
 
@@ -113,7 +112,7 @@ const factory = (axis, calculatePositions, Overlay) => {
                   <div className={theme['arrow']} style={{ left: `${arrowLeft}px`, top: `${arrowTop}px` }} />
                   <div className={theme['inner']}>
                     {children}
-                    <ReactResizeDetector handleHeight onResize={this.setPlacementThrottled} />
+                    <ReactResizeDetector handleHeight handleWidth onResize={this.setPlacementThrottled} />
                   </div>
                 </div>
               </div>
