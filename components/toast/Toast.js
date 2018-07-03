@@ -74,8 +74,8 @@ class Toast extends PureComponent {
     const classNames = cx(theme['toast'], className);
 
     return (
-      <div>
-        <div data-teamleader-ui="toast" className={classNames}>
+      <div data-teamleader-ui="toast">
+        <div className={classNames}>
           {processing && <LoadingSpinner className={theme['spinner']} color="white" />}
           <TextBody className={theme['label']} color="white">
             {label}

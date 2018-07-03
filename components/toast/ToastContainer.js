@@ -10,7 +10,7 @@ class ToastContainer extends PureComponent {
     const classNames = cx(theme['container'], className);
 
     return (
-      <ul className={classNames}>
+      <ul className={classNames} data-teamleader-ui="toast-container">
         <TransitionGroup component="li">
           {React.Children.map(children, (child, id) => {
             return (
