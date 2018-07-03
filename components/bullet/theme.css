@@ -9,14 +9,6 @@
   border-radius: 50%;
   display: inline-block;
   vertical-align: middle;
-
-  & + h1,
-  & + h2,
-  & + h3,
-  & + h4,
-  & + p {
-    margin-left: 6px;
-  }
 }
 
 .medium {
@@ -65,5 +57,15 @@
     .border-$(color)-$(tint) {
       box-shadow: 0 0 0 1px var(--color-$(color)-$(tint));
     }
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  .bullet {
+    margin-right: 6px;
   }
 }
