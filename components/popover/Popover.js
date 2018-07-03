@@ -26,8 +26,6 @@ const factory = (axis, calculatePositions, Overlay) => {
     componentDidMount() {
       document.body.appendChild(this.popoverRoot);
 
-      this.setPlacementThrottled = throttle(this.setPlacement, 250);
-
       events.addEventsToWindow({
         resize: this.setPlacementThrottled,
         scroll: this.setPlacementThrottled,
@@ -39,6 +37,7 @@ const factory = (axis, calculatePositions, Overlay) => {
         resize: this.setPlacementThrottled,
         scroll: this.setPlacementThrottled,
       });
+
       document.body.removeChild(this.popoverRoot);
     }
 
@@ -57,6 +56,8 @@ const factory = (axis, calculatePositions, Overlay) => {
         });
       }
     };
+
+    setPlacementThrottled = throttle(this.setPlacement, 250);
 
     render() {
       const { left, top, arrowLeft, arrowTop } = this.state.positioning;
