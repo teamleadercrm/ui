@@ -4,6 +4,7 @@ import Box from '../box';
 import cx from 'classnames';
 import omit from 'lodash.omit';
 import theme from './theme.css';
+import { elementIsDark } from '../utils/utils';
 
 const SIZES = {
   small: 3,
@@ -12,18 +13,10 @@ const SIZES = {
 };
 
 class Section extends PureComponent {
-  isDark(color) {
-    if (color !== 'white' && color !== 'neutral') {
-      return false;
-    }
-
-    return this.props.dark;
-  }
-
   render() {
-    const { children, className, color, size, ...others } = this.props;
+    const { children, className, color, dark, size, ...others } = this.props;
 
-    const isDark = this.isDark(color);
+    const isDark = elementIsDark(color, dark);
 
     const classNames = cx(theme['section'], className, theme[color], {
       [theme['dark']]: isDark,

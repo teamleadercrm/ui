@@ -1,7 +1,7 @@
 {
   "name": "@teamleader/ui",
   "description": "Teamleader UI library",
-  "version": "0.9.1",
+  "version": "0.10.0",
   "author": "Teamleader <development@teamleader.eu>",
   "betterScripts": {
     "compile": {
@@ -63,7 +63,7 @@
   "dependencies": {
     "@teamleader/ui-animations": "^0.0.2",
     "@teamleader/ui-colors": "^0.0.7",
-    "@teamleader/ui-icons": "^0.2.0",
+    "@teamleader/ui-icons": "^0.2.3",
     "@teamleader/ui-illustrations": "^0.0.4",
     "@teamleader/ui-typography": "^0.1.2",
     "@teamleader/ui-utilities": "^0.0.5",
@@ -75,7 +75,7 @@
     "react": "^16.3.1",
     "react-day-picker": "^7.1.8",
     "react-dom": "^16.3.1",
-    "react-resize-detector": "^1.1.0",
+    "react-resize-detector": "^2.3.0",
     "react-transition-group": "^2.2.1"
   },
   "devDependencies": {
@@ -103,8 +103,8 @@
     "eslint": "^4.11.0",
     "eslint-config-prettier": "^2.2.0",
     "eslint-config-standard": "^11.0.0",
-    "eslint-config-standard-react": "^5.0.0",
-    "eslint-plugin-babel": "^4.1.2",
+    "eslint-config-standard-react": "^6.0.0",
+    "eslint-plugin-babel": "^5.1.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-node": "^6.0.0",
     "eslint-plugin-prettier": "^2.1.2",
@@ -121,7 +121,7 @@
     "image-webpack-loader": "^4.1.0",
     "imports-loader": "^0.7.1",
     "json-loader": "^0.5.4",
-    "luxon": "^0.5.8",
+    "luxon": "^1.2.1",
     "postcss": "^6.0.14",
     "postcss-cssnext": "^3.0.2",
     "postcss-each": "^0.10.0",
