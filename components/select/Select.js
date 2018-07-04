@@ -39,6 +39,18 @@ class Select extends PureComponent {
     };
   };
 
+  getGroupHeadingStyles = (base) => {
+    const { inverse } = this.props;
+
+    return {
+      ...base,
+      color: inverse ? '#fff' : '#2a3b4d',
+      fontSize: '12px',
+      fontWeight: '700',
+      letterSpacing: '0.6px',
+    };
+  };
+
   getIndicatorSeparatorStyles = (base) => ({
     ...base,
     backgroundColor: this.props.inverse ? '#64788f' : '#c0c0c4',
@@ -94,6 +106,7 @@ class Select extends PureComponent {
 
   getStyles = () => ({
     control: (base, { isDisabled, isFocused }) => this.getControlStyles(base, { isDisabled, isFocused }),
+    groupHeading: (base) => this.getGroupHeadingStyles(base),
     indicatorSeparator: (base) => this.getIndicatorSeparatorStyles(base),
     menu: (base) => this.getMenuStyles(base),
     option: (base, { isFocused, isSelected }) => this.getOptionStyles(base, { isFocused, isSelected }),
