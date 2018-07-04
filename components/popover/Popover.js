@@ -23,8 +23,6 @@ const factory = (axis, calculatePositions, Overlay) => {
       },
     };
 
-    setPlacementThrottled = () => throttle(this.setPlacement, 16);
-
     componentDidMount() {
       document.body.appendChild(this.popoverRoot);
 
@@ -58,6 +56,8 @@ const factory = (axis, calculatePositions, Overlay) => {
         });
       }
     };
+
+    setPlacementThrottled = throttle(this.setPlacement, 250);
 
     render() {
       const { left, top, arrowLeft, arrowTop } = this.state.positioning;
@@ -113,7 +113,7 @@ const factory = (axis, calculatePositions, Overlay) => {
                   <div className={theme['arrow']} style={{ left: `${arrowLeft}px`, top: `${arrowTop}px` }} />
                   <div className={theme['inner']}>
                     {children}
-                    <ReactResizeDetector handleHeight onResize={this.setPlacementThrottled} />
+                    <ReactResizeDetector handleHeight handleWidth onResize={this.setPlacementThrottled} />
                   </div>
                 </div>
               </div>
