@@ -18,6 +18,12 @@ const handleRemoveToast = () => {
   store.set({ children: currentChildren.filter((val, idx) => idx !== 0) });
 };
 
+const handleAddToastWithClose = () => {
+  const currentChildren = store.get('children');
+  const toast = <Toast label="Toast label" onClose={handleRemoveToast} timeout={3000} onTimeout={handleRemoveToast} />;
+  store.set({ children: [...currentChildren, toast] });
+};
+
 const handleAddToastWithAction = () => {
   const currentChildren = store.get('children');
   const toast = (
@@ -68,10 +74,6 @@ const handleAddToastWithSpinner = () => {
   store.set({ children: [...currentChildren, toast] });
 };
 
-const getArrayOfNumbers = length => {
-  return Array.apply(null, { length: length }).map(Number.call, Number);
-};
-
 storiesOf('Toast', module)
   .addDecorator((story, context) =>
     withInfo({
@@ -81,19 +83,14 @@ storiesOf('Toast', module)
   )
   .addDecorator(checkA11y)
   .addDecorator(withKnobs)
-  .add('with close button', () => {
-    const numberOfToasts = number('Toasts', 0);
-
-    return (
-      <div>
-        <ToastContainer>
-          {getArrayOfNumbers(numberOfToasts).map((val, idx) => {
-            return <Toast key={idx} label="Toast label" onClose={handleRemoveToast} />;
-          })}
-        </ToastContainer>
-      </div>
-    );
-  })
+  .add('with close button', () => (
+    <div>
+      <Button label="Make a toast" onClick={handleAddToastWithClose} />
+      <State store={store}>
+        <ToastContainer children={[]} />
+      </State>
+    </div>
+  ))
   .add('with custom action', () => (
     <div>
       <Button label="Make a toast" onClick={handleAddToastWithAction} />
