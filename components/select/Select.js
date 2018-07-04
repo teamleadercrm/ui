@@ -122,7 +122,7 @@ class Select extends PureComponent {
         className={theme['select']}
         components={{ DropdownIndicator: this.getDropDownIndicator() }}
         onChange={this.handleChange}
-        styles={this.getStyles(size)}
+        styles={this.getStyles()}
         value={selectedOptions}
         {...others}
       />
