@@ -104,6 +104,11 @@ class Select extends PureComponent {
     color: this.props.inverse ? '#fff' : '#2a3b4d',
   });
 
+  getValueContainerStyles = (base) => ({
+    ...base,
+    padding: ' 0 4px',
+  });
+
   getStyles = () => ({
     control: (base, { isDisabled, isFocused }) => this.getControlStyles(base, { isDisabled, isFocused }),
     groupHeading: (base) => this.getGroupHeadingStyles(base),
@@ -112,6 +117,7 @@ class Select extends PureComponent {
     option: (base, { isFocused, isSelected }) => this.getOptionStyles(base, { isFocused, isSelected }),
     placeholder: (base, { isDisabled }) => this.getPlaceholderStyles(base, { isDisabled }),
     singleValue: (base) => this.getSingleValueStyles(base),
+    valueContainer: (base) => this.getValueContainerStyles(base),
   });
 
   getDropDownIndicator = () => ({ isDisabled }) => {
