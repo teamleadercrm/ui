@@ -92,15 +92,6 @@ class Select extends PureComponent {
     color: this.props.inverse ? '#fff' : '#2a3b4d',
   });
 
-  getDropDownIndicator = () => ({ isDisabled }) => (
-    <Button
-      className={theme['dropdown-indicator']}
-      disabled={isDisabled}
-      icon={<IconChevronDownSmallOutline />}
-      size={this.props.size}
-    />
-  );
-
   getStyles = () => ({
     control: (base, { isDisabled, isFocused }) => this.getControlStyles(base, { isDisabled, isFocused }),
     indicatorSeparator: (base) => this.getIndicatorSeparatorStyles(base),
@@ -109,6 +100,21 @@ class Select extends PureComponent {
     placeholder: (base, { isDisabled }) => this.getPlaceholderStyles(base, { isDisabled }),
     singleValue: (base) => this.getSingleValueStyles(base),
   });
+
+  getDropDownIndicator = () => ({ isDisabled }) => {
+    const { inverse, size } = this.props;
+
+    return (
+      <Button
+        className={theme['dropdown-indicator']}
+        disabled={isDisabled}
+        icon={<IconChevronDownSmallOutline />}
+        inverse={inverse}
+        level={inverse ? 'outline' : 'secondary'}
+        size={size}
+      />
+    );
+  };
 
   handleChange = values => {
     this.setState({ selectedOptions: values });
