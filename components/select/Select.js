@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import ReactSelect from 'react-select';
 import PropTypes from 'prop-types';
+import omit from 'lodash.omit';
 import { IconChevronDownSmallOutline } from '@teamleader/ui-icons';
 import { Button } from '../button';
 import theme from './theme.css';
@@ -114,8 +115,8 @@ class Select extends PureComponent {
   };
 
   render() {
-    const { size, ...others } = this.props;
     const { selectedOptions } = this.state;
+    const rest = omit(this.props, ['size', 'inverse']);
 
     return (
       <ReactSelect
@@ -124,7 +125,7 @@ class Select extends PureComponent {
         onChange={this.handleChange}
         styles={this.getStyles()}
         value={selectedOptions}
-        {...others}
+        {...rest}
       />
     );
   }
