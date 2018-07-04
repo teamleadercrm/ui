@@ -72,6 +72,20 @@ class Select extends PureComponent {
     };
   };
 
+  getPlaceholderStyles = (base, { isDisabled }) => {
+    if(this.props.inverse) {
+      return {
+        ...base,
+        color: isDisabled ? '#64788f' : '#c1cede',
+      }
+    }
+
+    return {
+      ...base,
+      color: '#82828c',
+    }
+  };
+
   getDropDownIndicator = () => ({ isDisabled }) => (
     <Button
       className={theme['dropdown-indicator']}
@@ -86,6 +100,7 @@ class Select extends PureComponent {
     indicatorSeparator: (base) => this.getIndicatorSeparatorStyles(base),
     menu: (base) => this.getMenuStyles(base),
     option: (base, { isFocused, isSelected }) => this.getOptionStyles(base, { isFocused, isSelected }),
+    placeholder: (base, { isDisabled }) => this.getPlaceholderStyles(base, { isDisabled }),
   });
 
   handleChange = values => {
