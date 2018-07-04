@@ -101,7 +101,7 @@ class Select extends PureComponent {
     />
   );
 
-  getStyles = (size) => ({
+  getStyles = () => ({
     control: (base, { isDisabled, isFocused }) => this.getControlStyles(base, { isDisabled, isFocused }),
     indicatorSeparator: (base) => this.getIndicatorSeparatorStyles(base),
     menu: (base) => this.getMenuStyles(base),
