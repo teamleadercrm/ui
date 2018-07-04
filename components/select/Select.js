@@ -67,10 +67,13 @@ class Select extends PureComponent {
 }
 
 Select.propTypes = {
+  /** Boolean indicating whether the select should render as inverse. */
+  inverse: PropTypes.bool,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
 };
 
 Select.defaultProps = {
+  inverse: false,
   size: 'medium',
 };
 
