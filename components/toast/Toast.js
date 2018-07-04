@@ -14,12 +14,6 @@ class Toast extends PureComponent {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.timeout) {
-      this.scheduleTimeout(nextProps);
-    }
-  }
-
   componentWillUnmount() {
     clearTimeout(this.currentTimeout);
   }
