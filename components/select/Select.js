@@ -38,6 +38,13 @@ class Select extends PureComponent {
     };
   };
 
+  getIndicatorSeparatorStyles = (base) => ({
+    ...base,
+    backgroundColor: this.props.inverse ? '#64788f' : '#c0c0c4',
+    marginTop: 0,
+    marginBottom: 0,
+  });
+
   getDropDownIndicator = () => ({ isDisabled }) => (
     <Button
       className={theme['dropdown-indicator']}
@@ -49,11 +56,7 @@ class Select extends PureComponent {
 
   getStyles = (size) => ({
     control: (base, { isDisabled, isFocused }) => this.getControlStyles(base, { isDisabled, isFocused }),
-    indicatorSeparator: (base) => ({
-      ...base,
-      marginTop: 0,
-      marginBottom: 0,
-    }),
+    indicatorSeparator: (base) => this.getIndicatorSeparatorStyles(base),
     option: (base, { isFocused, isSelected }) => ({
       ...base,
       color: '#344b63',
