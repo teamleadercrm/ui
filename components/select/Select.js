@@ -45,6 +45,28 @@ class Select extends PureComponent {
     marginBottom: 0,
   });
 
+  getOptionStyles = (base, { isFocused, isSelected }) => {
+    if(this.props.inverse) {
+      return {
+        ...base,
+        color: isFocused ? '#344b63' : '#fff',
+        backgroundColor: isFocused ? '#c1cede' : isSelected ? '#344b63' : '#64788f',
+        '&:active': {
+          backgroundColor: '#344b63',
+        },
+      };
+    }
+
+    return {
+      ...base,
+      color: isSelected && !isFocused ? '#fff' : '#344b63',
+      backgroundColor: isFocused ? '#e4e4e6' : isSelected ? '#82828c' : '#fff',
+      '&:active': {
+        backgroundColor: '#e4e4e6',
+      },
+    };
+  };
+
   getDropDownIndicator = () => ({ isDisabled }) => (
     <Button
       className={theme['dropdown-indicator']}
@@ -57,14 +79,7 @@ class Select extends PureComponent {
   getStyles = (size) => ({
     control: (base, { isDisabled, isFocused }) => this.getControlStyles(base, { isDisabled, isFocused }),
     indicatorSeparator: (base) => this.getIndicatorSeparatorStyles(base),
-    option: (base, { isFocused, isSelected }) => ({
-      ...base,
-      color: '#344b63',
-      backgroundColor: isFocused ? '#e4e4e6' : isSelected ? '#f7f7fa' : '#fff',
-      '&:active': {
-        backgroundColor: '#e4e4e6'
-      },
-    }),
+    option: (base, { isFocused, isSelected }) => this.getOptionStyles(base, { isFocused, isSelected }),
   });
 
   handleChange = values => {
