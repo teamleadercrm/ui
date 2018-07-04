@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import omit from 'lodash.omit';
 import { IconChevronDownSmallOutline } from '@teamleader/ui-icons';
 import { Button } from '../button';
-import { TextBody } from '../typography';
 import theme from './theme.css';
 
 class Select extends PureComponent {
@@ -117,34 +116,6 @@ class Select extends PureComponent {
     );
   };
 
-  getSingleValue = () => ({ children, isDisabled }) => {
-    const { inverse } = this.props;
-
-    return (
-      <TextBody
-        color={inverse ? 'white' : 'teal'}
-        element="span"
-        soft={inverse && isDisabled}
-      >
-        {children}
-      </TextBody>
-    )
-  };
-
-  getPlaceholder = () => ({ children }) => {
-    const { inverse } = this.props;
-
-    return (
-      <TextBody
-        color={inverse ? 'white' : 'teal'}
-        element="span"
-        soft
-      >
-        {children}
-      </TextBody>
-    );
-  };
-
   handleChange = values => {
     this.setState({ selectedOptions: values });
   };
@@ -158,8 +129,6 @@ class Select extends PureComponent {
         className={theme['select']}
         components={{
           DropdownIndicator: this.getDropDownIndicator(),
-          Placeholder: this.getPlaceholder(),
-          SingleValue: this.getSingleValue(),
         }}
         onChange={this.handleChange}
         styles={this.getStyles()}
