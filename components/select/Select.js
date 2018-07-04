@@ -45,6 +45,11 @@ class Select extends PureComponent {
     marginBottom: 0,
   });
 
+  getMenuStyles = (base) => ({
+    ...base,
+    backgroundColor: this.props.inverse ? '#64788f' : '#fff',
+  });
+
   getOptionStyles = (base, { isFocused, isSelected }) => {
     if(this.props.inverse) {
       return {
@@ -79,6 +84,7 @@ class Select extends PureComponent {
   getStyles = (size) => ({
     control: (base, { isDisabled, isFocused }) => this.getControlStyles(base, { isDisabled, isFocused }),
     indicatorSeparator: (base) => this.getIndicatorSeparatorStyles(base),
+    menu: (base) => this.getMenuStyles(base),
     option: (base, { isFocused, isSelected }) => this.getOptionStyles(base, { isFocused, isSelected }),
   });
 
