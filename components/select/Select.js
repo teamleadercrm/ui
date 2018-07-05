@@ -14,28 +14,32 @@ class Select extends PureComponent {
   getControlStyles = (base, { isDisabled, isFocused }) => {
     const { inverse, size } = this.props;
 
+    const commonStyles = {
+      minHeight: size === 'small' ? '30px' : size === 'medium' ? '36px' : '48px',
+    };
+
     if(inverse) {
       return {
         ...base,
+        ...commonStyles,
         backgroundColor: isDisabled ? '#3F4F61' : '#64788f',
         '&:hover': {
           borderColor: '#c1cede',
         },
         borderColor: isFocused ? '#c1cede' : isDisabled ? '#3F4F61' : '#64788f',
         boxShadow: isFocused ? '0 0 0 1px #c1cede' : 'none',
-        minHeight: size === 'small' ? '30px' : size === 'medium' ? '36px' : '48px',
       };
     }
 
     return {
       ...base,
+      ...commonStyles,
       backgroundColor: isDisabled ? '#e4e4e6' : '#fff',
       '&:hover': {
         borderColor: '#82828c',
       },
       borderColor: isFocused ? '#82828c' : isDisabled ? '#e4e4e6' : '#c0c0c4',
       boxShadow: isFocused ? '0 0 0 1px #82828c' : 'none',
-      minHeight: size === 'small' ? '30px' : size === 'medium' ? '36px' : '48px',
     };
   };
 
@@ -64,9 +68,14 @@ class Select extends PureComponent {
   });
 
   getOptionStyles = (base, { isFocused, isSelected }) => {
+    const commonStyles = {
+      padding: '8px 12px',
+    };
+
     if(this.props.inverse) {
       return {
         ...base,
+        ...commonStyles,
         color: isFocused ? '#344b63' : '#fff',
         backgroundColor: isFocused ? '#c1cede' : isSelected ? '#344b63' : '#64788f',
         '&:active': {
@@ -77,6 +86,7 @@ class Select extends PureComponent {
 
     return {
       ...base,
+      ...commonStyles,
       color: isSelected && !isFocused ? '#fff' : '#344b63',
       backgroundColor: isFocused ? '#e4e4e6' : isSelected ? '#82828c' : '#fff',
       '&:active': {
