@@ -52,6 +52,7 @@ class Select extends PureComponent {
       fontSize: '12px',
       fontWeight: '700',
       letterSpacing: '0.6px',
+      padding: '0 6px',
     };
   };
 
@@ -116,7 +117,7 @@ class Select extends PureComponent {
 
   getValueContainerStyles = (base) => ({
     ...base,
-    padding: ' 0 4px',
+    padding: '0 4px',
   });
 
   getStyles = () => ({
