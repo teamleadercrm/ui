@@ -28,7 +28,7 @@ import StatusBullet from './statusBullet';
 import StatusLabel from './statusLabel';
 import { IconTab, TitleTab, TabGroup } from './tab';
 import Tag from './tag';
-import { Toast } from './toast';
+import { Toast, ToastContainer } from './toast';
 import Toggle from './toggle';
 import Label from './label';
 import Tooltip from './tooltip';
@@ -91,6 +91,7 @@ export {
   Tag,
   TitleTab,
   Toast,
+  ToastContainer,
   Toggle,
   Tooltip,
   QTip,
