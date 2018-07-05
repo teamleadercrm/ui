@@ -5,12 +5,13 @@
 
 :root {
   --badge-border-radius: calc(0.4 * var(--unit));
-  --badge-border-width: 2px;
+  --badge-border-width: 1px;
 }
 
 .badge {
   border-radius: var(--badge-border-radius);
-  border: 0;
+  border-style: solid;
+  border-width: var(--badge-border-width);
   display: inline-flex;
   align-items: center;
   outline: none;
@@ -28,45 +29,101 @@
   }
 
   .icon {
-    opacity: 0.84;
+    opacity: 0.86;
   }
 
-  &:not(.is-inverse) {
-    background-color: color(var(--color-neutral-darkest) a(12%));
-    color: var(--color-teal-darkest);
+  &.neutral {
+    &:not(.is-inverse) {
+      background-color: color(var(--color-neutral-darkest) a(12%));
+      border-color: color(var(--color-neutral-darkest) a(12%));
+      color: var(--color-teal-darkest);
 
-    &:not(.is-disabled) {
-      &:hover {
-        background-color: color(var(--color-neutral-darkest) a(24%));
+      &:not(.is-disabled) {
+        &:hover,
+        &:active {
+          background-color: color(var(--color-neutral-darkest) a(24%));
+        }
+
+        &:focus {
+          background-color: color(var(--color-teal-darkest) a(6%));
+          border-color: color(var(--color-neutral-darkest) a(24%));
+          box-shadow: 0 0 0 var(--badge-border-width) color(var(--color-neutral-darkest) a(24%));
+        }
+
+        &:active {
+          box-shadow: inset 0 1px 3px 0 color(var(--color-teal-darkest) a(12%));
+
+          .icon {
+            opacity: 1;
+          }
+        }
       }
+    }
 
-      &:focus {
-        box-shadow: 0 0 0 var(--badge-border-width) color(var(--color-neutral-darkest) a(24%));
+    &.is-inverse {
+      background-color: color(var(--color-neutral-lightest) a(12%));
+      border-color: color(var(--color-neutral-lightest) a(12%));
+      color: var(--color-teal-lightest);
+
+      &:not(.is-disabled) {
+        &:hover,
+        &:active {
+          background-color: color(var(--color-neutral-lightest) a(24%));
+        }
+
+        &:focus {
+          background-color: color(var(--color-white) a(12%));
+          border-color: color(var(--color-white: #ffffff) a(24%));
+          box-shadow: 0 0 0 var(--badge-border-width) color(var(--color-neutral-darkest) a(24%));
+        }
+
+        &:active {
+          box-shadow: inset 0 1px 3px 0 var(--color-teal-darkest);
+
+          .icon {
+            opacity: 1;
+          }
+        }
       }
     }
   }
+  /* prettier-ignore */
+  @each
+    $color in (mint, violet, ruby, gold, aqua) {
+      &.$(color) {
+        background-color: color(var(--color-$(color)-light) a(48%));
+        border-color: color(var(--color-$(color)-light) a(48%));
+        color: var(--color-$(color)-darkest);
 
-  &.is-inverse {
-    background-color: color(var(--color-neutral-lightest) a(12%));
-    color: var(--color-teal-lightest);
+        &:not(.is-disabled) {
+          &:hover {
+            border-color: color(var(--color-$(color)-light) a(100%));
+          }
 
-    &:not(.is-disabled) {
-      &:hover {
-        background-color: color(var(--color-neutral-lightest) a(24%));
-      }
+          &:focus {
+            border-color: color(var(--color-$(color)-light: #ffffff) a(100%));
+            box-shadow: 0 0 0 var(--badge-border-width) color(var(--color-$(color)-light) a(100%));
+          }
 
-      &:focus {
-        box-shadow: 0 0 0 var(--badge-border-width) color(var(--color-neutral-lightest) a(24%));
+          &:active {
+            box-shadow: inset 0 1px 3px 0 var(--color-$(color)-light);
+
+            .icon {
+              opacity: 1;
+            }
+          }
+        }
+
+        .icon {
+          color: var(--color-$(color)-darkest);
+        }
       }
     }
-  }
 
   &:not(.is-disabled) {
     cursor: pointer;
 
     &:active {
-      box-shadow: none !important;
-
       &:before {
         background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
         content: '';
@@ -86,9 +143,11 @@
   }
 
   &.is-inherit {
-    color: inherit;
     font-family: inherit;
     font-size: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
     margin: auto var(--spacer-smallest);
+    text-transform: inherit;
   }
 }

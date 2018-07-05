@@ -59,20 +59,20 @@ export default class Input extends PureComponent {
   };
 
   handleChange = event => {
-    this.updateValue(event.target.value);
+    this.updateValue(event);
   };
 
-  handleIncreaseValue = () => {
-    this.updateStep(1);
+  handleIncreaseValue = event => {
+    this.updateStep(event, 1);
   };
 
-  handleDecreaseValue = () => {
-    this.updateStep(-1);
+  handleDecreaseValue = event => {
+    this.updateStep(event, -1);
   };
 
-  updateValue(rawValue, triggerOnChange = true) {
+  updateValue(event, rawValue, triggerOnChange = true) {
     const { input, onChange } = this.props;
-    const value = Input.parseValue(rawValue, this.props);
+    const value = Input.parseValue(rawValue || event.target.value, this.props);
 
     this.setState({
       value,
@@ -80,9 +80,9 @@ export default class Input extends PureComponent {
 
     if (triggerOnChange) {
       if (input && input.onChange) {
-        input.onChange(value);
+        input.onChange(event, value);
       } else if (onChange) {
-        onChange(value);
+        onChange(event, value);
       }
     }
   }
@@ -104,10 +104,10 @@ export default class Input extends PureComponent {
     return String(formattedNumber);
   }
 
-  updateStep(n) {
+  updateStep(event, n) {
     const { step } = this.props;
     const { value = 0 } = this.state;
-    this.updateValue(value + step * n);
+    this.updateValue(event, (value + step * n));
   }
 
   renderInput() {
@@ -183,7 +183,7 @@ export default class Input extends PureComponent {
 
   renderValidationMessage() {
     return (
-      <Box marginTop={2}>
+      <Box marginTop={2} display="flex" alignItems="center">
         <IconWarningBadgedSmallFilled className={theme['validation-icon']} />
         <TextSmall className={theme['validation-text']} element="span" marginLeft={1}>
           {this.props.meta.error}

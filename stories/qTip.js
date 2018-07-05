@@ -9,7 +9,7 @@ import { Island, Link, QTip, TextBody } from '../components';
 import { IconIdeaMediumOutline } from '@teamleader/ui-icons';
 
 const store = new Store({
-  closed: false,
+  closed: true,
 });
 
 const updateState = () => {
@@ -17,7 +17,12 @@ const updateState = () => {
 };
 
 storiesOf('Q-tip', module)
-  .addDecorator((story, context) => withInfo({ TableComponent: PropTable })(story)(context))
+  .addDecorator((story, context) =>
+    withInfo({
+      TableComponent: PropTable,
+      propTablesExclude: [TextBody, Island, Link, State],
+    })(story)(context),
+  )
   .addDecorator(checkA11y)
   .addDecorator(withKnobs)
   .add('Default', () => (

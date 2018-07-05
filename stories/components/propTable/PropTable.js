@@ -1,15 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Badge, DataGrid, TextSmall, Tooltip } from '../../../components';
 
 const Red = props => <span style={{ color: 'red' }} {...props} />;
 const TooltippedBadge = Tooltip(Badge);
 
 const renderPropTypeValues = propType => {
-  if (typeof propType === 'string') {
+  if (!propType) {
+    return;
+  }
+
+  if (typeof propType !== 'object' || typeof propType === 'string') {
     return propType;
   }
 
-  if (propType.name === 'instanceOf') {
+  if (propType.name && propType.name === 'instanceOf') {
     return propType.value;
   }
 
@@ -56,6 +61,10 @@ const PropTable = ({ propDefinitions }) => {
       {props}
     </DataGrid>
   );
+};
+
+PropTable.propTypes = {
+  propDefinitions: PropTypes.array,
 };
 
 export default PropTable;

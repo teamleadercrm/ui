@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs, number, select } from '@storybook/addon-knobs/react';
 import { Box, Heading2, Icon, Section, TextSmall } from '../components';
 import * as Icons from '@teamleader/ui-icons';

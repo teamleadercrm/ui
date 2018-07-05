@@ -17,7 +17,6 @@ import {
   TextSmall,
 } from '../components';
 import { withKnobs, select } from '@storybook/addon-knobs/react';
-import PropTypes from 'prop-types';
 
 const store = new Store({
   active: false,
@@ -50,7 +49,7 @@ storiesOf('Popover', module)
   .addDecorator((story, context) =>
     withInfo({
       TableComponent: PropTable,
-      propTablesExclude: [Link, TextBody, TextSmall, Button, State, Banner, Heading3, ButtonGroup],
+      propTablesExclude: [Link, TextBody, TextSmall, Button, State, Banner, Heading3, ButtonGroup, Box],
     })(story)(context),
   )
   .addDecorator(checkA11y)
@@ -186,7 +185,6 @@ storiesOf('Popover', module)
   .add('with dark backdrop', () => (
     <Box>
       <Button onClick={handleButtonClick} label="Open a Popover with dark backdrop" />
-      color={select('Color', colors, 'neutral')}
       <State store={store}>
         <PopoverVertical
           active={false}

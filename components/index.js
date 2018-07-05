@@ -24,7 +24,7 @@ import { PopoverHorizontal, PopoverVertical } from './popover';
 import { RadioButton, RadioGroup } from './radio';
 import Section from './section';
 import Select from './select';
-import Island from './island';
+import { Island, IslandGroup } from './island';
 import StatusBullet from './statusBullet';
 import StatusLabel from './statusLabel';
 import { IconTab, TitleTab, TabGroup } from './tab';
@@ -34,6 +34,7 @@ import Toggle from './toggle';
 import Label from './label';
 import Tooltip from './tooltip';
 import QTip from './qTip';
+import ProgressTracker from './progressTracker';
 
 export {
   Avatar,
@@ -63,6 +64,7 @@ export {
   IconTab,
   Input,
   Island,
+  IslandGroup,
   Label,
   Link,
   LinkButton,
@@ -77,6 +79,7 @@ export {
   Pagination,
   PopoverHorizontal,
   PopoverVertical,
+  ProgressTracker,
   RadioButton,
   RadioGroup,
   Section,

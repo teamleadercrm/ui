@@ -1,8 +1,8 @@
 @import '@teamleader/ui-colors';
 
 :root {
-  --medium-size: 9px;
-  --small-size: 6px;
+  --medium-size: 12px;
+  --small-size: 9px;
 }
 
 .bullet {
@@ -47,4 +47,25 @@
 
 .aqua {
   background-color: var(--color-aqua-dark);
+}
+
+@each $color in (neutral, mint, violet, ruby, gold, aqua, teal) {
+  .border-$(color) {
+    box-shadow: 0 0 0 1px var(--color-$(color));
+  }
+  @each $tint in (darkest, dark, light, lightest) {
+    .border-$(color)-$(tint) {
+      box-shadow: 0 0 0 1px var(--color-$(color)-$(tint));
+    }
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  .bullet {
+    margin-right: 6px;
+  }
 }
