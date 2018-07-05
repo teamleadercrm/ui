@@ -43,6 +43,20 @@ class Select extends PureComponent {
     };
   };
 
+  getGroupStyles = (base) => {
+    const { inverse } = this.props;
+
+    return {
+      ...base,
+      borderBottomColor: inverse ? '#c1cede' : '#e4e4e6',
+      borderBottomStyle: 'solid',
+      borderBottomWidth: '1px',
+      '&:last-child': {
+        borderWidth: 0,
+      },
+    };
+  };
+
   getGroupHeadingStyles = (base) => {
     const { inverse } = this.props;
 
@@ -122,6 +136,7 @@ class Select extends PureComponent {
 
   getStyles = () => ({
     control: (base, { isDisabled, isFocused }) => this.getControlStyles(base, { isDisabled, isFocused }),
+    group: (base) => this.getGroupStyles(base),
     groupHeading: (base) => this.getGroupHeadingStyles(base),
     indicatorSeparator: (base) => this.getIndicatorSeparatorStyles(base),
     menu: (base) => this.getMenuStyles(base),
