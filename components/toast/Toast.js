@@ -14,12 +14,6 @@ class Toast extends PureComponent {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.timeout) {
-      this.scheduleTimeout(nextProps);
-    }
-  }
-
   componentWillUnmount() {
     clearTimeout(this.currentTimeout);
   }
@@ -68,13 +62,26 @@ class Toast extends PureComponent {
     );
   };
 
+  handleMouseEnter = () => {
+    if (this.props.timeout) {
+      clearTimeout(this.currentTimeout);
+      this.currentTimeout = null;
+    }
+  };
+
+  handleMouseLeave = () => {
+    if (this.props.timeout) {
+      this.scheduleTimeout(this.props);
+    }
+  };
+
   render() {
     const { children, className, label, processing } = this.props;
 
     const classNames = cx(theme['toast'], className);
 
     return (
-      <div data-teamleader-ui="toast">
+      <div data-teamleader-ui="toast" onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
         <div className={classNames}>
           {processing && <LoadingSpinner className={theme['spinner']} color="white" />}
           <TextBody className={theme['label']} color="white">
