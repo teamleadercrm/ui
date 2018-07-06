@@ -108,7 +108,7 @@ class DataGrid extends PureComponent {
   };
 
   render() {
-    const { children, className, selectable, stickyFromLeft, stickyFromRight, ...others } = this.props;
+    const { checkboxSize, children, className, selectable, stickyFromLeft, stickyFromRight, ...others } = this.props;
     const { selectedRows } = this.state;
 
     const classNames = cx(theme['data-grid'], className);
@@ -126,6 +126,7 @@ class DataGrid extends PureComponent {
             {React.Children.map(children, child => {
               if (isComponentOfType(HeaderRow, child)) {
                 return React.cloneElement(child, {
+                  checkboxSize: checkboxSize,
                   onSelectionChange: event => this.handleHeaderRowSelectionChange(event),
                   selected: selectedRows.length === children[1].length,
                   selectable,
@@ -133,6 +134,7 @@ class DataGrid extends PureComponent {
                 });
               } else if (isComponentOfType(BodyRow, child)) {
                 return React.cloneElement(child, {
+                  checkboxSize: checkboxSize,
                   onSelectionChange: () => this.handleBodyRowSelectionChange(child.key),
                   selected: selectedRows.indexOf(child.key) !== -1,
                   selectable,
@@ -173,6 +175,7 @@ class DataGrid extends PureComponent {
 }
 
 DataGrid.propTypes = {
+  checkboxSize: PropTypes.oneOf(['small', 'medium', 'large']),
   children: PropTypes.node,
   className: PropTypes.string,
   comparableId: PropTypes.any,
@@ -180,6 +183,10 @@ DataGrid.propTypes = {
   stickyFromLeft: PropTypes.number,
   stickyFromRight: PropTypes.number,
   onSelectionChange: PropTypes.func,
+};
+
+DataGrid.defaultProps = {
+  checkboxSize: 'large',
 };
 
 DataGrid.HeaderRow = HeaderRow;
