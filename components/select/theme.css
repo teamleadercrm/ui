@@ -3,9 +3,9 @@
 @import '@teamleader/ui-typography';
 
 .select {
+  composes: reset-font-smoothing;
   font-family: var(--font-family-regular);
   font-size: calc(1.4 * var(--unit));
-  color: var(--color-teal-dark)!important;
   border-color: var(--color-neutral-dark);
   max-width: 360px;
 }
@@ -13,4 +13,5 @@
 .dropdown-indicator {
   border: 0 !important;
   border-radius: 0 4px 4px 0;
+  min-height: 100%;
 }
