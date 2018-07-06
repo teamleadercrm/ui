@@ -18,6 +18,7 @@ import { events } from '../utils';
 class DataGrid extends PureComponent {
   state = {
     selectedRows: [],
+    partiallySelected: false,
   };
 
   rowNodes = new Map();
@@ -78,6 +79,7 @@ class DataGrid extends PureComponent {
       return {
         ...prevState,
         selectedRows,
+        partiallySelected: selectedRows.length > 0 && this.props.children[1].length !== selectedRows.length,
       };
     });
   };
@@ -109,7 +111,7 @@ class DataGrid extends PureComponent {
 
   render() {
     const { children, className, selectable, stickyFromLeft, stickyFromRight, ...others } = this.props;
-    const { selectedRows } = this.state;
+    const { selectedRows, partiallySelected } = this.state;
 
     const classNames = cx(theme['data-grid'], className);
     const rest = omit(others, ['comparableId', 'onSelectionChange']);
@@ -130,6 +132,7 @@ class DataGrid extends PureComponent {
                   selected: selectedRows.length === children[1].length,
                   selectable,
                   sliceTo: stickyFromLeft > 0 ? stickyFromLeft : 0,
+                  partiallySelected: partiallySelected,
                 });
               } else if (isComponentOfType(BodyRow, child)) {
                 return React.cloneElement(child, {
