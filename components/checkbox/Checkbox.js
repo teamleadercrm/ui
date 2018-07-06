@@ -98,11 +98,7 @@ class Checkbox extends PureComponent {
           {...inputProps}
         />
         <span className={theme['shape']}>
-          {partiallySelected ? (
-            <IconMinusSmallOutline className={theme['icon']} />
-          ) : (
-            <IconCheckmark className={theme['icon']} />
-          )}
+          {checked ? <IconCheckmark className={theme['icon']} /> : <IconMinusSmallOutline className={theme['icon']} />}
         </span>
         {(label || children) && (
           <span className={theme['label']}>
