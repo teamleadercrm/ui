@@ -63,6 +63,7 @@ class DataGrid extends PureComponent {
 
     this.setState({
       selectedRows: selectedBodyRowIndexes,
+      partiallySelected: false,
     });
 
     this.handleSelectionChange(selectedBodyRowIndexes);
