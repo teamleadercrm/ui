@@ -11,6 +11,22 @@ class Select extends PureComponent {
     selectedOptions: [],
   };
 
+  getClearIndicatorStyles = base => {
+    const { inverse } = this.props;
+
+    return {
+      ...base,
+      color: inverse ? '#e1ecfa': '#344b63',
+      '&:hover': {
+        color: inverse ? '#fff' : '#2a3b4d',
+      },
+      'svg': {
+        height: '14px',
+        width: '14px',
+      },
+    };
+  };
+
   getControlStyles = (base, { isDisabled, isFocused }) => {
     const { inverse, size } = this.props;
 
@@ -70,12 +86,25 @@ class Select extends PureComponent {
     };
   };
 
-  getIndicatorSeparatorStyles = (base) => ({
-    ...base,
-    backgroundColor: this.props.inverse ? '#64788f' : '#c0c0c4',
-    marginTop: 0,
-    marginBottom: 0,
-  });
+  getIndicatorSeparatorStyles = (base, { isDisabled }) => {
+    const commonStyles = {
+      ...base,
+      marginTop: 0,
+      marginBottom: 0,
+    };
+
+    if(this.props.inverse) {
+      return {
+        ...commonStyles,
+        backgroundColor: isDisabled ? '#3F4F61' : '#64788f',
+      };
+    }
+
+    return {
+      ...commonStyles,
+      backgroundColor: isDisabled ? '#e4e4e6' : '#c0c0c4',
+    }
+  };
 
   getMenuStyles = (base) => ({
     ...base,
@@ -156,16 +185,24 @@ class Select extends PureComponent {
     };
   };
 
-  getPlaceholderStyles = (base, { isDisabled }) => {
+  getPlaceholderStyles = (base, { isDisabled, isMulti }) => {
+    const { size } = this.props;
+
+    const commonStyles = {
+      ...base,
+      marginLeft: isMulti && size !== 'large' ? '6px' : '2px',
+      marginRight: isMulti && size !== 'large' ? '6px' : '2px',
+    };
+
     if(this.props.inverse) {
       return {
-        ...base,
+        ...commonStyles,
         color: isDisabled ? '#64788f' : '#c1cede',
       }
     }
 
     return {
-      ...base,
+      ...commonStyles,
       color: '#82828c',
     }
   };
@@ -175,24 +212,29 @@ class Select extends PureComponent {
     color: this.props.inverse ? '#fff' : '#2a3b4d',
   });
 
-  getValueContainerStyles = (base) => ({
-    ...base,
-    padding: '0 4px',
-  });
+  getValueContainerStyles = (base, { isMulti }) => {
+    const { size } = this.props;
+
+    return {
+      ...base,
+      padding: isMulti && size !== 'large' ? '0' : '0 4px',
+    }
+  };
 
   getStyles = () => ({
+    clearIndicator: (base) => this.getClearIndicatorStyles(base),
     control: (base, { isDisabled, isFocused }) => this.getControlStyles(base, { isDisabled, isFocused }),
     group: (base) => this.getGroupStyles(base),
     groupHeading: (base) => this.getGroupHeadingStyles(base),
-    indicatorSeparator: (base) => this.getIndicatorSeparatorStyles(base),
+    indicatorSeparator: (base, { isDisabled }) => this.getIndicatorSeparatorStyles(base, { isDisabled }),
     menu: (base) => this.getMenuStyles(base),
     multiValue: (base) => this.getMultiValueStyles(base),
     multiValueLabel: (base) => this.getMultiValueLabelStyles(base),
     multiValueRemove: (base) => this.getMultiValueRemoveStyles(base),
     option: (base, { isFocused, isSelected }) => this.getOptionStyles(base, { isFocused, isSelected }),
-    placeholder: (base, { isDisabled }) => this.getPlaceholderStyles(base, { isDisabled }),
+    placeholder: (base, { isDisabled, isMulti }) => this.getPlaceholderStyles(base, { isDisabled, isMulti }),
     singleValue: (base) => this.getSingleValueStyles(base),
-    valueContainer: (base) => this.getValueContainerStyles(base),
+    valueContainer: (base, { isMulti }) => this.getValueContainerStyles(base, { isMulti }),
   });
 
   getDropDownIndicator = () => ({ isDisabled }) => {
