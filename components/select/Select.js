@@ -59,7 +59,7 @@ class Select extends PureComponent {
     };
   };
 
-  getGroupStyles = (base) => {
+  getGroupStyles = base => {
     const { inverse } = this.props;
 
     return {
@@ -73,7 +73,7 @@ class Select extends PureComponent {
     };
   };
 
-  getGroupHeadingStyles = (base) => {
+  getGroupHeadingStyles = base => {
     const { inverse } = this.props;
 
     return {
@@ -106,12 +106,12 @@ class Select extends PureComponent {
     }
   };
 
-  getMenuStyles = (base) => ({
+  getMenuStyles = base => ({
     ...base,
     backgroundColor: this.props.inverse ? '#64788f' : '#fff',
   });
 
-  getMultiValueStyles = (base) => {
+  getMultiValueStyles = base => {
     const { inverse } = this.props;
 
     return {
@@ -124,7 +124,7 @@ class Select extends PureComponent {
     }
   };
 
-  getMultiValueLabelStyles = (base) => {
+  getMultiValueLabelStyles = base => {
     const { inverse, size } = this.props;
 
     return {
@@ -139,7 +139,7 @@ class Select extends PureComponent {
     }
   };
 
-  getMultiValueRemoveStyles = (base) => {
+  getMultiValueRemoveStyles = base => {
     const { inverse } = this.props;
 
     return {
@@ -207,7 +207,7 @@ class Select extends PureComponent {
     }
   };
 
-  getSingleValueStyles = (base) => ({
+  getSingleValueStyles = base => ({
     ...base,
     color: this.props.inverse ? '#fff' : '#2a3b4d',
   });
