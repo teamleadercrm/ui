@@ -31,12 +31,12 @@ class Select extends PureComponent {
     const { inverse, size } = this.props;
 
     const commonStyles = {
+      ...base,
       minHeight: size === 'small' ? '30px' : size === 'medium' ? '36px' : '48px',
     };
 
     if(inverse) {
       return {
-        ...base,
         ...commonStyles,
         backgroundColor: isDisabled ? '#3F4F61' : '#64788f',
         '&:hover': {
@@ -48,7 +48,6 @@ class Select extends PureComponent {
     }
 
     return {
-      ...base,
       ...commonStyles,
       backgroundColor: isDisabled ? '#e4e4e6' : '#fff',
       '&:hover': {
@@ -159,12 +158,12 @@ class Select extends PureComponent {
 
   getOptionStyles = (base, { isFocused, isSelected }) => {
     const commonStyles = {
+      ...base,
       padding: '8px 12px',
     };
 
     if(this.props.inverse) {
       return {
-        ...base,
         ...commonStyles,
         color: isFocused ? '#344b63' : '#fff',
         backgroundColor: isFocused ? '#c1cede' : isSelected ? '#344b63' : '#64788f',
@@ -175,7 +174,6 @@ class Select extends PureComponent {
     }
 
     return {
-      ...base,
       ...commonStyles,
       color: isSelected && !isFocused ? '#fff' : '#344b63',
       backgroundColor: isFocused ? '#e4e4e6' : isSelected ? '#82828c' : '#fff',
