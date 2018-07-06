@@ -82,6 +82,52 @@ class Select extends PureComponent {
     backgroundColor: this.props.inverse ? '#64788f' : '#fff',
   });
 
+  getMultiValueStyles = (base) => {
+    const { inverse } = this.props;
+
+    return {
+      ...base,
+      backgroundColor: inverse ? '#435262' : '#f0f0f1',
+      borderColor: inverse ? '#8597a7' : '#e3e3e5',
+      borderStyle: 'solid',
+      borderWidth: '1px',
+      borderRadius: '4px',
+    }
+  };
+
+  getMultiValueLabelStyles = (base) => {
+    const { inverse, size } = this.props;
+
+    return {
+      ...base,
+      backgroundColor: inverse ? '#435262' : '#f0f0f1',
+      borderRadius: '4px 0 0 4px',
+      color: inverse ? '#fff' : '#2a3b4d',
+      fontFamily: 'Inter-UI-Medium',
+      fontSize: size === 'small' ? '12px' : '14px',
+      lineHeight: size === 'small' ? '1' : '18px',
+      padding: size === 'large' ? '9px' : '6px',
+    }
+  };
+
+  getMultiValueRemoveStyles = (base) => {
+    const { inverse } = this.props;
+
+    return {
+      ...base,
+      backgroundColor: inverse ? '#435262' : '#f0f0f1',
+      borderRadius: '0 4px 4px 0',
+      color: inverse ? '#fff' : '#2a3b4d',
+      '&:hover': {
+        backgroundColor: inverse ? '#596775' : '#e4e4e6',
+        color: inverse ? '#fff' : '#2a3b4d',
+      },
+      paddingLeft: '6px',
+      paddingRight: '6px',
+      transition: 'background-color .35s cubic-bezier(.4, 0, .2, 1)',
+    }
+  };
+
   getOptionStyles = (base, { isFocused, isSelected }) => {
     const commonStyles = {
       padding: '8px 12px',
@@ -140,6 +186,9 @@ class Select extends PureComponent {
     groupHeading: (base) => this.getGroupHeadingStyles(base),
     indicatorSeparator: (base) => this.getIndicatorSeparatorStyles(base),
     menu: (base) => this.getMenuStyles(base),
+    multiValue: (base) => this.getMultiValueStyles(base),
+    multiValueLabel: (base) => this.getMultiValueLabelStyles(base),
+    multiValueRemove: (base) => this.getMultiValueRemoveStyles(base),
     option: (base, { isFocused, isSelected }) => this.getOptionStyles(base, { isFocused, isSelected }),
     placeholder: (base, { isDisabled }) => this.getPlaceholderStyles(base, { isDisabled }),
     singleValue: (base) => this.getSingleValueStyles(base),
