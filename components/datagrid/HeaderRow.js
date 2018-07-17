@@ -8,7 +8,17 @@ import theme from './theme.css';
 
 class HeaderRow extends PureComponent {
   render() {
-    const { className, children, sliceFrom, sliceTo, onSelectionChange, selected, selectable, ...others } = this.props;
+    const {
+      className,
+      checkboxSize,
+      children,
+      sliceFrom,
+      sliceTo,
+      onSelectionChange,
+      selected,
+      selectable,
+      ...others
+    } = this.props;
 
     const childrenArray = Array.isArray(children) ? children : [children];
     const childrenSliced = childrenArray.slice(sliceFrom, sliceTo);
@@ -18,7 +28,7 @@ class HeaderRow extends PureComponent {
       <Row backgroundColor="neutral" className={classNames} data-teamleader-ui="datagrid-header-row" {...others}>
         {selectable && (
           <HeaderCell flex="min-width">
-            <Checkbox checked={selected} onChange={onSelectionChange} size="large" />
+            <Checkbox checked={selected} onChange={onSelectionChange} size={checkboxSize} />
           </HeaderCell>
         )}
         {childrenSliced}
@@ -28,6 +38,7 @@ class HeaderRow extends PureComponent {
 }
 
 HeaderRow.propTypes = {
+  checkboxSize: PropTypes.oneOf(['small', 'medium', 'large']),
   className: PropTypes.string,
   children: PropTypes.any,
   onSelectionChange: PropTypes.func,

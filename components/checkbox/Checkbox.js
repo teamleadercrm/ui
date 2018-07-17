@@ -8,7 +8,7 @@ import { TextBody, TextDisplay, TextSmall } from '../typography';
 import { IconCheckmarkSmallOutline, IconCheckmarkMediumOutline } from '@teamleader/ui-icons';
 
 class Checkbox extends PureComponent {
-  handleToggle = (event) => {
+  handleToggle = event => {
     const { disabled, checked, onChange } = this.props;
 
     if (event.pageX !== 0 && event.pageY !== 0) {
@@ -137,7 +137,7 @@ Checkbox.propTypes = {
 Checkbox.defaultProps = {
   checked: false,
   disabled: false,
-  size: 'medium',
+  size: 'small',
 };
 
 export default Checkbox;
