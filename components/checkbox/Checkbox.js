@@ -140,7 +140,7 @@ Checkbox.defaultProps = {
   checked: false,
   disabled: false,
   indeterminate: false,
-  size: 'medium',
+  size: 'small',
 };
 
 export default Checkbox;
