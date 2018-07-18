@@ -5,7 +5,7 @@ import cx from 'classnames';
 import omit from 'lodash.omit';
 import Box from '../box';
 import { TextBody, TextDisplay, TextSmall } from '../typography';
-import { IconCheckmarkSmallOutline, IconCheckmarkMediumOutline } from '@teamleader/ui-icons';
+import { IconCheckmarkSmallOutline, IconCheckmarkMediumOutline, IconMinusSmallOutline } from '@teamleader/ui-icons';
 
 class Checkbox extends PureComponent {
   handleToggle = event => {
@@ -67,7 +67,7 @@ class Checkbox extends PureComponent {
   }
 
   render() {
-    const { checked, disabled, className, size, label, children, ...others } = this.props;
+    const { checked, disabled, className, size, label, children, indeterminate, ...others } = this.props;
     const rest = omit(others, ['onChange']);
     const { boxProps, inputProps } = this.splitProps(rest);
     const TextElement = size === 'small' ? TextSmall : size === 'medium' ? TextBody : TextDisplay;
@@ -77,7 +77,7 @@ class Checkbox extends PureComponent {
       theme['checkbox'],
       theme[`is-${size}`],
       {
-        [theme['is-checked']]: checked,
+        [theme['is-checked']]: checked || indeterminate,
         [theme['is-disabled']]: disabled,
       },
       className,
@@ -98,7 +98,7 @@ class Checkbox extends PureComponent {
           {...inputProps}
         />
         <span className={theme['shape']}>
-          <IconCheckmark className={theme['checkmark']} />
+          {checked ? <IconCheckmark className={theme['icon']} /> : <IconMinusSmallOutline className={theme['icon']} />}
         </span>
         {(label || children) && (
           <span className={theme['label']}>
@@ -130,6 +130,8 @@ Checkbox.propTypes = {
   label: PropTypes.string,
   /** Callback function that is fired when checkbox is toggled. */
   onChange: PropTypes.func,
+  /** Indicate whether the checkbox is neither checked or unchecked. */
+  indeterminate: PropTypes.bool,
   /** Size of the checkbox. */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
 };
@@ -137,6 +139,7 @@ Checkbox.propTypes = {
 Checkbox.defaultProps = {
   checked: false,
   disabled: false,
+  indeterminate: false,
   size: 'small',
 };
 

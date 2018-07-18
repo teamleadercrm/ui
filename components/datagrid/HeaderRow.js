@@ -15,6 +15,7 @@ class HeaderRow extends PureComponent {
       sliceFrom,
       sliceTo,
       onSelectionChange,
+      partiallySelected,
       selected,
       selectable,
       ...others
@@ -28,7 +29,12 @@ class HeaderRow extends PureComponent {
       <Row backgroundColor="neutral" className={classNames} data-teamleader-ui="datagrid-header-row" {...others}>
         {selectable && (
           <HeaderCell flex="min-width">
-            <Checkbox checked={selected} onChange={onSelectionChange} size={checkboxSize} />
+            <Checkbox
+              checked={selected}
+              onChange={onSelectionChange}
+              size={checkboxSize}
+              indeterminate={partiallySelected}
+            />
           </HeaderCell>
         )}
         {childrenSliced}
@@ -42,6 +48,7 @@ HeaderRow.propTypes = {
   className: PropTypes.string,
   children: PropTypes.any,
   onSelectionChange: PropTypes.func,
+  partiallySelected: PropTypes.bool,
   selectable: PropTypes.bool,
   selected: PropTypes.bool,
   sliceFrom: PropTypes.number,
