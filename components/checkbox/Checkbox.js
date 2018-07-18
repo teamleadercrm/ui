@@ -67,7 +67,7 @@ class Checkbox extends PureComponent {
   }
 
   render() {
-    const { checked, disabled, className, size, label, children, partiallySelected, ...others } = this.props;
+    const { checked, disabled, className, size, label, children, indeterminate, ...others } = this.props;
     const rest = omit(others, ['onChange']);
     const { boxProps, inputProps } = this.splitProps(rest);
     const TextElement = size === 'small' ? TextSmall : size === 'medium' ? TextBody : TextDisplay;
@@ -77,7 +77,7 @@ class Checkbox extends PureComponent {
       theme['checkbox'],
       theme[`is-${size}`],
       {
-        [theme['is-checked']]: checked || partiallySelected,
+        [theme['is-checked']]: checked || indeterminate,
         [theme['is-disabled']]: disabled,
       },
       className,
@@ -130,8 +130,8 @@ Checkbox.propTypes = {
   label: PropTypes.string,
   /** Callback function that is fired when checkbox is toggled. */
   onChange: PropTypes.func,
-  /** Indicate whether or not some subsequent child checkboxes, such as in a datagrid, are checked */
-  partiallySelected: PropTypes.bool,
+  /** Indicate whether the checkbox is neither checked or unchecked. */
+  indeterminate: PropTypes.bool,
   /** Size of the checkbox. */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
 };
@@ -139,7 +139,7 @@ Checkbox.propTypes = {
 Checkbox.defaultProps = {
   checked: false,
   disabled: false,
-  partiallySelected: false,
+  indeterminate: false,
   size: 'medium',
 };
 
