@@ -173,6 +173,7 @@
     "lint": "eslint components stories",
     "lint:fix": "npm run lint -- --fix",
     "precommit": "pretty-quick --staged",
+    "prettier": "prettier --write '**/*.{js,json,md,css}'",
     "prepare": "npm run build",
     "start": "better-npm-run start",
     "storybook": "better-npm-run storybook",
