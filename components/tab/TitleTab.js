@@ -8,7 +8,7 @@ import omit from 'lodash.omit';
 import { Heading4 } from '../typography';
 
 class TitleTab extends PureComponent {
-  handleClick = (event) => {
+  handleClick = event => {
     if (this.props.onClick) {
       this.props.onClick(event);
     }

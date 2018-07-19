@@ -4,17 +4,10 @@ import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, number, select } from '@storybook/addon-knobs/react';
-import {Box, TextBody} from '../components';
+import { Box, TextBody } from '../components';
 
 const displayValues = ['inline', 'inline-block', 'block', 'flex', 'inline-flex'];
-const justifyContentValues = [
-  'center',
-  'flex-start',
-  'flex-end',
-  'space-around',
-  'space-between',
-  'space-evenly',
-];
+const justifyContentValues = ['center', 'flex-start', 'flex-end', 'space-around', 'space-between', 'space-evenly'];
 
 const spacingOptions = {
   range: true,
@@ -24,15 +17,17 @@ const spacingOptions = {
 };
 
 storiesOf('Box', module)
-  .addDecorator((story, context) => withInfo({
-    propTablesExclude: [TextBody],
-    TableComponent: PropTable
-  })(story)(context))
+  .addDecorator((story, context) =>
+    withInfo({
+      propTablesExclude: [TextBody],
+      TableComponent: PropTable,
+    })(story)(context),
+  )
   .addDecorator(checkA11y)
   .addDecorator(withKnobs)
   .add('Basic', () => (
     <Box
-      style={{backgroundColor: '#fafafa'}}
+      style={{ backgroundColor: '#fafafa' }}
       display={select('display', displayValues, 'block')}
       justifyContent={select('justifyContent', justifyContentValues, 'flex-start')}
       margin={number('margin', 0, spacingOptions)}

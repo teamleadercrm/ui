@@ -94,14 +94,7 @@ class Box extends PureComponent {
 }
 
 Box.propTypes = {
-  alignContent: PropTypes.oneOf([
-    'center',
-    'flex-start',
-    'flex-end',
-    'space-around',
-    'space-between',
-    'space-evenly',
-  ]),
+  alignContent: PropTypes.oneOf(['center', 'flex-start', 'flex-end', 'space-around', 'space-between', 'space-evenly']),
   alignItems: PropTypes.oneOf(['center', 'flex-start', 'flex-end']),
   alignSelf: PropTypes.oneOf(['center', 'flex-start', 'flex-end', 'stretch']),
   boxSizing: PropTypes.oneOf(['border-box', 'content-box']),

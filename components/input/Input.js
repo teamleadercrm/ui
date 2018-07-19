@@ -107,7 +107,7 @@ export default class Input extends PureComponent {
   updateStep(event, n) {
     const { step } = this.props;
     const { value = 0 } = this.state;
-    this.updateValue(event, (value + step * n));
+    this.updateValue(event, value + step * n);
   }
 
   renderInput() {
