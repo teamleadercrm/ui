@@ -525,7 +525,7 @@
     border-radius: var(--button-border-radius) 0 0 var(--button-border-radius);
     margin-left: 0;
   }
- 
+
   > *:last-child:not(:only-child) {
     border-radius: 0 var(--button-border-radius) var(--button-border-radius) 0;
   }
