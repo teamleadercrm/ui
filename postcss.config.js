@@ -9,17 +9,17 @@ module.exports = ctx => {
     plugins: {
       'postcss-import': {
         root: './',
-        path: [path.join(__dirname, './components')]
+        path: [path.join(__dirname, './components')],
       },
       'postcss-pseudoelements': {},
       'postcss-mixins': {},
       'postcss-each': {},
       'postcss-cssnext': {
         features: {
-          'customProperties' : {
+          customProperties: {
             warnings: false,
-          }
-        }
+          },
+        },
       },
       'postcss-nested': {},
       'postcss-reporter': {

@@ -7,20 +7,20 @@ const globals = {
   __PROD__: env === 'production',
   __TEST__: env === 'test',
   __BASENAME__: JSON.stringify(process.env.BASENAME || ''),
-  __VERSION__: JSON.stringify(pkg.version)
+  __VERSION__: JSON.stringify(pkg.version),
 };
 const cssModulesLoader = [
   'css-loader?sourceMap&-minimize',
   'modules',
   'importLoaders=1',
-  'localIdentName=[name]__[local]___[hash:base64:5]'
+  'localIdentName=[name]__[local]___[hash:base64:5]',
 ].join('&');
 
 // Export a function. Accept the base config as the only param.
 module.exports = (storybookBaseConfig, configType) => {
   storybookBaseConfig.module.rules.push({
     test: /\.css$/,
-    use: ['style-loader', cssModulesLoader, 'postcss-loader']
+    use: ['style-loader', cssModulesLoader, 'postcss-loader'],
   });
 
   storybookBaseConfig.module.rules.push({
@@ -32,9 +32,9 @@ module.exports = (storybookBaseConfig, configType) => {
           query: {
             hash: 'sha512',
             digest: 'hex',
-            name:'[hash].[ext]'
-          }
-        }
+            name: '[hash].[ext]',
+          },
+        },
       },
       {
         loader: 'image-webpack-loader',
@@ -48,19 +48,19 @@ module.exports = (storybookBaseConfig, configType) => {
             },
             optipng: {
               optimizationLevel: 7,
-            }
-          }
-        }
-      }]
+            },
+          },
+        },
+      },
+    ],
   });
-
 
   storybookBaseConfig.plugins.map(plugin => {
     if (plugin instanceof webpack.DefinePlugin) {
       plugin.definitions = {
         ...plugin.definitions,
         'process.env': globals,
-      }
+      };
     }
     return plugin;
   });
