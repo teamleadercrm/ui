@@ -40,7 +40,7 @@ class DataGrid extends PureComponent {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.comparableId !== this.props.comparableId) {
-      this.handleSelectionChange();
+      this.handleSelectionChange([]);
 
       this.setState({
         selectedRows: [],
