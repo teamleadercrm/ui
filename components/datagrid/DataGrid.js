@@ -44,6 +44,7 @@ class DataGrid extends PureComponent {
 
       this.setState({
         selectedRows: [],
+        partiallySelected: false,
       });
     }
   }
