@@ -190,7 +190,7 @@ DataGrid.propTypes = {
 };
 
 DataGrid.defaultProps = {
-  checkboxSize: 'large',
+  checkboxSize: 'small',
 };
 
 DataGrid.HeaderRow = HeaderRow;
