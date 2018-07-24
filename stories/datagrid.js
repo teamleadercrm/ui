@@ -27,7 +27,7 @@ storiesOf('DataGrids', module)
       selectable={boolean('Selectable', true)}
       comparableId={1}
       onSelectionChange={handleRowSelectionChange}
-      checkboxSize={select('Checkbox size', ['small', 'medium', 'large'], 'large')}
+      checkboxSize={select('Checkbox size', ['small', 'medium', 'large'], 'small')}
     >
       <DataGrid.HeaderRow>
         <DataGrid.HeaderCell flex="min-width" />
