@@ -109,7 +109,6 @@ class DataGrid extends PureComponent {
 
   render() {
     const { checkboxSize, children, className, selectable, stickyFromLeft, stickyFromRight, ...others } = this.props;
-    const [headerRows, bodyRows, footerRows] = children;
     const { selectedRows } = this.state;
 
     const classNames = cx(theme['data-grid'], className);
@@ -120,37 +119,37 @@ class DataGrid extends PureComponent {
       [theme['has-border-right']]: selectable || stickyFromLeft > 0,
     });
 
-    const isPartiallySelected = selectedRows.length > 0 && selectedRows.length !== bodyRows.length;
+    const isPartiallySelected = selectedRows.length > 0 && selectedRows.length !== children[1].length;
 
     return (
       <Box data-teamleader-ui="data-grid" className={classNames} {...rest}>
         {(selectable || stickyFromLeft > 0) && (
           <div className={sectionLeftClassNames}>
-            {React.Children.map(headerRows, child =>
-              React.cloneElement(child, {
-                checkboxSize: checkboxSize,
-                onSelectionChange: event => this.handleHeaderRowSelectionChange(event),
-                selected: selectedRows.length === children[1].length,
-                selectable,
-                sliceTo: stickyFromLeft > 0 ? stickyFromLeft : 0,
-                partiallySelected: isPartiallySelected,
-              }),
-            )}
-            {React.Children.map(bodyRows, child =>
-              React.cloneElement(child, {
-                checkboxSize: checkboxSize,
-                onSelectionChange: () => this.handleBodyRowSelectionChange(child.key),
-                selected: selectedRows.indexOf(child.key) !== -1,
-                selectable,
-                sliceTo: stickyFromLeft > 0 ? stickyFromLeft : 0,
-              }),
-            )}
-            {React.Children.map(footerRows, child =>
-              React.cloneElement(child, {
-                preserveSelectableSpace: selectable,
-                sliceTo: stickyFromLeft > 0 ? stickyFromLeft : 0,
-              }),
-            )}
+            {React.Children.map(children, child => {
+              if (isComponentOfType(HeaderRow, child)) {
+                return React.cloneElement(child, {
+                  checkboxSize: checkboxSize,
+                  onSelectionChange: event => this.handleHeaderRowSelectionChange(event),
+                  selected: selectedRows.length === children[1].length,
+                  selectable,
+                  sliceTo: stickyFromLeft > 0 ? stickyFromLeft : 0,
+                  partiallySelected: isPartiallySelected,
+                });
+              } else if (isComponentOfType(BodyRow, child)) {
+                return React.cloneElement(child, {
+                  checkboxSize: checkboxSize,
+                  onSelectionChange: () => this.handleBodyRowSelectionChange(child.key),
+                  selected: selectedRows.indexOf(child.key) !== -1,
+                  selectable,
+                  sliceTo: stickyFromLeft > 0 ? stickyFromLeft : 0,
+                });
+              } else if (isComponentOfType(FooterRow, child)) {
+                return React.cloneElement(child, {
+                  preserveSelectableSpace: selectable,
+                  sliceTo: stickyFromLeft > 0 ? stickyFromLeft : 0,
+                });
+              }
+            })}
           </div>
         )}
 
