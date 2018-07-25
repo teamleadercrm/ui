@@ -18,7 +18,6 @@ import { events } from '../utils';
 class DataGrid extends PureComponent {
   state = {
     selectedRows: [],
-    partiallySelected: false,
   };
 
   rowNodes = new Map();
@@ -63,7 +62,6 @@ class DataGrid extends PureComponent {
 
     this.setState({
       selectedRows: selectedBodyRowIndexes,
-      partiallySelected: false,
     });
 
     this.handleSelectionChange(selectedBodyRowIndexes);
@@ -80,7 +78,6 @@ class DataGrid extends PureComponent {
       return {
         ...prevState,
         selectedRows,
-        partiallySelected: selectedRows.length > 0 && this.props.children[1].length !== selectedRows.length,
       };
     });
   };
@@ -112,7 +109,7 @@ class DataGrid extends PureComponent {
 
   render() {
     const { checkboxSize, children, className, selectable, stickyFromLeft, stickyFromRight, ...others } = this.props;
-    const { selectedRows, partiallySelected } = this.state;
+    const { selectedRows } = this.state;
 
     const classNames = cx(theme['data-grid'], className);
     const rest = omit(others, ['comparableId', 'onSelectionChange']);
@@ -121,6 +118,9 @@ class DataGrid extends PureComponent {
       [theme['has-blend-right']]: selectable || stickyFromLeft > 0,
       [theme['has-border-right']]: selectable || stickyFromLeft > 0,
     });
+
+    const numberOfBodyRows = React.Children.toArray(children).filter(child => isComponentOfType(BodyRow, child)).length;
+    const isPartiallySelected = selectedRows.length > 0 && selectedRows.length !== numberOfBodyRows;
 
     return (
       <Box data-teamleader-ui="data-grid" className={classNames} {...rest}>
@@ -134,7 +134,7 @@ class DataGrid extends PureComponent {
                   selected: selectedRows.length === children[1].length,
                   selectable,
                   sliceTo: stickyFromLeft > 0 ? stickyFromLeft : 0,
-                  partiallySelected: partiallySelected,
+                  partiallySelected: isPartiallySelected,
                 });
               } else if (isComponentOfType(BodyRow, child)) {
                 return React.cloneElement(child, {
