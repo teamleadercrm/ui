@@ -119,7 +119,7 @@ class DataGrid extends PureComponent {
       [theme['has-border-right']]: selectable || stickyFromLeft > 0,
     });
 
-    const numberOfBodyRows = children.flat().filter(child => isComponentOfType(BodyRow, child)).length;
+    const numberOfBodyRows = React.Children.toArray(children).filter(child => isComponentOfType(BodyRow, child)).length;
     const isPartiallySelected = selectedRows.length > 0 && selectedRows.length !== numberOfBodyRows;
 
     return (
