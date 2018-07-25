@@ -382,7 +382,10 @@
       box-shadow: 0 0 0 1px var(--input-error-border);
     }
 
-    .validation-icon,
+    .validation-icon {
+      margin-top: -1px;
+    }
+
     .validation-text {
       color: var(--color-ruby-dark);
     }
@@ -409,7 +412,6 @@
       box-shadow: 0 0 0 1px var(--input-error-border-inverse);
     }
 
-    .validation-icon,
     .validation-text {
       color: var(--color-ruby-light);
     }
