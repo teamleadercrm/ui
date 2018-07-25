@@ -119,7 +119,8 @@ class DataGrid extends PureComponent {
       [theme['has-border-right']]: selectable || stickyFromLeft > 0,
     });
 
-    const isPartiallySelected = selectedRows.length > 0 && selectedRows.length !== children[1].length;
+    const numberOfBodyRows = children.flat().filter(child => isComponentOfType(BodyRow, child)).length;
+    const isPartiallySelected = selectedRows.length > 0 && selectedRows.length !== numberOfBodyRows;
 
     return (
       <Box data-teamleader-ui="data-grid" className={classNames} {...rest}>
