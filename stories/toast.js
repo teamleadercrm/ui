@@ -11,6 +11,8 @@ const store = new Store({
   children: [],
 });
 
+let key = 0;
+
 const handleCustomAction = () => true;
 
 const handleRemoveToast = () => {
@@ -20,14 +22,19 @@ const handleRemoveToast = () => {
 
 const handleAddToastWithClose = () => {
   const currentChildren = store.get('children');
-  const toast = <Toast label="Toast label" onClose={handleRemoveToast} timeout={3000} onTimeout={handleRemoveToast} />;
+  key++;
+  const toast = (
+    <Toast key={key} label="Toast label" onClose={handleRemoveToast} timeout={3000} onTimeout={handleRemoveToast} />
+  );
   store.set({ children: [...currentChildren, toast] });
 };
 
 const handleAddToastWithAction = () => {
   const currentChildren = store.get('children');
+  key++;
   const toast = (
     <Toast
+      key={key}
       label="Toast label"
       onClose={handleRemoveToast}
       timeout={3000}
@@ -41,8 +48,10 @@ const handleAddToastWithAction = () => {
 
 const handleAddToastWithLink = () => {
   const currentChildren = store.get('children');
+  key++;
   const toast = (
     <Toast
+      key={key}
       label="Toast label"
       onClose={handleRemoveToast}
       timeout={3000}
@@ -55,8 +64,10 @@ const handleAddToastWithLink = () => {
 
 const handleAddToastWithMultilineLabel = () => {
   const currentChildren = store.get('children');
+  key++;
   const toast = (
     <Toast
+      key={key}
       label="Connection timed out. Showing limited amount of messages."
       onClose={handleRemoveToast}
       timeout={3000}
@@ -70,7 +81,8 @@ const handleAddToastWithMultilineLabel = () => {
 
 const handleAddToastWithSpinner = () => {
   const currentChildren = store.get('children');
-  const toast = <Toast label="Working..." timeout={3000} onTimeout={handleRemoveToast} processing />;
+  key++;
+  const toast = <Toast key={key} label="Working..." timeout={3000} onTimeout={handleRemoveToast} processing />;
   store.set({ children: [...currentChildren, toast] });
 };
 
@@ -83,43 +95,43 @@ storiesOf('Toast', module)
   )
   .addDecorator(checkA11y)
   .addDecorator(withKnobs)
-  .add('with close button', () => (
+  .add('with close button', () =>
     <div>
       <Button label="Make a toast" onClick={handleAddToastWithClose} />
       <State store={store}>
         <ToastContainer children={[]} />
       </State>
-    </div>
-  ))
-  .add('with custom action', () => (
+    </div>,
+  )
+  .add('with custom action', () =>
     <div>
       <Button label="Make a toast" onClick={handleAddToastWithAction} />
       <State store={store}>
         <ToastContainer children={[]} />
       </State>
-    </div>
-  ))
-  .add('with custom link', () => (
+    </div>,
+  )
+  .add('with custom link', () =>
     <div>
       <Button label="Make a toast" onClick={handleAddToastWithLink} />
       <State store={store}>
         <ToastContainer children={[]} />
       </State>
-    </div>
-  ))
-  .add('with multiline label', () => (
+    </div>,
+  )
+  .add('with multiline label', () =>
     <div>
       <Button label="Make a toast" onClick={handleAddToastWithMultilineLabel} />
       <State store={store}>
         <ToastContainer children={[]} />
       </State>
-    </div>
-  ))
-  .add('with loading spinner', () => (
+    </div>,
+  )
+  .add('with loading spinner', () =>
     <div>
       <Button label="Make a toast" onClick={handleAddToastWithSpinner} />
       <State store={store}>
         <ToastContainer children={[]} />
       </State>
-    </div>
-  ));
+    </div>,
+  );
