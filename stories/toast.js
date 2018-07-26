@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { Store, State } from '@sambego/storybook-state';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, number } from '@storybook/addon-knobs/react';
+import { withKnobs } from '@storybook/addon-knobs/react';
 import { Button, Toast, Link, ToastContainer } from '../components';
 
 const store = new Store({
