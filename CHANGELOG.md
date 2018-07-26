@@ -10,6 +10,6 @@
 
 ### :boom: Breaking changes
 
-## 0.11.0 (2018-07-18)
+## [0.11.0] - 2018-07-18
 
 - initial changelog
