@@ -15,30 +15,38 @@ let key = 0;
 
 const handleCustomAction = () => true;
 
-const handleRemoveToast = () => {
+const handleRemoveToast = keyToRemove => {
   const currentChildren = store.get('children');
-  store.set({ children: currentChildren.filter((val, idx) => idx !== 0) });
+  store.set({
+    children: currentChildren.filter(child => child.key !== String(keyToRemove)),
+  });
 };
 
 const handleAddToastWithClose = () => {
   const currentChildren = store.get('children');
-  key++;
+  const toastKey = key++;
   const toast = (
-    <Toast key={key} label="Toast label" onClose={handleRemoveToast} timeout={3000} onTimeout={handleRemoveToast} />
+    <Toast
+      key={toastKey}
+      label="Toast label"
+      onClose={() => handleRemoveToast(toastKey)}
+      timeout={3000}
+      onTimeout={() => handleRemoveToast(toastKey)}
+    />
   );
   store.set({ children: [...currentChildren, toast] });
 };
 
 const handleAddToastWithAction = () => {
   const currentChildren = store.get('children');
-  key++;
+  const toastKey = key++;
   const toast = (
     <Toast
-      key={key}
+      key={toastKey}
       label="Toast label"
-      onClose={handleRemoveToast}
+      onClose={() => handleRemoveToast(toastKey)}
       timeout={3000}
-      onTimeout={handleRemoveToast}
+      onTimeout={() => handleRemoveToast(toastKey)}
       actionLabel="confirm"
       action={handleCustomAction}
     />
@@ -48,14 +56,14 @@ const handleAddToastWithAction = () => {
 
 const handleAddToastWithLink = () => {
   const currentChildren = store.get('children');
-  key++;
+  const toastKey = key++;
   const toast = (
     <Toast
-      key={key}
+      key={toastKey}
       label="Toast label"
-      onClose={handleRemoveToast}
+      onClose={() => handleRemoveToast(toastKey)}
       timeout={3000}
-      onTimeout={handleRemoveToast}
+      onTimeout={() => handleRemoveToast(toastKey)}
       link={<Link href="https://www.teamleader.be">link</Link>}
     />
   );
@@ -64,14 +72,14 @@ const handleAddToastWithLink = () => {
 
 const handleAddToastWithMultilineLabel = () => {
   const currentChildren = store.get('children');
-  key++;
+  const toastKey = key++;
   const toast = (
     <Toast
-      key={key}
+      key={toastKey}
       label="Connection timed out. Showing limited amount of messages."
-      onClose={handleRemoveToast}
+      onClose={() => handleRemoveToast(toastKey)}
       timeout={3000}
-      onTimeout={handleRemoveToast}
+      onTimeout={() => handleRemoveToast(toastKey)}
       actionLabel="Try again"
       action={handleCustomAction}
     />
@@ -81,8 +89,10 @@ const handleAddToastWithMultilineLabel = () => {
 
 const handleAddToastWithSpinner = () => {
   const currentChildren = store.get('children');
-  key++;
-  const toast = <Toast key={key} label="Working..." timeout={3000} onTimeout={handleRemoveToast} processing />;
+  const toastKey = key++;
+  const toast = (
+    <Toast key={toastKey} label="Working..." timeout={3000} onTimeout={() => handleRemoveToast(toastKey)} processing />
+  );
   store.set({ children: [...currentChildren, toast] });
 };
 
