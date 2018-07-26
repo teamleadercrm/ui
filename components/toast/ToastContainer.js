@@ -12,11 +12,11 @@ class ToastContainer extends PureComponent {
     return (
       <ul className={classNames} data-teamleader-ui="toast-container">
         <TransitionGroup component="li">
-          {React.Children.map(children, (child, id) => {
+          {React.Children.map(children, child => {
             return (
               <CSSTransition
                 timeout={1000}
-                key={id}
+                key={child.key}
                 classNames={{
                   appear: cx(theme['appear']),
                   appearActive: cx(theme['appear-active']),
