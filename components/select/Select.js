@@ -256,6 +256,7 @@ class Select extends PureComponent {
 
   render() {
     const { selectedOptions } = this.state;
+    const { components } = this.props;
     const rest = omit(this.props, ['size', 'inverse']);
 
     return (
@@ -263,6 +264,7 @@ class Select extends PureComponent {
         className={theme['select']}
         components={{
           DropdownIndicator: this.getDropDownIndicator(),
+          ...components,
         }}
         onChange={this.handleChange}
         styles={this.getStyles()}
@@ -274,6 +276,7 @@ class Select extends PureComponent {
 }
 
 Select.propTypes = {
+  components: PropTypes.object,
   /** Boolean indicating whether the select should render as inverse. */
   inverse: PropTypes.bool,
   /** Size of the input element. */
