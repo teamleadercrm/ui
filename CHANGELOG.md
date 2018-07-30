@@ -4,7 +4,7 @@
 
 ### Changed
 
-- Changed the element of `IconMenu` to our `Box` component ([@InstaK](https://github.com/InstaK) in [#324](https://github.com/teamleadercrm/ui/pull/324))
+- `IconMenu` now returns a `Box` component instead of a `div` ([@InstaK](https://github.com/InstaK) in [#324](https://github.com/teamleadercrm/ui/pull/324))
 
 ### Deprecated
 
