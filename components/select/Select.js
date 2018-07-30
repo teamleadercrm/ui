@@ -156,7 +156,7 @@ class Select extends PureComponent {
     }
   };
 
-  getOptionStyles = (base, { isFocused, isSelected }) => {
+  getOptionStyles = (base, { isDisabled, isFocused, isSelected }) => {
     const commonStyles = {
       ...base,
       padding: '8px 12px',
@@ -165,20 +165,20 @@ class Select extends PureComponent {
     if(this.props.inverse) {
       return {
         ...commonStyles,
-        color: isFocused ? '#344b63' : '#fff',
+        color: isDisabled ? '#c1cede' : isFocused ? '#344b63' : '#fff',
         backgroundColor: isFocused ? '#c1cede' : isSelected ? '#344b63' : '#64788f',
         '&:active': {
-          backgroundColor: '#344b63',
+          backgroundColor: isDisabled ? '#64788f' : '#344b63',
         },
       };
     }
 
     return {
       ...commonStyles,
-      color: isSelected && !isFocused ? '#fff' : '#344b63',
+      color: isDisabled ? '#c0c0c4' : isSelected && !isFocused ? '#fff' : '#344b63',
       backgroundColor: isFocused ? '#e4e4e6' : isSelected ? '#82828c' : '#fff',
       '&:active': {
-        backgroundColor: '#e4e4e6',
+        backgroundColor: isDisabled ? '#fff' : '#e4e4e6',
       },
     };
   };
@@ -229,7 +229,7 @@ class Select extends PureComponent {
     multiValue: (base) => this.getMultiValueStyles(base),
     multiValueLabel: (base) => this.getMultiValueLabelStyles(base),
     multiValueRemove: (base) => this.getMultiValueRemoveStyles(base),
-    option: (base, { isFocused, isSelected }) => this.getOptionStyles(base, { isFocused, isSelected }),
+    option: (base, { isDisabled, isFocused, isSelected }) => this.getOptionStyles(base, { isDisabled, isFocused, isSelected }),
     placeholder: (base, { isDisabled, isMulti }) => this.getPlaceholderStyles(base, { isDisabled, isMulti }),
     singleValue: (base) => this.getSingleValueStyles(base),
     valueContainer: (base, { isMulti }) => this.getValueContainerStyles(base, { isMulti }),
