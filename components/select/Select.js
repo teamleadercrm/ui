@@ -194,7 +194,7 @@ class Select extends PureComponent {
   };
 
   getPlaceholderStyles = (base, { isDisabled, isMulti }) => {
-    const { size } = this.props;
+    const { inverse, size } = this.props;
 
     const commonStyles = {
       ...base,
@@ -202,7 +202,7 @@ class Select extends PureComponent {
       marginRight: isMulti && size !== 'large' ? '6px' : '2px',
     };
 
-    if(this.props.inverse) {
+    if(inverse) {
       return {
         ...commonStyles,
         color: isDisabled ? '#64788f' : '#c1cede',
