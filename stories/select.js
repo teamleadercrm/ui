@@ -33,7 +33,7 @@ storiesOf('Select', module)
   .addDecorator((story, context) =>
     withInfo({
       TableComponent: PropTable,
-      propTablesExclude: [],
+      propTablesExclude: [Label],
     })(story)(context),
   )
   .addDecorator(checkA11y)
