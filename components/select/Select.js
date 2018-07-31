@@ -7,10 +7,6 @@ import { Button } from '../button';
 import theme from './theme.css';
 
 class Select extends PureComponent {
-  state = {
-    selectedOptions: [],
-  };
-
   getClearIndicatorStyles = base => {
     const { inverse } = this.props;
 
@@ -106,12 +102,11 @@ class Select extends PureComponent {
   };
 
   getInput = base => {
-    const { size } = this.props;
-    const { selectedOptions } = this.state;
+    const { size, value } = this.props;
 
     return {
       ...base,
-      marginLeft: selectedOptions.length === 0 && size !== 'large' ? '6px' : '2px',
+      marginLeft: value && value.length === 0 && size !== 'large' ? '6px' : '2px',
     }
   };
 
@@ -261,12 +256,7 @@ class Select extends PureComponent {
     );
   };
 
-  handleChange = values => {
-    this.setState({ selectedOptions: values });
-  };
-
   render() {
-    const { selectedOptions } = this.state;
     const { components, ...others } = this.props;
     const rest = omit(others, ['size', 'inverse']);
 
@@ -277,9 +267,7 @@ class Select extends PureComponent {
           DropdownIndicator: this.getDropDownIndicator(),
           ...components,
         }}
-        onChange={this.handleChange}
         styles={this.getStyles()}
-        value={selectedOptions}
         {...rest}
       />
     );
