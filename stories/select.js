@@ -9,7 +9,7 @@ import { customOptions, groupedOptions, options } from "../static/data/select";
 
 const sizes = ['small', 'medium', 'large'];
 
-const CustomOption = ({ children, data, innerRef, innerProps, isFocused, isSelected, isDisabled }) => {
+const CustomOption = ({ children, data, innerProps, isFocused, isSelected, isDisabled }) => {
   const boxStyles = {
     backgroundColor: isFocused ? '#e4e4e6' : isSelected ? '#82828c' : '#fff',
     '&:active': {
@@ -22,7 +22,7 @@ const CustomOption = ({ children, data, innerRef, innerProps, isFocused, isSelec
   };
 
   return (
-    <Box paddingVertical={2} paddingHorizontal={2} display="flex" alignItems="center" ref={innerRef} {...innerProps} style={boxStyles}>
+    <Box paddingVertical={2} paddingHorizontal={2} display="flex" alignItems="center" {...innerProps} style={boxStyles}>
       <Avatar image={data.avatar} size="tiny" marginRight={2} />
       <TextBody style={textStyles}>{children}</TextBody>
     </Box>
