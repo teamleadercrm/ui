@@ -230,20 +230,20 @@ class Select extends PureComponent {
   };
 
   getStyles = () => ({
-    clearIndicator: base => this.getClearIndicatorStyles(base),
-    control: (base, { isDisabled, isFocused }) => this.getControlStyles(base, { isDisabled, isFocused }),
-    group: base => this.getGroupStyles(base),
-    groupHeading: base => this.getGroupHeadingStyles(base),
-    indicatorSeparator: (base, { isDisabled }) => this.getIndicatorSeparatorStyles(base, { isDisabled }),
-    input: base => this.getInput(base),
-    menu: base => this.getMenuStyles(base),
-    multiValue: base => this.getMultiValueStyles(base),
-    multiValueLabel: base => this.getMultiValueLabelStyles(base),
-    multiValueRemove: base => this.getMultiValueRemoveStyles(base),
-    option: (base, { isDisabled, isFocused, isSelected }) => this.getOptionStyles(base, { isDisabled, isFocused, isSelected }),
-    placeholder: (base, { isDisabled, isMulti }) => this.getPlaceholderStyles(base, { isDisabled, isMulti }),
-    singleValue: base => this.getSingleValueStyles(base),
-    valueContainer: (base, { isMulti }) => this.getValueContainerStyles(base, { isMulti }),
+    clearIndicator: this.getClearIndicatorStyles,
+    control: this.getControlStyles,
+    group: this.getGroupStyles,
+    groupHeading: this.getGroupHeadingStyles,
+    indicatorSeparator: this.getIndicatorSeparatorStyles,
+    input: this.getInput,
+    menu: this.getMenuStyles,
+    multiValue: this.getMultiValueStyles,
+    multiValueLabel: this.getMultiValueLabelStyles,
+    multiValueRemove: this.getMultiValueRemoveStyles,
+    option: this.getOptionStyles,
+    placeholder:  this.getPlaceholderStyles,
+    singleValue: this.getSingleValueStyles,
+    valueContainer: this.getValueContainerStyles,
   });
 
   getDropDownIndicator = () => ({ isDisabled }) => {
