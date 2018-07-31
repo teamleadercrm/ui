@@ -105,6 +105,16 @@ class Select extends PureComponent {
     }
   };
 
+  getInput = base => {
+    const { size } = this.props;
+    const { selectedOptions } = this.state;
+
+    return {
+      ...base,
+      marginLeft: selectedOptions.length === 0 && size !== 'large' ? '6px' : '2px',
+    }
+  };
+
   getMenuStyles = base => ({
     ...base,
     backgroundColor: this.props.inverse ? '#64788f' : '#fff',
@@ -225,6 +235,7 @@ class Select extends PureComponent {
     group: (base) => this.getGroupStyles(base),
     groupHeading: (base) => this.getGroupHeadingStyles(base),
     indicatorSeparator: (base, { isDisabled }) => this.getIndicatorSeparatorStyles(base, { isDisabled }),
+    input: (base) => this.getInput(base),
     menu: (base) => this.getMenuStyles(base),
     multiValue: (base) => this.getMultiValueStyles(base),
     multiValueLabel: (base) => this.getMultiValueLabelStyles(base),
