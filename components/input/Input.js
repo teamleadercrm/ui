@@ -107,7 +107,7 @@ export default class Input extends PureComponent {
   updateStep(event, n) {
     const { step } = this.props;
     const { value = 0 } = this.state;
-    this.updateValue(event, (value + step * n));
+    this.updateValue(event, value + step * n);
   }
 
   renderInput() {
@@ -183,12 +183,14 @@ export default class Input extends PureComponent {
 
   renderValidationMessage() {
     return (
-      <Box marginTop={2} display="flex" alignItems="center">
-        <IconWarningBadgedSmallFilled className={theme['validation-icon']} />
-        <TextSmall className={theme['validation-text']} element="span" marginLeft={1}>
+      <TextSmall className={theme['validation-text']} marginTop={2} display="flex">
+        <Box element="span" className={theme['validation-icon']}>
+          <IconWarningBadgedSmallFilled />
+        </Box>
+        <Box element="span" marginLeft={1}>
           {this.props.meta.error}
-        </TextSmall>
-      </Box>
+        </Box>
+      </TextSmall>
     );
   }
 

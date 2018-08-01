@@ -1,34 +1,21 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import Transition from 'react-transition-group/Transition';
 import cx from 'classnames';
 import { IconButton, LinkButton } from '../button';
 import { TextBody } from '../typography';
 import LoadingSpinner from '../loadingSpinner';
-import { createPortal } from 'react-dom';
 import { IconCloseMediumOutline } from '@teamleader/ui-icons';
 import theme from './theme.css';
 
 class Toast extends PureComponent {
-  toastRoot = document.createElement('div');
-
   componentDidMount() {
-    document.body.appendChild(this.toastRoot);
-
-    if (this.props.active && this.props.timeout) {
+    if (this.props.timeout) {
       this.scheduleTimeout(this.props);
-    }
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.active && nextProps.timeout) {
-      this.scheduleTimeout(nextProps);
     }
   }
 
   componentWillUnmount() {
     clearTimeout(this.currentTimeout);
-    document.body.removeChild(this.toastRoot);
   }
 
   scheduleTimeout = props => {
@@ -75,41 +62,36 @@ class Toast extends PureComponent {
     );
   };
 
+  handleMouseEnter = () => {
+    if (this.props.timeout) {
+      clearTimeout(this.currentTimeout);
+      this.currentTimeout = null;
+    }
+  };
+
+  handleMouseLeave = () => {
+    if (this.props.timeout) {
+      this.scheduleTimeout(this.props);
+    }
+  };
+
   render() {
-    const { active, children, className, label, processing } = this.props;
+    const { children, className, label, processing } = this.props;
 
-    const toast = (
-      <Transition in={active} timeout={{ enter: 0, exit: 1000 }}>
-        {state => {
-          if (state === 'exited') {
-            return null;
-          }
+    const classNames = cx(theme['toast'], className);
 
-          const classNames = cx(
-            theme['toast'],
-            {
-              [theme['is-entering']]: state === 'entering',
-              [theme['is-entered']]: state === 'entered',
-              [theme['is-exiting']]: state === 'exiting',
-            },
-            className,
-          );
-
-          return (
-            <div data-teamleader-ui="toast" className={classNames}>
-              {processing && <LoadingSpinner className={theme['spinner']} color="white" />}
-              <TextBody className={theme['label']} color="white">
-                {label}
-                {children}
-              </TextBody>
-              {this.renderCustomAction() || this.renderCustomLink() || this.renderCloseButton()}
-            </div>
-          );
-        }}
-      </Transition>
+    return (
+      <div data-teamleader-ui="toast" onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
+        <div className={classNames}>
+          {processing && <LoadingSpinner className={theme['spinner']} color="white" />}
+          <TextBody className={theme['label']} color="white">
+            {label}
+            {children}
+          </TextBody>
+          {this.renderCustomAction() || this.renderCustomLink() || this.renderCloseButton()}
+        </div>
+      </div>
     );
-
-    return createPortal(toast, this.toastRoot);
   }
 }
 
@@ -118,8 +100,6 @@ Toast.propTypes = {
   action: PropTypes.func,
   /** The label for the custom action you want to show */
   actionLabel: PropTypes.string,
-  /** Show or hide the Toast  */
-  active: PropTypes.bool,
   /** The content to display inside the Toast */
   children: PropTypes.node,
   /** A class name for the Toast to give custom styles. */

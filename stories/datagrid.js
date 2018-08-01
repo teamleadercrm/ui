@@ -2,7 +2,7 @@ import React from 'react';
 import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
-import { withKnobs, boolean, number } from '@storybook/addon-knobs/react';
+import { withKnobs, boolean, number, select } from '@storybook/addon-knobs/react';
 import { withInfo } from '@storybook/addon-info';
 import { DataGrid, Heading4, IconMenu, MenuItem, Link, StatusBullet, TextSmall, Tooltip } from '../components';
 import { rows1, rows2 } from '../static/data/datagrid';
@@ -23,7 +23,12 @@ storiesOf('DataGrids', module)
   .addDecorator(checkA11y)
   .addDecorator(withKnobs)
   .add('Basic', () => (
-    <DataGrid selectable={boolean('Selectable', true)} comparableId={1} onSelectionChange={handleRowSelectionChange}>
+    <DataGrid
+      selectable={boolean('Selectable', true)}
+      comparableId={1}
+      onSelectionChange={handleRowSelectionChange}
+      checkboxSize={select('Checkbox size', ['small', 'medium', 'large'], 'small')}
+    >
       <DataGrid.HeaderRow>
         <DataGrid.HeaderCell flex="min-width" />
         <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} sorted="asc">

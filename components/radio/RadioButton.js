@@ -7,7 +7,7 @@ import Box from '../box';
 import { TextBody, TextDisplay, TextSmall } from '../typography';
 
 class RadioButton extends PureComponent {
-  handleToggle = (event) => {
+  handleToggle = event => {
     const { disabled, checked, onChange } = this.props;
 
     if (event.pageX !== 0 && event.pageY !== 0) {

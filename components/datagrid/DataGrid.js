@@ -39,7 +39,7 @@ class DataGrid extends PureComponent {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.comparableId !== this.props.comparableId) {
-      this.handleSelectionChange();
+      this.handleSelectionChange([]);
 
       this.setState({
         selectedRows: [],
@@ -108,7 +108,7 @@ class DataGrid extends PureComponent {
   };
 
   render() {
-    const { children, className, selectable, stickyFromLeft, stickyFromRight, ...others } = this.props;
+    const { checkboxSize, children, className, selectable, stickyFromLeft, stickyFromRight, ...others } = this.props;
     const { selectedRows } = this.state;
 
     const classNames = cx(theme['data-grid'], className);
@@ -119,6 +119,9 @@ class DataGrid extends PureComponent {
       [theme['has-border-right']]: selectable || stickyFromLeft > 0,
     });
 
+    const numberOfBodyRows = React.Children.toArray(children).filter(child => isComponentOfType(BodyRow, child)).length;
+    const isPartiallySelected = selectedRows.length > 0 && selectedRows.length !== numberOfBodyRows;
+
     return (
       <Box data-teamleader-ui="data-grid" className={classNames} {...rest}>
         {(selectable || stickyFromLeft > 0) && (
@@ -126,13 +129,16 @@ class DataGrid extends PureComponent {
             {React.Children.map(children, child => {
               if (isComponentOfType(HeaderRow, child)) {
                 return React.cloneElement(child, {
+                  checkboxSize: checkboxSize,
                   onSelectionChange: event => this.handleHeaderRowSelectionChange(event),
                   selected: selectedRows.length === children[1].length,
                   selectable,
                   sliceTo: stickyFromLeft > 0 ? stickyFromLeft : 0,
+                  partiallySelected: isPartiallySelected,
                 });
               } else if (isComponentOfType(BodyRow, child)) {
                 return React.cloneElement(child, {
+                  checkboxSize: checkboxSize,
                   onSelectionChange: () => this.handleBodyRowSelectionChange(child.key),
                   selected: selectedRows.indexOf(child.key) !== -1,
                   selectable,
@@ -173,6 +179,7 @@ class DataGrid extends PureComponent {
 }
 
 DataGrid.propTypes = {
+  checkboxSize: PropTypes.oneOf(['small', 'medium', 'large']),
   children: PropTypes.node,
   className: PropTypes.string,
   comparableId: PropTypes.any,
@@ -180,6 +187,10 @@ DataGrid.propTypes = {
   stickyFromLeft: PropTypes.number,
   stickyFromRight: PropTypes.number,
   onSelectionChange: PropTypes.func,
+};
+
+DataGrid.defaultProps = {
+  checkboxSize: 'small',
 };
 
 DataGrid.HeaderRow = HeaderRow;

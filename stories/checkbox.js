@@ -39,4 +39,11 @@ storiesOf('Checkboxes', module)
         inside
       </TextBody>
     </Checkbox>
+  ))
+  .add('With indeterminate state', () => (
+    <Checkbox
+      partiallySelected={boolean('Indeterminate', false)}
+      label={text('Label', 'I am the label')}
+      size={select('Size', sizes, 'medium')}
+    />
   ));

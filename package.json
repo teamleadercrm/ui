@@ -1,7 +1,7 @@
 {
   "name": "@teamleader/ui",
   "description": "Teamleader UI library",
-  "version": "0.10.0",
+  "version": "0.11.1",
   "author": "Teamleader <development@teamleader.eu>",
   "betterScripts": {
     "compile": {
@@ -132,7 +132,7 @@
     "postcss-nested": "^3.0.0",
     "postcss-pseudoelements": "^5.0.0",
     "postcss-reporter": "^5.0.0",
-    "prettier": "1.4.4",
+    "prettier": "1.13.7",
     "pretty-quick": "1.6.0",
     "proptypes": "^1.1.0",
     "react-hot-loader": "^3.0.0-beta.6",
@@ -174,6 +174,7 @@
     "lint": "eslint components stories",
     "lint:fix": "npm run lint -- --fix",
     "precommit": "pretty-quick --staged",
+    "prettier": "prettier --write '**/*.{js,json,md,css}'",
     "prepare": "npm run build",
     "start": "better-npm-run start",
     "storybook": "better-npm-run storybook",

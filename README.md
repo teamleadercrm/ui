@@ -19,10 +19,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Button } from '@teamleader/ui';
 
-ReactDOM.render(
-  <Button label="Hello World!" />,
-  document.getElementById('app')
-);
+ReactDOM.render(<Button label="Hello World!" />, document.getElementById('app'));
 ```
 
 ## Contributing
@@ -39,8 +36,6 @@ $ npm start -- --port 3000
 ```
 
 Open up a browser and the local spec will be available at [http://localhost:3000/](http://localhost:3000/).
-
-
 
 ## License
 

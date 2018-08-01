@@ -24,7 +24,8 @@
   text-decoration: none;
   transition: background-color var(--animation-duration) var(--animation-curve-fast-out-slow-in),
     border-color var(--animation-duration) var(--animation-curve-fast-out-slow-in),
-    color var(--animation-duration) var(--animation-curve-fast-out-slow-in);
+    color var(--animation-duration) var(--animation-curve-fast-out-slow-in),
+    opacity var(--animation-duration) var(--animation-curve-fast-out-slow-in);
   user-select: none;
   white-space: nowrap;
   vertical-align: middle;
@@ -333,7 +334,6 @@
 .secondary {
   &[disabled] {
     background-color: var(--color-neutral);
-    border: 1px solid var(--color-neutral);
     color: var(--color-neutral-dark);
   }
 }
@@ -404,16 +404,14 @@
 
 .destructive {
   color: var(--color-neutral-lightest);
+  background-color: var(--color-ruby);
+  border: 1px solid var(--color-ruby-dark);
 
   &[disabled] {
-    background-color: var(--color-ruby-lightest);
-    border: 1px solid var(--color-ruby-lightest);
+    opacity: 0.24;
   }
 
   &:not([disabled]) {
-    background-color: var(--color-ruby);
-    border: 1px solid var(--color-ruby-dark);
-
     &:hover {
       background-color: var(--color-ruby-dark);
       border: 1px solid var(--color-ruby-darkest);
@@ -525,7 +523,7 @@
     border-radius: var(--button-border-radius) 0 0 var(--button-border-radius);
     margin-left: 0;
   }
- 
+
   > *:last-child:not(:only-child) {
     border-radius: 0 var(--button-border-radius) var(--button-border-radius) 0;
   }

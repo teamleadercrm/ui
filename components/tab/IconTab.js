@@ -6,7 +6,7 @@ import theme from './theme.css';
 import omit from 'lodash.omit';
 
 class IconTab extends PureComponent {
-  handleClick = (event) => {
+  handleClick = event => {
     if (this.props.onClick) {
       this.props.onClick(event);
     }

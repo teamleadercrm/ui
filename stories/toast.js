@@ -4,25 +4,97 @@ import { storiesOf } from '@storybook/react';
 import { Store, State } from '@sambego/storybook-state';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
-import { Button, Toast, Link } from '../components';
+import { withKnobs } from '@storybook/addon-knobs/react';
+import { Button, Toast, Link, ToastContainer } from '../components';
 
 const store = new Store({
-  active: false,
+  children: [],
 });
 
-const handleButtonClick = () => {
-  store.set({ active: true });
-};
-
-const handleToastCloseButtonClick = () => {
-  store.set({ active: false });
-};
-
-const handleToastTimeout = () => {
-  store.set({ active: false });
-};
+let key = 0;
 
 const handleCustomAction = () => true;
+
+const handleRemoveToast = keyToRemove => {
+  const currentChildren = store.get('children');
+  store.set({
+    children: currentChildren.filter(child => child.key !== String(keyToRemove)),
+  });
+};
+
+const handleAddToastWithClose = () => {
+  const currentChildren = store.get('children');
+  const toastKey = key++;
+  const toast = (
+    <Toast
+      key={toastKey}
+      label="Toast label"
+      onClose={() => handleRemoveToast(toastKey)}
+      timeout={3000}
+      onTimeout={() => handleRemoveToast(toastKey)}
+    />
+  );
+  store.set({ children: [...currentChildren, toast] });
+};
+
+const handleAddToastWithAction = () => {
+  const currentChildren = store.get('children');
+  const toastKey = key++;
+  const toast = (
+    <Toast
+      key={toastKey}
+      label="Toast label"
+      onClose={() => handleRemoveToast(toastKey)}
+      timeout={3000}
+      onTimeout={() => handleRemoveToast(toastKey)}
+      actionLabel="confirm"
+      action={handleCustomAction}
+    />
+  );
+  store.set({ children: [...currentChildren, toast] });
+};
+
+const handleAddToastWithLink = () => {
+  const currentChildren = store.get('children');
+  const toastKey = key++;
+  const toast = (
+    <Toast
+      key={toastKey}
+      label="Toast label"
+      onClose={() => handleRemoveToast(toastKey)}
+      timeout={3000}
+      onTimeout={() => handleRemoveToast(toastKey)}
+      link={<Link href="https://www.teamleader.be">link</Link>}
+    />
+  );
+  store.set({ children: [...currentChildren, toast] });
+};
+
+const handleAddToastWithMultilineLabel = () => {
+  const currentChildren = store.get('children');
+  const toastKey = key++;
+  const toast = (
+    <Toast
+      key={toastKey}
+      label="Connection timed out. Showing limited amount of messages."
+      onClose={() => handleRemoveToast(toastKey)}
+      timeout={3000}
+      onTimeout={() => handleRemoveToast(toastKey)}
+      actionLabel="Try again"
+      action={handleCustomAction}
+    />
+  );
+  store.set({ children: [...currentChildren, toast] });
+};
+
+const handleAddToastWithSpinner = () => {
+  const currentChildren = store.get('children');
+  const toastKey = key++;
+  const toast = (
+    <Toast key={toastKey} label="Working..." timeout={3000} onTimeout={() => handleRemoveToast(toastKey)} processing />
+  );
+  store.set({ children: [...currentChildren, toast] });
+};
 
 storiesOf('Toast', module)
   .addDecorator((story, context) =>
@@ -32,79 +104,44 @@ storiesOf('Toast', module)
     })(story)(context),
   )
   .addDecorator(checkA11y)
-  .add('with close button', () => (
+  .addDecorator(withKnobs)
+  .add('with close button', () =>
     <div>
-      <Button label="Make a toast" onClick={handleButtonClick} />
+      <Button label="Make a toast" onClick={handleAddToastWithClose} />
       <State store={store}>
-        <Toast
-          active={false}
-          label="Toast label"
-          timeout={3000}
-          onClose={handleToastCloseButtonClick}
-          onTimeout={handleToastTimeout}
-        />
+        <ToastContainer children={[]} />
       </State>
-    </div>
-  ))
-  .add('with custom action', () => (
+    </div>,
+  )
+  .add('with custom action', () =>
     <div>
-      <Button label="Make a toast" onClick={handleButtonClick} />
+      <Button label="Make a toast" onClick={handleAddToastWithAction} />
       <State store={store}>
-        <Toast
-          actionLabel="Confirm"
-          action={handleCustomAction}
-          active={false}
-          label="Toast label"
-          timeout={3000}
-          onClose={handleToastCloseButtonClick}
-          onTimeout={handleToastTimeout}
-        />
+        <ToastContainer children={[]} />
       </State>
-    </div>
-  ))
-  .add('with custom link', () => (
+    </div>,
+  )
+  .add('with custom link', () =>
     <div>
-      <Button label="Make a toast" onClick={handleButtonClick} />
+      <Button label="Make a toast" onClick={handleAddToastWithLink} />
       <State store={store}>
-        <Toast
-          link={<Link href="https://www.teamleader.be">link</Link>}
-          active={false}
-          label="Toast label"
-          timeout={3000}
-          onClose={handleToastCloseButtonClick}
-          onTimeout={handleToastTimeout}
-        />
+        <ToastContainer children={[]} />
       </State>
-    </div>
-  ))
-  .add('with multiline label', () => (
+    </div>,
+  )
+  .add('with multiline label', () =>
     <div>
-      <Button label="Make a toast" onClick={handleButtonClick} />
+      <Button label="Make a toast" onClick={handleAddToastWithMultilineLabel} />
       <State store={store}>
-        <Toast
-          action={handleCustomAction}
-          actionLabel="Try again"
-          active={false}
-          label="Connection timed out. Showing limited amount of messages."
-          timeout={3000}
-          onClose={handleToastCloseButtonClick}
-          onTimeout={handleToastTimeout}
-        />
+        <ToastContainer children={[]} />
       </State>
-    </div>
-  ))
-  .add('with loading spinner', () => (
+    </div>,
+  )
+  .add('with loading spinner', () =>
     <div>
-      <Button label="Make a toast" onClick={handleButtonClick} />
+      <Button label="Make a toast" onClick={handleAddToastWithSpinner} />
       <State store={store}>
-        <Toast
-          active={false}
-          label="Working..."
-          timeout={3000}
-          onClose={handleToastCloseButtonClick}
-          onTimeout={handleToastTimeout}
-          processing
-        />
+        <ToastContainer children={[]} />
       </State>
-    </div>
-  ));
+    </div>,
+  );

@@ -27,7 +27,7 @@
 
   .shape {
     box-sizing: border-box;
-    background-color: var(--color-neutral-light);
+    background-color: var(--color-neutral-lightest);
     border: var(--checkbox-border-width) solid var(--color-neutral-dark);
     border-radius: 4px;
     color: var(--color-white);
@@ -42,7 +42,7 @@
     transition-timing-function: var(--animation-curve-default);
   }
 
-  .checkmark {
+  .icon {
     transform: scale(0);
     opacity: 0;
     transition: all var(--animation-duration) var(--animation-curve-default);
@@ -66,7 +66,7 @@
       border-color: var(--color-mint-darkest);
     }
 
-    .checkmark {
+    .icon {
       transform: scale(1);
       opacity: 1;
     }
