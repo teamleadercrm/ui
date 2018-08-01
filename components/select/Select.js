@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import omit from 'lodash.omit';
 import { IconChevronDownSmallOutline } from '@teamleader/ui-icons';
 import { Button } from '../button';
+import { colors } from './constants';
 import theme from './theme.css';
 
 class Select extends PureComponent {
@@ -12,9 +13,9 @@ class Select extends PureComponent {
 
     return {
       ...base,
-      color: inverse ? '#e1ecfa' : '#344b63',
+      color: inverse ? colors.TEAL_LIGHTEST : colors.TEAL_DARK,
       '&:hover': {
-        color: inverse ? '#fff' : '#2a3b4d',
+        color: inverse ? colors.NEUTRAL_LIGHTEST : colors.TEAL_DARKEST,
       },
       svg: {
         height: '14px',
@@ -34,23 +35,23 @@ class Select extends PureComponent {
     if (inverse) {
       return {
         ...commonStyles,
-        backgroundColor: isDisabled ? '#3F4F61' : '#64788f',
+        backgroundColor: isDisabled ? colors.TEAL_DARK : colors.TEAL,
         '&:hover': {
-          borderColor: '#c1cede',
+          borderColor: colors.TEAL_LIGHT,
         },
-        borderColor: isFocused ? '#c1cede' : isDisabled ? '#3F4F61' : '#64788f',
-        boxShadow: isFocused ? '0 0 0 1px #c1cede' : 'none',
+        borderColor: isFocused ? colors.TEAL_LIGHT : isDisabled ? colors.TEAL_DARK : colors.TEAL,
+        boxShadow: isFocused ? `0 0 0 1px ${colors.TEAL_LIGHT}` : 'none',
       };
     }
 
     return {
       ...commonStyles,
-      backgroundColor: isDisabled ? '#e4e4e6' : '#fff',
+      backgroundColor: isDisabled ? colors.NEUTRAL : colors.NEUTRAL_LIGHTEST,
       '&:hover': {
-        borderColor: '#82828c',
+        borderColor: colors.NEUTRAL_DARKEST,
       },
-      borderColor: isFocused ? '#82828c' : isDisabled ? '#e4e4e6' : '#c0c0c4',
-      boxShadow: isFocused ? '0 0 0 1px #82828c' : 'none',
+      borderColor: isFocused ? colors.NEUTRAL_DARKEST : isDisabled ? colors.NEUTRAL : colors.NEUTRAL_DARK,
+      boxShadow: isFocused ? `0 0 0 1px ${colors.NEUTRAL_DARKEST}` : 'none',
     };
   };
 
@@ -59,7 +60,7 @@ class Select extends PureComponent {
 
     return {
       ...base,
-      borderBottomColor: inverse ? '#c1cede' : '#e4e4e6',
+      borderBottomColor: inverse ? colors.TEAL_LIGHT : colors.NEUTRAL,
       borderBottomStyle: 'solid',
       borderBottomWidth: '1px',
       '&:last-child': {
@@ -73,7 +74,7 @@ class Select extends PureComponent {
 
     return {
       ...base,
-      color: inverse ? '#fff' : '#2a3b4d',
+      color: inverse ? colors.NEUTRAL_LIGHTEST : colors.TEAL_DARKEST,
       fontSize: '12px',
       fontWeight: '700',
       letterSpacing: '0.6px',
@@ -91,13 +92,13 @@ class Select extends PureComponent {
     if (this.props.inverse) {
       return {
         ...commonStyles,
-        backgroundColor: isDisabled ? '#3F4F61' : '#64788f',
+        backgroundColor: isDisabled ? colors.TEAL_DARK : colors.TEAL,
       };
     }
 
     return {
       ...commonStyles,
-      backgroundColor: isDisabled ? '#e4e4e6' : '#c0c0c4',
+      backgroundColor: isDisabled ? colors.NEUTRAL : colors.NEUTRAL_DARK,
     };
   };
 
@@ -112,7 +113,7 @@ class Select extends PureComponent {
 
   getMenuStyles = base => ({
     ...base,
-    backgroundColor: this.props.inverse ? '#64788f' : '#fff',
+    backgroundColor: this.props.inverse ? colors.TEAL : colors.NEUTRAL_LIGHTEST,
   });
 
   getMultiValueStyles = base => {
@@ -120,8 +121,8 @@ class Select extends PureComponent {
 
     return {
       ...base,
-      backgroundColor: inverse ? '#435262' : '#f0f0f1',
-      borderColor: inverse ? '#8597a7' : '#e3e3e5',
+      backgroundColor: inverse ? colors.TEAL_DARK : colors.NEUTRAL_LIGHT,
+      borderColor: inverse ? colors.TEAL_DARK : colors.NEUTRAL,
       borderStyle: 'solid',
       borderWidth: '1px',
       borderRadius: '4px',
@@ -133,9 +134,9 @@ class Select extends PureComponent {
 
     return {
       ...base,
-      backgroundColor: inverse ? '#435262' : '#f0f0f1',
+      backgroundColor: inverse ? colors.TEAL_DARK : colors.NEUTRAL_LIGHT,
       borderRadius: '4px 0 0 4px',
-      color: inverse ? '#fff' : '#2a3b4d',
+      color: inverse ? colors.NEUTRAL_LIGHTEST : colors.TEAL_DARKEST,
       fontFamily: 'Inter-UI-Medium',
       fontSize: size === 'small' ? '12px' : '14px',
       lineHeight: size === 'small' ? '1' : '18px',
@@ -148,12 +149,12 @@ class Select extends PureComponent {
 
     return {
       ...base,
-      backgroundColor: inverse ? '#435262' : '#f0f0f1',
+      backgroundColor: inverse ? colors.TEAL_DARK : colors.NEUTRAL_LIGHT,
       borderRadius: '0 4px 4px 0',
-      color: inverse ? '#fff' : '#2a3b4d',
+      color: inverse ? colors.NEUTRAL_LIGHTEST : colors.TEAL_DARKEST,
       '&:hover': {
-        backgroundColor: inverse ? '#596775' : '#e4e4e6',
-        color: inverse ? '#fff' : '#2a3b4d',
+        backgroundColor: inverse ? colors.TEAL_DARKEST : colors.NEUTRAL,
+        color: inverse ? colors.NEUTRAL_LIGHTEST : colors.TEAL_DARKEST,
       },
       paddingLeft: '6px',
       paddingRight: '6px',
@@ -170,20 +171,20 @@ class Select extends PureComponent {
     if (this.props.inverse) {
       return {
         ...commonStyles,
-        color: isDisabled ? '#c1cede' : isFocused ? '#344b63' : '#fff',
-        backgroundColor: isFocused ? '#c1cede' : isSelected ? '#344b63' : '#64788f',
+        color: isDisabled ? colors.TEAL_LIGHT : isFocused ? colors.TEAL_DARK : colors.NEUTRAL_LIGHTEST,
+        backgroundColor: isFocused ? colors.TEAL_LIGHT : isSelected ? colors.TEAL_DARK : colors.TEAL,
         '&:active': {
-          backgroundColor: isDisabled ? '#64788f' : '#344b63',
+          backgroundColor: isDisabled ? colors.TEAL : colors.TEAL_DARK,
         },
       };
     }
 
     return {
       ...commonStyles,
-      color: isDisabled ? '#c0c0c4' : isSelected && !isFocused ? '#fff' : '#344b63',
-      backgroundColor: isFocused ? '#e4e4e6' : isSelected ? '#82828c' : '#fff',
+      color: isDisabled ? colors.NEUTRAL_DARK : isSelected && !isFocused ? colors.NEUTRAL_LIGHTEST : colors.TEAL_DARK,
+      backgroundColor: isFocused ? colors.NEUTRAL : isSelected ? colors.NEUTRAL_DARKEST : colors.NEUTRAL_LIGHTEST,
       '&:active': {
-        backgroundColor: isDisabled ? '#fff' : '#e4e4e6',
+        backgroundColor: isDisabled ? colors.NEUTRAL_LIGHTEST : colors.NEUTRAL,
       },
     };
   };
@@ -200,19 +201,19 @@ class Select extends PureComponent {
     if (inverse) {
       return {
         ...commonStyles,
-        color: isDisabled ? '#64788f' : '#c1cede',
+        color: isDisabled ? colors.TEAL : colors.TEAL_LIGHT,
       };
     }
 
     return {
       ...commonStyles,
-      color: '#82828c',
+      color: colors.NEUTRAL_DARKEST,
     };
   };
 
   getSingleValueStyles = base => ({
     ...base,
-    color: this.props.inverse ? '#fff' : '#2a3b4d',
+    color: this.props.inverse ? colors.NEUTRAL_LIGHTEST : colors.TEAL_DARKEST,
   });
 
   getValueContainerStyles = (base, { isMulti }) => {
