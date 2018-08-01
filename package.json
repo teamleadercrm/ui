@@ -176,7 +176,7 @@
     "prettier": "prettier --write '**/*.{js,json,md,css}'",
     "prepare": "npm run build",
     "start": "better-npm-run start",
-    "storybook": "better-npm-run storybook",
+    "start": "PORT=${PORT:-3000}; better-npm-run start --port $PORT",
     "build-storybook": " better-npm-run compile"
   }
 }
