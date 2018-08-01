@@ -12,6 +12,8 @@
 
 ### Fixed
 
+- `Button`: `margin` is set to 0, to fix Safari styling issue ([@LennertBlommaert](https://github.com/LennertBlommaert) in [#326](https://github.com/teamleadercrm/ui/pull/326))
+
 ## [0.11.1] - 2018-07-27
 
 ### Changed
