@@ -121,7 +121,6 @@ class Select extends PureComponent {
 
     return {
       ...base,
-      backgroundColor: inverse ? colors.TEAL_DARK : colors.NEUTRAL_LIGHT,
       borderColor: inverse ? colors.TEAL_DARK : colors.NEUTRAL,
       borderStyle: 'solid',
       borderWidth: '1px',
