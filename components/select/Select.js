@@ -17,6 +17,7 @@ class Select extends PureComponent {
       '&:hover': {
         color: inverse ? colors.NEUTRAL_LIGHTEST : colors.TEAL_DARKEST,
       },
+      cursor: 'pointer',
       svg: {
         height: '14px',
         width: '14px',
