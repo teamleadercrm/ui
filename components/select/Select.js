@@ -135,7 +135,7 @@ class Select extends PureComponent {
     return {
       ...base,
       backgroundColor: inverse ? colors.TEAL_DARK : colors.NEUTRAL_LIGHT,
-      borderRadius: '4px 0 0 4px',
+      borderRadius: 0,
       color: inverse ? colors.NEUTRAL_LIGHTEST : colors.TEAL_DARKEST,
       fontFamily: 'Inter-UI-Medium',
       fontSize: size === 'small' ? '12px' : '14px',
@@ -150,7 +150,7 @@ class Select extends PureComponent {
     return {
       ...base,
       backgroundColor: inverse ? colors.TEAL_DARK : colors.NEUTRAL_LIGHT,
-      borderRadius: '0 4px 4px 0',
+      borderRadius: 0,
       color: inverse ? colors.NEUTRAL_LIGHTEST : colors.TEAL_DARKEST,
       '&:hover': {
         backgroundColor: inverse ? colors.TEAL_DARKEST : colors.NEUTRAL,
