@@ -12,11 +12,11 @@ class Select extends PureComponent {
 
     return {
       ...base,
-      color: inverse ? '#e1ecfa': '#344b63',
+      color: inverse ? '#e1ecfa' : '#344b63',
       '&:hover': {
         color: inverse ? '#fff' : '#2a3b4d',
       },
-      'svg': {
+      svg: {
         height: '14px',
         width: '14px',
       },
@@ -31,7 +31,7 @@ class Select extends PureComponent {
       minHeight: size === 'small' ? '30px' : size === 'medium' ? '36px' : '48px',
     };
 
-    if(inverse) {
+    if (inverse) {
       return {
         ...commonStyles,
         backgroundColor: isDisabled ? '#3F4F61' : '#64788f',
@@ -88,7 +88,7 @@ class Select extends PureComponent {
       marginBottom: 0,
     };
 
-    if(this.props.inverse) {
+    if (this.props.inverse) {
       return {
         ...commonStyles,
         backgroundColor: isDisabled ? '#3F4F61' : '#64788f',
@@ -98,7 +98,7 @@ class Select extends PureComponent {
     return {
       ...commonStyles,
       backgroundColor: isDisabled ? '#e4e4e6' : '#c0c0c4',
-    }
+    };
   };
 
   getInput = base => {
@@ -107,7 +107,7 @@ class Select extends PureComponent {
     return {
       ...base,
       marginLeft: value && value.length === 0 && size !== 'large' ? '6px' : '2px',
-    }
+    };
   };
 
   getMenuStyles = base => ({
@@ -125,7 +125,7 @@ class Select extends PureComponent {
       borderStyle: 'solid',
       borderWidth: '1px',
       borderRadius: '4px',
-    }
+    };
   };
 
   getMultiValueLabelStyles = base => {
@@ -140,7 +140,7 @@ class Select extends PureComponent {
       fontSize: size === 'small' ? '12px' : '14px',
       lineHeight: size === 'small' ? '1' : '18px',
       padding: size === 'large' ? '9px' : '6px',
-    }
+    };
   };
 
   getMultiValueRemoveStyles = base => {
@@ -158,7 +158,7 @@ class Select extends PureComponent {
       paddingLeft: '6px',
       paddingRight: '6px',
       transition: 'background-color .35s cubic-bezier(.4, 0, .2, 1)',
-    }
+    };
   };
 
   getOptionStyles = (base, { isDisabled, isFocused, isSelected }) => {
@@ -167,7 +167,7 @@ class Select extends PureComponent {
       padding: '8px 12px',
     };
 
-    if(this.props.inverse) {
+    if (this.props.inverse) {
       return {
         ...commonStyles,
         color: isDisabled ? '#c1cede' : isFocused ? '#344b63' : '#fff',
@@ -197,17 +197,17 @@ class Select extends PureComponent {
       marginRight: isMulti && size !== 'large' ? '6px' : '2px',
     };
 
-    if(inverse) {
+    if (inverse) {
       return {
         ...commonStyles,
         color: isDisabled ? '#64788f' : '#c1cede',
-      }
+      };
     }
 
     return {
       ...commonStyles,
       color: '#82828c',
-    }
+    };
   };
 
   getSingleValueStyles = base => ({
@@ -221,7 +221,7 @@ class Select extends PureComponent {
     return {
       ...base,
       padding: isMulti && size !== 'large' ? '0' : '0 4px',
-    }
+    };
   };
 
   getStyles = () => ({
@@ -236,7 +236,7 @@ class Select extends PureComponent {
     multiValueLabel: this.getMultiValueLabelStyles,
     multiValueRemove: this.getMultiValueRemoveStyles,
     option: this.getOptionStyles,
-    placeholder:  this.getPlaceholderStyles,
+    placeholder: this.getPlaceholderStyles,
     singleValue: this.getSingleValueStyles,
     valueContainer: this.getValueContainerStyles,
   });
@@ -281,6 +281,8 @@ Select.propTypes = {
   inverse: PropTypes.bool,
   /** Size of the input element. */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
+  /** Selected option value(s) */
+  value: PropTypes.oneOfType([PropTypes.object, PropTypes.array, PropTypes.func]),
 };
 
 Select.defaultProps = {
