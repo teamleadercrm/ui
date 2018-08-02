@@ -65,7 +65,6 @@ class Menu extends PureComponent {
     if (this.state.active) {
       this.removeEvents();
     }
-    clearTimeout(this.activateTimeoutHandle);
   }
 
   addEvents() {
