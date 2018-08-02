@@ -57,7 +57,7 @@ class Menu extends PureComponent {
     }
 
     if (prevState.position !== this.state.position && this.state.position === POSITION.AUTO) {
-      this.setState({ position: this.calculatePosition });
+      this.setState({ position: this.calculatePosition() });
     }
   }
 
