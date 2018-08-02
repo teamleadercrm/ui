@@ -96,18 +96,22 @@ class Menu extends PureComponent {
   };
 
   handleSelect = (item, event) => {
+    const { onSelect } = this.props;
     const { value, onClick } = item.props;
+
+    if (onSelect) {
+      onSelect(value);
+    }
+
     if (onClick) {
       event.persist();
     }
-    this.setState({ active: false }, () => {
-      if (onClick) {
-        onClick(event);
-      }
-      if (this.props.onSelect) {
-        this.props.onSelect(value);
-      }
-    });
+
+    if (onClick) {
+      onClick(event);
+    }
+
+    this.hide();
   };
 
   calculatePosition() {
