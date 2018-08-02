@@ -187,8 +187,7 @@ class Menu extends PureComponent {
   }
 
   show() {
-    const { width, height } = this.menuNode.getBoundingClientRect();
-    this.setState({ active: true, width, height });
+    this.setState({ active: true });
   }
 
   hide() {
