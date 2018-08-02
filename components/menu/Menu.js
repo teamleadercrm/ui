@@ -156,23 +156,22 @@ class Menu extends PureComponent {
     }
   }
 
-  renderItems() {
+  getItems() {
+    const { children, selectable, selected } = this.props;
+
     // Because React Hot Loader creates proxied versions of your components,
     // comparing reference types of elements won't work
     // https://github.com/gaearon/react-hot-loader/blob/master/docs/Known%20Limitations.md#checking-element-types
     const MenuItemType = <MenuItem />.type;
 
-    return React.Children.map(this.props.children, item => {
+    return React.Children.map(children, item => {
       if (!item) {
         return item;
       }
 
       if (item.type === MenuItemType) {
         return React.cloneElement(item, {
-          selected:
-            typeof item.props.value !== 'undefined' &&
-            this.props.selectable &&
-            item.props.value === this.props.selected,
+          selected: typeof item.props.value !== 'undefined' && selectable && item.props.value === selected,
           onClick: this.handleSelect.bind(this, item),
         });
       } else {
@@ -213,7 +212,7 @@ class Menu extends PureComponent {
           className={theme['menu-inner']}
           style={this.getMenuStyle()}
         >
-          {this.renderItems()}
+          {this.getItems()}
         </ul>
       </div>
     );
