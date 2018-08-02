@@ -15,10 +15,14 @@ class Overlay extends PureComponent {
     }
   }
 
-  componentWillUpdate(nextProps) {
+  componentDidUpdate(prevProps) {
+    if (this.props.active && !prevProps.active && this.props.onEscKeyDown) {
+      document.body.addEventListener('keydown', this.handleEscKey);
+    }
+
     if (this.props.lockScroll) {
-      const becomingActive = nextProps.active && !this.props.active;
-      const becomingUnactive = !nextProps.active && this.props.active;
+      const becomingActive = this.props.active && !prevProps.active;
+      const becomingUnactive = !this.props.active && prevProps.active;
 
       if (becomingActive) {
         document.body.style.overflow = 'hidden';
@@ -27,12 +31,6 @@ class Overlay extends PureComponent {
       if (becomingUnactive && !document.querySelectorAll('[data-teamleader-ui="overlay"]')[1]) {
         document.body.style.overflow = '';
       }
-    }
-  }
-
-  componentDidUpdate(prevProps) {
-    if (this.props.active && !prevProps.active && this.props.onEscKeyDown) {
-      document.body.addEventListener('keydown', this.handleEscKey);
     }
   }
 
