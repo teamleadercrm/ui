@@ -140,8 +140,10 @@ class Menu extends PureComponent {
   }
 
   getRootStyle() {
-    if (this.state.position !== POSITION.STATIC) {
-      return { width: this.state.width, height: this.state.height };
+    const { width, height, position } = this.state;
+
+    if (position !== POSITION.STATIC) {
+      return { width, height };
     }
   }
 
