@@ -3,23 +3,13 @@ import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
-import {
-  Box,
-  Heading1,
-  Heading2,
-  Heading3,
-  Heading4,
-  Monospaced,
-  TextBody,
-  TextDisplay,
-  TextSmall,
-} from '../components';
+import { Heading1, Heading2, Heading3, Heading4, Monospaced, TextBody, TextDisplay, TextSmall } from '../components';
 
 storiesOf('Typography', module)
   .addDecorator((story, context) =>
     withInfo({
       TableComponent: PropTable,
-      propTablesExclude: [Box],
+      propTablesExclude: [],
     })(story)(context),
   )
   .addDecorator(checkA11y)
