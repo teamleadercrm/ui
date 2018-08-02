@@ -112,13 +112,17 @@ class Menu extends PureComponent {
 
   calculatePosition() {
     const parentNode = ReactDOM.findDOMNode(this).parentNode;
+
     if (!parentNode) {
       return;
     }
+
     const { top, left, height, width } = parentNode.getBoundingClientRect();
-    const { height: wh, width: ww } = getViewport();
-    const toTop = top < wh / 2 - height / 2;
-    const toLeft = left < ww / 2 - width / 2;
+    const { height: vh, width: vw } = getViewport();
+
+    const toTop = top < vh / 2 - height / 2;
+    const toLeft = left < vw / 2 - width / 2;
+
     return `${toTop ? 'top' : 'bottom'}${toLeft ? 'Left' : 'Right'}`;
   }
 
