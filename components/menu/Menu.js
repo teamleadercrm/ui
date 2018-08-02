@@ -61,6 +61,30 @@ class Menu extends PureComponent {
     }
   }
 
+  show() {
+    const { onShow } = this.props;
+
+    if (onShow) {
+      onShow();
+    }
+
+    this.setState({ active: true });
+
+    this.addEvents();
+  }
+
+  hide() {
+    const { onHide } = this.props;
+
+    if (onHide) {
+      onHide();
+    }
+
+    this.setState({ active: false });
+
+    this.removeEvents();
+  }
+
   componentWillUnmount() {
     if (this.state.active) {
       this.removeEvents();
@@ -122,6 +146,14 @@ class Menu extends PureComponent {
     return `${toTop ? 'top' : 'bottom'}${toLeft ? 'Left' : 'Right'}`;
   }
 
+  getRootStyle() {
+    const { width, height, position } = this.state;
+
+    if (position !== POSITION.STATIC) {
+      return { width, height };
+    }
+  }
+
   getMenuStyle() {
     const { width, height, position } = this.state;
     if (position !== POSITION.STATIC) {
@@ -136,14 +168,6 @@ class Menu extends PureComponent {
       } else if (position === POSITION.TOP_LEFT) {
         return { clip: 'rect(0 0 0 0)' };
       }
-    }
-  }
-
-  getRootStyle() {
-    const { width, height, position } = this.state;
-
-    if (position !== POSITION.STATIC) {
-      return { width, height };
     }
   }
 
@@ -169,30 +193,6 @@ class Menu extends PureComponent {
         return React.cloneElement(item);
       }
     });
-  }
-
-  show() {
-    const { onShow } = this.props;
-
-    if (onShow) {
-      onShow();
-    }
-
-    this.setState({ active: true });
-
-    this.addEvents();
-  }
-
-  hide() {
-    const { onHide } = this.props;
-
-    if (onHide) {
-      onHide();
-    }
-
-    this.setState({ active: false });
-
-    this.removeEvents();
   }
 
   render() {
