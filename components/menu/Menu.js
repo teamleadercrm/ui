@@ -68,10 +68,7 @@ class Menu extends PureComponent {
 
   componentWillUpdate(nextProps, nextState) {
     if (!this.state.active && nextState.active) {
-      events.addEventsToDocument({
-        click: this.handleDocumentClick,
-        touchstart: this.handleDocumentClick,
-      });
+      this.addEvents();
     }
   }
 
@@ -80,10 +77,7 @@ class Menu extends PureComponent {
       if (this.props.onHide) {
         this.props.onHide();
       }
-      events.removeEventsFromDocument({
-        click: this.handleDocumentClick,
-        touchstart: this.handleDocumentClick,
-      });
+      this.removeEvents();
     } else if (!prevState.active && this.state.active && this.props.onShow) {
       this.props.onShow();
     }
@@ -91,13 +85,24 @@ class Menu extends PureComponent {
 
   componentWillUnmount() {
     if (this.state.active) {
-      events.removeEventsFromDocument({
-        click: this.handleDocumentClick,
-        touchstart: this.handleDocumentClick,
-      });
+      this.removeEvents();
     }
     clearTimeout(this.positionTimeoutHandle);
     clearTimeout(this.activateTimeoutHandle);
+  }
+
+  addEvents() {
+    events.addEventsToDocument({
+      click: this.handleDocumentClick,
+      touchstart: this.handleDocumentClick,
+    });
+  }
+
+  removeEvents() {
+    events.removeEventsFromDocument({
+      click: this.handleDocumentClick,
+      touchstart: this.handleDocumentClick,
+    });
   }
 
   handleDocumentClick = event => {
