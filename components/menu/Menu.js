@@ -17,9 +17,7 @@ const POSITION = {
 };
 
 class Menu extends PureComponent {
-  state = {
-    active: this.props.active,
-  };
+  state = {};
 
   componentDidMount() {
     const { width, height } = this.menuNode.getBoundingClientRect();
@@ -31,40 +29,35 @@ class Menu extends PureComponent {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (this.props.position !== nextProps.position) {
-      const position = nextProps.position === POSITION.AUTO ? this.calculatePosition() : nextProps.position;
-      this.setState({ position });
+  static getDerivedStateFromProps(props, state) {
+    const newStateSlice = {};
+
+    if (props.active !== state.active) {
+      newStateSlice.active = props.active;
     }
 
-    /**
-     * If the menu is going to be activated via props and its not active, verify
-     * the position is appropriated and then show it recalculating position if its
-     * wrong. It should be shown in two consecutive setState.
-     */
-    if (!this.props.active && nextProps.active && !this.state.active) {
-      if (nextProps.position === POSITION.AUTO) {
-        const position = this.calculatePosition();
-        if (this.state.position !== position) {
-          this.setState({ position, active: false }, () => {
-            this.activateTimeoutHandle = setTimeout(() => {
-              this.show();
-            }, 20);
-          });
-        } else {
-          this.show();
-        }
-      } else {
-        this.show();
-      }
+    if (props.position !== state.position) {
+      newStateSlice.position = props.position;
     }
 
-    /**
-     * If the menu is being deactivated via props and the current state is
-     * active, it should be hid.
-     */
-    if (this.props.active && !nextProps.active && this.state.active) {
+    if (newStateSlice.active || newStateSlice.position) {
+      return newStateSlice;
+    }
+
+    return null;
+  }
+
+  componentDidUpdate(prevState) {
+    if (prevState.active && !this.state.active) {
       this.hide();
+    }
+
+    if (!prevState.active && this.state.active) {
+      this.show();
+    }
+
+    if (prevState.position !== this.state.position && this.state.position === POSITION.AUTO) {
+      this.setState({ position: this.calculatePosition });
     }
   }
 
