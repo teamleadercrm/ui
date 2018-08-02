@@ -121,9 +121,6 @@ class Menu extends PureComponent {
 
     if (onClick) {
       event.persist();
-    }
-
-    if (onClick) {
       onClick(event);
     }
 
@@ -161,7 +158,7 @@ class Menu extends PureComponent {
       return this.getActiveMenuStyle();
     }
 
-    return this.getMenyStyleByPosition();
+    return this.getMenuStyleByPosition();
   }
 
   getActiveMenuStyle() {
@@ -169,7 +166,7 @@ class Menu extends PureComponent {
     return { clip: `rect(0 ${width}px ${height}px 0)` };
   }
 
-  getMenyStyleByPosition() {
+  getMenuStyleByPosition() {
     const { width, height, position } = this.state;
 
     switch (position) {
