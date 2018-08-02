@@ -155,19 +155,34 @@ class Menu extends PureComponent {
   }
 
   getMenuStyle() {
+    const { active } = this.state;
+
+    if (active) {
+      return this.getActiveMenuStyle();
+    }
+
+    return this.getMenyStyleByPosition();
+  }
+
+  getActiveMenuStyle() {
+    const { width, height } = this.state;
+    return { clip: `rect(0 ${width}px ${height}px 0)` };
+  }
+
+  getMenyStyleByPosition() {
     const { width, height, position } = this.state;
-    if (position !== POSITION.STATIC) {
-      if (this.state.active) {
-        return { clip: `rect(0 ${width}px ${height}px 0)` };
-      } else if (position === POSITION.TOP_RIGHT) {
+
+    switch (position) {
+      case POSITION.TOP_RIGHT:
         return { clip: `rect(0 ${width}px 0 ${width}px)` };
-      } else if (position === POSITION.BOTTOM_RIGHT) {
+      case POSITION.BOTTOM_RIGHT:
         return { clip: `rect(${height}px ${width}px ${height}px ${width}px)` };
-      } else if (position === POSITION.BOTTOM_LEFT) {
+      case POSITION.BOTTOM_LEFT:
         return { clip: `rect(${height}px 0 ${height}px 0)` };
-      } else if (position === POSITION.TOP_LEFT) {
+      case POSITION.TOP_LEFT:
         return { clip: 'rect(0 0 0 0)' };
-      }
+      default:
+        return {};
     }
   }
 
