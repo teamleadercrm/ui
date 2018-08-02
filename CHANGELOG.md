@@ -10,9 +10,10 @@
 
 ### Fixed
 
-## [0.11.2]
+## [0.11.2] - 2018-08-01
 
 ### Added
+
 - `Select` component ([@driesd](https://github.com/driesd) in [#280](https://github.com/teamleadercrm/ui/pull/280))
 
 ### Changed
