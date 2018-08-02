@@ -84,7 +84,7 @@ class Menu extends PureComponent {
 
   handleDocumentClick = event => {
     if (this.state.active && !events.targetIsDescendant(event, ReactDOM.findDOMNode(this))) {
-      this.setState({ active: false });
+      this.hide();
     }
   };
 
