@@ -37,18 +37,16 @@ class DataGrid extends PureComponent {
     });
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.comparableId !== this.props.comparableId) {
+  componentDidUpdate(prevProps) {
+    this.setCalculatedRowWidth();
+
+    if (prevProps.comparableId !== this.props.comparableId) {
       this.handleSelectionChange([]);
 
       this.setState({
         selectedRows: [],
       });
     }
-  }
-
-  componentDidUpdate() {
-    this.setCalculatedRowWidth();
   }
 
   handleHeaderRowSelectionChange = value => {

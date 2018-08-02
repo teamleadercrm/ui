@@ -10,6 +10,9 @@
 
 ### Fixed
 
+- `DataGrid`: the `componentWillReceiveProps` lifecycle is replaced, as it will be decrecated in react v17 ([@LennertBlommaert](https://github.com/LennertBlommaert) in [#331](https://github.com/teamleadercrm/ui/pull/331))
+- `Overlay`: the `componentWillUpdate` lifecycle is replaced, as it will be decrecated in react v17 ([@LennertBlommaert](https://github.com/LennertBlommaert) in [#331](https://github.com/teamleadercrm/ui/pull/331))
+
 ## [0.11.2] - 2018-08-01
 
 ### Added
