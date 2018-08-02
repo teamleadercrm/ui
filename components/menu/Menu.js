@@ -68,23 +68,6 @@ class Menu extends PureComponent {
     }
   }
 
-  componentWillUpdate(nextProps, nextState) {
-    if (!this.state.active && nextState.active) {
-      this.addEvents();
-    }
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.active && !this.state.active) {
-      if (this.props.onHide) {
-        this.props.onHide();
-      }
-      this.removeEvents();
-    } else if (!prevState.active && this.state.active && this.props.onShow) {
-      this.props.onShow();
-    }
-  }
-
   componentWillUnmount() {
     if (this.state.active) {
       this.removeEvents();
@@ -187,11 +170,27 @@ class Menu extends PureComponent {
   }
 
   show() {
+    const { onShow } = this.props;
+
+    if (onShow) {
+      onShow();
+    }
+
     this.setState({ active: true });
+
+    this.addEvents();
   }
 
   hide() {
+    const { onHide } = this.props;
+
+    if (onHide) {
+      onHide();
+    }
+
     this.setState({ active: false });
+
+    this.removeEvents();
   }
 
   render() {
