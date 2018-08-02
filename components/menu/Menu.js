@@ -22,11 +22,13 @@ class Menu extends PureComponent {
   };
 
   componentDidMount() {
-    this.positionTimeoutHandle = setTimeout(() => {
-      const { width, height } = this.menuNode.getBoundingClientRect();
-      const position = this.props.position === POSITION.AUTO ? this.calculatePosition() : this.props.position;
-      this.setState({ position, width, height });
-    });
+    const { width, height } = this.menuNode.getBoundingClientRect();
+    this.setState({ width, height });
+
+    const { position } = this.props;
+    if (position === POSITION.AUTO) {
+      this.setState({ position: this.calculatePosition });
+    }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -87,7 +89,6 @@ class Menu extends PureComponent {
     if (this.state.active) {
       this.removeEvents();
     }
-    clearTimeout(this.positionTimeoutHandle);
     clearTimeout(this.activateTimeoutHandle);
   }
 
