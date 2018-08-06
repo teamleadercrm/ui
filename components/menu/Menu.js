@@ -25,7 +25,7 @@ class Menu extends PureComponent {
 
     const { position } = this.props;
     if (position === POSITION.AUTO) {
-      this.setState({ position: this.calculatePosition });
+      this.setState({ position: this.calculatePosition() });
     }
   }
 
