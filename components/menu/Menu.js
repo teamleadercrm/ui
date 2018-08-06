@@ -17,162 +17,188 @@ const POSITION = {
 };
 
 class Menu extends PureComponent {
-  state = {
-    active: this.props.active,
-  };
+  state = {};
 
   componentDidMount() {
-    this.positionTimeoutHandle = setTimeout(() => {
-      const { width, height } = this.menuNode.getBoundingClientRect();
-      const position = this.props.position === POSITION.AUTO ? this.calculatePosition() : this.props.position;
-      this.setState({ position, width, height });
-    });
+    const { width, height } = this.menuNode.getBoundingClientRect();
+    this.setState({ width, height });
+
+    const { position } = this.props;
+    if (position === POSITION.AUTO) {
+      this.setState({ position: this.calculatePosition() });
+    }
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (this.props.position !== nextProps.position) {
-      const position = nextProps.position === POSITION.AUTO ? this.calculatePosition() : nextProps.position;
-      this.setState({ position });
+  static getDerivedStateFromProps(props, state) {
+    const newStateSlice = {};
+
+    if (props.active !== state.active) {
+      newStateSlice.active = props.active;
     }
 
-    /**
-     * If the menu is going to be activated via props and its not active, verify
-     * the position is appropriated and then show it recalculating position if its
-     * wrong. It should be shown in two consecutive setState.
-     */
-    if (!this.props.active && nextProps.active && !this.state.active) {
-      if (nextProps.position === POSITION.AUTO) {
-        const position = this.calculatePosition();
-        if (this.state.position !== position) {
-          this.setState({ position, active: false }, () => {
-            this.activateTimeoutHandle = setTimeout(() => {
-              this.show();
-            }, 20);
-          });
-        } else {
-          this.show();
-        }
-      } else {
-        this.show();
-      }
+    if (props.position !== state.position) {
+      newStateSlice.position = props.position;
     }
 
-    /**
-     * If the menu is being deactivated via props and the current state is
-     * active, it should be hid.
-     */
-    if (this.props.active && !nextProps.active && this.state.active) {
+    if (newStateSlice.active || newStateSlice.position) {
+      return newStateSlice;
+    }
+
+    return null;
+  }
+
+  componentDidUpdate(prevState) {
+    if (prevState.active && !this.state.active) {
       this.hide();
     }
-  }
 
-  componentWillUpdate(nextProps, nextState) {
-    if (!this.state.active && nextState.active) {
-      events.addEventsToDocument({
-        click: this.handleDocumentClick,
-        touchstart: this.handleDocumentClick,
-      });
+    if (!prevState.active && this.state.active) {
+      this.show();
+    }
+
+    if (prevState.position !== this.state.position && this.state.position === POSITION.AUTO) {
+      this.setState({ position: this.calculatePosition() });
     }
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.active && !this.state.active) {
-      if (this.props.onHide) {
-        this.props.onHide();
-      }
-      events.removeEventsFromDocument({
-        click: this.handleDocumentClick,
-        touchstart: this.handleDocumentClick,
-      });
-    } else if (!prevState.active && this.state.active && this.props.onShow) {
-      this.props.onShow();
+  show() {
+    const { onShow } = this.props;
+
+    if (onShow) {
+      onShow();
     }
+
+    this.setState({ active: true });
+
+    this.addEvents();
+  }
+
+  hide() {
+    const { onHide } = this.props;
+
+    if (onHide) {
+      onHide();
+    }
+
+    this.setState({ active: false });
+
+    this.removeEvents();
   }
 
   componentWillUnmount() {
     if (this.state.active) {
-      events.removeEventsFromDocument({
-        click: this.handleDocumentClick,
-        touchstart: this.handleDocumentClick,
-      });
+      this.removeEvents();
     }
-    clearTimeout(this.positionTimeoutHandle);
-    clearTimeout(this.activateTimeoutHandle);
+  }
+
+  addEvents() {
+    events.addEventsToDocument({
+      click: this.handleDocumentClick,
+      touchstart: this.handleDocumentClick,
+    });
+  }
+
+  removeEvents() {
+    events.removeEventsFromDocument({
+      click: this.handleDocumentClick,
+      touchstart: this.handleDocumentClick,
+    });
   }
 
   handleDocumentClick = event => {
     if (this.state.active && !events.targetIsDescendant(event, ReactDOM.findDOMNode(this))) {
-      this.setState({ active: false });
+      this.hide();
     }
   };
 
   handleSelect = (item, event) => {
+    const { onSelect } = this.props;
     const { value, onClick } = item.props;
+
+    if (onSelect) {
+      onSelect(value);
+    }
+
     if (onClick) {
       event.persist();
+      onClick(event);
     }
-    this.setState({ active: false }, () => {
-      if (onClick) {
-        onClick(event);
-      }
-      if (this.props.onSelect) {
-        this.props.onSelect(value);
-      }
-    });
+
+    this.hide();
   };
 
   calculatePosition() {
     const parentNode = ReactDOM.findDOMNode(this).parentNode;
+
     if (!parentNode) {
       return;
     }
+
     const { top, left, height, width } = parentNode.getBoundingClientRect();
-    const { height: wh, width: ww } = getViewport();
-    const toTop = top < wh / 2 - height / 2;
-    const toLeft = left < ww / 2 - width / 2;
+    const { height: vh, width: vw } = getViewport();
+
+    const toTop = top < vh / 2 - height / 2;
+    const toLeft = left < vw / 2 - width / 2;
+
     return `${toTop ? 'top' : 'bottom'}${toLeft ? 'Left' : 'Right'}`;
   }
 
-  getMenuStyle() {
-    const { width, height, position } = this.state;
-    if (position !== POSITION.STATIC) {
-      if (this.state.active) {
-        return { clip: `rect(0 ${width}px ${height}px 0)` };
-      } else if (position === POSITION.TOP_RIGHT) {
-        return { clip: `rect(0 ${width}px 0 ${width}px)` };
-      } else if (position === POSITION.BOTTOM_RIGHT) {
-        return { clip: `rect(${height}px ${width}px ${height}px ${width}px)` };
-      } else if (position === POSITION.BOTTOM_LEFT) {
-        return { clip: `rect(${height}px 0 ${height}px 0)` };
-      } else if (position === POSITION.TOP_LEFT) {
-        return { clip: 'rect(0 0 0 0)' };
-      }
-    }
-  }
-
   getRootStyle() {
-    if (this.state.position !== POSITION.STATIC) {
-      return { width: this.state.width, height: this.state.height };
+    const { width, height, position } = this.state;
+
+    if (position !== POSITION.STATIC) {
+      return { width, height };
     }
   }
 
-  renderItems() {
+  getMenuStyle() {
+    const { active } = this.state;
+
+    if (active) {
+      return this.getActiveMenuStyle();
+    }
+
+    return this.getMenuStyleByPosition();
+  }
+
+  getActiveMenuStyle() {
+    const { width, height } = this.state;
+    return { clip: `rect(0 ${width}px ${height}px 0)` };
+  }
+
+  getMenuStyleByPosition() {
+    const { width, height, position } = this.state;
+
+    switch (position) {
+      case POSITION.TOP_RIGHT:
+        return { clip: `rect(0 ${width}px 0 ${width}px)` };
+      case POSITION.BOTTOM_RIGHT:
+        return { clip: `rect(${height}px ${width}px ${height}px ${width}px)` };
+      case POSITION.BOTTOM_LEFT:
+        return { clip: `rect(${height}px 0 ${height}px 0)` };
+      case POSITION.TOP_LEFT:
+        return { clip: 'rect(0 0 0 0)' };
+      default:
+        return {};
+    }
+  }
+
+  getItems() {
+    const { children, selectable, selected } = this.props;
+
     // Because React Hot Loader creates proxied versions of your components,
     // comparing reference types of elements won't work
     // https://github.com/gaearon/react-hot-loader/blob/master/docs/Known%20Limitations.md#checking-element-types
     const MenuItemType = <MenuItem />.type;
 
-    return React.Children.map(this.props.children, item => {
+    return React.Children.map(children, item => {
       if (!item) {
         return item;
       }
 
       if (item.type === MenuItemType) {
         return React.cloneElement(item, {
-          selected:
-            typeof item.props.value !== 'undefined' &&
-            this.props.selectable &&
-            item.props.value === this.props.selected,
+          selected: typeof item.props.value !== 'undefined' && selectable && item.props.value === selected,
           onClick: this.handleSelect.bind(this, item),
         });
       } else {
@@ -181,29 +207,22 @@ class Menu extends PureComponent {
     });
   }
 
-  show() {
-    const { width, height } = this.menuNode.getBoundingClientRect();
-    this.setState({ active: true, width, height });
-  }
-
-  hide() {
-    this.setState({ active: false });
-  }
-
   render() {
-    const outlineStyle = { width: this.state.width, height: this.state.height };
-    const className = cx(
+    const { width, height, active, position } = this.state;
+    const { className, outline } = this.props;
+
+    const classNames = cx(
       theme['menu'],
-      theme[this.state.position],
+      theme[position],
       {
-        [theme['active']]: this.state.active,
+        [theme['active']]: active,
       },
-      this.props.className,
+      className,
     );
 
     return (
-      <div data-teamleader-ui="menu" className={className} style={this.getRootStyle()}>
-        {this.props.outline ? <div className={theme['outline']} style={outlineStyle} /> : null}
+      <div data-teamleader-ui="menu" className={classNames} style={this.getRootStyle()}>
+        {outline ? <div className={theme['outline']} style={{ width, height }} /> : null}
         <ul
           ref={node => {
             this.menuNode = node;
@@ -211,7 +230,7 @@ class Menu extends PureComponent {
           className={theme['menu-inner']}
           style={this.getMenuStyle()}
         >
-          {this.renderItems()}
+          {this.getItems()}
         </ul>
       </div>
     );
