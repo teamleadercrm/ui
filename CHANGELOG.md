@@ -11,7 +11,7 @@
 ### Fixed
 
 - `DataGrid`: the `componentWillReceiveProps` lifecycle is replaced, as it will be decrecated in react v17 ([@LennertBlommaert](https://github.com/LennertBlommaert) in [#331](https://github.com/teamleadercrm/ui/pull/331))
-- `Input`: unwanted double borders on input fields with connected buttons ([@driesd](https://github.com/driesd) in [#334](https://github.com/teamleadercrm/ui/pull/334))
+- `Input`: removed unwanted double borders on input fields with connected buttons ([@driesd](https://github.com/driesd) in [#334](https://github.com/teamleadercrm/ui/pull/334))
 - `Overlay`: the `componentWillUpdate` lifecycle is replaced, as it will be decrecated in react v17 ([@LennertBlommaert](https://github.com/LennertBlommaert) in [#331](https://github.com/teamleadercrm/ui/pull/331))
 
 ## [0.11.2] - 2018-08-01
