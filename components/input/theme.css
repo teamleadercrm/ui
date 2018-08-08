@@ -233,7 +233,7 @@
   }
 }
 
-.is-numeric {
+.has-spinner {
   .input {
     padding-right: calc(var(--spinner-width) + var(--input-horizontal-padding));
   }
@@ -306,7 +306,7 @@
     width: var(--spinner-width-large);
   }
 
-  &.is-numeric {
+  &.has-spinner {
     .input {
       padding-right: calc(var(--spinner-width-large) + var(--input-horizontal-padding));
     }
