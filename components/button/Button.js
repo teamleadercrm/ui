@@ -101,7 +101,7 @@ Button.propTypes = {
   /** A class name for the button to give custom styles. */
   className: PropTypes.string,
   /** A custom element to be rendered */
-  element: PropTypes.element,
+  element: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
   /** Determines which kind of button to be rendered. */
   level: PropTypes.oneOf(['outline', 'primary', 'secondary', 'destructive']),
   /** If true, component will be disabled. */
