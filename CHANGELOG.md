@@ -2,6 +2,8 @@
 
 ### Added
 
+- `Input`: implemented `spinner` boolean prop that indicates whether the spinner controls on numeric input fields should render or not. By default it's `true` ([@driesd](https://github.com/driesd) in [#335](https://github.com/teamleadercrm/ui/pull/335))
+
 ### Changed
 
 ### Deprecated

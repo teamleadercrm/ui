@@ -155,13 +155,13 @@ export default class Input extends PureComponent {
   }
 
   renderSpinnerControls() {
-    const { disabled, readOnly, type } = this.props;
+    const { disabled, readOnly, spinner, type } = this.props;
 
     const props = {
       disabled: disabled || readOnly,
     };
 
-    if (type === 'number') {
+    if (type === 'number' && spinner) {
       return (
         <div className={theme['spinner']}>
           <Button
@@ -205,7 +205,7 @@ export default class Input extends PureComponent {
       iconPlacement,
       inverse,
       size,
-      type,
+      spinner,
       readOnly,
       ...others
     } = this.props;
@@ -219,8 +219,8 @@ export default class Input extends PureComponent {
         [theme['has-error']]: this.hasError(),
         [theme['has-connected-left']]: connectedLeft,
         [theme['has-connected-right']]: connectedRight,
+        [theme['has-spinner']]: spinner,
         [theme['is-inverse']]: inverse,
-        [theme['is-numeric']]: type === 'number',
         [theme['is-disabled']]: disabled,
         [theme['is-read-only']]: readOnly,
       },
@@ -243,6 +243,8 @@ export default class Input extends PureComponent {
       'onFocus',
       'placeholder',
       'precision',
+      'spinner',
+      'type',
       'updateStep',
       'value',
     ]);
@@ -294,6 +296,8 @@ Input.propTypes = {
   min: PropTypes.number,
   /** Object to provide meta information for redux forms. */
   meta: InputMetaPropTypes,
+  /** Boolean indicating whether to number type input should render spinner controls */
+  spinner: PropTypes.bool,
   /** Object to provide input information for redux forms. */
   input: FieldInputPropTypes,
   /** Callback function that is fired when component is blurred. */
@@ -327,5 +331,6 @@ Input.defaultProps = {
   max: Number.MAX_SAFE_INTEGER,
   readOnly: false,
   size: 'medium',
+  spinner: true,
   step: 1,
 };
