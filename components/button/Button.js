@@ -31,6 +31,7 @@ class Button extends PureComponent {
       className,
       level,
       disabled,
+      element,
       active,
       fullWidth,
       href,
@@ -43,8 +44,6 @@ class Button extends PureComponent {
       processing,
       ...others
     } = this.props;
-
-    const element = href ? 'a' : 'button';
 
     const classNames = cx(
       theme['button'],
@@ -101,6 +100,8 @@ Button.propTypes = {
   children: PropTypes.any,
   /** A class name for the button to give custom styles. */
   className: PropTypes.string,
+  /** A custom element to be rendered */
+  element: PropTypes.element,
   /** Determines which kind of button to be rendered. */
   level: PropTypes.oneOf(['outline', 'primary', 'secondary', 'destructive']),
   /** If true, component will be disabled. */
@@ -133,6 +134,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
   className: '',
+  element: 'button',
   fullWidth: false,
   level: 'secondary',
   iconPlacement: 'left',
