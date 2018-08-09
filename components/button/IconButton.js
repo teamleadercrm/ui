@@ -41,7 +41,7 @@ class IconButton extends Component {
       disabled,
       onMouseUp: this.handleMouseUp,
       onMouseLeave: this.handleMouseLeave,
-      type: !href ? type : null,
+      type: element === 'button' ? type : null,
       'data-teamleader-ui': 'button',
     };
 
