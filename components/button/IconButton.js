@@ -19,7 +19,7 @@ class IconButton extends Component {
   };
 
   render() {
-    const { children, className, disabled, element, href, icon, size, color, type, ...others } = this.props;
+    const { children, className, disabled, element, icon, size, color, type, ...others } = this.props;
 
     const classNames = cx(
       theme['button'],
@@ -33,7 +33,6 @@ class IconButton extends Component {
 
     const props = {
       ...others,
-      href,
       ref: node => {
         this.buttonNode = node;
       },
@@ -55,7 +54,6 @@ IconButton.propTypes = {
   disabled: PropTypes.bool,
   /** A custom element to be rendered */
   element: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
-  href: PropTypes.string,
   icon: PropTypes.element,
   onMouseLeave: PropTypes.func,
   onMouseUp: PropTypes.func,
