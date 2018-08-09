@@ -62,7 +62,8 @@ LinkButton.propTypes = {
   children: PropTypes.any,
   className: PropTypes.string,
   disabled: PropTypes.bool,
-  element: PropTypes.element,
+  /** A custom element to be rendered */
+  element: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
   icon: PropTypes.element,
   iconPlacement: PropTypes.oneOf(['left', 'right']),
   inverse: PropTypes.bool,
