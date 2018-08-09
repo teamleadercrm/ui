@@ -34,7 +34,6 @@ class Button extends PureComponent {
       element,
       active,
       fullWidth,
-      href,
       icon,
       iconPlacement,
       inverse,
@@ -61,7 +60,6 @@ class Button extends PureComponent {
 
     const props = {
       ...others,
-      href,
       ref: node => {
         this.buttonNode = node;
       },
@@ -110,8 +108,6 @@ Button.propTypes = {
   active: PropTypes.bool,
   /** If true, component will take the full width available. */
   fullWidth: PropTypes.bool,
-  /** If set, button will be rendered as an anchor element. */
-  href: PropTypes.string,
   /** The icon displayed inside the button. */
   icon: PropTypes.element,
   /** The position of the icon inside the button. */
