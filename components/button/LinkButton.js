@@ -21,8 +21,6 @@ class LinkButton extends PureComponent {
   render() {
     const { children, className, disabled, element, icon, iconPlacement, inverse, label, size, ...others } = this.props;
 
-    const Element = element || 'button';
-
     const classNames = cx(
       theme['link-button'],
       {
@@ -46,7 +44,7 @@ class LinkButton extends PureComponent {
     };
 
     return React.createElement(
-      Element,
+      element,
       props,
       icon && iconPlacement === 'left' && icon,
       (label || children) && (
@@ -76,6 +74,7 @@ LinkButton.propTypes = {
 
 LinkButton.defaultProps = {
   className: '',
+  element: 'button',
   iconPlacement: 'left',
   inverse: false,
   size: 'medium',
