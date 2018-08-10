@@ -7,7 +7,7 @@ import { withKnobs, boolean, select } from '@storybook/addon-knobs/react';
 import { IconAddMediumOutline, IconAddSmallOutline } from '@teamleader/ui-icons';
 import { Button } from '../components';
 
-const elements = ['a', 'button', 'div', 'span'];
+const elements = ['a', 'button'];
 const iconPositions = ['left', 'right'];
 const levels = ['primary', 'secondary', 'outline', 'destructive'];
 const sizes = ['small', 'medium', 'large'];

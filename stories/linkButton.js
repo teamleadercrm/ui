@@ -7,7 +7,7 @@ import { withKnobs, boolean, select } from '@storybook/addon-knobs/react';
 import { IconChevronLeftMediumOutline, IconChevronRightMediumOutline } from '@teamleader/ui-icons';
 import { LinkButton } from '../components';
 
-const elements = ['a', 'button', 'div', 'span'];
+const elements = ['a', 'button'];
 const iconPositions = ['left', 'right'];
 const sizes = ['small', 'medium', 'large'];
 

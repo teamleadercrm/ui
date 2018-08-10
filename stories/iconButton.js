@@ -8,7 +8,7 @@ import { IconAddMediumOutline, IconAddSmallOutline } from '@teamleader/ui-icons'
 import { IconButton } from '../components';
 
 const colors = ['white', 'neutral', 'mint', 'aqua', 'violet', 'teal', 'gold', 'ruby'];
-const elements = ['a', 'button', 'div', 'span'];
+const elements = ['a', 'button'];
 const sizes = ['small', 'medium', 'large'];
 
 storiesOf('IconButtons', module)
