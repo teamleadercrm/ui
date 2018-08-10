@@ -19,9 +19,7 @@ class IconButton extends Component {
   };
 
   render() {
-    const { children, className, disabled, href, icon, size, color, type, ...others } = this.props;
-
-    const element = href ? 'a' : 'button';
+    const { children, className, disabled, element, icon, size, color, type, ...others } = this.props;
 
     const classNames = cx(
       theme['button'],
@@ -35,7 +33,6 @@ class IconButton extends Component {
 
     const props = {
       ...others,
-      href,
       ref: node => {
         this.buttonNode = node;
       },
@@ -43,7 +40,7 @@ class IconButton extends Component {
       disabled,
       onMouseUp: this.handleMouseUp,
       onMouseLeave: this.handleMouseLeave,
-      type: !href ? type : null,
+      type: element === 'button' ? type : null,
       'data-teamleader-ui': 'button',
     };
 
@@ -55,7 +52,8 @@ IconButton.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   disabled: PropTypes.bool,
-  href: PropTypes.string,
+  /** A custom element to be rendered */
+  element: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
   icon: PropTypes.element,
   onMouseLeave: PropTypes.func,
   onMouseUp: PropTypes.func,
@@ -66,6 +64,7 @@ IconButton.propTypes = {
 
 IconButton.defaultProps = {
   className: '',
+  element: 'button',
   size: 'medium',
   color: 'neutral',
   type: 'button',

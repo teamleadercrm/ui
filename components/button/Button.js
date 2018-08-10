@@ -31,9 +31,9 @@ class Button extends PureComponent {
       className,
       level,
       disabled,
+      element,
       active,
       fullWidth,
-      href,
       icon,
       iconPlacement,
       inverse,
@@ -43,8 +43,6 @@ class Button extends PureComponent {
       processing,
       ...others
     } = this.props;
-
-    const element = href ? 'a' : 'button';
 
     const classNames = cx(
       theme['button'],
@@ -62,7 +60,6 @@ class Button extends PureComponent {
 
     const props = {
       ...others,
-      href,
       ref: node => {
         this.buttonNode = node;
       },
@@ -70,7 +67,7 @@ class Button extends PureComponent {
       disabled,
       onMouseUp: this.handleMouseUp,
       onMouseLeave: this.handleMouseLeave,
-      type: !href ? type : null,
+      type: element === 'button' ? type : null,
       'data-teamleader-ui': 'button',
     };
 
@@ -101,6 +98,8 @@ Button.propTypes = {
   children: PropTypes.any,
   /** A class name for the button to give custom styles. */
   className: PropTypes.string,
+  /** A custom element to be rendered */
+  element: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
   /** Determines which kind of button to be rendered. */
   level: PropTypes.oneOf(['outline', 'primary', 'secondary', 'destructive']),
   /** If true, component will be disabled. */
@@ -109,8 +108,6 @@ Button.propTypes = {
   active: PropTypes.bool,
   /** If true, component will take the full width available. */
   fullWidth: PropTypes.bool,
-  /** If set, button will be rendered as an anchor element. */
-  href: PropTypes.string,
   /** The icon displayed inside the button. */
   icon: PropTypes.element,
   /** The position of the icon inside the button. */
@@ -133,6 +130,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
   className: '',
+  element: 'button',
   fullWidth: false,
   level: 'secondary',
   iconPlacement: 'left',

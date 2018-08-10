@@ -7,6 +7,7 @@ import { withKnobs, boolean, select } from '@storybook/addon-knobs/react';
 import { IconChevronLeftMediumOutline, IconChevronRightMediumOutline } from '@teamleader/ui-icons';
 import { LinkButton } from '../components';
 
+const elements = ['a', 'button'];
 const iconPositions = ['left', 'right'];
 const sizes = ['small', 'medium', 'large'];
 
@@ -38,6 +39,15 @@ storiesOf('LinkButtons', module)
       iconPlacement={select('Icon placement', iconPositions, 'left')}
       inverse={boolean('Inverse', false)}
       label="Previous"
+      size={select('Size', sizes, 'medium')}
+    />
+  ))
+  .add('With custom element', () => (
+    <LinkButton
+      disabled={boolean('Disabled', false)}
+      element={select('Element', elements, 'a')}
+      inverse={boolean('Inverse', false)}
+      label="link text"
       size={select('Size', sizes, 'medium')}
     />
   ));
