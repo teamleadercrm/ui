@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `Button`, `IconButton` & `LinkButton`: only render `disabled` attribute when `element` is a `button`.
+
 ### Deprecated
 
 ### Removed
