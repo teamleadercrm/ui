@@ -37,7 +37,7 @@ class IconButton extends Component {
         this.buttonNode = node;
       },
       className: classNames,
-      disabled,
+      disabled: element === 'button' ? disabled : null,
       onMouseUp: this.handleMouseUp,
       onMouseLeave: this.handleMouseLeave,
       type: element === 'button' ? type : null,
