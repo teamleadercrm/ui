@@ -48,7 +48,7 @@
     border: 0;
   }
 
-  &[disabled] {
+  &.is-disabled {
     cursor: auto;
     pointer-events: none;
   }
@@ -63,7 +63,7 @@
   composes: button-base;
   font-family: var(--font-family-medium);
 
-  &:not([disabled]) {
+  &:not(.is-disabled) {
     &:hover {
       z-index: 1;
       text-decoration: none;
@@ -96,14 +96,14 @@
   background-color: transparent;
   border: 0;
 
-  &[disabled] {
+  &.is-disabled {
     opacity: 0.24;
   }
 
   &.neutral {
     color: var(--color-neutral-darkest);
 
-    &:not([disabled]) {
+    &:not(.is-disabled) {
       &:hover {
         background-color: color(var(--color-neutral-darkest) a(18%));
       }
@@ -117,7 +117,7 @@
   &.mint {
     color: var(--color-mint-darkest);
 
-    &:not([disabled]) {
+    &:not(.is-disabled) {
       &:hover {
         background-color: color(var(--color-mint-darkest) a(18%));
       }
@@ -131,7 +131,7 @@
   &.violet {
     color: var(--color-violet-darkest);
 
-    &:not([disabled]) {
+    &:not(.is-disabled) {
       &:hover {
         background-color: color(var(--color-violet-darkest) a(18%));
       }
@@ -145,7 +145,7 @@
   &.ruby {
     color: var(--color-ruby-darkest);
 
-    &:not([disabled]) {
+    &:not(.is-disabled) {
       &:hover {
         background-color: color(var(--color-ruby-darkest) a(18%));
       }
@@ -159,7 +159,7 @@
   &.gold {
     color: var(--color-gold-darkest);
 
-    &:not([disabled]) {
+    &:not(.is-disabled) {
       &:hover {
         background-color: color(var(--color-gold-darkest) a(18%));
       }
@@ -173,7 +173,7 @@
   &.aqua {
     color: var(--color-aqua-darkest);
 
-    &:not([disabled]) {
+    &:not(.is-disabled) {
       &:hover {
         background-color: color(var(--color-aqua-darkest) a(18%));
       }
@@ -187,7 +187,7 @@
   &.white {
     color: var(--color-neutral-lightest);
 
-    &:not([disabled]) {
+    &:not(.is-disabled) {
       &:hover {
         background-color: color(var(--color-neutral-lightest) a(18%));
       }
@@ -275,13 +275,13 @@
   &:not(.inverse) {
     color: var(--color-teal-darkest);
 
-    &[disabled] {
+    &.is-disabled {
       background-color: color(var(--color-teal-darkest) a(12%));
       border: 1px solid color(var(--color-teal-darkest) a(12%));
       color: color(var(--color-teal-darkest) a(36%));
     }
 
-    &:not([disabled]) {
+    &:not(.is-disabled) {
       background-color: transparent;
       border: 1px solid color(var(--color-teal-darkest) a(72%));
 
@@ -304,13 +304,13 @@
   &.inverse {
     color: var(--color-neutral-lightest);
 
-    &[disabled] {
+    &.is-disabled {
       border: 1px solid color(var(--color-neutral-lightest) a(12%));
       background-color: color(var(--color-neutral-lightest) a(12%));
       color: color(var(--color-neutral-lightest) a(36%));
     }
 
-    &:not([disabled]) {
+    &:not(.is-disabled) {
       background-color: transparent;
       border: 1px solid color(var(--color-neutral-lightest) a(72%));
 
@@ -333,7 +333,7 @@
 
 .primary,
 .secondary {
-  &[disabled] {
+  &.is-disabled {
     background-color: var(--color-neutral);
     color: var(--color-neutral-dark);
   }
@@ -342,7 +342,7 @@
 .secondary {
   color: var(--color-teal-darkest);
 
-  &:not([disabled]) {
+  &:not(.is-disabled) {
     background-color: var(--color-neutral-light);
     border: 1px solid var(--color-neutral-dark);
 
@@ -377,7 +377,7 @@
 .primary {
   color: var(--color-neutral-lightest);
 
-  &:not([disabled]) {
+  &:not(.is-disabled) {
     background-color: var(--color-mint);
     border: 1px solid var(--color-mint-dark);
 
@@ -408,11 +408,11 @@
   background-color: var(--color-ruby);
   border: 1px solid var(--color-ruby-dark);
 
-  &[disabled] {
+  &.is-disabled {
     opacity: 0.24;
   }
 
-  &:not([disabled]) {
+  &:not(.is-disabled) {
     &:hover {
       background-color: var(--color-ruby-dark);
       border: 1px solid var(--color-ruby-darkest);
