@@ -26,6 +26,7 @@ class IconButton extends Component {
       theme['icon-button'],
       theme[color],
       {
+        [theme['is-disabled']]: disabled,
         [theme[size]]: theme[size],
       },
       className,
