@@ -50,6 +50,7 @@ class Button extends PureComponent {
       {
         [theme['icon-only']]: !label && !children,
         [theme['inverse']]: inverse && level === 'outline',
+        [theme['is-disabled']]: disabled,
         [theme['is-full-width']]: fullWidth,
         [theme['processing']]: processing,
         [theme['active']]: active,
@@ -64,7 +65,7 @@ class Button extends PureComponent {
         this.buttonNode = node;
       },
       className: classNames,
-      disabled,
+      disabled: element === 'button' ? disabled : null,
       onMouseUp: this.handleMouseUp,
       onMouseLeave: this.handleMouseLeave,
       type: element === 'button' ? type : null,

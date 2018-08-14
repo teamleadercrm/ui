@@ -38,6 +38,7 @@ class LinkButton extends PureComponent {
         this.buttonNode = node;
       },
       className: classNames,
+      disabled: element === 'button' ? disabled : null,
       onMouseUp: this.handleMouseUp,
       onMouseLeave: this.handleMouseLeave,
       'data-teamleader-ui': 'link-button',

@@ -26,6 +26,7 @@ class IconButton extends Component {
       theme['icon-button'],
       theme[color],
       {
+        [theme['is-disabled']]: disabled,
         [theme[size]]: theme[size],
       },
       className,
@@ -37,7 +38,7 @@ class IconButton extends Component {
         this.buttonNode = node;
       },
       className: classNames,
-      disabled,
+      disabled: element === 'button' ? disabled : null,
       onMouseUp: this.handleMouseUp,
       onMouseLeave: this.handleMouseLeave,
       type: element === 'button' ? type : null,
