@@ -49,29 +49,29 @@ class DataGrid extends PureComponent {
     }
   }
 
-  handleHeaderRowSelectionChange = value => {
+  handleHeaderRowSelectionChange = (checked, event) => {
     const allBodyRowIndexes = React.Children.map(this.props.children, child => {
       if (isComponentOfType(BodyRow, child)) {
         return child.key;
       }
     });
 
-    const selectedBodyRowIndexes = value ? allBodyRowIndexes : [];
+    const selectedBodyRowIndexes = checked ? allBodyRowIndexes : [];
 
     this.setState({
       selectedRows: selectedBodyRowIndexes,
     });
 
-    this.handleSelectionChange(selectedBodyRowIndexes);
+    this.handleSelectionChange(selectedBodyRowIndexes, event);
   };
 
-  handleBodyRowSelectionChange = rowIndex => {
+  handleBodyRowSelectionChange = (rowIndex, event) => {
     this.setState(prevState => {
       const selectedRows = prevState.selectedRows.includes(rowIndex)
         ? prevState.selectedRows.filter(row => row !== rowIndex)
         : [...prevState.selectedRows, rowIndex];
 
-      this.handleSelectionChange(selectedRows);
+      this.handleSelectionChange(selectedRows, event);
 
       return {
         ...prevState,
@@ -80,9 +80,9 @@ class DataGrid extends PureComponent {
     });
   };
 
-  handleSelectionChange(selection) {
+  handleSelectionChange(selection, event = null) {
     if (this.props.onSelectionChange) {
-      this.props.onSelectionChange(selection);
+      this.props.onSelectionChange(selection, event);
     }
   }
 
@@ -128,7 +128,7 @@ class DataGrid extends PureComponent {
               if (isComponentOfType(HeaderRow, child)) {
                 return React.cloneElement(child, {
                   checkboxSize: checkboxSize,
-                  onSelectionChange: event => this.handleHeaderRowSelectionChange(event),
+                  onSelectionChange: this.handleHeaderRowSelectionChange,
                   selected: selectedRows.length === children[1].length,
                   selectable,
                   sliceTo: stickyFromLeft > 0 ? stickyFromLeft : 0,
@@ -137,7 +137,7 @@ class DataGrid extends PureComponent {
               } else if (isComponentOfType(BodyRow, child)) {
                 return React.cloneElement(child, {
                   checkboxSize: checkboxSize,
-                  onSelectionChange: () => this.handleBodyRowSelectionChange(child.key),
+                  onSelectionChange: (checked, event) => this.handleBodyRowSelectionChange(child.key, event),
                   selected: selectedRows.indexOf(child.key) !== -1,
                   selectable,
                   sliceTo: stickyFromLeft > 0 ? stickyFromLeft : 0,
