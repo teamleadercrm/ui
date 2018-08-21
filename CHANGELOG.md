@@ -4,14 +4,18 @@
 
 ### Changed
 
-- `Button`, `IconButton` & `LinkButton`: only render `disabled` attribute when `element` is a `button`.
-- `DataGrid`: - The original event from the `Checkbox` is now passed to the `onSelectionChange` handler. When the `onSelectionChange` is triggered due to changing the `comparableId`, there is no event and thus it will be `null`. ([@lowiebenoot](https://github.com/lowiebenoot) in [#339](https://github.com/teamleadercrm/ui/pull/339))
-
 ### Deprecated
 
 ### Removed
 
 ### Fixed
+
+## [0.12.1] - 2018-08-21
+
+### Added
+
+- `Button`, `IconButton` & `LinkButton`: only render `disabled` attribute when `element` is a `button`. ([@driesd](https://github.com/driesd) in [#338](https://github.com/teamleadercrm/ui/pull/338))
+- `DataGrid`: - The original event from the `Checkbox` is now passed to the `onSelectionChange` handler. When the `onSelectionChange` is triggered due to changing the `comparableId`, there is no event and thus it will be `null`. ([@lowiebenoot](https://github.com/lowiebenoot) in [#339](https://github.com/teamleadercrm/ui/pull/339))
 
 ## [0.12.0] - 2018-08-10
 
