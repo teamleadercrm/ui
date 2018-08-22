@@ -266,7 +266,7 @@
     pointer-events: none;
   }
 
-  &.has-icon-only:hover {
+  &.icon-only:hover {
     background: color(var(--color-neutral-darkest) a(0.24));
   }
 }

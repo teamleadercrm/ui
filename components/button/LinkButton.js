@@ -24,7 +24,7 @@ class LinkButton extends PureComponent {
     const classNames = cx(
       theme['link-button'],
       {
-        [theme['has-icon-only']]: !label && !children,
+        [theme['icon-only']]: !label && !children,
         [theme['is-disabled']]: disabled,
         [theme['is-inverse']]: inverse,
         [theme[size]]: theme[size],
