@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `LinkButton`: set the appropriate padding, when only containing an icon, so it displays as a square ([@LennertBlommaert](https://github.com/LennertBlommaert) in [#341](https://github.com/teamleadercrm/ui/pull/341)).
+
 ## [0.12.1] - 2018-08-21
 
 ### Added
