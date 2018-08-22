@@ -16,7 +16,7 @@ const getAnchorPositionValues = anchorEl => {
   };
 };
 
-const getTargetPosition = targetEl => {
+const getTargetPositionValues = targetEl => {
   const { width, height } = targetEl.getBoundingClientRect();
 
   return {
@@ -165,7 +165,7 @@ export const calculateHorizontalPositions = (
   inputOffsetCorrection,
 ) => {
   const anchorPosition = getAnchorPositionValues(anchorEl);
-  const targetPosition = getTargetPosition(targetEl);
+  const targetPosition = getTargetPositionValues(targetEl);
   const renderDirection = updateHorizontalDirectionIfNeeded(inputDirection, anchorPosition, targetPosition);
   const renderPosition = updateHorizontalPositionIfNeeded(inputPosition, anchorPosition, targetPosition);
 
@@ -196,7 +196,7 @@ export const calculateVerticalPositions = (
   inputOffsetCorrection,
 ) => {
   const anchorPosition = getAnchorPositionValues(anchorEl);
-  const targetPosition = getTargetPosition(targetEl);
+  const targetPosition = getTargetPositionValues(targetEl);
 
   const renderDirection = updateDirectionIfNeeded(inputDirection, anchorPosition, targetPosition);
   const renderPosition = updatePositionIfNeeded(inputPosition, anchorPosition, targetPosition);
