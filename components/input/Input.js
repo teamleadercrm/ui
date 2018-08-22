@@ -9,7 +9,7 @@ import {
 } from '@teamleader/ui-icons';
 import InputMetaPropTypes from './InputMetaPropTypes';
 import FieldInputPropTypes from './FieldInputPropTypes';
-import Box from '../box';
+import Box, { pickBoxProps } from '../box';
 import Button from '../button';
 import Counter from '../counter';
 import { TextSmall } from '../typography';
@@ -231,23 +231,7 @@ export default class Input extends PureComponent {
       [theme['has-error']]: this.hasError(),
     });
 
-    const rest = omit(others, [
-      'bold',
-      'id',
-      'helpText',
-      'max',
-      'meta',
-      'min',
-      'onBlur',
-      'onChange',
-      'onFocus',
-      'placeholder',
-      'precision',
-      'spinner',
-      'type',
-      'updateStep',
-      'value',
-    ]);
+    const rest = pickBoxProps(others);
 
     return (
       <Box className={classNames} {...rest}>
