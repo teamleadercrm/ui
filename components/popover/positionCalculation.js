@@ -117,12 +117,16 @@ const directionSouth = anchorPosition => ({
   arrowTop: -ARROW_OFFSET,
 });
 
-const updateDirectionIfNeeded = (direction, anchorPosition, targetPosition) => {
-  if (direction === 'north') {
-    return anchorPosition.top - targetPosition.height - POPUP_OFFSET < 0 ? 'south' : 'north';
+const updateDirectionIfNeeded = (inputDirection, anchorPosition, targetPosition) => {
+  const directionSouthRendersOffscreen =
+    anchorPosition.bottom + targetPosition.height + POPUP_OFFSET > window.innerHeight;
+  const directionNorthRendersOffscreen = anchorPosition.top - targetPosition.height - POPUP_OFFSET < 0;
+
+  if (inputDirection === 'north') {
+    return directionNorthRendersOffscreen && !directionSouthRendersOffscreen ? 'south' : 'north';
   }
 
-  return anchorPosition.bottom + targetPosition.height + POPUP_OFFSET > window.innerHeight ? 'north' : 'south';
+  return directionSouthRendersOffscreen && !directionNorthRendersOffscreen ? 'north' : 'south';
 };
 
 const updatePositionIfNeeded = (position, anchorPosition, targetPosition) => {
