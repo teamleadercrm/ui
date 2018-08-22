@@ -1,22 +1,19 @@
 const ARROW_OFFSET = 7;
 const POPUP_OFFSET = 12;
 
-const getAnchorPosition = anchorEl => {
-  const anchorRect = anchorEl.getBoundingClientRect();
+const getAnchorPositionValues = anchorEl => {
+  const { top, left, right, bottom, width, height } = anchorEl.getBoundingClientRect();
 
-  const anchorPosition = {
-    top: anchorRect.top,
-    left: anchorRect.left,
-    width: Math.round(anchorRect.width),
-    height: Math.round(anchorRect.height),
+  return {
+    top,
+    left,
+    width,
+    height,
+    right: right || left + width,
+    bottom: bottom || top + height,
+    middle: top + (bottom - top) / 2,
+    center: left + (right - left) / 2,
   };
-
-  anchorPosition.right = anchorRect.right || anchorPosition.left + anchorPosition.width;
-  anchorPosition.bottom = anchorRect.bottom || anchorPosition.top + anchorPosition.height;
-  anchorPosition.center = anchorPosition.left + (anchorPosition.right - anchorPosition.left) / 2;
-  anchorPosition.middle = anchorPosition.top + (anchorPosition.bottom - anchorPosition.top) / 2;
-
-  return anchorPosition;
 };
 
 const getTargetPosition = targetEl => {
@@ -161,7 +158,7 @@ export const calculateHorizontalPositions = (
   inputPosition,
   inputOffsetCorrection,
 ) => {
-  const anchorPosition = getAnchorPosition(anchorEl);
+  const anchorPosition = getAnchorPositionValues(anchorEl);
   const targetPosition = getTargetPosition(targetEl);
   const renderDirection = updateHorizontalDirectionIfNeeded(inputDirection, anchorPosition, targetPosition);
   const renderPosition = updateHorizontalPositionIfNeeded(inputPosition, anchorPosition, targetPosition);
@@ -192,7 +189,7 @@ export const calculateVerticalPositions = (
   inputPosition,
   inputOffsetCorrection,
 ) => {
-  const anchorPosition = getAnchorPosition(anchorEl);
+  const anchorPosition = getAnchorPositionValues(anchorEl);
   const targetPosition = getTargetPosition(targetEl);
 
   const renderDirection = updateDirectionIfNeeded(inputDirection, anchorPosition, targetPosition);
