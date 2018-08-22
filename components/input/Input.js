@@ -112,6 +112,8 @@ export default class Input extends PureComponent {
 
   renderInput() {
     const { autoFocus, bold, disabled, id, max, min, onBlur, onFocus, placeholder, readOnly, step, type } = this.props;
+    const { value } = this.state;
+
     const classNames = cx(theme['input'], {
       [theme['is-bold']]: bold,
     });
@@ -133,7 +135,7 @@ export default class Input extends PureComponent {
       placeholder,
       readOnly,
       type,
-      value: type === 'number' && this.state.value ? this.formatNumber(this.state.value) : this.state.value,
+      value: type === 'number' && value ? this.formatNumber(value) : value,
       ...(type === 'number' && numberTypeProps),
     };
 
