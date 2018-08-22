@@ -1,7 +1,7 @@
 const ARROW_OFFSET = 7;
 const POPUP_OFFSET = 12;
 
-function getAnchorPosition(anchorEl) {
+const getAnchorPosition = anchorEl => {
   const anchorRect = anchorEl.getBoundingClientRect();
 
   const anchorPosition = {
@@ -17,9 +17,9 @@ function getAnchorPosition(anchorEl) {
   anchorPosition.middle = anchorPosition.top + (anchorPosition.bottom - anchorPosition.top) / 2;
 
   return anchorPosition;
-}
+};
 
-function getTargetPosition(targetEl) {
+const getTargetPosition = targetEl => {
   const targetRect = targetEl.getBoundingClientRect();
   const width = Math.round(targetRect.width);
   const height = Math.round(targetRect.height);
@@ -34,7 +34,7 @@ function getTargetPosition(targetEl) {
     width: width,
     height: height,
   };
-}
+};
 
 // HORIZONTAL
 const positionMiddle = (anchorPosition, targetPosition) => ({
@@ -147,7 +147,13 @@ const updatePositionIfNeeded = (position, anchorPosition, targetPosition) => {
 };
 
 // EXPORT
-export function calculateHorizontalPositions(anchorEl, targetEl, inputDirection, inputPosition, inputOffsetCorrection) {
+export const calculateHorizontalPositions = (
+  anchorEl,
+  targetEl,
+  inputDirection,
+  inputPosition,
+  inputOffsetCorrection,
+) => {
   const anchorPosition = getAnchorPosition(anchorEl);
   const targetPosition = getTargetPosition(targetEl);
   const directionToRender = updateHorizontalDirectionIfNeeded(inputDirection, anchorPosition, targetPosition);
@@ -170,9 +176,15 @@ export function calculateHorizontalPositions(anchorEl, targetEl, inputDirection,
   }
 
   return { ...direction, ...position };
-}
+};
 
-export function calculateVerticalPositions(anchorEl, targetEl, inputDirection, inputPosition, inputOffsetCorrection) {
+export const calculateVerticalPositions = (
+  anchorEl,
+  targetEl,
+  inputDirection,
+  inputPosition,
+  inputOffsetCorrection,
+) => {
   const anchorPosition = getAnchorPosition(anchorEl);
   const targetPosition = getTargetPosition(targetEl);
 
@@ -196,4 +208,4 @@ export function calculateVerticalPositions(anchorEl, targetEl, inputDirection, i
   }
 
   return { ...direction, ...position };
-}
+};
