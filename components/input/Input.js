@@ -207,6 +207,7 @@ export default class Input extends PureComponent {
       size,
       spinner,
       readOnly,
+      type,
       ...others
     } = this.props;
 
@@ -219,7 +220,7 @@ export default class Input extends PureComponent {
         [theme['has-error']]: this.hasError(),
         [theme['has-connected-left']]: connectedLeft,
         [theme['has-connected-right']]: connectedRight,
-        [theme['has-spinner']]: spinner,
+        [theme['has-spinner']]: type === 'number' && spinner,
         [theme['is-inverse']]: inverse,
         [theme['is-disabled']]: disabled,
         [theme['is-read-only']]: readOnly,
