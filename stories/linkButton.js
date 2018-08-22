@@ -31,7 +31,6 @@ storiesOf('LinkButtons', module)
   .add('With icon', () => (
     <LinkButton
       disabled={boolean('Disabled', false)}
-      // icon={<IconChevronRightMediumOutline />}
       icon={
         select('Size', sizes, 'medium') === 'small' ? (
           <IconChevronRightSmallOutline />
@@ -47,7 +46,6 @@ storiesOf('LinkButtons', module)
   .add('With text and icon', () => (
     <LinkButton
       disabled={boolean('Disabled', false)}
-      // icon={<IconChevronLeftMediumOutline />}
       icon={
         select('Size', sizes, 'medium') === 'small' ? <IconChevronLeftSmallOutline /> : <IconChevronLeftMediumOutline />
       }
