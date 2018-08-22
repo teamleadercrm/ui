@@ -116,21 +116,25 @@ export default class Input extends PureComponent {
       [theme['is-bold']]: bold,
     });
 
+    const numberTypeProps = {
+      max,
+      min,
+      step,
+    };
+
     const props = {
       autoFocus,
       className: classNames,
       disabled: disabled,
       id,
-      max,
-      min,
       onBlur: onBlur,
       onChange: this.handleChange,
       onFocus: onFocus,
       placeholder,
       readOnly,
-      step,
       type,
       value: type === 'number' && this.state.value ? this.formatNumber(this.state.value) : this.state.value,
+      ...(type === 'number' && numberTypeProps),
     };
 
     return <input {...props} />;
