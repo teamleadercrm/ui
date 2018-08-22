@@ -4,7 +4,12 @@ import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean, select } from '@storybook/addon-knobs/react';
-import { IconChevronLeftMediumOutline, IconChevronRightMediumOutline } from '@teamleader/ui-icons';
+import {
+  IconChevronLeftSmallOutline,
+  IconChevronLeftMediumOutline,
+  IconChevronRightSmallOutline,
+  IconChevronRightMediumOutline,
+} from '@teamleader/ui-icons';
 import { LinkButton } from '../components';
 
 const elements = ['a', 'button'];
@@ -26,7 +31,14 @@ storiesOf('LinkButtons', module)
   .add('With icon', () => (
     <LinkButton
       disabled={boolean('Disabled', false)}
-      icon={<IconChevronRightMediumOutline />}
+      // icon={<IconChevronRightMediumOutline />}
+      icon={
+        select('Size', sizes, 'medium') === 'small' ? (
+          <IconChevronRightSmallOutline />
+        ) : (
+          <IconChevronRightMediumOutline />
+        )
+      }
       iconPlacement={select('Icon placement', iconPositions, 'left')}
       inverse={boolean('Inverse', false)}
       size={select('Size', sizes, 'medium')}
@@ -35,7 +47,10 @@ storiesOf('LinkButtons', module)
   .add('With text and icon', () => (
     <LinkButton
       disabled={boolean('Disabled', false)}
-      icon={<IconChevronLeftMediumOutline />}
+      // icon={<IconChevronLeftMediumOutline />}
+      icon={
+        select('Size', sizes, 'medium') === 'small' ? <IconChevronLeftSmallOutline /> : <IconChevronLeftMediumOutline />
+      }
       iconPlacement={select('Icon placement', iconPositions, 'left')}
       inverse={boolean('Inverse', false)}
       label="Previous"
