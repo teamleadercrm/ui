@@ -266,7 +266,7 @@
     pointer-events: none;
   }
 
-  &.icon-only:hover {
+  &.has-icon-only:hover {
     background: color(var(--color-neutral-darkest) a(0.24));
   }
 }
@@ -442,7 +442,7 @@
   min-width: calc(3 * var(--unit));
   padding: 0 calc(1.2 * var(--unit));
 
-  &.icon-only {
+  &.has-icon-only {
     padding: 0 calc(0.7 * var(--unit));
   }
 
@@ -460,7 +460,7 @@
   min-width: calc(3.6 * var(--unit));
   padding: 0 calc(1.2 * var(--unit));
 
-  &.icon-only {
+  &.has-icon-only {
     padding: 0 calc(0.5 * var(--unit));
   }
 
@@ -478,7 +478,7 @@
   min-width: calc(4.8 * var(--unit));
   padding: 0 calc(1.8 * var(--unit));
 
-  &.icon-only {
+  &.has-icon-only {
     padding: 0 calc(1.1 * var(--unit));
   }
 }
