@@ -156,20 +156,20 @@ export const calculateHorizontalPositions = (
 ) => {
   const anchorPosition = getAnchorPosition(anchorEl);
   const targetPosition = getTargetPosition(targetEl);
-  const directionToRender = updateHorizontalDirectionIfNeeded(inputDirection, anchorPosition, targetPosition);
-  const positionToRender = updateHorizontalPositionIfNeeded(inputPosition, anchorPosition, targetPosition);
+  const renderDirection = updateHorizontalDirectionIfNeeded(inputDirection, anchorPosition, targetPosition);
+  const renderPosition = updateHorizontalPositionIfNeeded(inputPosition, anchorPosition, targetPosition);
 
   let direction;
-  if (directionToRender === 'west') {
+  if (renderDirection === 'west') {
     direction = directionWest(anchorPosition, targetPosition);
   } else {
     direction = directionEast(anchorPosition, targetPosition);
   }
 
   let position;
-  if (positionToRender === 'top') {
+  if (renderPosition === 'top') {
     position = positionTop(anchorPosition, targetPosition, inputOffsetCorrection);
-  } else if (positionToRender === 'middle') {
+  } else if (renderPosition === 'middle') {
     position = positionMiddle(anchorPosition, targetPosition);
   } else {
     position = positionBottom(anchorPosition, targetPosition, inputOffsetCorrection);
@@ -188,20 +188,20 @@ export const calculateVerticalPositions = (
   const anchorPosition = getAnchorPosition(anchorEl);
   const targetPosition = getTargetPosition(targetEl);
 
-  const directionToRender = updateDirectionIfNeeded(inputDirection, anchorPosition, targetPosition);
-  const positionToRender = updatePositionIfNeeded(inputPosition, anchorPosition, targetPosition);
+  const renderDirection = updateDirectionIfNeeded(inputDirection, anchorPosition, targetPosition);
+  const renderPosition = updatePositionIfNeeded(inputPosition, anchorPosition, targetPosition);
 
   let direction;
-  if (directionToRender === 'north') {
+  if (renderDirection === 'north') {
     direction = directionNorth(anchorPosition, targetPosition);
   } else {
     direction = directionSouth(anchorPosition, targetPosition);
   }
 
   let position;
-  if (positionToRender === 'left') {
+  if (renderPosition === 'left') {
     position = positionLeft(anchorPosition, targetPosition, inputOffsetCorrection);
-  } else if (positionToRender === 'center') {
+  } else if (renderPosition === 'center') {
     position = positionCenter(anchorPosition, targetPosition);
   } else {
     position = positionRight(anchorPosition, targetPosition, inputOffsetCorrection);
