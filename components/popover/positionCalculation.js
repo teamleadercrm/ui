@@ -17,19 +17,17 @@ const getAnchorPositionValues = anchorEl => {
 };
 
 const getTargetPosition = targetEl => {
-  const targetRect = targetEl.getBoundingClientRect();
-  const width = Math.round(targetRect.width);
-  const height = Math.round(targetRect.height);
+  const { width, height } = targetEl.getBoundingClientRect();
 
   return {
+    width,
+    height,
     top: 0,
-    center: height / 2,
-    bottom: height,
     left: 0,
-    middle: width / 2,
     right: width,
-    width: width,
-    height: height,
+    bottom: height,
+    middle: width / 2,
+    center: height / 2,
   };
 };
 
@@ -89,6 +87,15 @@ const updateHorizontalPositionIfNeeded = (position, anchorPosition, targetPositi
 };
 
 // VERTICAL
+const getPositionTopValue = ({ renderDirection, anchorPosition, targetPosition }) => {
+  switch (renderDirection) {
+    case 'north':
+      return anchorPosition.top - targetPosition.height - POPUP_OFFSET;
+    case 'south':
+      return anchorPosition.top + anchorPosition.height + POPUP_OFFSET;
+  }
+};
+
 const getPositionLeftValue = ({ renderPosition, anchorPosition, targetPosition, inputOffsetCorrection }) => {
   switch (renderPosition) {
     case 'center':
@@ -97,6 +104,15 @@ const getPositionLeftValue = ({ renderPosition, anchorPosition, targetPosition, 
       return anchorPosition.left - inputOffsetCorrection;
     case 'right':
       return anchorPosition.right - targetPosition.width + inputOffsetCorrection;
+  }
+};
+
+const getArrowPositionTopValue = ({ renderDirection, renderPosition, targetPosition }) => {
+  switch (renderDirection) {
+    case 'north':
+      return targetPosition.height - ARROW_OFFSET;
+    case 'south':
+      return -ARROW_OFFSET;
   }
 };
 
@@ -110,16 +126,6 @@ const getArrowPositionLeftValue = ({ renderPosition, targetPosition }) => {
       return targetPosition.width - POPUP_OFFSET * 3;
   }
 };
-
-const directionNorth = (anchorPosition, targetPosition) => ({
-  top: anchorPosition.top - targetPosition.height - POPUP_OFFSET,
-  arrowTop: targetPosition.height - ARROW_OFFSET,
-});
-
-const directionSouth = anchorPosition => ({
-  top: anchorPosition.top + anchorPosition.height + POPUP_OFFSET,
-  arrowTop: -ARROW_OFFSET,
-});
 
 const updateDirectionIfNeeded = (direction, anchorPosition, targetPosition) => {
   if (direction === 'north') {
@@ -195,12 +201,12 @@ export const calculateVerticalPositions = (
   const renderDirection = updateDirectionIfNeeded(inputDirection, anchorPosition, targetPosition);
   const renderPosition = updatePositionIfNeeded(inputPosition, anchorPosition, targetPosition);
 
-  let direction;
-  if (renderDirection === 'north') {
-    direction = directionNorth(anchorPosition, targetPosition);
-  } else {
-    direction = directionSouth(anchorPosition, targetPosition);
-  }
+  const top = getPositionTopValue({ renderDirection, anchorPosition, targetPosition });
+  const arrowTop = getArrowPositionTopValue({
+    renderDirection,
+    renderPosition,
+    targetPosition,
+  });
 
   const left = getPositionLeftValue({
     renderPosition,
@@ -211,5 +217,5 @@ export const calculateVerticalPositions = (
 
   const arrowLeft = getArrowPositionLeftValue({ renderPosition, targetPosition });
 
-  return { ...direction, left, arrowLeft };
+  return { top, arrowTop, left, arrowLeft };
 };
