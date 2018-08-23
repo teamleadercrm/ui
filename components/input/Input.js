@@ -122,6 +122,7 @@ export default class Input extends PureComponent {
       max,
       min,
       step,
+      value: value && this.formatNumber(value),
     };
 
     const props = {
@@ -135,7 +136,7 @@ export default class Input extends PureComponent {
       placeholder,
       readOnly,
       type,
-      value: type === 'number' && value ? this.formatNumber(value) : value,
+      value,
       ...(type === 'number' && numberTypeProps),
     };
 
