@@ -67,27 +67,6 @@ const getHorizontalDirectionArrowPositionTopValue = ({ position, targetPosition 
 const getHorizontalDirectionArrowPositionLeftValue = ({ direction, targetPosition }) =>
   direction === 'west' ? targetPosition.width - ARROW_OFFSET : -ARROW_OFFSET;
 
-const updateHorizontalPositionIfNeeded = (position, anchorPosition, targetPosition) => {
-  const topIsPossible = anchorPosition.top + targetPosition.height < window.innerHeight;
-
-  const middleIsPossibleAtTop = anchorPosition.middle + targetPosition.height / 2 < window.innerHeight;
-  const middleIsPossibleAtBottom = anchorPosition.middle - targetPosition.height / 2 > 0;
-  const middleIsPossible = middleIsPossibleAtBottom && middleIsPossibleAtTop;
-
-  const bottomIsPossible = anchorPosition.bottom - targetPosition.height > 0;
-
-  if (position === 'top') {
-    return topIsPossible ? 'top' : middleIsPossible ? 'middle' : 'bottom';
-  }
-  if (position === 'middle') {
-    return middleIsPossible ? 'middle' : topIsPossible ? 'top' : bottomIsPossible ? 'bottom' : 'middle';
-  }
-
-  if (position === 'bottom') {
-    return bottomIsPossible ? 'bottom' : middleIsPossible ? 'middle' : 'top';
-  }
-};
-
 // VERTICAL
 const getVerticalDirectionPositionTopValue = ({ direction, anchorPosition, targetPosition }) =>
   direction === 'north'
@@ -124,7 +103,7 @@ const getVerticalDirectionArrowPositionLeftValue = ({ renderPosition, targetPosi
   }
 };
 
-const getDirectionRendersOnScreen = ({ direction, anchorPosition, targetPosition }) => {
+const isInViewport = ({ direction, anchorPosition, targetPosition }) => {
   switch (direction) {
     case 'north':
       return anchorPosition.top - targetPosition.height - POPUP_OFFSET > 0;
@@ -151,10 +130,10 @@ const getOppositeDirection = direction => {
 };
 
 const getOppositeDirectionRendersOnScreen = ({ direction, anchorPosition, targetPosition }) =>
-  getDirectionRendersOnScreen({ direction: getOppositeDirection(direction), anchorPosition, targetPosition });
+  isInViewport({ direction: getOppositeDirection(direction), anchorPosition, targetPosition });
 
 const getRenderDirection = ({ direction, anchorPosition, targetPosition }) => {
-  const inputDirectionRendersOnScreen = getDirectionRendersOnScreen({ direction, anchorPosition, targetPosition });
+  const inputDirectionRendersOnScreen = isInViewport({ direction, anchorPosition, targetPosition });
   const oppositeDirectionRendersOnScreen = getOppositeDirectionRendersOnScreen({
     direction,
     anchorPosition,
@@ -165,24 +144,66 @@ const getRenderDirection = ({ direction, anchorPosition, targetPosition }) => {
     : direction;
 };
 
-const updatePositionIfNeeded = (position, anchorPosition, targetPosition) => {
-  const leftIsPossible = anchorPosition.left + targetPosition.width < window.innerWidth;
-
-  const centerIsPossibleAtRight = anchorPosition.center + targetPosition.width / 2 < window.innerWidth;
-  const centerIsPossibleAtLeft = anchorPosition.center - targetPosition.width / 2 > 0;
-  const centerIsPossible = centerIsPossibleAtLeft && centerIsPossibleAtRight;
-
-  const rightIsPossible = anchorPosition.right - targetPosition.width > 0;
-
-  if (position === 'left') {
-    return leftIsPossible ? 'left' : centerIsPossible ? 'center' : 'right';
+const isPositionPossible = (position, anchorPosition, targetPosition) => {
+  switch (position) {
+    case 'middle':
+      return (
+        anchorPosition.middle + targetPosition.height / 2 < window.innerHeight &&
+        anchorPosition.middle - targetPosition.height / 2 > 0
+      );
+    case 'top':
+      return anchorPosition.top + targetPosition.height < window.innerHeight;
+    case 'bottom':
+      return anchorPosition.bottom - targetPosition.height > 0;
+    case 'center':
+      return (
+        anchorPosition.center + targetPosition.width / 2 < window.innerWidth &&
+        anchorPosition.center - targetPosition.width / 2 > 0
+      );
+    case 'left':
+      return anchorPosition.left + targetPosition.width < window.innerWidth;
+    case 'right':
+      return anchorPosition.right - targetPosition.width > 0;
   }
-  if (position === 'center') {
-    return centerIsPossible ? 'center' : leftIsPossible ? 'left' : rightIsPossible ? 'right' : 'center';
+};
+
+const getOppositePosition = direction => {
+  switch (direction) {
+    case 'top':
+      return 'bottom';
+    case 'bottom':
+      return 'top';
+    case 'left':
+      return 'right';
+    case 'right':
+      return 'left';
+  }
+};
+
+const getRenderPosition = ({ position, anchorPosition, targetPosition }) => {
+  if (isPositionPossible(position, anchorPosition, targetPosition)) {
+    return position;
   }
 
-  if (position === 'right') {
-    return rightIsPossible ? 'right' : centerIsPossible ? 'center' : 'left';
+  switch (position) {
+    case 'middle':
+      return isPositionPossible('top', anchorPosition, targetPosition)
+        ? 'top'
+        : isPositionPossible('bottom', anchorPosition, targetPosition)
+          ? 'bottom'
+          : position;
+    case 'center':
+      return isPositionPossible('left', anchorPosition, targetPosition)
+        ? 'left'
+        : isPositionPossible('right', anchorPosition, targetPosition)
+          ? 'right'
+          : position;
+    case 'top':
+    case 'bottom':
+      return isPositionPossible('middle', anchorPosition, targetPosition) ? 'middle' : getOppositePosition(position);
+    case 'left':
+    case 'right':
+      return isPositionPossible('center', anchorPosition, targetPosition) ? 'center' : getOppositePosition(position);
   }
 };
 
@@ -198,7 +219,7 @@ export const calculateHorizontalPositions = (
   const targetPosition = getTargetPositionValues(targetEl);
 
   const renderDirection = getRenderDirection({ direction: inputDirection, anchorPosition, targetPosition });
-  const renderPosition = updateHorizontalPositionIfNeeded(inputPosition, anchorPosition, targetPosition);
+  const renderPosition = getRenderPosition({ position: inputPosition, anchorPosition, targetPosition });
 
   const top = getHorizontalDirectionPositionTopValue({
     position: renderPosition,
@@ -233,7 +254,7 @@ export const calculateVerticalPositions = (
   const targetPosition = getTargetPositionValues(targetEl);
 
   const renderDirection = getRenderDirection({ direction: inputDirection, anchorPosition, targetPosition });
-  const renderPosition = updatePositionIfNeeded(inputPosition, anchorPosition, targetPosition);
+  const renderPosition = getRenderPosition({ position: inputPosition, anchorPosition, targetPosition });
 
   const top = getVerticalDirectionPositionTopValue({ direction: renderDirection, anchorPosition, targetPosition });
   const arrowTop = getVerticalDirectionArrowPositionTopValue({ renderDirection, renderPosition, targetPosition });
