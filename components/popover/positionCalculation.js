@@ -160,14 +160,6 @@ const getRenderDirection = ({ direction, anchorPosition, targetPosition }) => {
     : direction;
 };
 
-const updateDirectionIfNeeded = (direction, anchorPosition, targetPosition) => {
-  if (direction === 'north') {
-    return anchorPosition.top - targetPosition.height - POPUP_OFFSET < 0 ? 'south' : 'north';
-  }
-
-  return anchorPosition.bottom + targetPosition.height + POPUP_OFFSET > window.innerHeight ? 'north' : 'south';
-};
-
 const updatePositionIfNeeded = (position, anchorPosition, targetPosition) => {
   const leftIsPossible = anchorPosition.left + targetPosition.width < window.innerWidth;
 
