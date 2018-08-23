@@ -54,6 +54,7 @@
   border-radius: var(--popover-border-radius);
   overflow: hidden;
   position: relative;
+  overflow-y: auto;
 }
 
 .neutral {
