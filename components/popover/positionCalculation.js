@@ -193,7 +193,7 @@ const getOppositeDirection = direction => {
 const getOppositeDirectionRendersOnScreen = ({ direction, anchorPosition, popoverPosition }) =>
   isInViewport({ direction: getOppositeDirection(direction), anchorPosition, popoverPosition });
 
-const getRenderDirection = ({ direction, anchorPosition, popoverPosition }) => {
+const getDirection = ({ direction, anchorPosition, popoverPosition }) => {
   const inputDirectionRendersOnScreen = isInViewport({ direction, anchorPosition, popoverPosition });
   const oppositeDirectionRendersOnScreen = getOppositeDirectionRendersOnScreen({
     direction,
@@ -241,7 +241,7 @@ const getOppositePosition = direction => {
   }
 };
 
-const getRenderPosition = ({ position, anchorPosition, popoverPosition }) => {
+const getPosition = ({ position, anchorPosition, popoverPosition }) => {
   if (isPositionPossible(position, anchorPosition, popoverPosition)) {
     return position;
   }
@@ -272,8 +272,8 @@ export const calculatePositions = (anchorEl, popoverEl, inputDirection, inputPos
   const anchorPosition = getAnchorPositionValues(anchorEl);
   const popoverPosition = getPopoverPositionValues(popoverEl);
 
-  const direction = getRenderDirection({ direction: inputDirection, anchorPosition, popoverPosition });
-  const position = getRenderPosition({ position: inputPosition, anchorPosition, popoverPosition });
+  const direction = getDirection({ direction: inputDirection, anchorPosition, popoverPosition });
+  const position = getPosition({ position: inputPosition, anchorPosition, popoverPosition });
 
   return getPositionValues({ direction, position, anchorPosition, popoverPosition, inputOffsetCorrection });
 };
