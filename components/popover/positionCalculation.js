@@ -16,8 +16,8 @@ const getAnchorPositionValues = anchorEl => {
   };
 };
 
-const getTargetPositionValues = targetEl => {
-  const { width, height } = targetEl.getBoundingClientRect();
+const getPopoverPositionValues = popoverEl => {
+  const { width, height } = popoverEl.getBoundingClientRect();
 
   return {
     width,
@@ -35,54 +35,60 @@ const getVerticalDirectionPositionValues = ({
   direction,
   position,
   anchorPosition,
-  targetPosition,
+  popoverPosition,
   inputOffsetCorrection,
 }) => ({
   top: getVerticalDirectionPositionTopValue({
     direction,
     anchorPosition,
-    targetPosition,
+    popoverPosition,
   }),
-  arrowTop: getVerticalDirectionArrowPositionTopValue({ direction, targetPosition }),
+  arrowTop: getVerticalDirectionArrowPositionTopValue({ direction, popoverPosition }),
   left: getVerticalDirectionPositionLeftValue({
     position,
     anchorPosition,
-    targetPosition,
+    popoverPosition,
     inputOffsetCorrection,
   }),
-  arrowLeft: getVerticalDirectionArrowPositionLeftValue({ position, targetPosition }),
+  arrowLeft: getVerticalDirectionArrowPositionLeftValue({ position, popoverPosition }),
 });
 
 const getHorizontalDirectionPositionValues = ({
   direction,
   position,
   anchorPosition,
-  targetPosition,
+  popoverPosition,
   inputOffsetCorrection,
 }) => ({
   top: getHorizontalDirectionPositionTopValue({
     position,
     anchorPosition,
-    targetPosition,
+    popoverPosition,
     inputOffsetCorrection,
   }),
-  arrowTop: getHorizontalDirectionArrowPositionTopValue({ position, targetPosition }),
-  left: getHorizontalDirectionPositionLeftValue({ direction, anchorPosition, targetPosition }),
+  arrowTop: getHorizontalDirectionArrowPositionTopValue({ position, popoverPosition }),
+  left: getHorizontalDirectionPositionLeftValue({ direction, anchorPosition, popoverPosition }),
   arrowLeft: getHorizontalDirectionArrowPositionLeftValue({
     direction,
     anchorPosition,
-    targetPosition,
+    popoverPosition,
   }),
 });
 
-const getPositionValues = ({ direction, position, anchorPosition, targetPosition, inputOffsetCorrection }) =>
+const getPositionValues = ({ direction, position, anchorPosition, popoverPosition, inputOffsetCorrection }) =>
   direction === 'north' || direction === 'south'
-    ? getVerticalDirectionPositionValues({ direction, position, anchorPosition, targetPosition, inputOffsetCorrection })
+    ? getVerticalDirectionPositionValues({
+        direction,
+        position,
+        anchorPosition,
+        popoverPosition,
+        inputOffsetCorrection,
+      })
     : getHorizontalDirectionPositionValues({
         direction,
         position,
         anchorPosition,
-        targetPosition,
+        popoverPosition,
         inputOffsetCorrection,
       });
 
@@ -90,79 +96,84 @@ const getPositionValues = ({ direction, position, anchorPosition, targetPosition
 const getHorizontalDirectionPositionTopValue = ({
   position,
   anchorPosition,
-  targetPosition,
+  popoverPosition,
   inputOffsetCorrection,
 }) => {
   switch (position) {
     case 'middle':
-      return anchorPosition.middle - targetPosition.height / 2;
+      return anchorPosition.middle - popoverPosition.height / 2;
     case 'top':
       return anchorPosition.top - POPUP_OFFSET * 0.75 - inputOffsetCorrection;
     case 'bottom':
-      return anchorPosition.bottom - targetPosition.height + POPUP_OFFSET * 0.75 + inputOffsetCorrection;
+      return anchorPosition.bottom - popoverPosition.height + POPUP_OFFSET * 0.75 + inputOffsetCorrection;
   }
 };
 
-const getHorizontalDirectionPositionLeftValue = ({ direction, anchorPosition, targetPosition }) =>
+const getHorizontalDirectionPositionLeftValue = ({ direction, anchorPosition, popoverPosition }) =>
   direction === 'west'
-    ? anchorPosition.left - targetPosition.width - POPUP_OFFSET
+    ? anchorPosition.left - popoverPosition.width - POPUP_OFFSET
     : anchorPosition.right + POPUP_OFFSET;
 
-const getHorizontalDirectionArrowPositionTopValue = ({ position, targetPosition }) => {
+const getHorizontalDirectionArrowPositionTopValue = ({ position, popoverPosition }) => {
   switch (position) {
     case 'middle':
-      return targetPosition.height / 2 - ARROW_OFFSET;
+      return popoverPosition.height / 2 - ARROW_OFFSET;
     case 'top':
       return ARROW_OFFSET * 2.35;
     case 'bottom':
-      return targetPosition.height - ARROW_OFFSET * 4.5;
+      return popoverPosition.height - ARROW_OFFSET * 4.5;
   }
 };
 
-const getHorizontalDirectionArrowPositionLeftValue = ({ direction, targetPosition }) =>
-  direction === 'west' ? targetPosition.width - ARROW_OFFSET : -ARROW_OFFSET;
+const getHorizontalDirectionArrowPositionLeftValue = ({ direction, popoverPosition }) =>
+  direction === 'west' ? popoverPosition.width - ARROW_OFFSET : -ARROW_OFFSET;
 
 // VERTICAL
-const getVerticalDirectionPositionTopValue = ({ direction, anchorPosition, targetPosition }) =>
+const getVerticalDirectionPositionTopValue = ({ direction, anchorPosition, popoverPosition }) =>
   direction === 'north'
-    ? anchorPosition.top - targetPosition.height - POPUP_OFFSET
+    ? anchorPosition.top - popoverPosition.height - POPUP_OFFSET
     : anchorPosition.top + anchorPosition.height + POPUP_OFFSET;
 
-const getVerticalDirectionPositionLeftValue = ({ position, anchorPosition, targetPosition, inputOffsetCorrection }) => {
+const getVerticalDirectionPositionLeftValue = ({
+  position,
+  anchorPosition,
+  popoverPosition,
+  inputOffsetCorrection,
+}) => {
   switch (position) {
     case 'center':
-      return anchorPosition.center - targetPosition.width / 2;
+      return anchorPosition.center - popoverPosition.width / 2;
     case 'left':
       return anchorPosition.left - inputOffsetCorrection;
     case 'right':
-      return anchorPosition.right - targetPosition.width + inputOffsetCorrection;
+      return anchorPosition.right - popoverPosition.width + inputOffsetCorrection;
   }
 };
 
-const getVerticalDirectionArrowPositionTopValue = ({ direction, targetPosition }) =>
-  direction === 'north' ? targetPosition.height - ARROW_OFFSET : -ARROW_OFFSET;
+const getVerticalDirectionArrowPositionTopValue = ({ direction, popoverPosition }) =>
+  direction === 'north' ? popoverPosition.height - ARROW_OFFSET : -ARROW_OFFSET;
 
-const getVerticalDirectionArrowPositionLeftValue = ({ position, targetPosition }) => {
+const getVerticalDirectionArrowPositionLeftValue = ({ position, popoverPosition }) => {
   switch (position) {
     case 'center':
-      return targetPosition.width / 2 - ARROW_OFFSET;
+      return popoverPosition.width / 2 - ARROW_OFFSET;
     case 'left':
       return 2 * POPUP_OFFSET;
     case 'right':
-      return targetPosition.width - POPUP_OFFSET * 3;
+      return popoverPosition.width - POPUP_OFFSET * 3;
   }
 };
 
-const isInViewport = ({ direction, anchorPosition, targetPosition }) => {
+const isInViewport = ({ direction, anchorPosition, popoverPosition }) => {
   switch (direction) {
     case 'north':
-      return anchorPosition.top - targetPosition.height - POPUP_OFFSET > 0;
+      return anchorPosition.top - popoverPosition.height - POPUP_OFFSET > 0;
     case 'south':
-      return anchorPosition.bottom + targetPosition.height + POPUP_OFFSET < window.innerHeight;
+      return anchorPosition.bottom + popoverPosition.height + POPUP_OFFSET < window.innerHeight;
     case 'east':
-      return anchorPosition.right + targetPosition.width + POPUP_OFFSET < window.innerWidth;
+      return anchorPosition.right + popoverPosition.width + POPUP_OFFSET < window.innerWidth;
     case 'west':
-      return anchorPosition.left - targetPosition.width - POPUP_OFFSET > 0;
+      return anchorPosition.left - popoverPosition.width - POPUP_OFFSET > 0;
   }
 };
 
@@ -179,41 +190,41 @@ const getOppositeDirection = direction => {
   }
 };
 
-const getOppositeDirectionRendersOnScreen = ({ direction, anchorPosition, targetPosition }) =>
-  isInViewport({ direction: getOppositeDirection(direction), anchorPosition, targetPosition });
+const getOppositeDirectionRendersOnScreen = ({ direction, anchorPosition, popoverPosition }) =>
+  isInViewport({ direction: getOppositeDirection(direction), anchorPosition, popoverPosition });
 
-const getRenderDirection = ({ direction, anchorPosition, targetPosition }) => {
-  const inputDirectionRendersOnScreen = isInViewport({ direction, anchorPosition, targetPosition });
+const getRenderDirection = ({ direction, anchorPosition, popoverPosition }) => {
+  const inputDirectionRendersOnScreen = isInViewport({ direction, anchorPosition, popoverPosition });
   const oppositeDirectionRendersOnScreen = getOppositeDirectionRendersOnScreen({
     direction,
     anchorPosition,
-    targetPosition,
+    popoverPosition,
   });
   return !inputDirectionRendersOnScreen && oppositeDirectionRendersOnScreen
     ? getOppositeDirection(direction)
     : direction;
 };
 
-const isPositionPossible = (position, anchorPosition, targetPosition) => {
+const isPositionPossible = (position, anchorPosition, popoverPosition) => {
   switch (position) {
     case 'middle':
       return (
-        anchorPosition.middle + targetPosition.height / 2 < window.innerHeight &&
-        anchorPosition.middle - targetPosition.height / 2 > 0
+        anchorPosition.middle + popoverPosition.height / 2 < window.innerHeight &&
+        anchorPosition.middle - popoverPosition.height / 2 > 0
       );
     case 'top':
-      return anchorPosition.top + targetPosition.height < window.innerHeight;
+      return anchorPosition.top + popoverPosition.height < window.innerHeight;
     case 'bottom':
-      return anchorPosition.bottom - targetPosition.height > 0;
+      return anchorPosition.bottom - popoverPosition.height > 0;
     case 'center':
       return (
-        anchorPosition.center + targetPosition.width / 2 < window.innerWidth &&
-        anchorPosition.center - targetPosition.width / 2 > 0
+        anchorPosition.center + popoverPosition.width / 2 < window.innerWidth &&
+        anchorPosition.center - popoverPosition.width / 2 > 0
       );
     case 'left':
-      return anchorPosition.left + targetPosition.width < window.innerWidth;
+      return anchorPosition.left + popoverPosition.width < window.innerWidth;
     case 'right':
-      return anchorPosition.right - targetPosition.width > 0;
+      return anchorPosition.right - popoverPosition.width > 0;
   }
 };
 
@@ -230,39 +241,39 @@ const getOppositePosition = direction => {
   }
 };
 
-const getRenderPosition = ({ position, anchorPosition, targetPosition }) => {
-  if (isPositionPossible(position, anchorPosition, targetPosition)) {
+const getRenderPosition = ({ position, anchorPosition, popoverPosition }) => {
+  if (isPositionPossible(position, anchorPosition, popoverPosition)) {
     return position;
   }
 
   switch (position) {
     case 'middle':
-      return isPositionPossible('top', anchorPosition, targetPosition)
+      return isPositionPossible('top', anchorPosition, popoverPosition)
         ? 'top'
-        : isPositionPossible('bottom', anchorPosition, targetPosition)
+        : isPositionPossible('bottom', anchorPosition, popoverPosition)
           ? 'bottom'
           : position;
     case 'center':
-      return isPositionPossible('left', anchorPosition, targetPosition)
+      return isPositionPossible('left', anchorPosition, popoverPosition)
         ? 'left'
-        : isPositionPossible('right', anchorPosition, targetPosition)
+        : isPositionPossible('right', anchorPosition, popoverPosition)
           ? 'right'
           : position;
     case 'top':
     case 'bottom':
-      return isPositionPossible('middle', anchorPosition, targetPosition) ? 'middle' : getOppositePosition(position);
+      return isPositionPossible('middle', anchorPosition, popoverPosition) ? 'middle' : getOppositePosition(position);
     case 'left':
     case 'right':
-      return isPositionPossible('center', anchorPosition, targetPosition) ? 'center' : getOppositePosition(position);
+      return isPositionPossible('center', anchorPosition, popoverPosition) ? 'center' : getOppositePosition(position);
   }
 };
 
-export const calculatePositions = (anchorEl, targetEl, inputDirection, inputPosition, inputOffsetCorrection) => {
+export const calculatePositions = (anchorEl, popoverEl, inputDirection, inputPosition, inputOffsetCorrection) => {
   const anchorPosition = getAnchorPositionValues(anchorEl);
-  const targetPosition = getTargetPositionValues(targetEl);
+  const popoverPosition = getPopoverPositionValues(popoverEl);
 
-  const direction = getRenderDirection({ direction: inputDirection, anchorPosition, targetPosition });
-  const position = getRenderPosition({ position: inputPosition, anchorPosition, targetPosition });
+  const direction = getRenderDirection({ direction: inputDirection, anchorPosition, popoverPosition });
+  const position = getRenderPosition({ position: inputPosition, anchorPosition, popoverPosition });
 
-  return getPositionValues({ direction, position, anchorPosition, targetPosition, inputOffsetCorrection });
+  return getPositionValues({ direction, position, anchorPosition, popoverPosition, inputOffsetCorrection });
 };
