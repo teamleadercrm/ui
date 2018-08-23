@@ -111,7 +111,22 @@ export default class Input extends PureComponent {
   }
 
   renderInput() {
-    const { autoFocus, bold, disabled, id, max, min, onBlur, onFocus, placeholder, readOnly, step, type } = this.props;
+    const {
+      autoFocus,
+      bold,
+      disabled,
+      id,
+      name,
+      max,
+      min,
+      onBlur,
+      onFocus,
+      placeholder,
+      readOnly,
+      step,
+      type,
+    } = this.props;
+
     const { value } = this.state;
 
     const classNames = cx(theme['input'], {
@@ -130,6 +145,7 @@ export default class Input extends PureComponent {
       className: classNames,
       disabled: disabled,
       id,
+      name,
       onBlur: onBlur,
       onChange: this.handleChange,
       onFocus: onFocus,
@@ -284,6 +300,8 @@ Input.propTypes = {
   id: PropTypes.string,
   /** Boolean indicating whether the input should render as inverse. */
   inverse: PropTypes.bool,
+  /** The text string to use as input name */
+  name: PropTypes.string,
   max: PropTypes.number,
   min: PropTypes.number,
   /** Object to provide meta information for redux forms. */
