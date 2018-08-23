@@ -48,6 +48,11 @@ const getHorizontalDirectionPositionTopValue = ({
   }
 };
 
+const getHorizontalDirectionPositionLeftValue = ({ direction, anchorPosition, targetPosition }) =>
+  direction === 'west'
+    ? anchorPosition.left - targetPosition.width - POPUP_OFFSET
+    : anchorPosition.right + POPUP_OFFSET;
+
 const getHorizontalDirectionArrowPositionTopValue = ({ position, targetPosition }) => {
   switch (position) {
     case 'middle':
@@ -59,15 +64,8 @@ const getHorizontalDirectionArrowPositionTopValue = ({ position, targetPosition 
   }
 };
 
-const directionWest = (anchorPosition, targetPosition) => ({
-  left: anchorPosition.left - targetPosition.width - POPUP_OFFSET,
-  arrowLeft: targetPosition.width - ARROW_OFFSET,
-});
-
-const directionEast = anchorPosition => ({
-  left: anchorPosition.right + POPUP_OFFSET,
-  arrowLeft: -ARROW_OFFSET,
-});
+const getHorizontalDirectionArrowPositionLeftValue = ({ direction, targetPosition }) =>
+  direction === 'west' ? targetPosition.width - ARROW_OFFSET : -ARROW_OFFSET;
 
 const updateHorizontalPositionIfNeeded = (position, anchorPosition, targetPosition) => {
   const topIsPossible = anchorPosition.top + targetPosition.height < window.innerHeight;
@@ -96,7 +94,12 @@ const getVerticalDirectionPositionTopValue = ({ direction, anchorPosition, targe
     ? anchorPosition.Top - targetPosition.height - POPUP_OFFSET
     : anchorPosition.top + targetPosition.height + POPUP_OFFSET;
 
-const getPositionLeftValue = ({ renderPosition, anchorPosition, targetPosition, inputOffsetCorrection }) => {
+const getVerticalDirectionPositionLeftValue = ({
+  renderPosition,
+  anchorPosition,
+  targetPosition,
+  inputOffsetCorrection,
+}) => {
   switch (renderPosition) {
     case 'center':
       return anchorPosition.center - targetPosition.width / 2;
@@ -110,7 +113,7 @@ const getPositionLeftValue = ({ renderPosition, anchorPosition, targetPosition, 
 const getVerticalDirectionArrowPositionTopValue = ({ direction, targetPosition }) =>
   direction === 'north' ? targetPosition.height - ARROW_OFFSET : -ARROW_OFFSET;
 
-const getArrowPositionLeftValue = ({ renderPosition, targetPosition }) => {
+const getVerticalDirectionArrowPositionLeftValue = ({ renderPosition, targetPosition }) => {
   switch (renderPosition) {
     case 'center':
       return targetPosition.width / 2 - ARROW_OFFSET;
@@ -197,13 +200,6 @@ export const calculateHorizontalPositions = (
   const renderDirection = getRenderDirection({ direction: inputDirection, anchorPosition, targetPosition });
   const renderPosition = updateHorizontalPositionIfNeeded(inputPosition, anchorPosition, targetPosition);
 
-  let direction;
-  if (renderDirection === 'west') {
-    direction = directionWest(anchorPosition, targetPosition);
-  } else {
-    direction = directionEast(anchorPosition, targetPosition);
-  }
-
   const top = getHorizontalDirectionPositionTopValue({
     position: renderPosition,
     anchorPosition,
@@ -216,7 +212,14 @@ export const calculateHorizontalPositions = (
     inputOffsetCorrection,
   });
 
-  return { ...direction, top, arrowTop };
+  const left = getHorizontalDirectionPositionLeftValue({ direction: renderDirection, anchorPosition, targetPosition });
+  const arrowLeft = getHorizontalDirectionArrowPositionLeftValue({
+    direction: renderDirection,
+    anchorPosition,
+    targetPosition,
+  });
+
+  return { top, arrowTop, left, arrowLeft };
 };
 
 export const calculateVerticalPositions = (
@@ -235,13 +238,13 @@ export const calculateVerticalPositions = (
   const top = getVerticalDirectionPositionTopValue({ direction: renderDirection, anchorPosition, targetPosition });
   const arrowTop = getVerticalDirectionArrowPositionTopValue({ renderDirection, renderPosition, targetPosition });
 
-  const left = getPositionLeftValue({
+  const left = getVerticalDirectionPositionLeftValue({
     renderPosition,
     anchorPosition,
     targetPosition,
     inputOffsetCorrection,
   });
-  const arrowLeft = getArrowPositionLeftValue({ renderPosition, targetPosition });
+  const arrowLeft = getVerticalDirectionArrowPositionLeftValue({ renderPosition, targetPosition });
 
   return { top, arrowTop, left, arrowLeft };
 };
