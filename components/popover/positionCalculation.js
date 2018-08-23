@@ -31,6 +31,61 @@ const getTargetPositionValues = targetEl => {
   };
 };
 
+const getVerticalDirectionPositionValues = ({
+  direction,
+  position,
+  anchorPosition,
+  targetPosition,
+  inputOffsetCorrection,
+}) => ({
+  top: getVerticalDirectionPositionTopValue({
+    direction,
+    anchorPosition,
+    targetPosition,
+  }),
+  arrowTop: getVerticalDirectionArrowPositionTopValue({ direction, targetPosition }),
+  left: getVerticalDirectionPositionLeftValue({
+    position,
+    anchorPosition,
+    targetPosition,
+    inputOffsetCorrection,
+  }),
+  arrowLeft: getVerticalDirectionArrowPositionLeftValue({ position, targetPosition }),
+});
+
+const getHorizontalDirectionPositionValues = ({
+  direction,
+  position,
+  anchorPosition,
+  targetPosition,
+  inputOffsetCorrection,
+}) => ({
+  top: getHorizontalDirectionPositionTopValue({
+    position,
+    anchorPosition,
+    targetPosition,
+    inputOffsetCorrection,
+  }),
+  arrowTop: getHorizontalDirectionArrowPositionTopValue({ position, targetPosition }),
+  left: getHorizontalDirectionPositionLeftValue({ direction, anchorPosition, targetPosition }),
+  arrowLeft: getHorizontalDirectionArrowPositionLeftValue({
+    direction,
+    anchorPosition,
+    targetPosition,
+  }),
+});
+
+const getPositionValues = ({ direction, position, anchorPosition, targetPosition, inputOffsetCorrection }) =>
+  direction === 'north' || direction === 'south'
+    ? getVerticalDirectionPositionValues({ direction, position, anchorPosition, targetPosition, inputOffsetCorrection })
+    : getHorizontalDirectionPositionValues({
+        direction,
+        position,
+        anchorPosition,
+        targetPosition,
+        inputOffsetCorrection,
+      });
+
 // HORIZONTAL
 const getHorizontalDirectionPositionTopValue = ({
   position,
@@ -73,13 +128,8 @@ const getVerticalDirectionPositionTopValue = ({ direction, anchorPosition, targe
     ? anchorPosition.top - targetPosition.height - POPUP_OFFSET
     : anchorPosition.top + anchorPosition.height + POPUP_OFFSET;
 
-const getVerticalDirectionPositionLeftValue = ({
-  renderPosition,
-  anchorPosition,
-  targetPosition,
-  inputOffsetCorrection,
-}) => {
-  switch (renderPosition) {
+const getVerticalDirectionPositionLeftValue = ({ position, anchorPosition, targetPosition, inputOffsetCorrection }) => {
+  switch (position) {
     case 'center':
       return anchorPosition.center - targetPosition.width / 2;
     case 'left':
@@ -92,8 +142,8 @@ const getVerticalDirectionPositionLeftValue = ({
 const getVerticalDirectionArrowPositionTopValue = ({ direction, targetPosition }) =>
   direction === 'north' ? targetPosition.height - ARROW_OFFSET : -ARROW_OFFSET;
 
-const getVerticalDirectionArrowPositionLeftValue = ({ renderPosition, targetPosition }) => {
-  switch (renderPosition) {
+const getVerticalDirectionArrowPositionLeftValue = ({ position, targetPosition }) => {
+  switch (position) {
     case 'center':
       return targetPosition.width / 2 - ARROW_OFFSET;
     case 'left':
@@ -207,65 +257,12 @@ const getRenderPosition = ({ position, anchorPosition, targetPosition }) => {
   }
 };
 
-// EXPORT
-export const calculateHorizontalPositions = (
-  anchorEl,
-  targetEl,
-  inputDirection,
-  inputPosition,
-  inputOffsetCorrection,
-) => {
+export const calculatePositions = (anchorEl, targetEl, inputDirection, inputPosition, inputOffsetCorrection) => {
   const anchorPosition = getAnchorPositionValues(anchorEl);
   const targetPosition = getTargetPositionValues(targetEl);
 
-  const renderDirection = getRenderDirection({ direction: inputDirection, anchorPosition, targetPosition });
-  const renderPosition = getRenderPosition({ position: inputPosition, anchorPosition, targetPosition });
+  const direction = getRenderDirection({ direction: inputDirection, anchorPosition, targetPosition });
+  const position = getRenderPosition({ position: inputPosition, anchorPosition, targetPosition });
 
-  const top = getHorizontalDirectionPositionTopValue({
-    position: renderPosition,
-    anchorPosition,
-    targetPosition,
-    inputOffsetCorrection,
-  });
-  const arrowTop = getHorizontalDirectionArrowPositionTopValue({
-    position: renderPosition,
-    targetPosition,
-    inputOffsetCorrection,
-  });
-
-  const left = getHorizontalDirectionPositionLeftValue({ direction: renderDirection, anchorPosition, targetPosition });
-  const arrowLeft = getHorizontalDirectionArrowPositionLeftValue({
-    direction: renderDirection,
-    anchorPosition,
-    targetPosition,
-  });
-
-  return { top, arrowTop, left, arrowLeft };
-};
-
-export const calculateVerticalPositions = (
-  anchorEl,
-  targetEl,
-  inputDirection,
-  inputPosition,
-  inputOffsetCorrection,
-) => {
-  const anchorPosition = getAnchorPositionValues(anchorEl);
-  const targetPosition = getTargetPositionValues(targetEl);
-
-  const renderDirection = getRenderDirection({ direction: inputDirection, anchorPosition, targetPosition });
-  const renderPosition = getRenderPosition({ position: inputPosition, anchorPosition, targetPosition });
-
-  const top = getVerticalDirectionPositionTopValue({ direction: renderDirection, anchorPosition, targetPosition });
-  const arrowTop = getVerticalDirectionArrowPositionTopValue({ renderDirection, renderPosition, targetPosition });
-
-  const left = getVerticalDirectionPositionLeftValue({
-    renderPosition,
-    anchorPosition,
-    targetPosition,
-    inputOffsetCorrection,
-  });
-  const arrowLeft = getVerticalDirectionArrowPositionLeftValue({ renderPosition, targetPosition });
-
-  return { top, arrowTop, left, arrowLeft };
+  return getPositionValues({ direction, position, anchorPosition, targetPosition, inputOffsetCorrection });
 };

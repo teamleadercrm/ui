@@ -7,7 +7,7 @@ import InjectOverlay from '../overlay';
 import Transition from 'react-transition-group/Transition';
 import ReactResizeDetector from 'react-resize-detector';
 import { events } from '../utils';
-import { calculateHorizontalPositions, calculateVerticalPositions } from './positionCalculation';
+import { calculatePositions } from './positionCalculation';
 import theme from './theme.css';
 
 const factory = (axis, calculatePositions, Overlay) => {
@@ -157,6 +157,6 @@ const factory = (axis, calculatePositions, Overlay) => {
   return Popover;
 };
 
-export const PopoverHorizontal = factory('horizontal', calculateHorizontalPositions, InjectOverlay);
+export const PopoverHorizontal = factory('horizontal', calculatePositions, InjectOverlay);
 
-export const PopoverVertical = factory('vertical', calculateVerticalPositions, InjectOverlay);
+export const PopoverVertical = factory('vertical', calculatePositions, InjectOverlay);
