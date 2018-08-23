@@ -91,8 +91,8 @@ const updateHorizontalPositionIfNeeded = (position, anchorPosition, targetPositi
 // VERTICAL
 const getVerticalDirectionPositionTopValue = ({ direction, anchorPosition, targetPosition }) =>
   direction === 'north'
-    ? anchorPosition.Top - targetPosition.height - POPUP_OFFSET
-    : anchorPosition.top + targetPosition.height + POPUP_OFFSET;
+    ? anchorPosition.top - targetPosition.height - POPUP_OFFSET
+    : anchorPosition.top + anchorPosition.height + POPUP_OFFSET;
 
 const getVerticalDirectionPositionLeftValue = ({
   renderPosition,
