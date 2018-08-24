@@ -276,7 +276,6 @@ export default class Input extends PureComponent {
 }
 
 Input.propTypes = {
-  autoFocus: PropTypes.bool,
   /** Boolean indicating whether the input text should render in bold. */
   bold: PropTypes.bool,
   /** Sets a class name for the wrapper to give custom styles. */
