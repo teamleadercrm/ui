@@ -303,8 +303,6 @@ Input.propTypes = {
   spinner: PropTypes.bool,
   /** Object to provide input information for redux forms. */
   input: FieldInputPropTypes,
-  /** Callback function that is fired when component is blurred. */
-  onBlur: PropTypes.func,
   /** Callback function that is fired when the component's value changes. */
   onChange: PropTypes.func,
   /** Callback function that is fired when component is focused. */
