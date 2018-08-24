@@ -190,13 +190,10 @@ const getOppositeDirection = direction => {
   }
 };
 
-const getOppositeDirectionRendersOnScreen = ({ direction, anchorPosition, popoverPosition }) =>
-  isInViewport({ direction: getOppositeDirection(direction), anchorPosition, popoverPosition });
-
 const getDirection = ({ direction, anchorPosition, popoverPosition }) => {
   const inputDirectionRendersOnScreen = isInViewport({ direction, anchorPosition, popoverPosition });
-  const oppositeDirectionRendersOnScreen = getOppositeDirectionRendersOnScreen({
-    direction,
+  const oppositeDirectionRendersOnScreen = isInViewport({
+    direction: getOppositeDirection(direction),
     anchorPosition,
     popoverPosition,
   });
