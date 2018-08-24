@@ -309,8 +309,6 @@ Input.propTypes = {
   onChange: PropTypes.func,
   /** Callback function that is fired when component is focused. */
   onFocus: PropTypes.func,
-  /** The text string to use as placeholder. */
-  placeholder: PropTypes.string,
   precision: PropTypes.number,
   /** Boolean indicating whether the input should render as read only. */
   readOnly: PropTypes.bool,
@@ -328,7 +326,6 @@ Input.defaultProps = {
   iconPlacement: 'left',
   inverse: false,
   disabled: false,
-  placeholder: '',
   precision: null,
   min: Number.MIN_SAFE_INTEGER,
   max: Number.MAX_SAFE_INTEGER,
