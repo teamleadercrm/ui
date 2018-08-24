@@ -9,7 +9,7 @@ import {
 } from '@teamleader/ui-icons';
 import InputMetaPropTypes from './InputMetaPropTypes';
 import FieldInputPropTypes from './FieldInputPropTypes';
-import Box from '../box';
+import Box, { omitBoxProps, pickBoxProps } from '../box';
 import Button from '../button';
 import Counter from '../counter';
 import { TextSmall } from '../typography';
@@ -111,26 +111,46 @@ export default class Input extends PureComponent {
   }
 
   renderInput() {
-    const { autoFocus, bold, disabled, id, max, min, onBlur, onFocus, placeholder, readOnly, step, type } = this.props;
+    const { bold, max, min, step, type, ...otherProps } = this.props;
+    const { value } = this.state;
+
     const classNames = cx(theme['input'], {
       [theme['is-bold']]: bold,
     });
 
-    const props = {
-      autoFocus,
-      className: classNames,
-      disabled: disabled,
-      id,
+    const otherPropsWithoutBoxProps = omitBoxProps(otherProps);
+    const restProps = omit(otherPropsWithoutBoxProps, [
+      'className',
+      'connectedLeft',
+      'connectedRight',
+      'counter',
+      'helpText',
+      'icon',
+      'iconPlacement',
+      'input',
+      'inverse',
+      'meta',
+      'onChange',
+      'precision',
+      'size',
+      'spinner',
+      'value',
+    ]);
+
+    const numberTypeProps = {
       max,
       min,
-      onBlur: onBlur,
-      onChange: this.handleChange,
-      onFocus: onFocus,
-      placeholder,
-      readOnly,
       step,
+      value: value && this.formatNumber(value),
+    };
+
+    const props = {
+      className: classNames,
+      onChange: this.handleChange,
       type,
-      value: type === 'number' && this.state.value ? this.formatNumber(this.state.value) : this.state.value,
+      value,
+      ...restProps,
+      ...(type === 'number' && numberTypeProps),
     };
 
     return <input {...props} />;
@@ -207,6 +227,7 @@ export default class Input extends PureComponent {
       size,
       spinner,
       readOnly,
+      type,
       ...others
     } = this.props;
 
@@ -219,7 +240,7 @@ export default class Input extends PureComponent {
         [theme['has-error']]: this.hasError(),
         [theme['has-connected-left']]: connectedLeft,
         [theme['has-connected-right']]: connectedRight,
-        [theme['has-spinner']]: spinner,
+        [theme['has-spinner']]: type === 'number' && spinner,
         [theme['is-inverse']]: inverse,
         [theme['is-disabled']]: disabled,
         [theme['is-read-only']]: readOnly,
@@ -231,23 +252,7 @@ export default class Input extends PureComponent {
       [theme['has-error']]: this.hasError(),
     });
 
-    const rest = omit(others, [
-      'bold',
-      'id',
-      'helpText',
-      'max',
-      'meta',
-      'min',
-      'onBlur',
-      'onChange',
-      'onFocus',
-      'placeholder',
-      'precision',
-      'spinner',
-      'type',
-      'updateStep',
-      'value',
-    ]);
+    const rest = pickBoxProps(others);
 
     return (
       <Box className={classNames} {...rest}>
@@ -271,10 +276,9 @@ export default class Input extends PureComponent {
 }
 
 Input.propTypes = {
-  autoFocus: PropTypes.bool,
   /** Boolean indicating whether the input text should render in bold. */
   bold: PropTypes.bool,
-  /** Sets a class name to give custom styles. */
+  /** Sets a class name for the wrapper to give custom styles. */
   className: PropTypes.string,
   connectedLeft: PropTypes.element,
   connectedRight: PropTypes.element,
@@ -288,8 +292,6 @@ Input.propTypes = {
   icon: PropTypes.oneOfType([PropTypes.func, PropTypes.element]),
   /** The position of the icon inside the input. */
   iconPlacement: PropTypes.oneOf(['left', 'right']),
-  /** The text string to use as input identifier. */
-  id: PropTypes.string,
   /** Boolean indicating whether the input should render as inverse. */
   inverse: PropTypes.bool,
   max: PropTypes.number,
@@ -300,14 +302,8 @@ Input.propTypes = {
   spinner: PropTypes.bool,
   /** Object to provide input information for redux forms. */
   input: FieldInputPropTypes,
-  /** Callback function that is fired when component is blurred. */
-  onBlur: PropTypes.func,
   /** Callback function that is fired when the component's value changes. */
   onChange: PropTypes.func,
-  /** Callback function that is fired when component is focused. */
-  onFocus: PropTypes.func,
-  /** The text string to use as placeholder. */
-  placeholder: PropTypes.string,
   precision: PropTypes.number,
   /** Boolean indicating whether the input should render as read only. */
   readOnly: PropTypes.bool,
@@ -325,7 +321,6 @@ Input.defaultProps = {
   iconPlacement: 'left',
   inverse: false,
   disabled: false,
-  placeholder: '',
   precision: null,
   min: Number.MIN_SAFE_INTEGER,
   max: Number.MAX_SAFE_INTEGER,
