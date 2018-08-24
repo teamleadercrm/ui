@@ -111,17 +111,15 @@ export default class Input extends PureComponent {
   }
 
   renderInput() {
-    const { bold, max, min, step, type } = this.props;
-
+    const { bold, max, min, step, type, ...others } = this.props;
     const { value } = this.state;
 
     const classNames = cx(theme['input'], {
       [theme['is-bold']]: bold,
     });
 
-    const propsWithoutBoxProps = omitBoxProps(this.props);
+    const propsWithoutBoxProps = omitBoxProps(others);
     const restProps = omit(propsWithoutBoxProps, [
-      'bold',
       'className',
       'connectedLeft',
       'connectedRight',
