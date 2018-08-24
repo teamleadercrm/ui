@@ -305,8 +305,6 @@ Input.propTypes = {
   input: FieldInputPropTypes,
   /** Callback function that is fired when the component's value changes. */
   onChange: PropTypes.func,
-  /** Callback function that is fired when component is focused. */
-  onFocus: PropTypes.func,
   precision: PropTypes.number,
   /** Boolean indicating whether the input should render as read only. */
   readOnly: PropTypes.bool,
