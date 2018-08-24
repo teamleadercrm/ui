@@ -111,21 +111,7 @@ export default class Input extends PureComponent {
   }
 
   renderInput() {
-    const {
-      autoFocus,
-      bold,
-      disabled,
-      id,
-      name,
-      max,
-      min,
-      onBlur,
-      onFocus,
-      placeholder,
-      readOnly,
-      step,
-      type,
-    } = this.props;
+    const { bold, max, min, step, type } = this.props;
 
     const { value } = this.state;
 
