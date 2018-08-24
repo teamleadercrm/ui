@@ -9,7 +9,7 @@ import {
 } from '@teamleader/ui-icons';
 import InputMetaPropTypes from './InputMetaPropTypes';
 import FieldInputPropTypes from './FieldInputPropTypes';
-import Box, { pickBoxProps } from '../box';
+import Box, { omitBoxProps, pickBoxProps } from '../box';
 import Button from '../button';
 import Counter from '../counter';
 import { TextSmall } from '../typography';
@@ -133,6 +133,26 @@ export default class Input extends PureComponent {
       [theme['is-bold']]: bold,
     });
 
+    const propsWithoutBoxProps = omitBoxProps(this.props);
+    const restProps = omit(propsWithoutBoxProps, [
+      'bold',
+      'className',
+      'connectedLeft',
+      'connectedRight',
+      'counter',
+      'helpText',
+      'icon',
+      'iconPlacement',
+      'input',
+      'inverse',
+      'meta',
+      'onChange',
+      'precision',
+      'size',
+      'spinner',
+      'value',
+    ]);
+
     const numberTypeProps = {
       max,
       min,
@@ -141,18 +161,11 @@ export default class Input extends PureComponent {
     };
 
     const props = {
-      autoFocus,
       className: classNames,
-      disabled: disabled,
-      id,
-      name,
-      onBlur: onBlur,
       onChange: this.handleChange,
-      onFocus: onFocus,
-      placeholder,
-      readOnly,
       type,
       value,
+      ...restProps,
       ...(type === 'number' && numberTypeProps),
     };
 
