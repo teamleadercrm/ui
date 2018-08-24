@@ -279,7 +279,7 @@ Input.propTypes = {
   autoFocus: PropTypes.bool,
   /** Boolean indicating whether the input text should render in bold. */
   bold: PropTypes.bool,
-  /** Sets a class name to give custom styles. */
+  /** Sets a class name for the wrapper to give custom styles. */
   className: PropTypes.string,
   connectedLeft: PropTypes.element,
   connectedRight: PropTypes.element,
