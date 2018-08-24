@@ -297,8 +297,6 @@ Input.propTypes = {
   id: PropTypes.string,
   /** Boolean indicating whether the input should render as inverse. */
   inverse: PropTypes.bool,
-  /** The text string to use as input name */
-  name: PropTypes.string,
   max: PropTypes.number,
   min: PropTypes.number,
   /** Object to provide meta information for redux forms. */
