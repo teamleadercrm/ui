@@ -293,8 +293,6 @@ Input.propTypes = {
   icon: PropTypes.oneOfType([PropTypes.func, PropTypes.element]),
   /** The position of the icon inside the input. */
   iconPlacement: PropTypes.oneOf(['left', 'right']),
-  /** The text string to use as input identifier. */
-  id: PropTypes.string,
   /** Boolean indicating whether the input should render as inverse. */
   inverse: PropTypes.bool,
   max: PropTypes.number,
