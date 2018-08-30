@@ -18,7 +18,7 @@ class AsyncSelect extends PureComponent {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.getPageSize() !== this.getPageSize(prevProps)) {
+    if (this.props.pageSize !== prevProps.pageSize) {
       this.setState(
         state => ({
           ...state,
@@ -63,10 +63,6 @@ class AsyncSelect extends PureComponent {
     });
   }
 
-  getPageSize(props = this.props) {
-    return props.pageSize || 10;
-  }
-
   handleBlur = () => {
     this.invalidateCache();
   };
@@ -74,7 +70,7 @@ class AsyncSelect extends PureComponent {
   handleOptionsLoaded(options, cache) {
     this.setState(state => {
       const newOptions = state.options.concat(options);
-      const isLastPage = options.length < this.getPageSize();
+      const isLastPage = options.length < this.props.pageSize;
 
       return {
         options: newOptions,
@@ -97,7 +93,7 @@ class AsyncSelect extends PureComponent {
   loadOptions = () => {
     const { loadOptions, cacheOptions } = this.props;
     const { pageNumber, searchTerm } = this.state;
-    const pageSize = this.getPageSize();
+    const pageSize = this.props.pageSize;
 
     this.setState(
       {
@@ -108,7 +104,7 @@ class AsyncSelect extends PureComponent {
           options => {
             if (
               searchTerm !== this.state.searchTerm ||
-              pageSize !== this.getPageSize() ||
+              pageSize !== this.props.pageSize ||
               pageNumber !== this.state.pageNumber
             ) {
               return;
@@ -163,6 +159,10 @@ AsyncSelect.propTypes = {
   paginate: PropTypes.bool,
   pageSize: PropTypes.number,
   cacheOptions: PropTypes.bool,
+};
+
+AsyncSelect.defaultProps = {
+  pageSize: 10,
 };
 
 export default AsyncSelect;
