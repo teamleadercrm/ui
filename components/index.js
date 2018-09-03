@@ -23,7 +23,7 @@ import Pagination from './pagination';
 import { PopoverHorizontal, PopoverVertical } from './popover';
 import { RadioButton, RadioGroup } from './radio';
 import Section from './section';
-import Select from './select';
+import Select, { AsyncSelect } from './select';
 import { Island, IslandGroup } from './island';
 import StatusBullet from './statusBullet';
 import StatusLabel from './statusLabel';
@@ -39,6 +39,7 @@ import ProgressTracker from './progressTracker';
 export {
   Avatar,
   AvatarStack,
+  AsyncSelect,
   Badge,
   Banner,
   Box,

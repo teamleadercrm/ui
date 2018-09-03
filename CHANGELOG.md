@@ -2,6 +2,8 @@
 
 ### Added
 
+- `AsyncSelect`: A new select component that will load its options asynchronously and optionally paginate them.
+
 ### Changed
 
 ### Deprecated

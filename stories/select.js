@@ -3,9 +3,9 @@ import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, boolean, select } from '@storybook/addon-knobs/react';
-import { Avatar, Box, Label, Select, TextBody } from '../components';
-import { customOptions, groupedOptions, options } from "../static/data/select";
+import { withKnobs, boolean, select, number } from '@storybook/addon-knobs/react';
+import { Avatar, Box, Label, Select, AsyncSelect, TextBody } from '../components';
+import { customOptions, groupedOptions, options } from '../static/data/select';
 
 const sizes = ['small', 'medium', 'large'];
 
@@ -99,4 +99,39 @@ storiesOf('Select', module)
         hideSelectedOptions={boolean('Hide selected options', true)}
       />
     </Label>
-  ));
+  ))
+  .add('Async', () => {
+    const loadOptions = (searchTerm, pageSize = 10, pageNumber = 1) => {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          const options = [];
+          for (let i = 0; i < pageSize; i += 1) {
+            const optionNr = (pageNumber - 1) * pageSize + i + 1;
+            options.push({
+              value: `${searchTerm}${optionNr}`,
+              label: `${searchTerm} ${optionNr}`,
+            });
+          }
+          resolve(options);
+        }, 500);
+      });
+    };
+
+    return (
+      <AsyncSelect
+        loadOptions={loadOptions}
+        cacheOptions={boolean('cacheOptions', true)}
+        paginate={boolean('paginate', true)}
+        pageSize={number('pageSize', 10)}
+        closeMenuOnSelect={boolean('closeMenuOnSelectj', true)}
+        inverse={boolean('inverse', false)}
+        isClearable={boolean('isClearable', false)}
+        isDisabled={boolean('isDisabled', false)}
+        isMulti={boolean('isMulti', false)}
+        options={options}
+        placeholder="Select your favourite(s)"
+        size={select('size', sizes, 'medium')}
+        hideSelectedOptions={boolean('hideSelectedOptions', true)}
+      />
+    );
+  });
