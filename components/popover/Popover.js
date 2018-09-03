@@ -152,7 +152,7 @@ const factory = (axis, calculatePositions, Overlay) => {
     className: PropTypes.string,
     /** The background colour of the Popover. */
     color: PropTypes.oneOf(['aqua', 'gold', 'mint', 'neutral', 'ruby', 'teal', 'violet']),
-    /** The direction in which the Popover is rendered. */
+    /** The direction in which the Popover is rendered, is overridden with the opposite direction if the Popover cannot be entirely displayed in the current direction. */
     direction: PropTypes.string.isRequired,
     /** The scroll state of the body, if true it will not be scrollable. */
     lockScroll: PropTypes.bool,
@@ -168,7 +168,7 @@ const factory = (axis, calculatePositions, Overlay) => {
     onOverlayMouseMove: PropTypes.func,
     /** The function executed, when the mouse is up on the Overlay. */
     onOverlayMouseUp: PropTypes.func,
-    /** The position in which the Popover is rendered. */
+    /** The position in which the Popover is rendered, is overridden with the another position if the Popover cannot be entirely displayed in the current position. */
     position: PropTypes.string.isRequired,
     /** The tint of the background colour of the Popover. */
     tint: PropTypes.oneOf(['lightest', 'light', 'normal', 'dark', 'darkest']),
