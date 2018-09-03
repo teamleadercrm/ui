@@ -1,16 +1,14 @@
 const ARROW_OFFSET = 7;
 const POPUP_OFFSET = 12;
 
-const getAnchorPositionValues = anchorEl => {
-  const { top, left, right, bottom, width, height } = anchorEl.getBoundingClientRect();
+const getElementPositionValues = element => {
+  const { top, left, right, bottom } = element.getBoundingClientRect();
 
   return {
     top,
     left,
-    width,
-    height,
-    right: right || left + width,
-    bottom: bottom || top + height,
+    right,
+    bottom,
     middle: top + (bottom - top) / 2,
     center: left + (right - left) / 2,
   };
@@ -124,7 +122,7 @@ const getHorizontalDirectionArrowPositionLeftValue = ({ direction, popoverDimens
 const getVerticalDirectionPositionTopValue = ({ direction, anchorPosition, popoverDimensions }) =>
   direction === 'north'
     ? anchorPosition.top - popoverDimensions.height - POPUP_OFFSET
-    : anchorPosition.top + anchorPosition.height + POPUP_OFFSET;
+    : anchorPosition.bottom + POPUP_OFFSET;
 
 const getVerticalDirectionPositionLeftValue = ({
   position,
@@ -297,7 +295,7 @@ export const calculatePositions = (
   inputPosition,
   inputOffsetCorrection,
 ) => {
-  const anchorPosition = getAnchorPositionValues(anchorEl);
+  const anchorPosition = getElementPositionValues(anchorEl);
   const popoverDimensions = getElementDimensions(popoverEl);
 
   const direction = getDirection({ direction: inputDirection, anchorPosition, popoverDimensions });
