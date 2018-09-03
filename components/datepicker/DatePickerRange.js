@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import DayPicker from 'react-day-picker';
+import Box, { omitBoxProps, pickBoxProps } from '../box';
 import NavigationBar from './NavigationBar';
 import WeekDay from './WeekDay';
 import { convertModifiersToClassnames, isSelectingFirstDay } from './utils';
@@ -69,20 +70,24 @@ class DatePickerRange extends PureComponent {
     const modifiers = { from: selectedStartDate, to: mouseEnteredEndDate };
     const selectedDays = [selectedStartDate, { from: selectedStartDate, to: mouseEnteredEndDate }];
 
+    const boxProps = pickBoxProps(others);
+    const restProps = omitBoxProps(others);
     const classNames = cx(theme['date-picker'], theme['has-range'], theme[`is-${size}`], className);
 
     return (
-      <DayPicker
-        {...others}
-        className={classNames}
-        classNames={theme}
-        modifiers={convertModifiersToClassnames(modifiers, theme)}
-        navbarElement={<NavigationBar size={size} />}
-        onDayClick={this.handleDayClick}
-        onDayMouseEnter={this.handleDayMouseEnter}
-        selectedDays={selectedDays}
-        weekdayElement={<WeekDay size={size} />}
-      />
+      <Box {...boxProps}>
+        <DayPicker
+          {...restProps}
+          className={classNames}
+          classNames={theme}
+          modifiers={convertModifiersToClassnames(modifiers, theme)}
+          navbarElement={<NavigationBar size={size} />}
+          onDayClick={this.handleDayClick}
+          onDayMouseEnter={this.handleDayMouseEnter}
+          selectedDays={selectedDays}
+          weekdayElement={<WeekDay size={size} />}
+        />
+      </Box>
     );
   }
 }
