@@ -14,7 +14,7 @@ const getElementPositionValues = element => {
   };
 };
 
-const getElementDimensions = element => {
+const getElementDimensionValues = element => {
   const { width, height } = element.getBoundingClientRect();
   return { width, height };
 };
@@ -296,7 +296,7 @@ export const calculatePositions = (
   inputOffsetCorrection,
 ) => {
   const anchorPosition = getElementPositionValues(anchorEl);
-  const popoverDimensions = getElementDimensions(popoverEl);
+  const popoverDimensions = getElementDimensionValues(popoverEl);
 
   const direction = getDirection({ direction: inputDirection, anchorPosition, popoverDimensions });
   const position = getPosition({ position: inputPosition, anchorPosition, popoverDimensions });
