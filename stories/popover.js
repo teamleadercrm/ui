@@ -16,7 +16,7 @@ import {
   TextBody,
   TextSmall,
 } from '../components';
-import { withKnobs, select } from '@storybook/addon-knobs/react';
+import { withKnobs, select, boolean, number } from '@storybook/addon-knobs/react';
 
 const store = new Store({
   active: false,
@@ -24,6 +24,11 @@ const store = new Store({
 
 const colors = ['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'teal'];
 const tints = ['lightest', 'light', 'normal', 'dark', 'darkest'];
+const backdrops = ['transparent', 'dark'];
+const horizontalDirections = ['east', 'west'];
+const verticalDirections = ['north', 'south'];
+const horizontalPositions = ['top', 'middle', 'bottom'];
+const verticalPositions = ['left', 'center', 'right'];
 
 const handleButtonClick = event => {
   store.set({ anchorEl: event.currentTarget, active: true });
@@ -60,13 +65,14 @@ storiesOf('Popover', module)
       <State store={store}>
         <PopoverHorizontal
           active={false}
-          backdrop="transparent"
+          backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
-          direction="west"
-          position="middle"
+          direction={select('Direction', horizontalDirections, 'west')}
+          position={select('Position', horizontalPositions, 'middle')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
+          offsetCorrection={number('Offset correction', 0)}
         >
           {contentBoxWithSingleTextLine}
         </PopoverHorizontal>
@@ -79,13 +85,15 @@ storiesOf('Popover', module)
       <State store={store}>
         <PopoverVertical
           active={false}
-          backdrop="transparent"
+          backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
-          direction="south"
-          position="center"
+          direction={select('Direction', verticalDirections, 'south')}
+          position={select('Position', verticalPositions, 'center')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
+          lockScroll={boolean('Lock scroll', false)}
+          offsetCorrection={number('Offset correction', 0)}
         >
           {contentBoxWithSingleTextLine}
         </PopoverVertical>
@@ -98,13 +106,15 @@ storiesOf('Popover', module)
       <State store={store}>
         <PopoverVertical
           active={false}
-          backdrop="transparent"
+          backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
-          direction="south"
-          position="center"
+          direction={select('Direction', verticalDirections, 'south')}
+          position={select('Position', verticalPositions, 'center')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
+          lockScroll={boolean('Lock scroll', false)}
+          offsetCorrection={number('Offset correction', 0)}
         >
           <Banner fullWidth>
             <Heading3>Popover Title</Heading3>
@@ -120,13 +130,15 @@ storiesOf('Popover', module)
       <State store={store}>
         <PopoverVertical
           active={false}
-          backdrop="transparent"
+          backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
-          direction="south"
-          position="center"
+          direction={select('Direction', verticalDirections, 'south')}
+          position={select('Position', verticalPositions, 'center')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
+          lockScroll={boolean('Lock scroll', false)}
+          offsetCorrection={number('Offset correction', 0)}
         >
           <Banner color="neutral" fullWidth>
             <Heading3>Popover Title</Heading3>
@@ -143,13 +155,15 @@ storiesOf('Popover', module)
       <State store={store}>
         <PopoverVertical
           active={false}
-          backdrop="transparent"
+          backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
           direction="south"
-          position="center"
+          position={select('Position', verticalPositions, 'center')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
+          lockScroll={boolean('Lock scroll', false)}
+          offsetCorrection={number('Offset correction', 0)}
         >
           <Banner onClose={handleCloseClick} fullWidth>
             <Heading3>I am a heading 3</Heading3>
@@ -165,13 +179,15 @@ storiesOf('Popover', module)
       <State store={store}>
         <PopoverVertical
           active={false}
-          backdrop="transparent"
+          backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
-          direction="south"
-          position="center"
+          direction={select('Direction', verticalDirections, 'south')}
+          position={select('Position', verticalPositions, 'center')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
+          lockScroll={boolean('Lock scroll', false)}
+          offsetCorrection={number('Offset correction', 0)}
         >
           {contentBoxWithSingleTextLine}
           <ButtonGroup justifyContent="flex-end" padding={4}>
@@ -190,11 +206,13 @@ storiesOf('Popover', module)
           active={false}
           backdrop="dark"
           color={select('Color', colors, 'neutral')}
-          direction="south"
-          position="center"
+          direction={select('Direction', verticalDirections, 'south')}
+          position={select('Position', verticalPositions, 'center')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
+          lockScroll={boolean('Lock scroll', false)}
+          offsetCorrection={number('Offset correction', 0)}
         >
           {contentBoxWithSingleTextLine}
         </PopoverVertical>
@@ -207,13 +225,15 @@ storiesOf('Popover', module)
       <State store={store}>
         <PopoverVertical
           active={false}
-          backdrop="transparent"
+          backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
-          direction="south"
-          position="center"
+          direction={select('Direction', verticalDirections, 'south')}
+          position={select('Position', verticalPositions, 'center')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
+          lockScroll={boolean('Lock scroll', false)}
+          offsetCorrection={number('Offset correction', 0)}
         >
           <Box padding={4}>
             <Heading3>I am a heading 3</Heading3>
@@ -232,13 +252,15 @@ storiesOf('Popover', module)
       <State store={store}>
         <PopoverVertical
           active={false}
-          backdrop="transparent"
+          backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
-          direction="south"
-          position="center"
+          direction={select('Direction', verticalDirections, 'south')}
+          position={select('Position', verticalPositions, 'center')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
+          lockScroll={boolean('Lock scroll', false)}
+          offsetCorrection={number('Offset correction', 0)}
         >
           <Box padding={4}>
             <ul>
