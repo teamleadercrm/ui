@@ -140,21 +140,37 @@ const factory = (axis, calculatePositions, Overlay) => {
   }
 
   Popover.propTypes = {
+    /** The state of the Popover, when true the Popover is rendered otherwise it is not. */
     active: PropTypes.bool,
+    /** The Popovers anchor element. */
     anchorEl: PropTypes.object,
+    /** The background colour of the Overlay. */
     backdrop: PropTypes.string,
+    /** The component wrapped by the Popover. */
     children: PropTypes.node,
+    /** The class names for the wrapper to apply custom styling. */
     className: PropTypes.string,
+    /** The background colour of the Popover. */
     color: PropTypes.oneOf(['aqua', 'gold', 'mint', 'neutral', 'ruby', 'teal', 'violet']),
+    /** The direction in which the Popover is rendered. */
     direction: PropTypes.string.isRequired,
+    /** The scroll state of the body, if true it will not be scrollable. */
     lockScroll: PropTypes.bool,
+    /** The amount of extra translation on the Popover (has no effect if position is "middle" or "center"). */
     offsetCorrection: PropTypes.number,
+    /** The function executed, when the "ESC" key is down. */
     onEscKeyDown: PropTypes.func,
+    /** The function executed, when the Overlay is clicked. */
     onOverlayClick: PropTypes.func,
+    /** The function executed, when the mouse is down on the Overlay. */
     onOverlayMouseDown: PropTypes.func,
+    /** The function executed, when the mouse is being moved over the Overlay. */
     onOverlayMouseMove: PropTypes.func,
+    /** The function executed, when the mouse is up on the Overlay. */
     onOverlayMouseUp: PropTypes.func,
+    /** The position in which the Popover is rendered. */
     position: PropTypes.string.isRequired,
+    /** The tint of the background colour of the Popover. */
     tint: PropTypes.oneOf(['lightest', 'light', 'normal', 'dark', 'darkest']),
   };
 
