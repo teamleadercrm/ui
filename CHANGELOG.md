@@ -8,6 +8,8 @@
 
 ### Removed
 
+- [BREAKING] `Input`: removed `precision` prop due to buggy behavior.
+
 ### Fixed
 
 - `LinkButton`: set the appropriate padding, when only containing an icon, so it displays as a square ([@LennertBlommaert](https://github.com/LennertBlommaert) in [#341](https://github.com/teamleadercrm/ui/pull/341)).
