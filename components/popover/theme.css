@@ -52,9 +52,8 @@
   background: var(--color-white);
   border: 1px solid;
   border-radius: var(--popover-border-radius);
-  overflow: hidden;
+  overflow: auto;
   position: relative;
-  overflow-y: auto;
 }
 
 .neutral {
