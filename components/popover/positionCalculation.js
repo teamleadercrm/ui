@@ -19,8 +19,6 @@ const getElementDimensionValues = element => {
   return { width, height };
 };
 
-const getElementHeightValue = element => element.getBoundingClientRect().height;
-
 const getVerticalDirectionPositionValues = ({
   direction,
   position,
@@ -260,12 +258,12 @@ const getMaxPopoverHeight = ({ direction, anchorPosition, popoverContentEl }) =>
   const directionContentRendersOnScreen = isInViewport({
     direction,
     anchorPosition,
-    popoverDimensions: { height: getElementHeightValue(popoverContentEl) },
+    popoverDimensions: getElementDimensionValues(popoverContentEl),
   });
   const oppositeDirectionContentRendersOnScreen = isInViewport({
     direction: getOppositeDirection(direction),
     anchorPosition,
-    popoverDimensions: { height: getElementHeightValue(popoverContentEl) },
+    popoverDimensions: getElementDimensionValues(popoverContentEl),
   });
 
   if (!directionContentRendersOnScreen && !oppositeDirectionContentRendersOnScreen) {
