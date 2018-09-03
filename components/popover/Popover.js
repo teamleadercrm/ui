@@ -52,7 +52,14 @@ const factory = (axis, calculatePositions, Overlay) => {
 
       if (this.popoverNode) {
         this.setState({
-          positioning: calculatePositions(anchorEl, this.popoverNode, direction, position, offsetCorrection),
+          positioning: calculatePositions(
+            anchorEl,
+            this.popoverNode,
+            this.popoverContentNode,
+            direction,
+            position,
+            offsetCorrection,
+          ),
         });
       }
     };
@@ -111,11 +118,14 @@ const factory = (axis, calculatePositions, Overlay) => {
                   }}
                 >
                   <div className={theme['arrow']} style={{ left: `${arrowLeft}px`, top: `${arrowTop}px` }} />
-                  <div
-                    className={theme['inner']}
-                    style={{ maxHeight: maxPopoverHeight ? `${maxPopoverHeight}px` : 'initial' }}
-                  >
-                    {children}
+                  <div className={theme['inner']} style={{ maxHeight: maxPopoverHeight }}>
+                    <div
+                      ref={node => {
+                        this.popoverContentNode = node;
+                      }}
+                    >
+                      {children}
+                    </div>
                     <ReactResizeDetector handleHeight handleWidth onResize={this.setPlacementThrottled} />
                   </div>
                 </div>

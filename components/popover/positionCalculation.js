@@ -31,6 +31,8 @@ const getPopoverPositionValues = popoverEl => {
   };
 };
 
+const getElementHeightValue = element => element.getBoundingClientRect().height;
+
 const getVerticalDirectionPositionValues = ({
   direction,
   position,
@@ -275,15 +277,40 @@ const getMaxPopoverHeightValue = ({ direction, anchorPosition }) => {
   }
 };
 
-export const calculatePositions = (anchorEl, popoverEl, inputDirection, inputPosition, inputOffsetCorrection) => {
+export const calculatePositions = (
+  anchorEl,
+  popoverEl,
+  popoverContentEl,
+  inputDirection,
+  inputPosition,
+  inputOffsetCorrection,
+) => {
   const anchorPosition = getAnchorPositionValues(anchorEl);
   const popoverPosition = getPopoverPositionValues(popoverEl);
 
   const direction = getDirection({ direction: inputDirection, anchorPosition, popoverPosition });
   const position = getPosition({ position: inputPosition, anchorPosition, popoverPosition });
 
+  const inputDirectionContentRendersOnScreen = isInViewport({
+    direction: inputDirection,
+    anchorPosition,
+    popoverPosition: { height: getElementHeightValue(popoverContentEl) },
+  });
+  const oppositeDirectionContentRendersOnScreen = isInViewport({
+    direction: getOppositeDirection(inputDirection),
+    anchorPosition,
+    popoverPosition: { height: getElementHeightValue(popoverContentEl) },
+  });
+  let maxPopoverHeight = 'initial';
+  if (!inputDirectionContentRendersOnScreen && !oppositeDirectionContentRendersOnScreen) {
+    maxPopoverHeight = getMaxPopoverHeightValue({
+      direction,
+      anchorPosition,
+    });
+  }
+
   return {
-    maxPopoverHeight: getMaxPopoverHeightValue({ direction, anchorPosition }),
+    maxPopoverHeight,
     ...getPositionValues({
       direction,
       position,
