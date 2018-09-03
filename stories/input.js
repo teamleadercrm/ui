@@ -69,7 +69,6 @@ storiesOf('Inputs', module)
         readOnly={boolean('Read only', false)}
         min={number('Minimum', 0)}
         max={number('Maximum', 10)}
-        precision={number('Precision', 2)}
         spinner={boolean('Render spinner', true)}
         step={number('Step', 1)}
         {...props}

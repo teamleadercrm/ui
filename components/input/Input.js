@@ -35,21 +35,18 @@ export default class Input extends PureComponent {
     return finalValue || '';
   }
 
-  static parseValue(value, { type, min, max, precision }) {
-    return type === 'number' ? Input.toNumber(value, min, max, precision) : value;
+  static parseValue(value, { type, min, max }) {
+    return type === 'number' ? Input.toNumber(value, min, max) : value;
   }
 
-  static toNumber(number, min, max, precision) {
+  static toNumber(number, min, max) {
     let float = parseFloat(number);
 
     if (isNaN(float) || !isFinite(float)) {
       float = 0;
     }
 
-    const baseExponent = Math.pow(10, precision === null ? 10 : precision);
-
     float = Math.min(Math.max(float, min), max);
-    float = Math.round(float * baseExponent) / baseExponent;
 
     return float;
   }
@@ -93,15 +90,8 @@ export default class Input extends PureComponent {
   }
 
   formatNumber(number) {
-    const { min, max, precision } = this.props;
-
-    let formattedNumber = Input.toNumber(number, min, max, precision);
-
-    if (precision !== null) {
-      formattedNumber = number.toFixed(precision);
-    }
-
-    return String(formattedNumber);
+    const { min, max } = this.props;
+    return String(Input.toNumber(number, min, max));
   }
 
   updateStep(event, n) {
@@ -131,7 +121,6 @@ export default class Input extends PureComponent {
       'inverse',
       'meta',
       'onChange',
-      'precision',
       'size',
       'spinner',
       'value',
@@ -304,7 +293,6 @@ Input.propTypes = {
   input: FieldInputPropTypes,
   /** Callback function that is fired when the component's value changes. */
   onChange: PropTypes.func,
-  precision: PropTypes.number,
   /** Boolean indicating whether the input should render as read only. */
   readOnly: PropTypes.bool,
   /** Size of the input element. */
@@ -321,7 +309,6 @@ Input.defaultProps = {
   iconPlacement: 'left',
   inverse: false,
   disabled: false,
-  precision: null,
   min: Number.MIN_SAFE_INTEGER,
   max: Number.MAX_SAFE_INTEGER,
   readOnly: false,
