@@ -17,9 +17,9 @@ import theme from './theme.css';
 
 export default class Input extends PureComponent {
   static getDerivedStateFromProps(nextProps, prevState) {
-    const value = nextProps.input ? nextProps.input.value : nextProps.value;
-    if (value !== undefined) {
-      const newValue = Input.parseValue(Input.getPropsValue(nextProps), nextProps);
+    if (nextProps.value !== undefined) {
+      const newValue = Input.parseValue(value || '', nextProps);
+
       if (newValue !== prevState.value) {
         return {
           value: newValue,
@@ -28,11 +28,6 @@ export default class Input extends PureComponent {
     }
 
     return null;
-  }
-
-  static getPropsValue({ input, value }) {
-    const finalValue = input !== undefined ? input.value : value;
-    return finalValue || '';
   }
 
   static parseValue(value, { type, min, max }) {
@@ -68,19 +63,15 @@ export default class Input extends PureComponent {
   };
 
   updateValue(event, rawValue, triggerOnChange = true) {
-    const { input, onChange } = this.props;
+    const { onChange } = this.props;
     const value = Input.parseValue(rawValue || event.target.value, this.props);
 
     this.setState({
       value,
     });
 
-    if (triggerOnChange) {
-      if (input && input.onChange) {
-        input.onChange(event, value);
-      } else if (onChange) {
-        onChange(event, value);
-      }
+    if (triggerOnChange && onChange) {
+      onChange(event, value);
     }
   }
 
@@ -117,7 +108,6 @@ export default class Input extends PureComponent {
       'helpText',
       'icon',
       'iconPlacement',
-      'input',
       'inverse',
       'meta',
       'onChange',
@@ -289,8 +279,6 @@ Input.propTypes = {
   meta: InputMetaPropTypes,
   /** Boolean indicating whether to number type input should render spinner controls */
   spinner: PropTypes.bool,
-  /** Object to provide input information for redux forms. */
-  input: FieldInputPropTypes,
   /** Callback function that is fired when the component's value changes. */
   onChange: PropTypes.func,
   /** Boolean indicating whether the input should render as read only. */
