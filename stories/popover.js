@@ -198,27 +198,6 @@ storiesOf('Popover', module)
       </State>
     </Box>
   ))
-  .add('with dark backdrop', () => (
-    <Box>
-      <Button onClick={handleButtonClick} label="Open a Popover with dark backdrop" />
-      <State store={store}>
-        <PopoverVertical
-          active={false}
-          backdrop="dark"
-          color={select('Color', colors, 'neutral')}
-          direction={select('Direction', verticalDirections, 'south')}
-          position={select('Position', verticalPositions, 'center')}
-          onEscKeyDown={handleCloseClick}
-          onOverlayClick={handleCloseClick}
-          tint={select('Tint', tints, 'lightest')}
-          lockScroll={boolean('Lock scroll', false)}
-          offsetCorrection={number('Offset correction', 0)}
-        >
-          {contentBoxWithSingleTextLine}
-        </PopoverVertical>
-      </State>
-    </Box>
-  ))
   .add('experiment 1', () => (
     <Box>
       <Button onClick={handleButtonClick} label="Open a experimental Popover" />
