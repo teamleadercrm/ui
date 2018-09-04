@@ -8,7 +8,6 @@ import {
   IconWarningBadgedSmallFilled,
 } from '@teamleader/ui-icons';
 import InputMetaPropTypes from './InputMetaPropTypes';
-import FieldInputPropTypes from './FieldInputPropTypes';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import Button from '../button';
 import Counter from '../counter';
