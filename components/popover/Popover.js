@@ -14,29 +14,16 @@ const factory = (axis, calculatePositions, Overlay) => {
   class Popover extends PureComponent {
     popoverRoot = document.createElement('div');
 
-    state = {
-      positioning: {
-        left: 0,
-        top: 0,
-        arrowLeft: 0,
-        arrowTop: 0,
-      },
-    };
+    state = { positioning: { left: 0, top: 0, arrowLeft: 0, arrowTop: 0, maxPopoverHeight: 'inital' } };
 
     componentDidMount() {
       document.body.appendChild(this.popoverRoot);
 
-      events.addEventsToWindow({
-        resize: this.setPlacementThrottled,
-        scroll: this.setPlacementThrottled,
-      });
+      events.addEventsToWindow({ resize: this.setPlacementThrottled, scroll: this.setPlacementThrottled });
     }
 
     componentWillUnmount() {
-      events.removeEventsFromWindow({
-        resize: this.setPlacementThrottled,
-        scroll: this.setPlacementThrottled,
-      });
+      events.removeEventsFromWindow({ resize: this.setPlacementThrottled, scroll: this.setPlacementThrottled });
 
       document.body.removeChild(this.popoverRoot);
     }
