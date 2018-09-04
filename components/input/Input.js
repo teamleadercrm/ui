@@ -103,7 +103,6 @@ export default class Input extends PureComponent {
       'icon',
       'iconPlacement',
       'inverse',
-      'meta',
       'onChange',
       'size',
       'spinner',
@@ -181,7 +180,7 @@ export default class Input extends PureComponent {
           <IconWarningBadgedSmallFilled />
         </Box>
         <Box element="span" marginLeft={1}>
-          {this.props.meta.error}
+          {this.props.error}
         </Box>
       </TextSmall>
     );
@@ -272,8 +271,6 @@ Input.propTypes = {
   inverse: PropTypes.bool,
   max: PropTypes.number,
   min: PropTypes.number,
-  /** Object to provide meta information for redux forms. */
-  meta: InputMetaPropTypes,
   /** Boolean indicating whether to number type input should render spinner controls */
   spinner: PropTypes.bool,
   /** Callback function that is fired when the component's value changes. */
