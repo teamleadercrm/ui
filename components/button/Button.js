@@ -48,7 +48,7 @@ class Button extends PureComponent {
       theme['button'],
       theme[level],
       {
-        [theme['has-icon-only']]: !label && !children,
+        [theme['has-icon-only']]: (!children && !label) || (Array.isArray(children) && !children[0] && !label),
         [theme['inverse']]: inverse && level === 'outline',
         [theme['is-disabled']]: disabled,
         [theme['is-full-width']]: fullWidth,
@@ -75,21 +75,21 @@ class Button extends PureComponent {
     return React.createElement(
       element,
       props,
-      icon && iconPlacement === 'left' ? icon : null,
-      label || children ? (
-        <span className={theme['children']}>
+      icon && iconPlacement === 'left' && icon,
+      (label || children) && (
+        <span>
           {label}
           {children}
         </span>
-      ) : null,
-      icon && iconPlacement === 'right' ? icon : null,
-      processing ? (
+      ),
+      icon && iconPlacement === 'right' && icon,
+      processing && (
         <LoadingSpinner
           className={theme['spinner']}
           color={this.getSpinnerColor()}
           size={size === 'small' ? 'small' : 'medium'}
         />
-      ) : null,
+      ),
     );
   }
 }
