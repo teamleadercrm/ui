@@ -55,7 +55,7 @@
     pointer-events: none;
   }
 
-  &.processing {
+  &.is-processing {
     position: relative;
     pointer-events: none;
   }
@@ -71,12 +71,12 @@
       z-index: 1;
     }
 
-    &.active {
+    &.is-active {
       pointer-events: none;
     }
 
     &:active,
-    &.active {
+    &.is-active {
       box-shadow: none !important;
 
       &:before {
@@ -97,7 +97,7 @@
   }
 
   &.outline {
-    &:not(.inverse) {
+    &:not(.is-inverse) {
       color: var(--color-teal-darkest);
       --box-shadow-color: var(--color-teal-darkest);
 
@@ -121,12 +121,12 @@
         }
       }
 
-      &.processing {
+      &.is-processing {
         color: transparent;
       }
     }
 
-    &.inverse {
+    &.is-inverse {
       color: var(--color-neutral-lightest);
       --box-shadow-color: var(--color-neutral-lightest);
 
@@ -150,7 +150,7 @@
         }
       }
 
-      &.processing {
+      &.is-processing {
         color: transparent;
       }
     }
@@ -185,14 +185,14 @@
         background-color: var(--color-neutral);
       }
 
-      &.active {
+      &.is-active {
         background-color: var(--color-teal);
         border-color: var(--color-teal-dark);
         color: var(--color-neutral-lightest);
       }
     }
 
-    &.processing {
+    &.is-processing {
       color: var(--color-neutral-light);
     }
   }
@@ -221,7 +221,7 @@
       }
     }
 
-    &.processing {
+    &.is-processing {
       color: var(--color-mint);
     }
   }
@@ -252,7 +252,7 @@
       }
     }
 
-    &.processing {
+    &.is-processing {
       color: var(--color-ruby);
     }
   }
@@ -372,7 +372,7 @@
   composes: button-base;
   font-family: var(--font-family-medium);
 
-  &:not(.inverse) {
+  &:not(.is-inverse) {
     text-decoration: none;
 
     &:not(.is-disabled) {
