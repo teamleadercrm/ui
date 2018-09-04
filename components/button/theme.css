@@ -39,9 +39,11 @@
     pointer-events: none;
   }
 
-  * + .children,
-  .children + *:not(.spinner) {
-    margin-left: var(--button-icon-children-margin);
+  &:not(.has-icon-only) {
+    * + svg,
+    svg + *:not(.spinner) {
+      margin-left: var(--button-icon-children-margin);
+    }
   }
 
   &::-moz-focus-inner {
