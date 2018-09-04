@@ -23,6 +23,7 @@ storiesOf('Buttons', module)
       disabled={boolean('Disabled', false)}
       fullWidth={boolean('Full width', false)}
       processing={boolean('Processing', false)}
+      inverse={boolean('Inverse', false)}
       size={select('Size', sizes, 'medium')}
     />
   ))
@@ -33,6 +34,7 @@ storiesOf('Buttons', module)
       disabled={boolean('Disabled', false)}
       fullWidth={boolean('Full width', false)}
       processing={boolean('Processing', false)}
+      inverse={boolean('Inverse', false)}
       size={select('Size', sizes, 'medium')}
     />
   ))
@@ -45,6 +47,7 @@ storiesOf('Buttons', module)
       disabled={boolean('Disabled', false)}
       fullWidth={boolean('Full width', false)}
       processing={boolean('Processing', false)}
+      inverse={boolean('Inverse', false)}
       size={select('Size', sizes, 'medium')}
     />
   ))
@@ -56,6 +59,7 @@ storiesOf('Buttons', module)
       disabled={boolean('Disabled', false)}
       fullWidth={boolean('Full width', false)}
       processing={boolean('Processing', false)}
+      inverse={boolean('Inverse', false)}
       size={select('Size', sizes, 'medium')}
     />
   ));
