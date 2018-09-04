@@ -64,11 +64,11 @@
 .button {
   composes: button-base;
   font-family: var(--font-family-medium);
+  border: 1px solid;
 
   &:not(.is-disabled) {
     &:hover {
       z-index: 1;
-      text-decoration: none;
     }
 
     &.active {
@@ -90,30 +90,34 @@
         width: 100%;
       }
     }
+
+    &:focus {
+      box-shadow: 0 0 0 1px var(--box-shadow-color);
+    }
   }
 
   &.outline {
     &:not(.inverse) {
       color: var(--color-teal-darkest);
+      --box-shadow-color: var(--color-teal-darkest);
 
       &.is-disabled {
         background-color: color(var(--color-teal-darkest) a(12%));
-        border: 1px solid color(var(--color-teal-darkest) a(12%));
+        border-color: color(var(--color-teal-darkest) a(12%));
         color: color(var(--color-teal-darkest) a(36%));
       }
 
       &:not(.is-disabled) {
         background-color: transparent;
-        border: 1px solid color(var(--color-teal-darkest) a(72%));
+        border-color: color(var(--color-teal-darkest) a(72%));
 
         &:hover {
           background-color: color(var(--color-teal-darkest) a(6%));
-          border: 1px solid var(--color-teal-darkest);
+          border-color: var(--color-teal-darkest);
         }
 
         &:focus {
-          border: 1px solid var(--color-teal-darkest);
-          box-shadow: 0 0 0 1px var(--color-teal-darkest);
+          border-color: var(--color-teal-darkest);
         }
       }
 
@@ -124,25 +128,25 @@
 
     &.inverse {
       color: var(--color-neutral-lightest);
+      --box-shadow-color: var(--color-neutral-lightest);
 
       &.is-disabled {
-        border: 1px solid color(var(--color-neutral-lightest) a(12%));
+        border-color: color(var(--color-neutral-lightest) a(12%));
         background-color: color(var(--color-neutral-lightest) a(12%));
         color: color(var(--color-neutral-lightest) a(36%));
       }
 
       &:not(.is-disabled) {
         background-color: transparent;
-        border: 1px solid color(var(--color-neutral-lightest) a(72%));
+        border-color: color(var(--color-neutral-lightest) a(72%));
 
         &:hover {
           background-color: color(var(--color-neutral-lightest) a(12%));
-          border: 1px solid var(--color-neutral-lightest);
+          border-color: var(--color-neutral-lightest);
         }
 
         &:focus {
-          border: 1px solid var(--color-neutral-lightest);
-          box-shadow: 0 0 0 1px var(--color-neutral-lightest);
+          border-color: var(--color-neutral-lightest);
         }
       }
 
@@ -165,17 +169,16 @@
 
     &:not(.is-disabled) {
       background-color: var(--color-neutral-light);
-      border: 1px solid var(--color-neutral-dark);
+      border-color: var(--color-neutral-dark);
 
       &:hover {
         background-color: var(--color-neutral);
-        border: 1px solid var(--color-neutral-darkest);
+        border-color: var(--color-neutral-darkest);
       }
 
       &:focus {
         background-color: var(--color-neutral-light);
-        border: 1px solid var(--color-neutral-darkest);
-        box-shadow: 0 0 0 1px var(--color-neutral-darkest);
+        border-color: var(--color-neutral-darkest);
       }
 
       &:active {
@@ -184,9 +187,8 @@
 
       &.active {
         background-color: var(--color-teal);
-        border: 1px solid var(--color-teal-dark);
+        border-color: var(--color-teal-dark);
         color: var(--color-neutral-lightest);
-        box-shadow: 0 0 0 1px var(--color-neutral-darkest);
       }
     }
 
@@ -197,25 +199,25 @@
 
   &.primary {
     color: var(--color-neutral-lightest);
+    --box-shadow-color: var(--color-mint-dark);
 
     &:not(.is-disabled) {
       background-color: var(--color-mint);
-      border: 1px solid var(--color-mint-dark);
+      border-color: var(--color-mint-dark);
 
       &:hover {
         background-color: var(--color-mint-dark);
-        border: 1px solid var(--color-mint-darkest);
+        border-color: var(--color-mint-darkest);
       }
 
       &:focus {
         background-color: var(--color-mint);
-        border: 1px solid var(--color-mint-dark);
-        box-shadow: 0 0 0 1px var(--color-mint-dark);
+        border-color: var(--color-mint-dark);
       }
 
       &:active {
         background-color: var(--color-mint-dark);
-        border: 1px solid var(--color-mint-darkest);
+        border-color: var(--color-mint-darkest);
       }
     }
 
@@ -227,7 +229,8 @@
   &.destructive {
     color: var(--color-neutral-lightest);
     background-color: var(--color-ruby);
-    border: 1px solid var(--color-ruby-dark);
+    border-color: var(--color-ruby-dark);
+    --box-shadow-color: var(--color-ruby-darkest);
 
     &.is-disabled {
       opacity: 0.24;
@@ -236,13 +239,12 @@
     &:not(.is-disabled) {
       &:hover {
         background-color: var(--color-ruby-dark);
-        border: 1px solid var(--color-ruby-darkest);
+        border-color: var(--color-ruby-darkest);
       }
 
       &:focus {
         background-color: var(--color-ruby);
-        border: 1px solid var(--color-ruby-darkest);
-        box-shadow: 0 0 0 1px var(--color-ruby-darkest);
+        border-color: var(--color-ruby-darkest);
       }
 
       &:active {
