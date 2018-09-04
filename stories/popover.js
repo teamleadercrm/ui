@@ -72,6 +72,7 @@ storiesOf('Popover', module)
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
+          lockScroll={boolean('Lock scroll', false)}
           offsetCorrection={number('Offset correction', 0)}
         >
           {contentBoxWithSingleTextLine}
