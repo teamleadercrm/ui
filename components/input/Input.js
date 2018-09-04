@@ -74,11 +74,6 @@ export default class Input extends PureComponent {
     }
   }
 
-  hasError() {
-    const { meta } = this.props;
-    return Boolean(meta && meta.error && meta.touched);
-  }
-
   formatNumber(number) {
     const { min, max } = this.props;
     return String(Input.toNumber(number, min, max));
@@ -199,6 +194,7 @@ export default class Input extends PureComponent {
       connectedRight,
       counter,
       disabled,
+      error,
       icon,
       iconPlacement,
       inverse,
@@ -215,7 +211,7 @@ export default class Input extends PureComponent {
       {
         [theme[`has-icon-${iconPlacement}`]]: icon,
         [theme['has-counter']]: counter,
-        [theme['has-error']]: this.hasError(),
+        [theme['has-error']]: error,
         [theme['has-connected-left']]: connectedLeft,
         [theme['has-connected-right']]: connectedRight,
         [theme['has-spinner']]: type === 'number' && spinner,
@@ -227,7 +223,7 @@ export default class Input extends PureComponent {
     );
 
     const inputWrapperClassnames = cx(theme['input-wrapper'], {
-      [theme['has-error']]: this.hasError(),
+      [theme['has-error']]: error,
     });
 
     const rest = pickBoxProps(others);
@@ -247,7 +243,7 @@ export default class Input extends PureComponent {
           </div>
           {connectedRight}
         </div>
-        {this.hasError() ? this.renderValidationMessage() : this.renderHelpText()}
+        {error ? this.renderValidationMessage() : this.renderHelpText()}
       </Box>
     );
   }
