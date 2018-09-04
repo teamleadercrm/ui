@@ -15,7 +15,6 @@ const tints = ['lightest', 'light', 'normal', 'dark', 'darkest'];
 const props = {
   helpText: 'This is the fields help text',
   placeholder: 'Placeholder',
-  meta: { error: 'This is an error message', touched: true },
 };
 
 const TooltippedIcon = Tooltip(Icon);
@@ -107,6 +106,7 @@ storiesOf('Inputs', module)
     <Label htmlFor="input1" inverse={boolean('Inverse', false)} size={select('Size', sizes, 'medium')}>
       Input label
       <Input
+        error={<span>This is an error message</span>}
         id="input1"
         size="small"
         value="wrong value"
