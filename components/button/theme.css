@@ -85,6 +85,7 @@
 
       &:before {
         background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+        border-radius: var(--button-border-radius);
 
         height: 10px;
         width: 100%;
@@ -253,6 +254,59 @@
 
     &.is-processing {
       color: var(--color-ruby);
+    }
+  }
+
+  &.link {
+    background-color: transparent;
+    border: none;
+
+    &:focus {
+      box-shadow: 0 0 0 2px var(--box-shadow-color);
+    }
+
+    &:not(.is-inverse) {
+      color: var(--color-aqua-dark);
+
+      &:not(.is-disabled) {
+        &:focus {
+          --box-shadow-color: var(--color-aqua-light);
+        }
+
+        &:active {
+          background-color: var(--color-neutral-light);
+        }
+      }
+
+      &.is-disabled {
+        color: var(--color-neutral);
+      }
+    }
+
+    &.is-inverse {
+      &:not(.is-disabled) {
+        color: var(--color-teal-light);
+
+        &:focus {
+          --box-shadow-color: var(--color-teal-light);
+        }
+
+        &:active {
+          background-color: color(var(--color-teal-lightest) a(0.24));
+        }
+      }
+
+      &.is-disabled {
+        color: var(--color-teal);
+      }
+    }
+
+    &.is-disabled {
+      pointer-events: none;
+    }
+
+    &.has-icon-only:hover {
+      background-color: color(var(--color-neutral-darkest) a(0.24));
     }
   }
 }
