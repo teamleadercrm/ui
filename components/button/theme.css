@@ -28,8 +28,8 @@
     color var(--animation-duration) var(--animation-curve-fast-out-slow-in),
     opacity var(--animation-duration) var(--animation-curve-fast-out-slow-in);
   user-select: none;
-  white-space: nowrap;
   vertical-align: middle;
+  white-space: nowrap;
 
   svg {
     margin: auto 0; /* fix for vertical centering in safari */
@@ -63,12 +63,16 @@
 
 .button {
   composes: button-base;
-  font-family: var(--font-family-medium);
   border: 1px solid;
+  font-family: var(--font-family-medium);
 
   &:not(.is-disabled) {
     &:hover {
       z-index: 1;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 1px var(--box-shadow-color);
     }
 
     &.is-active {
@@ -81,18 +85,17 @@
 
       &:before {
         background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
-        content: '';
-        height: 10px;
-        left: 0;
-        position: absolute;
-        opacity: 0.05;
-        top: 0;
-        width: 100%;
-      }
-    }
 
-    &:focus {
-      box-shadow: 0 0 0 1px var(--box-shadow-color);
+        height: 10px;
+        width: 100%;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        opacity: 0.05;
+        content: '';
+      }
     }
   }
 
@@ -100,12 +103,6 @@
     &:not(.is-inverse) {
       color: var(--color-teal-darkest);
       --box-shadow-color: var(--color-teal-darkest);
-
-      &.is-disabled {
-        background-color: color(var(--color-teal-darkest) a(12%));
-        border-color: color(var(--color-teal-darkest) a(12%));
-        color: color(var(--color-teal-darkest) a(36%));
-      }
 
       &:not(.is-disabled) {
         background-color: transparent;
@@ -121,20 +118,16 @@
         }
       }
 
-      &.is-processing {
-        color: transparent;
+      &.is-disabled {
+        background-color: color(var(--color-teal-darkest) a(12%));
+        border-color: color(var(--color-teal-darkest) a(12%));
+        color: color(var(--color-teal-darkest) a(36%));
       }
     }
 
     &.is-inverse {
       color: var(--color-neutral-lightest);
       --box-shadow-color: var(--color-neutral-lightest);
-
-      &.is-disabled {
-        border-color: color(var(--color-neutral-lightest) a(12%));
-        background-color: color(var(--color-neutral-lightest) a(12%));
-        color: color(var(--color-neutral-lightest) a(36%));
-      }
 
       &:not(.is-disabled) {
         background-color: transparent;
@@ -150,17 +143,15 @@
         }
       }
 
-      &.is-processing {
-        color: transparent;
+      &.is-disabled {
+        background-color: color(var(--color-neutral-lightest) a(12%));
+        border-color: color(var(--color-neutral-lightest) a(12%));
+        color: color(var(--color-neutral-lightest) a(36%));
       }
     }
-  }
 
-  &.primary,
-  &.secondary {
-    &.is-disabled {
-      background-color: var(--color-neutral);
-      color: var(--color-neutral-dark);
+    &.is-processing {
+      color: transparent;
     }
   }
 
@@ -226,15 +217,19 @@
     }
   }
 
+  &.primary,
+  &.secondary {
+    &.is-disabled {
+      background-color: var(--color-neutral);
+      color: var(--color-neutral-dark);
+    }
+  }
+
   &.destructive {
-    color: var(--color-neutral-lightest);
     background-color: var(--color-ruby);
     border-color: var(--color-ruby-dark);
+    color: var(--color-neutral-lightest);
     --box-shadow-color: var(--color-ruby-darkest);
-
-    &.is-disabled {
-      opacity: 0.24;
-    }
 
     &:not(.is-disabled) {
       &:hover {
@@ -250,6 +245,10 @@
       &:active {
         background-color: var(--color-ruby-dark);
       }
+    }
+
+    &.is-disabled {
+      opacity: 0.24;
     }
 
     &.is-processing {
