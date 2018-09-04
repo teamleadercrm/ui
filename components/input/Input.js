@@ -16,7 +16,7 @@ import theme from './theme.css';
 export default class Input extends PureComponent {
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.value !== undefined) {
-      const newValue = Input.parseValue(value || '', nextProps);
+      const newValue = Input.parseValue(nextProps.value || '', nextProps);
 
       if (newValue !== prevState.value) {
         return {
