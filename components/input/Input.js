@@ -264,6 +264,8 @@ Input.propTypes = {
   counter: PropTypes.number,
   /** Boolean indicating whether the input should render as disabled. */
   disabled: PropTypes.bool,
+  /** The text string/element to use as error message below the input. */
+  error: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   /** The text string to use as help text below the input. */
   helpText: PropTypes.string,
   /** The icon displayed inside the input. */
