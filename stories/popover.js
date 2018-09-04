@@ -47,6 +47,48 @@ const contentBoxWithSingleTextLine = (
       </Link>{' '}
       inside
     </TextBody>
+    <TextBody>
+      This is the popover content with a{' '}
+      <Link href="#" inherit={false}>
+        link
+      </Link>{' '}
+      inside
+    </TextBody>
+    <TextBody>
+      This is the popover content with a{' '}
+      <Link href="#" inherit={false}>
+        link
+      </Link>{' '}
+      inside
+    </TextBody>
+    <TextBody>
+      This is the popover content with a{' '}
+      <Link href="#" inherit={false}>
+        link
+      </Link>{' '}
+      inside
+    </TextBody>
+    <TextBody>
+      This is the popover content with a{' '}
+      <Link href="#" inherit={false}>
+        link
+      </Link>{' '}
+      inside
+    </TextBody>
+    <TextBody>
+      This is the popover content with a{' '}
+      <Link href="#" inherit={false}>
+        link
+      </Link>{' '}
+      inside
+    </TextBody>
+    <TextBody>
+      This is the popover content with a{' '}
+      <Link href="#" inherit={false}>
+        link
+      </Link>{' '}
+      inside
+    </TextBody>
   </Box>
 );
 
@@ -72,7 +114,7 @@ storiesOf('Popover', module)
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
-          lockScroll={boolean('Lock scroll', false)}
+          lockScroll={boolean('Lock scroll', true)}
           offsetCorrection={number('Offset correction', 0)}
         >
           {contentBoxWithSingleTextLine}
@@ -93,7 +135,7 @@ storiesOf('Popover', module)
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
-          lockScroll={boolean('Lock scroll', false)}
+          lockScroll={boolean('Lock scroll', true)}
           offsetCorrection={number('Offset correction', 0)}
         >
           {contentBoxWithSingleTextLine}
@@ -114,7 +156,7 @@ storiesOf('Popover', module)
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
-          lockScroll={boolean('Lock scroll', false)}
+          lockScroll={boolean('Lock scroll', true)}
           offsetCorrection={number('Offset correction', 0)}
         >
           <Banner fullWidth>
@@ -138,7 +180,7 @@ storiesOf('Popover', module)
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
-          lockScroll={boolean('Lock scroll', false)}
+          lockScroll={boolean('Lock scroll', true)}
           offsetCorrection={number('Offset correction', 0)}
         >
           <Banner color="neutral" fullWidth>
@@ -163,7 +205,7 @@ storiesOf('Popover', module)
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
-          lockScroll={boolean('Lock scroll', false)}
+          lockScroll={boolean('Lock scroll', true)}
           offsetCorrection={number('Offset correction', 0)}
         >
           <Banner onClose={handleCloseClick} fullWidth>
@@ -187,7 +229,7 @@ storiesOf('Popover', module)
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
-          lockScroll={boolean('Lock scroll', false)}
+          lockScroll={boolean('Lock scroll', true)}
           offsetCorrection={number('Offset correction', 0)}
         >
           {contentBoxWithSingleTextLine}
@@ -212,7 +254,7 @@ storiesOf('Popover', module)
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
-          lockScroll={boolean('Lock scroll', false)}
+          lockScroll={boolean('Lock scroll', true)}
           offsetCorrection={number('Offset correction', 0)}
         >
           <Box padding={4}>
@@ -239,7 +281,7 @@ storiesOf('Popover', module)
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
-          lockScroll={boolean('Lock scroll', false)}
+          lockScroll={boolean('Lock scroll', true)}
           offsetCorrection={number('Offset correction', 0)}
         >
           <Box padding={4}>
