@@ -24,7 +24,7 @@ class LinkButton extends PureComponent {
     const classNames = cx(
       theme['link-button'],
       {
-        [theme['has-icon-only']]: !label && !children,
+        [theme['has-icon-only']]: (!children && !label) || (Array.isArray(children) && !children[0] && !label),
         [theme['is-disabled']]: disabled,
         [theme['is-inverse']]: inverse,
         [theme[size]]: theme[size],
@@ -49,7 +49,7 @@ class LinkButton extends PureComponent {
       props,
       icon && iconPlacement === 'left' && icon,
       (label || children) && (
-        <span className={theme['children']}>
+        <span>
           {label}
           {children}
         </span>
