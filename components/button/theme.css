@@ -56,6 +56,7 @@
   }
 
   &.is-processing {
+    color: transparent;
     position: relative;
     pointer-events: none;
   }
@@ -75,7 +76,8 @@
       box-shadow: 0 0 0 1px var(--box-shadow-color);
     }
 
-    &.is-active {
+    &.is-active,
+    &.is-disabled {
       pointer-events: none;
     }
 
@@ -101,15 +103,17 @@
   }
 
   &.outline {
+    background-color: transparent;
+
     &:not(.is-inverse) {
       color: var(--color-teal-darkest);
       --box-shadow-color: var(--color-teal-darkest);
 
       &:not(.is-disabled) {
-        background-color: transparent;
         border-color: color(var(--color-teal-darkest) a(72%));
 
-        &:hover {
+        &:hover,
+        &:active {
           background-color: color(var(--color-teal-darkest) a(6%));
           border-color: var(--color-teal-darkest);
         }
@@ -120,7 +124,6 @@
       }
 
       &.is-disabled {
-        background-color: color(var(--color-teal-darkest) a(12%));
         border-color: color(var(--color-teal-darkest) a(12%));
         color: color(var(--color-teal-darkest) a(36%));
       }
@@ -131,10 +134,10 @@
       --box-shadow-color: var(--color-neutral-lightest);
 
       &:not(.is-disabled) {
-        background-color: transparent;
         border-color: color(var(--color-neutral-lightest) a(72%));
 
-        &:hover {
+        &:hover,
+        &:active {
           background-color: color(var(--color-neutral-lightest) a(12%));
           border-color: var(--color-neutral-lightest);
         }
@@ -145,36 +148,28 @@
       }
 
       &.is-disabled {
-        background-color: color(var(--color-neutral-lightest) a(12%));
         border-color: color(var(--color-neutral-lightest) a(12%));
         color: color(var(--color-neutral-lightest) a(36%));
       }
-    }
-
-    &.is-processing {
-      color: transparent;
     }
   }
 
   &.secondary {
     color: var(--color-teal-darkest);
+    --box-shadow-color: var(--color-neutral-darkest);
 
     &:not(.is-disabled) {
       background-color: var(--color-neutral-light);
       border-color: var(--color-neutral-dark);
 
-      &:hover {
+      &:hover,
+      &:active {
         background-color: var(--color-neutral);
         border-color: var(--color-neutral-darkest);
       }
 
       &:focus {
-        background-color: var(--color-neutral-light);
         border-color: var(--color-neutral-darkest);
-      }
-
-      &:active {
-        background-color: var(--color-neutral);
       }
 
       &.is-active {
@@ -182,10 +177,6 @@
         border-color: var(--color-teal-dark);
         color: var(--color-neutral-lightest);
       }
-    }
-
-    &.is-processing {
-      color: var(--color-neutral-light);
     }
   }
 
@@ -197,24 +188,11 @@
       background-color: var(--color-mint);
       border-color: var(--color-mint-dark);
 
-      &:hover {
-        background-color: var(--color-mint-dark);
-        border-color: var(--color-mint-darkest);
-      }
-
-      &:focus {
-        background-color: var(--color-mint);
-        border-color: var(--color-mint-dark);
-      }
-
+      &:hover,
       &:active {
         background-color: var(--color-mint-dark);
         border-color: var(--color-mint-darkest);
       }
-    }
-
-    &.is-processing {
-      color: var(--color-mint);
     }
   }
 
@@ -233,27 +211,20 @@
     --box-shadow-color: var(--color-ruby-darkest);
 
     &:not(.is-disabled) {
-      &:hover {
-        background-color: var(--color-ruby-dark);
-        border-color: var(--color-ruby-darkest);
-      }
-
-      &:focus {
-        background-color: var(--color-ruby);
-        border-color: var(--color-ruby-darkest);
-      }
-
+      &:hover,
       &:active {
         background-color: var(--color-ruby-dark);
+      }
+
+      &:hover,
+      &:active,
+      &:focus {
+        border-color: var(--color-ruby-darkest);
       }
     }
 
     &.is-disabled {
       opacity: 0.24;
-    }
-
-    &.is-processing {
-      color: var(--color-ruby);
     }
   }
 
@@ -267,16 +238,10 @@
 
     &:not(.is-inverse) {
       color: var(--color-aqua-dark);
+      --box-shadow-color: var(--color-aqua-light);
 
       &:not(.is-disabled) {
-        &:hover {
-          background-color: var(--color-neutral-light);
-        }
-
-        &:focus {
-          --box-shadow-color: var(--color-aqua-light);
-        }
-
+        &:hover,
         &:active {
           background-color: var(--color-neutral-light);
         }
@@ -288,29 +253,19 @@
     }
 
     &.is-inverse {
+      color: var(--color-teal-lightest);
+      --box-shadow-color: var(--color-teal);
+
       &:not(.is-disabled) {
-        color: var(--color-teal-light);
-
-        &:hover {
-          background-color: var(--color-teal-lightest);
-        }
-
-        &:focus {
-          --box-shadow-color: var(--color-teal-light);
-        }
-
+        &:hover,
         &:active {
-          background-color: color(var(--color-teal-lightest) a(0.24));
+          background-color: var(--color-teal);
         }
       }
 
       &.is-disabled {
         color: var(--color-teal);
       }
-    }
-
-    &.is-disabled {
-      pointer-events: none;
     }
 
     &.has-icon-only:hover {
