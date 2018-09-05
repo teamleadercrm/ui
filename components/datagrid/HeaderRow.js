@@ -12,10 +12,10 @@ class HeaderRow extends PureComponent {
       className,
       checkboxSize,
       children,
+      numSelectedRows,
       sliceFrom,
       sliceTo,
       onSelectionChange,
-      partiallySelected,
       selected,
       selectable,
       ...others
@@ -24,6 +24,8 @@ class HeaderRow extends PureComponent {
     const childrenArray = Array.isArray(children) ? children : [children];
     const childrenSliced = childrenArray.slice(sliceFrom, sliceTo);
     const classNames = cx(theme['header-row'], className);
+
+    console.log(`${numSelectedRows} selected`);
 
     return (
       <Row backgroundColor="neutral" className={classNames} data-teamleader-ui="datagrid-header-row" {...others}>
@@ -42,12 +44,16 @@ HeaderRow.propTypes = {
   checkboxSize: PropTypes.oneOf(['small', 'medium', 'large']),
   className: PropTypes.string,
   children: PropTypes.any,
+  numSelectedRows: PropTypes.number,
   onSelectionChange: PropTypes.func,
-  partiallySelected: PropTypes.bool,
   selectable: PropTypes.bool,
   selected: PropTypes.bool,
   sliceFrom: PropTypes.number,
   sliceTo: PropTypes.number,
+};
+
+HeaderRow.defaultProps = {
+  numSelectedRows: 0,
 };
 
 export default HeaderRow;

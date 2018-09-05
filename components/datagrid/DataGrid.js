@@ -117,9 +117,6 @@ class DataGrid extends PureComponent {
       [theme['has-border-right']]: selectable || stickyFromLeft > 0,
     });
 
-    const numberOfBodyRows = React.Children.toArray(children).filter(child => isComponentOfType(BodyRow, child)).length;
-    const isPartiallySelected = selectedRows.length > 0 && selectedRows.length !== numberOfBodyRows;
-
     return (
       <Box data-teamleader-ui="data-grid" className={classNames} {...rest}>
         {(selectable || stickyFromLeft > 0) && (
@@ -132,7 +129,7 @@ class DataGrid extends PureComponent {
                   selected: selectedRows.length === children[1].length,
                   selectable,
                   sliceTo: stickyFromLeft > 0 ? stickyFromLeft : 0,
-                  partiallySelected: isPartiallySelected,
+                  numSelectedRows: selectedRows.length,
                 });
               } else if (isComponentOfType(BodyRow, child)) {
                 return React.cloneElement(child, {
