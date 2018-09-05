@@ -20,6 +20,7 @@ storiesOf('Buttons', module)
     <Button
       label="Button"
       level={select('Level', levels, 'secondary')}
+      active={boolean('Active', false)}
       disabled={boolean('Disabled', false)}
       fullWidth={boolean('Full width', false)}
       processing={boolean('Processing', false)}
@@ -31,6 +32,7 @@ storiesOf('Buttons', module)
     <Button
       icon={select('Size', sizes, 'medium') === 'small' ? <IconAddSmallOutline /> : <IconAddMediumOutline />}
       level={select('Level', levels, 'secondary')}
+      active={boolean('Active', false)}
       disabled={boolean('Disabled', false)}
       fullWidth={boolean('Full width', false)}
       processing={boolean('Processing', false)}
@@ -44,6 +46,7 @@ storiesOf('Buttons', module)
       iconPlacement={select('Icon placement', iconPositions, 'left')}
       label="Button"
       level={select('Level', levels, 'secondary')}
+      active={boolean('Active', false)}
       disabled={boolean('Disabled', false)}
       fullWidth={boolean('Full width', false)}
       processing={boolean('Processing', false)}
@@ -56,6 +59,7 @@ storiesOf('Buttons', module)
       element={select('Element', elements, 'a')}
       label="Button"
       level={select('Level', levels, 'secondary')}
+      active={boolean('Active', false)}
       disabled={boolean('Disabled', false)}
       fullWidth={boolean('Full width', false)}
       processing={boolean('Processing', false)}
