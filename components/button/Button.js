@@ -7,7 +7,6 @@ import theme from './theme.css';
 class Button extends PureComponent {
   getSpinnerColor() {
     const { inverse, level } = this.props;
-
     return level === 'secondary' || (level === 'outline' && !inverse) ? 'teal' : 'white';
   }
 
