@@ -4,7 +4,18 @@ import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withKnobs, boolean, number, select } from '@storybook/addon-knobs/react';
 import { withInfo } from '@storybook/addon-info';
-import { DataGrid, Heading4, IconMenu, MenuItem, Link, StatusBullet, TextSmall, Tooltip, Button } from '../components';
+import {
+  DataGrid,
+  Heading4,
+  IconMenu,
+  MenuItem,
+  Link,
+  StatusBullet,
+  TextSmall,
+  Tooltip,
+  Button,
+  ButtonGroup,
+} from '../components';
 import { rows1, rows2 } from '../static/data/datagrid';
 
 const TooltippedStatusBullet = Tooltip(StatusBullet);
@@ -30,8 +41,11 @@ storiesOf('DataGrids', module)
       checkboxSize={select('Checkbox size', ['small', 'medium', 'large'], 'small')}
     >
       <DataGrid.HeaderRowOverlay>
-        <Button label="Book" />
-        <Button label="Mark as paid" />
+        <ButtonGroup segmented marginRight={3}>
+          <Button label="Book" />
+          <Button label="Mark as paid" />
+        </ButtonGroup>
+        <Button level="destructive" label="Delete" />
       </DataGrid.HeaderRowOverlay>
       <DataGrid.HeaderRow>
         <DataGrid.HeaderCell flex="min-width" />
