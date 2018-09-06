@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import Box from '../box';
-import HeaderRowOverlay from './HeaderRowOverlay';
+import HeaderRowOverlay from './HeaderRowOverlay/';
 import Cell from './Cell';
 import HeaderCell from './HeaderCell';
 import isComponentOfType from '../utils/is-component-of-type';

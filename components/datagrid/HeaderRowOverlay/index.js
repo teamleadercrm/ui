@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import Box from '../box';
+import Box from '../../box';
 import BulkActions from './BulkActions';
 import NumSelectedRows from './NumSelectedRows';
 import theme from './theme.css';

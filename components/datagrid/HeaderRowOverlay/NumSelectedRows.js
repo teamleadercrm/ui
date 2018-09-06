@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import Box from '../box';
-import { TextBody, Monospaced } from '../typography';
+import Box from '../../box';
+import { TextBody, Monospaced } from '../../typography';
 import theme from './theme.css';
 
 class NumSelectedRows extends PureComponent {
