@@ -12,10 +12,12 @@ class NumSelectedRows extends PureComponent {
 
     return (
       <Box display="flex" align-items="center" marginRight={3} className={theme['num-selected-rows']}>
-        <TextBody marginRight={1}>
+        <TextBody className={theme['num-selected-rows-number']} marginRight={1}>
           <Monospaced>{numSelectedRows}</Monospaced>
         </TextBody>
-        <TextBody>{numSelectedRowsLabel}</TextBody>
+        <TextBody className={theme['num-selected-rows-label']} color="neutral">
+          {numSelectedRowsLabel}
+        </TextBody>
       </Box>
     );
   }
