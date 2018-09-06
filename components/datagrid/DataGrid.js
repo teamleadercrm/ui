@@ -92,8 +92,6 @@ class DataGrid extends PureComponent {
       const rowDOMNodes = [];
       let maxRowWidth = 0;
 
-      console.log('rowNodes', this.rowNodes);
-
       [...this.rowNodes.values()].filter(rowNode => rowNode != null).forEach(rowNode => {
         const rowDOMNode = ReactDOM.findDOMNode(rowNode);
 
