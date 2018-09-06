@@ -11,6 +11,8 @@
   flex-direction: row;
   min-width: 100%;
   max-width: 100%;
+  position: relative;
+  border-top: 1px solid var(--color-neutral);
 }
 
 .section {
@@ -217,4 +219,16 @@
 .align-right {
   justify-content: flex-end;
   text-align: right;
+}
+
+/* Header row overlap */
+.header-row-overlap {
+  background: var(--color-neutral-light);
+  position: absolute;
+  left: 48px;
+  right: 0;
+  height: 48px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
 }

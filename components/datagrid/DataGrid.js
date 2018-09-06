@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import Box from '../box';
+import HeaderRowOverlay from './HeaderRowOverlay';
 import Cell from './Cell';
 import HeaderCell from './HeaderCell';
 import isComponentOfType from '../utils/is-component-of-type';
@@ -119,6 +120,7 @@ class DataGrid extends PureComponent {
 
     return (
       <Box data-teamleader-ui="data-grid" className={classNames} {...rest}>
+        {selectable && <HeaderRowOverlay numSelectedRows={selectedRows.length} />}
         {(selectable || stickyFromLeft > 0) && (
           <div className={sectionLeftClassNames}>
             {React.Children.map(children, child => {
@@ -148,7 +150,6 @@ class DataGrid extends PureComponent {
             })}
           </div>
         )}
-
         <div className={cx(theme['section'], theme['is-scrollable'])} ref={node => (this.scrollableNode = node)}>
           {React.Children.map(children, (child, key) => {
             return React.cloneElement(child, {
@@ -158,13 +159,10 @@ class DataGrid extends PureComponent {
             });
           })}
         </div>
-
         {stickyFromRight > 0 && (
           <div className={cx(theme['section'], theme['has-blend-left'])}>
             {React.Children.map(children, child => {
-              return React.cloneElement(child, {
-                sliceFrom: -stickyFromRight,
-              });
+              return React.cloneElement(child, { sliceFrom: -stickyFromRight });
             })}
           </div>
         )}
