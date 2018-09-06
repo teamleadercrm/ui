@@ -229,8 +229,6 @@
   right: 0;
   height: 48px;
   z-index: 3;
-  display: flex;
-  align-items: center;
 }
 
 .num-selected-rows-number {
