@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withKnobs, boolean, number, select } from '@storybook/addon-knobs/react';
 import { withInfo } from '@storybook/addon-info';
-import { DataGrid, Heading4, IconMenu, MenuItem, Link, StatusBullet, TextSmall, Tooltip } from '../components';
+import { DataGrid, Heading4, IconMenu, MenuItem, Link, StatusBullet, TextSmall, Tooltip, Button } from '../components';
 import { rows1, rows2 } from '../static/data/datagrid';
 
 const TooltippedStatusBullet = Tooltip(StatusBullet);
@@ -29,6 +29,10 @@ storiesOf('DataGrids', module)
       onSelectionChange={handleRowSelectionChange}
       checkboxSize={select('Checkbox size', ['small', 'medium', 'large'], 'small')}
     >
+      <DataGrid.HeaderRowOverlay>
+        <Button label="Book" />
+        <Button label="Mark as paid" />
+      </DataGrid.HeaderRowOverlay>
       <DataGrid.HeaderRow>
         <DataGrid.HeaderCell flex="min-width" />
         <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} sorted="asc">
