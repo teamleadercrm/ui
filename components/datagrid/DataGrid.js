@@ -107,7 +107,16 @@ class DataGrid extends PureComponent {
   };
 
   render() {
-    const { checkboxSize, children, className, selectable, stickyFromLeft, stickyFromRight, ...others } = this.props;
+    const {
+      checkboxSize,
+      children,
+      className,
+      numSelectedRowsLabel,
+      selectable,
+      stickyFromLeft,
+      stickyFromRight,
+      ...others
+    } = this.props;
     const { selectedRows } = this.state;
 
     const classNames = cx(theme['data-grid'], className);
@@ -120,7 +129,12 @@ class DataGrid extends PureComponent {
 
     return (
       <Box data-teamleader-ui="data-grid" className={classNames} {...rest}>
-        {selectable && <HeaderRowOverlay numSelectedRows={selectedRows.length} />}
+        {selectable &&
+          React.Children.map(children, child => {
+            if (isComponentOfType(HeaderRowOverlay, child)) {
+              return React.cloneElement(child, { numSelectedRows: selectedRows.length });
+            }
+          })}
         {(selectable || stickyFromLeft > 0) && (
           <div className={sectionLeftClassNames}>
             {React.Children.map(children, child => {
@@ -128,7 +142,7 @@ class DataGrid extends PureComponent {
                 return React.cloneElement(child, {
                   checkboxSize: checkboxSize,
                   onSelectionChange: this.handleHeaderRowSelectionChange,
-                  selected: selectedRows.length === children[1].length,
+                  selected: selectedRows.length === children[2].length,
                   selectable,
                   sliceTo: stickyFromLeft > 0 ? stickyFromLeft : 0,
                 });
@@ -175,6 +189,7 @@ DataGrid.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   comparableId: PropTypes.any,
+  numSelectedRowsLabel: PropTypes.string,
   selectable: PropTypes.bool,
   stickyFromLeft: PropTypes.number,
   stickyFromRight: PropTypes.number,
@@ -186,6 +201,7 @@ DataGrid.defaultProps = {
 };
 
 DataGrid.HeaderRow = HeaderRow;
+DataGrid.HeaderRowOverlay = HeaderRowOverlay;
 DataGrid.HeaderCell = HeaderCell;
 DataGrid.BodyRow = BodyRow;
 DataGrid.Cell = Cell;

@@ -6,14 +6,16 @@ import theme from './theme.css';
 
 class NumSelectedRows extends PureComponent {
   render() {
-    const { numSelectedRows, label } = this.props;
+    const { numSelectedRows, numSelectedRowsLabel } = this.props;
+
+    console.log('this.props', this.props);
 
     return (
-      <Box display="flex" align-items="center" className={theme['num-selected-rows']}>
+      <Box display="flex" align-items="center" marginRight={3} className={theme['num-selected-rows']}>
         <TextBody marginRight={1}>
           <Monospaced>{numSelectedRows}</Monospaced>
         </TextBody>
-        <TextBody>{label}</TextBody>
+        <TextBody>{numSelectedRowsLabel}</TextBody>
       </Box>
     );
   }
@@ -23,12 +25,12 @@ NumSelectedRows.propTypes = {
   /** The displayed number of selected rows */
   numSelectedRows: PropTypes.number,
   /** The label accompanying the number of selected rows */
-  label: PropTypes.string,
+  numSelectedRowsLabel: PropTypes.string,
 };
 
 NumSelectedRows.defaultProps = {
   numSelectedRows: 0,
-  label: 'selected',
+  numSelectedRowsLabel: 'selected',
 };
 
 export default NumSelectedRows;
