@@ -15,6 +15,7 @@ class BulkActions extends PureComponent {
 }
 
 BulkActions.propTypes = {
+  /** Button element(s), used to display the bulk actions */
   bulkActions: PropTypes.any,
 };
 
