@@ -1,15 +1,15 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { ButtonGroup } from '../button';
+import Box from '../box';
 import theme from './theme.css';
 
 class BulkActions extends PureComponent {
   render() {
     const { bulkActions } = this.props;
     return (
-      <ButtonGroup className={theme['bulk-actions']} segmented>
+      <Box display="flex" align-items="center" className={theme['bulk-actions']}>
         {bulkActions}
-      </ButtonGroup>
+      </Box>
     );
   }
 }
