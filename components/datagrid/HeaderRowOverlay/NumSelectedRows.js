@@ -8,8 +8,6 @@ class NumSelectedRows extends PureComponent {
   render() {
     const { numSelectedRows, numSelectedRowsLabel } = this.props;
 
-    console.log('this.props', this.props);
-
     return (
       <Box display="flex" align-items="center" marginRight={3} className={theme['num-selected-rows']}>
         <TextBody className={theme['num-selected-rows-number']} marginRight={1}>
