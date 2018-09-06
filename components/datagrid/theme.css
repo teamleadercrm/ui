@@ -232,3 +232,7 @@
   display: flex;
   align-items: center;
 }
+
+.num-selected-rows-number {
+  font-family: var(--font-family-medium);
+}
