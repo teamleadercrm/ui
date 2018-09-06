@@ -131,7 +131,6 @@ class DataGrid extends PureComponent {
                   selected: selectedRows.length === children[1].length,
                   selectable,
                   sliceTo: stickyFromLeft > 0 ? stickyFromLeft : 0,
-                  numSelectedRows: selectedRows.length,
                 });
               } else if (isComponentOfType(BodyRow, child)) {
                 return React.cloneElement(child, {
