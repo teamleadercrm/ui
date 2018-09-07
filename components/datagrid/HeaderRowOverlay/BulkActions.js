@@ -7,7 +7,12 @@ class BulkActions extends PureComponent {
   render() {
     const { bulkActions } = this.props;
     return (
-      <Box display="flex" align-items="center" className={theme['bulk-actions']}>
+      <Box
+        display="flex"
+        align-items="center"
+        className={theme['bulk-actions']}
+        data-teamleader-ui="datagrid-num-selected-rows"
+      >
         {bulkActions}
       </Box>
     );

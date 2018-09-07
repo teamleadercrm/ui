@@ -14,7 +14,13 @@ class HeaderRowOverlay extends PureComponent {
 
     return (
       numSelectedRows > 0 && (
-        <Box display="flex" alignItems="center" className={classNames} {...others}>
+        <Box
+          display="flex"
+          alignItems="center"
+          className={classNames}
+          data-teamleader-ui="datagrid-header-row-overlay"
+          {...others}
+        >
           <NumSelectedRows numSelectedRows={numSelectedRows} numSelectedRowsLabel={numSelectedRowsLabel} />
           <BulkActions bulkActions={children} />
         </Box>
