@@ -41,12 +41,12 @@ storiesOf('DataGrids', module)
       checkboxSize={select('Checkbox size', ['small', 'medium', 'large'], 'small')}
     >
       <DataGrid.HeaderRowOverlay>
-        <Button level="primary" label="Marks as paid" />
+        <Button size="small" level="primary" label="Marks as paid" />
         <ButtonGroup segmented marginHorizontal={3}>
-          <Button label="Book" />
-          <Button label="Merge" />
+          <Button size="small" label="Book" />
+          <Button size="small" label="Merge" />
         </ButtonGroup>
-        <Button level="destructive" label="Delete" />
+        <Button size="small" level="destructive" label="Delete" />
       </DataGrid.HeaderRowOverlay>
 
       <DataGrid.HeaderRow>
@@ -100,12 +100,12 @@ storiesOf('DataGrids', module)
     <DataGrid selectable={boolean('Selectable', true)} comparableId={1} onSelectionChange={handleRowSelectionChange}>
       <DataGrid.HeaderRowOverlay>
         <React.Fragment>
-          <Button level="primary" label="Marks as paid" />
+          <Button size="small" level="primary" label="Marks as paid" />
           <ButtonGroup segmented marginHorizontal={3}>
-            <Button label="Book" />
-            <Button label="Merge" />
+            <Button size="small" label="Book" />
+            <Button size="small" label="Merge" />
           </ButtonGroup>
-          <Button level="destructive" label="Delete" />
+          <Button size="small" level="destructive" label="Delete" />
         </React.Fragment>
       </DataGrid.HeaderRowOverlay>
 
@@ -169,12 +169,12 @@ storiesOf('DataGrids', module)
     >
       <DataGrid.HeaderRowOverlay>
         <React.Fragment>
-          <Button level="primary" label="Marks as paid" />
+          <Button size="small" level="primary" label="Marks as paid" />
           <ButtonGroup segmented marginHorizontal={3}>
-            <Button label="Book" />
-            <Button label="Merge" />
+            <Button size="small" label="Book" />
+            <Button size="small" label="Merge" />
           </ButtonGroup>
-          <Button level="destructive" label="Delete" />
+          <Button size="small" level="destructive" label="Delete" />
         </React.Fragment>
       </DataGrid.HeaderRowOverlay>
 
@@ -234,12 +234,12 @@ storiesOf('DataGrids', module)
       onSelectionChange={handleRowSelectionChange}
     >
       <DataGrid.HeaderRowOverlay>
-        <Button level="primary" label="Marks as paid" />
+        <Button size="small" level="primary" label="Marks as paid" />
         <ButtonGroup segmented marginHorizontal={3}>
-          <Button label="Book" />
-          <Button label="Merge" />
+          <Button size="small" label="Book" />
+          <Button size="small" label="Merge" />
         </ButtonGroup>
-        <Button level="destructive" label="Delete" />
+        <Button size="small" level="destructive" label="Delete" />
       </DataGrid.HeaderRowOverlay>
 
       <DataGrid.HeaderRow>
