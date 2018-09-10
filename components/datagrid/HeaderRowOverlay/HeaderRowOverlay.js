@@ -10,7 +10,7 @@ class HeaderRowOverlay extends PureComponent {
   render() {
     const { children, className, numSelectedRows, numSelectedRowsLabel, ...others } = this.props;
 
-    const classNames = cx(theme['header-row-overlap'], className);
+    const classNames = cx(theme['header-row-overlay'], className);
 
     return (
       numSelectedRows > 0 && (

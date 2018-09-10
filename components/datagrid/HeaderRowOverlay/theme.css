@@ -1,7 +1,7 @@
 @import '@teamleader/ui-colors';
 @import '@teamleader/ui-typography';
 
-.header-row-overlap {
+.header-row-overlay {
   background: var(--color-neutral-light);
   position: absolute;
   left: 48px;
