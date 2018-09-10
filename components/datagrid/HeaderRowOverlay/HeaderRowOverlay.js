@@ -41,7 +41,6 @@ HeaderRowOverlay.propTypes = {
 };
 
 HeaderRowOverlay.defaultProps = {
-  className: '',
   numSelectedRows: 0,
 };
 
