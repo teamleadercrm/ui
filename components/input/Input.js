@@ -7,8 +7,6 @@ import {
   IconChevronDownSmallOutline,
   IconWarningBadgedSmallFilled,
 } from '@teamleader/ui-icons';
-import InputMetaPropTypes from './InputMetaPropTypes';
-import FieldInputPropTypes from './FieldInputPropTypes';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import Button from '../button';
 import Counter from '../counter';
@@ -17,9 +15,9 @@ import theme from './theme.css';
 
 export default class Input extends PureComponent {
   static getDerivedStateFromProps(nextProps, prevState) {
-    const value = nextProps.input ? nextProps.input.value : nextProps.value;
-    if (value !== undefined) {
-      const newValue = Input.parseValue(Input.getPropsValue(nextProps), nextProps);
+    if (nextProps.value !== undefined) {
+      const newValue = Input.parseValue(nextProps.value || '', nextProps);
+
       if (newValue !== prevState.value) {
         return {
           value: newValue,
@@ -28,11 +26,6 @@ export default class Input extends PureComponent {
     }
 
     return null;
-  }
-
-  static getPropsValue({ input, value }) {
-    const finalValue = input !== undefined ? input.value : value;
-    return finalValue || '';
   }
 
   static parseValue(value, { type, min, max }) {
@@ -68,25 +61,16 @@ export default class Input extends PureComponent {
   };
 
   updateValue(event, rawValue, triggerOnChange = true) {
-    const { input, onChange } = this.props;
+    const { onChange } = this.props;
     const value = Input.parseValue(rawValue || event.target.value, this.props);
 
     this.setState({
       value,
     });
 
-    if (triggerOnChange) {
-      if (input && input.onChange) {
-        input.onChange(event, value);
-      } else if (onChange) {
-        onChange(event, value);
-      }
+    if (triggerOnChange && onChange) {
+      onChange(event, value);
     }
-  }
-
-  hasError() {
-    const { meta } = this.props;
-    return Boolean(meta && meta.error && meta.touched);
   }
 
   formatNumber(number) {
@@ -117,9 +101,7 @@ export default class Input extends PureComponent {
       'helpText',
       'icon',
       'iconPlacement',
-      'input',
       'inverse',
-      'meta',
       'onChange',
       'size',
       'spinner',
@@ -197,7 +179,7 @@ export default class Input extends PureComponent {
           <IconWarningBadgedSmallFilled />
         </Box>
         <Box element="span" marginLeft={1}>
-          {this.props.meta.error}
+          {this.props.error}
         </Box>
       </TextSmall>
     );
@@ -210,6 +192,7 @@ export default class Input extends PureComponent {
       connectedRight,
       counter,
       disabled,
+      error,
       icon,
       iconPlacement,
       inverse,
@@ -226,7 +209,7 @@ export default class Input extends PureComponent {
       {
         [theme[`has-icon-${iconPlacement}`]]: icon,
         [theme['has-counter']]: counter,
-        [theme['has-error']]: this.hasError(),
+        [theme['has-error']]: error,
         [theme['has-connected-left']]: connectedLeft,
         [theme['has-connected-right']]: connectedRight,
         [theme['has-spinner']]: type === 'number' && spinner,
@@ -238,7 +221,7 @@ export default class Input extends PureComponent {
     );
 
     const inputWrapperClassnames = cx(theme['input-wrapper'], {
-      [theme['has-error']]: this.hasError(),
+      [theme['has-error']]: error,
     });
 
     const rest = pickBoxProps(others);
@@ -258,7 +241,7 @@ export default class Input extends PureComponent {
           </div>
           {connectedRight}
         </div>
-        {this.hasError() ? this.renderValidationMessage() : this.renderHelpText()}
+        {error ? this.renderValidationMessage() : this.renderHelpText()}
       </Box>
     );
   }
@@ -275,6 +258,8 @@ Input.propTypes = {
   counter: PropTypes.number,
   /** Boolean indicating whether the input should render as disabled. */
   disabled: PropTypes.bool,
+  /** The text string/element to use as error message below the input. */
+  error: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   /** The text string to use as help text below the input. */
   helpText: PropTypes.string,
   /** The icon displayed inside the input. */
@@ -285,12 +270,8 @@ Input.propTypes = {
   inverse: PropTypes.bool,
   max: PropTypes.number,
   min: PropTypes.number,
-  /** Object to provide meta information for redux forms. */
-  meta: InputMetaPropTypes,
   /** Boolean indicating whether to number type input should render spinner controls */
   spinner: PropTypes.bool,
-  /** Object to provide input information for redux forms. */
-  input: FieldInputPropTypes,
   /** Callback function that is fired when the component's value changes. */
   onChange: PropTypes.func,
   /** Boolean indicating whether the input should render as read only. */

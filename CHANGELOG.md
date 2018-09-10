@@ -15,6 +15,7 @@
 ### Added
 
 - `AsyncSelect`: A new select component that will load its options asynchronously and optionally paginate them.
+- `Input`: added `error` prop which replaces the old `meta.error`. ([@driesd](https://github.com/driesd) in [#349](https://github.com/teamleadercrm/ui/pull/349))
 
 ### Changed
 
@@ -23,6 +24,7 @@
 ### Removed
 
 - [BREAKING] `Input`: removed `precision` prop due to buggy behavior. ([@driesd](https://github.com/driesd) in [#346](https://github.com/teamleadercrm/ui/pull/346))
+- [BREAKING] `Input`: removed `input` and `meta` prop to decouple from redux-forms. ([@driesd](https://github.com/driesd) in [#349](https://github.com/teamleadercrm/ui/pull/349))
 
 ### Fixed
 
