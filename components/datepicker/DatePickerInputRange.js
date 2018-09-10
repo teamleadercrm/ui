@@ -1,6 +1,6 @@
 import React, { Fragment, PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import Box from '../box';
+import Box, { omitBoxProps, pickBoxProps } from '../box';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import Icon from '../icon';
 import InputMetaPropTypes from '../input/InputMetaPropTypes';
@@ -110,8 +110,9 @@ class DatePickerInputRange extends PureComponent {
 
     const { selectedStartDate, selectedEndDate, mouseEnteredEndDate } = this.state;
 
+    const propsWithoutBoxProps = omitBoxProps(others);
     const dayPickerClassNames = cx(theme['date-picker'], theme['has-range'], theme[`is-${size}`], className);
-    const dayPickerInputProps = omit(others, ['helpText', 'meta', 'onBlur', 'onChange', 'onFocus']);
+    const dayPickerInputProps = omit(propsWithoutBoxProps, ['helpText', 'meta', 'onBlur', 'onChange', 'onFocus']);
 
     const modifiers = { from: selectedStartDate, to: mouseEnteredEndDate };
     const selectedDays = [selectedStartDate, { from: selectedStartDate, to: mouseEnteredEndDate }];
@@ -240,7 +241,9 @@ class DatePickerInputRange extends PureComponent {
   };
 
   render() {
-    const { bold, disabled, inverse, readOnly, size } = this.props;
+    const { bold, disabled, inverse, readOnly, size, ...others } = this.props;
+
+    const boxProps = pickBoxProps(others);
 
     const classNames = cx(theme['date-picker-input-range'], theme[`is-${size}`], {
       [theme['is-bold']]: bold,
@@ -252,7 +255,7 @@ class DatePickerInputRange extends PureComponent {
     });
 
     return (
-      <Box className={classNames}>
+      <Box className={classNames} {...boxProps}>
         <div className={theme['input-wrapper']}>
           {this.renderIcon()}
           {this.renderDayPickerInput()}

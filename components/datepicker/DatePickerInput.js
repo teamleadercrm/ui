@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import Box from '../box';
+import Box, { omitBoxProps, pickBoxProps } from '../box';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import Icon from '../icon';
 import InputMetaPropTypes from '../input/InputMetaPropTypes';
@@ -57,7 +57,8 @@ class DatePickerInput extends PureComponent {
 
     const dayPickerClassNames = cx(theme['date-picker'], theme[`is-${size}`], className);
 
-    const rest = omit(others, ['helpText', 'meta', 'onBlur', 'onChange', 'onFocus']);
+    const propsWithoutBoxProps = omitBoxProps(others);
+    const restProps = omit(propsWithoutBoxProps, ['helpText', 'meta', 'onBlur', 'onChange', 'onFocus']);
 
     return (
       <DayPickerInput
@@ -79,7 +80,7 @@ class DatePickerInput extends PureComponent {
           onBlur: this.handleBlur,
           onFocus: this.handleFocus,
         }}
-        {...rest}
+        {...restProps}
       />
     );
   };
@@ -123,8 +124,10 @@ class DatePickerInput extends PureComponent {
   };
 
   render() {
-    const { bold, disabled, inverse, readOnly, size } = this.props;
+    const { bold, disabled, inverse, readOnly, size, ...others } = this.props;
     const { inputHasFocus } = this.state;
+
+    const boxProps = pickBoxProps(others);
 
     const classNames = cx(theme['date-picker-input'], theme[`is-${size}`], {
       [theme['is-bold']]: bold,
@@ -136,7 +139,7 @@ class DatePickerInput extends PureComponent {
     });
 
     return (
-      <Box className={classNames}>
+      <Box className={classNames} {...boxProps}>
         <div className={theme['input-wrapper']}>
           {this.renderIcon()}
           {this.renderDayPickerInput()}
