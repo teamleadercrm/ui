@@ -10,7 +10,3 @@
   overflow-x: auto;
   z-index: 3;
 }
-
-.num-selected-rows-number {
-  font-family: var(--font-family-medium);
-}
