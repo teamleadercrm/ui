@@ -2,18 +2,19 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../../box';
 import { TextBody, Monospaced } from '../../typography';
-import theme from './theme.css';
 
 class NumSelectedRows extends PureComponent {
   render() {
     const { numSelectedRows, numSelectedRowsLabel } = this.props;
 
     return (
-      <Box marginRight={3} className={theme['num-selected-rows']} data-teamleader-ui="datagrid-num-selected-rows">
-        <TextBody className={theme['num-selected-rows-number']} element="span" marginRight={1}>
-          <Monospaced>{numSelectedRows}</Monospaced>
+      <Box marginRight={3} data-teamleader-ui="datagrid-num-selected-rows">
+        <TextBody element="span" marginRight={1}>
+          <Monospaced>
+            <strong>{numSelectedRows}</strong>
+          </Monospaced>
         </TextBody>
-        <TextBody className={theme['num-selected-rows-label']} color="neutral" element="span">
+        <TextBody color="neutral" element="span">
           {numSelectedRowsLabel}
         </TextBody>
       </Box>
