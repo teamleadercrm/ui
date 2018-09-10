@@ -110,16 +110,7 @@ class DataGrid extends PureComponent {
   };
 
   render() {
-    const {
-      checkboxSize,
-      children,
-      className,
-      numSelectedRowsLabel,
-      selectable,
-      stickyFromLeft,
-      stickyFromRight,
-      ...others
-    } = this.props;
+    const { checkboxSize, children, className, selectable, stickyFromLeft, stickyFromRight, ...others } = this.props;
     const { selectedRows } = this.state;
 
     const classNames = cx(theme['data-grid'], className);
@@ -192,7 +183,6 @@ DataGrid.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   comparableId: PropTypes.any,
-  numSelectedRowsLabel: PropTypes.string,
   selectable: PropTypes.bool,
   stickyFromLeft: PropTypes.number,
   stickyFromRight: PropTypes.number,
