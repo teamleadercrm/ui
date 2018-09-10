@@ -1,6 +1,6 @@
 import React, { Fragment, PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import Box from '../box';
+import Box, { pickBoxProps } from '../box';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import Icon from '../icon';
 import InputMetaPropTypes from '../input/InputMetaPropTypes';
@@ -240,7 +240,9 @@ class DatePickerInputRange extends PureComponent {
   };
 
   render() {
-    const { bold, disabled, inverse, readOnly, size } = this.props;
+    const { bold, disabled, inverse, readOnly, size, ...others } = this.props;
+
+    const boxProps = pickBoxProps(others);
 
     const classNames = cx(theme['date-picker-input-range'], theme[`is-${size}`], {
       [theme['is-bold']]: bold,
@@ -252,7 +254,7 @@ class DatePickerInputRange extends PureComponent {
     });
 
     return (
-      <Box className={classNames}>
+      <Box className={classNames} {...boxProps}>
         <div className={theme['input-wrapper']}>
           {this.renderIcon()}
           {this.renderDayPickerInput()}
