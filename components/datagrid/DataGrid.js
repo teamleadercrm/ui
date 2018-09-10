@@ -143,7 +143,7 @@ class DataGrid extends PureComponent {
             {React.Children.map(children, child => {
               if (isComponentOfType(HeaderRow, child)) {
                 return React.cloneElement(child, {
-                  checkboxSize: checkboxSize,
+                  checkboxSize,
                   onSelectionChange: this.handleHeaderRowSelectionChange,
                   selected: selectedRows.length === children[2].length,
                   selectable,
@@ -151,7 +151,7 @@ class DataGrid extends PureComponent {
                 });
               } else if (isComponentOfType(BodyRow, child)) {
                 return React.cloneElement(child, {
-                  checkboxSize: checkboxSize,
+                  checkboxSize,
                   onSelectionChange: (checked, event) => this.handleBodyRowSelectionChange(child.key, event),
                   selected: selectedRows.indexOf(child.key) !== -1,
                   selectable,
