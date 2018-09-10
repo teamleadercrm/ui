@@ -9,17 +9,11 @@ class NumSelectedRows extends PureComponent {
     const { numSelectedRows, numSelectedRowsLabel } = this.props;
 
     return (
-      <Box
-        display="flex"
-        align-items="center"
-        marginRight={3}
-        className={theme['num-selected-rows']}
-        data-teamleader-ui="datagrid-num-selected-rows"
-      >
-        <TextBody className={theme['num-selected-rows-number']} marginRight={1}>
+      <Box marginRight={3} className={theme['num-selected-rows']} data-teamleader-ui="datagrid-num-selected-rows">
+        <TextBody className={theme['num-selected-rows-number']} element="span" marginRight={1}>
           <Monospaced>{numSelectedRows}</Monospaced>
         </TextBody>
-        <TextBody className={theme['num-selected-rows-label']} color="neutral">
+        <TextBody className={theme['num-selected-rows-label']} color="neutral" element="span">
           {numSelectedRowsLabel}
         </TextBody>
       </Box>
