@@ -155,6 +155,8 @@ DatePickerInput.propTypes = {
   className: PropTypes.string,
   dayPickerProps: PropTypes.object,
   disabled: PropTypes.bool,
+  /** The text string/element to use as error message below the input. */
+  error: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   helpText: PropTypes.string,
   inverse: PropTypes.bool,
   meta: InputMetaPropTypes,
