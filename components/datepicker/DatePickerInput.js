@@ -46,11 +46,6 @@ class DatePickerInput extends PureComponent {
     );
   };
 
-  hasError = () => {
-    const { meta } = this.props;
-    return Boolean(meta && meta.error && meta.touched);
-  };
-
   renderDayPickerInput = () => {
     const { className, dayPickerProps, disabled, modifiers, readOnly, size, ...others } = this.props;
     const { selectedDate } = this.state;
@@ -124,7 +119,7 @@ class DatePickerInput extends PureComponent {
   };
 
   render() {
-    const { bold, disabled, inverse, readOnly, size, ...others } = this.props;
+    const { bold, disabled, error, inverse, readOnly, size, ...others } = this.props;
     const { inputHasFocus } = this.state;
 
     const boxProps = pickBoxProps(others);
@@ -134,7 +129,7 @@ class DatePickerInput extends PureComponent {
       [theme['is-disabled']]: disabled,
       [theme['is-inverse']]: inverse,
       [theme['is-read-only']]: readOnly,
-      [theme['has-error']]: this.hasError(),
+      [theme['has-error']]: error,
       [theme['has-focus']]: inputHasFocus,
     });
 
@@ -144,7 +139,7 @@ class DatePickerInput extends PureComponent {
           {this.renderIcon()}
           {this.renderDayPickerInput()}
         </div>
-        {this.hasError() ? this.renderValidationMessage() : this.renderHelpText()}
+        {error ? this.renderValidationMessage() : this.renderHelpText()}
       </Box>
     );
   }
