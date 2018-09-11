@@ -270,6 +270,8 @@ DatePickerInputRange.propTypes = {
   bold: PropTypes.bool,
   className: PropTypes.string,
   disabled: PropTypes.bool,
+  /** The text string/element to use as error message below the input. */
+  error: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   helpText: PropTypes.string,
   inverse: PropTypes.bool,
   inputProps: PropTypes.object,
