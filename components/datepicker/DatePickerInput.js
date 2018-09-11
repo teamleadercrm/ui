@@ -53,7 +53,7 @@ class DatePickerInput extends PureComponent {
     const dayPickerClassNames = cx(theme['date-picker'], theme[`is-${size}`], className);
 
     const propsWithoutBoxProps = omitBoxProps(others);
-    const restProps = omit(propsWithoutBoxProps, ['helpText', 'meta', 'onBlur', 'onChange', 'onFocus']);
+    const restProps = omit(propsWithoutBoxProps, ['helpText', 'onBlur', 'onChange', 'onFocus']);
 
     return (
       <DayPickerInput
@@ -112,7 +112,7 @@ class DatePickerInput extends PureComponent {
       <Box marginTop={2}>
         <IconWarningBadgedSmallFilled className={theme['validation-icon']} />
         <TextSmall className={theme['validation-text']} element="span" marginLeft={1}>
-          {this.props.meta.error}
+          {this.props.error}
         </TextSmall>
       </Box>
     );
@@ -154,7 +154,6 @@ DatePickerInput.propTypes = {
   error: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   helpText: PropTypes.string,
   inverse: PropTypes.bool,
-  meta: InputMetaPropTypes,
   modifiers: PropTypes.object,
   onChange: PropTypes.func,
   readOnly: PropTypes.bool,
