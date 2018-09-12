@@ -12,7 +12,7 @@ class BulkActions extends PureComponent {
         flex="1"
         alignItems="center"
         className={theme['bulk-actions']}
-        data-teamleader-ui="datagrid-num-selected-rows"
+        data-teamleader-ui="datagrid-bulk-actions"
       >
         {bulkActions}
       </Box>
