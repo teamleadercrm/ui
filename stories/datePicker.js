@@ -64,6 +64,7 @@ storiesOf('DatePicker', module)
         parseDate={parseDate}
         bold={boolean('Bold', false)}
         disabled={boolean('Disabled', false)}
+        error="This is an error message"
         inverse={boolean('Inverse', false)}
         helpText="Pick a date"
         dayPickerProps={{
@@ -72,10 +73,6 @@ storiesOf('DatePicker', module)
           numberOfMonths: number('Number of months', 2),
           showOutsideDays: boolean('Show outside days', true),
           showWeekNumbers: boolean('Show week numbers', true),
-        }}
-        meta={{
-          error: 'This is an error message',
-          touched: true,
         }}
         onChange={handleOnChange}
         placeholder={inputPlaceholderToday}
@@ -130,12 +127,9 @@ storiesOf('DatePicker', module)
           value: preSelectedRange.selectedEndDate,
         }}
         disabled={boolean('Disabled', false)}
+        error="This is an error message"
         helpText="Pick a start & end date"
         inverse={boolean('Inverse', false)}
-        meta={{
-          error: 'This is an error message',
-          touched: true,
-        }}
         readOnly={boolean('Read only', false)}
         onChange={handleOnChange}
         selectedRange={preSelectedRange}

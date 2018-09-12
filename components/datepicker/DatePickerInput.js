@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import Icon from '../icon';
-import InputMetaPropTypes from '../input/InputMetaPropTypes';
 import NavigationBar from './NavigationBar';
 import WeekDay from './WeekDay';
 import { convertModifiersToClassnames } from './utils';
@@ -46,11 +45,6 @@ class DatePickerInput extends PureComponent {
     );
   };
 
-  hasError = () => {
-    const { meta } = this.props;
-    return Boolean(meta && meta.error && meta.touched);
-  };
-
   renderDayPickerInput = () => {
     const { className, dayPickerProps, disabled, modifiers, readOnly, size, ...others } = this.props;
     const { selectedDate } = this.state;
@@ -58,7 +52,7 @@ class DatePickerInput extends PureComponent {
     const dayPickerClassNames = cx(theme['date-picker'], theme[`is-${size}`], className);
 
     const propsWithoutBoxProps = omitBoxProps(others);
-    const restProps = omit(propsWithoutBoxProps, ['helpText', 'meta', 'onBlur', 'onChange', 'onFocus']);
+    const restProps = omit(propsWithoutBoxProps, ['helpText', 'onBlur', 'onChange', 'onFocus']);
 
     return (
       <DayPickerInput
@@ -117,14 +111,14 @@ class DatePickerInput extends PureComponent {
       <Box marginTop={2}>
         <IconWarningBadgedSmallFilled className={theme['validation-icon']} />
         <TextSmall className={theme['validation-text']} element="span" marginLeft={1}>
-          {this.props.meta.error}
+          {this.props.error}
         </TextSmall>
       </Box>
     );
   };
 
   render() {
-    const { bold, disabled, inverse, readOnly, size, ...others } = this.props;
+    const { bold, disabled, error, inverse, readOnly, size, ...others } = this.props;
     const { inputHasFocus } = this.state;
 
     const boxProps = pickBoxProps(others);
@@ -134,7 +128,7 @@ class DatePickerInput extends PureComponent {
       [theme['is-disabled']]: disabled,
       [theme['is-inverse']]: inverse,
       [theme['is-read-only']]: readOnly,
-      [theme['has-error']]: this.hasError(),
+      [theme['has-error']]: error,
       [theme['has-focus']]: inputHasFocus,
     });
 
@@ -144,7 +138,7 @@ class DatePickerInput extends PureComponent {
           {this.renderIcon()}
           {this.renderDayPickerInput()}
         </div>
-        {this.hasError() ? this.renderValidationMessage() : this.renderHelpText()}
+        {error ? this.renderValidationMessage() : this.renderHelpText()}
       </Box>
     );
   }
@@ -155,9 +149,10 @@ DatePickerInput.propTypes = {
   className: PropTypes.string,
   dayPickerProps: PropTypes.object,
   disabled: PropTypes.bool,
+  /** The text string/element to use as error message below the input. */
+  error: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   helpText: PropTypes.string,
   inverse: PropTypes.bool,
-  meta: InputMetaPropTypes,
   modifiers: PropTypes.object,
   onChange: PropTypes.func,
   readOnly: PropTypes.bool,

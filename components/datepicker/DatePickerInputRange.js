@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import Icon from '../icon';
-import InputMetaPropTypes from '../input/InputMetaPropTypes';
 import NavigationBar from './NavigationBar';
 import WeekDay from './WeekDay';
 import { convertModifiersToClassnames, isSelectingFirstDay } from './utils';
@@ -86,11 +85,6 @@ class DatePickerInputRange extends PureComponent {
     }
   };
 
-  hasError = () => {
-    const { meta } = this.props;
-    return Boolean(meta && meta.error && meta.touched);
-  };
-
   renderDayPickerInput = () => {
     const {
       className,
@@ -112,7 +106,7 @@ class DatePickerInputRange extends PureComponent {
 
     const propsWithoutBoxProps = omitBoxProps(others);
     const dayPickerClassNames = cx(theme['date-picker'], theme['has-range'], theme[`is-${size}`], className);
-    const dayPickerInputProps = omit(propsWithoutBoxProps, ['helpText', 'meta', 'onBlur', 'onChange', 'onFocus']);
+    const dayPickerInputProps = omit(propsWithoutBoxProps, ['helpText', 'onBlur', 'onChange', 'onFocus']);
 
     const modifiers = { from: selectedStartDate, to: mouseEnteredEndDate };
     const selectedDays = [selectedStartDate, { from: selectedStartDate, to: mouseEnteredEndDate }];
@@ -214,7 +208,7 @@ class DatePickerInputRange extends PureComponent {
       <Box marginTop={2}>
         <IconWarningBadgedSmallFilled className={theme['validation-icon']} />
         <TextSmall className={theme['validation-text']} element="span" marginLeft={1}>
-          {this.props.meta.error}
+          {this.props.error}
         </TextSmall>
       </Box>
     );
@@ -241,7 +235,7 @@ class DatePickerInputRange extends PureComponent {
   };
 
   render() {
-    const { bold, disabled, inverse, readOnly, size, ...others } = this.props;
+    const { bold, disabled, error, inverse, readOnly, size, ...others } = this.props;
 
     const boxProps = pickBoxProps(others);
 
@@ -250,7 +244,7 @@ class DatePickerInputRange extends PureComponent {
       [theme['is-disabled']]: disabled,
       [theme['is-inverse']]: inverse,
       [theme['is-read-only']]: readOnly,
-      [theme['has-error']]: this.hasError(),
+      [theme['has-error']]: error,
       [theme['has-focus']]: this.state.inputHasFocus,
     });
 
@@ -260,7 +254,7 @@ class DatePickerInputRange extends PureComponent {
           {this.renderIcon()}
           {this.renderDayPickerInput()}
         </div>
-        {this.hasError() ? this.renderValidationMessage() : this.renderHelpText()}
+        {error ? this.renderValidationMessage() : this.renderHelpText()}
       </Box>
     );
   }
@@ -270,12 +264,13 @@ DatePickerInputRange.propTypes = {
   bold: PropTypes.bool,
   className: PropTypes.string,
   disabled: PropTypes.bool,
+  /** The text string/element to use as error message below the input. */
+  error: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   helpText: PropTypes.string,
   inverse: PropTypes.bool,
   inputProps: PropTypes.object,
   inputStartDateProps: PropTypes.object,
   inputEndDateProps: PropTypes.object,
-  meta: InputMetaPropTypes,
   modifiers: PropTypes.object,
   dayPickerProps: PropTypes.object,
   dayPickerStartDateProps: PropTypes.object,
