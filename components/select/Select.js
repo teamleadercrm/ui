@@ -259,7 +259,7 @@ class Select extends PureComponent {
 
   render() {
     const { components, ...otherProps } = this.props;
-    const rest = omit(otherProps, ['size', 'inverse']);
+    const restProps = omit(otherProps, ['size', 'inverse']);
 
     return (
       <ReactSelect
@@ -269,7 +269,7 @@ class Select extends PureComponent {
           ...components,
         }}
         styles={this.getStyles()}
-        {...rest}
+        {...restProps}
       />
     );
   }
