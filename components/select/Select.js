@@ -3,7 +3,7 @@ import ReactSelect from 'react-select';
 import PropTypes from 'prop-types';
 import omit from 'lodash.omit';
 import { IconChevronDownSmallOutline } from '@teamleader/ui-icons';
-import Box, { pickBoxProps } from '../box';
+import Box, { omitBoxProps, pickBoxProps } from '../box';
 import { Button } from '../button';
 import { colors } from './constants';
 import theme from './theme.css';
@@ -262,7 +262,8 @@ class Select extends PureComponent {
     const { components, ...otherProps } = this.props;
 
     const boxProps = pickBoxProps(otherProps);
-    const restProps = omit(otherProps, ['size', 'inverse']);
+    const otherPropsWithoutBoxProps = omitBoxProps(otherProps);
+    const restProps = omit(otherPropsWithoutBoxProps, ['size', 'inverse']);
 
     return (
       <Box {...boxProps}>
