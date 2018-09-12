@@ -20,6 +20,10 @@
   &:first-child .row .cell:first-child {
     padding: var(--spacer-smaller) var(--spacer-small) var(--spacer-smaller) var(--spacer-medium);
   }
+
+  &:last-child .row .cell:last-child {
+    padding: var(--spacer-smaller) var(--spacer-medium) var(--spacer-smaller) var(--spacer-small);
+  }
 }
 
 .row {
