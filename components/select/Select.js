@@ -258,8 +258,8 @@ class Select extends PureComponent {
   };
 
   render() {
-    const { components, ...others } = this.props;
-    const rest = omit(others, ['size', 'inverse']);
+    const { components, ...otherProps } = this.props;
+    const rest = omit(otherProps, ['size', 'inverse']);
 
     return (
       <ReactSelect
