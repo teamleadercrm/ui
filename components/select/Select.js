@@ -3,6 +3,7 @@ import ReactSelect from 'react-select';
 import PropTypes from 'prop-types';
 import omit from 'lodash.omit';
 import { IconChevronDownSmallOutline } from '@teamleader/ui-icons';
+import Box from '../box';
 import { Button } from '../button';
 import { colors } from './constants';
 import theme from './theme.css';
@@ -262,15 +263,17 @@ class Select extends PureComponent {
     const restProps = omit(otherProps, ['size', 'inverse']);
 
     return (
-      <ReactSelect
-        className={theme['select']}
-        components={{
-          DropdownIndicator: this.getDropDownIndicator(),
-          ...components,
-        }}
-        styles={this.getStyles()}
-        {...restProps}
-      />
+      <Box>
+        <ReactSelect
+          className={theme['select']}
+          components={{
+            DropdownIndicator: this.getDropDownIndicator(),
+            ...components,
+          }}
+          styles={this.getStyles()}
+          {...restProps}
+        />
+      </Box>
     );
   }
 }
