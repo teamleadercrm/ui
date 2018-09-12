@@ -1,19 +1,12 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../../box';
-import theme from './theme.css';
 
 class BulkActions extends PureComponent {
   render() {
     const { bulkActions } = this.props;
     return (
-      <Box
-        display="flex"
-        flex="1"
-        alignItems="center"
-        className={theme['bulk-actions']}
-        data-teamleader-ui="datagrid-bulk-actions"
-      >
+      <Box display="flex" flex="1" alignItems="center" data-teamleader-ui="datagrid-bulk-actions">
         {bulkActions}
       </Box>
     );
