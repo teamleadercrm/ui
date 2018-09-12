@@ -16,6 +16,10 @@
 .section {
   display: flex;
   flex-direction: column;
+
+  &:first-child .row .cell:first-child {
+    padding: var(--spacer-smaller) var(--spacer-small) var(--spacer-smaller) var(--spacer-medium);
+  }
 }
 
 .row {
