@@ -8,6 +8,7 @@ import { Button } from '../button';
 import { TextSmall } from '../typography';
 import { colors } from './constants';
 import theme from './theme.css';
+import cx from 'classnames';
 
 class Select extends PureComponent {
   getClearIndicatorStyles = base => {
@@ -285,14 +286,19 @@ class Select extends PureComponent {
   }
 
   render() {
-    const { components, error, ...otherProps } = this.props;
+    const { components, error, inverse, ...otherProps } = this.props;
 
     const boxProps = pickBoxProps(otherProps);
     const otherPropsWithoutBoxProps = omitBoxProps(otherProps);
-    const restProps = omit(otherPropsWithoutBoxProps, ['size', 'inverse']);
+    const restProps = omit(otherPropsWithoutBoxProps, ['size']);
+
+    const wrapperClassnames = cx({
+      [theme['has-error']]: error,
+      [theme['is-inverse']]: inverse,
+    });
 
     return (
-      <Box {...boxProps}>
+      <Box className={wrapperClassnames} {...boxProps}>
         <ReactSelect
           className={theme['select']}
           components={{
