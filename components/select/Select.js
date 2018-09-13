@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import ReactSelect from 'react-select';
 import PropTypes from 'prop-types';
 import omit from 'lodash.omit';
-import { IconChevronDownSmallOutline } from '@teamleader/ui-icons';
+import { IconChevronDownSmallOutline, IconWarningBadgedSmallFilled } from '@teamleader/ui-icons';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import { Button } from '../button';
 import { TextSmall } from '../typography';
@@ -271,8 +271,21 @@ class Select extends PureComponent {
     }
   }
 
+  renderValidationMessage() {
+    return (
+      <TextSmall className={theme['validation-text']} marginTop={2} display="flex">
+        <Box element="span" className={theme['validation-icon']}>
+          <IconWarningBadgedSmallFilled />
+        </Box>
+        <Box element="span" marginLeft={1}>
+          {this.props.error}
+        </Box>
+      </TextSmall>
+    );
+  }
+
   render() {
-    const { components, ...otherProps } = this.props;
+    const { components, error, ...otherProps } = this.props;
 
     const boxProps = pickBoxProps(otherProps);
     const otherPropsWithoutBoxProps = omitBoxProps(otherProps);
@@ -289,7 +302,7 @@ class Select extends PureComponent {
           styles={this.getStyles()}
           {...restProps}
         />
-        {this.renderHelpText()}
+        {error ? this.renderValidationMessage() : this.renderHelpText()}
       </Box>
     );
   }
