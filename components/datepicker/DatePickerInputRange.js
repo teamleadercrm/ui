@@ -277,9 +277,13 @@ DatePickerInputRange.propTypes = {
   dayPickerEndDateProps: PropTypes.object,
   dayPickerInputEndDateProps: PropTypes.object,
   dayPickerInputStartDateProps: PropTypes.object,
+  /** Callback function that is fired when blurring the end date input field. */
   onEndDateBlur: PropTypes.func,
+  /** Callback function that is fired when focussing the end date input field. */
   onEndDateFocus: PropTypes.func,
+  /** Callback function that is fired when blurring the start date input field. */
   onStartDateBlur: PropTypes.func,
+  /** Callback function that is fired when focussing the start date input field. */
   onStartDateFocus: PropTypes.func,
   onChange: PropTypes.func,
   readOnly: PropTypes.bool,
