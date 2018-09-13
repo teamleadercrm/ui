@@ -286,6 +286,8 @@ Select.propTypes = {
   components: PropTypes.object,
   /** The text string/element to use as error message below the input. */
   error: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  /** The text string to use as help text below the input. */
+  helpText: PropTypes.string,
   /** Boolean indicating whether the select should render as inverse. */
   inverse: PropTypes.bool,
   /** Size of the input element. */
