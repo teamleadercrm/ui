@@ -37,12 +37,7 @@ class DatePickerInput extends PureComponent {
   };
 
   handleInputDateChange = date => {
-    this.setState(
-      {
-        selectedDate: date,
-      },
-      () => this.props.onChange(date),
-    );
+    this.setState({ selectedDate: date }, () => this.props.onChange(date));
   };
 
   renderDayPickerInput = () => {
