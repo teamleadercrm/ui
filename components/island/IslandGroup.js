@@ -8,12 +8,21 @@ import { elementIsDark } from '../utils/utils';
 
 class IslandGroup extends PureComponent {
   render() {
-    const { children, className, color, dark, size, ...otherProps } = this.props;
+    const { children, className, color, dark, direction, size, ...otherProps } = this.props;
 
     const boxProps = pickBoxProps(otherProps);
     const isDark = elementIsDark(color, dark);
 
-    const classNames = cx(theme['segmented'], theme['island'], theme[color], { [theme['dark']]: isDark }, className);
+    const classNames = cx(
+      theme[`direction-${direction}`],
+      theme['island'],
+      theme['segmented'],
+      theme[color],
+      {
+        [theme['dark']]: isDark,
+      },
+      className,
+    );
 
     return (
       <Box {...boxProps} className={classNames} padding={0}>
@@ -34,11 +43,13 @@ IslandGroup.propTypes = {
   className: PropTypes.string,
   color: PropTypes.oneOf(['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'white']),
   dark: PropTypes.bool,
+  direction: PropTypes.oneOf(['horizontal', 'vertical']),
   size: PropTypes.oneOf(['small', 'medium', 'large']),
 };
 
 IslandGroup.defaultProps = {
   color: 'white',
+  direction: 'horizontal',
 };
 
 export default IslandGroup;
