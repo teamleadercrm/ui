@@ -54,7 +54,7 @@ class DatePickerInputRange extends PureComponent {
   };
 
   handleFromFocus = () => {
-    this.setState({ inputHasFocus: true });
+    this.setState({ inputHasFocus: true }, () => this.props.onStartDateFocus && this.props.onStartDateFocus());
   };
 
   handleFromChange = day => {
@@ -278,6 +278,7 @@ DatePickerInputRange.propTypes = {
   dayPickerInputEndDateProps: PropTypes.object,
   dayPickerInputStartDateProps: PropTypes.object,
   onStartDateBlur: PropTypes.func,
+  onStartDateFocus: PropTypes.func,
   onChange: PropTypes.func,
   readOnly: PropTypes.bool,
   selectedRange: PropTypes.object,
