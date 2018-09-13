@@ -29,20 +29,15 @@ class DatePickerInput extends PureComponent {
   }
 
   handleBlur = () => {
-    this.setState({ inputHasFocus: false });
+    this.setState({ inputHasFocus: false }, () => this.props.onBlur && this.props.onBlur());
   };
 
   handleFocus = () => {
-    this.setState({ inputHasFocus: true });
+    this.setState({ inputHasFocus: true }, () => this.props.onFocus && this.props.onFocus());
   };
 
   handleInputDateChange = date => {
-    this.setState(
-      {
-        selectedDate: date,
-      },
-      () => this.props.onChange(date),
-    );
+    this.setState({ selectedDate: date }, () => this.props.onChange(date));
   };
 
   renderDayPickerInput = () => {
@@ -154,7 +149,11 @@ DatePickerInput.propTypes = {
   helpText: PropTypes.string,
   inverse: PropTypes.bool,
   modifiers: PropTypes.object,
+  /** Callback function that is fired when blurring the input field. */
+  onBlur: PropTypes.func,
   onChange: PropTypes.func,
+  /** Callback function that is fired when focussing the input field. */
+  onFocus: PropTypes.func,
   readOnly: PropTypes.bool,
   selectedDate: PropTypes.instanceOf(Date),
   size: PropTypes.oneOf(['small', 'medium', 'large']),

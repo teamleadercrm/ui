@@ -50,11 +50,11 @@ class DatePickerInputRange extends PureComponent {
   };
 
   handleFromBlur = () => {
-    this.setState({ inputHasFocus: false });
+    this.setState({ inputHasFocus: false }, () => this.props.onStartDateBlur && this.props.onStartDateBlur());
   };
 
   handleFromFocus = () => {
-    this.setState({ inputHasFocus: true });
+    this.setState({ inputHasFocus: true }, () => this.props.onStartDateFocus && this.props.onStartDateFocus());
   };
 
   handleFromChange = day => {
@@ -74,11 +74,11 @@ class DatePickerInputRange extends PureComponent {
   };
 
   handleToBlur = () => {
-    this.setState({ inputHasFocus: false });
+    this.setState({ inputHasFocus: false }, () => this.props.onEndDateBlur && this.props.onEndDateBlur());
   };
 
   handleToFocus = () => {
-    this.setState({ inputHasFocus: true });
+    this.setState({ inputHasFocus: true }, () => this.props.onEndDateFocus && this.props.onEndDateFocus());
 
     if (!this.state.selectedStartDate) {
       this.focusFrom();
@@ -277,6 +277,14 @@ DatePickerInputRange.propTypes = {
   dayPickerEndDateProps: PropTypes.object,
   dayPickerInputEndDateProps: PropTypes.object,
   dayPickerInputStartDateProps: PropTypes.object,
+  /** Callback function that is fired when blurring the end date input field. */
+  onEndDateBlur: PropTypes.func,
+  /** Callback function that is fired when focussing the end date input field. */
+  onEndDateFocus: PropTypes.func,
+  /** Callback function that is fired when blurring the start date input field. */
+  onStartDateBlur: PropTypes.func,
+  /** Callback function that is fired when focussing the start date input field. */
+  onStartDateFocus: PropTypes.func,
   onChange: PropTypes.func,
   readOnly: PropTypes.bool,
   selectedRange: PropTypes.object,
