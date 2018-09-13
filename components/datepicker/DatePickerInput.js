@@ -149,8 +149,10 @@ DatePickerInput.propTypes = {
   helpText: PropTypes.string,
   inverse: PropTypes.bool,
   modifiers: PropTypes.object,
+  /** Callback function that is fired when blurring the input field. */
   onBlur: PropTypes.func,
   onChange: PropTypes.func,
+  /** Callback function that is fired when focussing the input field. */
   onFocus: PropTypes.func,
   readOnly: PropTypes.bool,
   selectedDate: PropTypes.instanceOf(Date),
