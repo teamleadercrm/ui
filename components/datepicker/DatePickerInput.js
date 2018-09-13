@@ -33,7 +33,7 @@ class DatePickerInput extends PureComponent {
   };
 
   handleFocus = () => {
-    this.setState({ inputHasFocus: true });
+    this.setState({ inputHasFocus: true }, () => this.props.onFocus && this.props.onFocus());
   };
 
   handleInputDateChange = date => {
@@ -156,6 +156,7 @@ DatePickerInput.propTypes = {
   modifiers: PropTypes.object,
   onBlur: PropTypes.func,
   onChange: PropTypes.func,
+  onFocus: PropTypes.func,
   readOnly: PropTypes.bool,
   selectedDate: PropTypes.instanceOf(Date),
   size: PropTypes.oneOf(['small', 'medium', 'large']),
