@@ -284,6 +284,8 @@ class Select extends PureComponent {
 Select.propTypes = {
   /** Override default components with your own. Pass an object with correct the key and its replacing component */
   components: PropTypes.object,
+  /** The text string/element to use as error message below the input. */
+  error: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   /** Boolean indicating whether the select should render as inverse. */
   inverse: PropTypes.bool,
   /** Size of the input element. */
