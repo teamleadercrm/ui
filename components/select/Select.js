@@ -5,6 +5,7 @@ import omit from 'lodash.omit';
 import { IconChevronDownSmallOutline } from '@teamleader/ui-icons';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import { Button } from '../button';
+import { TextSmall } from '../typography';
 import { colors } from './constants';
 import theme from './theme.css';
 
@@ -258,6 +259,18 @@ class Select extends PureComponent {
     );
   };
 
+  renderHelpText() {
+    const { helpText, inverse } = this.props;
+
+    if (helpText) {
+      return (
+        <TextSmall color={inverse ? 'white' : 'neutral'} marginTop={1} soft>
+          {helpText}
+        </TextSmall>
+      );
+    }
+  }
+
   render() {
     const { components, ...otherProps } = this.props;
 
@@ -276,6 +289,7 @@ class Select extends PureComponent {
           styles={this.getStyles()}
           {...restProps}
         />
+        {this.renderHelpText()}
       </Box>
     );
   }
