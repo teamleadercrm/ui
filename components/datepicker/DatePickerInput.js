@@ -29,7 +29,7 @@ class DatePickerInput extends PureComponent {
   }
 
   handleBlur = () => {
-    this.setState({ inputHasFocus: false });
+    this.setState({ inputHasFocus: false }, () => this.props.onBlur && this.props.onBlur());
   };
 
   handleFocus = () => {
@@ -154,6 +154,7 @@ DatePickerInput.propTypes = {
   helpText: PropTypes.string,
   inverse: PropTypes.bool,
   modifiers: PropTypes.object,
+  onBlur: PropTypes.func,
   onChange: PropTypes.func,
   readOnly: PropTypes.bool,
   selectedDate: PropTypes.instanceOf(Date),
