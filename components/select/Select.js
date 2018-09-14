@@ -41,10 +41,16 @@ class Select extends PureComponent {
         ...commonStyles,
         backgroundColor: isDisabled ? colors.TEAL_DARK : colors.TEAL,
         '&:hover': {
-          borderColor: colors.TEAL_LIGHT,
+          borderColor: error ? colors.RUBY_LIGHT : colors.TEAL_LIGHT,
         },
-        borderColor: isFocused ? colors.TEAL_LIGHT : isDisabled ? colors.TEAL_DARK : colors.TEAL,
-        boxShadow: isFocused ? `0 0 0 1px ${colors.TEAL_LIGHT}` : 'none',
+        borderColor: error
+          ? colors.RUBY_LIGHT
+          : isFocused
+            ? colors.TEAL_LIGHT
+            : isDisabled
+              ? colors.TEAL_DARK
+              : colors.TEAL,
+        boxShadow: error ? `0 0 0 1px ${colors.RUBY_LIGHT}` : isFocused ? `0 0 0 1px ${colors.TEAL_LIGHT}` : 'none',
       };
     }
 
