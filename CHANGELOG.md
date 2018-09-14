@@ -2,6 +2,8 @@
 
 ### Added
 
+- `Select`: added `error` & `helpText` props which renders an error or help text below the input field. ([@driesd](https://github.com/driesd) in [#359](https://github.com/teamleadercrm/ui/pull/359))
+
 ### Changed
 
 ### Deprecated
