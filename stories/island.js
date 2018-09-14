@@ -12,6 +12,7 @@ import {
 } from '@teamleader/ui-illustrations';
 
 const colors = ['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'white'];
+const directions = ['horizontal', 'vertical'];
 const sizes = ['small', 'medium', 'large'];
 
 storiesOf('Island', module)
@@ -42,6 +43,7 @@ storiesOf('Island', module)
     <IslandGroup
       dark={boolean('Dark', false)}
       color={select('Color', colors, 'white')}
+      direction={select('Direction', directions, 'horizontal')}
       size={select('Size', sizes, 'medium')}
     >
       <Island>
