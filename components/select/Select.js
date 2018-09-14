@@ -29,7 +29,7 @@ class Select extends PureComponent {
   };
 
   getControlStyles = (base, { isDisabled, isFocused }) => {
-    const { inverse, size } = this.props;
+    const { error, inverse, size } = this.props;
 
     const commonStyles = {
       ...base,
@@ -52,10 +52,16 @@ class Select extends PureComponent {
       ...commonStyles,
       backgroundColor: isDisabled ? colors.NEUTRAL : colors.NEUTRAL_LIGHTEST,
       '&:hover': {
-        borderColor: colors.NEUTRAL_DARKEST,
+        borderColor: error ? colors.RUBY_DARK : colors.NEUTRAL_DARKEST,
       },
-      borderColor: isFocused ? colors.NEUTRAL_DARKEST : isDisabled ? colors.NEUTRAL : colors.NEUTRAL_DARK,
-      boxShadow: isFocused ? `0 0 0 1px ${colors.NEUTRAL_DARKEST}` : 'none',
+      borderColor: error
+        ? colors.RUBY_DARK
+        : isFocused
+          ? colors.NEUTRAL_DARKEST
+          : isDisabled
+            ? colors.NEUTRAL
+            : colors.NEUTRAL_DARK,
+      boxShadow: error ? `0 0 0 1px ${colors.RUBY_DARK}` : isFocused ? `0 0 0 1px ${colors.NEUTRAL_DARKEST}` : 'none',
     };
   };
 
