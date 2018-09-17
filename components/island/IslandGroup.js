@@ -13,15 +13,7 @@ class IslandGroup extends PureComponent {
     const boxProps = pickBoxProps(otherProps);
     const isDark = elementIsDark(color, dark);
 
-    const classNames = cx(
-      theme[`direction-${direction}`],
-      theme['island-group'],
-      theme[color],
-      {
-        [theme['dark']]: isDark,
-      },
-      className,
-    );
+    const classNames = cx(theme[`direction-${direction}`], theme['island-group'], className);
 
     return (
       <Box {...boxProps} className={classNames} padding={0}>
