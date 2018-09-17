@@ -15,8 +15,7 @@ class IslandGroup extends PureComponent {
 
     const classNames = cx(
       theme[`direction-${direction}`],
-      theme['island'],
-      theme['segmented'],
+      theme['island-group'],
       theme[color],
       {
         [theme['dark']]: isDark,
