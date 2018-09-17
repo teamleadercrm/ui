@@ -16,7 +16,7 @@ class IslandGroup extends PureComponent {
     const classNames = cx(theme[`direction-${direction}`], theme['island-group'], className);
 
     return (
-      <Box {...boxProps} className={classNames} padding={0}>
+      <Box {...boxProps} className={classNames}>
         {React.Children.map(children, child => {
           return (
             <Island {...child.props} color={color} dark={isDark} size={size}>
