@@ -3,26 +3,24 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import Box, { pickBoxProps } from '../box';
 import theme from './theme.css';
-import Island from './Island';
-import { elementIsDark } from '../utils/utils';
 
 class IslandGroup extends PureComponent {
   render() {
     const { children, className, color, dark, direction, size, ...otherProps } = this.props;
 
     const boxProps = pickBoxProps(otherProps);
-    const isDark = elementIsDark(color, dark);
 
     const classNames = cx(theme[`direction-${direction}`], theme['island-group'], className);
 
     return (
       <Box {...boxProps} className={classNames}>
         {React.Children.map(children, child => {
-          return (
-            <Island {...child.props} color={color} dark={isDark} size={size}>
-              {child.props.children}
-            </Island>
-          );
+          return React.cloneElement(child, {
+            ...child.props,
+            color: color || child.props.color,
+            dark: dark || child.props.dark,
+            size: size || child.props.size,
+          });
         })}
       </Box>
     );
@@ -39,7 +37,6 @@ IslandGroup.propTypes = {
 };
 
 IslandGroup.defaultProps = {
-  color: 'white',
   direction: 'horizontal',
 };
 
