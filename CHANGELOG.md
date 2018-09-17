@@ -12,6 +12,8 @@
 
 ### Fixed
 
+- `Button`, `IconButton` & `LinkButton`: avoid error when `blur()` is not available on the passed node (e.g. when using a custom component such as a router link). ([@lowiebenoot](https://github.com/lowiebenoot) in [#322](https://github.com/teamleadercrm/ui/pull/322))
+
 ## [0.14.0] - 2018-09-13
 
 ### Added
