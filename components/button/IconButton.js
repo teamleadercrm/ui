@@ -5,18 +5,24 @@ import theme from './theme.css';
 
 class IconButton extends Component {
   handleMouseUp = event => {
-    this.buttonNode.blur();
+    this.blur();
     if (this.props.onMouseUp) {
       this.props.onMouseUp(event);
     }
   };
 
   handleMouseLeave = event => {
-    this.buttonNode.blur();
+    this.blur();
     if (this.props.onMouseLeave) {
       this.props.onMouseLeave(event);
     }
   };
+
+  blur() {
+    if (this.buttonNode.blur) {
+      this.buttonNode.blur();
+    }
+  }
 
   render() {
     const { children, className, disabled, element, icon, size, color, type, ...others } = this.props;
