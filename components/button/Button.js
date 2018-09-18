@@ -12,18 +12,24 @@ class Button extends PureComponent {
   }
 
   handleMouseUp = event => {
-    this.buttonNode.blur();
+    this.blur();
     if (this.props.onMouseUp) {
       this.props.onMouseUp(event);
     }
   };
 
   handleMouseLeave = event => {
-    this.buttonNode.blur();
+    this.blur();
     if (this.props.onMouseLeave) {
       this.props.onMouseLeave(event);
     }
   };
+
+  blur() {
+    if (this.buttonNode.blur) {
+      this.buttonNode.blur();
+    }
+  }
 
   render() {
     const {
