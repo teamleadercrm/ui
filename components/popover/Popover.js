@@ -14,7 +14,7 @@ const factory = (axis, calculatePositions, Overlay) => {
   class Popover extends PureComponent {
     popoverRoot = document.createElement('div');
 
-    state = { positioning: { left: 0, top: 0, arrowLeft: 0, arrowTop: 0, maxPopoverHeight: 'inital' } };
+    state = { positioning: { left: 0, top: 0, arrowLeft: 0, arrowTop: 0, maxPopoverHeight: 'initial' } };
 
     componentDidMount() {
       document.body.appendChild(this.popoverRoot);
