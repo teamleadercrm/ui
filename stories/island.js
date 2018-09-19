@@ -73,7 +73,7 @@ storiesOf('Island', module)
       <Island>
         <TextBody>kanye.west@goodmusic.com</TextBody>
       </Island>
-      <Island display="flex" flexDirection="row" alignItems="center">
+      <Island display="flex" alignItems="center">
         <IconChevronRightSmallOutline />
         <TextBody marginHorizontal={2}>
           <Link href="https://www.teamleader.be" target="_blank" inherit={false}>
