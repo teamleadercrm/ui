@@ -22,7 +22,10 @@ storiesOf('Island', module)
       TableComponent: PropTable,
       propTablesExclude: [
         TextBody,
+        TextSmall,
         Heading3,
+        Link,
+        IconChevronRightSmallOutline,
         IllustrationInvoices120X120Static,
         IllustrationMeetings120X120Static,
         IllustrationDeals120X120Static,
