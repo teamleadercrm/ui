@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
-import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean, number, select } from '@storybook/addon-knobs/react';
 import { DatePicker, DatePickerRange, DatePickerInput, DatePickerInputRange } from '../components';
@@ -33,7 +32,6 @@ const preSelectedRange = {
 
 storiesOf('DatePicker', module)
   .addDecorator((story, context) => withInfo({ TableComponent: PropTable })(story)(context))
-  .addDecorator(checkA11y)
   .addDecorator(withKnobs)
   .add('Single date', () => {
     const handleOnChange = selectedDate => {

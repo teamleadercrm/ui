@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
-import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean, select, text } from '@storybook/addon-knobs/react';
 import { Checkbox, Link, TextBody } from '../components';
@@ -15,7 +14,6 @@ storiesOf('Checkboxes', module)
       propTablesExclude: [Link, TextBody],
     })(story)(context),
   )
-  .addDecorator(checkA11y)
   .addDecorator(withKnobs)
   .add('Default', () => (
     <Checkbox

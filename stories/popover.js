@@ -2,7 +2,6 @@ import React from 'react';
 import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
 import { Store, State } from '@sambego/storybook-state';
-import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import {
   Banner,
@@ -52,7 +51,6 @@ storiesOf('Popover', module)
       propTablesExclude: [Link, TextBody, TextSmall, Button, State, Banner, Heading3, ButtonGroup, Box],
     })(story)(context),
   )
-  .addDecorator(checkA11y)
   .addDecorator(withKnobs)
   .add('horizontal', () => (
     <Box>

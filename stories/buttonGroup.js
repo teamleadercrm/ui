@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
-import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean } from '@storybook/addon-knobs/react';
 import { Store, State } from '@sambego/storybook-state';
@@ -23,7 +22,6 @@ storiesOf('Button groups', module)
       propTablesExclude: [Button, State],
     })(story)(context),
   )
-  .addDecorator(checkA11y)
   .addDecorator(withKnobs)
   .add('normal', () => (
     <ButtonGroup segmented={boolean('Segmented', false)}>

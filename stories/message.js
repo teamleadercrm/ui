@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
-import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, select } from '@storybook/addon-knobs/react';
 import { Button, Message, CompactMessage, Island, Heading2, Link, TextBody } from '../components';
@@ -36,7 +35,6 @@ storiesOf('Message', module)
       propTablesExclude: [TextBody, Heading2, Link, Island],
     })(story)(context),
   )
-  .addDecorator(checkA11y)
   .addDecorator(withKnobs)
   .add('Basic', () => (
     <Island>
