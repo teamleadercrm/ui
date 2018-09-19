@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
-import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean, number, select } from '@storybook/addon-knobs/react';
 import { Avatar, AvatarStack, Bullet, Counter, TextBody, Tooltip } from '../components';
@@ -38,7 +37,6 @@ storiesOf('Avatars', module)
       TableComponent: PropTable,
     })(story)(context),
   )
-  .addDecorator(checkA11y)
   .addDecorator(withKnobs)
   .add('sizes', () => <Avatar image={avatars[0].image} size={select('Size', sizes, 'medium')} />)
   .add('stacked', () => (

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
-import { checkA11y } from 'storybook-addon-a11y';
 import { withKnobs, boolean, number, select } from '@storybook/addon-knobs/react';
 import { withInfo } from '@storybook/addon-info';
 import { DataGrid, Heading4, IconMenu, MenuItem, Link, StatusBullet, TextSmall, Tooltip } from '../components';
@@ -20,7 +19,6 @@ storiesOf('DataGrids', module)
       propTablesExclude: [Link, TextSmall, Heading4, IconMenu, MenuItem],
     })(story)(context),
   )
-  .addDecorator(checkA11y)
   .addDecorator(withKnobs)
   .add('Basic', () => (
     <DataGrid

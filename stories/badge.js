@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
-import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean, select } from '@storybook/addon-knobs/react';
 import { Badge, TextDisplay } from '../components';
@@ -17,7 +16,6 @@ storiesOf('Badge', module)
       propTablesExclude: [TextDisplay],
     })(story)(context),
   )
-  .addDecorator(checkA11y)
   .addDecorator(withKnobs)
   .add('inline', () => (
     <TextDisplay>

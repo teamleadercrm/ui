@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
-import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean } from '@storybook/addon-knobs/react';
 import { IconTab, TabGroup, TitleTab, Box, Counter as UICounter } from '../components';
@@ -42,7 +41,6 @@ storiesOf('Tab', module)
       propTablesExclude: [Box],
     })(story)(context),
   )
-  .addDecorator(checkA11y)
   .addDecorator(withKnobs)
   .add('titletab', () => (
     <TabGroup inverted={boolean('Inverted', true)} display={'flex'}>

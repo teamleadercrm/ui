@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
-import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, number, select } from '@storybook/addon-knobs/react';
 import { Box, TextBody } from '../components';
@@ -23,7 +22,6 @@ storiesOf('Box', module)
       TableComponent: PropTable,
     })(story)(context),
   )
-  .addDecorator(checkA11y)
   .addDecorator(withKnobs)
   .add('Basic', () => (
     <Box

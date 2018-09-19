@@ -2,7 +2,6 @@ import React from 'react';
 import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
 import { Store, State } from '@sambego/storybook-state';
-import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs } from '@storybook/addon-knobs/react';
 import { Button, Toast, Link, ToastContainer } from '../components';
@@ -103,45 +102,44 @@ storiesOf('Toast', module)
       propTablesExclude: [Button, State],
     })(story)(context),
   )
-  .addDecorator(checkA11y)
   .addDecorator(withKnobs)
-  .add('with close button', () =>
+  .add('with close button', () => (
     <div>
       <Button label="Make a toast" onClick={handleAddToastWithClose} />
       <State store={store}>
         <ToastContainer children={[]} />
       </State>
-    </div>,
-  )
-  .add('with custom action', () =>
+    </div>
+  ))
+  .add('with custom action', () => (
     <div>
       <Button label="Make a toast" onClick={handleAddToastWithAction} />
       <State store={store}>
         <ToastContainer children={[]} />
       </State>
-    </div>,
-  )
-  .add('with custom link', () =>
+    </div>
+  ))
+  .add('with custom link', () => (
     <div>
       <Button label="Make a toast" onClick={handleAddToastWithLink} />
       <State store={store}>
         <ToastContainer children={[]} />
       </State>
-    </div>,
-  )
-  .add('with multiline label', () =>
+    </div>
+  ))
+  .add('with multiline label', () => (
     <div>
       <Button label="Make a toast" onClick={handleAddToastWithMultilineLabel} />
       <State store={store}>
         <ToastContainer children={[]} />
       </State>
-    </div>,
-  )
-  .add('with loading spinner', () =>
+    </div>
+  ))
+  .add('with loading spinner', () => (
     <div>
       <Button label="Make a toast" onClick={handleAddToastWithSpinner} />
       <State store={store}>
         <ToastContainer children={[]} />
       </State>
-    </div>,
-  );
+    </div>
+  ));
