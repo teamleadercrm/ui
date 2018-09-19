@@ -15,3 +15,17 @@
   border-radius: 0 4px 4px 0;
   min-height: 100%;
 }
+
+.validation-icon {
+  margin-top: -1px;
+}
+
+.has-error {
+  &:not(.is-inverse) .validation-text {
+    color: var(--color-ruby-dark);
+  }
+
+  &.is-inverse .validation-text {
+    color: var(--color-ruby-light);
+  }
+}
