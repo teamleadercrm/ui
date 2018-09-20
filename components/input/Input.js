@@ -48,6 +48,14 @@ export default class Input extends PureComponent {
     value: '',
   };
 
+  handleBlur = event => {
+    const parsedValue = Input.parseValue(event.target.value, this.props);
+
+    if (parsedValue !== event.target.value) {
+      this.updateValue(event, parsedValue);
+    }
+  };
+
   handleChange = event => {
     this.updateValue(event);
   };
@@ -117,6 +125,7 @@ export default class Input extends PureComponent {
 
     const props = {
       className: classNames,
+      onBlur: this.handleBlur,
       onChange: this.handleChange,
       type,
       value,
