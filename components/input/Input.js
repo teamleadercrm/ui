@@ -281,6 +281,8 @@ Input.propTypes = {
   min: PropTypes.number,
   /** Boolean indicating whether to number type input should render spinner controls */
   spinner: PropTypes.bool,
+  /** Callback function that is fired when blurring the input field. */
+  onBlur: PropTypes.func,
   /** Callback function that is fired when the component's value changes. */
   onChange: PropTypes.func,
   /** Boolean indicating whether the input should render as read only. */
