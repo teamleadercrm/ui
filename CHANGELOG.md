@@ -4,6 +4,18 @@
 
 ### Changed
 
+### Deprecated
+
+### Removed
+
+### Fixed
+
+## [0.14.2] - 2018-09-20
+
+### Added
+
+### Changed
+
 - `Popover`: renders more accurately, by not blindingly choosing the opposite direction, if it would be rendered off-screen in the given one. In the last case, it chooses for the direction (on the same axis) with the most space and if needed, it becomes scrollable. ([@LennertBlommaert](https://github.com/LennertBlommaert) in [#343](https://github.com/teamleadercrm/ui/pull/331))
 
 ### Deprecated
