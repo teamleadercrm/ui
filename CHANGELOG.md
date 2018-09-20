@@ -12,6 +12,8 @@
 
 ### Fixed
 
+- `Input`: fixed a bug that you could not adjust the current value in a number type input field combined with min & max attributes ([@driesd](https://github.com/driesd) in [#365](https://github.com/teamleadercrm/ui/pull/365))
+
 ## [0.14.1] - 2018-09-19
 
 ### Added
