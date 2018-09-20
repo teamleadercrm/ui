@@ -16,7 +16,7 @@ import theme from './theme.css';
 export default class Input extends PureComponent {
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.value !== undefined) {
-      const newValue = Input.parseValue(nextProps.value || '', nextProps);
+      const newValue = nextProps.value || '';
 
       if (newValue !== prevState.value) {
         return {
@@ -62,7 +62,7 @@ export default class Input extends PureComponent {
 
   updateValue(event, rawValue, triggerOnChange = true) {
     const { onChange } = this.props;
-    const value = Input.parseValue(rawValue || event.target.value, this.props);
+    const value = rawValue || event.target.value;
 
     this.setState({
       value,
@@ -81,7 +81,12 @@ export default class Input extends PureComponent {
   updateStep(event, n) {
     const { step } = this.props;
     const { value = 0 } = this.state;
-    this.updateValue(event, value + step * n);
+
+    const parsedValue = Input.parseValue(value + step * n, this.props);
+
+    if (value !== parsedValue) {
+      this.updateValue(event, parsedValue);
+    }
   }
 
   renderInput() {
