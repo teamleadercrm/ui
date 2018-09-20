@@ -54,6 +54,10 @@ export default class Input extends PureComponent {
     if (parsedValue !== event.target.value) {
       this.updateValue(event, parsedValue);
     }
+
+    if (this.props.onBlur) {
+      this.props.onBlur();
+    }
   };
 
   handleChange = event => {
