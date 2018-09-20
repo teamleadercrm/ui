@@ -70,7 +70,7 @@ export default class Input extends PureComponent {
 
   updateValue(event, rawValue, triggerOnChange = true) {
     const { onChange } = this.props;
-    const value = rawValue || event.target.value;
+    const value = String(rawValue || event.target.value);
 
     this.setState({
       value,
