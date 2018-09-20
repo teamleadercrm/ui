@@ -14,6 +14,7 @@ const tints = ['lightest', 'light', 'normal', 'dark', 'darkest'];
 const props = {
   helpText: 'This is the fields help text',
   placeholder: 'Placeholder',
+  onChange: (event, value) => console.log('Changing to ', value),
 };
 
 const TooltippedIcon = Tooltip(Icon);
