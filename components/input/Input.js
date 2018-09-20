@@ -73,11 +73,6 @@ export default class Input extends PureComponent {
     }
   }
 
-  formatNumber(number) {
-    const { min, max } = this.props;
-    return String(Input.toNumber(number, min, max));
-  }
-
   updateStep(event, n) {
     const { step } = this.props;
     const { value = 0 } = this.state;
@@ -117,7 +112,7 @@ export default class Input extends PureComponent {
       max,
       min,
       step,
-      value: value && this.formatNumber(value),
+      value,
     };
 
     const props = {
