@@ -54,6 +54,10 @@ export default class Input extends PureComponent {
     if (parsedValue !== event.target.value) {
       this.updateValue(event, parsedValue);
     }
+
+    if (this.props.onBlur) {
+      this.props.onBlur();
+    }
   };
 
   handleChange = event => {
@@ -70,7 +74,7 @@ export default class Input extends PureComponent {
 
   updateValue(event, rawValue, triggerOnChange = true) {
     const { onChange } = this.props;
-    const value = rawValue || event.target.value;
+    const value = String(rawValue || event.target.value);
 
     this.setState({
       value,
@@ -281,6 +285,8 @@ Input.propTypes = {
   min: PropTypes.number,
   /** Boolean indicating whether to number type input should render spinner controls */
   spinner: PropTypes.bool,
+  /** Callback function that is fired when blurring the input field. */
+  onBlur: PropTypes.func,
   /** Callback function that is fired when the component's value changes. */
   onChange: PropTypes.func,
   /** Boolean indicating whether the input should render as read only. */
