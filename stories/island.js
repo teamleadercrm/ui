@@ -1,8 +1,6 @@
 import React from 'react';
-import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { withKnobs, boolean, select } from '@storybook/addon-knobs/react';
+import { boolean, select } from '@storybook/addon-knobs/react';
 import { Island, IslandGroup, Link, TextBody, TextSmall, Heading3 } from '../components';
 import {
   IllustrationInvoices120X120Static,
@@ -16,9 +14,8 @@ const colors = ['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'white'];
 const sizes = ['small', 'medium', 'large'];
 
 storiesOf('Island', module)
-  .addDecorator((story, context) =>
-    withInfo({
-      TableComponent: PropTable,
+  .addParameters({
+    info: {
       propTablesExclude: [
         TextBody,
         TextSmall,
@@ -29,9 +26,8 @@ storiesOf('Island', module)
         IllustrationMeetings120X120Static,
         IllustrationDeals120X120Static,
       ],
-    })(story)(context),
-  )
-  .addDecorator(withKnobs)
+    },
+  })
   .add('Basic', () => (
     <Island
       color={select('Color', colors, 'white')}
