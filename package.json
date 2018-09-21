@@ -82,12 +82,12 @@
   "devDependencies": {
     "@sambego/storybook-state": "^1.0.7",
     "@sambego/storybook-styles": "^1.0.0",
-    "@storybook/addon-info": "^3.3.10",
-    "@storybook/addon-knobs": "^3.3.2",
-    "@storybook/addon-links": "^3.3.10",
-    "@storybook/addon-options": "^3.3.10",
-    "@storybook/react": "^3.3.10",
-    "@storybook/ui": "^3.3.10",
+    "@storybook/addon-info": "^4.0.0-alpha.22",
+    "@storybook/addon-knobs": "^4.0.0-alpha.22",
+    "@storybook/addon-links": "^4.0.0-alpha.22",
+    "@storybook/addon-options": "^4.0.0-alpha.22",
+    "@storybook/react": "^4.0.0-alpha.22",
+    "@storybook/ui": "^4.0.0-alpha.22",
     "babel-cli": "^6.18.0",
     "babel-core": "^6.17.0",
     "babel-eslint": "^8.0.2",
@@ -175,7 +175,6 @@
     "precommit": "pretty-quick --staged",
     "prettier": "prettier --write '**/*.{js,json,md,css}'",
     "prepare": "npm run build",
-    "start": "better-npm-run start",
     "start": "PORT=${PORT:-3000}; better-npm-run start --port $PORT",
     "build-storybook": " better-npm-run compile"
   }
