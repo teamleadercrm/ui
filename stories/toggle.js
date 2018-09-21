@@ -1,15 +1,11 @@
 import React from 'react';
-import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, select } from '@storybook/addon-knobs/react';
-import { withInfo } from '@storybook/addon-info';
+import { boolean, select } from '@storybook/addon-knobs/react';
 import { Toggle } from '../components';
 
 const sizes = ['small', 'medium', 'large'];
 
 storiesOf('Toggles', module)
-  .addDecorator((story, context) => withInfo({ TableComponent: PropTable })(story)(context))
-  .addDecorator(withKnobs)
   .add('Basic', () => (
     <Toggle
       checked={boolean('Checked', false)}
