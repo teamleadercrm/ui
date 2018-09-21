@@ -1,8 +1,6 @@
 import React from 'react';
-import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { withKnobs, boolean, number, select } from '@storybook/addon-knobs/react';
+import { boolean, number, select } from '@storybook/addon-knobs';
 import { Avatar, AvatarStack, Bullet, Counter, TextBody, Tooltip } from '../components';
 
 import Image1 from '../static/avatars/1.png';
@@ -31,13 +29,11 @@ const sizes = ['tiny', 'small', 'medium'];
 const TooltippedAvatar = Tooltip(Avatar);
 
 storiesOf('Avatars', module)
-  .addDecorator((story, context) =>
-    withInfo({
+  .addParameters({
+    info: {
       propTablesExclude: [Bullet, Counter],
-      TableComponent: PropTable,
-    })(story)(context),
-  )
-  .addDecorator(withKnobs)
+    },
+  })
   .add('sizes', () => <Avatar image={avatars[0].image} size={select('Size', sizes, 'medium')} />)
   .add('stacked', () => (
     <AvatarStack
