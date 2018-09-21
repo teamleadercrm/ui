@@ -1,8 +1,6 @@
 import React from 'react';
-import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { withKnobs, boolean, select, number } from '@storybook/addon-knobs/react';
+import { boolean, select, number } from '@storybook/addon-knobs/react';
 import { Avatar, Box, Label, Select, AsyncSelect, TextBody } from '../components';
 import { customOptions, groupedOptions, options } from '../static/data/select';
 
@@ -29,13 +27,11 @@ const CustomOption = ({ children, data, innerProps, isFocused, isSelected, isDis
 };
 
 storiesOf('Select', module)
-  .addDecorator((story, context) =>
-    withInfo({
-      TableComponent: PropTable,
+  .addParameters({
+    info: {
       propTablesExclude: [Label],
-    })(story)(context),
-  )
-  .addDecorator(withKnobs)
+    },
+  })
   .add('Basic', () => (
     <Select
       closeMenuOnSelect={boolean('Close menu on select', true)}
