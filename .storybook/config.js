@@ -3,7 +3,6 @@ import { configure, addDecorator } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs } from '@storybook/addon-knobs';
 import { withOptions } from '@storybook/addon-options';
-import { State } from '@sambego/storybook-state';
 import backgroundColor from 'react-storybook-decorator-background';
 import PropTable from '../stories/components/propTable';
 import styles from '@sambego/storybook-styles';
@@ -13,7 +12,6 @@ addDecorator(
   withInfo({
     inline: true,
     source: true,
-    propTablesExclude: [State],
     styles: stylesheet => {
       stylesheet.infoBody = {
         color: '#2a3b4d',
