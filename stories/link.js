@@ -1,20 +1,16 @@
 import React from 'react';
-import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { withKnobs, boolean, select } from '@storybook/addon-knobs/react';
+import { boolean, select } from '@storybook/addon-knobs/react';
 import { Link, TextDisplay } from '../components';
 
 const colors = ['white', 'neutral', 'mint', 'teal', 'violet', 'ruby', 'gold', 'aqua'];
 
 storiesOf('Links', module)
-  .addDecorator((story, context) =>
-    withInfo({
-      TableComponent: PropTable,
+  .addParameters({
+    info: {
       propTablesExclude: [TextDisplay],
-    })(story)(context),
-  )
-  .addDecorator(withKnobs)
+    },
+  })
   .add('Basic', () => (
     <TextDisplay color={select('Color', colors, 'teal')}>
       Display text with a{' '}
