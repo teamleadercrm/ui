@@ -1,12 +1,9 @@
 import React from 'react';
-import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { IconAddSmallOutline, IconUserSmallFilled, IconClockSmallOutline } from '@teamleader/ui-icons';
 import { IconMenu, Menu, MenuItem, MenuDivider } from '../components';
 
 storiesOf('Menus', module)
-  .addDecorator((story, context) => withInfo({ TableComponent: PropTable })(story)(context))
   .add('Menu', () => (
     <Menu selectable={false}>
       <MenuItem value="foo" caption="Caption" />
