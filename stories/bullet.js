@@ -1,8 +1,6 @@
 import React from 'react';
-import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { withKnobs, select } from '@storybook/addon-knobs/react';
+import { select } from '@storybook/addon-knobs/react';
 import {
   Box,
   Bullet,
@@ -22,13 +20,11 @@ const sizes = ['small', 'medium'];
 const TooltippedBullet = Tooltip(Bullet);
 
 storiesOf('Bullets', module)
-  .addDecorator((story, context) =>
-    withInfo({
-      TableComponent: PropTable,
+  .addParameters({
+    info: {
       propTablesExclude: [Box, Heading1, Heading2, Heading3, Heading4, TextBody, TextDisplay, TextSmall],
-    })(story)(context),
-  )
-  .addDecorator(withKnobs)
+    },
+  })
   .add('Basic', () => <Bullet color={select('Color', colors, 'neutral')} size={select('Size', sizes, 'medium')} />)
   .add('With tooltip', () => (
     <TooltippedBullet
