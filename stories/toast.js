@@ -1,9 +1,6 @@
 import React from 'react';
-import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
 import { Store, State } from '@sambego/storybook-state';
-import { withInfo } from '@storybook/addon-info';
-import { withKnobs } from '@storybook/addon-knobs/react';
 import { Button, Toast, Link, ToastContainer } from '../components';
 
 const store = new Store({
@@ -96,13 +93,11 @@ const handleAddToastWithSpinner = () => {
 };
 
 storiesOf('Toast', module)
-  .addDecorator((story, context) =>
-    withInfo({
-      TableComponent: PropTable,
+  .addParameters({
+    info: {
       propTablesExclude: [Button, State],
-    })(story)(context),
-  )
-  .addDecorator(withKnobs)
+    },
+  })
   .add('with close button', () => (
     <div>
       <Button label="Make a toast" onClick={handleAddToastWithClose} />
