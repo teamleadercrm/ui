@@ -1,20 +1,16 @@
 import React from 'react';
-import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { withKnobs, boolean, select, text } from '@storybook/addon-knobs/react';
+import { boolean, select, text } from '@storybook/addon-knobs/react';
 import { Checkbox, Link, TextBody } from '../components';
 
 const sizes = ['small', 'medium', 'large'];
 
 storiesOf('Checkboxes', module)
-  .addDecorator((story, context) =>
-    withInfo({
-      TableComponent: PropTable,
+  .addParameters({
+    info: {
       propTablesExclude: [Link, TextBody],
-    })(story)(context),
-  )
-  .addDecorator(withKnobs)
+    },
+  })
   .add('Default', () => (
     <Checkbox
       checked={boolean('Checked', false)}

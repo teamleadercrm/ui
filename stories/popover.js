@@ -1,8 +1,6 @@
 import React from 'react';
-import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
 import { Store, State } from '@sambego/storybook-state';
-import { withInfo } from '@storybook/addon-info';
 import {
   Banner,
   Box,
@@ -15,7 +13,7 @@ import {
   TextBody,
   TextSmall,
 } from '../components';
-import { withKnobs, select, boolean, number } from '@storybook/addon-knobs/react';
+import { select, boolean, number } from '@storybook/addon-knobs/react';
 
 const store = new Store({
   active: false,
@@ -92,13 +90,11 @@ const contentBoxWithSingleTextLine = (
 );
 
 storiesOf('Popover', module)
-  .addDecorator((story, context) =>
-    withInfo({
-      TableComponent: PropTable,
+  .addParameters({
+    info: {
       propTablesExclude: [Link, TextBody, TextSmall, Button, State, Banner, Heading3, ButtonGroup, Box],
-    })(story)(context),
-  )
-  .addDecorator(withKnobs)
+    },
+  })
   .add('horizontal', () => (
     <Box>
       <Button onClick={handleButtonClick} label="Open a horizontalPopover" />

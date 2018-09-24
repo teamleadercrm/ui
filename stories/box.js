@@ -1,8 +1,6 @@
 import React from 'react';
-import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { withKnobs, number, select } from '@storybook/addon-knobs/react';
+import { number, select } from '@storybook/addon-knobs/react';
 import { Box, TextBody } from '../components';
 
 const displayValues = ['inline', 'inline-block', 'block', 'flex', 'inline-flex'];
@@ -16,13 +14,11 @@ const spacingOptions = {
 };
 
 storiesOf('Box', module)
-  .addDecorator((story, context) =>
-    withInfo({
+  .addParameters({
+    info: {
       propTablesExclude: [TextBody],
-      TableComponent: PropTable,
-    })(story)(context),
-  )
-  .addDecorator(withKnobs)
+    },
+  })
   .add('Basic', () => (
     <Box
       style={{ backgroundColor: '#fafafa' }}

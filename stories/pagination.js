@@ -1,18 +1,14 @@
 import React from 'react';
-import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, number } from '@storybook/addon-knobs/react';
-import { withInfo } from '@storybook/addon-info';
+import { boolean, number } from '@storybook/addon-knobs/react';
 import { Island, Pagination, LinkButton } from '../components';
 
 storiesOf('Pagination', module)
-  .addDecorator((story, context) =>
-    withInfo({
-      TableComponent: PropTable,
+  .addParameters({
+    info: {
       propTablesExclude: [Island],
-    })(story)(context),
-  )
-  .addDecorator(withKnobs)
+    },
+  })
   .add('Compact', () => (
     <Island style={boolean('Inverse', false) ? { backgroundColor: '#2a3b4d' } : {}}>
       <Pagination

@@ -1,8 +1,6 @@
 import React from 'react';
-import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { withKnobs, boolean } from '@storybook/addon-knobs/react';
+import { boolean } from '@storybook/addon-knobs/react';
 import { Store, State } from '@sambego/storybook-state';
 import { IconAddMediumOutline } from '@teamleader/ui-icons';
 import { Button, ButtonGroup } from '../components';
@@ -16,13 +14,11 @@ const handleChangeValue = (value, event) => {
 };
 
 storiesOf('Button groups', module)
-  .addDecorator((story, context) =>
-    withInfo({
-      TableComponent: PropTable,
+  .addParameters({
+    info: {
       propTablesExclude: [Button, State],
-    })(story)(context),
-  )
-  .addDecorator(withKnobs)
+    },
+  })
   .add('normal', () => (
     <ButtonGroup segmented={boolean('Segmented', false)}>
       <Button label="Button 1" />

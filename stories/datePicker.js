@@ -1,8 +1,6 @@
 import React from 'react';
-import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { withKnobs, boolean, number, select } from '@storybook/addon-knobs/react';
+import { boolean, number, select } from '@storybook/addon-knobs/react';
 import { DatePicker, DatePickerRange, DatePickerInput, DatePickerInputRange } from '../components';
 import { DateTime } from 'luxon';
 import MomentLocaleUtils, { formatDate, parseDate } from 'react-day-picker/moment';
@@ -31,8 +29,6 @@ const preSelectedRange = {
 };
 
 storiesOf('DatePicker', module)
-  .addDecorator((story, context) => withInfo({ TableComponent: PropTable })(story)(context))
-  .addDecorator(withKnobs)
   .add('Single date', () => {
     const handleOnChange = selectedDate => {
       console.log('Selected date', selectedDate);

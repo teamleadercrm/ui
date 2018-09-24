@@ -1,8 +1,6 @@
 import React from 'react';
-import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { withKnobs, select, number, boolean } from '@storybook/addon-knobs/react';
+import { select, number, boolean } from '@storybook/addon-knobs/react';
 import { ProgressTracker, Island } from '../components';
 
 const steps = ['Draft', 'Book', 'Send invoices', 'Get paid'];
@@ -15,13 +13,11 @@ const options = {
 };
 
 storiesOf('ProgressTracker', module)
-  .addDecorator((story, context) =>
-    withInfo({
-      TableComponent: PropTable,
+  .addParameters({
+    info: {
       propTablesExclude: [Island],
-    })(story)(context),
-  )
-  .addDecorator(withKnobs)
+    },
+  })
   .add('Basic', () => (
     <Island color={select('Color', colors, 'neutral')} size="small">
       <ProgressTracker
