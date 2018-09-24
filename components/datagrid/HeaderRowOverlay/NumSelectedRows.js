@@ -15,7 +15,7 @@ class NumSelectedRows extends PureComponent {
           </Monospaced>
         </TextBody>
         <TextBody color="neutral" element="span">
-          {numSelectedRowsLabel}
+          {numSelectedRowsLabel(numSelectedRows)}
         </TextBody>
       </Box>
     );
@@ -25,13 +25,13 @@ class NumSelectedRows extends PureComponent {
 NumSelectedRows.propTypes = {
   /** The displayed number of selected rows */
   numSelectedRows: PropTypes.number,
-  /** The label accompanying the number of selected rows */
-  numSelectedRowsLabel: PropTypes.string,
+  /** The function returning the label accompanying the number of selected rows */
+  numSelectedRowsLabel: PropTypes.func,
 };
 
 NumSelectedRows.defaultProps = {
   numSelectedRows: 0,
-  numSelectedRowsLabel: 'selected',
+  numSelectedRowsLabel: () => 'selected',
 };
 
 export default NumSelectedRows;
