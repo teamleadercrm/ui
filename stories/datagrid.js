@@ -17,6 +17,7 @@ import {
   ButtonGroup,
 } from '../components';
 import { rows1, rows2 } from '../static/data/datagrid';
+import NumSelectedRows from '../components/datagrid/HeaderRowOverlay/NumSelectedRows';
 
 const TooltippedStatusBullet = Tooltip(StatusBullet);
 
@@ -40,7 +41,9 @@ storiesOf('DataGrids', module)
       onSelectionChange={handleRowSelectionChange}
       checkboxSize={select('Checkbox size', ['small', 'medium', 'large'], 'small')}
     >
-      <DataGrid.HeaderRowOverlay>
+      <DataGrid.HeaderRowOverlay
+        numSelectedRowsLabel={numSelectedRows => (numSelectedRows === 1 ? 'sélectionné' : 'sélectionnés')}
+      >
         <Button size="small" level="primary" label="Marks as paid" />
         <ButtonGroup segmented marginHorizontal={3}>
           <Button size="small" label="Book" />
