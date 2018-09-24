@@ -1,12 +1,26 @@
 import { centerStyles } from './styles';
 import { configure, addDecorator } from '@storybook/react';
+import { withBackgrounds } from '@storybook/addon-backgrounds';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs } from '@storybook/addon-knobs';
 import { withOptions } from '@storybook/addon-options';
-import backgroundColor from 'react-storybook-decorator-background';
 import pkg from '../package.json';
 import PropTable from '../stories/components/propTable';
 import styles from '@sambego/storybook-styles';
+
+// addon-background
+addDecorator(
+  withBackgrounds([
+    { name: 'White', value: '#ffffff', default: true },
+    { name: 'Aqua lightest', value: '#e6f2ff' },
+    { name: 'Gold lightest', value: '#ffeecc' },
+    { name: 'Mint lightest', value: '#d3f2f2' },
+    { name: 'Ruby lightest', value: '#ffe2d9' },
+    { name: 'Teal lightest', value: '#e1ecfa' },
+    { name: 'Violet lightest', value: '#f0f0ff' },
+    { name: 'Teal darkest', value: '#2a3b4d' },
+  ]),
+);
 
 // addon-info
 addDecorator(
@@ -88,9 +102,6 @@ addDecorator(
 
 // addon-styles
 addDecorator(styles({ ...centerStyles }));
-
-// addon-background
-addDecorator(backgroundColor(['#ffffff', '#e6f2ff', '#ffeecc', '#d3f3f3', '#ffe3d9', '#e1edfa', '#f1f0ff', '#2a3b4d']));
 
 const req = require.context('../stories', true, /\.js$/);
 
