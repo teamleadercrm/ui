@@ -28,20 +28,24 @@ export default class Input extends PureComponent {
     return null;
   }
 
-  static parseValue(value, { type, min, max }) {
-    return type === 'number' ? Input.toNumber(value, min, max) : value;
+  parseValue(value) {
+    const { type } = this.props;
+    return type === 'number' ? this.bindToMinMax(this.toNumber(value)) : value;
   }
 
-  static toNumber(number, min, max) {
+  toNumber(number) {
     let float = parseFloat(number);
 
     if (isNaN(float) || !isFinite(float)) {
       float = 0;
     }
 
-    float = Math.min(Math.max(float, min), max);
-
     return float;
+  }
+
+  bindToMinMax(value) {
+    const { min, max } = this.props;
+    return Math.min(Math.max(value, min), max);
   }
 
   state = {
@@ -49,9 +53,10 @@ export default class Input extends PureComponent {
   };
 
   handleBlur = event => {
-    const parsedValue = Input.parseValue(event.target.value, this.props);
+    const { value } = this.state;
+    const parsedValue = this.parseValue(value);
 
-    if (parsedValue !== event.target.value) {
+    if (parsedValue !== value) {
       this.updateValue(event, parsedValue);
     }
 
@@ -61,7 +66,7 @@ export default class Input extends PureComponent {
   };
 
   handleChange = event => {
-    this.updateValue(event);
+    this.updateValue(event, event.target.value);
   };
 
   handleIncreaseValue = event => {
@@ -74,25 +79,25 @@ export default class Input extends PureComponent {
 
   updateValue(event, rawValue, triggerOnChange = true) {
     const { onChange } = this.props;
-    const value = String(rawValue || event.target.value);
+    const newValue = String(rawValue);
 
     this.setState({
-      value,
+      value: newValue,
     });
 
     if (triggerOnChange && onChange) {
-      onChange(event, value);
+      onChange(event, newValue);
     }
   }
 
   updateStep(event, n) {
     const { step } = this.props;
-    const { value = 0 } = this.state;
 
-    const parsedValue = Input.parseValue(value + step * n, this.props);
+    const currentValue = this.toNumber(this.state.value || 0);
+    const newValue = this.parseValue(currentValue + step * n);
 
-    if (value !== parsedValue) {
-      this.updateValue(event, parsedValue);
+    if (newValue !== currentValue) {
+      this.updateValue(event, newValue);
     }
   }
 
