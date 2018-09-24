@@ -2,26 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, number, select } from '@storybook/addon-knobs';
 import { Avatar, AvatarStack, Bullet, Counter, TextBody, Tooltip } from '../components';
-
-import Image1 from '../static/avatars/1.png';
-import Image2 from '../static/avatars/2.png';
-import Image3 from '../static/avatars/3.png';
-import Image4 from '../static/avatars/4.png';
-import Image5 from '../static/avatars/5.png';
-import Image6 from '../static/avatars/6.png';
-import Image7 from '../static/avatars/7.png';
-import Image8 from '../static/avatars/8.png';
-
-const avatars = [
-  { image: Image1, count: 21, color: 'ruby', maxCount: 20 },
-  { image: Image2, count: 15, color: 'neutral', inactive: true },
-  { image: Image3, count: 5, color: 'neutral' },
-  { image: Image4, count: 3, color: 'ruby' },
-  { image: Image5, count: 0, color: 'ruby' },
-  { image: Image6, count: 4, color: 'ruby' },
-  { image: Image7, count: 5, color: 'neutral', inactive: true },
-  { image: Image8, count: 2, color: 'neutral', inactive: true },
-];
+import avatars from '../static/data/avatar';
 
 const directions = ['horizontal', 'vertical'];
 const sizes = ['tiny', 'small', 'medium'];
