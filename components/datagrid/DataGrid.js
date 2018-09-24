@@ -123,7 +123,7 @@ class DataGrid extends PureComponent {
 
     return (
       <Box data-teamleader-ui="data-grid" className={classNames} {...rest}>
-        {selectable &&
+        {selectedRows.length > 0 &&
           React.Children.map(children, child => {
             if (isComponentOfType(HeaderRowOverlay, child)) {
               return React.cloneElement(child, { numSelectedRows: selectedRows.length });
@@ -159,17 +159,21 @@ class DataGrid extends PureComponent {
         )}
         <div className={cx(theme['section'], theme['is-scrollable'])} ref={node => (this.scrollableNode = node)}>
           {React.Children.map(children, (child, key) => {
-            return React.cloneElement(child, {
-              sliceFrom: stickyFromLeft > 0 ? stickyFromLeft : 0,
-              sliceTo: stickyFromRight > 0 ? -stickyFromRight : undefined,
-              ref: rowNode => this.rowNodes.set(key, rowNode),
-            });
+            if (!isComponentOfType(HeaderRowOverlay, child)) {
+              return React.cloneElement(child, {
+                sliceFrom: stickyFromLeft > 0 ? stickyFromLeft : 0,
+                sliceTo: stickyFromRight > 0 ? -stickyFromRight : undefined,
+                ref: rowNode => this.rowNodes.set(key, rowNode),
+              });
+            }
           })}
         </div>
         {stickyFromRight > 0 && (
           <div className={cx(theme['section'], theme['has-blend-left'])}>
             {React.Children.map(children, child => {
-              return React.cloneElement(child, { sliceFrom: -stickyFromRight });
+              if (!isComponentOfType(HeaderRowOverlay, child)) {
+                return React.cloneElement(child, { sliceFrom: -stickyFromRight });
+              }
             })}
           </div>
         )}

@@ -13,18 +13,16 @@ class HeaderRowOverlay extends PureComponent {
     const classNames = cx(theme['header-row-overlay'], className);
 
     return (
-      numSelectedRows > 0 && (
-        <Box
-          display="flex"
-          alignItems="center"
-          className={classNames}
-          data-teamleader-ui="datagrid-header-row-overlay"
-          {...others}
-        >
-          <NumSelectedRows numSelectedRows={numSelectedRows} numSelectedRowsLabel={numSelectedRowsLabel} />
-          <BulkActions bulkActions={children} />
-        </Box>
-      )
+      <Box
+        display="flex"
+        alignItems="center"
+        className={classNames}
+        data-teamleader-ui="datagrid-header-row-overlay"
+        {...others}
+      >
+        <NumSelectedRows numSelectedRows={numSelectedRows} numSelectedRowsLabel={numSelectedRowsLabel} />
+        <BulkActions bulkActions={children} />
+      </Box>
     );
   }
 }
