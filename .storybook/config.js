@@ -4,6 +4,7 @@ import { withInfo } from '@storybook/addon-info';
 import { withKnobs } from '@storybook/addon-knobs';
 import { withOptions } from '@storybook/addon-options';
 import backgroundColor from 'react-storybook-decorator-background';
+import pkg from '../package.json';
 import PropTable from '../stories/components/propTable';
 import styles from '@sambego/storybook-styles';
 
@@ -80,7 +81,7 @@ addDecorator(
   withOptions({
     addonPanelInRight: true,
     enableShortcuts: false,
-    name: 'Teamleader',
+    name: `UI Version ${pkg.version}`,
     url: 'https://teamleader.design',
   }),
 );
