@@ -49,7 +49,7 @@ class Button extends PureComponent {
       theme[level],
       {
         [theme['has-icon-only']]: (!children && !label) || (Array.isArray(children) && !children[0] && !label),
-        [theme['is-inverse']]: inverse && level === 'outline',
+        [theme['is-inverse']]: inverse && (level === 'outline' || level === 'link'),
         [theme['is-disabled']]: disabled,
         [theme['is-full-width']]: fullWidth,
         [theme['is-processing']]: processing,
@@ -113,7 +113,7 @@ Button.propTypes = {
   icon: PropTypes.element,
   /** The position of the icon inside the button. */
   iconPlacement: PropTypes.oneOf(['left', 'right']),
-  /** If true, component will be rendered in inverse mode. */
+  /** If true, component will be rendered in inverse mode (only for the levels "link" and "outline"). */
   inverse: PropTypes.bool,
   /** The textual label displayed inside the button. */
   label: PropTypes.string,
