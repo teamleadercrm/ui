@@ -112,12 +112,12 @@
     "eslint-plugin-promise": "^3.3.0",
     "eslint-plugin-react": "^7.4.0",
     "eslint-plugin-standard": "^3.0.1",
-    "extract-text-webpack-plugin": "^3.0.2",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^1.1.5",
     "gulp": "^3.9.1",
     "gulp-babel": "8.0.0-beta.2",
     "gulp-postcss": "^7.0.0",
-    "html-webpack-plugin": "^2.22.0",
+    "html-webpack-plugin": "^4.0.0-alpha.2",
     "husky": "^0.14.3",
     "image-webpack-loader": "^4.1.0",
     "imports-loader": "^0.7.1",
@@ -140,7 +140,7 @@
     "rimraf": "^2.5.4",
     "style-loader": "^0.20.2",
     "url-loader": "^0.6.2",
-    "webpack": "^3.8.1"
+    "webpack": "^4.1.1"
   },
   "directories": {
     "doc": "docs"
