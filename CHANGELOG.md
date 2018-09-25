@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `Button`: a link button can be created by setting the level property ([@LennertBlommaert](https://github.com/LennertBlommaert) in [#376](https://github.com/teamleadercrm/ui/pull/376))
+
 ### Deprecated
 
 ### Removed
