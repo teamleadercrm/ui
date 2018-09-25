@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withKnobs, boolean, number } from '@storybook/addon-knobs/react';
 import { withInfo } from '@storybook/addon-info';
-import { Island, Pagination, LinkButton } from '../components';
+import { Island, Pagination, Button } from '../components';
 
 storiesOf('Pagination', module)
   .addDecorator((story, context) =>
@@ -24,7 +24,14 @@ storiesOf('Pagination', module)
       >
         {({ number, text, isActive, ...others }) => {
           return (
-            <LinkButton label={text} disabled={isActive} inverse={boolean('Inverse', false)} size="small" {...others} />
+            <Button
+              level="link"
+              label={text}
+              disabled={isActive}
+              inverse={boolean('Inverse', false)}
+              size="small"
+              {...others}
+            />
           );
         }}
       </Pagination>
@@ -41,7 +48,14 @@ storiesOf('Pagination', module)
       >
         {({ number, text, isActive, ...others }) => {
           return (
-            <LinkButton label={text} disabled={isActive} inverse={boolean('Inverse', false)} size="small" {...others} />
+            <Button
+              level="link"
+              label={text}
+              disabled={isActive}
+              inverse={boolean('Inverse', false)}
+              size="small"
+              {...others}
+            />
           );
         }}
       </Pagination>
