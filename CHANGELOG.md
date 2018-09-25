@@ -1,14 +1,20 @@
-## [Unreleased]
+## [unreleased]
 
 ### Added
 
 ### Changed
+
+- `webpack@4.1.1`
+- `extract-text-webpack-plugin@4.0.0-beta.0`
+- `html-webpack-plugin@4.0.0-alpha.2`
 
 ### Deprecated
 
 ### Removed
 
 ### Fixed
+
+- `Production build`: Fixed the failing production builds ([@driesd](https://github.com/driesd) in [#374](https://github.com/teamleadercrm/ui/pull/374))
 
 ## [0.15.1] - 2018-09-25
 
