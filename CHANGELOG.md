@@ -10,7 +10,11 @@
 
 ### Fixed
 
-- `Input`: Fixed steps not working anymore after having converted the value saved in the state to a String.
+## [0.15.1] - 2018-09-25
+
+### Fixed
+
+- `Input`: Fixed steps not working anymore after having converted the value saved in the state to a String. ([@timdegroote](https://github.com/timdegroote) in [#370](https://github.com/teamleadercrm/ui/pull/370))
 
 ## [0.15.0] - 2018-09-20
 
