@@ -436,6 +436,67 @@
   }
 }
 
+.link {
+  background-color: transparent;
+  border: none;
+
+  &:focus {
+    box-shadow: 0 0 0 2px var(--box-shadow-color);
+  }
+
+  &:not(.is-inverse) {
+    color: var(--color-aqua-dark);
+
+    &:not(.is-disabled) {
+      &:hover {
+        background-color: var(--color-neutral-light);
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 2px var(--color-aqua-light);
+      }
+
+      &:active {
+        background-color: var(--color-neutral-light);
+      }
+    }
+
+    &.is-disabled {
+      color: var(--color-neutral);
+    }
+  }
+
+  &.is-inverse {
+    &:not(.is-disabled) {
+      color: var(--color-teal-light);
+
+      &:hover {
+        background-color: var(--color-teal-lightest);
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 2px var(--color-teal-light);
+      }
+
+      &:active {
+        background-color: color(var(--color-teal-lightest) a(0.24));
+      }
+    }
+
+    &.is-disabled {
+      color: var(--color-teal);
+    }
+  }
+
+  &.is-disabled {
+    pointer-events: none;
+  }
+
+  &.has-icon-only:hover {
+    background-color: color(var(--color-neutral-darkest) a(0.24));
+  }
+}
+
 /* Button sizes */
 .small {
   font-size: calc(1.4 * var(--unit));
