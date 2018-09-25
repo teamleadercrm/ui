@@ -4,6 +4,18 @@
 
 ### Changed
 
+### Deprecated
+
+### Removed
+
+### Fixed
+
+## [0.15.1] - 2018-09-25
+
+### Added
+
+### Changed
+
 - `webpack@4.1.1`
 - `extract-text-webpack-plugin@4.0.0-beta.0`
 - `html-webpack-plugin@4.0.0-alpha.2`
