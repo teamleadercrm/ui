@@ -8,6 +8,8 @@
 
 ### Deprecated
 
+- [BREAKING] `LinkButton`: The `LinkButton` is removed, since it is replaced by `Button` ([@LennertBlommaert](https://github.com/LennertBlommaert) in [#376](https://github.com/teamleadercrm/ui/pull/376))
+
 ### Removed
 
 ### Fixed
