@@ -18,26 +18,31 @@ storiesOf('Buttons', module)
   .addDecorator(withKnobs)
   .add('with text', () => (
     <Button
+      active={boolean('Active', false)}
       label="Button"
       level={select('Level', levels, 'secondary')}
       disabled={boolean('Disabled', false)}
       fullWidth={boolean('Full width', false)}
       processing={boolean('Processing', false)}
+      inverse={boolean('Inverse', false)}
       size={select('Size', sizes, 'medium')}
     />
   ))
   .add('with icon', () => (
     <Button
+      active={boolean('Active', false)}
       icon={select('Size', sizes, 'medium') === 'small' ? <IconAddSmallOutline /> : <IconAddMediumOutline />}
       level={select('Level', levels, 'secondary')}
       disabled={boolean('Disabled', false)}
       fullWidth={boolean('Full width', false)}
       processing={boolean('Processing', false)}
+      inverse={boolean('Inverse', false)}
       size={select('Size', sizes, 'medium')}
     />
   ))
   .add('with text and icon', () => (
     <Button
+      active={boolean('Active', false)}
       icon={select('Size', sizes, 'medium') === 'small' ? <IconAddSmallOutline /> : <IconAddMediumOutline />}
       iconPlacement={select('Icon placement', iconPositions, 'left')}
       label="Button"
@@ -45,17 +50,20 @@ storiesOf('Buttons', module)
       disabled={boolean('Disabled', false)}
       fullWidth={boolean('Full width', false)}
       processing={boolean('Processing', false)}
+      inverse={boolean('Inverse', false)}
       size={select('Size', sizes, 'medium')}
     />
   ))
   .add('with custom element', () => (
     <Button
+      active={boolean('Active', false)}
       element={select('Element', elements, 'a')}
       label="Button"
       level={select('Level', levels, 'secondary')}
       disabled={boolean('Disabled', false)}
       fullWidth={boolean('Full width', false)}
       processing={boolean('Processing', false)}
+      inverse={boolean('Inverse', false)}
       size={select('Size', sizes, 'medium')}
     />
   ));
