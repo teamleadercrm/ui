@@ -81,6 +81,7 @@
 
       &:before {
         background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+        border-radius: var(--button-border-radius);
         content: '';
         height: 10px;
         left: 0;
@@ -440,10 +441,6 @@
   background-color: transparent;
   border: none;
 
-  &:focus {
-    box-shadow: 0 0 0 2px var(--box-shadow-color);
-  }
-
   &:not(.is-inverse) {
     color: var(--color-aqua-dark);
 
@@ -467,15 +464,15 @@
   }
 
   &.is-inverse {
-    &:not(.is-disabled) {
-      color: var(--color-teal-light);
+    color: var(--color-teal-lightest);
 
+    &:not(.is-disabled) {
       &:hover {
         background-color: var(--color-teal-lightest);
       }
 
       &:focus {
-        box-shadow: 0 0 0 2px var(--color-teal-light);
+        box-shadow: 0 0 0 2px var(--color-teal);
       }
 
       &:active {
@@ -486,10 +483,6 @@
     &.is-disabled {
       color: var(--color-teal);
     }
-  }
-
-  &.is-disabled {
-    pointer-events: none;
   }
 
   &.has-icon-only:hover {
