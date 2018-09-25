@@ -9,7 +9,7 @@ import { Button } from '../components';
 
 const elements = ['a', 'button'];
 const iconPositions = ['left', 'right'];
-const levels = ['primary', 'secondary', 'outline', 'destructive'];
+const levels = ['primary', 'secondary', 'outline', 'destructive', 'link'];
 const sizes = ['small', 'medium', 'large'];
 
 storiesOf('Buttons', module)
