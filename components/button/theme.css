@@ -55,7 +55,7 @@
     pointer-events: none;
   }
 
-  &.processing {
+  &.is-processing {
     position: relative;
     pointer-events: none;
   }
@@ -71,12 +71,12 @@
       text-decoration: none;
     }
 
-    &.active {
+    &.is-active {
       pointer-events: none;
     }
 
     &:active,
-    &.active {
+    &.is-active {
       box-shadow: none !important;
 
       &:before {
@@ -207,7 +207,7 @@
   composes: button-base;
   font-family: var(--font-family-medium);
 
-  &:not(.inverse) {
+  &:not(.is-inverse) {
     text-decoration: none;
 
     &:not(.is-disabled) {
@@ -274,7 +274,7 @@
 }
 
 .outline {
-  &:not(.inverse) {
+  &:not(.is-inverse) {
     color: var(--color-teal-darkest);
 
     &.is-disabled {
@@ -298,12 +298,12 @@
       }
     }
 
-    &.processing {
+    &.is-processing {
       color: transparent;
     }
   }
 
-  &.inverse {
+  &.is-inverse {
     color: var(--color-neutral-lightest);
 
     &.is-disabled {
@@ -327,7 +327,7 @@
       }
     }
 
-    &.processing {
+    &.is-processing {
       color: transparent;
     }
   }
@@ -363,7 +363,7 @@
       background-color: var(--color-neutral);
     }
 
-    &.active {
+    &.is-active {
       background-color: var(--color-teal);
       border: 1px solid var(--color-teal-dark);
       color: var(--color-neutral-lightest);
@@ -371,7 +371,7 @@
     }
   }
 
-  &.processing {
+  &.is-processing {
     color: var(--color-neutral-light);
   }
 }
@@ -400,7 +400,7 @@
     }
   }
 
-  &.processing {
+  &.is-processing {
     color: var(--color-mint);
   }
 }
@@ -431,7 +431,7 @@
     }
   }
 
-  &.processing {
+  &.is-processing {
     color: var(--color-ruby);
   }
 }
