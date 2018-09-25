@@ -468,7 +468,7 @@
 
     &:not(.is-disabled) {
       &:hover {
-        background-color: var(--color-teal-lightest);
+        background-color: var(--color-teal);
       }
 
       &:focus {
