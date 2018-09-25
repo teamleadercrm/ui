@@ -83,13 +83,14 @@ class Button extends PureComponent {
         </span>
       ),
       icon && iconPlacement === 'right' && icon,
-      processing && (
-        <LoadingSpinner
-          className={theme['spinner']}
-          color={this.getSpinnerColor()}
-          size={size === 'small' ? 'small' : 'medium'}
-        />
-      ),
+      processing &&
+        level !== 'link' && (
+          <LoadingSpinner
+            className={theme['spinner']}
+            color={this.getSpinnerColor()}
+            size={size === 'small' ? 'small' : 'medium'}
+          />
+        ),
     );
   }
 }
