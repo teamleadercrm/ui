@@ -8,7 +8,7 @@ const justifyContentValues = ['center', 'flex-start', 'flex-end', 'space-around'
 
 const spacingOptions = {
   range: true,
-  min: 1,
+  min: 0,
   max: 8,
   step: 1,
 };
