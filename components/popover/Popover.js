@@ -10,7 +10,7 @@ import { events } from '../utils';
 import { calculatePositions } from './positionCalculation';
 import theme from './theme.css';
 
-const factory = (axis, calculatePositions, Overlay) => {
+const factory = (axis, calculatePositions) => {
   class Popover extends PureComponent {
     popoverRoot = document.createElement('div');
 
@@ -85,7 +85,7 @@ const factory = (axis, calculatePositions, Overlay) => {
                   [theme['is-entered']]: state === 'entered',
                 })}
               >
-                <Overlay
+                <InjectOverlay
                   active={active}
                   backdrop={backdrop}
                   className={theme['overlay']}
@@ -173,6 +173,6 @@ const factory = (axis, calculatePositions, Overlay) => {
   return Popover;
 };
 
-export const PopoverHorizontal = factory('horizontal', calculatePositions, InjectOverlay);
+export const PopoverHorizontal = factory('horizontal', calculatePositions);
 
-export const PopoverVertical = factory('vertical', calculatePositions, InjectOverlay);
+export const PopoverVertical = factory('vertical', calculatePositions);
