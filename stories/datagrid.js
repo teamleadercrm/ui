@@ -15,7 +15,6 @@ import {
 } from '../components';
 
 import { rows1, rows2 } from '../static/data/datagrid';
-import NumSelectedRows from '../components/datagrid/HeaderRowOverlay/NumSelectedRows';
 
 const TooltippedStatusBullet = Tooltip(StatusBullet);
 
