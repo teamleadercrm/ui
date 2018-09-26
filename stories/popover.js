@@ -1,18 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Store, State } from '@sambego/storybook-state';
-import {
-  Banner,
-  Box,
-  Button,
-  ButtonGroup,
-  Heading3,
-  Link,
-  PopoverHorizontal,
-  PopoverVertical,
-  TextBody,
-  TextSmall,
-} from '../components';
+import { Banner, Box, Button, ButtonGroup, Heading3, Link, Popover, TextBody, TextSmall } from '../components';
 import { select, boolean, number } from '@storybook/addon-knobs/react';
 
 const store = new Store({
@@ -99,7 +88,7 @@ storiesOf('Popover', module)
     <Box>
       <Button onClick={handleButtonClick} label="Open a horizontalPopover" />
       <State store={store}>
-        <PopoverHorizontal
+        <Popover
           active={false}
           backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
@@ -112,7 +101,7 @@ storiesOf('Popover', module)
           offsetCorrection={number('Offset correction', 0)}
         >
           {contentBoxWithSingleTextLine}
-        </PopoverHorizontal>
+        </Popover>
       </State>
     </Box>
   ))
@@ -120,7 +109,7 @@ storiesOf('Popover', module)
     <Box>
       <Button onClick={handleButtonClick} label="Open a vertical Popover" />
       <State store={store}>
-        <PopoverVertical
+        <Popover
           active={false}
           backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
@@ -133,7 +122,7 @@ storiesOf('Popover', module)
           offsetCorrection={number('Offset correction', 0)}
         >
           {contentBoxWithSingleTextLine}
-        </PopoverVertical>
+        </Popover>
       </State>
     </Box>
   ))
@@ -141,7 +130,7 @@ storiesOf('Popover', module)
     <Box>
       <Button onClick={handleButtonClick} label="Open titled Popover" />
       <State store={store}>
-        <PopoverVertical
+        <Popover
           active={false}
           backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
@@ -157,7 +146,7 @@ storiesOf('Popover', module)
             <Heading3>Popover Title</Heading3>
           </Banner>
           {contentBoxWithSingleTextLine}
-        </PopoverVertical>
+        </Popover>
       </State>
     </Box>
   ))
@@ -165,7 +154,7 @@ storiesOf('Popover', module)
     <Box>
       <Button onClick={handleButtonClick} label="Open titled & subtitled Popover" />
       <State store={store}>
-        <PopoverVertical
+        <Popover
           active={false}
           backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
@@ -182,7 +171,7 @@ storiesOf('Popover', module)
             <TextSmall marginTop={1}>This is the popover content</TextSmall>
           </Banner>
           {contentBoxWithSingleTextLine}
-        </PopoverVertical>
+        </Popover>
       </State>
     </Box>
   ))
@@ -190,7 +179,7 @@ storiesOf('Popover', module)
     <Box>
       <Button onClick={handleButtonClick} label="Open Popover with close button" />
       <State store={store}>
-        <PopoverVertical
+        <Popover
           active={false}
           backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
@@ -206,7 +195,7 @@ storiesOf('Popover', module)
             <Heading3>I am a heading 3</Heading3>
           </Banner>
           {contentBoxWithSingleTextLine}
-        </PopoverVertical>
+        </Popover>
       </State>
     </Box>
   ))
@@ -214,7 +203,7 @@ storiesOf('Popover', module)
     <Box>
       <Button onClick={handleButtonClick} label="Open Popover with actions" />
       <State store={store}>
-        <PopoverVertical
+        <Popover
           active={false}
           backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
@@ -231,7 +220,7 @@ storiesOf('Popover', module)
             <Button label="Cancel" />
             <Button level="primary" label="Confirm" />
           </ButtonGroup>
-        </PopoverVertical>
+        </Popover>
       </State>
     </Box>
   ))
@@ -239,7 +228,7 @@ storiesOf('Popover', module)
     <Box>
       <Button onClick={handleButtonClick} label="Open a experimental Popover" />
       <State store={store}>
-        <PopoverVertical
+        <Popover
           active={false}
           backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
@@ -258,7 +247,7 @@ storiesOf('Popover', module)
               et dolore magna aliquyam erat, sed diam voluptua.
             </TextBody>
           </Box>
-        </PopoverVertical>
+        </Popover>
       </State>
     </Box>
   ))
@@ -266,7 +255,7 @@ storiesOf('Popover', module)
     <Box>
       <Button onClick={handleButtonClick} label="Open a experimental Popover" />
       <State store={store}>
-        <PopoverVertical
+        <Popover
           active={false}
           backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
@@ -284,7 +273,7 @@ storiesOf('Popover', module)
               <li>dolor sit amet</li>
             </ul>
           </Box>
-        </PopoverVertical>
+        </Popover>
       </State>
     </Box>
   ));

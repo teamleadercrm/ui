@@ -1,3 +1,3 @@
-import { PopoverHorizontal, PopoverVertical } from './Popover';
+import Popover from './Popover';
 
-export { PopoverVertical, PopoverHorizontal };
+export default Popover;
