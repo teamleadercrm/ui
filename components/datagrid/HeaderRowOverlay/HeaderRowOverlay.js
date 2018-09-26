@@ -8,9 +8,20 @@ import theme from './theme.css';
 
 class HeaderRowOverlay extends PureComponent {
   render() {
-    const { children, className, numSelectedRows, numSelectedRowsLabel, ...others } = this.props;
+    const {
+      children,
+      className,
+      headerCellCheckboxSize,
+      numSelectedRows,
+      numSelectedRowsLabel,
+      ...others
+    } = this.props;
 
-    const classNames = cx(theme['header-row-overlay'], className);
+    const classNames = cx(
+      theme['header-row-overlay'],
+      theme[`data-grid-checkbox-size-${headerCellCheckboxSize}`],
+      className,
+    );
 
     return (
       <Box
@@ -28,6 +39,8 @@ class HeaderRowOverlay extends PureComponent {
 }
 
 HeaderRowOverlay.propTypes = {
+  /** The size of the checkboxes in the grid, used to set the right spacing between this component and the checkbox in the HeaderCell */
+  headerCellCheckboxSize: PropTypes.oneOf(['small', 'medium', 'large']),
   /** Passed down button element(s), are used to display the bulk actions */
   children: PropTypes.any,
   /** A class name for the container to give custom styles */

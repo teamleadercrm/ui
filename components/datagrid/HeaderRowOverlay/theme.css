@@ -4,8 +4,19 @@
 .header-row-overlay {
   background: var(--color-neutral-light);
   position: absolute;
-  left: 48px;
   right: 0;
   height: 48px;
   z-index: 3;
+
+  &.data-grid-checkbox-size-small {
+    left: 48px;
+  }
+
+  &.data-grid-checkbox-size-medium {
+    left: 51px;
+  }
+
+  &.data-grid-checkbox-size-large {
+    left: 54px;
+  }
 }

@@ -126,7 +126,10 @@ class DataGrid extends PureComponent {
         {selectedRows.length > 0 &&
           React.Children.map(children, child => {
             if (isComponentOfType(HeaderRowOverlay, child)) {
-              return React.cloneElement(child, { numSelectedRows: selectedRows.length });
+              return React.cloneElement(child, {
+                numSelectedRows: selectedRows.length,
+                headerCellCheckboxSize: checkboxSize,
+              });
             }
           })}
         {(selectable || stickyFromLeft > 0) && (
