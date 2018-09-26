@@ -10,7 +10,7 @@ import { events } from '../utils';
 import { calculatePositions } from './positionCalculation';
 import theme from './theme.css';
 
-const factory = (axis, calculatePositions) => {
+const factory = axis => {
   class Popover extends PureComponent {
     popoverRoot = document.createElement('div');
 
@@ -173,6 +173,6 @@ const factory = (axis, calculatePositions) => {
   return Popover;
 };
 
-export const PopoverHorizontal = factory('horizontal', calculatePositions);
+export const PopoverHorizontal = factory('horizontal');
 
-export const PopoverVertical = factory('vertical', calculatePositions);
+export const PopoverVertical = factory('vertical');
