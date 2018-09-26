@@ -1,9 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import Box from '../box';
+import Box, { omitBoxProps, pickBoxProps } from '../box';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import Icon from '../icon';
-import InputMetaPropTypes from '../input/InputMetaPropTypes';
 import NavigationBar from './NavigationBar';
 import WeekDay from './WeekDay';
 import { convertModifiersToClassnames } from './utils';
@@ -30,25 +29,15 @@ class DatePickerInput extends PureComponent {
   }
 
   handleBlur = () => {
-    this.setState({ inputHasFocus: false });
+    this.setState({ inputHasFocus: false }, () => this.props.onBlur && this.props.onBlur());
   };
 
   handleFocus = () => {
-    this.setState({ inputHasFocus: true });
+    this.setState({ inputHasFocus: true }, () => this.props.onFocus && this.props.onFocus());
   };
 
   handleInputDateChange = date => {
-    this.setState(
-      {
-        selectedDate: date,
-      },
-      () => this.props.onChange(date),
-    );
-  };
-
-  hasError = () => {
-    const { meta } = this.props;
-    return Boolean(meta && meta.error && meta.touched);
+    this.setState({ selectedDate: date }, () => this.props.onChange(date));
   };
 
   renderDayPickerInput = () => {
@@ -57,7 +46,8 @@ class DatePickerInput extends PureComponent {
 
     const dayPickerClassNames = cx(theme['date-picker'], theme[`is-${size}`], className);
 
-    const rest = omit(others, ['helpText', 'meta', 'onBlur', 'onChange', 'onFocus']);
+    const propsWithoutBoxProps = omitBoxProps(others);
+    const restProps = omit(propsWithoutBoxProps, ['helpText', 'onBlur', 'onChange', 'onFocus']);
 
     return (
       <DayPickerInput
@@ -79,7 +69,7 @@ class DatePickerInput extends PureComponent {
           onBlur: this.handleBlur,
           onFocus: this.handleFocus,
         }}
-        {...rest}
+        {...restProps}
       />
     );
   };
@@ -116,32 +106,34 @@ class DatePickerInput extends PureComponent {
       <Box marginTop={2}>
         <IconWarningBadgedSmallFilled className={theme['validation-icon']} />
         <TextSmall className={theme['validation-text']} element="span" marginLeft={1}>
-          {this.props.meta.error}
+          {this.props.error}
         </TextSmall>
       </Box>
     );
   };
 
   render() {
-    const { bold, disabled, inverse, readOnly, size } = this.props;
+    const { bold, disabled, error, inverse, readOnly, size, ...others } = this.props;
     const { inputHasFocus } = this.state;
+
+    const boxProps = pickBoxProps(others);
 
     const classNames = cx(theme['date-picker-input'], theme[`is-${size}`], {
       [theme['is-bold']]: bold,
       [theme['is-disabled']]: disabled,
       [theme['is-inverse']]: inverse,
       [theme['is-read-only']]: readOnly,
-      [theme['has-error']]: this.hasError(),
+      [theme['has-error']]: error,
       [theme['has-focus']]: inputHasFocus,
     });
 
     return (
-      <Box className={classNames}>
+      <Box className={classNames} {...boxProps}>
         <div className={theme['input-wrapper']}>
           {this.renderIcon()}
           {this.renderDayPickerInput()}
         </div>
-        {this.hasError() ? this.renderValidationMessage() : this.renderHelpText()}
+        {error ? this.renderValidationMessage() : this.renderHelpText()}
       </Box>
     );
   }
@@ -152,11 +144,16 @@ DatePickerInput.propTypes = {
   className: PropTypes.string,
   dayPickerProps: PropTypes.object,
   disabled: PropTypes.bool,
+  /** The text string/element to use as error message below the input. */
+  error: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   helpText: PropTypes.string,
   inverse: PropTypes.bool,
-  meta: InputMetaPropTypes,
   modifiers: PropTypes.object,
+  /** Callback function that is fired when blurring the input field. */
+  onBlur: PropTypes.func,
   onChange: PropTypes.func,
+  /** Callback function that is fired when focussing the input field. */
+  onFocus: PropTypes.func,
   readOnly: PropTypes.bool,
   selectedDate: PropTypes.instanceOf(Date),
   size: PropTypes.oneOf(['small', 'medium', 'large']),

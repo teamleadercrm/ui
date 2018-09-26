@@ -1,9 +1,8 @@
 import React, { Fragment, PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import Box from '../box';
+import Box, { omitBoxProps, pickBoxProps } from '../box';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import Icon from '../icon';
-import InputMetaPropTypes from '../input/InputMetaPropTypes';
 import NavigationBar from './NavigationBar';
 import WeekDay from './WeekDay';
 import { convertModifiersToClassnames, isSelectingFirstDay } from './utils';
@@ -51,11 +50,11 @@ class DatePickerInputRange extends PureComponent {
   };
 
   handleFromBlur = () => {
-    this.setState({ inputHasFocus: false });
+    this.setState({ inputHasFocus: false }, () => this.props.onStartDateBlur && this.props.onStartDateBlur());
   };
 
   handleFromFocus = () => {
-    this.setState({ inputHasFocus: true });
+    this.setState({ inputHasFocus: true }, () => this.props.onStartDateFocus && this.props.onStartDateFocus());
   };
 
   handleFromChange = day => {
@@ -75,20 +74,15 @@ class DatePickerInputRange extends PureComponent {
   };
 
   handleToBlur = () => {
-    this.setState({ inputHasFocus: false });
+    this.setState({ inputHasFocus: false }, () => this.props.onEndDateBlur && this.props.onEndDateBlur());
   };
 
   handleToFocus = () => {
-    this.setState({ inputHasFocus: true });
+    this.setState({ inputHasFocus: true }, () => this.props.onEndDateFocus && this.props.onEndDateFocus());
 
     if (!this.state.selectedStartDate) {
       this.focusFrom();
     }
-  };
-
-  hasError = () => {
-    const { meta } = this.props;
-    return Boolean(meta && meta.error && meta.touched);
   };
 
   renderDayPickerInput = () => {
@@ -110,8 +104,9 @@ class DatePickerInputRange extends PureComponent {
 
     const { selectedStartDate, selectedEndDate, mouseEnteredEndDate } = this.state;
 
+    const propsWithoutBoxProps = omitBoxProps(others);
     const dayPickerClassNames = cx(theme['date-picker'], theme['has-range'], theme[`is-${size}`], className);
-    const dayPickerInputProps = omit(others, ['helpText', 'meta', 'onBlur', 'onChange', 'onFocus']);
+    const dayPickerInputProps = omit(propsWithoutBoxProps, ['helpText', 'onBlur', 'onChange', 'onFocus']);
 
     const modifiers = { from: selectedStartDate, to: mouseEnteredEndDate };
     const selectedDays = [selectedStartDate, { from: selectedStartDate, to: mouseEnteredEndDate }];
@@ -213,7 +208,7 @@ class DatePickerInputRange extends PureComponent {
       <Box marginTop={2}>
         <IconWarningBadgedSmallFilled className={theme['validation-icon']} />
         <TextSmall className={theme['validation-text']} element="span" marginLeft={1}>
-          {this.props.meta.error}
+          {this.props.error}
         </TextSmall>
       </Box>
     );
@@ -240,24 +235,26 @@ class DatePickerInputRange extends PureComponent {
   };
 
   render() {
-    const { bold, disabled, inverse, readOnly, size } = this.props;
+    const { bold, disabled, error, inverse, readOnly, size, ...others } = this.props;
+
+    const boxProps = pickBoxProps(others);
 
     const classNames = cx(theme['date-picker-input-range'], theme[`is-${size}`], {
       [theme['is-bold']]: bold,
       [theme['is-disabled']]: disabled,
       [theme['is-inverse']]: inverse,
       [theme['is-read-only']]: readOnly,
-      [theme['has-error']]: this.hasError(),
+      [theme['has-error']]: error,
       [theme['has-focus']]: this.state.inputHasFocus,
     });
 
     return (
-      <Box className={classNames}>
+      <Box className={classNames} {...boxProps}>
         <div className={theme['input-wrapper']}>
           {this.renderIcon()}
           {this.renderDayPickerInput()}
         </div>
-        {this.hasError() ? this.renderValidationMessage() : this.renderHelpText()}
+        {error ? this.renderValidationMessage() : this.renderHelpText()}
       </Box>
     );
   }
@@ -267,18 +264,27 @@ DatePickerInputRange.propTypes = {
   bold: PropTypes.bool,
   className: PropTypes.string,
   disabled: PropTypes.bool,
+  /** The text string/element to use as error message below the input. */
+  error: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   helpText: PropTypes.string,
   inverse: PropTypes.bool,
   inputProps: PropTypes.object,
   inputStartDateProps: PropTypes.object,
   inputEndDateProps: PropTypes.object,
-  meta: InputMetaPropTypes,
   modifiers: PropTypes.object,
   dayPickerProps: PropTypes.object,
   dayPickerStartDateProps: PropTypes.object,
   dayPickerEndDateProps: PropTypes.object,
   dayPickerInputEndDateProps: PropTypes.object,
   dayPickerInputStartDateProps: PropTypes.object,
+  /** Callback function that is fired when blurring the end date input field. */
+  onEndDateBlur: PropTypes.func,
+  /** Callback function that is fired when focussing the end date input field. */
+  onEndDateFocus: PropTypes.func,
+  /** Callback function that is fired when blurring the start date input field. */
+  onStartDateBlur: PropTypes.func,
+  /** Callback function that is fired when focussing the start date input field. */
+  onStartDateFocus: PropTypes.func,
   onChange: PropTypes.func,
   readOnly: PropTypes.bool,
   selectedRange: PropTypes.object,

@@ -1,9 +1,6 @@
 import React from 'react';
-import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
-import { checkA11y } from 'storybook-addon-a11y';
-import { withInfo } from '@storybook/addon-info';
-import { withKnobs, boolean } from '@storybook/addon-knobs/react';
+import { boolean } from '@storybook/addon-knobs/react';
 import { IconTab, TabGroup, TitleTab, Box, Counter as UICounter } from '../components';
 import { tabItems, invertedTabItems } from '../static/data/tab';
 
@@ -36,14 +33,11 @@ const TitleCounter = props => <UICounter color="ruby" marginLeft={3} {...props} 
 const IconCounter = props => <UICounter color="ruby" {...props} />;
 
 storiesOf('Tab', module)
-  .addDecorator((story, context) =>
-    withInfo({
-      TableComponent: PropTable,
+  .addParameters({
+    info: {
       propTablesExclude: [Box],
-    })(story)(context),
-  )
-  .addDecorator(checkA11y)
-  .addDecorator(withKnobs)
+    },
+  })
   .add('titletab', () => (
     <TabGroup inverted={boolean('Inverted', true)} display={'flex'}>
       {tabItems.map((item, key) => {

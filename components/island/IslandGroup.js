@@ -1,27 +1,26 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import Box from '../box';
+import Box, { pickBoxProps } from '../box';
 import theme from './theme.css';
-import Island from './Island';
-import { elementIsDark } from '../utils/utils';
 
 class IslandGroup extends PureComponent {
   render() {
-    const { children, className, color, dark, size } = this.props;
+    const { children, className, color, dark, direction, size, ...otherProps } = this.props;
 
-    const isDark = elementIsDark(color, dark);
+    const boxProps = pickBoxProps(otherProps);
 
-    const classNames = cx(theme['segmented'], theme['island'], theme[color], { [theme['dark']]: isDark }, className);
+    const classNames = cx(theme[`direction-${direction}`], theme['island-group'], className);
 
     return (
-      <Box className={classNames} padding={0}>
+      <Box {...boxProps} className={classNames}>
         {React.Children.map(children, child => {
-          return (
-            <Island {...child.props} color={color} dark={isDark} size={size}>
-              {child.props.children}
-            </Island>
-          );
+          return React.cloneElement(child, {
+            ...child.props,
+            color: color || child.props.color,
+            dark: dark || child.props.dark,
+            size: size || child.props.size,
+          });
         })}
       </Box>
     );
@@ -33,11 +32,12 @@ IslandGroup.propTypes = {
   className: PropTypes.string,
   color: PropTypes.oneOf(['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'white']),
   dark: PropTypes.bool,
+  direction: PropTypes.oneOf(['horizontal', 'vertical']),
   size: PropTypes.oneOf(['small', 'medium', 'large']),
 };
 
 IslandGroup.defaultProps = {
-  color: 'white',
+  direction: 'horizontal',
 };
 
 export default IslandGroup;

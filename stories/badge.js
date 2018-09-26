@@ -1,9 +1,6 @@
 import React from 'react';
-import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
-import { checkA11y } from 'storybook-addon-a11y';
-import { withInfo } from '@storybook/addon-info';
-import { withKnobs, boolean, select } from '@storybook/addon-knobs/react';
+import { boolean, select } from '@storybook/addon-knobs/react';
 import { Badge, TextDisplay } from '../components';
 import { IconBuildingSmallOutline } from '@teamleader/ui-icons';
 
@@ -11,14 +8,11 @@ const iconPositions = ['left', 'right'];
 const colors = ['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua'];
 
 storiesOf('Badge', module)
-  .addDecorator((story, context) =>
-    withInfo({
-      TableComponent: PropTable,
+  .addParameters({
+    info: {
       propTablesExclude: [TextDisplay],
-    })(story)(context),
-  )
-  .addDecorator(checkA11y)
-  .addDecorator(withKnobs)
+    },
+  })
   .add('inline', () => (
     <TextDisplay>
       I'm display text with a

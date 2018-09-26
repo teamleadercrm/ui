@@ -2,10 +2,13 @@ import React, { PureComponent } from 'react';
 import ReactSelect from 'react-select';
 import PropTypes from 'prop-types';
 import omit from 'lodash.omit';
-import { IconChevronDownSmallOutline } from '@teamleader/ui-icons';
+import { IconChevronDownSmallOutline, IconWarningBadgedSmallFilled } from '@teamleader/ui-icons';
+import Box, { omitBoxProps, pickBoxProps } from '../box';
 import { Button } from '../button';
+import { TextSmall } from '../typography';
 import { colors } from './constants';
 import theme from './theme.css';
+import cx from 'classnames';
 
 class Select extends PureComponent {
   getClearIndicatorStyles = base => {
@@ -26,7 +29,7 @@ class Select extends PureComponent {
   };
 
   getControlStyles = (base, { isDisabled, isFocused }) => {
-    const { inverse, size } = this.props;
+    const { error, inverse, size } = this.props;
 
     const commonStyles = {
       ...base,
@@ -38,10 +41,16 @@ class Select extends PureComponent {
         ...commonStyles,
         backgroundColor: isDisabled ? colors.TEAL_DARK : colors.TEAL,
         '&:hover': {
-          borderColor: colors.TEAL_LIGHT,
+          borderColor: error ? colors.RUBY_LIGHT : colors.TEAL_LIGHT,
         },
-        borderColor: isFocused ? colors.TEAL_LIGHT : isDisabled ? colors.TEAL_DARK : colors.TEAL,
-        boxShadow: isFocused ? `0 0 0 1px ${colors.TEAL_LIGHT}` : 'none',
+        borderColor: error
+          ? colors.RUBY_LIGHT
+          : isFocused
+            ? colors.TEAL_LIGHT
+            : isDisabled
+              ? colors.TEAL_DARK
+              : colors.TEAL,
+        boxShadow: error ? `0 0 0 1px ${colors.RUBY_LIGHT}` : isFocused ? `0 0 0 1px ${colors.TEAL_LIGHT}` : 'none',
       };
     }
 
@@ -49,10 +58,16 @@ class Select extends PureComponent {
       ...commonStyles,
       backgroundColor: isDisabled ? colors.NEUTRAL : colors.NEUTRAL_LIGHTEST,
       '&:hover': {
-        borderColor: colors.NEUTRAL_DARKEST,
+        borderColor: error ? colors.RUBY_DARK : colors.NEUTRAL_DARKEST,
       },
-      borderColor: isFocused ? colors.NEUTRAL_DARKEST : isDisabled ? colors.NEUTRAL : colors.NEUTRAL_DARK,
-      boxShadow: isFocused ? `0 0 0 1px ${colors.NEUTRAL_DARKEST}` : 'none',
+      borderColor: error
+        ? colors.RUBY_DARK
+        : isFocused
+          ? colors.NEUTRAL_DARKEST
+          : isDisabled
+            ? colors.NEUTRAL
+            : colors.NEUTRAL_DARK,
+      boxShadow: error ? `0 0 0 1px ${colors.RUBY_DARK}` : isFocused ? `0 0 0 1px ${colors.NEUTRAL_DARKEST}` : 'none',
     };
   };
 
@@ -257,20 +272,56 @@ class Select extends PureComponent {
     );
   };
 
+  renderHelpText() {
+    const { helpText, inverse } = this.props;
+
+    if (helpText) {
+      return (
+        <TextSmall color={inverse ? 'white' : 'neutral'} marginTop={1} soft>
+          {helpText}
+        </TextSmall>
+      );
+    }
+  }
+
+  renderValidationMessage() {
+    return (
+      <TextSmall className={theme['validation-text']} marginTop={2} display="flex">
+        <Box element="span" className={theme['validation-icon']}>
+          <IconWarningBadgedSmallFilled />
+        </Box>
+        <Box element="span" marginLeft={1}>
+          {this.props.error}
+        </Box>
+      </TextSmall>
+    );
+  }
+
   render() {
-    const { components, ...others } = this.props;
-    const rest = omit(others, ['size', 'inverse']);
+    const { components, error, inverse, ...otherProps } = this.props;
+
+    const boxProps = pickBoxProps(otherProps);
+    const otherPropsWithoutBoxProps = omitBoxProps(otherProps);
+    const restProps = omit(otherPropsWithoutBoxProps, ['size']);
+
+    const wrapperClassnames = cx({
+      [theme['has-error']]: error,
+      [theme['is-inverse']]: inverse,
+    });
 
     return (
-      <ReactSelect
-        className={theme['select']}
-        components={{
-          DropdownIndicator: this.getDropDownIndicator(),
-          ...components,
-        }}
-        styles={this.getStyles()}
-        {...rest}
-      />
+      <Box className={wrapperClassnames} {...boxProps}>
+        <ReactSelect
+          className={theme['select']}
+          components={{
+            DropdownIndicator: this.getDropDownIndicator(),
+            ...components,
+          }}
+          styles={this.getStyles()}
+          {...restProps}
+        />
+        {error ? this.renderValidationMessage() : this.renderHelpText()}
+      </Box>
     );
   }
 }
@@ -278,6 +329,10 @@ class Select extends PureComponent {
 Select.propTypes = {
   /** Override default components with your own. Pass an object with correct the key and its replacing component */
   components: PropTypes.object,
+  /** The text string/element to use as error message below the input. */
+  error: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  /** The text string to use as help text below the input. */
+  helpText: PropTypes.string,
   /** Boolean indicating whether the select should render as inverse. */
   inverse: PropTypes.bool,
   /** Size of the input element. */

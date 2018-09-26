@@ -1,20 +1,14 @@
 import React from 'react';
-import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
-import { checkA11y } from 'storybook-addon-a11y';
-import { withKnobs, boolean, number } from '@storybook/addon-knobs/react';
-import { withInfo } from '@storybook/addon-info';
+import { boolean, number } from '@storybook/addon-knobs/react';
 import { Island, Pagination, LinkButton } from '../components';
 
 storiesOf('Pagination', module)
-  .addDecorator((story, context) =>
-    withInfo({
-      TableComponent: PropTable,
+  .addParameters({
+    info: {
       propTablesExclude: [Island],
-    })(story)(context),
-  )
-  .addDecorator(checkA11y)
-  .addDecorator(withKnobs)
+    },
+  })
   .add('Compact', () => (
     <Island style={boolean('Inverse', false) ? { backgroundColor: '#2a3b4d' } : {}}>
       <Pagination

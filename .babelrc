@@ -1,17 +1,18 @@
 {
   "presets": [
-    "es2015",
-    "stage-0",
-    "react"
+    "@babel/preset-env",
+    "@babel/preset-react"
   ],
   "plugins": [
-    "transform-runtime"
+    "@babel/plugin-proposal-export-default-from",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-transform-runtime"
   ],
   "env": {
     "development": {
       "plugins": [
+        "@babel/plugin-transform-react-jsx-source",
         "react-hot-loader/babel",
-        "transform-react-jsx-source"
       ]
     },
     "production": {

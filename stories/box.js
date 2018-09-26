@@ -1,9 +1,6 @@
 import React from 'react';
-import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
-import { checkA11y } from 'storybook-addon-a11y';
-import { withInfo } from '@storybook/addon-info';
-import { withKnobs, number, select } from '@storybook/addon-knobs/react';
+import { number, select } from '@storybook/addon-knobs/react';
 import { Box, TextBody } from '../components';
 
 const displayValues = ['inline', 'inline-block', 'block', 'flex', 'inline-flex'];
@@ -11,20 +8,17 @@ const justifyContentValues = ['center', 'flex-start', 'flex-end', 'space-around'
 
 const spacingOptions = {
   range: true,
-  min: 1,
+  min: 0,
   max: 8,
   step: 1,
 };
 
 storiesOf('Box', module)
-  .addDecorator((story, context) =>
-    withInfo({
+  .addParameters({
+    info: {
       propTablesExclude: [TextBody],
-      TableComponent: PropTable,
-    })(story)(context),
-  )
-  .addDecorator(checkA11y)
-  .addDecorator(withKnobs)
+    },
+  })
   .add('Basic', () => (
     <Box
       style={{ backgroundColor: '#fafafa' }}
