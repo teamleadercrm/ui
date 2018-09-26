@@ -10,7 +10,7 @@ import { events } from '../utils';
 import { calculatePositions } from './positionCalculation';
 import theme from './theme.css';
 
-const factory = axis => {
+const factory = () => {
   class Popover extends PureComponent {
     popoverRoot = document.createElement('div');
 
@@ -52,6 +52,16 @@ const factory = axis => {
     };
 
     setPlacementThrottled = throttle(this.setPlacement, 250);
+
+    getAxis() {
+      const { direction } = this.props;
+
+      if (direction === 'north' || direction === 'south') {
+        return 'vertical';
+      }
+
+      return 'horizontal';
+    }
 
     render() {
       const { left, top, arrowLeft, arrowTop, maxPopoverHeight } = this.state.positioning;
@@ -97,7 +107,7 @@ const factory = axis => {
                   onMouseUp={onOverlayMouseUp}
                 />
                 <div
-                  data-teamleader-ui={`popover-${axis}`}
+                  data-teamleader-ui={`popover-${this.getAxis()}`}
                   className={cx(theme['popover'], className)}
                   style={{ left: `${left}px`, top: `${top}px` }}
                   ref={node => {
@@ -173,6 +183,6 @@ const factory = axis => {
   return Popover;
 };
 
-export const PopoverHorizontal = factory('horizontal');
+export const PopoverHorizontal = factory();
 
-export const PopoverVertical = factory('vertical');
+export const PopoverVertical = factory();
