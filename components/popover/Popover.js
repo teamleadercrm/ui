@@ -165,7 +165,7 @@ Popover.propTypes = {
   /** The function executed, when the mouse is up on the Overlay. */
   onOverlayMouseUp: PropTypes.func,
   /** The position in which the Popover is rendered, is overridden with the another position if the Popover cannot be entirely displayed in the current position. */
-  position: PropTypes.oneOf(['top', 'middle', 'bottom', 'left', 'center', 'right']),
+  position: PropTypes.oneOf(['start', 'center', 'end']),
   /** The tint of the background colour of the Popover. */
   tint: PropTypes.oneOf(['lightest', 'light', 'normal', 'dark', 'darkest']),
 };

@@ -13,8 +13,7 @@ const tints = ['lightest', 'light', 'normal', 'dark', 'darkest'];
 const backdrops = ['transparent', 'dark'];
 const horizontalDirections = ['east', 'west'];
 const verticalDirections = ['north', 'south'];
-const horizontalPositions = ['top', 'middle', 'bottom'];
-const verticalPositions = ['left', 'center', 'right'];
+const positions = ['start', 'center', 'end'];
 
 const handleButtonClick = event => {
   store.set({ anchorEl: event.currentTarget, active: true });
@@ -93,7 +92,7 @@ storiesOf('Popover', module)
           backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
           direction={select('Direction', horizontalDirections, 'west')}
-          position={select('Position', horizontalPositions, 'middle')}
+          position={select('Position', positions, 'center')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
@@ -114,7 +113,7 @@ storiesOf('Popover', module)
           backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
           direction={select('Direction', verticalDirections, 'south')}
-          position={select('Position', verticalPositions, 'center')}
+          position={select('Position', positions, 'center')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
@@ -135,7 +134,7 @@ storiesOf('Popover', module)
           backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
           direction={select('Direction', verticalDirections, 'south')}
-          position={select('Position', verticalPositions, 'center')}
+          position={select('Position', positions, 'center')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
@@ -159,7 +158,7 @@ storiesOf('Popover', module)
           backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
           direction={select('Direction', verticalDirections, 'south')}
-          position={select('Position', verticalPositions, 'center')}
+          position={select('Position', positions, 'center')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
@@ -184,7 +183,7 @@ storiesOf('Popover', module)
           backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
           direction="south"
-          position={select('Position', verticalPositions, 'center')}
+          position={select('Position', positions, 'center')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
@@ -208,7 +207,7 @@ storiesOf('Popover', module)
           backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
           direction={select('Direction', verticalDirections, 'south')}
-          position={select('Position', verticalPositions, 'center')}
+          position={select('Position', positions, 'center')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
@@ -233,7 +232,7 @@ storiesOf('Popover', module)
           backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
           direction={select('Direction', verticalDirections, 'south')}
-          position={select('Position', verticalPositions, 'center')}
+          position={select('Position', positions, 'center')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
@@ -260,7 +259,7 @@ storiesOf('Popover', module)
           backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
           direction={select('Direction', verticalDirections, 'south')}
-          position={select('Position', verticalPositions, 'center')}
+          position={select('Position', positions, 'center')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}

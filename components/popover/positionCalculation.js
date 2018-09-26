@@ -88,11 +88,11 @@ const getHorizontalDirectionPositionTopValue = ({
   inputOffsetCorrection,
 }) => {
   switch (position) {
-    case 'middle':
+    case 'center':
       return anchorPosition.middle - popoverDimensions.height / 2;
-    case 'top':
+    case 'start':
       return anchorPosition.top - POPUP_OFFSET * 0.75 - inputOffsetCorrection;
-    case 'bottom':
+    case 'end':
       return anchorPosition.bottom - popoverDimensions.height + POPUP_OFFSET * 0.75 + inputOffsetCorrection;
   }
 };
@@ -104,11 +104,11 @@ const getHorizontalDirectionPositionLeftValue = ({ direction, anchorPosition, po
 
 const getHorizontalDirectionArrowPositionTopValue = ({ position, popoverDimensions }) => {
   switch (position) {
-    case 'middle':
+    case 'center':
       return popoverDimensions.height / 2 - ARROW_OFFSET;
-    case 'top':
+    case 'start':
       return ARROW_OFFSET * 2.35;
-    case 'bottom':
+    case 'end':
       return popoverDimensions.height - ARROW_OFFSET * 4.5;
   }
 };
@@ -131,9 +131,9 @@ const getVerticalDirectionPositionLeftValue = ({
   switch (position) {
     case 'center':
       return anchorPosition.center - popoverDimensions.width / 2;
-    case 'left':
+    case 'start':
       return anchorPosition.left - inputOffsetCorrection;
-    case 'right':
+    case 'end':
       return anchorPosition.right - popoverDimensions.width + inputOffsetCorrection;
   }
 };
@@ -145,9 +145,9 @@ const getVerticalDirectionArrowPositionLeftValue = ({ position, popoverDimension
   switch (position) {
     case 'center':
       return popoverDimensions.width / 2 - ARROW_OFFSET;
-    case 'left':
+    case 'start':
       return 2 * POPUP_OFFSET;
-    case 'right':
+    case 'end':
       return popoverDimensions.width - POPUP_OFFSET * 3;
   }
 };
@@ -191,65 +191,61 @@ const getDirection = ({ direction, anchorPosition, popoverDimensions }) => {
     : direction;
 };
 
-const isPositionPossible = (position, anchorPosition, popoverDimensions) => {
+const isPositionPossible = (direction, position, anchorPosition, popoverDimensions) =>
+  direction === 'north' || direction === 'south'
+    ? isVerticalDirectionPositionPossible(position, anchorPosition, popoverDimensions)
+    : isHorizontalDirectionPositionPossible(position, anchorPosition, popoverDimensions);
+
+const isVerticalDirectionPositionPossible = (position, anchorPosition, popoverDimensions) => {
   switch (position) {
-    case 'middle':
+    case 'center':
       return (
         anchorPosition.middle + popoverDimensions.height / 2 < window.innerHeight &&
         anchorPosition.middle - popoverDimensions.height / 2 > 0
       );
-    case 'top':
+    case 'start':
       return anchorPosition.top + popoverDimensions.height < window.innerHeight;
-    case 'bottom':
+    case 'end':
       return anchorPosition.bottom - popoverDimensions.height > 0;
+  }
+};
+
+const isHorizontalDirectionPositionPossible = (position, anchorPosition, popoverDimensions) => {
+  switch (position) {
     case 'center':
       return (
         anchorPosition.center + popoverDimensions.width / 2 < window.innerWidth &&
         anchorPosition.center - popoverDimensions.width / 2 > 0
       );
-    case 'left':
+    case 'start':
       return anchorPosition.left + popoverDimensions.width < window.innerWidth;
-    case 'right':
+    case 'end':
       return anchorPosition.right - popoverDimensions.width > 0;
   }
 };
 
 const getOppositePosition = direction => {
   switch (direction) {
-    case 'top':
-      return 'bottom';
-    case 'bottom':
-      return 'top';
-    case 'left':
-      return 'right';
-    case 'right':
-      return 'left';
+    case 'start':
+      return 'end';
+    case 'end':
+      return 'start';
   }
 };
 
-const getPosition = ({ position, anchorPosition, popoverDimensions }) => {
+const getPosition = ({ direction, position, anchorPosition, popoverDimensions }) => {
   if (isPositionPossible(position, anchorPosition, popoverDimensions)) {
     return position;
   }
 
   switch (position) {
-    case 'middle':
-      return isPositionPossible('top', anchorPosition, popoverDimensions)
-        ? 'top'
-        : isPositionPossible('bottom', anchorPosition, popoverDimensions)
-          ? 'bottom'
-          : position;
     case 'center':
-      return isPositionPossible('left', anchorPosition, popoverDimensions)
-        ? 'left'
-        : isPositionPossible('right', anchorPosition, popoverDimensions)
-          ? 'right'
+      return isPositionPossible('start', anchorPosition, popoverDimensions)
+        ? 'start'
+        : isPositionPossible('end', anchorPosition, popoverDimensions)
+          ? 'end'
           : position;
-    case 'top':
-    case 'bottom':
-      return isPositionPossible('middle', anchorPosition, popoverDimensions) ? 'middle' : getOppositePosition(position);
-    case 'left':
-    case 'right':
+    default:
       return isPositionPossible('center', anchorPosition, popoverDimensions) ? 'center' : getOppositePosition(position);
   }
 };
@@ -297,7 +293,7 @@ export const calculatePositions = (
   const popoverDimensions = getElementDimensionValues(popoverEl);
 
   const direction = getDirection({ direction: inputDirection, anchorPosition, popoverDimensions });
-  const position = getPosition({ position: inputPosition, anchorPosition, popoverDimensions });
+  const position = getPosition({ direction, position: inputPosition, anchorPosition, popoverDimensions });
 
   return {
     maxPopoverHeight: getMaxPopoverHeight({
