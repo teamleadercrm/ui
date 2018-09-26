@@ -1,8 +1,5 @@
 import React from 'react';
-import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
-import { checkA11y } from 'storybook-addon-a11y';
-import { withInfo } from '@storybook/addon-info';
 import {
   Box,
   Heading1,
@@ -16,13 +13,11 @@ import {
 } from '../components';
 
 storiesOf('Typography', module)
-  .addDecorator((story, context) =>
-    withInfo({
-      TableComponent: PropTable,
+  .addParameters({
+    info: {
       propTablesExclude: [Box],
-    })(story)(context),
-  )
-  .addDecorator(checkA11y)
+    },
+  })
   .add('Headings', () => (
     <div>
       <Heading1>Heading 1 / font-size: 24px / line-height: 30px / weight: bold (700) / tracking: 0</Heading1>

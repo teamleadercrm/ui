@@ -27,7 +27,6 @@
   position: absolute;
   transition: opacity var(--animation-duration) var(--animation-curve-default);
   max-width: 50vw;
-  min-width: 300px;
 }
 
 .is-entering .popover {
@@ -52,8 +51,10 @@
   background: var(--color-white);
   border: 1px solid;
   border-radius: var(--popover-border-radius);
-  overflow: hidden;
+  overflow: auto;
   position: relative;
+  min-height: calc(2.4 * var(--unit));
+  min-width: calc(2.4 * var(--unit));
 }
 
 .neutral {

@@ -7,36 +7,23 @@ import InjectOverlay from '../overlay';
 import Transition from 'react-transition-group/Transition';
 import ReactResizeDetector from 'react-resize-detector';
 import { events } from '../utils';
-import { calculateHorizontalPositions, calculateVerticalPositions } from './positionCalculation';
+import { calculatePositions } from './positionCalculation';
 import theme from './theme.css';
 
 const factory = (axis, calculatePositions, Overlay) => {
   class Popover extends PureComponent {
     popoverRoot = document.createElement('div');
 
-    state = {
-      positioning: {
-        left: 0,
-        top: 0,
-        arrowLeft: 0,
-        arrowTop: 0,
-      },
-    };
+    state = { positioning: { left: 0, top: 0, arrowLeft: 0, arrowTop: 0, maxPopoverHeight: 'initial' } };
 
     componentDidMount() {
       document.body.appendChild(this.popoverRoot);
 
-      events.addEventsToWindow({
-        resize: this.setPlacementThrottled,
-        scroll: this.setPlacementThrottled,
-      });
+      events.addEventsToWindow({ resize: this.setPlacementThrottled, scroll: this.setPlacementThrottled });
     }
 
     componentWillUnmount() {
-      events.removeEventsFromWindow({
-        resize: this.setPlacementThrottled,
-        scroll: this.setPlacementThrottled,
-      });
+      events.removeEventsFromWindow({ resize: this.setPlacementThrottled, scroll: this.setPlacementThrottled });
 
       document.body.removeChild(this.popoverRoot);
     }
@@ -52,7 +39,14 @@ const factory = (axis, calculatePositions, Overlay) => {
 
       if (this.popoverNode) {
         this.setState({
-          positioning: calculatePositions(anchorEl, this.popoverNode, direction, position, offsetCorrection),
+          positioning: calculatePositions(
+            anchorEl,
+            this.popoverNode,
+            this.popoverContentNode,
+            direction,
+            position,
+            offsetCorrection,
+          ),
         });
       }
     };
@@ -60,7 +54,7 @@ const factory = (axis, calculatePositions, Overlay) => {
     setPlacementThrottled = throttle(this.setPlacement, 250);
 
     render() {
-      const { left, top, arrowLeft, arrowTop } = this.state.positioning;
+      const { left, top, arrowLeft, arrowTop, maxPopoverHeight } = this.state.positioning;
 
       const {
         active,
@@ -111,8 +105,14 @@ const factory = (axis, calculatePositions, Overlay) => {
                   }}
                 >
                   <div className={theme['arrow']} style={{ left: `${arrowLeft}px`, top: `${arrowTop}px` }} />
-                  <div className={theme['inner']}>
-                    {children}
+                  <div className={theme['inner']} style={{ maxHeight: maxPopoverHeight }}>
+                    <div
+                      ref={node => {
+                        this.popoverContentNode = node;
+                      }}
+                    >
+                      {children}
+                    </div>
                     <ReactResizeDetector handleHeight handleWidth onResize={this.setPlacementThrottled} />
                   </div>
                 </div>
@@ -127,21 +127,37 @@ const factory = (axis, calculatePositions, Overlay) => {
   }
 
   Popover.propTypes = {
+    /** The state of the Popover, when true the Popover is rendered otherwise it is not. */
     active: PropTypes.bool,
+    /** The Popovers anchor element. */
     anchorEl: PropTypes.object,
+    /** The background colour of the Overlay. */
     backdrop: PropTypes.string,
+    /** The component wrapped by the Popover. */
     children: PropTypes.node,
+    /** The class names for the wrapper to apply custom styling. */
     className: PropTypes.string,
+    /** The background colour of the Popover. */
     color: PropTypes.oneOf(['aqua', 'gold', 'mint', 'neutral', 'ruby', 'teal', 'violet']),
-    direction: PropTypes.string.isRequired,
+    /** The direction in which the Popover is rendered, is overridden with the opposite direction if the Popover cannot be entirely displayed in the current direction. */
+    direction: PropTypes.oneOf(['north', 'south', 'east', 'west']),
+    /** The scroll state of the body, if true it will not be scrollable. */
     lockScroll: PropTypes.bool,
+    /** The amount of extra translation on the Popover (has no effect if position is "middle" or "center"). */
     offsetCorrection: PropTypes.number,
+    /** The function executed, when the "ESC" key is down. */
     onEscKeyDown: PropTypes.func,
+    /** The function executed, when the Overlay is clicked. */
     onOverlayClick: PropTypes.func,
+    /** The function executed, when the mouse is down on the Overlay. */
     onOverlayMouseDown: PropTypes.func,
+    /** The function executed, when the mouse is being moved over the Overlay. */
     onOverlayMouseMove: PropTypes.func,
+    /** The function executed, when the mouse is up on the Overlay. */
     onOverlayMouseUp: PropTypes.func,
-    position: PropTypes.string.isRequired,
+    /** The position in which the Popover is rendered, is overridden with the another position if the Popover cannot be entirely displayed in the current position. */
+    position: PropTypes.oneOf(['top', 'middle', 'bottom', 'left', 'center', 'right']),
+    /** The tint of the background colour of the Popover. */
     tint: PropTypes.oneOf(['lightest', 'light', 'normal', 'dark', 'darkest']),
   };
 
@@ -157,6 +173,6 @@ const factory = (axis, calculatePositions, Overlay) => {
   return Popover;
 };
 
-export const PopoverHorizontal = factory('horizontal', calculateHorizontalPositions, InjectOverlay);
+export const PopoverHorizontal = factory('horizontal', calculatePositions, InjectOverlay);
 
-export const PopoverVertical = factory('vertical', calculateVerticalPositions, InjectOverlay);
+export const PopoverVertical = factory('vertical', calculatePositions, InjectOverlay);

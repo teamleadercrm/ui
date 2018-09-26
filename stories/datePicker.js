@@ -1,9 +1,6 @@
 import React from 'react';
-import PropTable from './components/propTable';
 import { storiesOf } from '@storybook/react';
-import { checkA11y } from 'storybook-addon-a11y';
-import { withInfo } from '@storybook/addon-info';
-import { withKnobs, boolean, number, select } from '@storybook/addon-knobs/react';
+import { boolean, number, select } from '@storybook/addon-knobs/react';
 import { DatePicker, DatePickerRange, DatePickerInput, DatePickerInputRange } from '../components';
 import { DateTime } from 'luxon';
 import MomentLocaleUtils, { formatDate, parseDate } from 'react-day-picker/moment';
@@ -32,9 +29,6 @@ const preSelectedRange = {
 };
 
 storiesOf('DatePicker', module)
-  .addDecorator((story, context) => withInfo({ TableComponent: PropTable })(story)(context))
-  .addDecorator(checkA11y)
-  .addDecorator(withKnobs)
   .add('Single date', () => {
     const handleOnChange = selectedDate => {
       console.log('Selected date', selectedDate);
@@ -64,6 +58,7 @@ storiesOf('DatePicker', module)
         parseDate={parseDate}
         bold={boolean('Bold', false)}
         disabled={boolean('Disabled', false)}
+        error="This is an error message"
         inverse={boolean('Inverse', false)}
         helpText="Pick a date"
         dayPickerProps={{
@@ -72,10 +67,6 @@ storiesOf('DatePicker', module)
           numberOfMonths: number('Number of months', 2),
           showOutsideDays: boolean('Show outside days', true),
           showWeekNumbers: boolean('Show week numbers', true),
-        }}
-        meta={{
-          error: 'This is an error message',
-          touched: true,
         }}
         onChange={handleOnChange}
         placeholder={inputPlaceholderToday}
@@ -130,12 +121,9 @@ storiesOf('DatePicker', module)
           value: preSelectedRange.selectedEndDate,
         }}
         disabled={boolean('Disabled', false)}
+        error="This is an error message"
         helpText="Pick a start & end date"
         inverse={boolean('Inverse', false)}
-        meta={{
-          error: 'This is an error message',
-          touched: true,
-        }}
         readOnly={boolean('Read only', false)}
         onChange={handleOnChange}
         selectedRange={preSelectedRange}

@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import theme from './theme.css';
 
-class IconButton extends Component {
+class LinkButton extends PureComponent {
   handleMouseUp = event => {
     this.blur();
     if (this.props.onMouseUp) {
@@ -25,14 +25,14 @@ class IconButton extends Component {
   }
 
   render() {
-    const { children, className, disabled, element, icon, size, color, type, ...others } = this.props;
+    const { children, className, disabled, element, icon, iconPlacement, inverse, label, size, ...others } = this.props;
 
     const classNames = cx(
-      theme['button'],
-      theme['icon-button'],
-      theme[color],
+      theme['link-button'],
       {
+        [theme['has-icon-only']]: (!children && !label) || (Array.isArray(children) && !children[0] && !label),
         [theme['is-disabled']]: disabled,
+        [theme['is-inverse']]: inverse,
         [theme[size]]: theme[size],
       },
       className,
@@ -47,34 +47,45 @@ class IconButton extends Component {
       disabled: element === 'button' ? disabled : null,
       onMouseUp: this.handleMouseUp,
       onMouseLeave: this.handleMouseLeave,
-      type: element === 'button' ? type : null,
-      'data-teamleader-ui': 'button',
+      'data-teamleader-ui': 'link-button',
     };
 
-    return React.createElement(element, props, icon, children);
+    return React.createElement(
+      element,
+      props,
+      icon && iconPlacement === 'left' && icon,
+      (label || children) && (
+        <span>
+          {label}
+          {children}
+        </span>
+      ),
+      icon && iconPlacement === 'right' && icon,
+    );
   }
 }
 
-IconButton.propTypes = {
-  children: PropTypes.node,
+LinkButton.propTypes = {
+  children: PropTypes.any,
   className: PropTypes.string,
   disabled: PropTypes.bool,
   /** A custom element to be rendered */
   element: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
   icon: PropTypes.element,
+  iconPlacement: PropTypes.oneOf(['left', 'right']),
+  inverse: PropTypes.bool,
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   onMouseLeave: PropTypes.func,
   onMouseUp: PropTypes.func,
-  size: PropTypes.oneOf(['small', 'medium']),
-  color: PropTypes.oneOf(['neutral', 'white', 'mint', 'violet', 'ruby', 'gold', 'aqua']),
-  type: PropTypes.string,
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
 };
 
-IconButton.defaultProps = {
+LinkButton.defaultProps = {
   className: '',
   element: 'button',
+  iconPlacement: 'left',
+  inverse: false,
   size: 'medium',
-  color: 'neutral',
-  type: 'button',
 };
 
-export default IconButton;
+export default LinkButton;
