@@ -9,14 +9,14 @@
   z-index: 3;
 
   &.data-grid-checkbox-size-small {
-    left: 48px;
+    left: 60px;
   }
 
   &.data-grid-checkbox-size-medium {
-    left: 51px;
+    left: 63px;
   }
 
   &.data-grid-checkbox-size-large {
-    left: 54px;
+    left: 66px;
   }
 }

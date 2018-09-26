@@ -132,54 +132,56 @@ class DataGrid extends PureComponent {
               });
             }
           })}
-        {(selectable || stickyFromLeft > 0) && (
-          <div className={sectionLeftClassNames}>
-            {React.Children.map(children, child => {
-              if (isComponentOfType(HeaderRow, child)) {
-                return React.cloneElement(child, {
-                  checkboxSize,
-                  onSelectionChange: this.handleHeaderRowSelectionChange,
-                  selected: selectedRows.length === children[2].length,
-                  selectable,
-                  sliceTo: stickyFromLeft > 0 ? stickyFromLeft : 0,
-                });
-              } else if (isComponentOfType(BodyRow, child)) {
-                return React.cloneElement(child, {
-                  checkboxSize,
-                  onSelectionChange: (checked, event) => this.handleBodyRowSelectionChange(child.key, event),
-                  selected: selectedRows.indexOf(child.key) !== -1,
-                  selectable,
-                  sliceTo: stickyFromLeft > 0 ? stickyFromLeft : 0,
-                });
-              } else if (isComponentOfType(FooterRow, child)) {
-                return React.cloneElement(child, {
-                  preserveSelectableSpace: selectable,
-                  sliceTo: stickyFromLeft > 0 ? stickyFromLeft : 0,
-                });
-              }
-            })}
-          </div>
-        )}
-        <div className={cx(theme['section'], theme['is-scrollable'])} ref={node => (this.scrollableNode = node)}>
-          {React.Children.map(children, (child, key) => {
-            if (!isComponentOfType(HeaderRowOverlay, child)) {
-              return React.cloneElement(child, {
-                sliceFrom: stickyFromLeft > 0 ? stickyFromLeft : 0,
-                sliceTo: stickyFromRight > 0 ? -stickyFromRight : undefined,
-                ref: rowNode => this.rowNodes.set(key, rowNode),
-              });
-            }
-          })}
-        </div>
-        {stickyFromRight > 0 && (
-          <div className={cx(theme['section'], theme['has-blend-left'])}>
-            {React.Children.map(children, child => {
+        <Box display="flex" className={cx(theme['section-wrapper'])}>
+          {(selectable || stickyFromLeft > 0) && (
+            <div className={sectionLeftClassNames}>
+              {React.Children.map(children, child => {
+                if (isComponentOfType(HeaderRow, child)) {
+                  return React.cloneElement(child, {
+                    checkboxSize,
+                    onSelectionChange: this.handleHeaderRowSelectionChange,
+                    selected: selectedRows.length === children[2].length,
+                    selectable,
+                    sliceTo: stickyFromLeft > 0 ? stickyFromLeft : 0,
+                  });
+                } else if (isComponentOfType(BodyRow, child)) {
+                  return React.cloneElement(child, {
+                    checkboxSize,
+                    onSelectionChange: (checked, event) => this.handleBodyRowSelectionChange(child.key, event),
+                    selected: selectedRows.indexOf(child.key) !== -1,
+                    selectable,
+                    sliceTo: stickyFromLeft > 0 ? stickyFromLeft : 0,
+                  });
+                } else if (isComponentOfType(FooterRow, child)) {
+                  return React.cloneElement(child, {
+                    preserveSelectableSpace: selectable,
+                    sliceTo: stickyFromLeft > 0 ? stickyFromLeft : 0,
+                  });
+                }
+              })}
+            </div>
+          )}
+          <div className={cx(theme['section'], theme['is-scrollable'])} ref={node => (this.scrollableNode = node)}>
+            {React.Children.map(children, (child, key) => {
               if (!isComponentOfType(HeaderRowOverlay, child)) {
-                return React.cloneElement(child, { sliceFrom: -stickyFromRight });
+                return React.cloneElement(child, {
+                  sliceFrom: stickyFromLeft > 0 ? stickyFromLeft : 0,
+                  sliceTo: stickyFromRight > 0 ? -stickyFromRight : undefined,
+                  ref: rowNode => this.rowNodes.set(key, rowNode),
+                });
               }
             })}
           </div>
-        )}
+          {stickyFromRight > 0 && (
+            <div className={cx(theme['section'], theme['has-blend-left'])}>
+              {React.Children.map(children, child => {
+                if (!isComponentOfType(HeaderRowOverlay, child)) {
+                  return React.cloneElement(child, { sliceFrom: -stickyFromRight });
+                }
+              })}
+            </div>
+          )}
+        </Box>
       </Box>
     );
   }

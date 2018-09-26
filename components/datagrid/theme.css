@@ -15,6 +15,10 @@
   border-top: 1px solid var(--color-neutral);
 }
 
+.section-wrapper {
+  width: 100%;
+}
+
 .section {
   display: flex;
   flex-direction: column;
