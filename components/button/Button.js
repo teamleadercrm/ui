@@ -55,11 +55,11 @@ class Button extends PureComponent {
       theme[level],
       {
         [theme['has-icon-only']]: (!children && !label) || (Array.isArray(children) && !children[0] && !label),
-        [theme['inverse']]: inverse && level === 'outline',
+        [theme['is-inverse']]: inverse && (level === 'outline' || level === 'link'),
         [theme['is-disabled']]: disabled,
         [theme['is-full-width']]: fullWidth,
-        [theme['processing']]: processing,
-        [theme['active']]: active,
+        [theme['is-processing']]: processing,
+        [theme['is-active']]: active,
         [theme[size]]: theme[size],
       },
       className,
@@ -89,13 +89,14 @@ class Button extends PureComponent {
         </span>
       ),
       icon && iconPlacement === 'right' && icon,
-      processing && (
-        <LoadingSpinner
-          className={theme['spinner']}
-          color={this.getSpinnerColor()}
-          size={size === 'small' ? 'small' : 'medium'}
-        />
-      ),
+      processing &&
+        level !== 'link' && (
+          <LoadingSpinner
+            className={theme['spinner']}
+            color={this.getSpinnerColor()}
+            size={size === 'small' ? 'small' : 'medium'}
+          />
+        ),
     );
   }
 }
@@ -108,7 +109,7 @@ Button.propTypes = {
   /** A custom element to be rendered */
   element: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
   /** Determines which kind of button to be rendered. */
-  level: PropTypes.oneOf(['outline', 'primary', 'secondary', 'destructive']),
+  level: PropTypes.oneOf(['outline', 'primary', 'secondary', 'destructive', 'link']),
   /** If true, component will be disabled. */
   disabled: PropTypes.bool,
   /** If true, component will be shown in an active state */
@@ -119,7 +120,7 @@ Button.propTypes = {
   icon: PropTypes.element,
   /** The position of the icon inside the button. */
   iconPlacement: PropTypes.oneOf(['left', 'right']),
-  /** If true, component will be rendered in inverse mode. */
+  /** If true, component will be rendered in inverse mode (only for the levels "link" and "outline"). */
   inverse: PropTypes.bool,
   /** The textual label displayed inside the button. */
   label: PropTypes.string,

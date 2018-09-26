@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import { IconButton, LinkButton } from '../button';
+import { IconButton } from '../button';
+import Link from '../link';
 import { TextBody } from '../typography';
 import LoadingSpinner from '../loadingSpinner';
 import { IconCloseMediumOutline } from '@teamleader/ui-icons';
@@ -36,7 +37,13 @@ class Toast extends PureComponent {
 
   renderCustomAction = () => {
     const { action, actionLabel } = this.props;
-    return action && <LinkButton className={theme['action-link']} inverse label={actionLabel} onClick={action} />;
+    return (
+      action && (
+        <Link className={theme['action-link']} onClick={action}>
+          {actionLabel}
+        </Link>
+      )
+    );
   };
 
   renderCustomLink = () => {
