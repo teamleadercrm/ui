@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, number } from '@storybook/addon-knobs/react';
-import { Island, Pagination, LinkButton } from '../components';
+import { Island, Pagination, Button } from '../components';
 
 storiesOf('Pagination', module)
   .addParameters({
@@ -18,7 +18,14 @@ storiesOf('Pagination', module)
       >
         {({ number, text, isActive, ...others }) => {
           return (
-            <LinkButton label={text} disabled={isActive} inverse={boolean('Inverse', false)} size="small" {...others} />
+            <Button
+              level="link"
+              label={text}
+              disabled={isActive}
+              inverse={boolean('Inverse', false)}
+              size="small"
+              {...others}
+            />
           );
         }}
       </Pagination>
@@ -35,7 +42,14 @@ storiesOf('Pagination', module)
       >
         {({ number, text, isActive, ...others }) => {
           return (
-            <LinkButton label={text} disabled={isActive} inverse={boolean('Inverse', false)} size="small" {...others} />
+            <Button
+              level="link"
+              label={text}
+              disabled={isActive}
+              inverse={boolean('Inverse', false)}
+              size="small"
+              {...others}
+            />
           );
         }}
       </Pagination>
