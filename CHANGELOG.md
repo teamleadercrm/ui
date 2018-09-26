@@ -2,7 +2,11 @@
 
 ### Added
 
+- `DataGrid`: the `HeaderRowOverlay` which displays the amount of selected items and bulk actions ([@LennertBlommaert](https://github.com/LennertBlommaert) in [#352](https://github.com/teamleadercrm/ui/pull/352))
+
 ### Changed
+
+- `DataGrid`: the header checkbox does not render as intermediate when some rows are selected ([@LennertBlommaert](https://github.com/LennertBlommaert) in [#352](https://github.com/teamleadercrm/ui/pull/352))
 
 ### Deprecated
 
