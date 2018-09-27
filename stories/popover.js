@@ -31,48 +31,6 @@ const contentBoxWithSingleTextLine = (
       </Link>{' '}
       inside
     </TextBody>
-    <TextBody>
-      This is the popover content with a{' '}
-      <Link href="#" inherit={false}>
-        link
-      </Link>{' '}
-      inside
-    </TextBody>
-    <TextBody>
-      This is the popover content with a{' '}
-      <Link href="#" inherit={false}>
-        link
-      </Link>{' '}
-      inside
-    </TextBody>
-    <TextBody>
-      This is the popover content with a{' '}
-      <Link href="#" inherit={false}>
-        link
-      </Link>{' '}
-      inside
-    </TextBody>
-    <TextBody>
-      This is the popover content with a{' '}
-      <Link href="#" inherit={false}>
-        link
-      </Link>{' '}
-      inside
-    </TextBody>
-    <TextBody>
-      This is the popover content with a{' '}
-      <Link href="#" inherit={false}>
-        link
-      </Link>{' '}
-      inside
-    </TextBody>
-    <TextBody>
-      This is the popover content with a{' '}
-      <Link href="#" inherit={false}>
-        link
-      </Link>{' '}
-      inside
-    </TextBody>
   </Box>
 );
 
@@ -83,7 +41,7 @@ storiesOf('Popover', module)
     },
   })
   .add('Basic', () => (
-    <Box>
+    <Box display="flex" justifyContent="center">
       <Button onClick={handleButtonClick} label="Open a basic Popover" />
       <State store={store}>
         <Popover
@@ -104,7 +62,7 @@ storiesOf('Popover', module)
     </Box>
   ))
   .add('with title', () => (
-    <Box>
+    <Box display="flex" justifyContent="center">
       <Button onClick={handleButtonClick} label="Open titled Popover" />
       <State store={store}>
         <Popover
@@ -128,7 +86,7 @@ storiesOf('Popover', module)
     </Box>
   ))
   .add('with title & subtitle', () => (
-    <Box>
+    <Box display="flex" justifyContent="center">
       <Button onClick={handleButtonClick} label="Open titled & subtitled Popover" />
       <State store={store}>
         <Popover
@@ -153,7 +111,7 @@ storiesOf('Popover', module)
     </Box>
   ))
   .add('with close button', () => (
-    <Box>
+    <Box display="flex" justifyContent="center">
       <Button onClick={handleButtonClick} label="Open Popover with close button" />
       <State store={store}>
         <Popover
@@ -177,7 +135,7 @@ storiesOf('Popover', module)
     </Box>
   ))
   .add('with actions', () => (
-    <Box>
+    <Box display="flex" justifyContent="center">
       <Button onClick={handleButtonClick} label="Open Popover with actions" />
       <State store={store}>
         <Popover
@@ -202,7 +160,7 @@ storiesOf('Popover', module)
     </Box>
   ))
   .add('experiment 1', () => (
-    <Box>
+    <Box display="flex" justifyContent="center">
       <Button onClick={handleButtonClick} label="Open a experimental Popover" />
       <State store={store}>
         <Popover
@@ -229,7 +187,7 @@ storiesOf('Popover', module)
     </Box>
   ))
   .add('experiment 2', () => (
-    <Box>
+    <Box display="flex" justifyContent="center">
       <Button onClick={handleButtonClick} label="Open a experimental Popover" />
       <State store={store}>
         <Popover
