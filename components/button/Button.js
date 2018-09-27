@@ -8,7 +8,23 @@ class Button extends PureComponent {
   getSpinnerColor() {
     const { inverse, level } = this.props;
 
-    return level === 'secondary' || (level === 'outline' && !inverse) ? 'teal' : 'white';
+    switch (level) {
+      case 'secondary':
+        return 'teal';
+      case 'outline':
+        return inverse ? 'neutral' : 'teal';
+    }
+  }
+
+  getSpinnerTint() {
+    const { inverse, level } = this.props;
+
+    switch (level) {
+      case 'secondary':
+        return 'darkest';
+      case 'outline':
+        return inverse ? 'lightest' : 'darkest';
+    }
   }
 
   handleMouseUp = event => {
@@ -95,6 +111,7 @@ class Button extends PureComponent {
             className={theme['spinner']}
             color={this.getSpinnerColor()}
             size={size === 'small' ? 'small' : 'medium'}
+            tint={this.getSpinnerTint()}
           />
         ),
     );
