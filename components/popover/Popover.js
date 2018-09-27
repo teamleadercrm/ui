@@ -52,16 +52,6 @@ class Popover extends PureComponent {
 
   setPlacementThrottled = throttle(this.setPlacement, 250);
 
-  getAxis() {
-    const { direction } = this.props;
-
-    if (direction === 'north' || direction === 'south') {
-      return 'vertical';
-    }
-
-    return 'horizontal';
-  }
-
   render() {
     const { left, top, arrowLeft, arrowTop, maxPopoverHeight } = this.state.positioning;
 
@@ -106,7 +96,7 @@ class Popover extends PureComponent {
                 onMouseUp={onOverlayMouseUp}
               />
               <div
-                data-teamleader-ui={`popover-${this.getAxis()}`}
+                data-teamleader-ui={'popover'}
                 className={cx(theme['popover'], className)}
                 style={{ left: `${left}px`, top: `${top}px` }}
                 ref={node => {
