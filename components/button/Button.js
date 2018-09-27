@@ -13,6 +13,10 @@ class Button extends PureComponent {
         return 'teal';
       case 'outline':
         return inverse ? 'neutral' : 'teal';
+      case 'link':
+        return inverse ? 'neutral' : 'aqua';
+      default:
+        return 'neutral';
     }
   }
 
@@ -24,6 +28,10 @@ class Button extends PureComponent {
         return 'darkest';
       case 'outline':
         return inverse ? 'lightest' : 'darkest';
+      case 'link':
+        return inverse ? 'lightest' : 'dark';
+      default:
+        return 'lightest';
     }
   }
 
@@ -105,15 +113,14 @@ class Button extends PureComponent {
         </span>
       ),
       icon && iconPlacement === 'right' && icon,
-      processing &&
-        level !== 'link' && (
-          <LoadingSpinner
-            className={theme['spinner']}
-            color={this.getSpinnerColor()}
-            size={size === 'small' ? 'small' : 'medium'}
-            tint={this.getSpinnerTint()}
-          />
-        ),
+      processing && (
+        <LoadingSpinner
+          className={theme['spinner']}
+          color={this.getSpinnerColor()}
+          size={size === 'small' ? 'small' : 'medium'}
+          tint={this.getSpinnerTint()}
+        />
+      ),
     );
   }
 }
