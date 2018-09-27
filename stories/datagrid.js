@@ -1,7 +1,19 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, number, select } from '@storybook/addon-knobs/react';
-import { DataGrid, Heading4, IconMenu, MenuItem, Link, StatusBullet, TextSmall, Tooltip } from '../components';
+import {
+  DataGrid,
+  Heading4,
+  IconMenu,
+  MenuItem,
+  Link,
+  StatusBullet,
+  TextSmall,
+  Tooltip,
+  Button,
+  ButtonGroup,
+} from '../components';
+
 import { rows1, rows2 } from '../static/data/datagrid';
 
 const TooltippedStatusBullet = Tooltip(StatusBullet);
@@ -23,6 +35,17 @@ storiesOf('DataGrids', module)
       onSelectionChange={handleRowSelectionChange}
       checkboxSize={select('Checkbox size', ['small', 'medium', 'large'], 'small')}
     >
+      <DataGrid.HeaderRowOverlay
+        numSelectedRowsLabel={numSelectedRows => (numSelectedRows === 1 ? 'sélectionné' : 'sélectionnés')}
+      >
+        <Button size="small" level="primary" label="Marks as paid" />
+        <ButtonGroup segmented marginHorizontal={3}>
+          <Button size="small" label="Book" />
+          <Button size="small" label="Merge" />
+        </ButtonGroup>
+        <Button size="small" level="destructive" label="Delete" />
+      </DataGrid.HeaderRowOverlay>
+
       <DataGrid.HeaderRow>
         <DataGrid.HeaderCell flex="min-width" />
         <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} sorted="asc">
@@ -72,6 +95,15 @@ storiesOf('DataGrids', module)
   ))
   .add('with footer', () => (
     <DataGrid selectable={boolean('Selectable', true)} comparableId={1} onSelectionChange={handleRowSelectionChange}>
+      <DataGrid.HeaderRowOverlay>
+        <Button size="small" level="primary" label="Marks as paid" />
+        <ButtonGroup segmented marginHorizontal={3}>
+          <Button size="small" label="Book" />
+          <Button size="small" label="Merge" />
+        </ButtonGroup>
+        <Button size="small" level="destructive" label="Delete" />
+      </DataGrid.HeaderRowOverlay>
+
       <DataGrid.HeaderRow>
         <DataGrid.HeaderCell flex="min-width" />
         <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} sorted="asc">
@@ -130,6 +162,15 @@ storiesOf('DataGrids', module)
       comparableId={1}
       onSelectionChange={handleRowSelectionChange}
     >
+      <DataGrid.HeaderRowOverlay>
+        <Button size="small" level="primary" label="Marks as paid" />
+        <ButtonGroup segmented marginHorizontal={3}>
+          <Button size="small" label="Book" />
+          <Button size="small" label="Merge" />
+        </ButtonGroup>
+        <Button size="small" level="destructive" label="Delete" />
+      </DataGrid.HeaderRowOverlay>
+
       <DataGrid.HeaderRow>
         <DataGrid.HeaderCell flex="min-width" />
         <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} sorted="asc">
@@ -185,6 +226,15 @@ storiesOf('DataGrids', module)
       comparableId={1}
       onSelectionChange={handleRowSelectionChange}
     >
+      <DataGrid.HeaderRowOverlay>
+        <Button size="small" level="primary" label="Marks as paid" />
+        <ButtonGroup segmented marginHorizontal={3}>
+          <Button size="small" label="Book" />
+          <Button size="small" label="Merge" />
+        </ButtonGroup>
+        <Button size="small" level="destructive" label="Delete" />
+      </DataGrid.HeaderRowOverlay>
+
       <DataGrid.HeaderRow>
         <DataGrid.HeaderCell flex="min-width" />
         <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} sorted="asc">
