@@ -173,9 +173,11 @@ Popover.propTypes = {
 Popover.defaultProps = {
   active: true,
   backdrop: 'dark',
+  direction: 'south',
   color: 'neutral',
   lockScroll: true,
   offsetCorrection: 0,
+  position: 'center',
   tint: 'lightest',
 };
 
