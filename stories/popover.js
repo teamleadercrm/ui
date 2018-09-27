@@ -11,8 +11,7 @@ const store = new Store({
 const colors = ['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'teal'];
 const tints = ['lightest', 'light', 'normal', 'dark', 'darkest'];
 const backdrops = ['transparent', 'dark'];
-const horizontalDirections = ['east', 'west'];
-const verticalDirections = ['north', 'south'];
+const directions = ['north', 'south', 'east', 'west'];
 const positions = ['start', 'center', 'end'];
 
 const handleButtonClick = event => {
@@ -83,36 +82,15 @@ storiesOf('Popover', module)
       propTablesExclude: [Link, TextBody, TextSmall, Button, State, Banner, Heading3, ButtonGroup, Box],
     },
   })
-  .add('horizontal', () => (
+  .add('Basic', () => (
     <Box>
-      <Button onClick={handleButtonClick} label="Open a horizontalPopover" />
+      <Button onClick={handleButtonClick} label="Open a basic Popover" />
       <State store={store}>
         <Popover
           active={false}
           backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
-          direction={select('Direction', horizontalDirections, 'west')}
-          position={select('Position', positions, 'center')}
-          onEscKeyDown={handleCloseClick}
-          onOverlayClick={handleCloseClick}
-          tint={select('Tint', tints, 'lightest')}
-          lockScroll={boolean('Lock scroll', true)}
-          offsetCorrection={number('Offset correction', 0)}
-        >
-          {contentBoxWithSingleTextLine}
-        </Popover>
-      </State>
-    </Box>
-  ))
-  .add('vertical', () => (
-    <Box>
-      <Button onClick={handleButtonClick} label="Open a vertical Popover" />
-      <State store={store}>
-        <Popover
-          active={false}
-          backdrop={select('Backdrop', backdrops, 'transparent')}
-          color={select('Color', colors, 'neutral')}
-          direction={select('Direction', verticalDirections, 'south')}
+          direction={select('Direction', directions, 'south')}
           position={select('Position', positions, 'center')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
@@ -133,7 +111,7 @@ storiesOf('Popover', module)
           active={false}
           backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
-          direction={select('Direction', verticalDirections, 'south')}
+          direction={select('Direction', directions, 'south')}
           position={select('Position', positions, 'center')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
@@ -157,7 +135,7 @@ storiesOf('Popover', module)
           active={false}
           backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
-          direction={select('Direction', verticalDirections, 'south')}
+          direction={select('Direction', directions, 'south')}
           position={select('Position', positions, 'center')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
@@ -206,7 +184,7 @@ storiesOf('Popover', module)
           active={false}
           backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
-          direction={select('Direction', verticalDirections, 'south')}
+          direction={select('Direction', directions, 'south')}
           position={select('Position', positions, 'center')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
@@ -231,7 +209,7 @@ storiesOf('Popover', module)
           active={false}
           backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
-          direction={select('Direction', verticalDirections, 'south')}
+          direction={select('Direction', directions, 'south')}
           position={select('Position', positions, 'center')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
@@ -258,7 +236,7 @@ storiesOf('Popover', module)
           active={false}
           backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
-          direction={select('Direction', verticalDirections, 'south')}
+          direction={select('Direction', directions, 'south')}
           position={select('Position', positions, 'center')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
