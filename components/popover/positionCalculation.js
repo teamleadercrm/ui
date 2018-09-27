@@ -9,8 +9,8 @@ const getElementPositionValues = element => {
     left,
     right,
     bottom,
-    middle: top + (bottom - top) / 2,
-    center: left + (right - left) / 2,
+    centerY: top + (bottom - top) / 2,
+    centerX: left + (right - left) / 2,
   };
 };
 
@@ -89,7 +89,7 @@ const getHorizontalDirectionPositionTopValue = ({
 }) => {
   switch (position) {
     case 'center':
-      return anchorPosition.middle - popoverDimensions.height / 2;
+      return anchorPosition.centerY - popoverDimensions.height / 2;
     case 'start':
       return anchorPosition.top - POPUP_OFFSET * 0.75 - inputOffsetCorrection;
     case 'end':
@@ -130,7 +130,7 @@ const getVerticalDirectionPositionLeftValue = ({
 }) => {
   switch (position) {
     case 'center':
-      return anchorPosition.center - popoverDimensions.width / 2;
+      return anchorPosition.centerX - popoverDimensions.width / 2;
     case 'start':
       return anchorPosition.left - inputOffsetCorrection;
     case 'end':
@@ -200,8 +200,8 @@ const isVerticalDirectionPositionPossible = (position, anchorPosition, popoverDi
   switch (position) {
     case 'center':
       return (
-        anchorPosition.middle + popoverDimensions.height / 2 < window.innerHeight &&
-        anchorPosition.middle - popoverDimensions.height / 2 > 0
+        anchorPosition.centerY + popoverDimensions.height / 2 < window.innerHeight &&
+        anchorPosition.centerY - popoverDimensions.height / 2 > 0
       );
     case 'start':
       return anchorPosition.top + popoverDimensions.height < window.innerHeight;
@@ -214,8 +214,8 @@ const isHorizontalDirectionPositionPossible = (position, anchorPosition, popover
   switch (position) {
     case 'center':
       return (
-        anchorPosition.center + popoverDimensions.width / 2 < window.innerWidth &&
-        anchorPosition.center - popoverDimensions.width / 2 > 0
+        anchorPosition.centerX + popoverDimensions.width / 2 < window.innerWidth &&
+        anchorPosition.centerX - popoverDimensions.width / 2 > 0
       );
     case 'start':
       return anchorPosition.left + popoverDimensions.width < window.innerWidth;
