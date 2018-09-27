@@ -1,0 +1,22 @@
+@import '@teamleader/ui-colors';
+@import '@teamleader/ui-typography';
+
+.header-row-overlay {
+  background: var(--color-neutral-light);
+  position: absolute;
+  right: 0;
+  height: 48px;
+  z-index: 3;
+
+  &.data-grid-checkbox-size-small {
+    left: 60px;
+  }
+
+  &.data-grid-checkbox-size-medium {
+    left: 63px;
+  }
+
+  &.data-grid-checkbox-size-large {
+    left: 66px;
+  }
+}
