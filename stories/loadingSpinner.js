@@ -9,8 +9,8 @@ const tints = ['lightest', 'light', 'normal', 'dark', 'darkest'];
 
 storiesOf('Loading spinners', module).add('Basic', () => (
   <LoadingSpinner
-    color={select('Color', colors, 'neutral')}
+    color={select('Color', colors, 'teal')}
     size={select('Size', sizes, 'medium')}
-    tint={select('Tint', tints, 'lightest')}
+    tint={select('Tint', tints, 'darkest')}
   />
 ));
