@@ -20,7 +20,7 @@ import Overlay from './overlay';
 import LoadingMolecule from './loadingMolecule';
 import LoadingSpinner from './loadingSpinner';
 import Pagination from './pagination';
-import { PopoverHorizontal, PopoverVertical } from './popover';
+import Popover from './popover';
 import { RadioButton, RadioGroup } from './radio';
 import Section from './section';
 import Select, { AsyncSelect } from './select';
@@ -77,8 +77,7 @@ export {
   Monospaced,
   Overlay,
   Pagination,
-  PopoverHorizontal,
-  PopoverVertical,
+  Popover,
   ProgressTracker,
   RadioButton,
   RadioGroup,
