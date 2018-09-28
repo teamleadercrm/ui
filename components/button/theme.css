@@ -416,6 +416,10 @@
   &.has-icon-only:hover {
     background-color: color(var(--color-neutral-darkest) a(0.24));
   }
+
+  &.is-processing {
+    color: transparent;
+  }
 }
 
 /* Button sizes */
