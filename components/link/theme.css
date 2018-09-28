@@ -5,6 +5,10 @@
 .link {
   composes: reset-font-smoothing;
   cursor: pointer;
+  background: transparent;
+  border: 0;
+  font-size: 100%;
+  padding: 0;
 
   &:not(.inherit) {
     color: var(--color-aqua-dark);
