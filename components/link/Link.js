@@ -28,6 +28,8 @@ class Link extends PureComponent {
 Link.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
+  /** The icon displayed inside the button. */
+  icon: PropTypes.element,
   inherit: PropTypes.bool,
   element: PropTypes.element,
 };
