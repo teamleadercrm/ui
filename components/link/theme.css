@@ -10,6 +10,15 @@
   font-size: 100%;
   padding: 0;
 
+  svg {
+    transform: translateY(-1px);
+  }
+
+  * + svg,
+  svg + * {
+    margin-left: var(--spacer-smallest);
+  }
+
   &:not(.inherit) {
     color: var(--color-aqua-dark);
     font-family: var(--font-family-regular);
