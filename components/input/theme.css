@@ -235,6 +235,10 @@
   }
 }
 
+.has-spinner .input {
+  border-radius: var(--input-border-radius) 0 0 var(--input-border-radius);
+}
+
 .icon,
 .counter {
   position: absolute;
