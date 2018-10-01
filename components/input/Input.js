@@ -116,8 +116,6 @@ export default class Input extends PureComponent {
       'connectedRight',
       'counter',
       'helpText',
-      'icon',
-      'iconPlacement',
       'inverse',
       'onChange',
       'size',
@@ -149,17 +147,6 @@ export default class Input extends PureComponent {
     if (this.props.counter) {
       return <Counter className={theme['counter']} count={this.props.counter} color="ruby" size="small" />;
     }
-  }
-
-  renderIcon() {
-    const { icon } = this.props;
-
-    return (
-      icon &&
-      createElement(icon, {
-        className: theme['icon'],
-      })
-    );
   }
 
   renderHelpText() {
@@ -222,8 +209,6 @@ export default class Input extends PureComponent {
       counter,
       disabled,
       error,
-      icon,
-      iconPlacement,
       inverse,
       prefix,
       size,
@@ -238,7 +223,6 @@ export default class Input extends PureComponent {
       theme['wrapper'],
       theme[`is-${size}`],
       {
-        [theme[`has-icon-${iconPlacement}`]]: icon,
         [theme['has-counter']]: counter,
         [theme['has-error']]: error,
         [theme['has-connected-left']]: connectedLeft,
@@ -262,7 +246,6 @@ export default class Input extends PureComponent {
         <div className={inputWrapperClassnames}>
           {connectedLeft}
           <div className={theme['input-inner-wrapper']}>
-            {this.renderIcon()}
             {prefix}
             {this.renderInput()}
             {suffix}
@@ -292,10 +275,6 @@ Input.propTypes = {
   error: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   /** The text string to use as help text below the input. */
   helpText: PropTypes.string,
-  /** The icon displayed inside the input. */
-  icon: PropTypes.oneOfType([PropTypes.func, PropTypes.element]),
-  /** The position of the icon inside the input. */
-  iconPlacement: PropTypes.oneOf(['left', 'right']),
   /** Boolean indicating whether the input should render as inverse. */
   inverse: PropTypes.bool,
   max: PropTypes.number,
@@ -323,7 +302,6 @@ Input.propTypes = {
 };
 
 Input.defaultProps = {
-  iconPlacement: 'left',
   inverse: false,
   disabled: false,
   min: Number.MIN_SAFE_INTEGER,
