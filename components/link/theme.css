@@ -11,7 +11,7 @@
   padding: 0;
 
   svg {
-    transform: translateY(-2px);
+    transform: translate3d(0, -2px, 0);
   }
 
   * + svg,
