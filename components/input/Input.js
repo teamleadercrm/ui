@@ -201,8 +201,10 @@ export default class Input extends PureComponent {
       disabled,
       error,
       inverse,
+      prefix,
       size,
       spinner,
+      suffix,
       readOnly,
       type,
       ...others
@@ -234,7 +236,9 @@ export default class Input extends PureComponent {
         <div className={inputWrapperClassnames}>
           {connectedLeft}
           <div className={theme['input-inner-wrapper']}>
+            {prefix}
             {this.renderInput()}
+            {suffix}
             {this.renderSpinnerControls()}
           </div>
           {connectedRight}
