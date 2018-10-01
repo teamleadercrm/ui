@@ -9,7 +9,6 @@ import {
 } from '@teamleader/ui-icons';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import Button from '../button';
-import Counter from '../counter';
 import { TextSmall } from '../typography';
 import theme from './theme.css';
 
@@ -114,7 +113,6 @@ export default class Input extends PureComponent {
       'className',
       'connectedLeft',
       'connectedRight',
-      'counter',
       'helpText',
       'inverse',
       'onChange',
@@ -141,12 +139,6 @@ export default class Input extends PureComponent {
     };
 
     return <input {...props} />;
-  }
-
-  renderCounter() {
-    if (this.props.counter) {
-      return <Counter className={theme['counter']} count={this.props.counter} color="ruby" size="small" />;
-    }
   }
 
   renderHelpText() {
@@ -206,7 +198,6 @@ export default class Input extends PureComponent {
       className,
       connectedLeft,
       connectedRight,
-      counter,
       disabled,
       error,
       inverse,
@@ -223,7 +214,6 @@ export default class Input extends PureComponent {
       theme['wrapper'],
       theme[`is-${size}`],
       {
-        [theme['has-counter']]: counter,
         [theme['has-error']]: error,
         [theme['has-connected-left']]: connectedLeft,
         [theme['has-connected-right']]: connectedRight,
@@ -249,7 +239,6 @@ export default class Input extends PureComponent {
             {prefix}
             {this.renderInput()}
             {suffix}
-            {this.renderCounter()}
             {this.renderSpinnerControls()}
           </div>
           {connectedRight}
@@ -267,8 +256,6 @@ Input.propTypes = {
   className: PropTypes.string,
   connectedLeft: PropTypes.element,
   connectedRight: PropTypes.element,
-  /** The number to render as a counter inside the input. */
-  counter: PropTypes.number,
   /** Boolean indicating whether the input should render as disabled. */
   disabled: PropTypes.bool,
   /** The text string/element to use as error message below the input. */
