@@ -9,7 +9,6 @@ import {
 } from '@teamleader/ui-icons';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import Button from '../button';
-import Counter from '../counter';
 import { TextSmall } from '../typography';
 import theme from './theme.css';
 
@@ -114,10 +113,7 @@ export default class Input extends PureComponent {
       'className',
       'connectedLeft',
       'connectedRight',
-      'counter',
       'helpText',
-      'icon',
-      'iconPlacement',
       'inverse',
       'onChange',
       'size',
@@ -143,12 +139,6 @@ export default class Input extends PureComponent {
     };
 
     return <input {...props} />;
-  }
-
-  renderCounter() {
-    if (this.props.counter) {
-      return <Counter className={theme['counter']} count={this.props.counter} color="ruby" size="small" />;
-    }
   }
 
   renderHelpText() {
@@ -208,14 +198,13 @@ export default class Input extends PureComponent {
       className,
       connectedLeft,
       connectedRight,
-      counter,
       disabled,
       error,
-      icon,
-      iconPlacement,
       inverse,
+      prefix,
       size,
       spinner,
+      suffix,
       readOnly,
       type,
       ...others
@@ -225,8 +214,6 @@ export default class Input extends PureComponent {
       theme['wrapper'],
       theme[`is-${size}`],
       {
-        [theme[`has-icon-${iconPlacement}`]]: icon,
-        [theme['has-counter']]: counter,
         [theme['has-error']]: error,
         [theme['has-connected-left']]: connectedLeft,
         [theme['has-connected-right']]: connectedRight,
@@ -249,12 +236,9 @@ export default class Input extends PureComponent {
         <div className={inputWrapperClassnames}>
           {connectedLeft}
           <div className={theme['input-inner-wrapper']}>
-            {icon &&
-              createElement(icon, {
-                className: theme['icon'],
-              })}
+            {prefix}
             {this.renderInput()}
-            {this.renderCounter()}
+            {suffix}
             {this.renderSpinnerControls()}
           </div>
           {connectedRight}
@@ -272,18 +256,12 @@ Input.propTypes = {
   className: PropTypes.string,
   connectedLeft: PropTypes.element,
   connectedRight: PropTypes.element,
-  /** The number to render as a counter inside the input. */
-  counter: PropTypes.number,
   /** Boolean indicating whether the input should render as disabled. */
   disabled: PropTypes.bool,
   /** The text string/element to use as error message below the input. */
   error: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   /** The text string to use as help text below the input. */
   helpText: PropTypes.string,
-  /** The icon displayed inside the input. */
-  icon: PropTypes.oneOfType([PropTypes.func, PropTypes.element]),
-  /** The position of the icon inside the input. */
-  iconPlacement: PropTypes.oneOf(['left', 'right']),
   /** Boolean indicating whether the input should render as inverse. */
   inverse: PropTypes.bool,
   max: PropTypes.number,
@@ -294,12 +272,16 @@ Input.propTypes = {
   onBlur: PropTypes.func,
   /** Callback function that is fired when the component's value changes. */
   onChange: PropTypes.func,
+  /** The text string/element to use as a prefix inside the input field */
+  prefix: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   /** Boolean indicating whether the input should render as read only. */
   readOnly: PropTypes.bool,
   /** Size of the input element. */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   /** Limit increment value for numeric inputs. */
   step: PropTypes.number,
+  /** The text string/element to use as a suffix inside the input field */
+  suffix: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   /** Type of the input element. It can be a valid HTML5 input type. */
   type: PropTypes.string,
   /** Current value of the input element. */
@@ -307,7 +289,6 @@ Input.propTypes = {
 };
 
 Input.defaultProps = {
-  iconPlacement: 'left',
   inverse: false,
   disabled: false,
   min: Number.MIN_SAFE_INTEGER,
