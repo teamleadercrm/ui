@@ -294,6 +294,8 @@ Input.propTypes = {
   onBlur: PropTypes.func,
   /** Callback function that is fired when the component's value changes. */
   onChange: PropTypes.func,
+  /** The text string/element to use as a prefix inside the input field */
+  prefix: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   /** Boolean indicating whether the input should render as read only. */
   readOnly: PropTypes.bool,
   /** Size of the input element. */
