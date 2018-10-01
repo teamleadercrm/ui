@@ -227,6 +227,7 @@
 
   &:focus {
     outline: none;
+    z-index: 1;
   }
 
   &.is-bold {
