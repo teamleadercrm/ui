@@ -276,6 +276,8 @@ Input.propTypes = {
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   /** Limit increment value for numeric inputs. */
   step: PropTypes.number,
+  /** The text string/element to use as a suffix inside the input field */
+  suffix: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   /** Type of the input element. It can be a valid HTML5 input type. */
   type: PropTypes.string,
   /** Current value of the input element. */
