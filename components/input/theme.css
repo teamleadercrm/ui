@@ -234,12 +234,6 @@
   }
 }
 
-.has-spinner {
-  .input {
-    padding-right: calc(var(--spinner-width) + var(--input-horizontal-padding));
-  }
-}
-
 .icon,
 .counter {
   position: absolute;
@@ -302,12 +296,6 @@
   .spinner {
     height: var(--input-height-large);
     width: var(--spinner-width-large);
-  }
-
-  &.has-spinner {
-    .input {
-      padding-right: calc(var(--spinner-width-large) + var(--input-horizontal-padding));
-    }
   }
 
   &.has-icon-left {
