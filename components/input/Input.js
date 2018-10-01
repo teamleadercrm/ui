@@ -1,4 +1,4 @@
-import React, { PureComponent, createElement } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import omit from 'lodash.omit';
@@ -114,8 +114,6 @@ export default class Input extends PureComponent {
       'connectedLeft',
       'connectedRight',
       'helpText',
-      'icon',
-      'iconPlacement',
       'inverse',
       'onChange',
       'size',
@@ -202,8 +200,6 @@ export default class Input extends PureComponent {
       connectedRight,
       disabled,
       error,
-      icon,
-      iconPlacement,
       inverse,
       size,
       spinner,
@@ -216,7 +212,6 @@ export default class Input extends PureComponent {
       theme['wrapper'],
       theme[`is-${size}`],
       {
-        [theme[`has-icon-${iconPlacement}`]]: icon,
         [theme['has-error']]: error,
         [theme['has-connected-left']]: connectedLeft,
         [theme['has-connected-right']]: connectedRight,
@@ -239,10 +234,6 @@ export default class Input extends PureComponent {
         <div className={inputWrapperClassnames}>
           {connectedLeft}
           <div className={theme['input-inner-wrapper']}>
-            {icon &&
-              createElement(icon, {
-                className: theme['icon'],
-              })}
             {this.renderInput()}
             {this.renderSpinnerControls()}
           </div>
@@ -267,10 +258,6 @@ Input.propTypes = {
   error: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   /** The text string to use as help text below the input. */
   helpText: PropTypes.string,
-  /** The icon displayed inside the input. */
-  icon: PropTypes.oneOfType([PropTypes.func, PropTypes.element]),
-  /** The position of the icon inside the input. */
-  iconPlacement: PropTypes.oneOf(['left', 'right']),
   /** Boolean indicating whether the input should render as inverse. */
   inverse: PropTypes.bool,
   max: PropTypes.number,
@@ -294,7 +281,6 @@ Input.propTypes = {
 };
 
 Input.defaultProps = {
-  iconPlacement: 'left',
   inverse: false,
   disabled: false,
   min: Number.MIN_SAFE_INTEGER,
