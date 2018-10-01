@@ -151,6 +151,17 @@ export default class Input extends PureComponent {
     }
   }
 
+  renderIcon() {
+    const { icon } = this.props;
+
+    return (
+      icon &&
+      createElement(icon, {
+        className: theme['icon'],
+      })
+    );
+  }
+
   renderHelpText() {
     const { helpText, inverse } = this.props;
 
@@ -249,10 +260,7 @@ export default class Input extends PureComponent {
         <div className={inputWrapperClassnames}>
           {connectedLeft}
           <div className={theme['input-inner-wrapper']}>
-            {icon &&
-              createElement(icon, {
-                className: theme['icon'],
-              })}
+            {this.renderIcon()}
             {this.renderInput()}
             {this.renderCounter()}
             {this.renderSpinnerControls()}
