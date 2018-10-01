@@ -116,8 +116,10 @@ export default class Input extends PureComponent {
       'helpText',
       'inverse',
       'onChange',
+      'prefix',
       'size',
       'spinner',
+      'suffix',
       'value',
     ]);
 
