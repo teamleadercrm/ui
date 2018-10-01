@@ -16,7 +16,7 @@ class Link extends PureComponent {
     );
 
     const ChildrenWrapper = icon ? 'span' : Fragment;
-    const Element = element || 'a';
+    const Element = element;
 
     return (
       <Element className={classNames} data-teamleader-ui="link" {...others}>
@@ -41,6 +41,7 @@ Link.propTypes = {
 
 Link.defaultProps = {
   className: '',
+  element: 'a',
   inherit: true,
 };
 
