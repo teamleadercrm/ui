@@ -69,6 +69,12 @@ export default class Input extends PureComponent {
     this.updateValue(event, event.target.value);
   };
 
+  handleFocus = event => {
+    if (this.props.onFocus) {
+      this.props.onFocus(event);
+    }
+  };
+
   handleIncreaseValue = event => {
     this.updateStep(event, 1);
   };
@@ -135,6 +141,7 @@ export default class Input extends PureComponent {
       className: classNames,
       onBlur: this.handleBlur,
       onChange: this.handleChange,
+      onFocus: this.handleFocus,
       type,
       value,
       ...restProps,
