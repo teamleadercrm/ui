@@ -48,6 +48,7 @@ export default class Input extends PureComponent {
   }
 
   state = {
+    inputHasFocus: false,
     value: '',
   };
 
