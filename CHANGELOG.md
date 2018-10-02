@@ -26,6 +26,8 @@
 
 ### Fixed
 
+- `Input`: fixed the failing Storybook build by avoiding the usage of Math.max() ([@driesd](https://github.com/driesd) in [#379](https://github.com/teamleadercrm/ui/pull/379))
+
 ## [0.15.2] - 2018-09-25
 
 ### Added

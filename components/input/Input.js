@@ -45,7 +45,13 @@ export default class Input extends PureComponent {
 
   bindToMinMax(value) {
     const { min, max } = this.props;
-    return Math.min(Math.max(value, min), max);
+
+    if (value > max) {
+      return max;
+    } else if (value < min) {
+      return min;
+    }
+    return value;
   }
 
   state = {
