@@ -132,11 +132,15 @@
         }
       }
 
-      .input {
-        &:focus {
+      &.has-focus {
+        .input-inner-wrapper {
           border-color: var(--color-teal-light);
           box-shadow: 0 0 0 1px var(--color-teal-light);
+        }
+      }
 
+      .input {
+        &:focus {
           + .spinner {
             .spinner-up,
             .spinner-down {
