@@ -29,6 +29,10 @@
 .wrapper {
   width: 100%;
 
+  &.has-focus .input-inner-wrapper {
+    z-index: 1;
+  }
+
   &:not(.is-inverse) {
     .icon {
       color: var(--color-neutral-darkest);
@@ -239,7 +243,6 @@
 
   &:focus {
     outline: none;
-    z-index: 1;
   }
 
   &.is-bold {
