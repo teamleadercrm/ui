@@ -275,7 +275,7 @@ Input.propTypes = {
   /** Callback function that is fired when the component's value changes. */
   onChange: PropTypes.func,
   /** The text string/element to use as a prefix inside the input field */
-  prefix: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  prefix: PropTypes.oneOfType([PropTypes.array, PropTypes.element]),
   /** Boolean indicating whether the input should render as read only. */
   readOnly: PropTypes.bool,
   /** Size of the input element. */
@@ -283,7 +283,7 @@ Input.propTypes = {
   /** Limit increment value for numeric inputs. */
   step: PropTypes.number,
   /** The text string/element to use as a suffix inside the input field */
-  suffix: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  suffix: PropTypes.oneOfType([PropTypes.array, PropTypes.element]),
   /** Type of the input element. It can be a valid HTML5 input type. */
   type: PropTypes.string,
   /** Current value of the input element. */
