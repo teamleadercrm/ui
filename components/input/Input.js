@@ -213,11 +213,14 @@ export default class Input extends PureComponent {
       ...others
     } = this.props;
 
+    const { inputHasFocus } = this.state;
+
     const classNames = cx(
       theme['wrapper'],
       theme[`is-${size}`],
       {
         [theme['has-error']]: error,
+        [theme['has-focus']]: inputHasFocus,
         [theme['has-connected-left']]: connectedLeft,
         [theme['has-connected-right']]: connectedRight,
         [theme['has-spinner']]: type === 'number' && spinner,
