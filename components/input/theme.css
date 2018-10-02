@@ -44,8 +44,6 @@
     }
 
     .input {
-      background: transparent;
-      border: 0;
       color: var(--color-teal-darkest);
 
       &::placeholder {
@@ -219,6 +217,8 @@
   width: 100%;
   padding: 0 var(--input-horizontal-padding);
 
+  background: transparent;
+  border: 0;
   border-radius: var(--input-border-radius);
   box-shadow: 0;
 
