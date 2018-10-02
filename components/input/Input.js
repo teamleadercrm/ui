@@ -276,6 +276,8 @@ Input.propTypes = {
   spinner: PropTypes.bool,
   /** Callback function that is fired when blurring the input field. */
   onBlur: PropTypes.func,
+  /** Callback function that is fired when focusing the input field. */
+  onFocus: PropTypes.func,
   /** Callback function that is fired when the component's value changes. */
   onChange: PropTypes.func,
   /** The text string/element to use as a prefix inside the input field */
