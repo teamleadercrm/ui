@@ -9,15 +9,11 @@
   --input-height-medium: calc(3.4 * var(--unit));
   --input-height-small: calc(3 * var(--unit));
   --input-horizontal-padding: calc(0.5 * var(--unit));
-  --input-horizontal-padding-icon-large: calc(3.5 * var(--unit));
-  --input-horizontal-padding-icon: calc(2.2 * var(--unit));
   --input-text-size: calc(1.4 * var(--unit));
   --input-text-size-large: calc(1.6 * var(--unit));
   --input-border-radius: calc(0.4 * var(--unit));
   --input-error-border: var(--color-ruby-dark);
   --input-error-border-inverse: var(--color-ruby-light);
-
-  --icon-horizontal: calc(0.5 * var(--unit));
 
   --spinner-width: calc(3 * var(--unit));
   --spinner-width-large: calc(3.6 * var(--unit));
@@ -34,10 +30,6 @@
   }
 
   &:not(.is-inverse) {
-    .icon {
-      color: var(--color-neutral-darkest);
-    }
-
     .input-inner-wrapper {
       background: var(--color-white);
       border: 1px solid var(--color-neutral-dark);
@@ -103,10 +95,6 @@
   }
 
   &.is-inverse {
-    .icon {
-      color: var(--color-teal-light);
-    }
-
     .input-inner-wrapper {
       background: var(--color-teal);
       border: 1px solid var(--color-teal);
@@ -286,22 +274,6 @@
   border-radius: var(--input-border-radius) 0 0 var(--input-border-radius);
 }
 
-.icon,
-.counter {
-  position: absolute;
-  z-index: 1;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.icon {
-  left: var(--icon-horizontal);
-}
-
-.counter {
-  right: var(--icon-horizontal);
-}
-
 .spinner {
   display: flex;
   flex-direction: column;
@@ -350,18 +322,6 @@
     height: var(--input-height-large);
     width: var(--spinner-width-large);
   }
-
-  &.has-icon-left {
-    .input {
-      padding-left: var(--input-horizontal-padding-icon-large);
-    }
-  }
-
-  &.has-icon-right {
-    .input {
-      padding-right: var(--input-horizontal-padding-icon-large);
-    }
-  }
 }
 
 .is-small {
@@ -387,24 +347,6 @@
   .spinner-up,
   .spinner-down {
     border-radius: 0;
-  }
-}
-
-.has-icon-left {
-  .input {
-    padding-left: var(--input-horizontal-padding-icon);
-  }
-}
-
-.has-icon-right,
-.has-counter {
-  .input {
-    padding-right: var(--input-horizontal-padding-icon);
-  }
-
-  .icon {
-    left: auto;
-    right: var(--icon-horizontal);
   }
 }
 
