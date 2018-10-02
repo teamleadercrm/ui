@@ -153,9 +153,12 @@
     }
 
     &.is-disabled {
-      .input {
+      .input-inner-wrapper {
         background-color: var(--color-teal-dark);
         border-color: var(--color-teal-dark);
+      }
+
+      .input {
         color: var(--color-teal);
 
         &::placeholder {
