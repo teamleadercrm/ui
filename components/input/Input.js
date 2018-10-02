@@ -61,7 +61,7 @@ export default class Input extends PureComponent {
     }
 
     if (this.props.onBlur) {
-      this.props.onBlur();
+      this.props.onBlur(event);
     }
   };
 
