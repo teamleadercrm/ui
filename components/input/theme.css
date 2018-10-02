@@ -139,6 +139,13 @@
         }
       }
 
+      &:active {
+        .input-inner-wrapper {
+          border-color: var(--color-teal-light);
+          box-shadow: inset 0 1px 3px 0 color(var(--color-teal-darkest) a(0.48));
+        }
+      }
+
       .input {
         &:focus {
           + .spinner {
@@ -147,11 +154,6 @@
               border-color: var(--color-teal-light);
             }
           }
-        }
-
-        &:active {
-          border-color: var(--color-neutral-darkest);
-          box-shadow: inset 0 1px 3px 0 color(var(--color-teal-darkest) a(0.48));
         }
       }
     }
