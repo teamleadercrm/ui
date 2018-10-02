@@ -8,7 +8,7 @@ class LoadingBar extends PureComponent {
 
     return (
       <svg version="1.1" xmlns="http://www.w3.org/2000/svg" className={classNames}>
-        <rect width="20%" height="100%" rx="2px" ry="2px" className={theme['loading-bar-indicator']} />
+        <rect width="20%" height="100%" x="-25%" rx="2px" ry="2px" className={theme['loading-bar-indicator']} />
       </svg>
     );
   }

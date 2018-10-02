@@ -6,7 +6,20 @@
 
   background-color: var(--color-mint-lightest);
 
+  overflow: hidden;
+
   &-indicator {
     fill: var(--color-mint);
+    animation: slideOut 2s ease infinite;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(130%);
   }
 }
