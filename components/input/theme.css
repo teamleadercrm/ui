@@ -95,7 +95,7 @@
     }
 
     &.is-read-only {
-      .input {
+      .input-inner-wrapper {
         background-color: var(--color-neutral);
         border-color: var(--color-neutral);
       }
