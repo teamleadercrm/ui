@@ -40,6 +40,7 @@
     }
 
     .input {
+      background: transparent;
       border: 0;
       color: var(--color-teal-darkest);
 
