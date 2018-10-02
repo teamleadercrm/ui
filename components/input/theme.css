@@ -122,6 +122,10 @@
 
     &:not(.is-disabled):not(.is-read-only) {
       &:hover {
+        .input-inner-wrapper {
+          border-color: var(--color-teal-light);
+        }
+
         .spinner-up,
         .spinner-down {
           border-color: var(--color-teal-light);
@@ -129,10 +133,6 @@
       }
 
       .input {
-        &:hover {
-          border-color: var(--color-teal-light);
-        }
-
         &:focus {
           border-color: var(--color-teal-light);
           box-shadow: 0 0 0 1px var(--color-teal-light);
