@@ -186,6 +186,7 @@
 }
 
 .input-inner-wrapper {
+  display: flex;
   flex: 1;
   position: relative;
 }
@@ -226,6 +227,7 @@
 
   &:focus {
     outline: none;
+    z-index: 1;
   }
 
   &.is-bold {
@@ -233,10 +235,8 @@
   }
 }
 
-.has-spinner {
-  .input {
-    padding-right: calc(var(--spinner-width) + var(--input-horizontal-padding));
-  }
+.has-spinner .input {
+  border-radius: var(--input-border-radius) 0 0 var(--input-border-radius);
 }
 
 .icon,
@@ -256,14 +256,10 @@
 }
 
 .spinner {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
   display: flex;
   flex-direction: column;
-  height: 100%;
-
+  height: var(--input-height-medium);
+  margin-left: -1px;
   width: var(--spinner-width);
 }
 
@@ -303,13 +299,8 @@
   }
 
   .spinner {
+    height: var(--input-height-large);
     width: var(--spinner-width-large);
-  }
-
-  &.has-spinner {
-    .input {
-      padding-right: calc(var(--spinner-width-large) + var(--input-horizontal-padding));
-    }
   }
 
   &.has-icon-left {
@@ -326,7 +317,8 @@
 }
 
 .is-small {
-  .input {
+  .input,
+  .spinner {
     height: var(--input-height-small);
   }
 }
