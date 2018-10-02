@@ -60,11 +60,15 @@
         }
       }
 
-      .input {
-        &:focus {
+      &.has-focus {
+        .input-inner-wrapper {
           border-color: var(--color-neutral-darkest);
           box-shadow: 0 0 0 1px var(--color-neutral-darkest);
+        }
+      }
 
+      .input {
+        &:focus {
           + .spinner {
             .spinner-up,
             .spinner-down {
