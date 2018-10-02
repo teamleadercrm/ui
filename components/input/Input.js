@@ -60,6 +60,8 @@ export default class Input extends PureComponent {
       this.updateValue(event, parsedValue);
     }
 
+    this.setState({ inputHasFocus: false });
+
     if (this.props.onBlur) {
       this.props.onBlur(event);
     }
@@ -70,6 +72,8 @@ export default class Input extends PureComponent {
   };
 
   handleFocus = event => {
+    this.setState({ inputHasFocus: true });
+
     if (this.props.onFocus) {
       this.props.onFocus(event);
     }
