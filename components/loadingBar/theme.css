@@ -1,0 +1,12 @@
+@import '@teamleader/ui-colors';
+
+.loading-bar {
+  width: 100%;
+  height: 3px;
+
+  background-color: var(--color-mint-lightest);
+
+  &-indicator {
+    fill: var(--color-mint);
+  }
+}
