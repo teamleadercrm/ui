@@ -137,23 +137,17 @@
           border-color: var(--color-teal-light);
           box-shadow: 0 0 0 1px var(--color-teal-light);
         }
+
+        .spinner-up,
+        .spinner-down {
+          border-color: var(--color-teal-light);
+        }
       }
 
       &:active {
         .input-inner-wrapper {
           border-color: var(--color-teal-light);
           box-shadow: inset 0 1px 3px 0 color(var(--color-teal-darkest) a(0.48));
-        }
-      }
-
-      .input {
-        &:focus {
-          + .spinner {
-            .spinner-up,
-            .spinner-down {
-              border-color: var(--color-teal-light);
-            }
-          }
         }
       }
     }
