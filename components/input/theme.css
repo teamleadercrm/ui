@@ -50,6 +50,10 @@
 
     &:not(.is-disabled):not(.is-read-only) {
       &:hover {
+        .input-inner-wrapper {
+          border-color: var(--color-neutral-darkest);
+        }
+
         .spinner-up,
         .spinner-down {
           border-color: var(--color-neutral-darkest);
@@ -57,10 +61,6 @@
       }
 
       .input {
-        &:hover {
-          border-color: var(--color-neutral-darkest);
-        }
-
         &:focus {
           border-color: var(--color-neutral-darkest);
           box-shadow: 0 0 0 1px var(--color-neutral-darkest);
