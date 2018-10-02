@@ -1,3 +1,4 @@
+@import '@teamleader/ui-animations';
 @import '@teamleader/ui-colors';
 
 .loading-bar {
@@ -10,7 +11,7 @@
 
   &-indicator {
     fill: var(--color-mint);
-    animation: slideOut 2s ease infinite;
+    animation: slideOut calc(var(--animation-duration) * 5) ease infinite;
   }
 }
 
