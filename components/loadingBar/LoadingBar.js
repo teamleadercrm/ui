@@ -26,9 +26,13 @@ class LoadingBar extends PureComponent {
 }
 
 LoadingBar.propTypes = {
+  /** A class name for the wrapper to add custom classes */
   className: PropTypes.string,
+  /** The color of the components */
   color: PropTypes.oneOf(['aqua', 'gold', 'mint', 'neutral', 'ruby', 'teal', 'violet']),
+  /** Size of the component */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
+  /** The tint of the components color */
   tint: PropTypes.oneOf(['lightest', 'light', 'normal', 'dark', 'darkest']),
 };
 
