@@ -7,7 +7,7 @@ import theme from './theme.css';
 
 class LoadingBar extends PureComponent {
   render() {
-    const { className, color, size, tint } = this.props;
+    const { className, color, size, tint, ...others } = this.props;
 
     const classNames = cx(
       theme['loading-bar'],
@@ -18,7 +18,7 @@ class LoadingBar extends PureComponent {
     );
 
     return (
-      <Box data-teamleader-ui="loading-bar" className={classNames}>
+      <Box data-teamleader-ui="loading-bar" className={classNames} {...others}>
         <Box className={theme['loading-bar-indicator']} />
       </Box>
     );
