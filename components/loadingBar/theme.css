@@ -5,13 +5,9 @@
   width: 100%;
   height: 3px;
 
-  background-color: var(--color-mint-lightest);
-
   overflow: hidden;
 
   &-indicator {
-    background-color: var(--color-mint);
-
     width: 20%;
     height: 100%;
 
@@ -21,6 +17,62 @@
     border-radius: 4px;
 
     animation: slideOut calc(var(--animation-duration) * 5) ease infinite;
+  }
+}
+
+.is-neutral {
+  background-color: var(--color-neutral-lightest);
+
+  & .loading-bar-indicator {
+    background-color: var(--color-neutral);
+  }
+}
+
+.is-mint {
+  background-color: var(--color-mint-lightest);
+
+  & .loading-bar-indicator {
+    background-color: var(--color-mint);
+  }
+}
+
+.is-violet {
+  background-color: var(--color-violet-lightest);
+
+  & .loading-bar-indicator {
+    background-color: var(--color-violet);
+  }
+}
+
+.is-ruby {
+  background-color: var(--color-ruby-lightest);
+
+  & .loading-bar-indicator {
+    background-color: var(--color-ruby);
+  }
+}
+
+.is-gold {
+  background-color: var(--color-gold-lightest);
+
+  & .loading-bar-indicator {
+    background-color: var(--color-gold);
+  }
+}
+
+.is-aqua {
+  background-color: var(--color-aqua-lightest);
+
+  & .loading-bar-indicator {
+    background-color: var(--color-aqua);
+  }
+}
+
+.is-teal {
+  background-color: var(--color-teal-lightest);
+
+  & .loading-bar-indicator {
+    background-color: var(--color-teal);
   }
 }
 
