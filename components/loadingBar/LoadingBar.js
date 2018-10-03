@@ -1,12 +1,15 @@
 import React, { PureComponent } from 'react';
 import cx from 'classnames';
+import PropTypes from 'prop-types';
 
 import Box from '../box';
 import theme from './theme.css';
 
 class LoadingBar extends PureComponent {
   render() {
-    const classNames = cx(theme['loading-bar']);
+    const { className } = this.props;
+
+    const classNames = cx(theme['loading-bar'], className);
 
     return (
       <Box data-teamleader-ui="loading-bar" className={classNames}>
@@ -15,5 +18,9 @@ class LoadingBar extends PureComponent {
     );
   }
 }
+
+LoadingBar.propTypes = {
+  className: PropTypes.string,
+};
 
 export default LoadingBar;
