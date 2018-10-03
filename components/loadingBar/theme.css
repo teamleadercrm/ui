@@ -4,6 +4,8 @@
 .loading-bar {
   width: 100%;
 
+  will-change: transform;
+
   overflow: hidden;
 
   &-indicator {
