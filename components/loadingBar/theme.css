@@ -1,6 +1,16 @@
 @import '@teamleader/ui-animations';
 @import '@teamleader/ui-colors';
 
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(650%);
+  }
+}
+
 .loading-bar {
   width: 100%;
 
@@ -324,15 +334,5 @@
     & .loading-bar-indicator {
       background-color: var(--color-teal-darkest);
     }
-  }
-}
-
-@keyframes slideOut {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(650%);
   }
 }
