@@ -173,7 +173,8 @@
   }
 
   > *:first-child {
-    border-radius: var(--input-border-radius) 0 0 var(--input-border-radius);
+    border-top-left-radius: var(--input-border-radius);
+    border-bottom-left-radius: var(--input-border-radius);
   }
 
   > *:first-child:not(.input-inner-wrapper) {
@@ -181,7 +182,8 @@
   }
 
   > *:last-child {
-    border-radius: 0 var(--input-border-radius) var(--input-border-radius) 0;
+    border-top-right-radius: var(--input-border-radius);
+    border-bottom-right-radius: var(--input-border-radius);
   }
 
   > *:last-child:not(.input-inner-wrapper) {
@@ -194,6 +196,7 @@
   align-items: center;
   display: flex;
   flex: 1;
+  overflow: hidden;
   position: relative;
 }
 
@@ -215,7 +218,7 @@
 
   background: transparent;
   border: 0;
-  border-radius: var(--input-border-radius);
+  border-radius: 0;
   box-shadow: 0;
 
   font-size: var(--input-text-size);
@@ -270,10 +273,6 @@
   }
 }
 
-.has-spinner .input {
-  border-radius: var(--input-border-radius) 0 0 var(--input-border-radius);
-}
-
 .spinner {
   display: flex;
   flex-direction: column;
@@ -284,17 +283,16 @@
 
 .spinner-up,
 .spinner-down {
+  border-radius: 0;
   min-width: 0;
   padding: 0 !important;
 }
 
 .spinner-up {
-  border-radius: 0 var(--input-border-radius) 0 0;
   border-width: 0 0 1px 1px !important;
 }
 
 .spinner-down {
-  border-radius: 0 0 var(--input-border-radius) 0;
   border-width: 0 0 0 1px !important;
 }
 
