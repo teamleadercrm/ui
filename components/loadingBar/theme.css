@@ -24,7 +24,7 @@
 
     border-radius: 4px;
 
-    animation: slideOut calc(var(--animation-duration) * 20) ease infinite;
+    animation: slideOut calc(var(--animation-duration) * 5) ease infinite;
   }
 }
 
