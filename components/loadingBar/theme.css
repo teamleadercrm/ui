@@ -21,7 +21,7 @@
 }
 
 .is-neutral {
-  background-color: var(--color-neutral-lightest);
+  background-color: color(var(--color-neutral) a(18%));
 
   & .loading-bar-indicator {
     background-color: var(--color-neutral);
@@ -29,7 +29,7 @@
 }
 
 .is-mint {
-  background-color: var(--color-mint-lightest);
+  background-color: color(var(--color-mint) a(18%));
 
   & .loading-bar-indicator {
     background-color: var(--color-mint);
@@ -37,7 +37,7 @@
 }
 
 .is-violet {
-  background-color: var(--color-violet-lightest);
+  background-color: color(var(--color-violet) a(18%));
 
   & .loading-bar-indicator {
     background-color: var(--color-violet);
@@ -45,7 +45,7 @@
 }
 
 .is-ruby {
-  background-color: var(--color-ruby-lightest);
+  background-color: color(var(--color-ruby) a(18%));
 
   & .loading-bar-indicator {
     background-color: var(--color-ruby);
@@ -53,7 +53,7 @@
 }
 
 .is-gold {
-  background-color: var(--color-gold-lightest);
+  background-color: color(var(--color-gold) a(18%));
 
   & .loading-bar-indicator {
     background-color: var(--color-gold);
@@ -61,7 +61,7 @@
 }
 
 .is-aqua {
-  background-color: var(--color-aqua-lightest);
+  background-color: color(var(--color-aqua) a(18%));
 
   & .loading-bar-indicator {
     background-color: var(--color-aqua);
@@ -69,7 +69,7 @@
 }
 
 .is-teal {
-  background-color: var(--color-teal-lightest);
+  background-color: color(var(--color-teal) a(18%));
 
   & .loading-bar-indicator {
     background-color: var(--color-teal);
