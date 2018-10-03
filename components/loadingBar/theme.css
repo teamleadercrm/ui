@@ -10,7 +10,16 @@
   overflow: hidden;
 
   &-indicator {
-    fill: var(--color-mint);
+    background-color: var(--color-mint);
+
+    width: 20%;
+    height: 100%;
+
+    position: relative;
+    left: -25%;
+
+    border-radius: 4px;
+
     animation: slideOut calc(var(--animation-duration) * 5) ease infinite;
   }
 }
@@ -21,6 +30,6 @@
   }
 
   to {
-    transform: translateX(130%);
+    transform: translateX(650%);
   }
 }
