@@ -1,5 +1,6 @@
 @import '@teamleader/ui-animations';
 @import '@teamleader/ui-colors';
+@import '@teamleader/ui-utilities';
 
 @keyframes slideOut {
   to {
@@ -28,15 +29,15 @@
 }
 
 .is-small {
-  height: 3px;
+  height: var(--spacer-unit);
 }
 
 .is-medium {
-  height: 6px;
+  height: calc(var(--spacer-unit) * 2);
 }
 
 .is-large {
-  height: 9px;
+  height: calc(var(--spacer-unit) * 3);
 }
 
 .is-neutral {
