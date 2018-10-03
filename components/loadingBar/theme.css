@@ -4,7 +4,7 @@
 
 @keyframes slideOut {
   to {
-    transform: translateX(650%);
+    transform: translate3d(650%, 0, 0);
   }
 }
 
