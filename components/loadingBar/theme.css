@@ -3,7 +3,6 @@
 
 .loading-bar {
   width: 100%;
-  height: 3px;
 
   overflow: hidden;
 
@@ -18,6 +17,18 @@
 
     animation: slideOut calc(var(--animation-duration) * 5) ease infinite;
   }
+}
+
+.is-small {
+  height: 3px;
+}
+
+.is-medium {
+  height: 6px;
+}
+
+.is-large {
+  height: 9px;
 }
 
 .is-neutral {
