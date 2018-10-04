@@ -217,10 +217,8 @@ export default class Input extends PureComponent {
       inverse,
       prefix,
       size,
-      spinner,
       suffix,
       readOnly,
-      type,
       ...others
     } = this.props;
 
@@ -234,7 +232,6 @@ export default class Input extends PureComponent {
         [theme['has-focus']]: inputHasFocus,
         [theme['has-connected-left']]: connectedLeft,
         [theme['has-connected-right']]: connectedRight,
-        [theme['has-spinner']]: type === 'number' && spinner,
         [theme['is-inverse']]: inverse,
         [theme['is-disabled']]: disabled,
         [theme['is-read-only']]: readOnly,
