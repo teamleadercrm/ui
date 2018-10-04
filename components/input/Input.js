@@ -1,4 +1,4 @@
-import React, { PureComponent, createElement } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import omit from 'lodash.omit';
@@ -9,7 +9,6 @@ import {
 } from '@teamleader/ui-icons';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import Button from '../button';
-import Counter from '../counter';
 import { TextSmall } from '../typography';
 import theme from './theme.css';
 
@@ -49,6 +48,7 @@ export default class Input extends PureComponent {
   }
 
   state = {
+    inputHasFocus: false,
     value: '',
   };
 
@@ -60,13 +60,23 @@ export default class Input extends PureComponent {
       this.updateValue(event, parsedValue);
     }
 
+    this.setState({ inputHasFocus: false });
+
     if (this.props.onBlur) {
-      this.props.onBlur();
+      this.props.onBlur(event);
     }
   };
 
   handleChange = event => {
     this.updateValue(event, event.target.value);
+  };
+
+  handleFocus = event => {
+    this.setState({ inputHasFocus: true });
+
+    if (this.props.onFocus) {
+      this.props.onFocus(event);
+    }
   };
 
   handleIncreaseValue = event => {
@@ -114,14 +124,13 @@ export default class Input extends PureComponent {
       'className',
       'connectedLeft',
       'connectedRight',
-      'counter',
       'helpText',
-      'icon',
-      'iconPlacement',
       'inverse',
       'onChange',
+      'prefix',
       'size',
       'spinner',
+      'suffix',
       'value',
     ]);
 
@@ -136,6 +145,7 @@ export default class Input extends PureComponent {
       className: classNames,
       onBlur: this.handleBlur,
       onChange: this.handleChange,
+      onFocus: this.handleFocus,
       type,
       value,
       ...restProps,
@@ -143,12 +153,6 @@ export default class Input extends PureComponent {
     };
 
     return <input {...props} />;
-  }
-
-  renderCounter() {
-    if (this.props.counter) {
-      return <Counter className={theme['counter']} count={this.props.counter} color="ruby" size="small" />;
-    }
   }
 
   renderHelpText() {
@@ -203,34 +207,39 @@ export default class Input extends PureComponent {
     );
   }
 
+  renderOneOrMultipleElements(prop) {
+    if (Array.isArray(prop)) {
+      return prop.map((element, index) => React.cloneElement(element, { key: index }));
+    }
+
+    return prop;
+  }
+
   render() {
     const {
       className,
       connectedLeft,
       connectedRight,
-      counter,
       disabled,
       error,
-      icon,
-      iconPlacement,
       inverse,
+      prefix,
       size,
-      spinner,
+      suffix,
       readOnly,
-      type,
       ...others
     } = this.props;
+
+    const { inputHasFocus } = this.state;
 
     const classNames = cx(
       theme['wrapper'],
       theme[`is-${size}`],
       {
-        [theme[`has-icon-${iconPlacement}`]]: icon,
-        [theme['has-counter']]: counter,
         [theme['has-error']]: error,
+        [theme['has-focus']]: inputHasFocus,
         [theme['has-connected-left']]: connectedLeft,
         [theme['has-connected-right']]: connectedRight,
-        [theme['has-spinner']]: type === 'number' && spinner,
         [theme['is-inverse']]: inverse,
         [theme['is-disabled']]: disabled,
         [theme['is-read-only']]: readOnly,
@@ -238,23 +247,16 @@ export default class Input extends PureComponent {
       className,
     );
 
-    const inputWrapperClassnames = cx(theme['input-wrapper'], {
-      [theme['has-error']]: error,
-    });
-
     const rest = pickBoxProps(others);
 
     return (
       <Box className={classNames} {...rest}>
-        <div className={inputWrapperClassnames}>
+        <div className={theme['input-wrapper']}>
           {connectedLeft}
           <div className={theme['input-inner-wrapper']}>
-            {icon &&
-              createElement(icon, {
-                className: theme['icon'],
-              })}
+            {prefix && <div className={theme['prefix-wrapper']}>{this.renderOneOrMultipleElements(prefix)}</div>}
             {this.renderInput()}
-            {this.renderCounter()}
+            {suffix && <div className={theme['suffix-wrapper']}>{this.renderOneOrMultipleElements(suffix)}</div>}
             {this.renderSpinnerControls()}
           </div>
           {connectedRight}
@@ -272,18 +274,12 @@ Input.propTypes = {
   className: PropTypes.string,
   connectedLeft: PropTypes.element,
   connectedRight: PropTypes.element,
-  /** The number to render as a counter inside the input. */
-  counter: PropTypes.number,
   /** Boolean indicating whether the input should render as disabled. */
   disabled: PropTypes.bool,
   /** The text string/element to use as error message below the input. */
   error: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   /** The text string to use as help text below the input. */
   helpText: PropTypes.string,
-  /** The icon displayed inside the input. */
-  icon: PropTypes.oneOfType([PropTypes.func, PropTypes.element]),
-  /** The position of the icon inside the input. */
-  iconPlacement: PropTypes.oneOf(['left', 'right']),
   /** Boolean indicating whether the input should render as inverse. */
   inverse: PropTypes.bool,
   max: PropTypes.number,
@@ -292,14 +288,20 @@ Input.propTypes = {
   spinner: PropTypes.bool,
   /** Callback function that is fired when blurring the input field. */
   onBlur: PropTypes.func,
+  /** Callback function that is fired when focusing the input field. */
+  onFocus: PropTypes.func,
   /** Callback function that is fired when the component's value changes. */
   onChange: PropTypes.func,
+  /** The text string/element to use as a prefix inside the input field */
+  prefix: PropTypes.oneOfType([PropTypes.array, PropTypes.element]),
   /** Boolean indicating whether the input should render as read only. */
   readOnly: PropTypes.bool,
   /** Size of the input element. */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   /** Limit increment value for numeric inputs. */
   step: PropTypes.number,
+  /** The text string/element to use as a suffix inside the input field */
+  suffix: PropTypes.oneOfType([PropTypes.array, PropTypes.element]),
   /** Type of the input element. It can be a valid HTML5 input type. */
   type: PropTypes.string,
   /** Current value of the input element. */
@@ -307,7 +309,6 @@ Input.propTypes = {
 };
 
 Input.defaultProps = {
-  iconPlacement: 'left',
   inverse: false,
   disabled: false,
   min: Number.MIN_SAFE_INTEGER,

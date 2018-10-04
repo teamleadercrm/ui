@@ -17,6 +17,7 @@ import Menu, { IconMenu, MenuItem, MenuDivider } from './menu';
 import Link from './link';
 import Message from './message';
 import Overlay from './overlay';
+import LoadingBar from './loadingBar';
 import LoadingMolecule from './loadingMolecule';
 import LoadingSpinner from './loadingSpinner';
 import Pagination from './pagination';
@@ -68,6 +69,7 @@ export {
   IslandGroup,
   Label,
   Link,
+  LoadingBar,
   LoadingMolecule,
   LoadingSpinner,
   Menu,
