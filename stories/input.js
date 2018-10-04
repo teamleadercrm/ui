@@ -1,13 +1,32 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, number, select } from '@storybook/addon-knobs/react';
-import { Button, Checkbox, Icon, Input, Label, TextSmall, Tooltip } from '../components';
-import { IconCalendarMediumOutline, IconCalendarSmallOutline, IconInfoBadgedSmallFilled } from '@teamleader/ui-icons';
+import {
+  Button,
+  Checkbox,
+  Counter,
+  Icon,
+  Input,
+  Label,
+  LoadingSpinner,
+  TextBody,
+  TextSmall,
+  Tooltip,
+} from '../components';
+import { IconCalendarSmallOutline, IconInfoBadgedSmallFilled } from '@teamleader/ui-icons';
 
-const iconPlacement = ['left', 'right'];
 const colors = ['aqua', 'gold', 'mint', 'neutral', 'ruby', 'teal', 'violet'];
 const sizes = ['small', 'medium', 'large'];
 const tints = ['lightest', 'light', 'normal', 'dark', 'darkest'];
+
+const prefix = [
+  <Icon color="neutral" tint="darkest">
+    <IconCalendarSmallOutline />
+  </Icon>,
+  <TextBody color="neutral">€</TextBody>,
+];
+
+const suffix = [<TextSmall color="neutral">incl. BTW</TextSmall>, <Counter count={99} />, <LoadingSpinner />];
 
 const props = {
   helpText: 'This is the fields help text',
@@ -69,39 +88,11 @@ storiesOf('Inputs', module)
       />
     </Label>
   ))
-  .add('with icon', () => (
-    <Label htmlFor="input1" inverse={boolean('Inverse', false)} size={select('Size', sizes, 'medium')}>
-      Input label
-      <Input
-        icon={select('Size', sizes, 'medium') === 'large' ? IconCalendarMediumOutline : IconCalendarSmallOutline}
-        iconPlacement={select('Icon placement', iconPlacement, 'left')}
-        id="input1"
-        bold={boolean('Bold', false)}
-        disabled={boolean('Disabled', false)}
-        readOnly={boolean('Read only', false)}
-        {...props}
-      />
-    </Label>
-  ))
-  .add('with counter', () => (
-    <Label htmlFor="input1" inverse={boolean('Inverse', false)} size={select('Size', sizes, 'medium')}>
-      Input label
-      <Input
-        id="input1"
-        size="small"
-        counter={99}
-        bold={boolean('Bold', false)}
-        disabled={boolean('Disabled', false)}
-        readOnly={boolean('Read only', false)}
-        {...props}
-      />
-    </Label>
-  ))
   .add('with error', () => (
     <Label htmlFor="input1" inverse={boolean('Inverse', false)} size={select('Size', sizes, 'medium')}>
       Input label
       <Input
-        error={<span>This is an error message</span>}
+        error="This is an error message"
         id="input1"
         size="small"
         value="wrong value"
@@ -136,6 +127,20 @@ storiesOf('Inputs', module)
         bold={boolean('Bold', false)}
         disabled={boolean('Disabled', false)}
         readOnly={boolean('Read only', false)}
+        {...props}
+      />
+    </Label>
+  ))
+  .add('with prefix or suffix', () => (
+    <Label htmlFor="input1" inverse={boolean('Inverse', false)} size={select('Size', sizes, 'medium')}>
+      Input label
+      <Input
+        id="input1"
+        bold={boolean('Bold', false)}
+        disabled={boolean('Disabled', false)}
+        readOnly={boolean('Read only', false)}
+        prefix={prefix}
+        suffix={suffix}
         {...props}
       />
     </Label>
