@@ -177,17 +177,9 @@
     border-bottom-left-radius: var(--input-border-radius);
   }
 
-  > *:first-child:not(.input-inner-wrapper) {
-    border-right: 0;
-  }
-
   > *:last-child {
     border-top-right-radius: var(--input-border-radius);
     border-bottom-right-radius: var(--input-border-radius);
-  }
-
-  > *:last-child:not(.input-inner-wrapper) {
-    border-left: 0;
   }
 }
 
@@ -330,44 +322,31 @@
 }
 
 .has-connected-left {
-  .input {
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
+  .input-wrapper *:first-child:focus {
+    z-index: 3;
+  }
+
+  .input-inner-wrapper {
+    margin-left: -1px;
   }
 }
 
 .has-connected-right {
-  .input {
-    border-bottom-right-radius: 0;
-    border-top-right-radius: 0;
+  .input-wrapper *:last-child:focus {
+    z-index: 2;
   }
 
-  .spinner-up,
-  .spinner-down {
-    border-radius: 0;
+  .input-inner-wrapper + * {
+    margin-left: -1px;
   }
 }
 
 .has-error {
   &:not(.is-inverse) {
-    &.has-connected-left .input-wrapper > *:first-child,
-    &.has-connected-right .input-wrapper > *:last-child,
-    .input {
+    &:not(.has-focus) .input-inner-wrapper {
       border-color: var(--input-error-border) !important;
-    }
-
-    .spinner-down {
-      border-bottom-color: var(--input-error-border);
-      border-right-color: var(--input-error-border);
-    }
-
-    .spinner-up {
-      border-top-color: var(--input-error-border);
-      border-right-color: var(--input-error-border);
-    }
-
-    .input-wrapper {
-      box-shadow: 0 0 0 1px var(--input-error-border);
+      box-shadow: 0 0 0 1px var(--input-error-border) !important;
+      z-index: 2;
     }
 
     .validation-icon {
@@ -380,24 +359,10 @@
   }
 
   &.is-inverse {
-    &.has-connected-left .input-wrapper > *:first-child,
-    &.has-connected-right .input-wrapper > *:last-child,
-    .input {
+    &:not(.has-focus) .input-inner-wrapper {
       border-color: var(--input-error-border-inverse) !important;
-    }
-
-    .spinner-down {
-      border-bottom-color: var(--input-error-border-inverse);
-      border-right-color: var(--input-error-border-inverse);
-    }
-
-    .spinner-up {
-      border-top-color: var(--input-error-border-inverse);
-      border-right-color: var(--input-error-border-inverse);
-    }
-
-    .input-wrapper {
-      box-shadow: 0 0 0 1px var(--input-error-border-inverse);
+      box-shadow: 0 0 0 1px var(--input-error-border-inverse) !important;
+      z-index: 2;
     }
 
     .validation-text {
