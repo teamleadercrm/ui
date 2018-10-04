@@ -36,7 +36,7 @@ Link.propTypes = {
   /** The position of the icon inside the button. */
   iconPlacement: PropTypes.oneOf(['left', 'right']),
   inherit: PropTypes.bool,
-  element: PropTypes.element,
+  element: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
 };
 
 Link.defaultProps = {
