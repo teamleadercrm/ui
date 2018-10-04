@@ -292,6 +292,10 @@
   color: var(--color-ruby-dark);
 }
 
+.validation-icon {
+  margin-top: -1px;
+}
+
 /**
  * Modifiers
  */
@@ -347,10 +351,6 @@
       border-color: var(--input-error-border) !important;
       box-shadow: 0 0 0 1px var(--input-error-border) !important;
       z-index: 2;
-    }
-
-    .validation-icon {
-      margin-top: -1px;
     }
 
     .validation-text {
