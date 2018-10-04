@@ -77,7 +77,7 @@
   }
 }
 
-@each $item-alignment in (center, flex-start, flex-end) {
+@each $item-alignment in (center, flex-start, flex-end, baseline, stretch) {
   .align-items-$(item-alignment) {
     align-items: $item-alignment;
   }
