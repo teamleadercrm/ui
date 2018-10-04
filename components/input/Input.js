@@ -240,15 +240,17 @@ export default class Input extends PureComponent {
     );
 
     const rest = pickBoxProps(others);
+    const prefixes = prefix.map((prefix, index) => React.cloneElement(prefix, { key: `prefix-${index}` }));
+    const suffixes = suffix.map((suffix, index) => React.cloneElement(suffix, { key: `suffix-${index}` }));
 
     return (
       <Box className={classNames} {...rest}>
         <div className={theme['input-wrapper']}>
           {connectedLeft}
           <div className={theme['input-inner-wrapper']}>
-            {prefix && <div className={theme['prefix-wrapper']}>{prefix}</div>}
+            {prefix && <div className={theme['prefix-wrapper']}>{prefixes}</div>}
             {this.renderInput()}
-            {suffix && <div className={theme['suffix-wrapper']}>{suffix}</div>}
+            {suffix && <div className={theme['suffix-wrapper']}>{suffixes}</div>}
             {this.renderSpinnerControls()}
           </div>
           {connectedRight}
