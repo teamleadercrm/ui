@@ -249,9 +249,9 @@ export default class Input extends PureComponent {
         <div className={theme['input-wrapper']}>
           {connectedLeft}
           <div className={theme['input-inner-wrapper']}>
-            <div className={theme['prefix-wrapper']}>{prefix}</div>
+            {prefix && <div className={theme['prefix-wrapper']}>{prefix}</div>}
             {this.renderInput()}
-            <div className={theme['suffix-wrapper']}>{suffix}</div>
+            {suffix && <div className={theme['suffix-wrapper']}>{suffix}</div>}
             {this.renderSpinnerControls()}
           </div>
           {connectedRight}
