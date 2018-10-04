@@ -19,7 +19,7 @@ class LoadingBar extends PureComponent {
 
     return (
       <Box data-teamleader-ui="loading-bar" className={classNames} {...others}>
-        <Box className={theme['loading-bar-indicator']} />
+        <div className={theme['loading-bar-indicator']} />
       </Box>
     );
   }
