@@ -242,15 +242,11 @@ export default class Input extends PureComponent {
       className,
     );
 
-    const inputWrapperClassnames = cx(theme['input-wrapper'], {
-      [theme['has-error']]: error,
-    });
-
     const rest = pickBoxProps(others);
 
     return (
       <Box className={classNames} {...rest}>
-        <div className={inputWrapperClassnames}>
+        <div className={theme['input-wrapper']}>
           {connectedLeft}
           <div className={theme['input-inner-wrapper']}>
             <div className={theme['prefix-wrapper']}>{prefix}</div>
