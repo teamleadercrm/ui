@@ -1,0 +1,61 @@
+@import '@teamleader/ui-animations';
+@import '@teamleader/ui-colors';
+@import '@teamleader/ui-utilities';
+
+@keyframes slideOut {
+  to {
+    transform: translate3d(650%, 0, 0);
+  }
+}
+
+.loading-bar {
+  width: 100%;
+
+  will-change: transform;
+
+  overflow: hidden;
+
+  &-indicator {
+    width: 20%;
+    height: 100%;
+
+    position: relative;
+    left: -25%;
+
+    border-radius: 4px;
+
+    animation: slideOut calc(var(--animation-duration) * 3) ease infinite;
+  }
+}
+
+.is-small {
+  height: var(--spacer-unit);
+}
+
+.is-medium {
+  height: calc(var(--spacer-unit) * 2);
+}
+
+.is-large {
+  height: calc(var(--spacer-unit) * 3);
+}
+
+@each $color in (neutral, mint, violet, ruby, gold, aqua, teal) {
+  .is-$(color) {
+    background-color: color(var(--color-$(color)) a(18%));
+
+    & .loading-bar-indicator {
+      background-color: var(--color-$(color));
+    }
+
+    @each $tint in (darkest, dark, light, lightest) {
+      &.is-$(tint) {
+        background-color: color(var(--color-$(color)-$(tint)) a(18%));
+
+        & .loading-bar-indicator {
+          background-color: var(--color-$(color)-$(tint));
+        }
+      }
+    }
+  }
+}
