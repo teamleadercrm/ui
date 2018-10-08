@@ -34,6 +34,7 @@ storiesOf('DataGrids', module)
       comparableId={1}
       onSelectionChange={handleRowSelectionChange}
       checkboxSize={select('Checkbox size', ['small', 'medium', 'large'], 'small')}
+      processing={boolean('Processing', false)}
     >
       <DataGrid.HeaderRowOverlay
         numSelectedRowsLabel={numSelectedRows => (numSelectedRows === 1 ? 'sélectionné' : 'sélectionnés')}
@@ -94,7 +95,12 @@ storiesOf('DataGrids', module)
     </DataGrid>
   ))
   .add('with footer', () => (
-    <DataGrid selectable={boolean('Selectable', true)} comparableId={1} onSelectionChange={handleRowSelectionChange}>
+    <DataGrid
+      selectable={boolean('Selectable', true)}
+      comparableId={1}
+      onSelectionChange={handleRowSelectionChange}
+      processing={boolean('Processing', false)}
+    >
       <DataGrid.HeaderRowOverlay>
         <Button size="small" level="primary" label="Marks as paid" />
         <ButtonGroup segmented marginHorizontal={3}>
@@ -161,6 +167,7 @@ storiesOf('DataGrids', module)
       stickyFromRight={number('Sticky from right', 1)}
       comparableId={1}
       onSelectionChange={handleRowSelectionChange}
+      processing={boolean('Processing', false)}
     >
       <DataGrid.HeaderRowOverlay>
         <Button size="small" level="primary" label="Marks as paid" />
@@ -225,6 +232,7 @@ storiesOf('DataGrids', module)
       stickyFromRight={number('Sticky from right', 1)}
       comparableId={1}
       onSelectionChange={handleRowSelectionChange}
+      processing={boolean('Processing', false)}
     >
       <DataGrid.HeaderRowOverlay>
         <Button size="small" level="primary" label="Marks as paid" />

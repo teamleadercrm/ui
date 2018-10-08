@@ -196,10 +196,12 @@ DataGrid.propTypes = {
   stickyFromLeft: PropTypes.number,
   stickyFromRight: PropTypes.number,
   onSelectionChange: PropTypes.func,
+  processing: PropTypes.bool,
 };
 
 DataGrid.defaultProps = {
   checkboxSize: 'small',
+  processing: false,
 };
 
 DataGrid.HeaderRow = HeaderRow;
