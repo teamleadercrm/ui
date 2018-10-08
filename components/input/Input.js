@@ -8,7 +8,7 @@ import {
   IconWarningBadgedSmallFilled,
 } from '@teamleader/ui-icons';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
-import Button from '../button';
+import Icon from '../icon';
 import { TextSmall } from '../typography';
 import theme from './theme.css';
 
@@ -168,27 +168,24 @@ export default class Input extends PureComponent {
   }
 
   renderSpinnerControls() {
-    const { disabled, readOnly, spinner, type } = this.props;
+    const { spinner, type } = this.props;
 
     const props = {
-      disabled: disabled || readOnly,
+      color: 'neutral',
+      element: 'button',
+      opacity: 0.5,
+      tint: 'darkest',
     };
 
     if (type === 'number' && spinner) {
       return (
         <div className={theme['spinner']}>
-          <Button
-            className={theme['spinner-up']}
-            icon={<IconChevronUpSmallOutline />}
-            onClick={this.handleIncreaseValue}
-            {...props}
-          />
-          <Button
-            className={theme['spinner-down']}
-            icon={<IconChevronDownSmallOutline />}
-            onClick={this.handleDecreaseValue}
-            {...props}
-          />
+          <Icon className={theme['spinner-up']} onClick={this.handleIncreaseValue} {...props}>
+            <IconChevronUpSmallOutline />
+          </Icon>
+          <Icon className={theme['spinner-down']} onClick={this.handleDecreaseValue} {...props}>
+            <IconChevronDownSmallOutline />
+          </Icon>
         </div>
       );
     }
