@@ -1,5 +1,7 @@
 ### Added
 
+- `Icon`: added `element` prop which takes an element or string to be rendered as wrapper for the icon ([@driesd](https://github.com/driesd) in [#392](https://github.com/teamleadercrm/ui/pull/392))
+
 ### Changed
 
 ### Deprecated
