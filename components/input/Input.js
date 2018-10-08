@@ -168,13 +168,13 @@ export default class Input extends PureComponent {
   }
 
   renderSpinnerControls() {
-    const { spinner, type } = this.props;
+    const { inverse, spinner, type } = this.props;
 
     const props = {
-      color: 'neutral',
+      color: inverse ? 'teal' : 'neutral',
       element: 'button',
       opacity: 0.5,
-      tint: 'darkest',
+      tint: inverse ? 'lightest' : 'darkest',
     };
 
     if (type === 'number' && spinner) {
