@@ -290,7 +290,17 @@
  * Modifiers
  */
 .is-disabled {
-  .input {
+  .input,
+  .spinner-up,
+  .spinner-down {
+    pointer-events: none;
+    user-select: none;
+  }
+}
+
+.is-read-only {
+  .spinner-up,
+  .spinner-down {
     pointer-events: none;
     user-select: none;
   }
