@@ -49,22 +49,12 @@
         .input-inner-wrapper {
           border-color: var(--color-neutral-darkest);
         }
-
-        .spinner-up,
-        .spinner-down {
-          border-color: var(--color-neutral-darkest);
-        }
       }
 
       &.has-focus {
         .input-inner-wrapper {
           border-color: var(--color-neutral-darkest);
           box-shadow: 0 0 0 1px var(--color-neutral-darkest);
-        }
-
-        .spinner-up,
-        .spinner-down {
-          border-color: var(--color-neutral-darkest);
         }
       }
 
@@ -114,22 +104,12 @@
         .input-inner-wrapper {
           border-color: var(--color-teal-light);
         }
-
-        .spinner-up,
-        .spinner-down {
-          border-color: var(--color-teal-light);
-        }
       }
 
       &.has-focus {
         .input-inner-wrapper {
           border-color: var(--color-teal-light);
           box-shadow: 0 0 0 1px var(--color-teal-light);
-        }
-
-        .spinner-up,
-        .spinner-down {
-          border-color: var(--color-teal-light);
         }
       }
 
@@ -279,14 +259,6 @@
   border-radius: 0;
   min-width: 0;
   padding: 0 !important;
-}
-
-.spinner-up {
-  border-width: 0 0 1px 1px !important;
-}
-
-.spinner-down {
-  border-width: 0 0 0 1px !important;
 }
 
 .error {
