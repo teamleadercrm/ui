@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import Box from '../box';
+import LoadingBar from '../loadingBar';
 import HeaderRowOverlay from './HeaderRowOverlay';
 import Cell from './Cell';
 import HeaderCell from './HeaderCell';
@@ -110,7 +111,16 @@ class DataGrid extends PureComponent {
   };
 
   render() {
-    const { checkboxSize, children, className, selectable, stickyFromLeft, stickyFromRight, ...others } = this.props;
+    const {
+      checkboxSize,
+      children,
+      className,
+      processing,
+      selectable,
+      stickyFromLeft,
+      stickyFromRight,
+      ...others
+    } = this.props;
     const { selectedRows } = this.state;
 
     const classNames = cx(theme['data-grid'], className);
@@ -123,6 +133,7 @@ class DataGrid extends PureComponent {
 
     return (
       <Box data-teamleader-ui="data-grid" className={classNames} {...rest}>
+        {processing && <LoadingBar className={cx(theme['loading-bar'])} />}
         {selectedRows.length > 0 &&
           React.Children.map(children, child => {
             if (isComponentOfType(HeaderRowOverlay, child)) {
@@ -196,10 +207,12 @@ DataGrid.propTypes = {
   stickyFromLeft: PropTypes.number,
   stickyFromRight: PropTypes.number,
   onSelectionChange: PropTypes.func,
+  processing: PropTypes.bool,
 };
 
 DataGrid.defaultProps = {
   checkboxSize: 'small',
+  processing: false,
 };
 
 DataGrid.HeaderRow = HeaderRow;
