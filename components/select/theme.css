@@ -17,6 +17,10 @@
   width: 20px;
 }
 
+.is-large .dropdown-indicator {
+  width: 24px;
+}
+
 .validation-icon {
   margin-top: -1px;
 }

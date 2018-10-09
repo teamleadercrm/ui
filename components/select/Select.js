@@ -277,13 +277,13 @@ class Select extends PureComponent {
   }
 
   render() {
-    const { components, error, inverse, ...otherProps } = this.props;
+    const { components, error, inverse, size, ...otherProps } = this.props;
 
     const boxProps = pickBoxProps(otherProps);
     const otherPropsWithoutBoxProps = omitBoxProps(otherProps);
     const restProps = omit(otherPropsWithoutBoxProps, ['size']);
 
-    const wrapperClassnames = cx({
+    const wrapperClassnames = cx(theme[`is-${size}`], {
       [theme['has-error']]: error,
       [theme['is-inverse']]: inverse,
     });
