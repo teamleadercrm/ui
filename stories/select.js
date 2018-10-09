@@ -82,7 +82,6 @@ storiesOf('Select', module)
       Select something
       <Select
         closeMenuOnSelect={boolean('Close menu on select', true)}
-        inverse={boolean('Inverse', false)}
         isClearable={boolean('Clearable', false)}
         isDisabled={boolean('Disabled', false)}
         isMulti={boolean('Multi select', false)}
