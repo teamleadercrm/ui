@@ -7,7 +7,6 @@
   font-family: var(--font-family-regular);
   font-size: calc(1.4 * var(--unit));
   border-color: var(--color-neutral-dark);
-  max-width: 360px;
 }
 
 .dropdown-indicator {
