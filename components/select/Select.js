@@ -98,26 +98,6 @@ class Select extends PureComponent {
     };
   };
 
-  getIndicatorSeparatorStyles = (base, { isDisabled }) => {
-    const commonStyles = {
-      ...base,
-      marginTop: 0,
-      marginBottom: 0,
-    };
-
-    if (this.props.inverse) {
-      return {
-        ...commonStyles,
-        backgroundColor: isDisabled ? colors.TEAL_DARK : colors.TEAL,
-      };
-    }
-
-    return {
-      ...commonStyles,
-      backgroundColor: isDisabled ? colors.NEUTRAL : colors.NEUTRAL_DARK,
-    };
-  };
-
   getInput = base => {
     const { size, value } = this.props;
 
@@ -245,7 +225,6 @@ class Select extends PureComponent {
     control: this.getControlStyles,
     group: this.getGroupStyles,
     groupHeading: this.getGroupHeadingStyles,
-    indicatorSeparator: this.getIndicatorSeparatorStyles,
     input: this.getInput,
     menu: this.getMenuStyles,
     multiValue: this.getMultiValueStyles,
@@ -315,6 +294,7 @@ class Select extends PureComponent {
           className={theme['select']}
           components={{
             DropdownIndicator: this.getDropDownIndicator(),
+            IndicatorSeparator: null,
             ...components,
           }}
           styles={this.getStyles()}
