@@ -5,6 +5,8 @@
 
 ### Changed
 
+- `Label` now checks if a child is of type `string` instead of the magic check for `Input` or `Select` ([@nickwaelkens](https://github.com/nickwaelkens) in [#395](https://github.com/teamleadercrm/ui/pull/395))
+
 ### Deprecated
 
 ### Removed
