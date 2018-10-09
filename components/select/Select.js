@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import ReactSelect from 'react-select';
 import PropTypes from 'prop-types';
-import omit from 'lodash.omit';
 import { IconChevronDownSmallOutline, IconWarningBadgedSmallFilled } from '@teamleader/ui-icons';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import Icon from '../icon';
@@ -280,8 +279,7 @@ class Select extends PureComponent {
     const { components, error, inverse, size, ...otherProps } = this.props;
 
     const boxProps = pickBoxProps(otherProps);
-    const otherPropsWithoutBoxProps = omitBoxProps(otherProps);
-    const restProps = omit(otherPropsWithoutBoxProps, ['size']);
+    const restProps = omitBoxProps(otherProps);
 
     const wrapperClassnames = cx(theme[`is-${size}`], {
       [theme['has-error']]: error,
