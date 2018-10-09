@@ -5,11 +5,15 @@
 
 ### Changed
 
+- `Select`: changed the dropdown arrow `Button` with a more subtile `Icon` ([@driesd](https://github.com/driesd) in [#396](https://github.com/teamleadercrm/ui/pull/396))
+
 ### Deprecated
 
 ### Removed
 
 ### Fixed
+
+- `Select`: fixed the broken vertical alignment in `IE11`. ([@driesd](https://github.com/driesd) in [#396](https://github.com/teamleadercrm/ui/pull/396))
 
 ## [0.16.0] - 2018-10-08
 
