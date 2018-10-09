@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import omit from 'lodash.omit';
 import { IconChevronDownSmallOutline, IconWarningBadgedSmallFilled } from '@teamleader/ui-icons';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
-import { Button } from '../button';
+import Icon from '../icon';
 import { TextSmall } from '../typography';
 import { colors } from './constants';
 import theme from './theme.css';
@@ -236,18 +236,18 @@ class Select extends PureComponent {
     valueContainer: this.getValueContainerStyles,
   });
 
-  getDropDownIndicator = () => ({ isDisabled }) => {
-    const { inverse, size } = this.props;
+  getDropDownIndicator = () => ({ isFocused }) => {
+    const { inverse } = this.props;
 
     return (
-      <Button
+      <Icon
         className={theme['dropdown-indicator']}
-        disabled={isDisabled}
-        icon={<IconChevronDownSmallOutline />}
-        inverse={inverse}
-        level={inverse ? 'outline' : 'secondary'}
-        size={size}
-      />
+        color={inverse ? 'teal' : 'neutral'}
+        opacity={isFocused ? 1 : 0.48}
+        tint={inverse ? 'lightest' : 'darkest'}
+      >
+        <IconChevronDownSmallOutline />
+      </Icon>
     );
   };
 
