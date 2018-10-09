@@ -1,11 +1,8 @@
 import React, { Fragment, PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import Input from '../input';
-import Select from '../select';
 import Box from '../box';
 import { TextBody, TextDisplay, TextSmall } from '../typography';
 import theme from './theme.css';
-import isComponentOfType from '../utils/is-component-of-type';
 import cx from 'classnames';
 
 export default class Label extends PureComponent {
@@ -41,7 +38,7 @@ export default class Label extends PureComponent {
     return (
       <Box element="label" marginBottom={3} className={classNames} {...others}>
         {React.Children.map(children, child => {
-          if (isComponentOfType(Input, child) || isComponentOfType(Select, child)) {
+          if (typeof child !== 'string') {
             return React.cloneElement(child, childProps);
           }
 
