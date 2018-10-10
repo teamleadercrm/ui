@@ -255,8 +255,11 @@ class Select extends PureComponent {
 
     return (
       <Icon
+        alignItems="center"
         className={theme['dropdown-indicator']}
         color={inverse ? 'teal' : 'neutral'}
+        display="flex"
+        justifyContent="center"
         tint={inverse ? 'lightest' : 'darkest'}
       >
         <IconChevronDownSmallOutline />
