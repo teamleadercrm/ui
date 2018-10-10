@@ -244,13 +244,7 @@ class Select extends PureComponent {
     const { inverse } = this.props;
 
     return (
-      <Icon
-        color={inverse ? 'teal' : 'neutral'}
-        display="flex"
-        marginRight={3}
-        tint={inverse ? 'lightest' : 'darkest'}
-        {...innerProps}
-      >
+      <Icon color={inverse ? 'teal' : 'neutral'} display="flex" tint={inverse ? 'lightest' : 'darkest'} {...innerProps}>
         <IconCloseBadgedSmallFilled />
       </Icon>
     );
