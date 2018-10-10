@@ -1,7 +1,11 @@
 import React, { PureComponent } from 'react';
 import ReactSelect from 'react-select';
 import PropTypes from 'prop-types';
-import { IconChevronDownSmallOutline, IconWarningBadgedSmallFilled } from '@teamleader/ui-icons';
+import {
+  IconCloseBadgedSmallFilled,
+  IconChevronDownSmallOutline,
+  IconWarningBadgedSmallFilled,
+} from '@teamleader/ui-icons';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import Icon from '../icon';
 import { TextSmall } from '../typography';
@@ -236,6 +240,16 @@ class Select extends PureComponent {
     valueContainer: this.getValueContainerStyles,
   });
 
+  getClearIndicator = () => ({ innerProps }) => {
+    const { inverse } = this.props;
+
+    return (
+      <Icon color={inverse ? 'teal' : 'neutral'} display="flex" tint={inverse ? 'lightest' : 'darkest'} {...innerProps}>
+        <IconCloseBadgedSmallFilled />
+      </Icon>
+    );
+  };
+
   getDropDownIndicator = () => ({ isFocused }) => {
     const { inverse } = this.props;
 
@@ -292,6 +306,7 @@ class Select extends PureComponent {
         <ReactSelect
           className={theme['select']}
           components={{
+            ClearIndicator: this.getClearIndicator(),
             DropdownIndicator: this.getDropDownIndicator(),
             IndicatorSeparator: null,
             ...components,
