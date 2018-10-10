@@ -78,18 +78,16 @@ storiesOf('Select', module)
     />
   ))
   .add('With label', () => (
-    <Label inverse={boolean('Inverse', false)}>
+    <Label inverse={boolean('Inverse', false)} size={select('Size', sizes, 'medium')}>
       Select something
       <Select
         closeMenuOnSelect={boolean('Close menu on select', true)}
-        inverse={boolean('Inverse', false)}
         isClearable={boolean('Clearable', false)}
         isDisabled={boolean('Disabled', false)}
         isMulti={boolean('Multi select', false)}
         isSearchable={boolean('Searchable', false)}
         options={options}
         placeholder="Select your favourite(s)"
-        size={select('Size', sizes, 'medium')}
         hideSelectedOptions={boolean('Hide selected options', true)}
       />
     </Label>
