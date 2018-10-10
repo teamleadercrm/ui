@@ -11,6 +11,8 @@
 
 ### Removed
 
+- `Select`: removed the `max-width` limitation, component will now take the full width of its parent ([@driesd](https://github.com/driesd) in [#397](https://github.com/teamleadercrm/ui/pull/397))
+
 ### Fixed
 
 ## [0.16.0] - 2018-10-08
