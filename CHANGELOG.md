@@ -8,6 +8,8 @@
 
 ### Fixed
 
+- `DataGrid`: fixed the property type of the `numSelectedRowsLabel` property in the `DataGrid.HeaderRowOverlay`, which threw a warning ([@LennertBlommaert](https://github.com/LennertBlommaert) in [#403](https://github.com/teamleadercrm/ui/pull/403))
+
 ## [0.16.0] - 2018-10-08
 
 ### Added
