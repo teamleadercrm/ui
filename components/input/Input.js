@@ -173,7 +173,6 @@ export default class Input extends PureComponent {
     const props = {
       color: inverse ? 'teal' : 'neutral',
       element: 'button',
-      opacity: 0.5,
       tint: inverse ? 'lightest' : 'darkest',
     };
 

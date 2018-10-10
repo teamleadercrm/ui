@@ -261,20 +261,8 @@
   border: 0;
   border-radius: 0;
 
-  svg {
-    transition: var(--animation-duration) var(--animation-curve-fast-out-slow-in) opacity;
-  }
-
   &:focus {
     outline: none;
-
-    svg {
-      opacity: 1 !important;
-    }
-  }
-
-  &:hover svg {
-    opacity: 1 !important;
   }
 }
 
