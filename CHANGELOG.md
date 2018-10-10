@@ -15,6 +15,8 @@
 
 ### Fixed
 
+- `Dialog`: fixed the content cut off bug when content became to high ([@driesd](https://github.com/driesd) in [#399](https://github.com/teamleadercrm/ui/pull/399))
+
 ## [0.16.0] - 2018-10-08
 
 ### Added
