@@ -10,9 +10,14 @@
 }
 
 .dropdown-indicator {
-  border: 0 !important;
-  border-radius: 0 4px 4px 0;
-  min-height: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 20px;
+}
+
+.is-large .dropdown-indicator {
+  width: 24px;
 }
 
 .validation-icon {
