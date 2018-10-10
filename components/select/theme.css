@@ -13,11 +13,11 @@
   align-items: center;
   display: flex;
   justify-content: center;
-  width: 20px;
+  width: 30px;
 }
 
 .is-large .dropdown-indicator {
-  width: 24px;
+  width: 36px;
 }
 
 .validation-icon {
