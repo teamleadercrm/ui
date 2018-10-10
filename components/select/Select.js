@@ -1,10 +1,9 @@
 import React, { PureComponent } from 'react';
 import ReactSelect from 'react-select';
 import PropTypes from 'prop-types';
-import omit from 'lodash.omit';
 import { IconChevronDownSmallOutline, IconWarningBadgedSmallFilled } from '@teamleader/ui-icons';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
-import { Button } from '../button';
+import Icon from '../icon';
 import { TextSmall } from '../typography';
 import { colors } from './constants';
 import theme from './theme.css';
@@ -95,26 +94,6 @@ class Select extends PureComponent {
       fontWeight: '700',
       letterSpacing: '0.6px',
       padding: '0 6px',
-    };
-  };
-
-  getIndicatorSeparatorStyles = (base, { isDisabled }) => {
-    const commonStyles = {
-      ...base,
-      marginTop: 0,
-      marginBottom: 0,
-    };
-
-    if (this.props.inverse) {
-      return {
-        ...commonStyles,
-        backgroundColor: isDisabled ? colors.TEAL_DARK : colors.TEAL,
-      };
-    }
-
-    return {
-      ...commonStyles,
-      backgroundColor: isDisabled ? colors.NEUTRAL : colors.NEUTRAL_DARK,
     };
   };
 
@@ -236,6 +215,7 @@ class Select extends PureComponent {
 
     return {
       ...base,
+      minHeight: size === 'small' ? '28px' : size === 'medium' ? '34px' : '46px',
       padding: isMulti && size !== 'large' ? '0' : '0 4px',
     };
   };
@@ -245,7 +225,6 @@ class Select extends PureComponent {
     control: this.getControlStyles,
     group: this.getGroupStyles,
     groupHeading: this.getGroupHeadingStyles,
-    indicatorSeparator: this.getIndicatorSeparatorStyles,
     input: this.getInput,
     menu: this.getMenuStyles,
     multiValue: this.getMultiValueStyles,
@@ -257,18 +236,18 @@ class Select extends PureComponent {
     valueContainer: this.getValueContainerStyles,
   });
 
-  getDropDownIndicator = () => ({ isDisabled }) => {
-    const { inverse, size } = this.props;
+  getDropDownIndicator = () => ({ isFocused }) => {
+    const { inverse } = this.props;
 
     return (
-      <Button
+      <Icon
         className={theme['dropdown-indicator']}
-        disabled={isDisabled}
-        icon={<IconChevronDownSmallOutline />}
-        inverse={inverse}
-        level={inverse ? 'outline' : 'secondary'}
-        size={size}
-      />
+        color={inverse ? 'teal' : 'neutral'}
+        opacity={isFocused ? 1 : 0.48}
+        tint={inverse ? 'lightest' : 'darkest'}
+      >
+        <IconChevronDownSmallOutline />
+      </Icon>
     );
   };
 
@@ -298,13 +277,12 @@ class Select extends PureComponent {
   }
 
   render() {
-    const { components, error, inverse, ...otherProps } = this.props;
+    const { components, error, inverse, size, ...otherProps } = this.props;
 
     const boxProps = pickBoxProps(otherProps);
-    const otherPropsWithoutBoxProps = omitBoxProps(otherProps);
-    const restProps = omit(otherPropsWithoutBoxProps, ['size']);
+    const restProps = omitBoxProps(otherProps);
 
-    const wrapperClassnames = cx({
+    const wrapperClassnames = cx(theme[`is-${size}`], {
       [theme['has-error']]: error,
       [theme['is-inverse']]: inverse,
     });
@@ -315,6 +293,7 @@ class Select extends PureComponent {
           className={theme['select']}
           components={{
             DropdownIndicator: this.getDropDownIndicator(),
+            IndicatorSeparator: null,
             ...components,
           }}
           styles={this.getStyles()}
