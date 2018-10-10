@@ -248,7 +248,6 @@ class Select extends PureComponent {
         color={inverse ? 'teal' : 'neutral'}
         display="flex"
         marginRight={3}
-        opacity={0.48}
         tint={inverse ? 'lightest' : 'darkest'}
         {...innerProps}
       >
