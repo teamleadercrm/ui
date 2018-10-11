@@ -1,13 +1,9 @@
 @import '@teamleader/ui-colors';
 
-.error-icon,
 .error-text {
   color: var(--color-ruby-dark);
-}
 
-&.is-inverse {
-  .error-icon,
-  .error-text {
+  &.is-inverse {
     color: var(--color-ruby-light);
   }
 }
