@@ -233,7 +233,11 @@ export default class Input extends PureComponent {
           </div>
           {connectedRight}
         </div>
-        {error ? <ErrorText>{error}</ErrorText> : helpText && <HelpText inverse={inverse}>{helpText}</HelpText>}
+        {error ? (
+          <ErrorText inverse={inverse}>{error}</ErrorText>
+        ) : (
+          helpText && <HelpText inverse={inverse}>{helpText}</HelpText>
+        )}
       </Box>
     );
   }

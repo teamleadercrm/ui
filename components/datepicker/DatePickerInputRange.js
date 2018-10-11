@@ -231,7 +231,11 @@ class DatePickerInputRange extends PureComponent {
           {this.renderIcon()}
           {this.renderDayPickerInput()}
         </div>
-        {error ? <ErrorText>{error}</ErrorText> : helpText && <HelpText inverse={inverse}>{helpText}</HelpText>}
+        {error ? (
+          <ErrorText inverse={inverse}>{error}</ErrorText>
+        ) : (
+          helpText && <HelpText inverse={inverse}>{helpText}</HelpText>
+        )}
       </Box>
     );
   }
