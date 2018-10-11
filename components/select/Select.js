@@ -250,14 +250,16 @@ class Select extends PureComponent {
     );
   };
 
-  getDropDownIndicator = () => ({ isFocused }) => {
+  getDropDownIndicator = () => () => {
     const { inverse } = this.props;
 
     return (
       <Icon
+        alignItems="center"
         className={theme['dropdown-indicator']}
         color={inverse ? 'teal' : 'neutral'}
-        opacity={isFocused ? 1 : 0.48}
+        display="flex"
+        justifyContent="center"
         tint={inverse ? 'lightest' : 'darkest'}
       >
         <IconChevronDownSmallOutline />
