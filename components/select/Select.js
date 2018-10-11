@@ -8,7 +8,7 @@ import {
 } from '@teamleader/ui-icons';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import Icon from '../icon';
-import { HelpText, TextSmall } from '../../components';
+import { ErrorText, HelpText, TextSmall } from '../../components';
 import { colors } from './constants';
 import theme from './theme.css';
 import cx from 'classnames';
@@ -267,19 +267,6 @@ class Select extends PureComponent {
     );
   };
 
-  renderValidationMessage() {
-    return (
-      <TextSmall className={theme['validation-text']} marginTop={2} display="flex">
-        <Box element="span" className={theme['validation-icon']}>
-          <IconWarningBadgedSmallFilled />
-        </Box>
-        <Box element="span" marginLeft={1}>
-          {this.props.error}
-        </Box>
-      </TextSmall>
-    );
-  }
-
   render() {
     const { components, error, inverse, helpText, size, ...otherProps } = this.props;
 
@@ -304,7 +291,7 @@ class Select extends PureComponent {
           styles={this.getStyles()}
           {...restProps}
         />
-        {error ? this.renderValidationMessage() : helpText && <HelpText inverse={inverse}>{helpText}</HelpText>}
+        {error ? <ErrorText>{error}</ErrorText> : helpText && <HelpText inverse={inverse}>{helpText}</HelpText>}
       </Box>
     );
   }

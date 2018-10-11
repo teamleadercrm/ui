@@ -7,7 +7,7 @@ import NavigationBar from './NavigationBar';
 import WeekDay from './WeekDay';
 import { convertModifiersToClassnames } from './utils';
 import { IconCalendarSmallOutline, IconWarningBadgedSmallFilled } from '@teamleader/ui-icons';
-import { HelpText, TextSmall } from '../../components';
+import { ErrorText, HelpText, TextSmall } from '../../components';
 import cx from 'classnames';
 import omit from 'lodash.omit';
 import theme from './theme.css';
@@ -89,17 +89,6 @@ class DatePickerInput extends PureComponent {
     );
   };
 
-  renderValidationMessage = () => {
-    return (
-      <Box marginTop={2}>
-        <IconWarningBadgedSmallFilled className={theme['validation-icon']} />
-        <TextSmall className={theme['validation-text']} element="span" marginLeft={1}>
-          {this.props.error}
-        </TextSmall>
-      </Box>
-    );
-  };
-
   render() {
     const { bold, disabled, error, helpText, inverse, readOnly, size, ...others } = this.props;
     const { inputHasFocus } = this.state;
@@ -121,7 +110,7 @@ class DatePickerInput extends PureComponent {
           {this.renderIcon()}
           {this.renderDayPickerInput()}
         </div>
-        {error ? this.renderValidationMessage() : helpText && <HelpText inverse={inverse}>{helpText}</HelpText>}
+        {error ? <ErrorText>{error}</ErrorText> : helpText && <HelpText inverse={inverse}>{helpText}</HelpText>}
       </Box>
     );
   }
