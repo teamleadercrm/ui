@@ -47,8 +47,8 @@ HeaderRowOverlay.propTypes = {
   className: PropTypes.string,
   /** If this value is greater than 0 then this component renders, it is also passed down to display the number of selected rows */
   numSelectedRows: PropTypes.number,
-  /** Passed down string, is used as the label accompanying the number of selected rows */
-  numSelectedRowsLabel: PropTypes.string,
+  /** Passed down function, is used to render the label accompanying the number of selected rows */
+  numSelectedRowsLabel: PropTypes.func,
 };
 
 HeaderRowOverlay.defaultProps = {
