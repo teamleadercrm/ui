@@ -1,0 +1,11 @@
+.error-icon,
+.error-text {
+  color: var(--color-ruby-dark);
+}
+
+&.is-inverse {
+  .error-icon,
+  .error-text {
+    color: var(--color-ruby-light);
+  }
+}

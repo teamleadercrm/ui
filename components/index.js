@@ -12,6 +12,7 @@ import DataGrid from './datagrid';
 import { DatePicker, DatePickerRange, DatePickerInput, DatePickerInputRange } from './datepicker';
 import Dialog from './dialog';
 import HelpText from './helptext';
+import ErrorText from './errorText';
 import Icon from './icon';
 import Input from './input';
 import Menu, { IconMenu, MenuItem, MenuDivider } from './menu';
@@ -57,6 +58,7 @@ export {
   DatePickerRange,
   DatePickerInputRange,
   Dialog,
+  ErrorText,
   Heading1,
   Heading2,
   Heading3,
