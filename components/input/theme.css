@@ -16,8 +16,8 @@
   --input-error-border: var(--color-ruby-dark);
   --input-error-border-inverse: var(--color-ruby-light);
 
-  --spinner-width: calc(2 * var(--unit));
-  --spinner-width-large: calc(2.4 * var(--unit));
+  --spinner-width: calc(3 * var(--unit));
+  --spinner-width-large: calc(3.6 * var(--unit));
 }
 
 /**
@@ -261,20 +261,8 @@
   border: 0;
   border-radius: 0;
 
-  svg {
-    transition: var(--animation-duration) var(--animation-curve-fast-out-slow-in) opacity;
-  }
-
   &:focus {
     outline: none;
-
-    svg {
-      opacity: 1 !important;
-    }
-  }
-
-  &:hover svg {
-    opacity: 1 !important;
   }
 }
 
