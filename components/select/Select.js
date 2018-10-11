@@ -1,14 +1,10 @@
 import React, { PureComponent } from 'react';
 import ReactSelect from 'react-select';
 import PropTypes from 'prop-types';
-import {
-  IconCloseBadgedSmallFilled,
-  IconChevronDownSmallOutline,
-  IconWarningBadgedSmallFilled,
-} from '@teamleader/ui-icons';
+import { IconCloseBadgedSmallFilled, IconChevronDownSmallOutline } from '@teamleader/ui-icons';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import Icon from '../icon';
-import { ErrorText, HelpText, TextSmall } from '../../components';
+import { ErrorText, HelpText } from '../../components';
 import { colors } from './constants';
 import theme from './theme.css';
 import cx from 'classnames';

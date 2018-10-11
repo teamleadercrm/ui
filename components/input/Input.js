@@ -2,14 +2,10 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import omit from 'lodash.omit';
-import {
-  IconChevronUpSmallOutline,
-  IconChevronDownSmallOutline,
-  IconWarningBadgedSmallFilled,
-} from '@teamleader/ui-icons';
+import { IconChevronUpSmallOutline, IconChevronDownSmallOutline } from '@teamleader/ui-icons';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import Icon from '../icon';
-import { ErrorText, HelpText, TextSmall } from '../../components';
+import { ErrorText, HelpText } from '../../components';
 import theme from './theme.css';
 
 export default class Input extends PureComponent {
