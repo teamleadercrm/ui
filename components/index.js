@@ -11,6 +11,7 @@ import Counter from './counter';
 import DataGrid from './datagrid';
 import { DatePicker, DatePickerRange, DatePickerInput, DatePickerInputRange } from './datepicker';
 import Dialog from './dialog';
+import HelpText from './helptext';
 import Icon from './icon';
 import Input from './input';
 import Menu, { IconMenu, MenuItem, MenuDivider } from './menu';
@@ -60,6 +61,7 @@ export {
   Heading2,
   Heading3,
   Heading4,
+  HelpText,
   Icon,
   IconButton,
   IconMenu,

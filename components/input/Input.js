@@ -9,7 +9,7 @@ import {
 } from '@teamleader/ui-icons';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import Icon from '../icon';
-import { TextSmall } from '../typography';
+import { HelpText, TextSmall } from '../../components';
 import theme from './theme.css';
 
 export default class Input extends PureComponent {
@@ -155,18 +155,6 @@ export default class Input extends PureComponent {
     return <input {...props} />;
   }
 
-  renderHelpText() {
-    const { helpText, inverse } = this.props;
-
-    if (helpText) {
-      return (
-        <TextSmall color={inverse ? 'white' : 'neutral'} marginTop={1} soft>
-          {helpText}
-        </TextSmall>
-      );
-    }
-  }
-
   renderSpinnerControls() {
     const { inverse, spinner, type } = this.props;
 
@@ -218,6 +206,7 @@ export default class Input extends PureComponent {
       connectedRight,
       disabled,
       error,
+      helpText,
       inverse,
       prefix,
       size,
@@ -257,7 +246,7 @@ export default class Input extends PureComponent {
           </div>
           {connectedRight}
         </div>
-        {error ? this.renderValidationMessage() : this.renderHelpText()}
+        {error ? this.renderValidationMessage() : helpText && <HelpText inverse={inverse}>{helpText}</HelpText>}
       </Box>
     );
   }

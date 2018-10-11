@@ -7,7 +7,7 @@ import NavigationBar from './NavigationBar';
 import WeekDay from './WeekDay';
 import { convertModifiersToClassnames } from './utils';
 import { IconCalendarSmallOutline, IconWarningBadgedSmallFilled } from '@teamleader/ui-icons';
-import { TextSmall } from '../typography';
+import { HelpText, TextSmall } from '../../components';
 import cx from 'classnames';
 import omit from 'lodash.omit';
 import theme from './theme.css';
@@ -89,18 +89,6 @@ class DatePickerInput extends PureComponent {
     );
   };
 
-  renderHelpText = () => {
-    const { helpText, inverse } = this.props;
-
-    if (helpText) {
-      return (
-        <TextSmall color={inverse ? 'white' : 'neutral'} marginTop={1} soft>
-          {helpText}
-        </TextSmall>
-      );
-    }
-  };
-
   renderValidationMessage = () => {
     return (
       <Box marginTop={2}>
@@ -113,7 +101,7 @@ class DatePickerInput extends PureComponent {
   };
 
   render() {
-    const { bold, disabled, error, inverse, readOnly, size, ...others } = this.props;
+    const { bold, disabled, error, helpText, inverse, readOnly, size, ...others } = this.props;
     const { inputHasFocus } = this.state;
 
     const boxProps = pickBoxProps(others);
@@ -133,7 +121,7 @@ class DatePickerInput extends PureComponent {
           {this.renderIcon()}
           {this.renderDayPickerInput()}
         </div>
-        {error ? this.renderValidationMessage() : this.renderHelpText()}
+        {error ? this.renderValidationMessage() : helpText && <HelpText inverse={inverse}>{helpText}</HelpText>}
       </Box>
     );
   }
