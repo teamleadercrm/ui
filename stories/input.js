@@ -10,6 +10,7 @@ import {
   Input,
   Label,
   LoadingSpinner,
+  NumericInput,
   TextBody,
   TextSmall,
   Tooltip,
@@ -76,7 +77,7 @@ storiesOf('Inputs', module)
   .add('number', () => (
     <Label htmlFor="input1" inverse={boolean('Inverse', false)} size={select('Size', sizes, 'medium')}>
       Input label
-      <Input
+      <NumericInput
         id="input1"
         type="number"
         bold={boolean('Bold', false)}
