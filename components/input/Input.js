@@ -2,14 +2,10 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import omit from 'lodash.omit';
-import {
-  IconChevronUpSmallOutline,
-  IconChevronDownSmallOutline,
-  IconWarningBadgedSmallFilled,
-} from '@teamleader/ui-icons';
+import { IconChevronUpSmallOutline, IconChevronDownSmallOutline } from '@teamleader/ui-icons';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import Icon from '../icon';
-import { HelpText, TextSmall } from '../../components';
+import { ErrorText, HelpText } from '../../components';
 import theme from './theme.css';
 
 export default class Input extends PureComponent {
@@ -178,19 +174,6 @@ export default class Input extends PureComponent {
     }
   }
 
-  renderValidationMessage() {
-    return (
-      <TextSmall className={theme['validation-text']} marginTop={2} display="flex">
-        <Box element="span" className={theme['validation-icon']}>
-          <IconWarningBadgedSmallFilled />
-        </Box>
-        <Box element="span" marginLeft={1}>
-          {this.props.error}
-        </Box>
-      </TextSmall>
-    );
-  }
-
   renderOneOrMultipleElements(prop) {
     if (Array.isArray(prop)) {
       return prop.map((element, index) => React.cloneElement(element, { key: index }));
@@ -246,7 +229,11 @@ export default class Input extends PureComponent {
           </div>
           {connectedRight}
         </div>
-        {error ? this.renderValidationMessage() : helpText && <HelpText inverse={inverse}>{helpText}</HelpText>}
+        {error ? (
+          <ErrorText inverse={inverse}>{error}</ErrorText>
+        ) : (
+          helpText && <HelpText inverse={inverse}>{helpText}</HelpText>
+        )}
       </Box>
     );
   }

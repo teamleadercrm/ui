@@ -7,8 +7,8 @@ import NavigationBar from './NavigationBar';
 import WeekDay from './WeekDay';
 import { convertModifiersToClassnames, isSelectingFirstDay } from './utils';
 import { DateUtils } from 'react-day-picker/lib/src/index';
-import { IconCalendarSmallOutline, IconWarningBadgedSmallFilled } from '@teamleader/ui-icons';
-import { HelpText, TextSmall } from '../../components';
+import { IconCalendarSmallOutline } from '@teamleader/ui-icons';
+import { ErrorText, HelpText } from '../../components';
 import cx from 'classnames';
 import omit from 'lodash.omit';
 import theme from './theme.css';
@@ -191,17 +191,6 @@ class DatePickerInputRange extends PureComponent {
     );
   };
 
-  renderValidationMessage = () => {
-    return (
-      <Box marginTop={2}>
-        <IconWarningBadgedSmallFilled className={theme['validation-icon']} />
-        <TextSmall className={theme['validation-text']} element="span" marginLeft={1}>
-          {this.props.error}
-        </TextSmall>
-      </Box>
-    );
-  };
-
   showFromMonth = () => {
     const { selectedStartDate, selectedEndDate } = this.state;
 
@@ -242,7 +231,11 @@ class DatePickerInputRange extends PureComponent {
           {this.renderIcon()}
           {this.renderDayPickerInput()}
         </div>
-        {error ? this.renderValidationMessage() : helpText && <HelpText inverse={inverse}>{helpText}</HelpText>}
+        {error ? (
+          <ErrorText inverse={inverse}>{error}</ErrorText>
+        ) : (
+          helpText && <HelpText inverse={inverse}>{helpText}</HelpText>
+        )}
       </Box>
     );
   }

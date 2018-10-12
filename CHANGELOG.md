@@ -2,6 +2,8 @@
 
 ### Added
 
+- `ErrorText`: added the `ErrorText` component ([@LennertBlommaert](https://github.com/LennertBlommaert) in [#407](https://github.com/teamleadercrm/ui/pull/407))
+
 ### Changed
 
 ### Deprecated
