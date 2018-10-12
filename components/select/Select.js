@@ -124,6 +124,7 @@ class Select extends PureComponent {
       borderStyle: 'solid',
       borderWidth: '1px',
       borderRadius: '4px',
+      margin: '1px',
     };
   };
 
