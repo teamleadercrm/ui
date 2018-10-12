@@ -14,7 +14,7 @@ import {
   ButtonGroup,
 } from '../components';
 
-import { rows1, rows2 } from '../static/data/datagrid';
+import { rows1, rows2 } from './static/data/datagrid';
 
 const TooltippedStatusBullet = Tooltip(StatusBullet);
 
@@ -95,7 +95,12 @@ storiesOf('DataGrids', module)
     </DataGrid>
   ))
   .add('with footer', () => (
-    <DataGrid selectable={boolean('Selectable', true)} comparableId={1} onSelectionChange={handleRowSelectionChange} processing={boolean('Processing', false)}>
+    <DataGrid
+      selectable={boolean('Selectable', true)}
+      comparableId={1}
+      onSelectionChange={handleRowSelectionChange}
+      processing={boolean('Processing', false)}
+    >
       <DataGrid.HeaderRowOverlay>
         <Button size="small" level="primary" label="Marks as paid" />
         <ButtonGroup segmented marginHorizontal={3}>
