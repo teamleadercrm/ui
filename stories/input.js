@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, number, select } from '@storybook/addon-knobs/react';
 import {
+  InputBase,
   Button,
   Checkbox,
   Counter,
@@ -37,6 +38,7 @@ const props = {
 const TooltippedIcon = Tooltip(Icon);
 
 storiesOf('Inputs', module)
+  .add('Input base', () => <InputBase />)
   .add('Input only', () => (
     <Input
       id="input1"
