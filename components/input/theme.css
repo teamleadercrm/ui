@@ -6,7 +6,7 @@
  * Variables
  */
 :root {
-  --input-height-large: calc(4.8 * var(--unit));
+  --input-height-large: calc(4.6 * var(--unit));
   --input-height-medium: calc(3.4 * var(--unit));
   --input-height-small: calc(3 * var(--unit));
   --input-horizontal-padding: calc(0.5 * var(--unit));
