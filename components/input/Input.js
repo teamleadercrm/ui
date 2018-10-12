@@ -2,9 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import omit from 'lodash.omit';
-import { IconChevronUpSmallOutline, IconChevronDownSmallOutline } from '@teamleader/ui-icons';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
-import Icon from '../icon';
 import { ErrorText, HelpText } from '../../components';
 import theme from './theme.css';
 
@@ -23,39 +21,12 @@ export default class Input extends PureComponent {
     return null;
   }
 
-  parseValue(value) {
-    const { type } = this.props;
-    return type === 'number' ? this.bindToMinMax(this.toNumber(value)) : value;
-  }
-
-  toNumber(number) {
-    let float = parseFloat(number);
-
-    if (isNaN(float) || !isFinite(float)) {
-      float = 0;
-    }
-
-    return float;
-  }
-
-  bindToMinMax(value) {
-    const { min, max } = this.props;
-    return Math.min(Math.max(value, min), max);
-  }
-
   state = {
     inputHasFocus: false,
     value: '',
   };
 
   handleBlur = event => {
-    const { value } = this.state;
-    const parsedValue = this.parseValue(value);
-
-    if (parsedValue !== value) {
-      this.updateValue(event, parsedValue);
-    }
-
     this.setState({ inputHasFocus: false });
 
     if (this.props.onBlur) {
@@ -75,14 +46,6 @@ export default class Input extends PureComponent {
     }
   };
 
-  handleIncreaseValue = event => {
-    this.updateStep(event, 1);
-  };
-
-  handleDecreaseValue = event => {
-    this.updateStep(event, -1);
-  };
-
   updateValue(event, rawValue, triggerOnChange = true) {
     const { onChange } = this.props;
     const newValue = String(rawValue);
@@ -96,19 +59,8 @@ export default class Input extends PureComponent {
     }
   }
 
-  updateStep(event, n) {
-    const { step } = this.props;
-
-    const currentValue = this.toNumber(this.state.value || 0);
-    const newValue = this.parseValue(currentValue + step * n);
-
-    if (newValue !== currentValue) {
-      this.updateValue(event, newValue);
-    }
-  }
-
   renderInput() {
-    const { bold, max, min, step, type, ...otherProps } = this.props;
+    const { bold, type, ...otherProps } = this.props;
     const { value } = this.state;
 
     const classNames = cx(theme['input'], {
@@ -125,17 +77,9 @@ export default class Input extends PureComponent {
       'onChange',
       'prefix',
       'size',
-      'spinner',
       'suffix',
       'value',
     ]);
-
-    const numberTypeProps = {
-      max,
-      min,
-      step,
-      value,
-    };
 
     const props = {
       className: classNames,
@@ -145,33 +89,9 @@ export default class Input extends PureComponent {
       type,
       value,
       ...restProps,
-      ...(type === 'number' && numberTypeProps),
     };
 
     return <input {...props} />;
-  }
-
-  renderSpinnerControls() {
-    const { inverse, spinner, type } = this.props;
-
-    const props = {
-      color: inverse ? 'teal' : 'neutral',
-      element: 'button',
-      tint: inverse ? 'lightest' : 'darkest',
-    };
-
-    if (type === 'number' && spinner) {
-      return (
-        <div className={theme['spinner']}>
-          <Icon className={theme['spinner-up']} onClick={this.handleIncreaseValue} {...props}>
-            <IconChevronUpSmallOutline />
-          </Icon>
-          <Icon className={theme['spinner-down']} onClick={this.handleDecreaseValue} {...props}>
-            <IconChevronDownSmallOutline />
-          </Icon>
-        </div>
-      );
-    }
   }
 
   renderOneOrMultipleElements(prop) {
@@ -225,7 +145,6 @@ export default class Input extends PureComponent {
             {prefix && <div className={theme['prefix-wrapper']}>{this.renderOneOrMultipleElements(prefix)}</div>}
             {this.renderInput()}
             {suffix && <div className={theme['suffix-wrapper']}>{this.renderOneOrMultipleElements(suffix)}</div>}
-            {this.renderSpinnerControls()}
           </div>
           {connectedRight}
         </div>
@@ -254,10 +173,6 @@ Input.propTypes = {
   helpText: PropTypes.string,
   /** Boolean indicating whether the input should render as inverse. */
   inverse: PropTypes.bool,
-  max: PropTypes.number,
-  min: PropTypes.number,
-  /** Boolean indicating whether to number type input should render spinner controls */
-  spinner: PropTypes.bool,
   /** Callback function that is fired when blurring the input field. */
   onBlur: PropTypes.func,
   /** Callback function that is fired when focusing the input field. */
@@ -270,8 +185,6 @@ Input.propTypes = {
   readOnly: PropTypes.bool,
   /** Size of the input element. */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
-  /** Limit increment value for numeric inputs. */
-  step: PropTypes.number,
   /** The text string/element to use as a suffix inside the input field */
   suffix: PropTypes.oneOfType([PropTypes.array, PropTypes.element]),
   /** Type of the input element. It can be a valid HTML5 input type. */
@@ -283,10 +196,6 @@ Input.propTypes = {
 Input.defaultProps = {
   inverse: false,
   disabled: false,
-  min: Number.MIN_SAFE_INTEGER,
-  max: Number.MAX_SAFE_INTEGER,
   readOnly: false,
   size: 'medium',
-  spinner: true,
-  step: 1,
 };
