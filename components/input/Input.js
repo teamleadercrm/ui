@@ -46,7 +46,7 @@ export default class Input extends PureComponent {
     }
   };
 
-  updateValue(event, rawValue, triggerOnChange = true) {
+  updateValue(event, rawValue) {
     const { onChange } = this.props;
     const newValue = String(rawValue);
 
@@ -54,7 +54,7 @@ export default class Input extends PureComponent {
       value: newValue,
     });
 
-    if (triggerOnChange && onChange) {
+    if (onChange) {
       onChange(event, newValue);
     }
   }
