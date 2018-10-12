@@ -1,7 +1,7 @@
-import userAvatar1 from "../avatars/1.png";
-import userAvatar2 from "../avatars/2.png";
-import userAvatar3 from "../avatars/3.png";
-import userAvatar4 from "../avatars/4.png";
+import userAvatar1 from '../avatars/1.png';
+import userAvatar2 from '../avatars/2.png';
+import userAvatar3 from '../avatars/3.png';
+import userAvatar4 from '../avatars/4.png';
 
 const options = [
   { label: 'Chocolate', value: 'chocolate' },
@@ -21,26 +21,18 @@ const customOptions = [
 
 const groupedOptions = [
   {
-    label: "Flavors",
+    label: 'Flavors',
     options: [
       { label: 'Chocolate', value: 'chocolate' },
       { label: 'Vanilla', value: 'vanilla', isDisabled: true },
       { label: 'Strawberry', value: 'strawberry' },
-    ]
+    ],
   },
   {
-    label: "Colors",
-    options: [
-      { label: 'Red', value: 'red' },
-      { label: 'Green', value: 'green' },
-      { label: 'Blue', value: 'blue' },
-    ]
-  }
+    label: 'Colors',
+    options: [{ label: 'Red', value: 'red' }, { label: 'Green', value: 'green' }, { label: 'Blue', value: 'blue' }],
+  },
 ];
 
 export default options;
-export {
-  customOptions,
-  groupedOptions,
-  options,
-}
+export { customOptions, groupedOptions, options };
