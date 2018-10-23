@@ -16,6 +16,7 @@ import omit from 'lodash.omit';
 import throttle from 'lodash.throttle';
 import theme from './theme.css';
 import { events } from '../utils';
+import { isArray } from 'util';
 
 class DataGrid extends PureComponent {
   state = {
@@ -111,7 +112,16 @@ class DataGrid extends PureComponent {
   };
 
   render() {
-    const { checkboxSize, children, className, processing, selectable, stickyFromLeft, stickyFromRight, ...others } = this.props;
+    const {
+      checkboxSize,
+      children,
+      className,
+      processing,
+      selectable,
+      stickyFromLeft,
+      stickyFromRight,
+      ...others
+    } = this.props;
     const { selectedRows } = this.state;
 
     const classNames = cx(theme['data-grid'], className);
@@ -142,7 +152,7 @@ class DataGrid extends PureComponent {
                   return React.cloneElement(child, {
                     checkboxSize,
                     onSelectionChange: this.handleHeaderRowSelectionChange,
-                    selected: selectedRows.length === children[2].length,
+                    selected: selectedRows.length === children.find(child => isArray(child)).length,
                     selectable,
                     sliceTo: stickyFromLeft > 0 ? stickyFromLeft : 0,
                   });
