@@ -155,7 +155,30 @@ InputBase.propTypes = {
   /** The text string/element to use as a suffix inside the input field */
   suffix: PropTypes.oneOfType([PropTypes.array, PropTypes.element]),
   /** Type of the input element. It can be a valid HTML5 input type. */
-  type: PropTypes.string,
+  type: PropTypes.oneOf([
+    'button',
+    'checkbox',
+    'color',
+    'date',
+    'datetime-local',
+    'email',
+    'file',
+    'hidden',
+    'image',
+    'month',
+    'number',
+    'password',
+    'radio',
+    'range',
+    'reset',
+    'search',
+    'submit',
+    'tel',
+    'text',
+    'time',
+    'url',
+    'week',
+  ]),
   /** Current value of the input element. */
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
