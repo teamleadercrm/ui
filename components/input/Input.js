@@ -1,4 +1,6 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+
 import InputBase from './InputBase';
 
 export default class Input extends PureComponent {
@@ -35,3 +37,34 @@ export default class Input extends PureComponent {
     );
   }
 }
+
+Input.propTypes = {
+  /** The passed down type of the input element. It can be a valid HTML5 input type, except 'number' use a NumericInput in this case. */
+  type: PropTypes.oneOf([
+    'button',
+    'checkbox',
+    'color',
+    'date',
+    'datetime-local',
+    'email',
+    'file',
+    'hidden',
+    'image',
+    'month',
+    'password',
+    'radio',
+    'range',
+    'reset',
+    'search',
+    'submit',
+    'tel',
+    'text',
+    'time',
+    'url',
+    'week',
+  ]),
+};
+
+Input.defaultProps = {
+  type: 'text',
+};
