@@ -79,7 +79,6 @@ storiesOf('Inputs', module)
       Input label
       <NumericInput
         id="input1"
-        type="number"
         bold={boolean('Bold', false)}
         disabled={boolean('Disabled', false)}
         readOnly={boolean('Read only', false)}
