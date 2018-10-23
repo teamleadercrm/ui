@@ -54,7 +54,6 @@ export default class InputBase extends PureComponent {
       'prefix',
       'size',
       'suffix',
-      'value',
     ]);
 
     const props = {
