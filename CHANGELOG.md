@@ -15,6 +15,8 @@
 
 ### Fixed
 
+- `DatePicker`: fixed the DatePicker collapsing when the parent element resizes ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#410](https://github.com/teamleadercrm/ui/pull/410))
+
 ## [0.16.1] - 2018-10-11
 
 ### Added
