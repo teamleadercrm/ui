@@ -102,7 +102,7 @@ class NumericInput extends PureComponent {
         suffix={suffixWithSpinner}
         onChange={event => {
           this.handleOnChange(event);
-          onChange(event, event.currentTarget.value);
+          onChange && onChange(event, event.currentTarget.value);
         }}
         {...others}
       />
