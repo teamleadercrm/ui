@@ -82,24 +82,22 @@ class NumericInput extends PureComponent {
     this.updateStep(-1);
   };
 
+  getSuffixWithSpinner = () => [
+    ...this.props.suffix,
+    <SpinnerControls
+      handleOnSpinnerUpClick={this.handleIncreaseValue}
+      handleOnSpinnerdownClick={this.handleDecreaseValue}
+    />,
+  ];
+
   render() {
     const { spinner, suffix, onChange, ...others } = this.props;
-
-    const suffixWithSpinner = [
-      ...suffix,
-      spinner && (
-        <SpinnerControls
-          handleOnSpinnerUpClick={this.handleIncreaseValue}
-          handleOnSpinnerdownClick={this.handleDecreaseValue}
-        />
-      ),
-    ];
 
     return (
       <InputBase
         type="number"
         value={this.state.value}
-        suffix={suffixWithSpinner}
+        suffix={spinner ? this.getSuffixWithSpinner() : suffix}
         onChange={event => {
           this.handleOnChange(event);
           onChange && onChange(event, event.currentTarget.value);
