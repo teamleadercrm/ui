@@ -74,7 +74,7 @@ storiesOf('Inputs', module)
       />
     </Label>
   ))
-  .add('number', () => (
+  .add('Numeric', () => (
     <Label htmlFor="input1" inverse={boolean('Inverse', false)} size={select('Size', sizes, 'medium')}>
       Input label
       <NumericInput
