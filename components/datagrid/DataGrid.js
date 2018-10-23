@@ -124,8 +124,6 @@ class DataGrid extends PureComponent {
     } = this.props;
     const { selectedRows } = this.state;
 
-    console.log(...children);
-
     const classNames = cx(theme['data-grid'], className);
     const rest = omit(others, ['comparableId', 'onSelectionChange']);
 
