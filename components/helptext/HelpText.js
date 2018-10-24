@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-import { TextSmall } from '../../components';
+import { TextSmall } from '../typography';
 
 export default class HelpText extends PureComponent {
   render() {

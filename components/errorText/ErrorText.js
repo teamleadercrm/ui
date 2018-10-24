@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 
 import { IconWarningBadgedSmallFilled } from '@teamleader/ui-icons';
-import { Box, TextSmall } from '../../components';
+import { TextSmall } from '../typography';
+import Box from '../box';
 import theme from './theme.css';
 
 export default class ErrorText extends PureComponent {
