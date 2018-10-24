@@ -61,12 +61,12 @@ class NumericInput extends PureComponent {
 
   parseValue = value => this.bindToMinMax(this.toNumber(value));
 
-  toNumber = number => {
-    let float = parseFloat(number);
-    if (isNaN(float) || !isFinite(float)) {
-      float = 0;
+  toNumber = rawNumber => {
+    let number = parseFloat(rawNumber);
+    if (isNaN(number) || !isFinite(number)) {
+      number = 0;
     }
-    return float;
+    return number;
   };
 
   bindToMinMax = value => {
