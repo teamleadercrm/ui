@@ -19,7 +19,7 @@ class SpinnerControls extends PureComponent {
         <Icon className={theme['spinner-up']} onClick={handleOnSpinnerUpClick} {...iconProps}>
           <IconChevronUpSmallOutline />
         </Icon>
-        <Icon className={theme['spinner-down']} onClick={() => handleOnSpinnerdownClick()} {...iconProps}>
+        <Icon className={theme['spinner-down']} onClick={handleOnSpinnerdownClick} {...iconProps}>
           <IconChevronDownSmallOutline />
         </Icon>
       </div>
