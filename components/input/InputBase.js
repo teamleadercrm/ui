@@ -7,7 +7,7 @@ import ErrorText from '../errorText';
 import HelpText from '../helptext';
 import theme from './theme.css';
 
-export default class InputBase extends PureComponent {
+class InputBase extends PureComponent {
   state = {
     inputHasfocus: false,
   };
@@ -190,3 +190,5 @@ InputBase.defaultProps = {
   readOnly: false,
   size: 'medium',
 };
+
+export default InputBase;

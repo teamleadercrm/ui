@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import InputBase from './InputBase';
 
-export default class Input extends PureComponent {
+class Input extends PureComponent {
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.value !== undefined) {
       const newValue = nextProps.value || '';
@@ -68,3 +68,5 @@ Input.propTypes = {
 Input.defaultProps = {
   type: 'text',
 };
+
+export default Input;
