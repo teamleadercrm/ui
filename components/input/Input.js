@@ -5,7 +5,8 @@ import omit from 'lodash.omit';
 import { IconChevronUpSmallOutline, IconChevronDownSmallOutline } from '@teamleader/ui-icons';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import Icon from '../icon';
-import { ErrorText, HelpText } from '../../components';
+import HelpText from '../helptext';
+import ErrorText from '../errorText';
 import theme from './theme.css';
 
 export default class Input extends PureComponent {
