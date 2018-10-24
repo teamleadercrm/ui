@@ -28,6 +28,8 @@ const withTheme = theme => WrappedComponent => {
     tint: 'normal',
   };
 
+  WithTheme.displayName = `WithTheme(${WrappedComponent.displayName || WrappedComponent.name || 'Component'})`;
+
   return WithTheme;
 };
 
