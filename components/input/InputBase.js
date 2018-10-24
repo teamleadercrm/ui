@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import omit from 'lodash.omit';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
-import { ErrorText, HelpText } from '..';
+import ErrorText from '../errorText';
+import HelpText from '../helptext';
 import theme from './theme.css';
 
 export default class InputBase extends PureComponent {
