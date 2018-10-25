@@ -6,6 +6,7 @@ import Box, { omitBoxProps, pickBoxProps } from '../box';
 import ErrorText from '../errorText';
 import HelpText from '../helptext';
 import theme from './theme.css';
+import ValidationText from '../validationText/ValidationText';
 
 class InputBase extends PureComponent {
   state = {
@@ -114,11 +115,7 @@ class InputBase extends PureComponent {
           </div>
           {connectedRight}
         </div>
-        {error ? (
-          <ErrorText inverse={inverse}>{error}</ErrorText>
-        ) : (
-          helpText && <HelpText inverse={inverse}>{helpText}</HelpText>
-        )}
+        <ValidationText error={error} help={helpText} inverse={inverse} />
       </Box>
     );
   }

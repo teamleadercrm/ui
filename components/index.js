@@ -34,6 +34,7 @@ import { IconTab, TitleTab, TabGroup } from './tab';
 import Tag from './tag';
 import { Toast, ToastContainer } from './toast';
 import Toggle from './toggle';
+import ValidationText from './validationText';
 import Label from './label';
 import Tooltip from './tooltip';
 import QTip from './qTip';
@@ -103,5 +104,6 @@ export {
   ToastContainer,
   Toggle,
   Tooltip,
+  ValidationText,
   QTip,
 };
