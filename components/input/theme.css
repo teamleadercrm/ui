@@ -16,7 +16,7 @@
   --input-error-border: var(--color-ruby-dark);
   --input-error-border-inverse: var(--color-ruby-light);
 
-  --spinner-width: calc(3 * var(--unit));
+  --spinner-width: calc(1.8 * var(--unit));
   --spinner-width-large: calc(3.6 * var(--unit));
 }
 

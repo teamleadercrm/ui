@@ -14,7 +14,7 @@ import Dialog from './dialog';
 import HelpText from './helptext';
 import ErrorText from './errorText';
 import Icon from './icon';
-import Input from './input';
+import Input, { InputBase, NumericInput } from './input';
 import Menu, { IconMenu, MenuItem, MenuDivider } from './menu';
 import Link from './link';
 import Message from './message';
@@ -45,6 +45,7 @@ export {
   AsyncSelect,
   Badge,
   Banner,
+  InputBase,
   Box,
   Bullet,
   Button,
@@ -81,6 +82,7 @@ export {
   MenuDivider,
   Message,
   Monospaced,
+  NumericInput,
   Overlay,
   Pagination,
   Popover,

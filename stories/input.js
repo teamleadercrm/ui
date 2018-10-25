@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, number, select } from '@storybook/addon-knobs/react';
 import {
+  InputBase,
   Button,
   Checkbox,
   Counter,
@@ -9,6 +10,7 @@ import {
   Input,
   Label,
   LoadingSpinner,
+  NumericInput,
   TextBody,
   TextSmall,
   Tooltip,
@@ -37,6 +39,7 @@ const props = {
 const TooltippedIcon = Tooltip(Icon);
 
 storiesOf('Inputs', module)
+  .add('Input base', () => <InputBase />)
   .add('Input only', () => (
     <Input
       id="input1"
@@ -71,12 +74,11 @@ storiesOf('Inputs', module)
       />
     </Label>
   ))
-  .add('number', () => (
+  .add('Numeric', () => (
     <Label htmlFor="input1" inverse={boolean('Inverse', false)} size={select('Size', sizes, 'medium')}>
       Input label
-      <Input
+      <NumericInput
         id="input1"
-        type="number"
         bold={boolean('Bold', false)}
         disabled={boolean('Disabled', false)}
         readOnly={boolean('Read only', false)}
