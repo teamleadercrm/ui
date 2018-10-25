@@ -8,8 +8,7 @@ import WeekDay from './WeekDay';
 import { convertModifiersToClassnames, isSelectingFirstDay } from './utils';
 import { DateUtils } from 'react-day-picker/lib/src/index';
 import { IconCalendarSmallOutline } from '@teamleader/ui-icons';
-import HelpText from '../helptext';
-import ErrorText from '../errorText';
+import ValidationText from '../validationText';
 import cx from 'classnames';
 import omit from 'lodash.omit';
 import theme from './theme.css';
@@ -232,11 +231,7 @@ class DatePickerInputRange extends PureComponent {
           {this.renderIcon()}
           {this.renderDayPickerInput()}
         </div>
-        {error ? (
-          <ErrorText inverse={inverse}>{error}</ErrorText>
-        ) : (
-          helpText && <HelpText inverse={inverse}>{helpText}</HelpText>
-        )}
+        <ValidationText error={error} help={helpText} inverse={inverse} />
       </Box>
     );
   }

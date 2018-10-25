@@ -3,10 +3,8 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import omit from 'lodash.omit';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
-import ErrorText from '../errorText';
-import HelpText from '../helptext';
+import ValidationText from '../validationText';
 import theme from './theme.css';
-import ValidationText from '../validationText/ValidationText';
 
 class InputBase extends PureComponent {
   state = {
