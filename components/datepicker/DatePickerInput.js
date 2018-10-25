@@ -57,7 +57,6 @@ class DatePickerInput extends PureComponent {
           className: dayPickerClassNames,
           classNames: theme,
           modifiers: convertModifiersToClassnames(modifiers, theme),
-          onDayClick: this.handleInputDateChange,
           selectedDays: selectedDate,
           navbarElement: <NavigationBar size={size} />,
           weekdayElement: <WeekDay size={size} />,
