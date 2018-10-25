@@ -1,8 +1,8 @@
 import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import ErrorText from '../errorText';
-import HelpText from '../helptext';
+import ErrorText from './ErrorText';
+import HelpText from './HelpText';
 
 class ValidationText extends PureComponent {
   render() {
