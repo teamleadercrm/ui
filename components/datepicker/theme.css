@@ -337,6 +337,10 @@
   }
 }
 
+.date-picker-input-range input {
+  text-align: center;
+}
+
 .overlay {
   composes: box-shadow-200;
   background: var(--color-white);
@@ -377,7 +381,6 @@
     outline: 0;
     padding: 0;
     width: var(--input-width);
-    text-align: center;
   }
 }
 
