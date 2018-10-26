@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import omit from 'lodash.omit';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
-import ErrorText from '../errorText';
-import HelpText from '../helptext';
+import ValidationText from '../validationText';
 import theme from './theme.css';
 
 class InputBase extends PureComponent {
@@ -114,11 +113,7 @@ class InputBase extends PureComponent {
           </div>
           {connectedRight}
         </div>
-        {error ? (
-          <ErrorText inverse={inverse}>{error}</ErrorText>
-        ) : (
-          helpText && <HelpText inverse={inverse}>{helpText}</HelpText>
-        )}
+        <ValidationText error={error} help={helpText} inverse={inverse} />
       </Box>
     );
   }

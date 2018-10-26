@@ -4,8 +4,7 @@ import PropTypes from 'prop-types';
 import { IconCloseBadgedSmallFilled, IconChevronDownSmallOutline } from '@teamleader/ui-icons';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import Icon from '../icon';
-import HelpText from '../helptext';
-import ErrorText from '../errorText';
+import ValidationText from '../validationText';
 import { colors } from './constants';
 import theme from './theme.css';
 import cx from 'classnames';
@@ -289,11 +288,7 @@ class Select extends PureComponent {
           styles={this.getStyles()}
           {...restProps}
         />
-        {error ? (
-          <ErrorText inverse={inverse}>{error}</ErrorText>
-        ) : (
-          helpText && <HelpText inverse={inverse}>{helpText}</HelpText>
-        )}
+        <ValidationText error={error} help={helpText} inverse={inverse} />
       </Box>
     );
   }

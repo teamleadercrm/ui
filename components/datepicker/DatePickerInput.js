@@ -7,8 +7,7 @@ import NavigationBar from './NavigationBar';
 import WeekDay from './WeekDay';
 import { convertModifiersToClassnames } from './utils';
 import { IconCalendarSmallOutline } from '@teamleader/ui-icons';
-import HelpText from '../helptext';
-import ErrorText from '../errorText';
+import ValidationText from '../validationText';
 import cx from 'classnames';
 import omit from 'lodash.omit';
 import theme from './theme.css';
@@ -110,11 +109,7 @@ class DatePickerInput extends PureComponent {
           {this.renderIcon()}
           {this.renderDayPickerInput()}
         </div>
-        {error ? (
-          <ErrorText inverse={inverse}>{error}</ErrorText>
-        ) : (
-          helpText && <HelpText inverse={inverse}>{helpText}</HelpText>
-        )}
+        <ValidationText error={error} help={helpText} inverse={inverse} />
       </Box>
     );
   }

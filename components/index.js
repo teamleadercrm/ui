@@ -11,8 +11,6 @@ import Counter from './counter';
 import DataGrid from './datagrid';
 import { DatePicker, DatePickerRange, DatePickerInput, DatePickerInputRange } from './datepicker';
 import Dialog from './dialog';
-import HelpText from './helptext';
-import ErrorText from './errorText';
 import Icon from './icon';
 import Input, { InputBase, NumericInput } from './input';
 import Menu, { IconMenu, MenuItem, MenuDivider } from './menu';
@@ -34,6 +32,7 @@ import { IconTab, TitleTab, TabGroup } from './tab';
 import Tag from './tag';
 import { Toast, ToastContainer } from './toast';
 import Toggle from './toggle';
+import ValidationText, { ErrorText, HelpText } from './validationText';
 import Label from './label';
 import Tooltip from './tooltip';
 import QTip from './qTip';
@@ -103,5 +102,6 @@ export {
   ToastContainer,
   Toggle,
   Tooltip,
+  ValidationText,
   QTip,
 };
