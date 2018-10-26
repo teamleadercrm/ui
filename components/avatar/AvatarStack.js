@@ -5,23 +5,6 @@ import cx from 'classnames';
 import theme from './theme.css';
 
 class AvatarStack extends PureComponent {
-  static propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    direction: PropTypes.oneOf(['horizontal', 'vertical']),
-    displayMax: PropTypes.number,
-    inverse: PropTypes.bool,
-    onOverflowClick: PropTypes.func,
-    size: PropTypes.oneOf(['tiny', 'small', 'medium']),
-  };
-
-  static defaultProps = {
-    direction: 'horizontal',
-    displayMax: 0,
-    inverse: false,
-    size: 'medium',
-  };
-
   render() {
     const { children, className, direction, displayMax, inverse, onOverflowClick, size, ...others } = this.props;
 
@@ -46,5 +29,22 @@ class AvatarStack extends PureComponent {
     );
   }
 }
+
+AvatarStack.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string,
+  direction: PropTypes.oneOf(['horizontal', 'vertical']),
+  displayMax: PropTypes.number,
+  inverse: PropTypes.bool,
+  onOverflowClick: PropTypes.func,
+  size: PropTypes.oneOf(['tiny', 'small', 'medium']),
+};
+
+AvatarStack.defaultProps = {
+  direction: 'horizontal',
+  displayMax: 0,
+  inverse: false,
+  size: 'medium',
+};
 
 export default AvatarStack;
