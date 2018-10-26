@@ -25,7 +25,7 @@ const handleRowSelectionChange = selectedRows => {
 storiesOf('DataGrids', module)
   .addParameters({
     info: {
-      propTablesExclude: [Link, TextSmall, Heading4, IconMenu, MenuItem],
+      propTablesExclude: [Button, ButtonGroup, Heading4, IconMenu, Link, MenuItem, TextSmall],
     },
   })
   .add('Basic', () => (
