@@ -85,6 +85,7 @@ class NumericInput extends PureComponent {
   getSuffixWithSpinner = () => [
     ...this.props.suffix,
     <SpinnerControls
+      inverse={this.props.inverse}
       handleOnSpinnerUpClick={this.handleIncreaseValue}
       handleOnSpinnerDownClick={this.handleDecreaseValue}
     />,
