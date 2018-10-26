@@ -10,6 +10,10 @@
   position: relative;
   overflow: hidden;
   pointer-events: none;
+
+  &:not(.is-closed) {
+    z-index: 600;
+  }
 }
 
 .qtip {
