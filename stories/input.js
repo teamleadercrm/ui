@@ -11,6 +11,7 @@ import {
   Label,
   LoadingSpinner,
   NumericInput,
+  TextArea,
   TextBody,
   TextSmall,
   Tooltip,
@@ -42,6 +43,7 @@ const TooltippedIcon = Tooltip(Icon);
 storiesOf('Inputs', module)
   .add('Input base', () => <InputBase />)
   .add('Single line input base', () => <SingleLineInputBase />)
+  .add('Text area', () => <TextArea />)
   .add('Input only', () => (
     <Input
       id="input1"
