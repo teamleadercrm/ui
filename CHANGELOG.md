@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `Button`: fixed the faulty border style of our primary & secondary button when disabled ([@driesd](https://github.com/driesd) in [#424](https://github.com/teamleadercrm/ui/pull/424))
+
 ## [0.17.0] - 2018-10-26
 
 ### Added
