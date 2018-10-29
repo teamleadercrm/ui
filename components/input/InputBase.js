@@ -25,7 +25,7 @@ class InputBase extends PureComponent {
   };
 
   render() {
-    const { bold, className, error, inverse, size, ...otherProps } = this.props;
+    const { bold, className, element, error, inverse, size, ...otherProps } = this.props;
 
     const classNames = cx(
       theme['input'],
@@ -48,7 +48,7 @@ class InputBase extends PureComponent {
       ...restProps,
     };
 
-    return <input {...props} />;
+    return React.createElement(element, props);
   }
 }
 
@@ -59,6 +59,8 @@ InputBase.propTypes = {
   className: PropTypes.string,
   /** Boolean indicating whether the input should render as disabled. */
   disabled: PropTypes.bool,
+  /** The element to render. */
+  element: PropTypes.oneOf(['input', 'textarea']),
   /** The text string/element to use as error message below the input. */
   error: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   /** The text string to use as help text below the input. */
@@ -107,6 +109,7 @@ InputBase.propTypes = {
 InputBase.defaultProps = {
   inverse: false,
   disabled: false,
+  element: 'input',
   readOnly: false,
   size: 'medium',
 };
