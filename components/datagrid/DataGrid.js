@@ -200,14 +200,23 @@ class DataGrid extends PureComponent {
 }
 
 DataGrid.propTypes = {
+  /** The size of the checkbox rendered on the left side of each row */
   checkboxSize: PropTypes.oneOf(['small', 'medium', 'large']),
+  /** The content to display inside the data grid. */
   children: PropTypes.node,
+  /** A class name for the wrapper to give custom styles. */
   className: PropTypes.string,
+  /** A unique id which will be compared on each render to reset the selected rows */
   comparableId: PropTypes.any,
+  /** If true, checkboxes will be rendered on the left side of each row */
   selectable: PropTypes.bool,
+  /** Amount of columns that will be sticky, starting from left */
   stickyFromLeft: PropTypes.number,
+  /** Amount of columns that will be sticky, starting from right */
   stickyFromRight: PropTypes.number,
+  /** Callback function that is fired when the selected rows have changed */
   onSelectionChange: PropTypes.func,
+  /** If true, a loading bar will be rendered below the header row */
   processing: PropTypes.bool,
 };
 
