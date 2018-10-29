@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-import InputBase from './InputBase';
+import SingleLineInputBase from './SingleLineInputBase';
 
 class Input extends PureComponent {
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -26,7 +26,7 @@ class Input extends PureComponent {
     const { onChange, ...others } = this.props;
 
     return (
-      <InputBase
+      <SingleLineInputBase
         value={this.state.value}
         onChange={event => {
           this.setState({ value: event.currentTarget.value });
