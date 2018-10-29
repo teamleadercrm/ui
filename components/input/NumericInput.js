@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { IconChevronUpSmallOutline, IconChevronDownSmallOutline } from '@teamleader/ui-icons';
 import Icon from '../icon';
-import InputBase from './InputBase';
+import SingleLineInputBase from './SingleLineInputBase';
 import theme from './theme.css';
 
 class SpinnerControls extends PureComponent {
@@ -95,7 +95,7 @@ class NumericInput extends PureComponent {
     const { spinner, suffix, onChange, ...others } = this.props;
 
     return (
-      <InputBase
+      <SingleLineInputBase
         type="number"
         value={this.state.value}
         suffix={spinner ? this.getSuffixWithSpinner() : suffix}

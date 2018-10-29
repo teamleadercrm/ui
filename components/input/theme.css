@@ -36,14 +36,6 @@
       border: 1px solid var(--color-neutral-dark);
     }
 
-    .input {
-      color: var(--color-teal-darkest);
-
-      &::placeholder {
-        color: var(--color-neutral-darkest);
-      }
-    }
-
     &:not(.is-disabled):not(.is-read-only) {
       &:hover {
         .input-inner-wrapper {
@@ -145,8 +137,100 @@
   }
 }
 
-.input-wrapper {
+.input {
+  width: 100%;
+  z-index: 1;
+
+  &:not(.is-inverse) {
+    background: var(--color-white);
+    border: 1px solid var(--color-neutral-dark);
+
+    color: var(--color-teal-darkest);
+
+    &::placeholder {
+      color: var(--color-neutral-darkest);
+    }
+
+    &:not(:disabled):not(:read-only) {
+      &:hover {
+        border-color: var(--color-neutral-darkest);
+      }
+
+      &:focus {
+        border-color: var(--color-neutral-darkest);
+        box-shadow: 0 0 0 1px var(--color-neutral-darkest);
+      }
+
+      &:active {
+        border-color: var(--color-neutral-darkest);
+        box-shadow: inset 0 1px 3px 0 rgba(130, 130, 140, 0.48);
+      }
+    }
+
+    &:disabled {
+      background-color: var(--color-neutral);
+      border-color: var(--color-neutral);
+
+      color: var(--color-neutral-darkest);
+    }
+
+    &:read-only {
+      background-color: var(--color-neutral);
+      border-color: var(--color-neutral);
+    }
+  }
+
+  &.is-inverse {
+    background: var(--color-teal);
+    border: 1px solid var(--color-teal);
+
+    color: var(--color-neutral-lightest);
+
+    &::placeholder {
+      color: var(--color-teal-light);
+    }
+
+    &:not(:disabled):not(:read-only) {
+      &:hover {
+        border-color: var(--color-teal-light);
+      }
+
+      &:focus {
+        border-color: var(--color-teal-light);
+        box-shadow: 0 0 0 1px var(--color-teal-light);
+      }
+
+      &:active {
+        border-color: var(--color-teal-light);
+        box-shadow: inset 0 1px 3px 0 color(var(--color-teal-darkest) a(0.48));
+      }
+    }
+
+    &:disabled {
+      background-color: var(--color-teal-dark);
+      border-color: var(--color-teal-dark);
+
+      color: var(--color-teal);
+
+      &::placeholder {
+        color: var(--color-teal);
+      }
+    }
+
+    &:read-only {
+      background-color: var(--color-teal-dark);
+      border-color: var(--color-teal-dark);
+    }
+  }
+}
+
+.input-wrapper,
+.input {
   border-radius: var(--input-border-radius);
+  background: transparent;
+}
+
+.input-wrapper {
   display: flex;
 
   > * {
@@ -164,13 +248,23 @@
   }
 }
 
-.input-inner-wrapper {
+.input-inner-wrapper,
+.input {
   transition: 0.3s ease-in-out border, 0.3s ease-in-out box-shadow;
-  align-items: center;
-  display: flex;
   flex: 1;
   overflow: hidden;
   position: relative;
+}
+
+.input-inner-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.wrapper .input {
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
 }
 
 .input,
@@ -182,17 +276,11 @@
 }
 
 .input {
-  position: relative;
   box-sizing: border-box;
 
   height: var(--input-height-medium);
   width: 100%;
   padding: 0 var(--input-horizontal-padding);
-
-  background: transparent;
-  border: 0;
-  border-radius: 0;
-  box-shadow: 0;
 
   font-size: var(--input-text-size);
   font-family: var(--font-family-regular);
@@ -220,6 +308,8 @@
 .suffix-wrapper {
   align-items: center;
   display: flex;
+
+  height: 100%;
 
   > * {
     white-space: nowrap;
@@ -336,7 +426,8 @@
 
 .has-error {
   &:not(.is-inverse) {
-    &:not(.has-focus) .input-inner-wrapper {
+    &:not(.has-focus) .input-inner-wrapper,
+    &.input {
       border-color: var(--input-error-border) !important;
       box-shadow: 0 0 0 1px var(--input-error-border) !important;
       z-index: 2;
@@ -348,7 +439,8 @@
   }
 
   &.is-inverse {
-    &:not(.has-focus) .input-inner-wrapper {
+    &:not(.has-focus) .input-inner-wrapper,
+    &.input {
       border-color: var(--input-error-border-inverse) !important;
       box-shadow: 0 0 0 1px var(--input-error-border-inverse) !important;
       z-index: 2;

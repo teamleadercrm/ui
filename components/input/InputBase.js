@@ -2,17 +2,11 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import omit from 'lodash.omit';
-import Box, { omitBoxProps, pickBoxProps } from '../box';
-import ValidationText from '../validationText';
+import { omitBoxProps } from '../box';
 import theme from './theme.css';
 
 class InputBase extends PureComponent {
-  state = {
-    inputHasfocus: false,
-  };
-
   handleBlur = event => {
-    this.setState({ inputHasFocus: false });
     if (this.props.onBlur) {
       this.props.onBlur(event);
     }
@@ -25,36 +19,26 @@ class InputBase extends PureComponent {
   };
 
   handleFocus = event => {
-    this.setState({ inputHasFocus: true });
     if (this.props.onFocus) {
       this.props.onFocus(event);
     }
   };
 
-  renderOneOrMultipleElements(prop) {
-    if (Array.isArray(prop)) {
-      return prop.map((element, index) => React.cloneElement(element, { key: index }));
-    }
+  render() {
+    const { bold, className, error, inverse, size, ...otherProps } = this.props;
 
-    return prop;
-  }
+    const classNames = cx(
+      theme['input'],
+      theme[`is-${size}`],
+      {
+        [theme['has-error']]: error,
+        [theme['is-inverse']]: inverse,
+        [theme['is-bold']]: bold,
+      },
+      className,
+    );
 
-  renderInput = () => {
-    const { bold, ...otherProps } = this.props;
-
-    const classNames = cx(theme['input'], { [theme['is-bold']]: bold });
-
-    const restProps = omit(omitBoxProps(otherProps), [
-      'className',
-      'connectedLeft',
-      'connectedRight',
-      'helpText',
-      'inverse',
-      'onChange',
-      'prefix',
-      'size',
-      'suffix',
-    ]);
+    const restProps = omit(omitBoxProps(otherProps), ['className', 'helpText', 'inverse', 'size']);
 
     const props = {
       className: classNames,
@@ -65,57 +49,6 @@ class InputBase extends PureComponent {
     };
 
     return <input {...props} />;
-  };
-
-  render() {
-    const {
-      className,
-      connectedLeft,
-      connectedRight,
-      disabled,
-      error,
-      helpText,
-      inverse,
-      prefix,
-      size,
-      suffix,
-      readOnly,
-      ...others
-    } = this.props;
-
-    const { inputHasFocus } = this.state;
-
-    const classNames = cx(
-      theme['wrapper'],
-      theme[`is-${size}`],
-      {
-        [theme['has-error']]: error,
-        [theme['has-focus']]: inputHasFocus,
-        [theme['has-connected-left']]: connectedLeft,
-        [theme['has-connected-right']]: connectedRight,
-        [theme['is-inverse']]: inverse,
-        [theme['is-disabled']]: disabled,
-        [theme['is-read-only']]: readOnly,
-      },
-      className,
-    );
-
-    const rest = pickBoxProps(others);
-
-    return (
-      <Box className={classNames} {...rest}>
-        <div className={theme['input-wrapper']}>
-          {connectedLeft}
-          <div className={theme['input-inner-wrapper']}>
-            {prefix && <div className={theme['prefix-wrapper']}>{this.renderOneOrMultipleElements(prefix)}</div>}
-            {this.renderInput()}
-            {suffix && <div className={theme['suffix-wrapper']}>{this.renderOneOrMultipleElements(suffix)}</div>}
-          </div>
-          {connectedRight}
-        </div>
-        <ValidationText error={error} help={helpText} inverse={inverse} />
-      </Box>
-    );
   }
 }
 
@@ -124,10 +57,6 @@ InputBase.propTypes = {
   bold: PropTypes.bool,
   /** Sets a class name for the wrapper to give custom styles. */
   className: PropTypes.string,
-  /** Element stuck to the left hand side of the component. */
-  connectedLeft: PropTypes.element,
-  /** Element stuck to the right hand side of the component. */
-  connectedRight: PropTypes.element,
   /** Boolean indicating whether the input should render as disabled. */
   disabled: PropTypes.bool,
   /** The text string/element to use as error message below the input. */
@@ -142,14 +71,10 @@ InputBase.propTypes = {
   onFocus: PropTypes.func,
   /** Callback function that is fired when the component's value changes. */
   onChange: PropTypes.func,
-  /** The text string/element to use as a prefix inside the input field */
-  prefix: PropTypes.oneOfType([PropTypes.array, PropTypes.element]),
   /** Boolean indicating whether the input should render as read only. */
   readOnly: PropTypes.bool,
   /** Size of the input element. */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
-  /** The text string/element to use as a suffix inside the input field */
-  suffix: PropTypes.oneOfType([PropTypes.array, PropTypes.element]),
   /** Type of the input element. It can be a valid HTML5 input type. */
   type: PropTypes.oneOf([
     'button',
