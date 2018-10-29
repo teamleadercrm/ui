@@ -14,6 +14,7 @@ import {
   TextBody,
   TextSmall,
   Tooltip,
+  SingleLineInputBase,
 } from '../components';
 import { IconCalendarSmallOutline, IconInfoBadgedSmallFilled } from '@teamleader/ui-icons';
 
@@ -40,6 +41,7 @@ const TooltippedIcon = Tooltip(Icon);
 
 storiesOf('Inputs', module)
   .add('Input base', () => <InputBase />)
+  .add('Single line input base', () => <SingleLineInputBase />)
   .add('Input only', () => (
     <Input
       id="input1"
