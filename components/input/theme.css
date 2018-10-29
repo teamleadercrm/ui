@@ -264,7 +264,7 @@
   align-items: center;
 }
 
-.wrapper .input {
+.input-inner-wrapper .input {
   border: 0 !important;
   border-radius: 0 !important;
   box-shadow: none !important;
@@ -455,7 +455,7 @@
   }
 }
 
-.text-area {
+.wrapper .text-area {
   height: 100%;
   min-height: var(--text-area-min-height);
   overflow: auto;

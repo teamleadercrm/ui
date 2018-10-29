@@ -34,6 +34,7 @@ const suffix = [<TextSmall color="neutral">incl. BTW</TextSmall>, <Counter count
 
 const props = {
   helpText: 'This is the fields help text',
+  error: 'I am an error',
   placeholder: 'Placeholder',
   onChange: (event, value) => console.log('Changing to ', value),
 };
@@ -43,7 +44,7 @@ const TooltippedIcon = Tooltip(Icon);
 storiesOf('Inputs', module)
   .add('Input base', () => <InputBase />)
   .add('Single line input base', () => <SingleLineInputBase />)
-  .add('Text area', () => <TextArea />)
+  .add('Text area', () => <TextArea {...props} />)
   .add('Input only', () => (
     <Input
       id="input1"
