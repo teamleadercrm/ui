@@ -74,7 +74,7 @@ class SingleLineInputBase extends PureComponent {
               }}
               onBlur={() => {
                 this.setState({ inputHasfocus: false });
-                onBlur && onFocus();
+                onBlur && onBlur();
               }}
               {...inputProps}
             />
