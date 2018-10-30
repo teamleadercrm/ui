@@ -50,5 +50,5 @@ export const COLOR = {
   },
 };
 
-export const COLORS = Object.keys(COLOR);
-export const TINTS = Object.keys(COLOR[Object.keys(COLOR)[0]]);
+export const COLORS = Object.keys(COLOR).map(key => key.toLowerCase());
+export const TINTS = Object.keys(COLOR[Object.keys(COLOR)[0]]).map(key => key.toLowerCase());
