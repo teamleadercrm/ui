@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { boolean, number, select } from '@storybook/addon-knobs/react';
+import { boolean, number, select, text } from '@storybook/addon-knobs/react';
 import {
   InputBase,
   Button,
@@ -19,8 +19,34 @@ import {
 import { IconCalendarSmallOutline, IconInfoBadgedSmallFilled } from '@teamleader/ui-icons';
 
 const colors = ['aqua', 'gold', 'mint', 'neutral', 'ruby', 'teal', 'violet'];
-const sizes = ['small', 'medium', 'large'];
+const elements = [null, 'input', 'textarea'];
+const sizes = [null, 'small', 'medium', 'large'];
 const tints = ['lightest', 'light', 'normal', 'dark', 'darkest'];
+const types = [
+  null,
+  'text',
+  'button',
+  'checkbox',
+  'color',
+  'date',
+  'datetime-local',
+  'email',
+  'file',
+  'hidden',
+  'image',
+  'month',
+  'number',
+  'password',
+  'radio',
+  'range',
+  'reset',
+  'search',
+  'submit',
+  'tel',
+  'time',
+  'url',
+  'week',
+];
 
 const prefix = [
   <Icon color="neutral" tint="darkest">
@@ -31,6 +57,13 @@ const prefix = [
 
 const suffix = [<TextSmall color="neutral">incl. BTW</TextSmall>, <Counter count={99} />, <LoadingSpinner />];
 
+const connectedLeft = <Button label="€" />;
+const connectedRight = (
+  <Button>
+    <Checkbox size="small">Discount</Checkbox>
+  </Button>
+);
+
 const props = {
   helpText: 'This is the fields help text',
   placeholder: 'Placeholder',
@@ -40,8 +73,43 @@ const props = {
 const TooltippedIcon = Tooltip(Icon);
 
 storiesOf('Inputs', module)
-  .add('Input base', () => <InputBase />)
-  .add('Single line input base', () => <SingleLineInputBase />)
+  .add('Input base', () => (
+    <InputBase
+      bold={boolean('bold', false)}
+      disabled={boolean('disabled', false)}
+      element={select('element', elements) || undefined}
+      inverse={boolean('inverse', false)}
+      readOnly={boolean('readOnly', false)}
+      size={select('size', sizes) || undefined}
+      type={select('type', types) || undefined}
+      value={text('value', undefined)}
+    />
+  ))
+  .add('Single line input base', () => {
+    const hasPrefix = boolean('render a prefix', false);
+    const hasSuffix = boolean('render a suffix', false);
+    const hasConnectedLeft = boolean('render a connectedLeft', false);
+    const hasConnectedRight = boolean('render a connectedRight', false);
+
+    return (
+      <SingleLineInputBase
+        bold={boolean('bold', false)}
+        disabled={boolean('disabled', false)}
+        element={select('element', elements) || undefined}
+        error={text('error', undefined)}
+        helpText={text('helpText', undefined)}
+        inverse={boolean('inverse', false)}
+        readOnly={boolean('readOnly', false)}
+        size={select('size', sizes) || undefined}
+        type={select('type', types) || undefined}
+        value={text('value', undefined)}
+        prefix={hasPrefix ? prefix : undefined}
+        suffix={hasSuffix ? suffix : undefined}
+        connectedLeft={hasConnectedLeft ? connectedLeft : undefined}
+        connectedRight={hasConnectedRight ? connectedRight : undefined}
+      />
+    );
+  })
   .add('Input only', () => (
     <Input
       id="input1"
