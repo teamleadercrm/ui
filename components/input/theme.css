@@ -386,7 +386,7 @@
 }
 
 .is-large {
-  .input {
+  &.input {
     height: var(--input-height-large);
     font-size: var(--input-text-size-large);
   }
@@ -398,7 +398,7 @@
 }
 
 .is-small {
-  .input,
+  &.input,
   .spinner {
     height: var(--input-height-small);
   }
