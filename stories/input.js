@@ -112,7 +112,18 @@ storiesOf('Inputs', module)
       />
     );
   })
-  .add('Text area', () => <TextArea {...props} />)
+  .add('Text area', () => (
+    <TextArea
+      bold={boolean('bold', false)}
+      disabled={boolean('disabled', false)}
+      element={select('element', elements) || undefined}
+      inverse={boolean('inverse', false)}
+      readOnly={boolean('readOnly', false)}
+      size={select('size', sizes) || undefined}
+      type={select('type', types) || undefined}
+      value={text('value', undefined)}
+    />
+  ))
   .add('Input only', () => (
     <Input
       id="input1"
