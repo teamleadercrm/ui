@@ -58,10 +58,10 @@ class InputBase extends PureComponent {
 
     const props = {
       className: classNames,
+      ...restProps,
       onBlur: this.handleBlur,
       onChange: this.handleChange,
       onFocus: this.handleFocus,
-      ...restProps,
     };
 
     return <input {...props} />;
