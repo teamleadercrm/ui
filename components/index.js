@@ -12,7 +12,7 @@ import DataGrid from './datagrid';
 import { DatePicker, DatePickerRange, DatePickerInput, DatePickerInputRange } from './datepicker';
 import Dialog from './dialog';
 import Icon from './icon';
-import Input, { InputBase, NumericInput, SingleLineInputBase } from './input';
+import Input, { InputBase, NumericInput } from './input';
 import Menu, { IconMenu, MenuItem, MenuDivider } from './menu';
 import Link from './link';
 import Message from './message';
@@ -90,7 +90,6 @@ export {
   RadioGroup,
   Section,
   Select,
-  SingleLineInputBase,
   StatusBullet,
   StatusLabel,
   TextBody,

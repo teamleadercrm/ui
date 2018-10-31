@@ -14,8 +14,8 @@ import {
   TextBody,
   TextSmall,
   Tooltip,
-  SingleLineInputBase,
 } from '../components';
+
 import { IconCalendarSmallOutline, IconInfoBadgedSmallFilled } from '@teamleader/ui-icons';
 
 const colors = ['aqua', 'gold', 'mint', 'neutral', 'ruby', 'teal', 'violet'];
@@ -57,13 +57,6 @@ const prefix = [
 
 const suffix = [<TextSmall color="neutral">incl. BTW</TextSmall>, <Counter count={99} />, <LoadingSpinner />];
 
-const connectedLeft = <Button label="€" />;
-const connectedRight = (
-  <Button>
-    <Checkbox size="small">Discount</Checkbox>
-  </Button>
-);
-
 const props = {
   helpText: 'This is the fields help text',
   placeholder: 'Placeholder',
@@ -85,31 +78,6 @@ storiesOf('Inputs', module)
       value={text('value', undefined)}
     />
   ))
-  .add('Single line input base', () => {
-    const hasPrefix = boolean('render a prefix', false);
-    const hasSuffix = boolean('render a suffix', false);
-    const hasConnectedLeft = boolean('render a connectedLeft', false);
-    const hasConnectedRight = boolean('render a connectedRight', false);
-
-    return (
-      <SingleLineInputBase
-        bold={boolean('bold', false)}
-        disabled={boolean('disabled', false)}
-        element={select('element', elements) || undefined}
-        error={text('error', undefined)}
-        helpText={text('helpText', undefined)}
-        inverse={boolean('inverse', false)}
-        readOnly={boolean('readOnly', false)}
-        size={select('size', sizes) || undefined}
-        type={select('type', types) || undefined}
-        value={text('value', undefined)}
-        prefix={hasPrefix ? prefix : undefined}
-        suffix={hasSuffix ? suffix : undefined}
-        connectedLeft={hasConnectedLeft ? connectedLeft : undefined}
-        connectedRight={hasConnectedRight ? connectedRight : undefined}
-      />
-    );
-  })
   .add('Input only', () => (
     <Input
       id="input1"
