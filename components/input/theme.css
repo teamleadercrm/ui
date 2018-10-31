@@ -142,13 +142,6 @@
   align-items: center;
 }
 
-.wrapper .input-wrapper .input-inner-wrapper .input {
-  border: 0;
-  border-radius: 0;
-  box-shadow: none;
-  background: transparent;
-}
-
 .input,
 .input::placeholder {
   -moz-osx-font-smoothing: grayscale;
@@ -206,6 +199,13 @@
   &.is-bold {
     font-family: var(--font-family-medium);
   }
+}
+
+.wrapper .input-wrapper .input-inner-wrapper .input {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
 }
 
 .prefix-wrapper,
