@@ -1,3 +1,3 @@
-import { COLOR, COLORS, TINTS } from '../constants/colors';
+import { COLOR, COLORS, TINTS, colorsWithout, tintsWithout } from '../constants/colors';
 
-export { COLOR, COLORS, TINTS };
+export { COLOR, COLORS, TINTS, colorsWithout, tintsWithout };
