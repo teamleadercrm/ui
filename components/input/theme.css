@@ -185,18 +185,22 @@
     &::placeholder {
       color: var(--color-teal-light);
     }
-  }
 
-  &:disabled {
-    color: var(--color-teal);
-
-    &::placeholder {
+    &:disabled {
       color: var(--color-teal);
+
+      &::placeholder {
+        color: var(--color-teal);
+      }
     }
   }
 
   &:focus {
     outline: none;
+  }
+
+  &:disabled {
+    color: var(--color-neutral-darkest);
   }
 
   &.is-bold {
