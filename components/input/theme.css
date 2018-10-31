@@ -47,6 +47,10 @@
 }
 
 /* Focus state */
+.wrapper.has-focus .input-inner-wrapper {
+  z-index: 1;
+}
+
 .wrapper.has-focus .input-inner-wrapper,
 .input:focus {
   border-color: var(--color-neutral-darkest);
@@ -58,7 +62,6 @@
 .input:active {
   border-color: var(--color-neutral-darkest);
   box-shadow: inset 0 1px 3px 0 rgba(130, 130, 140, 0.48);
-  z-index: 1;
 }
 
 /* Disabled and Read-only state */
