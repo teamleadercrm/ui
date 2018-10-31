@@ -18,12 +18,6 @@ class InputBase extends PureComponent {
     }
   };
 
-  handleChange = event => {
-    if (this.props.onChange) {
-      this.props.onChange(event);
-    }
-  };
-
   handleFocus = event => {
     this.setState({ inputHasFocus: true });
     if (this.props.onFocus) {
@@ -50,7 +44,6 @@ class InputBase extends PureComponent {
       'connectedRight',
       'helpText',
       'inverse',
-      'onChange',
       'prefix',
       'size',
       'suffix',
@@ -60,7 +53,6 @@ class InputBase extends PureComponent {
       className: classNames,
       ...restProps,
       onBlur: this.handleBlur,
-      onChange: this.handleChange,
       onFocus: this.handleFocus,
     };
 
@@ -140,8 +132,6 @@ InputBase.propTypes = {
   onBlur: PropTypes.func,
   /** Callback function that is fired when focusing the input field. */
   onFocus: PropTypes.func,
-  /** Callback function that is fired when the component's value changes. */
-  onChange: PropTypes.func,
   /** The text string/element to use as a prefix inside the input field */
   prefix: PropTypes.oneOfType([PropTypes.array, PropTypes.element]),
   /** Boolean indicating whether the input should render as read only. */
