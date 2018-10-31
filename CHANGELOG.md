@@ -2,11 +2,15 @@
 
 ### Added
 
+- `Typography`: added the `tint` prop which replaces `soft` ([@driesd](https://github.com/driesd) in [#429](https://github.com/teamleadercrm/ui/pull/429))
+
 ### Changed
 
 ### Deprecated
 
 ### Removed
+
+- [BREAKING] `Typography`: removed the `soft` prop which is replaced by `tint` ([@driesd](https://github.com/driesd) in [#429](https://github.com/teamleadercrm/ui/pull/429))
 
 ### Fixed
 
