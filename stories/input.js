@@ -19,11 +19,10 @@ import {
 import { IconCalendarSmallOutline, IconInfoBadgedSmallFilled } from '@teamleader/ui-icons';
 
 const colors = ['aqua', 'gold', 'mint', 'neutral', 'ruby', 'teal', 'violet'];
-const elements = [null, 'input', 'textarea'];
-const sizes = [null, 'small', 'medium', 'large'];
+const elements = ['input', 'textarea'];
+const sizes = ['small', 'medium', 'large'];
 const tints = ['lightest', 'light', 'normal', 'dark', 'darkest'];
 const types = [
-  null,
   'text',
   'button',
   'checkbox',
@@ -70,11 +69,11 @@ storiesOf('Inputs', module)
     <InputBase
       bold={boolean('bold', false)}
       disabled={boolean('disabled', false)}
-      element={select('element', elements) || undefined}
+      element={select('element', elements)}
       inverse={boolean('inverse', false)}
       readOnly={boolean('readOnly', false)}
-      size={select('size', sizes) || undefined}
-      type={select('type', types) || undefined}
+      size={select('size', sizes)}
+      type={select('type', types)}
       value={text('value', undefined)}
     />
   ))
