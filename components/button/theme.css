@@ -266,6 +266,7 @@
 .secondary {
   &.is-disabled {
     background-color: var(--color-neutral);
+    border: 1px solid var(--color-neutral-dark);
     color: var(--color-neutral-dark);
   }
 }
