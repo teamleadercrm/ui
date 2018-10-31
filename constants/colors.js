@@ -1,3 +1,5 @@
+import without from 'lodash.without';
+
 export const COLOR = {
   AQUA: {
     LIGHTEST: '#e6f2ff',
@@ -52,3 +54,6 @@ export const COLOR = {
 
 export const COLORS = Object.keys(COLOR).map(key => key.toLowerCase());
 export const TINTS = Object.keys(COLOR[Object.keys(COLOR)[0]]).map(key => key.toLowerCase());
+
+export const colorsWithout = colorsToExclude => without(COLORS, ...colorsToExclude);
+export const tintsWithout = tintsToExclude => without(TINTS, ...tintsToExclude);
