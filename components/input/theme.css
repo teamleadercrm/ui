@@ -139,7 +139,6 @@
 
 .input {
   width: 100%;
-  z-index: 1;
   border: 1px solid var(--color-neutral-dark);
   background-color: var(--color-white);
   color: var(--color-teal-darkest);
