@@ -49,7 +49,7 @@ export default class Label extends PureComponent {
                   {connectedLeft}
                 </Box>
               )}
-              <Element color={inverse ? 'white' : 'teal'} element="span">
+              <Element color={inverse ? 'neutral' : 'teal'} tint={inverse ? 'lightest' : 'darkest'} element="span">
                 {child}
               </Element>
               {!required && (
