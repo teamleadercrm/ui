@@ -5,23 +5,6 @@ import cx from 'classnames';
 import theme from './theme.css';
 
 class AvatarStack extends PureComponent {
-  static propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    direction: PropTypes.oneOf(['horizontal', 'vertical']),
-    displayMax: PropTypes.number,
-    inverse: PropTypes.bool,
-    onOverflowClick: PropTypes.func,
-    size: PropTypes.oneOf(['tiny', 'small', 'medium']),
-  };
-
-  static defaultProps = {
-    direction: 'horizontal',
-    displayMax: 0,
-    inverse: false,
-    size: 'medium',
-  };
-
   render() {
     const { children, className, direction, displayMax, inverse, onOverflowClick, size, ...others } = this.props;
 
@@ -46,5 +29,29 @@ class AvatarStack extends PureComponent {
     );
   }
 }
+
+AvatarStack.propTypes = {
+  /** The avatars to display in a stack. */
+  children: PropTypes.node,
+  /** A class name for the wrapper to give custom styles. */
+  className: PropTypes.string,
+  /** The direction in which the avatars will be rendered. */
+  direction: PropTypes.oneOf(['horizontal', 'vertical']),
+  /** The maximum amount of avatars to render. */
+  displayMax: PropTypes.number,
+  /** If true, component will be rendered in inverse mode. */
+  inverse: PropTypes.bool,
+  /** Callback function that is fired when the overflow circle is clicked. */
+  onOverflowClick: PropTypes.func,
+  /** The size of the avatar stack. */
+  size: PropTypes.oneOf(['tiny', 'small', 'medium']),
+};
+
+AvatarStack.defaultProps = {
+  direction: 'horizontal',
+  displayMax: 0,
+  inverse: false,
+  size: 'medium',
+};
 
 export default AvatarStack;

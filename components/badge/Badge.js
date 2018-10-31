@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../box';
+import { colorsWithout } from '../../constants';
 import { TextBody } from '../typography';
 import cx from 'classnames';
 import theme from './theme.css';
@@ -93,7 +94,7 @@ Badge.propTypes = {
   /** Callback function that is fired when the mouse button is released. */
   onMouseUp: PropTypes.func,
   /** Add a color theme to the badge */
-  color: PropTypes.oneOf(['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua']),
+  color: PropTypes.oneOf(colorsWithout(['teal'])),
 };
 
 Badge.defaultProps = {
