@@ -201,6 +201,7 @@
   }
 }
 
+/* Remove all default input styling, when wrapped with prefix and/or suffix */
 .wrapper .input-wrapper .input-inner-wrapper .input {
   border: 0;
   border-radius: 0;
