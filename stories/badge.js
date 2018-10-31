@@ -1,13 +1,12 @@
 import React from 'react';
-import without from 'lodash.without';
 import { storiesOf } from '@storybook/react';
 import { boolean, select } from '@storybook/addon-knobs/react';
 import { Badge, TextDisplay } from '../components';
-import { COLORS } from '../constants';
+import { colorsWithout } from '../constants';
 import { IconBuildingSmallOutline } from '@teamleader/ui-icons';
 
+const colors = colorsWithout(['teal']);
 const iconPositions = ['left', 'right'];
-const colors = without(COLORS, 'teal');
 
 storiesOf('Badge', module)
   .addParameters({
