@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `Input`: fixed the focus state that didn't work when you had custom `onFocus`/`onBlur` event handlers ([@lowiebenoot](https://github.com/lowiebenoot) in [#428](https://github.com/teamleadercrm/ui/pull/428))
+
 ## [0.17.0] - 2018-10-26
 
 ### Added
