@@ -216,7 +216,6 @@
 .input-wrapper,
 .input {
   border-radius: var(--input-border-radius);
-  background: transparent;
 }
 
 .input-wrapper {
@@ -254,6 +253,7 @@
   border: 0;
   border-radius: 0;
   box-shadow: none;
+  background: transparent;
 }
 
 .input,
