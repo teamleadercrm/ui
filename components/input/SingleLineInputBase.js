@@ -13,6 +13,20 @@ class SingleLineInputBase extends PureComponent {
     inputHasfocus: false,
   };
 
+  handleBlur = event => {
+    this.setState({ inputHasfocus: false });
+    if (this.props.onBlur) {
+      this.props.onBlur(event);
+    }
+  };
+
+  handleFocus = event => {
+    this.setState({ inputHasfocus: true });
+    if (this.props.onFocus) {
+      this.props.onFocus(event);
+    }
+  };
+
   renderOneOrMultipleElements(prop) {
     if (Array.isArray(prop)) {
       return prop.map((element, index) => React.cloneElement(element, { key: index }));
@@ -57,6 +71,8 @@ class SingleLineInputBase extends PureComponent {
       disabled,
       error,
       inverse,
+      onBlur: this.handleBlur,
+      onFocus: this.handleFocus,
       readOnly,
       ...omitBoxProps(others),
     };
@@ -67,17 +83,7 @@ class SingleLineInputBase extends PureComponent {
           {connectedLeft}
           <div className={theme['input-inner-wrapper']}>
             {prefix && <div className={theme['prefix-wrapper']}>{this.renderOneOrMultipleElements(prefix)}</div>}
-            <InputBase
-              onFocus={() => {
-                this.setState({ inputHasfocus: true });
-                onFocus && onFocus();
-              }}
-              onBlur={() => {
-                this.setState({ inputHasfocus: false });
-                onBlur && onBlur();
-              }}
-              {...inputProps}
-            />
+            <InputBase {...inputProps} />
             {suffix && <div className={theme['suffix-wrapper']}>{this.renderOneOrMultipleElements(suffix)}</div>}
           </div>
           {connectedRight}
