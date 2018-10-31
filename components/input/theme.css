@@ -62,7 +62,7 @@
   &.is-inverse {
     .input-inner-wrapper {
       background: var(--color-teal);
-      border: 1px solid var(--color-teal);
+      border-color: var(--color-teal);
     }
 
     .input {
