@@ -2,15 +2,15 @@ import React, { PureComponent } from 'react';
 import Box from '../box';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import { COLORS } from '../../constants';
+import { COLORS, TINTS } from '../../constants';
 import theme from './theme.css';
 
 const factory = (baseType, type, defaultElement) => {
   class Text extends PureComponent {
     render() {
-      const { children, className, color, element, ...others } = this.props;
+      const { children, className, color, element, tint, ...others } = this.props;
 
-      const classNames = cx(theme[baseType], theme[type], theme[color], className);
+      const classNames = cx(theme[baseType], theme[type], theme[color], theme[tint], className);
 
       const Element = element || defaultElement;
 
@@ -27,11 +27,13 @@ const factory = (baseType, type, defaultElement) => {
     className: PropTypes.string,
     color: PropTypes.oneOf(COLORS),
     element: PropTypes.node,
+    tint: PropTypes.oneOf(TINTS),
   };
 
   Text.defaultProps = {
     color: 'teal',
     element: null,
+    tint: 'darkest',
   };
 
   return Text;
