@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import Box from '../box';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import { COLORS } from '../../constants';
 import theme from './theme.css';
 
 const factory = (baseType, type, defaultElement) => {
@@ -24,7 +25,7 @@ const factory = (baseType, type, defaultElement) => {
   Text.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
-    color: PropTypes.oneOf(['white', 'neutral', 'mint', 'teal', 'violet', 'ruby', 'gold', 'aqua']),
+    color: PropTypes.oneOf(COLORS),
     element: PropTypes.node,
   };
 
