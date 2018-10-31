@@ -23,166 +23,92 @@
 /**
  * Components
  */
-.wrapper {
-  width: 100%;
 
-  .input-inner-wrapper {
-    background: var(--color-white);
-    border: 1px solid var(--color-neutral-dark);
-  }
-
-  &:hover .input-inner-wrapper {
-    border-color: var(--color-neutral-darkest);
-  }
-
-  &.has-focus .input-inner-wrapper {
-    border-color: var(--color-neutral-darkest);
-    box-shadow: 0 0 0 1px var(--color-neutral-darkest);
-  }
-
-  &:active .input-inner-wrapper {
-    border-color: var(--color-neutral-darkest);
-    box-shadow: inset 0 1px 3px 0 rgba(130, 130, 140, 0.48);
-    z-index: 1;
-  }
-
-  &.is-disabled input {
-    color: var(--color-neutral-darkest);
-  }
-
-  &.is-read-only,
-  &.is-disabled {
-    .input-inner-wrapper {
-      background-color: var(--color-neutral);
-      border-color: var(--color-neutral);
-      box-shadow: none;
-    }
-  }
-
-  &.is-inverse {
-    .input-inner-wrapper {
-      background: var(--color-teal);
-      border-color: var(--color-teal);
-    }
-
-    .input {
-      color: var(--color-neutral-lightest);
-
-      &::placeholder {
-        color: var(--color-teal-light);
-      }
-    }
-
-    &:hover .input-inner-wrapper {
-      border-color: var(--color-teal-light);
-    }
-
-    &.has-focus .input-inner-wrapper {
-      border-color: var(--color-teal-light);
-      box-shadow: 0 0 0 1px var(--color-teal-light);
-    }
-
-    &:active .input-inner-wrapper {
-      border-color: var(--color-teal-light);
-      box-shadow: inset 0 1px 3px 0 color(var(--color-teal-darkest) a(0.48));
-    }
-
-    &.is-disabled .input {
-      color: var(--color-teal);
-
-      &::placeholder {
-        color: var(--color-teal);
-      }
-    }
-
-    &.is-read-only,
-    &.is-disabled {
-      .input-inner-wrapper {
-        background-color: var(--color-teal-dark);
-        border-color: var(--color-teal-dark);
-      }
-    }
-  }
-}
-
+.wrapper,
 .input {
   width: 100%;
+  border-radius: var(--input-border-radius);
+}
+
+/*
+  Default styling
+*/
+
+.wrapper .input-inner-wrapper,
+.input {
   border: 1px solid var(--color-neutral-dark);
   background-color: var(--color-white);
-  color: var(--color-teal-darkest);
-
-  &::placeholder {
-    color: var(--color-neutral-darkest);
-  }
-
-  &:hover {
-    border-color: var(--color-neutral-darkest);
-  }
-
-  &:focus {
-    border-color: var(--color-neutral-darkest);
-    box-shadow: 0 0 0 1px var(--color-neutral-darkest);
-  }
-
-  &:active {
-    border-color: var(--color-neutral-darkest);
-    box-shadow: inset 0 1px 3px 0 rgba(130, 130, 140, 0.48);
-  }
-
-  &:disabled {
-    color: var(--color-neutral-darkest);
-  }
-
-  &:disabled,
-  &:read-only {
-    background-color: var(--color-neutral);
-    border-color: var(--color-neutral);
-    box-shadow: none;
-  }
-
-  &.is-inverse {
-    background-color: var(--color-teal);
-    border-color: var(--color-teal);
-
-    color: var(--color-neutral-lightest);
-
-    &::placeholder {
-      color: var(--color-teal-light);
-    }
-
-    &:hover {
-      border-color: var(--color-teal-light);
-    }
-
-    &:focus {
-      border-color: var(--color-teal-light);
-      box-shadow: 0 0 0 1px var(--color-teal-light);
-    }
-
-    &:active {
-      border-color: var(--color-teal-light);
-      box-shadow: inset 0 1px 3px 0 color(var(--color-teal-darkest) a(0.48));
-    }
-
-    &:disabled {
-      color: var(--color-teal);
-
-      &::placeholder {
-        color: var(--color-teal);
-      }
-    }
-
-    &:disabled,
-    &:read-only {
-      background-color: var(--color-teal-dark);
-      border-color: var(--color-teal-dark);
-    }
-  }
 }
 
-.input-wrapper,
-.input {
-  border-radius: var(--input-border-radius);
+/* Hover state */
+.wrapper:hover .input-inner-wrapper,
+.input:hover {
+  border-color: var(--color-neutral-darkest);
+}
+
+/* Focus state */
+.wrapper.has-focus .input-inner-wrapper,
+.input:focus {
+  border-color: var(--color-neutral-darkest);
+  box-shadow: 0 0 0 1px var(--color-neutral-darkest);
+}
+
+/* Active state */
+.wrapper:active .input-inner-wrapper,
+.input:active {
+  border-color: var(--color-neutral-darkest);
+  box-shadow: inset 0 1px 3px 0 rgba(130, 130, 140, 0.48);
+  z-index: 1;
+}
+
+/* Disabled and Read-only state */
+.wrapper.is-disabled .input-inner-wrapper,
+.wrapper.is-read-only .input-inner-wrapper,
+.input:disabled,
+.input:read-only {
+  background-color: var(--color-neutral);
+  border-color: var(--color-neutral);
+  box-shadow: none;
+}
+
+/*
+  Inverse styling
+*/
+
+.wrapper.is-inverse .input-inner-wrapper,
+.input.is-inverse {
+  background: var(--color-teal);
+  border-color: var(--color-teal);
+}
+
+/* Hover state */
+.wrapper.is-inverse:hover .input-inner-wrapper,
+.input.is-inverse:hover {
+  border-color: var(--color-teal-light);
+}
+
+/* Focus state */
+.wrapper.is-inverse.has-focus .input-inner-wrapper,
+.input.is-inverse:focus {
+  border-color: var(--color-teal-light);
+  box-shadow: 0 0 0 1px var(--color-teal-light);
+}
+
+/* Active state */
+.wrapper.is-inverse:active .input-inner-wrapper,
+.input.is-inverse:active {
+  border-color: var(--color-teal-light);
+  box-shadow: inset 0 1px 3px 0 color(var(--color-teal-darkest) a(0.48));
+}
+
+/* Disabled and Read-only state */
+.wrapper.is-inverse.is-disabled .input-inner-wrapper,
+.wrapper.is-inverse.is-read-only .input-inner-wrapper,
+.input.is-inverse:disabled,
+.input.is-inverse:read-only {
+  background-color: var(--color-teal-dark);
+  border-color: var(--color-teal-dark);
+  box-shadow: none;
 }
 
 .input-wrapper {
@@ -234,6 +160,12 @@
 .input {
   box-sizing: border-box;
 
+  color: var(--color-teal-darkest);
+
+  &::placeholder {
+    color: var(--color-neutral-darkest);
+  }
+
   height: var(--input-height-medium);
   width: 100%;
   padding: 0 var(--input-horizontal-padding);
@@ -249,6 +181,22 @@
   &[type='number']::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+  }
+
+  &.is-inverse {
+    color: var(--color-neutral-lightest);
+
+    &::placeholder {
+      color: var(--color-teal-light);
+    }
+  }
+
+  &:disabled {
+    color: var(--color-teal);
+
+    &::placeholder {
+      color: var(--color-teal);
+    }
   }
 
   &:focus {
