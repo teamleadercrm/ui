@@ -6,24 +6,6 @@ import { omitBoxProps } from '../box';
 import theme from './theme.css';
 
 class InputBase extends PureComponent {
-  handleBlur = event => {
-    if (this.props.onBlur) {
-      this.props.onBlur(event);
-    }
-  };
-
-  handleChange = event => {
-    if (this.props.onChange) {
-      this.props.onChange(event);
-    }
-  };
-
-  handleFocus = event => {
-    if (this.props.onFocus) {
-      this.props.onFocus(event);
-    }
-  };
-
   render() {
     const { bold, className, element, error, inverse, size, ...otherProps } = this.props;
 
@@ -42,9 +24,6 @@ class InputBase extends PureComponent {
 
     const props = {
       className: classNames,
-      onBlur: this.handleBlur,
-      onChange: this.handleChange,
-      onFocus: this.handleFocus,
       ...restProps,
     };
 
