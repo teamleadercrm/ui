@@ -53,7 +53,12 @@ export default class Label extends PureComponent {
                 {child}
               </Element>
               {!required && (
-                <TextSmall element="span" marginLeft={1} color={inverse ? 'white' : 'neutral'} soft>
+                <TextSmall
+                  color={inverse ? 'teal' : 'neutral'}
+                  element="span"
+                  marginLeft={1}
+                  tint={inverse ? 'light' : 'darkest'}
+                >
                   {helpText}
                 </TextSmall>
               )}
