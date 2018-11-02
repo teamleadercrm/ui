@@ -40,6 +40,8 @@ TextArea.propTypes = {
   inverse: PropTypes.bool,
 };
 
-TextArea.defaultProps = {};
+TextArea.defaultProps = {
+  inverse: false,
+};
 
 export default TextArea;
