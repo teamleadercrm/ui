@@ -10,7 +10,6 @@
   --input-height-medium: calc(3.4 * var(--unit));
   --input-height-small: calc(2.8 * var(--unit));
   --input-horizontal-padding: calc(0.5 * var(--unit));
-  --input-vertical-padding: calc(0.5 * var(--unit));
   --input-text-size: calc(1.4 * var(--unit));
   --input-text-size-large: calc(1.6 * var(--unit));
   --input-border-radius: calc(0.4 * var(--unit));
@@ -20,7 +19,13 @@
   --spinner-width: calc(1.8 * var(--unit));
   --spinner-width-large: calc(3.6 * var(--unit));
 
-  --text-area-min-height: calc(10.6 * var(--unit));
+  --text-area-large-min-height: calc(20.2 * var(--unit));
+  --text-area-medium-min-height: calc(15.4 * var(--unit));
+  --text-area-small-min-height: calc(10.6 * var(--unit));
+
+  --text-area-large-vertical-padding: calc(1.1 * var(--unit));
+  --text-area-medium-vertical-padding: calc(0.5 * var(--unit));
+  --text-area-small-vertical-padding: calc(0.2 * var(--unit));
 }
 
 /**
@@ -282,10 +287,10 @@
 
 .text-area {
   height: 100%;
-  min-height: var(--text-area-min-height);
   overflow: auto;
-  padding-top: var(--input-vertical-padding);
-  padding-bottom: var(--input-vertical-padding);
+  min-height: var(--text-area-medium-min-height);
+  padding-top: var(--text-area-medium-vertical-padding);
+  padding-bottom: var(--text-area-medium-vertical-padding);
   resize: vertical;
 }
 
@@ -319,12 +324,24 @@
     height: var(--input-height-large);
     width: var(--spinner-width-large);
   }
+
+  &.text-area {
+    min-height: var(--text-area-large-min-height);
+    padding-top: var(--text-area-large-vertical-padding);
+    padding-bottom: var(--text-area-large-vertical-padding);
+  }
 }
 
 .is-small {
   &.input,
   .spinner {
     height: var(--input-height-small);
+  }
+
+  &.text-area {
+    min-height: var(--text-area-small-min-height);
+    padding-top: var(--text-area-small-vertical-padding);
+    padding-bottom: var(--text-area-small-vertical-padding);
   }
 }
 
