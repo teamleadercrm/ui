@@ -49,13 +49,14 @@ class NumericInput extends PureComponent {
   };
 
   updateStep = n => {
-    const { step } = this.props;
+    const { onChange, step } = this.props;
 
     const currentValue = this.toNumber(this.state.value || 0);
     const newValue = this.parseValue(currentValue + step * n);
 
     if (newValue !== currentValue) {
       this.setState({ value: newValue });
+      onChange && onChange(null, newValue);
     }
   };
 
