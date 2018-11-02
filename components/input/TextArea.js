@@ -13,7 +13,7 @@ class TextArea extends PureComponent {
 
     const classNames = cx(theme['wrapper'], className);
 
-    const boxProps = pickBoxProps(this.props);
+    const boxProps = pickBoxProps(others);
     const inputProps = {
       error,
       inverse,
