@@ -22,7 +22,7 @@ export default class ErrorText extends PureComponent {
     return (
       <Box className={classNames} data-teamleader-ui="error-text" marginTop={2} {...others}>
         <IconWarningBadgedSmallFilled />
-        <TextSmall element="span" marginLeft={1}>
+        <TextSmall color="ruby" element="span" marginLeft={1} tint={inverse ? 'light' : 'dark'}>
           {children}
         </TextSmall>
       </Box>
