@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { boolean, number, select } from '@storybook/addon-knobs/react';
+import { boolean, number, select, text } from '@storybook/addon-knobs/react';
 import {
   InputBase,
   Button,
@@ -15,11 +15,37 @@ import {
   TextSmall,
   Tooltip,
 } from '../components';
+
 import { IconCalendarSmallOutline, IconInfoBadgedSmallFilled } from '@teamleader/ui-icons';
 
 const colors = ['aqua', 'gold', 'mint', 'neutral', 'ruby', 'teal', 'violet'];
+const elements = ['input', 'textarea'];
 const sizes = ['small', 'medium', 'large'];
 const tints = ['lightest', 'light', 'normal', 'dark', 'darkest'];
+const types = [
+  'text',
+  'button',
+  'checkbox',
+  'color',
+  'date',
+  'datetime-local',
+  'email',
+  'file',
+  'hidden',
+  'image',
+  'month',
+  'number',
+  'password',
+  'radio',
+  'range',
+  'reset',
+  'search',
+  'submit',
+  'tel',
+  'time',
+  'url',
+  'week',
+];
 
 const prefix = [
   <Icon color="neutral" tint="darkest">
@@ -39,7 +65,18 @@ const props = {
 const TooltippedIcon = Tooltip(Icon);
 
 storiesOf('Inputs', module)
-  .add('Input base', () => <InputBase />)
+  .add('Input base', () => (
+    <InputBase
+      bold={boolean('bold', false)}
+      disabled={boolean('disabled', false)}
+      element={select('element', elements)}
+      inverse={boolean('inverse', false)}
+      readOnly={boolean('readOnly', false)}
+      size={select('size', sizes)}
+      type={select('type', types)}
+      value={text('value', undefined)}
+    />
+  ))
   .add('Input only', () => (
     <Input
       id="input1"
