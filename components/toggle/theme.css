@@ -98,10 +98,6 @@
       border-color: transparent;
     }
 
-    .label {
-      color: var(--color-neutral-dark);
-    }
-
     &.is-checked {
       .track {
         background: var(--color-mint-lightest);
