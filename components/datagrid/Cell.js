@@ -47,7 +47,6 @@ Cell.propTypes = {
   backgroundColor: PropTypes.oneOf(['white', 'neutral']),
   /** The border style the cell should have. */
   border: PropTypes.oneOf(['around', 'left', 'right']),
-  bordered: PropTypes.bool,
   /** The cells to display inside the cell. */
   children: PropTypes.any,
   /** A class name for the cell to give custom styles. */
