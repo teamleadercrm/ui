@@ -102,7 +102,7 @@ class Toggle extends PureComponent {
         {(label || children) && (
           <span className={theme['label']}>
             {label && (
-              <TextElement element="span" color={disabled ? 'neutral' : 'teal'}>
+              <TextElement element="span" color={disabled ? 'neutral' : 'teal'} tint="darkest">
                 {label}
               </TextElement>
             )}
