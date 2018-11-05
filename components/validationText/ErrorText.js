@@ -1,28 +1,20 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import cx from 'classnames';
-
 import { IconWarningBadgedSmallFilled } from '@teamleader/ui-icons';
 import { TextSmall } from '../typography';
 import Box from '../box';
-import theme from './theme.css';
+import Icon from '../icon';
 
 export default class ErrorText extends PureComponent {
   render() {
     const { children, className, inverse, ...others } = this.props;
 
-    const classNames = cx(
-      theme['error-text'],
-      {
-        [theme['is-inverse']]: inverse,
-      },
-      className,
-    );
-
     return (
-      <Box className={classNames} data-teamleader-ui="error-text" marginTop={2} {...others}>
-        <IconWarningBadgedSmallFilled />
-        <TextSmall element="span" marginLeft={1}>
+      <Box className={className} data-teamleader-ui="error-text" marginTop={2} {...others}>
+        <Icon color="ruby" tint={inverse ? 'light' : 'dark'}>
+          <IconWarningBadgedSmallFilled />
+        </Icon>
+        <TextSmall color="ruby" element="span" marginLeft={1} tint={inverse ? 'light' : 'dark'}>
           {children}
         </TextSmall>
       </Box>

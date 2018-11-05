@@ -106,7 +106,7 @@ class RadioButton extends PureComponent {
         {(label || children) && (
           <span className={theme['label']}>
             {label && (
-              <TextElement element="span" color="teal" soft={disabled}>
+              <TextElement element="span" color={disabled ? 'neutral' : 'teal'} tint="darkest">
                 {label}
               </TextElement>
             )}
