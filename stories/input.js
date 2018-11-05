@@ -11,6 +11,7 @@ import {
   Label,
   LoadingSpinner,
   NumericInput,
+  TextArea,
   TextBody,
   TextSmall,
   Tooltip,
@@ -58,6 +59,7 @@ const suffix = [<TextSmall color="neutral">incl. BTW</TextSmall>, <Counter count
 
 const props = {
   helpText: 'This is the fields help text',
+  error: 'I am an error',
   placeholder: 'Placeholder',
   onChange: (event, value) => console.log('Changing to ', value),
 };
@@ -74,6 +76,16 @@ storiesOf('Inputs', module)
       readOnly={boolean('readOnly', false)}
       size={select('size', sizes)}
       type={select('type', types)}
+      value={text('value', undefined)}
+    />
+  ))
+  .add('Text area', () => (
+    <TextArea
+      bold={boolean('bold', false)}
+      disabled={boolean('disabled', false)}
+      inverse={boolean('inverse', false)}
+      readOnly={boolean('readOnly', false)}
+      size={select('size', sizes) || undefined}
       value={text('value', undefined)}
     />
   ))
