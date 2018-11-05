@@ -89,10 +89,6 @@
       border-color: transparent;
       color: var(--color-neutral-dark);
     }
-
-    .label {
-      color: var(--color-neutral-dark);
-    }
   }
 
   input:focus + .shape {
