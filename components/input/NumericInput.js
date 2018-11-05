@@ -12,6 +12,7 @@ class SpinnerControls extends PureComponent {
       color: inverse ? 'teal' : 'neutral',
       element: 'button',
       tint: inverse ? 'lightest' : 'darkest',
+      type: 'button',
     };
 
     return (
