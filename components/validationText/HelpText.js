@@ -10,10 +10,10 @@ export default class HelpText extends PureComponent {
     return (
       <TextSmall
         className={className}
-        color={inverse ? 'white' : 'neutral'}
+        color={inverse ? 'teal' : 'neutral'}
         data-teamleader-ui="help-text"
         marginTop={1}
-        soft
+        tint={inverse ? 'light' : 'darkest'}
         {...others}
       >
         {children}
