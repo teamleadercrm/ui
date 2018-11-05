@@ -31,9 +31,7 @@ const factory = (baseType, type, defaultElement) => {
   };
 
   Text.defaultProps = {
-    color: 'teal',
     element: null,
-    tint: 'darkest',
   };
 
   return Text;
