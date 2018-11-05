@@ -86,7 +86,6 @@ storiesOf('Inputs', module)
       inverse={boolean('inverse', false)}
       readOnly={boolean('readOnly', false)}
       size={select('size', sizes) || undefined}
-      type={select('type', types) || undefined}
       value={text('value', undefined)}
     />
   ))
