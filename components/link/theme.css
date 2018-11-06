@@ -22,6 +22,19 @@
   &:not(.inherit) {
     color: var(--color-aqua-dark);
     font-family: var(--font-family-regular);
+  }
+
+  &.inherit {
+    color: inherit;
+
+    &:hover,
+    &:active {
+      color: inherit;
+    }
+  }
+
+  &:not(.inherit),
+  &.has-icon {
     text-decoration: none;
 
     &:hover,
@@ -30,13 +43,11 @@
     }
   }
 
-  &.inherit {
-    color: inherit;
+  &.inherit:not(.has-icon) {
     text-decoration: underline;
 
     &:hover,
     &:active {
-      color: inherit;
       text-decoration: none;
     }
   }
