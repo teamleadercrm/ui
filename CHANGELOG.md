@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `Button`: changed the background colors, of the active and hover states of the `Button` with the `type` property set to `'link'` ([@LennertBlommaert](https://github.com/LennertBlommaert) in [#436](https://github.com/teamleadercrm/ui/pull/436))
+
 ### Deprecated
 
 ### Removed
