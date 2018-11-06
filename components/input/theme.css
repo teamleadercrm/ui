@@ -19,13 +19,13 @@
   --spinner-width: calc(1.8 * var(--unit));
   --spinner-width-large: calc(3.6 * var(--unit));
 
-  --text-area-large-min-height: calc(20.2 * var(--unit));
-  --text-area-medium-min-height: calc(15.4 * var(--unit));
-  --text-area-small-min-height: calc(10.6 * var(--unit));
+  --textarea-large-min-height: calc(20.2 * var(--unit));
+  --textarea-medium-min-height: calc(15.4 * var(--unit));
+  --textarea-small-min-height: calc(10.6 * var(--unit));
 
-  --text-area-large-vertical-padding: calc(1.1 * var(--unit));
-  --text-area-medium-vertical-padding: calc(0.5 * var(--unit));
-  --text-area-small-vertical-padding: calc(0.2 * var(--unit));
+  --textarea-large-vertical-padding: calc(1.1 * var(--unit));
+  --textarea-medium-vertical-padding: calc(0.5 * var(--unit));
+  --textarea-small-vertical-padding: calc(0.2 * var(--unit));
 }
 
 /**
@@ -285,12 +285,12 @@
   margin-top: -1px;
 }
 
-.text-area {
+.textarea {
   height: 100%;
   overflow: auto;
-  min-height: var(--text-area-medium-min-height);
-  padding-top: var(--text-area-medium-vertical-padding);
-  padding-bottom: var(--text-area-medium-vertical-padding);
+  min-height: var(--textarea-medium-min-height);
+  padding-top: var(--textarea-medium-vertical-padding);
+  padding-bottom: var(--textarea-medium-vertical-padding);
   resize: vertical;
 }
 
@@ -325,10 +325,10 @@
     width: var(--spinner-width-large);
   }
 
-  &.text-area {
-    min-height: var(--text-area-large-min-height);
-    padding-top: var(--text-area-large-vertical-padding);
-    padding-bottom: var(--text-area-large-vertical-padding);
+  &.textarea {
+    min-height: var(--textarea-large-min-height);
+    padding-top: var(--textarea-large-vertical-padding);
+    padding-bottom: var(--textarea-large-vertical-padding);
   }
 }
 
@@ -338,10 +338,10 @@
     height: var(--input-height-small);
   }
 
-  &.text-area {
-    min-height: var(--text-area-small-min-height);
-    padding-top: var(--text-area-small-vertical-padding);
-    padding-bottom: var(--text-area-small-vertical-padding);
+  &.textarea {
+    min-height: var(--textarea-small-min-height);
+    padding-top: var(--textarea-small-vertical-padding);
+    padding-bottom: var(--textarea-small-vertical-padding);
   }
 }
 

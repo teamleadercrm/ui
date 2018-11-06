@@ -7,7 +7,7 @@ import Box, { omitBoxProps, pickBoxProps } from '../box';
 import ValidationText from '../validationText';
 import theme from './theme.css';
 
-class TextArea extends PureComponent {
+class Textarea extends PureComponent {
   render() {
     const { className, error, helpText, inverse, ...others } = this.props;
 
@@ -22,14 +22,14 @@ class TextArea extends PureComponent {
 
     return (
       <Box className={classNames} {...boxProps}>
-        <InputBase className={theme['text-area']} element="textarea" {...inputProps} />
+        <InputBase className={theme['textarea']} element="textarea" {...inputProps} />
         <ValidationText error={error} help={helpText} inverse={inverse} />
       </Box>
     );
   }
 }
 
-TextArea.propTypes = {
+Textarea.propTypes = {
   /** Sets a class name for the wrapper to give custom styles. */
   className: PropTypes.string,
   /** The text to use as error message below the input. */
@@ -40,8 +40,8 @@ TextArea.propTypes = {
   inverse: PropTypes.bool,
 };
 
-TextArea.defaultProps = {
+Textarea.defaultProps = {
   inverse: false,
 };
 
-export default TextArea;
+export default Textarea;
