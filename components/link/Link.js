@@ -1,9 +1,11 @@
-import React, { Fragment, PureComponent } from 'react';
+import React, { createRef, Fragment, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import theme from './theme.css';
 
 class Link extends PureComponent {
+  linkNode = createRef();
+
   render() {
     const { children, className, icon, iconPlacement, element, inherit, ...others } = this.props;
 
@@ -19,7 +21,7 @@ class Link extends PureComponent {
     const Element = element;
 
     return (
-      <Element className={classNames} data-teamleader-ui="link" {...others}>
+      <Element ref={this.linkNode} className={classNames} data-teamleader-ui="link" {...others}>
         {icon && iconPlacement === 'left' && icon}
         <ChildrenWrapper>{children}</ChildrenWrapper>
         {icon && iconPlacement === 'right' && icon}
