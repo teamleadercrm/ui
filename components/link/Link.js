@@ -11,6 +11,7 @@ class Link extends PureComponent {
       theme['link'],
       {
         [theme['inherit']]: inherit,
+        [theme['has-icon']]: icon,
       },
       className,
     );
