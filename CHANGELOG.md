@@ -2,6 +2,8 @@
 
 ### Added
 
+- `TextArea`: added the `TextArea` component ([@LennertBlommaert](https://github.com/LennertBlommaert) in [#427](https://github.com/teamleadercrm/ui/pull/427))
+
 ### Changed
 
 ### Deprecated
