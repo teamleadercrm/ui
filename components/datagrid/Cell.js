@@ -41,15 +41,23 @@ class Cell extends PureComponent {
 }
 
 Cell.propTypes = {
+  /** The horizontal alignment of the text inside the cell. */
   align: PropTypes.oneOf(['left', 'center', 'right']),
+  /** The background color the cell should have. */
   backgroundColor: PropTypes.oneOf(['white', 'neutral']),
+  /** The border style the cell should have. */
   border: PropTypes.oneOf(['around', 'left', 'right']),
-  bordered: PropTypes.bool,
+  /** The cells to display inside the cell. */
   children: PropTypes.any,
+  /** A class name for the cell to give custom styles. */
   className: PropTypes.string,
+  /** The width proportion of the cell against the others. */
   flex: PropTypes.oneOf(['min-width', '1', '2', '3', '4']),
+  /** If true, an ellipsis will be shown when the cell content is too long. */
   preventOverflow: PropTypes.bool,
+  /** If true, the text inside the cell will be bold */
   soft: PropTypes.bool,
+  /** If true, the color of the text inside the cell will be neutral darkest */
   strong: PropTypes.bool,
 };
 
