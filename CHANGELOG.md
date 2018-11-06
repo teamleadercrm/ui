@@ -7,6 +7,8 @@
 
 ### Changed
 
+- `InputBase`: extracted logic for single line inputs to new internally used `SingleLineInputBase` ([@LennertBlommaert](https://github.com/LennertBlommaert) in [#426](https://github.com/teamleadercrm/ui/pull/426))
+
 ### Deprecated
 
 ### Removed
