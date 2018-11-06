@@ -374,16 +374,13 @@
     color: var(--color-aqua-dark);
 
     &:not(.is-disabled) {
-      &:hover {
-        background-color: var(--color-neutral-light);
-      }
-
       &:focus {
         box-shadow: 0 0 0 2px var(--color-aqua-light);
       }
 
+      &:hover,
       &:active {
-        background-color: var(--color-neutral-light);
+        background-color: color(var(--color-neutral) a(0.48));
       }
     }
 
@@ -396,16 +393,13 @@
     color: var(--color-teal-lightest);
 
     &:not(.is-disabled) {
-      &:hover {
-        background-color: var(--color-teal);
-      }
-
       &:focus {
         box-shadow: 0 0 0 2px var(--color-teal);
       }
 
+      &:hover,
       &:active {
-        background-color: color(var(--color-teal-lightest) a(0.24));
+        background-color: color(var(--color-teal) a(0.48));
       }
     }
 
