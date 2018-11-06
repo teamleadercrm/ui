@@ -22,7 +22,7 @@ class Textarea extends PureComponent {
 
     return (
       <Box className={classNames} {...boxProps}>
-        <InputBase className={theme['text-area']} element="textarea" {...inputProps} />
+        <InputBase className={theme['textarea']} element="textarea" {...inputProps} />
         <ValidationText error={error} help={helpText} inverse={inverse} />
       </Box>
     );
