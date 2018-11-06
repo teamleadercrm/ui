@@ -15,6 +15,7 @@
 
 ### Fixed
 
+- `Gulpfile`: fixed the `babel` error by adding the `constants` folder to the `js` task. ([@driesd](https://github.com/driesd) in [#440](https://github.com/teamleadercrm/ui/pull/440))
 - `Toast`: fixed the squeezed spinner when containing multiline text ([@driesd](https://github.com/driesd) in [#439](https://github.com/teamleadercrm/ui/pull/439))
 - `Toast`: fixed the faulty text color [introduced](https://github.com/teamleadercrm/ui/pull/429) by replacing the `soft` prop with `tint` on `Typography` components. ([@driesd](https://github.com/driesd) in [#438](https://github.com/teamleadercrm/ui/pull/438))
 
