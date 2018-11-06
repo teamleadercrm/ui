@@ -8,6 +8,8 @@
 
 ### Removed
 
+- `Link`: removed the visual focus indication after a `Link` was clicked ([@driesd](https://github.com/driesd) in [#437](https://github.com/teamleadercrm/ui/pull/437))
+
 ### Fixed
 
 ## [0.18.0] - 2018-11-06
