@@ -68,6 +68,7 @@
 }
 
 .spinner {
+  flex-shrink: 0;
   margin-right: var(--toast-spacing);
 }
 
