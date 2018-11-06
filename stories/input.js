@@ -11,7 +11,7 @@ import {
   Label,
   LoadingSpinner,
   NumericInput,
-  TextArea,
+  Textarea,
   TextBody,
   TextSmall,
   Tooltip,
@@ -80,7 +80,7 @@ storiesOf('Inputs', module)
     />
   ))
   .add('Text area', () => (
-    <TextArea
+    <Textarea
       bold={boolean('bold', false)}
       disabled={boolean('disabled', false)}
       inverse={boolean('inverse', false)}
