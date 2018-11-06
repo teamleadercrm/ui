@@ -15,6 +15,8 @@
 
 ### Fixed
 
+- `Toast`: fixed the faulty text color [introduced](https://github.com/teamleadercrm/ui/pull/429) by replacing the `soft` prop with `tint` on `Typography` components. ([@driesd](https://github.com/driesd) in [#438](https://github.com/teamleadercrm/ui/pull/438))
+
 ## [0.18.0] - 2018-11-06
 
 ### Added
