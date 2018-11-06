@@ -2,49 +2,66 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, select } from '@storybook/addon-knobs/react';
 import { IconAddSmallOutline } from '@teamleader/ui-icons';
-import { Link, TextDisplay } from '../components';
+import { Link, TextBody, TextDisplay, TextSmall } from '../components';
+import { COLORS, TINTS } from '../constants';
 
 const elements = ['a', 'button'];
-const colors = ['white', 'neutral', 'mint', 'teal', 'violet', 'ruby', 'gold', 'aqua'];
 const iconPositions = ['left', 'right'];
 
 storiesOf('Links', module)
   .addParameters({
     info: {
-      propTablesExclude: [TextDisplay],
+      propTablesExclude: [TextDisplay, TextSmall],
     },
   })
+  .add('Link only', () => (
+    <Link href="https://www.teamleader.be" target="_blank" inherit={boolean('inherit', false)}>
+      link
+    </Link>
+  ))
   .add('With text', () => (
-    <TextDisplay color={select('Color', colors, 'teal')}>
+    <TextBody color={select('color', COLORS, 'teal')} tint={select('tint', TINTS, 'darkest')}>
       Display text with a{' '}
-      <Link href="https://www.teamleader.be" target="_blank" inherit={boolean('Inherit', false)}>
+      <Link href="https://www.teamleader.be" target="_blank" inherit={boolean('inherit', false)}>
         link
       </Link>{' '}
       inside
-    </TextDisplay>
+    </TextBody>
   ))
   .add('With text and icon', () => (
-    <TextDisplay color={select('Color', colors, 'teal')}>
+    <TextBody color={select('color', COLORS, 'teal')} tint={select('tint', TINTS, 'darkest')}>
       <Link
         href="https://www.teamleader.be"
         icon={<IconAddSmallOutline />}
-        iconPlacement={select('Icon placement', iconPositions, 'left')}
+        iconPlacement={select('iconPlacement', iconPositions, 'left')}
         target="_blank"
-        inherit={boolean('Inherit', false)}
+        inherit={boolean('inherit', false)}
       >
         link
       </Link>
-    </TextDisplay>
+    </TextBody>
   ))
   .add('With custom element', () => (
-    <TextDisplay color={select('Color', colors, 'teal')}>
+    <TextBody color={select('color', COLORS, 'teal')} tint={select('tint', TINTS, 'darkest')}>
       <Link
-        element={select('Element', elements, 'button')}
+        element={select('element', elements, 'button')}
         icon={<IconAddSmallOutline />}
-        iconPlacement={select('Icon placement', iconPositions, 'left')}
-        inherit={boolean('Inherit', false)}
+        iconPlacement={select('iconPlacement', iconPositions, 'left')}
+        inherit={boolean('inherit', false)}
       >
         link
       </Link>
-    </TextDisplay>
+    </TextBody>
+  ))
+  .add('Subtle icon link', () => (
+    <TextSmall color={select('color', COLORS, 'neutral')} tint={select('tint', TINTS, 'darkest')}>
+      <Link
+        element={select('element', elements, 'button')}
+        icon={<IconAddSmallOutline />}
+        iconPlacement={select('iconPlacement', iconPositions, 'left')}
+        inherit={boolean('inherit', true)}
+      >
+        Discount
+      </Link>
+    </TextSmall>
   ));
