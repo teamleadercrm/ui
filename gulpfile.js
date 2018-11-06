@@ -5,7 +5,7 @@ const postcss = require('gulp-postcss');
 
 gulp.task('js', function() {
   return gulp
-    .src(['./components/**/*.js'])
+    .src(['./components/**/*.js', './constants/**/*.js'])
     .pipe(babel())
     .pipe(gulp.dest('./lib'));
 });
