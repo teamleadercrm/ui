@@ -396,16 +396,13 @@
     color: var(--color-teal-lightest);
 
     &:not(.is-disabled) {
-      &:hover {
-        background-color: var(--color-teal);
-      }
-
       &:focus {
         box-shadow: 0 0 0 2px var(--color-teal);
       }
 
+      &:hover,
       &:active {
-        background-color: color(var(--color-teal-lightest) a(0.24));
+        background-color: var(--color-teal);
       }
     }
 
