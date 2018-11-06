@@ -37,6 +37,10 @@ Link.propTypes = {
   iconPlacement: PropTypes.oneOf(['left', 'right']),
   inherit: PropTypes.bool,
   element: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
+  /** Callback function that is fired when mouse leaves the component. */
+  onMouseLeave: PropTypes.func,
+  /** Callback function that is fired when the mouse button is released. */
+  onMouseUp: PropTypes.func,
 };
 
 Link.defaultProps = {
