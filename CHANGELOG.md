@@ -12,6 +12,8 @@
 
 ### Fixed
 
+- `Toast`: fixed the squeezed spinner when containing multiline text ([@driesd](https://github.com/driesd) in [#439](https://github.com/teamleadercrm/ui/pull/439))
+
 ## [0.18.0] - 2018-11-06
 
 ### Added
