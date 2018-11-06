@@ -6,6 +6,26 @@ import theme from './theme.css';
 class Link extends PureComponent {
   linkNode = createRef();
 
+  blur() {
+    if (this.linkNode.current.blur) {
+      this.linkNode.current.blur();
+    }
+  }
+
+  handleMouseUp = event => {
+    const { onMouseUp } = this.props;
+
+    this.blur();
+    onMouseUp && onMouseUp(event);
+  };
+
+  handleMouseLeave = event => {
+    const { onMouseLeave } = this.props;
+
+    this.blur();
+    onMouseLeave && onMouseLeave(event);
+  };
+
   render() {
     const { children, className, icon, iconPlacement, element, inherit, ...others } = this.props;
 
@@ -21,7 +41,14 @@ class Link extends PureComponent {
     const Element = element;
 
     return (
-      <Element ref={this.linkNode} className={classNames} data-teamleader-ui="link" {...others}>
+      <Element
+        ref={this.linkNode}
+        className={classNames}
+        data-teamleader-ui="link"
+        onMouseUp={this.handleMouseUp}
+        onMouseLeave={this.handleMouseLeave}
+        {...others}
+      >
         {icon && iconPlacement === 'left' && icon}
         <ChildrenWrapper>{children}</ChildrenWrapper>
         {icon && iconPlacement === 'right' && icon}
