@@ -91,7 +91,7 @@ class Toast extends PureComponent {
       <div data-teamleader-ui="toast" onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
         <div className={classNames}>
           {processing && <LoadingSpinner className={theme['spinner']} color="neutral" tint="lightest" />}
-          <TextBody className={theme['label']} color="white">
+          <TextBody className={theme['label']} color="neutral" tint="lightest">
             {label}
             {children}
           </TextBody>
