@@ -29,15 +29,21 @@ class Dialog extends PureComponent {
   };
 
   render() {
-    const { children, title, ...otherProps } = this.props;
+    const { children, primaryAction, secondaryAction, tertiaryAction, title, ...otherProps } = this.props;
 
-    const restProps = omit(otherProps, ['headerColor', 'onCloseClick', 'primaryAction', 'secondaryAction']);
+    const restProps = omit(otherProps, [
+      'headerColor',
+      'onCloseClick',
+      'primaryAction',
+      'secondaryAction',
+      'tertiaryAction',
+    ]);
 
     return (
       <DialogBase {...restProps}>
         {title && this.getHeader()}
         {children}
-        {this.getFooter()}
+        {(tertiaryAction || secondaryAction || primaryAction) && this.getFooter()}
       </DialogBase>
     );
   }
