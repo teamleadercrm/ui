@@ -5,7 +5,7 @@ const postcss = require('gulp-postcss');
 
 gulp.task('js', function() {
   return gulp
-    .src(['./components/**/*.js'])
+    .src(['./src/**/*.js'])
     .pipe(babel())
     .pipe(gulp.dest('./lib'));
 });
@@ -14,7 +14,7 @@ gulp.task('css', function() {
   const plugins = [
     require('postcss-import')({
       root: __dirname,
-      path: [path.join(__dirname, './components')],
+      path: [path.join(__dirname, './src/components')],
     }),
     require('postcss-mixins')(),
     require('postcss-each')(),
@@ -22,7 +22,7 @@ gulp.task('css', function() {
   ];
 
   return gulp
-    .src(['./components/*.css', './components/**/*.css'])
+    .src(['./src/**/*.css'])
     .pipe(postcss(plugins))
     .pipe(gulp.dest('./lib'));
 });
