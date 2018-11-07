@@ -55,7 +55,6 @@ Dialog.propTypes = {
 
 Dialog.defaultProps = {
   headerColor: 'neutral',
-  primaryAction: {},
 };
 
 export default Dialog;
