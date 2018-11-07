@@ -1,42 +1,53 @@
-import Avatar, { AvatarStack } from './avatar';
-import Badge from './badge';
-import Banner from './banner';
-import Box from './box';
-import Button, { ButtonGroup, IconButton } from './button';
-import { Heading1, Heading2, Heading3, Heading4, Monospaced, TextBody, TextDisplay, TextSmall } from './typography';
-import Bullet from './bullet';
-import Checkbox from './checkbox';
-import CompactMessage from './compactMessage';
-import Counter from './counter';
-import DataGrid from './datagrid';
-import { DatePicker, DatePickerRange, DatePickerInput, DatePickerInputRange } from './datepicker';
-import Dialog from './dialog';
-import Icon from './icon';
-import Input, { InputBase, NumericInput, Textarea } from './input';
-import Menu, { IconMenu, MenuItem, MenuDivider } from './menu';
-import Link from './link';
-import Message from './message';
-import Overlay from './overlay';
-import LoadingBar from './loadingBar';
-import LoadingMolecule from './loadingMolecule';
-import LoadingSpinner from './loadingSpinner';
-import Pagination from './pagination';
-import Popover from './popover';
-import { RadioButton, RadioGroup } from './radio';
-import Section from './section';
-import Select, { AsyncSelect } from './select';
-import { Island, IslandGroup } from './island';
-import StatusBullet from './statusBullet';
-import StatusLabel from './statusLabel';
-import { IconTab, TitleTab, TabGroup } from './tab';
-import Tag from './tag';
-import { Toast, ToastContainer } from './toast';
-import Toggle from './toggle';
-import ValidationText, { ErrorText, HelpText } from './validationText';
-import Label from './label';
-import Tooltip from './tooltip';
-import QTip from './qTip';
-import ProgressTracker from './progressTracker';
+import Avatar, { AvatarStack } from './components/avatar';
+import Badge from './components/badge';
+import Banner from './components/banner';
+import Box from './components/box';
+import Button, { ButtonGroup, IconButton } from './components/button';
+import {
+  Heading1,
+  Heading2,
+  Heading3,
+  Heading4,
+  Monospaced,
+  TextBody,
+  TextDisplay,
+  TextSmall,
+} from './components/typography';
+import Bullet from './components/bullet';
+import Checkbox from './components/checkbox';
+import CompactMessage from './components/compactMessage';
+import Counter from './components/counter';
+import DataGrid from './components/datagrid';
+import { DatePicker, DatePickerRange, DatePickerInput, DatePickerInputRange } from './components/datepicker';
+import Dialog from './components/dialog';
+import Icon from './components/icon';
+import Input, { InputBase, NumericInput, Textarea } from './components/input';
+import Menu, { IconMenu, MenuItem, MenuDivider } from './components/menu';
+import Link from './components/link';
+import Message from './components/message';
+import Overlay from './components/overlay';
+import LoadingBar from './components/loadingBar';
+import LoadingMolecule from './components/loadingMolecule';
+import LoadingSpinner from './components/loadingSpinner';
+import Pagination from './components/pagination';
+import Popover from './components/popover';
+import { RadioButton, RadioGroup } from './components/radio';
+import Section from './components/section';
+import Select, { AsyncSelect } from './components/select';
+import { Island, IslandGroup } from './components/island';
+import StatusBullet from './components/statusBullet';
+import StatusLabel from './components/statusLabel';
+import { IconTab, TitleTab, TabGroup } from './components/tab';
+import Tag from './components/tag';
+import { Toast, ToastContainer } from './components/toast';
+import Toggle from './components/toggle';
+import ValidationText, { ErrorText, HelpText } from './components/validationText';
+import Label from './components/label';
+import Tooltip from './components/tooltip';
+import QTip from './components/qTip';
+import ProgressTracker from './components/progressTracker';
+
+import { COLOR, COLORS, TINTS, colorsWithout, tintsWithout } from './constants';
 
 export {
   Avatar,
@@ -105,4 +116,9 @@ export {
   Tooltip,
   ValidationText,
   QTip,
+  COLOR,
+  COLORS,
+  TINTS,
+  colorsWithout,
+  tintsWithout,
 };
