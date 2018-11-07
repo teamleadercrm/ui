@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { number, select } from '@storybook/addon-knobs/react';
-import { Box, Heading2, Icon, Section, TextSmall } from '../components';
+import { Box, Heading2, Icon, Section, TextSmall } from '../src/components';
 import * as Icons from '@teamleader/ui-icons';
 
 const colors = ['aqua', 'gold', 'mint', 'neutral', 'ruby', 'teal', 'violet'];

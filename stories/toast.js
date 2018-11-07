@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Store, State } from '@sambego/storybook-state';
-import { Button, Toast, Link, ToastContainer } from '../components';
+import { Button, Toast, Link, ToastContainer } from '../src/components';
 
 const store = new Store({
   children: [],

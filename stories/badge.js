@@ -1,8 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, select } from '@storybook/addon-knobs/react';
-import { Badge, TextDisplay } from '../components';
-import { colorsWithout } from '../constants';
+import { Badge, TextDisplay } from '../src/components';
+import { colorsWithout } from '../src/constants';
 import { IconBuildingSmallOutline } from '@teamleader/ui-icons';
 
 const colors = colorsWithout(['teal']);

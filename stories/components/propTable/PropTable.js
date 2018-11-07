@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TextSmall } from '../../../components/typography';
-import Tooltip from '../../../components/tooltip';
-import Badge from '../../../components/badge';
-import DataGrid from '../../../components/datagrid';
+import { TextSmall } from '../../../src/components/typography';
+import Tooltip from '../../../src/components/tooltip';
+import Badge from '../../../src/components/badge';
+import DataGrid from '../../../src/components/datagrid';
 
 const Red = props => <span style={{ color: 'red' }} {...props} />;
 const TooltippedBadge = Tooltip(Badge);

@@ -12,7 +12,7 @@ import {
   TextBody,
   TextDisplay,
   TextSmall,
-} from '../components';
+} from '../src/components';
 
 const colors = ['neutral', 'mint', 'aqua', 'violet', 'teal', 'gold', 'ruby'];
 const sizes = ['small', 'medium'];

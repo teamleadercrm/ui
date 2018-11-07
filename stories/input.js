@@ -15,7 +15,7 @@ import {
   TextBody,
   TextSmall,
   Tooltip,
-} from '../components';
+} from '../src/components';
 
 import { IconCalendarSmallOutline, IconInfoBadgedSmallFilled } from '@teamleader/ui-icons';
 

@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { boolean } from '@storybook/addon-knobs/react';
 import { Store, State } from '@sambego/storybook-state';
 import { IconAddMediumOutline } from '@teamleader/ui-icons';
-import { Button, ButtonGroup } from '../components';
+import { Button, ButtonGroup } from '../src/components';
 
 const store = new Store({
   value: 'option2',

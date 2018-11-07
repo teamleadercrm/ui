@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { number, select } from '@storybook/addon-knobs/react';
-import { Counter, Tooltip, TextBody } from '../components';
+import { Counter, Tooltip, TextBody } from '../src/components';
 
 const colors = ['neutral', 'mint', 'aqua', 'violet', 'teal', 'gold', 'ruby'];
 const sizes = ['small', 'medium'];

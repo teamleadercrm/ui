@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { select } from '@storybook/addon-knobs/react';
-import { LoadingSpinner } from '../components';
+import { LoadingSpinner } from '../src/components';
 
 const colors = ['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'teal'];
 const sizes = ['small', 'medium'];

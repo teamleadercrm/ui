@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { select } from '@storybook/addon-knobs/react';
 
-import { LoadingBar } from '../components';
+import { LoadingBar } from '../src/components';
 
 const colors = ['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'teal'];
 const sizes = ['small', 'medium', 'large'];

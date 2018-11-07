@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Store, State } from '@sambego/storybook-state';
-import { Banner, Box, Button, ButtonGroup, Heading3, Link, Popover, TextBody, TextSmall } from '../components';
+import { Banner, Box, Button, ButtonGroup, Heading3, Link, Popover, TextBody, TextSmall } from '../src/components';
 import { select, boolean, number } from '@storybook/addon-knobs/react';
 
 const store = new Store({

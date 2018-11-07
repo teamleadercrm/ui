@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { IconAddSmallOutline, IconUserSmallFilled, IconClockSmallOutline } from '@teamleader/ui-icons';
-import { IconMenu, Menu, MenuItem, MenuDivider } from '../components';
+import { IconMenu, Menu, MenuItem, MenuDivider } from '../src/components';
 
 storiesOf('Menus', module)
   .add('Menu', () => (

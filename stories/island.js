@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, select } from '@storybook/addon-knobs/react';
-import { Island, IslandGroup, Link, TextBody, TextSmall, Heading3 } from '../components';
+import { Island, IslandGroup, Link, TextBody, TextSmall, Heading3 } from '../src/components';
 import {
   IllustrationInvoices120X120Static,
   IllustrationMeetings120X120Static,

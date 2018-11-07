@@ -11,8 +11,8 @@ import {
   TextBody,
   TextDisplay,
   TextSmall,
-} from '../components';
-import { COLORS, TINTS } from '../constants';
+} from '../src/components';
+import { COLORS, TINTS } from '../src/constants';
 
 storiesOf('Typography', module)
   .addParameters({

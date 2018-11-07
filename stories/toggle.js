@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, select } from '@storybook/addon-knobs/react';
-import { Toggle } from '../components';
+import { Toggle } from '../src/components';
 
 const sizes = ['small', 'medium', 'large'];
 
