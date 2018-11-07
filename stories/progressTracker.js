@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { select, number, boolean } from '@storybook/addon-knobs/react';
-import { ProgressTracker, Island } from '../src/components';
+import { ProgressTracker, Island } from '../src';
 
 const steps = ['Draft', 'Book', 'Send invoices', 'Get paid'];
 const colors = ['neutral', 'mint', 'aqua', 'violet', 'gold', 'ruby'];

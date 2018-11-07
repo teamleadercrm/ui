@@ -2,8 +2,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Store, State } from '@sambego/storybook-state';
 import { select } from '@storybook/addon-knobs/react';
-import { Banner, Box, Button, ButtonGroup, Dialog, Heading3, TextBody } from '../src/components/';
 import { IconWarningBadgedMediumOutline, IconCheckmarkMediumOutline } from '@teamleader/ui-icons';
+import { Banner, Box, Button, ButtonGroup, Dialog, Heading3, TextBody } from '../src';
 
 const sizes = ['small', 'medium', 'large', 'fullscreen'];
 

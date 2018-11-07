@@ -1,9 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, select } from '@storybook/addon-knobs/react';
-import { Badge, TextDisplay } from '../src/components';
-import { colorsWithout } from '../src/constants';
 import { IconBuildingSmallOutline } from '@teamleader/ui-icons';
+import { colorsWithout, Badge, TextDisplay } from '../src';
 
 const colors = colorsWithout(['teal']);
 const iconPositions = ['left', 'right'];

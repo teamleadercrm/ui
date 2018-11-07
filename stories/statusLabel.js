@@ -1,17 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { select } from '@storybook/addon-knobs/react';
-import {
-  Box,
-  Heading1,
-  Heading2,
-  Heading3,
-  Heading4,
-  StatusLabel,
-  TextBody,
-  TextDisplay,
-  TextSmall,
-} from '../src/components';
+import { Box, Heading1, Heading2, Heading3, Heading4, StatusLabel, TextBody, TextDisplay, TextSmall } from '../src';
 
 const colors = ['mint', 'violet', 'ruby', 'gold', 'aqua', 'neutral'];
 const sizes = ['small', 'medium'];

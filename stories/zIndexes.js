@@ -1,6 +1,9 @@
 import React from 'react';
+import MomentLocaleUtils, { formatDate, parseDate } from 'react-day-picker/moment';
 import { storiesOf } from '@storybook/react';
 import { boolean } from '@storybook/addon-knobs/react';
+import { DateTime } from 'luxon';
+import { IconIdeaMediumOutline } from '@teamleader/ui-icons';
 import {
   Banner,
   Box,
@@ -24,10 +27,7 @@ import {
   ToastContainer,
   Tooltip,
   QTip,
-} from '../src/components';
-import { DateTime } from 'luxon';
-import { IconIdeaMediumOutline } from '@teamleader/ui-icons';
-import MomentLocaleUtils, { formatDate, parseDate } from 'react-day-picker/moment';
+} from '../src';
 
 import { rows1 } from './static/data/datagrid';
 import options from './static/data/select';

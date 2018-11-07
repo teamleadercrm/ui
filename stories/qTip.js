@@ -2,8 +2,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean } from '@storybook/addon-knobs/react';
 import { Store, State } from '@sambego/storybook-state';
-import { Island, Link, QTip, TextBody } from '../src/components';
 import { IconIdeaMediumOutline } from '@teamleader/ui-icons';
+import { Island, Link, QTip, TextBody } from '../src';
 
 const store = new Store({
   closed: true,

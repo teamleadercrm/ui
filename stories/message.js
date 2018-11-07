@@ -1,8 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { select } from '@storybook/addon-knobs/react';
-import { Button, Message, CompactMessage, Island, Heading2, Link, TextBody } from '../src/components';
 import { IllustrationInvoices120X120Static, IllustrationSharpie48X48Static } from '@teamleader/ui-illustrations';
+import { Button, Message, CompactMessage, Island, Heading2, Link, TextBody } from '../src';
 
 const imagePositions = ['left', 'center', 'right'];
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { select } from '@storybook/addon-knobs/react';
-import { LoadingMolecule } from '../src/components';
+import { LoadingMolecule } from '../src';
 
 const sizes = ['small', 'large'];
 
