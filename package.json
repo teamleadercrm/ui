@@ -161,7 +161,7 @@
     "url": "git+https://github.com/teamleadercrm/ui.git"
   },
   "scripts": {
-    "babel": "babel ./components/**/*.js --out-dir ./lib",
+    "babel": "babel ./src/**/*.js --out-dir ./lib",
     "build": "better-npm-run build",
     "clean": "rimraf dist",
     "codecov": "cat coverage/*/lcov.info | codecov",
