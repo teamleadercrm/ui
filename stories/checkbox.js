@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, select, text } from '@storybook/addon-knobs/react';
-import { Checkbox, Link, TextBody } from '../components';
+import { Checkbox, Link, TextBody } from '../src';
 
 const sizes = ['small', 'medium', 'large'];
 

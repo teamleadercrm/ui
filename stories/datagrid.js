@@ -12,7 +12,7 @@ import {
   Tooltip,
   Button,
   ButtonGroup,
-} from '../components';
+} from '../src';
 
 import { rows1, rows2 } from './static/data/datagrid';
 

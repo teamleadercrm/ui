@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { number, select } from '@storybook/addon-knobs/react';
-import { Box, TextBody } from '../components';
+import { Box, TextBody } from '../src';
 
 const displayValues = ['inline', 'inline-block', 'block', 'flex', 'inline-flex'];
 const justifyContentValues = ['center', 'flex-start', 'flex-end', 'space-around', 'space-between', 'space-evenly'];

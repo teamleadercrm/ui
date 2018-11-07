@@ -2,6 +2,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { select } from '@storybook/addon-knobs/react';
 import {
+  COLORS,
+  TINTS,
   Box,
   Heading1,
   Heading2,
@@ -11,8 +13,7 @@ import {
   TextBody,
   TextDisplay,
   TextSmall,
-} from '../components';
-import { COLORS, TINTS } from '../constants';
+} from '../src';
 
 storiesOf('Typography', module)
   .addParameters({

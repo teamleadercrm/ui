@@ -1,12 +1,12 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, select } from '@storybook/addon-knobs/react';
-import { Island, IslandGroup, Link, TextBody, TextSmall, Heading3 } from '../components';
 import {
   IllustrationInvoices120X120Static,
   IllustrationMeetings120X120Static,
   IllustrationDeals120X120Static,
 } from '@teamleader/ui-illustrations';
+import { Island, IslandGroup, Link, TextBody, TextSmall, Heading3 } from '../src';
 
 import { IconChevronRightSmallOutline } from '@teamleader/ui-icons';
 

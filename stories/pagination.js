@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, number } from '@storybook/addon-knobs/react';
-import { Island, Pagination, Button } from '../components';
+import { Island, Pagination, Button } from '../src';
 
 storiesOf('Pagination', module)
   .addParameters({

@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, select } from '@storybook/addon-knobs/react';
 import { IconAddMediumOutline, IconAddSmallOutline } from '@teamleader/ui-icons';
-import { Button } from '../components';
+import { Button } from '../src';
 
 const elements = ['a', 'button'];
 const iconPositions = ['left', 'right'];

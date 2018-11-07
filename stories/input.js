@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, number, select, text } from '@storybook/addon-knobs/react';
+import { IconCalendarSmallOutline, IconInfoBadgedSmallFilled } from '@teamleader/ui-icons';
 import {
   InputBase,
   Button,
@@ -15,9 +16,7 @@ import {
   TextBody,
   TextSmall,
   Tooltip,
-} from '../components';
-
-import { IconCalendarSmallOutline, IconInfoBadgedSmallFilled } from '@teamleader/ui-icons';
+} from '../src';
 
 const colors = ['aqua', 'gold', 'mint', 'neutral', 'ruby', 'teal', 'violet'];
 const elements = ['input', 'textarea'];

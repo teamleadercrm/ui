@@ -1,8 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, select, text } from '@storybook/addon-knobs/react';
-import { Banner, Link, TextDisplay } from '../components';
 import { IconIdeaMediumOutline } from '@teamleader/ui-icons';
+import { Banner, Link, TextDisplay } from '../src';
 
 const colors = ['white', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua'];
 

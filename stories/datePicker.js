@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, number, select } from '@storybook/addon-knobs/react';
-import { DatePicker, DatePickerRange, DatePickerInput, DatePickerInputRange } from '../components';
+import { DatePicker, DatePickerRange, DatePickerInput, DatePickerInputRange } from '../src';
 import { DateTime } from 'luxon';
 import MomentLocaleUtils, { formatDate, parseDate } from 'react-day-picker/moment';
 

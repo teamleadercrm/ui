@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, select } from '@storybook/addon-knobs/react';
 import { Store, State } from '@sambego/storybook-state';
-import { RadioGroup, RadioButton } from '../components';
+import { RadioGroup, RadioButton } from '../src';
 
 const sizes = ['small', 'medium', 'large'];
 const values = ['Option one', 'Option two', 'Option three'];
