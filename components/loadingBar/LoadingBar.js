@@ -2,16 +2,20 @@ import React, { PureComponent } from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 
-import withTheme from '../hoc/withTheme';
-
 import Box from '../box';
 import theme from './theme.css';
 
 class LoadingBar extends PureComponent {
   render() {
-    const { className, ...others } = this.props;
+    const { className, color, size, tint, ...others } = this.props;
 
-    const classNames = cx(theme['loading-bar'], className);
+    const classNames = cx(
+      theme['loading-bar'],
+      theme[`is-${color}`],
+      theme[`is-${size}`],
+      theme[`is-${tint}`],
+      className,
+    );
 
     return (
       <Box data-teamleader-ui="loading-bar" className={classNames} {...others}>
@@ -24,6 +28,18 @@ class LoadingBar extends PureComponent {
 LoadingBar.propTypes = {
   /** A class name for the wrapper to add custom classes */
   className: PropTypes.string,
+  /** The color of the components */
+  color: PropTypes.oneOf(['aqua', 'gold', 'mint', 'neutral', 'ruby', 'teal', 'violet']),
+  /** Size of the component */
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  /** The tint of the components color */
+  tint: PropTypes.oneOf(['lightest', 'light', 'normal', 'dark', 'darkest']),
 };
 
-export default withTheme(theme)(LoadingBar);
+LoadingBar.defaultProps = {
+  color: 'mint',
+  size: 'small',
+  tint: 'neutral',
+};
+
+export default LoadingBar;
