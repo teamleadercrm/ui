@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import omit from 'lodash.omit';
 
 import { DialogBase } from './index';
-import { Banner, Button, ButtonGroup, COLORS, Heading3 } from '../../index';
+import { Banner, Box, Button, ButtonGroup, COLORS, Heading3 } from '../../index';
 
 class Dialog extends PureComponent {
   getHeader = () => {
@@ -42,7 +42,7 @@ class Dialog extends PureComponent {
     return (
       <DialogBase {...restProps}>
         {title && this.getHeader()}
-        {children}
+        <Box padding={4}>{children}</Box>
         {(tertiaryAction || secondaryAction || primaryAction) && this.getFooter()}
       </DialogBase>
     );
