@@ -2,6 +2,8 @@
 
 ### Added
 
+- `withTheme`: added the `withTheme` HOC ([@LennertBlommaert](https://github.com/LennertBlommaert) in [#416](https://github.com/teamleadercrm/ui/pull/416))
+
 ### Changed
 
 ### Deprecated
