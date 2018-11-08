@@ -62,7 +62,7 @@ storiesOf('Dialogs', module)
               onMouseUp: () => console.log('secondaryAction.onMouseUp'),
             }}
             tertiaryAction={{
-              children: text('tertiaryAction.label', 'Read more'),
+              children: text('tertiaryAction.children', 'Read more'),
               onMouseUp: () => console.log('tertiaryAction.onMouseUp'),
             }}
             title={text('title', 'Dialog title')}
