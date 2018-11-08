@@ -68,6 +68,7 @@ storiesOf('Dialogs', module)
             }}
             size={select('size', sizes, 'medium')}
             title={text('title', 'Dialog title')}
+            {...dialogBaseProps}
           >
             <TextBody>Here you can add arbitrary content.</TextBody>
           </Dialog>
