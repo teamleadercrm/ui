@@ -50,12 +50,19 @@ class Dialog extends PureComponent {
 }
 
 Dialog.propTypes = {
+  /** The color of the header of the dialog. */
   headerColor: PropTypes.oneOf(COLORS),
+  /** The icon in the header of the dialog. */
   headerIcon: PropTypes.element,
+  /** Callback function that is fired when the close icon (in the header) is clicked. */
   onCloseClick: PropTypes.func,
+  /** Object containing the label and mouse up handler of the primary action. */
   primaryAction: PropTypes.object,
+  /** Object containing the label and mouse up handler of the secondary action. */
   secondaryAction: PropTypes.object,
+  /** Object containing the label and mouse up handler of the tertiary action. */
   tertiaryAction: PropTypes.object,
+  /** The title of the dialog. */
   title: PropTypes.string,
 };
 
