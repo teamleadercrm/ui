@@ -275,6 +275,11 @@
   &:focus {
     outline: none;
   }
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.24;
+  }
 }
 
 .error {
