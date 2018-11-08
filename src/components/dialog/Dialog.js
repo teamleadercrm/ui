@@ -21,9 +21,9 @@ class Dialog extends PureComponent {
 
     return (
       <ButtonGroup justifyContent="flex-end" padding={4}>
-        {tertiaryAction && <Button label={tertiaryAction.label} onMouseUp={tertiaryAction.onMouseUp} level="link" />}
-        {secondaryAction && <Button label={secondaryAction.label} onMouseUp={secondaryAction.onMouseUp} />}
-        {primaryAction && <Button label={primaryAction.label} onMouseUp={primaryAction.onMouseUp} level="primary" />}
+        {tertiaryAction && <Button level="link" {...tertiaryAction} />}
+        {secondaryAction && <Button {...secondaryAction} />}
+        {primaryAction && <Button level="primary" {...primaryAction} />}
       </ButtonGroup>
     );
   };
