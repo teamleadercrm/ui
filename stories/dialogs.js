@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { Store, State } from '@sambego/storybook-state';
 import { boolean, select, text } from '@storybook/addon-knobs/react';
 import { IconWarningBadgedMediumOutline } from '@teamleader/ui-icons';
-import { Banner, Box, Button, ButtonGroup, COLORS, Dialog, Heading3, TextBody } from '../src';
+import { Banner, Box, Button, ButtonGroup, COLORS, Dialog, DialogBase, Heading3, TextBody } from '../src';
 
 const sizes = ['small', 'medium', 'large', 'fullscreen'];
 
@@ -16,13 +16,34 @@ const handleActiveToggle = () => {
   console.log('handleActiveToggle');
 };
 
+const dialogBaseProps = {
+  backdrop: select('backdrop', ['dark'], 'dark'),
+  onEscKeyDown: handleActiveToggle,
+  onOverlayClick: handleActiveToggle,
+  size: select('size', sizes, 'medium'),
+};
+
 storiesOf('Dialogs', module)
   .addParameters({
     info: {
       propTablesExclude: [Box, Button, ButtonGroup, Banner, TextBody, Heading3, State],
     },
   })
-  .add('Basic', () => {
+  .add('DialogBase', () => {
+    return (
+      <Box>
+        <Button onClick={handleActiveToggle} label="Open a dialog base" />
+        <State store={store}>
+          <DialogBase {...dialogBaseProps}>
+            <Box padding={4}>
+              <TextBody>Here you can add arbitrary content.</TextBody>
+            </Box>
+          </DialogBase>
+        </State>
+      </Box>
+    );
+  })
+  .add('Dialog', () => {
     const passHeaderIcon = boolean('pass a headerIcon', false);
 
     return (
@@ -30,12 +51,9 @@ storiesOf('Dialogs', module)
         <Button onClick={handleActiveToggle} label="Open a dialog" />
         <State store={store}>
           <Dialog
-            active={false}
             headerColor={select('headerColor', COLORS, 'neutral')}
             headerIcon={passHeaderIcon && <IconWarningBadgedMediumOutline />}
             onCloseClick={handleActiveToggle}
-            onEscKeyDown={handleActiveToggle}
-            onOverlayClick={handleActiveToggle}
             primaryAction={{
               label: text('primaryAction.label', 'Confirm'),
               onMouseUp: () => console.log('primaryAction.onMouseUp'),
