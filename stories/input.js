@@ -65,7 +65,7 @@ const props = {
 
 const TooltippedIcon = Tooltip(Icon);
 
-storiesOf('Inputs', module)
+storiesOf('Form elements/Inputs', module)
   .add('Input base', () => (
     <InputBase
       bold={boolean('bold', false)}
