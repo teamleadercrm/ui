@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import { COLORS, TINTS } from '../../../constants';
 
 const withTheme = theme => WrappedComponent => {
   class WithTheme extends PureComponent {
@@ -15,11 +16,11 @@ const withTheme = theme => WrappedComponent => {
 
   WithTheme.propTypes = {
     /** The color of the component */
-    color: PropTypes.PropTypes.oneOf(['aqua', 'gold', 'mint', 'neutral', 'ruby', 'teal', 'violet']),
+    color: PropTypes.PropTypes.oneOf(COLORS),
     /** The size of the component */
     size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large', 'fullscreen']),
     /** The tint of the component */
-    tint: PropTypes.oneOf(['lightest', 'light', 'normal', 'dark', 'darkest']),
+    tint: PropTypes.oneOf(TINTS),
   };
 
   WithTheme.defaultProps = {
