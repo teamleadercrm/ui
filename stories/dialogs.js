@@ -16,13 +16,6 @@ const handleActiveToggle = () => {
   console.log('handleActiveToggle');
 };
 
-const dialogBaseProps = {
-  backdrop: select('backdrop', ['dark'], 'dark'),
-  onEscKeyDown: handleActiveToggle,
-  onOverlayClick: handleActiveToggle,
-  size: select('size', sizes, 'medium'),
-};
-
 storiesOf('Dialogs', module)
   .addParameters({
     info: {
@@ -34,7 +27,12 @@ storiesOf('Dialogs', module)
       <Box>
         <Button onClick={handleActiveToggle} label="Open a dialog base" />
         <State store={store}>
-          <DialogBase {...dialogBaseProps}>
+          <DialogBase
+            backdrop={select('backdrop', ['dark'], 'dark')}
+            onEscKeyDown={handleActiveToggle}
+            onOverlayClick={handleActiveToggle}
+            size={select('size', sizes, 'medium')}
+          >
             <Box padding={4}>
               <TextBody>Here you can add arbitrary content.</TextBody>
             </Box>
@@ -66,9 +64,11 @@ storiesOf('Dialogs', module)
               label: text('tertiaryAction.label', 'Read more'),
               onMouseUp: () => console.log('tertiaryAction.onMouseUp'),
             }}
-            size={select('size', sizes, 'medium')}
             title={text('title', 'Dialog title')}
-            {...dialogBaseProps}
+            backdrop={select('backdrop', ['dark'], 'dark')}
+            onEscKeyDown={handleActiveToggle}
+            onOverlayClick={handleActiveToggle}
+            size={select('size', sizes, 'medium')}
           >
             <TextBody>Here you can add arbitrary content.</TextBody>
           </Dialog>
