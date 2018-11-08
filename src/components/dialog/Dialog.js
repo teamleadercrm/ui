@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import omit from 'lodash.omit';
 
 import { DialogBase } from './index';
-import { Banner, Box, Button, ButtonGroup, COLORS, Heading2, Heading3 } from '../../index';
+import { Banner, Box, Button, ButtonGroup, COLORS, Heading2, Heading3, Link } from '../../index';
 
 class Dialog extends PureComponent {
   getHeader = () => {
@@ -21,7 +21,7 @@ class Dialog extends PureComponent {
 
     return (
       <ButtonGroup justifyContent="flex-end" padding={4}>
-        {tertiaryAction && <Button level="link" {...tertiaryAction} />}
+        {tertiaryAction && <Link inherit={false} {...tertiaryAction} />}
         {secondaryAction && <Button {...secondaryAction} />}
         {primaryAction && <Button level="primary" {...primaryAction} />}
       </ButtonGroup>
