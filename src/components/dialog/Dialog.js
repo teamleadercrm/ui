@@ -58,11 +58,11 @@ Dialog.propTypes = {
   headingLevel: PropTypes.oneOf([2, 3]),
   /** Callback function that is fired when the close icon (in the header) is clicked. */
   onCloseClick: PropTypes.func,
-  /** Object containing the label and mouse up handler of the primary action. */
+  /** Object containing the props of the primary action (a Button, with level prop set to 'primary'). */
   primaryAction: PropTypes.object.isRequired,
-  /** Object containing the label and mouse up handler of the secondary action. */
+  /** Object containing the the props of the secondary action (a Button). */
   secondaryAction: PropTypes.object,
-  /** Object containing the label and mouse up handler of the tertiary action. */
+  /** Object containing the props of the tertiary action (a Link, with the inherit props set to false). */
   tertiaryAction: PropTypes.object,
   /** The title of the dialog. */
   title: PropTypes.string,
