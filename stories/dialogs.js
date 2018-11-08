@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Store, State } from '@sambego/storybook-state';
-import { boolean, select, text } from '@storybook/addon-knobs/react';
+import { boolean, number, select, text } from '@storybook/addon-knobs/react';
 import { IconWarningBadgedMediumOutline } from '@teamleader/ui-icons';
 import { Banner, Box, Button, ButtonGroup, COLORS, Dialog, DialogBase, Heading3, TextBody } from '../src';
 
@@ -51,6 +51,7 @@ storiesOf('Dialogs', module)
           <Dialog
             headerColor={select('headerColor', COLORS, 'neutral')}
             headerIcon={passHeaderIcon && <IconWarningBadgedMediumOutline />}
+            headingLevel={number('headingLevel', 3, { min: 2, max: 3 })}
             onCloseClick={handleActiveToggle}
             primaryAction={{
               label: text('primaryAction.label', 'Confirm'),

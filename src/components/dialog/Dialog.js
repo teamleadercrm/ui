@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 import omit from 'lodash.omit';
 
 import { DialogBase } from './index';
-import { Banner, Box, Button, ButtonGroup, COLORS, Heading3 } from '../../index';
+import { Banner, Box, Button, ButtonGroup, COLORS, Heading2, Heading3 } from '../../index';
 
 class Dialog extends PureComponent {
   getHeader = () => {
-    const { headerColor, headerIcon, onCloseClick, title } = this.props;
+    const { headerColor, headerIcon, headingLevel, onCloseClick, title } = this.props;
 
     return (
       <Banner color={headerColor} fullWidth icon={headerIcon} onClose={onCloseClick}>
-        <Heading3>{title}</Heading3>
+        {headingLevel === 2 ? <Heading2>{title}</Heading2> : <Heading3>{title}</Heading3>}
       </Banner>
     );
   };
@@ -54,6 +54,8 @@ Dialog.propTypes = {
   headerColor: PropTypes.oneOf(COLORS),
   /** The icon in the header of the dialog. */
   headerIcon: PropTypes.element,
+  /** The level of the heading of the dialog. */
+  headingLevel: PropTypes.oneOf([2, 3]),
   /** Callback function that is fired when the close icon (in the header) is clicked. */
   onCloseClick: PropTypes.func,
   /** Object containing the label and mouse up handler of the primary action. */
@@ -68,6 +70,7 @@ Dialog.propTypes = {
 
 Dialog.defaultProps = {
   headerColor: 'neutral',
+  headingLevel: 3,
 };
 
 export default Dialog;
