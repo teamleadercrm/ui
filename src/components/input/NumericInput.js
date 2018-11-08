@@ -84,17 +84,20 @@ class NumericInput extends PureComponent {
     this.updateStep(-1);
   };
 
+  isMaxReached = () => this.state.value >= this.props.max;
+  isMinReached = () => this.state.value <= this.props.min;
+
   getSuffixWithSpinner = () => [
     ...this.props.suffix,
     <SpinnerControls
       inverse={this.props.inverse}
       spinnerUpProps={{
         onClick: this.handleIncreaseValue,
-        disabled: false,
+        disabled: this.isMaxReached(),
       }}
       spinnerDownProps={{
         onClick: this.handleDecreaseValue,
-        disabled: false,
+        disabled: this.isMinReached(),
       }}
     />,
   ];
