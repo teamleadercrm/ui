@@ -6,6 +6,8 @@
 
 ### Changed
 
+- `NumericInput`: the respective spinner controls render as disabled, when the minimum or maximum value of the input has been reached. ([@LennertBlommaert](https://github.com/LennertBlommaert) in [#447](https://github.com/teamleadercrm/ui/pull/447))
+
 ### Deprecated
 
 ### Removed
