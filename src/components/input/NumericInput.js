@@ -7,7 +7,7 @@ import theme from './theme.css';
 
 class SpinnerControls extends PureComponent {
   render() {
-    const { inverse, handleOnSpinnerUpClick, handleOnSpinnerDownClick } = this.props;
+    const { inverse, spinnerUpProps, spinnerDownProps } = this.props;
     const iconProps = {
       color: inverse ? 'teal' : 'neutral',
       element: 'button',
@@ -17,10 +17,10 @@ class SpinnerControls extends PureComponent {
 
     return (
       <div className={theme['spinner']}>
-        <Icon className={theme['spinner-up']} onClick={handleOnSpinnerUpClick} {...iconProps}>
+        <Icon className={theme['spinner-up']} {...spinnerUpProps} {...iconProps}>
           <IconChevronUpSmallOutline />
         </Icon>
-        <Icon className={theme['spinner-down']} onClick={handleOnSpinnerDownClick} {...iconProps}>
+        <Icon className={theme['spinner-down']} {...spinnerDownProps} {...iconProps}>
           <IconChevronDownSmallOutline />
         </Icon>
       </div>
@@ -88,8 +88,14 @@ class NumericInput extends PureComponent {
     ...this.props.suffix,
     <SpinnerControls
       inverse={this.props.inverse}
-      handleOnSpinnerUpClick={this.handleIncreaseValue}
-      handleOnSpinnerDownClick={this.handleDecreaseValue}
+      spinnerUpProps={{
+        onClick: this.handleIncreaseValue,
+        disabled: false,
+      }}
+      spinnerDownProps={{
+        onClick: this.handleDecreaseValue,
+        disabled: false,
+      }}
     />,
   ];
 
