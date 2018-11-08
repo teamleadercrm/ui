@@ -32,6 +32,10 @@
     opacity: 0.86;
   }
 
+  .label {
+    white-space: nowrap;
+  }
+
   &.neutral {
     &:not(.is-inverse) {
       background-color: color(var(--color-neutral-darkest) a(12%));
