@@ -9,12 +9,24 @@
   --tiny-size: 24px;
   --small-size: 36px;
   --medium-size: 48px;
+
+  --default-image-border-radius: 50%;
+  --type-company-image-border-radius: 4px;
+  --type-contact-image-border-radius: var(--default-image-border-radius);
 }
 
 /* Avatar */
 .avatar {
   display: inline-block;
   position: relative;
+
+  &.is-company .image {
+    border-radius: var(--type-company-image-border-radius);
+  }
+
+  &.is-contact .image {
+    border-radius: 50%;
+  }
 }
 
 .children {
@@ -24,7 +36,7 @@
 
 .image {
   display: block;
-  border-radius: 50%;
+  border-radius: var(--default-image-border-radius);
   overflow: hidden;
 }
 

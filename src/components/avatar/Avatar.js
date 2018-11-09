@@ -6,9 +6,9 @@ import theme from './theme.css';
 
 class Avatar extends PureComponent {
   render() {
-    const { children, className, image, imageAlt, imageClassName, size, ...others } = this.props;
+    const { children, className, image, imageAlt, imageClassName, size, type, ...others } = this.props;
 
-    const avatarClassNames = cx(theme['avatar'], theme[size], className);
+    const avatarClassNames = cx(theme['avatar'], theme[size], theme[`is-${type}`], className);
 
     return (
       <Box className={avatarClassNames} {...others} data-teamleader-ui="avatar">
@@ -32,6 +32,8 @@ Avatar.propTypes = {
   imageClassName: PropTypes.string,
   /** The size of the avatar. */
   size: PropTypes.oneOf(['tiny', 'small', 'medium']),
+  /** The type of the entity displayed in the avatar. */
+  type: PropTypes.oneOf(['company', 'contact']),
 };
 
 Avatar.defaultProps = {
