@@ -50,7 +50,7 @@ storiesOf('Dialogs', module)
         <State store={store}>
           <Dialog
             headerColor={select('headerColor', COLORS, 'neutral')}
-            headerIcon={passHeaderIcon && <IconWarningBadgedMediumOutline />}
+            headerIcon={passHeaderIcon ? <IconWarningBadgedMediumOutline /> : null}
             headingLevel={number('headingLevel', 3, { min: 2, max: 3 })}
             onCloseClick={handleActiveToggle}
             primaryAction={{
