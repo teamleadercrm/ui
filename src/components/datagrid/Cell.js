@@ -69,4 +69,6 @@ Cell.defaultProps = {
   strong: false,
 };
 
+Cell.displayName = 'Cell';
+
 export default Cell;

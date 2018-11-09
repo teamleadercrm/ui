@@ -165,4 +165,6 @@ AsyncSelect.defaultProps = {
   pageSize: 10,
 };
 
+AsyncSelect.displayName = 'AsyncSelect';
+
 export default AsyncSelect;

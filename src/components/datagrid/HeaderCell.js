@@ -42,4 +42,6 @@ HeaderCell.defaultProps = {
   sorted: 'none',
 };
 
+HeaderCell.displayName = 'HeaderCell';
+
 export default HeaderCell;

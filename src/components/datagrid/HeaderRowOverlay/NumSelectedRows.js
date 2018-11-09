@@ -34,4 +34,6 @@ NumSelectedRows.defaultProps = {
   numSelectedRowsLabel: () => 'selected',
 };
 
+NumSelectedRows.displayName = 'NumSelectedRows';
+
 export default NumSelectedRows;

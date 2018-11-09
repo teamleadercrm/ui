@@ -51,4 +51,6 @@ Counter.defaultProps = {
   size: 'medium',
 };
 
+Counter.displayName = 'Counter';
+
 export default Counter;

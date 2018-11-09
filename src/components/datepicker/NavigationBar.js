@@ -52,4 +52,6 @@ NavigationBar.propTypes = {
   size: PropTypes.oneOf(['small', 'medium', 'large']),
 };
 
+NavigationBar.displayName = 'NavigationBar';
+
 export default NavigationBar;

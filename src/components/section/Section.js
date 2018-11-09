@@ -45,4 +45,6 @@ Section.defaultProps = {
   size: 'medium',
 };
 
+Section.displayName = 'Section';
+
 export default Section;

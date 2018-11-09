@@ -42,4 +42,6 @@ Message.defaultProps = {
   imagePositioning: 'left',
 };
 
+Message.displayName = 'Message';
+
 export default Message;

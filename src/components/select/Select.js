@@ -315,4 +315,6 @@ Select.defaultProps = {
   size: 'medium',
 };
 
+Select.displayName = 'Select';
+
 export default Select;

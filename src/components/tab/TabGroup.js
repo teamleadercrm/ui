@@ -35,4 +35,6 @@ TabGroup.defaultProps = {
   inverted: false,
 };
 
+TabGroup.displayName = 'TabGroup';
+
 export default TabGroup;

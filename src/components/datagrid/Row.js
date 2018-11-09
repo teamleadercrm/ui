@@ -28,4 +28,6 @@ Row.defaultProps = {
   backgroundColor: 'white',
 };
 
+Row.displayName = 'Row';
+
 export default Row;

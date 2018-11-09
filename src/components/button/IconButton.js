@@ -77,4 +77,6 @@ IconButton.defaultProps = {
   type: 'button',
 };
 
+IconButton.displayName = 'IconButton';
+
 export default IconButton;

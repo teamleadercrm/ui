@@ -29,4 +29,6 @@ Monospaced.defaultProps = {
   element: 'span',
 };
 
+Monospaced.displayName = 'Monospaced';
+
 export default Monospaced;

@@ -40,4 +40,6 @@ Bullet.defaultProps = {
   size: 'medium',
 };
 
+Bullet.displayName = 'Bullet';
+
 export default Bullet;

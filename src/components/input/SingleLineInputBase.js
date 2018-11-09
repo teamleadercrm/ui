@@ -105,4 +105,6 @@ SingleLineInputBase.propTypes = {
   suffix: PropTypes.oneOfType([PropTypes.array, PropTypes.element]),
 };
 
+SingleLineInputBase.displayName = 'SingleLineInputBase';
+
 export default SingleLineInputBase;

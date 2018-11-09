@@ -26,4 +26,6 @@ ValidationText.propTypes = {
   inverse: PropTypes.bool,
 };
 
+ValidationText.displayName = 'ValidationText';
+
 export default ValidationText;

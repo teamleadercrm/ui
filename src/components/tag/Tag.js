@@ -73,4 +73,6 @@ Tag.defaultProps = {
   color: 'neutral',
 };
 
+Tag.displayName = 'Tag';
+
 export default Tag;

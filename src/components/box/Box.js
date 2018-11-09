@@ -139,4 +139,6 @@ Box.defaultProps = {
   padding: 0,
 };
 
+Box.displayName = 'Box';
+
 export default Box;

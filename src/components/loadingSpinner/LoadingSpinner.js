@@ -33,4 +33,6 @@ LoadingSpinner.defaultProps = {
   tint: 'darkest',
 };
 
+LoadingSpinner.displayName = 'LoadingSpinner';
+
 export default LoadingSpinner;

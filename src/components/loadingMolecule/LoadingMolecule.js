@@ -78,4 +78,6 @@ LoadingMolecule.propTypes = {
   type: PropTypes.string,
 };
 
+LoadingMolecule.displayName = 'LoadingMolecule';
+
 export default LoadingMolecule;

@@ -55,4 +55,6 @@ HeaderRowOverlay.defaultProps = {
   numSelectedRows: 0,
 };
 
+HeaderRowOverlay.displayName = 'HeaderRowOverlay';
+
 export default HeaderRowOverlay;

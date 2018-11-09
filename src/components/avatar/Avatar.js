@@ -38,4 +38,6 @@ Avatar.defaultProps = {
   size: 'medium',
 };
 
+Avatar.displayName = 'Avatar';
+
 export default Avatar;

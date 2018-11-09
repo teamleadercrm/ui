@@ -46,4 +46,6 @@ QTip.propTypes = {
   onChange: PropTypes.func.isRequired,
 };
 
+QTip.displayName = 'QTip';
+
 export default QTip;

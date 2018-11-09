@@ -30,4 +30,6 @@ StatusBullet.defaultProps = {
   size: 'medium',
 };
 
+StatusBullet.displayName = 'StatusBullet';
+
 export default StatusBullet;

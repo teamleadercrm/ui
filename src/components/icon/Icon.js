@@ -42,4 +42,6 @@ Icon.defaultProps = {
   opacity: 0.84,
 };
 
+Icon.displayName = 'Icon';
+
 export default Icon;

@@ -92,3 +92,5 @@ Label.defaultProps = {
   required: false,
   size: 'medium',
 };
+
+Label.displayName = 'Label';

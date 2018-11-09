@@ -71,4 +71,6 @@ ButtonGroup.defaultProps = {
   segmented: false,
 };
 
+ButtonGroup.displayName = 'ButtonGroup';
+
 export default ButtonGroup;

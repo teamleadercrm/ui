@@ -22,4 +22,6 @@ BulkActions.defaultProps = {
   bulkActions: [],
 };
 
+BulkActions.displayName = 'BulkActions';
+
 export default BulkActions;

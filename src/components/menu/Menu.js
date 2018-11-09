@@ -257,4 +257,6 @@ Menu.defaultProps = {
   selectable: true,
 };
 
+Menu.displayName = 'Menu';
+
 export default Menu;

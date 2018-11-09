@@ -93,4 +93,6 @@ InputBase.defaultProps = {
   size: 'medium',
 };
 
+InputBase.displayName = 'InputBase';
+
 export default InputBase;

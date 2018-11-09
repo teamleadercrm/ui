@@ -110,4 +110,6 @@ Overlay.defaultProps = {
   lockScroll: true,
 };
 
+Overlay.displayName = 'Overlay';
+
 export default Overlay;

@@ -45,4 +45,6 @@ ToastContainer.propTypes = {
   className: PropTypes.string,
 };
 
+ToastContainer.displayName = 'ToastContainer';
+
 export default ToastContainer;

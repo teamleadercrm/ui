@@ -69,4 +69,6 @@ Input.defaultProps = {
   type: 'text',
 };
 
+Input.displayName = 'Input';
+
 export default Input;

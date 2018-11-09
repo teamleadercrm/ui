@@ -125,4 +125,6 @@ Toast.propTypes = {
   timeout: PropTypes.number,
 };
 
+Toast.displayName = 'Toast';
+
 export default Toast;

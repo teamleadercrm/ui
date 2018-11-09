@@ -54,4 +54,6 @@ AvatarStack.defaultProps = {
   size: 'medium',
 };
 
+AvatarStack.displayName = 'AvatarStack';
+
 export default AvatarStack;

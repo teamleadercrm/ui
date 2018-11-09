@@ -75,4 +75,6 @@ TitleTab.defaultProps = {
   size: 'medium',
 };
 
+TitleTab.displayName = 'TitleTab';
+
 export default TitleTab;

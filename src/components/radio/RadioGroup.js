@@ -47,4 +47,6 @@ RadioGroup.defaultProps = {
   disabled: false,
 };
 
+RadioGroup.displayName = 'RadioGroup';
+
 export default RadioGroup;

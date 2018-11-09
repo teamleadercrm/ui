@@ -69,4 +69,6 @@ DatePicker.defaultProps = {
   size: 'medium',
 };
 
+DatePicker.displayName = 'DatePicker';
+
 export default DatePicker;

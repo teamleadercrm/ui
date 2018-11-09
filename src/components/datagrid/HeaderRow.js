@@ -56,4 +56,6 @@ HeaderRow.propTypes = {
   sliceTo: PropTypes.number,
 };
 
+HeaderRow.displayName = 'HeaderRow';
+
 export default HeaderRow;

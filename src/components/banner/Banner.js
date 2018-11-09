@@ -54,4 +54,6 @@ Banner.defaultProps = {
   color: 'white',
 };
 
+Banner.displayName = 'Banner';
+
 export default Banner;

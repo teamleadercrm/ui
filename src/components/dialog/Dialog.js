@@ -99,4 +99,6 @@ Dialog.defaultProps = {
   size: 'medium',
 };
 
+Dialog.displayName = 'Dialog';
+
 export default Dialog;

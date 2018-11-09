@@ -119,4 +119,6 @@ Pagination.defaultProps = {
   maxNumPagesVisible: 7,
 };
 
+Pagination.displayName = 'Pagination';
+
 export default Pagination;

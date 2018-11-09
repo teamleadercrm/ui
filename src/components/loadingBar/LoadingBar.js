@@ -42,4 +42,6 @@ LoadingBar.defaultProps = {
   tint: 'neutral',
 };
 
+LoadingBar.displayName = 'LoadingBar';
+
 export default LoadingBar;

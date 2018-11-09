@@ -79,4 +79,6 @@ Link.defaultProps = {
   inherit: true,
 };
 
+Link.displayName = 'Link';
+
 export default Link;

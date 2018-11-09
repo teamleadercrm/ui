@@ -143,4 +143,6 @@ DatePickerInput.defaultProps = {
   size: 'medium',
 };
 
+DatePickerInput.displayName = 'DatePickerInput';
+
 export default DatePickerInput;

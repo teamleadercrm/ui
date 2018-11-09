@@ -106,4 +106,6 @@ Badge.defaultProps = {
   color: 'neutral',
 };
 
+Badge.displayName = 'Badge';
+
 export default Badge;

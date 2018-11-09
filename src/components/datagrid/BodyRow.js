@@ -56,4 +56,6 @@ BodyRow.propTypes = {
   sliceTo: PropTypes.number,
 };
 
+BodyRow.displayName = 'BodyRow';
+
 export default BodyRow;

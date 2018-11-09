@@ -35,3 +35,5 @@ HelpText.defaultProps = {
   children: 'This is the help text',
   inverse: false,
 };
+
+HelpText.displayName = 'HelpText';

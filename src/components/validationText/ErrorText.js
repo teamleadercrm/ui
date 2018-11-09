@@ -35,3 +35,5 @@ ErrorText.defaultProps = {
   children: 'This is the error text',
   inverse: false,
 };
+
+ErrorText.displayName = 'ErrorText';

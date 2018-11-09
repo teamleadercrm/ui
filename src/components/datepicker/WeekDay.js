@@ -22,4 +22,6 @@ WeekDay.propTypes = {
   weekday: PropTypes.number,
 };
 
+WeekDay.displayName = 'WeekDay';
+
 export default WeekDay;

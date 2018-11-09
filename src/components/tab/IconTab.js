@@ -61,4 +61,6 @@ IconTab.defaultProps = {
   active: false,
 };
 
+IconTab.displayName = 'IconTab';
+
 export default IconTab;

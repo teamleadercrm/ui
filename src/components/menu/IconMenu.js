@@ -80,4 +80,6 @@ IconMenu.defaultProps = {
   selectable: false,
 };
 
+IconMenu.displayName = 'IconMenu';
+
 export default IconMenu;

@@ -44,4 +44,6 @@ Textarea.defaultProps = {
   inverse: false,
 };
 
+Textarea.displayName = 'Textarea';
+
 export default Textarea;

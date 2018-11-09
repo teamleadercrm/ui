@@ -137,4 +137,6 @@ RadioButton.defaultProps = {
   size: 'medium',
 };
 
+RadioButton.displayName = 'RadioButton';
+
 export default RadioButton;

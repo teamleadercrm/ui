@@ -171,4 +171,6 @@ Popover.defaultProps = {
   tint: 'lightest',
 };
 
+Popover.displayName = 'Popover';
+
 export default Popover;

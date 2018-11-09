@@ -39,4 +39,6 @@ ProgressStep.defaultProps = {
   completed: false,
 };
 
+ProgressStep.displayName = 'ProgressStep';
+
 export default ProgressStep;

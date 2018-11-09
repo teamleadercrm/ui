@@ -141,4 +141,6 @@ NumericInput.defaultProps = {
   spinner: true,
 };
 
+NumericInput.displayName = 'NumericInput';
+
 export default NumericInput;

@@ -131,4 +131,6 @@ Toggle.defaultProps = {
   size: 'medium',
 };
 
+Toggle.displayName = 'Toggle';
+
 export default Toggle;

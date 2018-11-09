@@ -47,6 +47,8 @@ ProgressTracker.defaultProps = {
   color: 'neutral',
 };
 
+ProgressTracker.displayName = 'ProgressTracker';
+
 ProgressTracker.ProgressStep = ProgressStep;
 
 export default ProgressTracker;

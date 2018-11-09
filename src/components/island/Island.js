@@ -45,4 +45,6 @@ Island.defaultProps = {
   size: 'medium',
 };
 
+Island.displayName = 'Island';
+
 export default Island;

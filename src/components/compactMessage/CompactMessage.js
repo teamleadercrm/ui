@@ -29,4 +29,6 @@ CompactMessage.propTypes = {
   button: PropTypes.element,
 };
 
+CompactMessage.displayName = 'CompactMessage';
+
 export default CompactMessage;

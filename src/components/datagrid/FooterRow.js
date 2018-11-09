@@ -30,4 +30,6 @@ FooterRow.propTypes = {
   sliceTo: PropTypes.number,
 };
 
+FooterRow.displayName = 'FooterRow';
+
 export default FooterRow;

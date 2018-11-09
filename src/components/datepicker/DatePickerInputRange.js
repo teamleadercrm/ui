@@ -278,4 +278,6 @@ DatePickerInputRange.defaultProps = {
   size: 'medium',
 };
 
+DatePickerInputRange.displayName = 'DatePickerInputRange';
+
 export default DatePickerInputRange;

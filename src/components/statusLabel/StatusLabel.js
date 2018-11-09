@@ -44,4 +44,6 @@ StatusLabel.defaultProps = {
   size: 'medium',
 };
 
+StatusLabel.displayName = 'StatusLabel';
+
 export default StatusLabel;

@@ -40,4 +40,6 @@ IslandGroup.defaultProps = {
   direction: 'horizontal',
 };
 
+IslandGroup.displayName = 'IslandGroup';
+
 export default IslandGroup;

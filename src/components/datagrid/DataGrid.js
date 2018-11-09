@@ -225,6 +225,8 @@ DataGrid.defaultProps = {
   processing: false,
 };
 
+DataGrid.displayName = 'DataGrid';
+
 DataGrid.HeaderRow = HeaderRow;
 DataGrid.HeaderRowOverlay = HeaderRowOverlay;
 DataGrid.HeaderCell = HeaderCell;

@@ -172,4 +172,6 @@ Button.defaultProps = {
   type: 'button',
 };
 
+Button.displayName = 'Button';
+
 export default Button;
