@@ -15,6 +15,8 @@
 
 ### Fixed
 
+- `Badge`: a badge now no longer wraps text and overflow is prevented ([@driesd](https://github.com/driesd) in [#446](https://github.com/teamleadercrm/ui/pull/446))
+
 ## [0.18.1] - 2018-11-07
 
 ### Changed
