@@ -59,6 +59,7 @@ import {
   SMALL,
   MEDIUM,
   LARGE,
+  FULLSCREEN,
 } from './constants';
 
 export {
@@ -139,4 +140,5 @@ export {
   SMALL,
   MEDIUM,
   LARGE,
+  FULLSCREEN,
 };
