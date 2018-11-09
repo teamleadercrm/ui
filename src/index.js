@@ -47,7 +47,19 @@ import Tooltip from './components/tooltip';
 import QTip from './components/qTip';
 import ProgressTracker from './components/progressTracker';
 
-import { COLOR, COLORS, TINTS, colorsWithout, tintsWithout } from './constants';
+import {
+  COLOR,
+  COLORS,
+  TINTS,
+  colorsWithout,
+  tintsWithout,
+  SIZES,
+  sizesWithout,
+  TINY,
+  SMALL,
+  MEDIUM,
+  LARGE,
+} from './constants';
 
 export {
   Avatar,
@@ -121,4 +133,10 @@ export {
   TINTS,
   colorsWithout,
   tintsWithout,
+  SIZES,
+  sizesWithout,
+  TINY,
+  SMALL,
+  MEDIUM,
+  LARGE,
 };
