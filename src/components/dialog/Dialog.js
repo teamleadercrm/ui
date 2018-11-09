@@ -2,8 +2,8 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash.omit';
 
-import { DialogBase } from './index';
-import { Banner, Box, Button, ButtonGroup, COLORS, Heading2, Heading3, Link } from '../../index';
+import { Banner, Box, Button, ButtonGroup, DialogBase, Heading2, Heading3, Link } from '../../index';
+import { COLORS } from '../../constants';
 
 class Dialog extends PureComponent {
   getHeader = () => {
