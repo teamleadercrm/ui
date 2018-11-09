@@ -10,9 +10,8 @@
   --small-size: 36px;
   --medium-size: 48px;
 
-  --default-image-border-radius: 50%;
-  --type-company-image-border-radius: 4px;
-  --type-contact-image-border-radius: var(--default-image-border-radius);
+  --shape-circle-image-border-radius: 50%;
+  --shape-rounded-image-border-radius: 4px;
 }
 
 /* Avatar */
@@ -20,12 +19,12 @@
   display: inline-block;
   position: relative;
 
-  &.is-company .image {
-    border-radius: var(--type-company-image-border-radius);
+  &.is-circle .image {
+    border-radius: var(--shape-circle-image-border-radius);
   }
 
-  &.is-contact .image {
-    border-radius: 50%;
+  &.is-rounded .image {
+    border-radius: var(--shape-rounded-image-border-radius);
   }
 }
 
@@ -36,7 +35,6 @@
 
 .image {
   display: block;
-  border-radius: var(--default-image-border-radius);
   overflow: hidden;
 }
 
