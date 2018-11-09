@@ -55,15 +55,15 @@ storiesOf('Dialogs', module)
             onCloseClick={handleActiveToggle}
             primaryAction={{
               label: text('primaryAction.label', 'Confirm'),
-              onMouseUp: () => console.log('primaryAction.onMouseUp'),
+              onClick: () => console.log('primaryAction.onClick'),
             }}
             secondaryAction={{
               label: text('secondaryAction.label', 'Cancel'),
-              onMouseUp: () => console.log('secondaryAction.onMouseUp'),
+              onClick: () => console.log('secondaryAction.onClick'),
             }}
             tertiaryAction={{
               children: text('tertiaryAction.children', 'Read more'),
-              onMouseUp: () => console.log('tertiaryAction.onMouseUp'),
+              onClick: () => console.log('tertiaryAction.onClick'),
             }}
             title={text('title', 'Dialog title')}
             backdrop={select('backdrop', ['dark'], 'dark')}
