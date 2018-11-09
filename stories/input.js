@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, number, select, text } from '@storybook/addon-knobs/react';
-import { IconCalendarSmallOutline, IconInfoBadgedSmallFilled } from '@teamleader/ui-icons';
+import { IconCalendarSmallOutline } from '@teamleader/ui-icons';
 import {
   InputBase,
   Button,
@@ -9,19 +9,14 @@ import {
   Counter,
   Icon,
   Input,
-  Label,
   LoadingSpinner,
   NumericInput,
   Textarea,
   TextBody,
   TextSmall,
-  Tooltip,
 } from '../src';
 
-const colors = ['aqua', 'gold', 'mint', 'neutral', 'ruby', 'teal', 'violet'];
-const elements = ['input', 'textarea'];
 const sizes = ['small', 'medium', 'large'];
-const tints = ['lightest', 'light', 'normal', 'dark', 'darkest'];
 const types = [
   'text',
   'button',
@@ -46,174 +41,99 @@ const types = [
   'url',
   'week',
 ];
-
+const placeholder = 'I am the placeholder';
 const prefix = [
   <Icon color="neutral" tint="darkest">
     <IconCalendarSmallOutline />
   </Icon>,
-  <TextBody color="neutral">€</TextBody>,
+  <TextBody color="neutral" tint="darkest">
+    €
+  </TextBody>,
+];
+const suffix = [
+  <TextSmall color="neutral" tint="darkest">
+    incl. BTW
+  </TextSmall>,
+  <Counter count={99} />,
+  <LoadingSpinner />,
 ];
 
-const suffix = [<TextSmall color="neutral">incl. BTW</TextSmall>, <Counter count={99} />, <LoadingSpinner />];
-
-const props = {
-  helpText: 'This is the fields help text',
-  error: 'I am an error',
-  placeholder: 'Placeholder',
-  onChange: (event, value) => console.log('Changing to ', value),
-};
-
-const TooltippedIcon = Tooltip(Icon);
-
-storiesOf('Inputs', module)
-  .add('Input base', () => (
-    <InputBase
+storiesOf('Form elements/Input', module)
+  .addParameters({
+    info: {
+      propTables: [InputBase],
+    },
+  })
+  .add('Input', () => (
+    <Input
       bold={boolean('bold', false)}
       disabled={boolean('disabled', false)}
-      element={select('element', elements)}
+      error={text('error', '')}
+      helpText={text('helpText', '')}
+      id="input1"
       inverse={boolean('inverse', false)}
+      placeholder={text('placeholder', placeholder)}
       readOnly={boolean('readOnly', false)}
-      size={select('size', sizes)}
-      type={select('type', types)}
-      value={text('value', undefined)}
+      size={select('size', sizes) || undefined}
+      type={select('type', types, 'text')}
+      connectedLeft={
+        boolean('Toggle connectedLeft', false) ? <Button size={select('size', sizes, 'medium')} label="€" /> : undefined
+      }
+      connectedRight={
+        boolean('Toggle connectedRight', false) ? (
+          <Button size={select('size', sizes, 'medium')}>
+            <Checkbox size="small">Discount</Checkbox>
+          </Button>
+        ) : (
+          undefined
+        )
+      }
+      prefix={boolean('Toggle prefix', false) ? prefix : undefined}
+      suffix={boolean('Toggle suffix', false) ? suffix : undefined}
     />
   ))
-  .add('Text area', () => (
+  .add('NumericInput', () => (
+    <NumericInput
+      bold={boolean('bold', false)}
+      disabled={boolean('disabled', false)}
+      error={text('error', '')}
+      helpText={text('helpText', '')}
+      id="input1"
+      inverse={boolean('inverse', false)}
+      max={number('max', 10)}
+      min={number('min', 0)}
+      placeholder={text('placeholder', placeholder)}
+      readOnly={boolean('readOnly', false)}
+      size={select('size', sizes) || undefined}
+      spinner={boolean('spinner', true)}
+      step={number('step', 1)}
+      connectedLeft={
+        boolean('Toggle connectedLeft', false) ? <Button size={select('size', sizes, 'medium')} label="€" /> : undefined
+      }
+      connectedRight={
+        boolean('Toggle connectedRight', false) ? (
+          <Button size={select('size', sizes, 'medium')}>
+            <Checkbox size="small">Discount</Checkbox>
+          </Button>
+        ) : (
+          undefined
+        )
+      }
+      prefix={boolean('Toggle prefix', false) ? prefix : undefined}
+      suffix={boolean('Toggle suffix', false) ? suffix : undefined}
+    />
+  ))
+  .add('Textarea', () => (
     <Textarea
       bold={boolean('bold', false)}
       disabled={boolean('disabled', false)}
+      error={text('error', '')}
+      helpText={text('helpText', '')}
+      id="input1"
       inverse={boolean('inverse', false)}
+      placeholder={text('placeholder', placeholder)}
       readOnly={boolean('readOnly', false)}
       size={select('size', sizes) || undefined}
       value={text('value', undefined)}
     />
-  ))
-  .add('Input only', () => (
-    <Input
-      id="input1"
-      bold={boolean('Bold', false)}
-      disabled={boolean('Disabled', false)}
-      readOnly={boolean('Read only', false)}
-      {...props}
-    />
-  ))
-  .add('text', () => (
-    <Label htmlFor="input1" inverse={boolean('Inverse', false)} size={select('Size', sizes, 'medium')}>
-      Input label
-      <Input
-        id="input1"
-        bold={boolean('Bold', false)}
-        disabled={boolean('Disabled', false)}
-        readOnly={boolean('Read only', false)}
-        {...props}
-      />
-    </Label>
-  ))
-  .add('password', () => (
-    <Label htmlFor="input1" inverse={boolean('Inverse', false)} size={select('Size', sizes, 'medium')}>
-      Input label
-      <Input
-        id="input1"
-        type="password"
-        bold={boolean('Bold', false)}
-        disabled={boolean('Disabled', false)}
-        readOnly={boolean('Read only', false)}
-        {...props}
-      />
-    </Label>
-  ))
-  .add('Numeric', () => (
-    <Label htmlFor="input1" inverse={boolean('Inverse', false)} size={select('Size', sizes, 'medium')}>
-      Input label
-      <NumericInput
-        id="input1"
-        bold={boolean('Bold', false)}
-        disabled={boolean('Disabled', false)}
-        readOnly={boolean('Read only', false)}
-        min={number('Minimum', 0)}
-        max={number('Maximum', 10)}
-        spinner={boolean('Render spinner', true)}
-        step={number('Step', 1)}
-        {...props}
-      />
-    </Label>
-  ))
-  .add('with error', () => (
-    <Label htmlFor="input1" inverse={boolean('Inverse', false)} size={select('Size', sizes, 'medium')}>
-      Input label
-      <Input
-        error="This is an error message"
-        id="input1"
-        size="small"
-        value="wrong value"
-        bold={boolean('Bold', false)}
-        disabled={boolean('Disabled', false)}
-        readOnly={boolean('Read only', false)}
-        {...props}
-      />
-    </Label>
-  ))
-  .add('with label tooltip', () => (
-    <Label
-      connectedRight={
-        <TooltippedIcon
-          color={select('Icon color', colors, 'teal')}
-          tint={select('Icon tint', tints, 'dark')}
-          tooltip={<TextSmall>This is the label tooltip text</TextSmall>}
-          tooltipSize="small"
-        >
-          <IconInfoBadgedSmallFilled />
-        </TooltippedIcon>
-      }
-      htmlFor="input1"
-      inverse={boolean('Inverse', false)}
-      size={select('Size', sizes, 'medium')}
-    >
-      Input label
-      <Input
-        id="input1"
-        size="small"
-        value="wrong value"
-        bold={boolean('Bold', false)}
-        disabled={boolean('Disabled', false)}
-        readOnly={boolean('Read only', false)}
-        {...props}
-      />
-    </Label>
-  ))
-  .add('with prefix or suffix', () => (
-    <Label htmlFor="input1" inverse={boolean('Inverse', false)} size={select('Size', sizes, 'medium')}>
-      Input label
-      <Input
-        id="input1"
-        bold={boolean('Bold', false)}
-        disabled={boolean('Disabled', false)}
-        readOnly={boolean('Read only', false)}
-        prefix={prefix}
-        suffix={suffix}
-        {...props}
-      />
-    </Label>
-  ))
-  .add('with connected elements', () => (
-    <Label htmlFor="input1" inverse={boolean('Inverse', false)} size={select('Size', sizes, 'medium')}>
-      Input label
-      <Input
-        id="input1"
-        bold={boolean('Bold', false)}
-        connectedLeft={<Button size={select('Size', sizes, 'medium')} label="€" />}
-        connectedRight={
-          <Button size={select('Size', sizes, 'medium')}>
-            <Checkbox size="small">Discount</Checkbox>
-          </Button>
-        }
-        disabled={boolean('Disabled', false)}
-        type="number"
-        min={number('Minimum', 0)}
-        max={number('Maximum', 10)}
-        step={number('Step', 1)}
-        readOnly={boolean('Read only', false)}
-        {...props}
-      />
-    </Label>
   ));

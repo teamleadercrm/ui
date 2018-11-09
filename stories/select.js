@@ -26,7 +26,7 @@ const CustomOption = ({ children, data, innerProps, isFocused, isSelected, isDis
   );
 };
 
-storiesOf('Select', module)
+storiesOf('Form elements/Select', module)
   .addParameters({
     info: {
       propTablesExclude: [Label],

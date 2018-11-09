@@ -14,7 +14,7 @@ const updateState = value => {
   store.set({ value });
 };
 
-storiesOf('Radio', module)
+storiesOf('Form elements/Radio', module)
   .addParameters({
     info: {
       propTablesExclude: [State],
