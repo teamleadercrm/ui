@@ -90,7 +90,7 @@ class Select extends PureComponent {
 
     return {
       ...base,
-      color: inverse ? colors.NEUTRAL_LIGHTEST : colors.TEAL_DARKEST,
+      color: inverse ? COLOR.NEUTRAL.LIGHTEST : COLOR.TEAL.DARKEST,
       fontSize: '12px',
       fontWeight: '700',
       letterSpacing: '0.6px',
