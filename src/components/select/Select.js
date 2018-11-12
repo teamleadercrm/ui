@@ -198,13 +198,13 @@ class Select extends PureComponent {
     if (inverse) {
       return {
         ...commonStyles,
-        color: isDisabled ? colors.TEAL : colors.TEAL_LIGHT,
+        color: isDisabled ? COLOR.TEAL.NORMAL : COLOR.TEAL.LIGHT,
       };
     }
 
     return {
       ...commonStyles,
-      color: colors.NEUTRAL_DARKEST,
+      color: COLOR.NEUTRAL.DARKEST,
     };
   };
 
