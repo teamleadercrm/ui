@@ -5,7 +5,6 @@ import { IconCloseBadgedSmallFilled, IconChevronDownSmallOutline } from '@teamle
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import Icon from '../icon';
 import ValidationText from '../validationText';
-import { colors } from './constants';
 import { COLOR } from '../../constants';
 import theme from './theme.css';
 import cx from 'classnames';
