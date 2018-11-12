@@ -19,7 +19,7 @@
   z-index: 600;
 }
 
-.dialog {
+.dialog-base {
   composes: box-shadow-300;
   background-color: var(--dialog-background-color);
   border-radius: var(--dialog-border-radius);
@@ -44,11 +44,11 @@
   position: relative;
 }
 
-.is-entering .dialog {
+.is-entering .dialog-base {
   opacity: 0;
 }
 
-.is-entered .dialog {
+.is-entered .dialog-base {
   opacity: 1;
   transform: translateY(0%);
 }

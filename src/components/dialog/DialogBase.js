@@ -35,7 +35,7 @@ class DialogBase extends PureComponent {
       return null;
     }
 
-    const dialogClassNames = cx(theme['dialog'], theme[`is-${size}`], className);
+    const dialogClassNames = cx(theme['dialog-base'], theme[`is-${size}`], className);
 
     const dialog = (
       <Transition timeout={0} in={active} appear>
