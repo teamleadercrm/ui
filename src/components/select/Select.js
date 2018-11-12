@@ -39,35 +39,35 @@ class Select extends PureComponent {
     if (inverse) {
       return {
         ...commonStyles,
-        backgroundColor: isDisabled ? colors.TEAL_DARK : colors.TEAL,
+        backgroundColor: isDisabled ? COLOR.TEAL.DARK : COLOR.TEAL.NORMAL,
         '&:hover': {
-          borderColor: error ? colors.RUBY_LIGHT : colors.TEAL_LIGHT,
+          borderColor: error ? COLOR.RUBY.LIGHT : COLOR.TEAL.LIGHT,
         },
         borderColor: error
-          ? colors.RUBY_LIGHT
+          ? COLOR.RUBY.LIGHT
           : isFocused
-            ? colors.TEAL_LIGHT
+            ? COLOR.TEAL.LIGHT
             : isDisabled
-              ? colors.TEAL_DARK
-              : colors.TEAL,
-        boxShadow: error ? `0 0 0 1px ${colors.RUBY_LIGHT}` : isFocused ? `0 0 0 1px ${colors.TEAL_LIGHT}` : 'none',
+              ? COLOR.TEAL.DARK
+              : COLOR.TEAL.NORMAL,
+        boxShadow: error ? `0 0 0 1px ${COLOR.RUBY.LIGHT}` : isFocused ? `0 0 0 1px ${COLOR.TEAL.LIGHT}` : 'none',
       };
     }
 
     return {
       ...commonStyles,
-      backgroundColor: isDisabled ? colors.NEUTRAL : colors.NEUTRAL_LIGHTEST,
+      backgroundColor: isDisabled ? COLOR.NEUTRAL.NORMAL : COLOR.NEUTRAL.LIGHTEST,
       '&:hover': {
-        borderColor: error ? colors.RUBY_DARK : colors.NEUTRAL_DARKEST,
+        borderColor: error ? COLOR.RUBY.DARK : COLOR.NEUTRAL.DARKEST,
       },
       borderColor: error
-        ? colors.RUBY_DARK
+        ? COLOR.RUBY.DARK
         : isFocused
-          ? colors.NEUTRAL_DARKEST
+          ? COLOR.NEUTRAL.DARKEST
           : isDisabled
-            ? colors.NEUTRAL
-            : colors.NEUTRAL_DARK,
-      boxShadow: error ? `0 0 0 1px ${colors.RUBY_DARK}` : isFocused ? `0 0 0 1px ${colors.NEUTRAL_DARKEST}` : 'none',
+            ? COLOR.NEUTRAL.NORMAL
+            : COLOR.NEUTRAL.DARK,
+      boxShadow: error ? `0 0 0 1px ${COLOR.RUBY.DARK}` : isFocused ? `0 0 0 1px ${COLOR.NEUTRAL.DARKEST}` : 'none',
     };
   };
 
