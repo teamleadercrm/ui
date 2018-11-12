@@ -5,7 +5,7 @@ import { Checkbox, Link, TextBody } from '../src';
 
 const sizes = ['small', 'medium', 'large'];
 
-storiesOf('Checkboxes', module)
+storiesOf('Form elements/Checkbox', module)
   .addParameters({
     info: {
       propTablesExclude: [Link, TextBody],

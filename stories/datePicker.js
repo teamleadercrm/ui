@@ -28,7 +28,7 @@ const preSelectedRange = {
     .toJSDate(),
 };
 
-storiesOf('DatePicker', module)
+storiesOf('Form elements/DatePicker', module)
   .add('Single date', () => {
     const handleOnChange = selectedDate => {
       console.log('Selected date', selectedDate);
