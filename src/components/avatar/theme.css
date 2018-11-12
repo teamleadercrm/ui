@@ -9,12 +9,23 @@
   --tiny-size: 24px;
   --small-size: 36px;
   --medium-size: 48px;
+
+  --shape-circle-image-border-radius: 50%;
+  --shape-rounded-image-border-radius: 4px;
 }
 
 /* Avatar */
 .avatar {
   display: inline-block;
   position: relative;
+
+  &.is-circle .image {
+    border-radius: var(--shape-circle-image-border-radius);
+  }
+
+  &.is-rounded .image {
+    border-radius: var(--shape-rounded-image-border-radius);
+  }
 }
 
 .children {
@@ -24,7 +35,6 @@
 
 .image {
   display: block;
-  border-radius: 50%;
   overflow: hidden;
 }
 
