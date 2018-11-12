@@ -168,20 +168,20 @@ class Select extends PureComponent {
     if (this.props.inverse) {
       return {
         ...commonStyles,
-        color: isDisabled ? colors.TEAL_LIGHT : isFocused ? colors.TEAL_DARK : colors.NEUTRAL_LIGHTEST,
-        backgroundColor: isFocused ? colors.TEAL_LIGHT : isSelected ? colors.TEAL_DARK : colors.TEAL,
+        color: isDisabled ? COLOR.TEAL.LIGHT : isFocused ? COLOR.TEAL.DARK : COLOR.NEUTRAL.LIGHTEST,
+        backgroundColor: isFocused ? COLOR.TEAL.LIGHT : isSelected ? COLOR.TEAL.DARK : COLOR.TEAL.NORMAL,
         '&:active': {
-          backgroundColor: isDisabled ? colors.TEAL : colors.TEAL_DARK,
+          backgroundColor: isDisabled ? COLOR.TEAL.NORMAL : COLOR.TEAL.DARK,
         },
       };
     }
 
     return {
       ...commonStyles,
-      color: isDisabled ? colors.NEUTRAL_DARK : isSelected && !isFocused ? colors.NEUTRAL_LIGHTEST : colors.TEAL_DARK,
-      backgroundColor: isFocused ? colors.NEUTRAL : isSelected ? colors.NEUTRAL_DARKEST : colors.NEUTRAL_LIGHTEST,
+      color: isDisabled ? COLOR.NEUTRAL.DARK : isSelected && !isFocused ? COLOR.NEUTRAL.LIGHTEST : COLOR.TEAL.DARK,
+      backgroundColor: isFocused ? COLOR.NEUTRAL.NORMAL : isSelected ? COLOR.NEUTRAL.DARKEST : COLOR.NEUTRAL.LIGHTEST,
       '&:active': {
-        backgroundColor: isDisabled ? colors.NEUTRAL_LIGHTEST : colors.NEUTRAL,
+        backgroundColor: isDisabled ? COLOR.NEUTRAL.LIGHTEST : COLOR.NEUTRAL.NORMAL,
       },
     };
   };
