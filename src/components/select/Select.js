@@ -109,7 +109,7 @@ class Select extends PureComponent {
 
   getMenuStyles = base => ({
     ...base,
-    backgroundColor: this.props.inverse ? colors.TEAL : colors.NEUTRAL_LIGHTEST,
+    backgroundColor: this.props.inverse ? COLOR.TEAL.NORMAL : COLOR.NEUTRAL.LIGHTEST,
     zIndex: 300,
   });
 
