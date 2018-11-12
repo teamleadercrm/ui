@@ -131,9 +131,9 @@ class Select extends PureComponent {
 
     return {
       ...base,
-      backgroundColor: inverse ? colors.TEAL_DARK : colors.NEUTRAL_LIGHT,
+      backgroundColor: inverse ? COLOR.TEAL.DARK : COLOR.NEUTRAL.LIGHT,
       borderRadius: 0,
-      color: inverse ? colors.NEUTRAL_LIGHTEST : colors.TEAL_DARKEST,
+      color: inverse ? COLOR.NEUTRAL.LIGHTEST : COLOR.TEAL.DARKEST,
       fontFamily: 'Inter-UI-Medium',
       fontSize: size === 'small' ? '12px' : '14px',
       lineHeight: size === 'small' ? '1' : '18px',
