@@ -210,7 +210,7 @@ class Select extends PureComponent {
 
   getSingleValueStyles = base => ({
     ...base,
-    color: this.props.inverse ? colors.NEUTRAL_LIGHTEST : colors.TEAL_DARKEST,
+    color: this.props.inverse ? COLOR.NEUTRAL.LIGHTEST : COLOR.TEAL.DARKEST,
   });
 
   getValueContainerStyles = (base, { isMulti }) => {
