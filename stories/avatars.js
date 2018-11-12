@@ -6,6 +6,7 @@ import avatars from './static/data/avatar';
 
 const directions = ['horizontal', 'vertical'];
 const sizes = ['tiny', 'small', 'medium'];
+const shapes = [null, 'circle', 'rounded'];
 
 const TooltippedAvatar = Tooltip(Avatar);
 
@@ -15,7 +16,13 @@ storiesOf('Avatars', module)
       propTablesExclude: [Bullet, Counter],
     },
   })
-  .add('sizes', () => <Avatar image={avatars[0].image} size={select('Size', sizes, 'medium')} />)
+  .add('sizes', () => (
+    <Avatar
+      image={avatars[0].image}
+      size={select('Size', sizes, 'medium')}
+      shape={select('shape', shapes) || undefined}
+    />
+  ))
   .add('stacked', () => (
     <AvatarStack
       direction={select('Direction', directions, 'horizontal')}
