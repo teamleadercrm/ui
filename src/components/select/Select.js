@@ -146,12 +146,12 @@ class Select extends PureComponent {
 
     return {
       ...base,
-      backgroundColor: inverse ? colors.TEAL_DARK : colors.NEUTRAL_LIGHT,
+      backgroundColor: inverse ? COLOR.TEAL.DARK : COLOR.NEUTRAL.LIGHT,
       borderRadius: 0,
-      color: inverse ? colors.NEUTRAL_LIGHTEST : colors.TEAL_DARKEST,
+      color: inverse ? COLOR.NEUTRAL.LIGHTEST : COLOR.TEAL.DARKEST,
       '&:hover': {
-        backgroundColor: inverse ? colors.TEAL_DARKEST : colors.NEUTRAL,
-        color: inverse ? colors.NEUTRAL_LIGHTEST : colors.TEAL_DARKEST,
+        backgroundColor: inverse ? COLOR.TEAL.DARKEST : COLOR.NEUTRAL.NORMAL,
+        color: inverse ? COLOR.NEUTRAL.LIGHTEST : COLOR.TEAL.DARKEST,
       },
       paddingLeft: '6px',
       paddingRight: '6px',
