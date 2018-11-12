@@ -1,102 +1,76 @@
 import React, { PureComponent } from 'react';
-import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
-import cx from 'classnames';
-import Overlay from '../overlay/Overlay';
-import Transition from 'react-transition-group/Transition';
-import theme from './theme.css';
+import omit from 'lodash.omit';
+
+import { Banner, Box, Button, ButtonGroup, DialogBase, Heading2, Heading3, Link } from '../../index';
+import { COLORS } from '../../constants';
 
 class Dialog extends PureComponent {
-  dialogRoot = document.createElement('div');
+  getHeader = () => {
+    const { headerColor, headerIcon, headingLevel, onCloseClick, title } = this.props;
 
-  componentDidMount() {
-    document.body.appendChild(this.dialogRoot);
-  }
+    return (
+      <Banner color={headerColor} fullWidth icon={headerIcon} onClose={onCloseClick}>
+        {headingLevel === 2 ? <Heading2>{title}</Heading2> : <Heading3>{title}</Heading3>}
+      </Banner>
+    );
+  };
 
-  componentWillUnmount() {
-    document.body.removeChild(this.dialogRoot);
-  }
+  getFooter = () => {
+    const { tertiaryAction, secondaryAction, primaryAction } = this.props;
+
+    return (
+      <ButtonGroup justifyContent="flex-end" padding={4}>
+        {tertiaryAction && <Link inherit={false} {...tertiaryAction} />}
+        {secondaryAction && <Button {...secondaryAction} />}
+        <Button level="primary" {...primaryAction} />
+      </ButtonGroup>
+    );
+  };
 
   render() {
-    const {
-      active,
-      backdrop,
-      children,
-      className,
-      onEscKeyDown,
-      onOverlayClick,
-      onOverlayMouseDown,
-      onOverlayMouseMove,
-      onOverlayMouseUp,
-      size,
-    } = this.props;
+    const { children, primaryAction, secondaryAction, tertiaryAction, title, ...otherProps } = this.props;
 
-    if (!active) {
-      return null;
-    }
+    const restProps = omit(otherProps, [
+      'headerColor',
+      'onCloseClick',
+      'primaryAction',
+      'secondaryAction',
+      'tertiaryAction',
+    ]);
 
-    const dialogClassNames = cx(theme['dialog'], theme[`is-${size}`], className);
-
-    const dialog = (
-      <Transition timeout={0} in={active} appear>
-        {state => {
-          return (
-            <div
-              className={cx(theme['wrapper'], {
-                [theme['is-entering']]: state === 'entering',
-                [theme['is-entered']]: state === 'entered',
-              })}
-            >
-              <Overlay
-                active={active}
-                backdrop={backdrop}
-                className={theme['overlay']}
-                onClick={onOverlayClick}
-                onEscKeyDown={onEscKeyDown}
-                onMouseDown={onOverlayMouseDown}
-                onMouseMove={onOverlayMouseMove}
-                onMouseUp={onOverlayMouseUp}
-              />
-              <div data-teamleader-ui="dialog" className={dialogClassNames}>
-                <div className={theme['inner']}>{children}</div>
-              </div>
-            </div>
-          );
-        }}
-      </Transition>
+    return (
+      <DialogBase {...restProps}>
+        {title && this.getHeader()}
+        <Box padding={4}>{children}</Box>
+        {this.getFooter()}
+      </DialogBase>
     );
-
-    return createPortal(dialog, this.dialogRoot);
   }
 }
 
 Dialog.propTypes = {
-  /** If true, the dialog will show on screen. */
-  active: PropTypes.bool,
-  /** Specify which backdrop the dialog should show. */
-  backdrop: PropTypes.string,
-  /** The content to display inside the dialog. */
-  children: PropTypes.node,
-  /** A class name for the wrapper to give custom styles. */
-  className: PropTypes.string,
-  /** Callback function that is fired when the escape key is pressed. */
-  onEscKeyDown: PropTypes.func,
-  /** Callback function that is fired when the mouse clicks on the overlay. */
-  onOverlayClick: PropTypes.func,
-  /** Callback function that is fired when the mouse button is pressed on the overlay. */
-  onOverlayMouseDown: PropTypes.func,
-  /** Callback function that is fired when the mouse moves over the overlay. */
-  onOverlayMouseMove: PropTypes.func,
-  /** Callback function that is fired when the mouse button is released from the overlay. */
-  onOverlayMouseUp: PropTypes.func,
-  /** The size of the dialog. */
-  size: PropTypes.oneOf(['small', 'medium', 'large', 'fullscreen']),
+  /** The color of the header of the dialog. */
+  headerColor: PropTypes.oneOf(COLORS),
+  /** The icon in the header of the dialog. */
+  headerIcon: PropTypes.element,
+  /** The level of the heading of the dialog. */
+  headingLevel: PropTypes.oneOf([2, 3]),
+  /** Callback function that is fired when the close icon (in the header) is clicked. */
+  onCloseClick: PropTypes.func,
+  /** Object containing the props of the primary action (a Button, with level prop set to 'primary'). */
+  primaryAction: PropTypes.object.isRequired,
+  /** Object containing the the props of the secondary action (a Button). */
+  secondaryAction: PropTypes.object,
+  /** Object containing the props of the tertiary action (a Link, with the inherit props set to false). */
+  tertiaryAction: PropTypes.object,
+  /** The title of the dialog. */
+  title: PropTypes.string,
 };
 
 Dialog.defaultProps = {
-  active: false,
-  backdrop: 'dark',
-  size: 'medium',
+  headerColor: 'neutral',
+  headingLevel: 3,
 };
 
 export default Dialog;

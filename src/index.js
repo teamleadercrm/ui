@@ -19,7 +19,7 @@ import CompactMessage from './components/compactMessage';
 import Counter from './components/counter';
 import DataGrid from './components/datagrid';
 import { DatePicker, DatePickerRange, DatePickerInput, DatePickerInputRange } from './components/datepicker';
-import Dialog from './components/dialog';
+import Dialog, { DialogBase } from './components/dialog';
 import Icon from './components/icon';
 import Input, { InputBase, NumericInput, Textarea } from './components/input';
 import Menu, { IconMenu, MenuItem, MenuDivider } from './components/menu';
@@ -82,6 +82,7 @@ export {
   DatePickerRange,
   DatePickerInputRange,
   Dialog,
+  DialogBase,
   ErrorText,
   Heading1,
   Heading2,
