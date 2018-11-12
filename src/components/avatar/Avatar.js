@@ -6,9 +6,9 @@ import theme from './theme.css';
 
 class Avatar extends PureComponent {
   render() {
-    const { children, className, image, imageAlt, imageClassName, size, ...others } = this.props;
+    const { children, className, image, imageAlt, imageClassName, shape, size, ...others } = this.props;
 
-    const avatarClassNames = cx(theme['avatar'], theme[size], className);
+    const avatarClassNames = cx(theme['avatar'], theme[`is-${shape}`], theme[size], className);
 
     return (
       <Box className={avatarClassNames} {...others} data-teamleader-ui="avatar">
@@ -30,11 +30,14 @@ Avatar.propTypes = {
   imageAlt: PropTypes.string,
   /** A class name for the image to give custom styles. */
   imageClassName: PropTypes.string,
+  /** The shape of the avatar. */
+  shape: PropTypes.oneOf(['circle', 'rounded']),
   /** The size of the avatar. */
   size: PropTypes.oneOf(['tiny', 'small', 'medium']),
 };
 
 Avatar.defaultProps = {
+  shape: 'circle',
   size: 'medium',
 };
 

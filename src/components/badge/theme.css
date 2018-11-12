@@ -18,6 +18,7 @@
   position: relative;
   text-decoration: none;
   transition: background-color var(--animation-duration) var(--animation-curve-fast-out-slow-in);
+  max-width: 100%;
 
   svg {
     -ms-transform: translateY(-1px);
@@ -30,6 +31,12 @@
 
   .icon {
     opacity: 0.86;
+  }
+
+  .label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   &.neutral {

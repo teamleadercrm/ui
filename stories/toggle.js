@@ -5,7 +5,7 @@ import { Toggle } from '../src';
 
 const sizes = ['small', 'medium', 'large'];
 
-storiesOf('Toggles', module)
+storiesOf('Form elements/Toggle', module)
   .add('Basic', () => (
     <Toggle
       checked={boolean('Checked', false)}
