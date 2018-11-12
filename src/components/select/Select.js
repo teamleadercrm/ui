@@ -16,9 +16,9 @@ class Select extends PureComponent {
 
     return {
       ...base,
-      color: inverse ? colors.TEAL_LIGHTEST : colors.TEAL_DARK,
+      color: inverse ? COLOR.TEAL.LIGHTEST : COLOR.TEAL.DARK,
       '&:hover': {
-        color: inverse ? colors.NEUTRAL_LIGHTEST : colors.TEAL_DARKEST,
+        color: inverse ? COLOR.NEUTRAL.LIGHTEST : COLOR.TEAL.DARKEST,
       },
       cursor: 'pointer',
       svg: {
