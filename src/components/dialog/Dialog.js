@@ -1,6 +1,9 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash.omit';
+import cx from 'classnames';
+
+import theme from './theme.css';
 
 import { Banner, Box, Button, ButtonGroup, DialogBase, Heading2, Heading3, Link } from '../../index';
 import { COLORS } from '../../constants';
@@ -29,7 +32,9 @@ class Dialog extends PureComponent {
   };
 
   render() {
-    const { children, primaryAction, secondaryAction, tertiaryAction, title, ...otherProps } = this.props;
+    const { children, className, primaryAction, secondaryAction, tertiaryAction, title, ...otherProps } = this.props;
+
+    const classNames = cx(theme['dialog'], className);
 
     const restProps = omit(otherProps, [
       'headerColor',
@@ -40,9 +45,11 @@ class Dialog extends PureComponent {
     ]);
 
     return (
-      <DialogBase {...restProps}>
+      <DialogBase className={classNames} {...restProps}>
         {title && this.getHeader()}
-        <Box padding={4}>{children}</Box>
+        <Box className={theme['dialog-body']} padding={4}>
+          {children}
+        </Box>
         {this.getFooter()}
       </DialogBase>
     );
@@ -50,6 +57,8 @@ class Dialog extends PureComponent {
 }
 
 Dialog.propTypes = {
+  /** A class name for the wrapper to apply custom styles. */
+  className: PropTypes.string,
   /** The color of the header of the dialog. */
   headerColor: PropTypes.oneOf(COLORS),
   /** The icon in the header of the dialog. */
