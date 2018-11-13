@@ -67,11 +67,11 @@ class RadioButton extends PureComponent {
 
   render() {
     const { checked, disabled, className, size, label, children, onMouseEnter, onMouseLeave, ...others } = this.props;
-    const rest = omit(others, ['onChange']);
     const TextElement = size === 'small' ? TextSmall : size === 'medium' ? TextBody : TextDisplay;
 
-    const boxProps = pickBoxProps(rest);
-    const inputProps = omitBoxProps(rest);
+    const restProps = omit(others, ['onChange']);
+    const boxProps = pickBoxProps(restProps);
+    const inputProps = omitBoxProps(restProps);
 
     const classNames = cx(
       theme['radiobutton'],
