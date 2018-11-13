@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `Dialog`: the body of the `Dialog` renders scrollable, when its content starts to overflow ([@LennertBlommaert](https://github.com/LennertBlommaert) in [#456](https://github.com/teamleadercrm/ui/pull/456))
+
 ### Deprecated
 
 ### Removed
