@@ -55,7 +55,9 @@ module.exports = (storybookBaseConfig, configType) => {
     ],
   });
 
-  storybookBaseConfig.optimization.minimize = false;
+  if (storybookBaseConfig.optimization) {
+    storybookBaseConfig.optimization.minimize = false;
+  }
 
   storybookBaseConfig.plugins.map(plugin => {
     if (plugin instanceof webpack.DefinePlugin) {
