@@ -47,7 +47,9 @@ class Dialog extends PureComponent {
     return (
       <DialogBase className={classNames} {...restProps}>
         {title && this.getHeader()}
-        <Box padding={4}>{children}</Box>
+        <Box className={theme['dialog-body']} padding={4}>
+          {children}
+        </Box>
         {this.getFooter()}
       </DialogBase>
     );
