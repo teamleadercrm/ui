@@ -43,11 +43,7 @@ const preSelectedDate = DateTime.local()
 const TooltippedStatusBullet = Tooltip(StatusBullet);
 
 const MyDatagrid = ({ ...props }) => (
-  <DataGrid
-    comparableId={1}
-    // onSelectionChange={handleRowSelectionChange}
-    {...props}
-  >
+  <DataGrid comparableId={1} onSelectionChange={() => console.log('onSelectionChange')} {...props}>
     <DataGrid.HeaderRowOverlay>
       <Button size="small" level="primary" label="Marks as paid" />
       <ButtonGroup segmented marginHorizontal={3}>
