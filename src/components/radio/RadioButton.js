@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import theme from './theme.css';
 import cx from 'classnames';
 import omit from 'lodash.omit';
-import Box from '../box';
+import Box, { omitBoxProps, pickBoxProps } from '../box';
 import { TextBody, TextDisplay, TextSmall } from '../typography';
 
 class RadioButton extends PureComponent {
@@ -19,40 +19,6 @@ class RadioButton extends PureComponent {
     }
   };
 
-  splitProps(props) {
-    const availableBoxProps = [
-      'margin',
-      'marginVertical',
-      'marginHorizontal',
-      'marginBottom',
-      'marginLeft',
-      'marginRight',
-      'marginTop',
-      'padding',
-      'paddingHorizontal',
-      'paddingVertical',
-      'paddingBottom',
-      'paddingLeft',
-      'paddingRight',
-      'paddingTop',
-    ];
-
-    const boxProps = {};
-    const inputProps = {};
-
-    Object.keys(props).forEach(key => {
-      const value = props[key];
-
-      if (availableBoxProps.includes(key)) {
-        boxProps[key] = value;
-      } else {
-        inputProps[key] = value;
-      }
-    });
-
-    return { boxProps, inputProps };
-  }
-
   blur() {
     if (this.inputNode) {
       this.inputNode.blur();
@@ -67,9 +33,11 @@ class RadioButton extends PureComponent {
 
   render() {
     const { checked, disabled, className, size, label, children, onMouseEnter, onMouseLeave, ...others } = this.props;
-    const rest = omit(others, ['onChange']);
-    const { boxProps, inputProps } = this.splitProps(rest);
     const TextElement = size === 'small' ? TextSmall : size === 'medium' ? TextBody : TextDisplay;
+
+    const restProps = omit(others, ['onChange']);
+    const boxProps = pickBoxProps(restProps);
+    const inputProps = omitBoxProps(restProps);
 
     const classNames = cx(
       theme['radiobutton'],
