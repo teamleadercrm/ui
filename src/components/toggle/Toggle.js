@@ -31,40 +31,6 @@ class Toggle extends PureComponent {
     }
   }
 
-  splitProps(props) {
-    const availableBoxProps = [
-      'margin',
-      'marginVertical',
-      'marginHorizontal',
-      'marginBottom',
-      'marginLeft',
-      'marginRight',
-      'marginTop',
-      'padding',
-      'paddingHorizontal',
-      'paddingVertical',
-      'paddingBottom',
-      'paddingLeft',
-      'paddingRight',
-      'paddingTop',
-    ];
-
-    const boxProps = {};
-    const inputProps = {};
-
-    Object.keys(props).forEach(key => {
-      const value = props[key];
-
-      if (availableBoxProps.includes(key)) {
-        boxProps[key] = value;
-      } else {
-        inputProps[key] = value;
-      }
-    });
-
-    return { boxProps, inputProps };
-  }
-
   render() {
     const { checked, disabled, className, size, label, children, ...others } = this.props;
 
