@@ -226,10 +226,16 @@ DataGrid.defaultProps = {
 };
 
 DataGrid.HeaderRow = HeaderRow;
+DataGrid.HeaderRow.displayName = 'DataGrid.HeaderRow';
 DataGrid.HeaderRowOverlay = HeaderRowOverlay;
+DataGrid.HeaderRowOverlay.displayName = 'DataGrid.HeaderRowOverlay';
 DataGrid.HeaderCell = HeaderCell;
+DataGrid.HeaderCell.displayName = 'DataGrid.HeaderCell';
 DataGrid.BodyRow = BodyRow;
+DataGrid.BodyRow.displayName = 'DataGrid.BodyRow';
 DataGrid.Cell = Cell;
+DataGrid.Cell.displayName = 'DataGrid.Cell';
 DataGrid.FooterRow = FooterRow;
+DataGrid.FooterRow.displayName = 'DataGrid.FooterRow';
 
 export default DataGrid;
