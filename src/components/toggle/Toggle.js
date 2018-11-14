@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import theme from './theme.css';
 import cx from 'classnames';
 import omit from 'lodash.omit';
-import Box from '../box';
+import Box, { omitBoxProps, pickBoxProps } from '../box';
 import { TextBody, TextDisplay, TextSmall } from '../typography';
 
 class Toggle extends PureComponent {
@@ -67,8 +67,10 @@ class Toggle extends PureComponent {
 
   render() {
     const { checked, disabled, className, size, label, children, ...others } = this.props;
+
     const rest = omit(others, ['onChange']);
-    const { boxProps, inputProps } = this.splitProps(rest);
+    const boxProps = pickBoxProps(rest);
+    const inputProps = omitBoxProps(rest);
 
     const classNames = cx(
       theme['toggle'],
