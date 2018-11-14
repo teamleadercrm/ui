@@ -68,9 +68,9 @@ class Toggle extends PureComponent {
   render() {
     const { checked, disabled, className, size, label, children, ...others } = this.props;
 
-    const rest = omit(others, ['onChange']);
-    const boxProps = pickBoxProps(rest);
-    const inputProps = omitBoxProps(rest);
+    const restProps = omit(others, ['onChange']);
+    const boxProps = pickBoxProps(restProps);
+    const inputProps = omitBoxProps(restProps);
 
     const classNames = cx(
       theme['toggle'],
