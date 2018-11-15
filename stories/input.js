@@ -46,17 +46,9 @@ const prefix = [
   <Icon color="neutral" tint="darkest">
     <IconCalendarSmallOutline />
   </Icon>,
-  <TextBody color="neutral" tint="darkest">
-    €
-  </TextBody>,
+  <TextBody color="neutral">€</TextBody>,
 ];
-const suffix = [
-  <TextSmall color="neutral" tint="darkest">
-    incl. BTW
-  </TextSmall>,
-  <Counter count={99} />,
-  <LoadingSpinner />,
-];
+const suffix = [<TextSmall color="neutral">incl. BTW</TextSmall>, <Counter count={99} />, <LoadingSpinner />];
 
 storiesOf('Form elements/Input', module)
   .addParameters({
