@@ -157,7 +157,7 @@ storiesOf('Playground', module)
           closed={!boolean('QTip is active', false)}
           onChange={() => console.log('QTip has changed')}
         >
-          <TextBody color="teal" tint="darkest">
+          <TextBody color="teal">
             Lorem ipsum dolor sit amet, consectetur{' '}
             <Link href="#" inherit={false}>
               adipiscing
@@ -207,9 +207,7 @@ storiesOf('Playground', module)
           direction="south"
         >
           <Box padding={4}>
-            <Heading3 color="teal" tint="darkest">
-              I am a Popover
-            </Heading3>
+            <Heading3 color="teal">I am a Popover</Heading3>
             <Label marginTop={3} marginBottom={0} required>
               Select your flavourite
               <Select helpText="Please select your favorite flavour" options={options} />
@@ -221,9 +219,7 @@ storiesOf('Playground', module)
           title="I am the Dialog title"
           primaryAction={{ label: 'Confirm' }}
         >
-          <TextBody color="teal" tint="darkest">
-            I am a Dialog that covers everything below
-          </TextBody>
+          <TextBody color="teal">I am a Dialog that covers everything below</TextBody>
           <Box display="flex" marginTop={3}>
             <Label flex="1" marginBottom={0} marginRight={2} required>
               Select your flavourite

@@ -48,5 +48,6 @@ ProgressTracker.defaultProps = {
 };
 
 ProgressTracker.ProgressStep = ProgressStep;
+ProgressTracker.ProgressStep.displayName = 'ProgressTracker.ProgressStep';
 
 export default ProgressTracker;
