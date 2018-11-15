@@ -17,6 +17,12 @@ class Dialog extends PureComponent {
     isBodyOverFlowing: false,
   };
 
+  componentDidUpdate(prevProps) {
+    if (this.props.active !== prevProps.active) {
+      this.setIsBodyOverflowing();
+    }
+  }
+
   getHeader = () => {
     const { headerColor, headerIcon, headingLevel, onCloseClick, title } = this.props;
 
@@ -45,7 +51,9 @@ class Dialog extends PureComponent {
   };
 
   setIsBodyOverflowing = () => {
-    this.setState({ isBodyOverFlowing: isElementOverflowingY(this.bodyRef.current.node) });
+    if (this.bodyRef.current) {
+      this.setState({ isBodyOverFlowing: isElementOverflowingY(this.bodyRef.current.node) });
+    }
   };
 
   render() {
