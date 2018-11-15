@@ -45,11 +45,7 @@ class Dialog extends PureComponent {
   };
 
   setIsBodyOverflowing = () => {
-    if (isElementOverflowingY(this.bodyRef.current.node)) {
-      this.setState({ isBodyOverFlowing: true });
-    } else {
-      this.setState({ isBodyOverFlowing: false });
-    }
+    this.setState({ isBodyOverFlowing: isElementOverflowingY(this.bodyRef.current.node) });
   };
 
   render() {
