@@ -3,5 +3,6 @@ coverage
 dist
 node_modules
 npm-debug.log
+.cache
 .idea
 .DS_Store
