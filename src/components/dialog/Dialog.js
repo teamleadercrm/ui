@@ -18,7 +18,8 @@ class Dialog extends PureComponent {
   };
 
   componentDidUpdate(prevProps) {
-    if (this.props.active !== prevProps.active) {
+    if (this.props.active && !prevProps.active) {
+      console.log('Trigger check from CDU');
       this.setIsBodyOverflowing();
     }
   }
