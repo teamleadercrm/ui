@@ -17,6 +17,8 @@
 
 ### Fixed
 
+- `DatePicker`: the `DatePickerInput` doesn't select a date anymore when that date has been disabled ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#465](https://github.com/teamleadercrm/ui/pull/465))
+
 ## [0.19.0] - 2018-11-12
 
 ### Added
