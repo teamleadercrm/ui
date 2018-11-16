@@ -50,10 +50,21 @@ class Popover extends PureComponent {
     }
   };
 
+  getMaxHeight = () => {
+    const { fullHeight } = this.props;
+    const { maxPopoverHeight } = this.state.positioning;
+
+    if (!fullHeight) {
+      return 240;
+    }
+
+    return maxPopoverHeight;
+  };
+
   setPlacementThrottled = throttle(this.setPlacement, 250);
 
   render() {
-    const { left, top, arrowLeft, arrowTop, maxPopoverHeight } = this.state.positioning;
+    const { left, top, arrowLeft, arrowTop } = this.state.positioning;
 
     const {
       active,
@@ -61,7 +72,6 @@ class Popover extends PureComponent {
       children,
       className,
       color,
-      fullHeight,
       lockScroll,
       onOverlayClick,
       onEscKeyDown,
@@ -74,8 +84,6 @@ class Popover extends PureComponent {
     if (!active) {
       return null;
     }
-
-    console.log(maxPopoverHeight);
 
     const popover = (
       <Transition timeout={0} in={active} appear>
@@ -107,7 +115,7 @@ class Popover extends PureComponent {
                 }}
               >
                 <div className={theme['arrow']} style={{ left: `${arrowLeft}px`, top: `${arrowTop}px` }} />
-                <div className={theme['inner']} style={{ maxHeight: fullHeight ? maxPopoverHeight : '240px' }}>
+                <div className={theme['inner']} style={{ maxHeight: this.getMaxHeight() }}>
                   <div
                     ref={node => {
                       this.popoverContentNode = node;
@@ -169,7 +177,7 @@ Popover.defaultProps = {
   active: true,
   backdrop: 'dark',
   direction: 'south',
-  fullHeight: false,
+  fullHeight: true,
   color: 'neutral',
   lockScroll: true,
   offsetCorrection: 0,
