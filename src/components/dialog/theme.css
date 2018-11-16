@@ -81,3 +81,7 @@
   flex: 1;
   overflow: auto;
 }
+
+.has-border {
+  border-top: 1px solid var(--color-neutral);
+}
