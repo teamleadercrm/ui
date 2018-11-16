@@ -124,12 +124,13 @@ class DataGrid extends PureComponent {
       stickyFromRight,
       ...others
     } = this.props;
-    const { selectedRows } = this.state;
+    const { isOverflowing, selectedRows } = this.state;
 
     const classNames = cx(
       theme['data-grid'],
       {
         [theme['is-bordered']]: bordered,
+        [theme['is-overflowing']]: isOverflowing,
       },
       className,
     );
