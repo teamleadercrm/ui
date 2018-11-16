@@ -61,6 +61,7 @@ class Popover extends PureComponent {
       children,
       className,
       color,
+      fullHeight,
       lockScroll,
       onOverlayClick,
       onEscKeyDown,
@@ -73,6 +74,8 @@ class Popover extends PureComponent {
     if (!active) {
       return null;
     }
+
+    console.log(maxPopoverHeight);
 
     const popover = (
       <Transition timeout={0} in={active} appear>
@@ -104,7 +107,7 @@ class Popover extends PureComponent {
                 }}
               >
                 <div className={theme['arrow']} style={{ left: `${arrowLeft}px`, top: `${arrowTop}px` }} />
-                <div className={theme['inner']} style={{ maxHeight: maxPopoverHeight }}>
+                <div className={theme['inner']} style={{ maxHeight: fullHeight ? maxPopoverHeight : '240px' }}>
                   <div
                     ref={node => {
                       this.popoverContentNode = node;
@@ -140,6 +143,8 @@ Popover.propTypes = {
   color: PropTypes.oneOf(['aqua', 'gold', 'mint', 'neutral', 'ruby', 'teal', 'violet']),
   /** The direction in which the Popover is rendered, is overridden with the opposite direction if the Popover cannot be entirely displayed in the current direction. */
   direction: PropTypes.oneOf(['north', 'south', 'east', 'west']),
+  /** If true, the Popover stretches to fit its content vertically */
+  fullHeight: PropTypes.bool,
   /** The scroll state of the body, if true it will not be scrollable. */
   lockScroll: PropTypes.bool,
   /** The amount of extra translation on the Popover (has no effect if position is "middle" or "center"). */
@@ -164,6 +169,7 @@ Popover.defaultProps = {
   active: true,
   backdrop: 'dark',
   direction: 'south',
+  fullHeight: false,
   color: 'neutral',
   lockScroll: true,
   offsetCorrection: 0,
