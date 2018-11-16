@@ -98,6 +98,7 @@ class DataGrid extends PureComponent {
 
   render() {
     const {
+      bordered,
       checkboxSize,
       children,
       className,
@@ -109,7 +110,14 @@ class DataGrid extends PureComponent {
     } = this.props;
     const { selectedRows } = this.state;
 
-    const classNames = cx(theme['data-grid'], className);
+    const classNames = cx(
+      theme['data-grid'],
+      {
+        [theme['is-bordered']]: bordered,
+      },
+      className,
+    );
+
     const rest = omit(others, ['comparableId', 'onSelectionChange']);
 
     const sectionLeftClassNames = cx(theme['section'], theme['is-sticky-left'], {
