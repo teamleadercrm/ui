@@ -30,6 +30,7 @@ storiesOf('DataGrids', module)
   })
   .add('Basic', () => (
     <DataGrid
+      bordered={boolean('bordered', false)}
       selectable={boolean('Selectable', true)}
       comparableId={1}
       onSelectionChange={handleRowSelectionChange}
@@ -86,6 +87,8 @@ storiesOf('DataGrids', module)
             <DataGrid.Cell soft>{row.column4}</DataGrid.Cell>
             <DataGrid.Cell align="right" flex="min-width" preventOverflow={false}>
               <IconMenu position="top-right">
+                <MenuItem onClick={() => console.log('onClick: delete row')}>Duplicate row</MenuItem>
+                <MenuItem onClick={() => console.log('onClick: delete row')}>Inactive row</MenuItem>
                 <MenuItem onClick={() => console.log('onClick: delete row')}>Remove row</MenuItem>
               </IconMenu>
             </DataGrid.Cell>
@@ -96,6 +99,7 @@ storiesOf('DataGrids', module)
   ))
   .add('with footer', () => (
     <DataGrid
+      bordered={boolean('bordered', false)}
       selectable={boolean('Selectable', true)}
       comparableId={1}
       onSelectionChange={handleRowSelectionChange}
@@ -149,6 +153,8 @@ storiesOf('DataGrids', module)
             <DataGrid.Cell soft>{row.column4}</DataGrid.Cell>
             <DataGrid.Cell align="right" flex="min-width" preventOverflow={false}>
               <IconMenu position="top-right">
+                <MenuItem onClick={() => console.log('onClick: delete row')}>Duplicate row</MenuItem>
+                <MenuItem onClick={() => console.log('onClick: delete row')}>Inactive row</MenuItem>
                 <MenuItem onClick={() => console.log('onClick: delete row')}>Remove row</MenuItem>
               </IconMenu>
             </DataGrid.Cell>
@@ -162,6 +168,7 @@ storiesOf('DataGrids', module)
   ))
   .add('with sticky columns', () => (
     <DataGrid
+      bordered={boolean('bordered', false)}
       selectable={boolean('Selectable', true)}
       stickyFromLeft={number('Sticky from left', 3)}
       stickyFromRight={number('Sticky from right', 1)}
@@ -217,6 +224,8 @@ storiesOf('DataGrids', module)
             <DataGrid.Cell soft>{row.column4}</DataGrid.Cell>
             <DataGrid.Cell align="right" flex="min-width" preventOverflow={false}>
               <IconMenu position="top-right">
+                <MenuItem onClick={() => console.log('onClick: delete row')}>Duplicate row</MenuItem>
+                <MenuItem onClick={() => console.log('onClick: delete row')}>Inactive row</MenuItem>
                 <MenuItem onClick={() => console.log('onClick: delete row')}>Remove row</MenuItem>
               </IconMenu>
             </DataGrid.Cell>
@@ -227,6 +236,7 @@ storiesOf('DataGrids', module)
   ))
   .add('Advanced', () => (
     <DataGrid
+      bordered={boolean('bordered', false)}
       selectable={boolean('Selectable', true)}
       stickyFromLeft={number('Sticky from left', 3)}
       stickyFromRight={number('Sticky from right', 1)}
@@ -282,6 +292,8 @@ storiesOf('DataGrids', module)
             <DataGrid.Cell soft>{row.column4}</DataGrid.Cell>
             <DataGrid.Cell align="right" flex="min-width" preventOverflow={false}>
               <IconMenu position="top-right">
+                <MenuItem onClick={() => console.log('onClick: delete row')}>Duplicate row</MenuItem>
+                <MenuItem onClick={() => console.log('onClick: delete row')}>Inactive row</MenuItem>
                 <MenuItem onClick={() => console.log('onClick: delete row')}>Remove row</MenuItem>
               </IconMenu>
             </DataGrid.Cell>
