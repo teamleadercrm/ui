@@ -137,8 +137,8 @@ class DataGrid extends PureComponent {
     return (
       <Box data-teamleader-ui="data-grid" className={classNames} {...rest}>
         {processing && (
-          <div className={cx(theme['loading-bar'])}>
-            <LoadingBar />
+          <div>
+            <LoadingBar className={cx(theme['loading-bar'])} />
           </div>
         )}
         {selectedRows.length > 0 &&
