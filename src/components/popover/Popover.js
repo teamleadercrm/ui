@@ -54,7 +54,7 @@ class Popover extends PureComponent {
     const { fullHeight } = this.props;
     const { maxPopoverHeight } = this.state.positioning;
 
-    if (!fullHeight) {
+    if (!fullHeight && maxPopoverHeight > 240) {
       return 240;
     }
 
