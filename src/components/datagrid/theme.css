@@ -127,9 +127,11 @@
 }
 
 .loading-bar {
+  background: var(--color-neutral-lightest);
   position: absolute;
   top: 48px;
   left: 0;
+  right: 0;
   z-index: 3;
 }
 
