@@ -20,6 +20,7 @@ import { isArray } from 'util';
 
 class DataGrid extends PureComponent {
   state = {
+    isOverflowing: false,
     selectedRows: [],
   };
 
