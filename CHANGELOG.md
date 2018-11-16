@@ -12,8 +12,6 @@
 
 ### Fixed
 
-- `DataGrid`: prevented the `grey border` from overlaying the `LoadingBar`. ([@driesd](https://github.com/driesd) in [#469](https://github.com/teamleadercrm/ui/pull/469))
-
 ## [0.19.1] - 2018-11-16
 
 ### Added
