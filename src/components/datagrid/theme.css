@@ -81,6 +81,24 @@
   .section:last-child .row:first-child .cell:last-child {
     border-top-right-radius: 4px;
   }
+
+  &:not(.is-overflowing) {
+    .section:first-child .row:last-child,
+    .section:first-child .row:last-child .cell:first-child {
+      border-bottom-left-radius: 4px;
+    }
+
+    .section:last-child .row:last-child,
+    .section:last-child .row:last-child .cell:last-child {
+      border-bottom-right-radius: 4px;
+    }
+
+    .row:last-child {
+      .cell {
+        border-bottom: 0;
+      }
+    }
+  }
 }
 
 .is-sticky-left {
