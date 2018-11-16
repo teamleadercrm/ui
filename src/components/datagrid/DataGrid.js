@@ -136,7 +136,11 @@ class DataGrid extends PureComponent {
 
     return (
       <Box data-teamleader-ui="data-grid" className={classNames} {...rest}>
-        {processing && <LoadingBar className={cx(theme['loading-bar'])} />}
+        {processing && (
+          <div>
+            <LoadingBar className={cx(theme['loading-bar'])} />
+          </div>
+        )}
         {selectedRows.length > 0 &&
           React.Children.map(children, child => {
             if (isComponentOfType(HeaderRowOverlay, child)) {
