@@ -13,7 +13,7 @@ import theme from './theme.css';
 class Popover extends PureComponent {
   popoverRoot = document.createElement('div');
 
-  state = { positioning: { left: 0, top: 0, arrowLeft: 0, arrowTop: 0, maxPopoverHeight: 'initial' } };
+  state = { positioning: { left: 0, top: 0, arrowLeft: 0, arrowTop: 0, maxHeight: 'initial' } };
 
   componentDidMount() {
     document.body.appendChild(this.popoverRoot);
@@ -52,13 +52,13 @@ class Popover extends PureComponent {
 
   getMaxHeight = () => {
     const { fullHeight } = this.props;
-    const { maxPopoverHeight } = this.state.positioning;
+    const { maxHeight } = this.state.positioning;
 
-    if (!fullHeight && maxPopoverHeight > 240) {
+    if (!fullHeight && maxHeight > 240) {
       return 240;
     }
 
-    return maxPopoverHeight;
+    return maxHeight;
   };
 
   setPlacementThrottled = throttle(this.setPlacement, 250);
