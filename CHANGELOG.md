@@ -6,6 +6,8 @@
 
 ### Changed
 
+- `DataGrid`: replaced the `custom resize events` with the `ReactResizeDetector` component. ([@driesd](https://github.com/driesd) in [#470](https://github.com/teamleadercrm/ui/pull/470))
+
 ### Deprecated
 
 ### Removed
