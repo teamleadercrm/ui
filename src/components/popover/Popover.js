@@ -10,6 +10,8 @@ import { events } from '../utils';
 import { calculatePositions } from './positionCalculation';
 import theme from './theme.css';
 
+const MAX_HEIGHT_DEFAULT = 240;
+
 class Popover extends PureComponent {
   popoverRoot = document.createElement('div');
 
@@ -54,8 +56,8 @@ class Popover extends PureComponent {
     const { fullHeight } = this.props;
     const { maxHeight } = this.state.positioning;
 
-    if (!fullHeight && maxHeight > 240) {
-      return 240;
+    if (!fullHeight && maxHeight > MAX_HEIGHT_DEFAULT) {
+      return MAX_HEIGHT_DEFAULT;
     }
 
     return maxHeight;
