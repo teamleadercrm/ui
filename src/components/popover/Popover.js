@@ -10,10 +10,12 @@ import { events } from '../utils';
 import { calculatePositions } from './positionCalculation';
 import theme from './theme.css';
 
+const MAX_HEIGHT_DEFAULT = 240;
+
 class Popover extends PureComponent {
   popoverRoot = document.createElement('div');
 
-  state = { positioning: { left: 0, top: 0, arrowLeft: 0, arrowTop: 0, maxPopoverHeight: 'initial' } };
+  state = { positioning: { left: 0, top: 0, arrowLeft: 0, arrowTop: 0, maxHeight: 'initial' } };
 
   componentDidMount() {
     document.body.appendChild(this.popoverRoot);
@@ -50,10 +52,21 @@ class Popover extends PureComponent {
     }
   };
 
+  getMaxHeight = () => {
+    const { fullHeight } = this.props;
+    const { maxHeight } = this.state.positioning;
+
+    if (!fullHeight && (maxHeight > MAX_HEIGHT_DEFAULT || maxHeight === 'initial')) {
+      return MAX_HEIGHT_DEFAULT;
+    }
+
+    return maxHeight;
+  };
+
   setPlacementThrottled = throttle(this.setPlacement, 250);
 
   render() {
-    const { left, top, arrowLeft, arrowTop, maxPopoverHeight } = this.state.positioning;
+    const { left, top, arrowLeft, arrowTop } = this.state.positioning;
 
     const {
       active,
@@ -104,7 +117,7 @@ class Popover extends PureComponent {
                 }}
               >
                 <div className={theme['arrow']} style={{ left: `${arrowLeft}px`, top: `${arrowTop}px` }} />
-                <div className={theme['inner']} style={{ maxHeight: maxPopoverHeight }}>
+                <div className={theme['inner']} style={{ maxHeight: this.getMaxHeight() }}>
                   <div
                     ref={node => {
                       this.popoverContentNode = node;
@@ -140,6 +153,8 @@ Popover.propTypes = {
   color: PropTypes.oneOf(['aqua', 'gold', 'mint', 'neutral', 'ruby', 'teal', 'violet']),
   /** The direction in which the Popover is rendered, is overridden with the opposite direction if the Popover cannot be entirely displayed in the current direction. */
   direction: PropTypes.oneOf(['north', 'south', 'east', 'west']),
+  /** If true, the Popover stretches to fit its content vertically */
+  fullHeight: PropTypes.bool,
   /** The scroll state of the body, if true it will not be scrollable. */
   lockScroll: PropTypes.bool,
   /** The amount of extra translation on the Popover (has no effect if position is "middle" or "center"). */
@@ -164,6 +179,7 @@ Popover.defaultProps = {
   active: true,
   backdrop: 'dark',
   direction: 'south',
+  fullHeight: true,
   color: 'neutral',
   lockScroll: true,
   offsetCorrection: 0,
