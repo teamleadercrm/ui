@@ -49,6 +49,7 @@ storiesOf('Popover', module)
           backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
           direction={select('Direction', directions, 'south')}
+          fullHeight={boolean('fullHeight', true)}
           position={select('Position', positions, 'center')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
@@ -70,6 +71,7 @@ storiesOf('Popover', module)
           backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
           direction={select('Direction', directions, 'south')}
+          fullHeight={boolean('fullHeight', true)}
           position={select('Position', positions, 'center')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
@@ -94,6 +96,7 @@ storiesOf('Popover', module)
           backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
           direction={select('Direction', directions, 'south')}
+          fullHeight={boolean('fullHeight', true)}
           position={select('Position', positions, 'center')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
@@ -119,6 +122,7 @@ storiesOf('Popover', module)
           backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
           direction="south"
+          fullHeight={boolean('fullHeight', true)}
           position={select('Position', positions, 'center')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
@@ -143,6 +147,7 @@ storiesOf('Popover', module)
           backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
           direction={select('Direction', directions, 'south')}
+          fullHeight={boolean('fullHeight', true)}
           position={select('Position', positions, 'center')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
@@ -168,6 +173,7 @@ storiesOf('Popover', module)
           backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
           direction={select('Direction', directions, 'south')}
+          fullHeight={boolean('fullHeight', true)}
           position={select('Position', positions, 'center')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
@@ -195,6 +201,7 @@ storiesOf('Popover', module)
           backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
           direction={select('Direction', directions, 'south')}
+          fullHeight={boolean('fullHeight', true)}
           position={select('Position', positions, 'center')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
@@ -203,10 +210,13 @@ storiesOf('Popover', module)
           offsetCorrection={number('Offset correction', 0)}
         >
           <Box padding={4}>
-            <ul>
-              <li>Lorem ipsum</li>
-              <li>dolor sit amet</li>
-            </ul>
+            <TextBody>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+              ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+              fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+              mollit anim id est laborum.
+            </TextBody>
           </Box>
         </Popover>
       </State>
