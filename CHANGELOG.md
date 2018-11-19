@@ -2,6 +2,8 @@
 
 ### Added
 
+- `Popover`: added the `fullHeight` property, if set to false the `Popover` does not stretch more than a set value ([@LennertBlommaert](https://github.com/LennertBlommaert) in [#467](https://github.com/teamleadercrm/ui/pull/467))
+
 ### Changed
 
 ### Deprecated
