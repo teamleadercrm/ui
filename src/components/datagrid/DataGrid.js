@@ -27,7 +27,7 @@ class DataGrid extends PureComponent {
   scrollableNode = null;
 
   componentDidUpdate(prevProps) {
-    this.setCalculatedRowWidth();
+    this.handleResize();
 
     if (prevProps.comparableId !== this.props.comparableId) {
       this.handleSelectionChange([]);
@@ -69,6 +69,15 @@ class DataGrid extends PureComponent {
     });
   };
 
+  handleResize = () => {
+    if (isElementOverflowingX(this.scrollableNode) && this.rowNodes) {
+      this.setCalculatedRowWidth();
+      this.setState({ isOverflowing: true });
+    } else {
+      this.setState({ isOverflowing: false });
+    }
+  };
+
   handleSelectionChange(selection, event = null) {
     if (this.props.onSelectionChange) {
       this.props.onSelectionChange(selection, event);
@@ -76,25 +85,23 @@ class DataGrid extends PureComponent {
   }
 
   setCalculatedRowWidth = () => {
-    if (isElementOverflowingX(this.scrollableNode) && this.rowNodes) {
-      const rowDOMNodes = [];
-      let maxRowWidth = 0;
+    const rowDOMNodes = [];
+    let maxRowWidth = 0;
 
-      [...this.rowNodes.values()].filter(rowNode => rowNode != null).forEach(rowNode => {
-        const rowDOMNode = ReactDOM.findDOMNode(rowNode);
+    [...this.rowNodes.values()].filter(rowNode => rowNode != null).forEach(rowNode => {
+      const rowDOMNode = ReactDOM.findDOMNode(rowNode);
 
-        if (rowDOMNode) {
-          const totalRowChildrenWidth = [...rowDOMNode.children]
-            .map(child => child.offsetWidth)
-            .reduce((accumulatedChildWidth, currentChildWidth) => accumulatedChildWidth + currentChildWidth);
+      if (rowDOMNode) {
+        const totalRowChildrenWidth = [...rowDOMNode.children]
+          .map(child => child.offsetWidth)
+          .reduce((accumulatedChildWidth, currentChildWidth) => accumulatedChildWidth + currentChildWidth);
 
-          maxRowWidth = maxRowWidth < totalRowChildrenWidth ? totalRowChildrenWidth : maxRowWidth;
-          rowDOMNodes.push(rowDOMNode);
-        }
-      });
+        maxRowWidth = maxRowWidth < totalRowChildrenWidth ? totalRowChildrenWidth : maxRowWidth;
+        rowDOMNodes.push(rowDOMNode);
+      }
+    });
 
-      rowDOMNodes.forEach(rowDOMNode => (rowDOMNode.style.minWidth = `${maxRowWidth}px`));
-    }
+    rowDOMNodes.forEach(rowDOMNode => (rowDOMNode.style.minWidth = `${maxRowWidth}px`));
   };
 
   render() {
@@ -193,12 +200,7 @@ class DataGrid extends PureComponent {
             </div>
           )}
         </Box>
-        <ReactResizeDetector
-          handleWidth
-          onResize={this.setCalculatedRowWidth}
-          refreshMode="throttle"
-          refreshRate={16}
-        />
+        <ReactResizeDetector handleWidth onResize={this.handleResize} refreshMode="throttle" refreshRate={16} />
       </Box>
     );
   }
