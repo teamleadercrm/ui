@@ -195,8 +195,6 @@ class DataGrid extends PureComponent {
 }
 
 DataGrid.propTypes = {
-  /** If true, datagrid will have a border and rounded corners. */
-  bordered: PropTypes.bool,
   /** The size of the checkbox rendered on the left side of each row */
   checkboxSize: PropTypes.oneOf(['small', 'medium', 'large']),
   /** The content to display inside the data grid. */
@@ -218,7 +216,6 @@ DataGrid.propTypes = {
 };
 
 DataGrid.defaultProps = {
-  bordered: false,
   checkboxSize: 'small',
   processing: false,
 };
