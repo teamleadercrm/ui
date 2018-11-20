@@ -87,9 +87,9 @@ storiesOf('DataGrids', module)
             <DataGrid.Cell soft>{row.column4}</DataGrid.Cell>
             <DataGrid.Cell align="right" flex="min-width" preventOverflow={false}>
               <IconMenu position="top-right">
-                <MenuItem onClick={() => console.log('onClick: delete row')}>Duplicate row</MenuItem>
-                <MenuItem onClick={() => console.log('onClick: delete row')}>Inactive row</MenuItem>
-                <MenuItem onClick={() => console.log('onClick: delete row')}>Remove row</MenuItem>
+                <MenuItem onClick={() => console.log('onClick: duplicate row')}>Duplicate row</MenuItem>
+                <MenuItem onClick={() => console.log('onClick: inactivate row')}>Inactive row</MenuItem>
+                <MenuItem onClick={() => console.log('onClick: remove row')}>Remove row</MenuItem>
               </IconMenu>
             </DataGrid.Cell>
           </DataGrid.BodyRow>
@@ -153,9 +153,9 @@ storiesOf('DataGrids', module)
             <DataGrid.Cell soft>{row.column4}</DataGrid.Cell>
             <DataGrid.Cell align="right" flex="min-width" preventOverflow={false}>
               <IconMenu position="top-right">
-                <MenuItem onClick={() => console.log('onClick: delete row')}>Duplicate row</MenuItem>
-                <MenuItem onClick={() => console.log('onClick: delete row')}>Inactive row</MenuItem>
-                <MenuItem onClick={() => console.log('onClick: delete row')}>Remove row</MenuItem>
+                <MenuItem onClick={() => console.log('onClick: duplicate row')}>Duplicate row</MenuItem>
+                <MenuItem onClick={() => console.log('onClick: inactivate row')}>Inactive row</MenuItem>
+                <MenuItem onClick={() => console.log('onClick: remove row')}>Remove row</MenuItem>
               </IconMenu>
             </DataGrid.Cell>
           </DataGrid.BodyRow>
@@ -224,9 +224,9 @@ storiesOf('DataGrids', module)
             <DataGrid.Cell soft>{row.column4}</DataGrid.Cell>
             <DataGrid.Cell align="right" flex="min-width" preventOverflow={false}>
               <IconMenu position="top-right">
-                <MenuItem onClick={() => console.log('onClick: delete row')}>Duplicate row</MenuItem>
-                <MenuItem onClick={() => console.log('onClick: delete row')}>Inactive row</MenuItem>
-                <MenuItem onClick={() => console.log('onClick: delete row')}>Remove row</MenuItem>
+                <MenuItem onClick={() => console.log('onClick: duplicate row')}>Duplicate row</MenuItem>
+                <MenuItem onClick={() => console.log('onClick: inactivate row')}>Inactive row</MenuItem>
+                <MenuItem onClick={() => console.log('onClick: remove row')}>Remove row</MenuItem>
               </IconMenu>
             </DataGrid.Cell>
           </DataGrid.BodyRow>
@@ -292,9 +292,9 @@ storiesOf('DataGrids', module)
             <DataGrid.Cell soft>{row.column4}</DataGrid.Cell>
             <DataGrid.Cell align="right" flex="min-width" preventOverflow={false}>
               <IconMenu position="top-right">
-                <MenuItem onClick={() => console.log('onClick: delete row')}>Duplicate row</MenuItem>
-                <MenuItem onClick={() => console.log('onClick: delete row')}>Inactive row</MenuItem>
-                <MenuItem onClick={() => console.log('onClick: delete row')}>Remove row</MenuItem>
+                <MenuItem onClick={() => console.log('onClick: duplicate row')}>Duplicate row</MenuItem>
+                <MenuItem onClick={() => console.log('onClick: inactivate row')}>Inactive row</MenuItem>
+                <MenuItem onClick={() => console.log('onClick: remove row')}>Remove row</MenuItem>
               </IconMenu>
             </DataGrid.Cell>
           </DataGrid.BodyRow>
