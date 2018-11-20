@@ -19,6 +19,10 @@
     margin-left: var(--spacer-smallest);
   }
 
+  &:active {
+    outline: 0;
+  }
+
   &:not(.inherit) {
     color: var(--color-aqua-dark);
     font-family: var(--font-family-regular);
