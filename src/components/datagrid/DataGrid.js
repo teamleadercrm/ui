@@ -13,9 +13,8 @@ import HeaderRow from './HeaderRow';
 import BodyRow from './BodyRow';
 import cx from 'classnames';
 import omit from 'lodash.omit';
-import throttle from 'lodash.throttle';
+import ReactResizeDetector from 'react-resize-detector';
 import theme from './theme.css';
-import { events } from '../utils';
 import { isArray } from 'util';
 
 class DataGrid extends PureComponent {
@@ -25,20 +24,6 @@ class DataGrid extends PureComponent {
 
   rowNodes = new Map();
   scrollableNode = null;
-
-  setCalculatedRowWidthThrottled = () => throttle(this.setCalculatedRowWidth, 16);
-
-  componentDidMount() {
-    events.addEventsToWindow({
-      resize: this.setCalculatedRowWidthThrottled,
-    });
-  }
-
-  componentWillUnmount() {
-    events.removeEventsFromWindow({
-      resize: this.setCalculatedRowWidthThrottled,
-    });
-  }
 
   componentDidUpdate(prevProps) {
     this.setCalculatedRowWidth();
@@ -198,6 +183,12 @@ class DataGrid extends PureComponent {
             </div>
           )}
         </Box>
+        <ReactResizeDetector
+          handleWidth
+          onResize={this.setCalculatedRowWidth}
+          refreshMode="throttle"
+          refreshRate={16}
+        />
       </Box>
     );
   }
