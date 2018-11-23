@@ -20,6 +20,7 @@ import { isArray } from 'util';
 class DataGrid extends PureComponent {
   state = {
     hoveredRow: null,
+    isOverflowing: false,
     selectedRows: [],
   };
 
@@ -27,7 +28,7 @@ class DataGrid extends PureComponent {
   scrollableNode = null;
 
   componentDidUpdate(prevProps) {
-    this.setCalculatedRowWidth();
+    this.handleResize();
 
     if (prevProps.comparableId !== this.props.comparableId) {
       this.handleSelectionChange([]);
@@ -83,6 +84,15 @@ class DataGrid extends PureComponent {
     });
   };
 
+  handleResize = () => {
+    if (isElementOverflowingX(this.scrollableNode) && this.rowNodes) {
+      this.setCalculatedRowWidth();
+      this.setState({ isOverflowing: true });
+    } else {
+      this.setState({ isOverflowing: false });
+    }
+  };
+
   handleSelectionChange(selection, event = null) {
     if (this.props.onSelectionChange) {
       this.props.onSelectionChange(selection, event);
@@ -90,29 +100,28 @@ class DataGrid extends PureComponent {
   }
 
   setCalculatedRowWidth = () => {
-    if (isElementOverflowingX(this.scrollableNode) && this.rowNodes) {
-      const rowDOMNodes = [];
-      let maxRowWidth = 0;
+    const rowDOMNodes = [];
+    let maxRowWidth = 0;
 
-      [...this.rowNodes.values()].filter(rowNode => rowNode != null).forEach(rowNode => {
-        const rowDOMNode = ReactDOM.findDOMNode(rowNode);
+    [...this.rowNodes.values()].filter(rowNode => rowNode != null).forEach(rowNode => {
+      const rowDOMNode = ReactDOM.findDOMNode(rowNode);
 
-        if (rowDOMNode) {
-          const totalRowChildrenWidth = [...rowDOMNode.children]
-            .map(child => child.offsetWidth)
-            .reduce((accumulatedChildWidth, currentChildWidth) => accumulatedChildWidth + currentChildWidth);
+      if (rowDOMNode) {
+        const totalRowChildrenWidth = [...rowDOMNode.children]
+          .map(child => child.offsetWidth)
+          .reduce((accumulatedChildWidth, currentChildWidth) => accumulatedChildWidth + currentChildWidth);
 
-          maxRowWidth = maxRowWidth < totalRowChildrenWidth ? totalRowChildrenWidth : maxRowWidth;
-          rowDOMNodes.push(rowDOMNode);
-        }
-      });
+        maxRowWidth = maxRowWidth < totalRowChildrenWidth ? totalRowChildrenWidth : maxRowWidth;
+        rowDOMNodes.push(rowDOMNode);
+      }
+    });
 
-      rowDOMNodes.forEach(rowDOMNode => (rowDOMNode.style.minWidth = `${maxRowWidth}px`));
-    }
+    rowDOMNodes.forEach(rowDOMNode => (rowDOMNode.style.minWidth = `${maxRowWidth}px`));
   };
 
   render() {
     const {
+      bordered,
       checkboxSize,
       children,
       className,
@@ -122,9 +131,17 @@ class DataGrid extends PureComponent {
       stickyFromRight,
       ...others
     } = this.props;
-    const { hoveredRow, selectedRows } = this.state;
+    const { hoveredRow, isOverflowing, selectedRows } = this.state;
 
-    const classNames = cx(theme['data-grid'], className);
+    const classNames = cx(
+      theme['data-grid'],
+      {
+        [theme['is-bordered']]: bordered,
+        [theme['is-overflowing']]: isOverflowing,
+      },
+      className,
+    );
+
     const rest = omit(others, ['comparableId', 'onSelectionChange']);
 
     const sectionLeftClassNames = cx(theme['section'], theme['is-sticky-left'], {
@@ -217,18 +234,15 @@ class DataGrid extends PureComponent {
             </div>
           )}
         </Box>
-        <ReactResizeDetector
-          handleWidth
-          onResize={this.setCalculatedRowWidth}
-          refreshMode="throttle"
-          refreshRate={16}
-        />
+        <ReactResizeDetector handleWidth onResize={this.handleResize} refreshMode="throttle" refreshRate={16} />
       </Box>
     );
   }
 }
 
 DataGrid.propTypes = {
+  /** If true, datagrid will have a border and rounded corners. */
+  bordered: PropTypes.bool,
   /** The size of the checkbox rendered on the left side of each row */
   checkboxSize: PropTypes.oneOf(['small', 'medium', 'large']),
   /** The content to display inside the data grid. */
@@ -250,6 +264,7 @@ DataGrid.propTypes = {
 };
 
 DataGrid.defaultProps = {
+  bordered: false,
   checkboxSize: 'small',
   processing: false,
 };
