@@ -12,6 +12,7 @@ class BodyRow extends PureComponent {
       className,
       checkboxSize,
       children,
+      hovered,
       sliceFrom,
       sliceTo,
       onSelectionChange,
@@ -25,7 +26,12 @@ class BodyRow extends PureComponent {
     const classNames = cx(theme['body-row'], className);
 
     return (
-      <Row className={classNames} data-teamleader-ui="datagrid-body-row" {...others}>
+      <Row
+        backgroundColor={hovered ? 'neutral' : 'white'}
+        className={classNames}
+        data-teamleader-ui="datagrid-body-row"
+        {...others}
+      >
         {selectable && (
           <Cell align="center" flex="min-width">
             <Checkbox checked={selected} onChange={onSelectionChange} size={checkboxSize} />
@@ -44,6 +50,8 @@ BodyRow.propTypes = {
   className: PropTypes.string,
   /** The cells to display inside the row. */
   children: PropTypes.any,
+  /** If true, the row will show a hover state */
+  hovered: PropTypes.bool,
   /** Callback function that is fired when the checkbox on the left side has changed. */
   onSelectionChange: PropTypes.func,
   /** If true, checkboxes will be rendered on the left side of each row. */
