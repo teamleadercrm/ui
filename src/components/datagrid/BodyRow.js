@@ -15,6 +15,7 @@ class BodyRow extends PureComponent {
       hovered,
       sliceFrom,
       sliceTo,
+      onClick,
       onSelectionChange,
       selected,
       selectable,
@@ -23,7 +24,13 @@ class BodyRow extends PureComponent {
 
     const childrenArray = Array.isArray(children) ? children : [children];
     const childrenSliced = childrenArray.slice(sliceFrom, sliceTo);
-    const classNames = cx(theme['body-row'], className);
+    const classNames = cx(
+      theme['body-row'],
+      {
+        [theme['has-pointer-cursor']]: onClick,
+      },
+      className,
+    );
 
     return (
       <Row

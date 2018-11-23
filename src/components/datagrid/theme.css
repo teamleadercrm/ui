@@ -68,6 +68,10 @@
   }
 }
 
+.has-pointer-cursor {
+  cursor: pointer;
+}
+
 .is-sticky-left {
   max-width: 60%;
 }
