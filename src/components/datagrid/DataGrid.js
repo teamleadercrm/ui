@@ -108,7 +108,7 @@ class DataGrid extends PureComponent {
       stickyFromRight,
       ...others
     } = this.props;
-    const { selectedRows } = this.state;
+    const { hoveredRow, selectedRows } = this.state;
 
     const classNames = cx(theme['data-grid'], className);
     const rest = omit(others, ['comparableId', 'onSelectionChange']);
@@ -149,6 +149,7 @@ class DataGrid extends PureComponent {
                 } else if (isComponentOfType(BodyRow, child)) {
                   return React.cloneElement(child, {
                     checkboxSize,
+                    hovered: hoveredRow === child.key,
                     onSelectionChange: (checked, event) => this.handleBodyRowSelectionChange(child.key, event),
                     selected: selectedRows.indexOf(child.key) !== -1,
                     selectable,
@@ -165,8 +166,15 @@ class DataGrid extends PureComponent {
           )}
           <div className={cx(theme['section'], theme['is-scrollable'])} ref={node => (this.scrollableNode = node)}>
             {React.Children.map(children, (child, key) => {
-              if (!isComponentOfType(HeaderRowOverlay, child)) {
+              if (isComponentOfType(HeaderRow, child) || isComponentOfType(FooterRow, child)) {
                 return React.cloneElement(child, {
+                  sliceFrom: stickyFromLeft > 0 ? stickyFromLeft : 0,
+                  sliceTo: stickyFromRight > 0 ? -stickyFromRight : undefined,
+                  ref: rowNode => this.rowNodes.set(key, rowNode),
+                });
+              } else if (isComponentOfType(BodyRow, child)) {
+                return React.cloneElement(child, {
+                  hovered: hoveredRow === child.key,
                   sliceFrom: stickyFromLeft > 0 ? stickyFromLeft : 0,
                   sliceTo: stickyFromRight > 0 ? -stickyFromRight : undefined,
                   ref: rowNode => this.rowNodes.set(key, rowNode),
@@ -177,8 +185,13 @@ class DataGrid extends PureComponent {
           {stickyFromRight > 0 && (
             <div className={cx(theme['section'], theme['has-blend-left'])}>
               {React.Children.map(children, child => {
-                if (!isComponentOfType(HeaderRowOverlay, child)) {
+                if (isComponentOfType(HeaderRow, child) || isComponentOfType(FooterRow, child)) {
                   return React.cloneElement(child, { sliceFrom: -stickyFromRight });
+                } else if (isComponentOfType(BodyRow, child)) {
+                  return React.cloneElement(child, {
+                    hovered: hoveredRow === child.key,
+                    sliceFrom: -stickyFromRight,
+                  });
                 }
               })}
             </div>
