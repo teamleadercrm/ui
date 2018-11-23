@@ -54,6 +54,20 @@ class DataGrid extends PureComponent {
     this.handleSelectionChange(selectedBodyRowIndexes, event);
   };
 
+  handleBodyRowMouseOver = (row, event) => {
+    const { onClick, onMouseOver } = row.props;
+
+    onClick && this.setState({ hoveredRow: row.key });
+    onMouseOver && onMouseOver(event);
+  };
+
+  handleBodyRowMouseOut = (row, event) => {
+    const { onClick, onMouseOut } = row.props;
+
+    onClick && this.setState({ hoveredRow: null });
+    onMouseOut && onMouseOut(event);
+  };
+
   handleBodyRowSelectionChange = (rowIndex, event) => {
     this.setState(prevState => {
       const selectedRows = prevState.selectedRows.includes(rowIndex)
@@ -150,6 +164,8 @@ class DataGrid extends PureComponent {
                   return React.cloneElement(child, {
                     checkboxSize,
                     hovered: hoveredRow === child.key,
+                    onMouseOver: event => this.handleBodyRowMouseOver(child, event),
+                    onMouseOut: event => this.handleBodyRowMouseOut(child, event),
                     onSelectionChange: (checked, event) => this.handleBodyRowSelectionChange(child.key, event),
                     selected: selectedRows.indexOf(child.key) !== -1,
                     selectable,
@@ -175,6 +191,8 @@ class DataGrid extends PureComponent {
               } else if (isComponentOfType(BodyRow, child)) {
                 return React.cloneElement(child, {
                   hovered: hoveredRow === child.key,
+                  onMouseOver: event => this.handleBodyRowMouseOver(child, event),
+                  onMouseOut: event => this.handleBodyRowMouseOut(child, event),
                   sliceFrom: stickyFromLeft > 0 ? stickyFromLeft : 0,
                   sliceTo: stickyFromRight > 0 ? -stickyFromRight : undefined,
                   ref: rowNode => this.rowNodes.set(key, rowNode),
@@ -190,6 +208,8 @@ class DataGrid extends PureComponent {
                 } else if (isComponentOfType(BodyRow, child)) {
                   return React.cloneElement(child, {
                     hovered: hoveredRow === child.key,
+                    onMouseOver: event => this.handleBodyRowMouseOver(child, event),
+                    onMouseOut: event => this.handleBodyRowMouseOut(child, event),
                     sliceFrom: -stickyFromRight,
                   });
                 }
