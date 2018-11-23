@@ -52,6 +52,8 @@ BodyRow.propTypes = {
   children: PropTypes.any,
   /** If true, the row will show a hover state */
   hovered: PropTypes.bool,
+  /** Callback function that is fired when the row is clicked */
+  onClick: PropTypes.func,
   /** Callback function that is fired when the checkbox on the left side has changed. */
   onSelectionChange: PropTypes.func,
   /** If true, checkboxes will be rendered on the left side of each row. */
