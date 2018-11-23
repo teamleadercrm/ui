@@ -19,6 +19,7 @@ import { isArray } from 'util';
 
 class DataGrid extends PureComponent {
   state = {
+    hoveredRow: null,
     selectedRows: [],
   };
 
