@@ -7,6 +7,11 @@ import cx from 'classnames';
 import theme from './theme.css';
 
 class BodyRow extends PureComponent {
+  handleClick = event => {
+    const { onClick } = this.props;
+    onClick && onClick(event);
+  };
+
   render() {
     const {
       className,
@@ -37,6 +42,7 @@ class BodyRow extends PureComponent {
         backgroundColor={hovered ? 'neutral' : 'white'}
         className={classNames}
         data-teamleader-ui="datagrid-body-row"
+        onClick={this.handleClick}
         {...others}
       >
         {selectable && (
