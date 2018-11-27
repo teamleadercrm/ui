@@ -46,9 +46,4 @@ EmptyPassport.propTypes = {
   title: PropTypes.string,
 };
 
-EmptyPassport.defaultProps = {
-  description: "It looks like you haven't added any contact information yet.",
-  title: 'No information to show',
-};
-
 export default EmptyPassport;
