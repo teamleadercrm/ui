@@ -30,6 +30,7 @@ import LoadingBar from './components/loadingBar';
 import LoadingMolecule from './components/loadingMolecule';
 import LoadingSpinner from './components/loadingSpinner';
 import Pagination from './components/pagination';
+import Passport, { EmptyPassport } from './components/passport';
 import Popover from './components/popover';
 import { RadioButton, RadioGroup } from './components/radio';
 import Section from './components/section';
@@ -83,6 +84,7 @@ export {
   DatePickerInputRange,
   Dialog,
   DialogBase,
+  EmptyPassport,
   ErrorText,
   Heading1,
   Heading2,
@@ -108,6 +110,7 @@ export {
   Monospaced,
   NumericInput,
   Overlay,
+  Passport,
   Pagination,
   Popover,
   ProgressTracker,
