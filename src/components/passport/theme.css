@@ -4,6 +4,7 @@
 
 .passport-empty {
   max-width: 240px !important;
+  text-align: center;
 }
 
 .prevent-overflow {
