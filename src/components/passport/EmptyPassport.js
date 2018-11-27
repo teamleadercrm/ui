@@ -17,10 +17,12 @@ class EmptyPassport extends PureComponent {
         <Box paddingHorizontal={4} paddingVertical={5}>
           <Box display="flex" flexDirection="column" alignItems="center">
             {avatar && <Avatar {...avatar} size="small" marginBottom={4} />}
-            <Heading3 color="teal">{title}</Heading3>
-            <TextBody color="neutral" marginTop={2}>
-              {description}
-            </TextBody>
+            {title && <Heading3 color="teal">{title}</Heading3>}
+            {description && (
+              <TextBody color="neutral" marginTop={2}>
+                {description}
+              </TextBody>
+            )}
             {link && (
               <TextBody marginTop={4}>
                 <Link {...link} inherit={false} />
