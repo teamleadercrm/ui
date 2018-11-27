@@ -17,7 +17,7 @@ class EmptyPassport extends PureComponent {
         <Box paddingHorizontal={4} paddingVertical={5}>
           <Box display="flex" flexDirection="column" alignItems="center">
             {avatar && <Avatar {...avatar} size="small" marginBottom={4} />}
-            {title && <Heading3 color="teal">{title}</Heading3>}
+            <Heading3 color="teal">{title}</Heading3>
             {description && (
               <TextBody color="neutral" marginTop={2}>
                 {description}
@@ -45,7 +45,7 @@ EmptyPassport.propTypes = {
   /** Object containing the props of a Link. */
   link: PropTypes.object,
   /** The title of the empty Passport. */
-  title: PropTypes.string,
+  title: PropTypes.string.isRequired,
 };
 
 export default EmptyPassport;
