@@ -298,6 +298,8 @@ class Select extends PureComponent {
 Select.propTypes = {
   /** Override default components with your own. Pass an object with correct the key and its replacing component */
   components: PropTypes.object,
+  /** If true, it*/
+  creatable: PropTypes.bool,
   /** The text string/element to use as error message below the input. */
   error: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   /** The text string to use as help text below the input. */
@@ -311,6 +313,7 @@ Select.propTypes = {
 };
 
 Select.defaultProps = {
+  creatable: false,
   inverse: false,
   size: 'medium',
 };
