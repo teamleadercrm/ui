@@ -267,7 +267,7 @@ class Select extends PureComponent {
   };
 
   render() {
-    const { components, error, inverse, helpText, size, ...otherProps } = this.props;
+    const { components, creatable, error, inverse, helpText, size, ...otherProps } = this.props;
 
     const boxProps = pickBoxProps(otherProps);
     const restProps = omitBoxProps(otherProps);
@@ -277,9 +277,11 @@ class Select extends PureComponent {
       [theme['is-inverse']]: inverse,
     });
 
+    const Element = creatable ? ReactCreatableSelect : ReactSelect;
+
     return (
       <Box className={wrapperClassnames} {...boxProps}>
-        <ReactSelect
+        <Element
           className={theme['select']}
           components={{
             ClearIndicator: this.getClearIndicator(),
