@@ -301,7 +301,7 @@ class Select extends PureComponent {
 Select.propTypes = {
   /** Override default components with your own. Pass an object with correct the key and its replacing component */
   components: PropTypes.object,
-  /** If true, it*/
+  /** If true, it's possible to create a new option that is not in the list. */
   creatable: PropTypes.bool,
   /** The text string/element to use as error message below the input. */
   error: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
