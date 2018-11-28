@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import ReactSelect from 'react-select';
+import ReactCreatableSelect from 'react-select/lib/Creatable';
 import PropTypes from 'prop-types';
 import { IconCloseBadgedSmallFilled, IconChevronDownSmallOutline } from '@teamleader/ui-icons';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
