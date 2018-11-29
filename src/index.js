@@ -33,6 +33,7 @@ import Pagination from './components/pagination';
 import Passport, { EmptyPassport } from './components/passport';
 import Popover from './components/popover';
 import { RadioButton, RadioGroup } from './components/radio';
+import ScrollContainer from './components/scrollContainer';
 import Section from './components/section';
 import Select, { AsyncSelect } from './components/select';
 import { Island, IslandGroup } from './components/island';
@@ -116,6 +117,7 @@ export {
   ProgressTracker,
   RadioButton,
   RadioGroup,
+  ScrollContainer,
   Section,
   Select,
   StatusBullet,
