@@ -31,6 +31,17 @@ const contentBoxWithSingleTextLine = (
       </Link>{' '}
       inside
     </TextBody>
+    <TextBody>I'm the body text</TextBody>
+    <TextBody>I'm the body text</TextBody>
+    <TextBody>I'm the body text</TextBody>
+    <TextBody>I'm the body text</TextBody>
+    <TextBody>I'm the body text</TextBody>
+    <TextBody>I'm the body text</TextBody>
+    <TextBody>I'm the body text</TextBody>
+    <TextBody>I'm the body text</TextBody>
+    <TextBody>I'm the body text</TextBody>
+    <TextBody>I'm the body text</TextBody>
+    <TextBody>I'm the body text</TextBody>
   </Box>
 );
 
@@ -78,10 +89,12 @@ storiesOf('Popover', module)
           tint={select('Tint', tints, 'lightest')}
           lockScroll={boolean('Lock scroll', true)}
           offsetCorrection={number('Offset correction', 0)}
+          header={
+            <Banner fullWidth>
+              <Heading3>Popover Title</Heading3>
+            </Banner>
+          }
         >
-          <Banner fullWidth>
-            <Heading3>Popover Title</Heading3>
-          </Banner>
           {contentBoxWithSingleTextLine}
         </Popover>
       </State>
@@ -103,11 +116,13 @@ storiesOf('Popover', module)
           tint={select('Tint', tints, 'lightest')}
           lockScroll={boolean('Lock scroll', true)}
           offsetCorrection={number('Offset correction', 0)}
+          header={
+            <Banner color="neutral" fullWidth>
+              <Heading3>Popover Title</Heading3>
+              <TextSmall marginTop={1}>This is the popover content</TextSmall>
+            </Banner>
+          }
         >
-          <Banner color="neutral" fullWidth>
-            <Heading3>Popover Title</Heading3>
-            <TextSmall marginTop={1}>This is the popover content</TextSmall>
-          </Banner>
           {contentBoxWithSingleTextLine}
         </Popover>
       </State>
@@ -129,10 +144,12 @@ storiesOf('Popover', module)
           tint={select('Tint', tints, 'lightest')}
           lockScroll={boolean('Lock scroll', true)}
           offsetCorrection={number('Offset correction', 0)}
+          header={
+            <Banner onClose={handleCloseClick} fullWidth>
+              <Heading3>I am a heading 3</Heading3>
+            </Banner>
+          }
         >
-          <Banner onClose={handleCloseClick} fullWidth>
-            <Heading3>I am a heading 3</Heading3>
-          </Banner>
           {contentBoxWithSingleTextLine}
         </Popover>
       </State>
@@ -154,12 +171,14 @@ storiesOf('Popover', module)
           tint={select('Tint', tints, 'lightest')}
           lockScroll={boolean('Lock scroll', true)}
           offsetCorrection={number('Offset correction', 0)}
+          footer={
+            <ButtonGroup justifyContent="flex-end" padding={4}>
+              <Button label="Cancel" />
+              <Button level="primary" label="Confirm" />
+            </ButtonGroup>
+          }
         >
           {contentBoxWithSingleTextLine}
-          <ButtonGroup justifyContent="flex-end" padding={4}>
-            <Button label="Cancel" />
-            <Button level="primary" label="Confirm" />
-          </ButtonGroup>
         </Popover>
       </State>
     </Box>
