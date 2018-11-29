@@ -31,17 +31,6 @@ const contentBoxWithSingleTextLine = (
       </Link>{' '}
       inside
     </TextBody>
-    <TextBody>I'm the body text</TextBody>
-    <TextBody>I'm the body text</TextBody>
-    <TextBody>I'm the body text</TextBody>
-    <TextBody>I'm the body text</TextBody>
-    <TextBody>I'm the body text</TextBody>
-    <TextBody>I'm the body text</TextBody>
-    <TextBody>I'm the body text</TextBody>
-    <TextBody>I'm the body text</TextBody>
-    <TextBody>I'm the body text</TextBody>
-    <TextBody>I'm the body text</TextBody>
-    <TextBody>I'm the body text</TextBody>
   </Box>
 );
 
