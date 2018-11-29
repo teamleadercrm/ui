@@ -2,6 +2,8 @@
 
 ### Added
 
+- `Select`: add a `creatable` boolean prop. If `true`, it's possible to create a new option that is not in the list. ([@driesd](https://github.com/driesd) in [#476](https://github.com/teamleadercrm/ui/pull/476))
+
 ### Changed
 
 ### Deprecated
@@ -10,7 +12,7 @@
 
 ### Fixed
 
-## [0.19.2] - 2018-11-27
+## [0.19.2] - 2018-11-28
 
 ### Added
 
