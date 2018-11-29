@@ -35,6 +35,7 @@ storiesOf('Form elements/Select', module)
   .add('Basic', () => (
     <Select
       closeMenuOnSelect={boolean('Close menu on select', true)}
+      creatable={boolean('creatable', false)}
       inverse={boolean('Inverse', false)}
       isClearable={boolean('Clearable', false)}
       isDisabled={boolean('Disabled', false)}
@@ -49,6 +50,7 @@ storiesOf('Form elements/Select', module)
   .add('Grouped', () => (
     <Select
       closeMenuOnSelect={boolean('Close menu on select', true)}
+      creatable={boolean('creatable', false)}
       inverse={boolean('Inverse', false)}
       isClearable={boolean('Clearable', false)}
       isDisabled={boolean('Disabled', false)}
@@ -66,6 +68,7 @@ storiesOf('Form elements/Select', module)
       components={{
         Option: CustomOption,
       }}
+      creatable={boolean('creatable', false)}
       inverse={boolean('Inverse', false)}
       isClearable={boolean('Clearable', false)}
       isDisabled={boolean('Disabled', false)}
@@ -82,6 +85,7 @@ storiesOf('Form elements/Select', module)
       Select something
       <Select
         closeMenuOnSelect={boolean('Close menu on select', true)}
+        creatable={boolean('creatable', false)}
         isClearable={boolean('Clearable', false)}
         isDisabled={boolean('Disabled', false)}
         isMulti={boolean('Multi select', false)}
@@ -113,6 +117,7 @@ storiesOf('Form elements/Select', module)
       <AsyncSelect
         loadOptions={loadOptions}
         cacheOptions={boolean('cacheOptions', true)}
+        creatable={boolean('creatable', false)}
         paginate={boolean('paginate', true)}
         pageSize={number('pageSize', 10)}
         closeMenuOnSelect={boolean('closeMenuOnSelectj', true)}
