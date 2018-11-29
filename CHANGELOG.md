@@ -2,6 +2,8 @@
 
 ### Added
 
+- `ScrollContainer`: added the `ScrollContainer` component. It is used to create components that have a sticky header and footer, whilst the body is scrollable. ([@LennertBlommaert](https://github.com/LennertBlommaert) in [#477](https://github.com/teamleadercrm/ui/pull/477))
+
 ### Changed
 
 ### Deprecated
