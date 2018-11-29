@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import ReactSelect from 'react-select';
+import ReactCreatableSelect from 'react-select/lib/Creatable';
 import PropTypes from 'prop-types';
 import { IconCloseBadgedSmallFilled, IconChevronDownSmallOutline } from '@teamleader/ui-icons';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
@@ -266,7 +267,7 @@ class Select extends PureComponent {
   };
 
   render() {
-    const { components, error, inverse, helpText, size, ...otherProps } = this.props;
+    const { components, creatable, error, inverse, helpText, size, ...otherProps } = this.props;
 
     const boxProps = pickBoxProps(otherProps);
     const restProps = omitBoxProps(otherProps);
@@ -276,9 +277,11 @@ class Select extends PureComponent {
       [theme['is-inverse']]: inverse,
     });
 
+    const Element = creatable ? ReactCreatableSelect : ReactSelect;
+
     return (
       <Box className={wrapperClassnames} {...boxProps}>
-        <ReactSelect
+        <Element
           className={theme['select']}
           components={{
             ClearIndicator: this.getClearIndicator(),
@@ -298,6 +301,8 @@ class Select extends PureComponent {
 Select.propTypes = {
   /** Override default components with your own. Pass an object with correct the key and its replacing component */
   components: PropTypes.object,
+  /** If true, it's possible to create a new option that is not in the list. */
+  creatable: PropTypes.bool,
   /** The text string/element to use as error message below the input. */
   error: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   /** The text string to use as help text below the input. */
@@ -311,6 +316,7 @@ Select.propTypes = {
 };
 
 Select.defaultProps = {
+  creatable: false,
   inverse: false,
   size: 'medium',
 };
