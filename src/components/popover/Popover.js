@@ -8,6 +8,7 @@ import Transition from 'react-transition-group/Transition';
 import ReactResizeDetector from 'react-resize-detector';
 import { events } from '../utils';
 import { calculatePositions } from './positionCalculation';
+import ScrollContainer from '../scrollContainer';
 import theme from './theme.css';
 
 const MAX_HEIGHT_DEFAULT = 240;
@@ -40,14 +41,7 @@ class Popover extends PureComponent {
 
     if (this.popoverNode) {
       this.setState({
-        positioning: calculatePositions(
-          anchorEl,
-          this.popoverNode,
-          this.popoverContentNode,
-          direction,
-          position,
-          offsetCorrection,
-        ),
+        positioning: calculatePositions(anchorEl, this.popoverNode, direction, position, offsetCorrection),
       });
     }
   };
@@ -56,7 +50,7 @@ class Popover extends PureComponent {
     const { fullHeight } = this.props;
     const { maxHeight } = this.state.positioning;
 
-    if (!fullHeight && (maxHeight > MAX_HEIGHT_DEFAULT || maxHeight === 'initial')) {
+    if (!fullHeight && maxHeight > MAX_HEIGHT_DEFAULT) {
       return MAX_HEIGHT_DEFAULT;
     }
 
@@ -74,6 +68,8 @@ class Popover extends PureComponent {
       children,
       className,
       color,
+      footer,
+      header,
       lockScroll,
       onOverlayClick,
       onEscKeyDown,
@@ -117,16 +113,14 @@ class Popover extends PureComponent {
                 }}
               >
                 <div className={theme['arrow']} style={{ left: `${arrowLeft}px`, top: `${arrowTop}px` }} />
-                <div className={theme['inner']} style={{ maxHeight: this.getMaxHeight() }}>
-                  <div
-                    ref={node => {
-                      this.popoverContentNode = node;
-                    }}
-                  >
-                    {children}
-                  </div>
-                  <ReactResizeDetector handleHeight handleWidth onResize={this.setPlacementThrottled} />
-                </div>
+                <ScrollContainer
+                  className={theme['inner']}
+                  header={header}
+                  body={children}
+                  footer={footer}
+                  style={{ maxHeight: this.getMaxHeight() }}
+                />
+                <ReactResizeDetector handleHeight handleWidth onResize={this.setPlacementThrottled} />
               </div>
             </div>
           );
@@ -153,6 +147,10 @@ Popover.propTypes = {
   color: PropTypes.oneOf(['aqua', 'gold', 'mint', 'neutral', 'ruby', 'teal', 'violet']),
   /** The direction in which the Popover is rendered, is overridden with the opposite direction if the Popover cannot be entirely displayed in the current direction. */
   direction: PropTypes.oneOf(['north', 'south', 'east', 'west']),
+  /** Node to render as the footer */
+  footer: PropTypes.node,
+  /** Node to render as the header */
+  header: PropTypes.node,
   /** If true, the Popover stretches to fit its content vertically */
   fullHeight: PropTypes.bool,
   /** The scroll state of the body, if true it will not be scrollable. */
