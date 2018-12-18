@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `Input`, `NumericInput`, `TextArea`, `DatePickerInput` & `DatePickerInputRange`: fixed the placeholder styling in IE10+. ([@LennertBlommaert](https://github.com/LennertBlommaert) in [#480](https://github.com/teamleadercrm/ui/pull/480))
+
 ## [0.19.3] - 2018-12-10
 
 ### Added

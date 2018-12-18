@@ -170,6 +170,10 @@
     color: var(--color-neutral-darkest);
   }
 
+  &:-ms-input-placeholder {
+    color: var(--color-neutral-darkest);
+  }
+
   height: var(--input-height-medium);
   width: 100%;
   padding: 0 var(--input-horizontal-padding);
@@ -194,10 +198,18 @@
       color: var(--color-teal-light);
     }
 
+    &:-ms-input-placeholder {
+      color: var(--color-teal-light);
+    }
+
     &:disabled {
       color: var(--color-teal);
 
       &::placeholder {
+        color: var(--color-teal);
+      }
+
+      &:-ms-input-placeholder {
         color: var(--color-teal);
       }
     }
