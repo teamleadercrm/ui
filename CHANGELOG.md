@@ -2,6 +2,8 @@
 
 ### Added
 
+- `DataGrid`: added a sort icon to the `HeaderCell` indicate a field is sortable. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#483](https://github.com/teamleadercrm/ui/pull/483))
+
 ### Changed
 
 ### Deprecated
