@@ -34,7 +34,13 @@ class Cell extends PureComponent {
 
     return (
       <Box className={classNames} data-teamleader-ui="datagrid-cell" boxSizing="content-box" {...others}>
-        {preventOverflow ? <div className={theme['has-overflow-prevention']}>{children}</div> : children}
+        {preventOverflow ? (
+          <Box className={theme['has-overflow-prevention']} display="flex" alignItems="center">
+            {children}
+          </Box>
+        ) : (
+          children
+        )}
       </Box>
     );
   }
