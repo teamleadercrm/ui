@@ -13,7 +13,7 @@ class HeaderCell extends PureComponent {
       theme['header-cell'],
       {
         [theme['is-sortable']]: onClick,
-        [theme['is-sorted']]: sorted !== 'none',
+        [theme['is-sorted']]: sorted === 'asc' || sorted === 'desc',
       },
       className,
     );
@@ -35,7 +35,7 @@ HeaderCell.propTypes = {
   /** Callback function that is fired when clicking on the cell. */
   onClick: PropTypes.func,
   /** The order in which the grid rows will be sorted. */
-  sorted: PropTypes.oneOf(['none', 'asc', 'desc']),
+  sorted: PropTypes.oneOf(['none', false, 'asc', 'desc']),
 };
 
 HeaderCell.defaultProps = {
