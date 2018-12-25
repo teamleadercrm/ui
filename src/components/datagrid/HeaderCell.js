@@ -3,9 +3,27 @@ import PropTypes from 'prop-types';
 import theme from './theme.css';
 import Cell from './Cell';
 import cx from 'classnames';
-import { IconChevronDownSmallOutline, IconChevronUpSmallOutline } from '@teamleader/ui-icons';
+import { IconChevronDownSmallOutline, IconChevronUpSmallOutline, IconSortSmallOutline } from '@teamleader/ui-icons';
 
 class HeaderCell extends PureComponent {
+  renderSortedIndicators = () => {
+    const { sorted } = this.props;
+
+    if (sorted === 'asc') {
+      return <IconChevronUpSmallOutline />;
+    }
+
+    if (sorted === 'desc') {
+      return <IconChevronDownSmallOutline />;
+    }
+
+    if (!sorted) {
+      return <IconSortSmallOutline />;
+    }
+
+    return null;
+  };
+
   render() {
     const { children, className, onClick, sorted, ...others } = this.props;
 
@@ -21,7 +39,7 @@ class HeaderCell extends PureComponent {
     return (
       <Cell className={classNames} onClick={onClick} {...others}>
         {children}
-        {sorted !== 'none' ? sorted === 'asc' ? <IconChevronUpSmallOutline /> : <IconChevronDownSmallOutline /> : null}
+        {this.renderSortedIndicators()}
       </Cell>
     );
   }
