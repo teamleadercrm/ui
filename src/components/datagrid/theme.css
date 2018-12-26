@@ -114,7 +114,7 @@
 .is-sortable {
   svg {
     margin-left: var(--spacer-smallest);
-    color: var(--color-teal-light);
+    color: var(--color-neutral-dark);
   }
 
   &:hover {
