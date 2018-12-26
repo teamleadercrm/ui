@@ -209,7 +209,7 @@ class Menu extends PureComponent {
 
   render() {
     const { width, height, active, position } = this.state;
-    const { className, outline } = this.props;
+    const { className, outline, ...others } = this.props;
 
     const classNames = cx(
       theme['menu'],
@@ -221,7 +221,7 @@ class Menu extends PureComponent {
     );
 
     return (
-      <div data-teamleader-ui="menu" className={classNames} style={this.getRootStyle()}>
+      <div data-teamleader-ui="menu" className={classNames} style={this.getRootStyle()} {...others}>
         {outline ? <div className={theme['outline']} style={{ width, height }} /> : null}
         <ul
           ref={node => {
