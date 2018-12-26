@@ -59,6 +59,11 @@ class Menu extends PureComponent {
     if (prevState.position !== this.state.position && this.state.position === POSITION.AUTO) {
       this.setState({ position: this.calculatePosition() });
     }
+
+    const { width, height } = this.menuNode.getBoundingClientRect();
+    if (prevState.width !== width || prevState.height !== height) {
+      this.setState({ width, height }); // eslint-disable-line
+    }
   }
 
   show() {
@@ -209,7 +214,7 @@ class Menu extends PureComponent {
 
   render() {
     const { width, height, active, position } = this.state;
-    const { className, outline } = this.props;
+    const { className, outline, ...others } = this.props;
 
     const classNames = cx(
       theme['menu'],
@@ -221,7 +226,7 @@ class Menu extends PureComponent {
     );
 
     return (
-      <div data-teamleader-ui="menu" className={classNames} style={this.getRootStyle()}>
+      <div data-teamleader-ui="menu" className={classNames} style={this.getRootStyle()} {...others}>
         {outline ? <div className={theme['outline']} style={{ width, height }} /> : null}
         <ul
           ref={node => {
