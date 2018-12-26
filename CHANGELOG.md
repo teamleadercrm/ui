@@ -2,13 +2,19 @@
 
 ### Added
 
-- `Menu`: added the passing through of all properties. ([@LennertBlommaert](https://github.com/LennertBlommaert) in [#481](https://github.com/teamleadercrm/ui/pull/481))
-
 ### Changed
 
 ### Deprecated
 
 ### Removed
+
+### Fixed
+
+## [0.19.4] - 2018-12-26
+
+### Added
+
+- `Menu`: added the passing through of all properties. ([@LennertBlommaert](https://github.com/LennertBlommaert) in [#481](https://github.com/teamleadercrm/ui/pull/481))
 
 ### Fixed
 
