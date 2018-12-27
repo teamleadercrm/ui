@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import theme from './theme.css';
 import Cell from './Cell';
+import Icon from '../icon';
 import cx from 'classnames';
 import { IconChevronDownSmallOutline, IconChevronUpSmallOutline, IconSortSmallOutline } from '@teamleader/ui-icons';
 
@@ -37,9 +38,9 @@ class HeaderCell extends PureComponent {
     );
 
     return (
-      <Cell className={classNames} onClick={onClick} {...others}>
-        {children}
-        {this.renderSortedIndicators()}
+      <Cell className={classNames} onClick={onClick} {...others} preventOverflow={false}>
+        <span className={theme['has-overflow-prevention']}>{children}</span>
+        <Icon>{this.renderSortedIndicators()}</Icon>
       </Cell>
     );
   }
