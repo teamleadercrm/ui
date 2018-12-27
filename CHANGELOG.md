@@ -3,13 +3,20 @@
 ### Added
 
 - `DataGrid`: added a sort icon to the `HeaderCell` indicate a field is sortable. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#483](https://github.com/teamleadercrm/ui/pull/483))
-- `Menu`: added the passing through of all properties. ([@LennertBlommaert](https://github.com/LennertBlommaert) in [#481](https://github.com/teamleadercrm/ui/pull/481))
 
 ### Changed
 
 ### Deprecated
 
 ### Removed
+
+### Fixed
+
+## [0.19.4] - 2018-12-26
+
+### Added
+
+- `Menu`: added the passing through of all properties. ([@LennertBlommaert](https://github.com/LennertBlommaert) in [#481](https://github.com/teamleadercrm/ui/pull/481))
 
 ### Fixed
 
