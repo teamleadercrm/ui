@@ -261,13 +261,22 @@ const getPosition = ({ direction, position, anchorPosition, popoverDimensions })
   }
 };
 
-const getMaxHeightValue = ({ direction, anchorPosition }) => {
+const getHeightValue = ({ direction, anchorPosition, popoverHeight }) => {
+  let heightValue;
+
   switch (direction) {
     case DIRECTION_NORTH:
-      return anchorPosition.top - POPUP_OFFSET * 2;
+      heightValue = anchorPosition.top - POPUP_OFFSET * 2;
+      break;
     case DIRECTION_SOUTH:
-      return window.innerHeight - anchorPosition.bottom - POPUP_OFFSET * 2;
+      heightValue = window.innerHeight - anchorPosition.bottom - POPUP_OFFSET * 2;
   }
+
+  if (heightValue > popoverHeight) {
+    return popoverHeight;
+  }
+
+  return heightValue;
 };
 
 export const calculatePositions = (anchorEl, popoverEl, inputDirection, inputPosition, inputOffsetCorrection) => {
@@ -278,9 +287,10 @@ export const calculatePositions = (anchorEl, popoverEl, inputDirection, inputPos
   const position = getPosition({ direction, position: inputPosition, anchorPosition, popoverDimensions });
 
   return {
-    maxHeight: getMaxHeightValue({
+    height: getHeightValue({
       direction,
       anchorPosition,
+      popoverHeight: popoverDimensions.height,
     }),
     ...getPositionValues({
       direction,
