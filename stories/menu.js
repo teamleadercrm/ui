@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { IconAddSmallOutline, IconUserSmallFilled, IconClockSmallOutline } from '@teamleader/ui-icons';
-import { IconMenu, Menu, MenuItem, MenuDivider } from '../src';
+import { Box, IconMenu, Menu, MenuItem, MenuDivider } from '../src';
 
 storiesOf('Menus', module)
   .add('Menu', () => (
@@ -16,9 +16,11 @@ storiesOf('Menus', module)
     </Menu>
   ))
   .add('IconMenu', () => (
-    <IconMenu position="top-left">
-      <MenuItem value="foo" caption="Caption" />
-      <MenuItem value="bar" caption="Caption & Shortcut" shortcut="Ctrl + P" />
-      <MenuItem caption="Disabled ..." disabled shortcut="Ctrl + P" />
-    </IconMenu>
+    <Box display="flex" justifyContent="center">
+      <IconMenu>
+        <MenuItem value="foo" caption="Caption" />
+        <MenuItem value="bar" caption="Caption & Shortcut" shortcut="Ctrl + P" />
+        <MenuItem caption="Disabled ..." disabled shortcut="Ctrl + P" />
+      </IconMenu>
+    </Box>
   ));
