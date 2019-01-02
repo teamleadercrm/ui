@@ -1,58 +1,53 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import cx from 'classnames';
 import { IconMoreMediumOutline } from '@teamleader/ui-icons';
 import IconButton from '../button/IconButton.js';
 import Menu from './Menu.js';
-import theme from './theme.css';
-import Box from '../box';
-
+import Box, { omitBoxProps, pickBoxProps } from '../box';
 class IconMenu extends PureComponent {
   state = {
     active: false,
+    anchorEl: null,
+    selectedValue: null,
   };
 
-  handleButtonClick = event => {
+  constructor(props) {
+    super(props);
+    this.buttonRef = React.createRef();
+  }
+
+  componentDidMount() {
+    this.setState({ anchorEl: this.buttonRef.current.buttonNode });
+  }
+
+  handleOnSelect = value => {
+    if (this.props.onSelect) {
+      this.props.onSelect();
+    }
+
+    this.setState({ selectedValue: value });
+    this.toggleActive();
+  };
+
+  toggleActive = () => {
     this.setState({ active: !this.state.active });
-    if (this.props.onClick) {
-      this.props.onClick(event);
-    }
-  };
-
-  handleMenuHide = () => {
-    this.setState({ active: false });
-    if (this.props.onHide) {
-      this.props.onHide();
-    }
   };
 
   render() {
-    const {
-      children,
-      className,
-      icon,
-      onHide, // eslint-disable-line
-      onSelect,
-      onShow,
-      position,
-      selectable,
-      selected,
-      ...other
-    } = this.props;
+    const { active, anchorEl, selectedValue } = this.state;
+    const { children, icon, ...others } = this.props;
 
     const buttonIcon = icon || <IconMoreMediumOutline />;
 
     return (
-      <Box data-teamleader-ui="icon-menu" {...other} className={cx(theme['icon-menu'], className)}>
-        <IconButton className={theme['icon']} icon={buttonIcon} onClick={this.handleButtonClick} />
+      <Box data-teamleader-ui="icon-menu" {...pickBoxProps(others)}>
+        <IconButton ref={this.buttonRef} icon={buttonIcon} onClick={this.toggleActive} />
         <Menu
-          active={this.state.active}
-          onHide={this.handleMenuHide}
-          onSelect={onSelect}
-          onShow={onShow}
-          position={position}
-          selectable={selectable}
-          selected={selected}
+          active={active}
+          anchorEl={anchorEl}
+          selectedValue={selectedValue}
+          onSelect={this.handleOnSelect}
+          {...omitBoxProps(others)}
         >
           {children}
         </Menu>
@@ -62,22 +57,12 @@ class IconMenu extends PureComponent {
 }
 
 IconMenu.propTypes = {
+  /** The items wrapped by the Menu. */
   children: PropTypes.node,
-  className: PropTypes.string,
+  /** The icon rendered by the IconButton */
   icon: PropTypes.element,
-  onClick: PropTypes.func,
-  onHide: PropTypes.func,
+  /** The function executed, when a MenuItem (that was passed as a child) has been clicked. */
   onSelect: PropTypes.func,
-  onShow: PropTypes.func,
-  position: PropTypes.string,
-  selectable: PropTypes.bool,
-  selected: PropTypes.any,
-};
-
-IconMenu.defaultProps = {
-  className: '',
-  position: 'auto',
-  selectable: false,
 };
 
 export default IconMenu;
