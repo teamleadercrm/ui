@@ -122,7 +122,6 @@ class Popover extends PureComponent {
                   handleHeight
                   handleWidth
                   onResize={this.setPlacement}
-                  onScroll={this.setPlacement}
                   refreshMode="throttle"
                   refreshRate={250}
                 />
