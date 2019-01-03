@@ -44,15 +44,15 @@ class Popover extends PureComponent {
     }
   };
 
-  getHeight = () => {
+  getMaxHeight = () => {
     const { fullHeight } = this.props;
-    const { height } = this.state.positioning;
+    const { maxHeight } = this.state.positioning;
 
-    if (!fullHeight && height > MAX_HEIGHT_DEFAULT) {
+    if (!fullHeight && maxHeight > MAX_HEIGHT_DEFAULT) {
       return MAX_HEIGHT_DEFAULT;
     }
 
-    return height;
+    return maxHeight;
   };
 
   setPlacementThrottled = throttle(this.setPlacement, 250);
@@ -116,7 +116,7 @@ class Popover extends PureComponent {
                   header={header}
                   body={children}
                   footer={footer}
-                  style={{ height: this.getHeight() }}
+                  style={{ maxHeight: this.getMaxHeight() }}
                 />
                 <ReactResizeDetector
                   handleHeight
