@@ -225,6 +225,10 @@
           color: var(--color-neutral-darkest);
         }
 
+        input:-ms-input-placeholder {
+          color: var(--color-neutral-darkest);
+        }
+
         &:hover {
           border-color: var(--color-neutral-darkest);
         }
@@ -247,6 +251,10 @@
         }
 
         input::placeholder {
+          color: var(--color-neutral-dark);
+        }
+
+        input:-ms-input-placeholder {
           color: var(--color-neutral-dark);
         }
       }
@@ -280,6 +288,10 @@
           color: var(--color-teal-light);
         }
 
+        input:-ms-input-placeholder {
+          color: var(--color-teal-light);
+        }
+
         &:hover {
           border-color: var(--color-teal-light);
         }
@@ -301,6 +313,10 @@
         .container:not(.date-picker) + .container:not(.date-picker)::before {
           color: var(--color-teal);
         }
+
+        input:-ms-input-placeholder {
+          color: var(--color-teal);
+        }
       }
     }
 
@@ -315,6 +331,10 @@
         }
 
         input::placeholder {
+          color: var(--color-teal);
+        }
+
+        input:-ms-input-placeholder {
           color: var(--color-teal);
         }
       }
