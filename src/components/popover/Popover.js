@@ -20,13 +20,11 @@ class Popover extends PureComponent {
 
   componentDidMount() {
     document.body.appendChild(this.popoverRoot);
-
-    events.addEventsToWindow({ resize: this.setPlacementThrottled, scroll: this.setPlacementThrottled });
+    events.addEventsToWindow({ scroll: this.setPlacementThrottled });
   }
 
   componentWillUnmount() {
-    events.removeEventsFromWindow({ resize: this.setPlacementThrottled, scroll: this.setPlacementThrottled });
-
+    events.removeEventsFromWindow({ scroll: this.setPlacementThrottled });
     document.body.removeChild(this.popoverRoot);
   }
 
@@ -120,7 +118,13 @@ class Popover extends PureComponent {
                   footer={footer}
                   style={{ maxHeight: this.getMaxHeight() }}
                 />
-                <ReactResizeDetector handleHeight handleWidth onResize={this.setPlacementThrottled} />
+                <ReactResizeDetector
+                  handleHeight
+                  handleWidth
+                  onResize={this.setPlacement}
+                  refreshMode="throttle"
+                  refreshRate={250}
+                />
               </div>
             </div>
           );
