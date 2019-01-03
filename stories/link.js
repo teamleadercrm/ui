@@ -14,12 +14,21 @@ storiesOf('Links', module)
     },
   })
   .add('Link only', () => (
-    <Link href="https://www.teamleader.be" target="_blank" inherit={boolean('inherit', false)}>
+    <Link
+      disabled={boolean('disabled', false)}
+      href="https://www.teamleader.be"
+      target="_blank"
+      inherit={boolean('inherit', false)}
+    >
       link
     </Link>
   ))
   .add('With text', () => (
-    <TextBody color={select('color', COLORS, 'teal')} tint={select('tint', TINTS, 'darkest')}>
+    <TextBody
+      disabled={boolean('disabled', false)}
+      color={select('color', COLORS, 'teal')}
+      tint={select('tint', TINTS, 'darkest')}
+    >
       Display text with a{' '}
       <Link href="https://www.teamleader.be" target="_blank" inherit={boolean('inherit', false)}>
         link
@@ -30,6 +39,7 @@ storiesOf('Links', module)
   .add('With text and icon', () => (
     <TextBody color={select('color', COLORS, 'teal')} tint={select('tint', TINTS, 'darkest')}>
       <Link
+        disabled={boolean('disabled', false)}
         href="https://www.teamleader.be"
         icon={<IconAddSmallOutline />}
         iconPlacement={select('iconPlacement', iconPositions, 'left')}
@@ -43,6 +53,7 @@ storiesOf('Links', module)
   .add('With custom element', () => (
     <TextBody color={select('color', COLORS, 'teal')} tint={select('tint', TINTS, 'darkest')}>
       <Link
+        disabled={boolean('disabled', false)}
         element={select('element', elements, 'button')}
         icon={<IconAddSmallOutline />}
         iconPlacement={select('iconPlacement', iconPositions, 'left')}
@@ -55,6 +66,7 @@ storiesOf('Links', module)
   .add('Subtle icon link', () => (
     <TextSmall color={select('color', COLORS, 'neutral')} tint={select('tint', TINTS, 'darkest')}>
       <Link
+        disabled={boolean('disabled', false)}
         element={select('element', elements, 'button')}
         icon={<IconAddSmallOutline />}
         iconPlacement={select('iconPlacement', iconPositions, 'left')}
