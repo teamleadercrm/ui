@@ -39,7 +39,7 @@ LoadingBar.propTypes = {
 LoadingBar.defaultProps = {
   color: 'mint',
   size: 'small',
-  tint: 'neutral',
+  tint: 'normal',
 };
 
 export default LoadingBar;
