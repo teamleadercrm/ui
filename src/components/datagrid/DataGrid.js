@@ -55,14 +55,14 @@ class DataGrid extends PureComponent {
     this.handleSelectionChange(selectedBodyRowIndexes, event);
   };
 
-  handleBodyRowMouseOver = (row, event) => {
+  handleBodyRowMouseEnter = (row, event) => {
     const { onClick, onMouseOver } = row.props;
 
     onClick && this.setState({ hoveredRow: row.key });
     onMouseOver && onMouseOver(event);
   };
 
-  handleBodyRowMouseOut = (row, event) => {
+  handleBodyRowMouseLeave = (row, event) => {
     const { onClick, onMouseOut } = row.props;
 
     onClick && this.setState({ hoveredRow: null });
@@ -181,8 +181,8 @@ class DataGrid extends PureComponent {
                   return React.cloneElement(child, {
                     checkboxSize,
                     hovered: hoveredRow === child.key,
-                    onMouseOver: event => this.handleBodyRowMouseOver(child, event),
-                    onMouseOut: event => this.handleBodyRowMouseOut(child, event),
+                    onMouseEnter: event => this.handleBodyRowMouseEnter(child, event),
+                    onMouseLeave: event => this.handleBodyRowMouseLeave(child, event),
                     onSelectionChange: (checked, event) => this.handleBodyRowSelectionChange(child.key, event),
                     selected: selectedRows.indexOf(child.key) !== -1,
                     selectable,
@@ -208,8 +208,8 @@ class DataGrid extends PureComponent {
               } else if (isComponentOfType(BodyRow, child)) {
                 return React.cloneElement(child, {
                   hovered: hoveredRow === child.key,
-                  onMouseOver: event => this.handleBodyRowMouseOver(child, event),
-                  onMouseOut: event => this.handleBodyRowMouseOut(child, event),
+                  onMouseEnter: event => this.handleBodyRowMouseEnter(child, event),
+                  onMouseLeave: event => this.handleBodyRowMouseLeave(child, event),
                   sliceFrom: stickyFromLeft > 0 ? stickyFromLeft : 0,
                   sliceTo: stickyFromRight > 0 ? -stickyFromRight : undefined,
                   ref: rowNode => this.rowNodes.set(key, rowNode),
@@ -225,8 +225,8 @@ class DataGrid extends PureComponent {
                 } else if (isComponentOfType(BodyRow, child)) {
                   return React.cloneElement(child, {
                     hovered: hoveredRow === child.key,
-                    onMouseOver: event => this.handleBodyRowMouseOver(child, event),
-                    onMouseOut: event => this.handleBodyRowMouseOut(child, event),
+                    onMouseEnter: event => this.handleBodyRowMouseEnter(child, event),
+                    onMouseLeave: event => this.handleBodyRowMouseLeave(child, event),
                     sliceFrom: -stickyFromRight,
                   });
                 }
