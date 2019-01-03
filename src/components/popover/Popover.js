@@ -9,6 +9,7 @@ import ReactResizeDetector from 'react-resize-detector';
 import { events } from '../utils';
 import { calculatePositions } from './positionCalculation';
 import ScrollContainer from '../scrollContainer';
+import Box from '../box';
 import theme from './theme.css';
 
 const MAX_HEIGHT_DEFAULT = 240;
@@ -20,11 +21,11 @@ class Popover extends PureComponent {
 
   componentDidMount() {
     document.body.appendChild(this.popoverRoot);
-    events.addEventsToWindow({ scroll: this.setPlacementThrottled });
+    events.addEventsToWindow({ resize: this.setPlacementThrottled, scroll: this.setPlacementThrottled });
   }
 
   componentWillUnmount() {
-    events.removeEventsFromWindow({ scroll: this.setPlacementThrottled });
+    events.removeEventsFromWindow({ resize: this.setPlacementThrottled, scroll: this.setPlacementThrottled });
     document.body.removeChild(this.popoverRoot);
   }
 
@@ -47,6 +48,8 @@ class Popover extends PureComponent {
   getMaxHeight = () => {
     const { fullHeight } = this.props;
     const { maxHeight } = this.state.positioning;
+
+    console.log(maxHeight);
 
     if (!fullHeight && maxHeight > MAX_HEIGHT_DEFAULT) {
       return MAX_HEIGHT_DEFAULT;
@@ -111,13 +114,15 @@ class Popover extends PureComponent {
                 }}
               >
                 <div className={theme['arrow']} style={{ left: `${arrowLeft}px`, top: `${arrowTop}px` }} />
-                <ScrollContainer
-                  className={theme['inner']}
-                  header={header}
-                  body={children}
-                  footer={footer}
-                  style={{ maxHeight: this.getMaxHeight() }}
-                />
+                <Box display="flex">
+                  <ScrollContainer
+                    className={theme['inner']}
+                    header={header}
+                    body={children}
+                    footer={footer}
+                    style={{ maxHeight: this.getMaxHeight() }}
+                  />
+                </Box>
                 <ReactResizeDetector
                   handleHeight
                   handleWidth
