@@ -6,6 +6,8 @@
 
 ### Changed
 
+- `LoadingBar`: changed the default `tint` to `normal` to fix console warning ([@driesd](https://github.com/driesd) in [#489](https://github.com/teamleadercrm/ui/pull/489))
+
 ### Deprecated
 
 ### Removed
