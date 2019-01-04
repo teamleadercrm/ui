@@ -6,6 +6,8 @@
 
 ### Changed
 
+- `Message`: swapped the Link and the Button placement & always align them on the right. ([@driesd](https://github.com/driesd) in [#493](https://github.com/teamleadercrm/ui/pull/493))
+
 ### Deprecated
 
 ### Removed
