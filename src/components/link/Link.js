@@ -27,11 +27,12 @@ class Link extends PureComponent {
   };
 
   render() {
-    const { children, className, icon, iconPlacement, element, inherit, ...others } = this.props;
+    const { children, className, disabled, icon, iconPlacement, element, inherit, ...others } = this.props;
 
     const classNames = cx(
       theme['link'],
       {
+        [theme['is-disabled']]: disabled,
         [theme['inherit']]: inherit,
         [theme['has-icon']]: icon,
       },
@@ -61,6 +62,8 @@ class Link extends PureComponent {
 Link.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
+  /** If true, component will be disabled. */
+  disabled: PropTypes.bool,
   /** The icon displayed inside the button. */
   icon: PropTypes.element,
   /** The position of the icon inside the button. */
@@ -75,6 +78,7 @@ Link.propTypes = {
 
 Link.defaultProps = {
   className: '',
+  disabled: false,
   element: 'a',
   inherit: true,
 };
