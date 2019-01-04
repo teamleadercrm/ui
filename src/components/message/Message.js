@@ -15,7 +15,7 @@ class Message extends PureComponent {
     return (
       <Box data-teamleader-ui="message" className={classNames} {...others}>
         {image && <div className={theme['image']}>{image}</div>}
-        <div className={theme['content']}>
+        <Box flex="2">
           {children}
           {hasAction && (
             <ButtonGroup justifyContent={imagePositioning === 'center' ? 'center' : 'flex-end'} marginTop={4}>
@@ -23,7 +23,7 @@ class Message extends PureComponent {
               {button}
             </ButtonGroup>
           )}
-        </div>
+        </Box>
       </Box>
     );
   }

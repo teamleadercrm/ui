@@ -6,10 +6,6 @@
   align-items: center;
 }
 
-.content {
-  flex: 2;
-}
-
 .image {
   flex: 1;
   display: flex;
