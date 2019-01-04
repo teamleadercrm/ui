@@ -49,6 +49,7 @@ class SingleLineInputBase extends PureComponent {
       inverse,
       readOnly,
       suffix,
+      width,
       ...others
     } = this.props;
 
@@ -81,7 +82,10 @@ class SingleLineInputBase extends PureComponent {
       <Box className={classNames} {...boxProps}>
         <div className={theme['input-wrapper']}>
           {connectedLeft}
-          <div className={theme['input-inner-wrapper']}>
+          <div
+            className={theme['input-inner-wrapper']}
+            style={{ width: width && `${width}px`, flex: width && '0 0 auto' }}
+          >
             {prefix && <div className={theme['prefix-wrapper']}>{this.renderOneOrMultipleElements(prefix)}</div>}
             <InputBase {...inputProps} />
             {suffix && <div className={theme['suffix-wrapper']}>{this.renderOneOrMultipleElements(suffix)}</div>}
@@ -103,6 +107,8 @@ SingleLineInputBase.propTypes = {
   prefix: PropTypes.oneOfType([PropTypes.array, PropTypes.element]),
   /** The text string/element to use as a suffix inside the input field */
   suffix: PropTypes.oneOfType([PropTypes.array, PropTypes.element]),
+  /** A custom width (in pixels) for the input field */
+  width: PropTypes.number,
 };
 
 export default SingleLineInputBase;
