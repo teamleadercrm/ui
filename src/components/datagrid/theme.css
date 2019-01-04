@@ -68,6 +68,10 @@
   }
 }
 
+.has-pointer-cursor {
+  cursor: pointer;
+}
+
 .is-bordered {
   border: 1px solid var(--color-neutral);
   border-radius: 4px;

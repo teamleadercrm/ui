@@ -19,6 +19,7 @@ import { isArray } from 'util';
 
 class DataGrid extends PureComponent {
   state = {
+    hoveredRow: null,
     isOverflowing: false,
     selectedRows: [],
   };
@@ -52,6 +53,20 @@ class DataGrid extends PureComponent {
     });
 
     this.handleSelectionChange(selectedBodyRowIndexes, event);
+  };
+
+  handleBodyRowMouseEnter = (row, event) => {
+    const { onClick, onMouseOver } = row.props;
+
+    onClick && this.setState({ hoveredRow: row.key });
+    onMouseOver && onMouseOver(event);
+  };
+
+  handleBodyRowMouseLeave = (row, event) => {
+    const { onClick, onMouseOut } = row.props;
+
+    onClick && this.setState({ hoveredRow: null });
+    onMouseOut && onMouseOut(event);
   };
 
   handleBodyRowSelectionChange = (rowIndex, event) => {
@@ -116,7 +131,7 @@ class DataGrid extends PureComponent {
       stickyFromRight,
       ...others
     } = this.props;
-    const { isOverflowing, selectedRows } = this.state;
+    const { hoveredRow, isOverflowing, selectedRows } = this.state;
 
     const classNames = cx(
       theme['data-grid'],
@@ -165,6 +180,9 @@ class DataGrid extends PureComponent {
                 } else if (isComponentOfType(BodyRow, child)) {
                   return React.cloneElement(child, {
                     checkboxSize,
+                    hovered: hoveredRow === child.key,
+                    onMouseEnter: event => this.handleBodyRowMouseEnter(child, event),
+                    onMouseLeave: event => this.handleBodyRowMouseLeave(child, event),
                     onSelectionChange: (checked, event) => this.handleBodyRowSelectionChange(child.key, event),
                     selected: selectedRows.indexOf(child.key) !== -1,
                     selectable,
@@ -181,8 +199,17 @@ class DataGrid extends PureComponent {
           )}
           <div className={cx(theme['section'], theme['is-scrollable'])} ref={node => (this.scrollableNode = node)}>
             {React.Children.map(children, (child, key) => {
-              if (!isComponentOfType(HeaderRowOverlay, child)) {
+              if (isComponentOfType(HeaderRow, child) || isComponentOfType(FooterRow, child)) {
                 return React.cloneElement(child, {
+                  sliceFrom: stickyFromLeft > 0 ? stickyFromLeft : 0,
+                  sliceTo: stickyFromRight > 0 ? -stickyFromRight : undefined,
+                  ref: rowNode => this.rowNodes.set(key, rowNode),
+                });
+              } else if (isComponentOfType(BodyRow, child)) {
+                return React.cloneElement(child, {
+                  hovered: hoveredRow === child.key,
+                  onMouseEnter: event => this.handleBodyRowMouseEnter(child, event),
+                  onMouseLeave: event => this.handleBodyRowMouseLeave(child, event),
                   sliceFrom: stickyFromLeft > 0 ? stickyFromLeft : 0,
                   sliceTo: stickyFromRight > 0 ? -stickyFromRight : undefined,
                   ref: rowNode => this.rowNodes.set(key, rowNode),
@@ -193,8 +220,15 @@ class DataGrid extends PureComponent {
           {stickyFromRight > 0 && (
             <div className={cx(theme['section'], theme['has-blend-left'])}>
               {React.Children.map(children, child => {
-                if (!isComponentOfType(HeaderRowOverlay, child)) {
+                if (isComponentOfType(HeaderRow, child) || isComponentOfType(FooterRow, child)) {
                   return React.cloneElement(child, { sliceFrom: -stickyFromRight });
+                } else if (isComponentOfType(BodyRow, child)) {
+                  return React.cloneElement(child, {
+                    hovered: hoveredRow === child.key,
+                    onMouseEnter: event => this.handleBodyRowMouseEnter(child, event),
+                    onMouseLeave: event => this.handleBodyRowMouseLeave(child, event),
+                    sliceFrom: -stickyFromRight,
+                  });
                 }
               })}
             </div>
