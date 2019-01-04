@@ -64,7 +64,7 @@ storiesOf('DataGrids', module)
       </DataGrid.HeaderRow>
       {rows1.map((row, index) => {
         return (
-          <DataGrid.BodyRow key={index}>
+          <DataGrid.BodyRow key={index} onClick={event => console.log('onClick:', row.column5, event)}>
             <DataGrid.Cell align="center" flex="min-width">
               <TooltippedStatusBullet
                 color={row.column1}
@@ -130,7 +130,7 @@ storiesOf('DataGrids', module)
       </DataGrid.HeaderRow>
       {rows2.map((row, index) => {
         return (
-          <DataGrid.BodyRow key={index}>
+          <DataGrid.BodyRow key={index} onClick={event => console.log('onClick:', row.column5, event)}>
             <DataGrid.Cell align="center" flex="min-width">
               <TooltippedStatusBullet
                 color={row.column1}
@@ -201,7 +201,7 @@ storiesOf('DataGrids', module)
       </DataGrid.HeaderRow>
       {rows1.map((row, index) => {
         return (
-          <DataGrid.BodyRow key={index}>
+          <DataGrid.BodyRow key={index} onClick={event => console.log('onClick:', row.column5, event)}>
             <DataGrid.Cell align="center" flex="min-width">
               <TooltippedStatusBullet
                 color={row.column1}
@@ -269,7 +269,7 @@ storiesOf('DataGrids', module)
       </DataGrid.HeaderRow>
       {rows1.map((row, index) => {
         return (
-          <DataGrid.BodyRow key={index}>
+          <DataGrid.BodyRow key={index} onClick={event => console.log('onClick:', row.column5, event)}>
             <DataGrid.Cell align="center" flex="min-width">
               <TooltippedStatusBullet
                 color={row.column1}
