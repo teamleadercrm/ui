@@ -12,9 +12,9 @@ class ScrollContainer extends PureComponent {
 
     return (
       <Box className={classNames} display="flex" flexDirection="column" {...others}>
-        {header && <header>{header}</header>}
+        {header && <header className={theme['scroll-container-header']}>{header}</header>}
         {body && <div className={theme['scroll-container-body']}>{body}</div>}
-        {footer && <footer>{footer}</footer>}
+        {footer && <footer className={theme['scroll-container-footer']}>{footer}</footer>}
       </Box>
     );
   }
