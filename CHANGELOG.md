@@ -12,6 +12,8 @@
 
 ### Fixed
 
+- `Popover`: fixed squashing of the `Popover`s body in Internet Explorer 10-11 ([@LennertBlommaert](https://github.com/LennertBlommaert) in [#495](https://github.com/teamleadercrm/ui/pull/495))
+
 ## [0.19.4] - 2018-12-26
 
 ### Added
