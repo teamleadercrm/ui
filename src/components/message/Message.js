@@ -18,7 +18,7 @@ class Message extends PureComponent {
         <div className={theme['content']}>
           {children}
           {hasAction && (
-            <ButtonGroup className={theme['actions']} marginTop={4}>
+            <ButtonGroup justifyContent={imagePositioning === 'center' ? 'center' : 'flex-end'} marginTop={4}>
               {link}
               {button && React.cloneElement(button, { className: theme['button'] })}
             </ButtonGroup>
