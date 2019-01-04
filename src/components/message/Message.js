@@ -15,15 +15,15 @@ class Message extends PureComponent {
     return (
       <Box data-teamleader-ui="message" className={classNames} {...others}>
         {image && <div className={theme['image']}>{image}</div>}
-        <div className={theme['content']}>
+        <Box flex="2">
           {children}
           {hasAction && (
-            <ButtonGroup className={theme['actions']} marginTop={4}>
-              {button && React.cloneElement(button, { className: theme['button'] })}
+            <ButtonGroup justifyContent={imagePositioning === 'center' ? 'center' : 'flex-end'} marginTop={4}>
               {link}
+              {button}
             </ButtonGroup>
           )}
-        </div>
+        </Box>
       </Box>
     );
   }
