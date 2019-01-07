@@ -4,11 +4,17 @@
 
 ### Changed
 
-- `Message`: swapped the Link and the Button placement & always align them on the right. ([@driesd](https://github.com/driesd) in [#493](https://github.com/teamleadercrm/ui/pull/493))
-
 ### Deprecated
 
 ### Removed
+
+### Fixed
+
+## [0.19.6] - 2018-01-07
+
+### Changed
+
+- `Message`: swapped the Link and the Button placement & always align them on the right. ([@driesd](https://github.com/driesd) in [#493](https://github.com/teamleadercrm/ui/pull/493))
 
 ### Fixed
 
