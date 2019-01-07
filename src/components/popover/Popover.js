@@ -9,6 +9,7 @@ import ReactResizeDetector from 'react-resize-detector';
 import { events } from '../utils';
 import { calculatePositions } from './positionCalculation';
 import ScrollContainer from '../scrollContainer';
+import Box from '../box';
 import theme from './theme.css';
 
 const MAX_HEIGHT_DEFAULT = 240;
@@ -111,13 +112,15 @@ class Popover extends PureComponent {
                 }}
               >
                 <div className={theme['arrow']} style={{ left: `${arrowLeft}px`, top: `${arrowTop}px` }} />
-                <ScrollContainer
-                  className={theme['inner']}
-                  header={header}
-                  body={children}
-                  footer={footer}
-                  style={{ maxHeight: this.getMaxHeight() }}
-                />
+                <Box display="flex">
+                  <ScrollContainer
+                    className={theme['inner']}
+                    header={header}
+                    body={children}
+                    footer={footer}
+                    style={{ maxHeight: this.getMaxHeight() }}
+                  />
+                </Box>
                 <ReactResizeDetector
                   handleHeight
                   handleWidth
