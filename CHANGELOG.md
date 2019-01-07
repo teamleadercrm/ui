@@ -10,6 +10,16 @@
 
 ### Fixed
 
+## [0.19.6] - 2018-01-07
+
+### Changed
+
+- `Message`: swapped the Link and the Button placement & always align them on the right. ([@driesd](https://github.com/driesd) in [#493](https://github.com/teamleadercrm/ui/pull/493))
+
+### Fixed
+
+- `Popover`: fixed squashing of the `Popover`s body in Internet Explorer 10-11 ([@LennertBlommaert](https://github.com/LennertBlommaert) in [#495](https://github.com/teamleadercrm/ui/pull/495))
+
 ## [0.19.5] - 2019-01-04
 
 ### Added
