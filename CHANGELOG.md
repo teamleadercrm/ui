@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `Popover`: fixed setting the dimensions of the `Popover`, via styling applied by passed down class names ([@LennertBlommaert](https://github.com/LennertBlommaert) in [#498](https://github.com/teamleadercrm/ui/pull/498))
+
 ## [0.19.6] - 2018-01-07
 
 ### Changed
