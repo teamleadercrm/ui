@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- Make the main entryfile in `package.json` explicit to avoid auto-importing issues.
+
 ## [0.19.7] - 2018-01-09
 
 ### Fixed
