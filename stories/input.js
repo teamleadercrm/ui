@@ -82,7 +82,7 @@ storiesOf('Form elements/Input', module)
       }
       prefix={boolean('Toggle prefix', false) ? prefix : undefined}
       suffix={boolean('Toggle suffix', false) ? suffix : undefined}
-      width={number('width', undefined)}
+      width={text('width', undefined)}
     />
   ))
   .add('NumericInput', () => (
@@ -114,7 +114,7 @@ storiesOf('Form elements/Input', module)
       }
       prefix={boolean('Toggle prefix', false) ? prefix : undefined}
       suffix={boolean('Toggle suffix', false) ? suffix : undefined}
-      width={number('width', undefined)}
+      width={text('width', undefined)}
     />
   ))
   .add('Textarea', () => (
