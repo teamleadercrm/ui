@@ -39,10 +39,15 @@ class QTip extends PureComponent {
 }
 
 QTip.propTypes = {
+  /** If true, the QTip becomes fully visible on screen. */
   active: PropTypes.bool,
+  /** The content to display inside the QTip. */
   children: PropTypes.node.isRequired,
+  /** If true, the toggle button's color changes to mint instead of neutral. */
   highlighted: PropTypes.bool,
+  /** The icon displayed inside the toggle button. */
   icon: PropTypes.element.isRequired,
+  /** Callback function that is fired when the active prop has changed. */
   onChange: PropTypes.func.isRequired,
 };
 
