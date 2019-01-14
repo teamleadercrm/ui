@@ -9,10 +9,10 @@ import Box from '../box';
 
 class QTip extends PureComponent {
   render() {
-    const { children, closed, highlighted, icon, onChange, ...others } = this.props;
+    const { active, children, highlighted, icon, onChange, ...others } = this.props;
 
     const classNames = cx(theme['container'], {
-      [theme['is-closed']]: closed,
+      [theme['is-active']]: active,
       [theme['is-highlighted']]: highlighted,
     });
 
@@ -20,7 +20,7 @@ class QTip extends PureComponent {
 
     return (
       <Box className={classNames} {...others}>
-        <Overlay active={!closed} onEscKeyDown={onChange} />
+        <Overlay active={active} onEscKeyDown={onChange} />
         <div className={theme['qtip']}>
           <Button className={theme['icon']} level={level} onClick={onChange} icon={icon} />
           <div className={theme['inner-container']}>
@@ -39,11 +39,15 @@ class QTip extends PureComponent {
 }
 
 QTip.propTypes = {
+  active: PropTypes.bool,
   children: PropTypes.node.isRequired,
-  closed: PropTypes.bool,
   highlighted: PropTypes.bool,
   icon: PropTypes.element.isRequired,
   onChange: PropTypes.func.isRequired,
+};
+
+QTip.defaultProps = {
+  active: false,
 };
 
 export default QTip;

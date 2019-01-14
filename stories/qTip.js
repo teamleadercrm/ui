@@ -6,11 +6,11 @@ import { IconIdeaMediumOutline } from '@teamleader/ui-icons';
 import { Island, Link, QTip, TextBody } from '../src';
 
 const store = new Store({
-  closed: true,
+  active: false,
 });
 
 const updateState = () => {
-  store.set({ closed: !store.get('closed') });
+  store.set({ active: !store.get('active') });
 };
 
 storiesOf('Q-tip', module)
