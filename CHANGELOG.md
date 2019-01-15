@@ -2,7 +2,12 @@
 
 ### Added
 
+- `QTip`: added the `onEscKeyDown`, `onOverlayClick`, `onOverlayMouseDown`, `onOverlayMouseMove` & `onOverlayMouseUp` props. ([@driesd](https://github.com/driesd) in [#500](https://github.com/teamleadercrm/ui/pull/500))
+
 ### Changed
+
+- [BREAKING] `QTip`: `closed` prop has been renamed to `active`, logic & styling have been inverted. ([@driesd](https://github.com/driesd) in [#500](https://github.com/teamleadercrm/ui/pull/500))
+- [BREAKING] `QTip`: `onEscKeyDown` prop has to be explicitly passed instead of reusing the `onChange` prop internally. ([@driesd](https://github.com/driesd) in [#500](https://github.com/teamleadercrm/ui/pull/500))
 
 ### Deprecated
 
