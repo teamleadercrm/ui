@@ -19,7 +19,7 @@ class InputBase extends PureComponent {
       className,
     );
 
-    const restProps = omit(omitBoxProps(otherProps), ['className', 'inverse', 'size']);
+    const restProps = omitBoxProps(otherProps);
 
     const props = {
       className: classNames,
