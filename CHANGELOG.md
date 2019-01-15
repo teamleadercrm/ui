@@ -16,12 +16,6 @@
 
 - `SingleLineInputBase`: added the `width` prop to override its full width default behavior. ([@driesd](https://github.com/driesd) in [#494](https://github.com/teamleadercrm/ui/pull/494))
 
-### Changed
-
-### Deprecated
-
-### Removed
-
 ### Fixed
 
 - Make the main entryfile in `package.json` explicit to avoid auto-importing issues.
