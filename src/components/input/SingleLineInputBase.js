@@ -72,7 +72,6 @@ class SingleLineInputBase extends PureComponent {
     const boxProps = pickBoxProps(others);
     const inputProps = {
       disabled,
-      error,
       inverse,
       onBlur: this.handleBlur,
       onFocus: this.handleFocus,
