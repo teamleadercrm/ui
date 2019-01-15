@@ -16,17 +16,3 @@
 .is-large .dropdown-indicator {
   width: 36px;
 }
-
-.validation-icon {
-  margin-top: -1px;
-}
-
-.has-error {
-  &:not(.is-inverse) .validation-text {
-    color: var(--color-ruby-dark);
-  }
-
-  &.is-inverse .validation-text {
-    color: var(--color-ruby-light);
-  }
-}
