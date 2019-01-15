@@ -2,7 +2,11 @@
 
 ### Added
 
+- `Input`: added a `warning` prop, which accepts warning text/element and places it underneath the input field. ([@driesd](https://github.com/driesd) in [#504](https://github.com/teamleadercrm/ui/pull/504))
+
 ### Changed
+
+- `Input`: moved the `error` and `helpText` props from `InputBase` to `Textarea`. ([@driesd](https://github.com/driesd) in [#504](https://github.com/teamleadercrm/ui/pull/504))
 
 ### Deprecated
 
