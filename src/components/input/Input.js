@@ -30,7 +30,7 @@ class Input extends PureComponent {
         value={this.state.value}
         onChange={event => {
           this.setState({ value: event.currentTarget.value });
-          onChange(event, event.currentTarget.value);
+          onChange && onChange(event, event.currentTarget.value);
         }}
         {...others}
       />
