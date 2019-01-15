@@ -28,7 +28,7 @@
   pointer-events: all;
 
   .is-active & {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
