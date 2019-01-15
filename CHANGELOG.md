@@ -2,7 +2,6 @@
 
 ### Added
 
-- `SingleLineInputBase`: added the `width` prop to override its full width default behavior. ([@driesd](https://github.com/driesd) in [#494](https://github.com/teamleadercrm/ui/pull/494))
 - `QTip`: added the `onEscKeyDown`, `onOverlayClick`, `onOverlayMouseDown`, `onOverlayMouseMove` & `onOverlayMouseUp` props. ([@driesd](https://github.com/driesd) in [#500](https://github.com/teamleadercrm/ui/pull/500))
 
 ### Changed
@@ -16,15 +15,23 @@
 
 ### Fixed
 
+## [0.19.8] - 2019-01-15
+
+### Added
+
+- `SingleLineInputBase`: added the `width` prop to override its full width default behavior. ([@driesd](https://github.com/driesd) in [#494](https://github.com/teamleadercrm/ui/pull/494))
+
+### Fixed
+
 - Make the main entryfile in `package.json` explicit to avoid auto-importing issues.
 
-## [0.19.7] - 2018-01-09
+## [0.19.7] - 2019-01-09
 
 ### Fixed
 
 - `Popover`: fixed setting the dimensions of the `Popover`, via styling applied by passed down class names ([@LennertBlommaert](https://github.com/LennertBlommaert) in [#498](https://github.com/teamleadercrm/ui/pull/498))
 
-## [0.19.6] - 2018-01-07
+## [0.19.6] - 2019-01-07
 
 ### Changed
 
