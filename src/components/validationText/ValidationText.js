@@ -10,15 +10,15 @@ class ValidationText extends PureComponent {
     const { error, inverse, help, warning } = this.props;
 
     if (error) {
-      return <ErrorText inverse={inverse}>{error}</ErrorText>;
+      return <ErrorText inverse={inverse}>{error}</ErrorText>
     }
 
     if (warning) {
-      return <WarningText inverse={inverse}>{warning}</WarningText>;
+      return <WarningText inverse={inverse}>{warning}</WarningText>
     }
 
     if (help) {
-      return <HelpText inverse={inverse}>{help}</HelpText>;
+      return <HelpText inverse={inverse}>{help}</HelpText>
     }
 
     return null;
