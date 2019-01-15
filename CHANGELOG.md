@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `DatePickerInput`: merged the passed inputProps with the internal inputProps. ([@duivvv](https://github.com/duivvv) in [#503](https://github.com/teamleadercrm/ui/pull/503))
+
 ## [0.19.8] - 2019-01-15
 
 ### Added
