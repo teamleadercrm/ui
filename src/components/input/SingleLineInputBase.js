@@ -110,6 +110,8 @@ SingleLineInputBase.propTypes = {
   prefix: PropTypes.oneOfType([PropTypes.array, PropTypes.element]),
   /** The text string/element to use as a suffix inside the input field */
   suffix: PropTypes.oneOfType([PropTypes.array, PropTypes.element]),
+  /** The text to use as warning message below the input. */
+  warning: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   /** A custom width for the input field */
   width: PropTypes.string,
 };
