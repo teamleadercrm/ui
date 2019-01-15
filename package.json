@@ -1,7 +1,7 @@
 {
   "name": "@teamleader/ui",
   "description": "Teamleader UI library",
-  "version": "0.19.7",
+  "version": "0.19.8",
   "author": "Teamleader <development@teamleader.eu>",
   "betterScripts": {
     "compile": {
@@ -153,7 +153,7 @@
     "ui"
   ],
   "license": "MIT",
-  "main": "./lib",
+  "main": "lib/index.js",
   "engines": {
     "node": ">=8.0.0"
   },
