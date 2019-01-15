@@ -22,7 +22,13 @@ storiesOf('Q-tip', module)
   .add('Default', () => (
     <Island paddingHorizontal={0} paddingVertical={6} style={{ width: '500px' }}>
       <State store={store}>
-        <QTip highlighted={boolean('Highlighted', false)} onChange={updateState} icon={<IconIdeaMediumOutline />}>
+        <QTip
+          highlighted={boolean('Highlighted', false)}
+          onChange={updateState}
+          onEscKeyDown={updateState}
+          onOverlayClick={updateState}
+          icon={<IconIdeaMediumOutline />}
+        >
           <TextBody color="teal">
             Lorem ipsum dolor sit amet, consectetur{' '}
             <Link href="#" inherit={false}>
