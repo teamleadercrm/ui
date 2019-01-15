@@ -15,6 +15,8 @@
   --input-border-radius: calc(0.4 * var(--unit));
   --input-error-border: var(--color-ruby-dark);
   --input-error-border-inverse: var(--color-ruby-light);
+  --input-warning-border: var(--color-gold-dark);
+  --input-warning-border-inverse: var(--color-gold-light);
 
   --spinner-width: calc(1.8 * var(--unit));
   --spinner-width-large: calc(3.6 * var(--unit));
@@ -371,6 +373,26 @@
 
   .input-inner-wrapper + * {
     margin-left: -1px;
+  }
+}
+
+.has-warning {
+  &:not(.is-inverse) {
+    &:not(.has-focus) .input-inner-wrapper,
+    &.input {
+      border-color: var(--input-warning-border);
+      box-shadow: 0 0 0 1px var(--input-warning-border);
+      z-index: 2;
+    }
+  }
+
+  &.is-inverse {
+    &:not(.has-focus) .input-inner-wrapper,
+    &.input {
+      border-color: var(--input-warning-border-inverse);
+      box-shadow: 0 0 0 1px var(--input-warning-border-inverse);
+      z-index: 2;
+    }
   }
 }
 

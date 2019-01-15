@@ -50,6 +50,7 @@ class SingleLineInputBase extends PureComponent {
       readOnly,
       suffix,
       width,
+      warning,
       ...others
     } = this.props;
 
@@ -58,6 +59,7 @@ class SingleLineInputBase extends PureComponent {
       {
         [theme['has-focus']]: this.state.inputHasfocus,
         [theme['has-error']]: error,
+        [theme['has-warning']]: warning,
         [theme['has-connected-left']]: connectedLeft,
         [theme['has-connected-right']]: connectedRight,
         [theme['is-disabled']]: disabled,
@@ -89,7 +91,7 @@ class SingleLineInputBase extends PureComponent {
           </div>
           {connectedRight}
         </div>
-        <ValidationText error={error} help={helpText} inverse={inverse} />
+        <ValidationText error={error} help={helpText} inverse={inverse} warning={warning} />
       </Box>
     );
   }
