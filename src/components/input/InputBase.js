@@ -19,7 +19,7 @@ class InputBase extends PureComponent {
       className,
     );
 
-    const restProps = omit(omitBoxProps(otherProps), ['className', 'helpText', 'inverse', 'size']);
+    const restProps = omit(omitBoxProps(otherProps), ['className', 'inverse', 'size']);
 
     const props = {
       className: classNames,
@@ -39,10 +39,6 @@ InputBase.propTypes = {
   disabled: PropTypes.bool,
   /** The element to render. */
   element: PropTypes.oneOf(['input', 'textarea']),
-  /** The text string/element to use as error message below the input. */
-  error: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  /** The text string to use as help text below the input. */
-  helpText: PropTypes.string,
   /** Boolean indicating whether the input should render as inverse. */
   inverse: PropTypes.bool,
   /** Callback function that is fired when blurring the input field. */

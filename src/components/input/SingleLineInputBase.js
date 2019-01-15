@@ -102,6 +102,10 @@ SingleLineInputBase.propTypes = {
   connectedLeft: PropTypes.element,
   /** Element stuck to the right hand side of the component. */
   connectedRight: PropTypes.element,
+  /** The text string/element to use as error message below the input. */
+  error: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  /** The text string to use as help text below the input. */
+  helpText: PropTypes.string,
   /** The text string/element to use as a prefix inside the input field */
   prefix: PropTypes.oneOfType([PropTypes.array, PropTypes.element]),
   /** The text string/element to use as a suffix inside the input field */
