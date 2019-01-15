@@ -44,13 +44,13 @@ class DatePickerInput extends PureComponent {
   };
 
   renderDayPickerInput = () => {
-    const { className, dayPickerProps, disabled, modifiers, readOnly, size, ...others } = this.props;
+    const { className, dayPickerProps, disabled, inputProps, modifiers, readOnly, size, ...others } = this.props;
     const { selectedDate } = this.state;
 
     const dayPickerClassNames = cx(theme['date-picker'], theme[`is-${size}`], className);
 
     const propsWithoutBoxProps = omitBoxProps(others);
-    const restProps = omit(propsWithoutBoxProps, ['helpText', 'onBlur', 'onChange', 'onFocus']);
+    const restProps = omit(propsWithoutBoxProps, ['helpText', 'onBlur', 'onChange', 'onFocus', 'inputProps']);
 
     return (
       <DayPickerInput
@@ -70,6 +70,7 @@ class DatePickerInput extends PureComponent {
           disabled: disabled || readOnly,
           onBlur: this.handleBlur,
           onFocus: this.handleFocus,
+          ...inputProps,
         }}
         {...restProps}
       />
@@ -126,6 +127,7 @@ DatePickerInput.propTypes = {
   /** The text string/element to use as error message below the input. */
   error: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   helpText: PropTypes.string,
+  inputProps: PropTypes.object,
   inverse: PropTypes.bool,
   modifiers: PropTypes.object,
   /** Callback function that is fired when blurring the input field. */
