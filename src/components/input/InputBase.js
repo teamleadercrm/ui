@@ -7,13 +7,12 @@ import theme from './theme.css';
 
 class InputBase extends PureComponent {
   render() {
-    const { bold, className, element, error, inverse, size, ...otherProps } = this.props;
+    const { bold, className, element, inverse, size, ...otherProps } = this.props;
 
     const classNames = cx(
       theme['input'],
       theme[`is-${size}`],
       {
-        [theme['has-error']]: error,
         [theme['is-inverse']]: inverse,
         [theme['is-bold']]: bold,
       },

@@ -399,7 +399,7 @@
 .has-error {
   &:not(.is-inverse) {
     &:not(.has-focus) .input-inner-wrapper,
-    &.input {
+    .input {
       border-color: var(--input-error-border);
       box-shadow: 0 0 0 1px var(--input-error-border);
       z-index: 2;
@@ -408,7 +408,7 @@
 
   &.is-inverse {
     &:not(.has-focus) .input-inner-wrapper,
-    &.input {
+    .input {
       border-color: var(--input-error-border-inverse);
       box-shadow: 0 0 0 1px var(--input-error-border-inverse);
       z-index: 2;

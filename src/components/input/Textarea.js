@@ -14,6 +14,7 @@ class Textarea extends PureComponent {
     const classNames = cx(
       theme['wrapper'],
       {
+        [theme['has-error']]: error,
         [theme['has-warning']]: warning,
       },
       className,
@@ -21,7 +22,6 @@ class Textarea extends PureComponent {
 
     const boxProps = pickBoxProps(others);
     const inputProps = {
-      error,
       inverse,
       ...omitBoxProps(others),
     };
@@ -44,6 +44,8 @@ Textarea.propTypes = {
   helpText: PropTypes.string,
   /** Boolean indicating whether the input should render as inverse. */
   inverse: PropTypes.bool,
+  /** The text to use as warning message below the input. */
+  warning: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 };
 
 Textarea.defaultProps = {
