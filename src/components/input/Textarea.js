@@ -9,9 +9,15 @@ import theme from './theme.css';
 
 class Textarea extends PureComponent {
   render() {
-    const { className, error, helpText, inverse, ...others } = this.props;
+    const { className, error, helpText, inverse, warning, ...others } = this.props;
 
-    const classNames = cx(theme['wrapper'], className);
+    const classNames = cx(
+      theme['wrapper'],
+      {
+        [theme['has-warning']]: warning,
+      },
+      className,
+    );
 
     const boxProps = pickBoxProps(others);
     const inputProps = {
@@ -23,7 +29,7 @@ class Textarea extends PureComponent {
     return (
       <Box className={classNames} {...boxProps}>
         <InputBase className={theme['textarea']} element="textarea" {...inputProps} />
-        <ValidationText error={error} help={helpText} inverse={inverse} />
+        <ValidationText error={error} help={helpText} inverse={inverse} warning={warning} />
       </Box>
     );
   }
