@@ -3,6 +3,7 @@
 ### Added
 
 - `DatePickerInput` & `DatePickerInputRange`: added a `warning` prop, which accepts warning text/element and places it underneath the input field. ([@driesd](https://github.com/driesd) in [#505](https://github.com/teamleadercrm/ui/pull/505))
+- `DatePickerInput` & `DatePickerInputRange`: added a `width` prop to override its default value. ([@driesd](https://github.com/driesd) in [#507](https://github.com/teamleadercrm/ui/pull/507))
 - `Input`: added a `warning` prop, which accepts warning text/element and places it underneath the input field. ([@driesd](https://github.com/driesd) in [#504](https://github.com/teamleadercrm/ui/pull/504))
 
 ### Changed
