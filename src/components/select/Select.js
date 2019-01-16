@@ -29,7 +29,7 @@ class Select extends PureComponent {
   };
 
   getControlStyles = (base, { isDisabled, isFocused }) => {
-    const { error, inverse, size } = this.props;
+    const { error, inverse, size, warning } = this.props;
 
     const commonStyles = {
       ...base,
@@ -41,16 +41,24 @@ class Select extends PureComponent {
         ...commonStyles,
         backgroundColor: isDisabled ? COLOR.TEAL.DARK : COLOR.TEAL.NORMAL,
         '&:hover': {
-          borderColor: !isFocused && error ? COLOR.RUBY.LIGHT : COLOR.TEAL.LIGHT,
+          borderColor: !isFocused && !error && !warning && COLOR.TEAL.LIGHT,
         },
         borderColor: isFocused
           ? COLOR.TEAL.LIGHT
           : error
             ? COLOR.RUBY.LIGHT
-            : isDisabled
-              ? COLOR.TEAL.DARK
-              : COLOR.TEAL.NORMAL,
-        boxShadow: isFocused ? `0 0 0 1px ${COLOR.TEAL.LIGHT}` : error ? `0 0 0 1px ${COLOR.RUBY.LIGHT}` : 'none',
+            : warning
+              ? COLOR.GOLD.LIGHT
+              : isDisabled
+                ? COLOR.TEAL.DARK
+                : COLOR.TEAL.NORMAL,
+        boxShadow: isFocused
+          ? `0 0 0 1px ${COLOR.TEAL.LIGHT}`
+          : error
+            ? `0 0 0 1px ${COLOR.RUBY.LIGHT}`
+            : warning
+              ? `0 0 0 1px ${COLOR.GOLD.LIGHT}`
+              : 'none',
       };
     }
 
@@ -58,16 +66,24 @@ class Select extends PureComponent {
       ...commonStyles,
       backgroundColor: isDisabled ? COLOR.NEUTRAL.NORMAL : COLOR.NEUTRAL.LIGHTEST,
       '&:hover': {
-        borderColor: !isFocused && error ? COLOR.RUBY.DARK : COLOR.NEUTRAL.DARKEST,
+        borderColor: !isFocused && !error && !warning && COLOR.NEUTRAL.DARKEST,
       },
       borderColor: isFocused
         ? COLOR.NEUTRAL.DARKEST
         : error
           ? COLOR.RUBY.DARK
-          : isDisabled
-            ? COLOR.NEUTRAL.NORMAL
-            : COLOR.NEUTRAL.DARK,
-      boxShadow: isFocused ? `0 0 0 1px ${COLOR.NEUTRAL.DARKEST}` : error ? `0 0 0 1px ${COLOR.RUBY.DARK}` : 'none',
+          : warning
+            ? COLOR.GOLD.DARK
+            : isDisabled
+              ? COLOR.NEUTRAL.NORMAL
+              : COLOR.NEUTRAL.DARK,
+      boxShadow: isFocused
+        ? `0 0 0 1px ${COLOR.NEUTRAL.DARKEST}`
+        : error
+          ? `0 0 0 1px ${COLOR.RUBY.DARK}`
+          : warning
+            ? `0 0 0 1px ${COLOR.GOLD.DARK}`
+            : 'none',
     };
   };
 
