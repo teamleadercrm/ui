@@ -41,16 +41,16 @@ class Select extends PureComponent {
         ...commonStyles,
         backgroundColor: isDisabled ? COLOR.TEAL.DARK : COLOR.TEAL.NORMAL,
         '&:hover': {
-          borderColor: error ? COLOR.RUBY.LIGHT : COLOR.TEAL.LIGHT,
+          borderColor: !isFocused && error ? COLOR.RUBY.LIGHT : COLOR.TEAL.LIGHT,
         },
-        borderColor: error
-          ? COLOR.RUBY.LIGHT
-          : isFocused
-            ? COLOR.TEAL.LIGHT
+        borderColor: isFocused
+          ? COLOR.TEAL.LIGHT
+          : error
+            ? COLOR.RUBY.LIGHT
             : isDisabled
               ? COLOR.TEAL.DARK
               : COLOR.TEAL.NORMAL,
-        boxShadow: error ? `0 0 0 1px ${COLOR.RUBY.LIGHT}` : isFocused ? `0 0 0 1px ${COLOR.TEAL.LIGHT}` : 'none',
+        boxShadow: isFocused ? `0 0 0 1px ${COLOR.TEAL.LIGHT}` : error ? `0 0 0 1px ${COLOR.RUBY.LIGHT}` : 'none',
       };
     }
 
@@ -58,16 +58,16 @@ class Select extends PureComponent {
       ...commonStyles,
       backgroundColor: isDisabled ? COLOR.NEUTRAL.NORMAL : COLOR.NEUTRAL.LIGHTEST,
       '&:hover': {
-        borderColor: error ? COLOR.RUBY.DARK : COLOR.NEUTRAL.DARKEST,
+        borderColor: !isFocused && error ? COLOR.RUBY.DARK : COLOR.NEUTRAL.DARKEST,
       },
-      borderColor: error
-        ? COLOR.RUBY.DARK
-        : isFocused
-          ? COLOR.NEUTRAL.DARKEST
+      borderColor: isFocused
+        ? COLOR.NEUTRAL.DARKEST
+        : error
+          ? COLOR.RUBY.DARK
           : isDisabled
             ? COLOR.NEUTRAL.NORMAL
             : COLOR.NEUTRAL.DARK,
-      boxShadow: error ? `0 0 0 1px ${COLOR.RUBY.DARK}` : isFocused ? `0 0 0 1px ${COLOR.NEUTRAL.DARKEST}` : 'none',
+      boxShadow: isFocused ? `0 0 0 1px ${COLOR.NEUTRAL.DARKEST}` : error ? `0 0 0 1px ${COLOR.RUBY.DARK}` : 'none',
     };
   };
 
