@@ -443,17 +443,19 @@
 }
 
 .has-error {
-  &:not(.is-inverse) {
-    .input-wrapper {
-      border-color: var(--input-error-border) !important;
-      box-shadow: 0 0 0 1px var(--input-error-border);
+  &:not(.has-focus) {
+    &:not(.is-inverse) {
+      .input-wrapper {
+        border-color: var(--input-error-border) !important;
+        box-shadow: 0 0 0 1px var(--input-error-border);
+      }
     }
-  }
 
-  &.is-inverse {
-    .input-wrapper {
-      border-color: var(--input-error-border-inverse) !important;
-      box-shadow: 0 0 0 1px var(--input-error-border-inverse);
+    &.is-inverse {
+      .input-wrapper {
+        border-color: var(--input-error-border-inverse) !important;
+        box-shadow: 0 0 0 1px var(--input-error-border-inverse);
+      }
     }
   }
 }
