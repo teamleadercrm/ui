@@ -6,6 +6,8 @@
   --border-radius: calc(0.4 * var(--unit));
   --input-error-border: var(--color-ruby-dark);
   --input-error-border-inverse: var(--color-ruby-light);
+  --input-warning-border: var(--color-gold-dark);
+  --input-warning-border-inverse: var(--color-gold-light);
   --input-height-large: calc(4.6 * var(--unit));
   --input-height-medium: calc(3.4 * var(--unit));
   --input-height-small: calc(2.8 * var(--unit));
@@ -422,18 +424,38 @@
   display: inline-block;
 }
 
-.has-error {
-  &:not(.is-inverse) {
-    .input-wrapper {
-      border-color: var(--input-error-border) !important;
-      box-shadow: 0 0 0 1px var(--input-error-border);
+.has-warning {
+  &:not(.has-focus) {
+    &:not(.is-inverse) {
+      .input-wrapper {
+        border-color: var(--input-warning-border) !important;
+        box-shadow: 0 0 0 1px var(--input-warning-border);
+      }
+    }
+
+    &.is-inverse {
+      .input-wrapper {
+        border-color: var(--input-warning-border-inverse) !important;
+        box-shadow: 0 0 0 1px var(--input-warning-border-inverse);
+      }
     }
   }
+}
 
-  &.is-inverse {
-    .input-wrapper {
-      border-color: var(--input-error-border-inverse) !important;
-      box-shadow: 0 0 0 1px var(--input-error-border-inverse);
+.has-error {
+  &:not(.has-focus) {
+    &:not(.is-inverse) {
+      .input-wrapper {
+        border-color: var(--input-error-border) !important;
+        box-shadow: 0 0 0 1px var(--input-error-border);
+      }
+    }
+
+    &.is-inverse {
+      .input-wrapper {
+        border-color: var(--input-error-border-inverse) !important;
+        box-shadow: 0 0 0 1px var(--input-error-border-inverse);
+      }
     }
   }
 }

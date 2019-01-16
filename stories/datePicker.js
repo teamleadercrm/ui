@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { boolean, number, select } from '@storybook/addon-knobs/react';
+import { boolean, number, select, text } from '@storybook/addon-knobs/react';
 import { DatePicker, DatePickerRange, DatePickerInput, DatePickerInputRange } from '../src';
 import { DateTime } from 'luxon';
 import MomentLocaleUtils, { formatDate, parseDate } from 'react-day-picker/moment';
@@ -58,9 +58,10 @@ storiesOf('Form elements/DatePicker', module)
         parseDate={parseDate}
         bold={boolean('Bold', false)}
         disabled={boolean('Disabled', false)}
-        error="This is an error message"
+        error={text('error', '')}
+        helpText={text('helpText', 'Pick a date')}
+        warning={text('warning', '')}
         inverse={boolean('Inverse', false)}
-        helpText="Pick a date"
         dayPickerProps={{
           locale: select('Locale', languages, 'nl'),
           localeUtils: MomentLocaleUtils,
@@ -121,8 +122,9 @@ storiesOf('Form elements/DatePicker', module)
           value: preSelectedRange.selectedEndDate,
         }}
         disabled={boolean('Disabled', false)}
-        error="This is an error message"
-        helpText="Pick a start & end date"
+        error={text('error', '')}
+        helpText={text('helpText', 'Pick a date')}
+        warning={text('warning', '')}
         inverse={boolean('Inverse', false)}
         readOnly={boolean('Read only', false)}
         onChange={handleOnChange}
