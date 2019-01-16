@@ -267,7 +267,7 @@ class Select extends PureComponent {
   };
 
   render() {
-    const { components, creatable, error, inverse, helpText, size, ...otherProps } = this.props;
+    const { components, creatable, error, inverse, helpText, size, warning, ...otherProps } = this.props;
 
     const boxProps = pickBoxProps(otherProps);
     const restProps = omitBoxProps(otherProps);
@@ -292,7 +292,7 @@ class Select extends PureComponent {
           styles={this.getStyles()}
           {...restProps}
         />
-        <ValidationText error={error} help={helpText} inverse={inverse} />
+        <ValidationText error={error} help={helpText} inverse={inverse} warning={warning} />
       </Box>
     );
   }
@@ -313,6 +313,8 @@ Select.propTypes = {
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   /** Selected option value(s) */
   value: PropTypes.oneOfType([PropTypes.object, PropTypes.array, PropTypes.func]),
+  /** The text to use as warning message below the input. */
+  warning: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 };
 
 Select.defaultProps = {
