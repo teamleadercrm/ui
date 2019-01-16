@@ -1,22 +1,27 @@
-import React, { PureComponent, Fragment } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 import ErrorText from './ErrorText';
 import HelpText from './HelpText';
+import WarningText from './WarningText';
 
 class ValidationText extends PureComponent {
   render() {
-    const { error, help, inverse } = this.props;
+    const { error, inverse, help, warning } = this.props;
 
-    return (
-      <Fragment>
-        {error ? (
-          <ErrorText inverse={inverse}>{error}</ErrorText>
-        ) : (
-          help && <HelpText inverse={inverse}>{help}</HelpText>
-        )}
-      </Fragment>
-    );
+    if (error) {
+      return <ErrorText inverse={inverse}>{error}</ErrorText>;
+    }
+
+    if (warning) {
+      return <WarningText inverse={inverse}>{warning}</WarningText>;
+    }
+
+    if (help) {
+      return <HelpText inverse={inverse}>{help}</HelpText>;
+    }
+
+    return null;
   }
 }
 
@@ -24,6 +29,7 @@ ValidationText.propTypes = {
   error: PropTypes.node,
   help: PropTypes.node,
   inverse: PropTypes.bool,
+  warning: PropTypes.node,
 };
 
 export default ValidationText;
