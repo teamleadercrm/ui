@@ -93,7 +93,7 @@ class DatePickerInput extends PureComponent {
   };
 
   render() {
-    const { bold, disabled, error, helpText, inverse, readOnly, size, ...others } = this.props;
+    const { bold, disabled, error, helpText, inverse, readOnly, size, warning, ...others } = this.props;
     const { inputHasFocus } = this.state;
 
     const boxProps = pickBoxProps(others);
@@ -105,6 +105,7 @@ class DatePickerInput extends PureComponent {
       [theme['is-read-only']]: readOnly,
       [theme['has-error']]: error,
       [theme['has-focus']]: inputHasFocus,
+      [theme['has-warning']]: warning,
     });
 
     return (
@@ -113,7 +114,7 @@ class DatePickerInput extends PureComponent {
           {this.renderIcon()}
           {this.renderDayPickerInput()}
         </div>
-        <ValidationText error={error} help={helpText} inverse={inverse} />
+        <ValidationText error={error} help={helpText} inverse={inverse} warning={warning} />
       </Box>
     );
   }
@@ -138,6 +139,8 @@ DatePickerInput.propTypes = {
   readOnly: PropTypes.bool,
   selectedDate: PropTypes.instanceOf(Date),
   size: PropTypes.oneOf(['small', 'medium', 'large']),
+  /** The text to use as warning message below the input. */
+  warning: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 };
 
 DatePickerInput.defaultProps = {
