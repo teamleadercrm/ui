@@ -50,6 +50,7 @@ class SingleLineInputBase extends PureComponent {
       readOnly,
       suffix,
       width,
+      warning,
       ...others
     } = this.props;
 
@@ -58,6 +59,7 @@ class SingleLineInputBase extends PureComponent {
       {
         [theme['has-focus']]: this.state.inputHasfocus,
         [theme['has-error']]: error,
+        [theme['has-warning']]: warning,
         [theme['has-connected-left']]: connectedLeft,
         [theme['has-connected-right']]: connectedRight,
         [theme['is-disabled']]: disabled,
@@ -70,7 +72,6 @@ class SingleLineInputBase extends PureComponent {
     const boxProps = pickBoxProps(others);
     const inputProps = {
       disabled,
-      error,
       inverse,
       onBlur: this.handleBlur,
       onFocus: this.handleFocus,
@@ -89,7 +90,7 @@ class SingleLineInputBase extends PureComponent {
           </div>
           {connectedRight}
         </div>
-        <ValidationText error={error} help={helpText} inverse={inverse} />
+        <ValidationText error={error} help={helpText} inverse={inverse} warning={warning} />
       </Box>
     );
   }
@@ -100,10 +101,16 @@ SingleLineInputBase.propTypes = {
   connectedLeft: PropTypes.element,
   /** Element stuck to the right hand side of the component. */
   connectedRight: PropTypes.element,
+  /** The text string/element to use as error message below the input. */
+  error: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  /** The text string to use as help text below the input. */
+  helpText: PropTypes.string,
   /** The text string/element to use as a prefix inside the input field */
   prefix: PropTypes.oneOfType([PropTypes.array, PropTypes.element]),
   /** The text string/element to use as a suffix inside the input field */
   suffix: PropTypes.oneOfType([PropTypes.array, PropTypes.element]),
+  /** The text to use as warning message below the input. */
+  warning: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   /** A custom width for the input field */
   width: PropTypes.string,
 };

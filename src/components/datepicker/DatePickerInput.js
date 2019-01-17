@@ -44,13 +44,13 @@ class DatePickerInput extends PureComponent {
   };
 
   renderDayPickerInput = () => {
-    const { className, dayPickerProps, disabled, modifiers, readOnly, size, ...others } = this.props;
+    const { className, dayPickerProps, disabled, inputProps, modifiers, readOnly, size, ...others } = this.props;
     const { selectedDate } = this.state;
 
     const dayPickerClassNames = cx(theme['date-picker'], theme[`is-${size}`], className);
 
     const propsWithoutBoxProps = omitBoxProps(others);
-    const restProps = omit(propsWithoutBoxProps, ['helpText', 'onBlur', 'onChange', 'onFocus']);
+    const restProps = omit(propsWithoutBoxProps, ['helpText', 'onBlur', 'onChange', 'onFocus', 'inputProps']);
 
     return (
       <DayPickerInput
@@ -70,6 +70,7 @@ class DatePickerInput extends PureComponent {
           disabled: disabled || readOnly,
           onBlur: this.handleBlur,
           onFocus: this.handleFocus,
+          ...inputProps,
         }}
         {...restProps}
       />
@@ -92,7 +93,7 @@ class DatePickerInput extends PureComponent {
   };
 
   render() {
-    const { bold, disabled, error, helpText, inverse, readOnly, size, ...others } = this.props;
+    const { bold, disabled, error, helpText, inverse, readOnly, size, warning, width, ...others } = this.props;
     const { inputHasFocus } = this.state;
 
     const boxProps = pickBoxProps(others);
@@ -104,15 +105,16 @@ class DatePickerInput extends PureComponent {
       [theme['is-read-only']]: readOnly,
       [theme['has-error']]: error,
       [theme['has-focus']]: inputHasFocus,
+      [theme['has-warning']]: warning,
     });
 
     return (
       <Box className={classNames} {...boxProps}>
-        <div className={theme['input-wrapper']}>
+        <div className={theme['input-wrapper']} style={{ width }}>
           {this.renderIcon()}
           {this.renderDayPickerInput()}
         </div>
-        <ValidationText error={error} help={helpText} inverse={inverse} />
+        <ValidationText error={error} help={helpText} inverse={inverse} warning={warning} />
       </Box>
     );
   }
@@ -126,6 +128,7 @@ DatePickerInput.propTypes = {
   /** The text string/element to use as error message below the input. */
   error: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   helpText: PropTypes.string,
+  inputProps: PropTypes.object,
   inverse: PropTypes.bool,
   modifiers: PropTypes.object,
   /** Callback function that is fired when blurring the input field. */
@@ -136,6 +139,10 @@ DatePickerInput.propTypes = {
   readOnly: PropTypes.bool,
   selectedDate: PropTypes.instanceOf(Date),
   size: PropTypes.oneOf(['small', 'medium', 'large']),
+  /** The text to use as warning message below the input. */
+  warning: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  /** A custom width for the input field */
+  width: PropTypes.string,
 };
 
 DatePickerInput.defaultProps = {
@@ -144,6 +151,7 @@ DatePickerInput.defaultProps = {
   inverse: false,
   readOnly: false,
   size: 'medium',
+  width: '110px',
 };
 
 export default DatePickerInput;

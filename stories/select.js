@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { boolean, select, number } from '@storybook/addon-knobs/react';
+import { boolean, select, number, text } from '@storybook/addon-knobs/react';
 import { Avatar, Box, Label, Select, AsyncSelect, TextBody } from '../src';
 import { customOptions, groupedOptions, options } from './static/data/select';
 
@@ -45,6 +45,9 @@ storiesOf('Form elements/Select', module)
       placeholder="Select your favourite(s)"
       size={select('Size', sizes, 'medium')}
       hideSelectedOptions={boolean('Hide selected options', true)}
+      error={text('error', '')}
+      helpText={text('helpText', '')}
+      warning={text('warning', '')}
     />
   ))
   .add('Grouped', () => (
@@ -60,6 +63,9 @@ storiesOf('Form elements/Select', module)
       placeholder="Select your favourite(s)"
       size={select('Size', sizes, 'medium')}
       hideSelectedOptions={boolean('Hide selected options', true)}
+      error={text('error', '')}
+      helpText={text('helpText', '')}
+      warning={text('warning', '')}
     />
   ))
   .add('Custom Option', () => (
@@ -78,6 +84,9 @@ storiesOf('Form elements/Select', module)
       placeholder="Select your favourite(s)"
       size={select('Size', sizes, 'medium')}
       hideSelectedOptions={boolean('Hide selected options', true)}
+      error={text('error', '')}
+      helpText={text('helpText', '')}
+      warning={text('warning', '')}
     />
   ))
   .add('With label', () => (
@@ -93,6 +102,9 @@ storiesOf('Form elements/Select', module)
         options={options}
         placeholder="Select your favourite(s)"
         hideSelectedOptions={boolean('Hide selected options', true)}
+        error={text('error', '')}
+        helpText={text('helpText', '')}
+        warning={text('warning', '')}
       />
     </Label>
   ))
@@ -129,6 +141,9 @@ storiesOf('Form elements/Select', module)
         placeholder="Select your favourite(s)"
         size={select('size', sizes, 'medium')}
         hideSelectedOptions={boolean('hideSelectedOptions', true)}
+        error={text('error', '')}
+        helpText={text('helpText', '')}
+        warning={text('warning', '')}
       />
     );
   });

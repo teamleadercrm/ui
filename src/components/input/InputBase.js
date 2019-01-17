@@ -7,20 +7,19 @@ import theme from './theme.css';
 
 class InputBase extends PureComponent {
   render() {
-    const { bold, className, element, error, inverse, size, ...otherProps } = this.props;
+    const { bold, className, element, inverse, size, ...otherProps } = this.props;
 
     const classNames = cx(
       theme['input'],
       theme[`is-${size}`],
       {
-        [theme['has-error']]: error,
         [theme['is-inverse']]: inverse,
         [theme['is-bold']]: bold,
       },
       className,
     );
 
-    const restProps = omit(omitBoxProps(otherProps), ['className', 'helpText', 'inverse', 'size']);
+    const restProps = omitBoxProps(otherProps);
 
     const props = {
       className: classNames,
@@ -40,10 +39,6 @@ InputBase.propTypes = {
   disabled: PropTypes.bool,
   /** The element to render. */
   element: PropTypes.oneOf(['input', 'textarea']),
-  /** The text string/element to use as error message below the input. */
-  error: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  /** The text string to use as help text below the input. */
-  helpText: PropTypes.string,
   /** Boolean indicating whether the input should render as inverse. */
   inverse: PropTypes.bool,
   /** Callback function that is fired when blurring the input field. */
