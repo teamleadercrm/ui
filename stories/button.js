@@ -6,7 +6,7 @@ import { Button } from '../src';
 
 const elements = ['a', 'button'];
 const iconPositions = ['left', 'right'];
-const levels = ['primary', 'secondary', 'outline', 'destructive', 'link'];
+const levels = ['primary', 'secondary', 'outline', 'destructive', 'link', 'timer'];
 const sizes = ['small', 'medium', 'large'];
 
 storiesOf('Buttons', module)
