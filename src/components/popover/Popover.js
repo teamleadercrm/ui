@@ -112,7 +112,7 @@ class Popover extends PureComponent {
                 }}
               >
                 <div className={theme['arrow']} style={{ left: `${arrowLeft}px`, top: `${arrowTop}px` }} />
-                <Box display="flex" flexDirection="column">
+                <Box display="flex" flex="1" flexDirection="column">
                   <ScrollContainer
                     className={theme['inner']}
                     header={header}
