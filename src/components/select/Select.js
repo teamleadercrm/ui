@@ -331,12 +331,15 @@ Select.propTypes = {
   value: PropTypes.oneOfType([PropTypes.object, PropTypes.array, PropTypes.func]),
   /** The text to use as warning message below the input. */
   warning: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  /** A custom width for the input field */
+  width: PropTypes.string,
 };
 
 Select.defaultProps = {
   creatable: false,
   inverse: false,
   size: 'medium',
+  width: '100%',
 };
 
 export default Select;
