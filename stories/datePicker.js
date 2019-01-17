@@ -75,6 +75,7 @@ storiesOf('Form elements/DatePicker', module)
         selectedDate={preSelectedDate}
         size={select('Size', sizes, 'medium')}
         value={preSelectedDate}
+        width={text('width', undefined)}
       />
     );
   })
@@ -130,6 +131,7 @@ storiesOf('Form elements/DatePicker', module)
         onChange={handleOnChange}
         selectedRange={preSelectedRange}
         size={select('Size', sizes, 'medium')}
+        width={text('width', undefined)}
       />
     );
   });

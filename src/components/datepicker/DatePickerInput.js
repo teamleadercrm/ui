@@ -93,7 +93,7 @@ class DatePickerInput extends PureComponent {
   };
 
   render() {
-    const { bold, disabled, error, helpText, inverse, readOnly, size, warning, ...others } = this.props;
+    const { bold, disabled, error, helpText, inverse, readOnly, size, warning, width, ...others } = this.props;
     const { inputHasFocus } = this.state;
 
     const boxProps = pickBoxProps(others);
@@ -110,7 +110,7 @@ class DatePickerInput extends PureComponent {
 
     return (
       <Box className={classNames} {...boxProps}>
-        <div className={theme['input-wrapper']}>
+        <div className={theme['input-wrapper']} style={{ width }}>
           {this.renderIcon()}
           {this.renderDayPickerInput()}
         </div>
@@ -141,6 +141,8 @@ DatePickerInput.propTypes = {
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   /** The text to use as warning message below the input. */
   warning: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  /** A custom width for the input field */
+  width: PropTypes.string,
 };
 
 DatePickerInput.defaultProps = {
@@ -149,6 +151,7 @@ DatePickerInput.defaultProps = {
   inverse: false,
   readOnly: false,
   size: 'medium',
+  width: '110px',
 };
 
 export default DatePickerInput;
