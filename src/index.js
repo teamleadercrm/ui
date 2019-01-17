@@ -29,6 +29,7 @@ import Overlay from './components/overlay';
 import LoadingBar from './components/loadingBar';
 import LoadingMolecule from './components/loadingMolecule';
 import LoadingSpinner from './components/loadingSpinner';
+import OverviewPage from './components/overviewPage';
 import Pagination from './components/pagination';
 import Passport, { EmptyPassport } from './components/passport';
 import Popover from './components/popover';
@@ -111,6 +112,7 @@ export {
   Monospaced,
   NumericInput,
   Overlay,
+  OverviewPage,
   Passport,
   Pagination,
   Popover,
