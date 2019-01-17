@@ -3,6 +3,7 @@
 ### Added
 
 - `Button`: added extra level `timer` ([@driesd](https://github.com/driesd) in [#511](https://github.com/teamleadercrm/ui/pull/511))
+- `Select`: added the `width` prop to override its full width default behavior. ([@driesd](https://github.com/driesd) in [#510](https://github.com/teamleadercrm/ui/pull/510))
 
 ### Changed
 

@@ -48,6 +48,7 @@ storiesOf('Form elements/Select', module)
       error={text('error', '')}
       helpText={text('helpText', '')}
       warning={text('warning', '')}
+      width={text('width', undefined)}
     />
   ))
   .add('Grouped', () => (
@@ -66,6 +67,7 @@ storiesOf('Form elements/Select', module)
       error={text('error', '')}
       helpText={text('helpText', '')}
       warning={text('warning', '')}
+      width={text('width', undefined)}
     />
   ))
   .add('Custom Option', () => (
@@ -87,6 +89,7 @@ storiesOf('Form elements/Select', module)
       error={text('error', '')}
       helpText={text('helpText', '')}
       warning={text('warning', '')}
+      width={text('width', undefined)}
     />
   ))
   .add('With label', () => (
@@ -105,6 +108,7 @@ storiesOf('Form elements/Select', module)
         error={text('error', '')}
         helpText={text('helpText', '')}
         warning={text('warning', '')}
+        width={text('width', undefined)}
       />
     </Label>
   ))
@@ -144,6 +148,7 @@ storiesOf('Form elements/Select', module)
         error={text('error', '')}
         helpText={text('helpText', '')}
         warning={text('warning', '')}
+        width={text('width', undefined)}
       />
     );
   });
