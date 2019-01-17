@@ -2,6 +2,8 @@
 
 ### Added
 
+- `Button`: added extra level `timer` ([@driesd](https://github.com/driesd) in [#511](https://github.com/teamleadercrm/ui/pull/511))
+
 ### Changed
 
 ### Deprecated
