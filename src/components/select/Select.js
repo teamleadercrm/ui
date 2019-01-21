@@ -29,11 +29,12 @@ class Select extends PureComponent {
   };
 
   getControlStyles = (base, { isDisabled, isFocused }) => {
-    const { error, inverse, size, warning } = this.props;
+    const { error, inverse, size, warning, width } = this.props;
 
     const commonStyles = {
       ...base,
       minHeight: size === 'small' ? '30px' : size === 'medium' ? '36px' : '48px',
+      width,
     };
 
     if (inverse) {
@@ -123,11 +124,16 @@ class Select extends PureComponent {
     };
   };
 
-  getMenuStyles = base => ({
-    ...base,
-    backgroundColor: this.props.inverse ? COLOR.TEAL.NORMAL : COLOR.NEUTRAL.LIGHTEST,
-    zIndex: 300,
-  });
+  getMenuStyles = base => {
+    const { inverse, width } = this.props;
+
+    return {
+      ...base,
+      backgroundColor: inverse ? COLOR.TEAL.NORMAL : COLOR.NEUTRAL.LIGHTEST,
+      width,
+      zIndex: 300,
+    };
+  };
 
   getMultiValueStyles = base => {
     const { inverse } = this.props;
@@ -331,12 +337,15 @@ Select.propTypes = {
   value: PropTypes.oneOfType([PropTypes.object, PropTypes.array, PropTypes.func]),
   /** The text to use as warning message below the input. */
   warning: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  /** A custom width for the input field */
+  width: PropTypes.string,
 };
 
 Select.defaultProps = {
   creatable: false,
   inverse: false,
   size: 'medium',
+  width: '100%',
 };
 
 export default Select;

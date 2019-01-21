@@ -263,7 +263,8 @@
 }
 
 .primary,
-.secondary {
+.secondary,
+.timer {
   &.is-disabled {
     background-color: var(--color-neutral);
     border: 1px solid var(--color-neutral-dark);
@@ -332,6 +333,37 @@
 
   &.is-processing {
     color: var(--color-mint);
+  }
+}
+
+.timer {
+  background-color: var(--color-violet);
+  border: 1px solid var(--color-violet-dark);
+  color: var(--color-neutral-lightest);
+
+  &:not(.is-disabled) {
+    background-color: var(--color-violet);
+    border: 1px solid var(--color-violet-dark);
+
+    &:hover {
+      background-color: var(--color-violet-dark);
+      border: 1px solid var(--color-violet-darkest);
+    }
+
+    &:focus {
+      background-color: var(--color-violet);
+      border: 1px solid var(--color-violet-dark);
+      box-shadow: 0 0 0 1px var(--color-violet-dark);
+    }
+
+    &:active {
+      background-color: var(--color-violet-dark);
+      border: 1px solid var(--color-violet-darkest);
+    }
+  }
+
+  &.is-processing {
+    color: var(--color-violet);
   }
 }
 
