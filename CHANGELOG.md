@@ -13,6 +13,8 @@
 
 ### Fixed
 
+- `Popover`: fixed some weird width behaviour, which was always taking 50vw. ([@driesd](https://github.com/driesd) in [#513](https://github.com/teamleadercrm/ui/pull/513))
+
 ## [0.20.0] - 2019-01-17
 
 ### Added
