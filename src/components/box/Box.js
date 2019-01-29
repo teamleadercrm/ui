@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import theme from './theme.css';
 
+const overflows = ['auto', 'hidden', 'scroll', 'visible'];
 const spacings = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 
 class Box extends PureComponent {
@@ -35,6 +36,9 @@ class Box extends PureComponent {
       marginRight = marginHorizontal,
       marginTop = marginVertical,
       order,
+      overflow,
+      overflowX,
+      overflowY,
       padding,
       paddingHorizontal = padding,
       paddingVertical = padding,
@@ -74,6 +78,9 @@ class Box extends PureComponent {
       ...(flexGrow && { flexGrow }),
       ...(flexShrink && { flexShrink }),
       ...(order && { order }),
+      ...(overflow && { overflow }),
+      ...(overflowX && { overflowX }),
+      ...(overflowY && { overflowY }),
     };
 
     const Element = element;
@@ -124,6 +131,9 @@ Box.propTypes = {
   marginRight: PropTypes.oneOf(spacings),
   marginTop: PropTypes.oneOf(spacings),
   order: PropTypes.number,
+  overflow: PropTypes.oneOf(overflows),
+  overflowX: PropTypes.oneOf(overflows),
+  overflowY: PropTypes.oneOf(overflows),
   padding: PropTypes.oneOf(spacings),
   paddingHorizontal: PropTypes.oneOf(spacings),
   paddingVertical: PropTypes.oneOf(spacings),

@@ -67,8 +67,6 @@ class Popover extends PureComponent {
       children,
       className,
       color,
-      footer,
-      header,
       lockScroll,
       onOverlayClick,
       onEscKeyDown,
@@ -112,14 +110,14 @@ class Popover extends PureComponent {
                 }}
               >
                 <div className={theme['arrow']} style={{ left: `${arrowLeft}px`, top: `${arrowTop}px` }} />
-                <Box display="flex" flex="1" flexDirection="column">
-                  <ScrollContainer
-                    className={theme['inner']}
-                    header={header}
-                    body={children}
-                    footer={footer}
-                    style={{ maxHeight: this.getMaxHeight() }}
-                  />
+                <Box
+                  className={theme['inner']}
+                  display="flex"
+                  flex="1"
+                  flexDirection="column"
+                  style={{ maxHeight: this.getMaxHeight() }}
+                >
+                  {children}
                 </Box>
                 <ReactResizeDetector
                   handleHeight
@@ -154,10 +152,6 @@ Popover.propTypes = {
   color: PropTypes.oneOf(['aqua', 'gold', 'mint', 'neutral', 'ruby', 'teal', 'violet']),
   /** The direction in which the Popover is rendered, is overridden with the opposite direction if the Popover cannot be entirely displayed in the current direction. */
   direction: PropTypes.oneOf(['north', 'south', 'east', 'west']),
-  /** Node to render as the footer */
-  footer: PropTypes.node,
-  /** Node to render as the header */
-  header: PropTypes.node,
   /** If true, the Popover stretches to fit its content vertically */
   fullHeight: PropTypes.bool,
   /** The scroll state of the body, if true it will not be scrollable. */
