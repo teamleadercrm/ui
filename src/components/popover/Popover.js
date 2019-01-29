@@ -112,14 +112,14 @@ class Popover extends PureComponent {
                 }}
               >
                 <div className={theme['arrow']} style={{ left: `${arrowLeft}px`, top: `${arrowTop}px` }} />
-                <Box display="flex" flex="1" flexDirection="column">
-                  <ScrollContainer
-                    className={theme['inner']}
-                    header={header}
-                    body={children}
-                    footer={footer}
-                    style={{ maxHeight: this.getMaxHeight() }}
-                  />
+                <Box
+                  className={theme['inner']}
+                  display="flex"
+                  flex="1"
+                  flexDirection="column"
+                  style={{ maxHeight: this.getMaxHeight() }}
+                >
+                  {children}
                 </Box>
                 <ReactResizeDetector
                   handleHeight
