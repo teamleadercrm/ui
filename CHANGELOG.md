@@ -2,19 +2,27 @@
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+## [0.21.0] - 2019-01-29
+
+### Added
+
 - `Box`: added `overflow`, `overflowX` & `overflowY` props. ([@driesd](https://github.com/driesd) in [#516](https://github.com/teamleadercrm/ui/pull/516))
 
 ### Changed
 
 - `Toast`: changed the element for the `TextBody` that is wrapping the `label` and `children` of a toast to a `div` (instead of the default `p`). ([@driesd](https://github.com/lowiebenoot) in [#515](https://github.com/teamleadercrm/ui/pull/515))
 
-### Deprecated
-
 ### Removed
 
 - [BREAKING] `Popover`: removed `header` & `footer` prop, please use `children` instead. ([@driesd](https://github.com/driesd) in [#517](https://github.com/teamleadercrm/ui/pull/517))
-
-### Fixed
 
 ## [0.20.1] - 2019-01-21
 
