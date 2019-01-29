@@ -68,7 +68,6 @@ class Popover extends PureComponent {
       className,
       color,
       footer,
-      header,
       lockScroll,
       onOverlayClick,
       onEscKeyDown,
@@ -156,8 +155,6 @@ Popover.propTypes = {
   direction: PropTypes.oneOf(['north', 'south', 'east', 'west']),
   /** Node to render as the footer */
   footer: PropTypes.node,
-  /** Node to render as the header */
-  header: PropTypes.node,
   /** If true, the Popover stretches to fit its content vertically */
   fullHeight: PropTypes.bool,
   /** The scroll state of the body, if true it will not be scrollable. */
