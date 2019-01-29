@@ -12,6 +12,8 @@
 
 ### Removed
 
+- [BREAKING] `Popover`: removed `header` & `footer` prop, please use `children` instead. ([@driesd](https://github.com/driesd) in [#517](https://github.com/teamleadercrm/ui/pull/517))
+
 ### Fixed
 
 ## [0.20.1] - 2019-01-21
