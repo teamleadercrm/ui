@@ -78,12 +78,10 @@ storiesOf('Popover', module)
           tint={select('Tint', tints, 'lightest')}
           lockScroll={boolean('Lock scroll', true)}
           offsetCorrection={number('Offset correction', 0)}
-          header={
-            <Banner fullWidth>
-              <Heading3>Popover Title</Heading3>
-            </Banner>
-          }
         >
+          <Banner fullWidth>
+            <Heading3>Popover Title</Heading3>
+          </Banner>
           {contentBoxWithSingleTextLine}
         </Popover>
       </State>
@@ -105,13 +103,11 @@ storiesOf('Popover', module)
           tint={select('Tint', tints, 'lightest')}
           lockScroll={boolean('Lock scroll', true)}
           offsetCorrection={number('Offset correction', 0)}
-          header={
-            <Banner color="neutral" fullWidth>
-              <Heading3>Popover Title</Heading3>
-              <TextSmall marginTop={1}>This is the popover content</TextSmall>
-            </Banner>
-          }
         >
+          <Banner color="neutral" fullWidth>
+            <Heading3>Popover Title</Heading3>
+            <TextSmall marginTop={1}>This is the popover content</TextSmall>
+          </Banner>
           {contentBoxWithSingleTextLine}
         </Popover>
       </State>
@@ -133,12 +129,10 @@ storiesOf('Popover', module)
           tint={select('Tint', tints, 'lightest')}
           lockScroll={boolean('Lock scroll', true)}
           offsetCorrection={number('Offset correction', 0)}
-          header={
-            <Banner onClose={handleCloseClick} fullWidth>
-              <Heading3>I am a heading 3</Heading3>
-            </Banner>
-          }
         >
+          <Banner onClose={handleCloseClick} fullWidth>
+            <Heading3>I am a heading 3</Heading3>
+          </Banner>
           {contentBoxWithSingleTextLine}
         </Popover>
       </State>
@@ -160,14 +154,42 @@ storiesOf('Popover', module)
           tint={select('Tint', tints, 'lightest')}
           lockScroll={boolean('Lock scroll', true)}
           offsetCorrection={number('Offset correction', 0)}
-          footer={
-            <ButtonGroup justifyContent="flex-end" padding={4}>
-              <Button label="Cancel" />
-              <Button level="primary" label="Confirm" />
-            </ButtonGroup>
-          }
         >
           {contentBoxWithSingleTextLine}
+          <ButtonGroup justifyContent="flex-end" padding={4}>
+            <Button label="Cancel" />
+            <Button level="primary" label="Confirm" />
+          </ButtonGroup>
+        </Popover>
+      </State>
+    </Box>
+  ))
+  .add('experiment 0', () => (
+    <Box display="flex" justifyContent="center">
+      <Button onClick={handleButtonClick} label="Open a experimental Popover" />
+      <State store={store}>
+        <Popover
+          active={false}
+          backdrop={select('Backdrop', backdrops, 'transparent')}
+          color={select('Color', colors, 'neutral')}
+          direction={select('Direction', directions, 'south')}
+          fullHeight={boolean('fullHeight', true)}
+          position={select('Position', positions, 'center')}
+          onEscKeyDown={handleCloseClick}
+          onOverlayClick={handleCloseClick}
+          tint={select('Tint', tints, 'lightest')}
+          lockScroll={boolean('Lock scroll', true)}
+          offsetCorrection={number('Offset correction', 0)}
+        >
+          <Box padding={4} overflow="auto">
+            <TextBody>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+              ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+              fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+              mollit anim id est laborum.
+            </TextBody>
+          </Box>
         </Popover>
       </State>
     </Box>
@@ -189,11 +211,17 @@ storiesOf('Popover', module)
           lockScroll={boolean('Lock scroll', true)}
           offsetCorrection={number('Offset correction', 0)}
         >
-          <Box padding={4}>
-            <Heading3>I am a heading 3</Heading3>
-            <TextBody marginTop={2}>
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
-              et dolore magna aliquyam erat, sed diam voluptua.
+          <Banner color="neutral" fullWidth>
+            <Heading3>Popover Title</Heading3>
+            <TextSmall marginTop={1}>This is the popover content</TextSmall>
+          </Banner>
+          <Box padding={4} overflow="auto">
+            <TextBody>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+              ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+              fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+              mollit anim id est laborum.
             </TextBody>
           </Box>
         </Popover>
@@ -217,7 +245,11 @@ storiesOf('Popover', module)
           lockScroll={boolean('Lock scroll', true)}
           offsetCorrection={number('Offset correction', 0)}
         >
-          <Box padding={4}>
+          <Banner color="neutral" fullWidth>
+            <Heading3>Popover Title</Heading3>
+            <TextSmall marginTop={1}>This is the popover content</TextSmall>
+          </Banner>
+          <Box padding={4} overflow="auto">
             <TextBody>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
               dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
@@ -226,6 +258,10 @@ storiesOf('Popover', module)
               mollit anim id est laborum.
             </TextBody>
           </Box>
+          <ButtonGroup justifyContent="flex-end" padding={4}>
+            <Button label="Cancel" />
+            <Button level="primary" label="Confirm" />
+          </ButtonGroup>
         </Popover>
       </State>
     </Box>
