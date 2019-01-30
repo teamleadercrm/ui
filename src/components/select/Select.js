@@ -184,6 +184,7 @@ class Select extends PureComponent {
   getOptionStyles = (base, { isDisabled, isFocused, isSelected }) => {
     const commonStyles = {
       ...base,
+      wordBreak: 'break-all',
       padding: '8px 12px',
     };
 
@@ -215,6 +216,7 @@ class Select extends PureComponent {
       ...base,
       marginLeft: isMulti && size !== 'large' ? '6px' : '2px',
       marginRight: isMulti && size !== 'large' ? '6px' : '2px',
+      whiteSpace: 'nowrap',
     };
 
     if (inverse) {

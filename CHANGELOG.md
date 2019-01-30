@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `Select`: fixed `word break` behaviour for both Select `options` and `placeholder`. ([@driesd](https://github.com/driesd) in [#520](https://github.com/teamleadercrm/ui/pull/520))
+
 ## [0.21.0] - 2019-01-29
 
 ### Added
