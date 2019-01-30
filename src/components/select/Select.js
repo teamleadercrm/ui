@@ -216,6 +216,7 @@ class Select extends PureComponent {
       ...base,
       marginLeft: isMulti && size !== 'large' ? '6px' : '2px',
       marginRight: isMulti && size !== 'large' ? '6px' : '2px',
+      whiteSpace: 'nowrap',
     };
 
     if (inverse) {
