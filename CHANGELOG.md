@@ -10,6 +10,10 @@
 
 ### Fixed
 
+## [0.21.1] - 2019-01-30
+
+### Fixed
+
 - `Box`: fixed the accidental `style` override when passing inline style prop. ([@driesd](https://github.com/driesd) in [#521](https://github.com/teamleadercrm/ui/pull/521))
 - `Select`: fixed `word break` behaviour for both Select `options` and `placeholder`. ([@driesd](https://github.com/driesd) in [#520](https://github.com/teamleadercrm/ui/pull/520))
 
