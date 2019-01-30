@@ -46,6 +46,7 @@ class Box extends PureComponent {
       paddingLeft = paddingHorizontal,
       paddingRight = paddingHorizontal,
       paddingTop = paddingVertical,
+      style,
       ...others
     } = this.props;
 
@@ -71,7 +72,7 @@ class Box extends PureComponent {
       className,
     );
 
-    const style = {
+    const elementStyles = {
       ...(boxSizing && { boxSizing }),
       ...(flex && { flex }),
       ...(flexBasis && { flexBasis }),
@@ -81,6 +82,7 @@ class Box extends PureComponent {
       ...(overflow && { overflow }),
       ...(overflowX && { overflowX }),
       ...(overflowY && { overflowY }),
+      ...style,
     };
 
     const Element = element;
@@ -91,7 +93,7 @@ class Box extends PureComponent {
           this.node = node;
         }}
         className={classNames}
-        style={style}
+        style={elementStyles}
         {...others}
       >
         {children}
@@ -141,6 +143,7 @@ Box.propTypes = {
   paddingLeft: PropTypes.oneOf(spacings),
   paddingRight: PropTypes.oneOf(spacings),
   paddingTop: PropTypes.oneOf(spacings),
+  style: PropTypes.object,
 };
 
 Box.defaultProps = {
