@@ -9,7 +9,6 @@ import ReactResizeDetector from 'react-resize-detector';
 import { events } from '../utils';
 import { calculatePositions } from './positionCalculation';
 import { getMaxHeight } from './sizeCalculation';
-import ScrollContainer from '../scrollContainer';
 import Box from '../box';
 import theme from './theme.css';
 
