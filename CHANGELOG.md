@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `Box`: fixed `flexGrow`, `flexShrink` & `order` with value `0` to apply the correct styles. ([@driesd](https://github.com/driesd) in [#523](https://github.com/teamleadercrm/ui/pull/523))
+
 ## [0.21.1] - 2019-01-30
 
 ### Fixed
