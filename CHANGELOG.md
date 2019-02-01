@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `Select`: changed `background & text color` for `hover & selected` options. ([@driesd](https://github.com/driesd) in [#524](https://github.com/teamleadercrm/ui/pull/524))
+
 ### Deprecated
 
 ### Removed
