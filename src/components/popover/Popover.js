@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { createRef, PureComponent } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
@@ -13,6 +13,7 @@ import Box from '../box';
 import theme from './theme.css';
 
 class Popover extends PureComponent {
+  popoverNode = createRef();
   popoverRoot = document.createElement('div');
 
   state = { positioning: { left: 0, top: 0, arrowLeft: 0, arrowTop: 0, maxHeight: 'initial' } };
@@ -36,9 +37,9 @@ class Popover extends PureComponent {
   setPlacement = () => {
     const { anchorEl, direction, position, offsetCorrection } = this.props;
 
-    if (this.popoverNode) {
+    if (this.popoverNode.current) {
       this.setState({
-        positioning: calculatePositions(anchorEl, this.popoverNode, direction, position, offsetCorrection),
+        positioning: calculatePositions(anchorEl, this.popoverNode.current, direction, position, offsetCorrection),
       });
     }
   };
@@ -93,9 +94,7 @@ class Popover extends PureComponent {
                 data-teamleader-ui={'popover'}
                 className={cx(theme['popover'], className)}
                 style={{ left: `${left}px`, top: `${top}px` }}
-                ref={node => {
-                  this.popoverNode = node;
-                }}
+                ref={this.popoverNode}
               >
                 <div className={theme['arrow']} style={{ left: `${arrowLeft}px`, top: `${arrowTop}px` }} />
                 <Box
