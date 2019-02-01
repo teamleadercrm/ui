@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `Select`: fixed the option's `selected` state in that way the `focus` state does not overrule anymore. ([@driesd](https://github.com/driesd) in [#524](https://github.com/teamleadercrm/ui/pull/524))
+
 ## [0.21.1] - 2019-01-30
 
 ### Fixed
