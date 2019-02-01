@@ -8,11 +8,10 @@ import Transition from 'react-transition-group/Transition';
 import ReactResizeDetector from 'react-resize-detector';
 import { events } from '../utils';
 import { calculatePositions } from './positionCalculation';
+import { getMaxHeight } from './sizeCalculation';
 import ScrollContainer from '../scrollContainer';
 import Box from '../box';
 import theme from './theme.css';
-
-const MAX_HEIGHT_DEFAULT = 240;
 
 class Popover extends PureComponent {
   popoverRoot = document.createElement('div');
@@ -45,21 +44,10 @@ class Popover extends PureComponent {
     }
   };
 
-  getMaxHeight = () => {
-    const { fullHeight } = this.props;
-    const { maxHeight } = this.state.positioning;
-
-    if (!fullHeight && maxHeight > MAX_HEIGHT_DEFAULT) {
-      return MAX_HEIGHT_DEFAULT;
-    }
-
-    return maxHeight;
-  };
-
   setPlacementThrottled = throttle(this.setPlacement, 250);
 
   render() {
-    const { left, top, arrowLeft, arrowTop } = this.state.positioning;
+    const { left, top, arrowLeft, arrowTop, maxHeight } = this.state.positioning;
 
     const {
       active,
@@ -67,6 +55,7 @@ class Popover extends PureComponent {
       children,
       className,
       color,
+      fullHeight,
       lockScroll,
       onOverlayClick,
       onEscKeyDown,
@@ -115,7 +104,7 @@ class Popover extends PureComponent {
                   display="flex"
                   flex="1"
                   flexDirection="column"
-                  style={{ maxHeight: this.getMaxHeight() }}
+                  style={{ maxHeight: getMaxHeight(fullHeight, maxHeight) }}
                 >
                   {children}
                 </Box>
