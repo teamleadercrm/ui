@@ -208,11 +208,11 @@ class Select extends PureComponent {
 
     return {
       ...commonStyles,
-      color: isDisabled ? COLOR.NEUTRAL.DARK : isSelected ? COLOR.NEUTRAL.LIGHTEST : COLOR.TEAL.DARK,
-      backgroundColor: isSelected ? COLOR.NEUTRAL.DARKEST : isFocused ? COLOR.NEUTRAL.NORMAL : COLOR.NEUTRAL.LIGHTEST,
+      color: isDisabled ? COLOR.NEUTRAL.DARK : COLOR.TEAL.DARK,
+      backgroundColor: isSelected ? COLOR.AQUA.LIGHTEST : isFocused ? COLOR.NEUTRAL.LIGHT : COLOR.NEUTRAL.LIGHTEST,
       '&:active': {
-        backgroundColor: isDisabled ? COLOR.NEUTRAL.LIGHTEST : COLOR.NEUTRAL.DARKEST,
-        color: isDisabled ? COLOR.NEUTRAL.DARK : COLOR.NEUTRAL.LIGHTEST,
+        backgroundColor: isDisabled ? COLOR.NEUTRAL.LIGHTEST : COLOR.AQUA.LIGHTEST,
+        color: isDisabled ? COLOR.NEUTRAL.DARK : COLOR.TEAL.DARK,
       },
     };
   };
