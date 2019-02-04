@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { createRef, PureComponent } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
@@ -8,13 +8,12 @@ import Transition from 'react-transition-group/Transition';
 import ReactResizeDetector from 'react-resize-detector';
 import { events } from '../utils';
 import { calculatePositions } from './positionCalculation';
-import ScrollContainer from '../scrollContainer';
+import { getMaxHeight } from './sizeCalculation';
 import Box from '../box';
 import theme from './theme.css';
 
-const MAX_HEIGHT_DEFAULT = 240;
-
 class Popover extends PureComponent {
+  popoverNode = createRef();
   popoverRoot = document.createElement('div');
 
   state = { positioning: { left: 0, top: 0, arrowLeft: 0, arrowTop: 0, maxHeight: 'initial' } };
@@ -38,28 +37,17 @@ class Popover extends PureComponent {
   setPlacement = () => {
     const { anchorEl, direction, position, offsetCorrection } = this.props;
 
-    if (this.popoverNode) {
+    if (this.popoverNode.current) {
       this.setState({
-        positioning: calculatePositions(anchorEl, this.popoverNode, direction, position, offsetCorrection),
+        positioning: calculatePositions(anchorEl, this.popoverNode.current, direction, position, offsetCorrection),
       });
     }
-  };
-
-  getMaxHeight = () => {
-    const { fullHeight } = this.props;
-    const { maxHeight } = this.state.positioning;
-
-    if (!fullHeight && maxHeight > MAX_HEIGHT_DEFAULT) {
-      return MAX_HEIGHT_DEFAULT;
-    }
-
-    return maxHeight;
   };
 
   setPlacementThrottled = throttle(this.setPlacement, 250);
 
   render() {
-    const { left, top, arrowLeft, arrowTop } = this.state.positioning;
+    const { left, top, arrowLeft, arrowTop, maxHeight } = this.state.positioning;
 
     const {
       active,
@@ -67,6 +55,7 @@ class Popover extends PureComponent {
       children,
       className,
       color,
+      fullHeight,
       lockScroll,
       onOverlayClick,
       onEscKeyDown,
@@ -105,9 +94,7 @@ class Popover extends PureComponent {
                 data-teamleader-ui={'popover'}
                 className={cx(theme['popover'], className)}
                 style={{ left: `${left}px`, top: `${top}px` }}
-                ref={node => {
-                  this.popoverNode = node;
-                }}
+                ref={this.popoverNode}
               >
                 <div className={theme['arrow']} style={{ left: `${arrowLeft}px`, top: `${arrowTop}px` }} />
                 <Box
@@ -115,7 +102,7 @@ class Popover extends PureComponent {
                   display="flex"
                   flex="1"
                   flexDirection="column"
-                  style={{ maxHeight: this.getMaxHeight() }}
+                  style={{ maxHeight: getMaxHeight(fullHeight, maxHeight) }}
                 >
                   {children}
                 </Box>
