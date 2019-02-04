@@ -6,12 +6,16 @@
 
 - `Popver`: extracted the `getMaxHeight` calculation function to a separate file. ([@driesd](https://github.com/driesd) in [#525](https://github.com/teamleadercrm/ui/pull/525))
 - `Popver`: use `React.createRef()` instead of a `Callback Ref`. ([@driesd](https://github.com/driesd) in [#525](https://github.com/teamleadercrm/ui/pull/525))
+- `Select`: changed `background & text color` for `hover & selected` options. ([@driesd](https://github.com/driesd) in [#524](https://github.com/teamleadercrm/ui/pull/524))
 
 ### Deprecated
 
 ### Removed
 
 ### Fixed
+
+- `Box`: fixed `flexGrow`, `flexShrink` & `order` with value `0` to apply the correct styles. ([@driesd](https://github.com/driesd) in [#523](https://github.com/teamleadercrm/ui/pull/523))
+- `Select`: fixed the option's `selected` state in that way the `focus` state does not overrule anymore. ([@driesd](https://github.com/driesd) in [#524](https://github.com/teamleadercrm/ui/pull/524))
 
 ## [0.21.1] - 2019-01-30
 
