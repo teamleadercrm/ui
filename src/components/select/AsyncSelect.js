@@ -18,7 +18,7 @@ class AsyncSelect extends PureComponent {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.pageSize !== prevProps.pageSize) {
+    if (this.props.pageSize !== prevProps.pageSize || this.props.loadOptions !== prevProps.loadOptions) {
       this.setState(
         state => ({
           ...state,

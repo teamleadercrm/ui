@@ -184,26 +184,35 @@ class Select extends PureComponent {
   getOptionStyles = (base, { isDisabled, isFocused, isSelected }) => {
     const commonStyles = {
       ...base,
+      wordBreak: 'break-all',
       padding: '8px 12px',
     };
 
     if (this.props.inverse) {
       return {
         ...commonStyles,
-        color: isDisabled ? COLOR.TEAL.LIGHT : isFocused ? COLOR.TEAL.DARK : COLOR.NEUTRAL.LIGHTEST,
-        backgroundColor: isFocused ? COLOR.TEAL.LIGHT : isSelected ? COLOR.TEAL.DARK : COLOR.TEAL.NORMAL,
+        color: isDisabled
+          ? COLOR.TEAL.LIGHT
+          : isSelected
+            ? COLOR.NEUTRAL.LIGHTEST
+            : isFocused
+              ? COLOR.TEAL.DARK
+              : COLOR.NEUTRAL.LIGHTEST,
+        backgroundColor: isSelected ? COLOR.TEAL.DARK : isFocused ? COLOR.TEAL.LIGHT : COLOR.TEAL.NORMAL,
         '&:active': {
           backgroundColor: isDisabled ? COLOR.TEAL.NORMAL : COLOR.TEAL.DARK,
+          color: isDisabled ? COLOR.TEAL.LIGHT : COLOR.NEUTRAL.LIGHTEST,
         },
       };
     }
 
     return {
       ...commonStyles,
-      color: isDisabled ? COLOR.NEUTRAL.DARK : isSelected && !isFocused ? COLOR.NEUTRAL.LIGHTEST : COLOR.TEAL.DARK,
-      backgroundColor: isFocused ? COLOR.NEUTRAL.NORMAL : isSelected ? COLOR.NEUTRAL.DARKEST : COLOR.NEUTRAL.LIGHTEST,
+      color: isDisabled ? COLOR.NEUTRAL.DARK : COLOR.TEAL.DARK,
+      backgroundColor: isSelected ? COLOR.AQUA.LIGHTEST : isFocused ? COLOR.NEUTRAL.LIGHT : COLOR.NEUTRAL.LIGHTEST,
       '&:active': {
-        backgroundColor: isDisabled ? COLOR.NEUTRAL.LIGHTEST : COLOR.NEUTRAL.NORMAL,
+        backgroundColor: isDisabled ? COLOR.NEUTRAL.LIGHTEST : COLOR.AQUA.LIGHTEST,
+        color: isDisabled ? COLOR.NEUTRAL.DARK : COLOR.TEAL.DARK,
       },
     };
   };
@@ -215,6 +224,7 @@ class Select extends PureComponent {
       ...base,
       marginLeft: isMulti && size !== 'large' ? '6px' : '2px',
       marginRight: isMulti && size !== 'large' ? '6px' : '2px',
+      whiteSpace: 'nowrap',
     };
 
     if (inverse) {

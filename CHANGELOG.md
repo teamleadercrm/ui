@@ -10,6 +10,27 @@
 
 ### Fixed
 
+## [0.21.2] - 2019-02-14
+
+### Changed
+
+- `Popover`: extracted the `getMaxHeight` calculation function to a separate file. ([@driesd](https://github.com/driesd) in [#525](https://github.com/teamleadercrm/ui/pull/525))
+- `Popover`: use `React.createRef()` instead of a `Callback Ref`. ([@driesd](https://github.com/driesd) in [#525](https://github.com/teamleadercrm/ui/pull/525))
+- `Select`: changed `background & text color` for `hover & selected` options. ([@driesd](https://github.com/driesd) in [#524](https://github.com/teamleadercrm/ui/pull/524))
+
+### Fixed
+
+- `Box`: fixed `flexGrow`, `flexShrink` & `order` with value `0` to apply the correct styles. ([@driesd](https://github.com/driesd) in [#523](https://github.com/teamleadercrm/ui/pull/523))
+- `Select`: fixed the option's `selected` state in that way the `focus` state does not overrule anymore. ([@driesd](https://github.com/driesd) in [#524](https://github.com/teamleadercrm/ui/pull/524))
+- `AsyncSelect`: refetch options when loadOptions handler changes ([@mikeverf](https://github.com/mikeverf) in [#527](https://github.com/teamleadercrm/ui/pull/527))
+
+## [0.21.1] - 2019-01-30
+
+### Fixed
+
+- `Box`: fixed the accidental `style` override when passing inline style prop. ([@driesd](https://github.com/driesd) in [#521](https://github.com/teamleadercrm/ui/pull/521))
+- `Select`: fixed `word break` behaviour for both Select `options` and `placeholder`. ([@driesd](https://github.com/driesd) in [#520](https://github.com/teamleadercrm/ui/pull/520))
+
 ## [0.21.0] - 2019-01-29
 
 ### Added
