@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `RadioButton`: fixed the squeezed radio button shape. ([@driesd](https://github.com/driesd) in [#530](https://github.com/teamleadercrm/ui/pull/530))
+
 ## [0.21.2] - 2019-02-14
 
 ### Changed
