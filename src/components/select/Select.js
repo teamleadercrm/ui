@@ -135,6 +135,21 @@ class Select extends PureComponent {
     };
   };
 
+  getMenuPortalStyles = base => {
+    const { inverse } = this.props;
+
+    return {
+      ...base,
+      backgroundColor: inverse ? COLOR.TEAL.NORMAL : COLOR.NEUTRAL.LIGHTEST,
+      fontFamily: 'Inter-UI-Regular',
+      fontSize: '14px',
+      fontSmoothing: 'antialiased',
+      '-moz-osx-font-smoothing': 'grayscale',
+      '-webkit-font-smoothing': 'antialiased',
+      zIndex: 800,
+    };
+  };
+
   getMultiValueStyles = base => {
     const { inverse } = this.props;
 
@@ -262,6 +277,7 @@ class Select extends PureComponent {
     groupHeading: this.getGroupHeadingStyles,
     input: this.getInput,
     menu: this.getMenuStyles,
+    menuPortal: this.getMenuPortalStyles,
     multiValue: this.getMultiValueStyles,
     multiValueLabel: this.getMultiValueLabelStyles,
     multiValueRemove: this.getMultiValueRemoveStyles,
