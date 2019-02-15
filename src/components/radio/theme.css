@@ -33,6 +33,7 @@
     border: var(--checkbox-border-width) solid var(--color-neutral-dark);
     border-radius: 100%;
     color: var(--color-white);
+    flex-shrink: 0;
     position: relative;
     cursor: pointer;
     transition: all 0.2s ease;
