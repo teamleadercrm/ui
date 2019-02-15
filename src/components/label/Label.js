@@ -39,7 +39,7 @@ export default class Label extends PureComponent {
       <Box element="label" marginBottom={3} className={classNames} {...others}>
         {React.Children.map(children, child => {
           if (typeof child !== 'string') {
-            return React.cloneElement(child, childProps);
+            return React.cloneElement(child, { ...childProps, ...child.props });
           }
 
           return (
