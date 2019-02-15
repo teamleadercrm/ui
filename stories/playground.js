@@ -19,8 +19,6 @@ import {
   Label,
   Link,
   Popover,
-  RadioButton,
-  RadioGroup,
   Select,
   StatusBullet,
   TextBody,
@@ -249,20 +247,5 @@ storiesOf('Playground', module)
           <Toast label="Your Toast is ready Sir!" />
         </ToastContainer>
       </Box>
-    );
-  })
-  .add('Z-Indexes', () => {
-    return (
-      <Label>
-        Customer
-        <RadioGroup display="flex" marginBottom={3} marginTop={3} value={1}>
-          <RadioButton marginRight={3} size="small" value={1}>
-            <TextBody color="teal">Companies</TextBody>
-          </RadioButton>
-          <RadioButton size="small" value={2}>
-            <TextBody color="teal">Contacts</TextBody>
-          </RadioButton>
-        </RadioGroup>
-      </Label>
     );
   });
