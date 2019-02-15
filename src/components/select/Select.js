@@ -299,7 +299,7 @@ class Select extends PureComponent {
   };
 
   render() {
-    const { components, creatable, error, inverse, helpText, size, warning, ...otherProps } = this.props;
+    const { components, creatable, error, inverse, helpText, size, usePortal, warning, ...otherProps } = this.props;
 
     const boxProps = pickBoxProps(otherProps);
     const restProps = omitBoxProps(otherProps);
@@ -321,6 +321,7 @@ class Select extends PureComponent {
             IndicatorSeparator: null,
             ...components,
           }}
+          menuPortalTarget={usePortal && document.body}
           styles={this.getStyles()}
           {...restProps}
         />
