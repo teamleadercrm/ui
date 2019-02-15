@@ -135,6 +135,21 @@ class Select extends PureComponent {
     };
   };
 
+  getMenuPortalStyles = base => {
+    const { inverse } = this.props;
+
+    return {
+      ...base,
+      backgroundColor: inverse ? COLOR.TEAL.NORMAL : COLOR.NEUTRAL.LIGHTEST,
+      fontFamily: 'Inter-UI-Regular',
+      fontSize: '14px',
+      fontSmoothing: 'antialiased',
+      '-moz-osx-font-smoothing': 'grayscale',
+      '-webkit-font-smoothing': 'antialiased',
+      zIndex: 800,
+    };
+  };
+
   getMultiValueStyles = base => {
     const { inverse } = this.props;
 
@@ -262,6 +277,7 @@ class Select extends PureComponent {
     groupHeading: this.getGroupHeadingStyles,
     input: this.getInput,
     menu: this.getMenuStyles,
+    menuPortal: this.getMenuPortalStyles,
     multiValue: this.getMultiValueStyles,
     multiValueLabel: this.getMultiValueLabelStyles,
     multiValueRemove: this.getMultiValueRemoveStyles,
@@ -299,7 +315,7 @@ class Select extends PureComponent {
   };
 
   render() {
-    const { components, creatable, error, inverse, helpText, size, warning, ...otherProps } = this.props;
+    const { components, creatable, error, inverse, helpText, size, usePortal, warning, ...otherProps } = this.props;
 
     const boxProps = pickBoxProps(otherProps);
     const restProps = omitBoxProps(otherProps);
@@ -321,6 +337,7 @@ class Select extends PureComponent {
             IndicatorSeparator: null,
             ...components,
           }}
+          menuPortalTarget={usePortal && document.body}
           styles={this.getStyles()}
           {...restProps}
         />
@@ -343,6 +360,8 @@ Select.propTypes = {
   inverse: PropTypes.bool,
   /** Size of the input element. */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
+  /** If, true the dropdown menu will be rendered in a Portal */
+  usePortal: PropTypes.bool,
   /** Selected option value(s) */
   value: PropTypes.oneOfType([PropTypes.object, PropTypes.array, PropTypes.func]),
   /** The text to use as warning message below the input. */
@@ -355,6 +374,7 @@ Select.defaultProps = {
   creatable: false,
   inverse: false,
   size: 'medium',
+  usePortal: false,
   width: '100%',
 };
 
