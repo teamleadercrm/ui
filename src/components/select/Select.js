@@ -343,6 +343,8 @@ Select.propTypes = {
   inverse: PropTypes.bool,
   /** Size of the input element. */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
+  /** If, true the dropdown menu will be rendered in a Portal */
+  usePortal: PropTypes.bool,
   /** Selected option value(s) */
   value: PropTypes.oneOfType([PropTypes.object, PropTypes.array, PropTypes.func]),
   /** The text to use as warning message below the input. */
@@ -355,6 +357,7 @@ Select.defaultProps = {
   creatable: false,
   inverse: false,
   size: 'medium',
+  usePortal: false,
   width: '100%',
 };
 
