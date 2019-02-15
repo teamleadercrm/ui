@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `Label`: merged the props of the `children` with custom props that we also want to pass down. ([@driesd](https://github.com/driesd) in [#529](https://github.com/teamleadercrm/ui/pull/529))
+
 ## [0.21.2] - 2019-02-14
 
 ### Changed
