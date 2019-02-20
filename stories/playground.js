@@ -19,6 +19,8 @@ import {
   Label,
   Link,
   Popover,
+  RadioButton,
+  RadioGroup,
   Select,
   StatusBullet,
   TextBody,
@@ -30,7 +32,7 @@ import {
 } from '../src';
 
 import { rows1 } from './static/data/datagrid';
-import options from './static/data/select';
+import options, { groupedOptions } from './static/data/select';
 
 const inputPlaceholderToday = DateTime.fromJSDate(new Date())
   .setLocale('nl')
@@ -210,7 +212,7 @@ storiesOf('Playground', module)
             <Heading3 color="teal">I am a Popover</Heading3>
             <Label marginTop={3} marginBottom={0} required>
               Select your flavourite
-              <Select helpText="Please select your favorite flavour" options={options} />
+              <Select helpText="Please select your favorite flavour" options={options} usePortal />
             </Label>
           </Box>
         </Popover>
@@ -223,7 +225,7 @@ storiesOf('Playground', module)
           <Box display="flex" marginTop={3}>
             <Label flex="1" marginBottom={0} marginRight={2} required>
               Select your flavourite
-              <Select helpText="Please select your favorite flavour" options={options} />
+              <Select helpText="Please select your favorite flavour" options={groupedOptions} usePortal />
             </Label>
             <Label required flex="1" marginLeft={2}>
               Pick a date
@@ -247,5 +249,26 @@ storiesOf('Playground', module)
           <Toast label="Your Toast is ready Sir!" />
         </ToastContainer>
       </Box>
+    );
+  })
+  .add('Forms', () => {
+    return (
+      <Label>
+        Customer
+        <RadioGroup display="flex" marginBottom={3} marginTop={3} value={1}>
+          <RadioButton marginRight={3} size="medium" value={1}>
+            <TextSmall color="teal">
+              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
+              et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+              Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
+              amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
+              aliquyam erat, sed diam voluptua.
+            </TextSmall>
+          </RadioButton>
+          <RadioButton size="medium" value={2}>
+            <TextSmall color="teal">Contacts</TextSmall>
+          </RadioButton>
+        </RadioGroup>
+      </Label>
     );
   });

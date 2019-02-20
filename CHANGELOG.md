@@ -10,6 +10,18 @@
 
 ### Fixed
 
+## [0.21.3] - 2019-02-20
+
+### Added
+
+- `Select`: added `usePortal` boolean prop. If true, the menu dropdown will be rendered inside a React Portal. ([@driesd](https://github.com/driesd) in [#531](https://github.com/teamleadercrm/ui/pull/531))
+
+### Fixed
+
+- `Label`: merged the props of the `children` with custom props that we also want to pass down. ([@driesd](https://github.com/driesd) in [#529](https://github.com/teamleadercrm/ui/pull/529))
+- `RadioButton`: fixed the squeezed radio button shape. ([@driesd](https://github.com/driesd) in [#530](https://github.com/teamleadercrm/ui/pull/530))
+- `Box`: IE11 crashes when destructuring objects with `{ ...false }` contents ([@lowiebenoot](https://github.com/lowiebenoot) and [@nickwaelkens](https://github.com/nickwaelkens) in [#532](https://github.com/teamleadercrm/ui/pull/532))
+
 ## [0.21.2] - 2019-02-14
 
 ### Changed
