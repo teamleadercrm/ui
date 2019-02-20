@@ -2,13 +2,19 @@
 
 ### Added
 
-- `Select`: added `usePortal` boolean prop. If true, the menu dropdown will be rendered inside a React Portal. ([@driesd](https://github.com/driesd) in [#531](https://github.com/teamleadercrm/ui/pull/531))
-
 ### Changed
 
 ### Deprecated
 
 ### Removed
+
+### Fixed
+
+## [0.21.3] - 2019-02-20
+
+### Added
+
+- `Select`: added `usePortal` boolean prop. If true, the menu dropdown will be rendered inside a React Portal. ([@driesd](https://github.com/driesd) in [#531](https://github.com/teamleadercrm/ui/pull/531))
 
 ### Fixed
 
