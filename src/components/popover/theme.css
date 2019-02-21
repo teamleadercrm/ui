@@ -27,6 +27,7 @@
   transition: opacity var(--animation-duration) var(--animation-curve-default);
   max-width: 50vw;
   display: flex;
+  z-index: 2;
 }
 
 .is-entering .popover {
