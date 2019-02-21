@@ -55,6 +55,7 @@ class Popover extends PureComponent {
       children,
       className,
       color,
+      depth,
       fullHeight,
       lockScroll,
       onOverlayClick,
@@ -78,6 +79,7 @@ class Popover extends PureComponent {
                 [theme['is-entering']]: state === 'entering',
                 [theme['is-entered']]: state === 'entered',
               })}
+              style={{ zIndex: depth }}
             >
               <InjectOverlay
                 active={active}
@@ -137,6 +139,8 @@ Popover.propTypes = {
   className: PropTypes.string,
   /** The background colour of the Popover. */
   color: PropTypes.oneOf(['aqua', 'gold', 'mint', 'neutral', 'ruby', 'teal', 'violet']),
+  /** The depth (z-index) of the Popover */
+  depth: PropTypes.number,
   /** The direction in which the Popover is rendered, is overridden with the opposite direction if the Popover cannot be entirely displayed in the current direction. */
   direction: PropTypes.oneOf(['north', 'south', 'east', 'west']),
   /** If true, the Popover stretches to fit its content vertically */
@@ -164,6 +168,7 @@ Popover.propTypes = {
 Popover.defaultProps = {
   active: true,
   backdrop: 'dark',
+  depth: 300,
   direction: 'south',
   fullHeight: true,
   color: 'neutral',
