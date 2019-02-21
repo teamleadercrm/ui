@@ -2,18 +2,20 @@ import React from 'react';
 import MomentLocaleUtils, { formatDate, parseDate } from 'react-day-picker/moment';
 import { storiesOf } from '@storybook/react';
 import { boolean } from '@storybook/addon-knobs/react';
+import { Store, State } from '@sambego/storybook-state';
 import { DateTime } from 'luxon';
-import { IconIdeaMediumOutline } from '@teamleader/ui-icons';
+import { IconIdeaMediumOutline, IconInfoBadgedSmallFilled } from '@teamleader/ui-icons';
 import {
-  Banner,
   Box,
   Button,
   ButtonGroup,
   DataGrid,
   DatePickerInput,
+  DatePickerInputRange,
   Dialog,
   Heading3,
   Heading4,
+  Icon,
   IconMenu,
   MenuItem,
   Label,
@@ -38,11 +40,54 @@ const inputPlaceholderToday = DateTime.fromJSDate(new Date())
   .setLocale('nl')
   .toLocaleString(DateTime.DATE_SHORT);
 
+const inputPlaceholderTomorrow = DateTime.fromJSDate(new Date())
+  .setLocale('nl')
+  .plus({ days: 1 })
+  .toLocaleString(DateTime.DATE_SHORT);
+
 const preSelectedDate = DateTime.local()
   .plus({ days: 3 })
   .toJSDate();
 
+const preSelectedRange = {
+  selectedStartDate: DateTime.local()
+    .plus({ days: 3 })
+    .toJSDate(),
+  selectedEndDate: DateTime.local()
+    .plus({ days: 8 })
+    .toJSDate(),
+};
+
+const TooltippedIcon = Tooltip(Icon);
 const TooltippedStatusBullet = Tooltip(StatusBullet);
+
+const dialogStore = new Store({
+  active: false,
+});
+
+const popoverStore = new Store({
+  active: false,
+});
+
+const qTipStore = new Store({
+  closed: true,
+});
+
+const showHideDialog = () => {
+  dialogStore.set({ active: !dialogStore.get('active') });
+};
+
+const hidePopover = () => {
+  popoverStore.set({ active: false });
+};
+
+const showPopover = event => {
+  popoverStore.set({ anchorEl: event.currentTarget, active: true });
+};
+
+const showHideQTip = () => {
+  qTipStore.set({ active: !qTipStore.get('active') });
+};
 
 const MyDatagrid = ({ ...props }) => (
   <DataGrid comparableId={1} onSelectionChange={() => console.log('onSelectionChange')} {...props}>
@@ -149,15 +194,14 @@ storiesOf('Playground', module)
       propTables: false,
     },
   })
-  .add('Z-Indexes', () => {
-    const myRef = document.querySelector('h1');
-
-    return (
-      <Box>
+  .add('Z-Indexes', () => (
+    <Box>
+      <State store={qTipStore}>
         <QTip
           icon={<IconIdeaMediumOutline />}
-          closed={!boolean('QTip is active', false)}
-          onChange={() => console.log('QTip has changed')}
+          onChange={showHideQTip}
+          onEscKeyDown={showHideQTip}
+          onOverlayClick={showHideQTip}
         >
           <TextBody color="teal">
             Lorem ipsum dolor sit amet, consectetur{' '}
@@ -167,65 +211,106 @@ storiesOf('Playground', module)
             elit.
           </TextBody>
         </QTip>
-        <Box display="flex">
-          <Label flex="1" marginRight={3}>
-            Select your flavourite
-            <Select
-              helpText="Please select your favorite flavour"
-              options={options}
-              marginBottom={3}
-              menuIsOpen={boolean('Select is active', false)}
-            />
-          </Label>
-          <Label required flex="1" marginLeft={3}>
-            Pick a date
-            <DatePickerInput
-              formatDate={formatDate}
-              parseDate={parseDate}
-              helpText="Please pick a preferred date"
-              dayPickerProps={{
-                locale: 'nl',
-                localeUtils: MomentLocaleUtils,
-                numberOfMonths: 2,
-              }}
-              placeholder={inputPlaceholderToday}
-              selectedDate={preSelectedDate}
-              value={preSelectedDate}
-            />
-          </Label>
-        </Box>
-        <MyDatagrid
-          selectable={boolean('DataGrid selectable', true)}
-          stickyFromLeft={3}
-          stickyFromRight={1}
-          processing={boolean('DataGrid processing', false)}
-          marginTop={4}
-        />
+      </State>
+      <ButtonGroup marginBottom={5}>
+        <Button label="Open Dialog" onClick={showHideDialog} />
+        <Button label="Open Poppover" onClick={showPopover} />
+      </ButtonGroup>
+      <Box display="flex">
+        <Label flex="1" marginRight={3}>
+          Select your flavourite
+          <Select helpText="Please select your favorite flavour" options={options} marginBottom={3} />
+        </Label>
+      </Box>
+      <Box display="flex">
+        <Label required flex="1">
+          Pick a date
+          <DatePickerInput
+            formatDate={formatDate}
+            parseDate={parseDate}
+            helpText="Please pick a preferred date"
+            dayPickerProps={{
+              locale: 'nl',
+              localeUtils: MomentLocaleUtils,
+              numberOfMonths: 2,
+            }}
+            onChange={() => console.log('Changed')}
+            placeholder={inputPlaceholderToday}
+            selectedDate={preSelectedDate}
+            value={preSelectedDate}
+          />
+        </Label>
+        <Label required flex="1" marginLeft={3}>
+          Pick a date
+          <DatePickerInputRange
+            formatDate={formatDate}
+            parseDate={parseDate}
+            dayPickerProps={{
+              locale: 'nl',
+              localeUtils: MomentLocaleUtils,
+              numberOfMonths: 2,
+              showOutsideDays: false,
+              showWeekNumbers: true,
+            }}
+            dayPickerInputStartDateProps={{
+              placeholder: inputPlaceholderToday,
+              value: preSelectedRange.selectedStartDate,
+            }}
+            dayPickerInputEndDateProps={{
+              placeholder: inputPlaceholderTomorrow,
+              value: preSelectedRange.selectedEndDate,
+            }}
+            onChange={() => console.log('Changed')}
+            selectedRange={preSelectedRange}
+          />
+        </Label>
+      </Box>
+      <MyDatagrid
+        selectable={boolean('DataGrid selectable', true)}
+        stickyFromLeft={3}
+        stickyFromRight={1}
+        processing={boolean('DataGrid processing', false)}
+        marginTop={4}
+      />
+      <State store={popoverStore}>
         <Popover
-          active={boolean('Popover is active', false)}
-          anchorEl={myRef}
           backdrop="dark"
+          onEscKeyDown={hidePopover}
+          onOverlayClick={hidePopover}
           position="end"
           direction="south"
         >
           <Box padding={4}>
             <Heading3 color="teal">I am a Popover</Heading3>
-            <Label marginTop={3} marginBottom={0} required>
+            <Label
+              connectedRight={
+                <TooltippedIcon tooltip={<TextSmall>This is the label tooltip text</TextSmall>} tooltipSize="small">
+                  <IconInfoBadgedSmallFilled />
+                </TooltippedIcon>
+              }
+              marginTop={3}
+              marginBottom={0}
+              required
+            >
               Select your flavourite
-              <Select helpText="Please select your favorite flavour" options={options} usePortal />
+              <Select helpText="Please select your favorite flavour" options={options} />
             </Label>
           </Box>
         </Popover>
+      </State>
+      <State store={dialogStore}>
         <Dialog
-          active={boolean('Dialog is active', false)}
           title="I am the Dialog title"
-          primaryAction={{ label: 'Confirm' }}
+          onCloseClick={showHideDialog}
+          onEscKeyDown={showHideDialog}
+          onOverlayClick={showHideDialog}
+          primaryAction={{ label: 'Confirm', onClick: showHideDialog }}
         >
           <TextBody color="teal">I am a Dialog that covers everything below</TextBody>
           <Box display="flex" marginTop={3}>
             <Label flex="1" marginBottom={0} marginRight={2} required>
               Select your flavourite
-              <Select helpText="Please select your favorite flavour" options={groupedOptions} usePortal />
+              <Select helpText="Please select your favorite flavour" options={groupedOptions} />
             </Label>
             <Label required flex="1" marginLeft={2}>
               Pick a date
@@ -245,12 +330,12 @@ storiesOf('Playground', module)
             </Label>
           </Box>
         </Dialog>
-        <ToastContainer>
-          <Toast label="Your Toast is ready Sir!" />
-        </ToastContainer>
-      </Box>
-    );
-  })
+      </State>
+      <ToastContainer>
+        <Toast label="Your Toast is ready Sir!" />
+      </ToastContainer>
+    </Box>
+  ))
   .add('Forms', () => {
     return (
       <Label>
