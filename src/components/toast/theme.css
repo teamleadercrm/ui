@@ -20,7 +20,7 @@
   padding: 0;
   position: fixed;
   right: var(--toast-offset);
-  z-index: 700;
+  z-index: 600;
 }
 
 .toast {
