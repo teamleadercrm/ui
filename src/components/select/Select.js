@@ -135,7 +135,7 @@ class Select extends PureComponent {
       fontSmoothing: 'antialiased',
       '-moz-osx-font-smoothing': 'grayscale',
       '-webkit-font-smoothing': 'antialiased',
-      zIndex: 800,
+      zIndex: 500,
     };
   };
 
