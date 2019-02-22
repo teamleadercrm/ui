@@ -16,6 +16,7 @@
   top: 0;
   transition: opacity var(--animation-duration) var(--animation-curve-default);
   width: 100vw;
+  z-index: 1;
 
   &.is-entering {
     opacity: 0;

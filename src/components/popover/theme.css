@@ -16,7 +16,6 @@
   top: 0;
   left: 0;
   width: 100vw;
-  z-index: 400;
   transition: opacity 0.2s ease-out;
 }
 
@@ -28,6 +27,7 @@
   transition: opacity var(--animation-duration) var(--animation-curve-default);
   max-width: 50vw;
   display: flex;
+  z-index: 2;
 }
 
 .is-entering .popover {

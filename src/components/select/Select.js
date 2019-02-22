@@ -124,17 +124,6 @@ class Select extends PureComponent {
     };
   };
 
-  getMenuStyles = base => {
-    const { inverse, width } = this.props;
-
-    return {
-      ...base,
-      backgroundColor: inverse ? COLOR.TEAL.NORMAL : COLOR.NEUTRAL.LIGHTEST,
-      width,
-      zIndex: 300,
-    };
-  };
-
   getMenuPortalStyles = base => {
     const { inverse } = this.props;
 
@@ -146,7 +135,7 @@ class Select extends PureComponent {
       fontSmoothing: 'antialiased',
       '-moz-osx-font-smoothing': 'grayscale',
       '-webkit-font-smoothing': 'antialiased',
-      zIndex: 800,
+      zIndex: 500,
     };
   };
 
@@ -276,7 +265,6 @@ class Select extends PureComponent {
     group: this.getGroupStyles,
     groupHeading: this.getGroupHeadingStyles,
     input: this.getInput,
-    menu: this.getMenuStyles,
     menuPortal: this.getMenuPortalStyles,
     multiValue: this.getMultiValueStyles,
     multiValueLabel: this.getMultiValueLabelStyles,
@@ -315,7 +303,7 @@ class Select extends PureComponent {
   };
 
   render() {
-    const { components, creatable, error, inverse, helpText, size, usePortal, warning, ...otherProps } = this.props;
+    const { components, creatable, error, inverse, helpText, size, warning, ...otherProps } = this.props;
 
     const boxProps = pickBoxProps(otherProps);
     const restProps = omitBoxProps(otherProps);
@@ -337,7 +325,6 @@ class Select extends PureComponent {
             IndicatorSeparator: null,
             ...components,
           }}
-          menuPortalTarget={usePortal && document.body}
           styles={this.getStyles()}
           {...restProps}
         />
@@ -358,10 +345,10 @@ Select.propTypes = {
   helpText: PropTypes.string,
   /** Boolean indicating whether the select should render as inverse. */
   inverse: PropTypes.bool,
+  /** The HTML DOM node on which the portal should append */
+  menuPortalTarget: PropTypes.instanceOf(Element),
   /** Size of the input element. */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
-  /** If, true the dropdown menu will be rendered in a Portal */
-  usePortal: PropTypes.bool,
   /** Selected option value(s) */
   value: PropTypes.oneOfType([PropTypes.object, PropTypes.array, PropTypes.func]),
   /** The text to use as warning message below the input. */
@@ -373,8 +360,8 @@ Select.propTypes = {
 Select.defaultProps = {
   creatable: false,
   inverse: false,
+  menuPortalTarget: document.body,
   size: 'medium',
-  usePortal: false,
   width: '100%',
 };
 
