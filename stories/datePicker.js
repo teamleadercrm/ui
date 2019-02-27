@@ -54,28 +54,27 @@ storiesOf('Form elements/DatePicker', module)
 
     return (
       <DatePickerInput
-        formatDate={formatDate}
-        parseDate={parseDate}
-        bold={boolean('Bold', false)}
-        disabled={boolean('Disabled', false)}
-        error={text('error', '')}
-        helpText={text('helpText', 'Pick a date')}
-        warning={text('warning', '')}
-        inverse={boolean('Inverse', false)}
         dayPickerProps={{
-          locale: select('Locale', languages, 'nl'),
-          localeUtils: MomentLocaleUtils,
-          numberOfMonths: number('Number of months', 2),
+          numberOfMonths: number('Number of months', 1),
           showOutsideDays: boolean('Show outside days', true),
           showWeekNumbers: boolean('Show week numbers', true),
         }}
+        inputProps={{
+          bold: boolean('Bold', false),
+          disabled: boolean('Disabled', false),
+          error: text('error', ''),
+          helpText: text('helpText', 'Pick a date'),
+          inverse: boolean('Inverse', false),
+          warning: text('warning', ''),
+          placeholder: inputPlaceholderToday,
+          readOnly: boolean('Read only', false),
+          width: text('width', '120px'),
+        }}
+        locale={select('Locale', languages, 'nl')}
+        localeUtils={MomentLocaleUtils}
         onChange={handleOnChange}
-        placeholder={inputPlaceholderToday}
-        readOnly={boolean('Read only', false)}
         selectedDate={preSelectedDate}
         size={select('Size', sizes, 'medium')}
-        value={preSelectedDate}
-        width={text('width', undefined)}
       />
     );
   })
