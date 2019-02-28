@@ -1,4 +1,3 @@
-const ARROW_OFFSET = 7;
 const POPUP_OFFSET = 12;
 
 const POSITION_START = 'start';
@@ -40,14 +39,12 @@ const getVerticalDirectionPositionValues = ({
     anchorPosition,
     popoverDimensions,
   }),
-  arrowTop: getVerticalDirectionArrowPositionTopValue({ direction, popoverDimensions }),
   left: getVerticalDirectionPositionLeftValue({
     position,
     anchorPosition,
     popoverDimensions,
     inputOffsetCorrection,
   }),
-  arrowLeft: getVerticalDirectionArrowPositionLeftValue({ position, popoverDimensions }),
 });
 
 const getHorizontalDirectionPositionValues = ({
