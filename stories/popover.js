@@ -7,7 +7,6 @@ import { Banner, Box, Button, ButtonGroup, Heading3, Link, Popover, TextBody, Te
 const store = new Store({
   active: false,
 });
-
 const colors = ['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'teal'];
 const tints = ['lightest', 'light', 'normal', 'dark', 'darkest'];
 const backdrops = ['transparent', 'dark'];
@@ -16,10 +15,12 @@ const positions = ['start', 'center', 'end'];
 
 const handleButtonClick = event => {
   store.set({ anchorEl: event.currentTarget, active: true });
+  console.log(store);
 };
 
 const handleCloseClick = () => {
   store.set({ active: false });
+  console.log(store);
 };
 
 const contentBoxWithSingleTextLine = (
