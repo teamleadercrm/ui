@@ -60,13 +60,7 @@ const getHorizontalDirectionPositionValues = ({
     popoverDimensions,
     inputOffsetCorrection,
   }),
-  arrowTop: getHorizontalDirectionArrowPositionTopValue({ position, popoverDimensions }),
   left: getHorizontalDirectionPositionLeftValue({ direction, anchorPosition, popoverDimensions }),
-  arrowLeft: getHorizontalDirectionArrowPositionLeftValue({
-    direction,
-    anchorPosition,
-    popoverDimensions,
-  }),
 });
 
 const getPositionValues = ({ direction, position, anchorPosition, popoverDimensions, inputOffsetCorrection }) =>
@@ -107,21 +101,6 @@ const getHorizontalDirectionPositionLeftValue = ({ direction, anchorPosition, po
   direction === DIRECTION_WEST
     ? anchorPosition.left - popoverDimensions.width - POPUP_OFFSET
     : anchorPosition.right + POPUP_OFFSET;
-
-const getHorizontalDirectionArrowPositionTopValue = ({ position, popoverDimensions }) => {
-  switch (position) {
-    case POSITION_CENTER:
-      return popoverDimensions.height / 2 - ARROW_OFFSET;
-    case POSITION_START:
-      return ARROW_OFFSET * 2.35;
-    case POSITION_END:
-      return popoverDimensions.height - ARROW_OFFSET * 4.5;
-  }
-};
-
-const getHorizontalDirectionArrowPositionLeftValue = ({ direction, popoverDimensions }) =>
-  direction === DIRECTION_WEST ? popoverDimensions.width - ARROW_OFFSET : -ARROW_OFFSET;
-
 // VERTICAL
 const getVerticalDirectionPositionTopValue = ({ direction, anchorPosition, popoverDimensions }) =>
   direction === DIRECTION_NORTH
@@ -141,20 +120,6 @@ const getVerticalDirectionPositionLeftValue = ({
       return anchorPosition.left - inputOffsetCorrection;
     case POSITION_END:
       return anchorPosition.right - popoverDimensions.width + inputOffsetCorrection;
-  }
-};
-
-const getVerticalDirectionArrowPositionTopValue = ({ direction, popoverDimensions }) =>
-  direction === DIRECTION_NORTH ? popoverDimensions.height - ARROW_OFFSET : -ARROW_OFFSET;
-
-const getVerticalDirectionArrowPositionLeftValue = ({ position, popoverDimensions }) => {
-  switch (position) {
-    case POSITION_CENTER:
-      return popoverDimensions.width / 2 - ARROW_OFFSET;
-    case POSITION_START:
-      return 2 * POPUP_OFFSET;
-    case POSITION_END:
-      return popoverDimensions.width - POPUP_OFFSET * 3;
   }
 };
 
