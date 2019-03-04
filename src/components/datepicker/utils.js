@@ -20,8 +20,7 @@ export const isSelectingFirstDay = (from, to, day) => {
   return !from || isBeforeFirstDay || isRangeSelected;
 };
 
-export function JSDateToLocaleString(date, locale, format = DateTime.DATE_SHORT) {
-  return DateTime.fromJSDate(date)
+export const JSDateToLocaleString = (date, locale, format = DateTime.DATE_SHORT) =>
+  DateTime.fromJSDate(date)
     .setLocale(locale)
     .toLocaleString(format);
-}
