@@ -63,6 +63,7 @@ class Popover extends PureComponent {
       onOverlayMouseMove,
       onOverlayMouseUp,
       tint,
+      zIndex,
     } = this.props;
 
     if (!active) {
@@ -78,6 +79,7 @@ class Popover extends PureComponent {
                 [theme['is-entering']]: state === 'entering',
                 [theme['is-entered']]: state === 'entered',
               })}
+              style={{ zIndex }}
             >
               <InjectOverlay
                 active={active}
@@ -159,11 +161,14 @@ Popover.propTypes = {
   position: PropTypes.oneOf(['start', 'center', 'end']),
   /** The tint of the background colour of the Popover. */
   tint: PropTypes.oneOf(['lightest', 'light', 'normal', 'dark', 'darkest']),
+  /** The z-index of the Popover */
+  zIndex: PropTypes.number,
 };
 
 Popover.defaultProps = {
   active: true,
   backdrop: 'dark',
+  zIndex: 300,
   direction: 'south',
   fullHeight: true,
   color: 'neutral',

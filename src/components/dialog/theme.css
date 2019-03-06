@@ -16,7 +16,7 @@
   position: fixed;
   top: 0;
   width: 100vw;
-  z-index: 600;
+  z-index: 400;
 }
 
 .dialog-base {
@@ -33,6 +33,7 @@
     transform var(--animation-duration) var(--animation-curve-default);
   transition-delay: var(--animation-delay);
   width: 100vw;
+  z-index: 2;
 }
 
 .inner {

@@ -7,7 +7,7 @@ import theme from './theme.css';
 
 class InputBase extends PureComponent {
   render() {
-    const { bold, className, element, inverse, size, ...otherProps } = this.props;
+    const { bold, className, element, innerRef, inverse, size, ...otherProps } = this.props;
 
     const classNames = cx(
       theme['input'],
@@ -23,6 +23,7 @@ class InputBase extends PureComponent {
 
     const props = {
       className: classNames,
+      ref: innerRef,
       ...restProps,
     };
 
@@ -39,6 +40,8 @@ InputBase.propTypes = {
   disabled: PropTypes.bool,
   /** The element to render. */
   element: PropTypes.oneOf(['input', 'textarea']),
+  /** The reference to the inner html element */
+  innerRef: PropTypes.object,
   /** Boolean indicating whether the input should render as inverse. */
   inverse: PropTypes.bool,
   /** Callback function that is fired when blurring the input field. */

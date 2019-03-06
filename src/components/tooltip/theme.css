@@ -9,7 +9,7 @@
   --tooltip-border-width: 1px;
   --tooltip-max-width: calc(18 * var(--unit));
   --tooltip-animation-duration: 200ms;
-  --tooltip-z-index: 200;
+  --tooltip-z-index: 700;
 }
 
 .tooltip {
