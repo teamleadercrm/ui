@@ -1,4 +1,4 @@
-const POPUP_OFFSET = 12;
+const POPUP_OFFSET = 6;
 
 const POSITION_START = 'start';
 const POSITION_CENTER = 'center';
