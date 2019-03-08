@@ -13,16 +13,20 @@ const gridStyles = {
 };
 
 const itemStyles = {
-  display: 'inline-block',
+  alignItems: 'center',
+  display: 'flex',
   width: '320px',
   whitespace: 'nowrap',
 };
 
-storiesOf('Icons', module).add('all sizes', () => (
-  <Box>
-    <Section>
-      <Heading2>Small (14x14)</Heading2>
-    </Section>
+storiesOf('Icons', module)
+  .addParameters({
+    info: {
+      source: false,
+      propTables: false,
+    },
+  })
+  .add('14x14', () => (
     <Box style={gridStyles}>
       {Object.keys(Icons).map((key, index) => {
         if (key.includes('Small')) {
@@ -50,10 +54,8 @@ storiesOf('Icons', module).add('all sizes', () => (
         }
       })}
     </Box>
-
-    <Section marginTop={4}>
-      <Heading2>Medium (24x24)</Heading2>
-    </Section>
+  ))
+  .add('24x24', () => (
     <Box style={gridStyles}>
       {Object.keys(Icons).map((key, index) => {
         if (key.includes('Medium')) {
@@ -81,5 +83,4 @@ storiesOf('Icons', module).add('all sizes', () => (
         }
       })}
     </Box>
-  </Box>
-));
+  ));
