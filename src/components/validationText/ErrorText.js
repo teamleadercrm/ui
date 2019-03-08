@@ -10,7 +10,14 @@ export default class ErrorText extends PureComponent {
     const { children, className, inverse, ...others } = this.props;
 
     return (
-      <Box className={className} data-teamleader-ui="error-text" marginTop={2} {...others}>
+      <Box
+        className={className}
+        alignItems="center"
+        data-teamleader-ui="error-text"
+        display="flex"
+        marginTop={2}
+        {...others}
+      >
         <Icon color="ruby" tint={inverse ? 'light' : 'dark'}>
           <IconWarningBadgedSmallFilled />
         </Icon>

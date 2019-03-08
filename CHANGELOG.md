@@ -12,6 +12,8 @@
 
 ### Fixed
 
+- `Icon`: fixed the vertical aligment of the svg icon. ([@driesd](https://github.com/driesd) in [#540](https://github.com/teamleadercrm/ui/pull/540))
+
 ## [0.22.0] - 2019-03-06
 
 ### Added
