@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `NumericInput`: disabled the `tabindex` for the numeric input spinner controls. ([@driesd](https://github.com/driesd) in [#539](https://github.com/teamleadercrm/ui/pull/539))
+
 ### Deprecated
 
 ### Removed
