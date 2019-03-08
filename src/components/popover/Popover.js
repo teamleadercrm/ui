@@ -16,7 +16,7 @@ class Popover extends PureComponent {
   popoverNode = createRef();
   popoverRoot = document.createElement('div');
 
-  state = { positioning: { left: 0, top: 0, arrowLeft: 0, arrowTop: 0, maxHeight: 'initial' } };
+  state = { positioning: { left: 0, top: 0, maxHeight: 'initial' } };
 
   componentDidMount() {
     document.body.appendChild(this.popoverRoot);
@@ -47,7 +47,7 @@ class Popover extends PureComponent {
   setPlacementThrottled = throttle(this.setPlacement, 250);
 
   render() {
-    const { left, top, arrowLeft, arrowTop, maxHeight } = this.state.positioning;
+    const { left, top, maxHeight } = this.state.positioning;
 
     const {
       active,
@@ -98,7 +98,6 @@ class Popover extends PureComponent {
                 style={{ left: `${left}px`, top: `${top}px` }}
                 ref={this.popoverNode}
               >
-                <div className={theme['arrow']} style={{ left: `${arrowLeft}px`, top: `${arrowTop}px` }} />
                 <Box
                   className={theme['inner']}
                   display="flex"
