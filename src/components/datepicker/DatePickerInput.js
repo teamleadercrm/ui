@@ -51,12 +51,7 @@ class DatePickerInput extends PureComponent {
     const inverse = this.props.inputProps && this.props.inputProps.inverse;
 
     return (
-      <Icon
-        className={theme['input-icon']}
-        color={inverse ? 'teal' : 'neutral'}
-        tint={inverse ? 'light' : 'darkest'}
-        marginHorizontal={2}
-      >
+      <Icon color={inverse ? 'teal' : 'neutral'} tint={inverse ? 'light' : 'darkest'} marginHorizontal={2}>
         <IconCalendarSmallOutline />
       </Icon>
     );
