@@ -9,7 +9,6 @@ import cx from 'classnames';
 import theme from './theme.css';
 import LocalUtils, { formatDate } from './localUtils';
 import { IconCalendarSmallOutline } from '@teamleader/ui-icons';
-import { JSDateToLocaleString } from './utils';
 
 class DatePickerInput extends PureComponent {
   state = {
@@ -64,21 +63,14 @@ class DatePickerInput extends PureComponent {
   };
 
   render() {
-    const {
-      className,
-      dayPickerProps,
-      formatDate,
-      inverse,
-      inputProps,
-      locale,
-      popoverProps,
-      size,
-      ...others
-    } = this.props;
+    const { className, dayPickerProps, inverse, inputProps, locale, popoverProps, size, ...others } = this.props;
     const { isPopoverActive, popoverAnchorEl, selectedDate } = this.state;
 
     const boxProps = pickBoxProps(others);
     const datePickerClassNames = cx(theme['date-picker-input'], theme[`is-${size}`]);
+    const formattedDate = this.props.formatDate
+      ? this.props.formatDate(selectedDate, locale)
+      : formatDate(selectedDate, locale);
 
     return (
       <Box className={className} {...boxProps}>
@@ -87,7 +79,7 @@ class DatePickerInput extends PureComponent {
           onFocus={this.handleInputFocus}
           prefix={this.renderIcon()}
           size={size}
-          value={formatDate(selectedDate, locale)}
+          value={formattedDate}
           width="120px"
           {...inputProps}
         />
@@ -144,7 +136,6 @@ DatePickerInput.propTypes = {
 };
 
 DatePickerInput.defaultProps = {
-  formatDate: JSDateToLocaleString,
   inverse: false,
   locale: 'en',
   size: 'medium',
