@@ -29,7 +29,7 @@ class Select extends PureComponent {
   };
 
   getControlStyles = (base, { isDisabled, isFocused }) => {
-    const { error, inverse, size, warning, width } = this.props;
+    const { error, inverse, size, success, warning, width } = this.props;
 
     const commonStyles = {
       ...base,
@@ -42,7 +42,7 @@ class Select extends PureComponent {
         ...commonStyles,
         backgroundColor: isDisabled ? COLOR.TEAL.DARK : COLOR.TEAL.NORMAL,
         '&:hover': {
-          borderColor: !isFocused && !error && !warning && COLOR.TEAL.LIGHT,
+          borderColor: !isFocused && !error && !warning && !success && COLOR.TEAL.LIGHT,
         },
         borderColor: isFocused
           ? COLOR.TEAL.LIGHT
@@ -50,16 +50,20 @@ class Select extends PureComponent {
             ? COLOR.RUBY.LIGHT
             : warning
               ? COLOR.GOLD.LIGHT
-              : isDisabled
-                ? COLOR.TEAL.DARK
-                : COLOR.TEAL.NORMAL,
+              : success
+                ? COLOR.MINT.LIGHT
+                : isDisabled
+                  ? COLOR.TEAL.DARK
+                  : COLOR.TEAL.NORMAL,
         boxShadow: isFocused
           ? `0 0 0 1px ${COLOR.TEAL.LIGHT}`
           : error
             ? `0 0 0 1px ${COLOR.RUBY.LIGHT}`
             : warning
               ? `0 0 0 1px ${COLOR.GOLD.LIGHT}`
-              : 'none',
+              : success
+                ? `0 0 0 1px ${COLOR.MINT.LIGHT}`
+                : 'none',
       };
     }
 
@@ -67,7 +71,7 @@ class Select extends PureComponent {
       ...commonStyles,
       backgroundColor: isDisabled ? COLOR.NEUTRAL.NORMAL : COLOR.NEUTRAL.LIGHTEST,
       '&:hover': {
-        borderColor: !isFocused && !error && !warning && COLOR.NEUTRAL.DARKEST,
+        borderColor: !isFocused && !error && !warning && !success && COLOR.NEUTRAL.DARKEST,
       },
       borderColor: isFocused
         ? COLOR.NEUTRAL.DARKEST
@@ -75,16 +79,20 @@ class Select extends PureComponent {
           ? COLOR.RUBY.DARK
           : warning
             ? COLOR.GOLD.DARK
-            : isDisabled
-              ? COLOR.NEUTRAL.NORMAL
-              : COLOR.NEUTRAL.DARK,
+            : success
+              ? COLOR.MINT.DARK
+              : isDisabled
+                ? COLOR.NEUTRAL.NORMAL
+                : COLOR.NEUTRAL.DARK,
       boxShadow: isFocused
         ? `0 0 0 1px ${COLOR.NEUTRAL.DARKEST}`
         : error
           ? `0 0 0 1px ${COLOR.RUBY.DARK}`
           : warning
             ? `0 0 0 1px ${COLOR.GOLD.DARK}`
-            : 'none',
+            : success
+              ? `0 0 0 1px ${COLOR.MINT.DARK}`
+              : 'none',
     };
   };
 
@@ -303,7 +311,7 @@ class Select extends PureComponent {
   };
 
   render() {
-    const { components, creatable, error, inverse, helpText, size, warning, ...otherProps } = this.props;
+    const { components, creatable, error, inverse, helpText, size, success, warning, ...otherProps } = this.props;
 
     const boxProps = pickBoxProps(otherProps);
     const restProps = omitBoxProps(otherProps);
@@ -328,7 +336,7 @@ class Select extends PureComponent {
           styles={this.getStyles()}
           {...restProps}
         />
-        <ValidationText error={error} help={helpText} inverse={inverse} warning={warning} />
+        <ValidationText error={error} help={helpText} inverse={inverse} success={success} warning={warning} />
       </Box>
     );
   }
@@ -349,6 +357,8 @@ Select.propTypes = {
   menuPortalTarget: PropTypes.instanceOf(Element),
   /** Size of the input element. */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
+  /** The text string/element to use as success message below the input. */
+  success: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   /** Selected option value(s) */
   value: PropTypes.oneOfType([PropTypes.object, PropTypes.array, PropTypes.func]),
   /** The text to use as warning message below the input. */
