@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { boolean, number, select, text } from '@storybook/addon-knobs/react';
 import { DatePicker, DatePickerRange, DatePickerInput, DatePickerInputRange } from '../src';
 import { DateTime } from 'luxon';
-import CustomLocalUtils, { formatDate, parseDate } from '../src/components/datepicker/localUtils';
+import CustomLocaleUtils, { formatDate, parseDate } from '../src/components/datepicker/localeUtils';
 
 const languages = [
   'da-DK',
@@ -56,7 +56,7 @@ storiesOf('Form elements/DatePicker', module)
     return (
       <DatePicker
         locale={select('Locale', languages, 'nl-BE')}
-        localeUtils={CustomLocalUtils}
+        localeUtils={CustomLocaleUtils}
         numberOfMonths={number('Number of months', 1)}
         onChange={handleOnChange}
         selectedDate={preSelectedDate}
@@ -105,7 +105,7 @@ storiesOf('Form elements/DatePicker', module)
     return (
       <DatePickerRange
         locale={select('Locale', languages, 'nl-BE')}
-        localeUtils={CustomLocalUtils}
+        localeUtils={CustomLocaleUtils}
         numberOfMonths={number('Number of months', 2)}
         onChange={handleOnChange}
         selectedRange={preSelectedRange}
@@ -125,7 +125,7 @@ storiesOf('Form elements/DatePicker', module)
         bold={boolean('Bold', false)}
         dayPickerProps={{
           locale: select('Locale', languages, 'nl-BE'),
-          localeUtils: CustomLocalUtils,
+          localeUtils: CustomLocaleUtils,
           numberOfMonths: number('Number of months', 2),
           showOutsideDays: boolean('Show outside days', false),
           showWeekNumbers: boolean('Show week numbers', true),
