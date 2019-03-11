@@ -63,7 +63,7 @@ class Passport extends PureComponent {
                 <Box alignItems="flex-start" display="flex" key={index}>
                   <Box display="flex" flex="48px 0 0" justifyContent="center" paddingRight={3}>
                     {icon && (
-                      <Icon color="aqua" tint="dark">
+                      <Icon color="aqua" tint="dark" marginTop={1}>
                         {icon}
                       </Icon>
                     )}

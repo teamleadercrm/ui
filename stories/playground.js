@@ -17,14 +17,15 @@ import {
   Heading4,
   Icon,
   IconMenu,
+  Input,
   MenuItem,
+  NumericInput,
   Label,
   Link,
   Popover,
-  RadioButton,
-  RadioGroup,
   Select,
   StatusBullet,
+  Textarea,
   TextBody,
   TextSmall,
   Toast,
@@ -350,23 +351,43 @@ storiesOf('Playground', module)
     </Box>
   ))
   .add('Forms', () => {
+    const inputRef = React.createRef();
+    const numericInputRef = React.createRef();
+    const textareaRef = React.createRef();
+
+    const focusOnInput = () => {
+      inputRef.current.focus();
+    };
+
+    const focusOnNumericInput = () => {
+      numericInputRef.current.focus();
+    };
+
+    const focusOnTextarea = () => {
+      textareaRef.current.focus();
+    };
+
     return (
-      <Label>
-        Customer
-        <RadioGroup display="flex" marginBottom={3} marginTop={3} value={1}>
-          <RadioButton marginRight={3} size="medium" value={1}>
-            <TextSmall color="teal">
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
-              et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-              Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
-              amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
-              aliquyam erat, sed diam voluptua.
-            </TextSmall>
-          </RadioButton>
-          <RadioButton size="medium" value={2}>
-            <TextSmall color="teal">Contacts</TextSmall>
-          </RadioButton>
-        </RadioGroup>
-      </Label>
+      <Box>
+        <ButtonGroup>
+          <Button label="Focus the Input" onClick={focusOnInput} />
+          <Button label="Focus the NumericInput" onClick={focusOnNumericInput} />
+          <Button label="Focus the Textarea" onClick={focusOnTextarea} />
+        </ButtonGroup>
+        <Box display="flex" marginTop={4}>
+          <Label flex={1} marginRight={2}>
+            Input
+            <Input innerRef={inputRef} />
+          </Label>
+          <Label flex={1} marginLeft={2}>
+            NumericInput
+            <NumericInput innerRef={numericInputRef} />
+          </Label>
+        </Box>
+        <Label marginTop={4}>
+          Textarea
+          <Textarea innerRef={textareaRef} />
+        </Label>
+      </Box>
     );
   });

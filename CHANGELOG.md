@@ -3,13 +3,11 @@
 ### Added
 
 - `Popover`: added `fullWidth` prop (defaults to `false`). ([@driesd](https://github.com/driesd) in [#535](https://github.com/teamleadercrm/ui/pull/535))
-- `Popover`: added `zIndex` prop (defaults to `300`). ([@driesd](https://github.com/driesd) in [#534](https://github.com/teamleadercrm/ui/pull/534))
-- `Select`: added `menuPortalTarget` prop (defaults to `document.body`) to specify where the portal should be rendered. ([@driesd](https://github.com/driesd) in [#534](https://github.com/teamleadercrm/ui/pull/534))
 
 ### Changed
 
-- `General`: changed `z-indexes across multiple components` to fix several depth issues. ([@driesd](https://github.com/driesd) in [#534](https://github.com/teamleadercrm/ui/pull/534))
 - `DatePickerInput`: refactored using our `Input` & `Popover` components instead of `DayPickerInput`. ([@driesd](https://github.com/driesd) in [#535](https://github.com/teamleadercrm/ui/pull/535))
+- `NumericInput`: disabled the `tabindex` for the numeric input spinner controls. ([@driesd](https://github.com/driesd) in [#539](https://github.com/teamleadercrm/ui/pull/539))
 
 ### Deprecated
 
@@ -19,6 +17,20 @@
 - [BREAKING] `Select`: removed `usePortal` prop because it will always be using a portal. ([@driesd](https://github.com/driesd) in [#534](https://github.com/teamleadercrm/ui/pull/534))
 
 ### Fixed
+
+- `Icon`: fixed the vertical aligment of the svg icon. ([@driesd](https://github.com/driesd) in [#540](https://github.com/teamleadercrm/ui/pull/540))
+
+## [0.22.0] - 2019-03-06
+
+### Added
+
+- `InputBase`: added `innerRef` prop to directly target the `html input element` of an `Input`, `NumericInput` or `Textarea` component. ([@driesd](https://github.com/driesd) in [#537](https://github.com/teamleadercrm/ui/pull/537))
+- `Popover`: added `zIndex` prop (defaults to `300`). ([@driesd](https://github.com/driesd) in [#534](https://github.com/teamleadercrm/ui/pull/534))
+- `Select`: added `menuPortalTarget` prop (defaults to `document.body`) to specify where the portal should be rendered. ([@driesd](https://github.com/driesd) in [#534](https://github.com/teamleadercrm/ui/pull/534))
+
+### Changed
+
+- `General`: changed `z-indexes across multiple components` to fix several depth issues. ([@driesd](https://github.com/driesd) in [#534](https://github.com/teamleadercrm/ui/pull/534))
 
 ## [0.21.3] - 2019-02-20
 

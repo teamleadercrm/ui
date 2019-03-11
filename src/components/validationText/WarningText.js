@@ -10,7 +10,14 @@ export default class WarningText extends PureComponent {
     const { children, className, inverse, ...others } = this.props;
 
     return (
-      <Box className={className} data-teamleader-ui="warning-text" marginTop={2} {...others}>
+      <Box
+        className={className}
+        alignItems="center"
+        data-teamleader-ui="warning-text"
+        display="flex"
+        marginTop={2}
+        {...others}
+      >
         <Icon color="gold" tint={inverse ? 'light' : 'dark'}>
           <IconWarningBadgedSmallFilled />
         </Icon>

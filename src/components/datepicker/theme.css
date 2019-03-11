@@ -400,11 +400,6 @@
   }
 }
 
-.input-icon {
-  position: relative;
-  top: -1px;
-}
-
 .date-picker-input-range {
   .container {
     flex: 1;
