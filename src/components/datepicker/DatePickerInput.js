@@ -137,7 +137,7 @@ DatePickerInput.propTypes = {
 
 DatePickerInput.defaultProps = {
   inverse: false,
-  locale: 'en',
+  locale: 'en-GB',
   size: 'medium',
 };
 
