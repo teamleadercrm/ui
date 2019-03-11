@@ -48,7 +48,7 @@ class DatePickerInput extends PureComponent {
   };
 
   renderIcon = () => {
-    const { inverse } = this.props;
+    const inverse = this.props.inputProps && this.props.inputProps.inverse;
 
     return (
       <Icon
