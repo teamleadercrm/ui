@@ -7,7 +7,7 @@ import Input from '../input';
 import Popover from '../popover';
 import cx from 'classnames';
 import theme from './theme.css';
-import MomentLocaleUtils from 'react-day-picker/moment';
+import LocalUtils, { formatDate } from './localUtils';
 import { IconCalendarSmallOutline } from '@teamleader/ui-icons';
 import { JSDateToLocaleString } from './utils';
 
@@ -107,7 +107,7 @@ class DatePickerInput extends PureComponent {
             <DatePicker
               className={datePickerClassNames}
               locale={locale}
-              localeUtils={MomentLocaleUtils}
+              localeUtils={LocalUtils}
               month={selectedDate}
               onChange={this.handleDatePickerDateChange}
               selectedDate={selectedDate}
