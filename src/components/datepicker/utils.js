@@ -1,5 +1,4 @@
 import { DateUtils } from 'react-day-picker/lib/src/index';
-import { DateTime } from 'luxon';
 
 export const convertModifiersToClassnames = (modifiers, theme) => {
   if (!modifiers) {
@@ -19,8 +18,3 @@ export const isSelectingFirstDay = (from, to, day) => {
   const isRangeSelected = from && to;
   return !from || isBeforeFirstDay || isRangeSelected;
 };
-
-export const JSDateToLocaleString = (date, locale, format = DateTime.DATE_SHORT) =>
-  DateTime.fromJSDate(date)
-    .setLocale(locale)
-    .toLocaleString(format);
