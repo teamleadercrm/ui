@@ -8,6 +8,7 @@ import { createPortal } from 'react-dom';
 import { getViewport } from '../utils/utils';
 import DocumentObjectProvider, { Context as DocumentObjectContext } from '../hoc/DocumentObjectProvider';
 import theme from './theme.css';
+import utils from '@teamleader/ui-utilities';
 
 const POSITIONS = {
   BOTTOM: 'bottom',
@@ -162,12 +163,18 @@ const Tooltip = ComposedComponent => {
         createPortal(
           <Transition in={active} onExited={this.handleTransitionExited} timeout={{ enter: 0, exit: 1000 }}>
             {state => {
-              const classNames = cx(theme['tooltip'], theme[tooltipColor], theme[tooltipSize], {
-                [theme['is-entering']]: state === 'entering',
-                [theme['is-entered']]: state === 'entered',
-                [theme['is-exiting']]: state === 'exiting',
-                [theme[position]]: theme[position],
-              });
+              const classNames = cx(
+                theme['tooltip'],
+                utils['box-shadow-200'],
+                theme[tooltipColor],
+                theme[tooltipSize],
+                {
+                  [theme['is-entering']]: state === 'entering',
+                  [theme['is-entered']]: state === 'entered',
+                  [theme['is-exiting']]: state === 'exiting',
+                  [theme[position]]: theme[position],
+                },
+              );
 
               return (
                 <div className={classNames} data-teamleader-ui="tooltip" style={{ top, left }}>
