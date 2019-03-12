@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 
 import ErrorText from './ErrorText';
 import HelpText from './HelpText';
+import SuccessText from './SuccessText';
 import WarningText from './WarningText';
 
 class ValidationText extends PureComponent {
   render() {
-    const { error, inverse, help, warning } = this.props;
+    const { error, inverse, help, success, warning } = this.props;
 
     if (error) {
       return <ErrorText inverse={inverse}>{error}</ErrorText>;
@@ -15,6 +16,10 @@ class ValidationText extends PureComponent {
 
     if (warning) {
       return <WarningText inverse={inverse}>{warning}</WarningText>;
+    }
+
+    if (success) {
+      return <SuccessText inverse={inverse}>{success}</SuccessText>;
     }
 
     if (help) {
@@ -29,6 +34,7 @@ ValidationText.propTypes = {
   error: PropTypes.node,
   help: PropTypes.node,
   inverse: PropTypes.bool,
+  success: PropTypes.bool,
   warning: PropTypes.node,
 };
 

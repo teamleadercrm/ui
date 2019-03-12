@@ -9,12 +9,13 @@ import theme from './theme.css';
 
 class Textarea extends PureComponent {
   render() {
-    const { className, error, helpText, inverse, warning, ...others } = this.props;
+    const { className, error, helpText, inverse, success, warning, ...others } = this.props;
 
     const classNames = cx(
       theme['wrapper'],
       {
         [theme['has-error']]: error,
+        [theme['has-success']]: success,
         [theme['has-warning']]: warning,
       },
       className,
@@ -29,7 +30,7 @@ class Textarea extends PureComponent {
     return (
       <Box className={classNames} {...boxProps}>
         <InputBase className={theme['textarea']} element="textarea" {...inputProps} />
-        <ValidationText error={error} help={helpText} inverse={inverse} warning={warning} />
+        <ValidationText error={error} help={helpText} inverse={inverse} success={success} warning={warning} />
       </Box>
     );
   }
@@ -44,6 +45,8 @@ Textarea.propTypes = {
   helpText: PropTypes.string,
   /** Boolean indicating whether the input should render as inverse. */
   inverse: PropTypes.bool,
+  /** The text string/element to use as success message below the input. */
+  success: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   /** The text to use as warning message below the input. */
   warning: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 };
