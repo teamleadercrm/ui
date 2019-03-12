@@ -48,6 +48,7 @@ class SingleLineInputBase extends PureComponent {
       prefix,
       inverse,
       readOnly,
+      success,
       suffix,
       width,
       warning,
@@ -59,6 +60,7 @@ class SingleLineInputBase extends PureComponent {
       {
         [theme['has-focus']]: this.state.inputHasfocus,
         [theme['has-error']]: error,
+        [theme['has-success']]: success,
         [theme['has-warning']]: warning,
         [theme['has-connected-left']]: connectedLeft,
         [theme['has-connected-right']]: connectedRight,
@@ -90,7 +92,7 @@ class SingleLineInputBase extends PureComponent {
           </div>
           {connectedRight}
         </div>
-        <ValidationText error={error} help={helpText} inverse={inverse} warning={warning} />
+        <ValidationText error={error} help={helpText} inverse={inverse} success={success} warning={warning} />
       </Box>
     );
   }
@@ -107,6 +109,8 @@ SingleLineInputBase.propTypes = {
   helpText: PropTypes.string,
   /** The text string/element to use as a prefix inside the input field */
   prefix: PropTypes.oneOfType([PropTypes.array, PropTypes.element]),
+  /** The text string/element to use as success message below the input. */
+  success: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   /** The text string/element to use as a suffix inside the input field */
   suffix: PropTypes.oneOfType([PropTypes.array, PropTypes.element]),
   /** The text to use as warning message below the input. */

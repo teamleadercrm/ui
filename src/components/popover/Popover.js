@@ -57,6 +57,7 @@ class Popover extends PureComponent {
       className,
       color,
       fullHeight,
+      fullWidth,
       lockScroll,
       onOverlayClick,
       onEscKeyDown,
@@ -96,7 +97,7 @@ class Popover extends PureComponent {
               <div
                 data-teamleader-ui={'popover'}
                 className={cx(theme['popover'], utils['box-shadow-200'], className)}
-                style={{ left: `${left}px`, top: `${top}px` }}
+                style={{ left: `${left}px`, top: `${top}px`, maxWidth: fullWidth ? '100vw' : '50vw' }}
                 ref={this.popoverNode}
               >
                 <Box
@@ -143,6 +144,8 @@ Popover.propTypes = {
   direction: PropTypes.oneOf(['north', 'south', 'east', 'west']),
   /** If true, the Popover stretches to fit its content vertically */
   fullHeight: PropTypes.bool,
+  /** If true, the Popover stretches to fit its content horizontally */
+  fullWidth: PropTypes.bool,
   /** The scroll state of the body, if true it will not be scrollable. */
   lockScroll: PropTypes.bool,
   /** The amount of extra translation on the Popover (has no effect if position is "middle" or "center"). */
@@ -171,6 +174,7 @@ Popover.defaultProps = {
   zIndex: 300,
   direction: 'south',
   fullHeight: true,
+  fullWidth: false,
   color: 'neutral',
   lockScroll: true,
   offsetCorrection: 0,

@@ -1,21 +1,19 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import Box, { omitBoxProps, pickBoxProps } from '../box';
-import DayPickerInput from 'react-day-picker/DayPickerInput';
+import Box, { pickBoxProps } from '../box';
+import DatePicker from '../datepicker';
 import Icon from '../icon';
-import NavigationBar from './NavigationBar';
-import WeekDay from './WeekDay';
-import { convertModifiersToClassnames } from './utils';
-import { IconCalendarSmallOutline } from '@teamleader/ui-icons';
-import ValidationText from '../validationText';
+import Input from '../input';
+import Popover from '../popover';
 import cx from 'classnames';
-import omit from 'lodash.omit';
 import theme from './theme.css';
-import utils from '@teamleader/ui-utilities';
+import LocaleUtils, { formatDate } from './localeUtils';
+import { IconCalendarSmallOutline } from '@teamleader/ui-icons';
 
 class DatePickerInput extends PureComponent {
   state = {
-    inputHasFocus: false,
+    isPopoverActive: false,
+    popoverAnchorEl: null,
     selectedDate: null,
   };
 
@@ -29,130 +27,113 @@ class DatePickerInput extends PureComponent {
     return null;
   }
 
-  handleBlur = () => {
-    this.setState({ inputHasFocus: false }, () => this.props.onBlur && this.props.onBlur());
-  };
+  handleInputFocus = event => {
+    const { onFocus } = this.props.inputProps;
 
-  handleFocus = () => {
-    this.setState({ inputHasFocus: true }, () => this.props.onFocus && this.props.onFocus());
-  };
-
-  handleInputDateChange = (date, modifiers = {}) => {
-    if (modifiers.disabled) {
-      return;
-    }
-    this.setState({ selectedDay: date }, () => this.props.onChange(date));
-  };
-
-  renderDayPickerInput = () => {
-    const { className, dayPickerProps, disabled, inputProps, modifiers, readOnly, size, ...others } = this.props;
-    const { selectedDate } = this.state;
-
-    const dayPickerClassNames = cx(theme['date-picker'], utils['reset-font-smoothing'], theme[`is-${size}`], className);
-
-    const propsWithoutBoxProps = omitBoxProps(others);
-    const restProps = omit(propsWithoutBoxProps, ['helpText', 'onBlur', 'onChange', 'onFocus', 'inputProps']);
-
-    return (
-      <DayPickerInput
-        classNames={theme}
-        dayPickerProps={{
-          className: dayPickerClassNames,
-          classNames: theme,
-          modifiers: convertModifiersToClassnames(modifiers, theme),
-          selectedDays: selectedDate,
-          navbarElement: <NavigationBar size={size} />,
-          weekdayElement: <WeekDay size={size} />,
-          ...dayPickerProps,
-        }}
-        onDayChange={this.handleInputDateChange}
-        hideOnDayClick={false}
-        inputProps={{
-          disabled: disabled || readOnly,
-          onBlur: this.handleBlur,
-          onFocus: this.handleFocus,
-          ...inputProps,
-        }}
-        {...restProps}
-      />
+    this.setState(
+      {
+        popoverAnchorEl: event.currentTarget,
+        isPopoverActive: true,
+      },
+      () => onFocus && onFocus(),
     );
   };
 
+  handlePopoverClose = () => {
+    this.setState({ isPopoverActive: false });
+  };
+
+  handleDatePickerDateChange = date => {
+    this.setState({ isPopoverActive: false, selectedDay: date }, () => this.props.onChange(date));
+  };
+
   renderIcon = () => {
-    const { inverse } = this.props;
+    const inverse = this.props.inputProps && this.props.inputProps.inverse;
 
     return (
-      <Icon
-        className={theme['input-icon']}
-        color={inverse ? 'teal' : 'neutral'}
-        tint={inverse ? 'light' : 'darkest'}
-        marginHorizontal={2}
-      >
+      <Icon color={inverse ? 'teal' : 'neutral'} tint={inverse ? 'light' : 'darkest'} marginHorizontal={2}>
         <IconCalendarSmallOutline />
       </Icon>
     );
   };
 
   render() {
-    const { bold, disabled, error, helpText, inverse, readOnly, size, warning, width, ...others } = this.props;
-    const { inputHasFocus } = this.state;
+    const { className, dayPickerProps, inverse, inputProps, locale, popoverProps, size, ...others } = this.props;
+    const { isPopoverActive, popoverAnchorEl, selectedDate } = this.state;
 
     const boxProps = pickBoxProps(others);
-
-    const classNames = cx(theme['date-picker-input'], utils['reset-font-smoothing'], theme[`is-${size}`], {
-      [theme['is-bold']]: bold,
-      [theme['is-disabled']]: disabled,
-      [theme['is-inverse']]: inverse,
-      [theme['is-read-only']]: readOnly,
-      [theme['has-error']]: error,
-      [theme['has-focus']]: inputHasFocus,
-      [theme['has-warning']]: warning,
-    });
+    const datePickerClassNames = cx(theme['date-picker-input'], theme[`is-${size}`]);
+    const formattedDate = this.props.formatDate
+      ? this.props.formatDate(selectedDate, locale)
+      : formatDate(selectedDate, locale);
 
     return (
-      <Box className={classNames} {...boxProps}>
-        <div className={theme['input-wrapper']} style={{ width }}>
-          {this.renderIcon()}
-          {this.renderDayPickerInput()}
-        </div>
-        <ValidationText error={error} help={helpText} inverse={inverse} warning={warning} />
+      <Box className={className} {...boxProps}>
+        <Input
+          inverse={inverse}
+          onFocus={this.handleInputFocus}
+          prefix={this.renderIcon()}
+          size={size}
+          value={formattedDate}
+          width="120px"
+          {...inputProps}
+        />
+        <Popover
+          active={isPopoverActive}
+          anchorEl={popoverAnchorEl}
+          backdrop="transparent"
+          fullWidth
+          onEscKeyDown={this.handlePopoverClose}
+          onOverlayClick={this.handlePopoverClose}
+          position="end"
+          offsetCorrection={30}
+          zIndex={500}
+          {...popoverProps}
+        >
+          <Box overflowY="auto">
+            <DatePicker
+              className={datePickerClassNames}
+              locale={locale}
+              localeUtils={LocaleUtils}
+              month={selectedDate}
+              onChange={this.handleDatePickerDateChange}
+              selectedDate={selectedDate}
+              {...dayPickerProps}
+            />
+          </Box>
+        </Popover>
       </Box>
     );
   }
 }
 
 DatePickerInput.propTypes = {
-  bold: PropTypes.bool,
+  /** A class name for the wrapper to give custom styles. */
   className: PropTypes.string,
+  /** Object with props for the DatePicker component. */
   dayPickerProps: PropTypes.object,
-  disabled: PropTypes.bool,
-  /** The text string/element to use as error message below the input. */
-  error: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  helpText: PropTypes.string,
+  /** A custom function to format a date. */
+  formatDate: PropTypes.func,
+  /** Object with props for the Input component. */
   inputProps: PropTypes.object,
+  /** If true, component will be rendered in inverse mode. */
   inverse: PropTypes.bool,
-  modifiers: PropTypes.object,
-  /** Callback function that is fired when blurring the input field. */
-  onBlur: PropTypes.func,
+  /** The language locale code ('en', 'nl', 'fr',...). */
+  locale: PropTypes.string,
+  /** Callback function that is fired when the date has changed. */
   onChange: PropTypes.func,
-  /** Callback function that is fired when focussing the input field. */
-  onFocus: PropTypes.func,
-  readOnly: PropTypes.bool,
+  /** Object with props for the Popover component. */
+  popoverProps: PropTypes.object,
+  /** The current selected date. */
   selectedDate: PropTypes.instanceOf(Date),
+  /** Size of the Input & DatePicker components. */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
-  /** The text to use as warning message below the input. */
-  warning: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  /** A custom width for the input field */
-  width: PropTypes.string,
 };
 
 DatePickerInput.defaultProps = {
-  bold: false,
-  disabled: false,
   inverse: false,
-  readOnly: false,
+  locale: 'en-GB',
   size: 'medium',
-  width: '110px',
 };
 
 export default DatePickerInput;
