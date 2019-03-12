@@ -36,14 +36,11 @@
   transition: all var(--animation-duration) var(--animation-curve-default) var(--animation-duration);
   display: flex;
   align-items: center;
+  position: relative;
 
   .action-link,
   .action-link:hover {
     color: var(--color-teal-light);
-  }
-
-  &:before {
-    position: relative;
   }
 
   .label {
