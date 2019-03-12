@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
+import utils from '@teamleader/ui-utilities';
 
 class AvatarStack extends PureComponent {
   render() {
@@ -22,7 +23,10 @@ class AvatarStack extends PureComponent {
     return (
       <Box data-teamleader-ui="avatar-stack" className={classNames} {...others}>
         {overflowAmount !== children.length && (
-          <div className={theme['overflow']} onClick={onOverflowClick}>{`+${overflowAmount}`}</div>
+          <div
+            className={cx(theme['overflow'], utils['reset-font-smoothing'])}
+            onClick={onOverflowClick}
+          >{`+${overflowAmount}`}</div>
         )}
         {childrenToDisplay}
       </Box>
