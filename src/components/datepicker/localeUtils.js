@@ -32,7 +32,9 @@ export const formatWeekdayShort = (dayOfWeekNumber, locale = defaultLocale) =>
 export const formatWeekdayLong = (dayOfWeekNumber, locale = defaultLocale) =>
   Info.weekdays('long', { locale })[dayOfWeekNumber];
 
-export const getFirstDayOfWeek = (locale = defaultLocale) => firstDayOfWeek[locale] || firstDayOfWeek[defaultLocale];
+export const getFirstDayOfWeek = (locale = defaultLocale) => {
+  return firstDayOfWeek[locale];
+};
 
 export const getMonths = (locale = defaultLocale) => Info.months('long', { locale });
 
