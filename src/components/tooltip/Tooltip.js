@@ -8,7 +8,7 @@ import { createPortal } from 'react-dom';
 import { getViewport } from '../utils/utils';
 import DocumentObjectProvider, { Context as DocumentObjectContext } from '../hoc/DocumentObjectProvider';
 import theme from './theme.css';
-import utils from '@teamleader/ui-utilities';
+import uiUtils from '@teamleader/ui-utilities';
 
 const POSITIONS = {
   BOTTOM: 'bottom',
@@ -165,7 +165,7 @@ const Tooltip = ComposedComponent => {
             {state => {
               const classNames = cx(
                 theme['tooltip'],
-                utils['box-shadow-200'],
+                uiUtils['box-shadow-200'],
                 theme[tooltipColor],
                 theme[tooltipSize],
                 {

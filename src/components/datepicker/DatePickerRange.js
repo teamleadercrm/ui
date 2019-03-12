@@ -7,7 +7,7 @@ import WeekDay from './WeekDay';
 import { convertModifiersToClassnames, isSelectingFirstDay } from './utils';
 import cx from 'classnames';
 import theme from './theme.css';
-import utils from '@teamleader/ui-utilities';
+import uiUtils from '@teamleader/ui-utilities';
 
 class DatePickerRange extends PureComponent {
   state = {
@@ -75,7 +75,7 @@ class DatePickerRange extends PureComponent {
     const restProps = omitBoxProps(others);
     const classNames = cx(
       theme['date-picker'],
-      utils['reset-font-smoothing'],
+      uiUtils['reset-font-smoothing'],
       theme['has-range'],
       theme[`is-${size}`],
       className,

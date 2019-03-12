@@ -12,7 +12,7 @@ import ValidationText from '../validationText';
 import cx from 'classnames';
 import omit from 'lodash.omit';
 import theme from './theme.css';
-import utils from '@teamleader/ui-utilities';
+import uiUtils from '@teamleader/ui-utilities';
 
 class DatePickerInputRange extends PureComponent {
   state = {
@@ -108,7 +108,7 @@ class DatePickerInputRange extends PureComponent {
     const propsWithoutBoxProps = omitBoxProps(others);
     const dayPickerClassNames = cx(
       theme['date-picker'],
-      utils['reset-font-smoothing'],
+      uiUtils['reset-font-smoothing'],
       theme['has-range'],
       theme[`is-${size}`],
       className,
@@ -223,7 +223,7 @@ class DatePickerInputRange extends PureComponent {
 
     const boxProps = pickBoxProps(others);
 
-    const classNames = cx(theme['date-picker-input-range'], utils['reset-font-smoothing'], theme[`is-${size}`], {
+    const classNames = cx(theme['date-picker-input-range'], uiUtils['reset-font-smoothing'], theme[`is-${size}`], {
       [theme['is-bold']]: bold,
       [theme['is-disabled']]: disabled,
       [theme['is-inverse']]: inverse,
