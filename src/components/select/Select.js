@@ -9,6 +9,7 @@ import ValidationText from '../validationText';
 import { COLOR } from '../../constants';
 import theme from './theme.css';
 import cx from 'classnames';
+import utils from '@teamleader/ui-utilities';
 
 class Select extends PureComponent {
   getClearIndicatorStyles = base => {
@@ -318,7 +319,7 @@ class Select extends PureComponent {
     return (
       <Box className={wrapperClassnames} {...boxProps}>
         <Element
-          className={theme['select']}
+          className={cx(theme['select'], utils['reset-font-smoothing'])}
           components={{
             ClearIndicator: this.getClearIndicator(),
             DropdownIndicator: this.getDropDownIndicator(),
