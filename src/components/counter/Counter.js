@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
+import utils from '@teamleader/ui-utilities';
 
 class Counter extends PureComponent {
   render() {
@@ -10,6 +11,7 @@ class Counter extends PureComponent {
 
     const classNames = cx(
       theme['counter'],
+      utils['reset-font-smoothing'],
       theme[color],
       theme[size],
       {
