@@ -2,18 +2,18 @@ import { DateTime, Info } from 'luxon';
 
 const defaultLocale = 'en-GB';
 const firstDayOfWeek = {
-  'da-DK': 0,
-  'de-DE': 0,
-  'fr-FR': 0,
-  'en-GB': 0,
-  'en-US': 6,
-  'es-ES': 0,
-  'fi-FI': 0,
-  'it-IT': 0,
-  'nl-BE': 0,
-  'pt-PT': 0,
-  'pl-PL': 0,
-  'sv-SE': 0,
+  'da-DK': 1,
+  'de-DE': 1,
+  'fr-FR': 1,
+  'en-GB': 1,
+  'en-US': 0,
+  'es-ES': 1,
+  'fi-FI': 1,
+  'it-IT': 1,
+  'nl-BE': 1,
+  'pt-PT': 1,
+  'pl-PL': 1,
+  'sv-SE': 1,
 };
 
 export const formatDay = (day, locale = defaultLocale) =>
