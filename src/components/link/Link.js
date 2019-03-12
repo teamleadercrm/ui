@@ -2,6 +2,7 @@ import React, { createRef, Fragment, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import theme from './theme.css';
+import utils from '@teamleader/ui-utilities';
 
 class Link extends PureComponent {
   linkNode = createRef();
@@ -31,6 +32,7 @@ class Link extends PureComponent {
 
     const classNames = cx(
       theme['link'],
+      utils['reset-font-smoothing'],
       {
         [theme['is-disabled']]: disabled,
         [theme['inherit']]: inherit,
