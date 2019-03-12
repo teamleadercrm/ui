@@ -5,7 +5,7 @@ import Button, { IconButton } from '../button';
 import cx from 'classnames';
 import theme from './theme.css';
 import { IconCloseMediumOutline, IconCloseSmallOutline } from '@teamleader/ui-icons';
-import uiUtils from '@teamleader/ui-utilities';
+import uiUtilities from '@teamleader/ui-utilities';
 
 class Tag extends PureComponent {
   render() {
@@ -39,7 +39,7 @@ class Tag extends PureComponent {
             {children}
           </Button>
         ) : (
-          <span className={cx(theme['label'], uiUtils['reset-font-smoothing'])}>{children}</span>
+          <span className={cx(uiUtilities['reset-font-smoothing'], theme['label'])}>{children}</span>
         )}
 
         {onRemoveClick && (

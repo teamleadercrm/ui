@@ -11,7 +11,7 @@ import { calculatePositions } from './positionCalculation';
 import { getMaxHeight } from './sizeCalculation';
 import Box from '../box';
 import theme from './theme.css';
-import uiUtils from '@teamleader/ui-utilities';
+import uiUtilities from '@teamleader/ui-utilities';
 
 class Popover extends PureComponent {
   popoverNode = createRef();
@@ -96,7 +96,7 @@ class Popover extends PureComponent {
               />
               <div
                 data-teamleader-ui={'popover'}
-                className={cx(theme['popover'], uiUtils['box-shadow-200'], className)}
+                className={cx(uiUtilities['box-shadow-200'], theme['popover'], className)}
                 style={{ left: `${left}px`, top: `${top}px`, maxWidth: fullWidth ? '100vw' : '50vw' }}
                 ref={this.popoverNode}
               >

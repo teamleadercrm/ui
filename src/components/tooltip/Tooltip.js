@@ -8,7 +8,7 @@ import { createPortal } from 'react-dom';
 import { getViewport } from '../utils/utils';
 import DocumentObjectProvider, { Context as DocumentObjectContext } from '../hoc/DocumentObjectProvider';
 import theme from './theme.css';
-import uiUtils from '@teamleader/ui-utilities';
+import uiUtilities from '@teamleader/ui-utilities';
 
 const POSITIONS = {
   BOTTOM: 'bottom',
@@ -164,8 +164,8 @@ const Tooltip = ComposedComponent => {
           <Transition in={active} onExited={this.handleTransitionExited} timeout={{ enter: 0, exit: 1000 }}>
             {state => {
               const classNames = cx(
+                uiUtilities['box-shadow-200'],
                 theme['tooltip'],
-                uiUtils['box-shadow-200'],
                 theme[tooltipColor],
                 theme[tooltipSize],
                 {

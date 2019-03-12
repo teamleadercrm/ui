@@ -5,7 +5,7 @@ import cx from 'classnames';
 import Overlay from '../overlay/Overlay';
 import Transition from 'react-transition-group/Transition';
 import theme from './theme.css';
-import uiUtils from '@teamleader/ui-utilities';
+import uiUtilities from '@teamleader/ui-utilities';
 
 class DialogBase extends PureComponent {
   dialogRoot = document.createElement('div');
@@ -36,7 +36,7 @@ class DialogBase extends PureComponent {
       return null;
     }
 
-    const dialogClassNames = cx(theme['dialog-base'], uiUtils['box-shadow-300'], theme[`is-${size}`], className);
+    const dialogClassNames = cx(uiUtilities['box-shadow-300'], theme['dialog-base'], theme[`is-${size}`], className);
 
     const dialog = (
       <Transition timeout={0} in={active} appear>

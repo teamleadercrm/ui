@@ -7,7 +7,7 @@ import { TextBody } from '../typography';
 import LoadingSpinner from '../loadingSpinner';
 import { IconCloseMediumOutline } from '@teamleader/ui-icons';
 import theme from './theme.css';
-import uiUtils from '@teamleader/ui-utilities';
+import uiUtilities from '@teamleader/ui-utilities';
 
 class Toast extends PureComponent {
   componentDidMount() {
@@ -86,7 +86,7 @@ class Toast extends PureComponent {
   render() {
     const { children, className, label, processing } = this.props;
 
-    const classNames = cx(uiUtils['reset-box-sizing'], theme['toast'], uiUtils['box-shadow-400'], className);
+    const classNames = cx(uiUtilities['reset-box-sizing'], uiUtilities['box-shadow-400'], theme['toast'], className);
 
     return (
       <div
