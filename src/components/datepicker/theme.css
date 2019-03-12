@@ -204,8 +204,7 @@
   color: var(--color-violet-darkest);
 }
 
-/* DayPickerInput */
-.date-picker-input,
+/* DayPickerInputRange */
 .date-picker-input-range {
   composes: reset-font-smoothing;
   position: relative;
@@ -401,7 +400,6 @@
   }
 }
 
-.date-picker-input,
 .date-picker-input-range {
   .container {
     flex: 1;
