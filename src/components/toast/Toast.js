@@ -86,18 +86,21 @@ class Toast extends PureComponent {
   render() {
     const { children, className, label, processing } = this.props;
 
-    const classNames = cx(theme['toast'], uiUtils['box-shadow-400'], uiUtils['reset-box-sizing'], className);
+    const classNames = cx(uiUtils['reset-box-sizing'], theme['toast'], uiUtils['box-shadow-400'], className);
 
     return (
-      <div data-teamleader-ui="toast" onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
-        <div className={classNames}>
-          {processing && <LoadingSpinner className={theme['spinner']} color="neutral" tint="lightest" />}
-          <TextBody className={theme['label']} color="neutral" tint="lightest" element="div">
-            {label}
-            {children}
-          </TextBody>
-          {this.renderCustomAction() || this.renderCustomLink() || this.renderCloseButton()}
-        </div>
+      <div
+        data-teamleader-ui="toast"
+        onMouseEnter={this.handleMouseEnter}
+        onMouseLeave={this.handleMouseLeave}
+        className={classNames}
+      >
+        {processing && <LoadingSpinner className={theme['spinner']} color="neutral" tint="lightest" />}
+        <TextBody className={theme['label']} color="neutral" tint="lightest" element="div">
+          {label}
+          {children}
+        </TextBody>
+        {this.renderCustomAction() || this.renderCustomLink() || this.renderCloseButton()}
       </div>
     );
   }
