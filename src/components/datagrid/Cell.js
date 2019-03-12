@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
+import utils from '@teamleader/ui-utilities';
 
 class Cell extends PureComponent {
   render() {
@@ -21,6 +22,7 @@ class Cell extends PureComponent {
 
     const classNames = cx(
       theme['cell'],
+      utils['reset-font-smoothing'],
       theme[`align-${align}`],
       theme[`flex-${flex}`],
       theme[`has-background-${backgroundColor}`],
