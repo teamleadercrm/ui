@@ -20,7 +20,6 @@
 }
 
 .popover {
-  composes: box-shadow-200;
   border-radius: var(--popover-border-radius);
   opacity: 0;
   position: absolute;
