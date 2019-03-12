@@ -26,11 +26,15 @@ export const formatMonthTitle = (date, locale = defaultLocale) =>
     .setLocale(locale)
     .toLocaleString({ month: 'long', year: 'numeric' });
 
-export const formatWeekdayShort = (dayOfWeekNumber, locale = defaultLocale) =>
-  Info.weekdays('short', { locale })[dayOfWeekNumber];
+export const formatWeekdayShort = (dayOfWeekNumber, locale = defaultLocale) => {
+  const dayIndex = (7 + dayOfWeekNumber - getFirstDayOfWeek(locale)) % 7;
+  return Info.weekdays('short', { locale })[dayIndex];
+};
 
-export const formatWeekdayLong = (dayOfWeekNumber, locale = defaultLocale) =>
-  Info.weekdays('long', { locale })[dayOfWeekNumber];
+export const formatWeekdayLong = (dayOfWeekNumber, locale = defaultLocale) => {
+  const dayIndex = (7 + dayOfWeekNumber - 1) % 7;
+  return Info.weekdays('long', { locale })[dayIndex];
+};
 
 export const getFirstDayOfWeek = (locale = defaultLocale) => {
   return firstDayOfWeek[locale];
