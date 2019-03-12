@@ -1,7 +1,7 @@
 import React from 'react';
 import MomentLocaleUtils, { formatDate, parseDate } from 'react-day-picker/moment';
 import { storiesOf } from '@storybook/react';
-import { boolean } from '@storybook/addon-knobs/react';
+import { boolean, select } from '@storybook/addon-knobs/react';
 import { Store, State } from '@sambego/storybook-state';
 import { DateTime } from 'luxon';
 import { IconIdeaMediumOutline, IconInfoBadgedSmallFilled } from '@teamleader/ui-icons';
@@ -36,6 +36,7 @@ import {
 
 import { rows1 } from './static/data/datagrid';
 import options, { groupedOptions } from './static/data/select';
+import { LANGUAGES } from './static/data/languages';
 
 const inputPlaceholderToday = DateTime.fromJSDate(new Date())
   .setLocale('nl')
@@ -47,7 +48,7 @@ const inputPlaceholderTomorrow = DateTime.fromJSDate(new Date())
   .toLocaleString(DateTime.DATE_SHORT);
 
 const preSelectedDate = DateTime.local()
-  .plus({ days: 3 })
+  .plus({ days: 63 })
   .toJSDate();
 
 const preSelectedRange = {
@@ -61,6 +62,10 @@ const preSelectedRange = {
 
 const TooltippedIcon = Tooltip(Icon);
 const TooltippedStatusBullet = Tooltip(StatusBullet);
+
+const datePickerStore = new Store({
+  selectedDate: preSelectedDate,
+});
 
 const dialogStore = new Store({
   active: false,
@@ -88,6 +93,17 @@ const showPopover = event => {
 
 const showHideQTip = () => {
   qTipStore.set({ active: !qTipStore.get('active') });
+};
+
+const handleDatePickerDateChanged = selectedDate => {
+  datePickerStore.set({ selectedDate });
+  console.log('selectedDate', selectedDate);
+};
+
+const customFormatDate = (date, locale) => {
+  return DateTime.fromJSDate(date)
+    .setLocale(locale)
+    .toLocaleString(DateTime.DATETIME_HUGE);
 };
 
 const MyDatagrid = ({ ...props }) => (
@@ -226,20 +242,19 @@ storiesOf('Playground', module)
       <Box display="flex">
         <Label required flex="1">
           Pick a date
-          <DatePickerInput
-            formatDate={formatDate}
-            parseDate={parseDate}
-            helpText="Please pick a preferred date"
-            dayPickerProps={{
-              locale: 'nl',
-              localeUtils: MomentLocaleUtils,
-              numberOfMonths: 2,
-            }}
-            onChange={() => console.log('Changed')}
-            placeholder={inputPlaceholderToday}
-            selectedDate={preSelectedDate}
-            value={preSelectedDate}
-          />
+          <State store={datePickerStore}>
+            <DatePickerInput
+              formatDate={customFormatDate}
+              inputProps={{
+                helpText: 'Please pick a preferred date',
+                placeholder: inputPlaceholderToday,
+                width: '100%',
+              }}
+              locale={select('locale', LANGUAGES, 'nl')}
+              onChange={handleDatePickerDateChanged}
+              selectedDate={preSelectedDate}
+            />
+          </State>
         </Label>
         <Label required flex="1" marginLeft={3}>
           Pick a date
@@ -247,7 +262,7 @@ storiesOf('Playground', module)
             formatDate={formatDate}
             parseDate={parseDate}
             dayPickerProps={{
-              locale: 'nl',
+              locale: select('locale', LANGUAGES, 'nl'),
               localeUtils: MomentLocaleUtils,
               numberOfMonths: 2,
               showOutsideDays: false,
@@ -315,19 +330,17 @@ storiesOf('Playground', module)
             </Label>
             <Label required flex="1" marginLeft={2}>
               Pick a date
-              <DatePickerInput
-                formatDate={formatDate}
-                parseDate={parseDate}
-                helpText="Please pick a preferred date"
-                dayPickerProps={{
-                  locale: 'nl',
-                  localeUtils: MomentLocaleUtils,
-                  numberOfMonths: 1,
-                }}
-                placeholder={inputPlaceholderToday}
-                selectedDate={preSelectedDate}
-                value={preSelectedDate}
-              />
+              <State store={datePickerStore}>
+                <DatePickerInput
+                  inputProps={{
+                    helpText: 'Please pick a preferred date',
+                    placeholder: inputPlaceholderToday,
+                  }}
+                  locale={select('locale', LANGUAGES, 'nl')}
+                  onChange={handleDatePickerDateChanged}
+                  selectedDate={preSelectedDate}
+                />
+              </State>
             </Label>
           </Box>
         </Dialog>
