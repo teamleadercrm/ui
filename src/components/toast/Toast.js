@@ -7,6 +7,7 @@ import { TextBody } from '../typography';
 import LoadingSpinner from '../loadingSpinner';
 import { IconCloseMediumOutline } from '@teamleader/ui-icons';
 import theme from './theme.css';
+import uiUtilities from '@teamleader/ui-utilities';
 
 class Toast extends PureComponent {
   componentDidMount() {
@@ -85,18 +86,21 @@ class Toast extends PureComponent {
   render() {
     const { children, className, label, processing } = this.props;
 
-    const classNames = cx(theme['toast'], className);
+    const classNames = cx(uiUtilities['reset-box-sizing'], uiUtilities['box-shadow-400'], theme['toast'], className);
 
     return (
-      <div data-teamleader-ui="toast" onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
-        <div className={classNames}>
-          {processing && <LoadingSpinner className={theme['spinner']} color="neutral" tint="lightest" />}
-          <TextBody className={theme['label']} color="neutral" tint="lightest" element="div">
-            {label}
-            {children}
-          </TextBody>
-          {this.renderCustomAction() || this.renderCustomLink() || this.renderCloseButton()}
-        </div>
+      <div
+        data-teamleader-ui="toast"
+        onMouseEnter={this.handleMouseEnter}
+        onMouseLeave={this.handleMouseLeave}
+        className={classNames}
+      >
+        {processing && <LoadingSpinner className={theme['spinner']} color="neutral" tint="lightest" />}
+        <TextBody className={theme['label']} color="neutral" tint="lightest" element="div">
+          {label}
+          {children}
+        </TextBody>
+        {this.renderCustomAction() || this.renderCustomLink() || this.renderCloseButton()}
       </div>
     );
   }

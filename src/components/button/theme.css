@@ -11,7 +11,6 @@
 }
 
 .button-base {
-  composes: reset;
   align-items: center;
   border-radius: var(--button-border-radius);
   cursor: pointer;
@@ -62,7 +61,6 @@
 }
 
 .button {
-  composes: button-base;
   font-family: var(--font-family-medium);
 
   &:not(.is-disabled) {

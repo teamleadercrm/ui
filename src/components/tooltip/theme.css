@@ -19,7 +19,6 @@
 }
 
 .tooltip {
-  composes: box-shadow-200;
   display: block;
   pointer-events: none;
   position: absolute;
