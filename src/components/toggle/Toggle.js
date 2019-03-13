@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { createRef, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import theme from './theme.css';
 import cx from 'classnames';
@@ -7,6 +7,8 @@ import Box, { omitBoxProps, pickBoxProps } from '../box';
 import { TextBody, TextDisplay, TextSmall } from '../typography';
 
 class Toggle extends PureComponent {
+  inputNode = createRef();
+
   handleToggle = event => {
     const { disabled, checked, onChange } = this.props;
 
@@ -20,14 +22,14 @@ class Toggle extends PureComponent {
   };
 
   blur() {
-    if (this.inputNode) {
-      this.inputNode.blur();
+    if (this.inputNode.current) {
+      this.inputNode.current.blur();
     }
   }
 
   focus() {
-    if (this.inputNode) {
-      this.inputNode.focus();
+    if (this.inputNode.current) {
+      this.inputNode.current.focus();
     }
   }
 
@@ -58,9 +60,7 @@ class Toggle extends PureComponent {
           checked={checked}
           disabled={disabled}
           onClick={this.handleToggle}
-          ref={node => {
-            this.inputNode = node;
-          }}
+          ref={this.inputNode}
           readOnly
           {...inputProps}
         />

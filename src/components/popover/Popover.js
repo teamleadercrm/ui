@@ -11,12 +11,13 @@ import { calculatePositions } from './positionCalculation';
 import { getMaxHeight } from './sizeCalculation';
 import Box from '../box';
 import theme from './theme.css';
+import uiUtilities from '@teamleader/ui-utilities';
 
 class Popover extends PureComponent {
   popoverNode = createRef();
   popoverRoot = document.createElement('div');
 
-  state = { positioning: { left: 0, top: 0, arrowLeft: 0, arrowTop: 0, maxHeight: 'initial' } };
+  state = { positioning: { left: 0, top: 0, maxHeight: 'initial' } };
 
   componentDidMount() {
     document.body.appendChild(this.popoverRoot);
@@ -47,7 +48,7 @@ class Popover extends PureComponent {
   setPlacementThrottled = throttle(this.setPlacement, 250);
 
   render() {
-    const { left, top, arrowLeft, arrowTop, maxHeight } = this.state.positioning;
+    const { left, top, maxHeight } = this.state.positioning;
 
     const {
       active,
@@ -56,6 +57,7 @@ class Popover extends PureComponent {
       className,
       color,
       fullHeight,
+      fullWidth,
       lockScroll,
       onOverlayClick,
       onEscKeyDown,
@@ -94,11 +96,10 @@ class Popover extends PureComponent {
               />
               <div
                 data-teamleader-ui={'popover'}
-                className={cx(theme['popover'], className)}
-                style={{ left: `${left}px`, top: `${top}px` }}
+                className={cx(uiUtilities['box-shadow-200'], theme['popover'], className)}
+                style={{ left: `${left}px`, top: `${top}px`, maxWidth: fullWidth ? '100vw' : '50vw' }}
                 ref={this.popoverNode}
               >
-                <div className={theme['arrow']} style={{ left: `${arrowLeft}px`, top: `${arrowTop}px` }} />
                 <Box
                   className={theme['inner']}
                   display="flex"
@@ -143,6 +144,8 @@ Popover.propTypes = {
   direction: PropTypes.oneOf(['north', 'south', 'east', 'west']),
   /** If true, the Popover stretches to fit its content vertically */
   fullHeight: PropTypes.bool,
+  /** If true, the Popover stretches to fit its content horizontally */
+  fullWidth: PropTypes.bool,
   /** The scroll state of the body, if true it will not be scrollable. */
   lockScroll: PropTypes.bool,
   /** The amount of extra translation on the Popover (has no effect if position is "middle" or "center"). */
@@ -171,6 +174,7 @@ Popover.defaultProps = {
   zIndex: 300,
   direction: 'south',
   fullHeight: true,
+  fullWidth: false,
   color: 'neutral',
   lockScroll: true,
   offsetCorrection: 0,

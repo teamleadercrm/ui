@@ -3,12 +3,14 @@ import PropTypes from 'prop-types';
 import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
+import uiUtilities from '@teamleader/ui-utilities';
 
 class Counter extends PureComponent {
   render() {
     const { children, className, color, count, maxCount, size, borderColor, borderTint, ...others } = this.props;
 
     const classNames = cx(
+      uiUtilities['reset-font-smoothing'],
       theme['counter'],
       theme[color],
       theme[size],

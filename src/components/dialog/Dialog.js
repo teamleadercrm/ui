@@ -11,7 +11,7 @@ import { COLORS } from '../../constants';
 import { isElementOverflowingY } from '../utils/utils';
 
 class Dialog extends PureComponent {
-  bodyRef = createRef();
+  dialogNode = createRef();
 
   state = {
     isBodyOverFlowing: false,
@@ -51,8 +51,8 @@ class Dialog extends PureComponent {
   };
 
   setIsBodyOverflowing = () => {
-    if (this.bodyRef.current) {
-      this.setState({ isBodyOverFlowing: isElementOverflowingY(this.bodyRef.current.node) });
+    if (this.dialogNode.current) {
+      this.setState({ isBodyOverFlowing: isElementOverflowingY(this.dialogNode.current) });
     }
   };
 
@@ -72,7 +72,7 @@ class Dialog extends PureComponent {
     return (
       <DialogBase className={classNames} {...restProps}>
         {title && this.getHeader()}
-        <Box className={theme['dialog-body']} padding={4} ref={this.bodyRef}>
+        <Box className={theme['dialog-body']} padding={4} ref={this.dialogNode}>
           {children}
         </Box>
         {this.getFooter()}

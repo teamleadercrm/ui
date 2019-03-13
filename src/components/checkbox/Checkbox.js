@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { createRef, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import theme from './theme.css';
 import cx from 'classnames';
@@ -8,6 +8,7 @@ import { TextBody, TextDisplay, TextSmall } from '../typography';
 import { IconCheckmarkSmallOutline, IconCheckmarkMediumOutline, IconMinusSmallOutline } from '@teamleader/ui-icons';
 
 class Checkbox extends PureComponent {
+  inputNode = createRef();
   handleToggle = event => {
     const { disabled, checked, onChange } = this.props;
 
@@ -21,14 +22,14 @@ class Checkbox extends PureComponent {
   };
 
   blur() {
-    if (this.inputNode) {
-      this.inputNode.blur();
+    if (this.inputNode.current) {
+      this.inputNode.current.blur();
     }
   }
 
   focus() {
-    if (this.inputNode) {
-      this.inputNode.focus();
+    if (this.inputNode.current) {
+      this.inputNode.current.focus();
     }
   }
 
@@ -59,9 +60,7 @@ class Checkbox extends PureComponent {
           checked={checked}
           disabled={disabled}
           onClick={this.handleToggle}
-          ref={node => {
-            this.inputNode = node;
-          }}
+          ref={this.inputNode}
           readOnly
           {...inputProps}
         />

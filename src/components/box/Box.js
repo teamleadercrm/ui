@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { createRef, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import theme from './theme.css';
@@ -7,9 +7,7 @@ const overflows = ['auto', 'hidden', 'scroll', 'visible'];
 const spacings = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 
 class Box extends PureComponent {
-  getNode() {
-    return this.node;
-  }
+  boxNode = createRef();
 
   render() {
     const {
@@ -88,14 +86,7 @@ class Box extends PureComponent {
     const Element = element;
 
     return (
-      <Element
-        ref={node => {
-          this.node = node;
-        }}
-        className={classNames}
-        style={elementStyles}
-        {...others}
-      >
+      <Element ref={this.boxNode} className={classNames} style={elementStyles} {...others}>
         {children}
       </Element>
     );

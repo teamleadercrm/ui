@@ -20,7 +20,6 @@
 }
 
 .popover {
-  composes: box-shadow-200;
   border-radius: var(--popover-border-radius);
   opacity: 0;
   position: absolute;
@@ -36,16 +35,6 @@
 
 .is-entered .popover {
   opacity: 1;
-}
-
-.arrow {
-  content: '';
-  height: calc(1.4 * var(--unit));
-  position: absolute;
-  transform: rotate(45deg);
-  left: calc(-0.5 * var(--unit));
-  top: calc(1.4 * var(--unit));
-  width: calc(1.4 * var(--unit));
 }
 
 .inner {
@@ -66,11 +55,6 @@
       background-color: var(--color-neutral-lightest);
       border-color: var(--color-neutral-lightest);
     }
-
-    .arrow {
-      background-color: var(--color-neutral-lightest);
-      box-shadow: 0 0 0 1px color(var(--color-neutral-lightest) lightness(-12%));
-    }
   }
 
   &.light {
@@ -80,11 +64,6 @@
     .inner {
       background-color: var(--color-neutral-light);
       border-color: var(--color-neutral-light);
-    }
-
-    .arrow {
-      background-color: var(--color-neutral-light);
-      box-shadow: 0 0 0 1px color(var(--color-neutral-light) lightness(-12%));
     }
   }
 
@@ -96,11 +75,6 @@
       background-color: var(--color-neutral);
       border-color: var(--color-neutral);
     }
-
-    .arrow {
-      background-color: var(--color-neutral);
-      box-shadow: 0 0 0 1px color(var(--color-neutral) lightness(-12%));
-    }
   }
 
   &.dark {
@@ -111,11 +85,6 @@
       background-color: var(--color-neutral-dark);
       border-color: var(--color-neutral-dark);
     }
-
-    .arrow {
-      background-color: var(--color-neutral-dark);
-      box-shadow: 0 0 0 1px color(var(--color-neutral-dark) lightness(-12%));
-    }
   }
 
   &.darkest {
@@ -125,11 +94,6 @@
     .inner {
       background-color: var(--color-neutral-darkest);
       border-color: var(--color-neutral-darkest);
-    }
-
-    .arrow {
-      background-color: var(--color-neutral-darkest);
-      box-shadow: 0 0 0 1px color(var(--color-neutral-darkest) lightness(-12%));
     }
   }
 }
@@ -143,11 +107,6 @@
       background-color: var(--color-teal-lightest);
       border-color: var(--color-teal-lightest);
     }
-
-    .arrow {
-      background-color: var(--color-teal-lightest);
-      box-shadow: 0 0 0 1px color(var(--color-teal-lightest) lightness(-12%));
-    }
   }
 
   &.light {
@@ -157,11 +116,6 @@
     .inner {
       background-color: var(--color-teal-light);
       border-color: var(--color-teal-light);
-    }
-
-    .arrow {
-      background-color: var(--color-teal-light);
-      box-shadow: 0 0 0 1px color(var(--color-teal-light) lightness(-12%));
     }
   }
 
@@ -173,11 +127,6 @@
       background-color: var(--color-teal);
       border-color: var(--color-teal);
     }
-
-    .arrow {
-      background-color: var(--color-teal);
-      box-shadow: 0 0 0 1px color(var(--color-teal) lightness(-12%));
-    }
   }
 
   &.dark {
@@ -188,11 +137,6 @@
       background-color: var(--color-teal-dark);
       border-color: var(--color-teal-dark);
     }
-
-    .arrow {
-      background-color: var(--color-teal-dark);
-      box-shadow: 0 0 0 1px color(var(--color-teal-dark) lightness(-12%));
-    }
   }
 
   &.darkest {
@@ -202,11 +146,6 @@
     .inner {
       background-color: var(--color-teal-darkest);
       border-color: var(--color-teal-darkest);
-    }
-
-    .arrow {
-      background-color: var(--color-teal-darkest);
-      box-shadow: 0 0 0 1px color(var(--color-teal-darkest) lightness(-12%));
     }
   }
 }
@@ -220,11 +159,6 @@
       background-color: var(--color-mint-lightest);
       border-color: var(--color-mint-lightest);
     }
-
-    .arrow {
-      background-color: var(--color-mint-lightest);
-      box-shadow: 0 0 0 1px color(var(--color-mint-lightest) lightness(-12%));
-    }
   }
 
   &.light {
@@ -234,11 +168,6 @@
     .inner {
       background-color: var(--color-mint-light);
       border-color: var(--color-mint-light);
-    }
-
-    .arrow {
-      background-color: var(--color-mint-light);
-      box-shadow: 0 0 0 1px color(var(--color-mint-light) lightness(-12%));
     }
   }
 
@@ -250,11 +179,6 @@
       background-color: var(--color-mint);
       border-color: var(--color-mint);
     }
-
-    .arrow {
-      background-color: var(--color-mint);
-      box-shadow: 0 0 0 1px color(var(--color-mint) lightness(-12%));
-    }
   }
 
   &.dark {
@@ -265,11 +189,6 @@
       background-color: var(--color-mint-dark);
       border-color: var(--color-mint-dark);
     }
-
-    .arrow {
-      background-color: var(--color-mint-dark);
-      box-shadow: 0 0 0 1px color(var(--color-mint-dark) lightness(-12%));
-    }
   }
 
   &.darkest {
@@ -279,11 +198,6 @@
     .inner {
       background-color: var(--color-mint-darkest);
       border-color: var(--color-mint-darkest);
-    }
-
-    .arrow {
-      background-color: var(--color-mint-darkest);
-      box-shadow: 0 0 0 1px color(var(--color-mint-darkest) lightness(-12%));
     }
   }
 }
@@ -297,11 +211,6 @@
       background-color: var(--color-ruby-lightest);
       border-color: var(--color-ruby-lightest);
     }
-
-    .arrow {
-      background-color: var(--color-ruby-lightest);
-      box-shadow: 0 0 0 1px color(var(--color-ruby-lightest) lightness(-12%));
-    }
   }
 
   &.light {
@@ -311,11 +220,6 @@
     .inner {
       background-color: var(--color-ruby-light);
       border-color: var(--color-ruby-light);
-    }
-
-    .arrow {
-      background-color: var(--color-ruby-light);
-      box-shadow: 0 0 0 1px color(var(--color-ruby-light) lightness(-12%));
     }
   }
 
@@ -327,11 +231,6 @@
       background-color: var(--color-ruby);
       border-color: var(--color-ruby);
     }
-
-    .arrow {
-      background-color: var(--color-ruby);
-      box-shadow: 0 0 0 1px color(var(--color-ruby) lightness(-12%));
-    }
   }
 
   &.dark {
@@ -342,11 +241,6 @@
       background-color: var(--color-ruby-dark);
       border-color: var(--color-ruby-dark);
     }
-
-    .arrow {
-      background-color: var(--color-ruby-dark);
-      box-shadow: 0 0 0 1px color(var(--color-ruby-dark) lightness(-12%));
-    }
   }
 
   &.darkest {
@@ -356,11 +250,6 @@
     .inner {
       background-color: var(--color-ruby-darkest);
       border-color: var(--color-ruby-darkest);
-    }
-
-    .arrow {
-      background-color: var(--color-ruby-darkest);
-      box-shadow: 0 0 0 1px color(var(--color-ruby-darkest) lightness(-12%));
     }
   }
 }
@@ -374,11 +263,6 @@
       background-color: var(--color-aqua-lightest);
       border-color: var(--color-aqua-lightest);
     }
-
-    .arrow {
-      background-color: var(--color-aqua-lightest);
-      box-shadow: 0 0 0 1px color(var(--color-aqua-lightest) lightness(-12%));
-    }
   }
 
   &.light {
@@ -388,11 +272,6 @@
     .inner {
       background-color: var(--color-aqua-light);
       border-color: var(--color-aqua-light);
-    }
-
-    .arrow {
-      background-color: var(--color-aqua-light);
-      box-shadow: 0 0 0 1px color(var(--color-aqua-light) lightness(-12%));
     }
   }
 
@@ -404,11 +283,6 @@
       background-color: var(--color-aqua);
       border-color: var(--color-aqua);
     }
-
-    .arrow {
-      background-color: var(--color-aqua);
-      box-shadow: 0 0 0 1px color(var(--color-aqua) lightness(-12%));
-    }
   }
 
   &.dark {
@@ -419,11 +293,6 @@
       background-color: var(--color-aqua-dark);
       border-color: var(--color-aqua-dark);
     }
-
-    .arrow {
-      background-color: var(--color-aqua-dark);
-      box-shadow: 0 0 0 1px color(var(--color-aqua-dark) lightness(-12%));
-    }
   }
 
   &.darkest {
@@ -433,11 +302,6 @@
     .inner {
       background-color: var(--color-aqua-darkest);
       border-color: var(--color-aqua-darkest);
-    }
-
-    .arrow {
-      background-color: var(--color-aqua-darkest);
-      box-shadow: 0 0 0 1px color(var(--color-aqua-darkest) lightness(-12%));
     }
   }
 }
@@ -451,11 +315,6 @@
       background-color: var(--color-violet-lightest);
       border-color: var(--color-violet-lightest);
     }
-
-    .arrow {
-      background-color: var(--color-violet-lightest);
-      box-shadow: 0 0 0 1px color(var(--color-violet-lightest) lightness(-12%));
-    }
   }
 
   &.light {
@@ -465,11 +324,6 @@
     .inner {
       background-color: var(--color-violet-light);
       border-color: var(--color-violet-light);
-    }
-
-    .arrow {
-      background-color: var(--color-violet-light);
-      box-shadow: 0 0 0 1px color(var(--color-violet-light) lightness(-12%));
     }
   }
 
@@ -481,11 +335,6 @@
       background-color: var(--color-violet);
       border-color: var(--color-violet);
     }
-
-    .arrow {
-      background-color: var(--color-violet);
-      box-shadow: 0 0 0 1px color(var(--color-violet) lightness(-12%));
-    }
   }
 
   &.dark {
@@ -496,11 +345,6 @@
       background-color: var(--color-violet-dark);
       border-color: var(--color-violet-dark);
     }
-
-    .arrow {
-      background-color: var(--color-violet-dark);
-      box-shadow: 0 0 0 1px color(var(--color-violet-dark) lightness(-12%));
-    }
   }
 
   &.darkest {
@@ -510,11 +354,6 @@
     .inner {
       background-color: var(--color-violet-darkest);
       border-color: var(--color-violet-darkest);
-    }
-
-    .arrow {
-      background-color: var(--color-violet-darkest);
-      box-shadow: 0 0 0 1px color(var(--color-violet-darkest) lightness(-12%));
     }
   }
 }
@@ -528,11 +367,6 @@
       background-color: var(--color-gold-lightest);
       border-color: var(--color-gold-lightest);
     }
-
-    .arrow {
-      background-color: var(--color-gold-lightest);
-      box-shadow: 0 0 0 1px color(var(--color-gold-lightest) lightness(-12%));
-    }
   }
 
   &.light {
@@ -542,11 +376,6 @@
     .inner {
       background-color: var(--color-gold-light);
       border-color: var(--color-gold-light);
-    }
-
-    .arrow {
-      background-color: var(--color-gold-light);
-      box-shadow: 0 0 0 1px color(var(--color-gold-light) lightness(-12%));
     }
   }
 
@@ -558,11 +387,6 @@
       background-color: var(--color-gold);
       border-color: var(--color-gold);
     }
-
-    .arrow {
-      background-color: var(--color-gold);
-      box-shadow: 0 0 0 1px color(var(--color-gold) lightness(-12%));
-    }
   }
 
   &.dark {
@@ -573,11 +397,6 @@
       background-color: var(--color-gold-dark);
       border-color: var(--color-gold-dark);
     }
-
-    .arrow {
-      background-color: var(--color-gold-dark);
-      box-shadow: 0 0 0 1px color(var(--color-gold-dark) lightness(-12%));
-    }
   }
 
   &.darkest {
@@ -587,11 +406,6 @@
     .inner {
       background-color: var(--color-gold-darkest);
       border-color: var(--color-gold-darkest);
-    }
-
-    .arrow {
-      background-color: var(--color-gold-darkest);
-      box-shadow: 0 0 0 1px color(var(--color-gold-darkest) lightness(-12%));
     }
   }
 }

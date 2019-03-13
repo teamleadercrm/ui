@@ -3,7 +3,6 @@
 @import '@teamleader/ui-utilities';
 
 .link {
-  composes: reset-font-smoothing;
   cursor: pointer;
   background: transparent;
   border: 0;
@@ -11,12 +10,12 @@
   padding: 0;
 
   svg {
-    transform: translate3d(0, -2px, 0);
+    transform: translate3d(0, -1px, 0);
   }
 
   * + svg,
   svg + * {
-    margin-left: var(--spacer-smallest);
+    margin-left: var(--spacer-smaller);
   }
 
   &.is-disabled {

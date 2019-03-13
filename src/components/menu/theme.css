@@ -28,7 +28,6 @@
 }
 
 .menu {
-  composes: reset-font-smoothing;
   display: inline-block;
   position: relative;
 
@@ -113,7 +112,6 @@
 }
 
 .outline {
-  composes: box-shadow-200;
   background-color: var(--menu-background-color);
   border-radius: var(--menu-outline-border-radius);
   box-shadow: var(--menu-outline-box-shadow);
@@ -163,7 +161,7 @@
   }
 
   svg {
-    -ms-transform: translateY(-1px);
+    transform: translateY(-1px);
   }
 }
 

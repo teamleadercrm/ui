@@ -11,7 +11,14 @@ class Icon extends PureComponent {
     const classNames = cx(theme[color], theme[tint], className);
 
     return (
-      <Box className={classNames} data-teamleader-ui="icon" element="span" {...others}>
+      <Box
+        className={classNames}
+        alignItems="center"
+        data-teamleader-ui="icon"
+        display="flex"
+        element="span"
+        {...others}
+      >
         {React.Children.map(children, child => {
           // Check if child is an actual React component
           // if so, pass the needed props. If not, just render it.

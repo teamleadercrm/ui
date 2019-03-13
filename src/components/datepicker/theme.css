@@ -16,7 +16,6 @@
 }
 
 .date-picker {
-  composes: reset-font-smoothing;
   display: inline-block;
 }
 
@@ -204,10 +203,8 @@
   color: var(--color-violet-darkest);
 }
 
-/* DayPickerInput */
-.date-picker-input,
+/* DayPickerInputRange */
 .date-picker-input-range {
-  composes: reset-font-smoothing;
   position: relative;
 
   &:not(.is-inverse) {
@@ -401,12 +398,6 @@
   }
 }
 
-.input-icon {
-  position: relative;
-  top: -1px;
-}
-
-.date-picker-input,
 .date-picker-input-range {
   .container {
     flex: 1;

@@ -47,6 +47,7 @@ storiesOf('Form elements/Select', module)
       hideSelectedOptions={boolean('Hide selected options', true)}
       error={text('error', '')}
       helpText={text('helpText', '')}
+      success={text('success', '')}
       warning={text('warning', '')}
       width={text('width', undefined)}
     />
@@ -66,6 +67,7 @@ storiesOf('Form elements/Select', module)
       hideSelectedOptions={boolean('Hide selected options', true)}
       error={text('error', '')}
       helpText={text('helpText', '')}
+      success={text('success', '')}
       warning={text('warning', '')}
       width={text('width', undefined)}
     />
@@ -88,6 +90,7 @@ storiesOf('Form elements/Select', module)
       hideSelectedOptions={boolean('Hide selected options', true)}
       error={text('error', '')}
       helpText={text('helpText', '')}
+      success={text('success', '')}
       warning={text('warning', '')}
       width={text('width', undefined)}
     />
@@ -107,6 +110,7 @@ storiesOf('Form elements/Select', module)
         hideSelectedOptions={boolean('Hide selected options', true)}
         error={text('error', '')}
         helpText={text('helpText', '')}
+        success={text('success', '')}
         warning={text('warning', '')}
         width={text('width', undefined)}
       />
@@ -147,6 +151,7 @@ storiesOf('Form elements/Select', module)
         hideSelectedOptions={boolean('hideSelectedOptions', true)}
         error={text('error', '')}
         helpText={text('helpText', '')}
+        success={text('success', '')}
         warning={text('warning', '')}
         width={text('width', undefined)}
       />

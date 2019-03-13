@@ -62,6 +62,7 @@ storiesOf('Form elements/Input', module)
       disabled={boolean('disabled', false)}
       error={text('error', '')}
       helpText={text('helpText', '')}
+      success={text('success', '')}
       warning={text('warning', '')}
       id="input1"
       inverse={boolean('inverse', false)}
@@ -92,6 +93,7 @@ storiesOf('Form elements/Input', module)
       disabled={boolean('disabled', false)}
       error={text('error', '')}
       helpText={text('helpText', '')}
+      success={text('success', '')}
       warning={text('warning', '')}
       id="input1"
       inverse={boolean('inverse', false)}
@@ -125,6 +127,7 @@ storiesOf('Form elements/Input', module)
       disabled={boolean('disabled', false)}
       error={text('error', '')}
       helpText={text('helpText', '')}
+      success={text('success', '')}
       warning={text('warning', '')}
       id="input1"
       inverse={boolean('inverse', false)}

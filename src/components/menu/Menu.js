@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { createRef, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import cx from 'classnames';
@@ -6,6 +6,7 @@ import { events } from '../utils';
 import { getViewport } from '../utils/utils';
 import MenuItem from './MenuItem.js';
 import theme from './theme.css';
+import uiUtilities from '@teamleader/ui-utilities';
 
 const POSITION = {
   AUTO: 'auto',
@@ -18,9 +19,9 @@ const POSITION = {
 
 class Menu extends PureComponent {
   state = {};
-
+  menuNode = createRef();
   componentDidMount() {
-    const { width, height } = this.menuNode.getBoundingClientRect();
+    const { width, height } = this.menuNode.current.getBoundingClientRect();
     this.setState({ width, height });
 
     const { position } = this.props;
@@ -60,7 +61,7 @@ class Menu extends PureComponent {
       this.setState({ position: this.calculatePosition() });
     }
 
-    const { width, height } = this.menuNode.getBoundingClientRect();
+    const { width, height } = this.menuNode.current.getBoundingClientRect();
     if (prevState.width !== width || prevState.height !== height) {
       this.setState({ width, height }); // eslint-disable-line
     }
@@ -217,6 +218,7 @@ class Menu extends PureComponent {
     const { className, outline, ...others } = this.props;
 
     const classNames = cx(
+      uiUtilities['reset-font-smoothing'],
       theme['menu'],
       theme[position],
       {
@@ -228,13 +230,7 @@ class Menu extends PureComponent {
     return (
       <div data-teamleader-ui="menu" className={classNames} style={this.getRootStyle()} {...others}>
         {outline ? <div className={theme['outline']} style={{ width, height }} /> : null}
-        <ul
-          ref={node => {
-            this.menuNode = node;
-          }}
-          className={theme['menu-inner']}
-          style={this.getMenuStyle()}
-        >
+        <ul ref={this.menuNode} className={theme['menu-inner']} style={this.getMenuStyle()}>
           {this.getItems()}
         </ul>
       </div>

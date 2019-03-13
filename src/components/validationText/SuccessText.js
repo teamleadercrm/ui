@@ -1,11 +1,11 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { IconWarningBadgedSmallFilled } from '@teamleader/ui-icons';
+import { IconCheckmarkSmallFilled } from '@teamleader/ui-icons';
 import { TextSmall } from '../typography';
 import Box from '../box';
 import Icon from '../icon';
 
-export default class ErrorText extends PureComponent {
+export default class SuccessText extends PureComponent {
   render() {
     const { children, className, inverse, ...others } = this.props;
 
@@ -13,15 +13,15 @@ export default class ErrorText extends PureComponent {
       <Box
         className={className}
         alignItems="center"
-        data-teamleader-ui="error-text"
+        data-teamleader-ui="success-text"
         display="flex"
         marginTop={2}
         {...others}
       >
-        <Icon color="ruby" tint={inverse ? 'light' : 'dark'}>
-          <IconWarningBadgedSmallFilled />
+        <Icon color="mint" tint={inverse ? 'light' : 'dark'}>
+          <IconCheckmarkSmallFilled />
         </Icon>
-        <TextSmall color="ruby" element="span" marginLeft={1} tint={inverse ? 'light' : 'dark'}>
+        <TextSmall color="mint" element="span" marginLeft={1} tint={inverse ? 'light' : 'dark'}>
           {children}
         </TextSmall>
       </Box>
@@ -29,7 +29,7 @@ export default class ErrorText extends PureComponent {
   }
 }
 
-ErrorText.propTypes = {
+SuccessText.propTypes = {
   /** The displayed text */
   children: PropTypes.node,
   /** The class name for the wrapper to give custom styles */
@@ -38,7 +38,7 @@ ErrorText.propTypes = {
   inverse: PropTypes.bool,
 };
 
-ErrorText.defaultProps = {
-  children: 'This is the error text',
+SuccessText.defaultProps = {
+  children: 'This is the success text',
   inverse: false,
 };
