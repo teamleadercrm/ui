@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { createRef, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../box';
 import { colorsWithout } from '../../constants';
@@ -7,15 +7,17 @@ import cx from 'classnames';
 import theme from './theme.css';
 
 class Badge extends PureComponent {
+  badgeNode = createRef();
+
   handleMouseUp = event => {
-    this.badgeNode.getNode().blur();
+    this.badgeNode.current.blur();
     if (this.props.onMouseUp) {
       this.props.onMouseUp(event);
     }
   };
 
   handleMouseLeave = event => {
-    this.badgeNode.getNode().blur();
+    this.badgeNode.current.blur();
     if (this.props.onMouseLeave) {
       this.props.onMouseLeave(event);
     }
@@ -51,7 +53,7 @@ class Badge extends PureComponent {
         className={classNames}
         data-teamleader-ui="badge"
         element={element}
-        ref={node => (this.badgeNode = node)}
+        ref={this.badgeNode}
         onMouseUp={this.handleMouseUp}
         onMouseLeave={this.handleMouseLeave}
         paddingHorizontal={2}
