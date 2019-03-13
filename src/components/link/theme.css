@@ -15,7 +15,7 @@
 
   * + svg,
   svg + * {
-    margin-left: var(--spacer-smallest);
+    margin-left: var(--spacer-smaller);
   }
 
   &.is-disabled {
