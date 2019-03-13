@@ -18,8 +18,8 @@ class IconTab extends PureComponent {
   };
 
   blur = () => {
-    if (this.tabNode.current) {
-      this.tabNode.current.blur();
+    if (this.tabNode.current.boxNode.current) {
+      this.tabNode.current.boxNode.current.blur();
     }
   };
 

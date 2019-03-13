@@ -10,6 +10,12 @@
 
 ### Fixed
 
+## [0.23.1] - 2019-03-13
+
+### Fixed
+
+- `Badge`, `IconTab` & `TitleTab`: fixed ref errors ([@driesd](https://github.com/driesd) in [#547](https://github.com/teamleadercrm/ui/pull/547))
+
 ## [0.23.0] - 2019-03-13
 
 ### Added

@@ -20,8 +20,8 @@ class TitleTab extends PureComponent {
   };
 
   blur = () => {
-    if (this.tabNode) {
-      this.tabNode.current.blur();
+    if (this.tabNode.current.boxNode.current) {
+      this.tabNode.current.boxNode.current.blur();
     }
   };
 
