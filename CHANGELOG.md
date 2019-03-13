@@ -31,6 +31,7 @@
 ### Removed
 
 - [BREAKING] `DatePickerInput`: removed `parseDate` support, which makes it impossible to type a localized date into the input field. ([@driesd](https://github.com/driesd) in [#535](https://github.com/teamleadercrm/ui/pull/535))
+- `Popover`: removed pointing arrow. ([@driesd](https://github.com/driesd) in [#536](https://github.com/teamleadercrm/ui/pull/536))
 
 ### Fixed
 
