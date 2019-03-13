@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { createRef, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../box';
 import cx from 'classnames';
@@ -6,6 +6,8 @@ import theme from './theme.css';
 import omit from 'lodash.omit';
 
 class IconTab extends PureComponent {
+  tabNode = createRef();
+
   handleClick = event => {
     if (this.props.onClick) {
       this.props.onClick(event);
@@ -16,8 +18,8 @@ class IconTab extends PureComponent {
   };
 
   blur = () => {
-    if (this.tabNode) {
-      this.tabNode.getNode().blur();
+    if (this.tabNode.current) {
+      this.tabNode.current.blur();
     }
   };
 
@@ -33,9 +35,7 @@ class IconTab extends PureComponent {
         className={classNames}
         paddingHorizontal={3}
         paddingVertical={4}
-        ref={node => {
-          this.tabNode = node;
-        }}
+        ref={this.tabNode}
         onClick={this.handleClick}
         {...rest}
       >

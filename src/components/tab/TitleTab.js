@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { createRef, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../box';
 import cx from 'classnames';
@@ -8,6 +8,8 @@ import omit from 'lodash.omit';
 import { Heading4 } from '../typography';
 
 class TitleTab extends PureComponent {
+  tabNode = createRef();
+
   handleClick = event => {
     if (this.props.onClick) {
       this.props.onClick(event);
@@ -19,7 +21,7 @@ class TitleTab extends PureComponent {
 
   blur = () => {
     if (this.tabNode) {
-      this.tabNode.getNode().blur();
+      this.tabNode.current.blur();
     }
   };
 
@@ -46,9 +48,7 @@ class TitleTab extends PureComponent {
         className={classNames}
         paddingHorizontal={this.getPaddingHorizontal()}
         paddingVertical={4}
-        ref={node => {
-          this.tabNode = node;
-        }}
+        ref={this.tabNode}
         onClick={this.handleClick}
         {...rest}
       >
