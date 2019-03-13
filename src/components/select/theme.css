@@ -3,7 +3,6 @@
 @import '@teamleader/ui-typography';
 
 .select {
-  composes: reset-font-smoothing;
   font-family: var(--font-family-regular);
   font-size: calc(1.4 * var(--unit));
   border-color: var(--color-neutral-dark);

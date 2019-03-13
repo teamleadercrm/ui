@@ -16,7 +16,6 @@
 }
 
 .date-picker {
-  composes: reset-font-smoothing;
   display: inline-block;
 }
 
@@ -206,7 +205,6 @@
 
 /* DayPickerInputRange */
 .date-picker-input-range {
-  composes: reset-font-smoothing;
   position: relative;
 
   &:not(.is-inverse) {

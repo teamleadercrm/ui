@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
+import uiUtilities from '@teamleader/ui-utilities';
 
 const SIZES = {
   medium: {
@@ -18,7 +19,7 @@ class StatusLabel extends PureComponent {
   render() {
     const { children, className, color, size, ...others } = this.props;
 
-    const classNames = cx(theme['label'], theme[color], theme[size], className);
+    const classNames = cx(uiUtilities['reset-font-smoothing'], theme['label'], theme[color], theme[size], className);
 
     return (
       <Box className={classNames} element="span" {...SIZES[size]} {...others} data-teamleader-ui="status-label">

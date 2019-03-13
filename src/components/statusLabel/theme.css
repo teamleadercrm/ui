@@ -5,7 +5,6 @@
 .label {
   border-style: solid;
   border-width: 1px;
-  composes: reset-font-smoothing;
   display: inline-block;
   font-family: var(--font-family-medium);
   text-transform: none;

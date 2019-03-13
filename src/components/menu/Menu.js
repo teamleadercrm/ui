@@ -6,6 +6,7 @@ import { events } from '../utils';
 import { getViewport } from '../utils/utils';
 import MenuItem from './MenuItem.js';
 import theme from './theme.css';
+import uiUtilities from '@teamleader/ui-utilities';
 
 const POSITION = {
   AUTO: 'auto',
@@ -217,6 +218,7 @@ class Menu extends PureComponent {
     const { className, outline, ...others } = this.props;
 
     const classNames = cx(
+      uiUtilities['reset-font-smoothing'],
       theme['menu'],
       theme[position],
       {
@@ -227,7 +229,9 @@ class Menu extends PureComponent {
 
     return (
       <div data-teamleader-ui="menu" className={classNames} style={this.getRootStyle()} {...others}>
-        {outline ? <div className={theme['outline']} style={{ width, height }} /> : null}
+        {outline ? (
+          <div className={cx(uiUtilities['box-shadow-200'], theme['outline'])} style={{ width, height }} />
+        ) : null}
         <ul
           ref={node => {
             this.menuNode = node;

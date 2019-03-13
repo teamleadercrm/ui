@@ -20,7 +20,6 @@
 }
 
 .dialog-base {
-  composes: box-shadow-300;
   background-color: var(--dialog-background-color);
   border-radius: var(--dialog-border-radius);
   display: flex;
