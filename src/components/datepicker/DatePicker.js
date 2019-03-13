@@ -7,6 +7,7 @@ import WeekDay from './WeekDay';
 import { convertModifiersToClassnames } from './utils';
 import cx from 'classnames';
 import theme from './theme.css';
+import uiUtilities from '@teamleader/ui-utilities';
 
 class DatePicker extends PureComponent {
   state = {
@@ -38,7 +39,7 @@ class DatePicker extends PureComponent {
 
     const boxProps = pickBoxProps(others);
     const restProps = omitBoxProps(others);
-    const classNames = cx(theme['date-picker'], theme[`is-${size}`], className);
+    const classNames = cx(uiUtilities['reset-font-smoothing'], theme['date-picker'], theme[`is-${size}`], className);
 
     return (
       <Box {...boxProps}>

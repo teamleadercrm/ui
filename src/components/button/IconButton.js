@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import theme from './theme.css';
+import uiUtilities from '@teamleader/ui-utilities';
 
 class IconButton extends Component {
   handleMouseUp = event => {
@@ -28,6 +29,9 @@ class IconButton extends Component {
     const { children, className, disabled, element, icon, size, color, type, ...others } = this.props;
 
     const classNames = cx(
+      uiUtilities['reset-box-sizing'],
+      uiUtilities['reset-font-smoothing'],
+      theme['button-base'],
       theme['button'],
       theme['icon-button'],
       theme[color],

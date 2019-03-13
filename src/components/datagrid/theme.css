@@ -37,7 +37,6 @@
 }
 
 .cell {
-  composes: reset-font-smoothing;
   align-items: center;
   border-bottom: 1px solid var(--color-neutral);
   color: var(--color-teal-darkest);

@@ -2,19 +2,17 @@
 
 ### Added
 
-<<<<<<< HEAD
-
 - `ValidationSuccess`: added to `ValidationText` component. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#541](https://github.com/teamleadercrm/ui/pull/541))
 - `Input`: added `success` prop to pass down to our `ValidationText` component. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#541](https://github.com/teamleadercrm/ui/pull/541))
 - `Select`: added `success` prop to pass down to our `ValidationText` component. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#541](https://github.com/teamleadercrm/ui/pull/541))
-- # `TextArea`: added `success` prop to pass down to our `ValidationText` component. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#541](https://github.com/teamleadercrm/ui/pull/541))
+- `TextArea`: added `success` prop to pass down to our `ValidationText` component. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#541](https://github.com/teamleadercrm/ui/pull/541))
 - `Popover`: added `fullWidth` prop (defaults to `false`). ([@driesd](https://github.com/driesd) in [#535](https://github.com/teamleadercrm/ui/pull/535))
-  > > > > > > > next-release
 
 ### Changed
 
 - `DatePickerInput`: refactored using our `Input` & `Popover` components instead of `DayPickerInput`. ([@driesd](https://github.com/driesd) in [#535](https://github.com/teamleadercrm/ui/pull/535))
 - `NumericInput`: disabled the `tabindex` for the numeric input spinner controls. ([@driesd](https://github.com/driesd) in [#539](https://github.com/teamleadercrm/ui/pull/539))
+- `General`: eliminate `composes` in css files. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#542](https://github.com/teamleadercrm/ui/pull/542))
 
 ### Deprecated
 

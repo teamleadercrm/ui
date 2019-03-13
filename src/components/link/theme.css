@@ -3,7 +3,6 @@
 @import '@teamleader/ui-utilities';
 
 .link {
-  composes: reset-font-smoothing;
   cursor: pointer;
   background: transparent;
   border: 0;

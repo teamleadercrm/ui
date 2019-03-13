@@ -111,7 +111,6 @@
 }
 
 .label {
-  composes: reset-font-smoothing;
   font-family: var(--font-family-medium);
 }
 
