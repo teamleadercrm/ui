@@ -57,7 +57,7 @@ class Dialog extends PureComponent {
   };
 
   render() {
-    const { children, className, primaryAction, secondaryAction, tertiaryAction, title, ...otherProps } = this.props;
+    const { children, className, title, ...otherProps } = this.props;
 
     const classNames = cx(theme['dialog'], className);
 
