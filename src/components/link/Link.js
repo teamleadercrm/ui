@@ -62,7 +62,7 @@ class Link extends PureComponent {
 }
 
 Link.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.any.isRequired,
   className: PropTypes.string,
   /** If true, component will be disabled. */
   disabled: PropTypes.bool,
