@@ -20,9 +20,8 @@ const POSITION = {
 class Menu extends PureComponent {
   state = {};
   menuNode = createRef();
-
   componentDidMount() {
-    const { width, height } = this.menuNode.getBoundingClientRect();
+    const { width, height } = this.menuNode.current.getBoundingClientRect();
     this.setState({ width, height });
 
     const { position } = this.props;
@@ -62,7 +61,7 @@ class Menu extends PureComponent {
       this.setState({ position: this.calculatePosition() });
     }
 
-    const { width, height } = this.menuNode.getBoundingClientRect();
+    const { width, height } = this.menuNode.current.getBoundingClientRect();
     if (prevState.width !== width || prevState.height !== height) {
       this.setState({ width, height }); // eslint-disable-line
     }
