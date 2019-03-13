@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { createRef, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import cx from 'classnames';
@@ -18,6 +18,7 @@ const POSITION = {
 
 class Menu extends PureComponent {
   state = {};
+  menuNode = createRef();
 
   componentDidMount() {
     const { width, height } = this.menuNode.getBoundingClientRect();
@@ -228,13 +229,7 @@ class Menu extends PureComponent {
     return (
       <div data-teamleader-ui="menu" className={classNames} style={this.getRootStyle()} {...others}>
         {outline ? <div className={theme['outline']} style={{ width, height }} /> : null}
-        <ul
-          ref={node => {
-            this.menuNode = node;
-          }}
-          className={theme['menu-inner']}
-          style={this.getMenuStyle()}
-        >
+        <ul ref={this.menuNode} className={theme['menu-inner']} style={this.getMenuStyle()}>
           {this.getItems()}
         </ul>
       </div>
