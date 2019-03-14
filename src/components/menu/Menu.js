@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import cx from 'classnames';
 import { events } from '../utils';
 import { getViewport } from '../utils/utils';
+import Box from '../box';
 import MenuItem from './MenuItem.js';
 import theme from './theme.css';
 
@@ -226,12 +227,12 @@ class Menu extends PureComponent {
     );
 
     return (
-      <div data-teamleader-ui="menu" className={classNames} style={this.getRootStyle()} {...others}>
+      <Box data-teamleader-ui="menu" className={classNames} style={this.getRootStyle()} {...others}>
         {outline ? <div className={theme['outline']} style={{ width, height }} /> : null}
         <ul ref={this.menuNode} className={theme['menu-inner']} style={this.getMenuStyle()}>
           {this.getItems()}
         </ul>
-      </div>
+      </Box>
     );
   }
 }
