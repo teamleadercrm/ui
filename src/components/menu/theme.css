@@ -10,7 +10,7 @@
   --menu-outline-border-radius: calc(0.4 * var(--unit));
   --menu-outline-box-shadow: 0 0 0 1px color(var(--color-teal-darkest) a(24%));
   --menu-item-hover-background: var(--color-neutral-light);
-  --menu-item-selected-background: transparent;
+  --menu-item-selected-background: var(--color-aqua-lightest);
   --menu-item-height: calc(3.6 * var(--unit));
   --menu-divider-height: calc((2.8 / 4) * var(--unit));
 }
@@ -131,7 +131,7 @@
   overflow: hidden;
   position: relative;
 
-  &:not(.is-disabled):hover {
+  &:not(.is-disabled):not(.is-selected):hover {
     background-color: var(--menu-item-hover-background);
     cursor: pointer;
   }
