@@ -129,9 +129,7 @@
 }
 
 .menu-item {
-  align-items: center;
   color: var(--color-teal-dark);
-  display: flex;
   height: var(--menu-item-height);
   overflow: hidden;
   padding: 0 var(--menu-item-padding);
