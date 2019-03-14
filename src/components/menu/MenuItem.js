@@ -27,6 +27,9 @@ class MenuItem extends PureComponent {
       className,
     );
 
+    const color = disabled ? 'neutral' : 'teal';
+    const tint = disabled ? 'dark' : 'darkest';
+
     return (
       <Box
         alignItems="center"
@@ -38,11 +41,11 @@ class MenuItem extends PureComponent {
         onClick={this.handleClick}
       >
         {icon && (
-          <Icon color="teal" tint="darkest" marginRight={3}>
+          <Icon color={color} tint={tint} marginRight={3}>
             {icon}
           </Icon>
         )}
-        <TextBody color="teal" element="span">
+        <TextBody color={color} tint={tint} element="span">
           {caption}
         </TextBody>
       </Box>
