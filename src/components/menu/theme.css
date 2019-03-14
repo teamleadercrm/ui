@@ -128,7 +128,6 @@
 }
 
 .menu-item {
-  color: var(--color-teal-dark);
   height: var(--menu-item-height);
   overflow: hidden;
   padding: 0 var(--menu-item-padding);

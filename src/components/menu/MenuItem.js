@@ -37,8 +37,14 @@ class MenuItem extends PureComponent {
         className={classNames}
         onClick={this.handleClick}
       >
-        {icon && <Icon marginRight={3}>{icon}</Icon>}
-        <TextBody element="span">{caption}</TextBody>
+        {icon && (
+          <Icon color="teal" tint="darkest" marginRight={3}>
+            {icon}
+          </Icon>
+        )}
+        <TextBody color="teal" element="span">
+          {caption}
+        </TextBody>
       </Box>
     );
   }
