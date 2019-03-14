@@ -38,6 +38,7 @@ class MenuItem extends PureComponent {
         element="li"
         {...others}
         className={classNames}
+        paddingHorizontal={3}
         onClick={this.handleClick}
       >
         {icon && (

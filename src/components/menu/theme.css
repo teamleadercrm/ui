@@ -12,7 +12,6 @@
   --menu-item-hover-background: var(--color-neutral-light);
   --menu-item-selected-background: transparent;
   --menu-item-height: calc(2.8 * var(--unit));
-  --menu-item-padding: calc(1.6 * var(--unit));
   --menu-divider-height: calc((2.8 / 4) * var(--unit));
 }
 
@@ -130,7 +129,6 @@
 .menu-item {
   height: var(--menu-item-height);
   overflow: hidden;
-  padding: 0 var(--menu-item-padding);
   position: relative;
 
   &:not(.is-disabled):hover {
