@@ -133,16 +133,16 @@
   padding: 0 var(--menu-item-padding);
   position: relative;
 
-  &:not(.disabled):hover {
+  &:not(.is-disabled):hover {
     background-color: var(--menu-item-hover-background);
     cursor: pointer;
   }
 
-  &.disabled {
+  &.is-disabled {
     pointer-events: none;
   }
 
-  &.selected {
+  &.is-selected {
     background-color: var(--menu-item-selected-background);
     font-weight: 500;
   }

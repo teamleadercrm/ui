@@ -21,8 +21,8 @@ class MenuItem extends PureComponent {
     const classNames = cx(
       theme['menu-item'],
       {
-        [theme['selected']]: selected,
-        [theme['disabled']]: disabled,
+        [theme['is-selected']]: selected,
+        [theme['is-disabled']]: disabled,
       },
       className,
     );
