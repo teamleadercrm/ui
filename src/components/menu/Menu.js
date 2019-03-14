@@ -7,6 +7,7 @@ import { getViewport } from '../utils/utils';
 import Box from '../box';
 import MenuItem from './MenuItem.js';
 import theme from './theme.css';
+import uiUtilities from '@teamleader/ui-utilities';
 
 const POSITION = {
   AUTO: 'auto',
@@ -226,9 +227,13 @@ class Menu extends PureComponent {
       className,
     );
 
+    const outlineClassNames = cx(theme['outline'], {
+      [uiUtilities['box-shadow-200']]: position !== POSITION.STATIC,
+    });
+
     return (
       <Box data-teamleader-ui="menu" className={classNames} style={this.getRootStyle()} {...others}>
-        {outline ? <div className={theme['outline']} style={{ width, height }} /> : null}
+        {outline ? <div className={outlineClassNames} style={{ width, height }} /> : null}
         <ul ref={this.menuNode} className={theme['menu-inner']} style={this.getMenuStyle()}>
           {this.getItems()}
         </ul>
