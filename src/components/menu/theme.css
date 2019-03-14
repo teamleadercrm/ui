@@ -21,10 +21,6 @@
   display: inline-block;
   position: relative;
   text-align: center;
-
-  & .icon {
-    cursor: pointer;
-  }
 }
 
 .menu {
@@ -154,14 +150,6 @@
   &.selected {
     background-color: var(--menu-item-selected-background);
     font-weight: 500;
-  }
-
-  .icon {
-    margin-right: var(--spacer-small);
-  }
-
-  svg {
-    transform: translateY(-1px);
   }
 }
 

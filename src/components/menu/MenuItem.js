@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import Icon from '../icon';
 import cx from 'classnames';
 import theme from './theme.css';
 
@@ -27,7 +28,7 @@ class MenuItem extends PureComponent {
 
     return (
       <li {...others} data-teamleader-ui="menu-item" className={classNames} onClick={this.handleClick}>
-        {icon && <span className={theme['icon']}>{icon}</span>}
+        {icon && <Icon marginRight={3}>{icon}</Icon>}
         <span className={theme['caption']}>{caption}</span>
         {shortcut && <small className={theme['shortcut']}>{shortcut}</small>}
         {children}
