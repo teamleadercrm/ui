@@ -12,7 +12,6 @@
   --menu-item-hover-background: var(--color-neutral-light);
   --menu-item-selected-background: var(--color-aqua-lightest);
   --menu-item-height: calc(3.6 * var(--unit));
-  --menu-divider-height: calc((2.4 / 4) * var(--unit));
 }
 
 .icon-menu {
@@ -147,11 +146,11 @@
 }
 
 .divider {
-  background-color: var(--color-neutral-light);
+  background-color: var(--color-neutral);
   border: 0;
   display: block;
   height: 1px;
-  margin: var(--menu-divider-height) 0;
+  margin: 0;
   outline: 0;
   padding: 0;
   width: 100%;
