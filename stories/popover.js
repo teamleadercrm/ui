@@ -2,7 +2,21 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { select, boolean, number } from '@storybook/addon-knobs/react';
 import { Store, State } from '@sambego/storybook-state';
-import { Banner, Box, Button, ButtonGroup, Heading3, Link, Popover, TextBody, TextSmall } from '../src';
+import { IconAddSmallOutline, IconUserSmallFilled, IconClockSmallOutline } from '@teamleader/ui-icons';
+import {
+  Banner,
+  Box,
+  Button,
+  ButtonGroup,
+  Heading3,
+  Link,
+  Menu,
+  MenuItem,
+  MenuDivider,
+  Popover,
+  TextBody,
+  TextSmall,
+} from '../src';
 
 const store = new Store({
   active: false,
@@ -161,6 +175,38 @@ storiesOf('Popover', module)
             <Button label="Cancel" />
             <Button level="primary" label="Confirm" />
           </ButtonGroup>
+        </Popover>
+      </State>
+    </Box>
+  ))
+  .add('with menu', () => (
+    <Box display="flex" justifyContent="center">
+      <Button onClick={handleButtonClick} label="Open Popover with menu" />
+      <State store={store}>
+        <Popover
+          active={false}
+          backdrop={select('Backdrop', backdrops, 'transparent')}
+          color={select('Color', colors, 'neutral')}
+          direction={select('Direction', directions, 'south')}
+          fullHeight={boolean('fullHeight', true)}
+          position={select('Position', positions, 'end')}
+          onEscKeyDown={handleCloseClick}
+          onOverlayClick={handleCloseClick}
+          tint={select('Tint', tints, 'lightest')}
+          lockScroll={boolean('Lock scroll', true)}
+          offsetCorrection={number('Offset correction', 0)}
+        >
+          <Menu outline={false}>
+            <MenuItem value="foo" caption="Caption" />
+            <MenuItem selected value="bar" caption="Caption & Shortcut" shortcut="Ctrl + P" />
+            <MenuItem caption="Disabled ..." disabled shortcut="Ctrl + P">
+              We are the children!!
+            </MenuItem>
+            <MenuDivider />
+            <MenuItem caption="Caption & Icon" icon={<IconAddSmallOutline />} />
+            <MenuItem caption="Caption, Icon & Shortcut" icon={<IconUserSmallFilled />} shortcut="Ctrl + P" />
+            <MenuItem caption="Disabled ..." icon={<IconClockSmallOutline />} shortcut="Ctrl + P" disabled />
+          </Menu>
         </Popover>
       </State>
     </Box>

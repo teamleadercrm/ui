@@ -15,7 +15,7 @@ class MenuItem extends PureComponent {
   };
 
   render() {
-    const { icon, caption, children, className, shortcut, selected, disabled, ...others } = this.props;
+    const { icon, caption, className, shortcut, selected, disabled, ...others } = this.props;
 
     const classNames = cx(
       theme['menu-item'],
@@ -40,7 +40,6 @@ class MenuItem extends PureComponent {
         {icon && <Icon marginRight={3}>{icon}</Icon>}
         <span className={theme['caption']}>{caption}</span>
         {shortcut && <small className={theme['shortcut']}>{shortcut}</small>}
-        {children}
       </Box>
     );
   }
@@ -48,7 +47,6 @@ class MenuItem extends PureComponent {
 
 MenuItem.propTypes = {
   caption: PropTypes.string,
-  children: PropTypes.any,
   className: PropTypes.string,
   disabled: PropTypes.bool,
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
