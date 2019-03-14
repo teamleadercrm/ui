@@ -151,7 +151,7 @@ Button.propTypes = {
   /** If true, component will be rendered in inverse mode (only for the levels "link" and "outline"). */
   inverse: PropTypes.bool,
   /** The textual label displayed inside the button. */
-  label: PropTypes.string,
+  label: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   /** Callback function that is fired when mouse leaves the component. */
   onMouseLeave: PropTypes.func,
   /** Callback function that is fired when the mouse button is released. */

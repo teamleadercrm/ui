@@ -34,7 +34,7 @@ ValidationText.propTypes = {
   error: PropTypes.node,
   help: PropTypes.node,
   inverse: PropTypes.bool,
-  success: PropTypes.bool,
+  success: PropTypes.node,
   warning: PropTypes.node,
 };
 

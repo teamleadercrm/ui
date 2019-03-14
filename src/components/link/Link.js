@@ -62,7 +62,9 @@ class Link extends PureComponent {
 }
 
 Link.propTypes = {
-  children: PropTypes.node.isRequired,
+  /** The content to display inside the link. */
+  children: PropTypes.any.isRequired,
+  /** A class name for the link to give custom styles. */
   className: PropTypes.string,
   /** If true, component will be disabled. */
   disabled: PropTypes.bool,
@@ -70,7 +72,9 @@ Link.propTypes = {
   icon: PropTypes.element,
   /** The position of the icon inside the button. */
   iconPlacement: PropTypes.oneOf(['left', 'right']),
+  /** If true, the link style inherits the parent element style. */
   inherit: PropTypes.bool,
+  /** A custom element to be rendered */
   element: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
   /** Callback function that is fired when mouse leaves the component. */
   onMouseLeave: PropTypes.func,
