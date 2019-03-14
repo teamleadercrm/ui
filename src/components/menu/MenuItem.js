@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../box';
 import Icon from '../icon';
+import { TextBody } from '../typography';
 import cx from 'classnames';
 import theme from './theme.css';
 
@@ -19,7 +20,6 @@ class MenuItem extends PureComponent {
 
     const classNames = cx(
       theme['menu-item'],
-      theme['text-small'],
       {
         [theme['selected']]: selected,
         [theme['disabled']]: disabled,
@@ -38,7 +38,7 @@ class MenuItem extends PureComponent {
         onClick={this.handleClick}
       >
         {icon && <Icon marginRight={3}>{icon}</Icon>}
-        <span className={theme['caption']}>{caption}</span>
+        <TextBody element="span">{caption}</TextBody>
         {shortcut && <small className={theme['shortcut']}>{shortcut}</small>}
       </Box>
     );
