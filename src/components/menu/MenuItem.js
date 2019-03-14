@@ -32,14 +32,14 @@ class MenuItem extends PureComponent {
 
     return (
       <Box
+        {...others}
         alignItems="center"
+        className={classNames}
         data-teamleader-ui="menu-item"
         display="flex"
         element="li"
-        {...others}
-        className={classNames}
-        paddingHorizontal={3}
         onClick={this.handleClick}
+        paddingHorizontal={3}
       >
         {icon && (
           <Icon color={color} tint={tint} marginRight={3}>
