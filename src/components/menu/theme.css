@@ -150,10 +150,6 @@
   }
 }
 
-.caption {
-  flex-grow: 1;
-}
-
 .shortcut {
   margin-left: var(--menu-item-padding);
 }
