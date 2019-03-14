@@ -149,10 +149,6 @@
   }
 }
 
-.shortcut {
-  margin-left: var(--menu-item-padding);
-}
-
 .divider {
   background-color: var(--color-neutral-light);
   border: 0;
