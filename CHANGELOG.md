@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `General`: replace the luxon package from devDependencies to dependencies. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#552](https://github.com/teamleadercrm/ui/pull/552))
+
 ### Deprecated
 
 ### Removed
