@@ -75,13 +75,13 @@ class DurationInput extends PureComponent {
   };
 
   handleIncreaseValue = event => {
-    const type = event.currentTarget.parentElement.parentElement.previousSibling.getAttribute('id');
-    this.updateStep(type, 1);
+    const element = event.currentTarget.parentElement.parentElement.previousSibling.getAttribute('id');
+    this.updateStep(element, 1);
   };
 
   handleDecreaseValue = event => {
-    const type = event.currentTarget.parentElement.parentElement.previousSibling.getAttribute('id');
-    this.updateStep(type, -1);
+    const element = event.currentTarget.parentElement.parentElement.previousSibling.getAttribute('id');
+    this.updateStep(element, -1);
   };
 
   getSuffixWithSpinner = index => [
