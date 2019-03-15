@@ -101,7 +101,7 @@ class DurationInput extends PureComponent {
     const { spinner, suffix, ...others } = this.props;
 
     return (
-      <Box>
+      <Box style={{ display: 'flex', alignItems: 'center', width: '220px' }}>
         <SingleLineInputBase
           type="number"
           suffix={spinner ? this.getSuffixWithSpinner(0) : suffix}
@@ -112,6 +112,7 @@ class DurationInput extends PureComponent {
           id={'hours'}
           value={this.state.hours}
         />
+        <p>:</p>
         <SingleLineInputBase
           type="number"
           value={this.state.minutes}
@@ -123,6 +124,7 @@ class DurationInput extends PureComponent {
           {...others}
           id={'minutes'}
         />
+        <p>:</p>
         <SingleLineInputBase
           type="number"
           value={this.state.seconds}
