@@ -100,7 +100,11 @@ storiesOf('Form elements/Input', module)
       inverse={boolean('inverse', false)}
       readOnly={boolean('readOnly', false)}
       size={select('size', sizes) || undefined}
+      max={number('max', 10)}
+      min={number('min', 0)}
+      spinner={boolean('spinner', true)}
       step={number('step', 1)}
+      width={number('width', 120)}
     />
   ))
   .add('NumericInput', () => (
@@ -111,7 +115,6 @@ storiesOf('Form elements/Input', module)
       helpText={text('helpText', '')}
       success={text('success', '')}
       warning={text('warning', '')}
-      id="input1"
       inverse={boolean('inverse', false)}
       max={number('max', 10)}
       min={number('min', 0)}
