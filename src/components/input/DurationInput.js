@@ -5,7 +5,7 @@ import SingleLineInputBase from './SingleLineInputBase';
 
 class DurationInput extends PureComponent {
   state = {
-    value: '00:00',
+    value: '00:00:00',
   };
   render() {
     const { ...others } = this.props;
