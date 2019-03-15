@@ -34,6 +34,7 @@
 - `General`: eliminate `composes` in css files. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#542](https://github.com/teamleadercrm/ui/pull/542))
 - `General`: replace legacy ref with createRef. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#544](https://github.com/teamleadercrm/ui/pull/544))
 - `Select`: use equal padding for headers and options. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#550](https://github.com/teamleadercrm/ui/pull/550))
+- `General`: replace the luxon package from devDependencies to dependencies. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#552](https://github.com/teamleadercrm/ui/pull/552))
 
 ### Removed
 
