@@ -104,7 +104,7 @@ storiesOf('Form elements/Input', module)
       min={number('min', 0)}
       spinner={boolean('spinner', true)}
       step={number('step', 1)}
-      width={number('width', 120)}
+      width={number('width', 60)}
     />
   ))
   .add('NumericInput', () => (
