@@ -84,7 +84,8 @@ class DurationInput extends PureComponent {
     this.updateStep(element, -1);
   };
 
-  getSuffixWithSpinner = index => [
+
+  getSuffixWithSpinner = () => [
     ...this.props.suffix,
     <SpinnerControls
       inverse={this.props.inverse}
@@ -93,6 +94,7 @@ class DurationInput extends PureComponent {
       }}
       spinnerDownProps={{
         onClick: this.handleDecreaseValue,
+        disabled: this.isMinReached,
       }}
     />,
   ];
