@@ -41,19 +41,33 @@ class DurationInput extends PureComponent {
   updateStep = (type, n) => {
     switch (type) {
       case 'hours':
-        const hours = (this.state.hours += n);
+        let hours = this.state.hours;
+        hours += n;
         this.setState({ hours: hours });
-        console.log(this.state.hours);
         break;
       case 'minutes':
-        const minutes = (this.state.minutes += n);
+        let minutes = this.state.minutes;
+        if (minutes >= 59) {
+          minutes = 0;
+          let hoursUp = this.state.hours;
+          hoursUp += n;
+          this.setState({ minutes: minutes, hours: hoursUp });
+        } else {
+          minutes += n;
         this.setState({ minutes: minutes });
-        console.log(this.state.minutes);
+        }
         break;
       case 'seconds':
-        const seconds = (this.state.seconds += n);
+        let seconds = this.state.seconds;
+        if (seconds >= 59) {
+          seconds = 0;
+          let minutesUp = this.state.minutes;
+          minutesUp += n;
+          this.setState({ seconds: seconds, minutes: minutesUp });
+        } else {
+          seconds += n;
         this.setState({ seconds: seconds });
-        console.log(this.state.seconds);
+        }
         break;
       default:
         break;
