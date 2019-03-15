@@ -16,7 +16,7 @@ class MenuItem extends PureComponent {
   };
 
   render() {
-    const { icon, caption, className, selected, disabled, ...others } = this.props;
+    const { icon, caption, className, destructive, selected, disabled, ...others } = this.props;
 
     const classNames = cx(
       theme['menu-item'],
@@ -27,8 +27,8 @@ class MenuItem extends PureComponent {
       className,
     );
 
-    const color = disabled ? 'neutral' : 'teal';
-    const tint = disabled ? 'dark' : 'darkest';
+    const color = destructive ? 'ruby' : disabled ? 'neutral' : 'teal';
+    const tint = disabled && destructive ? 'light' : disabled || destructive ? 'dark' : 'darkest';
 
     return (
       <Box
@@ -57,6 +57,7 @@ class MenuItem extends PureComponent {
 MenuItem.propTypes = {
   caption: PropTypes.string,
   className: PropTypes.string,
+  destructive: PropTypes.bool,
   disabled: PropTypes.bool,
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   onClick: PropTypes.func,
@@ -65,6 +66,7 @@ MenuItem.propTypes = {
 
 MenuItem.defaultProps = {
   className: '',
+  destructive: false,
   disabled: false,
   selected: false,
 };
