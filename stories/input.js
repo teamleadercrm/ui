@@ -88,7 +88,21 @@ storiesOf('Form elements/Input', module)
       width={text('width', undefined)}
     />
   ))
-  .add('DurationInput', () => <DurationInput />)
+  .add('DurationInput', () => (
+    <DurationInput
+      bold={boolean('bold', false)}
+      disabled={boolean('disabled', false)}
+      error={text('error', '')}
+      helpText={text('helpText', '')}
+      success={text('success', '')}
+      warning={text('warning', '')}
+      id="input1"
+      inverse={boolean('inverse', false)}
+      readOnly={boolean('readOnly', false)}
+      size={select('size', sizes) || undefined}
+      step={number('step', 1)}
+    />
+  ))
   .add('NumericInput', () => (
     <NumericInput
       bold={boolean('bold', false)}
