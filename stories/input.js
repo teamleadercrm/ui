@@ -9,6 +9,7 @@ import {
   Counter,
   Icon,
   Input,
+  DurationInput,
   LoadingSpinner,
   NumericInput,
   Textarea,
@@ -87,6 +88,7 @@ storiesOf('Form elements/Input', module)
       width={text('width', undefined)}
     />
   ))
+  .add('DurationInput', () => <DurationInput />)
   .add('NumericInput', () => (
     <NumericInput
       bold={boolean('bold', false)}
