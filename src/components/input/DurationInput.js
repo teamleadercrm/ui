@@ -291,7 +291,7 @@ class DurationInput extends PureComponent {
             </div>
           </Box>
 
-          <span style={{ width: '20px', paddingRight: '3px', paddingLeft: '3px' }}>:</span>
+          <Box paddingHorizontal={2}>:</Box>
 
           <Box className={classNames} {...boxProps}>
             <div className={theme['input-wrapper']}>
@@ -312,7 +312,7 @@ class DurationInput extends PureComponent {
             </div>
           </Box>
 
-          <span style={{ width: '20px', paddingRight: '3px', paddingLeft: '3px' }}>:</span>
+          <Box paddingHorizontal={2}>:</Box>
 
           <Box className={classNames} {...boxProps}>
             <div className={theme['input-wrapper']}>
