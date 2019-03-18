@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Box from '../box';
 import { Heading4 } from '../typography';
 import theme from './theme.css';
@@ -15,5 +16,10 @@ const MenuTitle = ({ children, ...others }) => (
     <Heading4 color="teal">{children}</Heading4>
   </Box>
 );
+
+MenuTitle.propTypes = {
+  /** The content to display inside the menu title. */
+  children: PropTypes.any,
+};
 
 export default MenuTitle;
