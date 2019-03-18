@@ -279,7 +279,7 @@ class DurationInput extends PureComponent {
           onChange={event => {
             this.setState({ seconds: event.currentTarget.hours });
           }}
-          value={this.state.hours}
+                  value={hours < 10 ? `0${hours}` : hours}
           type="number"
                   {...inputProps}
                   id={'hours'}
@@ -300,7 +300,7 @@ class DurationInput extends PureComponent {
           onChange={event => {
                     this.setState({ seconds: event.currentTarget.hours });
           }}
-                  value={this.state.minutes}
+                  value={minutes < 10 ? `0${minutes}` : minutes}
                   type="number"
                   {...inputProps}
           id={'minutes'}
@@ -321,7 +321,7 @@ class DurationInput extends PureComponent {
           onChange={event => {
                     this.setState({ seconds: event.currentTarget.hours });
           }}
-                  value={this.state.seconds}
+                  value={seconds < 10 ? `0${seconds}` : seconds}
                   type="number"
                   {...inputProps}
           id={'seconds'}
