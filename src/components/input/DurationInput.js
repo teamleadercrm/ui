@@ -13,6 +13,10 @@ import ValidationText from '../validationText';
 
 import theme from './theme.css';
 
+const durationToSeconds = (hours, minutes, seconds) => {
+  return hours * 3600 + minutes * 60 + seconds;
+};
+
 class SpinnerControls extends PureComponent {
   render() {
     const { inverse, spinnerUpProps, spinnerDownProps } = this.props;
