@@ -243,15 +243,25 @@ class Menu extends PureComponent {
 }
 
 Menu.propTypes = {
+  /** If true, the menu will be active. */
   active: PropTypes.bool,
+  /** The content to display inside the menu. */
   children: PropTypes.node,
+  /** A class name for the wrapper to give custom styles. */
   className: PropTypes.string,
+  /** Callback function that is fired when the menu hides. */
   onHide: PropTypes.func,
+  /** Callback function that is fired when a menu item is clicked. */
   onSelect: PropTypes.func,
+  /** Callback function that is fired when the menu shows. */
   onShow: PropTypes.func,
+  /** If true, a border is rendered around the menu. */
   outline: PropTypes.bool,
+  /** The position in which the menu is rendered. */
   position: PropTypes.oneOf(Object.keys(POSITION).map(key => POSITION[key])),
+  /** If true, the menu will highlight the selected value. */
   selectable: PropTypes.bool,
+  /** The value of the menu item that will be highlighted. */
   selected: PropTypes.any,
 };
 
