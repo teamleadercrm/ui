@@ -334,7 +334,27 @@ class DurationInput extends PureComponent {
           </Box>
       </Box>
         <Box>
-          <ValidationText error={error} help={helpText} inverse={inverse} success={success} warning={warning} />
+          <ValidationText
+            error={errorHours}
+            help={helpHours}
+            inverse={inverse}
+            success={successHours}
+            warning={warningHours}
+          />
+          <ValidationText
+            error={errorMinutes}
+            help={helpMinutes}
+            inverse={inverse}
+            success={successMinutes}
+            warning={warningMinutes}
+          />
+          <ValidationText
+            error={errorSeconds}
+            help={helpSeconds}
+            inverse={inverse}
+            success={successSeconds}
+            warning={warningSeconds}
+          />
         </Box>
       </Box>
     );
