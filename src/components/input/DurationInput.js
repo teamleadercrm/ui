@@ -50,7 +50,9 @@ class DurationInput extends PureComponent {
   };
 
   updateStep = (type, n) => {
-    if (n === 1) {
+    let newHours = hours;
+    let newMinutes = minutes;
+    let newSeconds = seconds;
     switch (type) {
       case 'hours':
         if (hours >= 0 && n >= 0) {
