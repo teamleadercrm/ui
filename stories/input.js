@@ -112,7 +112,7 @@ storiesOf('Form elements/Input', module)
       max={number('max', 10)}
       min={number('min', 0)}
       spinner={boolean('spinner', true)}
-      step={number('step', 1)}
+      step={number('step', 5)}
       width={number('width', 60)}
     />
   ))
