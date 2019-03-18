@@ -2,11 +2,17 @@
 
 ### Added
 
+- `Menu`: added `MenuTitle` component. ([@driesd](https://github.com/driesd) in [#551](https://github.com/teamleadercrm/ui/pull/551))
+
 ### Changed
+
+- `Menu & MenuItem`: restyled according to new design. ([@driesd](https://github.com/driesd) in [#551](https://github.com/teamleadercrm/ui/pull/551))
 
 ### Deprecated
 
 ### Removed
+
+- [BREAKING] `MenuItem`: removed `children` & `shortcut` prop. ([@driesd](https://github.com/driesd) in [#551](https://github.com/teamleadercrm/ui/pull/551))
 
 ### Fixed
 
