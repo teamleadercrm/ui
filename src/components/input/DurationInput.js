@@ -53,51 +53,16 @@ class DurationInput extends PureComponent {
     if (n === 1) {
     switch (type) {
       case 'hours':
-        let hours = this.state.hours;
-        hours += n;
-        this.setState({ hours: hours });
-        break;
-      case 'minutes':
-        let minutes = this.state.minutes;
-        if (minutes >= 59) {
-          minutes = 0;
-          let hoursUp = this.state.hours;
-          hoursUp += n;
-          this.setState({ minutes: minutes, hours: hoursUp });
-        } else {
-          minutes += n;
-        this.setState({ minutes: minutes });
+        if (hours >= 0 && n >= 0) {
+          newHours = hours + n;
+        } else if (hours >= Math.abs(n) && n < 0) {
+          newHours = hours + n;
+        } else if (hours <= Math.abs(n) && n < 0) {
+          newHours = 0;
         }
+        this.setState({ hours: newHours }, () => this.props.onChange(durationToSeconds(newHours, minutes, seconds)));
         break;
-      case 'seconds':
-        let seconds = this.state.seconds;
-        if (seconds >= 59) {
-          seconds = 0;
-          let minutesUp = this.state.minutes;
-          minutesUp += n;
-          this.setState({ seconds: seconds, minutes: minutesUp });
-        } else {
-          seconds += n;
-        this.setState({ seconds: seconds });
-        }
-        break;
-      default:
-        break;
-    }
-    } else {
-      let hours = this.state.hours;
-      let minutes = this.state.minutes;
-      let seconds = this.state.seconds;
-      switch (type) {
-        case 'hours':
-          if (hours <= 0) {
-            hours = 0;
-            this.setState({ hours: hours });
-          } else {
-            hours += n;
-            this.setState({ hours: hours });
-          }
-          break;
+
         case 'minutes':
         if (minutes + n >= 60) {
           newHours = hours + 1;
