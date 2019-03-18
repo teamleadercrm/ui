@@ -120,7 +120,6 @@ class Select extends PureComponent {
       fontSize: '12px',
       fontWeight: '700',
       letterSpacing: '0.6px',
-      padding: '0 6px',
     };
   };
 
