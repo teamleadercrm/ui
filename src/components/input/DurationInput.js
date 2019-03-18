@@ -82,12 +82,12 @@ class DurationInput extends PureComponent {
   };
 
   handleIncreaseValue = event => {
-    const element = event.currentTarget.parentElement.parentElement.previousSibling.getAttribute('id');
+    const element = event.currentTarget.parentElement.previousSibling.getAttribute('id');
     this.updateStep(element, 1);
   };
 
   handleDecreaseValue = event => {
-    const element = event.currentTarget.parentElement.parentElement.previousSibling.getAttribute('id');
+    const element = event.currentTarget.parentElement.previousSibling.getAttribute('id');
     this.updateStep(element, -1);
   };
 
