@@ -50,6 +50,7 @@ class DurationInput extends PureComponent {
   };
 
   updateStep = (type, n) => {
+    let { hours, minutes, seconds } = this.state;
     let newHours = hours;
     let newMinutes = minutes;
     let newSeconds = seconds;
