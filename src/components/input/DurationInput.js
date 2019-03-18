@@ -176,6 +176,8 @@ class DurationInput extends PureComponent {
     };
 
     return (
+      <Box>
+        <Box display="flex" alignItems="center" justifyContent="space-between" style={{ width: '220px' }}>
           <Box className={classNames} {...boxProps}>
             <div className={theme['input-wrapper']}>
               <div className={theme['input-inner-wrapper']} style={{ width, flex: width && '0 0 auto' }}>
@@ -194,6 +196,9 @@ class DurationInput extends PureComponent {
               </div>
             </div>
           </Box>
+
+          <span style={{ width: '20px', paddingRight: '3px', paddingLeft: '3px' }}>:</span>
+
           <Box className={classNames} {...boxProps}>
             <div className={theme['input-wrapper']}>
               <div className={theme['input-inner-wrapper']} style={{ width, flex: width && '0 0 auto' }}>
@@ -213,6 +218,8 @@ class DurationInput extends PureComponent {
             </div>
           </Box>
 
+          <span style={{ width: '20px', paddingRight: '3px', paddingLeft: '3px' }}>:</span>
+
           <Box className={classNames} {...boxProps}>
             <div className={theme['input-wrapper']}>
               <div className={theme['input-inner-wrapper']} style={{ width, flex: width && '0 0 auto' }}>
@@ -231,6 +238,10 @@ class DurationInput extends PureComponent {
               </div>
             </div>
           </Box>
+      </Box>
+        <Box>
+          <ValidationText error={error} help={helpText} inverse={inverse} success={success} warning={warning} />
+        </Box>
       </Box>
     );
   }
