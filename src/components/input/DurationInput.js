@@ -188,28 +188,68 @@ class DurationInput extends PureComponent {
       connectedLeft,
       connectedRight,
       disabled,
-      error,
-      helpText,
+      errorHours,
+      errorMinutes,
+      errorSeconds,
+      helpHours,
+      helpMinutes,
+      helpSeconds,
       onFocus,
       onBlur,
       prefix,
       inverse,
       readOnly,
       spinner,
-      success,
+      successHours,
+      successMinutes,
+      successSeconds,
       suffix,
       width,
-      warning,
+      warningHours,
+      warningMinutes,
+      warningSeconds,
       ...others
     } = this.props;
 
-    const classNames = cx(
+    const classNamesHours = cx(
       theme['wrapper'],
       {
         [theme['has-focus']]: this.state.inputHasfocus,
-        [theme['has-error']]: error,
-        [theme['has-success']]: success,
-        [theme['has-warning']]: warning,
+        [theme['has-error']]: errorHours,
+        [theme['has-warning']]: warningHours,
+        [theme['has-success']]: successHours,
+        [theme['has-connected-left']]: connectedLeft,
+        [theme['has-connected-right']]: connectedRight,
+        [theme['is-disabled']]: disabled,
+        [theme['is-inverse']]: inverse,
+        [theme['is-read-only']]: readOnly,
+      },
+      className,
+    );
+
+    const classNamesMinutes = cx(
+      theme['wrapper'],
+      {
+        [theme['has-focus']]: this.state.inputHasfocus,
+        [theme['has-error']]: errorMinutes,
+        [theme['has-warning']]: warningMinutes,
+        [theme['has-success']]: successMinutes,
+        [theme['has-connected-left']]: connectedLeft,
+        [theme['has-connected-right']]: connectedRight,
+        [theme['is-disabled']]: disabled,
+        [theme['is-inverse']]: inverse,
+        [theme['is-read-only']]: readOnly,
+      },
+      className,
+    );
+
+    const classNamesSeconds = cx(
+      theme['wrapper'],
+      {
+        [theme['has-focus']]: this.state.inputHasfocus,
+        [theme['has-error']]: errorSeconds,
+        [theme['has-warning']]: warningSeconds,
+        [theme['has-success']]: successSeconds,
         [theme['has-connected-left']]: connectedLeft,
         [theme['has-connected-right']]: connectedRight,
         [theme['is-disabled']]: disabled,
