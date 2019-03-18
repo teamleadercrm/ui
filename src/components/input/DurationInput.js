@@ -5,7 +5,13 @@ import Icon from '../icon';
 import theme from './theme.css';
 
 import SingleLineInputBase from './SingleLineInputBase';
-import { Box } from '../..';
+import cx from 'classnames';
+
+import InputBase from './InputBase';
+import Box, { omitBoxProps, pickBoxProps } from '../box';
+import ValidationText from '../validationText';
+
+import theme from './theme.css';
 
 class SpinnerControls extends PureComponent {
   render() {
@@ -36,6 +42,7 @@ class DurationInput extends PureComponent {
     seconds: 0,
     minutes: 0,
     hours: 0,
+    inputHasfocus: false,
   };
 
   updateStep = (type, n) => {
@@ -99,45 +106,131 @@ class DurationInput extends PureComponent {
     />,
   ];
 
+  handleBlur = event => {
+    this.setState({ inputHasfocus: false });
+    if (this.props.onBlur) {
+      this.props.onBlur(event);
+    }
+  };
+
+  handleFocus = event => {
+    this.setState({ inputHasfocus: true });
+    if (this.props.onFocus) {
+      this.props.onFocus(event);
+    }
+  };
+
+  renderOneOrMultipleElements(prop) {
+    if (Array.isArray(prop)) {
+      return prop.map((element, index) => React.cloneElement(element, { key: index }));
+    }
+
+    return prop;
+  }
+
   render() {
-    const { spinner, suffix, ...others } = this.props;
+    const {
+      className,
+      connectedLeft,
+      connectedRight,
+      disabled,
+      error,
+      helpText,
+      onFocus,
+      onBlur,
+      prefix,
+      inverse,
+      readOnly,
+      spinner,
+      success,
+      suffix,
+      width,
+      warning,
+      ...others
+    } = this.props;
+
+    const classNames = cx(
+      theme['wrapper'],
+      {
+        [theme['has-focus']]: this.state.inputHasfocus,
+        [theme['has-error']]: error,
+        [theme['has-success']]: success,
+        [theme['has-warning']]: warning,
+        [theme['has-connected-left']]: connectedLeft,
+        [theme['has-connected-right']]: connectedRight,
+        [theme['is-disabled']]: disabled,
+        [theme['is-inverse']]: inverse,
+        [theme['is-read-only']]: readOnly,
+      },
+      className,
+    );
+
+    const boxProps = pickBoxProps(others);
+    const inputProps = {
+      disabled,
+      inverse,
+      onBlur: this.handleBlur,
+      onFocus: this.handleFocus,
+      readOnly,
+      ...omitBoxProps(others),
+    };
 
     return (
-      <Box style={{ display: 'flex', alignItems: 'center', width: '220px' }}>
-        <SingleLineInputBase
-          type="number"
-          suffix={spinner ? this.getSuffixWithSpinner(0) : suffix}
+          <Box className={classNames} {...boxProps}>
+            <div className={theme['input-wrapper']}>
+              <div className={theme['input-inner-wrapper']} style={{ width, flex: width && '0 0 auto' }}>
+                <InputBase
           onChange={event => {
             this.setState({ seconds: event.currentTarget.hours });
           }}
-          {...others}
-          id={'hours'}
           value={this.state.hours}
-        />
-        <p>:</p>
-        <SingleLineInputBase
           type="number"
-          value={this.state.minutes}
-          suffix={spinner ? this.getSuffixWithSpinner(1) : suffix}
+                  {...inputProps}
+                  id={'hours'}
+                />
+                {spinner
+                  ? this.getSuffixWithSpinner(0)
+                  : suffix && <div className={theme['suffix-wrapper']}>{this.renderOneOrMultipleElements(suffix)}</div>}
+              </div>
+            </div>
+          </Box>
+          <Box className={classNames} {...boxProps}>
+            <div className={theme['input-wrapper']}>
+              <div className={theme['input-inner-wrapper']} style={{ width, flex: width && '0 0 auto' }}>
+                <InputBase
           onChange={event => {
-            this.setState({ minutes: event.currentTarget.minutes });
+                    this.setState({ seconds: event.currentTarget.hours });
           }}
-          max={60}
-          {...others}
+                  value={this.state.minutes}
+                  type="number"
+                  {...inputProps}
           id={'minutes'}
         />
-        <p>:</p>
-        <SingleLineInputBase
-          type="number"
-          value={this.state.seconds}
-          suffix={spinner ? this.getSuffixWithSpinner(2) : suffix}
+                {spinner
+                  ? this.getSuffixWithSpinner(0)
+                  : suffix && <div className={theme['suffix-wrapper']}>{this.renderOneOrMultipleElements(suffix)}</div>}
+              </div>
+            </div>
+          </Box>
+
+          <Box className={classNames} {...boxProps}>
+            <div className={theme['input-wrapper']}>
+              <div className={theme['input-inner-wrapper']} style={{ width, flex: width && '0 0 auto' }}>
+                <InputBase
           onChange={event => {
-            this.setState({ hours: event.currentTarget.seconds });
+                    this.setState({ seconds: event.currentTarget.hours });
           }}
-          max={60}
-          {...others}
+                  value={this.state.seconds}
+                  type="number"
+                  {...inputProps}
           id={'seconds'}
         />
+                {spinner
+                  ? this.getSuffixWithSpinner(0)
+                  : suffix && <div className={theme['suffix-wrapper']}>{this.renderOneOrMultipleElements(suffix)}</div>}
+              </div>
+            </div>
+          </Box>
       </Box>
     );
   }
