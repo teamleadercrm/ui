@@ -99,19 +99,24 @@ class DurationInput extends PureComponent {
           }
           break;
         case 'minutes':
-          if (minutes === 0 && hours >= 1) {
-            console.log('1');
-            hours += n;
-            minutes = 59;
-            this.setState({ hours: hours, minutes: minutes });
-          } else {
-            minutes += n;
-            this.setState({ minutes: minutes });
+        if (minutes + n >= 60) {
+          newHours = hours + 1;
+          newMinutes = minutes - 60 + n;
+        } else if (n >= 0) {
+          newMinutes = minutes + n;
+          newHours = hours;
+        } else if (n < 0 && hours > 0 && minutes <= Math.abs(n)) {
+          newMinutes = minutes + 60 + n;
+          newHours = hours - 1;
+        } else if (n < 0 && minutes >= Math.abs(n)) {
+          newMinutes = minutes + n;
+        } else if (n < 0 && minutes <= Math.abs(n)) {
+          newMinutes = 0;
           }
-          if (minutes <= 0) {
-            minutes = 0;
-            this.setState({ minutes: minutes });
-          }
+
+        this.setState({ minutes: newMinutes, hours: newHours }, () =>
+          this.props.onChange(durationToSeconds(newHours, newMinutes, seconds)),
+        );
           break;
         case 'seconds':
         if (seconds + n >= 60) {
