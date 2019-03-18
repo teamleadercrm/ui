@@ -268,7 +268,7 @@ class DurationInput extends PureComponent {
       readOnly,
       ...omitBoxProps(others),
     };
-
+    const { hours, minutes, seconds } = this.state;
     return (
       <Box>
         <Box display="flex" alignItems="center" justifyContent="space-between" style={{ width: '220px' }}>
