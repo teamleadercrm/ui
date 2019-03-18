@@ -55,12 +55,19 @@ class MenuItem extends PureComponent {
 }
 
 MenuItem.propTypes = {
+  /** The text to display inside the component. */
   caption: PropTypes.string,
+  /** A class name for the wrapper to give custom styles. */
   className: PropTypes.string,
+  /** If true, the color of caption and icon will be ruby */
   destructive: PropTypes.bool,
+  /** If true, component will be disabled. */
   disabled: PropTypes.bool,
+  /** The icon to display on the left side of the caption. */
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  /** Callback function that is fired when clicking the component. */
   onClick: PropTypes.func,
+  /** If true, component will look active. */
   selected: PropTypes.bool,
 };
 
