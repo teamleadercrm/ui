@@ -272,7 +272,7 @@ class DurationInput extends PureComponent {
     return (
       <Box>
         <Box display="flex" alignItems="center" justifyContent="space-between" style={{ width: '220px' }}>
-          <Box className={classNames} {...boxProps}>
+          <Box className={classNamesHours} {...boxProps}>
             <div className={theme['input-wrapper']}>
               <div className={theme['input-inner-wrapper']} style={{ width, flex: width && '0 0 auto' }}>
                 <InputBase
@@ -293,7 +293,7 @@ class DurationInput extends PureComponent {
 
           <Box paddingHorizontal={2}>:</Box>
 
-          <Box className={classNames} {...boxProps}>
+          <Box className={classNamesMinutes} {...boxProps}>
             <div className={theme['input-wrapper']}>
               <div className={theme['input-inner-wrapper']} style={{ width, flex: width && '0 0 auto' }}>
                 <InputBase
@@ -314,7 +314,7 @@ class DurationInput extends PureComponent {
 
           <Box paddingHorizontal={2}>:</Box>
 
-          <Box className={classNames} {...boxProps}>
+          <Box className={classNamesSeconds} {...boxProps}>
             <div className={theme['input-wrapper']}>
               <div className={theme['input-inner-wrapper']} style={{ width, flex: width && '0 0 auto' }}>
                 <InputBase
