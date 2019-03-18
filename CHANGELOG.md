@@ -2,13 +2,18 @@
 
 ### Added
 
+- `Menu`: added `MenuTitle` component. ([@driesd](https://github.com/driesd) in [#551](https://github.com/teamleadercrm/ui/pull/551))
+
 ### Changed
 
-- `General`: replace the luxon package from devDependencies to dependencies. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#552](https://github.com/teamleadercrm/ui/pull/552))
+- `General`: replace the `Luxon` package from devDependencies to dependencies. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#552](https://github.com/teamleadercrm/ui/pull/552))
+- `Menu & MenuItem`: restyled according to new design. ([@driesd](https://github.com/driesd) in [#551](https://github.com/teamleadercrm/ui/pull/551))
 
 ### Deprecated
 
 ### Removed
+
+- [BREAKING] `MenuItem`: removed `children` & `shortcut` prop. ([@driesd](https://github.com/driesd) in [#551](https://github.com/teamleadercrm/ui/pull/551))
 
 ### Fixed
 
