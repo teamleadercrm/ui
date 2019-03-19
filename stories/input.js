@@ -90,27 +90,35 @@ storiesOf('Form elements/Input', module)
   ))
   .add('DurationInput', () => (
     <DurationInput
-      bold={boolean('bold', false)}
-      disabled={boolean('disabled', false)}
-      successHours={text('successHours', '')}
-      successMinutes={text('successMinutes', '')}
-      successSeconds={text('successSeconds', '')}
-      warningHours={text('warningHours', '')}
-      warningMinutes={text('warningMinutes', '')}
-      warningSeconds={text('warningSecconds', '')}
-      helpHours={text('helpHours', '')}
-      helpMinutes={text('helpMinutes', '')}
-      helpSeconds={text('helpSecconds', '')}
-      errorHours={text('errorHours', '')}
-      errorMinutes={text('errorMinutes', '')}
-      errorSeconds={text('errorSecconds', '')}
+      hoursInputProps={{
+        error: text('error', ''),
+        help: text('help', ''),
+        success: text('success', ''),
+        warning: text('warning', ''),
+      }}
+      minutesInputProps={{
+        error: text('error', ''),
+        help: text('help', ''),
+        success: text('success', ''),
+        warning: text('warning', ''),
+        step: number('step', 1),
+      }}
+      secondsInputProps={{
+        error: text('error', ''),
+        help: text('help', ''),
+        success: text('success', ''),
+        warning: text('warning', ''),
+        step: number('step', 15),
+      }}
+      commonInputProps={{
+        bold: boolean('bold', false),
+        disabled: boolean('disabled', false),
+        readOnly: boolean('readOnly', false),
+        spinner: boolean('spinner', true),
+      }}
+      size={select('size', sizes) || undefined}
       inverse={boolean('inverse', false)}
       onChange={durationInSeconds => console.log(`Duration: ${durationInSeconds}`)}
-      readOnly={boolean('readOnly', false)}
-      size={select('size', sizes) || undefined}
-      spinner={boolean('spinner', true)}
-      stepMinutes={number('stepMinutes', 5)}
-      stepSeconds={number('stepSeconds', 5)}
     />
   ))
   .add('NumericInput', () => (
