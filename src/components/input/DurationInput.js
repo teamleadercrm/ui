@@ -112,12 +112,38 @@ class DurationInput extends PureComponent {
 
   handleIncreaseValue = event => {
     const element = event.currentTarget.parentElement.previousSibling.getAttribute('id');
-    this.updateStep(element, this.props.step);
+    const { stepSeconds, stepMinutes } = this.props;
+    switch (element) {
+      case 'seconds':
+        this.updateStep(element, stepSeconds);
+        break;
+      case 'minutes':
+        this.updateStep(element, stepMinutes);
+        break;
+      case 'hours':
+        this.updateStep(element, 1);
+        break;
+      default:
+        break;
+    }
   };
 
   handleDecreaseValue = event => {
     const element = event.currentTarget.parentElement.previousSibling.getAttribute('id');
-    this.updateStep(element, -this.props.step);
+    const { stepSeconds, stepMinutes } = this.props;
+    switch (element) {
+      case 'seconds':
+        this.updateStep(element, -stepSeconds);
+        break;
+      case 'minutes':
+        this.updateStep(element, -stepMinutes);
+        break;
+      case 'hours':
+        this.updateStep(element, -1);
+        break;
+      default:
+        break;
+    }
   };
 
 
