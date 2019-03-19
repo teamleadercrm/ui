@@ -86,7 +86,11 @@ class DurationInput extends PureComponent {
         );
         break;
       case 'seconds':
-        if (seconds + n >= 60) {
+        if (n > 0 && minutes * 60 + seconds >= 3600 - Math.abs(n)) {
+          newSeconds = seconds - 60 + n;
+          newMinutes = Math.floor(newSeconds / 60);
+          newHours = hours + 1;
+        } else if (seconds + n >= 60) {
           newMinutes = minutes + 1;
           newSeconds = seconds - 60 + n;
         } else if (n >= 0) {
