@@ -109,11 +109,9 @@ storiesOf('Form elements/Input', module)
       inverse={boolean('inverse', false)}
       readOnly={boolean('readOnly', false)}
       size={select('size', sizes) || undefined}
-      max={number('max', 10)}
-      min={number('min', 0)}
       spinner={boolean('spinner', true)}
-      step={number('step', 5)}
-      width={number('width', 60)}
+      stepMinutes={number('stepMinutes', 5)}
+      stepSeconds={number('stepSeconds', 5)}
     />
   ))
   .add('NumericInput', () => (
