@@ -10,10 +10,6 @@ import ValidationText from '../validationText';
 
 import theme from './theme.css';
 
-const durationToSeconds = (hours, minutes, seconds) => {
-  return hours * 3600 + minutes * 60 + seconds;
-};
-
 class SpinnerControls extends PureComponent {
   render() {
     const { inverse, spinnerUpProps, spinnerDownProps } = this.props;
@@ -60,7 +56,7 @@ class DurationInput extends PureComponent {
         } else if (hours <= Math.abs(n) && n < 0) {
           newHours = 0;
         }
-        this.setState({ hours: newHours }, () => this.props.onChange(durationToSeconds(newHours, minutes, seconds)));
+        this.setState({ hours: newHours });
         break;
 
       case 'minutes':
@@ -79,9 +75,7 @@ class DurationInput extends PureComponent {
           newMinutes = 0;
         }
 
-        this.setState({ minutes: newMinutes, hours: newHours }, () =>
-          this.props.onChange(durationToSeconds(newHours, newMinutes, seconds)),
-        );
+        this.setState({ minutes: newMinutes, hours: newHours });
         break;
       case 'seconds':
         if (seconds + n >= 60) {
@@ -99,9 +93,7 @@ class DurationInput extends PureComponent {
           newSeconds = 0;
         }
 
-        this.setState({ seconds: newSeconds, minutes: newMinutes }, () =>
-          this.props.onChange(durationToSeconds(hours, newMinutes, newSeconds)),
-        );
+        this.setState({ seconds: newSeconds, minutes: newMinutes });
         break;
       default:
         break;
