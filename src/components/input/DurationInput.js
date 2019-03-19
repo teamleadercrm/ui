@@ -44,7 +44,9 @@ class DurationInput extends PureComponent {
     seconds: 0,
     minutes: 0,
     hours: 0,
-    inputHasfocus: false,
+    hoursInputHasfocus: false,
+    minutesInputHasfocus: false,
+    secondsInputHasfocus: false,
   };
 
   updateStep = (type, n) => {
@@ -158,15 +160,43 @@ class DurationInput extends PureComponent {
     />,
   ];
 
-  handleBlur = event => {
-    this.setState({ inputHasfocus: false });
+  handleBlurHours = event => {
+    this.setState({ hoursInputHasfocus: false });
     if (this.props.onBlur) {
       this.props.onBlur(event);
     }
   };
 
-  handleFocus = event => {
-    this.setState({ inputHasfocus: true });
+  handleFocusHours = event => {
+    this.setState({ hoursInputHasfocus: true });
+    if (this.props.onFocus) {
+      this.props.onFocus(event);
+    }
+  };
+
+  handleBlurMinutes = event => {
+    this.setState({ minutesInputHasfocus: false });
+    if (this.props.onBlur) {
+      this.props.onBlur(event);
+    }
+  };
+
+  handleFocusMinutes = event => {
+    this.setState({ minutesInputHasfocus: true });
+    if (this.props.onFocus) {
+      this.props.onFocus(event);
+    }
+  };
+
+  handleBlurSeconds = event => {
+    this.setState({ secondsInputHasfocus: false });
+    if (this.props.onBlur) {
+      this.props.onBlur(event);
+    }
+  };
+
+  handleFocusSeconds = event => {
+    this.setState({ secondsInputHasfocus: true });
     if (this.props.onFocus) {
       this.props.onFocus(event);
     }
@@ -223,11 +253,7 @@ class DurationInput extends PureComponent {
     const classNamesHours = cx(
       theme['wrapper'],
       {
-        [theme['has-focus']]: this.state.inputHasfocus,
-        [theme['has-error']]: errorHours,
-        [theme['has-warning']]: warningHours,
-        [theme['has-success']]: successHours,
-        [theme['is-disabled']]: disabled,
+        [theme['has-focus']]: this.state.hoursInputHasfocus,
         [theme['is-inverse']]: inverse,
         [theme['is-read-only']]: readOnly,
       },
@@ -237,11 +263,7 @@ class DurationInput extends PureComponent {
     const classNamesMinutes = cx(
       theme['wrapper'],
       {
-        [theme['has-focus']]: this.state.inputHasfocus,
-        [theme['has-error']]: errorMinutes,
-        [theme['has-warning']]: warningMinutes,
-        [theme['has-success']]: successMinutes,
-        [theme['is-disabled']]: disabled,
+        [theme['has-focus']]: this.state.minutesInputHasfocus,
         [theme['is-inverse']]: inverse,
         [theme['is-read-only']]: readOnly,
       },
@@ -251,11 +273,7 @@ class DurationInput extends PureComponent {
     const classNamesSeconds = cx(
       theme['wrapper'],
       {
-        [theme['has-focus']]: this.state.inputHasfocus,
-        [theme['has-error']]: errorSeconds,
-        [theme['has-warning']]: warningSeconds,
-        [theme['has-success']]: successSeconds,
-        [theme['is-disabled']]: disabled,
+        [theme['has-focus']]: this.state.secondsInputHasfocus,
         [theme['is-inverse']]: inverse,
         [theme['is-read-only']]: readOnly,
       },
@@ -278,8 +296,8 @@ class DurationInput extends PureComponent {
           <Box className={classNamesHours} {...boxProps}>
             <div className={theme['input-wrapper']}>
               <div className={theme['input-inner-wrapper']} style={{ flex: '1 2 auto' }}>
-                <InputBase value={hours < 10 ? `0${hours}` : hours} type="number" {...inputProps} id={'hours'} />
-                {spinner
+                  onFocus={this.handleFocusHours}
+                  onBlur={this.handleBlurHours}
                   ? this.getSuffixWithSpinner()
                   : suffix && <div className={theme['suffix-wrapper']}>{this.renderOneOrMultipleElements(suffix)}</div>}
               </div>
@@ -296,6 +314,8 @@ class DurationInput extends PureComponent {
                   type="number"
                   {...inputProps}
                   id={'minutes'}
+                  onFocus={this.handleFocusMinutes}
+                  onBlur={this.handleBlurMinutes}
                 />
                 {spinner
                   ? this.getSuffixWithSpinner()
@@ -315,6 +335,8 @@ class DurationInput extends PureComponent {
                     type="number"
                     {...inputProps}
                     id={'seconds'}
+                    onFocus={this.handleFocusSeconds}
+                    onBlur={this.handleBlurSeconds}
                   />
                   {spinner
                     ? this.getSuffixWithSpinner()
