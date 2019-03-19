@@ -313,6 +313,7 @@ class DurationInput extends PureComponent {
             </div>
           </Box>
 
+          {stepSeconds >= 1 && (
             <TextBody
               color={inverse ? 'neutral' : 'teal'}
               tint={inverse ? 'lightest' : 'darkest'}
@@ -321,25 +322,25 @@ class DurationInput extends PureComponent {
             >
               :
             </TextBody>
+          )}
 
+          {stepSeconds >= 1 && (
           <Box className={classNamesSeconds} {...boxProps}>
             <div className={theme['input-wrapper']}>
                 <div className={theme['input-inner-wrapper']} style={{ flex: '1 2 auto' }}>
                 <InputBase
-          onChange={event => {
-                    this.setState({ seconds: event.currentTarget.hours });
-          }}
                   value={seconds < 10 ? `0${seconds}` : seconds}
                   type="number"
                   {...inputProps}
           id={'seconds'}
         />
                 {spinner
-                  ? this.getSuffixWithSpinner(0)
+                  ? this.getSuffixWithSpinner()
                   : suffix && <div className={theme['suffix-wrapper']}>{this.renderOneOrMultipleElements(suffix)}</div>}
               </div>
             </div>
           </Box>
+          )}
       </Box>
         <Box>
           <ValidationText
