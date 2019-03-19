@@ -63,7 +63,7 @@ class DurationInput extends PureComponent {
         this.setState({ hours: newHours }, () => this.props.onChange(durationToSeconds(newHours, minutes, seconds)));
         break;
 
-        case 'minutes':
+      case 'minutes':
         if (minutes + n >= 60) {
           newHours = hours + 1;
           newMinutes = minutes - 60 + n;
@@ -77,13 +77,13 @@ class DurationInput extends PureComponent {
           newMinutes = minutes + n;
         } else if (n < 0 && minutes <= Math.abs(n)) {
           newMinutes = 0;
-          }
+        }
 
         this.setState({ minutes: newMinutes, hours: newHours }, () =>
           this.props.onChange(durationToSeconds(newHours, newMinutes, seconds)),
         );
-          break;
-        case 'seconds':
+        break;
+      case 'seconds':
         if (seconds + n >= 60) {
           newMinutes = minutes + 1;
           newSeconds = seconds - 60 + n;
@@ -97,17 +97,15 @@ class DurationInput extends PureComponent {
           newSeconds = seconds + n;
         } else if (n < 0 && seconds <= Math.abs(n)) {
           newSeconds = 0;
-          }
+        }
 
         this.setState({ seconds: newSeconds, minutes: newMinutes }, () =>
           this.props.onChange(durationToSeconds(hours, newMinutes, newSeconds)),
         );
-          break;
-        default:
-          break;
-      }
+        break;
+      default:
+        break;
     }
-    
   };
 
   handleIncreaseValue = event => {
@@ -146,7 +144,6 @@ class DurationInput extends PureComponent {
     }
   };
 
-
   getSuffixWithSpinner = () => [
     ...this.props.suffix,
     <SpinnerControls
@@ -156,7 +153,6 @@ class DurationInput extends PureComponent {
       }}
       spinnerDownProps={{
         onClick: this.handleDecreaseValue,
-        disabled: this.isMinReached,
       }}
     />,
   ];
@@ -186,8 +182,6 @@ class DurationInput extends PureComponent {
   render() {
     const {
       className,
-      connectedLeft,
-      connectedRight,
       disabled,
       errorHours,
       errorMinutes,
@@ -197,7 +191,6 @@ class DurationInput extends PureComponent {
       helpSeconds,
       onFocus,
       onBlur,
-      prefix,
       inverse,
       readOnly,
       spinner,
@@ -207,7 +200,6 @@ class DurationInput extends PureComponent {
       successMinutes,
       successSeconds,
       suffix,
-      width,
       warningHours,
       warningMinutes,
       warningSeconds,
@@ -221,8 +213,6 @@ class DurationInput extends PureComponent {
         [theme['has-error']]: errorHours,
         [theme['has-warning']]: warningHours,
         [theme['has-success']]: successHours,
-        [theme['has-connected-left']]: connectedLeft,
-        [theme['has-connected-right']]: connectedRight,
         [theme['is-disabled']]: disabled,
         [theme['is-inverse']]: inverse,
         [theme['is-read-only']]: readOnly,
@@ -237,8 +227,6 @@ class DurationInput extends PureComponent {
         [theme['has-error']]: errorMinutes,
         [theme['has-warning']]: warningMinutes,
         [theme['has-success']]: successMinutes,
-        [theme['has-connected-left']]: connectedLeft,
-        [theme['has-connected-right']]: connectedRight,
         [theme['is-disabled']]: disabled,
         [theme['is-inverse']]: inverse,
         [theme['is-read-only']]: readOnly,
@@ -253,8 +241,6 @@ class DurationInput extends PureComponent {
         [theme['has-error']]: errorSeconds,
         [theme['has-warning']]: warningSeconds,
         [theme['has-success']]: successSeconds,
-        [theme['has-connected-left']]: connectedLeft,
-        [theme['has-connected-right']]: connectedRight,
         [theme['is-disabled']]: disabled,
         [theme['is-inverse']]: inverse,
         [theme['is-read-only']]: readOnly,
@@ -299,14 +285,11 @@ class DurationInput extends PureComponent {
             <div className={theme['input-wrapper']}>
               <div className={theme['input-inner-wrapper']} style={{ flex: '1 2 auto' }}>
                 <InputBase
-          onChange={event => {
-                    this.setState({ seconds: event.currentTarget.hours });
-          }}
                   value={minutes < 10 ? `0${minutes}` : minutes}
                   type="number"
                   {...inputProps}
-          id={'minutes'}
-        />
+                  id={'minutes'}
+                />
                 {spinner
                   ? this.getSuffixWithSpinner()
                   : suffix && <div className={theme['suffix-wrapper']}>{this.renderOneOrMultipleElements(suffix)}</div>}
@@ -326,23 +309,25 @@ class DurationInput extends PureComponent {
           )}
 
           {stepSeconds >= 1 && (
-          <Box className={classNamesSeconds} {...boxProps}>
-            <div className={theme['input-wrapper']}>
+            <Box className={classNamesSeconds} {...boxProps}>
+              <div className={theme['input-wrapper']}>
                 <div className={theme['input-inner-wrapper']} style={{ flex: '1 2 auto' }}>
-                <InputBase
-                  value={seconds < 10 ? `0${seconds}` : seconds}
-                  type="number"
-                  {...inputProps}
-          id={'seconds'}
-        />
-                {spinner
-                  ? this.getSuffixWithSpinner()
-                  : suffix && <div className={theme['suffix-wrapper']}>{this.renderOneOrMultipleElements(suffix)}</div>}
+                  <InputBase
+                    value={seconds < 10 ? `0${seconds}` : seconds}
+                    type="number"
+                    {...inputProps}
+                    id={'seconds'}
+                  />
+                  {spinner
+                    ? this.getSuffixWithSpinner()
+                    : suffix && (
+                        <div className={theme['suffix-wrapper']}>{this.renderOneOrMultipleElements(suffix)}</div>
+                      )}
+                </div>
               </div>
-            </div>
-          </Box>
+            </Box>
           )}
-      </Box>
+        </Box>
         <Box>
           <ValidationText
             error={errorHours}
@@ -407,9 +392,6 @@ DurationInput.propTypes = {
 };
 
 DurationInput.defaultProps = {
-  min: Number.MIN_SAFE_INTEGER,
-  max: Number.MAX_SAFE_INTEGER,
-  step: 1,
   suffix: [],
   spinner: true,
 };
