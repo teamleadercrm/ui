@@ -7,6 +7,7 @@ import InputBase from './InputBase';
 import { TextBody } from '../typography';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import ValidationText from '../validationText';
+import { durationToSeconds } from '../utils';
 
 import theme from './theme.css';
 
