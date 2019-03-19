@@ -5,7 +5,7 @@ import Icon from '../icon';
 import cx from 'classnames';
 import InputBase from './InputBase';
 import { TextBody } from '../typography';
-import Box, { omitBoxProps, pickBoxProps } from '../box';
+import Box, { pickBoxProps } from '../box';
 import ValidationText from '../validationText';
 import { durationToSeconds } from '../utils';
 
