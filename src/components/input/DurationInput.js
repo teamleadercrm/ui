@@ -274,19 +274,10 @@ class DurationInput extends PureComponent {
     const { hours, minutes, seconds } = this.state;
     return (
       <Box>
-        <Box display="flex" alignItems="center" justifyContent="space-between" style={{ width: '220px' }}>
+        <Box display="flex" alignItems="center" justifyContent="space-between">
           <Box className={classNamesHours} {...boxProps}>
             <div className={theme['input-wrapper']}>
-              <div className={theme['input-inner-wrapper']} style={{ width, flex: width && '0 0 auto' }}>
-                <InputBase
-          onChange={event => {
-            this.setState({ seconds: event.currentTarget.hours });
-          }}
-                  value={hours < 10 ? `0${hours}` : hours}
-          type="number"
-                  {...inputProps}
-                  id={'hours'}
-                />
+              <div className={theme['input-inner-wrapper']} style={{ flex: '1 2 auto' }}>
                 {spinner
                   ? this.getSuffixWithSpinner(0)
                   : suffix && <div className={theme['suffix-wrapper']}>{this.renderOneOrMultipleElements(suffix)}</div>}
@@ -298,7 +289,7 @@ class DurationInput extends PureComponent {
 
           <Box className={classNamesMinutes} {...boxProps}>
             <div className={theme['input-wrapper']}>
-              <div className={theme['input-inner-wrapper']} style={{ width, flex: width && '0 0 auto' }}>
+              <div className={theme['input-inner-wrapper']} style={{ flex: '1 2 auto' }}>
                 <InputBase
           onChange={event => {
                     this.setState({ seconds: event.currentTarget.hours });
@@ -319,7 +310,7 @@ class DurationInput extends PureComponent {
 
           <Box className={classNamesSeconds} {...boxProps}>
             <div className={theme['input-wrapper']}>
-              <div className={theme['input-inner-wrapper']} style={{ width, flex: width && '0 0 auto' }}>
+                <div className={theme['input-inner-wrapper']} style={{ flex: '1 2 auto' }}>
                 <InputBase
           onChange={event => {
                     this.setState({ seconds: event.currentTarget.hours });
