@@ -372,14 +372,38 @@ class DurationInput extends PureComponent {
 }
 
 DurationInput.propTypes = {
-  /** The maximum value that can be inputted */
-  max: PropTypes.number,
-  /** The minimum value that can be inputted */
-  min: PropTypes.number,
+  /** The text string/element to use as error message below the input. */
+  errorHours: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  /** The text string/element to use as error message below the input. */
+  errorMinutes: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  /** The text string/element to use as error message below the input. */
+  errorSeconds: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  /** The text string to use as help text below the input. */
+  helpHours: PropTypes.string,
+  /** The text string to use as help text below the input. */
+  helpMinutes: PropTypes.string,
+  /** The text string to use as help text below the input. */
+  helpSeconds: PropTypes.string,
   /** Boolean indicating whether to number type input should render spinner controls */
   spinner: PropTypes.bool,
   /** Limit increment value for numeric inputs. */
-  step: PropTypes.number,
+  stepSeconds: PropTypes.number,
+  /** Limit increment value for numeric inputs. */
+  stepMinutes: PropTypes.number,
+  /** The text string/element to use as a suffix inside the input field */
+  suffix: PropTypes.oneOfType([PropTypes.array, PropTypes.element]),
+  /** The text string/element to use as success message below the input. */
+  successHours: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  /** The text string/element to use as success message below the input. */
+  successMinutes: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  /** The text string/element to use as success message below the input. */
+  successSeconds: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  /** The text to use as warning message below the input. */
+  warningHours: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  /** The text to use as warning message below the input. */
+  warningMinutes: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  /** The text to use as warning message below the input. */
+  warningSeconds: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 };
 
 DurationInput.defaultProps = {
