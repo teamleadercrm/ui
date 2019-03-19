@@ -2,12 +2,9 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { IconChevronUpSmallOutline, IconChevronDownSmallOutline } from '@teamleader/ui-icons';
 import Icon from '../icon';
-import theme from './theme.css';
-
-import SingleLineInputBase from './SingleLineInputBase';
 import cx from 'classnames';
-
 import InputBase from './InputBase';
+import { TextBody } from '../typography';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import ValidationText from '../validationText';
 
