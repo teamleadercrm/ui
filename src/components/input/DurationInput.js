@@ -201,6 +201,8 @@ class DurationInput extends PureComponent {
       inverse,
       readOnly,
       spinner,
+      stepSeconds,
+      stepMinutes,
       successHours,
       successMinutes,
       successSeconds,
