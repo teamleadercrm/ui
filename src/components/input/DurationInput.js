@@ -96,6 +96,10 @@ class DurationInput extends PureComponent {
         } else if (n >= 0) {
           newSeconds = seconds + n;
           newMinutes = minutes;
+        } else if (n < 0 && hours >= 1 && minutes === 0 && seconds + n < 0) {
+          newSeconds = 60 + n;
+          newMinutes = 59;
+          newHours = hours - 1;
         } else if (n < 0 && minutes > 0 && seconds < Math.abs(n)) {
           newSeconds = seconds + 60 + n;
           newMinutes = minutes - 1;
