@@ -60,9 +60,7 @@ class DurationInput extends PureComponent {
         } else if (hours <= Math.abs(n) && n < 0) {
           newHours = 0;
         }
-        this.setState({ hours: newHours }, () => (
-          this.props.onChange(durationToSeconds(newHours, minutes, seconds))
-        ));
+        this.setState({ hours: newHours }, () => this.props.onChange(durationToSeconds(newHours, minutes, seconds)));
         break;
 
       case 'minutes':
@@ -80,9 +78,9 @@ class DurationInput extends PureComponent {
         } else if (n < 0 && minutes <= Math.abs(n)) {
           newMinutes = 0;
         }
-        this.setState({ minutes: newMinutes, hours: newHours }, () => (
-          this.props.onChange(durationToSeconds(newHours, newMinutes, seconds))
-        ));
+        this.setState({ minutes: newMinutes, hours: newHours }, () =>
+          this.props.onChange(durationToSeconds(newHours, newMinutes, seconds)),
+        );
         break;
       case 'seconds':
         if (seconds + n >= 60) {
@@ -99,9 +97,9 @@ class DurationInput extends PureComponent {
         } else if (n < 0 && seconds <= Math.abs(n)) {
           newSeconds = 0;
         }
-        this.setState({ seconds: newSeconds, minutes: newMinutes }, () => (
-          this.props.onChange(durationToSeconds(hours, newMinutes, newSeconds))
-        ));
+        this.setState({ seconds: newSeconds, minutes: newMinutes }, () =>
+          this.props.onChange(durationToSeconds(hours, newMinutes, newSeconds)),
+        );
         break;
       default:
         break;
@@ -178,6 +176,19 @@ class DurationInput extends PureComponent {
 
     return prop;
   }
+
+  renderInputSeparator = inverse => {
+    return (
+      <TextBody
+        color={inverse ? 'neutral' : 'teal'}
+        tint={inverse ? 'lightest' : 'darkest'}
+        flex="0 0 18px"
+        paddingHorizontal={2}
+      >
+        :
+      </TextBody>
+    );
+  };
 
   render() {
     const {
@@ -272,14 +283,7 @@ class DurationInput extends PureComponent {
             </div>
           </Box>
 
-          <TextBody
-            color={inverse ? 'neutral' : 'teal'}
-            tint={inverse ? 'lightest' : 'darkest'}
-            flex="0 0 18px"
-            paddingHorizontal={2}
-          >
-            :
-          </TextBody>
+          {this.renderInputSeparator(inverse)}
 
           <Box className={classNamesMinutes} {...boxProps}>
             <div className={theme['input-wrapper']}>
@@ -297,16 +301,7 @@ class DurationInput extends PureComponent {
             </div>
           </Box>
 
-          {stepSeconds >= 1 && (
-            <TextBody
-              color={inverse ? 'neutral' : 'teal'}
-              tint={inverse ? 'lightest' : 'darkest'}
-              flex="0 0 18px"
-              paddingHorizontal={2}
-            >
-              :
-            </TextBody>
-          )}
+          {stepSeconds >= 1 && this.renderInputSeparator(inverse)}
 
           {stepSeconds >= 1 && (
             <Box className={classNamesSeconds} {...boxProps}>
