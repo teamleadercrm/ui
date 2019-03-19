@@ -92,8 +92,6 @@ storiesOf('Form elements/Input', module)
     <DurationInput
       bold={boolean('bold', false)}
       disabled={boolean('disabled', false)}
-      error={text('error', '')}
-      helpText={text('helpText', '')}
       successHours={text('successHours', '')}
       successMinutes={text('successMinutes', '')}
       successSeconds={text('successSeconds', '')}
