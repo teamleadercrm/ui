@@ -279,7 +279,7 @@ class DurationInput extends PureComponent {
             <div className={theme['input-wrapper']}>
               <div className={theme['input-inner-wrapper']} style={{ flex: '1 2 auto' }}>
                 {spinner
-                  ? this.getSuffixWithSpinner(0)
+                  ? this.getSuffixWithSpinner()
                   : suffix && <div className={theme['suffix-wrapper']}>{this.renderOneOrMultipleElements(suffix)}</div>}
               </div>
             </div>
