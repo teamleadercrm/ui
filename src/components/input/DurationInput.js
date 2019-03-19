@@ -11,10 +11,6 @@ import { durationToSeconds } from '../utils';
 
 import theme from './theme.css';
 
-const durationToSeconds = (hours, minutes, seconds) => {
-  return hours * 3600 + minutes * 60 + seconds;
-};
-
 class SpinnerControls extends PureComponent {
   render() {
     const { inverse, spinnerUpProps, spinnerDownProps } = this.props;
@@ -41,9 +37,9 @@ class SpinnerControls extends PureComponent {
 
 class DurationInput extends PureComponent {
   state = {
-    seconds: 0,
-    minutes: 0,
     hours: 0,
+    minutes: 0,
+    seconds: 0,
     hoursInputHasfocus: false,
     minutesInputHasfocus: false,
     secondsInputHasfocus: false,
@@ -54,6 +50,7 @@ class DurationInput extends PureComponent {
     let newHours = hours;
     let newMinutes = minutes;
     let newSeconds = seconds;
+
     switch (type) {
       case 'hours':
         if (hours >= 0 && n >= 0) {
@@ -85,6 +82,7 @@ class DurationInput extends PureComponent {
           this.props.onChange(durationToSeconds(newHours, newMinutes, seconds)),
         );
         break;
+
       case 'seconds':
         if (n > 0 && minutes * 60 + seconds >= 3600 - Math.abs(n)) {
           newSeconds = seconds - 60 + n;
@@ -108,10 +106,11 @@ class DurationInput extends PureComponent {
         } else if (n < 0 && seconds <= Math.abs(n)) {
           newSeconds = 0;
         }
-        this.setState({ seconds: newSeconds, minutes: newMinutes }, () =>
+        this.setState({ hours: newHours, seconds: newSeconds, minutes: newMinutes }, () =>
           this.props.onChange(durationToSeconds(hours, newMinutes, newSeconds)),
         );
         break;
+
       default:
         break;
     }
@@ -121,6 +120,7 @@ class DurationInput extends PureComponent {
     const element = event.currentTarget.parentElement.previousSibling.getAttribute('id');
     const stepSeconds = this.props.secondsInputProps.step;
     const stepMinutes = this.props.minutesInputProps.step;
+
     switch (element) {
       case 'seconds':
         this.updateStep(element, stepSeconds);
@@ -140,6 +140,7 @@ class DurationInput extends PureComponent {
     const element = event.currentTarget.parentElement.previousSibling.getAttribute('id');
     const stepSeconds = this.props.secondsInputProps.step;
     const stepMinutes = this.props.minutesInputProps.step;
+
     switch (element) {
       case 'seconds':
         this.updateStep(element, -stepSeconds);
@@ -214,7 +215,6 @@ class DurationInput extends PureComponent {
     if (Array.isArray(prop)) {
       return prop.map((element, index) => React.cloneElement(element, { key: index }));
     }
-
     return prop;
   }
 
@@ -288,14 +288,7 @@ class DurationInput extends PureComponent {
     );
 
     const boxProps = pickBoxProps(others);
-    const inputProps = {
-      disabled,
-      inverse,
-      onBlur: this.handleBlur,
-      onFocus: this.handleFocus,
-      readOnly,
-      ...omitBoxProps(others),
-    };
+
     const { hours, minutes, seconds } = this.state;
     return (
       <Box>
@@ -317,9 +310,9 @@ class DurationInput extends PureComponent {
                   : commonInputProps.suffix && (
                       <div className={theme['suffix-wrapper']}>
                         {this.renderOneOrMultipleElements(commonInputProps.suffix)}
-              </div>
+                      </div>
                     )}
-            </div>
+              </div>
             </div>
           </Box>
 
@@ -342,9 +335,9 @@ class DurationInput extends PureComponent {
                   : commonInputProps.suffix && (
                       <div className={theme['suffix-wrapper']}>
                         {this.renderOneOrMultipleElements(commonInputProps.suffix)}
-              </div>
+                      </div>
                     )}
-            </div>
+              </div>
             </div>
           </Box>
 
@@ -406,7 +399,6 @@ DurationInput.propTypes = {
 
 DurationInput.defaultProps = {
   suffix: [],
-  spinner: true,
 };
 
 export default DurationInput;
