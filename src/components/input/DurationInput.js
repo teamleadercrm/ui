@@ -278,6 +278,7 @@ class DurationInput extends PureComponent {
           <Box className={classNamesHours} {...boxProps}>
             <div className={theme['input-wrapper']}>
               <div className={theme['input-inner-wrapper']} style={{ flex: '1 2 auto' }}>
+                <InputBase value={hours < 10 ? `0${hours}` : hours} type="number" {...inputProps} id={'hours'} />
                 {spinner
                   ? this.getSuffixWithSpinner()
                   : suffix && <div className={theme['suffix-wrapper']}>{this.renderOneOrMultipleElements(suffix)}</div>}
