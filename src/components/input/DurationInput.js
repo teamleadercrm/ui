@@ -234,27 +234,14 @@ class DurationInput extends PureComponent {
   render() {
     const {
       className,
-      disabled,
-      errorHours,
-      errorMinutes,
-      errorSeconds,
-      helpHours,
-      helpMinutes,
-      helpSeconds,
+      commonInputProps,
+      hoursInputProps,
+      inverse,
+      minutesInputProps,
       onFocus,
       onBlur,
-      inverse,
-      readOnly,
-      spinner,
-      stepSeconds,
-      stepMinutes,
-      successHours,
-      successMinutes,
-      successSeconds,
-      suffix,
-      warningHours,
-      warningMinutes,
-      warningSeconds,
+      secondsInputProps,
+      size,
       ...others
     } = this.props;
 
@@ -262,8 +249,12 @@ class DurationInput extends PureComponent {
       theme['wrapper'],
       {
         [theme['has-focus']]: this.state.hoursInputHasfocus,
+        [theme['has-error']]: hoursInputProps.error,
+        [theme['has-warning']]: hoursInputProps.warning,
+        [theme['has-success']]: hoursInputProps.success,
+        [theme['is-disabled']]: commonInputProps.disabled,
         [theme['is-inverse']]: inverse,
-        [theme['is-read-only']]: readOnly,
+        [theme['is-read-only']]: commonInputProps.readOnly,
       },
       className,
     );
@@ -272,8 +263,12 @@ class DurationInput extends PureComponent {
       theme['wrapper'],
       {
         [theme['has-focus']]: this.state.minutesInputHasfocus,
+        [theme['has-error']]: minutesInputProps.error,
+        [theme['has-warning']]: minutesInputProps.warning,
+        [theme['has-success']]: minutesInputProps.success,
+        [theme['is-disabled']]: commonInputProps.disabled,
         [theme['is-inverse']]: inverse,
-        [theme['is-read-only']]: readOnly,
+        [theme['is-read-only']]: commonInputProps.readOnly,
       },
       className,
     );
@@ -282,8 +277,12 @@ class DurationInput extends PureComponent {
       theme['wrapper'],
       {
         [theme['has-focus']]: this.state.secondsInputHasfocus,
+        [theme['has-error']]: secondsInputProps.error,
+        [theme['has-warning']]: secondsInputProps.warning,
+        [theme['has-success']]: secondsInputProps.success,
+        [theme['is-disabled']]: commonInputProps.disabled,
         [theme['is-inverse']]: inverse,
-        [theme['is-read-only']]: readOnly,
+        [theme['is-read-only']]: commonInputProps.readOnly,
       },
       className,
     );
@@ -304,11 +303,23 @@ class DurationInput extends PureComponent {
           <Box className={classNamesHours} {...boxProps}>
             <div className={theme['input-wrapper']}>
               <div className={theme['input-inner-wrapper']} style={{ flex: '1 2 auto' }}>
+                <InputBase
+                  value={hours < 10 ? `0${hours}` : hours}
+                  type="number"
+                  size={size}
+                  {...commonInputProps}
+                  id={'hours'}
                   onFocus={this.handleFocusHours}
                   onBlur={this.handleBlurHours}
+                />
+                {commonInputProps.spinner
                   ? this.getSuffixWithSpinner()
-                  : suffix && <div className={theme['suffix-wrapper']}>{this.renderOneOrMultipleElements(suffix)}</div>}
+                  : commonInputProps.suffix && (
+                      <div className={theme['suffix-wrapper']}>
+                        {this.renderOneOrMultipleElements(commonInputProps.suffix)}
               </div>
+                    )}
+            </div>
             </div>
           </Box>
 
@@ -320,36 +331,44 @@ class DurationInput extends PureComponent {
                 <InputBase
                   value={minutes < 10 ? `0${minutes}` : minutes}
                   type="number"
-                  {...inputProps}
+                  size={size}
+                  {...commonInputProps}
                   id={'minutes'}
                   onFocus={this.handleFocusMinutes}
                   onBlur={this.handleBlurMinutes}
                 />
-                {spinner
+                {commonInputProps.spinner
                   ? this.getSuffixWithSpinner()
-                  : suffix && <div className={theme['suffix-wrapper']}>{this.renderOneOrMultipleElements(suffix)}</div>}
+                  : commonInputProps.suffix && (
+                      <div className={theme['suffix-wrapper']}>
+                        {this.renderOneOrMultipleElements(commonInputProps.suffix)}
               </div>
+                    )}
+            </div>
             </div>
           </Box>
 
-          {stepSeconds >= 1 && this.renderInputSeparator(inverse)}
+          {secondsInputProps.step >= 1 && this.renderInputSeparator(inverse)}
 
-          {stepSeconds >= 1 && (
+          {secondsInputProps.step >= 1 && (
             <Box className={classNamesSeconds} {...boxProps}>
               <div className={theme['input-wrapper']}>
                 <div className={theme['input-inner-wrapper']} style={{ flex: '1 2 auto' }}>
                   <InputBase
                     value={seconds < 10 ? `0${seconds}` : seconds}
                     type="number"
-                    {...inputProps}
+                    size={size}
+                    {...commonInputProps}
                     id={'seconds'}
                     onFocus={this.handleFocusSeconds}
                     onBlur={this.handleBlurSeconds}
                   />
-                  {spinner
+                  {commonInputProps.spinner
                     ? this.getSuffixWithSpinner()
-                    : suffix && (
-                        <div className={theme['suffix-wrapper']}>{this.renderOneOrMultipleElements(suffix)}</div>
+                    : commonInputProps.suffix && (
+                        <div className={theme['suffix-wrapper']}>
+                          {this.renderOneOrMultipleElements(commonInputProps.suffix)}
+                        </div>
                       )}
                 </div>
               </div>
@@ -357,27 +376,9 @@ class DurationInput extends PureComponent {
           )}
         </Box>
         <Box>
-          <ValidationText
-            error={errorHours}
-            help={helpHours}
-            inverse={inverse}
-            success={successHours}
-            warning={warningHours}
-          />
-          <ValidationText
-            error={errorMinutes}
-            help={helpMinutes}
-            inverse={inverse}
-            success={successMinutes}
-            warning={warningMinutes}
-          />
-          <ValidationText
-            error={errorSeconds}
-            help={helpSeconds}
-            inverse={inverse}
-            success={successSeconds}
-            warning={warningSeconds}
-          />
+          <ValidationText {...hoursInputProps} />
+          <ValidationText {...minutesInputProps} />
+          <ValidationText {...secondsInputProps} />
         </Box>
       </Box>
     );
@@ -385,38 +386,22 @@ class DurationInput extends PureComponent {
 }
 
 DurationInput.propTypes = {
-  /** The text string/element to use as error message below the input. */
-  errorHours: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  /** The text string/element to use as error message below the input. */
-  errorMinutes: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  /** The text string/element to use as error message below the input. */
-  errorSeconds: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  /** The text string to use as help text below the input. */
-  helpHours: PropTypes.string,
-  /** The text string to use as help text below the input. */
-  helpMinutes: PropTypes.string,
-  /** The text string to use as help text below the input. */
-  helpSeconds: PropTypes.string,
-  /** Boolean indicating whether to number type input should render spinner controls */
-  spinner: PropTypes.bool,
-  /** Limit increment value for numeric inputs. */
-  stepSeconds: PropTypes.number,
-  /** Limit increment value for numeric inputs. */
-  stepMinutes: PropTypes.number,
-  /** The text string/element to use as a suffix inside the input field */
-  suffix: PropTypes.oneOfType([PropTypes.array, PropTypes.element]),
-  /** The text string/element to use as success message below the input. */
-  successHours: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  /** The text string/element to use as success message below the input. */
-  successMinutes: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  /** The text string/element to use as success message below the input. */
-  successSeconds: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  /** The text to use as warning message below the input. */
-  warningHours: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  /** The text to use as warning message below the input. */
-  warningMinutes: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  /** The text to use as warning message below the input. */
-  warningSeconds: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  /** Object with props for the DatePicker component. */
+  commonInputProps: PropTypes.object,
+  /** Sets a class name for the wrapper to give custom styles. */
+  className: PropTypes.string,
+  /** Object with props for the DatePicker component. */
+  hoursInputProps: PropTypes.object,
+  /** If true, component will be rendered in inverse mode. */
+  inverse: PropTypes.bool,
+  /** Object with props for the DatePicker component. */
+  minutesInputProps: PropTypes.object,
+  /** Callback function that is fired when the date has changed. */
+  onChange: PropTypes.func,
+  /** Object with props for the DatePicker component. */
+  secondsInputProps: PropTypes.object,
+  /** Size of the Input & DatePicker components. */
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
 };
 
 DurationInput.defaultProps = {
