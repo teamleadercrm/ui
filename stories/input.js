@@ -105,6 +105,7 @@ storiesOf('Form elements/Input', module)
       errorMinutes={text('errorMinutes', '')}
       errorSeconds={text('errorSecconds', '')}
       inverse={boolean('inverse', false)}
+      onChange={durationInSeconds => console.log(`Duration: ${durationInSeconds}`)}
       readOnly={boolean('readOnly', false)}
       size={select('size', sizes) || undefined}
       spinner={boolean('spinner', true)}
