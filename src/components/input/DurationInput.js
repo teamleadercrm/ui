@@ -285,7 +285,14 @@ class DurationInput extends PureComponent {
             </div>
           </Box>
 
-          <Box paddingHorizontal={2}>:</Box>
+          <TextBody
+            color={inverse ? 'neutral' : 'teal'}
+            tint={inverse ? 'lightest' : 'darkest'}
+            flex="0 0 18px"
+            paddingHorizontal={2}
+          >
+            :
+          </TextBody>
 
           <Box className={classNamesMinutes} {...boxProps}>
             <div className={theme['input-wrapper']}>
@@ -306,7 +313,14 @@ class DurationInput extends PureComponent {
             </div>
           </Box>
 
-          <Box paddingHorizontal={2}>:</Box>
+            <TextBody
+              color={inverse ? 'neutral' : 'teal'}
+              tint={inverse ? 'lightest' : 'darkest'}
+              flex="0 0 18px"
+              paddingHorizontal={2}
+            >
+              :
+            </TextBody>
 
           <Box className={classNamesSeconds} {...boxProps}>
             <div className={theme['input-wrapper']}>
