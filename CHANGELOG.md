@@ -2,6 +2,8 @@
 
 ### Added
 
+- `DurationInput`: added DurationInput component([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#554](https://github.com/teamleadercrm/ui/pull/554))
+
 ### Changed
 
 ### Deprecated
