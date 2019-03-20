@@ -21,8 +21,8 @@ import DataGrid from './components/datagrid';
 import { DatePicker, DatePickerRange, DatePickerInput, DatePickerInputRange } from './components/datepicker';
 import Dialog, { DialogBase } from './components/dialog';
 import Icon from './components/icon';
-import Input, { InputBase, NumericInput, Textarea } from './components/input';
-import Menu, { IconMenu, MenuItem, MenuDivider } from './components/menu';
+import Input, { InputBase, NumericInput, Textarea, TimeInput } from './components/input';
+import Menu, { IconMenu, MenuItem, MenuDivider, MenuTitle } from './components/menu';
 import Link from './components/link';
 import Message from './components/message';
 import Overlay from './components/overlay';
@@ -107,6 +107,7 @@ export {
   Menu,
   MenuItem,
   MenuDivider,
+  MenuTitle,
   Message,
   Monospaced,
   NumericInput,
@@ -128,6 +129,7 @@ export {
   TabGroup,
   Tag,
   Textarea,
+  TimeInput,
   TitleTab,
   Toast,
   ToastContainer,

@@ -39,11 +39,11 @@
 
 .inner {
   background: var(--color-white);
-  border: 1px solid;
   border-radius: var(--popover-border-radius);
   position: relative;
   min-height: calc(2.4 * var(--unit));
   min-width: calc(2.4 * var(--unit));
+  overflow: hidden;
 }
 
 .neutral {

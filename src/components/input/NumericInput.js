@@ -11,7 +11,7 @@ class SpinnerControls extends PureComponent {
     const iconProps = {
       color: inverse ? 'teal' : 'neutral',
       element: 'button',
-      tabindex: '-1',
+      tabIndex: '-1',
       tint: inverse ? 'lightest' : 'darkest',
       type: 'button',
     };
