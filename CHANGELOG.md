@@ -2,6 +2,18 @@
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+## [0.24.0] - 2019-03-20
+
+### Added
+
 - `Menu`: added `MenuTitle` component. ([@driesd](https://github.com/driesd) in [#551](https://github.com/teamleadercrm/ui/pull/551))
 - `Input`: added `TimeInput` component. ([@driesd](https://github.com/driesd) in [#556](https://github.com/teamleadercrm/ui/pull/556))
 
@@ -11,13 +23,9 @@
 - `General`: replace the `Luxon` package from devDependencies to dependencies. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#552](https://github.com/teamleadercrm/ui/pull/552))
 - `Popover`: remove white border. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#555](https://github.com/teamleadercrm/ui/pull/555))
 
-### Deprecated
-
 ### Removed
 
 - [BREAKING] `MenuItem`: removed `children` & `shortcut` prop. ([@driesd](https://github.com/driesd) in [#551](https://github.com/teamleadercrm/ui/pull/551))
-
-### Fixed
 
 ## [0.23.1] - 2019-03-13
 
