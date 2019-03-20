@@ -6,6 +6,7 @@
 
 ### Changed
 
+- `Badge`: changed custom `span` to `Icon` component . ([@driesd](https://github.com/driesd) in [#553](https://github.com/teamleadercrm/ui/pull/553))
 - `General`: replace the `Luxon` package from devDependencies to dependencies. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#552](https://github.com/teamleadercrm/ui/pull/552))
 - `Menu & MenuItem`: restyled according to new design. ([@driesd](https://github.com/driesd) in [#551](https://github.com/teamleadercrm/ui/pull/551))
 
