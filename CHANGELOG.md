@@ -3,6 +3,7 @@
 ### Added
 
 - `Menu`: added `MenuTitle` component. ([@driesd](https://github.com/driesd) in [#551](https://github.com/teamleadercrm/ui/pull/551))
+- `Input`: added `TimeInput` component. ([@driesd](https://github.com/driesd) in [#556](https://github.com/teamleadercrm/ui/pull/556))
 
 ### Changed
 
