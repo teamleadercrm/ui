@@ -45,27 +45,28 @@ class DurationInput extends PureComponent {
 
   updateStep = (type, step) => {
     let seconds = this.state.seconds;
+    const onChange = this.props.onChange;
     switch (type) {
       case 'hours':
         if (step < 0 && seconds + step * 3600 < 0) {
           return;
         }
         seconds += step * 3600;
-        this.setState({ seconds });
+        this.setState({ seconds }, () => onChange && onChange(durationToSeconds(seconds)));
         break;
       case 'minutes':
         if (step < 0 && seconds + step * 60 < 0) {
           return;
         }
         seconds += step * 60;
-        this.setState({ seconds });
+        this.setState({ seconds }, () => onChange && onChange(durationToSeconds(seconds)));
         break;
       case 'seconds':
         if (step < 0 && seconds + step < 0) {
           return;
         }
         seconds += step;
-        this.setState({ seconds });
+        this.setState({ seconds }, () => onChange && onChange(durationToSeconds(seconds)));
         break;
       default:
         break;
