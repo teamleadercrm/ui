@@ -263,7 +263,7 @@ class DurationInput extends PureComponent {
     return (
       <Box>
         <Box display="flex" alignItems="center" justifyContent="space-between">
-          {hoursInputProps.showHours === true && (
+          {hoursInputProps.showHours && (
             <Box className={classNamesHours} {...boxProps}>
               <div className={theme['input-wrapper']}>
                 <div className={theme['input-inner-wrapper']} style={{ flex: '1 2 auto' }}>
@@ -292,11 +292,11 @@ class DurationInput extends PureComponent {
             </Box>
           )}
 
-          {hoursInputProps.showHours === true &&
-            (minutesInputProps.showMinutes === true || secondsInputProps.showSeconds === true) &&
+          {hoursInputProps.showHours &&
+            (minutesInputProps.showMinutes || secondsInputProps.showSeconds) &&
             this.renderInputSeparator(inverse)}
 
-          {minutesInputProps.showMinutes === true && (
+          {minutesInputProps.showMinutes && (
             <Box className={classNamesMinutes} {...boxProps}>
               <div className={theme['input-wrapper']}>
                 <div className={theme['input-inner-wrapper']} style={{ flex: '1 2 auto' }}>
@@ -325,11 +325,9 @@ class DurationInput extends PureComponent {
             </Box>
           )}
 
-          {minutesInputProps.showMinutes === true &&
-            secondsInputProps.showSeconds === true &&
-            this.renderInputSeparator(inverse)}
+          {minutesInputProps.showMinutes && secondsInputProps.showSeconds && this.renderInputSeparator(inverse)}
 
-          {secondsInputProps.showSeconds === true && (
+          {secondsInputProps.showSeconds && (
             <Box className={classNamesSeconds} {...boxProps}>
               <div className={theme['input-wrapper']}>
                 <div className={theme['input-inner-wrapper']} style={{ flex: '1 2 auto' }}>
