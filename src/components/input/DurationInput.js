@@ -361,21 +361,21 @@ class DurationInput extends PureComponent {
 }
 
 DurationInput.propTypes = {
-  /** Object with props for the DatePicker component. */
+  /** Object with props for the DurationInput component. */
   commonInputProps: PropTypes.object,
   /** Sets a class name for the wrapper to give custom styles. */
   className: PropTypes.string,
-  /** Object with props for the DatePicker component. */
+  /** Object with props for the hours input of the DurationInput component. */
   hoursInputProps: PropTypes.object,
   /** If true, component will be rendered in inverse mode. */
   inverse: PropTypes.bool,
-  /** Object with props for the DatePicker component. */
+  /** Object with props for the minutes input of the DurationInput component. */
   minutesInputProps: PropTypes.object,
-  /** Callback function that is fired when the date has changed. */
+  /** Callback function that is fired when the time has changed. */
   onChange: PropTypes.func,
-  /** Object with props for the DatePicker component. */
+  /** Object with props for the seconds input of the DurationInput component. */
   secondsInputProps: PropTypes.object,
-  /** Size of the Input & DatePicker components. */
+  /** Size of the Input components. */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
 };
 
