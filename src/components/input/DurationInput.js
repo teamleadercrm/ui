@@ -43,28 +43,28 @@ class DurationInput extends PureComponent {
     secondsInputHasfocus: false,
   };
 
-  updateStep = (type, n) => {
+  updateStep = (type, step) => {
     let seconds = this.state.seconds;
     switch (type) {
       case 'hours':
-        if (n < 0 && seconds + n * 3600 < 0) {
+        if (step < 0 && seconds + step * 3600 < 0) {
           return;
         }
-        seconds += n * 3600;
+        seconds += step * 3600;
         this.setState({ seconds });
         break;
       case 'minutes':
-        if (n < 0 && seconds + n * 60 < 0) {
+        if (step < 0 && seconds + step * 60 < 0) {
           return;
         }
-        seconds += n * 60;
+        seconds += step * 60;
         this.setState({ seconds });
         break;
       case 'seconds':
-        if (n < 0 && seconds + n < 0) {
+        if (step < 0 && seconds + step < 0) {
           return;
         }
-        seconds += n;
+        seconds += step;
         this.setState({ seconds });
         break;
       default:
