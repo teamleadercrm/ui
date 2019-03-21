@@ -76,44 +76,34 @@ class DurationInput extends PureComponent {
     }
   };
 
-  handleIncreaseValue = event => {
-    const element = event.currentTarget.parentElement.previousSibling;
+  detectValue = (element, posNeg) => {
     const stepSeconds = this.props.secondsInputProps.step;
     const stepMinutes = this.props.minutesInputProps.step;
-
     switch (element) {
       case this.secondsInputNode.current:
-        this.updateStep('seconds', stepSeconds);
+        this.updateStep('seconds', posNeg * stepSeconds);
         break;
       case this.minutesInputNode.current:
-        this.updateStep('minutes', stepMinutes);
+        this.updateStep('minutes', posNeg * stepMinutes);
         break;
       case this.hoursInputNode.current:
-        this.updateStep('hours', 1);
+        this.updateStep('hours', posNeg * 1);
         break;
       default:
         break;
     }
   };
 
+  handleIncreaseValue = event => {
+    const element = event.currentTarget.parentElement.previousSibling;
+    const posNeg = 1;
+    this.detectValue(element, posNeg);
+  };
+
   handleDecreaseValue = event => {
     const element = event.currentTarget.parentElement.previousSibling;
-    const stepSeconds = this.props.secondsInputProps.step;
-    const stepMinutes = this.props.minutesInputProps.step;
-
-    switch (element) {
-      case this.secondsInputNode.current:
-        this.updateStep('seconds', -stepSeconds);
-        break;
-      case this.minutesInputNode.current:
-        this.updateStep('minutes', -stepMinutes);
-        break;
-      case this.hoursInputNode.current:
-        this.updateStep('hours', -1);
-        break;
-      default:
-        break;
-    }
+    const posNeg = -1;
+    this.detectValue(element, posNeg);
   };
 
   getSuffixWithSpinner = () => [
