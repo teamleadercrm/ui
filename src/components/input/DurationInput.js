@@ -263,65 +263,73 @@ class DurationInput extends PureComponent {
     return (
       <Box>
         <Box display="flex" alignItems="center" justifyContent="space-between">
-          <Box className={classNamesHours} {...boxProps}>
-            <div className={theme['input-wrapper']}>
-              <div className={theme['input-inner-wrapper']} style={{ flex: '1 2 auto' }}>
-                <InputBase
-                  value={
-                    splitSecondsIntoHoursMinutesSeconds(seconds).hours < 10
-                      ? `0${splitSecondsIntoHoursMinutesSeconds(seconds).hours}`
-                      : splitSecondsIntoHoursMinutesSeconds(seconds).hours
-                  }
-                  type="number"
-                  size={size}
-                  {...commonInputProps}
-                  id={'hours'}
-                  onFocus={this.handleFocusHours}
-                  onBlur={this.handleBlurHours}
-                />
-                {commonInputProps.spinner
-                  ? this.getSuffixWithSpinner()
-                  : commonInputProps.suffix && (
-                      <div className={theme['suffix-wrapper']}>
-                        {this.renderOneOrMultipleElements(commonInputProps.suffix)}
-                      </div>
-                    )}
+          {hoursInputProps.showHours === true && (
+            <Box className={classNamesHours} {...boxProps}>
+              <div className={theme['input-wrapper']}>
+                <div className={theme['input-inner-wrapper']} style={{ flex: '1 2 auto' }}>
+                  <InputBase
+                    value={
+                      splitSecondsIntoHoursMinutesSeconds(seconds).hours < 10
+                        ? `0${splitSecondsIntoHoursMinutesSeconds(seconds).hours}`
+                        : splitSecondsIntoHoursMinutesSeconds(seconds).hours
+                    }
+                    type="number"
+                    size={size}
+                    {...commonInputProps}
+                    id={'hours'}
+                    onFocus={this.handleFocusHours}
+                    onBlur={this.handleBlurHours}
+                  />
+                  {commonInputProps.spinner
+                    ? this.getSuffixWithSpinner()
+                    : commonInputProps.suffix && (
+                        <div className={theme['suffix-wrapper']}>
+                          {this.renderOneOrMultipleElements(commonInputProps.suffix)}
+                        </div>
+                      )}
+                </div>
               </div>
-            </div>
-          </Box>
+            </Box>
+          )}
 
-          {this.renderInputSeparator(inverse)}
+          {hoursInputProps.showHours === true &&
+            (minutesInputProps.showMinutes === true || secondsInputProps.showSeconds === true) &&
+            this.renderInputSeparator(inverse)}
 
-          <Box className={classNamesMinutes} {...boxProps}>
-            <div className={theme['input-wrapper']}>
-              <div className={theme['input-inner-wrapper']} style={{ flex: '1 2 auto' }}>
-                <InputBase
-                  value={
-                    splitSecondsIntoHoursMinutesSeconds(seconds).minutes < 10
-                      ? `0${splitSecondsIntoHoursMinutesSeconds(seconds).minutes}`
-                      : splitSecondsIntoHoursMinutesSeconds(seconds).minutes
-                  }
-                  type="number"
-                  size={size}
-                  {...commonInputProps}
-                  id={'minutes'}
-                  onFocus={this.handleFocusMinutes}
-                  onBlur={this.handleBlurMinutes}
-                />
-                {commonInputProps.spinner
-                  ? this.getSuffixWithSpinner()
-                  : commonInputProps.suffix && (
-                      <div className={theme['suffix-wrapper']}>
-                        {this.renderOneOrMultipleElements(commonInputProps.suffix)}
-                      </div>
-                    )}
+          {minutesInputProps.showMinutes === true && (
+            <Box className={classNamesMinutes} {...boxProps}>
+              <div className={theme['input-wrapper']}>
+                <div className={theme['input-inner-wrapper']} style={{ flex: '1 2 auto' }}>
+                  <InputBase
+                    value={
+                      splitSecondsIntoHoursMinutesSeconds(seconds).minutes < 10
+                        ? `0${splitSecondsIntoHoursMinutesSeconds(seconds).minutes}`
+                        : splitSecondsIntoHoursMinutesSeconds(seconds).minutes
+                    }
+                    type="number"
+                    size={size}
+                    {...commonInputProps}
+                    id={'minutes'}
+                    onFocus={this.handleFocusMinutes}
+                    onBlur={this.handleBlurMinutes}
+                  />
+                  {commonInputProps.spinner
+                    ? this.getSuffixWithSpinner()
+                    : commonInputProps.suffix && (
+                        <div className={theme['suffix-wrapper']}>
+                          {this.renderOneOrMultipleElements(commonInputProps.suffix)}
+                        </div>
+                      )}
+                </div>
               </div>
-            </div>
-          </Box>
+            </Box>
+          )}
 
-          {secondsInputProps.step >= 1 && this.renderInputSeparator(inverse)}
+          {minutesInputProps.showMinutes === true &&
+            secondsInputProps.showSeconds === true &&
+            this.renderInputSeparator(inverse)}
 
-          {secondsInputProps.step >= 1 && (
+          {secondsInputProps.showSeconds === true && (
             <Box className={classNamesSeconds} {...boxProps}>
               <div className={theme['input-wrapper']}>
                 <div className={theme['input-inner-wrapper']} style={{ flex: '1 2 auto' }}>

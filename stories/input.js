@@ -95,6 +95,7 @@ storiesOf('Form elements/Input', module)
         help: text('help', ''),
         success: text('success', ''),
         warning: text('warning', ''),
+        showHours: true,
       }}
       minutesInputProps={{
         error: text('error', ''),
@@ -102,6 +103,7 @@ storiesOf('Form elements/Input', module)
         success: text('success', ''),
         warning: text('warning', ''),
         step: number('step', 1),
+        showMinutes: false,
       }}
       secondsInputProps={{
         error: text('error', ''),
@@ -109,6 +111,7 @@ storiesOf('Form elements/Input', module)
         success: text('success', ''),
         warning: text('warning', ''),
         step: number('step', 15),
+        showSeconds: true,
       }}
       commonInputProps={{
         bold: boolean('bold', false),
