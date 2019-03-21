@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { createRef, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { IconChevronUpSmallOutline, IconChevronDownSmallOutline } from '@teamleader/ui-icons';
 import Icon from '../icon';
@@ -36,6 +36,9 @@ class SpinnerControls extends PureComponent {
 }
 
 class DurationInput extends PureComponent {
+  hoursInputNode = createRef();
+  minutesInputNode = createRef();
+  secondsInputNode = createRef();
   state = {
     seconds: 0,
     hoursInputHasfocus: false,
@@ -74,19 +77,19 @@ class DurationInput extends PureComponent {
   };
 
   handleIncreaseValue = event => {
-    const element = event.currentTarget.parentElement.previousSibling.getAttribute('id');
+    const element = event.currentTarget.parentElement.previousSibling;
     const stepSeconds = this.props.secondsInputProps.step;
     const stepMinutes = this.props.minutesInputProps.step;
 
     switch (element) {
-      case 'seconds':
-        this.updateStep(element, stepSeconds);
+      case this.secondsInputNode.current:
+        this.updateStep('seconds', stepSeconds);
         break;
-      case 'minutes':
-        this.updateStep(element, stepMinutes);
+      case this.minutesInputNode.current:
+        this.updateStep('minutes', stepMinutes);
         break;
-      case 'hours':
-        this.updateStep(element, 1);
+      case this.hoursInputNode.current:
+        this.updateStep('hours', 1);
         break;
       default:
         break;
@@ -94,19 +97,19 @@ class DurationInput extends PureComponent {
   };
 
   handleDecreaseValue = event => {
-    const element = event.currentTarget.parentElement.previousSibling.getAttribute('id');
+    const element = event.currentTarget.parentElement.previousSibling;
     const stepSeconds = this.props.secondsInputProps.step;
     const stepMinutes = this.props.minutesInputProps.step;
 
     switch (element) {
-      case 'seconds':
-        this.updateStep(element, -stepSeconds);
+      case this.secondsInputNode.current:
+        this.updateStep('seconds', -stepSeconds);
         break;
-      case 'minutes':
-        this.updateStep(element, -stepMinutes);
+      case this.minutesInputNode.current:
+        this.updateStep('minutes', -stepMinutes);
         break;
-      case 'hours':
-        this.updateStep(element, -1);
+      case this.hoursInputNode.current:
+        this.updateStep('hours', -1);
         break;
       default:
         break;
@@ -280,6 +283,7 @@ class DurationInput extends PureComponent {
                     id={'hours'}
                     onFocus={this.handleFocusHours}
                     onBlur={this.handleBlurHours}
+                    innerRef={this.hoursInputNode}
                   />
                   {commonInputProps.spinner
                     ? this.getSuffixWithSpinner()
@@ -313,6 +317,7 @@ class DurationInput extends PureComponent {
                     id={'minutes'}
                     onFocus={this.handleFocusMinutes}
                     onBlur={this.handleBlurMinutes}
+                    innerRef={this.minutesInputNode}
                   />
                   {commonInputProps.spinner
                     ? this.getSuffixWithSpinner()
@@ -344,6 +349,7 @@ class DurationInput extends PureComponent {
                     id={'seconds'}
                     onFocus={this.handleFocusSeconds}
                     onBlur={this.handleBlurSeconds}
+                    innerRef={this.secondsInputNode}
                   />
                   {commonInputProps.spinner
                     ? this.getSuffixWithSpinner()
