@@ -103,7 +103,7 @@ storiesOf('Form elements/Input', module)
         success: text('success', ''),
         warning: text('warning', ''),
         step: number('step', 1),
-        showMinutes: false,
+        showMinutes: true,
       }}
       secondsInputProps={{
         error: text('error', ''),
