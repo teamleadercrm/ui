@@ -161,6 +161,24 @@ class DurationInput extends PureComponent {
     }
   };
 
+  handleKeyDown = event => {
+    const key = event.key;
+    const element = event.currentTarget;
+    let posNeg;
+
+    if (key !== 'ArrowUp' && key !== 'ArrowDown') {
+      return;
+    }
+    if (key === 'ArrowUp') {
+      posNeg = 1;
+    }
+    if (key === 'ArrowDown') {
+      posNeg = -1;
+    }
+
+    this.detectValue(element, posNeg);
+  };
+
   renderOneOrMultipleElements(prop) {
     if (Array.isArray(prop)) {
       return prop.map((element, index) => React.cloneElement(element, { key: index }));
@@ -267,6 +285,7 @@ class DurationInput extends PureComponent {
                         ? `0${this.splitSecondsIntoHoursMinutesSeconds(seconds).hours}`
                         : this.splitSecondsIntoHoursMinutesSeconds(seconds).hours
                     }
+                    onKeyDown={this.handleKeyDown}
                     type="number"
                     size={size}
                     {...commonInputProps}
@@ -301,6 +320,7 @@ class DurationInput extends PureComponent {
                         ? `0${this.splitSecondsIntoHoursMinutesSeconds(seconds).minutes}`
                         : this.splitSecondsIntoHoursMinutesSeconds(seconds).minutes
                     }
+                    onKeyDown={this.handleKeyDown}
                     type="number"
                     size={size}
                     {...commonInputProps}
@@ -333,6 +353,7 @@ class DurationInput extends PureComponent {
                         ? `0${this.splitSecondsIntoHoursMinutesSeconds(seconds).seconds}`
                         : this.splitSecondsIntoHoursMinutesSeconds(seconds).seconds
                     }
+                    onKeyDown={this.handleKeyDown}
                     type="number"
                     size={size}
                     {...commonInputProps}
