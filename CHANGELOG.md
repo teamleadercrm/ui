@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `TimeInput`: added time input validation. ([@mikeverf](https://github.com/mikeverf) in [#558](https://github.com/teamleadercrm/ui/pull/558))
+
 ### Deprecated
 
 ### Removed
