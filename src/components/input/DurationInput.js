@@ -37,8 +37,6 @@ class SpinnerControls extends PureComponent {
 
 class DurationInput extends PureComponent {
   state = {
-    hours: 0,
-    minutes: 0,
     seconds: 0,
     hoursInputHasfocus: false,
     minutesInputHasfocus: false,
@@ -46,71 +44,29 @@ class DurationInput extends PureComponent {
   };
 
   updateStep = (type, n) => {
-    const { hours, minutes, seconds } = this.state;
-    let newHours = hours;
-    let newMinutes = minutes;
-    let newSeconds = seconds;
-
+    let seconds = this.state.seconds;
     switch (type) {
       case 'hours':
-        if (hours >= 0 && n >= 0) {
-          newHours = hours + n;
-        } else if (hours >= Math.abs(n) && n < 0) {
-          newHours = hours + n;
-        } else if (hours <= Math.abs(n) && n < 0) {
-          newHours = 0;
+        if (n < 0 && seconds + n * 3600 < 0) {
+          return;
         }
-        this.setState({ hours: newHours }, () => this.props.onChange(durationToSeconds(newHours, minutes, seconds)));
+        seconds += n * 3600;
+        this.setState({ seconds });
         break;
-
       case 'minutes':
-        if (minutes + n >= 60) {
-          newHours = hours + 1;
-          newMinutes = minutes - 60 + n;
-        } else if (n >= 0) {
-          newMinutes = minutes + n;
-          newHours = hours;
-        } else if (n < 0 && hours > 0 && minutes <= Math.abs(n)) {
-          newMinutes = minutes + 60 + n;
-          newHours = hours - 1;
-        } else if (n < 0 && minutes >= Math.abs(n)) {
-          newMinutes = minutes + n;
-        } else if (n < 0 && minutes <= Math.abs(n)) {
-          newMinutes = 0;
+        if (n < 0 && seconds + n * 60 < 0) {
+          return;
         }
-        this.setState({ minutes: newMinutes, hours: newHours }, () =>
-          this.props.onChange(durationToSeconds(newHours, newMinutes, seconds)),
-        );
+        seconds += n * 60;
+        this.setState({ seconds });
         break;
-
       case 'seconds':
-        if (n > 0 && minutes * 60 + seconds >= 3600 - Math.abs(n)) {
-          newSeconds = seconds - 60 + n;
-          newMinutes = Math.floor(newSeconds / 60);
-          newHours = hours + 1;
-        } else if (seconds + n >= 60) {
-          newMinutes = minutes + 1;
-          newSeconds = seconds - 60 + n;
-        } else if (n >= 0) {
-          newSeconds = seconds + n;
-          newMinutes = minutes;
-        } else if (n < 0 && hours >= 1 && minutes === 0 && seconds + n < 0) {
-          newSeconds = 60 + n;
-          newMinutes = 59;
-          newHours = hours - 1;
-        } else if (n < 0 && minutes > 0 && seconds < Math.abs(n)) {
-          newSeconds = seconds + 60 + n;
-          newMinutes = minutes - 1;
-        } else if (n < 0 && seconds >= Math.abs(n)) {
-          newSeconds = seconds + n;
-        } else if (n < 0 && seconds <= Math.abs(n)) {
-          newSeconds = 0;
+        if (n < 0 && seconds + n < 0) {
+          return;
         }
-        this.setState({ hours: newHours, seconds: newSeconds, minutes: newMinutes }, () =>
-          this.props.onChange(durationToSeconds(hours, newMinutes, newSeconds)),
-        );
+        seconds += n;
+        this.setState({ seconds });
         break;
-
       default:
         break;
     }
@@ -288,8 +244,22 @@ class DurationInput extends PureComponent {
     );
 
     const boxProps = pickBoxProps(others);
+    const seconds = this.state.seconds;
 
-    const { hours, minutes, seconds } = this.state;
+    const secondsInMinute = 60;
+    const secondsInHour = secondsInMinute * 60;
+
+    const splitSecondsIntoHoursMinutesSeconds = seconds => {
+      const hours = Math.floor(seconds / secondsInHour);
+      const minutes = Math.floor((seconds % secondsInHour) / secondsInMinute);
+      const remainingSeconds = seconds % secondsInMinute;
+      return {
+        hours,
+        minutes,
+        seconds: remainingSeconds,
+      };
+    };
+
     return (
       <Box>
         <Box display="flex" alignItems="center" justifyContent="space-between">
@@ -297,7 +267,11 @@ class DurationInput extends PureComponent {
             <div className={theme['input-wrapper']}>
               <div className={theme['input-inner-wrapper']} style={{ flex: '1 2 auto' }}>
                 <InputBase
-                  value={hours < 10 ? `0${hours}` : hours}
+                  value={
+                    splitSecondsIntoHoursMinutesSeconds(seconds).hours < 10
+                      ? `0${splitSecondsIntoHoursMinutesSeconds(seconds).hours}`
+                      : splitSecondsIntoHoursMinutesSeconds(seconds).hours
+                  }
                   type="number"
                   size={size}
                   {...commonInputProps}
@@ -322,7 +296,11 @@ class DurationInput extends PureComponent {
             <div className={theme['input-wrapper']}>
               <div className={theme['input-inner-wrapper']} style={{ flex: '1 2 auto' }}>
                 <InputBase
-                  value={minutes < 10 ? `0${minutes}` : minutes}
+                  value={
+                    splitSecondsIntoHoursMinutesSeconds(seconds).minutes < 10
+                      ? `0${splitSecondsIntoHoursMinutesSeconds(seconds).minutes}`
+                      : splitSecondsIntoHoursMinutesSeconds(seconds).minutes
+                  }
                   type="number"
                   size={size}
                   {...commonInputProps}
@@ -348,7 +326,11 @@ class DurationInput extends PureComponent {
               <div className={theme['input-wrapper']}>
                 <div className={theme['input-inner-wrapper']} style={{ flex: '1 2 auto' }}>
                   <InputBase
-                    value={seconds < 10 ? `0${seconds}` : seconds}
+                    value={
+                      splitSecondsIntoHoursMinutesSeconds(seconds).seconds < 10
+                        ? `0${splitSecondsIntoHoursMinutesSeconds(seconds).seconds}`
+                        : splitSecondsIntoHoursMinutesSeconds(seconds).seconds
+                    }
                     type="number"
                     size={size}
                     {...commonInputProps}
