@@ -187,6 +187,20 @@ class DurationInput extends PureComponent {
     );
   };
 
+  splitSecondsIntoHoursMinutesSeconds = seconds => {
+    const secondsInMinute = 60;
+    const secondsInHour = secondsInMinute * 60;
+
+    const hours = Math.floor(seconds / secondsInHour);
+    const minutes = Math.floor((seconds % secondsInHour) / secondsInMinute);
+    const remainingSeconds = seconds % secondsInMinute;
+    return {
+      hours,
+      minutes,
+      seconds: remainingSeconds,
+    };
+  };
+
   render() {
     const {
       className,
@@ -246,20 +260,6 @@ class DurationInput extends PureComponent {
     const boxProps = pickBoxProps(others);
     const seconds = this.state.seconds;
 
-    const secondsInMinute = 60;
-    const secondsInHour = secondsInMinute * 60;
-
-    const splitSecondsIntoHoursMinutesSeconds = seconds => {
-      const hours = Math.floor(seconds / secondsInHour);
-      const minutes = Math.floor((seconds % secondsInHour) / secondsInMinute);
-      const remainingSeconds = seconds % secondsInMinute;
-      return {
-        hours,
-        minutes,
-        seconds: remainingSeconds,
-      };
-    };
-
     return (
       <Box>
         <Box display="flex" alignItems="center" justifyContent="space-between">
@@ -269,9 +269,9 @@ class DurationInput extends PureComponent {
                 <div className={theme['input-inner-wrapper']} style={{ flex: '1 2 auto' }}>
                   <InputBase
                     value={
-                      splitSecondsIntoHoursMinutesSeconds(seconds).hours < 10
-                        ? `0${splitSecondsIntoHoursMinutesSeconds(seconds).hours}`
-                        : splitSecondsIntoHoursMinutesSeconds(seconds).hours
+                      this.splitSecondsIntoHoursMinutesSeconds(seconds).hours < 10
+                        ? `0${this.splitSecondsIntoHoursMinutesSeconds(seconds).hours}`
+                        : this.splitSecondsIntoHoursMinutesSeconds(seconds).hours
                     }
                     type="number"
                     size={size}
@@ -302,9 +302,9 @@ class DurationInput extends PureComponent {
                 <div className={theme['input-inner-wrapper']} style={{ flex: '1 2 auto' }}>
                   <InputBase
                     value={
-                      splitSecondsIntoHoursMinutesSeconds(seconds).minutes < 10
-                        ? `0${splitSecondsIntoHoursMinutesSeconds(seconds).minutes}`
-                        : splitSecondsIntoHoursMinutesSeconds(seconds).minutes
+                      this.splitSecondsIntoHoursMinutesSeconds(seconds).minutes < 10
+                        ? `0${this.splitSecondsIntoHoursMinutesSeconds(seconds).minutes}`
+                        : this.splitSecondsIntoHoursMinutesSeconds(seconds).minutes
                     }
                     type="number"
                     size={size}
@@ -333,9 +333,9 @@ class DurationInput extends PureComponent {
                 <div className={theme['input-inner-wrapper']} style={{ flex: '1 2 auto' }}>
                   <InputBase
                     value={
-                      splitSecondsIntoHoursMinutesSeconds(seconds).seconds < 10
-                        ? `0${splitSecondsIntoHoursMinutesSeconds(seconds).seconds}`
-                        : splitSecondsIntoHoursMinutesSeconds(seconds).seconds
+                      this.splitSecondsIntoHoursMinutesSeconds(seconds).seconds < 10
+                        ? `0${this.splitSecondsIntoHoursMinutesSeconds(seconds).seconds}`
+                        : this.splitSecondsIntoHoursMinutesSeconds(seconds).seconds
                     }
                     type="number"
                     size={size}
