@@ -12,6 +12,9 @@
 
 ### Fixed
 
+- `Popover`: fixed the squeezed popover in IE11. ([@driesd](https://github.com/driesd) in [#559](https://github.com/teamleadercrm/ui/pull/559))
+- `RadioButton`: fixed the squeezed inner shape on IE11. ([@driesd](https://github.com/driesd) in [#559](https://github.com/teamleadercrm/ui/pull/559))
+
 ## [0.24.0] - 2019-03-20
 
 ### Added

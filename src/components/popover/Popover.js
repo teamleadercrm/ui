@@ -103,7 +103,7 @@ class Popover extends PureComponent {
                 <Box
                   className={theme['inner']}
                   display="flex"
-                  flex="1"
+                  flex="1 1 auto"
                   flexDirection="column"
                   style={{ maxHeight: getMaxHeight(fullHeight, maxHeight) }}
                 >
