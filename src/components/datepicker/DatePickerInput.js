@@ -131,8 +131,11 @@ DatePickerInput.propTypes = {
 };
 
 DatePickerInput.defaultProps = {
+  dayPickerProps: {},
+  inputProps: {},
   inverse: false,
   locale: 'en-GB',
+  popoverProps: {},
   size: 'medium',
 };
 
