@@ -5,6 +5,7 @@
 ### Changed
 
 - `TimeInput`: added time input validation. ([@mikeverf](https://github.com/mikeverf) in [#558](https://github.com/teamleadercrm/ui/pull/558))
+- `Input`: fixed the css for the disabled and read-only props on ie11. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#561](https://github.com/teamleadercrm/ui/pull/561))
 
 ### Deprecated
 
