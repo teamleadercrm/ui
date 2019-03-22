@@ -270,8 +270,22 @@ class DurationInput extends PureComponent {
     );
 
     const boxProps = pickBoxProps(others);
-    const seconds = this.state.seconds;
 
+    const splitSecondsIntoHoursMinutesSeconds = seconds => {
+      const secondsInMinute = 60;
+      const secondsInHour = secondsInMinute * 60;
+  
+      const hours = Math.floor(seconds / secondsInHour);
+      const minutes = Math.floor((seconds % secondsInHour) / secondsInMinute);
+      const remainingSeconds = seconds % secondsInMinute;
+      return {
+        hours,
+        minutes,
+        seconds: remainingSeconds,
+      };
+    };
+
+    const { hours, minutes, seconds } = splitSecondsIntoHoursMinutesSeconds(this.state.seconds);
     return (
       <Box>
         <Box display="flex" alignItems="center" justifyContent="space-between">
@@ -280,11 +294,8 @@ class DurationInput extends PureComponent {
               <div className={theme['input-wrapper']}>
                 <div className={theme['input-inner-wrapper']} style={{ flex: '1 2 auto' }}>
                   <InputBase
-                    value={
-                      this.splitSecondsIntoHoursMinutesSeconds(seconds).hours < 10
-                        ? `0${this.splitSecondsIntoHoursMinutesSeconds(seconds).hours}`
-                        : this.splitSecondsIntoHoursMinutesSeconds(seconds).hours
-                    }
+                    value={hours < 10 ? `0${hours}` : hours}
+                    onChange={this.handleChange}
                     onKeyDown={this.handleKeyDown}
                     type="number"
                     size={size}
@@ -315,11 +326,8 @@ class DurationInput extends PureComponent {
               <div className={theme['input-wrapper']}>
                 <div className={theme['input-inner-wrapper']} style={{ flex: '1 2 auto' }}>
                   <InputBase
-                    value={
-                      this.splitSecondsIntoHoursMinutesSeconds(seconds).minutes < 10
-                        ? `0${this.splitSecondsIntoHoursMinutesSeconds(seconds).minutes}`
-                        : this.splitSecondsIntoHoursMinutesSeconds(seconds).minutes
-                    }
+                    value={minutes < 10 ? `0${minutes}` : minutes}
+                    onChange={this.handleChange}
                     onKeyDown={this.handleKeyDown}
                     type="number"
                     size={size}
@@ -348,11 +356,8 @@ class DurationInput extends PureComponent {
               <div className={theme['input-wrapper']}>
                 <div className={theme['input-inner-wrapper']} style={{ flex: '1 2 auto' }}>
                   <InputBase
-                    value={
-                      this.splitSecondsIntoHoursMinutesSeconds(seconds).seconds < 10
-                        ? `0${this.splitSecondsIntoHoursMinutesSeconds(seconds).seconds}`
-                        : this.splitSecondsIntoHoursMinutesSeconds(seconds).seconds
-                    }
+                    value={seconds < 10 ? `0${seconds}` : seconds}
+                    onChange={this.handleChange}
                     onKeyDown={this.handleKeyDown}
                     type="number"
                     size={size}
