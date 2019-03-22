@@ -40,14 +40,14 @@ class DurationInput extends PureComponent {
   minutesInputNode = createRef();
   secondsInputNode = createRef();
   state = {
-    seconds: 0,
+    durationInSeconds: 0,
     hoursInputHasfocus: false,
     minutesInputHasfocus: false,
     secondsInputHasfocus: false,
   };
 
   updateStep = (type, step) => {
-    let seconds = this.state.seconds;
+    let seconds = this.state.durationInSeconds;
     const onChange = this.props.onChange;
     switch (type) {
       case 'hours':
@@ -71,7 +71,7 @@ class DurationInput extends PureComponent {
       default:
         break;
     }
-    this.setState({ seconds }, () => onChange && onChange(seconds));
+    this.setState({ durationInSeconds: seconds }, () => onChange && onChange(seconds));
   };
 
   detectValue = (element, posNeg) => {
@@ -211,10 +211,12 @@ class DurationInput extends PureComponent {
       ...others
     } = this.props;
 
+    const { hoursInputHasfocus, minutesInputHasfocus, secondsInputHasfocus } = this.state;
+
     const classNamesHours = cx(
       theme['wrapper'],
       {
-        [theme['has-focus']]: this.state.hoursInputHasfocus,
+        [theme['has-focus']]: hoursInputHasfocus,
         [theme['has-error']]: hoursInputProps.error,
         [theme['has-warning']]: hoursInputProps.warning,
         [theme['has-success']]: hoursInputProps.success,
@@ -228,7 +230,7 @@ class DurationInput extends PureComponent {
     const classNamesMinutes = cx(
       theme['wrapper'],
       {
-        [theme['has-focus']]: this.state.minutesInputHasfocus,
+        [theme['has-focus']]: minutesInputHasfocus,
         [theme['has-error']]: minutesInputProps.error,
         [theme['has-warning']]: minutesInputProps.warning,
         [theme['has-success']]: minutesInputProps.success,
@@ -242,7 +244,7 @@ class DurationInput extends PureComponent {
     const classNamesSeconds = cx(
       theme['wrapper'],
       {
-        [theme['has-focus']]: this.state.secondsInputHasfocus,
+        [theme['has-focus']]: secondsInputHasfocus,
         [theme['has-error']]: secondsInputProps.error,
         [theme['has-warning']]: secondsInputProps.warning,
         [theme['has-success']]: secondsInputProps.success,
@@ -255,7 +257,7 @@ class DurationInput extends PureComponent {
 
     const boxProps = pickBoxProps(others);
 
-    const { hours, minutes, seconds } = splitSecondsIntoHoursMinutesSeconds(this.state.seconds);
+    const { hours, minutes, seconds } = splitSecondsIntoHoursMinutesSeconds(this.state.durationInSeconds);
 
     return (
       <Box>
