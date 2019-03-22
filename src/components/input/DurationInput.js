@@ -46,6 +46,9 @@ class DurationInput extends PureComponent {
     secondsInputHasfocus: false,
   };
 
+  interval = false;
+  count = 0;
+
   updateStep = (type, step) => {
     let seconds = this.state.durationInSeconds;
     const onChange = this.props.onChange;
@@ -95,13 +98,24 @@ class DurationInput extends PureComponent {
   handleIncreaseValue = event => {
     const element = event.currentTarget.parentElement.previousSibling;
     const posNeg = 1;
-    this.detectValue(element, posNeg);
+    
+    if (!this.interval) {
+      this.interval = setInterval(() => this.detectValue(element, posNeg), 100);
+    }
   };
 
   handleDecreaseValue = event => {
     const element = event.currentTarget.parentElement.previousSibling;
     const posNeg = -1;
-    this.detectValue(element, posNeg);
+    
+    if (!this.interval) {
+      this.interval = setInterval(() => this.detectValue(element, posNeg), 100);
+    }
+  };
+
+  handleStop = () => {
+    clearInterval(this.interval);
+    this.interval = false;
   };
 
   getSuffixWithSpinner = () => [
@@ -109,10 +123,12 @@ class DurationInput extends PureComponent {
     <SpinnerControls
       inverse={this.props.inverse}
       spinnerUpProps={{
-        onClick: this.handleIncreaseValue,
+        onMouseDown: this.handleIncreaseValue,
+        onMouseUp: this.handleStop,
       }}
       spinnerDownProps={{
-        onClick: this.handleDecreaseValue,
+        onMouseDown: this.handleDecreaseValue,
+        onMouseUp: this.handleStop,
       }}
     />,
   ];
