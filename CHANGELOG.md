@@ -2,12 +2,7 @@
 
 ### Added
 
-- `CheckBox`: added a flex-shrink to the checkbox so it doesn't resize on long texts. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#562](https://github.com/teamleadercrm/ui/pull/562))
-
 ### Changed
-
-- `TimeInput`: added time input validation. ([@mikeverf](https://github.com/mikeverf) in [#558](https://github.com/teamleadercrm/ui/pull/558))
-- `Input`: fixed the css for the disabled and read-only props on ie11. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#561](https://github.com/teamleadercrm/ui/pull/561))
 
 ### Deprecated
 
@@ -15,6 +10,16 @@
 
 ### Fixed
 
+## [0.24.1] - 2019-03-22
+
+### Changed
+
+- `TimeInput`: added time input validation. ([@mikeverf](https://github.com/mikeverf) in [#558](https://github.com/teamleadercrm/ui/pull/558))
+- `Input`: fixed the css for the disabled and read-only props on ie11. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#561](https://github.com/teamleadercrm/ui/pull/561))
+
+### Fixed
+
+- `CheckBox`: fixed the squeezed checkbox when containing long labels. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#562](https://github.com/teamleadercrm/ui/pull/562))
 - `Popover`: fixed the squeezed popover in IE11. ([@driesd](https://github.com/driesd) in [#559](https://github.com/teamleadercrm/ui/pull/559))
 - `RadioButton`: fixed the squeezed inner shape on IE11. ([@driesd](https://github.com/driesd) in [#559](https://github.com/teamleadercrm/ui/pull/559))
 
