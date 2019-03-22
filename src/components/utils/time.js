@@ -1,7 +1,3 @@
-export const durationToSeconds = seconds => {
-  return seconds;
-};
-
 export const splitSecondsIntoHoursMinutesSeconds = seconds => {
   const secondsInMinute = 60;
   const secondsInHour = secondsInMinute * 60;

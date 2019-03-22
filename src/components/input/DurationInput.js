@@ -7,7 +7,7 @@ import InputBase from './InputBase';
 import { TextBody } from '../typography';
 import Box, { pickBoxProps } from '../box';
 import ValidationText from '../validationText';
-import { durationToSeconds, splitSecondsIntoHoursMinutesSeconds } from '../utils';
+import { splitSecondsIntoHoursMinutesSeconds } from '../utils';
 
 import theme from './theme.css';
 
@@ -55,25 +55,23 @@ class DurationInput extends PureComponent {
           return;
         }
         seconds += step * 3600;
-        this.setState({ seconds }, () => onChange && onChange(durationToSeconds(seconds)));
         break;
       case 'minutes':
         if (step < 0 && seconds + step * 60 < 0) {
           return;
         }
         seconds += step * 60;
-        this.setState({ seconds }, () => onChange && onChange(durationToSeconds(seconds)));
         break;
       case 'seconds':
         if (step < 0 && seconds + step < 0) {
           return;
         }
         seconds += step;
-        this.setState({ seconds }, () => onChange && onChange(durationToSeconds(seconds)));
         break;
       default:
         break;
     }
+    this.setState({ seconds }, () => onChange && onChange(seconds));
   };
 
   detectValue = (element, posNeg) => {
