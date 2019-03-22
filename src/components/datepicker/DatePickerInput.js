@@ -28,7 +28,11 @@ class DatePickerInput extends PureComponent {
   }
 
   handleInputFocus = event => {
-    const { onFocus } = this.props.inputProps;
+    const { onFocus, readOnly } = this.props.inputProps;
+
+    if (readOnly) {
+      return;
+    }
 
     this.setState(
       {
