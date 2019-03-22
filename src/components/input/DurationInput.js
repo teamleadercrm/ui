@@ -7,7 +7,7 @@ import InputBase from './InputBase';
 import { TextBody } from '../typography';
 import Box, { pickBoxProps } from '../box';
 import ValidationText from '../validationText';
-import { durationToSeconds } from '../utils';
+import { durationToSeconds, splitSecondsIntoHoursMinutesSeconds } from '../utils';
 
 import theme from './theme.css';
 
@@ -271,21 +271,8 @@ class DurationInput extends PureComponent {
 
     const boxProps = pickBoxProps(others);
 
-    const splitSecondsIntoHoursMinutesSeconds = seconds => {
-      const secondsInMinute = 60;
-      const secondsInHour = secondsInMinute * 60;
-  
-      const hours = Math.floor(seconds / secondsInHour);
-      const minutes = Math.floor((seconds % secondsInHour) / secondsInMinute);
-      const remainingSeconds = seconds % secondsInMinute;
-      return {
-        hours,
-        minutes,
-        seconds: remainingSeconds,
-      };
-    };
-
     const { hours, minutes, seconds } = splitSecondsIntoHoursMinutesSeconds(this.state.seconds);
+
     return (
       <Box>
         <Box display="flex" alignItems="center" justifyContent="space-between">
