@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `DatePickerInput`: prevent activating the `Popover` when `Input` field is `read-only`. ([@driesd](https://github.com/driesd) in [#564](https://github.com/teamleadercrm/ui/pull/564))
+
 ## [0.24.1] - 2019-03-22
 
 ### Changed
