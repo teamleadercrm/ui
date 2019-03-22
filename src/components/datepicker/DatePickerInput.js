@@ -118,7 +118,7 @@ DatePickerInput.propTypes = {
   inputProps: PropTypes.object,
   /** If true, component will be rendered in inverse mode. */
   inverse: PropTypes.bool,
-  /** The language locale code ('en', 'nl', 'fr',...). */
+  /** The language ISO locale code ('en-GB', 'nl-BE', 'fr-FR',...). */
   locale: PropTypes.string,
   /** Callback function that is fired when the date has changed. */
   onChange: PropTypes.func,
