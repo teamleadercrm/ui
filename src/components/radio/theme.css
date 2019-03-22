@@ -47,6 +47,7 @@
       border-radius: 50%;
       border: 1px solid var(--color-mint-darkest);
       content: '';
+      display: inline-block;
       height: 100%;
       transform: scale(0);
       transition: transform var(--animation-duration) var(--animation-curve-default);
