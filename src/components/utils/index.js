@@ -1,7 +1,7 @@
 import events from './events.js';
 // import prefixer from './prefixer.js';
-import { durationToSeconds } from './time.js';
+import { durationToSeconds, splitSecondsIntoHoursMinutesSeconds } from './time.js';
 
 export default { events };
-export { durationToSeconds, events };
+export { durationToSeconds, splitSecondsIntoHoursMinutesSeconds, events };
 // export {prefixer};
