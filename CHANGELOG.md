@@ -2,6 +2,8 @@
 
 ### Added
 
+- `TimerPulser`: added `TimerPulser` component. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#566](https://github.com/teamleadercrm/ui/pull/566))
+
 ### Changed
 
 ### Deprecated
