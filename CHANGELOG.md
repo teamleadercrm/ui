@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `TimeInput`: `disabled` and `readOnly` props. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#567](https://github.com/teamleadercrm/ui/pull/567))
+
 ## [0.24.2] - 2019-03-25
 
 ### Fixed
