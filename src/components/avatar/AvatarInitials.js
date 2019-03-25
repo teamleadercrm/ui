@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Box, { pickBoxProps } from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
-import { Heading4 } from '../..';
+import { Heading4 } from '../typography';
 
 class AvatarInitials extends PureComponent {
   getInitials = () => {
