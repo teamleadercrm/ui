@@ -12,7 +12,7 @@ class AvatarInitials extends PureComponent {
     const firstLetter = nameSplitted[0].charAt(0);
     if (nameSplitted.length > 1) {
       const lastLetter = nameSplitted[nameSplitted.length - 1].charAt(0);
-      return firstLetter.concat(lastLetter);
+      return `${firstLetter}${lastLetter}`;
     }
     return firstLetter;
   };
