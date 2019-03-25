@@ -9,16 +9,10 @@ class AvatarInitials extends PureComponent {
   getInitials = () => {
     const { name } = this.props;
     const nameSplitted = name.split(' ');
-    const firstLetter = nameSplitted
-      .shift()
-      .charAt(0)
-      .toUpperCase();
+    const firstLetter = nameSplitted.shift().charAt(0);
     let initials;
     if (nameSplitted.length > 0) {
-      const lastLetter = nameSplitted
-        .pop()
-        .charAt(0)
-        .toUpperCase();
+      const lastLetter = nameSplitted.pop().charAt(0);
       initials = firstLetter.concat(lastLetter);
       return initials;
     }

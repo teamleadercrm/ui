@@ -94,6 +94,7 @@
   width: var(--tiny-size);
 
   .content {
+    text-transform: uppercase;
     padding: var(--content-padding-tiny);
     letter-spacing: 0.4px;
     font-size: 8px;
