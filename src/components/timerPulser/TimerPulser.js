@@ -1,17 +1,21 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
 
 class TimerPulser extends PureComponent {
   render() {
     const { className, size, ...others } = this.props;
-    console.log(theme[`${size}`]);
 
     return (
-      <div className={cx(theme['pulser-container'], 'classNames')}>
-        <div className={cx(theme['pulser'], className)} />
-      </div>
+      <Box
+        data-teamleader-ui="timer-pulser"
+        className={cx(theme['pulser-container'], theme[`is-${size}-outer`], className)}
+        {...others}
+      >
+        <Box className={cx(theme['pulser'], theme[`is-${size}-inner`], className)} {...others} />
+      </Box>
     );
   }
 }
