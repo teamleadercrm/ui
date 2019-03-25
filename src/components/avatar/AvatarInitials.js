@@ -8,10 +8,10 @@ import { Heading4 } from '../typography';
 class AvatarInitials extends PureComponent {
   getInitials = () => {
     const { name } = this.props;
-    const nameSplitted = name.split(' ');
-    const firstLetter = nameSplitted[0].charAt(0);
-    if (nameSplitted.length > 1) {
-      const lastLetter = nameSplitted[nameSplitted.length - 1].charAt(0);
+    const splitName = name.split(' ');
+    const firstLetter = splitName[0].charAt(0);
+    if (splitName.length > 1) {
+      const lastLetter = splitName[splitName.length - 1].charAt(0);
       return `${firstLetter}${lastLetter}`;
     }
     return firstLetter;
