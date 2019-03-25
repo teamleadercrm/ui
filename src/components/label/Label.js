@@ -1,4 +1,4 @@
-import React, { Fragment, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../box';
 import { TextBody, TextDisplay, TextSmall } from '../typography';
@@ -43,7 +43,7 @@ export default class Label extends PureComponent {
           }
 
           return (
-            <Fragment>
+            <Box display="flex" alignItems="center">
               {connectedLeft && (
                 <Box element="span" marginRight={1}>
                   {connectedLeft}
@@ -67,7 +67,7 @@ export default class Label extends PureComponent {
                   {connectedRight}
                 </Box>
               )}
-            </Fragment>
+            </Box>
           );
         })}
       </Box>
