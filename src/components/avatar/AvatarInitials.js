@@ -29,15 +29,15 @@ class AvatarInitials extends PureComponent {
   render() {
     const { className, color, shape, size, ...others } = this.props;
     const avatarClassNames = cx(
-      theme['avatar-name'],
-      theme[`is-${size}`],
+      theme['avatar-initials'],
+      theme[`${size}`],
       theme[`is-${shape}`],
       theme[color],
       className,
     );
 
     return (
-      <Box className={avatarClassNames} {...others} data-teamleader-ui="avatar-name">
+      <Box className={avatarClassNames} {...others} data-teamleader-ui="avatar-initials">
         <Heading4 className={theme['content']}>{this.getInitials()}</Heading4>
       </Box>
     );
