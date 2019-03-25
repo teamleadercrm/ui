@@ -1,6 +1,6 @@
 import Avatar from './Avatar';
-import AvatarName from './AvatarName';
+import AvatarInitials from './AvatarInitials';
 import AvatarStack from './AvatarStack';
 
 export default Avatar;
-export { Avatar, AvatarName, AvatarStack };
+export { Avatar, AvatarInitials, AvatarStack };

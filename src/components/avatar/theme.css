@@ -146,7 +146,7 @@
   }
 }
 
-/*AvatarName*/
+/*AvatarInitials*/
 .avatar-name {
   &.is-circle {
     border-radius: var(--shape-circle-image-border-radius);

@@ -5,8 +5,8 @@ import cx from 'classnames';
 import theme from './theme.css';
 import { Heading4 } from '../..';
 
-class AvatarName extends PureComponent {
-  getfirstLetters = () => {
+class AvatarInitials extends PureComponent {
+  getInitials = () => {
     const name = this.props.value;
     const nameSplitted = name.split(' ');
     const firstLetter = nameSplitted
@@ -38,13 +38,13 @@ class AvatarName extends PureComponent {
 
     return (
       <Box className={avatarClassNames} {...others} data-teamleader-ui="avatar-name">
-        <Heading4 className={theme['content']}>{this.getfirstLetters()}</Heading4>
+        <Heading4 className={theme['content']}>{this.getInitials()}</Heading4>
       </Box>
     );
   }
 }
 
-AvatarName.propTypes = {
+AvatarInitials.propTypes = {
   /** A class name for the wrapper to give custom styles. */
   className: PropTypes.string,
   /** The color of the avatar. */
@@ -57,10 +57,10 @@ AvatarName.propTypes = {
   value: PropTypes.string,
 };
 
-AvatarName.defaultProps = {
+AvatarInitials.defaultProps = {
   shape: 'circle',
   size: 'medium',
   value: 'Michael Scott',
 };
 
-export default AvatarName;
+export default AvatarInitials;

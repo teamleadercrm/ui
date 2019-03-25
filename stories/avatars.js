@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, number, select, text } from '@storybook/addon-knobs';
-import { Avatar, AvatarName, AvatarStack, Bullet, Counter, TextBody, Tooltip } from '../src';
+import { Avatar, AvatarInitials, AvatarStack, Bullet, Counter, TextBody, Tooltip } from '../src';
 import avatars from './static/data/avatar';
 
 const directions = ['horizontal', 'vertical'];
@@ -24,8 +24,8 @@ storiesOf('Avatars', module)
       shape={select('shape', shapes) || undefined}
     />
   ))
-  .add('names', () => (
-    <AvatarName
+  .add('initials', () => (
+    <AvatarInitials
       color={select('Color', colors, 'neutral')}
       size={select('Size', sizes, 'medium')}
       shape={select('shape', shapes) || undefined}

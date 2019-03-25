@@ -2,7 +2,7 @@
 
 ### Added
 
-- `AvatarName`: added `AvatarName` component. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#568](https://github.com/teamleadercrm/ui/pull/568))
+- `AvatarInitials`: added `AvatarInitials` component. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#568](https://github.com/teamleadercrm/ui/pull/568))
 
 ### Changed
 
