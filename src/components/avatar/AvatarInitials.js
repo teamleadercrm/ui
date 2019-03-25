@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import Box from '../box';
+import Box, { pickBoxProps } from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
 import { Heading4 } from '../..';
@@ -27,8 +27,10 @@ class AvatarInitials extends PureComponent {
       className,
     );
 
+    const boxProps = pickBoxProps(others);
+
     return (
-      <Box className={avatarClassNames} {...others} data-teamleader-ui="avatar-initials">
+      <Box className={avatarClassNames} {...boxProps} data-teamleader-ui="avatar-initials">
         <Heading4 className={theme['content']}>{this.getInitials()}</Heading4>
       </Box>
     );
