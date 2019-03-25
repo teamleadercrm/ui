@@ -7,7 +7,7 @@ import avatars from './static/data/avatar';
 const directions = ['horizontal', 'vertical'];
 const sizes = ['tiny', 'small', 'medium'];
 const shapes = [null, 'circle', 'rounded'];
-const colors = ['white', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua'];
+const colors = ['teal', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua'];
 
 const TooltippedAvatar = Tooltip(Avatar);
 
