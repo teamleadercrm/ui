@@ -120,10 +120,6 @@
             }
           }
         }
-
-        .icon {
-          color: var(--color-$(color)-darkest);
-        }
       }
     }
 

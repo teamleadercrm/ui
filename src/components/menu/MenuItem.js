@@ -1,5 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import Box from '../box';
+import Icon from '../icon';
+import { TextBody } from '../typography';
 import cx from 'classnames';
 import theme from './theme.css';
 
@@ -13,42 +16,64 @@ class MenuItem extends PureComponent {
   };
 
   render() {
-    const { icon, caption, children, className, shortcut, selected, disabled, ...others } = this.props;
+    const { icon, caption, className, destructive, selected, disabled, ...others } = this.props;
 
     const classNames = cx(
       theme['menu-item'],
-      theme['text-small'],
       {
-        [theme['selected']]: selected,
-        [theme['disabled']]: disabled,
+        [theme['is-selected']]: selected,
+        [theme['is-disabled']]: disabled,
       },
       className,
     );
 
+    const color = destructive ? 'ruby' : disabled ? 'neutral' : 'teal';
+    const tint = disabled && destructive ? 'light' : disabled || destructive ? 'dark' : 'darkest';
+
     return (
-      <li {...others} data-teamleader-ui="menu-item" className={classNames} onClick={this.handleClick}>
-        {icon && <span className={theme['icon']}>{icon}</span>}
-        <span className={theme['caption']}>{caption}</span>
-        {shortcut && <small className={theme['shortcut']}>{shortcut}</small>}
-        {children}
-      </li>
+      <Box
+        {...others}
+        alignItems="center"
+        className={classNames}
+        data-teamleader-ui="menu-item"
+        display="flex"
+        element="li"
+        onClick={this.handleClick}
+        paddingHorizontal={3}
+      >
+        {icon && (
+          <Icon color={color} tint={tint} marginRight={3}>
+            {icon}
+          </Icon>
+        )}
+        <TextBody color={color} tint={tint} element="span">
+          {caption}
+        </TextBody>
+      </Box>
     );
   }
 }
 
 MenuItem.propTypes = {
+  /** The text to display inside the component. */
   caption: PropTypes.string,
-  children: PropTypes.any,
+  /** A class name for the wrapper to give custom styles. */
   className: PropTypes.string,
+  /** If true, the color of caption and icon will be ruby */
+  destructive: PropTypes.bool,
+  /** If true, component will be disabled. */
   disabled: PropTypes.bool,
+  /** The icon to display on the left side of the caption. */
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  /** Callback function that is fired when clicking the component. */
   onClick: PropTypes.func,
+  /** If true, component will look active. */
   selected: PropTypes.bool,
-  shortcut: PropTypes.string,
 };
 
 MenuItem.defaultProps = {
   className: '',
+  destructive: false,
   disabled: false,
   selected: false,
 };

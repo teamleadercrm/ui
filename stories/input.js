@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, number, select, text } from '@storybook/addon-knobs/react';
+import { Store, State } from '@sambego/storybook-state';
 import { IconCalendarSmallOutline } from '@teamleader/ui-icons';
 import {
   InputBase,
@@ -15,6 +16,7 @@ import {
   Textarea,
   TextBody,
   TextSmall,
+  TimeInput,
 } from '../src';
 
 const sizes = ['small', 'medium', 'large'];
@@ -50,6 +52,14 @@ const prefix = [
   <TextBody color="neutral">€</TextBody>,
 ];
 const suffix = [<TextSmall color="neutral">incl. BTW</TextSmall>, <Counter count={99} />, <LoadingSpinner />];
+
+const timeInputStore = new Store({
+  value: '',
+});
+
+const handleTimeInputChange = event => {
+  timeInputStore.set({ value: event.currentTarget.value });
+};
 
 storiesOf('Form elements/Input', module)
   .addParameters({
@@ -156,6 +166,43 @@ storiesOf('Form elements/Input', module)
       suffix={boolean('Toggle suffix', false) ? suffix : undefined}
       width={text('width', undefined)}
     />
+  ))
+  .add('TimeInput', () => (
+    <State store={timeInputStore}>
+      <TimeInput
+        bold={boolean('bold', false)}
+        disabled={boolean('disabled', false)}
+        error={text('error', '')}
+        helpText={text('helpText', '')}
+        success={text('success', '')}
+        warning={text('warning', '')}
+        id="input1"
+        inverse={boolean('inverse', false)}
+        placeholder={text('placeholder', 'hh:mm')}
+        readOnly={boolean('readOnly', false)}
+        size={select('size', sizes) || undefined}
+        connectedLeft={
+          boolean('Toggle connectedLeft', false) ? (
+            <Button size={select('size', sizes, 'medium')} label="€" />
+          ) : (
+            undefined
+          )
+        }
+        connectedRight={
+          boolean('Toggle connectedRight', false) ? (
+            <Button size={select('size', sizes, 'medium')}>
+              <Checkbox size="small">Discount</Checkbox>
+            </Button>
+          ) : (
+            undefined
+          )
+        }
+        prefix={boolean('Toggle prefix', false) ? prefix : undefined}
+        suffix={boolean('Toggle suffix', false) ? suffix : undefined}
+        width={text('width', '90px')}
+        onChange={handleTimeInputChange}
+      />
+    </State>
   ))
   .add('Textarea', () => (
     <Textarea

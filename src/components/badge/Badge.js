@@ -1,6 +1,7 @@
 import React, { createRef, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../box';
+import Icon from '../icon';
 import { colorsWithout } from '../../constants';
 import { TextBody } from '../typography';
 import cx from 'classnames';
@@ -23,6 +24,20 @@ class Badge extends PureComponent {
     if (this.props.onMouseLeave) {
       this.props.onMouseLeave(event);
     }
+  };
+
+  renderIcon = () => {
+    const { color, icon, inverse } = this.props;
+
+    return (
+      <Icon
+        className={theme['icon']}
+        color={color === 'neutral' ? 'teal' : color}
+        tint={inverse ? 'lightest' : 'darkest'}
+      >
+        {icon}
+      </Icon>
+    );
   };
 
   render() {
@@ -62,7 +77,7 @@ class Badge extends PureComponent {
         paddingVertical={1}
         {...others}
       >
-        {icon && iconPlacement === 'left' && <span className={theme['icon']}>{icon}</span>}
+        {icon && iconPlacement === 'left' && this.renderIcon()}
         {inherit ? (
           <span className={theme['label']}>{children}</span>
         ) : (
@@ -70,7 +85,7 @@ class Badge extends PureComponent {
             {children}
           </TextBody>
         )}
-        {icon && iconPlacement === 'right' && <span className={theme['icon']}>{icon}</span>}
+        {icon && iconPlacement === 'right' && this.renderIcon()}
       </Box>
     );
   }

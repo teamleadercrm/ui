@@ -31,6 +31,7 @@
     border: var(--checkbox-border-width) solid var(--color-neutral-dark);
     border-radius: 4px;
     color: var(--color-white);
+    flex-shrink: 0;
     position: relative;
     display: inline-flex;
     justify-content: center;
