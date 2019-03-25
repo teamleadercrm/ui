@@ -12,6 +12,10 @@
 
   --shape-circle-image-border-radius: 50%;
   --shape-rounded-image-border-radius: 4px;
+
+  --content-padding-tiny: 4px;
+  --content-padding-small: 9px;
+  --content-padding-medium: 15px;
 }
 
 /* Avatar */
@@ -140,4 +144,79 @@
     height: var(--medium-size);
     min-width: calc(var(--medium-size) - var(--overflow-padding-horizontal) * 2);
   }
+}
+
+/*AvatarName*/
+.avatar-name {
+  &.is-circle {
+    border-radius: var(--shape-circle-image-border-radius);
+  }
+
+  .content {
+    display: block;
+    color: white;
+    text-align: center;
+  }
+
+  &.is-rounded {
+    border-radius: var(--shape-rounded-image-border-radius);
+  }
+}
+
+.is-tiny {
+  height: var(--tiny-size);
+  width: var(--tiny-size);
+
+  .content {
+    padding: var(--content-padding-tiny);
+    letter-spacing: 0.4px;
+    font-size: 8px;
+    line-height: 16px;
+  }
+}
+
+.is-small {
+  height: var(--small-size);
+  width: var(--small-size);
+
+  .content {
+    padding: var(--content-padding-small);
+  }
+}
+
+.is-medium {
+  height: var(--medium-size);
+  width: var(--medium-size);
+
+  .content {
+    padding: var(--content-padding-medium);
+  }
+}
+
+.neutral {
+  background-color: var(--color-neutral);
+}
+
+.mint {
+  background-color: var(--color-mint);
+}
+
+.violet {
+  background-color: var(--color-violet);
+}
+
+.teal {
+  background-color: var(--color-teal);
+}
+
+.ruby {
+  background-color: var(--color-ruby);
+}
+
+.gold {
+  background-color: var(--color-gold);
+}
+
+.aqua {
+  background-color: var(--color-aqua);
 }
