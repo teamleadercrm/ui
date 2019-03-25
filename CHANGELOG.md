@@ -12,6 +12,8 @@
 
 - `TimeInput`: `disabled` and `readOnly` props. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#567](https://github.com/teamleadercrm/ui/pull/567))
 
+- `Label`: alignment `connectedLeft` and `connectedRight`. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#569](https://github.com/teamleadercrm/ui/pull/569))
+
 ## [0.24.2] - 2019-03-25
 
 ### Fixed
