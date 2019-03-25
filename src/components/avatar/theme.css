@@ -89,7 +89,7 @@
   }
 }
 
-.tiny {
+.is-tiny {
   height: var(--tiny-size);
   width: var(--tiny-size);
 
@@ -119,7 +119,7 @@
   }
 }
 
-.small {
+.is-small {
   height: var(--small-size);
   width: var(--small-size);
 
@@ -145,7 +145,7 @@
   }
 }
 
-.medium {
+.is-medium {
   height: var(--medium-size);
   width: var(--medium-size);
 

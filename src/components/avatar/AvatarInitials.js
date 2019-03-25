@@ -21,7 +21,7 @@ class AvatarInitials extends PureComponent {
     const { className, color, shape, size, ...others } = this.props;
     const avatarClassNames = cx(
       theme['avatar-initials'],
-      theme[`${size}`],
+      theme[`is-${size}`],
       theme[`is-${shape}`],
       theme[color],
       className,
