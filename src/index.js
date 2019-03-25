@@ -1,4 +1,4 @@
-import Avatar, { AvatarStack } from './components/avatar';
+import Avatar, { AvatarName, AvatarStack } from './components/avatar';
 import Badge from './components/badge';
 import Banner from './components/banner';
 import Box from './components/box';
@@ -66,6 +66,7 @@ import {
 
 export {
   Avatar,
+  AvatarName,
   AvatarStack,
   AsyncSelect,
   Badge,
