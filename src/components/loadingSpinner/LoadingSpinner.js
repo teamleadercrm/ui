@@ -15,7 +15,6 @@ class LoadingSpinner extends PureComponent {
       theme[`is-${tint}`],
       className,
     );
-    console.log(classNames);
 
     return <Box data-teamleader-ui="loading-spinner" className={classNames} {...others} />;
   }
