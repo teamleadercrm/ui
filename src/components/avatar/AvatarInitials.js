@@ -7,7 +7,7 @@ import { Heading4 } from '../..';
 
 class AvatarInitials extends PureComponent {
   getInitials = () => {
-    const name = this.props.value;
+    const { name } = this.props;
     const nameSplitted = name.split(' ');
     const firstLetter = nameSplitted
       .shift()
@@ -53,14 +53,14 @@ AvatarInitials.propTypes = {
   shape: PropTypes.oneOf(['circle', 'rounded']),
   /** The size of the avatar. */
   size: PropTypes.oneOf(['tiny', 'small', 'medium']),
-  /** The value for in the avatar. */
-  value: PropTypes.string,
+  /** The name for in the avatar. */
+  name: PropTypes.string,
 };
 
 AvatarInitials.defaultProps = {
   shape: 'circle',
   size: 'medium',
-  value: 'Michael Scott',
+  name: 'Michael Scott',
 };
 
 export default AvatarInitials;

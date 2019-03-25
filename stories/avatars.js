@@ -29,7 +29,7 @@ storiesOf('Avatars', module)
       color={select('Color', colors, 'neutral')}
       size={select('Size', sizes, 'medium')}
       shape={select('shape', shapes) || undefined}
-      value={text('value', undefined)}
+      name={text('name', undefined)}
     />
   ))
   .add('stacked', () => (
