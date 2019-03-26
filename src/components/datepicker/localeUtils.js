@@ -41,7 +41,7 @@ export const formatWeekdayLong = (dayOfWeekNumber, locale = defaultLocale) => {
 };
 
 export const getFirstDayOfWeek = (locale = defaultLocale) => {
-  return firstDayOfWeek[locale];
+  return firstDayOfWeek[locale] || firstDayOfWeek[defaultLocale];
 };
 
 export const getMonths = (locale = defaultLocale) => Info.months('long', { locale });
