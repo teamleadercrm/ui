@@ -2,6 +2,8 @@
 
 ### Added
 
+- `AvatarInitials`: added `AvatarInitials` component. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#568](https://github.com/teamleadercrm/ui/pull/568))
+
 ### Changed
 
 ### Deprecated
