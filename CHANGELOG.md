@@ -2,13 +2,19 @@
 
 ### Added
 
-- `AvatarInitials`: added `AvatarInitials` component. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#568](https://github.com/teamleadercrm/ui/pull/568))
-
 ### Changed
 
 ### Deprecated
 
 ### Removed
+
+### Fixed
+
+## [0.24.3] - 2019-03-26
+
+### Added
+
+- `AvatarInitials`: added `AvatarInitials` component. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#568](https://github.com/teamleadercrm/ui/pull/568))
 
 ### Fixed
 
