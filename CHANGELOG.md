@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `AvatarInitials`: set `letter-spacing` to zero to center the text. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#575](https://github.com/teamleadercrm/ui/pull/575))
+
 ## [0.24.4] - 2019-03-26
 
 ### Fixed
