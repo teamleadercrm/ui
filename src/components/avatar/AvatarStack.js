@@ -12,7 +12,7 @@ class AvatarStack extends PureComponent {
     const classNames = cx(
       theme['stack'],
       theme[direction],
-      theme[size],
+      theme[`is-${size}`],
       inverse ? [theme['light']] : [theme['dark']],
       className,
     );

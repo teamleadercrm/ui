@@ -8,7 +8,7 @@ class Avatar extends PureComponent {
   render() {
     const { children, className, image, imageAlt, imageClassName, shape, size, ...others } = this.props;
 
-    const avatarClassNames = cx(theme['avatar'], theme[`is-${shape}`], theme[size], className);
+    const avatarClassNames = cx(theme['avatar'], theme[`is-${shape}`], theme[`is-${size}`], className);
 
     return (
       <Box className={avatarClassNames} {...others} data-teamleader-ui="avatar">
