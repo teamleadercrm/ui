@@ -10,6 +10,12 @@
 
 ### Fixed
 
+## [0.24.4] - 2019-03-26
+
+### Fixed
+
+- `DatePicker`: added missing locales in `localeUtils.js` to `firstDayOfWeek` and fallback to `en-GB`. ([@kevinwaelkens](https://github.com/kevinwaelkens) in [#572](https://github.com/teamleadercrm/ui/pull/572))
+
 ## [0.24.3] - 2019-03-26
 
 ### Added
