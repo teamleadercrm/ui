@@ -28,7 +28,7 @@ class AvatarStack extends PureComponent {
             onClick={onOverflowClick}
           >{`+${overflowAmount}`}</div>
         )}
-        {childrenToDisplay}
+        {childrenToDisplay.map((child, index) => React.cloneElement(child, { ...child.props, size }))}
       </Box>
     );
   }
