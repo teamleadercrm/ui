@@ -90,9 +90,10 @@
 }
 
 .is-tiny {
-  height: var(--tiny-size);
-  width: var(--tiny-size);
-
+  &.avatar {
+    height: var(--tiny-size);
+    width: var(--tiny-size);
+  }
   .content {
     padding-top: var(--content-padding-tiny);
     font-size: 8px;
@@ -118,8 +119,10 @@
 }
 
 .is-small {
-  height: var(--small-size);
-  width: var(--small-size);
+  &.avatar {
+    height: var(--small-size);
+    width: var(--small-size);
+  }
 
   .content {
     padding-top: var(--content-padding-small);
@@ -144,8 +147,10 @@
 }
 
 .is-medium {
-  height: var(--medium-size);
-  width: var(--medium-size);
+  &.avatar {
+    height: var(--medium-size);
+    width: var(--medium-size);
+  }
 
   .content {
     padding-top: var(--content-padding-medium);
