@@ -2,6 +2,8 @@
 
 ### Added
 
+- `Popover`: `minWidth` prop. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#579](https://github.com/teamleadercrm/ui/pull/579))
+
 ### Changed
 
 ### Deprecated
