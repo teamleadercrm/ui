@@ -11,6 +11,7 @@
 ### Fixed
 
 - `AvatarInitials`: set `letter-spacing` to zero to center the text. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#575](https://github.com/teamleadercrm/ui/pull/575))
+- `AvatarStack`: only show `overflowAmount` if the count of `Avatars` is higher than the `displayMax`. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#578](https://github.com/teamleadercrm/ui/pull/578))
 
 ## [0.24.4] - 2019-03-26
 
