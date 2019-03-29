@@ -6,6 +6,8 @@
 
 ### Changed
 
+- `AvatarInitials`: center initials with `flexbox` instead of `padding` and `text-align`. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#577](https://github.com/teamleadercrm/ui/pull/577))
+
 ### Deprecated
 
 ### Removed
