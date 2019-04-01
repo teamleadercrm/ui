@@ -7,7 +7,6 @@ import {
   ButtonGroup,
   DataGrid,
   DatePicker,
-  Heading1,
   Heading3,
   IconMenu,
   Link,
@@ -18,7 +17,6 @@ import {
   TextBody,
   TextSmall,
   Heading2,
-  StatusLabel,
 } from '../src';
 import { rows1 } from './static/data/datagrid';
 
@@ -37,7 +35,9 @@ storiesOf('Widget', module)
   ))
   .add('With header', () => (
     <Widget size={select('Size', sizes, 'medium')}>
-      <Widget.Header color={select('header color', colors, 'neutral')} title="I am the widget header title" />
+      <Widget.Header color={select('header color', colors, 'neutral')}>
+        <Heading2>I am the widget header title</Heading2>
+      </Widget.Header>
       <Widget.Body>
         <Heading3>I am the body title</Heading3>
         <TextBody>I am the body content</TextBody>
@@ -58,7 +58,7 @@ storiesOf('Widget', module)
   .add('Full widget', () => (
     <Widget size={select('Size', sizes, 'medium')}>
       <Widget.Header color={select('header color', colors, 'neutral')}>
-        <Heading1>I am the widget header title</Heading1>
+        <Heading2>I am the widget header title</Heading2>
       </Widget.Header>
       <Widget.Body>
         <Heading3>I am the body title</Heading3>
@@ -71,7 +71,9 @@ storiesOf('Widget', module)
   ))
   .add('Full widget 2 cols', () => (
     <Widget size={select('Size', sizes, 'medium')}>
-      <Widget.Header color={select('header color', colors, 'neutral')} title="I am the widget header title" />
+      <Widget.Header color={select('header color', colors, 'neutral')}>
+        <Heading2>I am the widget header title</Heading2>
+      </Widget.Header>
       <Widget.Body display="flex">
         <Box flex={1}>
           <Heading3>Column 1 header</Heading3>
@@ -89,7 +91,9 @@ storiesOf('Widget', module)
   ))
   .add('With DatePicker', () => (
     <Widget size={select('Size', sizes, 'medium')}>
-      <Widget.Header color={select('header color', colors, 'neutral')} title="I am the widget header title" />
+      <Widget.Header color={select('header color', colors, 'neutral')}>
+        <Heading2>I am the widget header title</Heading2>
+      </Widget.Header>
       <Widget.Body>
         <DatePicker
           locale="nl-BE"
@@ -174,7 +178,9 @@ storiesOf('Widget', module)
   ))
   .add('With DataGrid', () => (
     <Widget size={select('Size', sizes, 'medium')}>
-      <Widget.Header color={select('header color', colors, 'neutral')} title="I am the widget header title" />
+      <Widget.Header color={select('header color', colors, 'neutral')}>
+        <Heading2>I am the widget header title</Heading2>
+      </Widget.Header>
       <Widget.Body padding={0}>
         <DataGrid
           bordered={boolean('bordered', false)}
