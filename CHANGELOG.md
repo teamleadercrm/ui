@@ -4,8 +4,6 @@
 
 ### Changed
 
-- `Link`: move `disabled` prop from `TextBody` to `Link` in Links with text. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#580](https://github.com/teamleadercrm/ui/pull/580))
-
 ### Deprecated
 
 ### Removed
