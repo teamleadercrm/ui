@@ -6,13 +6,24 @@ import WidgetFooter from './WidgetFooter';
 import WidgetHeader from './WidgetHeader';
 import theme from './theme.css';
 
+const SIZES = {
+  small: 3,
+  medium: 4,
+  large: 5,
+};
+
 class Widget extends PureComponent {
   render() {
-    const { children, ...others } = this.props;
+    const { children, size, ...others } = this.props;
 
     return (
       <Box className={theme['widget']} {...others}>
-        {children}
+        {React.Children.map(children, child => {
+          return React.cloneElement(child, {
+            padding: SIZES[size],
+            ...child.props,
+          });
+        })}
       </Box>
     );
   }
@@ -21,6 +32,11 @@ class Widget extends PureComponent {
 Widget.propTypes = {
   /** The content to display inside the widget. */
   children: PropTypes.node,
+  size: PropTypes.oneOf(Object.keys(SIZES)),
+};
+
+Widget.defaultProps = {
+  size: 'medium',
 };
 
 Widget.WidgetBody = WidgetBody;
