@@ -8,6 +8,7 @@ import {
   DataGrid,
   DatePicker,
   Heading3,
+  IconButton,
   IconMenu,
   Link,
   MenuItem,
@@ -17,8 +18,12 @@ import {
   TextBody,
   TextSmall,
   Heading2,
+  StatusLabel,
+  MenuDivider,
+  Bullet,
 } from '../src';
 import { rows1 } from './static/data/datagrid';
+import IconEditMediumOutline from '@teamleader/ui-icons/cjs/IconEditMediumOutline';
 
 const colors = ['mint', 'violet', 'ruby', 'gold', 'aqua', 'white', 'neutral'];
 const sizes = ['small', 'medium', 'large'];
@@ -37,6 +42,49 @@ storiesOf('Widget', module)
     <Widget size={select('Size', sizes, 'medium')}>
       <Widget.Header color={select('header color', colors, 'neutral')}>
         <Heading2>I am the widget header title</Heading2>
+      </Widget.Header>
+      <Widget.Body>
+        <Heading3>I am the body title</Heading3>
+        <TextBody>I am the body content</TextBody>
+      </Widget.Body>
+    </Widget>
+  ))
+  .add('With header and action', () => (
+    <Widget size={select('Size', sizes, 'medium')}>
+      <Widget.Header color={select('header color', colors, 'neutral')} display="flex">
+        <Box flex={1}>
+          <Heading2>I am the widget header title</Heading2>
+        </Box>
+        <Box>
+          <Button>Add</Button>
+        </Box>
+      </Widget.Header>
+      <Widget.Body>
+        <Heading3>I am the body title</Heading3>
+        <TextBody>I am the body content</TextBody>
+      </Widget.Body>
+    </Widget>
+  ))
+  .add('With header and muliple actions', () => (
+    <Widget size={select('Size', sizes, 'medium')}>
+      <Widget.Header color={select('header color', colors, 'neutral')} display="flex">
+        <Box flex={6} display="flex" alignItems="center">
+          <Heading2>I am the widget header title</Heading2>
+          <StatusLabel color="mint" marginLeft={3}>
+            I am the status
+          </StatusLabel>
+          <Bullet color="mint" marginLeft={3} />
+        </Box>
+        <Box flex={1} display="flex" alignItems="center" justifyContent="space-between">
+          <IconButton icon={<IconEditMediumOutline />} />
+          <Button>Add</Button>
+          <IconMenu active position="top-right">
+            <MenuItem caption="Menu item 1" />
+            <MenuItem caption="Menu item 2" />
+            <MenuDivider />
+            <MenuItem caption="Disabled menu item..." disabled />
+          </IconMenu>
+        </Box>
       </Widget.Header>
       <Widget.Body>
         <Heading3>I am the body title</Heading3>
