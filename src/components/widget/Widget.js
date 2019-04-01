@@ -7,7 +7,7 @@ import WidgetHeader from './WidgetHeader';
 import cx from 'classnames';
 import theme from './theme.css';
 
-const SIZES = {
+const PADDINGS = {
   small: 3,
   medium: 4,
   large: 5,
@@ -21,7 +21,7 @@ class Widget extends PureComponent {
       <Box className={cx(theme['widget'])} {...others}>
         {React.Children.map(children, child => {
           return React.cloneElement(child, {
-            padding: SIZES[size],
+            padding: PADDINGS[size],
             ...child.props,
           });
         })}
@@ -33,7 +33,8 @@ class Widget extends PureComponent {
 Widget.propTypes = {
   /** The content to display inside the widget. */
   children: PropTypes.node,
-  size: PropTypes.oneOf(Object.keys(SIZES)),
+  /** The size wich controls the paddings passed down to our children. */
+  size: PropTypes.oneOf(Object.keys(PADDINGS)),
 };
 
 Widget.defaultProps = {
