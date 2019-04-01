@@ -15,6 +15,7 @@
 ### Fixed
 
 - `AvatarInitials`: set `letter-spacing` to zero to center the text. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#575](https://github.com/teamleadercrm/ui/pull/575))
+- `AvatarStack`: pass `size` prop to children. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#576](https://github.com/teamleadercrm/ui/pull/576))
 
 ## [0.24.4] - 2019-03-26
 

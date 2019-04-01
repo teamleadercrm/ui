@@ -86,9 +86,10 @@
 }
 
 .is-tiny {
-  height: var(--tiny-size);
-  width: var(--tiny-size);
-
+  &.avatar {
+    height: var(--tiny-size);
+    width: var(--tiny-size);
+  }
   .content {
     font-size: 8px;
     line-height: 16px;
@@ -113,8 +114,10 @@
 }
 
 .is-small {
-  height: var(--small-size);
-  width: var(--small-size);
+  &.avatar {
+    height: var(--small-size);
+    width: var(--small-size);
+  }
 
   .children {
     bottom: 60%;
@@ -135,8 +138,10 @@
 }
 
 .is-medium {
-  height: var(--medium-size);
-  width: var(--medium-size);
+  &.avatar {
+    height: var(--medium-size);
+    width: var(--medium-size);
+  }
 
   .children {
     bottom: 65%;
