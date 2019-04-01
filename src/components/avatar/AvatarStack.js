@@ -19,10 +19,9 @@ class AvatarStack extends PureComponent {
 
     const childrenToDisplay = displayMax > 0 ? children.slice(0, displayMax) : children;
     const overflowAmount = children.length - displayMax;
-
     return (
       <Box data-teamleader-ui="avatar-stack" className={classNames} {...others}>
-        {overflowAmount !== children.length && (
+        {overflowAmount > 0 && (
           <div
             className={cx(uiUtilities['reset-font-smoothing'], theme['overflow'])}
             onClick={onOverflowClick}
