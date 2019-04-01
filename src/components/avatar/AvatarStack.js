@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { cloneElement, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../box';
 import cx from 'classnames';
@@ -27,7 +27,7 @@ class AvatarStack extends PureComponent {
             onClick={onOverflowClick}
           >{`+${overflowAmount}`}</div>
         )}
-        {childrenToDisplay}
+        {childrenToDisplay.map((child, index) => cloneElement(child, { key: index, ...child.props, size }))}
       </Box>
     );
   }

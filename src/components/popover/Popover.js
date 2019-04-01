@@ -59,6 +59,7 @@ class Popover extends PureComponent {
       fullHeight,
       fullWidth,
       lockScroll,
+      minWidth,
       onOverlayClick,
       onEscKeyDown,
       onOverlayMouseDown,
@@ -97,7 +98,7 @@ class Popover extends PureComponent {
               <div
                 data-teamleader-ui={'popover'}
                 className={cx(uiUtilities['box-shadow-200'], theme['popover'], className)}
-                style={{ left: `${left}px`, top: `${top}px`, maxWidth: fullWidth ? '100vw' : '50vw' }}
+                style={{ left: `${left}px`, top: `${top}px`, maxWidth: fullWidth ? '100vw' : '50vw', minWidth }}
                 ref={this.popoverNode}
               >
                 <Box
@@ -148,6 +149,8 @@ Popover.propTypes = {
   fullWidth: PropTypes.bool,
   /** The scroll state of the body, if true it will not be scrollable. */
   lockScroll: PropTypes.bool,
+  /** The minimum width for the popover. */
+  minWidth: PropTypes.string,
   /** The amount of extra translation on the Popover (has no effect if position is "middle" or "center"). */
   offsetCorrection: PropTypes.number,
   /** The function executed, when the "ESC" key is down. */
@@ -177,6 +180,7 @@ Popover.defaultProps = {
   fullWidth: false,
   color: 'neutral',
   lockScroll: true,
+  minWidth: 'auto',
   offsetCorrection: 0,
   position: 'center',
   tint: 'lightest',

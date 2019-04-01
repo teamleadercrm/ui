@@ -12,10 +12,6 @@
 
   --shape-circle-image-border-radius: 50%;
   --shape-rounded-image-border-radius: 4px;
-
-  --content-padding-tiny: 4px;
-  --content-padding-small: 9px;
-  --content-padding-medium: 15px;
 }
 
 /* Avatar */
@@ -90,11 +86,11 @@
 }
 
 .is-tiny {
-  height: var(--tiny-size);
-  width: var(--tiny-size);
-
+  &.avatar {
+    height: var(--tiny-size);
+    width: var(--tiny-size);
+  }
   .content {
-    padding-top: var(--content-padding-tiny);
     font-size: 8px;
     line-height: 16px;
   }
@@ -118,11 +114,9 @@
 }
 
 .is-small {
-  height: var(--small-size);
-  width: var(--small-size);
-
-  .content {
-    padding-top: var(--content-padding-small);
+  &.avatar {
+    height: var(--small-size);
+    width: var(--small-size);
   }
 
   .children {
@@ -144,11 +138,9 @@
 }
 
 .is-medium {
-  height: var(--medium-size);
-  width: var(--medium-size);
-
-  .content {
-    padding-top: var(--content-padding-medium);
+  &.avatar {
+    height: var(--medium-size);
+    width: var(--medium-size);
   }
 
   .children {
@@ -171,6 +163,10 @@
 
 /*AvatarInitials*/
 .avatar-initials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   &.is-circle {
     border-radius: var(--shape-circle-image-border-radius);
   }
@@ -180,9 +176,7 @@
   }
 
   .content {
-    display: block;
     color: white;
-    text-align: center;
     text-transform: uppercase;
     letter-spacing: 0px;
   }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { select, boolean, number } from '@storybook/addon-knobs/react';
+import { select, boolean, number, text } from '@storybook/addon-knobs/react';
 import { Store, State } from '@sambego/storybook-state';
 import {
   IconChevronDownSmallOutline,
@@ -109,6 +109,7 @@ storiesOf('Popover', module)
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
           lockScroll={boolean('Lock scroll', true)}
+          minWidth={text('minWidth', undefined)}
           offsetCorrection={number('Offset correction', 0)}
         >
           {contentBoxWithSingleTextLine}
@@ -131,6 +132,7 @@ storiesOf('Popover', module)
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
           lockScroll={boolean('Lock scroll', true)}
+          minWidth={text('minWidth', undefined)}
           offsetCorrection={number('Offset correction', 0)}
         >
           <Banner fullWidth>
@@ -156,6 +158,7 @@ storiesOf('Popover', module)
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
           lockScroll={boolean('Lock scroll', true)}
+          minWidth={text('minWidth', undefined)}
           offsetCorrection={number('Offset correction', 0)}
         >
           <Banner color="neutral" fullWidth>
@@ -182,6 +185,7 @@ storiesOf('Popover', module)
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
           lockScroll={boolean('Lock scroll', true)}
+          minWidth={text('minWidth', undefined)}
           offsetCorrection={number('Offset correction', 0)}
         >
           <Banner onClose={handleCloseClick} fullWidth>
@@ -207,6 +211,7 @@ storiesOf('Popover', module)
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
           lockScroll={boolean('Lock scroll', true)}
+          minWidth={text('minWidth', undefined)}
           offsetCorrection={number('Offset correction', 0)}
         >
           {contentBoxWithSingleTextLine}
@@ -233,6 +238,7 @@ storiesOf('Popover', module)
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
           lockScroll={boolean('Lock scroll', true)}
+          minWidth={text('minWidth', undefined)}
           offsetCorrection={number('Offset correction', 0)}
         >
           <Box overflowY="auto">
@@ -306,6 +312,7 @@ storiesOf('Popover', module)
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
           lockScroll={boolean('Lock scroll', true)}
+          minWidth={text('minWidth', undefined)}
           offsetCorrection={number('Offset correction', 0)}
         >
           <Banner color="neutral" fullWidth>
@@ -340,6 +347,7 @@ storiesOf('Popover', module)
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
           lockScroll={boolean('Lock scroll', true)}
+          minWidth={text('minWidth', undefined)}
           offsetCorrection={number('Offset correction', 0)}
         >
           <Banner color="neutral" fullWidth>
