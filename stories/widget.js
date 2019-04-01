@@ -21,11 +21,12 @@ import {
 import { rows1 } from './static/data/datagrid';
 
 const colors = ['mint', 'violet', 'ruby', 'gold', 'aqua', 'white', 'neutral'];
+const sizes = ['small', 'medium', 'large'];
 const TooltippedStatusBullet = Tooltip(StatusBullet);
 
 storiesOf('Widget', module)
   .add('Basic', () => (
-    <Widget>
+    <Widget size={select('Size', sizes, 'medium')}>
       <Widget.WidgetBody>
         <Heading3>I am the body title</Heading3>
         <TextBody>I am the body content</TextBody>
@@ -33,7 +34,7 @@ storiesOf('Widget', module)
     </Widget>
   ))
   .add('With header', () => (
-    <Widget>
+    <Widget size={select('Size', sizes, 'medium')}>
       <Widget.WidgetHeader color={select('header color', colors, 'neutral')} title="I am the widget header title" />
       <Widget.WidgetBody>
         <Heading3>I am the body title</Heading3>
@@ -42,7 +43,7 @@ storiesOf('Widget', module)
     </Widget>
   ))
   .add('With footer', () => (
-    <Widget>
+    <Widget size={select('Size', sizes, 'medium')}>
       <Widget.WidgetBody>
         <Heading3>I am the body title</Heading3>
         <TextBody>I am the body content</TextBody>
@@ -53,7 +54,7 @@ storiesOf('Widget', module)
     </Widget>
   ))
   .add('Full widget', () => (
-    <Widget>
+    <Widget size={select('Size', sizes, 'medium')}>
       <Widget.WidgetHeader color={select('header color', colors, 'neutral')}>
         <Heading1>I am the widget header title</Heading1>
       </Widget.WidgetHeader>
@@ -67,7 +68,7 @@ storiesOf('Widget', module)
     </Widget>
   ))
   .add('Full widget 2 cols', () => (
-    <Widget>
+    <Widget size={select('Size', sizes, 'medium')}>
       <Widget.WidgetHeader color={select('header color', colors, 'neutral')} title="I am the widget header title" />
       <Widget.WidgetBody display="flex">
         <Box flex={1}>
@@ -85,7 +86,7 @@ storiesOf('Widget', module)
     </Widget>
   ))
   .add('With DatePicker', () => (
-    <Widget>
+    <Widget size={select('Size', sizes, 'medium')}>
       <Widget.WidgetHeader color={select('header color', colors, 'neutral')} title="I am the widget header title" />
       <Widget.WidgetBody>
         <DatePicker
@@ -98,13 +99,14 @@ storiesOf('Widget', module)
     </Widget>
   ))
   .add('With DataGrid only', () => (
-    <Widget>
+    <Widget size={select('Size', sizes, 'medium')}>
       <DataGrid
         bordered={boolean('bordered', false)}
         selectable={boolean('Selectable', true)}
         comparableId={1}
         onSelectionChange={() => console.log('Datagrid selection changed')}
         checkboxSize={select('Checkbox size', ['small', 'medium', 'large'], 'small')}
+        padding={0}
         processing={boolean('Processing', false)}
       >
         <DataGrid.HeaderRowOverlay
@@ -169,7 +171,7 @@ storiesOf('Widget', module)
     </Widget>
   ))
   .add('With DataGrid', () => (
-    <Widget>
+    <Widget size={select('Size', sizes, 'medium')}>
       <Widget.WidgetHeader color={select('header color', colors, 'neutral')} title="I am the widget header title" />
       <Widget.WidgetBody padding={0}>
         <DataGrid
