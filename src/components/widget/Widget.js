@@ -15,10 +15,10 @@ const PADDINGS = {
 
 class Widget extends PureComponent {
   render() {
-    const { children, size, ...others } = this.props;
+    const { children, className, size, ...others } = this.props;
 
     return (
-      <Box className={cx(theme['widget'])} {...others}>
+      <Box className={cx(theme['widget'], className)} {...others}>
         {React.Children.map(children, child => {
           return React.cloneElement(child, {
             padding: PADDINGS[size],
@@ -33,6 +33,8 @@ class Widget extends PureComponent {
 Widget.propTypes = {
   /** The content to display inside the widget. */
   children: PropTypes.node,
+  /** The class passed to our widget. */
+  className: PropTypes.string,
   /** The size wich controls the paddings passed down to our children. */
   size: PropTypes.oneOf(Object.keys(PADDINGS)),
 };
