@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../box';
-import WidgetBody from './WidgetBody';
-import WidgetFooter from './WidgetFooter';
-import WidgetHeader from './WidgetHeader';
+import Body from './Body';
+import Footer from './Footer';
+import Header from './Header';
 import cx from 'classnames';
 import theme from './theme.css';
 
@@ -43,8 +43,8 @@ Widget.defaultProps = {
   size: 'medium',
 };
 
-Widget.WidgetBody = WidgetBody;
-Widget.WidgetFooter = WidgetFooter;
-Widget.WidgetHeader = WidgetHeader;
+Widget.Body = Body;
+Widget.Footer = Footer;
+Widget.Header = Header;
 
 export default Widget;

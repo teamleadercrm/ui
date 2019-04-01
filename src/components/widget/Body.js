@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../box';
 
-class WidgetBody extends PureComponent {
+class Body extends PureComponent {
   render() {
     const { children, ...others } = this.props;
 
@@ -14,9 +14,9 @@ class WidgetBody extends PureComponent {
   }
 }
 
-WidgetBody.propTypes = {
+Body.propTypes = {
   /** The content to display inside the widget body. */
   children: PropTypes.any,
 };
 
-export default WidgetBody;
+export default Body;

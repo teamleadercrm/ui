@@ -17,6 +17,8 @@ import {
   Widget,
   TextBody,
   TextSmall,
+  Heading2,
+  StatusLabel,
 } from '../src';
 import { rows1 } from './static/data/datagrid';
 
@@ -27,50 +29,50 @@ const TooltippedStatusBullet = Tooltip(StatusBullet);
 storiesOf('Widget', module)
   .add('Basic', () => (
     <Widget size={select('Size', sizes, 'medium')}>
-      <Widget.WidgetBody>
+      <Widget.Body>
         <Heading3>I am the body title</Heading3>
         <TextBody>I am the body content</TextBody>
-      </Widget.WidgetBody>
+      </Widget.Body>
     </Widget>
   ))
   .add('With header', () => (
     <Widget size={select('Size', sizes, 'medium')}>
-      <Widget.WidgetHeader color={select('header color', colors, 'neutral')} title="I am the widget header title" />
-      <Widget.WidgetBody>
+      <Widget.Header color={select('header color', colors, 'neutral')} title="I am the widget header title" />
+      <Widget.Body>
         <Heading3>I am the body title</Heading3>
         <TextBody>I am the body content</TextBody>
-      </Widget.WidgetBody>
+      </Widget.Body>
     </Widget>
   ))
   .add('With footer', () => (
     <Widget size={select('Size', sizes, 'medium')}>
-      <Widget.WidgetBody>
+      <Widget.Body>
         <Heading3>I am the body title</Heading3>
         <TextBody>I am the body content</TextBody>
-      </Widget.WidgetBody>
-      <Widget.WidgetFooter>
+      </Widget.Body>
+      <Widget.Footer>
         <TextBody>I am the widget footer</TextBody>
-      </Widget.WidgetFooter>
+      </Widget.Footer>
     </Widget>
   ))
   .add('Full widget', () => (
     <Widget size={select('Size', sizes, 'medium')}>
-      <Widget.WidgetHeader color={select('header color', colors, 'neutral')}>
+      <Widget.Header color={select('header color', colors, 'neutral')}>
         <Heading1>I am the widget header title</Heading1>
-      </Widget.WidgetHeader>
-      <Widget.WidgetBody>
+      </Widget.Header>
+      <Widget.Body>
         <Heading3>I am the body title</Heading3>
         <TextBody>I am the body content</TextBody>
-      </Widget.WidgetBody>
-      <Widget.WidgetFooter>
+      </Widget.Body>
+      <Widget.Footer>
         <TextBody>I am the widget footer</TextBody>
-      </Widget.WidgetFooter>
+      </Widget.Footer>
     </Widget>
   ))
   .add('Full widget 2 cols', () => (
     <Widget size={select('Size', sizes, 'medium')}>
-      <Widget.WidgetHeader color={select('header color', colors, 'neutral')} title="I am the widget header title" />
-      <Widget.WidgetBody display="flex">
+      <Widget.Header color={select('header color', colors, 'neutral')} title="I am the widget header title" />
+      <Widget.Body display="flex">
         <Box flex={1}>
           <Heading3>Column 1 header</Heading3>
           <TextBody>I am the body content</TextBody>
@@ -79,23 +81,23 @@ storiesOf('Widget', module)
           <Heading3>Column 2 header</Heading3>
           <TextBody>I am the body content</TextBody>
         </Box>
-      </Widget.WidgetBody>
-      <Widget.WidgetFooter>
+      </Widget.Body>
+      <Widget.Footer>
         <TextBody>I am the widget footer</TextBody>
-      </Widget.WidgetFooter>
+      </Widget.Footer>
     </Widget>
   ))
   .add('With DatePicker', () => (
     <Widget size={select('Size', sizes, 'medium')}>
-      <Widget.WidgetHeader color={select('header color', colors, 'neutral')} title="I am the widget header title" />
-      <Widget.WidgetBody>
+      <Widget.Header color={select('header color', colors, 'neutral')} title="I am the widget header title" />
+      <Widget.Body>
         <DatePicker
           locale="nl-BE"
           numberOfMonths={12}
           onChange={() => console.log('Date changed')}
           selectedDate={new Date()}
         />
-      </Widget.WidgetBody>
+      </Widget.Body>
     </Widget>
   ))
   .add('With DataGrid only', () => (
@@ -172,8 +174,8 @@ storiesOf('Widget', module)
   ))
   .add('With DataGrid', () => (
     <Widget size={select('Size', sizes, 'medium')}>
-      <Widget.WidgetHeader color={select('header color', colors, 'neutral')} title="I am the widget header title" />
-      <Widget.WidgetBody padding={0}>
+      <Widget.Header color={select('header color', colors, 'neutral')} title="I am the widget header title" />
+      <Widget.Body padding={0}>
         <DataGrid
           bordered={boolean('bordered', false)}
           selectable={boolean('Selectable', true)}
@@ -241,9 +243,9 @@ storiesOf('Widget', module)
             );
           })}
         </DataGrid>
-      </Widget.WidgetBody>
-      <Widget.WidgetFooter>
+      </Widget.Body>
+      <Widget.Footer>
         <TextBody>I am the widget footer</TextBody>
-      </Widget.WidgetFooter>
+      </Widget.Footer>
     </Widget>
   ));

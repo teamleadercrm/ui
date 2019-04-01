@@ -2,8 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Heading2 } from '../typography';
 import Section from '../section';
-
-class WidgetHeader extends PureComponent {
+class Header extends PureComponent {
   render() {
     const { children, title, ...others } = this.props;
 
@@ -16,11 +15,11 @@ class WidgetHeader extends PureComponent {
   }
 }
 
-WidgetHeader.propTypes = {
+Header.propTypes = {
   /** The content to display inside the widget header. */
   children: PropTypes.any,
   /** The title of the widget header. */
   title: PropTypes.string,
 };
 
-export default WidgetHeader;
+export default Header;
