@@ -19,7 +19,7 @@ class Footer extends PureComponent {
 Footer.propTypes = {
   /** The content to display inside the widget footer. */
   children: PropTypes.any,
-  /** The class passed to our widget footer. */
+  /** The class passed to the widget footer. */
   className: PropTypes.string,
 };
 

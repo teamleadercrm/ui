@@ -33,9 +33,9 @@ class Widget extends PureComponent {
 Widget.propTypes = {
   /** The content to display inside the widget. */
   children: PropTypes.node,
-  /** The class passed to our widget. */
+  /** The class passed to the widget. */
   className: PropTypes.string,
-  /** The size wich controls the paddings passed down to our children. */
+  /** The size wich controls the paddings passed down to the children. */
   size: PropTypes.oneOf(Object.keys(PADDINGS)),
 };
 
