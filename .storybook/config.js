@@ -13,7 +13,7 @@ addDecorator(
   withBackgrounds([
     { name: 'White', value: '#ffffff', default: true },
     { name: 'Aqua lightest', value: '#e6f2ff' },
-    { name: 'Neutral', value: '#F7F7FA' },
+    { name: 'Neutral', value: '#f7f7fa' },
     { name: 'Gold lightest', value: '#ffeecc' },
     { name: 'Mint lightest', value: '#d3f2f2' },
     { name: 'Ruby lightest', value: '#ffe2d9' },
