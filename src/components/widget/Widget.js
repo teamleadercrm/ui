@@ -4,6 +4,7 @@ import Box from '../box';
 import WidgetBody from './WidgetBody';
 import WidgetFooter from './WidgetFooter';
 import WidgetHeader from './WidgetHeader';
+import cx from 'classnames';
 import theme from './theme.css';
 
 const SIZES = {
@@ -17,7 +18,7 @@ class Widget extends PureComponent {
     const { children, size, ...others } = this.props;
 
     return (
-      <Box className={theme['widget']} {...others}>
+      <Box className={cx(theme['widget'])} {...others}>
         {React.Children.map(children, child => {
           return React.cloneElement(child, {
             padding: SIZES[size],
