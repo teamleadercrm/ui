@@ -1,15 +1,12 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import Section from '../section';
+import Island from '../island';
+
 class Header extends PureComponent {
   render() {
     const { children, ...others } = this.props;
 
-    return (
-      <Section color="neutral" {...others}>
-        {children}
-      </Section>
-    );
+    return <Island {...others}>{children}</Island>;
   }
 }
 

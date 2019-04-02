@@ -1,17 +1,15 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import Box from '../box';
-import theme from './theme.css';
-import cx from 'classnames';
+import Island from '../island';
 
 class Footer extends PureComponent {
   render() {
-    const { children, className, ...others } = this.props;
+    const { children, ...others } = this.props;
 
     return (
-      <Box padding={4} className={cx(theme['widget-footer'], className)} {...others}>
+      <Island padding={4} {...others}>
         {children}
-      </Box>
+      </Island>
     );
   }
 }
@@ -19,8 +17,6 @@ class Footer extends PureComponent {
 Footer.propTypes = {
   /** The content to display inside the widget footer. */
   children: PropTypes.any,
-  /** The class passed to the widget footer. */
-  className: PropTypes.string,
 };
 
 export default Footer;
