@@ -34,12 +34,19 @@ class DatePicker extends PureComponent {
   };
 
   render() {
-    const { className, modifiers, size, ...others } = this.props;
+    const { bordered, className, modifiers, size, ...others } = this.props;
     const { selectedDate } = this.state;
-
     const boxProps = pickBoxProps(others);
     const restProps = omitBoxProps(others);
-    const classNames = cx(uiUtilities['reset-font-smoothing'], theme['date-picker'], theme[`is-${size}`], className);
+    const classNames = cx(
+      uiUtilities['reset-font-smoothing'],
+      theme['date-picker'],
+      theme[`is-${size}`],
+      {
+        [theme['is-bordered']]: bordered,
+      },
+      className
+    );
 
     return (
       <Box {...boxProps}>
@@ -59,6 +66,7 @@ class DatePicker extends PureComponent {
 }
 
 DatePicker.propTypes = {
+  bordered: PropTypes.bool,
   className: PropTypes.string,
   modifiers: PropTypes.object,
   onChange: PropTypes.func,
@@ -67,6 +75,7 @@ DatePicker.propTypes = {
 };
 
 DatePicker.defaultProps = {
+  bordered: false,
   size: 'medium',
 };
 
