@@ -45,7 +45,7 @@ class DatePicker extends PureComponent {
       {
         [theme['is-bordered']]: bordered,
       },
-      className
+      className,
     );
 
     return (
