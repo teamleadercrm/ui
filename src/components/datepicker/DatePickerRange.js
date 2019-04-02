@@ -103,10 +103,15 @@ class DatePickerRange extends PureComponent {
 }
 
 DatePickerRange.propTypes = {
+  /** If true we give a border to our wrapper. */
   bordered: PropTypes.bool,
+  /** A class name for the DatePickerRange to give custom styles. */
   className: PropTypes.string,
+  /** Callback function that is fired when the date has changed. */
   onChange: PropTypes.func,
+  /** The current selected range. */
   selectedRange: PropTypes.object,
+  /** Size of the DatePickerRange component. */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
 };
 
