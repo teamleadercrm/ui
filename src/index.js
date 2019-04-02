@@ -48,6 +48,7 @@ import Label from './components/label';
 import Tooltip from './components/tooltip';
 import QTip from './components/qTip';
 import ProgressTracker from './components/progressTracker';
+import Widget from './components/widget';
 
 import {
   COLOR,
@@ -137,6 +138,7 @@ export {
   Toggle,
   Tooltip,
   ValidationText,
+  Widget,
   QTip,
   COLOR,
   COLORS,
