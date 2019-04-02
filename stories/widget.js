@@ -51,7 +51,7 @@ storiesOf('Widget', module)
   ))
   .add('With header and action', () => (
     <Widget size={select('Size', sizes, 'medium')}>
-      <Widget.Header color={select('header color', colors, 'neutral')} display="flex">
+      <Widget.Header color={select('header color', colors, 'neutral')} display="flex" alignItems="center">
         <Box flex={1}>
           <Heading2>I am the widget header title</Heading2>
         </Box>
@@ -67,7 +67,7 @@ storiesOf('Widget', module)
   ))
   .add('With header and muliple actions', () => (
     <Widget size={select('Size', sizes, 'medium')}>
-      <Widget.Header color={select('header color', colors, 'neutral')} display="flex">
+      <Widget.Header color={select('header color', colors, 'neutral')} display="flex" alignItems="center">
         <Box flex={6} display="flex" alignItems="center">
           <Heading2>I am the widget header title</Heading2>
           <StatusLabel color="mint" marginLeft={3}>
