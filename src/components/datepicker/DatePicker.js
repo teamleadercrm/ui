@@ -81,7 +81,7 @@ DatePicker.propTypes = {
 };
 
 DatePicker.defaultProps = {
-  bordered: false,
+  bordered: true,
   size: 'medium',
 };
 
