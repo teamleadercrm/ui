@@ -75,9 +75,7 @@ class DatePickerInput extends PureComponent {
     } = this.props;
     const { isPopoverActive, popoverAnchorEl, selectedDate } = this.state;
     const boxProps = pickBoxProps(others);
-    const datePickerClassNames = cx(theme['date-picker-input'], theme[`is-${size}`], {
-      [theme['is-bordered']]: bordered,
-    });
+    const datePickerClassNames = cx(theme['date-picker-input'], theme[`is-${size}`]);
     const formattedDate = this.props.formatDate
       ? this.props.formatDate(selectedDate, locale)
       : formatDate(selectedDate, locale);
@@ -107,6 +105,7 @@ class DatePickerInput extends PureComponent {
         >
           <Box overflowY="auto">
             <DatePicker
+              bordered={bordered}
               className={datePickerClassNames}
               locale={locale}
               localeUtils={LocaleUtils}
