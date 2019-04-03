@@ -12,7 +12,6 @@
   min-width: 100%;
   max-width: 100%;
   position: relative;
-  border-top: 1px solid var(--color-neutral);
 }
 
 .section-wrapper {
@@ -34,6 +33,12 @@
 
 .row {
   display: flex;
+
+  &:last-child {
+    .cell {
+      border-bottom: 0;
+    }
+  }
 }
 
 .cell {
@@ -72,36 +77,8 @@
 }
 
 .is-bordered {
-  border: 1px solid var(--color-neutral);
-  border-radius: 4px;
-
-  .section:first-child .row:first-child,
-  .section:first-child .row:first-child .cell:first-child {
-    border-top-left-radius: 4px;
-  }
-
-  .section:last-child .row:first-child,
-  .section:last-child .row:first-child .cell:last-child {
-    border-top-right-radius: 4px;
-  }
-
-  &:not(.is-overflowing) {
-    .section:first-child .row:last-child,
-    .section:first-child .row:last-child .cell:first-child {
-      border-bottom-left-radius: 4px;
-    }
-
-    .section:last-child .row:last-child,
-    .section:last-child .row:last-child .cell:last-child {
-      border-bottom-right-radius: 4px;
-    }
-
-    .row:last-child {
-      .cell {
-        border-bottom: 0;
-      }
-    }
-  }
+  border-bottom: 1px solid var(--color-neutral);
+  border-top: 1px solid var(--color-neutral);
 }
 
 .is-sticky-left {

@@ -14,12 +14,15 @@ class TimeInput extends PureComponent {
   };
 
   render() {
+    const { disabled, readOnly } = this.props;
     return (
       <InputMask {...this.props} mask="99:99" maskChar="0" beforeMaskedValueChange={this.beforeMaskedValueChange}>
         {inputProps => (
           <SingleLineInputBase
             {...inputProps}
             autoComplete="off"
+            readOnly={readOnly}
+            disabled={disabled}
             prefix={
               <Icon color="neutral" tint="darkest">
                 <IconTimerSmallOutline />

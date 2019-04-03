@@ -1,4 +1,4 @@
-import Avatar, { AvatarStack } from './components/avatar';
+import Avatar, { AvatarInitials, AvatarStack } from './components/avatar';
 import Badge from './components/badge';
 import Banner from './components/banner';
 import Box from './components/box';
@@ -49,6 +49,7 @@ import Label from './components/label';
 import Tooltip from './components/tooltip';
 import QTip from './components/qTip';
 import ProgressTracker from './components/progressTracker';
+import Widget from './components/widget';
 
 import {
   COLOR,
@@ -67,6 +68,7 @@ import {
 
 export {
   Avatar,
+  AvatarInitials,
   AvatarStack,
   AsyncSelect,
   Badge,
@@ -138,6 +140,7 @@ export {
   Toggle,
   Tooltip,
   ValidationText,
+  Widget,
   QTip,
   COLOR,
   COLORS,

@@ -1,12 +1,13 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { boolean, number, select } from '@storybook/addon-knobs';
-import { Avatar, AvatarStack, Bullet, Counter, TextBody, Tooltip } from '../src';
+import { boolean, number, select, text } from '@storybook/addon-knobs';
+import { Avatar, AvatarInitials, AvatarStack, Bullet, Counter, TextBody, Tooltip } from '../src';
 import avatars from './static/data/avatar';
 
 const directions = ['horizontal', 'vertical'];
 const sizes = ['tiny', 'small', 'medium'];
 const shapes = [null, 'circle', 'rounded'];
+const colors = ['teal', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua'];
 
 const TooltippedAvatar = Tooltip(Avatar);
 
@@ -23,6 +24,14 @@ storiesOf('Avatars', module)
       shape={select('shape', shapes) || undefined}
     />
   ))
+  .add('initials', () => (
+    <AvatarInitials
+      color={select('Color', colors, 'neutral')}
+      size={select('Size', sizes, 'medium')}
+      shape={select('shape', shapes) || undefined}
+      name={text('name', undefined)}
+    />
+  ))
   .add('stacked', () => (
     <AvatarStack
       direction={select('Direction', directions, 'horizontal')}
@@ -30,7 +39,7 @@ storiesOf('Avatars', module)
       inverse={boolean('Inverse', false)}
       size={select('Size', sizes, 'medium')}
     >
-      {avatars.map(({ image }, index) => <Avatar key={index} image={image} size={select('Size', sizes, 'medium')} />)}
+      {avatars.map(({ image }, index) => <Avatar key={index} image={image} />)}
     </AvatarStack>
   ))
   .add('with bullet', () => (

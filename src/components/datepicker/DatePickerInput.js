@@ -28,7 +28,11 @@ class DatePickerInput extends PureComponent {
   }
 
   handleInputFocus = event => {
-    const { onFocus } = this.props.inputProps;
+    const { onFocus, readOnly } = this.props.inputProps;
+
+    if (readOnly) {
+      return;
+    }
 
     this.setState(
       {
@@ -118,7 +122,7 @@ DatePickerInput.propTypes = {
   inputProps: PropTypes.object,
   /** If true, component will be rendered in inverse mode. */
   inverse: PropTypes.bool,
-  /** The language locale code ('en', 'nl', 'fr',...). */
+  /** The language ISO locale code ('en-GB', 'nl-BE', 'fr-FR',...). */
   locale: PropTypes.string,
   /** Callback function that is fired when the date has changed. */
   onChange: PropTypes.func,
@@ -131,8 +135,11 @@ DatePickerInput.propTypes = {
 };
 
 DatePickerInput.defaultProps = {
+  dayPickerProps: {},
+  inputProps: {},
   inverse: false,
   locale: 'en-GB',
+  popoverProps: {},
   size: 'medium',
 };
 

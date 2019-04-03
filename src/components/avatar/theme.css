@@ -85,7 +85,16 @@
   }
 }
 
-.tiny {
+.is-tiny {
+  &.avatar {
+    height: var(--tiny-size);
+    width: var(--tiny-size);
+  }
+  .content {
+    font-size: 8px;
+    line-height: 16px;
+  }
+
   .children {
     bottom: 50%;
     left: 60%;
@@ -104,7 +113,12 @@
   }
 }
 
-.small {
+.is-small {
+  &.avatar {
+    height: var(--small-size);
+    width: var(--small-size);
+  }
+
   .children {
     bottom: 60%;
     left: 76%;
@@ -123,7 +137,12 @@
   }
 }
 
-.medium {
+.is-medium {
+  &.avatar {
+    height: var(--medium-size);
+    width: var(--medium-size);
+  }
+
   .children {
     bottom: 65%;
     left: 80%;
@@ -140,4 +159,53 @@
     height: var(--medium-size);
     min-width: calc(var(--medium-size) - var(--overflow-padding-horizontal) * 2);
   }
+}
+
+/*AvatarInitials*/
+.avatar-initials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.is-circle {
+    border-radius: var(--shape-circle-image-border-radius);
+  }
+
+  &.is-rounded {
+    border-radius: var(--shape-rounded-image-border-radius);
+  }
+
+  .content {
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0px;
+  }
+}
+
+.neutral {
+  background-color: var(--color-neutral-darkest);
+}
+
+.mint {
+  background-color: var(--color-mint);
+}
+
+.violet {
+  background-color: var(--color-violet);
+}
+
+.teal {
+  background-color: var(--color-teal);
+}
+
+.ruby {
+  background-color: var(--color-ruby);
+}
+
+.gold {
+  background-color: var(--color-gold);
+}
+
+.aqua {
+  background-color: var(--color-aqua);
 }
