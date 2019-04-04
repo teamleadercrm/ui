@@ -142,7 +142,7 @@ storiesOf('Widget', module)
       <Widget.Header color={select('header color', colors, 'neutral')}>
         <Heading2>I am the widget header title</Heading2>
       </Widget.Header>
-      <Widget.Body>
+      <Widget.Body padding={0}>
         <DatePicker
           locale="nl-BE"
           numberOfMonths={12}
