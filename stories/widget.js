@@ -154,6 +154,7 @@ storiesOf('Widget', module)
   ))
   .add('With DataGrid only', () => (
     <Widget size={select('Size', sizes, 'medium')}>
+      <Widget.Body padding={0}>
       <DataGrid
         bordered={boolean('bordered', false)}
         selectable={boolean('Selectable', true)}
@@ -222,6 +223,7 @@ storiesOf('Widget', module)
           );
         })}
       </DataGrid>
+      </Widget.Body>
     </Widget>
   ))
   .add('With DataGrid', () => (
