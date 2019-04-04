@@ -1,0 +1,130 @@
+@import '@teamleader/ui-colors';
+@import '@teamleader/ui-utilities';
+@import '@teamleader/ui-animations';
+
+:root {
+  --large-outer-size: calc(3.6 * var(--unit));
+  --medium-outer-size: calc(3 * var(--unit));
+  --small-outer-size: calc(2.4 * var(--unit));
+
+  --large-inner-size: calc(1.2 * var(--unit));
+  --medium-inner-size: calc(var(--unit));
+  --small-inner-size: calc(0.8 * var(--unit));
+
+  --large-animation: calc(-0.5 * var(--large-inner-size));
+  --medium-animation: calc(-0.5 * var(--medium-inner-size));
+  --small-animation: calc(-0.5 * var(--small-inner-size));
+}
+
+.pulser-container {
+  border-radius: 50%;
+  background-color: var(--color-violet-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.pulser {
+  background: white;
+  border-radius: 20%;
+  position: relative;
+  &::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: white;
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border-radius: 50%;
+    animation-duration: 1.5s;
+    animation-delay: 1.5s;
+    animation-iteration-count: infinite;
+  }
+}
+
+@keyframes pulse-large {
+  from {
+    transform: translate3d(var(--large-animation), var(--large-animation), 0) scale(1);
+    opacity: 1;
+  }
+
+  to {
+    transform: translate3d(var(--large-animation), var(--large-animation), 0) scale(3);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-medium {
+  from {
+    transform: translate3d(var(--medium-animation), var(--medium-animation), 0) scale(1);
+    opacity: 1;
+  }
+
+  to {
+    transform: translate3d(var(--medium-animation), var(--medium-animation), 0) scale(3);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-small {
+  from {
+    transform: translate3d(var(--small-animation), var(--small-animation), 0) scale(1);
+    opacity: 1;
+  }
+
+  to {
+    transform: translate3d(var(--small-animation), var(--small-animation), 0) scale(3);
+    opacity: 0;
+  }
+}
+
+.is-large-outer {
+  height: var(--large-outer-size);
+  width: var(--large-outer-size);
+}
+
+.is-medium-outer {
+  height: var(--medium-outer-size);
+  width: var(--medium-outer-size);
+}
+
+.is-small-outer {
+  height: var(--small-outer-size);
+  width: var(--small-outer-size);
+}
+
+.is-large-inner {
+  height: var(--large-inner-size);
+  width: var(--large-inner-size);
+
+  &::after {
+    transform: translate3d(var(--large-animation), var(--large-animation), 0);
+    animation-name: pulse-large;
+  }
+}
+
+.is-medium-inner {
+  height: var(--medium-inner-size);
+  width: var(--medium-inner-size);
+
+  &::after {
+    transform: translate3d(var(--medium-animation), var(--medium-animation), 0);
+    animation-name: pulse-medium;
+  }
+}
+
+.is-small-inner {
+  height: var(--small-inner-size);
+  width: var(--small-inner-size);
+
+  &::after {
+    transform: translate3d(var(--small-animation), var(--small-animation), 0);
+    animation-name: pulse-small;
+  }
+}

@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { cloneElement, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../box';
 import cx from 'classnames';
@@ -19,16 +19,15 @@ class AvatarStack extends PureComponent {
 
     const childrenToDisplay = displayMax > 0 ? children.slice(0, displayMax) : children;
     const overflowAmount = children.length - displayMax;
-
     return (
       <Box data-teamleader-ui="avatar-stack" className={classNames} {...others}>
-        {overflowAmount !== children.length && (
+        {overflowAmount > 0 && (
           <div
             className={cx(uiUtilities['reset-font-smoothing'], theme['overflow'])}
             onClick={onOverflowClick}
           >{`+${overflowAmount}`}</div>
         )}
-        {childrenToDisplay}
+        {childrenToDisplay.map((child, index) => cloneElement(child, { key: index, ...child.props, size }))}
       </Box>
     );
   }

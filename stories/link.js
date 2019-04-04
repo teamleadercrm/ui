@@ -24,13 +24,14 @@ storiesOf('Links', module)
     </Link>
   ))
   .add('With text', () => (
-    <TextBody
-      disabled={boolean('disabled', false)}
-      color={select('color', COLORS, 'teal')}
-      tint={select('tint', TINTS, 'darkest')}
-    >
+    <TextBody color={select('color', COLORS, 'teal')} tint={select('tint', TINTS, 'darkest')}>
       Display text with a{' '}
-      <Link href="https://www.teamleader.be" target="_blank" inherit={boolean('inherit', false)}>
+      <Link
+        href="https://www.teamleader.be"
+        target="_blank"
+        inherit={boolean('inherit', false)}
+        disabled={boolean('disabled', false)}
+      >
         link
       </Link>{' '}
       inside
