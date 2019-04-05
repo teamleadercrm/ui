@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `AvatarInitials`: `size` prop on component. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#588](https://github.com/teamleadercrm/ui/pull/588))
+
 ## [0.24.5] - 2019-04-04
 
 ### Added
