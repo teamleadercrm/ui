@@ -422,6 +422,12 @@
   }
 }
 
+.year-container {
+  flex-flow: column;
+  border: 1px solid var(--color-neutral);
+  border-radius: var(--border-radius);
+}
+
 .has-warning {
   &:not(.has-focus) {
     &:not(.is-inverse) {
