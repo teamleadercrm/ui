@@ -35,7 +35,7 @@ import {
   QTip,
 } from '../src';
 
-import { rows1 } from './static/data/datagrid';
+import { rows1, rows3 } from './static/data/datagrid';
 import options, { groupedOptions } from './static/data/select';
 import { LANGUAGES } from './static/data/languages';
 
@@ -406,133 +406,38 @@ storiesOf('Playground', module)
             secondaryAction={{ label: 'Cancel' }}
             size="large"
           >
-            <Section overflowY="auto" padding={0}>
+            <Box padding={0}>
               <DataGrid selectable={false} comparableId={1}>
                 <DataGrid.HeaderRow>
                   <DataGrid.HeaderCell>PRODUCT</DataGrid.HeaderCell>
                   <DataGrid.HeaderCell>ID</DataGrid.HeaderCell>
                   <DataGrid.HeaderCell>UNIT PRICE</DataGrid.HeaderCell>
-                  <DataGrid.HeaderCell>UNIT COST</DataGrid.HeaderCell>
+                  <DataGrid.HeaderCell align="right">UNIT COST</DataGrid.HeaderCell>
                 </DataGrid.HeaderRow>
-                <DataGrid.BodyRow key={0}>
-                  <DataGrid.Cell>
-                    <TextBody>Knauf gipsplaat</TextBody>
-                  </DataGrid.Cell>
-                  <DataGrid.Cell>01254254</DataGrid.Cell>
-                  <DataGrid.Cell> 0126534</DataGrid.Cell>
-                  <DataGrid.Cell>
-                    <Box display="flex" alignItems="center" justifyContent="space-between" style={{ width: '100px' }}>
-                      <TextBody marginRight={2}>€</TextBody>
-                      <Input placeholder="0123644" />
-                    </Box>
-                  </DataGrid.Cell>
-                </DataGrid.BodyRow>
-                <DataGrid.BodyRow key={1}>
-                  <DataGrid.Cell>
-                    <TextBody>Knauf gipsplaat</TextBody>
-                  </DataGrid.Cell>
-                  <DataGrid.Cell>01254254</DataGrid.Cell>
-                  <DataGrid.Cell> 0126534</DataGrid.Cell>
-                  <DataGrid.Cell>
-                    <Box display="flex" alignItems="center" justifyContent="space-between" style={{ width: '100px' }}>
-                      <TextBody marginRight={2}>€</TextBody>
-                      <Input placeholder="0123644" />
-                    </Box>
-                  </DataGrid.Cell>
-                </DataGrid.BodyRow>
-                <DataGrid.BodyRow key={2}>
-                  <DataGrid.Cell>
-                    <TextBody>Knauf gipsplaat</TextBody>
-                  </DataGrid.Cell>
-                  <DataGrid.Cell>01254254</DataGrid.Cell>
-                  <DataGrid.Cell> 0126534</DataGrid.Cell>
-                  <DataGrid.Cell>
-                    <Box display="flex" alignItems="center" justifyContent="space-between" style={{ width: '100px' }}>
-                      <TextBody marginRight={2}>€</TextBody>
-                      <Input placeholder="0123644" />
-                    </Box>
-                  </DataGrid.Cell>
-                </DataGrid.BodyRow>
-                <DataGrid.BodyRow key={3}>
-                  <DataGrid.Cell>
-                    <TextBody>Knauf gipsplaat</TextBody>
-                  </DataGrid.Cell>
-                  <DataGrid.Cell>01254254</DataGrid.Cell>
-                  <DataGrid.Cell> 0126534</DataGrid.Cell>
-                  <DataGrid.Cell>
-                    <Box display="flex" alignItems="center" justifyContent="space-between" style={{ width: '100px' }}>
-                      <TextBody marginRight={2}>€</TextBody>
-                      <Input placeholder="0123644" />
-                    </Box>
-                  </DataGrid.Cell>
-                </DataGrid.BodyRow>
-                <DataGrid.BodyRow key={4}>
-                  <DataGrid.Cell>
-                    <TextBody>Knauf gipsplaat</TextBody>
-                  </DataGrid.Cell>
-                  <DataGrid.Cell>01254254</DataGrid.Cell>
-                  <DataGrid.Cell> 0126534</DataGrid.Cell>
-                  <DataGrid.Cell>
-                    <Box display="flex" alignItems="center" justifyContent="space-between" style={{ width: '100px' }}>
-                      <TextBody marginRight={2}>€</TextBody>
-                      <Input placeholder="0123644" />
-                    </Box>
-                  </DataGrid.Cell>
-                </DataGrid.BodyRow>
-                <DataGrid.BodyRow key={5}>
-                  <DataGrid.Cell>
-                    <TextBody>Knauf gipsplaat</TextBody>
-                  </DataGrid.Cell>
-                  <DataGrid.Cell>01254254</DataGrid.Cell>
-                  <DataGrid.Cell> 0126534</DataGrid.Cell>
-                  <DataGrid.Cell>
-                    <Box display="flex" alignItems="center" justifyContent="space-between" style={{ width: '100px' }}>
-                      <TextBody marginRight={2}>€</TextBody>
-                      <Input placeholder="0123644" />
-                    </Box>
-                  </DataGrid.Cell>
-                </DataGrid.BodyRow>
-                <DataGrid.BodyRow key={6}>
-                  <DataGrid.Cell>
-                    <TextBody>Knauf gipsplaat</TextBody>
-                  </DataGrid.Cell>
-                  <DataGrid.Cell>01254254</DataGrid.Cell>
-                  <DataGrid.Cell> 0126534</DataGrid.Cell>
-                  <DataGrid.Cell>
-                    <Box display="flex" alignItems="center" justifyContent="space-between" style={{ width: '100px' }}>
-                      <TextBody marginRight={2}>€</TextBody>
-                      <Input placeholder="0123644" />
-                    </Box>
-                  </DataGrid.Cell>
-                </DataGrid.BodyRow>
-                <DataGrid.BodyRow key={7}>
-                  <DataGrid.Cell>
-                    <TextBody>Knauf gipsplaat</TextBody>
-                  </DataGrid.Cell>
-                  <DataGrid.Cell>01254254</DataGrid.Cell>
-                  <DataGrid.Cell> 0126534</DataGrid.Cell>
-                  <DataGrid.Cell>
-                    <Box display="flex" alignItems="center" justifyContent="space-between" style={{ width: '100px' }}>
-                      <TextBody marginRight={2}>€</TextBody>
-                      <Input placeholder="0123644" />
-                    </Box>
-                  </DataGrid.Cell>
-                </DataGrid.BodyRow>
-                <DataGrid.BodyRow key={8}>
-                  <DataGrid.Cell>
-                    <TextBody>Knauf gipsplaat</TextBody>
-                  </DataGrid.Cell>
-                  <DataGrid.Cell>01254254</DataGrid.Cell>
-                  <DataGrid.Cell> 0126534</DataGrid.Cell>
-                  <DataGrid.Cell>
-                    <Box display="flex" alignItems="center" justifyContent="space-between" style={{ width: '100px' }}>
-                      <TextBody marginRight={2}>€</TextBody>
-                      <Input placeholder="0123644" />
-                    </Box>
-                  </DataGrid.Cell>
-                </DataGrid.BodyRow>
+                {rows3.map((row, index) => {
+                  return (
+                    <DataGrid.BodyRow key={index}>
+                      <DataGrid.Cell>
+                        <TextBody>{row.column1}</TextBody>
+                      </DataGrid.Cell>
+                      <DataGrid.Cell>{row.column2}</DataGrid.Cell>
+                      <DataGrid.Cell> {row.column3}</DataGrid.Cell>
+                      <DataGrid.Cell align="right">
+                        <Box
+                          display="flex"
+                          alignItems="center"
+                          justifyContent="space-between"
+                          style={{ width: '100px' }}
+                        >
+                          <TextBody marginRight={2}>€</TextBody>
+                          <Input placeholder={row.column4} />
+                        </Box>
+                      </DataGrid.Cell>
+                    </DataGrid.BodyRow>
+                  );
+                })}
               </DataGrid>
-            </Section>
+            </Box>
           </Dialog>
         </State>
       </Box>
