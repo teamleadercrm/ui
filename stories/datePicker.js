@@ -82,13 +82,13 @@ storiesOf('Form elements/DatePicker', module)
         inputProps={{
           bold: boolean('Bold', false),
           disabled: boolean('Disabled', false),
-          error: text('error', ''),
-          helpText: text('helpText', 'Pick a date'),
+          error: text('Error', ''),
+          helpText: text('Help text', 'Pick a date'),
           inverse: boolean('Inverse', false),
-          warning: text('warning', ''),
+          warning: text('Warning', ''),
           placeholder: inputPlaceholderToday,
           readOnly: boolean('Read only', false),
-          width: text('width', '120px'),
+          width: text('Width', '120px'),
         }}
         locale={select('Locale', languages, 'nl-BE')}
         onChange={handleOnChange}

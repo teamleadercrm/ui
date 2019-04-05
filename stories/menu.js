@@ -24,7 +24,7 @@ storiesOf('Menus', module)
     </Menu>
   ))
   .add('IconMenu', () => (
-    <IconMenu active position={select('position', positions, 'top-left')}>
+    <IconMenu active position={select('Position', positions, 'top-left')}>
       <MenuItem caption="Menu item 1" />
       <MenuItem caption="Menu item 2" />
       <MenuDivider />

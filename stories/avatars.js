@@ -21,15 +21,15 @@ storiesOf('Avatars', module)
     <Avatar
       image={avatars[0].image}
       size={select('Size', sizes, 'medium')}
-      shape={select('shape', shapes) || undefined}
+      shape={select('Shape', shapes) || undefined}
     />
   ))
   .add('initials', () => (
     <AvatarInitials
       color={select('Color', colors, 'neutral')}
       size={select('Size', sizes, 'medium')}
-      shape={select('shape', shapes) || undefined}
-      name={text('name', undefined)}
+      shape={select('Shape', shapes) || undefined}
+      name={text('Name', undefined)}
     />
   ))
   .add('stacked', () => (

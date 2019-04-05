@@ -103,13 +103,13 @@ storiesOf('Popover', module)
           backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
           direction={select('Direction', directions, 'south')}
-          fullHeight={boolean('fullHeight', true)}
+          fullHeight={boolean('Full height', true)}
           position={select('Position', positions, 'center')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
           lockScroll={boolean('Lock scroll', true)}
-          minWidth={text('minWidth', undefined)}
+          minWidth={text('Min width', undefined)}
           offsetCorrection={number('Offset correction', 0)}
         >
           {contentBoxWithSingleTextLine}
@@ -126,13 +126,13 @@ storiesOf('Popover', module)
           backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
           direction={select('Direction', directions, 'south')}
-          fullHeight={boolean('fullHeight', true)}
+          fullHeight={boolean('Full height', true)}
           position={select('Position', positions, 'center')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
           lockScroll={boolean('Lock scroll', true)}
-          minWidth={text('minWidth', undefined)}
+          minWidth={text('Min width', undefined)}
           offsetCorrection={number('Offset correction', 0)}
         >
           <Banner fullWidth>
@@ -152,13 +152,13 @@ storiesOf('Popover', module)
           backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
           direction={select('Direction', directions, 'south')}
-          fullHeight={boolean('fullHeight', true)}
+          fullHeight={boolean('Full height', true)}
           position={select('Position', positions, 'center')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
           lockScroll={boolean('Lock scroll', true)}
-          minWidth={text('minWidth', undefined)}
+          minWidth={text('Min width', undefined)}
           offsetCorrection={number('Offset correction', 0)}
         >
           <Banner color="neutral" fullWidth>
@@ -179,13 +179,13 @@ storiesOf('Popover', module)
           backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
           direction="south"
-          fullHeight={boolean('fullHeight', true)}
+          fullHeight={boolean('Full height', true)}
           position={select('Position', positions, 'center')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
           lockScroll={boolean('Lock scroll', true)}
-          minWidth={text('minWidth', undefined)}
+          minWidth={text('Min width', undefined)}
           offsetCorrection={number('Offset correction', 0)}
         >
           <Banner onClose={handleCloseClick} fullWidth>
@@ -205,13 +205,13 @@ storiesOf('Popover', module)
           backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
           direction={select('Direction', directions, 'south')}
-          fullHeight={boolean('fullHeight', true)}
+          fullHeight={boolean('Full height', true)}
           position={select('Position', positions, 'center')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
           lockScroll={boolean('Lock scroll', true)}
-          minWidth={text('minWidth', undefined)}
+          minWidth={text('Min width', undefined)}
           offsetCorrection={number('Offset correction', 0)}
         >
           {contentBoxWithSingleTextLine}
@@ -232,13 +232,13 @@ storiesOf('Popover', module)
           backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
           direction={select('Direction', directions, 'south')}
-          fullHeight={boolean('fullHeight', true)}
+          fullHeight={boolean('Full height', true)}
           position={select('Position', positions, 'end')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
           lockScroll={boolean('Lock scroll', true)}
-          minWidth={text('minWidth', undefined)}
+          minWidth={text('Min width', undefined)}
           offsetCorrection={number('Offset correction', 0)}
         >
           <Box overflowY="auto">
@@ -306,13 +306,13 @@ storiesOf('Popover', module)
           backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
           direction={select('Direction', directions, 'south')}
-          fullHeight={boolean('fullHeight', true)}
+          fullHeight={boolean('Full height', true)}
           position={select('Position', positions, 'center')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
           lockScroll={boolean('Lock scroll', true)}
-          minWidth={text('minWidth', undefined)}
+          minWidth={text('Min width', undefined)}
           offsetCorrection={number('Offset correction', 0)}
         >
           <Banner color="neutral" fullWidth>
@@ -341,13 +341,13 @@ storiesOf('Popover', module)
           backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
           direction={select('Direction', directions, 'south')}
-          fullHeight={boolean('fullHeight', true)}
+          fullHeight={boolean('Full height', true)}
           position={select('Position', positions, 'center')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
           lockScroll={boolean('Lock scroll', true)}
-          minWidth={text('minWidth', undefined)}
+          minWidth={text('Min width', undefined)}
           offsetCorrection={number('Offset correction', 0)}
         >
           <Banner color="neutral" fullWidth>

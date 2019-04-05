@@ -40,7 +40,7 @@ storiesOf('Widget', module)
   ))
   .add('With header', () => (
     <Widget size={select('Size', sizes, 'medium')}>
-      <Widget.Header color={select('header color', colors, 'neutral')}>
+      <Widget.Header color={select('Header color', colors, 'neutral')}>
         <Heading2>I am the widget header title</Heading2>
       </Widget.Header>
       <Widget.Body>
@@ -51,7 +51,7 @@ storiesOf('Widget', module)
   ))
   .add('With header and action', () => (
     <Widget size={select('Size', sizes, 'medium')}>
-      <Widget.Header color={select('header color', colors, 'neutral')} display="flex" alignItems="center">
+      <Widget.Header color={select('Header color', colors, 'neutral')} display="flex" alignItems="center">
         <Box flex={1}>
           <Heading2>I am the widget header title</Heading2>
         </Box>
@@ -67,7 +67,7 @@ storiesOf('Widget', module)
   ))
   .add('With header and muliple actions', () => (
     <Widget size={select('Size', sizes, 'medium')}>
-      <Widget.Header color={select('header color', colors, 'neutral')} display="flex" alignItems="center">
+      <Widget.Header color={select('Header color', colors, 'neutral')} display="flex" alignItems="center">
         <Box flex={6} display="flex" alignItems="center">
           <Heading2>I am the widget header title</Heading2>
           <StatusLabel color="mint" marginLeft={3}>
@@ -105,7 +105,7 @@ storiesOf('Widget', module)
   ))
   .add('Full widget', () => (
     <Widget size={select('Size', sizes, 'medium')}>
-      <Widget.Header color={select('header color', colors, 'neutral')}>
+      <Widget.Header color={select('Header color', colors, 'neutral')}>
         <Heading2>I am the widget header title</Heading2>
       </Widget.Header>
       <Widget.Body>
@@ -119,7 +119,7 @@ storiesOf('Widget', module)
   ))
   .add('Full widget 2 cols', () => (
     <Widget size={select('Size', sizes, 'medium')}>
-      <Widget.Header color={select('header color', colors, 'neutral')}>
+      <Widget.Header color={select('Header color', colors, 'neutral')}>
         <Heading2>I am the widget header title</Heading2>
       </Widget.Header>
       <Widget.Body display="flex">
@@ -139,7 +139,7 @@ storiesOf('Widget', module)
   ))
   .add('With DatePicker', () => (
     <Widget size={select('Size', sizes, 'medium')}>
-      <Widget.Header color={select('header color', colors, 'neutral')}>
+      <Widget.Header color={select('Header color', colors, 'neutral')}>
         <Heading2>I am the widget header title</Heading2>
       </Widget.Header>
       <Widget.Body>
@@ -155,7 +155,7 @@ storiesOf('Widget', module)
   .add('With DataGrid only', () => (
     <Widget size={select('Size', sizes, 'medium')}>
       <DataGrid
-        bordered={boolean('bordered', false)}
+        bordered={boolean('Bordered', false)}
         selectable={boolean('Selectable', true)}
         comparableId={1}
         onSelectionChange={() => console.log('Datagrid selection changed')}
@@ -226,12 +226,12 @@ storiesOf('Widget', module)
   ))
   .add('With DataGrid', () => (
     <Widget size={select('Size', sizes, 'medium')}>
-      <Widget.Header color={select('header color', colors, 'neutral')}>
+      <Widget.Header color={select('Header color', colors, 'neutral')}>
         <Heading2>I am the widget header title</Heading2>
       </Widget.Header>
       <Widget.Body padding={0}>
         <DataGrid
-          bordered={boolean('bordered', false)}
+          bordered={boolean('Bordered', false)}
           selectable={boolean('Selectable', true)}
           comparableId={1}
           onSelectionChange={() => console.log('Datagrid selection changed')}
