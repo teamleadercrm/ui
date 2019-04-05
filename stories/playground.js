@@ -406,7 +406,7 @@ storiesOf('Playground', module)
             secondaryAction={{ label: 'Cancel' }}
             size="large"
           >
-            <Box padding={0}>
+            <Section padding={0}>
               <DataGrid selectable={false} comparableId={1}>
                 <DataGrid.HeaderRow>
                   <DataGrid.HeaderCell>PRODUCT</DataGrid.HeaderCell>
@@ -414,6 +414,10 @@ storiesOf('Playground', module)
                   <DataGrid.HeaderCell>UNIT PRICE</DataGrid.HeaderCell>
                   <DataGrid.HeaderCell align="right">UNIT COST</DataGrid.HeaderCell>
                 </DataGrid.HeaderRow>
+              </DataGrid>
+            </Section>
+            <Section padding={0} overflowY="auto">
+              <DataGrid selectable={false} comparableId={1}>
                 {rows3.map((row, index) => {
                   return (
                     <DataGrid.BodyRow key={index}>
@@ -437,7 +441,7 @@ storiesOf('Playground', module)
                   );
                 })}
               </DataGrid>
-            </Box>
+            </Section>
           </Dialog>
         </State>
       </Box>
