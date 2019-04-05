@@ -8,6 +8,8 @@
 
 ### Removed
 
+- `Dialog`: wrapping `Box` of the body and all of the resize code. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#587](https://github.com/teamleadercrm/ui/pull/587))
+
 ### Fixed
 
 ## [0.24.5] - 2019-04-04
