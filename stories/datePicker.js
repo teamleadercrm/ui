@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, number, select, text } from '@storybook/addon-knobs/react';
-import { DatePicker, DatePickerRange, DatePickerInput, DatePickerInputRange } from '../src';
+import { DatePicker, DatePickerRange, DatePickerInput, DatePickerInputRange, YearPicker } from '../src';
 import { DateTime } from 'luxon';
 import CustomLocaleUtils, { formatDate, parseDate } from '../src/components/datepicker/localeUtils';
 
@@ -150,6 +150,18 @@ storiesOf('Form elements/DatePicker', module)
         selectedRange={preSelectedRange}
         size={select('Size', sizes, 'medium')}
         width={text('width', undefined)}
+      />
+    );
+  })
+  .add('Year picker', () => {
+    console.log(preSelectedDate);
+    return (
+      <YearPicker
+        locale={select('Locale', languages, 'nl-BE')}
+        localeUtils={CustomLocaleUtils}
+        showOutsideDays={boolean('Show outside days', true)}
+        showWeekNumbers={boolean('Show week numbers', true)}
+        size={select('Size', sizes, 'medium')}
       />
     );
   });

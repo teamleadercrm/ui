@@ -50,6 +50,7 @@ import Tooltip from './components/tooltip';
 import QTip from './components/qTip';
 import ProgressTracker from './components/progressTracker';
 import Widget from './components/widget';
+import YearPicker from './components/datepicker/YearPicker';
 
 import {
   COLOR,
@@ -141,6 +142,7 @@ export {
   Tooltip,
   ValidationText,
   Widget,
+  YearPicker,
   QTip,
   COLOR,
   COLORS,
