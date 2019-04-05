@@ -97,7 +97,7 @@ storiesOf('DataGrids', module)
       })}
     </DataGrid>
   ))
-  .add('with footer', () => (
+  .add('With footer', () => (
     <DataGrid
       bordered={boolean('Bordered', false)}
       selectable={boolean('Selectable', true)}
@@ -166,7 +166,7 @@ storiesOf('DataGrids', module)
       </DataGrid.FooterRow>
     </DataGrid>
   ))
-  .add('with sticky columns', () => (
+  .add('With sticky columns', () => (
     <DataGrid
       bordered={boolean('Bordered', false)}
       selectable={boolean('Selectable', true)}

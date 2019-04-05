@@ -13,7 +13,7 @@ storiesOf('Badge', module)
       propTablesExclude: [TextDisplay],
     },
   })
-  .add('inline', () => (
+  .add('Inline', () => (
     <TextDisplay>
       I'm display text with a
       <Badge
@@ -27,7 +27,7 @@ storiesOf('Badge', module)
       inside.
     </TextDisplay>
   ))
-  .add('standalone', () => (
+  .add('Standalone', () => (
     <Badge
       color={select('Color', colors, 'neutral')}
       disabled={boolean('Disabled', false)}
@@ -37,7 +37,7 @@ storiesOf('Badge', module)
       I'm a badge
     </Badge>
   ))
-  .add('with icon', () => (
+  .add('With icon', () => (
     <Badge
       color={select('Color', colors, 'neutral')}
       disabled={boolean('Disabled', false)}
@@ -49,7 +49,7 @@ storiesOf('Badge', module)
       I'm a badge
     </Badge>
   ))
-  .add('with custom element', () => (
+  .add('With custom element', () => (
     <Badge
       color={select('Color', colors, 'neutral')}
       disabled={boolean('Disabled', false)}

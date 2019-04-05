@@ -17,14 +17,14 @@ storiesOf('Avatars', module)
       propTablesExclude: [Bullet, Counter],
     },
   })
-  .add('sizes', () => (
+  .add('Sizes', () => (
     <Avatar
       image={avatars[0].image}
       size={select('Size', sizes, 'medium')}
       shape={select('Shape', shapes) || undefined}
     />
   ))
-  .add('initials', () => (
+  .add('Initials', () => (
     <AvatarInitials
       color={select('Color', colors, 'neutral')}
       size={select('Size', sizes, 'medium')}
@@ -32,7 +32,7 @@ storiesOf('Avatars', module)
       name={text('Name', undefined)}
     />
   ))
-  .add('stacked', () => (
+  .add('Stacked', () => (
     <AvatarStack
       direction={select('Direction', directions, 'horizontal')}
       displayMax={number('Display max', 5)}
@@ -42,12 +42,12 @@ storiesOf('Avatars', module)
       {avatars.map(({ image }, index) => <Avatar key={index} image={image} />)}
     </AvatarStack>
   ))
-  .add('with bullet', () => (
+  .add('With bullet', () => (
     <Avatar image={avatars[0].image} size={select('Size', sizes, 'medium')}>
       <Bullet color="ruby" />
     </Avatar>
   ))
-  .add('with counter', () => (
+  .add('With counter', () => (
     <Avatar image={avatars[0].image} size={select('Size', sizes, 'medium')}>
       <Counter
         color="ruby"
@@ -58,7 +58,7 @@ storiesOf('Avatars', module)
       />
     </Avatar>
   ))
-  .add('with tooltip', () => (
+  .add('With tooltip', () => (
     <TooltippedAvatar
       image={avatars[0].image}
       size={select('Size', sizes, 'medium')}

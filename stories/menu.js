@@ -10,7 +10,7 @@ const positions = ['top-left', 'top-right', 'bottom-left', 'bottom-right'];
 
 storiesOf('Menus', module)
   .add('Menu', () => (
-    <Menu selectable={boolean('selectable', false)} selected="bar">
+    <Menu selectable={boolean('Selectable', false)} selected="bar">
       <MenuItem value="foo" caption="Foo caption" />
       <MenuItem value="bar" caption="Bar caption" />
       <MenuItem caption="Disabled ..." disabled />

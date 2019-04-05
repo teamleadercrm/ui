@@ -10,7 +10,7 @@ const levels = ['primary', 'secondary', 'outline', 'destructive', 'link', 'timer
 const sizes = ['small', 'medium', 'large'];
 
 storiesOf('Buttons', module)
-  .add('with text', () => (
+  .add('With text', () => (
     <Button
       active={boolean('Active', false)}
       label="Button"
@@ -22,7 +22,7 @@ storiesOf('Buttons', module)
       size={select('Size', sizes, 'medium')}
     />
   ))
-  .add('with icon', () => (
+  .add('With icon', () => (
     <Button
       active={boolean('Active', false)}
       icon={select('Size', sizes, 'medium') === 'small' ? <IconAddSmallOutline /> : <IconAddMediumOutline />}
@@ -34,7 +34,7 @@ storiesOf('Buttons', module)
       size={select('Size', sizes, 'medium')}
     />
   ))
-  .add('with text and icon', () => (
+  .add('With text and icon', () => (
     <Button
       active={boolean('Active', false)}
       icon={select('Size', sizes, 'medium') === 'small' ? <IconAddSmallOutline /> : <IconAddMediumOutline />}
@@ -48,7 +48,7 @@ storiesOf('Buttons', module)
       size={select('Size', sizes, 'medium')}
     />
   ))
-  .add('with custom element', () => (
+  .add('With custom element', () => (
     <Button
       active={boolean('Active', false)}
       element={select('Element', elements, 'a')}

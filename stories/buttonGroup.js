@@ -19,14 +19,14 @@ storiesOf('Button groups', module)
       propTablesExclude: [Button, State],
     },
   })
-  .add('normal', () => (
+  .add('Normal', () => (
     <ButtonGroup segmented={boolean('Segmented', false)}>
       <Button label="Button 1" />
       <Button label="Button 2" />
       <Button icon={<IconAddMediumOutline />} />
     </ButtonGroup>
   ))
-  .add('with active', () => (
+  .add('With active', () => (
     <State store={store}>
       <ButtonGroup
         segmented={boolean('Segmented', true)}
