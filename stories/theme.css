@@ -1,0 +1,9 @@
+.has-border {
+  border-bottom: 1px solid;
+  border-top: 1px solid;
+  border-color: #e4e4e6;
+}
+
+.no-border {
+  border: none;
+}

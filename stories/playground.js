@@ -23,7 +23,6 @@ import {
   Label,
   Link,
   Popover,
-  Section,
   Select,
   StatusBullet,
   Textarea,
@@ -34,10 +33,12 @@ import {
   Tooltip,
   QTip,
 } from '../src';
+import theme from './theme.css';
 
 import { rows1, rows3 } from './static/data/datagrid';
 import options, { groupedOptions } from './static/data/select';
 import { LANGUAGES } from './static/data/languages';
+import ReactResizeDetector from 'react-resize-detector';
 
 const inputPlaceholderToday = DateTime.fromJSDate(new Date())
   .setLocale('nl')
@@ -393,12 +394,20 @@ storiesOf('Playground', module)
     );
   })
   .add('Datagrid in Dialog', () => {
+    let overflow = false;
+    const setIsBodyOverflowing = e => {
+      if (e >= 700) {
+        overflow = false;
+      } else {
+        overflow = true;
+      }
+    };
     return (
       <Box>
         <Button label="Open Dialog" onClick={showHideDialog} />
         <State store={dialogStore}>
           <Dialog
-            title="I am the Dialog title"
+            title="Set unit costs"
             onCloseClick={showHideDialog}
             onEscKeyDown={showHideDialog}
             onOverlayClick={showHideDialog}
@@ -406,27 +415,29 @@ storiesOf('Playground', module)
             secondaryAction={{ label: 'Cancel' }}
             size="large"
           >
-            <Section padding={0}>
+            <Box padding={0} style={{ borderBottom: '1px solid', borderColor: '#f7f7fa' }}>
               <DataGrid selectable={false} comparableId={1}>
                 <DataGrid.HeaderRow>
-                  <DataGrid.HeaderCell>PRODUCT</DataGrid.HeaderCell>
+                  <DataGrid.HeaderCell style={{ paddingLeft: '18px' }}>PRODUCT</DataGrid.HeaderCell>
                   <DataGrid.HeaderCell>ID</DataGrid.HeaderCell>
                   <DataGrid.HeaderCell>UNIT PRICE</DataGrid.HeaderCell>
-                  <DataGrid.HeaderCell align="right">UNIT COST</DataGrid.HeaderCell>
+                  <DataGrid.HeaderCell align="right" style={{ paddingRight: '20px' }}>
+                    UNIT COST
+                  </DataGrid.HeaderCell>
                 </DataGrid.HeaderRow>
               </DataGrid>
-            </Section>
-            <Section padding={0} overflowY="auto">
+            </Box>
+            <Box className={overflow ? theme['no-border'] : theme['has-border']} padding={0} overflowY="auto">
               <DataGrid selectable={false} comparableId={1}>
                 {rows3.map((row, index) => {
                   return (
                     <DataGrid.BodyRow key={index}>
-                      <DataGrid.Cell>
+                      <DataGrid.Cell style={{ paddingLeft: '18px' }}>
                         <TextBody>{row.column1}</TextBody>
                       </DataGrid.Cell>
                       <DataGrid.Cell>{row.column2}</DataGrid.Cell>
-                      <DataGrid.Cell> {row.column3}</DataGrid.Cell>
-                      <DataGrid.Cell align="right">
+                      <DataGrid.Cell>{row.column3}</DataGrid.Cell>
+                      <DataGrid.Cell align="right" style={{ paddingRight: '20px' }}>
                         <Box
                           display="flex"
                           alignItems="center"
@@ -441,7 +452,8 @@ storiesOf('Playground', module)
                   );
                 })}
               </DataGrid>
-            </Section>
+              <ReactResizeDetector handleHeight onResize={setIsBodyOverflowing} />
+            </Box>
           </Dialog>
         </State>
       </Box>
