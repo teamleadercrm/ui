@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Box } from '../box';
-import { IconButton } from '../button';
+import { Button, ButtonGroup } from '../button';
 import {
   IconArrowLeftMediumOutline,
   IconArrowRightMediumOutline,
@@ -9,7 +8,7 @@ import {
   IconArrowRightSmallOutline,
 } from '@teamleader/ui-icons';
 
-class NavigationBar extends PureComponent {
+class FullNavigationBar extends PureComponent {
   handlePreviousClick = () => {
     this.props.onPreviousClick();
   };
@@ -18,38 +17,50 @@ class NavigationBar extends PureComponent {
     this.props.onNextClick();
   };
 
+  handleTodayClick = () => {
+    this.props.onTodayClick();
+  };
+
   render() {
     const { className, localeUtils, nextYear, previousYear, size } = this.props;
-
+    /*
     const years = localeUtils.getYears();
     const previousYearButtonLabel = years[previousYear.getMonth()];
     const nextYearButtonLabel = years[nextYear.getMonth()];
-
+    */
     return (
-      <Box className={className} display="flex" justifyContent="space-between">
-        <IconButton
+      <ButtonGroup segmented>
+        <Button
+          size={size}
+          active={false}
           icon={size === 'large' ? <IconArrowLeftMediumOutline /> : <IconArrowLeftSmallOutline />}
+          disabled={false}
           onClick={this.handlePreviousClick}
-          title={previousYearButtonLabel}
         />
-        <IconButton
+        <Button size={size} onClick={this.handleTodayClick}>
+          Today
+        </Button>
+        <Button
+          size={size}
+          active={false}
           icon={size === 'large' ? <IconArrowRightMediumOutline /> : <IconArrowRightSmallOutline />}
+          disabled={false}
           onClick={this.handleNextClick}
-          title={nextYearButtonLabel}
         />
-      </Box>
+      </ButtonGroup>
     );
   }
 }
 
-NavigationBar.propTypes = {
+FullNavigationBar.propTypes = {
   className: PropTypes.string,
   localeUtils: PropTypes.object,
   nextYear: PropTypes.instanceOf(Date),
   previousYear: PropTypes.instanceOf(Date),
   onNextClick: PropTypes.func,
   onPreviousClick: PropTypes.func,
+  onTodayClick: PropTypes.func,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
 };
 
-export default NavigationBar;
+export default FullNavigationBar;

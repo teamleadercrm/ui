@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import DayPicker from 'react-day-picker';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
-import NavigationBar from './NavigationBar';
+import FullNavigationBar from './FullNavigationBar';
 import WeekDay from './WeekDay';
 import cx from 'classnames';
 import theme from './theme.css';
@@ -40,7 +40,7 @@ class YearPicker extends PureComponent {
             pagedNavigation
             selectedDate={new Date(new Date().getFullYear(), 0, 1)}
             modifiers={convertModifiersToClassnames(modifiers, theme)}
-            navbarElement={<NavigationBar size={size} />}
+            navbarElement={<FullNavigationBar size={size} />}
             weekdayElement={<WeekDay size={size} />}
             bordered="false"
           />
