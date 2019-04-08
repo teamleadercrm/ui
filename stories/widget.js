@@ -6,7 +6,6 @@ import {
   Button,
   ButtonGroup,
   DataGrid,
-  DatePicker,
   Heading3,
   IconButton,
   IconMenu,
@@ -21,11 +20,27 @@ import {
   StatusLabel,
   MenuDivider,
   Bullet,
+  YearPicker,
 } from '../src';
 import { rows1 } from './static/data/datagrid';
 import IconEditMediumOutline from '@teamleader/ui-icons/cjs/IconEditMediumOutline';
+import CustomLocaleUtils from '../src/components/datepicker/localeUtils';
 
 const colors = ['mint', 'violet', 'ruby', 'gold', 'aqua', 'white', 'neutral'];
+const languages = [
+  'da-DK',
+  'de-DE',
+  'fr-FR',
+  'en-GB',
+  'en-US',
+  'es-ES',
+  'fi-FI',
+  'it-IT',
+  'nl-BE',
+  'pt-PT',
+  'pl-PL',
+  'sv-SE',
+];
 const sizes = ['small', 'medium', 'large'];
 const TooltippedStatusBullet = Tooltip(StatusBullet);
 
@@ -142,12 +157,14 @@ storiesOf('Widget', module)
       <Widget.Header color={select('header color', colors, 'neutral')}>
         <Heading2>I am the widget header title</Heading2>
       </Widget.Header>
-      <Widget.Body>
-        <DatePicker
-          locale="nl-BE"
-          numberOfMonths={12}
-          onChange={() => console.log('Date changed')}
-          selectedDate={new Date()}
+      <Widget.Body padding={0}>
+        <YearPicker
+          locale={select('Locale', languages, 'nl-BE')}
+          localeUtils={CustomLocaleUtils}
+          showNavigationBar={boolean('Show navigationbar', true)}
+          showOutsideDays={boolean('Show outside days', true)}
+          showWeekNumbers={boolean('Show week numbers', true)}
+          size={select('Size', sizes, 'medium')}
         />
       </Widget.Body>
     </Widget>
