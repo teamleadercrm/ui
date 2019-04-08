@@ -21,7 +21,6 @@ import {
   StatusLabel,
   MenuDivider,
   Bullet,
-  YearPicker,
 } from '../src';
 import { rows1 } from './static/data/datagrid';
 import IconEditMediumOutline from '@teamleader/ui-icons/cjs/IconEditMediumOutline';
@@ -143,8 +142,13 @@ storiesOf('Widget', module)
       <Widget.Header color={select('header color', colors, 'neutral')}>
         <Heading2>I am the widget header title</Heading2>
       </Widget.Header>
-      <Widget.Body padding={0}>
-        <YearPicker />
+      <Widget.Body>
+        <DatePicker
+          locale="nl-BE"
+          numberOfMonths={12}
+          onChange={() => console.log('Date changed')}
+          selectedDate={new Date()}
+        />
       </Widget.Body>
     </Widget>
   ))

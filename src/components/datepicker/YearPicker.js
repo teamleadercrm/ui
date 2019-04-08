@@ -7,89 +7,20 @@ import WeekDay from './WeekDay';
 import cx from 'classnames';
 import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
-import LocaleUtils from './localeUtils';
-import { convertModifiersToClassnames, isSelectingFirstDay } from './utils';
+import { convertModifiersToClassnames } from './utils';
 
 class YearPicker extends PureComponent {
-  state = {
-    displayedMonth: new Date(new Date().getFullYear(), 0),
-    selectedStartDate: null,
-    selectedEndDate: null,
-    mouseEnteredEndDate: null,
-  };
-
-  static getDerivedStateFromProps(props, state) {
-    if (
-      props.selectedRange !== undefined &&
-      (props.selectedRange.selectedStartDate !== state.selectedStartDate ||
-        props.selectedRange.selectedEndDate !== state.selectedEndDate)
-    ) {
-      return {
-        selectedStartDate: props.selectedRange.selectedStartDate,
-        selectedEndDate: props.selectedRange.selectedEndDate,
-        mouseEnteredEndDate: props.selectedRange.selectedEndDate,
-      };
-    }
-
-    return null;
-  }
-
-  handleDayClick = day => {
-    const { selectedStartDate, selectedEndDate } = this.state;
-
-    if (isSelectingFirstDay(selectedStartDate, selectedEndDate, day)) {
-      this.setState({
-        selectedStartDate: day,
-        selectedEndDate: null,
-        mouseEnteredEndDate: null,
-      });
-    } else {
-      this.setState({
-        selectedEndDate: day,
-        mouseEnteredEndDate: day,
-      });
-    }
-  };
-
-  handleDayMouseEnter = day => {
-    const { selectedStartDate, selectedEndDate } = this.state;
-
-    if (!isSelectingFirstDay(selectedStartDate, selectedEndDate, day)) {
-      this.setState({
-        mouseEnteredEndDate: day,
-      });
-    }
-  };
-
   handleClickToday = () => {
-    this.setState({ displayedMonth: new Date(new Date().getFullYear(), 0) });
-  };
-
-  handleClickPrevious = () => {
-    const currentMonth = this.state.displayedMonth;
-    currentMonth.setMonth(currentMonth.getMonth() - 12);
-    this.setState({ displayedMonth: currentMonth });
-  };
-
-  handleClickNext = () => {
-    const currentMonth = this.state.displayedMonth;
-    currentMonth.setMonth(currentMonth.getMonth() + 12);
-    this.setState({ displayedMonth: currentMonth });
+    console.log('today');
   };
 
   render() {
-    const { bordered, className, locale, showNavigationBar, size, ...others } = this.props;
-    const { displayedMonth, mouseEnteredEndDate, selectedStartDate } = this.state;
-    const modifiers = { from: selectedStartDate, to: mouseEnteredEndDate };
-    const selectedDays = [selectedStartDate, { from: selectedStartDate, to: mouseEnteredEndDate }];
-
+    const { bordered, className, modifiers, size, ...others } = this.props;
     const boxProps = pickBoxProps(others);
     const restProps = omitBoxProps(others);
-
     const classNames = cx(
       uiUtilities['reset-font-smoothing'],
       theme['date-picker'],
-      theme['has-range'],
       theme[`is-${size}`],
       {
         [theme['is-bordered']]: bordered,
@@ -99,31 +30,20 @@ class YearPicker extends PureComponent {
 
     return (
       <Box {...boxProps}>
-        <DayPicker
-          {...restProps}
-          month={displayedMonth}
-          className={classNames}
-          classNames={theme}
-          locale={locale}
-          localeUtils={LocaleUtils}
-          modifiers={convertModifiersToClassnames(modifiers, theme)}
-          numberOfMonths={12}
-          pagedNavigation
-          navbarElement={
-            <FullNavigationBar
-              size={size}
-              onClickToday={this.handleClickToday}
-              onClickNext={this.handleClickNext}
-              onClickPrevious={this.handleClickPrevious}
-              month={displayedMonth}
-            />
-          }
-          onDayClick={this.handleDayClick}
-          onDayMouseEnter={this.handleDayMouseEnter}
-          selectedDays={selectedDays}
-          weekdayElement={<WeekDay size={size} />}
-          bordered={false}
-        />
+        <Box padding={5} className={theme['year-container']}>
+          <DayPicker
+            {...restProps}
+            month={new Date(new Date().getFullYear(), 0)}
+            className={classNames}
+            classNames={theme}
+            numberOfMonths={12}
+            pagedNavigation
+            modifiers={convertModifiersToClassnames(modifiers, theme)}
+            navbarElement={<FullNavigationBar size={size} handleClickToday={this.handleClickToday} />}
+            weekdayElement={<WeekDay size={size} />}
+            bordered={false}
+          />
+        </Box>
       </Box>
     );
   }
@@ -134,12 +54,12 @@ YearPicker.propTypes = {
   bordered: PropTypes.bool,
   /** A class name for the DatePicker to give custom styles. */
   className: PropTypes.string,
-  /** The language ISO locale code ('en-GB', 'nl-BE', 'fr-FR',...). */
-  locale: PropTypes.string,
+  /** The modifiers of the DatePicker component. */
+  modifiers: PropTypes.object,
   /** Callback function that is fired when the date has changed. */
   onChange: PropTypes.func,
-  /** The current selected range. */
-  selectedRange: PropTypes.object,
+  /** The current selected date. */
+  selectedDate: PropTypes.instanceOf(Date),
   /** Size of the DatePicker component. */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
 };
