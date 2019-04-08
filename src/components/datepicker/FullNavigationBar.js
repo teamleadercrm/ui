@@ -28,8 +28,8 @@ class FullNavigationBar extends PureComponent {
     const year = month.getFullYear();
 
     return (
-      <Box display="flex" alignItems="center" justifyContent="space-between">
-        <Box display="flex" alignItems="center" flex={1}>
+      <Section marginBottom={3}>
+        <Box display="flex" alignItems="center">
           <ButtonGroup segmented marginRight={3}>
             <Button
               size={size}
@@ -49,12 +49,11 @@ class FullNavigationBar extends PureComponent {
           <Button size={size} onClick={this.handleTodayClick}>
             Today
           </Button>
-        </Box>
-        <Heading2 flex={1}>{year}</Heading2>
-        <Box>
-          <TextBody>Week 1</TextBody>
+          <Box display="flex" flex={1} justifyContent="flex-end">
+            <Heading2>{year}</Heading2>
         </Box>
       </Box>
+      </Section>
     );
   }
 }
