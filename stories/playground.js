@@ -33,12 +33,10 @@ import {
   Tooltip,
   QTip,
 } from '../src';
-import theme from './theme.css';
 
 import { rows1, rows3 } from './static/data/datagrid';
 import options, { groupedOptions } from './static/data/select';
 import { LANGUAGES } from './static/data/languages';
-import ReactResizeDetector from 'react-resize-detector';
 
 const inputPlaceholderToday = DateTime.fromJSDate(new Date())
   .setLocale('nl')
@@ -394,14 +392,6 @@ storiesOf('Playground', module)
     );
   })
   .add('Datagrid in Dialog', () => {
-    let overflow = false;
-    const setIsBodyOverflowing = e => {
-      if (e >= 700) {
-        overflow = false;
-      } else {
-        overflow = true;
-      }
-    };
     return (
       <Box>
         <Button label="Open Dialog" onClick={showHideDialog} />
@@ -412,7 +402,7 @@ storiesOf('Playground', module)
             onEscKeyDown={showHideDialog}
             onOverlayClick={showHideDialog}
             primaryAction={{ label: 'Confirm', onClick: showHideDialog }}
-            secondaryAction={{ label: 'Cancel' }}
+            secondaryAction={{ label: 'Cancel', onClick: showHideDialog }}
             size="large"
           >
             <Box padding={0} style={{ borderBottom: '1px solid', borderColor: '#f7f7fa' }}>
@@ -427,7 +417,11 @@ storiesOf('Playground', module)
                 </DataGrid.HeaderRow>
               </DataGrid>
             </Box>
-            <Box className={overflow ? theme['no-border'] : theme['has-border']} padding={0} overflowY="auto">
+            <Box
+              padding={0}
+              overflowY="auto"
+              style={{ borderBottom: '1px solid', borderTop: '1px solid', borderColor: '#e4e4e6' }}
+            >
               <DataGrid selectable={false} comparableId={1}>
                 {rows3.map((row, index) => {
                   return (
@@ -452,7 +446,6 @@ storiesOf('Playground', module)
                   );
                 })}
               </DataGrid>
-              <ReactResizeDetector handleHeight onResize={setIsBodyOverflowing} />
             </Box>
           </Dialog>
         </State>
