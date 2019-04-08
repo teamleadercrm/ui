@@ -2,6 +2,8 @@
 
 ### Added
 
+- `YearPicker`: added `YearPicker` component. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#592](https://github.com/teamleadercrm/ui/pull/592))
+
 ### Changed
 
 ### Deprecated
