@@ -162,6 +162,7 @@ storiesOf('Form elements/DatePicker', module)
       <YearPicker
         locale={select('Locale', languages, 'nl-BE')}
         localeUtils={CustomLocaleUtils}
+        showNavigationBar={boolean('Show navigationbar', true)}
         showOutsideDays={boolean('Show outside days', true)}
         showWeekNumbers={boolean('Show week numbers', true)}
         size={select('Size', sizes, 'medium')}

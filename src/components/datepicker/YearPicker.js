@@ -7,6 +7,7 @@ import WeekDay from './WeekDay';
 import cx from 'classnames';
 import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
+import LocaleUtils from './localeUtils';
 import { convertModifiersToClassnames, isSelectingFirstDay } from './utils';
 
 class YearPicker extends PureComponent {
@@ -98,20 +99,50 @@ class YearPicker extends PureComponent {
 
     return (
       <Box {...boxProps}>
-        <Box padding={5} className={theme['year-container']}>
+        {showNavigationBar ? (
           <DayPicker
             {...restProps}
-            month={new Date(new Date().getFullYear(), 0)}
+            month={displayedMonth}
             className={classNames}
             classNames={theme}
+            locale={locale}
+            localeUtils={LocaleUtils}
+            modifiers={convertModifiersToClassnames(modifiers, theme)}
             numberOfMonths={12}
             pagedNavigation
-            modifiers={convertModifiersToClassnames(modifiers, theme)}
-            navbarElement={<FullNavigationBar size={size} handleClickToday={this.handleClickToday} />}
+            navbarElement={
+              <FullNavigationBar
+                size={size}
+                onClickToday={this.handleClickToday}
+                onClickNext={this.handleClickNext}
+                onClickPrevious={this.handleClickPrevious}
+                month={displayedMonth}
+              />
+            }
+            onDayClick={this.handleDayClick}
+            onDayMouseEnter={this.handleDayMouseEnter}
+            selectedDays={selectedDays}
             weekdayElement={<WeekDay size={size} />}
             bordered={false}
           />
-        </Box>
+        ) : (
+          <DayPicker
+            {...restProps}
+            month={displayedMonth}
+            className={classNames}
+            classNames={theme}
+            locale={locale}
+            localeUtils={LocaleUtils}
+            modifiers={convertModifiersToClassnames(modifiers, theme)}
+            numberOfMonths={12}
+            pagedNavigation
+            onDayClick={this.handleDayClick}
+            onDayMouseEnter={this.handleDayMouseEnter}
+            selectedDays={selectedDays}
+            weekdayElement={<WeekDay size={size} />}
+            bordered={false}
+          />
+        )}
       </Box>
     );
   }
@@ -122,12 +153,14 @@ YearPicker.propTypes = {
   bordered: PropTypes.bool,
   /** A class name for the DatePicker to give custom styles. */
   className: PropTypes.string,
-  /** The modifiers of the DatePicker component. */
-  modifiers: PropTypes.object,
+  /** The language ISO locale code ('en-GB', 'nl-BE', 'fr-FR',...). */
+  locale: PropTypes.string,
   /** Callback function that is fired when the date has changed. */
   onChange: PropTypes.func,
   /** The current selected range. */
   selectedRange: PropTypes.object,
+  /** If true we render a navigation bar. */
+  showNavigationBar: PropTypes.bool,
   /** Size of the DatePicker component. */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
 };
