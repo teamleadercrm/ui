@@ -39,7 +39,7 @@ class YearPicker extends PureComponent {
             numberOfMonths={12}
             pagedNavigation
             modifiers={convertModifiersToClassnames(modifiers, theme)}
-            navbarElement={<FullNavigationBar size={size} handleClickToday={this.handleClickToday()} />}
+            navbarElement={<FullNavigationBar size={size} handleClickToday={this.handleClickToday} />}
             weekdayElement={<WeekDay size={size} />}
             bordered={false}
           />

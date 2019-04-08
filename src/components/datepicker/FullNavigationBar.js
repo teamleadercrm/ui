@@ -20,7 +20,7 @@ class FullNavigationBar extends PureComponent {
   };
 
   handleTodayClick = () => {
-    this.props.onTodayClick();
+    this.props.handleClickToday();
   };
 
   render() {
@@ -31,21 +31,21 @@ class FullNavigationBar extends PureComponent {
       <Box display="flex" alignItems="center" justifyContent="space-between">
         <Box display="flex" alignItems="center" flex={1}>
           <ButtonGroup segmented marginRight={3}>
-        <Button
-          size={size}
-          active={false}
-          icon={size === 'large' ? <IconArrowLeftMediumOutline /> : <IconArrowLeftSmallOutline />}
-          disabled={false}
-          onClick={this.handlePreviousClick}
-        />
-        <Button
-          size={size}
-          active={false}
-          icon={size === 'large' ? <IconArrowRightMediumOutline /> : <IconArrowRightSmallOutline />}
-          disabled={false}
-          onClick={this.handleNextClick}
-        />
-      </ButtonGroup>
+            <Button
+              size={size}
+              active={false}
+              icon={size === 'large' ? <IconArrowLeftMediumOutline /> : <IconArrowLeftSmallOutline />}
+              disabled={false}
+              onClick={this.handlePreviousClick}
+            />
+            <Button
+              size={size}
+              active={false}
+              icon={size === 'large' ? <IconArrowRightMediumOutline /> : <IconArrowRightSmallOutline />}
+              disabled={false}
+              onClick={this.handleNextClick}
+            />
+          </ButtonGroup>
           <Button size={size} onClick={this.handleTodayClick}>
             Today
           </Button>
