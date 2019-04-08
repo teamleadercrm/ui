@@ -22,12 +22,9 @@ class FullNavigationBar extends PureComponent {
   };
 
   render() {
-    const { className, localeUtils, nextYear, previousYear, size } = this.props;
-    /*
-    const years = localeUtils.getYears();
-    const previousYearButtonLabel = years[previousYear.getMonth()];
-    const nextYearButtonLabel = years[nextYear.getMonth()];
-    */
+    const { className, month, size } = this.props;
+    const year = month.getFullYear();
+
     return (
       <ButtonGroup segmented>
         <Button
@@ -48,6 +45,15 @@ class FullNavigationBar extends PureComponent {
           onClick={this.handleNextClick}
         />
       </ButtonGroup>
+          <Button size={size} onClick={this.handleTodayClick}>
+            Today
+          </Button>
+        </Box>
+        <Heading2 flex={1}>{year}</Heading2>
+        <Box>
+          <TextBody>Week 1</TextBody>
+        </Box>
+      </Box>
     );
   }
 }

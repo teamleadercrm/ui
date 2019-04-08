@@ -11,14 +11,9 @@ import { convertModifiersToClassnames } from './utils';
 import { Heading2 } from '../..';
 
 class YearPicker extends PureComponent {
-  state = {
-    currentYear: null,
-    selectedDate: null,
-  };
 
-  componentDidMount() {
-    const january = new Date(new Date().getFullYear(), 0, 1);
-    this.setState({ selectedDate: january });
+  handleClickToday = () => {
+    console.log('today');
   }
 
   render() {
@@ -34,15 +29,16 @@ class YearPicker extends PureComponent {
           <Heading2 marginBottom={3}>{currentYear}</Heading2>
           <DayPicker
             {...restProps}
+            month={new Date(new Date().getFullYear(), 0)}
             className={classNames}
             classNames={theme}
             numberOfMonths={12}
             pagedNavigation
             selectedDate={new Date(new Date().getFullYear(), 0, 1)}
             modifiers={convertModifiersToClassnames(modifiers, theme)}
-            navbarElement={<FullNavigationBar size={size} />}
+            navbarElement={<FullNavigationBar size={size} handleClickToday={this.handleClickToday()} />}
             weekdayElement={<WeekDay size={size} />}
-            bordered="false"
+            bordered={false}
           />
         </Box>
       </Box>
