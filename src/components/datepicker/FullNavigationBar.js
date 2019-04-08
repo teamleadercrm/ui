@@ -8,19 +8,21 @@ import {
   IconArrowLeftSmallOutline,
   IconArrowRightSmallOutline,
 } from '@teamleader/ui-icons';
-import { Heading2, TextBody } from '../..';
+import { Section, Heading2 } from '../..';
 
 class FullNavigationBar extends PureComponent {
   handlePreviousClick = () => {
     this.props.onPreviousClick();
+    this.props.onClickPrevious();
   };
 
   handleNextClick = () => {
+    this.props.onClickNext();
     this.props.onNextClick();
   };
 
   handleTodayClick = () => {
-    this.props.handleClickToday();
+    this.props.onClickToday();
   };
 
   render() {
@@ -28,8 +30,8 @@ class FullNavigationBar extends PureComponent {
     const year = month.getFullYear();
 
     return (
-      <Box display="flex" alignItems="center" justifyContent="space-between">
-        <Box display="flex" alignItems="center" flex={1}>
+      <Section marginBottom={3}>
+        <Box display="flex" alignItems="center">
           <ButtonGroup segmented marginRight={3}>
             <Button
               size={size}
@@ -49,18 +51,18 @@ class FullNavigationBar extends PureComponent {
           <Button size={size} onClick={this.handleTodayClick}>
             Today
           </Button>
+          <Box display="flex" flex={1} justifyContent="flex-end">
+            <Heading2>{year}</Heading2>
+          </Box>
         </Box>
-        <Heading2 flex={1}>{year}</Heading2>
-        <Box>
-          <TextBody>Week 1</TextBody>
-        </Box>
-      </Box>
+      </Section>
     );
   }
 }
 
 FullNavigationBar.propTypes = {
   className: PropTypes.string,
+  onClickToday: PropTypes.func,
   onNextClick: PropTypes.func,
   onPreviousClick: PropTypes.func,
   size: PropTypes.oneOf(['small', 'medium', 'large']),

@@ -157,11 +157,17 @@ storiesOf('Form elements/DatePicker', module)
     );
   })
   .add('Year picker', () => {
-    console.log(preSelectedDate);
+    const handleOnChange = selectedDate => {
+      console.log('Selected date', selectedDate);
+    };
+
     return (
       <YearPicker
+        bordered={boolean('bordered', false)}
         locale={select('Locale', languages, 'nl-BE')}
         localeUtils={CustomLocaleUtils}
+        onChange={handleOnChange}
+        showNavigationBar={boolean('showNavigationBar', true)}
         showOutsideDays={boolean('Show outside days', true)}
         showWeekNumbers={boolean('Show week numbers', true)}
         size={select('Size', sizes, 'medium')}
