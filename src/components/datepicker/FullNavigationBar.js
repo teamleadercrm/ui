@@ -8,7 +8,7 @@ import {
   IconArrowLeftSmallOutline,
   IconArrowRightSmallOutline,
 } from '@teamleader/ui-icons';
-import { Heading2, TextBody } from '../..';
+import { Section, Heading2 } from '../..';
 
 class FullNavigationBar extends PureComponent {
   handlePreviousClick = () => {
