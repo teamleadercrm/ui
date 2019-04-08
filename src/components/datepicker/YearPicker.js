@@ -7,20 +7,88 @@ import WeekDay from './WeekDay';
 import cx from 'classnames';
 import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
-import { convertModifiersToClassnames } from './utils';
+import { convertModifiersToClassnames, isSelectingFirstDay } from './utils';
 
 class YearPicker extends PureComponent {
+  state = {
+    displayedMonth: new Date(new Date().getFullYear(), 0),
+    selectedStartDate: null,
+    selectedEndDate: null,
+    mouseEnteredEndDate: null,
+  };
+
+  static getDerivedStateFromProps(props, state) {
+    if (
+      props.selectedRange !== undefined &&
+      (props.selectedRange.selectedStartDate !== state.selectedStartDate ||
+        props.selectedRange.selectedEndDate !== state.selectedEndDate)
+    ) {
+      return {
+        selectedStartDate: props.selectedRange.selectedStartDate,
+        selectedEndDate: props.selectedRange.selectedEndDate,
+        mouseEnteredEndDate: props.selectedRange.selectedEndDate,
+      };
+    }
+
+    return null;
+  }
+
+  handleDayClick = day => {
+    const { selectedStartDate, selectedEndDate } = this.state;
+
+    if (isSelectingFirstDay(selectedStartDate, selectedEndDate, day)) {
+      this.setState({
+        selectedStartDate: day,
+        selectedEndDate: null,
+        mouseEnteredEndDate: null,
+      });
+    } else {
+      this.setState({
+        selectedEndDate: day,
+        mouseEnteredEndDate: day,
+      });
+    }
+  };
+
+  handleDayMouseEnter = day => {
+    const { selectedStartDate, selectedEndDate } = this.state;
+
+    if (!isSelectingFirstDay(selectedStartDate, selectedEndDate, day)) {
+      this.setState({
+        mouseEnteredEndDate: day,
+      });
+    }
+  };
+
   handleClickToday = () => {
-    console.log('today');
+    this.setState({ displayedMonth: new Date(new Date().getFullYear(), 0) });
+  };
+
+  handleClickPrevious = () => {
+    const currentMonth = this.state.displayedMonth;
+    currentMonth.setMonth(currentMonth.getMonth() - 12);
+    this.setState({ displayedMonth: currentMonth });
+  };
+
+  handleClickNext = () => {
+    const currentMonth = this.state.displayedMonth;
+    currentMonth.setMonth(currentMonth.getMonth() + 12);
+    this.setState({ displayedMonth: currentMonth });
   };
 
   render() {
-    const { bordered, className, modifiers, size, ...others } = this.props;
+    const { bordered, className, locale, showNavigationBar, size, ...others } = this.props;
+    const { displayedMonth, mouseEnteredEndDate, selectedStartDate } = this.state;
+    const modifiers = { from: selectedStartDate, to: mouseEnteredEndDate };
+    const selectedDays = [selectedStartDate, { from: selectedStartDate, to: mouseEnteredEndDate }];
+
     const boxProps = pickBoxProps(others);
     const restProps = omitBoxProps(others);
+
     const classNames = cx(
       uiUtilities['reset-font-smoothing'],
       theme['date-picker'],
+      theme['has-range'],
       theme[`is-${size}`],
       {
         [theme['is-bordered']]: bordered,
@@ -58,8 +126,8 @@ YearPicker.propTypes = {
   modifiers: PropTypes.object,
   /** Callback function that is fired when the date has changed. */
   onChange: PropTypes.func,
-  /** The current selected date. */
-  selectedDate: PropTypes.instanceOf(Date),
+  /** The current selected range. */
+  selectedRange: PropTypes.object,
   /** Size of the DatePicker component. */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
 };

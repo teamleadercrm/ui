@@ -19,14 +19,16 @@ const PADDINGS = {
 class FullNavigationBar extends PureComponent {
   handlePreviousClick = () => {
     this.props.onPreviousClick();
+    this.props.onClickPrevious();
   };
 
   handleNextClick = () => {
     this.props.onNextClick();
+    this.props.onClickNext();
   };
 
   handleTodayClick = () => {
-    this.props.handleClickToday();
+    this.props.onClickToday();
   };
 
   render() {
