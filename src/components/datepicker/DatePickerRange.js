@@ -66,7 +66,7 @@ class DatePickerRange extends PureComponent {
   };
 
   render() {
-    const { className, size, ...others } = this.props;
+    const { bordered, className, size, ...others } = this.props;
     const { selectedStartDate, mouseEnteredEndDate } = this.state;
     const modifiers = { from: selectedStartDate, to: mouseEnteredEndDate };
     const selectedDays = [selectedStartDate, { from: selectedStartDate, to: mouseEnteredEndDate }];
@@ -78,6 +78,9 @@ class DatePickerRange extends PureComponent {
       theme['date-picker'],
       theme['has-range'],
       theme[`is-${size}`],
+      {
+        [theme['is-bordered']]: bordered,
+      },
       className,
     );
 
@@ -100,13 +103,20 @@ class DatePickerRange extends PureComponent {
 }
 
 DatePickerRange.propTypes = {
+  /** If true we give a border to our wrapper. */
+  bordered: PropTypes.bool,
+  /** A class name for the DatePickerRange to give custom styles. */
   className: PropTypes.string,
+  /** Callback function that is fired when the date has changed. */
   onChange: PropTypes.func,
+  /** The current selected range. */
   selectedRange: PropTypes.object,
+  /** Size of the DatePickerRange component. */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
 };
 
 DatePickerRange.defaultProps = {
+  bordered: false,
   size: 'medium',
 };
 

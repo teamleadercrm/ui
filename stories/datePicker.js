@@ -55,6 +55,7 @@ storiesOf('Form elements/DatePicker', module)
 
     return (
       <DatePicker
+        bordered={boolean('bordered', true)}
         locale={select('Locale', languages, 'nl-BE')}
         localeUtils={CustomLocaleUtils}
         numberOfMonths={number('Number of months', 1)}
@@ -73,6 +74,7 @@ storiesOf('Form elements/DatePicker', module)
 
     return (
       <DatePickerInput
+        bordered={boolean('bordered', false)}
         dayPickerProps={{
           numberOfMonths: number('Number of months', 1),
           showOutsideDays: boolean('Show outside days', true),
@@ -104,6 +106,7 @@ storiesOf('Form elements/DatePicker', module)
 
     return (
       <DatePickerRange
+        bordered={boolean('bordered', true)}
         locale={select('Locale', languages, 'nl-BE')}
         localeUtils={CustomLocaleUtils}
         numberOfMonths={number('Number of months', 2)}
