@@ -10,6 +10,12 @@ import {
 } from '@teamleader/ui-icons';
 import { Section, Heading2 } from '../..';
 
+const PADDINGS = {
+  small: 3,
+  medium: 4,
+  large: 5,
+};
+
 class FullNavigationBar extends PureComponent {
   handlePreviousClick = () => {
     this.props.onPreviousClick();
@@ -24,11 +30,11 @@ class FullNavigationBar extends PureComponent {
   };
 
   render() {
-    const { className, month, size } = this.props;
+    const { month, size } = this.props;
     const year = month.getFullYear();
 
     return (
-      <Section marginBottom={3}>
+      <Section padding={PADDINGS[size]} marginBottom={3}>
         <Box display="flex" alignItems="center">
           <ButtonGroup segmented marginRight={3}>
             <Button
@@ -59,10 +65,24 @@ class FullNavigationBar extends PureComponent {
 }
 
 FullNavigationBar.propTypes = {
-  className: PropTypes.string,
+  /** The current active month. */
+  month: PropTypes.PropTypes.instanceOf(Date),
+  /** Callback function that is fired when there is clicked on a date. */
+  onClickToday: PropTypes.func,
+  /** Callback function that is fired when there is clicked on the next button. */
+  onClickNext: PropTypes.func,
+  /** Callback function that is fired when there is clicked on the previous button. */
+  onClickPrevious: PropTypes.func,
+  /** Callback function that is fired when there is clicked on the next button. */
   onNextClick: PropTypes.func,
+  /** Callback function that is fired when there is clicked on the previous button. */
   onPreviousClick: PropTypes.func,
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  /** The size wich controls the paddings. */
+  size: PropTypes.oneOf(Object.keys(PADDINGS)),
+};
+
+FullNavigationBar.defaultProps = {
+  size: 'medium',
 };
 
 export default FullNavigationBar;
