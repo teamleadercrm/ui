@@ -59,8 +59,8 @@ class FullNavigationBar extends PureComponent {
           </Button>
           <Box display="flex" flex={1} justifyContent="flex-end">
             <Heading2>{year}</Heading2>
+          </Box>
         </Box>
-      </Box>
       </Section>
     );
   }
