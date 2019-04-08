@@ -8,25 +8,29 @@ import cx from 'classnames';
 import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
 import { convertModifiersToClassnames } from './utils';
-import { Heading2 } from '../..';
 
 class YearPicker extends PureComponent {
-
   handleClickToday = () => {
     console.log('today');
-  }
+  };
 
   render() {
-    const { className, modifiers, size, ...others } = this.props;
-    const { currentYear, selectedDate } = this.state;
+    const { bordered, className, modifiers, size, ...others } = this.props;
     const boxProps = pickBoxProps(others);
     const restProps = omitBoxProps(others);
-    const classNames = cx(uiUtilities['reset-font-smoothing'], theme['date-picker'], theme[`is-${size}`], className);
+    const classNames = cx(
+      uiUtilities['reset-font-smoothing'],
+      theme['date-picker'],
+      theme[`is-${size}`],
+      {
+        [theme['is-bordered']]: bordered,
+      },
+      className,
+    );
 
     return (
       <Box {...boxProps}>
-        <Box padding={3} display="flex" alignItems="center" className={theme['year-container']}>
-          <Heading2 marginBottom={3}>{currentYear}</Heading2>
+        <Box padding={5} className={theme['year-container']}>
           <DayPicker
             {...restProps}
             month={new Date(new Date().getFullYear(), 0)}
@@ -34,7 +38,6 @@ class YearPicker extends PureComponent {
             classNames={theme}
             numberOfMonths={12}
             pagedNavigation
-            selectedDate={new Date(new Date().getFullYear(), 0, 1)}
             modifiers={convertModifiersToClassnames(modifiers, theme)}
             navbarElement={<FullNavigationBar size={size} handleClickToday={this.handleClickToday()} />}
             weekdayElement={<WeekDay size={size} />}
@@ -45,5 +48,25 @@ class YearPicker extends PureComponent {
     );
   }
 }
+
+YearPicker.propTypes = {
+  /** If true we give a border to our wrapper. */
+  bordered: PropTypes.bool,
+  /** A class name for the DatePicker to give custom styles. */
+  className: PropTypes.string,
+  /** The modifiers of the DatePicker component. */
+  modifiers: PropTypes.object,
+  /** Callback function that is fired when the date has changed. */
+  onChange: PropTypes.func,
+  /** The current selected date. */
+  selectedDate: PropTypes.instanceOf(Date),
+  /** Size of the DatePicker component. */
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
+};
+
+YearPicker.defaultProps = {
+  bordered: false,
+  size: 'medium',
+};
 
 export default YearPicker;

@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import { Box } from '../box';
 import { Button, ButtonGroup } from '../button';
 import {
   IconArrowLeftMediumOutline,
@@ -7,6 +8,7 @@ import {
   IconArrowLeftSmallOutline,
   IconArrowRightSmallOutline,
 } from '@teamleader/ui-icons';
+import { Heading2, TextBody } from '../..';
 
 class FullNavigationBar extends PureComponent {
   handlePreviousClick = () => {
@@ -26,7 +28,9 @@ class FullNavigationBar extends PureComponent {
     const year = month.getFullYear();
 
     return (
-      <ButtonGroup segmented>
+      <Box display="flex" alignItems="center" justifyContent="space-between">
+        <Box display="flex" alignItems="center" flex={1}>
+          <ButtonGroup segmented marginRight={3}>
         <Button
           size={size}
           active={false}
@@ -34,9 +38,6 @@ class FullNavigationBar extends PureComponent {
           disabled={false}
           onClick={this.handlePreviousClick}
         />
-        <Button size={size} onClick={this.handleTodayClick}>
-          Today
-        </Button>
         <Button
           size={size}
           active={false}
@@ -60,12 +61,8 @@ class FullNavigationBar extends PureComponent {
 
 FullNavigationBar.propTypes = {
   className: PropTypes.string,
-  localeUtils: PropTypes.object,
-  nextYear: PropTypes.instanceOf(Date),
-  previousYear: PropTypes.instanceOf(Date),
   onNextClick: PropTypes.func,
   onPreviousClick: PropTypes.func,
-  onTodayClick: PropTypes.func,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
 };
 
