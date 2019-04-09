@@ -99,18 +99,18 @@ class YearPicker extends PureComponent {
 
     return (
       <Box {...boxProps}>
-        {showNavigationBar ? (
-          <DayPicker
-            {...restProps}
-            month={displayedMonth}
-            className={classNames}
-            classNames={theme}
-            locale={locale}
-            localeUtils={LocaleUtils}
-            modifiers={convertModifiersToClassnames(modifiers, theme)}
-            numberOfMonths={12}
-            pagedNavigation
-            navbarElement={
+        <DayPicker
+          {...restProps}
+          month={displayedMonth}
+          className={classNames}
+          classNames={theme}
+          locale={locale}
+          localeUtils={LocaleUtils}
+          modifiers={convertModifiersToClassnames(modifiers, theme)}
+          numberOfMonths={12}
+          pagedNavigation
+          navbarElement={
+            showNavigationBar ? (
               <FullNavigationBar
                 size={size}
                 onClickToday={this.handleClickToday}
@@ -118,31 +118,16 @@ class YearPicker extends PureComponent {
                 onClickPrevious={this.handleClickPrevious}
                 month={displayedMonth}
               />
-            }
-            onDayClick={this.handleDayClick}
-            onDayMouseEnter={this.handleDayMouseEnter}
-            selectedDays={selectedDays}
-            weekdayElement={<WeekDay size={size} />}
-            bordered={false}
-          />
-        ) : (
-          <DayPicker
-            {...restProps}
-            month={displayedMonth}
-            className={classNames}
-            classNames={theme}
-            locale={locale}
-            localeUtils={LocaleUtils}
-            modifiers={convertModifiersToClassnames(modifiers, theme)}
-            numberOfMonths={12}
-            pagedNavigation
-            onDayClick={this.handleDayClick}
-            onDayMouseEnter={this.handleDayMouseEnter}
-            selectedDays={selectedDays}
-            weekdayElement={<WeekDay size={size} />}
-            bordered={false}
-          />
-        )}
+            ) : (
+              undefined
+            )
+          }
+          onDayClick={this.handleDayClick}
+          onDayMouseEnter={this.handleDayMouseEnter}
+          selectedDays={selectedDays}
+          weekdayElement={<WeekDay size={size} />}
+          bordered={false}
+        />
       </Box>
     );
   }
