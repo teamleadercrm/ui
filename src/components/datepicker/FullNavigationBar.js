@@ -19,16 +19,25 @@ const PADDINGS = {
 
 class FullNavigationBar extends PureComponent {
   handlePreviousClick = () => {
-    this.props.onPreviousClick();
+    // Function to trigger the next button of our calendar
+    const { onPreviousClick: onDayPickerPreviousClick } = this.props;
+    onDayPickerPreviousClick();
+
+    // Function passed from our parent component to update our state
     this.props.onClickPrevious();
   };
 
   handleNextClick = () => {
-    this.props.onNextClick();
+    // Function to trigger the previous button of our calendar
+    const { onNextClick: onDayPickerNextClick } = this.props;
+    onDayPickerNextClick();
+
+    // Function passed from our parent component to update our state
     this.props.onClickNext();
   };
 
   handleTodayClick = () => {
+    // Function passed from our parent component that will reset the date
     this.props.onClickToday();
   };
 
