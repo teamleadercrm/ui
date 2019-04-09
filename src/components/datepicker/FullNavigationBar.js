@@ -2,13 +2,14 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Box } from '../box';
 import { Button, ButtonGroup } from '../button';
+import Section from '../section';
+import { Heading2 } from '../typography';
 import {
   IconArrowLeftMediumOutline,
   IconArrowRightMediumOutline,
   IconArrowLeftSmallOutline,
   IconArrowRightSmallOutline,
 } from '@teamleader/ui-icons';
-import { Section, Heading2 } from '../..';
 
 const PADDINGS = {
   small: 3,
