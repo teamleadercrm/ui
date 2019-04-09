@@ -19,10 +19,6 @@
   display: flex;
   user-select: none;
 
-  .label {
-    padding-top: 2px;
-  }
-
   .input {
     width: 0;
     height: 0;
@@ -133,6 +129,7 @@
   &.is-medium {
     .label {
       margin-left: var(--spacer-small);
+      padding-top: 2px;
     }
 
     .shape {
@@ -149,6 +146,7 @@
   &.is-large {
     .label {
       margin-left: var(--spacer-small);
+      padding-top: 4px;
     }
 
     .shape {
