@@ -21,9 +21,13 @@
 }
 
 .toggle {
-  align-items: center;
+  align-items: flex-start;
   display: flex;
   user-select: none;
+
+  .label {
+    padding-top: 2px;
+  }
 
   .input {
     width: 0;
