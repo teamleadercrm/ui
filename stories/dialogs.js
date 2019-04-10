@@ -71,7 +71,9 @@ storiesOf('Dialogs', module)
             onOverlayClick={handleActiveToggle}
             size={select('Size', sizes, 'medium')}
           >
-            <TextBody>Here you can add arbitrary content.</TextBody>
+            <Box padding={4} overflowY="auto">
+              <TextBody>Here you can add arbitrary content.</TextBody>
+            </Box>
           </Dialog>
         </State>
       </Box>

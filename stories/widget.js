@@ -23,7 +23,7 @@ import {
   Bullet,
 } from '../src';
 import { rows1 } from './static/data/datagrid';
-import IconEditMediumOutline from '@teamleader/ui-icons/cjs/IconEditMediumOutline';
+import { IconAddMediumOutline, IconEditMediumOutline } from '@teamleader/ui-icons';
 
 const colors = ['mint', 'violet', 'ruby', 'gold', 'aqua', 'white', 'neutral'];
 const sizes = ['small', 'medium', 'large'];
@@ -56,7 +56,7 @@ storiesOf('Widget', module)
           <Heading2>I am the widget header title</Heading2>
         </Box>
         <Box>
-          <Button>Add</Button>
+          <IconButton icon={<IconAddMediumOutline />} />
         </Box>
       </Widget.Header>
       <Widget.Body>
@@ -67,17 +67,19 @@ storiesOf('Widget', module)
   ))
   .add('With header and muliple actions', () => (
     <Widget size={select('Size', sizes, 'medium')}>
-      <Widget.Header color={select('Header color', colors, 'neutral')} display="flex" alignItems="center">
-        <Box flex={6} display="flex" alignItems="center">
+      <Widget.Header
+        color={select('header color', colors, 'neutral')}
+        display="flex"
+        alignItems="center"
+        justifyContent="space-between"
+      >
+        <Box display="flex" alignItems="center">
           <Heading2>I am the widget header title</Heading2>
-          <StatusLabel color="mint" marginLeft={3}>
-            I am the status
-          </StatusLabel>
           <Bullet color="mint" marginLeft={3} />
         </Box>
-        <Box flex={1} display="flex" alignItems="center" justifyContent="space-between">
+        <Box display="flex" alignItems="center" justifyContent="space-between" style={{ width: '130px' }}>
           <IconButton icon={<IconEditMediumOutline />} />
-          <Button>Add</Button>
+          <IconButton icon={<IconAddMediumOutline />} />
           <IconMenu active position="top-right">
             <MenuItem caption="Menu item 1" />
             <MenuItem caption="Menu item 2" />
@@ -99,7 +101,10 @@ storiesOf('Widget', module)
         <TextBody>I am the body content</TextBody>
       </Widget.Body>
       <Widget.Footer>
-        <TextBody>I am the widget footer</TextBody>
+        <Box display="flex" alignItems="center" justifyContent="space-between">
+          <Heading3>I am the widget footer</Heading3>
+          <TextBody>Meta information</TextBody>
+        </Box>
       </Widget.Footer>
     </Widget>
   ))
@@ -113,7 +118,10 @@ storiesOf('Widget', module)
         <TextBody>I am the body content</TextBody>
       </Widget.Body>
       <Widget.Footer>
-        <TextBody>I am the widget footer</TextBody>
+        <Box display="flex" alignItems="center" justifyContent="space-between">
+          <Heading3>I am the widget footer</Heading3>
+          <TextBody>Meta information</TextBody>
+        </Box>
       </Widget.Footer>
     </Widget>
   ))
@@ -133,7 +141,10 @@ storiesOf('Widget', module)
         </Box>
       </Widget.Body>
       <Widget.Footer>
-        <TextBody>I am the widget footer</TextBody>
+        <Box display="flex" alignItems="center" justifyContent="space-between">
+          <Heading3>I am the widget footer</Heading3>
+          <TextBody>Meta information</TextBody>
+        </Box>
       </Widget.Footer>
     </Widget>
   ))
@@ -142,7 +153,7 @@ storiesOf('Widget', module)
       <Widget.Header color={select('Header color', colors, 'neutral')}>
         <Heading2>I am the widget header title</Heading2>
       </Widget.Header>
-      <Widget.Body>
+      <Widget.Body padding={0}>
         <DatePicker
           locale="nl-BE"
           numberOfMonths={12}
@@ -154,74 +165,76 @@ storiesOf('Widget', module)
   ))
   .add('With DataGrid only', () => (
     <Widget size={select('Size', sizes, 'medium')}>
-      <DataGrid
-        bordered={boolean('Bordered', false)}
-        selectable={boolean('Selectable', true)}
-        comparableId={1}
-        onSelectionChange={() => console.log('Datagrid selection changed')}
-        checkboxSize={select('Checkbox size', ['small', 'medium', 'large'], 'small')}
-        padding={0}
-        processing={boolean('Processing', false)}
-      >
-        <DataGrid.HeaderRowOverlay
-          numSelectedRowsLabel={numSelectedRows => (numSelectedRows === 1 ? 'sélectionné' : 'sélectionnés')}
+      <Widget.Body padding={0}>
+        <DataGrid
+          bordered={boolean('bordered', false)}
+          selectable={boolean('Selectable', true)}
+          comparableId={1}
+          onSelectionChange={() => console.log('Datagrid selection changed')}
+          checkboxSize={select('Checkbox size', ['small', 'medium', 'large'], 'small')}
+          padding={0}
+          processing={boolean('Processing', false)}
         >
-          <Button size="small" level="primary" label="Marks as paid" />
-          <ButtonGroup segmented marginHorizontal={3}>
-            <Button size="small" label="Book" />
-            <Button size="small" label="Merge" />
-          </ButtonGroup>
-          <Button size="small" level="destructive" label="Delete" />
-        </DataGrid.HeaderRowOverlay>
+          <DataGrid.HeaderRowOverlay
+            numSelectedRowsLabel={numSelectedRows => (numSelectedRows === 1 ? 'sélectionné' : 'sélectionnés')}
+          >
+            <Button size="small" level="primary" label="Marks as paid" />
+            <ButtonGroup segmented marginHorizontal={3}>
+              <Button size="small" label="Book" />
+              <Button size="small" label="Merge" />
+            </ButtonGroup>
+            <Button size="small" level="destructive" label="Delete" />
+          </DataGrid.HeaderRowOverlay>
 
-        <DataGrid.HeaderRow>
-          <DataGrid.HeaderCell flex="min-width" />
-          <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} sorted="asc">
-            Invoice
-          </DataGrid.HeaderCell>
-          <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} align="right">
-            Amount
-          </DataGrid.HeaderCell>
-          <DataGrid.HeaderCell flex="2" onClick={() => console.log('onClick: column sort')}>
-            Customer
-          </DataGrid.HeaderCell>
-          <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')}>Due date</DataGrid.HeaderCell>
-          <DataGrid.HeaderCell flex="min-width" />
-        </DataGrid.HeaderRow>
-        {rows1.map((row, index) => {
-          return (
-            <DataGrid.BodyRow key={index} onClick={event => console.log('onClick:', row.column5, event)}>
-              <DataGrid.Cell align="center" flex="min-width">
-                <TooltippedStatusBullet
-                  color={row.column1}
-                  tooltip={<TextSmall>Overdue</TextSmall>}
-                  tooltipColor={row.column1}
-                  tooltipSize="small"
-                  size="medium"
-                />
-              </DataGrid.Cell>
-              <DataGrid.Cell>
-                <Link href="#" inherit={false}>
-                  {row.column5}
-                </Link>{' '}
-              </DataGrid.Cell>
-              <DataGrid.Cell align="right" strong>
-                {' '}
-                {`€ ${row.column3}`}
-              </DataGrid.Cell>
-              <DataGrid.Cell flex="2">{row.column2}</DataGrid.Cell>
-              <DataGrid.Cell soft>{row.column4}</DataGrid.Cell>
-              <DataGrid.Cell align="right" flex="min-width" preventOverflow={false}>
-                <IconMenu position="top-right">
-                  <MenuItem onClick={() => console.log('onClick: duplicate row')}>Duplicate row</MenuItem>
-                  <MenuItem onClick={() => console.log('onClick: inactivate row')}>Inactive row</MenuItem>
-                  <MenuItem onClick={() => console.log('onClick: remove row')}>Remove row</MenuItem>
-                </IconMenu>
-              </DataGrid.Cell>
-            </DataGrid.BodyRow>
-          );
-        })}
-      </DataGrid>
+          <DataGrid.HeaderRow>
+            <DataGrid.HeaderCell flex="min-width" />
+            <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} sorted="asc">
+              Invoice
+            </DataGrid.HeaderCell>
+            <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} align="right">
+              Amount
+            </DataGrid.HeaderCell>
+            <DataGrid.HeaderCell flex="2" onClick={() => console.log('onClick: column sort')}>
+              Customer
+            </DataGrid.HeaderCell>
+            <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')}>Due date</DataGrid.HeaderCell>
+            <DataGrid.HeaderCell flex="min-width" />
+          </DataGrid.HeaderRow>
+          {rows1.map((row, index) => {
+            return (
+              <DataGrid.BodyRow key={index} onClick={event => console.log('onClick:', row.column5, event)}>
+                <DataGrid.Cell align="center" flex="min-width">
+                  <TooltippedStatusBullet
+                    color={row.column1}
+                    tooltip={<TextSmall>Overdue</TextSmall>}
+                    tooltipColor={row.column1}
+                    tooltipSize="small"
+                    size="medium"
+                  />
+                </DataGrid.Cell>
+                <DataGrid.Cell>
+                  <Link href="#" inherit={false}>
+                    {row.column5}
+                  </Link>{' '}
+                </DataGrid.Cell>
+                <DataGrid.Cell align="right" strong>
+                  {' '}
+                  {`€ ${row.column3}`}
+                </DataGrid.Cell>
+                <DataGrid.Cell flex="2">{row.column2}</DataGrid.Cell>
+                <DataGrid.Cell soft>{row.column4}</DataGrid.Cell>
+                <DataGrid.Cell align="right" flex="min-width" preventOverflow={false}>
+                  <IconMenu position="top-right">
+                    <MenuItem onClick={() => console.log('onClick: duplicate row')}>Duplicate row</MenuItem>
+                    <MenuItem onClick={() => console.log('onClick: inactivate row')}>Inactive row</MenuItem>
+                    <MenuItem onClick={() => console.log('onClick: remove row')}>Remove row</MenuItem>
+                  </IconMenu>
+                </DataGrid.Cell>
+              </DataGrid.BodyRow>
+            );
+          })}
+        </DataGrid>
+      </Widget.Body>
     </Widget>
   ))
   .add('With DataGrid', () => (
@@ -299,7 +312,10 @@ storiesOf('Widget', module)
         </DataGrid>
       </Widget.Body>
       <Widget.Footer>
-        <TextBody>I am the widget footer</TextBody>
+        <Box display="flex" alignItems="center" justifyContent="space-between">
+          <Heading3>I am the widget footer</Heading3>
+          <TextBody>Meta information</TextBody>
+        </Box>
       </Widget.Footer>
     </Widget>
   ));

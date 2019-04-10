@@ -1,28 +1,14 @@
-import React, { PureComponent, createRef } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash.omit';
 import cx from 'classnames';
-import ReactResizeDetector from 'react-resize-detector';
 
 import theme from './theme.css';
 
-import { Banner, Box, Button, ButtonGroup, DialogBase, Heading2, Heading3, Link } from '../../index';
+import { Banner, Button, ButtonGroup, DialogBase, Heading2, Heading3, Link } from '../../index';
 import { COLORS } from '../../constants';
-import { isElementOverflowingY } from '../utils/utils';
 
 class Dialog extends PureComponent {
-  dialogNode = createRef();
-
-  state = {
-    isBodyOverFlowing: false,
-  };
-
-  componentDidUpdate(prevProps) {
-    if (this.props.active && !prevProps.active) {
-      this.setIsBodyOverflowing();
-    }
-  }
-
   getHeader = () => {
     const { headerColor, headerIcon, headingLevel, onCloseClick, title } = this.props;
 
@@ -35,25 +21,14 @@ class Dialog extends PureComponent {
 
   getFooter = () => {
     const { tertiaryAction, secondaryAction, primaryAction } = this.props;
-    const { isBodyOverFlowing } = this.state;
 
     return (
-      <ButtonGroup
-        className={isBodyOverFlowing ? theme['has-border'] : undefined}
-        justifyContent="flex-end"
-        padding={4}
-      >
+      <ButtonGroup justifyContent="flex-end" padding={4}>
         {tertiaryAction && <Link inherit={false} {...tertiaryAction} />}
         {secondaryAction && <Button {...secondaryAction} />}
         <Button level="primary" {...primaryAction} />
       </ButtonGroup>
     );
-  };
-
-  setIsBodyOverflowing = () => {
-    if (this.dialogNode.current) {
-      this.setState({ isBodyOverFlowing: isElementOverflowingY(this.dialogNode.current) });
-    }
   };
 
   render() {
@@ -72,11 +47,8 @@ class Dialog extends PureComponent {
     return (
       <DialogBase className={classNames} {...restProps}>
         {title && this.getHeader()}
-        <Box className={theme['dialog-body']} padding={4} ref={this.dialogNode}>
-          {children}
-        </Box>
+        {children}
         {this.getFooter()}
-        <ReactResizeDetector handleHeight onResize={this.setIsBodyOverflowing} />
       </DialogBase>
     );
   }
