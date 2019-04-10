@@ -23,7 +23,7 @@ import {
   Bullet,
 } from '../src';
 import { rows1 } from './static/data/datagrid';
-import IconEditMediumOutline from '@teamleader/ui-icons/cjs/IconEditMediumOutline';
+import { IconAddMediumOutline, IconEditMediumOutline } from '@teamleader/ui-icons';
 
 const colors = ['mint', 'violet', 'ruby', 'gold', 'aqua', 'white', 'neutral'];
 const sizes = ['small', 'medium', 'large'];
@@ -56,7 +56,7 @@ storiesOf('Widget', module)
           <Heading2>I am the widget header title</Heading2>
         </Box>
         <Box>
-          <Button>Add</Button>
+          <IconButton icon={<IconAddMediumOutline />} />
         </Box>
       </Widget.Header>
       <Widget.Body>
@@ -67,17 +67,19 @@ storiesOf('Widget', module)
   ))
   .add('With header and muliple actions', () => (
     <Widget size={select('Size', sizes, 'medium')}>
-      <Widget.Header color={select('header color', colors, 'neutral')} display="flex" alignItems="center">
-        <Box flex={6} display="flex" alignItems="center">
+      <Widget.Header
+        color={select('header color', colors, 'neutral')}
+        display="flex"
+        alignItems="center"
+        justifyContent="space-between"
+      >
+        <Box display="flex" alignItems="center">
           <Heading2>I am the widget header title</Heading2>
-          <StatusLabel color="mint" marginLeft={3}>
-            I am the status
-          </StatusLabel>
           <Bullet color="mint" marginLeft={3} />
         </Box>
-        <Box flex={1} display="flex" alignItems="center" justifyContent="space-between">
+        <Box display="flex" alignItems="center" justifyContent="space-between" style={{ width: '130px' }}>
           <IconButton icon={<IconEditMediumOutline />} />
-          <Button>Add</Button>
+          <IconButton icon={<IconAddMediumOutline />} />
           <IconMenu active position="top-right">
             <MenuItem caption="Menu item 1" />
             <MenuItem caption="Menu item 2" />
@@ -99,7 +101,10 @@ storiesOf('Widget', module)
         <TextBody>I am the body content</TextBody>
       </Widget.Body>
       <Widget.Footer>
-        <TextBody>I am the widget footer</TextBody>
+        <Box display="flex" alignItems="center" justifyContent="space-between">
+          <Heading3>I am the widget footer</Heading3>
+          <TextBody>Meta information</TextBody>
+        </Box>
       </Widget.Footer>
     </Widget>
   ))
@@ -113,7 +118,10 @@ storiesOf('Widget', module)
         <TextBody>I am the body content</TextBody>
       </Widget.Body>
       <Widget.Footer>
-        <TextBody>I am the widget footer</TextBody>
+        <Box display="flex" alignItems="center" justifyContent="space-between">
+          <Heading3>I am the widget footer</Heading3>
+          <TextBody>Meta information</TextBody>
+        </Box>
       </Widget.Footer>
     </Widget>
   ))
@@ -133,7 +141,10 @@ storiesOf('Widget', module)
         </Box>
       </Widget.Body>
       <Widget.Footer>
-        <TextBody>I am the widget footer</TextBody>
+        <Box display="flex" alignItems="center" justifyContent="space-between">
+          <Heading3>I am the widget footer</Heading3>
+          <TextBody>Meta information</TextBody>
+        </Box>
       </Widget.Footer>
     </Widget>
   ))
@@ -299,7 +310,10 @@ storiesOf('Widget', module)
         </DataGrid>
       </Widget.Body>
       <Widget.Footer>
-        <TextBody>I am the widget footer</TextBody>
+        <Box display="flex" alignItems="center" justifyContent="space-between">
+          <Heading3>I am the widget footer</Heading3>
+          <TextBody>Meta information</TextBody>
+        </Box>
       </Widget.Footer>
     </Widget>
   ));
