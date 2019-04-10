@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `Checkbox` & `RadioButton` & `Toggle`: aligment label according to size. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#593](https://github.com/teamleadercrm/ui/pull/593))
+
 ### Deprecated
 
 ### Removed

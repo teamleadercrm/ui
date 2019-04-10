@@ -21,7 +21,7 @@
 }
 
 .toggle {
-  align-items: center;
+  align-items: flex-start;
   display: flex;
   user-select: none;
 
@@ -150,6 +150,7 @@
   &.is-medium {
     .label {
       margin-left: var(--spacer-small);
+      padding-top: 2px;
     }
 
     .track {
@@ -179,6 +180,7 @@
   &.is-large {
     .label {
       margin-left: var(--spacer-small);
+      padding-top: 4px;
     }
 
     .track {
