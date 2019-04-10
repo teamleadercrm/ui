@@ -2,6 +2,8 @@
 
 ### Added
 
+- `SplitButtonMenu`: added `SplitButtonMenu` component. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#594](https://github.com/teamleadercrm/ui/pull/594))
+
 ### Changed
 
 ### Deprecated
