@@ -30,7 +30,7 @@ storiesOf('DataGrids', module)
   })
   .add('Basic', () => (
     <DataGrid
-      bordered={boolean('bordered', false)}
+      bordered={boolean('Bordered', false)}
       selectable={boolean('Selectable', true)}
       comparableId={1}
       onSelectionChange={handleRowSelectionChange}
@@ -97,9 +97,9 @@ storiesOf('DataGrids', module)
       })}
     </DataGrid>
   ))
-  .add('with footer', () => (
+  .add('With footer', () => (
     <DataGrid
-      bordered={boolean('bordered', false)}
+      bordered={boolean('Bordered', false)}
       selectable={boolean('Selectable', true)}
       comparableId={1}
       onSelectionChange={handleRowSelectionChange}
@@ -166,9 +166,9 @@ storiesOf('DataGrids', module)
       </DataGrid.FooterRow>
     </DataGrid>
   ))
-  .add('with sticky columns', () => (
+  .add('With sticky columns', () => (
     <DataGrid
-      bordered={boolean('bordered', false)}
+      bordered={boolean('Bordered', false)}
       selectable={boolean('Selectable', true)}
       stickyFromLeft={number('Sticky from left', 3)}
       stickyFromRight={number('Sticky from right', 1)}
@@ -236,7 +236,7 @@ storiesOf('DataGrids', module)
   ))
   .add('Advanced', () => (
     <DataGrid
-      bordered={boolean('bordered', false)}
+      bordered={boolean('Bordered', false)}
       selectable={boolean('Selectable', true)}
       stickyFromLeft={number('Sticky from left', 3)}
       stickyFromRight={number('Sticky from right', 1)}

@@ -36,7 +36,7 @@ storiesOf('Form elements/Checkbox', module)
   ))
   .add('With indeterminate state', () => (
     <Checkbox
-      indeterminate={boolean('indeterminate', false)}
+      indeterminate={boolean('Indeterminate', false)}
       label={text('Label', 'I am the label')}
       size={select('Size', sizes, 'medium')}
     />

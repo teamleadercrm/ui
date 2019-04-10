@@ -98,7 +98,7 @@ storiesOf('Toast', module)
       propTablesExclude: [Button, State],
     },
   })
-  .add('with close button', () => (
+  .add('With close button', () => (
     <div>
       <Button label="Make a toast" onClick={handleAddToastWithClose} />
       <State store={store}>
@@ -106,7 +106,7 @@ storiesOf('Toast', module)
       </State>
     </div>
   ))
-  .add('with custom action', () => (
+  .add('With custom action', () => (
     <div>
       <Button label="Make a toast" onClick={handleAddToastWithAction} />
       <State store={store}>
@@ -114,7 +114,7 @@ storiesOf('Toast', module)
       </State>
     </div>
   ))
-  .add('with custom link', () => (
+  .add('With custom link', () => (
     <div>
       <Button label="Make a toast" onClick={handleAddToastWithLink} />
       <State store={store}>
@@ -122,7 +122,7 @@ storiesOf('Toast', module)
       </State>
     </div>
   ))
-  .add('with multiline label', () => (
+  .add('With multiline label', () => (
     <div>
       <Button label="Make a toast" onClick={handleAddToastWithMultilineLabel} />
       <State store={store}>
@@ -130,7 +130,7 @@ storiesOf('Toast', module)
       </State>
     </div>
   ))
-  .add('with loading spinner', () => (
+  .add('With loading spinner', () => (
     <div>
       <Button label="Make a toast" onClick={handleAddToastWithSpinner} />
       <State store={store}>

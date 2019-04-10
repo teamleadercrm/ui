@@ -68,24 +68,28 @@ storiesOf('Form elements/Input', module)
   })
   .add('Input', () => (
     <Input
-      bold={boolean('bold', false)}
-      disabled={boolean('disabled', false)}
-      error={text('error', '')}
-      helpText={text('helpText', '')}
-      success={text('success', '')}
-      warning={text('warning', '')}
+      bold={boolean('Bold', false)}
+      disabled={boolean('Disabled', false)}
+      error={text('Error', '')}
+      helpText={text('Help text', '')}
+      success={text('Success', '')}
+      warning={text('Warning', '')}
       id="input1"
-      inverse={boolean('inverse', false)}
-      placeholder={text('placeholder', placeholder)}
-      readOnly={boolean('readOnly', false)}
-      size={select('size', sizes) || undefined}
-      type={select('type', types, 'text')}
+      inverse={boolean('Inverse', false)}
+      placeholder={text('Placeholder', placeholder)}
+      readOnly={boolean('Read only', false)}
+      size={select('Size', sizes) || undefined}
+      type={select('Type', types, 'text')}
       connectedLeft={
-        boolean('Toggle connectedLeft', false) ? <Button size={select('size', sizes, 'medium')} label="€" /> : undefined
+        boolean('Toggle connected left', false) ? (
+          <Button size={select('Size', sizes, 'medium')} label="€" />
+        ) : (
+          undefined
+        )
       }
       connectedRight={
-        boolean('Toggle connectedRight', false) ? (
-          <Button size={select('size', sizes, 'medium')}>
+        boolean('Toggle connected right', false) ? (
+          <Button size={select('Size', sizes, 'medium')}>
             <Checkbox size="small">Discount</Checkbox>
           </Button>
         ) : (
@@ -94,32 +98,36 @@ storiesOf('Form elements/Input', module)
       }
       prefix={boolean('Toggle prefix', false) ? prefix : undefined}
       suffix={boolean('Toggle suffix', false) ? suffix : undefined}
-      width={text('width', undefined)}
+      width={text('Width', undefined)}
     />
   ))
   .add('NumericInput', () => (
     <NumericInput
-      bold={boolean('bold', false)}
-      disabled={boolean('disabled', false)}
-      error={text('error', '')}
-      helpText={text('helpText', '')}
-      success={text('success', '')}
-      warning={text('warning', '')}
+      bold={boolean('Bold', false)}
+      disabled={boolean('Disabled', false)}
+      error={text('Error', '')}
+      helpText={text('Help text', '')}
+      success={text('Success', '')}
+      warning={text('Warning', '')}
       id="input1"
-      inverse={boolean('inverse', false)}
-      max={number('max', 10)}
-      min={number('min', 0)}
-      placeholder={text('placeholder', placeholder)}
-      readOnly={boolean('readOnly', false)}
-      size={select('size', sizes) || undefined}
-      spinner={boolean('spinner', true)}
-      step={number('step', 1)}
+      inverse={boolean('Inverse', false)}
+      max={number('Max', 10)}
+      min={number('Min', 0)}
+      placeholder={text('Placeholder', placeholder)}
+      readOnly={boolean('Read only', false)}
+      size={select('Size', sizes) || undefined}
+      spinner={boolean('Spinner', true)}
+      step={number('Step', 1)}
       connectedLeft={
-        boolean('Toggle connectedLeft', false) ? <Button size={select('size', sizes, 'medium')} label="€" /> : undefined
+        boolean('Toggle connected left', false) ? (
+          <Button size={select('Size', sizes, 'medium')} label="€" />
+        ) : (
+          undefined
+        )
       }
       connectedRight={
-        boolean('Toggle connectedRight', false) ? (
-          <Button size={select('size', sizes, 'medium')}>
+        boolean('Toggle connected right', false) ? (
+          <Button size={select('Size', sizes, 'medium')}>
             <Checkbox size="small">Discount</Checkbox>
           </Button>
         ) : (
@@ -128,33 +136,33 @@ storiesOf('Form elements/Input', module)
       }
       prefix={boolean('Toggle prefix', false) ? prefix : undefined}
       suffix={boolean('Toggle suffix', false) ? suffix : undefined}
-      width={text('width', undefined)}
+      width={text('Width', undefined)}
     />
   ))
   .add('TimeInput', () => (
     <State store={timeInputStore}>
       <TimeInput
-        bold={boolean('bold', false)}
-        disabled={boolean('disabled', false)}
-        error={text('error', '')}
-        helpText={text('helpText', '')}
-        success={text('success', '')}
-        warning={text('warning', '')}
+        bold={boolean('Bold', false)}
+        disabled={boolean('Disabled', false)}
+        error={text('Error', '')}
+        helpText={text('Help text', '')}
+        success={text('Success', '')}
+        warning={text('Warning', '')}
         id="input1"
-        inverse={boolean('inverse', false)}
-        placeholder={text('placeholder', 'hh:mm')}
-        readOnly={boolean('readOnly', false)}
-        size={select('size', sizes) || undefined}
+        inverse={boolean('Inverse', false)}
+        placeholder={text('Placeholder', 'hh:mm')}
+        readOnly={boolean('Read only', false)}
+        size={select('Size', sizes) || undefined}
         connectedLeft={
-          boolean('Toggle connectedLeft', false) ? (
-            <Button size={select('size', sizes, 'medium')} label="€" />
+          boolean('Toggle connected left', false) ? (
+            <Button size={select('Size', sizes, 'medium')} label="€" />
           ) : (
             undefined
           )
         }
         connectedRight={
-          boolean('Toggle connectedRight', false) ? (
-            <Button size={select('size', sizes, 'medium')}>
+          boolean('Toggle connected right', false) ? (
+            <Button size={select('Size', sizes, 'medium')}>
               <Checkbox size="small">Discount</Checkbox>
             </Button>
           ) : (
@@ -163,24 +171,24 @@ storiesOf('Form elements/Input', module)
         }
         prefix={boolean('Toggle prefix', false) ? prefix : undefined}
         suffix={boolean('Toggle suffix', false) ? suffix : undefined}
-        width={text('width', '90px')}
+        width={text('Width', '90px')}
         onChange={handleTimeInputChange}
       />
     </State>
   ))
   .add('Textarea', () => (
     <Textarea
-      bold={boolean('bold', false)}
-      disabled={boolean('disabled', false)}
-      error={text('error', '')}
-      helpText={text('helpText', '')}
-      success={text('success', '')}
-      warning={text('warning', '')}
+      bold={boolean('Bold', false)}
+      disabled={boolean('Disabled', false)}
+      error={text('Error', '')}
+      helpText={text('Help text', '')}
+      success={text('Success', '')}
+      warning={text('Warning', '')}
       id="input1"
-      inverse={boolean('inverse', false)}
-      placeholder={text('placeholder', placeholder)}
-      readOnly={boolean('readOnly', false)}
-      size={select('size', sizes) || undefined}
-      value={text('value', undefined)}
+      inverse={boolean('Inverse', false)}
+      placeholder={text('Placeholder', placeholder)}
+      readOnly={boolean('Read only', false)}
+      size={select('Size', sizes) || undefined}
+      value={text('Value', undefined)}
     />
   ));

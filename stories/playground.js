@@ -250,7 +250,7 @@ storiesOf('Playground', module)
                 placeholder: inputPlaceholderToday,
                 width: '100%',
               }}
-              locale={select('locale', LANGUAGES, 'nl')}
+              locale={select('Locale', LANGUAGES, 'nl')}
               onChange={handleDatePickerDateChanged}
               selectedDate={preSelectedDate}
             />
@@ -262,7 +262,7 @@ storiesOf('Playground', module)
             formatDate={formatDate}
             parseDate={parseDate}
             dayPickerProps={{
-              locale: select('locale', LANGUAGES, 'nl'),
+              locale: select('Locale', LANGUAGES, 'nl'),
               localeUtils: MomentLocaleUtils,
               numberOfMonths: 2,
               showOutsideDays: false,
@@ -336,7 +336,7 @@ storiesOf('Playground', module)
                     helpText: 'Please pick a preferred date',
                     placeholder: inputPlaceholderToday,
                   }}
-                  locale={select('locale', LANGUAGES, 'nl')}
+                  locale={select('Locale', LANGUAGES, 'nl')}
                   onChange={handleDatePickerDateChanged}
                   selectedDate={preSelectedDate}
                 />

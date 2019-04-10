@@ -15,13 +15,13 @@ storiesOf('Form elements/Label', module)
   })
   .add('Label', () => (
     <Label
-      helpText={text('helpText', 'Optional')}
+      helpText={text('Help text', 'Optional')}
       htmlFor="input1"
-      inverse={boolean('inverse', false)}
-      required={boolean('required', false)}
-      size={select('size', sizes, 'medium')}
+      inverse={boolean('Inverse', false)}
+      required={boolean('Required', false)}
+      size={select('Size', sizes, 'medium')}
       connectedLeft={
-        boolean('Toggle connectedLeft', false) ? (
+        boolean('Toggle connected left', false) ? (
           <Icon>
             <IconMarkerSmallOutline />
           </Icon>
@@ -30,7 +30,7 @@ storiesOf('Form elements/Label', module)
         )
       }
       connectedRight={
-        boolean('Toggle connectedRight', false) ? (
+        boolean('Toggle connected right', false) ? (
           <TooltippedIcon tooltip={<TextSmall>This is the label tooltip text</TextSmall>} tooltipSize="small">
             <IconInfoBadgedSmallFilled />
           </TooltippedIcon>
