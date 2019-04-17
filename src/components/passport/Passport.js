@@ -43,7 +43,7 @@ class Passport extends PureComponent {
   };
 
   render() {
-    const { avatar, className, links, ...others } = this.props;
+    const { avatar, className, lineItems, ...others } = this.props;
 
     return (
       <Popover {...others} backdrop="transparent" className={cx(theme['passport'], className)}>
@@ -57,19 +57,26 @@ class Passport extends PureComponent {
               {this.renderDescription()}
             </Box>
           </Box>
-          {links && (
+          {lineItems && (
             <Box marginTop={3}>
-              {links.map(({ icon, ...link }, index) => (
+              {lineItems.map(({ icon, ...lineItem }, index) => (
                 <Box alignItems="flex-start" display="flex" key={index}>
                   <Box display="flex" flex="48px 0 0" justifyContent="center" paddingRight={3}>
                     {icon && (
-                      <Icon color="aqua" tint="dark" marginTop={1}>
+                      <Icon
+                        color={lineItem.href || lineItem.onClick ? 'aqua' : 'teal'}
+                        tint={lineItem.href || lineItem.onClick ? 'dark' : 'darkest'}
+                        marginTop={1}
+                      >
                         {icon}
                       </Icon>
                     )}
                   </Box>
-                  <TextBody className={cx(theme['prevent-overflow'], theme['prevent-wrap'], theme['show-ellipsis'])}>
-                    <Link {...link} inherit={false} />
+                  <TextBody
+                    className={cx(theme['prevent-overflow'], theme['prevent-wrap'], theme['show-ellipsis'])}
+                    color="teal"
+                  >
+                    {lineItem.href || lineItem.onClick ? <Link {...lineItem} inherit={false} /> : lineItem.children}
                   </TextBody>
                 </Box>
               ))}
@@ -89,7 +96,7 @@ Passport.propTypes = {
   /** The description of the Passport. */
   description: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
   /** Array of objects containing the props of a Link. */
-  links: PropTypes.array,
+  lineItems: PropTypes.array,
   /** The title of the Passport (can be a string of an object containing the props of a Link). */
   title: PropTypes.oneOfType([PropTypes.object, PropTypes.string]).isRequired,
 };
