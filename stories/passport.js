@@ -11,7 +11,7 @@ const store = new Store({
   active: false,
 });
 
-const contactLinks = [
+const contactLineItems = [
   {
     children: 'Dunder Miflin',
     icon: <IconBuildingSmallOutline />,
@@ -27,12 +27,10 @@ const contactLinks = [
   {
     children: 'david.brent@dundermiflin.com',
     icon: <IconMailSmallOutline />,
-    href: 'mailto:david.brent@dundermiflin.com',
-    title: 'Mail to david.brent@dundermiflin.com',
   },
 ];
 
-const companyLinks = [
+const companyLineItems = [
   {
     children: '+1 257 689 5454',
     icon: <IconPhoneSmallOutline />,
@@ -73,7 +71,7 @@ storiesOf('Passport', module)
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
           avatar={{ image: contactAvatar }}
-          links={contactLinks}
+          lineItems={contactLineItems}
           title={{ children: 'David Brent', href: 'https://www.teamleader.eu' }}
         />
       </State>
@@ -91,7 +89,7 @@ storiesOf('Passport', module)
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
           avatar={{ image: companyAvatar, shape: 'rounded' }}
-          links={companyLinks}
+          lineItems={companyLineItems}
           title="Dunder Miflin"
         />
       </State>
