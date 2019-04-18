@@ -4,14 +4,22 @@
 
 ### Changed
 
-- `Checkbox` & `RadioButton` & `Toggle`: alignment label according to size. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#593](https://github.com/teamleadercrm/ui/pull/593))
-- [BREAKING] `Passport`: renamed the `links` prop to `lineItems`, so we could also render normal text. ([@driesd](https://github.com/driesd) in [#595](https://github.com/teamleadercrm/ui/pull/595))
-
 ### Deprecated
 
 ### Removed
 
-- `Dialog`: wrapping `Box` of the body and all of the resize code. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#587](https://github.com/teamleadercrm/ui/pull/587))
+### Fixed
+
+## [0.25.0] - 2019-04-18
+
+### Changed
+
+- `Checkbox` & `RadioButton` & `Toggle`: alignment label according to size. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#593](https://github.com/teamleadercrm/ui/pull/593))
+- [BREAKING] `Passport`: renamed the `links` prop to `lineItems`, so we could also render normal text. ([@driesd](https://github.com/driesd) in [#595](https://github.com/teamleadercrm/ui/pull/595))
+
+### Removed
+
+- [BREAKING] `Dialog`: wrapping `Box` of the body and all of the resize code. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#587](https://github.com/teamleadercrm/ui/pull/587))
 
 ### Fixed
 
