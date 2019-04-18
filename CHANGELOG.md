@@ -10,12 +10,28 @@
 
 ### Fixed
 
+## [0.25.0] - 2019-04-18
+
+### Changed
+
+- `Checkbox` & `RadioButton` & `Toggle`: alignment label according to size. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#593](https://github.com/teamleadercrm/ui/pull/593))
+- [BREAKING] `Passport`: renamed the `links` prop to `lineItems`, so we could also render normal text. ([@driesd](https://github.com/driesd) in [#595](https://github.com/teamleadercrm/ui/pull/595))
+
+### Removed
+
+- [BREAKING] `Dialog`: wrapping `Box` of the body and all of the resize code. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#587](https://github.com/teamleadercrm/ui/pull/587))
+
+### Fixed
+
+- `AvatarInitials`: `size` prop on component. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#588](https://github.com/teamleadercrm/ui/pull/588))
+
 ## [0.24.5] - 2019-04-04
 
 ### Added
 
 - `TimerPulser`: added `TimerPulser` component. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#566](https://github.com/teamleadercrm/ui/pull/566))
 - `Popover`: `minWidth` prop. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#579](https://github.com/teamleadercrm/ui/pull/579))
+- `DatePicker`: `bordered` prop. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#584](https://github.com/teamleadercrm/ui/pull/584))
 - `Widget`: added `Widget` component. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#581](https://github.com/teamleadercrm/ui/pull/581))
 
 ### Changed

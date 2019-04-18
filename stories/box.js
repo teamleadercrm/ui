@@ -22,10 +22,10 @@ storiesOf('Box', module)
   .add('Basic', () => (
     <Box
       style={{ backgroundColor: '#fafafa' }}
-      display={select('display', displayValues, 'block')}
-      justifyContent={select('justifyContent', justifyContentValues, 'flex-start')}
-      margin={number('margin', 0, spacingOptions)}
-      padding={number('padding', 3, spacingOptions)}
+      display={select('Display', displayValues, 'block')}
+      justifyContent={select('Justify Content', justifyContentValues, 'flex-start')}
+      margin={number('Margin', 0, spacingOptions)}
+      padding={number('Padding', 3, spacingOptions)}
     >
       <TextBody>I'm body text inside a Box component</TextBody>
     </Box>

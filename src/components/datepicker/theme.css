@@ -19,9 +19,14 @@
   display: inline-block;
 }
 
+.is-bordered {
+  .wrapper {
+    border: 1px solid var(--color-neutral);
+    border-radius: var(--border-radius);
+  }
+}
+
 .wrapper {
-  border: 1px solid var(--color-neutral);
-  border-radius: var(--border-radius);
   flex-direction: row;
   position: relative;
   user-select: none;

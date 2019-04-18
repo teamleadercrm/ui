@@ -88,5 +88,62 @@ const rows2 = [
   },
 ];
 
+const rows3 = [
+  {
+    column1: 'Knauf gipsplaat',
+    column2: '01254254',
+    column3: '0126534',
+    column4: '0123644',
+  },
+  {
+    column1: 'Knauf gipsplaat',
+    column2: '01254254',
+    column3: '0126534',
+    column4: '0123644',
+  },
+  {
+    column1: 'Knauf gipsplaat',
+    column2: '01254254',
+    column3: '0126534',
+    column4: '0123644',
+  },
+  {
+    column1: 'Knauf gipsplaat',
+    column2: '01254254',
+    column3: '0126534',
+    column4: '0123644',
+  },
+  {
+    column1: 'Knauf gipsplaat',
+    column2: '01254254',
+    column3: '0126534',
+    column4: '0123644',
+  },
+  {
+    column1: 'Knauf gipsplaat',
+    column2: '01254254',
+    column3: '0126534',
+    column4: '0123644',
+  },
+  {
+    column1: 'Knauf gipsplaat',
+    column2: '01254254',
+    column3: '0126534',
+    column4: '0123644',
+  },
+  {
+    column1: 'Knauf gipsplaat',
+    column2: '01254254',
+    column3: '0126534',
+    column4: '0123644',
+  },
+  {
+    column1: 'Knauf gipsplaat',
+    column2: '01254254',
+    column3: '0126534',
+    column4: '0123644',
+  },
+];
+
 export default rows1;
-export { rows1, rows2 };
+export { rows1, rows2, rows3 };

@@ -38,7 +38,7 @@ storiesOf('Tab', module)
       propTablesExclude: [Box],
     },
   })
-  .add('titletab', () => (
+  .add('Title tab', () => (
     <TabGroup inverted={boolean('Inverted', true)} display={'flex'}>
       {tabItems.map((item, key) => {
         const optionalProps = item.count
@@ -60,7 +60,7 @@ storiesOf('Tab', module)
       })}
     </TabGroup>
   ))
-  .add('icontab', () => (
+  .add('Icon tab', () => (
     <TabGroup inverted={boolean('Inverted', true)} display={'flex'}>
       {invertedTabItems.map((item, key) => {
         const optionalProps = item.count

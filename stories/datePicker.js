@@ -55,6 +55,7 @@ storiesOf('Form elements/DatePicker', module)
 
     return (
       <DatePicker
+        bordered={boolean('bordered', true)}
         locale={select('Locale', languages, 'nl-BE')}
         localeUtils={CustomLocaleUtils}
         numberOfMonths={number('Number of months', 1)}
@@ -73,6 +74,7 @@ storiesOf('Form elements/DatePicker', module)
 
     return (
       <DatePickerInput
+        bordered={boolean('bordered', false)}
         dayPickerProps={{
           numberOfMonths: number('Number of months', 1),
           showOutsideDays: boolean('Show outside days', true),
@@ -82,13 +84,13 @@ storiesOf('Form elements/DatePicker', module)
         inputProps={{
           bold: boolean('Bold', false),
           disabled: boolean('Disabled', false),
-          error: text('error', ''),
-          helpText: text('helpText', 'Pick a date'),
+          error: text('Error', ''),
+          helpText: text('Help text', 'Pick a date'),
           inverse: boolean('Inverse', false),
-          warning: text('warning', ''),
+          warning: text('Warning', ''),
           placeholder: inputPlaceholderToday,
           readOnly: boolean('Read only', false),
-          width: text('width', '120px'),
+          width: text('Width', '120px'),
         }}
         locale={select('Locale', languages, 'nl-BE')}
         onChange={handleOnChange}
@@ -104,6 +106,7 @@ storiesOf('Form elements/DatePicker', module)
 
     return (
       <DatePickerRange
+        bordered={boolean('bordered', true)}
         locale={select('Locale', languages, 'nl-BE')}
         localeUtils={CustomLocaleUtils}
         numberOfMonths={number('Number of months', 2)}
