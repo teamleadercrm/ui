@@ -14,7 +14,6 @@ import {
   Button,
   ButtonGroup,
   Heading3,
-  Heading4,
   Link,
   Menu,
   MenuItem,
