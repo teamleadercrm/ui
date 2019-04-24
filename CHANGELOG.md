@@ -2,6 +2,8 @@
 
 ### Added
 
+- `Popover`: added `maxWidth` prop with a default value of `50vw`. ([@driesd](https://github.com/driesd) in [#597](https://github.com/teamleadercrm/ui/pull/597))
+
 ### Changed
 
 ### Deprecated

@@ -14,7 +14,6 @@ import {
   Button,
   ButtonGroup,
   Heading3,
-  Heading4,
   Link,
   Menu,
   MenuItem,
@@ -109,6 +108,7 @@ storiesOf('Popover', module)
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
           lockScroll={boolean('Lock scroll', true)}
+          maxWidth={text('Max width', '50vw')}
           minWidth={text('Min width', undefined)}
           offsetCorrection={number('Offset correction', 0)}
         >
@@ -132,6 +132,7 @@ storiesOf('Popover', module)
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
           lockScroll={boolean('Lock scroll', true)}
+          maxWidth={text('Max width', '50vw')}
           minWidth={text('Min width', undefined)}
           offsetCorrection={number('Offset correction', 0)}
         >
@@ -158,6 +159,7 @@ storiesOf('Popover', module)
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
           lockScroll={boolean('Lock scroll', true)}
+          maxWidth={text('Max width', '50vw')}
           minWidth={text('Min width', undefined)}
           offsetCorrection={number('Offset correction', 0)}
         >
@@ -185,6 +187,7 @@ storiesOf('Popover', module)
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
           lockScroll={boolean('Lock scroll', true)}
+          maxWidth={text('Max width', '50vw')}
           minWidth={text('Min width', undefined)}
           offsetCorrection={number('Offset correction', 0)}
         >
@@ -211,6 +214,7 @@ storiesOf('Popover', module)
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
           lockScroll={boolean('Lock scroll', true)}
+          maxWidth={text('Max width', '50vw')}
           minWidth={text('Min width', undefined)}
           offsetCorrection={number('Offset correction', 0)}
         >
@@ -238,6 +242,7 @@ storiesOf('Popover', module)
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
           lockScroll={boolean('Lock scroll', true)}
+          maxWidth={text('Max width', '50vw')}
           minWidth={text('Min width', undefined)}
           offsetCorrection={number('Offset correction', 0)}
         >
@@ -312,6 +317,7 @@ storiesOf('Popover', module)
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
           lockScroll={boolean('Lock scroll', true)}
+          maxWidth={text('Max width', '50vw')}
           minWidth={text('Min width', undefined)}
           offsetCorrection={number('Offset correction', 0)}
         >
@@ -347,6 +353,7 @@ storiesOf('Popover', module)
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
           lockScroll={boolean('Lock scroll', true)}
+          maxWidth={text('Max width', '50vw')}
           minWidth={text('Min width', undefined)}
           offsetCorrection={number('Offset correction', 0)}
         >
