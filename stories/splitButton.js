@@ -20,7 +20,6 @@ storiesOf('Split button menu', module).add('Basic', () => (
     onButtonClick={handleButtonClick}
     size={select('Size', sizes, 'medium')}
     triggerListAction={boolean('Fire action on menu item click', true)}
-    width={text('width', '100')}
   >
     <MenuItem onMenuItemClick={handleMenuItemClick} caption="Main action" />
     <MenuItem onMenuItemClick={handleMenuItemClick} caption="Action 1" />
