@@ -6,7 +6,6 @@ import { Menu } from '../menu';
 import Popover from '../popover';
 import { IconChevronDownSmallOutline } from '@teamleader/ui-icons';
 import pick from 'lodash.pick';
-import { button } from '@storybook/addon-knobs/dist/deprecated';
 
 class SplitButtonMenu extends PureComponent {
   firstChild = pick(this.props.children[0].props, ['caption']);
