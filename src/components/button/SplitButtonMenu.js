@@ -6,6 +6,7 @@ import { Menu } from '../menu';
 import Popover from '../popover';
 import { IconChevronDownSmallOutline } from '@teamleader/ui-icons';
 import pick from 'lodash.pick';
+import { button } from '@storybook/addon-knobs/dist/deprecated';
 
 class SplitButtonMenu extends PureComponent {
   firstChild = pick(this.props.children[0].props, ['caption']);
@@ -44,13 +45,19 @@ class SplitButtonMenu extends PureComponent {
   };
 
   render() {
-    const { children, level, size, triggerListAction, ...others } = this.props;
+    const { children, level, size, triggerListAction, width, ...others } = this.props;
     const { buttonLabel, popoverActive, popoverAnchorEl } = this.state;
     const boxProps = pickBoxProps(others);
     return (
       <Box display="flex" justifyContent="center" {...boxProps} data-teamleader-ui="split-menu">
         <ButtonGroup segmented>
-          <Button label={buttonLabel} level={level} size={size} onClick={this.handleMainButtonClick} />
+          <Button
+            label={buttonLabel}
+            level={level}
+            size={size}
+            onClick={this.handleMainButtonClick}
+            style={{ width: `${width}px` }}
+          />
           <Button
             icon={<IconChevronDownSmallOutline />}
             level={level}
@@ -98,6 +105,8 @@ SplitButtonMenu.propTypes = {
   triggerListAction: PropTypes.bool,
   /** The function executed, when we click on the main button. */
   onButtonClick: PropTypes.func.isRequired,
+  /** Width of the main button in px. */
+  widht: PropTypes.string,
 };
 
 export default SplitButtonMenu;
