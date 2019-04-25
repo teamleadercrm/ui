@@ -14,7 +14,6 @@ import {
   Button,
   ButtonGroup,
   Heading3,
-  Heading4,
   Link,
   Menu,
   MenuItem,
@@ -103,13 +102,14 @@ storiesOf('Popover', module)
           backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
           direction={select('Direction', directions, 'south')}
-          fullHeight={boolean('fullHeight', true)}
+          fullHeight={boolean('Full height', true)}
           position={select('Position', positions, 'center')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
           lockScroll={boolean('Lock scroll', true)}
-          minWidth={text('minWidth', undefined)}
+          maxWidth={text('Max width', '50vw')}
+          minWidth={text('Min width', undefined)}
           offsetCorrection={number('Offset correction', 0)}
         >
           {contentBoxWithSingleTextLine}
@@ -117,7 +117,7 @@ storiesOf('Popover', module)
       </State>
     </Box>
   ))
-  .add('with title', () => (
+  .add('With title', () => (
     <Box display="flex" justifyContent="center">
       <Button onClick={handleButtonClick} label="Open titled Popover" />
       <State store={popoverStore}>
@@ -126,13 +126,14 @@ storiesOf('Popover', module)
           backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
           direction={select('Direction', directions, 'south')}
-          fullHeight={boolean('fullHeight', true)}
+          fullHeight={boolean('Full height', true)}
           position={select('Position', positions, 'center')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
           lockScroll={boolean('Lock scroll', true)}
-          minWidth={text('minWidth', undefined)}
+          maxWidth={text('Max width', '50vw')}
+          minWidth={text('Min width', undefined)}
           offsetCorrection={number('Offset correction', 0)}
         >
           <Banner fullWidth>
@@ -143,7 +144,7 @@ storiesOf('Popover', module)
       </State>
     </Box>
   ))
-  .add('with title & subtitle', () => (
+  .add('With title & subtitle', () => (
     <Box display="flex" justifyContent="center">
       <Button onClick={handleButtonClick} label="Open titled & subtitled Popover" />
       <State store={popoverStore}>
@@ -152,13 +153,14 @@ storiesOf('Popover', module)
           backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
           direction={select('Direction', directions, 'south')}
-          fullHeight={boolean('fullHeight', true)}
+          fullHeight={boolean('Full height', true)}
           position={select('Position', positions, 'center')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
           lockScroll={boolean('Lock scroll', true)}
-          minWidth={text('minWidth', undefined)}
+          maxWidth={text('Max width', '50vw')}
+          minWidth={text('Min width', undefined)}
           offsetCorrection={number('Offset correction', 0)}
         >
           <Banner color="neutral" fullWidth>
@@ -170,7 +172,7 @@ storiesOf('Popover', module)
       </State>
     </Box>
   ))
-  .add('with close button', () => (
+  .add('With close button', () => (
     <Box display="flex" justifyContent="center">
       <Button onClick={handleButtonClick} label="Open Popover with close button" />
       <State store={popoverStore}>
@@ -179,13 +181,14 @@ storiesOf('Popover', module)
           backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
           direction="south"
-          fullHeight={boolean('fullHeight', true)}
+          fullHeight={boolean('Full height', true)}
           position={select('Position', positions, 'center')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
           lockScroll={boolean('Lock scroll', true)}
-          minWidth={text('minWidth', undefined)}
+          maxWidth={text('Max width', '50vw')}
+          minWidth={text('Min width', undefined)}
           offsetCorrection={number('Offset correction', 0)}
         >
           <Banner onClose={handleCloseClick} fullWidth>
@@ -196,7 +199,7 @@ storiesOf('Popover', module)
       </State>
     </Box>
   ))
-  .add('with actions', () => (
+  .add('With actions', () => (
     <Box display="flex" justifyContent="center">
       <Button onClick={handleButtonClick} label="Open Popover with actions" />
       <State store={popoverStore}>
@@ -205,13 +208,14 @@ storiesOf('Popover', module)
           backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
           direction={select('Direction', directions, 'south')}
-          fullHeight={boolean('fullHeight', true)}
+          fullHeight={boolean('Full height', true)}
           position={select('Position', positions, 'center')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
           lockScroll={boolean('Lock scroll', true)}
-          minWidth={text('minWidth', undefined)}
+          maxWidth={text('Max width', '50vw')}
+          minWidth={text('Min width', undefined)}
           offsetCorrection={number('Offset correction', 0)}
         >
           {contentBoxWithSingleTextLine}
@@ -223,7 +227,7 @@ storiesOf('Popover', module)
       </State>
     </Box>
   ))
-  .add('with menu', () => (
+  .add('With menu', () => (
     <Box display="flex" justifyContent="center">
       <Button onClick={handleButtonClick} label="Open Popover with menu" />
       <State store={popoverStore}>
@@ -232,13 +236,14 @@ storiesOf('Popover', module)
           backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
           direction={select('Direction', directions, 'south')}
-          fullHeight={boolean('fullHeight', true)}
+          fullHeight={boolean('Full height', true)}
           position={select('Position', positions, 'end')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
           lockScroll={boolean('Lock scroll', true)}
-          minWidth={text('minWidth', undefined)}
+          maxWidth={text('Max width', '50vw')}
+          minWidth={text('Min width', undefined)}
           offsetCorrection={number('Offset correction', 0)}
         >
           <Box overflowY="auto">
@@ -257,7 +262,7 @@ storiesOf('Popover', module)
       </State>
     </Box>
   ))
-  .add('with split button menu', () => (
+  .add('With split button menu', () => (
     <Box display="flex" justifyContent="center">
       <ButtonGroup segmented>
         <State store={splitButtonStore}>
@@ -297,7 +302,7 @@ storiesOf('Popover', module)
       </State>
     </Box>
   ))
-  .add('experiment 1', () => (
+  .add('Experiment 1', () => (
     <Box display="flex" justifyContent="center">
       <Button onClick={handleButtonClick} label="Open a experimental Popover" />
       <State store={popoverStore}>
@@ -306,13 +311,14 @@ storiesOf('Popover', module)
           backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
           direction={select('Direction', directions, 'south')}
-          fullHeight={boolean('fullHeight', true)}
+          fullHeight={boolean('Full height', true)}
           position={select('Position', positions, 'center')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
           lockScroll={boolean('Lock scroll', true)}
-          minWidth={text('minWidth', undefined)}
+          maxWidth={text('Max width', '50vw')}
+          minWidth={text('Min width', undefined)}
           offsetCorrection={number('Offset correction', 0)}
         >
           <Banner color="neutral" fullWidth>
@@ -332,7 +338,7 @@ storiesOf('Popover', module)
       </State>
     </Box>
   ))
-  .add('experiment 2', () => (
+  .add('Experiment 2', () => (
     <Box display="flex" justifyContent="center">
       <Button onClick={handleButtonClick} label="Open a experimental Popover" />
       <State store={popoverStore}>
@@ -341,13 +347,14 @@ storiesOf('Popover', module)
           backdrop={select('Backdrop', backdrops, 'transparent')}
           color={select('Color', colors, 'neutral')}
           direction={select('Direction', directions, 'south')}
-          fullHeight={boolean('fullHeight', true)}
+          fullHeight={boolean('Full height', true)}
           position={select('Position', positions, 'center')}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
           tint={select('Tint', tints, 'lightest')}
           lockScroll={boolean('Lock scroll', true)}
-          minWidth={text('minWidth', undefined)}
+          maxWidth={text('Max width', '50vw')}
+          minWidth={text('Min width', undefined)}
           offsetCorrection={number('Offset correction', 0)}
         >
           <Banner color="neutral" fullWidth>
