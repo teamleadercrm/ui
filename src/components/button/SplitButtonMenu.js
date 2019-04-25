@@ -105,7 +105,7 @@ SplitButtonMenu.propTypes = {
   /** The function executed, when we click on the main button. */
   onButtonClick: PropTypes.func.isRequired,
   /** Width of the main button in px. */
-  widht: PropTypes.string,
+  width: PropTypes.string,
 };
 
 export default SplitButtonMenu;
