@@ -5,13 +5,10 @@ import { Button, ButtonGroup } from '.';
 import { Menu } from '../menu';
 import Popover from '../popover';
 import { IconChevronDownSmallOutline } from '@teamleader/ui-icons';
+import pick from 'lodash.pick';
 
 class SplitButtonMenu extends PureComponent {
-  firstChild = {
-    caption: this.props.children[0].props.caption,
-    level: this.props.children[0].props.level,
-    value: this.props.children[0].props.value,
-  };
+  firstChild = pick(this.props.children[0].props, ['caption', 'level', 'value']);
 
   state = {
     buttonLabel: this.firstChild.caption,
@@ -37,6 +34,10 @@ class SplitButtonMenu extends PureComponent {
       popoverActive: false,
       value: childProps.value,
     });
+
+    if (this.props.listItemAction) {
+      childProps.onMenuItemClick();
+    }
   };
 
   handleCloseClick = () => {
@@ -44,9 +45,8 @@ class SplitButtonMenu extends PureComponent {
   };
 
   render() {
-    const { children, ...others } = this.props;
+    const { children, listItemAction, ...others } = this.props;
     const { buttonLabel, buttonLevel, popoverActive, popoverAnchorEl, value } = this.state;
-
     const boxProps = pickBoxProps(others);
 
     return (
@@ -80,9 +80,15 @@ class SplitButtonMenu extends PureComponent {
   }
 }
 
+SplitButtonMenu.defaultProps = {
+  listItemAction: true,
+};
+
 SplitButtonMenu.propTypes = {
   /** The MenuItems we pass to our component. */
   children: PropTypes.node.isRequired,
+  /** Boolean to decide if we want to fire directly after clicking on a list item. */
+  listItemAction: PropTypes.bool,
   /** The function executed, when we click on the main button. */
   onButtonClick: PropTypes.func.isRequired,
 };
