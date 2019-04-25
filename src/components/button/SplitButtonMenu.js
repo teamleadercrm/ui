@@ -44,7 +44,6 @@ class SplitButtonMenu extends PureComponent {
     const { children, level, size, ...others } = this.props;
     const { buttonLabel, popoverActive, popoverAnchorEl } = this.state;
     const boxProps = pickBoxProps(others);
-
     return (
       <Box display="flex" justifyContent="center" {...boxProps} data-teamleader-ui="split-menu">
         <ButtonGroup segmented>
@@ -66,9 +65,11 @@ class SplitButtonMenu extends PureComponent {
         >
           <Menu>
             {React.Children.map(children, child => {
-              return React.cloneElement(child, {
-                onClick: () => this.handleMenuItemClick(child),
-              });
+              if (child.props.caption !== buttonLabel) {
+                return React.cloneElement(child, {
+                  onClick: () => this.handleMenuItemClick(child),
+                });
+              }
             })}
           </Menu>
         </Popover>
