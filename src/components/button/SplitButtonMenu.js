@@ -8,7 +8,7 @@ import { IconChevronDownSmallOutline } from '@teamleader/ui-icons';
 import pick from 'lodash.pick';
 
 class SplitButtonMenu extends PureComponent {
-  firstChild = pick(this.props.children[0].props, ['caption', 'level', 'value']);
+  firstChild = pick(this.props.children[0].props, ['caption']);
 
   state = {
     buttonLabel: this.firstChild.caption,
@@ -27,12 +27,15 @@ class SplitButtonMenu extends PureComponent {
   handleMenuItemClick = child => {
     const childProps = child.props;
     this.setState({
-      buttonLabel: childProps.caption,
       popoverActive: false,
     });
 
     if (this.props.triggerListAction) {
       childProps.onMenuItemClick(childProps.caption);
+    } else {
+      this.setState({
+        buttonLabel: childProps.caption,
+      });
     }
   };
 
@@ -41,7 +44,7 @@ class SplitButtonMenu extends PureComponent {
   };
 
   render() {
-    const { children, level, size, ...others } = this.props;
+    const { children, level, size, triggerListAction, ...others } = this.props;
     const { buttonLabel, popoverActive, popoverAnchorEl } = this.state;
     const boxProps = pickBoxProps(others);
     return (
