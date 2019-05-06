@@ -55,6 +55,8 @@ class Dialog extends PureComponent {
 }
 
 Dialog.propTypes = {
+  /** The content to display inside the dialog. */
+  children: PropTypes.any,
   /** A class name for the wrapper to apply custom styles. */
   className: PropTypes.string,
   /** The color of the header of the dialog. */
