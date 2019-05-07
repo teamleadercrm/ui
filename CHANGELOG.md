@@ -16,6 +16,8 @@
 
 ### Fixed
 
+- `Banner`: fixed the centering of the icon. The centering was off by a few pixels. ([@lowiebenoot](https://github.com/lowiebenoot) in [#602](https://github.com/teamleadercrm/ui/pull/602))
+
 ## [0.25.0] - 2019-04-18
 
 ### Changed
