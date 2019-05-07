@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import Box from '../box';
 import Overlay from '../overlay/Overlay';
 import Transition from 'react-transition-group/Transition';
 import theme from './theme.css';
@@ -29,6 +30,7 @@ class DialogBase extends PureComponent {
       onOverlayMouseDown,
       onOverlayMouseMove,
       onOverlayMouseUp,
+      scrollable,
       size,
     } = this.props;
 
@@ -59,7 +61,15 @@ class DialogBase extends PureComponent {
                 onMouseUp={onOverlayMouseUp}
               />
               <div data-teamleader-ui="dialog" className={dialogClassNames}>
-                <div className={theme['inner']}>{children}</div>
+                <div className={theme['inner']}>
+                  {scrollable ? (
+                    <Box display="flex" flexDirection="column" overflowY="auto">
+                      {children}
+                    </Box>
+                  ) : (
+                    children
+                  )}
+                </div>
               </div>
             </div>
           );
@@ -90,6 +100,8 @@ DialogBase.propTypes = {
   onOverlayMouseMove: PropTypes.func,
   /** Callback function that is fired when the mouse button is released from the overlay. */
   onOverlayMouseUp: PropTypes.func,
+  /** If true, the content of the dialog will be scrollable when it exceeds the available height. */
+  scrollable: PropTypes.bool,
   /** The size of the dialog. */
   size: PropTypes.oneOf(['small', 'medium', 'large', 'fullscreen']),
 };
@@ -97,6 +109,7 @@ DialogBase.propTypes = {
 DialogBase.defaultProps = {
   active: false,
   backdrop: 'dark',
+  scrollable: true,
   size: 'medium',
 };
 
