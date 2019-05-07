@@ -7,6 +7,8 @@
 
 ### Changed
 
+- `SingleLineInputBase` & `Textarea`: changed validation behavior to only show a border when passing a boolean value. ([@driesd](https://github.com/driesd) in [#601](https://github.com/teamleadercrm/ui/pull/601))
+
 ### Deprecated
 
 ### Removed

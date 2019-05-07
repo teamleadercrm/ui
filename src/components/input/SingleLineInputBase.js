@@ -104,17 +104,17 @@ SingleLineInputBase.propTypes = {
   /** Element stuck to the right hand side of the component. */
   connectedRight: PropTypes.element,
   /** The text string/element to use as error message below the input. */
-  error: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  error: PropTypes.oneOfType([PropTypes.bool, PropTypes.node]),
   /** The text string to use as help text below the input. */
   helpText: PropTypes.string,
   /** The text string/element to use as a prefix inside the input field */
   prefix: PropTypes.oneOfType([PropTypes.array, PropTypes.element]),
   /** The text string/element to use as success message below the input. */
-  success: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  success: PropTypes.oneOfType([PropTypes.bool, PropTypes.node]),
   /** The text string/element to use as a suffix inside the input field */
   suffix: PropTypes.oneOfType([PropTypes.array, PropTypes.element]),
   /** The text to use as warning message below the input. */
-  warning: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  warning: PropTypes.oneOfType([PropTypes.bool, PropTypes.node]),
   /** A custom width for the input field */
   width: PropTypes.string,
 };
