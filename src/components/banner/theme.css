@@ -3,6 +3,7 @@
 
 .icon {
   margin-right: var(--spacer-small);
+  display: flex;
 }
 
 .inner {
