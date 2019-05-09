@@ -29,14 +29,7 @@ class SplitButtonMenu extends PureComponent {
     this.setState({
       popoverActive: false,
     });
-
-    if (this.props.triggerListAction) {
-      childProps.onMenuItemClick(childProps.caption);
-    } else {
-      this.setState({
-        buttonLabel: childProps.caption,
-      });
-    }
+    childProps.onMenuItemClick(childProps.caption);
   };
 
   handleCloseClick = () => {
@@ -44,7 +37,7 @@ class SplitButtonMenu extends PureComponent {
   };
 
   render() {
-    const { children, level, size, triggerListAction, ...others } = this.props;
+    const { children, level, size, ...others } = this.props;
     const { buttonLabel, popoverActive, popoverAnchorEl } = this.state;
     const boxProps = pickBoxProps(others);
     return (
@@ -84,7 +77,6 @@ class SplitButtonMenu extends PureComponent {
 SplitButtonMenu.defaultProps = {
   level: 'primary',
   size: 'medium',
-  triggerListAction: true,
 };
 
 SplitButtonMenu.propTypes = {
@@ -94,8 +86,6 @@ SplitButtonMenu.propTypes = {
   level: PropTypes.oneOf(['primary', 'secondary', 'destructive']),
   /** Size of the button. */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
-  /** Boolean to decide if we want to fire directly after clicking on a list item. */
-  triggerListAction: PropTypes.bool,
   /** The function executed, when we click on the main button. */
   onButtonClick: PropTypes.func.isRequired,
 };
