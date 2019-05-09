@@ -5,7 +5,7 @@ import cx from 'classnames';
 
 import theme from './theme.css';
 
-import { Banner, Button, ButtonGroup, DialogBase, Heading2, Heading3, Link } from '../../index';
+import { Banner, Box, Button, ButtonGroup, DialogBase, Heading2, Heading3, Link } from '../../index';
 import { COLORS } from '../../constants';
 
 class Dialog extends PureComponent {
@@ -32,7 +32,7 @@ class Dialog extends PureComponent {
   };
 
   render() {
-    const { children, className, title, ...otherProps } = this.props;
+    const { children, className, scrollable, title, ...otherProps } = this.props;
 
     const classNames = cx(theme['dialog'], className);
 
@@ -45,9 +45,15 @@ class Dialog extends PureComponent {
     ]);
 
     return (
-      <DialogBase className={classNames} {...restProps}>
+      <DialogBase className={classNames} {...restProps} scrollable={false}>
         {title && this.getHeader()}
-        {children}
+        {scrollable ? (
+          <Box display="flex" flexDirection="column" overflowY="auto">
+            {children}
+          </Box>
+        ) : (
+          children
+        )}
         {this.getFooter()}
       </DialogBase>
     );
@@ -55,6 +61,8 @@ class Dialog extends PureComponent {
 }
 
 Dialog.propTypes = {
+  /** The content to display inside the dialog. */
+  children: PropTypes.any,
   /** A class name for the wrapper to apply custom styles. */
   className: PropTypes.string,
   /** The color of the header of the dialog. */
@@ -67,6 +75,8 @@ Dialog.propTypes = {
   onCloseClick: PropTypes.func,
   /** Object containing the props of the primary action (a Button, with level prop set to 'primary'). */
   primaryAction: PropTypes.object.isRequired,
+  /** If true, the content of the dialog will be scrollable when it exceeds the available height. */
+  scrollable: PropTypes.bool,
   /** Object containing the the props of the secondary action (a Button). */
   secondaryAction: PropTypes.object,
   /** Object containing the props of the tertiary action (a Link, with the inherit props set to false). */
@@ -78,6 +88,7 @@ Dialog.propTypes = {
 Dialog.defaultProps = {
   headerColor: 'neutral',
   headingLevel: 3,
+  scrollable: true,
 };
 
 export default Dialog;

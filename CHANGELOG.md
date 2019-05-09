@@ -10,6 +10,22 @@
 
 ### Fixed
 
+## [0.26.0] - 2019-05-09
+
+### Added
+
+- [BREAKING] `Dialog` & `DialogBase`: added boolean `scrollable` prop with a default value of `true`. ([@driesd](https://github.com/driesd) in [#599](https://github.com/teamleadercrm/ui/pull/599))
+- `Box`: added `backgroundColor` & `backgroundTint` props. ([@driesd](https://github.com/driesd) in [#600](https://github.com/teamleadercrm/ui/pull/600))
+- `Popover`: added `maxWidth` prop with a default value of `50vw`. ([@driesd](https://github.com/driesd) in [#597](https://github.com/teamleadercrm/ui/pull/597))
+
+### Changed
+
+- `SingleLineInputBase` & `Textarea`: changed validation behavior to only show a border when passing a boolean value. ([@driesd](https://github.com/driesd) in [#601](https://github.com/teamleadercrm/ui/pull/601))
+
+### Fixed
+
+- `Banner`: fixed the centering of the icon. The centering was off by a few pixels. ([@lowiebenoot](https://github.com/lowiebenoot) in [#602](https://github.com/teamleadercrm/ui/pull/602))
+
 ## [0.25.0] - 2019-04-18
 
 ### Changed

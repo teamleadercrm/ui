@@ -1,6 +1,7 @@
 import React, { createRef, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import { COLORS, TINTS } from '../../constants';
 import theme from './theme.css';
 
 const overflows = ['auto', 'hidden', 'scroll', 'visible'];
@@ -14,6 +15,8 @@ class Box extends PureComponent {
       alignContent,
       alignItems,
       alignSelf,
+      backgroundColor,
+      backgroundTint,
       boxSizing,
       children,
       className,
@@ -54,6 +57,9 @@ class Box extends PureComponent {
         [theme[`align-content-${alignContent}`]]: alignContent,
         [theme[`align-items-${alignItems}`]]: alignItems,
         [theme[`align-self-${alignSelf}`]]: alignSelf,
+        [theme[`background-color-${backgroundColor}-${backgroundTint}`]]: backgroundColor && backgroundTint,
+        [theme[`background-color-${backgroundColor}`]]:
+          backgroundColor && (!backgroundTint || backgroundTint === 'normal'),
         [theme[`display-${display}`]]: display,
         [theme[`flex-direction-${flexDirection}`]]: flexDirection,
         [theme[`flex-wrap-${flexWrap}`]]: flexWrap,
@@ -97,6 +103,8 @@ Box.propTypes = {
   alignContent: PropTypes.oneOf(['center', 'flex-start', 'flex-end', 'space-around', 'space-between', 'space-evenly']),
   alignItems: PropTypes.oneOf(['center', 'flex-start', 'flex-end', 'baseline', 'stretch']),
   alignSelf: PropTypes.oneOf(['center', 'flex-start', 'flex-end', 'stretch']),
+  backgroundColor: PropTypes.oneOf(COLORS),
+  backgroundTint: PropTypes.oneOf(TINTS),
   boxSizing: PropTypes.oneOf(['border-box', 'content-box']),
   children: PropTypes.any,
   className: PropTypes.string,

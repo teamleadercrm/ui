@@ -31,10 +31,21 @@ storiesOf('Dialogs', module)
             backdrop={select('Backdrop', ['dark'], 'dark')}
             onEscKeyDown={handleActiveToggle}
             onOverlayClick={handleActiveToggle}
+            scrollable={boolean('Scrollable', true)}
             size={select('Size', sizes, 'medium')}
           >
             <Box padding={4}>
-              <TextBody>Here you can add arbitrary content.</TextBody>
+              <TextBody>
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et
+                ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
+                dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+                magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
+                amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+                kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+              </TextBody>
             </Box>
           </DialogBase>
         </State>
@@ -69,9 +80,10 @@ storiesOf('Dialogs', module)
             backdrop={select('Backdrop', ['dark'], 'dark')}
             onEscKeyDown={handleActiveToggle}
             onOverlayClick={handleActiveToggle}
+            scrollable={boolean('Scrollable', true)}
             size={select('Size', sizes, 'medium')}
           >
-            <Box padding={4} overflowY="auto">
+            <Box padding={4}>
               <TextBody>Here you can add arbitrary content.</TextBody>
             </Box>
           </Dialog>
