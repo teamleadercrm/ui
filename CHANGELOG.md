@@ -2,6 +2,8 @@
 
 ### Added
 
+- `Banner`: `size` prop. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#604](https://github.com/teamleadercrm/ui/pull/604))
+
 ### Changed
 
 ### Deprecated
