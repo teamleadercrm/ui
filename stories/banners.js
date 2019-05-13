@@ -5,6 +5,7 @@ import { IconIdeaMediumOutline } from '@teamleader/ui-icons';
 import { Banner, Link, TextDisplay } from '../src';
 
 const colors = ['white', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua'];
+const sizes = ['small', 'medium', 'large'];
 
 storiesOf('Banner', module)
   .addParameters({
@@ -17,6 +18,7 @@ storiesOf('Banner', module)
       color={select('Color', colors, 'white')}
       fullWidth={boolean('Full width', false)}
       icon={<IconIdeaMediumOutline />}
+      size={select('Size', sizes, 'medium')}
     >
       <TextDisplay>
         {text(
@@ -31,6 +33,7 @@ storiesOf('Banner', module)
       color={select('Color', colors, 'white')}
       fullWidth={boolean('Full width', false)}
       icon={<IconIdeaMediumOutline />}
+      size={select('Size', sizes, 'medium')}
     >
       <TextDisplay>
         I am a banner with an <Link href="http://teamleader.eu">optional link</Link> inside.
