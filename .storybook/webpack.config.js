@@ -18,6 +18,10 @@ const cssModulesLoader = [
 
 // Export a function. Accept the base config as the only param.
 module.exports = async ({ config }) => {
+  // Remove the existing css rule so we can define our own css rule
+  // https://github.com/storybooks/storybook/issues/6319#issuecomment-477852640
+  config.module.rules = config.module.rules.filter(f => f.test.toString() !== '/\\.css$/');
+
   config.module.rules.push({
     test: /\.css$/,
     use: ['style-loader', cssModulesLoader, 'postcss-loader'],
