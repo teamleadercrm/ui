@@ -18,9 +18,16 @@ const cssModulesLoader = [
 
 // Export a function. Accept the base config as the only param.
 module.exports = async ({ config }) => {
-  // Remove the existing css rule so we can define our own css rule
+  // Overwrite some default rules
   // https://github.com/storybooks/storybook/issues/6319#issuecomment-477852640
-  config.module.rules = config.module.rules.filter(f => f.test.toString() !== '/\\.css$/');
+  config.module.rules = config.module.rules.filter(f => {
+    const ruleTest = f.test.toString();
+
+    return (
+      ruleTest !== '/\\.css$/' &&
+      ruleTest !== '/\\.(svg|ico|jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|cur|ani)(\\?.*)?$/'
+    );
+  });
 
   config.module.rules.push({
     test: /\.css$/,
