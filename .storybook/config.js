@@ -1,16 +1,20 @@
 import { centerStyles } from './styles';
-import { configure, addDecorator } from '@storybook/react';
-import { withBackgrounds } from '@storybook/addon-backgrounds';
+import { configure, addDecorator, addParameters } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs } from '@storybook/addon-knobs';
-import { withOptions } from '@storybook/addon-options';
 import pkg from '../package.json';
 import PropTable from '../stories/components/propTable';
 import styles from '@sambego/storybook-styles';
 
-// addon-background
-addDecorator(
-  withBackgrounds([
+// global parameters
+addParameters({
+  options: {
+    addonPanelInRight: true,
+    enableShortcuts: false,
+    name: `UI Version ${pkg.version}`,
+    url: 'https://teamleader.design',
+  },
+  backgrounds: [
     { name: 'White', value: '#ffffff', default: true },
     { name: 'Aqua lightest', value: '#e6f2ff' },
     { name: 'Neutral', value: '#f7f7fa' },
@@ -20,8 +24,8 @@ addDecorator(
     { name: 'Teal lightest', value: '#e1ecfa' },
     { name: 'Violet lightest', value: '#f0f0ff' },
     { name: 'Teal darkest', value: '#2a3b4d' },
-  ]),
-);
+  ],
+});
 
 // addon-info
 addDecorator(
@@ -90,16 +94,6 @@ addDecorator(
 
 // addon-knobs
 addDecorator(withKnobs);
-
-// addon-options
-addDecorator(
-  withOptions({
-    addonPanelInRight: true,
-    enableShortcuts: false,
-    name: `UI Version ${pkg.version}`,
-    url: 'https://teamleader.design',
-  }),
-);
 
 // addon-styles
 addDecorator(styles({ ...centerStyles }));

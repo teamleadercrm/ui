@@ -17,13 +17,24 @@ const cssModulesLoader = [
 ].join('&');
 
 // Export a function. Accept the base config as the only param.
-module.exports = (storybookBaseConfig, configType) => {
-  storybookBaseConfig.module.rules.push({
+module.exports = async ({ config }) => {
+  // Overwrite some default rules
+  // https://github.com/storybooks/storybook/issues/6319#issuecomment-477852640
+  config.module.rules = config.module.rules.filter(f => {
+    const ruleTest = f.test.toString();
+
+    return (
+      ruleTest !== '/\\.css$/' &&
+      ruleTest !== '/\\.(svg|ico|jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|cur|ani)(\\?.*)?$/'
+    );
+  });
+
+  config.module.rules.push({
     test: /\.css$/,
     use: ['style-loader', cssModulesLoader, 'postcss-loader'],
   });
 
-  storybookBaseConfig.module.rules.push({
+  config.module.rules.push({
     test: /\.(jpe?g|png|gif|svg)$/i,
     use: [
       {
@@ -55,20 +66,17 @@ module.exports = (storybookBaseConfig, configType) => {
     ],
   });
 
-  if (storybookBaseConfig.optimization) {
-    storybookBaseConfig.optimization.minimize = false;
+  if (config.optimization) {
+    config.optimization.minimize = false;
   }
 
-  storybookBaseConfig.plugins.map(plugin => {
+  config.plugins.map(plugin => {
     if (plugin instanceof webpack.DefinePlugin) {
-      plugin.definitions = {
-        ...plugin.definitions,
-        'process.env': globals,
-      };
+      plugin.definitions = { ...plugin.definitions, 'process.env': globals };
     }
     return plugin;
   });
 
   // Return the altered config
-  return storybookBaseConfig;
+  return config;
 };
