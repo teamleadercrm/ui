@@ -15,7 +15,6 @@ addParameters({
     url: 'https://teamleader.design',
   },
   backgrounds: [
-    { name: 'White', value: '#ffffff', default: true },
     { name: 'Aqua lightest', value: '#e6f2ff' },
     { name: 'Neutral', value: '#f7f7fa' },
     { name: 'Gold lightest', value: '#ffeecc' },
