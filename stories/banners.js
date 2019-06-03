@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, select, text } from '@storybook/addon-knobs/react';
 import { IconIdeaMediumOutline } from '@teamleader/ui-icons';
-import { Banner, Link, TextDisplay } from '../src';
+import { Banner, Link, TextDisplay, SMALL, MEDIUM, LARGE } from '../src';
 
 const colors = ['white', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua'];
 
@@ -17,6 +17,7 @@ storiesOf('Banner', module)
       color={select('Color', colors, 'white')}
       fullWidth={boolean('Full width', false)}
       icon={<IconIdeaMediumOutline />}
+      size={select('Size', [SMALL, MEDIUM, LARGE], MEDIUM)}
     >
       <TextDisplay>
         {text(
@@ -31,6 +32,7 @@ storiesOf('Banner', module)
       color={select('Color', colors, 'white')}
       fullWidth={boolean('Full width', false)}
       icon={<IconIdeaMediumOutline />}
+      size={select('Size', [SMALL, MEDIUM, LARGE], MEDIUM)}
     >
       <TextDisplay>
         I am a banner with an <Link href="http://teamleader.eu">optional link</Link> inside.
