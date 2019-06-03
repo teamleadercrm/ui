@@ -1,27 +1,31 @@
 import { centerStyles } from './styles';
-import { configure, addDecorator } from '@storybook/react';
-import { withBackgrounds } from '@storybook/addon-backgrounds';
+import { configure, addDecorator, addParameters } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs } from '@storybook/addon-knobs';
-import { withOptions } from '@storybook/addon-options';
-import pkg from '../package.json';
+import { COLOR } from '../src/constants';
 import PropTable from '../stories/components/propTable';
 import styles from '@sambego/storybook-styles';
+import teamleaderTheme from './teamleaderTheme';
 
-// addon-background
-addDecorator(
-  withBackgrounds([
-    { name: 'White', value: '#ffffff', default: true },
-    { name: 'Aqua lightest', value: '#e6f2ff' },
-    { name: 'Neutral', value: '#f7f7fa' },
-    { name: 'Gold lightest', value: '#ffeecc' },
-    { name: 'Mint lightest', value: '#d3f2f2' },
-    { name: 'Ruby lightest', value: '#ffe2d9' },
-    { name: 'Teal lightest', value: '#e1ecfa' },
-    { name: 'Violet lightest', value: '#f0f0ff' },
-    { name: 'Teal darkest', value: '#2a3b4d' },
-  ]),
-);
+// global parameters
+addParameters({
+  options: {
+    panelPosition: 'right',
+    enableShortcuts: false,
+    theme: teamleaderTheme,
+    url: 'https://teamleader.design',
+  },
+  backgrounds: [
+    { name: 'Aqua lightest', value: COLOR.AQUA.LIGHTEST },
+    { name: 'Neutral', value: COLOR.NEUTRAL.NORMAL },
+    { name: 'Gold lightest', value: COLOR.GOLD.LIGHTEST },
+    { name: 'Mint lightest', value: COLOR.MINT.LIGHTEST },
+    { name: 'Ruby lightest', value: COLOR.RUBY.LIGHTEST },
+    { name: 'Teal lightest', value: COLOR.TEAL.LIGHTEST },
+    { name: 'Violet lightest', value: COLOR.VIOLET.LIGHTEST },
+    { name: 'Teal darkest', value: COLOR.TEAL.DARKEST },
+  ],
+});
 
 // addon-info
 addDecorator(
@@ -30,7 +34,7 @@ addDecorator(
     source: true,
     styles: stylesheet => {
       stylesheet.infoBody = {
-        color: '#2a3b4d',
+        color: COLOR.TEAL.DARKEST,
         fontFamily: 'Inter-UI-Regular',
         fontSize: '14px',
         margin: '48px 0',
@@ -46,7 +50,7 @@ addDecorator(
           margin: 0,
         },
         h2: {
-          color: '#82828c',
+          color: COLOR.NEUTRAL.DARKEST,
           fontFamily: 'Inter-UI-Medium',
           fontSize: '18px',
           fontWeight: 500,
@@ -54,7 +58,7 @@ addDecorator(
           margin: '24px 0 10px 0',
         },
         body: {
-          borderBottom: '1px solid #c0c0c4',
+          borderBottom: `1px solid ${COLOR.NEUTRAL.NORMAL}`,
           paddingTop: 10,
           marginBottom: 10,
         },
@@ -62,8 +66,8 @@ addDecorator(
 
       stylesheet.source = {
         h1: {
-          borderBottom: '1px solid #c0c0c4',
-          color: '#82828c',
+          borderBottom: `1px solid ${COLOR.NEUTRAL.NORMAL}`,
+          color: COLOR.NEUTRAL.DARKEST,
           fontFamily: 'Inter-UI-Medium',
           margin: '24px 0 10px 0',
           fontWeight: 500,
@@ -74,7 +78,7 @@ addDecorator(
       };
 
       stylesheet.propTableHead = {
-        color: '#344b63',
+        color: COLOR.TEAL.DARKEST,
         fontFamily: 'Inter-UI-Medium',
         fontWeight: 500,
         fontSize: '16px',
@@ -90,16 +94,6 @@ addDecorator(
 
 // addon-knobs
 addDecorator(withKnobs);
-
-// addon-options
-addDecorator(
-  withOptions({
-    addonPanelInRight: true,
-    enableShortcuts: false,
-    name: `UI Version ${pkg.version}`,
-    url: 'https://teamleader.design',
-  }),
-);
 
 // addon-styles
 addDecorator(styles({ ...centerStyles }));
