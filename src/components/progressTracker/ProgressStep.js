@@ -8,8 +8,8 @@ import { TextSmall } from '../typography';
 
 class ProgressStep extends PureComponent {
   render() {
-    const { label, active, completed, color } = this.props;
-    const classNames = cx(theme['step'], theme[color], {
+    const { label, active, completed } = this.props;
+    const classNames = cx(theme['step'], {
       [theme['is-active']]: active,
       [theme['is-completed']]: completed,
     });
@@ -23,8 +23,6 @@ class ProgressStep extends PureComponent {
 }
 
 ProgressStep.propTypes = {
-  /** Color theme of the progress tracker. */
-  color: PropTypes.oneOf(['neutral', 'mint', 'aqua', 'violet', 'gold', 'ruby']),
   /** The label for the progress step */
   label: PropTypes.string.isRequired,
   /** Whether or not the step is active */
@@ -34,7 +32,6 @@ ProgressStep.propTypes = {
 };
 
 ProgressStep.defaultProps = {
-  color: 'neutral',
   active: false,
   completed: false,
 };
