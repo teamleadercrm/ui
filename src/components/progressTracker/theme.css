@@ -100,7 +100,6 @@
 
   .step-label {
     font-family: var(--font-family-regular);
-    opacity: 0.5;
     text-align: center;
     transition: font-family 0.1s var(--animation-curve-default) calc(var(--animation-duration) - 0.1s),
       opacity 0.1s var(--animation-curve-default) calc(var(--animation-duration) - 0.1s);
@@ -111,7 +110,7 @@
       background-color: var(--color-neutral-dark);
     }
     .step-label {
-      color: var(--color-neutral-darkest);
+      color: var(--color-neutral-dark);
     }
   }
 
@@ -133,7 +132,6 @@
     }
     .step-label {
       color: var(--color-mint);
-      opacity: 1;
     }
   }
 
