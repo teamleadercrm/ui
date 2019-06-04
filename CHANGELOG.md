@@ -2,11 +2,15 @@
 
 ### Added
 
+- `ProgressStep`: added the `onClick` prop to make a `ProgressStep` interactional. ([@driesd](https://github.com/driesd) in [#607](https://github.com/teamleadercrm/ui/pull/607))
+
 ### Changed
 
 ### Deprecated
 
 ### Removed
+
+- [BREAKING] `ProgressStep`: removed the `color` prop. ([@driesd](https://github.com/driesd) in [#607](https://github.com/teamleadercrm/ui/pull/607))
 
 ### Fixed
 
