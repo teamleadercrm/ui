@@ -115,8 +115,9 @@
     "url": "git+https://github.com/teamleadercrm/ui.git"
   },
   "scripts": {
-    "babel": "babel ./src/**/*.js --out-dir ./lib",
-    "build": "rimraf lib && gulp",
+    "build:css": "postcss ./src/**/*.css --base src --dir ./lib",
+    "build:js": "NODE_ENV=production babel src --out-dir ./lib",
+    "build": "rimraf lib && npm run build:css && npm run build:js",
     "clean": "rimraf dist",
     "codecov": "cat coverage/*/lcov.info | codecov",
     "compile": "build-storybook -o dist",
