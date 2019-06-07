@@ -1,5 +1,15 @@
 {
-  "presets": ["@babel/preset-env", "@babel/preset-react"],
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "browsers": [">0.5%, ie 11, not op_mini all"]
+        }
+      }
+    ],
+    "@babel/preset-react"
+  ],
   "plugins": [
     "@babel/plugin-proposal-export-default-from",
     "@babel/plugin-proposal-class-properties",
