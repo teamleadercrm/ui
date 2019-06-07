@@ -119,7 +119,6 @@
     "build:js": "NODE_ENV=production babel src --out-dir ./lib",
     "build": "rimraf lib && npm run build:css && npm run build:js",
     "clean": "rimraf dist",
-    "codecov": "cat coverage/*/lcov.info | codecov",
     "compile": "build-storybook -o dist",
     "lint:clean": "npm run lint && npm run clean",
     "deploy:dev": "npm run lint:clean && NODE_ENV=development npm run compile",
