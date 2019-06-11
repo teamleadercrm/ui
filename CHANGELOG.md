@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `Infrastructure`: changed the way this module is exported. CommonJS and ES modules are now available, which enables tree shaking.
+
 ### Deprecated
 
 ### Removed
