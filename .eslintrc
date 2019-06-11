@@ -1,32 +1,25 @@
 {
-  "parser"  : "babel-eslint",
-  "extends" : [
-    "standard",
-    "standard-react",
-    "prettier",
-    "prettier/react"
-  ],
-  "plugins": [
-    "babel",
-    "react",
-    "promise",
-    "prettier"
-  ],
-  "env"     : {
-    "browser" : true
+  "parser": "babel-eslint",
+  "extends": ["standard", "standard-react", "prettier", "prettier/react"],
+  "plugins": ["babel", "react", "promise", "prettier"],
+  "env": {
+    "browser": true
   },
-  "globals" : {
-    "__DEV__"      : false,
-    "__PROD__"     : false,
-    "__DEBUG__"    : false,
-    "__BASENAME__" : false,
-    "__VERSION__"  : false
+  "globals": {
+    "__DEV__": false,
+    "__PROD__": false,
+    "__DEBUG__": false,
+    "__BASENAME__": false,
+    "__VERSION__": false
   },
   "rules": {
-    "prefer-const": ["error", {
-      "destructuring": "any",
-      "ignoreReadBeforeAssign": false
-    }],
+    "prefer-const": [
+      "error",
+      {
+        "destructuring": "any",
+        "ignoreReadBeforeAssign": false
+      }
+    ],
     "curly": ["error", "all"]
   }
 }
