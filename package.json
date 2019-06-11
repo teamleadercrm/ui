@@ -115,6 +115,10 @@
     "type": "git",
     "url": "git+https://github.com/teamleadercrm/ui.git"
   },
+  "sideEffects": [
+    "cjs/**/*.css",
+    "es/**/*.css"
+  ],
   "scripts": {
     "build:css": "postcss ./src/**/*.css --base src --dir ./lib",
     "build:js": "NODE_ENV=production babel src --out-dir ./lib",
