@@ -12,6 +12,10 @@
     "Lowie Benoot <lowie.benoot@teamleader.eu>",
     "Kevin Waelkens <kevin.waelkens@teamleader.eu>"
   ],
+  "files": [
+    "cjs",
+    "es"
+  ],
   "dependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/runtime": "^7.0.0",
