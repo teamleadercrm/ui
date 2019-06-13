@@ -3,54 +3,6 @@
   "description": "Teamleader UI library",
   "version": "0.27.0",
   "author": "Teamleader <development@teamleader.eu>",
-  "betterScripts": {
-    "compile": {
-      "command": "build-storybook -o dist",
-      "env": {
-        "DEBUG": "app:*"
-      }
-    },
-    "deploy": {
-      "command": "npm run lint && npm run clean && npm run compile",
-      "env": {
-        "DEBUG": "app:*"
-      }
-    },
-    "deploy:dev": {
-      "command": "npm run deploy",
-      "env": {
-        "NODE_ENV": "development",
-        "DEBUG": "app:*"
-      }
-    },
-    "deploy:staging": {
-      "command": "npm run clean && npm run compile",
-      "env": {
-        "NODE_ENV": "staging",
-        "DEBUG": "app:*"
-      }
-    },
-    "deploy:prod": {
-      "command": "npm run clean && npm run compile",
-      "env": {
-        "NODE_ENV": "production",
-        "DEBUG": "app:*"
-      }
-    },
-    "build": {
-      "command": "rimraf lib && gulp",
-      "env": {
-        "NODE_ENV": "production",
-        "DEBUG": "app:*"
-      }
-    },
-    "start": {
-      "command": "start-storybook",
-      "env": {
-        "DEBUG": "app:*"
-      }
-    }
-  },
   "bugs": {
     "url": "https://github.com/teamleadercrm/ui/issues"
   },
@@ -60,12 +12,17 @@
     "Lowie Benoot <lowie.benoot@teamleader.eu>",
     "Kevin Waelkens <kevin.waelkens@teamleader.eu>"
   ],
+  "files": [
+    "cjs",
+    "es"
+  ],
   "dependencies": {
+    "@babel/cli": "^7.4.4",
     "@babel/runtime": "^7.0.0",
     "@teamleader/ui-animations": "^0.0.2",
     "@teamleader/ui-colors": "^0.0.7",
     "@teamleader/ui-icons": "^0.2.17",
-    "@teamleader/ui-illustrations": "^0.0.4",
+    "@teamleader/ui-illustrations": "^0.0.20",
     "@teamleader/ui-typography": "^0.1.2",
     "@teamleader/ui-utilities": "^0.1.1",
     "classnames": "^2.2.5",
@@ -74,6 +31,7 @@
     "lodash.throttle": "^4.1.1",
     "lodash.without": "^4.4.0",
     "luxon": "^1.2.1",
+    "postcss-cli": "^6.1.2",
     "prop-types": "^15.5.9",
     "react": "^16.3.1",
     "react-day-picker": "^7.1.8",
@@ -101,7 +59,6 @@
     "babel-eslint": "^8.0.2",
     "babel-loader": "^8.0.0-beta.6",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.13",
-    "better-npm-run": "^0.1.0",
     "css-loader": "^0.28.7",
     "eslint": "^4.11.0",
     "eslint-config-prettier": "^2.2.0",
@@ -116,10 +73,6 @@
     "eslint-plugin-standard": "^3.0.1",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^1.1.5",
-    "gulp": "^3.9.1",
-    "gulp-babel": "8.0.0-beta.2",
-    "gulp-postcss": "^7.0.0",
-    "gulp-uglify": "^3.0.1",
     "html-webpack-plugin": "^4.0.0-alpha.2",
     "husky": "^0.14.3",
     "image-webpack-loader": "^4.1.0",
@@ -153,7 +106,8 @@
     "ui"
   ],
   "license": "MIT",
-  "main": "lib/index.js",
+  "main": "cjs/index.js",
+  "module": "es/index.js",
   "engines": {
     "node": ">=8.0.0"
   },
@@ -161,23 +115,29 @@
     "type": "git",
     "url": "git+https://github.com/teamleadercrm/ui.git"
   },
+  "sideEffects": [
+    "cjs/**/*.css",
+    "es/**/*.css"
+  ],
+  "browserslist": ">0.5%, ie 11, not op_mini all",
   "scripts": {
-    "babel": "babel ./src/**/*.js --out-dir ./lib",
-    "build": "better-npm-run build",
-    "clean": "rimraf dist",
-    "codecov": "cat coverage/*/lcov.info | codecov",
-    "compile": "better-npm-run compile",
-    "deploy": "better-npm-run deploy",
-    "deploy:dev": "better-npm-run deploy:dev",
-    "deploy:prod": "better-npm-run deploy:prod",
-    "deploy:staging": "better-npm-run deploy:staging",
+    "build:css": "postcss ./src/**/*.css --base src --dir ./es && cp -R ./es ./cjs",
+    "build:js": "npm run build:es; npm run build:cjs",
+    "build:cjs": "NODE_ENV=cjs babel src --out-dir cjs",
+    "build:es": "NODE_ENV=es babel src --out-dir es",
+    "build": "rimraf es && rimraf cjs && npm run build:css && npm run build:js",
+    "compile": "build-storybook -o dist",
+    "lint:clean": "npm run lint && rimraf dist",
+    "deploy:dev": "npm run lint:clean && NODE_ENV=development npm run compile",
+    "deploy:prod": "npm run lint:clean && NODE_ENV=production npm run compile",
+    "deploy:staging": "npm run lint:clean && NODE_ENV=staging npm run compile",
     "dmc": "npm start",
     "lint": "eslint components stories",
     "lint:fix": "npm run lint -- --fix",
     "precommit": "pretty-quick --staged",
     "prettier": "prettier --write '**/*.{js,json,md,css}'",
     "prepare": "npm run build",
-    "start": "PORT=${PORT:-3000}; better-npm-run start --port $PORT",
+    "start": "PORT=${PORT:-3000}; start-storybook --port $PORT",
     "build-storybook": " better-npm-run compile"
   }
 }

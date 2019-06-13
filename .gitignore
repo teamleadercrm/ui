@@ -1,4 +1,5 @@
-lib
+es
+cjs
 coverage
 dist
 node_modules

@@ -1,8 +1,5 @@
 {
-  "presets": [
-    "@babel/preset-env",
-    "@babel/preset-react"
-  ],
+  "presets": ["@babel/preset-env", "@babel/preset-react"],
   "plugins": [
     "@babel/plugin-proposal-export-default-from",
     "@babel/plugin-proposal-class-properties",
@@ -10,14 +7,20 @@
   ],
   "env": {
     "development": {
-      "plugins": [
-        "@babel/plugin-transform-react-jsx-source",
-        "react-hot-loader/babel",
-      ]
+      "plugins": ["@babel/plugin-transform-react-jsx-source", "react-hot-loader/babel"]
     },
-    "production": {
-      "plugins": [
-        "transform-react-remove-prop-types"
+    "cjs": {
+      "plugins": ["transform-react-remove-prop-types"]
+    },
+    "es": {
+      "plugins": ["transform-react-remove-prop-types"],
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "modules": false
+          }
+        ]
       ]
     }
   }

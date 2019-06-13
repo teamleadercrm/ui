@@ -1,9 +1,0 @@
-.babelrc
-.editorconfig
-.eslintrc
-gulpfile.js
-postcss.config.js
-spec
-coverage
-bin
-build
