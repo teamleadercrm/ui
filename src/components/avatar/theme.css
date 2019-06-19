@@ -87,7 +87,8 @@
 
 .is-tiny {
   &.avatar,
-  &.avatar-initials {
+  &.avatar-initials,
+  .image {
     height: var(--tiny-size);
     width: var(--tiny-size);
   }
@@ -102,11 +103,6 @@
     left: 60%;
   }
 
-  .image {
-    height: var(--tiny-size);
-    width: var(--tiny-size);
-  }
-
   .overflow {
     border-radius: var(--tiny-size);
     font-size: calc(1.2 * var(--unit));
@@ -117,7 +113,8 @@
 
 .is-small {
   &.avatar,
-  &.avatar-initials {
+  &.avatar-initials,
+  .image {
     height: var(--small-size);
     width: var(--small-size);
   }
@@ -125,11 +122,6 @@
   .children {
     bottom: 60%;
     left: 76%;
-  }
-
-  .image {
-    height: var(--small-size);
-    width: var(--small-size);
   }
 
   .overflow {
@@ -142,7 +134,8 @@
 
 .is-medium {
   &.avatar,
-  &.avatar-initials {
+  &.avatar-initials,
+  .image {
     height: var(--medium-size);
     width: var(--medium-size);
   }
@@ -150,11 +143,6 @@
   .children {
     bottom: 65%;
     left: 80%;
-  }
-
-  .image {
-    height: var(--medium-size);
-    width: var(--medium-size);
   }
 
   .overflow {
