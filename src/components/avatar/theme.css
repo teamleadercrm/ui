@@ -9,6 +9,7 @@
   --tiny-size: 24px;
   --small-size: 36px;
   --medium-size: 48px;
+  --large-size: 72px;
 
   --shape-circle-image-border-radius: 50%;
   --shape-rounded-image-border-radius: 4px;
@@ -150,6 +151,32 @@
     font-size: calc(1.6 * var(--unit));
     height: var(--medium-size);
     min-width: calc(var(--medium-size) - var(--overflow-padding-horizontal) * 2);
+  }
+}
+
+.is-large {
+  &.avatar,
+  &.avatar-initials,
+  .image {
+    height: var(--large-size);
+    width: var(--large-size);
+  }
+
+  .content {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .children {
+    bottom: 75%;
+    left: 75%;
+  }
+
+  .overflow {
+    border-radius: var(--large-size);
+    font-size: calc(1.8 * var(--unit));
+    height: var(--large-size);
+    min-width: calc(var(--large-size) - var(--overflow-padding-horizontal) * 2);
   }
 }
 
