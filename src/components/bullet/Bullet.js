@@ -32,7 +32,7 @@ Bullet.propTypes = {
   /** The color of the bullet. */
   color: PropTypes.oneOf(['neutral', 'mint', 'aqua', 'violet', 'teal', 'gold', 'ruby']),
   /** The size of the bullet. */
-  size: PropTypes.oneOf(['small', 'medium']),
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
 };
 
 Bullet.defaultProps = {
