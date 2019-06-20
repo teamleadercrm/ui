@@ -33,7 +33,7 @@ Avatar.propTypes = {
   /** The shape of the avatar. */
   shape: PropTypes.oneOf(['circle', 'rounded']),
   /** The size of the avatar. */
-  size: PropTypes.oneOf(['tiny', 'small', 'medium']),
+  size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large']),
 };
 
 Avatar.defaultProps = {

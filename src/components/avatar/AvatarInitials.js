@@ -45,7 +45,7 @@ AvatarInitials.propTypes = {
   /** The shape of the avatar. */
   shape: PropTypes.oneOf(['circle', 'rounded']),
   /** The size of the avatar. */
-  size: PropTypes.oneOf(['tiny', 'small', 'medium']),
+  size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large']),
   /** The name for in the avatar. */
   name: PropTypes.string,
 };

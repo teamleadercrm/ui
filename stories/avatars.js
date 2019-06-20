@@ -5,7 +5,7 @@ import { Avatar, AvatarInitials, AvatarStack, Bullet, Counter, TextBody, Tooltip
 import avatars from './static/data/avatar';
 
 const directions = ['horizontal', 'vertical'];
-const sizes = ['tiny', 'small', 'medium'];
+const sizes = ['tiny', 'small', 'medium', 'large'];
 const shapes = [null, 'circle', 'rounded'];
 const colors = ['teal', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua'];
 
@@ -44,7 +44,7 @@ storiesOf('Avatars', module)
   ))
   .add('With bullet', () => (
     <Avatar image={avatars[0].image} size={select('Size', sizes, 'medium')}>
-      <Bullet color="ruby" />
+      <Bullet borderColor="neutral" borderTint="lightest" color="ruby" />
     </Avatar>
   ))
   .add('With counter', () => (
