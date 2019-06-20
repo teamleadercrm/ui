@@ -8,6 +8,7 @@
 ### Changed
 
 - `Bullet`: changed border thickness from 1px to 2px. ([@driesd](https://github.com/driesd) in [#611](https://github.com/teamleadercrm/ui/pull/611))
+- `Counter`: changed the font weight from `black` to `bold`. ([@driesd](https://github.com/driesd) in [#612](https://github.com/teamleadercrm/ui/pull/612))
 - `Infrastructure`: changed the way this module is exported. CommonJS and ES modules are now available, which enables tree shaking. ([@duivvv](https://github.com/duivvv) in [#609](https://github.com/teamleadercrm/ui/pull/609))
 
 ### Deprecated
