@@ -2,6 +2,7 @@
 
 ### Added
 
+- `Avatar`, `AvatarInitials` & `AvatarStack`: added a `large` size variation. ([@driesd](https://github.com/driesd) in [#610](https://github.com/teamleadercrm/ui/pull/610))
 - `Bullet`: added a `large` size variation. ([@driesd](https://github.com/driesd) in [#611](https://github.com/teamleadercrm/ui/pull/611))
 
 ### Changed
