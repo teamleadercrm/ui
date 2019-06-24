@@ -1,10 +1,23 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { select } from '@storybook/addon-knobs/react';
-import { Box, Bullet, Tooltip, Heading1, Heading2, Heading3, Heading4, TextBody, TextDisplay, TextSmall } from '../src';
+import {
+  Box,
+  Bullet,
+  Tooltip,
+  Heading1,
+  Heading2,
+  Heading3,
+  Heading4,
+  TextBody,
+  TextDisplay,
+  TextSmall,
+  COLORS,
+  TINTS,
+} from '../src';
 
 const colors = ['neutral', 'mint', 'aqua', 'violet', 'teal', 'gold', 'ruby'];
-const sizes = ['small', 'medium'];
+const sizes = ['small', 'medium', 'large'];
 
 const TooltippedBullet = Tooltip(Bullet);
 
@@ -14,7 +27,14 @@ storiesOf('Bullets', module)
       propTablesExclude: [Box, Heading1, Heading2, Heading3, Heading4, TextBody, TextDisplay, TextSmall],
     },
   })
-  .add('Basic', () => <Bullet color={select('Color', colors, 'neutral')} size={select('Size', sizes, 'medium')} />)
+  .add('Basic', () => (
+    <Bullet
+      borderColor={select('Border color', COLORS, 'neutral')}
+      borderTint={select('Border tint', TINTS, 'lightest')}
+      color={select('Color', colors, 'neutral')}
+      size={select('Size', sizes, 'medium')}
+    />
+  ))
   .add('With tooltip', () => (
     <TooltippedBullet
       color={select('Color', colors, 'ruby')}

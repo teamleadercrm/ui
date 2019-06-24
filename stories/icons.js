@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { number, select } from '@storybook/addon-knobs/react';
 import * as Icons from '@teamleader/ui-icons';
-import { Box, Heading2, Icon, Section, TextSmall } from '../src';
+import { Box, Icon, TextSmall } from '../src';
 
 const colors = ['aqua', 'gold', 'mint', 'neutral', 'ruby', 'teal', 'violet'];
 const tints = ['lightest', 'light', 'normal', 'dark', 'darkest'];
