@@ -87,7 +87,7 @@
     "postcss-mixins": "^6.1.0",
     "postcss-nested": "^3.0.0",
     "postcss-pseudoelements": "^5.0.0",
-    "postcss-reporter": "^5.0.0",
+    "postcss-reporter": "^6.0.1",
     "prettier": "1.13.7",
     "pretty-quick": "1.6.0",
     "proptypes": "^1.1.0",
