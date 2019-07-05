@@ -8,6 +8,8 @@
 
 ### Removed
 
+- `Dependency`: removed the `imports-loader` dependency because we're not using it. ([@driesd](https://github.com/driesd) in [#617](https://github.com/teamleadercrm/ui/pull/617))
+
 ### Fixed
 
 ## [0.27.1] - 2019-06-24
