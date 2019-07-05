@@ -90,7 +90,6 @@
     "prettier": "1.13.7",
     "pretty-quick": "1.6.0",
     "proptypes": "^1.1.0",
-    "react-hot-loader": "^3.0.0-beta.6",
     "rimraf": "^2.5.4",
     "style-loader": "^0.20.2",
     "url-loader": "^0.6.2",
