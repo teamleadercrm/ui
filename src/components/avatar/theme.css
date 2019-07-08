@@ -17,7 +17,7 @@
 
 /* Avatar */
 .avatar {
-  display: inline-block;
+  display: flex;
   position: relative;
 
   &.is-circle .image {
