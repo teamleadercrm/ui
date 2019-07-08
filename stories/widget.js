@@ -18,7 +18,6 @@ import {
   TextBody,
   TextSmall,
   Heading2,
-  StatusLabel,
   MenuDivider,
   Bullet,
 } from '../src';

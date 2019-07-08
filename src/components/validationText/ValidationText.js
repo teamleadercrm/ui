@@ -10,15 +10,15 @@ class ValidationText extends PureComponent {
   render() {
     const { error, inverse, help, success, warning } = this.props;
 
-    if (error) {
+    if (error && typeof error !== 'boolean') {
       return <ErrorText inverse={inverse}>{error}</ErrorText>;
     }
 
-    if (warning) {
+    if (warning && typeof warning !== 'boolean') {
       return <WarningText inverse={inverse}>{warning}</WarningText>;
     }
 
-    if (success) {
+    if (success && typeof success !== 'boolean') {
       return <SuccessText inverse={inverse}>{success}</SuccessText>;
     }
 
@@ -31,11 +31,11 @@ class ValidationText extends PureComponent {
 }
 
 ValidationText.propTypes = {
-  error: PropTypes.node,
+  error: PropTypes.oneOfType([PropTypes.bool, PropTypes.node]),
   help: PropTypes.node,
   inverse: PropTypes.bool,
-  success: PropTypes.node,
-  warning: PropTypes.node,
+  success: PropTypes.oneOfType([PropTypes.bool, PropTypes.node]),
+  warning: PropTypes.oneOfType([PropTypes.bool, PropTypes.node]),
 };
 
 export default ValidationText;

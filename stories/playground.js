@@ -402,6 +402,7 @@ storiesOf('Playground', module)
             onEscKeyDown={showHideDialog}
             onOverlayClick={showHideDialog}
             primaryAction={{ label: 'Confirm', onClick: showHideDialog }}
+            scrollable={false}
             secondaryAction={{ label: 'Cancel', onClick: showHideDialog }}
             size="large"
           >

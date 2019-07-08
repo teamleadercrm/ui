@@ -1,0 +1,20 @@
+.passport {
+  width: 300px;
+}
+
+.passport-empty {
+  max-width: 240px !important;
+  text-align: center;
+}
+
+.prevent-overflow {
+  overflow: hidden;
+}
+
+.prevent-wrap {
+  white-space: nowrap;
+}
+
+.show-ellipsis {
+  text-overflow: ellipsis;
+}

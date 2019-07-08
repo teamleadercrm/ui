@@ -1,0 +1,169 @@
+:root {
+  --color-black: #000000;
+  --color-white: #ffffff;
+
+  --color-teal-lightest: #e1ecfa;
+  --color-teal-light: #c1cede;
+  --color-teal: #64788f;
+  --color-teal-dark: #344b63;
+  --color-teal-darkest: #2a3b4d;
+
+  --color-mint-lightest: #d3f2f2;
+  --color-mint-light: #57d3d2;
+  --color-mint: #00b2b2;
+  --color-mint-dark: #008a8c;
+  --color-mint-darkest: #004b4d;
+
+  --color-violet-lightest: #f0f0ff;
+  --color-violet-light: #d3d1fe;
+  --color-violet: #928cff;
+  --color-violet-dark: #6961ff;
+  --color-violet-darkest: #130abf;
+
+  --color-ruby-lightest: #ffe2d9;
+  --color-ruby-light: #ffbca6;
+  --color-ruby: #ff7040;
+  --color-ruby-dark: #e84b17;
+  --color-ruby-darkest: #992600;
+
+  --color-gold-lightest: #ffeecc;
+  --color-gold-light: #ffda8f;
+  --color-gold: #ffcc66;
+  --color-gold-dark: #ed9e00;
+  --color-gold-darkest: #8f3c00;
+
+  --color-aqua-lightest: #e6f2ff;
+  --color-aqua-light: #cce4ff;
+  --color-aqua: #99c9ff;
+  --color-aqua-dark: #0071f2;
+  --color-aqua-darkest: #004da6;
+
+  --color-neutral-lightest: #ffffff;
+  --color-neutral-light: #f7f7fa;
+  --color-neutral: #e4e4e6;
+  --color-neutral-dark: #c0c0c4;
+  --color-neutral-darkest: #82828c;
+}
+:root {
+  --unit: 10px;
+
+  --spacer-unit: 3px;
+  --spacer-smallest: calc(1 * var(--spacer-unit));
+  --spacer-smaller: calc(2 * var(--spacer-unit));
+  --spacer-small: calc(4 * var(--spacer-unit));
+  --spacer-regular: calc(6 * var(--spacer-unit));
+  --spacer-medium: calc(8 * var(--spacer-unit));
+  --spacer-big: calc(12 * var(--spacer-unit));
+  --spacer-bigger: calc(16 * var(--spacer-unit));
+  --spacer-biggest: calc(24 * var(--spacer-unit));
+
+  --border-radius-small: 2px;
+  --border-radius-medium: 4px;
+  --border-radius-large: 8px;
+  --border-radius-round: 50%;
+
+  --box-shadow-100: 0 1px 1px 0 rgba(42, 59, 77, 0.12);
+  --box-shadow-200: 0 4px 6px 0 rgba(42, 59, 77, 0.32);
+  --box-shadow-300: 0 8px 10px 0 rgba(42, 59, 77, 0.32);
+  --box-shadow-400: 0 24px 32px 0 rgba(42, 59, 77, 0.42);
+}
+.reset-box-sizing {
+  box-sizing: border-box;
+}
+.reset-font-smoothing {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  text-size-adjust: 100%;
+}
+.reset {
+  composes: reset-box-sizing;
+  composes: reset-font-smoothing;
+}
+/* Box-shadows */
+.box-shadow-100::before {
+  border-radius: 4px;
+  bottom: 1px;
+  box-shadow: var(--box-shadow-100);
+  content: '';
+  left: 1px;
+  position: absolute;
+  right: 1px;
+  top: 1px;
+  z-index: -1;
+}
+.box-shadow-200::before {
+  border-radius: 4px;
+  bottom: 2px;
+  box-shadow: var(--box-shadow-200);
+  content: '';
+  left: 2px;
+  position: absolute;
+  right: 2px;
+  top: 2px;
+  z-index: -1;
+}
+.box-shadow-300::before {
+  border-radius: 4px;
+  bottom: 4px;
+  box-shadow: var(--box-shadow-300);
+  content: '';
+  left: 4px;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  z-index: -1;
+}
+.box-shadow-400::before {
+  border-radius: 4px;
+  bottom: 8px;
+  box-shadow: var(--box-shadow-400);
+  content: '';
+  left: 8px;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  z-index: -1;
+}
+/* Orientation */
+@custom-media --portrait (orientation: portrait);
+@custom-media --landscape (orientation: landscape);
+/* Devices (defined by max width) */
+@custom-media --xxs-viewport (max-width: 480px);
+@custom-media --xs-viewport (max-width: 600px);
+@custom-media --sm-tablet-viewport (max-width: 720px);
+@custom-media --sm-viewport (max-width: 840px);
+@custom-media --md-viewport (max-width: 960px);
+@custom-media --lg-tablet-viewport (max-width: 1024px);
+@custom-media --lg-viewport (max-width: 1280px);
+@custom-media --xl-viewport (max-width: 1440px);
+@custom-media --xxl-viewport (max-width: 1600px);
+@custom-media --xxxl-viewport (max-width: 1920px);
+/* Devices (defined by min-width) */
+@custom-media --larger-than-xxs-viewport (min-width: 480px);
+@custom-media --larger-than-xs-viewport (min-width: 600px);
+@custom-media --larger-than-sm-tablet-viewport (min-width: 720px);
+@custom-media --larger-than-sm-viewport (min-width: 840px);
+@custom-media --larger-than-md-viewport (min-width: 960px);
+@custom-media --larger-than-lg-tablet-viewport (min-width: 1024px);
+@custom-media --larger-than-lg-viewport (min-width: 1280px);
+@custom-media --larger-than-xl-viewport (min-width: 1440px);
+@custom-media --larger-than-xxl-viewport (min-width: 1600px);
+@custom-media --larger-than-xxxl-viewport (min-width: 1920px);
+.icon {
+  margin-right: var(--spacer-small);
+}
+.inner {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.content {
+  flex: 1;
+  padding-right: var(--spacer-big);
+}
+.close-button {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+}

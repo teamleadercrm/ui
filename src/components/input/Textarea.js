@@ -40,15 +40,15 @@ Textarea.propTypes = {
   /** Sets a class name for the wrapper to give custom styles. */
   className: PropTypes.string,
   /** The text to use as error message below the input. */
-  error: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  error: PropTypes.oneOfType([PropTypes.bool, PropTypes.node]),
   /** The text to use as help text below the input. */
   helpText: PropTypes.string,
   /** Boolean indicating whether the input should render as inverse. */
   inverse: PropTypes.bool,
   /** The text string/element to use as success message below the input. */
-  success: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  success: PropTypes.oneOfType([PropTypes.bool, PropTypes.node]),
   /** The text to use as warning message below the input. */
-  warning: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  warning: PropTypes.oneOfType([PropTypes.bool, PropTypes.node]),
 };
 
 Textarea.defaultProps = {

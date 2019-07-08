@@ -24,18 +24,20 @@
   max-width: 180px;
   position: relative;
 
-  &:before {
+  &:before,
+  &:after {
     content: '';
     height: 2px;
     position: absolute;
     bottom: 11px;
   }
 
+  &:before {
+    background-color: var(--color-neutral-dark);
+  }
+
   &:after {
-    content: '';
-    height: 4px;
-    position: absolute;
-    bottom: 10px;
+    background-color: var(--color-mint);
     left: 50%;
     transition: width var(--animation-duration) var(--animation-curve-default);
     width: 0;
@@ -71,7 +73,8 @@
 
   .status-bullet {
     background-color: transparent;
-    transition: background-color 0.1s var(--animation-curve-default) calc(var(--animation-duration) - 0.1s);
+    transition: background-color 0.1s var(--animation-curve-default) calc(var(--animation-duration) - 0.1s),
+      transform 0.1s var(--animation-curve-fast-out-slow-in);
     align-self: center;
     border-radius: 50%;
     display: block;
@@ -97,15 +100,23 @@
 
   .step-label {
     font-family: var(--font-family-regular);
-    opacity: 0.5;
     text-align: center;
     transition: font-family 0.1s var(--animation-curve-default) calc(var(--animation-duration) - 0.1s),
       opacity 0.1s var(--animation-curve-default) calc(var(--animation-duration) - 0.1s);
   }
 
+  &:not(.is-completed):not(.is-active) {
+    .status-bullet {
+      background-color: var(--color-neutral-dark);
+    }
+    .step-label {
+      color: var(--color-neutral-dark);
+    }
+  }
+
   &.is-active {
     .step-label {
-      font-family: var(--font-family-medium);
+      font-family: var(--font-family-bold);
     }
     .status-bullet {
       &:before {
@@ -116,65 +127,22 @@
 
   &.is-completed,
   &.is-active {
+    .status-bullet {
+      background-color: var(--color-mint);
+    }
     .step-label {
-      opacity: 1;
+      color: var(--color-mint);
     }
   }
-}
 
-@each $color in (mint, violet, gold, ruby, aqua) {
-  .$(color) {
+  &.is-clickable:hover {
+    cursor: pointer;
+
     .step-label {
-      color: var(--color-$(color)-darkest);
+      font-family: var(--font-family-bold);
     }
-
-    &.step {
-      &:before {
-        background-color: var(--color-$(color));
-      }
-      &:after {
-        background-color: var(--color-$(color)-dark);
-      }
-
-      &.is-completed,
-      &.is-active {
-        .status-bullet {
-          background-color: var(--color-$(color)-dark);
-        }
-      }
-
-      &:not(.is-completed):not(.is-active) {
-        .status-bullet {
-          background-color: var(--color-$(color));
-        }
-      }
-    }
-  }
-}
-
-.neutral {
-  .step-label {
-    color: var(--color-black);
-  }
-
-  &.step {
-    &:before {
-      background-color: var(--color-neutral);
-    }
-    &:after {
-      background-color: var(--color-neutral-darkest);
-    }
-
-    &.is-active,
-    &.is-completed {
-      .status-bullet {
-        background-color: var(--color-neutral-darkest);
-      }
-    }
-    &:not(.is-completed):not(.is-active) {
-      .status-bullet {
-        background-color: var(--color-neutral);
-      }
+    .status-bullet {
+      transform: scale(1.5);
     }
   }
 }

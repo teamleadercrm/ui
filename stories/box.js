@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { number, select } from '@storybook/addon-knobs/react';
-import { Box, TextBody } from '../src';
+import { Box, TextBody, COLORS, TINTS } from '../src';
 
 const displayValues = ['inline', 'inline-block', 'block', 'flex', 'inline-flex'];
 const justifyContentValues = ['center', 'flex-start', 'flex-end', 'space-around', 'space-between', 'space-evenly'];
@@ -21,7 +21,8 @@ storiesOf('Box', module)
   })
   .add('Basic', () => (
     <Box
-      style={{ backgroundColor: '#fafafa' }}
+      backgroundColor={select('Background color', COLORS, 'neutral')}
+      backgroundTint={select('Background tint', TINTS, 'light')}
       display={select('Display', displayValues, 'block')}
       justifyContent={select('Justify Content', justifyContentValues, 'flex-start')}
       margin={number('Margin', 0, spacingOptions)}

@@ -1,3 +1,4 @@
+@import '@teamleader/ui-colors';
 @import '@teamleader/ui-utilities';
 
 .box {
@@ -86,5 +87,16 @@
 @each $self-alignment in (center, flex-start, flex-end, stretch) {
   .align-self-$(self-alignment) {
     align-self: $self-alignment;
+  }
+}
+
+@each $color in (neutral, mint, violet, ruby, gold, aqua, teal) {
+  .background-color-$(color) {
+    background-color: var(--color-$(color));
+  }
+  @each $tint in (darkest, dark, light, lightest) {
+    .background-color-$(color)-$(tint) {
+      background-color: var(--color-$(color)-$(tint));
+    }
   }
 }

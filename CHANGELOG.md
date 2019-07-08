@@ -2,16 +2,54 @@
 
 ### Added
 
-- `SplitButtonMenu`: added `SplitButtonMenu` component. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#594](https://github.com/teamleadercrm/ui/pull/594))
-- `Popover`: added `maxWidth` prop with a default value of `50vw`. ([@driesd](https://github.com/driesd) in [#597](https://github.com/teamleadercrm/ui/pull/597))
-
 ### Changed
 
 ### Deprecated
 
 ### Removed
 
+- `Dependency`: removed the `imports-loader` dependency because we're not using it. ([@driesd](https://github.com/driesd) in [#617](https://github.com/teamleadercrm/ui/pull/617))
+
 ### Fixed
+
+## [0.27.1] - 2019-06-24
+
+### Added
+
+- `Avatar`, `AvatarInitials` & `AvatarStack`: added a `large` size variation. ([@driesd](https://github.com/driesd) in [#610](https://github.com/teamleadercrm/ui/pull/610))
+- `Bullet`: added a `large` size variation. ([@driesd](https://github.com/driesd) in [#611](https://github.com/teamleadercrm/ui/pull/611))
+
+### Changed
+
+- `Bullet`: changed border thickness from 1px to 2px. ([@driesd](https://github.com/driesd) in [#611](https://github.com/teamleadercrm/ui/pull/611))
+- `Counter`: changed the font weight from `black` to `bold`. ([@driesd](https://github.com/driesd) in [#612](https://github.com/teamleadercrm/ui/pull/612))
+- `Infrastructure`: changed the way this module is exported. CommonJS and ES modules are now available, which enables tree shaking. ([@duivvv](https://github.com/duivvv) in [#609](https://github.com/teamleadercrm/ui/pull/609))
+
+## [0.27.0] - 2019-06-04
+
+### Added
+
+- `ProgressStep`: added the `onClick` prop to make a `ProgressStep` interactional. ([@driesd](https://github.com/driesd) in [#607](https://github.com/teamleadercrm/ui/pull/607))
+
+### Removed
+
+- [BREAKING] `ProgressStep`: removed the `color` prop. ([@driesd](https://github.com/driesd) in [#607](https://github.com/teamleadercrm/ui/pull/607))
+
+## [0.26.0] - 2019-05-09
+
+### Added
+
+- [BREAKING] `Dialog` & `DialogBase`: added boolean `scrollable` prop with a default value of `true`. ([@driesd](https://github.com/driesd) in [#599](https://github.com/teamleadercrm/ui/pull/599))
+- `Box`: added `backgroundColor` & `backgroundTint` props. ([@driesd](https://github.com/driesd) in [#600](https://github.com/teamleadercrm/ui/pull/600))
+- `Popover`: added `maxWidth` prop with a default value of `50vw`. ([@driesd](https://github.com/driesd) in [#597](https://github.com/teamleadercrm/ui/pull/597))
+
+### Changed
+
+- `SingleLineInputBase` & `Textarea`: changed validation behavior to only show a border when passing a boolean value. ([@driesd](https://github.com/driesd) in [#601](https://github.com/teamleadercrm/ui/pull/601))
+
+### Fixed
+
+- `Banner`: fixed the centering of the icon. The centering was off by a few pixels. ([@lowiebenoot](https://github.com/lowiebenoot) in [#602](https://github.com/teamleadercrm/ui/pull/602))
 
 ## [0.25.0] - 2019-04-18
 

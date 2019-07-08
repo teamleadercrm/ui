@@ -1,0 +1,156 @@
+:root {
+  --unit: 10px;
+
+  --spacer-unit: 3px;
+  --spacer-smallest: calc(1 * var(--spacer-unit));
+  --spacer-smaller: calc(2 * var(--spacer-unit));
+  --spacer-small: calc(4 * var(--spacer-unit));
+  --spacer-regular: calc(6 * var(--spacer-unit));
+  --spacer-medium: calc(8 * var(--spacer-unit));
+  --spacer-big: calc(12 * var(--spacer-unit));
+  --spacer-bigger: calc(16 * var(--spacer-unit));
+  --spacer-biggest: calc(24 * var(--spacer-unit));
+
+  --border-radius-small: 2px;
+  --border-radius-medium: 4px;
+  --border-radius-large: 8px;
+  --border-radius-round: 50%;
+
+  --box-shadow-100: 0 1px 1px 0 rgba(42, 59, 77, 0.12);
+  --box-shadow-200: 0 4px 6px 0 rgba(42, 59, 77, 0.32);
+  --box-shadow-300: 0 8px 10px 0 rgba(42, 59, 77, 0.32);
+  --box-shadow-400: 0 24px 32px 0 rgba(42, 59, 77, 0.42);
+}
+
+.reset-box-sizing {
+  box-sizing: border-box;
+}
+
+.reset-font-smoothing {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  text-size-adjust: 100%;
+}
+
+.reset {
+  composes: reset-box-sizing;
+  composes: reset-font-smoothing;
+}
+
+/* Box-shadows */
+
+.box-shadow-100::before {
+  border-radius: 4px;
+  bottom: 1px;
+  box-shadow: var(--box-shadow-100);
+  content: '';
+  left: 1px;
+  position: absolute;
+  right: 1px;
+  top: 1px;
+  z-index: -1;
+}
+
+.box-shadow-200::before {
+  border-radius: 4px;
+  bottom: 2px;
+  box-shadow: var(--box-shadow-200);
+  content: '';
+  left: 2px;
+  position: absolute;
+  right: 2px;
+  top: 2px;
+  z-index: -1;
+}
+
+.box-shadow-300::before {
+  border-radius: 4px;
+  bottom: 4px;
+  box-shadow: var(--box-shadow-300);
+  content: '';
+  left: 4px;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  z-index: -1;
+}
+
+.box-shadow-400::before {
+  border-radius: 4px;
+  bottom: 8px;
+  box-shadow: var(--box-shadow-400);
+  content: '';
+  left: 8px;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  z-index: -1;
+}
+
+/* Orientation */
+
+@custom-media --portrait (orientation: portrait);
+
+@custom-media --landscape (orientation: landscape);
+
+/* Devices (defined by max width) */
+
+@custom-media --xxs-viewport (max-width: 480px);
+
+@custom-media --xs-viewport (max-width: 600px);
+
+@custom-media --sm-tablet-viewport (max-width: 720px);
+
+@custom-media --sm-viewport (max-width: 840px);
+
+@custom-media --md-viewport (max-width: 960px);
+
+@custom-media --lg-tablet-viewport (max-width: 1024px);
+
+@custom-media --lg-viewport (max-width: 1280px);
+
+@custom-media --xl-viewport (max-width: 1440px);
+
+@custom-media --xxl-viewport (max-width: 1600px);
+
+@custom-media --xxxl-viewport (max-width: 1920px);
+
+/* Devices (defined by min-width) */
+
+@custom-media --larger-than-xxs-viewport (min-width: 480px);
+
+@custom-media --larger-than-xs-viewport (min-width: 600px);
+
+@custom-media --larger-than-sm-tablet-viewport (min-width: 720px);
+
+@custom-media --larger-than-sm-viewport (min-width: 840px);
+
+@custom-media --larger-than-md-viewport (min-width: 960px);
+
+@custom-media --larger-than-lg-tablet-viewport (min-width: 1024px);
+
+@custom-media --larger-than-lg-viewport (min-width: 1280px);
+
+@custom-media --larger-than-xl-viewport (min-width: 1440px);
+
+@custom-media --larger-than-xxl-viewport (min-width: 1600px);
+
+@custom-media --larger-than-xxxl-viewport (min-width: 1920px);
+
+.compact-message {
+  display: flex;
+  align-items: center;
+}
+
+.image {
+  margin-right: var(--spacer-regular);
+}
+
+.content {
+  flex: 1;
+}
+
+.button {
+  align-self: flex-end;
+}
