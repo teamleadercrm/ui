@@ -6,6 +6,8 @@
 
 ### Changed
 
+- `ProgressStep`: changed the clickable area to only be the status bullet, instead of the whole wrapper. ([@driesd](https://github.com/driesd) in [#627](https://github.com/teamleadercrm/ui/pull/627))
+
 ### Deprecated
 
 ### Removed
