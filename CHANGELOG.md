@@ -6,6 +6,7 @@
 
 ### Changed
 
+- `Avatar`: changed the CSS `display: inline-block;` to `display: flex;` to fix the vertical alignment issue. ([@driesd](https://github.com/driesd) in [#625](https://github.com/teamleadercrm/ui/pull/625))
 - `ProgressStep`: changed the clickable area to only be the status bullet, instead of the whole wrapper. ([@driesd](https://github.com/driesd) in [#627](https://github.com/teamleadercrm/ui/pull/627))
 
 ### Deprecated
