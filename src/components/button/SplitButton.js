@@ -30,7 +30,7 @@ class SplitButton extends PureComponent {
     this.setState({
       popoverActive: false,
     });
-    childProps.onMenuItemClick(childProps.caption);
+    childProps.onClick(childProps.caption);
   };
 
   handleCloseClick = () => {

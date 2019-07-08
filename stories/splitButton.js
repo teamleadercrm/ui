@@ -20,8 +20,8 @@ storiesOf('Split button', module).add('Basic', () => (
     onButtonClick={handleButtonClick}
     size={select('Size', sizes, 'medium')}
   >
-    <MenuItem onMenuItemClick={handleMenuItemClick} caption="Main action" />
-    <MenuItem onMenuItemClick={handleMenuItemClick} caption="Action 1" />
-    <MenuItem onMenuItemClick={handleMenuItemClick} caption="Action 2" />
+    <MenuItem onClick={handleMenuItemClick} caption="Main action" />
+    <MenuItem onClick={handleMenuItemClick} caption="Action 1" />
+    <MenuItem onClick={handleMenuItemClick} caption="Action 2" />
   </SplitButton>
 ));
