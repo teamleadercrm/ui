@@ -39,7 +39,9 @@ storiesOf('Avatars', module)
       inverse={boolean('Inverse', false)}
       size={select('Size', sizes, 'medium')}
     >
-      {avatars.map(({ image }, index) => <Avatar key={index} image={image} />)}
+      {avatars.map(({ image }, index) => (
+        <Avatar key={index} image={image} />
+      ))}
     </AvatarStack>
   ))
   .add('With bullet', () => (
