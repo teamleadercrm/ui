@@ -291,8 +291,8 @@ var getPosition = function getPosition(_ref10) {
       return isPositionPossible(POSITION_START, anchorPosition, popoverDimensions)
         ? POSITION_START
         : isPositionPossible(POSITION_END, anchorPosition, popoverDimensions)
-          ? POSITION_END
-          : position;
+        ? POSITION_END
+        : position;
 
     default:
       return isPositionPossible(POSITION_CENTER, anchorPosition, popoverDimensions)

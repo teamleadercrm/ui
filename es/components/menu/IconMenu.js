@@ -14,7 +14,7 @@ import { IconMoreMediumOutline } from '@teamleader/ui-icons';
 import IconButton from '../button/IconButton.js';
 import Menu from './Menu.js';
 import theme from './theme.css';
-import Box from '../box';
+import Box, { pickBoxProps } from '../box';
 
 var IconMenu =
   /*#__PURE__*/
@@ -90,6 +90,7 @@ var IconMenu =
               'selected',
             ]);
 
+          var boxProps = pickBoxProps(other);
           var buttonIcon = icon || React.createElement(IconMoreMediumOutline, null);
           return React.createElement(
             Box,
@@ -97,7 +98,7 @@ var IconMenu =
               {
                 'data-teamleader-ui': 'icon-menu',
               },
-              other,
+              boxProps,
               {
                 className: cx(theme['icon-menu'], className),
               },

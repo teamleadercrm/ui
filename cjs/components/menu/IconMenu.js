@@ -41,7 +41,7 @@ var _Menu = _interopRequireDefault(require('./Menu.js'));
 
 var _theme = _interopRequireDefault(require('./theme.css'));
 
-var _box = _interopRequireDefault(require('../box'));
+var _box = _interopRequireWildcard(require('../box'));
 
 var IconMenu =
   /*#__PURE__*/
@@ -112,6 +112,7 @@ var IconMenu =
               'selectable',
               'selected',
             ]);
+          var boxProps = (0, _box.pickBoxProps)(other);
 
           var buttonIcon = icon || _react.default.createElement(_uiIcons.IconMoreMediumOutline, null);
 
@@ -121,7 +122,7 @@ var IconMenu =
               {
                 'data-teamleader-ui': 'icon-menu',
               },
-              other,
+              boxProps,
               {
                 className: (0, _classnames.default)(_theme.default['icon-menu'], className),
               },

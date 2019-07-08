@@ -127,8 +127,8 @@ var RadioButton =
             size === 'small'
               ? _typography.TextSmall
               : size === 'medium'
-                ? _typography.TextBody
-                : _typography.TextDisplay;
+              ? _typography.TextBody
+              : _typography.TextDisplay;
           var restProps = (0, _lodash.default)(others, ['onChange']);
           var boxProps = (0, _box.pickBoxProps)(restProps);
           var inputProps = (0, _box.omitBoxProps)(restProps);

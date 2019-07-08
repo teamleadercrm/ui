@@ -13,7 +13,7 @@ import ReactDOM from 'react-dom';
 import cx from 'classnames';
 import { events } from '../utils';
 import { getViewport } from '../utils/utils';
-import Box from '../box';
+import Box, { pickBoxProps } from '../box';
 import MenuItem from './MenuItem.js';
 import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
@@ -343,6 +343,7 @@ var Menu =
               theme['outline'],
               _defineProperty({}, uiUtilities['box-shadow-200'], position !== POSITION.STATIC),
             );
+            var boxProps = pickBoxProps(others);
             return React.createElement(
               Box,
               _extends(
@@ -351,7 +352,7 @@ var Menu =
                   className: classNames,
                   style: this.getRootStyle(),
                 },
-                others,
+                boxProps,
               ),
               outline
                 ? React.createElement('div', {

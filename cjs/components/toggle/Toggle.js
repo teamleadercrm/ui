@@ -132,8 +132,8 @@ var Toggle =
             size === 'small'
               ? _typography.TextSmall
               : size === 'medium'
-                ? _typography.TextBody
-                : _typography.TextDisplay;
+              ? _typography.TextBody
+              : _typography.TextDisplay;
           return _react.default.createElement(
             _box.default,
             (0, _extends2.default)(

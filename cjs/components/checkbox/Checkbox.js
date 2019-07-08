@@ -124,8 +124,8 @@ var Checkbox =
             size === 'small'
               ? _typography.TextSmall
               : size === 'medium'
-                ? _typography.TextBody
-                : _typography.TextDisplay;
+              ? _typography.TextBody
+              : _typography.TextDisplay;
           var IconCheckmark =
             size === 'large' ? _uiIcons.IconCheckmarkMediumOutline : _uiIcons.IconCheckmarkSmallOutline;
           var restProps = (0, _lodash.default)(others, ['onChange']);

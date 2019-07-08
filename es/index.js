@@ -2,7 +2,7 @@ import Avatar, { AvatarInitials, AvatarStack } from './components/avatar';
 import Badge from './components/badge';
 import Banner from './components/banner';
 import Box from './components/box';
-import Button, { ButtonGroup, IconButton } from './components/button';
+import Button, { ButtonGroup, IconButton, SplitButtonMenu } from './components/button';
 import {
   Heading1,
   Heading2,
@@ -122,6 +122,7 @@ export {
   ScrollContainer,
   Section,
   Select,
+  SplitButtonMenu,
   StatusBullet,
   StatusLabel,
   TextBody,

@@ -116,23 +116,23 @@ var Select =
             borderColor: isFocused
               ? _constants.COLOR.TEAL.LIGHT
               : error
-                ? _constants.COLOR.RUBY.LIGHT
-                : warning
-                  ? _constants.COLOR.GOLD.LIGHT
-                  : success
-                    ? _constants.COLOR.MINT.LIGHT
-                    : isDisabled
-                      ? _constants.COLOR.TEAL.DARK
-                      : _constants.COLOR.TEAL.NORMAL,
+              ? _constants.COLOR.RUBY.LIGHT
+              : warning
+              ? _constants.COLOR.GOLD.LIGHT
+              : success
+              ? _constants.COLOR.MINT.LIGHT
+              : isDisabled
+              ? _constants.COLOR.TEAL.DARK
+              : _constants.COLOR.TEAL.NORMAL,
             boxShadow: isFocused
               ? '0 0 0 1px '.concat(_constants.COLOR.TEAL.LIGHT)
               : error
-                ? '0 0 0 1px '.concat(_constants.COLOR.RUBY.LIGHT)
-                : warning
-                  ? '0 0 0 1px '.concat(_constants.COLOR.GOLD.LIGHT)
-                  : success
-                    ? '0 0 0 1px '.concat(_constants.COLOR.MINT.LIGHT)
-                    : 'none',
+              ? '0 0 0 1px '.concat(_constants.COLOR.RUBY.LIGHT)
+              : warning
+              ? '0 0 0 1px '.concat(_constants.COLOR.GOLD.LIGHT)
+              : success
+              ? '0 0 0 1px '.concat(_constants.COLOR.MINT.LIGHT)
+              : 'none',
           });
         }
 
@@ -144,23 +144,23 @@ var Select =
           borderColor: isFocused
             ? _constants.COLOR.NEUTRAL.DARKEST
             : error
-              ? _constants.COLOR.RUBY.DARK
-              : warning
-                ? _constants.COLOR.GOLD.DARK
-                : success
-                  ? _constants.COLOR.MINT.DARK
-                  : isDisabled
-                    ? _constants.COLOR.NEUTRAL.NORMAL
-                    : _constants.COLOR.NEUTRAL.DARK,
+            ? _constants.COLOR.RUBY.DARK
+            : warning
+            ? _constants.COLOR.GOLD.DARK
+            : success
+            ? _constants.COLOR.MINT.DARK
+            : isDisabled
+            ? _constants.COLOR.NEUTRAL.NORMAL
+            : _constants.COLOR.NEUTRAL.DARK,
           boxShadow: isFocused
             ? '0 0 0 1px '.concat(_constants.COLOR.NEUTRAL.DARKEST)
             : error
-              ? '0 0 0 1px '.concat(_constants.COLOR.RUBY.DARK)
-              : warning
-                ? '0 0 0 1px '.concat(_constants.COLOR.GOLD.DARK)
-                : success
-                  ? '0 0 0 1px '.concat(_constants.COLOR.MINT.DARK)
-                  : 'none',
+            ? '0 0 0 1px '.concat(_constants.COLOR.RUBY.DARK)
+            : warning
+            ? '0 0 0 1px '.concat(_constants.COLOR.GOLD.DARK)
+            : success
+            ? '0 0 0 1px '.concat(_constants.COLOR.MINT.DARK)
+            : 'none',
         });
       });
       (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), 'getGroupStyles', function(base) {
@@ -265,15 +265,15 @@ var Select =
             color: isDisabled
               ? _constants.COLOR.TEAL.LIGHT
               : isSelected
-                ? _constants.COLOR.NEUTRAL.LIGHTEST
-                : isFocused
-                  ? _constants.COLOR.TEAL.DARK
-                  : _constants.COLOR.NEUTRAL.LIGHTEST,
+              ? _constants.COLOR.NEUTRAL.LIGHTEST
+              : isFocused
+              ? _constants.COLOR.TEAL.DARK
+              : _constants.COLOR.NEUTRAL.LIGHTEST,
             backgroundColor: isSelected
               ? _constants.COLOR.TEAL.DARK
               : isFocused
-                ? _constants.COLOR.TEAL.LIGHT
-                : _constants.COLOR.TEAL.NORMAL,
+              ? _constants.COLOR.TEAL.LIGHT
+              : _constants.COLOR.TEAL.NORMAL,
             '&:active': {
               backgroundColor: isDisabled ? _constants.COLOR.TEAL.NORMAL : _constants.COLOR.TEAL.DARK,
               color: isDisabled ? _constants.COLOR.TEAL.LIGHT : _constants.COLOR.NEUTRAL.LIGHTEST,
@@ -286,8 +286,8 @@ var Select =
           backgroundColor: isSelected
             ? _constants.COLOR.AQUA.LIGHTEST
             : isFocused
-              ? _constants.COLOR.NEUTRAL.LIGHT
-              : _constants.COLOR.NEUTRAL.LIGHTEST,
+            ? _constants.COLOR.NEUTRAL.LIGHT
+            : _constants.COLOR.NEUTRAL.LIGHTEST,
           '&:active': {
             backgroundColor: isDisabled ? _constants.COLOR.NEUTRAL.LIGHTEST : _constants.COLOR.AQUA.LIGHTEST,
             color: isDisabled ? _constants.COLOR.NEUTRAL.DARK : _constants.COLOR.TEAL.DARK,

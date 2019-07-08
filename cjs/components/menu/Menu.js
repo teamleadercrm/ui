@@ -39,7 +39,7 @@ var _utils = require('../utils');
 
 var _utils2 = require('../utils/utils');
 
-var _box = _interopRequireDefault(require('../box'));
+var _box = _interopRequireWildcard(require('../box'));
 
 var _MenuItem = _interopRequireDefault(require('./MenuItem.js'));
 
@@ -372,6 +372,7 @@ var Menu =
               _theme.default['outline'],
               (0, _defineProperty2.default)({}, _uiUtilities.default['box-shadow-200'], position !== POSITION.STATIC),
             );
+            var boxProps = (0, _box.pickBoxProps)(others);
             return _react.default.createElement(
               _box.default,
               (0, _extends2.default)(
@@ -380,7 +381,7 @@ var Menu =
                   className: classNames,
                   style: this.getRootStyle(),
                 },
-                others,
+                boxProps,
               ),
               outline
                 ? _react.default.createElement('div', {

@@ -61,6 +61,12 @@ Object.defineProperty(exports, 'IconButton', {
     return _button.IconButton;
   },
 });
+Object.defineProperty(exports, 'SplitButtonMenu', {
+  enumerable: true,
+  get: function get() {
+    return _button.SplitButtonMenu;
+  },
+});
 Object.defineProperty(exports, 'Heading1', {
   enumerable: true,
   get: function get() {
