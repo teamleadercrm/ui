@@ -2,6 +2,8 @@
 
 ### Added
 
+- `AvatarInitials`: added a default `color` value. ([@driesd](https://github.com/driesd) in [#626](https://github.com/teamleadercrm/ui/pull/626))
+
 ### Changed
 
 ### Deprecated
