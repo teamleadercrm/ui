@@ -1,0 +1,228 @@
+@font-face {
+  font-display: swap;
+  font-family: 'Inter-UI-Regular';
+  src: url('https://static.teamleader.eu/fonts/Inter-UI-Regular.woff2') format('woff2'),
+    url('https://static.teamleader.eu/fonts/Inter-UI-Regular.woff') format('woff');
+}
+@font-face {
+  font-display: swap;
+  font-family: 'Inter-UI-Medium';
+  src: url('https://static.teamleader.eu/fonts/Inter-UI-Medium.woff2') format('woff2'),
+    url('https://static.teamleader.eu/fonts/Inter-UI-Medium.woff') format('woff');
+}
+@font-face {
+  font-display: swap;
+  font-family: 'Inter-UI-Bold';
+  src: url('https://static.teamleader.eu/fonts/Inter-UI-Bold.woff2') format('woff2'),
+    url('https://static.teamleader.eu/fonts/Inter-UI-Bold.woff') format('woff');
+}
+@font-face {
+  font-display: swap;
+  font-family: 'Inter-UI-Black';
+  src: url('https://static.teamleader.eu/fonts/Inter-UI-Black.woff2') format('woff2'),
+    url('https://static.teamleader.eu/fonts/Inter-UI-Black.woff') format('woff');
+}
+.heading,
+.text {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+.text strong {
+  font-family: 'Inter-UI-Bold', trebuchet ms, Verdana, 'Arial', sans-serif;
+  font-weight: normal;
+}
+.heading-1 {
+  font-family: 'Inter-UI-Bold', trebuchet ms, Verdana, 'Arial', sans-serif;
+  font-size: 24px;
+  font-weight: normal;
+  line-height: 30px;
+}
+.heading-2 {
+  font-family: 'Inter-UI-Medium', trebuchet ms, Verdana, 'Arial', sans-serif;
+  font-size: 18px;
+  font-weight: normal;
+  line-height: 24px;
+}
+.heading-3 {
+  font-family: 'Inter-UI-Medium', trebuchet ms, Verdana, 'Arial', sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 21px;
+}
+.heading-4 {
+  font-family: 'Inter-UI-Bold', trebuchet ms, Verdana, 'Arial', sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 18px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+.heading a {
+  text-decoration: none;
+}
+.heading a:hover {
+  text-decoration: underline;
+}
+.text-display {
+  font-family: 'Inter-UI-Regular', trebuchet ms, Verdana, 'Arial', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+}
+.text-body {
+  font-family: 'Inter-UI-Regular', trebuchet ms, Verdana, 'Arial', sans-serif;
+  font-size: 14px;
+  line-height: 21px;
+}
+.text-small {
+  font-family: 'Inter-UI-Regular', trebuchet ms, Verdana, 'Arial', sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+}
+.monospaced {
+  -webkit-font-feature-settings: 'tnum' on;
+  font-feature-settings: 'tnum' on;
+}
+@keyframes pulse {
+  0% {
+    opacity: 0.25;
+  }
+  25% {
+    opacity: 0.25;
+  }
+  35% {
+    opacity: 1;
+  }
+  55% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0.25;
+  }
+  100% {
+    opacity: 0.25;
+  }
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.tracker {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 20px 24px;
+}
+.step {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  max-width: 180px;
+  position: relative;
+}
+.step:before,
+.step:after {
+  content: '';
+  height: 2px;
+  position: absolute;
+  bottom: 11px;
+}
+.step:before {
+  background-color: #c0c0c4;
+}
+.step:after {
+  background-color: #00b2b2;
+  left: 50%;
+  transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 0;
+  z-index: 1;
+}
+.step:not(:first-child):not(:last-child):before {
+  width: 100%;
+  left: 0;
+}
+.step:first-child:before {
+  width: 50%;
+  left: 50%;
+}
+.step:last-child:before {
+  width: 50%;
+  left: 0;
+}
+.step.is-completed:not(:last-child):after {
+  width: 100%;
+}
+.step .status-bullet {
+  background-color: transparent;
+  transition: background-color 0.1s cubic-bezier(0.4, 0, 0.2, 1) 0.25s, transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+  align-self: center;
+  border-radius: 50%;
+  display: block;
+  height: 12px;
+  margin: 6px 0;
+  width: 12px;
+  z-index: 2;
+  position: relative;
+}
+.step .status-bullet:before {
+  background-color: transparent;
+  transition: background-color 0.1s cubic-bezier(0.4, 0, 0.2, 1) 0.25s;
+  border-radius: 50%;
+  content: '';
+  display: block;
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.step .step-label {
+  font-family: 'Inter-UI-Regular', trebuchet ms, Verdana, 'Arial', sans-serif;
+  text-align: center;
+  transition: font-family 0.1s cubic-bezier(0.4, 0, 0.2, 1) 0.25s, opacity 0.1s cubic-bezier(0.4, 0, 0.2, 1) 0.25s;
+}
+.step:not(.is-completed):not(.is-active) .status-bullet {
+  background-color: #c0c0c4;
+}
+.step:not(.is-completed):not(.is-active) .step-label {
+  color: #c0c0c4;
+}
+.step.is-active .step-label {
+  font-family: 'Inter-UI-Bold', trebuchet ms, Verdana, 'Arial', sans-serif;
+}
+.step.is-active .status-bullet:before {
+  animation: showBulletCenter 0.1s 0.25s forwards;
+}
+.step.is-completed .status-bullet,
+.step.is-active .status-bullet {
+  background-color: #00b2b2;
+}
+.step.is-completed .step-label,
+.step.is-active .step-label {
+  color: #00b2b2;
+}
+.step.is-clickable:hover {
+  cursor: pointer;
+}
+.step.is-clickable:hover .step-label {
+  font-family: 'Inter-UI-Bold', trebuchet ms, Verdana, 'Arial', sans-serif;
+}
+.step.is-clickable:hover .status-bullet {
+  transform: scale(1.5);
+}
+@keyframes showBulletCenter {
+  0% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: #ffffff;
+  }
+}

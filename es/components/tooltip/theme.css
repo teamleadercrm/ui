@@ -1,0 +1,215 @@
+.reset-box-sizing {
+  box-sizing: border-box;
+}
+.reset-font-smoothing {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+.reset {
+  composes: reset-box-sizing;
+  composes: reset-font-smoothing;
+}
+/* Box-shadows */
+.box-shadow-100:before {
+  border-radius: 4px;
+  bottom: 1px;
+  box-shadow: 0 1px 1px 0 rgba(42, 59, 77, 0.12);
+  content: '';
+  left: 1px;
+  position: absolute;
+  right: 1px;
+  top: 1px;
+  z-index: -1;
+}
+.box-shadow-200:before {
+  border-radius: 4px;
+  bottom: 2px;
+  box-shadow: 0 4px 6px 0 rgba(42, 59, 77, 0.32);
+  content: '';
+  left: 2px;
+  position: absolute;
+  right: 2px;
+  top: 2px;
+  z-index: -1;
+}
+.box-shadow-300:before {
+  border-radius: 4px;
+  bottom: 4px;
+  box-shadow: 0 8px 10px 0 rgba(42, 59, 77, 0.32);
+  content: '';
+  left: 4px;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  z-index: -1;
+}
+.box-shadow-400:before {
+  border-radius: 4px;
+  bottom: 8px;
+  box-shadow: 0 24px 32px 0 rgba(42, 59, 77, 0.42);
+  content: '';
+  left: 8px;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  z-index: -1;
+}
+/* Orientation */
+/* Devices (defined by max width) */
+/* Devices (defined by min-width) */
+.tooltip svg {
+  -ms-transform: translateY(-1px);
+}
+.tooltip {
+  display: block;
+  pointer-events: none;
+  position: absolute;
+  text-align: left;
+  transform-origin: top left;
+  transition: cubic-bezier(0.4, 0, 0.2, 1) 200ms transform;
+  z-index: 700;
+}
+.tooltip:after {
+  content: '';
+  border-color: rgba(52, 75, 99, 0.2);
+  border-style: solid;
+  height: 8px;
+  position: absolute;
+  width: 8px;
+  transform: rotate(45deg);
+}
+.tooltip.bottom {
+  margin-top: 8px;
+}
+.tooltip.bottom.is-exiting,
+.tooltip.bottom.is-entering {
+  transform: scale(0) translateX(-50%);
+}
+.tooltip.bottom.is-entered {
+  transform: scale(1) translateX(-50%);
+}
+.tooltip.bottom:after {
+  border-width: 1px 0 0 1px;
+  bottom: calc(100% - 4.5px);
+  left: calc(50% - 5px);
+}
+.tooltip.top {
+  margin-top: -8px;
+}
+.tooltip.top.is-exiting,
+.tooltip.top.is-entering {
+  transform: scale(0) translateX(-50%) translateY(-100%);
+}
+.tooltip.top.is-entered {
+  transform: scale(1) translateX(-50%) translateY(-100%);
+}
+.tooltip.top:after {
+  border-width: 0 1px 1px 0;
+  left: calc(50% - 5px);
+  top: calc(100% - 4.5px);
+}
+.tooltip.left {
+  margin-left: -8px;
+}
+.tooltip.left.is-exiting,
+.tooltip.left.is-entering {
+  transform: scale(0) translateX(-100%) translateY(-50%);
+}
+.tooltip.left.is-entered {
+  transform: scale(1) translateX(-100%) translateY(-50%);
+}
+.tooltip.left:after {
+  border-width: 1px 1px 0 0;
+  left: calc(100% - 4.5px);
+  top: calc(50% - 5px);
+}
+.tooltip.right {
+  margin-left: 8px;
+}
+.tooltip.right.is-exiting,
+.tooltip.right.is-entering {
+  transform: scale(0) translateX(0) translateY(-50%);
+}
+.tooltip.right.is-entered {
+  transform: scale(1) translateX(0) translateY(-50%);
+}
+.tooltip.right:after {
+  border-width: 0 0 1px 1px;
+  right: calc(100% - 4.5px);
+  top: calc(50% - 5px);
+}
+.inner {
+  border: 1px solid rgba(52, 75, 99, 0.2);
+  border-radius: 4px;
+  display: block;
+}
+.icon {
+  display: inline-block;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+.text {
+  display: inline-block;
+  max-width: 180px;
+  vertical-align: middle;
+}
+.aqua {
+  color: #004da6;
+}
+.aqua:after,
+.aqua .inner {
+  background: #cce4ff;
+}
+.gold {
+  color: #8f3c00;
+}
+.gold:after,
+.gold .inner {
+  background: #ffda8f;
+}
+.inverse {
+  color: #c1cede;
+}
+.inverse:after,
+.inverse .inner {
+  background: #2a3b4d;
+}
+.neutral {
+  color: #2a3b4d;
+}
+.neutral:after,
+.neutral .inner {
+  background: #f7f7fa;
+}
+.mint {
+  color: #004b4d;
+}
+.mint:after,
+.mint .inner {
+  background: #57d3d2;
+}
+.ruby {
+  color: #992600;
+}
+.ruby:after,
+.ruby .inner {
+  background: #ffbca6;
+}
+.violet {
+  color: #130abf;
+}
+.violet:after,
+.violet .inner {
+  background: #d3d1fe;
+}
+.white {
+  color: #2a3b4d;
+}
+.white:after,
+.white .inner {
+  background: #ffffff;
+}

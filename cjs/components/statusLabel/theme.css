@@ -1,0 +1,208 @@
+@font-face {
+  font-display: swap;
+  font-family: 'Inter-UI-Regular';
+  src: url('https://static.teamleader.eu/fonts/Inter-UI-Regular.woff2') format('woff2'),
+    url('https://static.teamleader.eu/fonts/Inter-UI-Regular.woff') format('woff');
+}
+@font-face {
+  font-display: swap;
+  font-family: 'Inter-UI-Medium';
+  src: url('https://static.teamleader.eu/fonts/Inter-UI-Medium.woff2') format('woff2'),
+    url('https://static.teamleader.eu/fonts/Inter-UI-Medium.woff') format('woff');
+}
+@font-face {
+  font-display: swap;
+  font-family: 'Inter-UI-Bold';
+  src: url('https://static.teamleader.eu/fonts/Inter-UI-Bold.woff2') format('woff2'),
+    url('https://static.teamleader.eu/fonts/Inter-UI-Bold.woff') format('woff');
+}
+@font-face {
+  font-display: swap;
+  font-family: 'Inter-UI-Black';
+  src: url('https://static.teamleader.eu/fonts/Inter-UI-Black.woff2') format('woff2'),
+    url('https://static.teamleader.eu/fonts/Inter-UI-Black.woff') format('woff');
+}
+.heading,
+.text {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+.text strong {
+  font-family: 'Inter-UI-Bold', trebuchet ms, Verdana, 'Arial', sans-serif;
+  font-weight: normal;
+}
+.heading-1 {
+  font-family: 'Inter-UI-Bold', trebuchet ms, Verdana, 'Arial', sans-serif;
+  font-size: 24px;
+  font-weight: normal;
+  line-height: 30px;
+}
+.heading-2 {
+  font-family: 'Inter-UI-Medium', trebuchet ms, Verdana, 'Arial', sans-serif;
+  font-size: 18px;
+  font-weight: normal;
+  line-height: 24px;
+}
+.heading-3 {
+  font-family: 'Inter-UI-Medium', trebuchet ms, Verdana, 'Arial', sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 21px;
+}
+.heading-4 {
+  font-family: 'Inter-UI-Bold', trebuchet ms, Verdana, 'Arial', sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 18px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+.heading a {
+  text-decoration: none;
+}
+.heading a:hover {
+  text-decoration: underline;
+}
+.text-display {
+  font-family: 'Inter-UI-Regular', trebuchet ms, Verdana, 'Arial', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+}
+.text-body {
+  font-family: 'Inter-UI-Regular', trebuchet ms, Verdana, 'Arial', sans-serif;
+  font-size: 14px;
+  line-height: 21px;
+}
+.text-small {
+  font-family: 'Inter-UI-Regular', trebuchet ms, Verdana, 'Arial', sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+}
+.monospaced {
+  -webkit-font-feature-settings: 'tnum' on;
+  font-feature-settings: 'tnum' on;
+}
+.reset-box-sizing {
+  box-sizing: border-box;
+}
+.reset-font-smoothing {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+.reset {
+  composes: reset-box-sizing;
+  composes: reset-font-smoothing;
+}
+/* Box-shadows */
+.box-shadow-100:before {
+  border-radius: 4px;
+  bottom: 1px;
+  box-shadow: 0 1px 1px 0 rgba(42, 59, 77, 0.12);
+  content: '';
+  left: 1px;
+  position: absolute;
+  right: 1px;
+  top: 1px;
+  z-index: -1;
+}
+.box-shadow-200:before {
+  border-radius: 4px;
+  bottom: 2px;
+  box-shadow: 0 4px 6px 0 rgba(42, 59, 77, 0.32);
+  content: '';
+  left: 2px;
+  position: absolute;
+  right: 2px;
+  top: 2px;
+  z-index: -1;
+}
+.box-shadow-300:before {
+  border-radius: 4px;
+  bottom: 4px;
+  box-shadow: 0 8px 10px 0 rgba(42, 59, 77, 0.32);
+  content: '';
+  left: 4px;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  z-index: -1;
+}
+.box-shadow-400:before {
+  border-radius: 4px;
+  bottom: 8px;
+  box-shadow: 0 24px 32px 0 rgba(42, 59, 77, 0.42);
+  content: '';
+  left: 8px;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  z-index: -1;
+}
+/* Orientation */
+/* Devices (defined by max width) */
+/* Devices (defined by min-width) */
+.label {
+  border-style: solid;
+  border-width: 1px;
+  display: inline-block;
+  font-family: 'Inter-UI-Medium', trebuchet ms, Verdana, 'Arial', sans-serif;
+  text-transform: none;
+  vertical-align: middle;
+}
+.neutral {
+  background-color: rgba(228, 228, 230, 0.48);
+  border-color: rgba(192, 192, 196, 0.48);
+  color: #2a3b4d;
+}
+.mint {
+  background-color: rgba(87, 211, 210, 0.48);
+  border-color: rgba(87, 211, 210, 0.48);
+  color: #004b4d;
+}
+.violet {
+  background-color: rgba(211, 209, 254, 0.48);
+  border-color: rgba(211, 209, 254, 0.48);
+  color: #130abf;
+}
+.ruby {
+  background-color: rgba(255, 188, 166, 0.48);
+  border-color: rgba(255, 188, 166, 0.48);
+  color: #992600;
+}
+.gold {
+  background-color: rgba(255, 218, 143, 0.48);
+  border-color: rgba(255, 218, 143, 0.48);
+  color: #8f3c00;
+}
+.aqua {
+  background-color: rgba(204, 228, 255, 0.48);
+  border-color: rgba(204, 228, 255, 0.48);
+  color: #004da6;
+}
+.medium {
+  font-size: 14px;
+  line-height: 18px;
+  border-radius: 14px;
+  padding: 3px 12px;
+}
+.small {
+  font-size: 12px;
+  line-height: 14px;
+  border-radius: 11px;
+  padding: 2px 12px;
+}
+h1 .label,
+h2 .label,
+h3 .label,
+h4 .label,
+p .label {
+  margin: 0 6px;
+}

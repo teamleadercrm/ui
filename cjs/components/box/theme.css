@@ -1,0 +1,471 @@
+.reset-box-sizing {
+  box-sizing: border-box;
+}
+.reset-font-smoothing {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+.reset {
+  composes: reset-box-sizing;
+  composes: reset-font-smoothing;
+}
+/* Box-shadows */
+.box-shadow-100:before {
+  border-radius: 4px;
+  bottom: 1px;
+  box-shadow: 0 1px 1px 0 rgba(42, 59, 77, 0.12);
+  content: '';
+  left: 1px;
+  position: absolute;
+  right: 1px;
+  top: 1px;
+  z-index: -1;
+}
+.box-shadow-200:before {
+  border-radius: 4px;
+  bottom: 2px;
+  box-shadow: 0 4px 6px 0 rgba(42, 59, 77, 0.32);
+  content: '';
+  left: 2px;
+  position: absolute;
+  right: 2px;
+  top: 2px;
+  z-index: -1;
+}
+.box-shadow-300:before {
+  border-radius: 4px;
+  bottom: 4px;
+  box-shadow: 0 8px 10px 0 rgba(42, 59, 77, 0.32);
+  content: '';
+  left: 4px;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  z-index: -1;
+}
+.box-shadow-400:before {
+  border-radius: 4px;
+  bottom: 8px;
+  box-shadow: 0 24px 32px 0 rgba(42, 59, 77, 0.42);
+  content: '';
+  left: 8px;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  z-index: -1;
+}
+/* Orientation */
+/* Devices (defined by max width) */
+/* Devices (defined by min-width) */
+.box {
+  box-sizing: border-box;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+}
+/* prettier-ignore */
+.margin-bottom-1 {
+    margin-bottom: 3px;
+  }
+.margin-left-1 {
+  margin-left: 3px;
+}
+.margin-right-1 {
+  margin-right: 3px;
+}
+.margin-top-1 {
+  margin-top: 3px;
+}
+.padding-bottom-1 {
+  padding-bottom: 3px;
+}
+.padding-left-1 {
+  padding-left: 3px;
+}
+.padding-right-1 {
+  padding-right: 3px;
+}
+.padding-top-1 {
+  padding-top: 3px;
+}
+.margin-bottom-2 {
+  margin-bottom: 6px;
+}
+.margin-left-2 {
+  margin-left: 6px;
+}
+.margin-right-2 {
+  margin-right: 6px;
+}
+.margin-top-2 {
+  margin-top: 6px;
+}
+.padding-bottom-2 {
+  padding-bottom: 6px;
+}
+.padding-left-2 {
+  padding-left: 6px;
+}
+.padding-right-2 {
+  padding-right: 6px;
+}
+.padding-top-2 {
+  padding-top: 6px;
+}
+.margin-bottom-3 {
+  margin-bottom: 12px;
+}
+.margin-left-3 {
+  margin-left: 12px;
+}
+.margin-right-3 {
+  margin-right: 12px;
+}
+.margin-top-3 {
+  margin-top: 12px;
+}
+.padding-bottom-3 {
+  padding-bottom: 12px;
+}
+.padding-left-3 {
+  padding-left: 12px;
+}
+.padding-right-3 {
+  padding-right: 12px;
+}
+.padding-top-3 {
+  padding-top: 12px;
+}
+.margin-bottom-4 {
+  margin-bottom: 18px;
+}
+.margin-left-4 {
+  margin-left: 18px;
+}
+.margin-right-4 {
+  margin-right: 18px;
+}
+.margin-top-4 {
+  margin-top: 18px;
+}
+.padding-bottom-4 {
+  padding-bottom: 18px;
+}
+.padding-left-4 {
+  padding-left: 18px;
+}
+.padding-right-4 {
+  padding-right: 18px;
+}
+.padding-top-4 {
+  padding-top: 18px;
+}
+.margin-bottom-5 {
+  margin-bottom: 24px;
+}
+.margin-left-5 {
+  margin-left: 24px;
+}
+.margin-right-5 {
+  margin-right: 24px;
+}
+.margin-top-5 {
+  margin-top: 24px;
+}
+.padding-bottom-5 {
+  padding-bottom: 24px;
+}
+.padding-left-5 {
+  padding-left: 24px;
+}
+.padding-right-5 {
+  padding-right: 24px;
+}
+.padding-top-5 {
+  padding-top: 24px;
+}
+.margin-bottom-6 {
+  margin-bottom: 36px;
+}
+.margin-left-6 {
+  margin-left: 36px;
+}
+.margin-right-6 {
+  margin-right: 36px;
+}
+.margin-top-6 {
+  margin-top: 36px;
+}
+.padding-bottom-6 {
+  padding-bottom: 36px;
+}
+.padding-left-6 {
+  padding-left: 36px;
+}
+.padding-right-6 {
+  padding-right: 36px;
+}
+.padding-top-6 {
+  padding-top: 36px;
+}
+.margin-bottom-7 {
+  margin-bottom: 48px;
+}
+.margin-left-7 {
+  margin-left: 48px;
+}
+.margin-right-7 {
+  margin-right: 48px;
+}
+.margin-top-7 {
+  margin-top: 48px;
+}
+.padding-bottom-7 {
+  padding-bottom: 48px;
+}
+.padding-left-7 {
+  padding-left: 48px;
+}
+.padding-right-7 {
+  padding-right: 48px;
+}
+.padding-top-7 {
+  padding-top: 48px;
+}
+.margin-bottom-8 {
+  margin-bottom: 72px;
+}
+.margin-left-8 {
+  margin-left: 72px;
+}
+.margin-right-8 {
+  margin-right: 72px;
+}
+.margin-top-8 {
+  margin-top: 72px;
+}
+.padding-bottom-8 {
+  padding-bottom: 72px;
+}
+.padding-left-8 {
+  padding-left: 72px;
+}
+.padding-right-8 {
+  padding-right: 72px;
+}
+.padding-top-8 {
+  padding-top: 72px;
+}
+.display-inline {
+  display: inline;
+}
+.display-inline-block {
+  display: inline-block;
+}
+.display-block {
+  display: block;
+}
+.display-flex {
+  display: flex;
+}
+.display-inline-flex {
+  display: inline-flex;
+}
+.flex-direction-row {
+  flex-direction: row;
+}
+.flex-direction-row-reverse {
+  flex-direction: row-reverse;
+}
+.flex-direction-column {
+  flex-direction: column;
+}
+.flex-direction-column-reverse {
+  flex-direction: column-reverse;
+}
+.flex-wrap-nowrap {
+  flex-wrap: nowrap;
+}
+.flex-wrap-wrap {
+  flex-wrap: wrap;
+}
+.flex-wrap-wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+.justify-content-center {
+  justify-content: center;
+}
+.justify-content-flex-start {
+  justify-content: flex-start;
+}
+.justify-content-flex-end {
+  justify-content: flex-end;
+}
+.justify-content-space-around {
+  justify-content: space-around;
+}
+.justify-content-space-between {
+  justify-content: space-between;
+}
+.justify-content-space-evenly {
+  justify-content: space-evenly;
+}
+.align-content-center {
+  align-content: center;
+}
+.align-content-flex-start {
+  align-content: flex-start;
+}
+.align-content-flex-end {
+  align-content: flex-end;
+}
+.align-content-space-around {
+  align-content: space-around;
+}
+.align-content-space-between {
+  align-content: space-between;
+}
+.align-content-space-evenly {
+  align-content: space-evenly;
+}
+.align-items-center {
+  align-items: center;
+}
+.align-items-flex-start {
+  align-items: flex-start;
+}
+.align-items-flex-end {
+  align-items: flex-end;
+}
+.align-items-baseline {
+  align-items: baseline;
+}
+.align-items-stretch {
+  align-items: stretch;
+}
+.align-self-center {
+  align-self: center;
+}
+.align-self-flex-start {
+  align-self: flex-start;
+}
+.align-self-flex-end {
+  align-self: flex-end;
+}
+.align-self-stretch {
+  align-self: stretch;
+}
+.background-color-neutral {
+  background-color: #e4e4e6;
+}
+.background-color-neutral-darkest {
+  background-color: #82828c;
+}
+.background-color-neutral-dark {
+  background-color: #c0c0c4;
+}
+.background-color-neutral-light {
+  background-color: #f7f7fa;
+}
+.background-color-neutral-lightest {
+  background-color: #ffffff;
+}
+.background-color-mint {
+  background-color: #00b2b2;
+}
+.background-color-mint-darkest {
+  background-color: #004b4d;
+}
+.background-color-mint-dark {
+  background-color: #008a8c;
+}
+.background-color-mint-light {
+  background-color: #57d3d2;
+}
+.background-color-mint-lightest {
+  background-color: #d3f2f2;
+}
+.background-color-violet {
+  background-color: #928cff;
+}
+.background-color-violet-darkest {
+  background-color: #130abf;
+}
+.background-color-violet-dark {
+  background-color: #6961ff;
+}
+.background-color-violet-light {
+  background-color: #d3d1fe;
+}
+.background-color-violet-lightest {
+  background-color: #f0f0ff;
+}
+.background-color-ruby {
+  background-color: #ff7040;
+}
+.background-color-ruby-darkest {
+  background-color: #992600;
+}
+.background-color-ruby-dark {
+  background-color: #e84b17;
+}
+.background-color-ruby-light {
+  background-color: #ffbca6;
+}
+.background-color-ruby-lightest {
+  background-color: #ffe2d9;
+}
+.background-color-gold {
+  background-color: #ffcc66;
+}
+.background-color-gold-darkest {
+  background-color: #8f3c00;
+}
+.background-color-gold-dark {
+  background-color: #ed9e00;
+}
+.background-color-gold-light {
+  background-color: #ffda8f;
+}
+.background-color-gold-lightest {
+  background-color: #ffeecc;
+}
+.background-color-aqua {
+  background-color: #99c9ff;
+}
+.background-color-aqua-darkest {
+  background-color: #004da6;
+}
+.background-color-aqua-dark {
+  background-color: #0071f2;
+}
+.background-color-aqua-light {
+  background-color: #cce4ff;
+}
+.background-color-aqua-lightest {
+  background-color: #e6f2ff;
+}
+.background-color-teal {
+  background-color: #64788f;
+}
+.background-color-teal-darkest {
+  background-color: #2a3b4d;
+}
+.background-color-teal-dark {
+  background-color: #344b63;
+}
+.background-color-teal-light {
+  background-color: #c1cede;
+}
+.background-color-teal-lightest {
+  background-color: #e1ecfa;
+}

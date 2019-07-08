@@ -1,0 +1,193 @@
+@font-face {
+  font-display: swap;
+  font-family: 'Inter-UI-Regular';
+  src: url('https://static.teamleader.eu/fonts/Inter-UI-Regular.woff2') format('woff2'),
+    url('https://static.teamleader.eu/fonts/Inter-UI-Regular.woff') format('woff');
+}
+@font-face {
+  font-display: swap;
+  font-family: 'Inter-UI-Medium';
+  src: url('https://static.teamleader.eu/fonts/Inter-UI-Medium.woff2') format('woff2'),
+    url('https://static.teamleader.eu/fonts/Inter-UI-Medium.woff') format('woff');
+}
+@font-face {
+  font-display: swap;
+  font-family: 'Inter-UI-Bold';
+  src: url('https://static.teamleader.eu/fonts/Inter-UI-Bold.woff2') format('woff2'),
+    url('https://static.teamleader.eu/fonts/Inter-UI-Bold.woff') format('woff');
+}
+@font-face {
+  font-display: swap;
+  font-family: 'Inter-UI-Black';
+  src: url('https://static.teamleader.eu/fonts/Inter-UI-Black.woff2') format('woff2'),
+    url('https://static.teamleader.eu/fonts/Inter-UI-Black.woff') format('woff');
+}
+.heading,
+.text {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+.text strong {
+  font-family: 'Inter-UI-Bold', trebuchet ms, Verdana, 'Arial', sans-serif;
+  font-weight: normal;
+}
+.heading-1 {
+  font-family: 'Inter-UI-Bold', trebuchet ms, Verdana, 'Arial', sans-serif;
+  font-size: 24px;
+  font-weight: normal;
+  line-height: 30px;
+}
+.heading-2 {
+  font-family: 'Inter-UI-Medium', trebuchet ms, Verdana, 'Arial', sans-serif;
+  font-size: 18px;
+  font-weight: normal;
+  line-height: 24px;
+}
+.heading-3 {
+  font-family: 'Inter-UI-Medium', trebuchet ms, Verdana, 'Arial', sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 21px;
+}
+.heading-4 {
+  font-family: 'Inter-UI-Bold', trebuchet ms, Verdana, 'Arial', sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 18px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+.heading a {
+  text-decoration: none;
+}
+.heading a:hover {
+  text-decoration: underline;
+}
+.text-display {
+  font-family: 'Inter-UI-Regular', trebuchet ms, Verdana, 'Arial', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+}
+.text-body {
+  font-family: 'Inter-UI-Regular', trebuchet ms, Verdana, 'Arial', sans-serif;
+  font-size: 14px;
+  line-height: 21px;
+}
+.text-small {
+  font-family: 'Inter-UI-Regular', trebuchet ms, Verdana, 'Arial', sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+}
+.monospaced {
+  -webkit-font-feature-settings: 'tnum' on;
+  font-feature-settings: 'tnum' on;
+}
+.neutral.lightest {
+  color: #ffffff;
+}
+.neutral.light {
+  color: #f7f7fa;
+}
+.neutral.normal {
+  color: #e4e4e6;
+}
+.neutral.dark {
+  color: #c0c0c4;
+}
+.neutral.darkest {
+  color: #82828c;
+}
+.teal.lightest {
+  color: #e1ecfa;
+}
+.teal.light {
+  color: #c1cede;
+}
+.teal.normal {
+  color: #64788f;
+}
+.teal.dark {
+  color: #344b63;
+}
+.teal.darkest {
+  color: #2a3b4d;
+}
+.mint.lightest {
+  color: #d3f2f2;
+}
+.mint.light {
+  color: #57d3d2;
+}
+.mint.normal {
+  color: #00b2b2;
+}
+.mint.dark {
+  color: #008a8c;
+}
+.mint.darkest {
+  color: #004b4d;
+}
+.ruby.lightest {
+  color: #ffe2d9;
+}
+.ruby.light {
+  color: #ffbca6;
+}
+.ruby.normal {
+  color: #ff7040;
+}
+.ruby.dark {
+  color: #e84b17;
+}
+.ruby.darkest {
+  color: #992600;
+}
+.aqua.lightest {
+  color: #e6f2ff;
+}
+.aqua.light {
+  color: #cce4ff;
+}
+.aqua.normal {
+  color: #99c9ff;
+}
+.aqua.dark {
+  color: #0071f2;
+}
+.aqua.darkest {
+  color: #004da6;
+}
+.violet.lightest {
+  color: #f0f0ff;
+}
+.violet.light {
+  color: #d3d1fe;
+}
+.violet.normal {
+  color: #928cff;
+}
+.violet.dark {
+  color: #6961ff;
+}
+.violet.darkest {
+  color: #130abf;
+}
+.gold.lightest {
+  color: #ffeecc;
+}
+.gold.light {
+  color: #ffda8f;
+}
+.gold.normal {
+  color: #ffcc66;
+}
+.gold.dark {
+  color: #ed9e00;
+}
+.gold.darkest {
+  color: #8f3c00;
+}

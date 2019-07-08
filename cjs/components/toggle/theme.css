@@ -1,0 +1,217 @@
+.reset-box-sizing {
+  box-sizing: border-box;
+}
+.reset-font-smoothing {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+.reset {
+  composes: reset-box-sizing;
+  composes: reset-font-smoothing;
+}
+/* Box-shadows */
+.box-shadow-100:before {
+  border-radius: 4px;
+  bottom: 1px;
+  box-shadow: 0 1px 1px 0 rgba(42, 59, 77, 0.12);
+  content: '';
+  left: 1px;
+  position: absolute;
+  right: 1px;
+  top: 1px;
+  z-index: -1;
+}
+.box-shadow-200:before {
+  border-radius: 4px;
+  bottom: 2px;
+  box-shadow: 0 4px 6px 0 rgba(42, 59, 77, 0.32);
+  content: '';
+  left: 2px;
+  position: absolute;
+  right: 2px;
+  top: 2px;
+  z-index: -1;
+}
+.box-shadow-300:before {
+  border-radius: 4px;
+  bottom: 4px;
+  box-shadow: 0 8px 10px 0 rgba(42, 59, 77, 0.32);
+  content: '';
+  left: 4px;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  z-index: -1;
+}
+.box-shadow-400:before {
+  border-radius: 4px;
+  bottom: 8px;
+  box-shadow: 0 24px 32px 0 rgba(42, 59, 77, 0.42);
+  content: '';
+  left: 8px;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  z-index: -1;
+}
+/* Orientation */
+/* Devices (defined by max width) */
+/* Devices (defined by min-width) */
+@keyframes pulse {
+  0% {
+    opacity: 0.25;
+  }
+  25% {
+    opacity: 0.25;
+  }
+  35% {
+    opacity: 1;
+  }
+  55% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0.25;
+  }
+  100% {
+    opacity: 0.25;
+  }
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.toggle {
+  align-items: flex-start;
+  display: flex;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.toggle .input {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  margin: 0;
+}
+.toggle .track {
+  box-sizing: border-box;
+  background: #f7f7fa;
+  border: 1px solid #c0c0c4;
+  position: relative;
+  display: inline-block;
+  padding: 2px;
+  cursor: pointer;
+  transition: all 0.175s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.toggle .thumb {
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 1px solid #c0c0c4;
+  display: block;
+  position: absolute;
+  transition: all 0.175s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.toggle:hover .track {
+  background-color: #e4e4e6;
+  border-color: #82828c;
+}
+.toggle.is-checked .track {
+  background: #00b2b2;
+  border-color: #008a8c;
+}
+.toggle.is-checked .thumb {
+  border-color: #008a8c;
+}
+.toggle.is-checked:hover .track {
+  background: #008a8c;
+  border-color: #004b4d;
+}
+.toggle.is-checked input:focus + .track {
+  box-shadow: 0 0 0 1px #004b4d;
+  border-color: #004b4d;
+}
+.toggle.is-checked input:active + .track {
+  box-shadow: 0 1px 3px 0 #004b4d;
+}
+.toggle.is-disabled {
+  pointer-events: none;
+}
+.toggle.is-disabled .track {
+  background: #e4e4e6;
+  border-color: transparent;
+}
+.toggle.is-disabled .thumb {
+  background: #f7f7fa;
+  border-color: transparent;
+}
+.toggle.is-disabled.is-checked .track {
+  background: #d3f2f2;
+}
+.toggle.is-disabled.is-checked .thumb {
+  background: #ffffff;
+}
+.toggle input:focus + .track {
+  border-color: #82828c;
+  box-shadow: 0 0 0 1px #82828c;
+}
+.toggle input:active + .track {
+  box-shadow: 0 1px 3px 0 #82828c;
+}
+.toggle.is-small .label {
+  margin-left: 6px;
+}
+.toggle.is-small .track {
+  width: 30px;
+  height: 18px;
+  border-radius: 18px;
+}
+.toggle.is-small .thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 12px;
+}
+.toggle.is-small.is-checked .thumb {
+  transform: translateX(12px);
+}
+.toggle.is-medium .label {
+  margin-left: 12px;
+  padding-top: 2px;
+}
+.toggle.is-medium .track {
+  width: 42px;
+  height: 24px;
+  border-radius: 24px;
+}
+.toggle.is-medium .thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 18px;
+}
+.toggle.is-medium.is-checked .thumb {
+  transform: translateX(18px);
+}
+.toggle.is-large .label {
+  margin-left: 12px;
+  padding-top: 4px;
+}
+.toggle.is-large .track {
+  width: 54px;
+  height: 30px;
+  border-radius: 30px;
+}
+.toggle.is-large .thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 24px;
+}
+.toggle.is-large.is-checked .thumb {
+  transform: translateX(24px);
+}
