@@ -9,12 +9,6 @@ const globals = {
   __BASENAME__: JSON.stringify(process.env.BASENAME || ''),
   __VERSION__: JSON.stringify(pkg.version),
 };
-const cssModulesLoader = [
-  'css-loader?sourceMap&-minimize',
-  'modules',
-  'importLoaders=1',
-  'localIdentName=[name]__[local]___[hash:base64:5]',
-].join('&');
 
 // Export a function. Accept the base config as the only param.
 module.exports = async ({ config }) => {
@@ -31,7 +25,20 @@ module.exports = async ({ config }) => {
 
   config.module.rules.push({
     test: /\.css$/,
-    use: ['style-loader', cssModulesLoader, 'postcss-loader'],
+    use: [
+      'style-loader',
+      {
+        loader: 'css-loader',
+        options: {
+          sourceMap: true,
+          modules: {
+            localIdentName: '[name]__[local]___[hash:base64:5]',
+          },
+          importLoaders: 1,
+        },
+      },
+      'postcss-loader',
+    ],
   });
 
   config.module.rules.push({
