@@ -2,6 +2,18 @@
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+## [0.27.2] - 2019-07-09
+
+### Added
+
 - `AvatarInitials`: added a default `color` value. ([@driesd](https://github.com/driesd) in [#626](https://github.com/teamleadercrm/ui/pull/626))
 - `SplitButton`: added `SplitButton` component. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#629](https://github.com/teamleadercrm/ui/pull/629))
 
@@ -9,14 +21,27 @@
 
 - `Avatar`: changed the CSS `display: inline-block;` to `display: flex;` to fix the vertical alignment issue. ([@driesd](https://github.com/driesd) in [#625](https://github.com/teamleadercrm/ui/pull/625))
 - `ProgressStep`: changed the clickable area to only be the status bullet, instead of the whole wrapper. ([@driesd](https://github.com/driesd) in [#627](https://github.com/teamleadercrm/ui/pull/627))
-
-### Deprecated
+- `Dependencies`:
+  - `css-loader` from ^0.28.7 to `^3.0.0`
+  - `eslint-config-prettier` from ^2.2.0 to `^6.0.0`
+  - `eslint-plugin-promise` from ^3.3.0 to `^4.2.1`
+  - `file-loader` from ^1.1.5 to `^4.0.0`
+  - `postcss` from ^6.0.14 to `^7.0.17`
+  - `postcss-cssnext` from ^3.0.2 to `^3.1.0`
+  - `postcss-import` from ^11.0.0 to `^12.0.1`
+  - `postcss-loader` from ^2.0.7 to `^3.0.0`
+  - `postcss-mixins` from ^6.1.0 to `^6.2.1`
+  - `postcss-nested` from ^3.0.0 to `^4.1.2`
+  - `postcss-reporter` from ^5.0.0 to `^6.0.1`
+  - `prettier` from 1.13.7 to `1.18.2`
+  - `pretty-quick` from 1.6.0 to `1.11.1`
+  - `react-resize-detector` from ^2.3.0 to `^4.2.0`
+  - `style-loader` from ^0.20.2 to `^0.23.1`
 
 ### Removed
 
 - `Dependency`: removed the `imports-loader` dependency because we're not using it. ([@driesd](https://github.com/driesd) in [#617](https://github.com/teamleadercrm/ui/pull/617))
-
-### Fixed
+- `Dependency`: removed the `react-hot-loader` dependency because Storybook has its own HMR. ([@driesd](https://github.com/driesd) in [#620](https://github.com/teamleadercrm/ui/pull/620))
 
 ## [0.27.1] - 2019-06-24
 
