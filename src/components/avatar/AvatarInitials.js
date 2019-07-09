@@ -51,6 +51,7 @@ AvatarInitials.propTypes = {
 };
 
 AvatarInitials.defaultProps = {
+  color: 'neutral',
   shape: 'circle',
   size: 'medium',
   name: 'Michael Scott',

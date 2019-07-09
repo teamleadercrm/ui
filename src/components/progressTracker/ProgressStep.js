@@ -15,9 +15,9 @@ class ProgressStep extends PureComponent {
       [theme['is-clickable']]: onClick,
     });
     return (
-      <Box className={classNames} onClick={onClick}>
+      <Box className={classNames}>
         <TextSmall className={theme['step-label']}>{label}</TextSmall>
-        <span className={theme['status-bullet']} />
+        <span className={theme['status-bullet']} onClick={onClick} />
       </Box>
     );
   }

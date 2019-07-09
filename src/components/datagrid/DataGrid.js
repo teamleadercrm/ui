@@ -102,18 +102,20 @@ class DataGrid extends PureComponent {
     const rowDOMNodes = [];
     let maxRowWidth = 0;
 
-    [...this.rowNodes.values()].filter(rowNode => rowNode != null).forEach(rowNode => {
-      const rowDOMNode = ReactDOM.findDOMNode(rowNode);
+    [...this.rowNodes.values()]
+      .filter(rowNode => rowNode != null)
+      .forEach(rowNode => {
+        const rowDOMNode = ReactDOM.findDOMNode(rowNode);
 
-      if (rowDOMNode) {
-        const totalRowChildrenWidth = [...rowDOMNode.children]
-          .map(child => child.offsetWidth)
-          .reduce((accumulatedChildWidth, currentChildWidth) => accumulatedChildWidth + currentChildWidth);
+        if (rowDOMNode) {
+          const totalRowChildrenWidth = [...rowDOMNode.children]
+            .map(child => child.offsetWidth)
+            .reduce((accumulatedChildWidth, currentChildWidth) => accumulatedChildWidth + currentChildWidth);
 
-        maxRowWidth = maxRowWidth < totalRowChildrenWidth ? totalRowChildrenWidth : maxRowWidth;
-        rowDOMNodes.push(rowDOMNode);
-      }
-    });
+          maxRowWidth = maxRowWidth < totalRowChildrenWidth ? totalRowChildrenWidth : maxRowWidth;
+          rowDOMNodes.push(rowDOMNode);
+        }
+      });
 
     rowDOMNodes.forEach(rowDOMNode => (rowDOMNode.style.minWidth = `${maxRowWidth}px`));
   };

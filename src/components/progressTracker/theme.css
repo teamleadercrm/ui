@@ -135,13 +135,9 @@
     }
   }
 
-  &.is-clickable:hover {
-    cursor: pointer;
-
-    .step-label {
-      font-family: var(--font-family-bold);
-    }
-    .status-bullet {
+  &.is-clickable {
+    .status-bullet:hover {
+      cursor: pointer;
       transform: scale(1.5);
     }
   }
