@@ -2,6 +2,8 @@
 
 ### Added
 
+- `AdvancedCollapsible`: added `AdvancedCollapsible` component. ([@driesd](https://github.com/driesd) in [#637](https://github.com/teamleadercrm/ui/pull/637))
+
 ### Changed
 
 ### Deprecated
