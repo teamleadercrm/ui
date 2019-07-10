@@ -39,7 +39,7 @@
     "react-input-mask": "^2.0.4",
     "react-resize-detector": "^4.2.0",
     "react-select": "^2.0.0",
-    "react-transition-group": "^2.2.1"
+    "react-transition-group": "^4.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.1.0",
