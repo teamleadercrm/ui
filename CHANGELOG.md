@@ -8,6 +8,8 @@
 
 ### Removed
 
+- `Dependency`: removed the `url-loader` dependency because we're not using it. ([@driesd](https://github.com/driesd) in [#638](https://github.com/teamleadercrm/ui/pull/638))
+
 ### Fixed
 
 ## [0.27.2] - 2019-07-09
