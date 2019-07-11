@@ -4,7 +4,7 @@ import Box from '../box';
 import Button, { IconButton } from '../button';
 import cx from 'classnames';
 import theme from './theme.css';
-import { IconCloseMediumOutline, IconCloseSmallOutline } from '@teamleader/ui-icons';
+import { IconCloseSmallOutline } from '@teamleader/ui-icons';
 import uiUtilities from '@teamleader/ui-utilities';
 
 class Tag extends PureComponent {
