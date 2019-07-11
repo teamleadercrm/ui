@@ -127,7 +127,7 @@
     "compile": "build-storybook -o dist",
     "lint:clean": "npm run lint && rimraf dist",
     "deploy:prod": "npm run lint:clean && NODE_ENV=production npm run compile",
-    "lint": "eslint components stories",
+    "lint": "eslint ./src ./stories",
     "lint:fix": "npm run lint -- --fix",
     "precommit": "pretty-quick --staged",
     "prettier": "prettier --write '**/*.{js,json,md,css}'",
