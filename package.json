@@ -61,7 +61,7 @@
     "babel-plugin-transform-react-remove-prop-types": "^0.4.13",
     "css-loader": "^3.0.0",
     "cssnano": "^4.1.10",
-    "eslint": "^4.11.0",
+    "eslint": "^6.0.1",
     "eslint-config-prettier": "^6.0.0",
     "eslint-config-standard": "^11.0.0",
     "eslint-config-standard-react": "^6.0.0",
