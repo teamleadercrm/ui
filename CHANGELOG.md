@@ -1,4 +1,4 @@
-## [unreleased]
+## [0.27.3] - 2019-07-12
 
 ### Added
 
@@ -6,13 +6,16 @@
 
 ### Changed
 
-### Deprecated
+- `Dependencies`:
+  - `@teamleader/ui-animations` from `^0.0.2` to `^0.0.3`
+  - `eslint` from `^4.11.0` to `^6.0.1`
+  - `husky` from `^0.14.3` to `^3.0.0`
+  - `image-webpack-loader` from `^4.1.0` to `^5.0.0`
+  - `react-transition-group` from `^2.2.1` to `^4.2.1`
 
 ### Removed
 
 - `Dependency`: removed the `url-loader` dependency because we're not using it. ([@driesd](https://github.com/driesd) in [#638](https://github.com/teamleadercrm/ui/pull/638))
-
-### Fixed
 
 ## [0.27.2] - 2019-07-09
 
