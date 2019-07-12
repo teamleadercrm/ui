@@ -20,6 +20,7 @@
         "ignoreReadBeforeAssign": false
       }
     ],
-    "curly": ["error", "all"]
+    "curly": ["error", "all"],
+    "react/prop-types": 0
   }
 }

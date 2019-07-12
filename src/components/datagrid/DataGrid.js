@@ -15,7 +15,6 @@ import cx from 'classnames';
 import omit from 'lodash.omit';
 import ReactResizeDetector from 'react-resize-detector';
 import theme from './theme.css';
-
 class DataGrid extends PureComponent {
   state = {
     hoveredRow: null,
@@ -32,6 +31,7 @@ class DataGrid extends PureComponent {
     if (prevProps.comparableId !== this.props.comparableId) {
       this.handleSelectionChange([]);
 
+      /* eslint-disable react/no-did-update-set-state */
       this.setState({
         selectedRows: [],
       });
