@@ -127,6 +127,7 @@
 }
 
 .menu-item {
+  background-image: none;
   height: var(--menu-item-height);
   overflow: hidden;
   position: relative;
