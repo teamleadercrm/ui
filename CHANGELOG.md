@@ -2,6 +2,8 @@
 
 ### Added
 
+- `MenuItem`: added `background-image: none;` to the styles. ([@driesd](https://github.com/driesd) in [#647](https://github.com/teamleadercrm/ui/pull/647))
+
 ### Changed
 
 ### Deprecated
