@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `Button`: fixed the loading spinner position. ([@driesd](https://github.com/driesd) in [#649](https://github.com/teamleadercrm/ui/pull/649))
+
 ## [0.27.3] - 2019-07-12
 
 ### Added
