@@ -502,7 +502,7 @@
 
 .spinner {
   left: 50%;
-  position: absolute;
+  position: absolute !important;
   top: 50%;
   transform: translate(-50%, -50%);
 }
