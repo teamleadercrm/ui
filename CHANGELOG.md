@@ -10,6 +10,19 @@
 
 ### Fixed
 
+## [0.27.4] - 2019-07-19
+
+### Changed
+
+- `Dependencies`:
+  - `react-select` from `^2.0.0` to `^3.0.4`
+  - `babel-eslint` from `^8.0.2` to `^10.0.2`
+  - `eslint-plugin-standard` from `^3.0.1` to `^4.0.0`
+  - `eslint-plugin-prettier` from `^2.1.2` to `^3.1.0`
+  - `eslint-config-standard-react` from `^6.0.0` to `^8.0.0`
+
+### Fixed
+
 - `Button`: fixed the loading spinner position. ([@driesd](https://github.com/driesd) in [#649](https://github.com/teamleadercrm/ui/pull/649))
 
 ## [0.27.3] - 2019-07-12
