@@ -1,7 +1,7 @@
 {
   "name": "@teamleader/ui",
   "description": "Teamleader UI library",
-  "version": "0.27.3",
+  "version": "0.27.4",
   "author": "Teamleader <development@teamleader.eu>",
   "bugs": {
     "url": "https://github.com/teamleadercrm/ui/issues"
@@ -38,7 +38,7 @@
     "react-dom": "^16.3.1",
     "react-input-mask": "^2.0.4",
     "react-resize-detector": "^4.2.0",
-    "react-select": "^2.0.0",
+    "react-select": "^3.0.4",
     "react-transition-group": "^4.2.1"
   },
   "devDependencies": {
@@ -56,7 +56,7 @@
     "@storybook/addon-links": "^5.0.11",
     "@storybook/react": "^5.0.11",
     "@storybook/ui": "^5.0.11",
-    "babel-eslint": "^8.0.2",
+    "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.0-beta.6",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.13",
     "css-loader": "^3.0.0",
@@ -64,14 +64,14 @@
     "eslint": "^6.0.1",
     "eslint-config-prettier": "^6.0.0",
     "eslint-config-standard": "^11.0.0",
-    "eslint-config-standard-react": "^6.0.0",
+    "eslint-config-standard-react": "^8.0.0",
     "eslint-plugin-babel": "^5.1.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-node": "^6.0.0",
-    "eslint-plugin-prettier": "^2.1.2",
+    "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.4.0",
-    "eslint-plugin-standard": "^3.0.1",
+    "eslint-plugin-standard": "^4.0.0",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^4.0.0",
     "html-webpack-plugin": "^4.0.0-alpha.2",
