@@ -26,7 +26,7 @@ export default class Label extends PureComponent {
     const Element = size === 'large' ? TextDisplay : TextBody;
 
     return (
-      <Box display="block" element="label" marginBottom={3} className={className} {...others}>
+      <Box display="block" element="label" marginBottom={3} {...others}>
         {React.Children.map(children, child => {
           if (typeof child !== 'string') {
             return React.cloneElement(child, { ...childProps, ...child.props });
