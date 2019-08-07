@@ -1,7 +1,7 @@
 {
   "name": "@teamleader/ui",
   "description": "Teamleader UI library",
-  "version": "0.27.4",
+  "version": "0.27.5",
   "author": "Teamleader <development@teamleader.eu>",
   "bugs": {
     "url": "https://github.com/teamleadercrm/ui/issues"
@@ -63,11 +63,11 @@
     "cssnano": "^4.1.10",
     "eslint": "^6.0.1",
     "eslint-config-prettier": "^6.0.0",
-    "eslint-config-standard": "^11.0.0",
+    "eslint-config-standard": "^13.0.1",
     "eslint-config-standard-react": "^8.0.0",
     "eslint-plugin-babel": "^5.1.0",
     "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-node": "^6.0.0",
+    "eslint-plugin-node": "^9.1.0",
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.4.0",
