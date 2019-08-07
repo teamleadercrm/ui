@@ -10,6 +10,16 @@
 
 ### Fixed
 
+## [0.27.5] - 2019-08-07
+
+### Changed
+
+- `Label`: changed the `css display rule` to use the `display prop` of our Box component.
+
+- `Dependencies`:
+  - `eslint-plugin-node` from `^6.0.0` to `^9.1.0`
+  - `eslint-config-standard` from `^11.0.0` to `^13.0.1`
+
 ## [0.27.4] - 2019-07-19
 
 ### Changed
