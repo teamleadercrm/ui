@@ -5,17 +5,7 @@ import { TextBody, TextDisplay, TextSmall } from '../typography';
 
 export default class Label extends PureComponent {
   render() {
-    const {
-      children,
-      connectedLeft,
-      connectedRight,
-      className,
-      inverse,
-      helpText,
-      required,
-      size,
-      ...others
-    } = this.props;
+    const { children, connectedLeft, connectedRight, inverse, helpText, required, size, ...others } = this.props;
 
     const childProps = {
       inverse,
@@ -66,7 +56,6 @@ export default class Label extends PureComponent {
 }
 
 Label.propTypes = {
-  className: PropTypes.string,
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.string, PropTypes.array]),
   connectedLeft: PropTypes.element,
   connectedRight: PropTypes.element,
