@@ -2,8 +2,6 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../box';
 import { TextBody, TextDisplay, TextSmall } from '../typography';
-import theme from './theme.css';
-import cx from 'classnames';
 
 export default class Label extends PureComponent {
   render() {
@@ -25,18 +23,10 @@ export default class Label extends PureComponent {
       size,
     };
 
-    const classNames = cx(
-      theme['label'],
-      {
-        [theme['is-inverse']]: inverse,
-      },
-      className,
-    );
-
     const Element = size === 'large' ? TextDisplay : TextBody;
 
     return (
-      <Box element="label" marginBottom={3} className={classNames} {...others}>
+      <Box display="block" element="label" marginBottom={3} className={className} {...others}>
         {React.Children.map(children, child => {
           if (typeof child !== 'string') {
             return React.cloneElement(child, { ...childProps, ...child.props });
