@@ -10,7 +10,11 @@
 
 ### Fixed
 
-- `AvatarInitials`: other props were not destructured onto the wrapping element.
+## [0.27.6] - 2019-08-09
+
+### Fixed
+
+- `AvatarInitials`: other props were not destructured onto the wrapping element. ([@lowiebenoot](https://github.com/lowiebenoot) in [#656](https://github.com/teamleadercrm/ui/pull/656))
 
 ## [0.27.5] - 2019-08-07
 
