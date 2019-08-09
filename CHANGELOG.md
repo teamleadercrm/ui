@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `AvatarInitials`: other props were not destructured onto the wrapping element.
+
 ## [0.27.5] - 2019-08-07
 
 ### Changed
