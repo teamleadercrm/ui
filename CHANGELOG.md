@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `Publishing settings`: expose postcss.config.js in published dependency. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#660](https://github.com/teamleadercrm/ui/pull/660))
+
 ### Deprecated
 
 ### Removed
