@@ -10,6 +10,12 @@
 
 ### Fixed
 
+## [0.27.7] - 2019-08-14
+
+### Removed
+
+- `DatePickerInput`: removed left margin of the prefix icon. ([@driesd](https://github.com/driesd) in [#658](https://github.com/teamleadercrm/ui/pull/658))
+
 ## [0.27.6] - 2019-08-09
 
 ### Fixed
