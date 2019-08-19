@@ -14,7 +14,8 @@
   ],
   "files": [
     "cjs",
-    "es"
+    "es",
+    "postcss.config.js"
   ],
   "dependencies": {
     "@babel/cli": "^7.4.4",
