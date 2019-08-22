@@ -23,7 +23,8 @@ storiesOf('ScrollContainer', module).add('Basic', () => (
           BEEP BEEP BEEP BEEP <br />
           BEEEP BEEP BEEP BEEP <br />
           BEEP BEEP BEEP BEEP BEEP BEEP BEEP BEEP BEEP BEEP BOOM <br />
-          daddaddadadsadadadadadadadadadaddadadadadadaddadadaddadadadadadadadadadadadaddad<br />
+          daddaddadadsadadadadadadadadadaddadadadadadaddadadaddadadadadadadadadadadadaddad
+          <br />
           dadadadaddaddada <br />
           dadadddaddadaddadadadddadadada <br />
           nyu nyu nyu nyu nyu nnyu nyu nyu nyu nyu nyu nyu nyu nyu nyu nyu <br />

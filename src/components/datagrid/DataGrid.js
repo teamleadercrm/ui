@@ -15,7 +15,6 @@ import cx from 'classnames';
 import omit from 'lodash.omit';
 import ReactResizeDetector from 'react-resize-detector';
 import theme from './theme.css';
-
 class DataGrid extends PureComponent {
   state = {
     hoveredRow: null,
@@ -32,6 +31,7 @@ class DataGrid extends PureComponent {
     if (prevProps.comparableId !== this.props.comparableId) {
       this.handleSelectionChange([]);
 
+      /* eslint-disable react/no-did-update-set-state */
       this.setState({
         selectedRows: [],
       });
@@ -102,18 +102,20 @@ class DataGrid extends PureComponent {
     const rowDOMNodes = [];
     let maxRowWidth = 0;
 
-    [...this.rowNodes.values()].filter(rowNode => rowNode != null).forEach(rowNode => {
-      const rowDOMNode = ReactDOM.findDOMNode(rowNode);
+    [...this.rowNodes.values()]
+      .filter(rowNode => rowNode != null)
+      .forEach(rowNode => {
+        const rowDOMNode = ReactDOM.findDOMNode(rowNode);
 
-      if (rowDOMNode) {
-        const totalRowChildrenWidth = [...rowDOMNode.children]
-          .map(child => child.offsetWidth)
-          .reduce((accumulatedChildWidth, currentChildWidth) => accumulatedChildWidth + currentChildWidth);
+        if (rowDOMNode) {
+          const totalRowChildrenWidth = [...rowDOMNode.children]
+            .map(child => child.offsetWidth)
+            .reduce((accumulatedChildWidth, currentChildWidth) => accumulatedChildWidth + currentChildWidth);
 
-        maxRowWidth = maxRowWidth < totalRowChildrenWidth ? totalRowChildrenWidth : maxRowWidth;
-        rowDOMNodes.push(rowDOMNode);
-      }
-    });
+          maxRowWidth = maxRowWidth < totalRowChildrenWidth ? totalRowChildrenWidth : maxRowWidth;
+          rowDOMNodes.push(rowDOMNode);
+        }
+      });
 
     rowDOMNodes.forEach(rowDOMNode => (rowDOMNode.style.minWidth = `${maxRowWidth}px`));
   };

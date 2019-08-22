@@ -214,8 +214,8 @@ const getPosition = ({ direction, position, anchorPosition, popoverDimensions })
       return isPositionPossible(POSITION_START, anchorPosition, popoverDimensions)
         ? POSITION_START
         : isPositionPossible(POSITION_END, anchorPosition, popoverDimensions)
-          ? POSITION_END
-          : position;
+        ? POSITION_END
+        : position;
     default:
       return isPositionPossible(POSITION_CENTER, anchorPosition, popoverDimensions)
         ? POSITION_CENTER

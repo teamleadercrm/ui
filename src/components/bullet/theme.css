@@ -1,6 +1,7 @@
 @import '@teamleader/ui-colors';
 
 :root {
+  --large-size: 18px;
   --medium-size: 12px;
   --small-size: 9px;
 }
@@ -19,6 +20,11 @@
 .small {
   height: var(--small-size);
   width: var(--small-size);
+}
+
+.large {
+  height: var(--large-size);
+  width: var(--large-size);
 }
 
 .neutral {
@@ -51,11 +57,11 @@
 
 @each $color in (neutral, mint, violet, ruby, gold, aqua, teal) {
   .border-$(color) {
-    box-shadow: 0 0 0 1px var(--color-$(color));
+    box-shadow: 0 0 0 2px var(--color-$(color));
   }
   @each $tint in (darkest, dark, light, lightest) {
     .border-$(color)-$(tint) {
-      box-shadow: 0 0 0 1px var(--color-$(color)-$(tint));
+      box-shadow: 0 0 0 2px var(--color-$(color)-$(tint));
     }
   }
 }

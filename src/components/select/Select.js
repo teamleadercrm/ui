@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import ReactSelect from 'react-select';
-import ReactCreatableSelect from 'react-select/lib/Creatable';
+import ReactCreatableSelect from 'react-select/creatable';
 import PropTypes from 'prop-types';
 import { IconCloseBadgedSmallFilled, IconChevronDownSmallOutline } from '@teamleader/ui-icons';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
@@ -48,23 +48,23 @@ class Select extends PureComponent {
         borderColor: isFocused
           ? COLOR.TEAL.LIGHT
           : error
-            ? COLOR.RUBY.LIGHT
-            : warning
-              ? COLOR.GOLD.LIGHT
-              : success
-                ? COLOR.MINT.LIGHT
-                : isDisabled
-                  ? COLOR.TEAL.DARK
-                  : COLOR.TEAL.NORMAL,
+          ? COLOR.RUBY.LIGHT
+          : warning
+          ? COLOR.GOLD.LIGHT
+          : success
+          ? COLOR.MINT.LIGHT
+          : isDisabled
+          ? COLOR.TEAL.DARK
+          : COLOR.TEAL.NORMAL,
         boxShadow: isFocused
           ? `0 0 0 1px ${COLOR.TEAL.LIGHT}`
           : error
-            ? `0 0 0 1px ${COLOR.RUBY.LIGHT}`
-            : warning
-              ? `0 0 0 1px ${COLOR.GOLD.LIGHT}`
-              : success
-                ? `0 0 0 1px ${COLOR.MINT.LIGHT}`
-                : 'none',
+          ? `0 0 0 1px ${COLOR.RUBY.LIGHT}`
+          : warning
+          ? `0 0 0 1px ${COLOR.GOLD.LIGHT}`
+          : success
+          ? `0 0 0 1px ${COLOR.MINT.LIGHT}`
+          : 'none',
       };
     }
 
@@ -77,23 +77,23 @@ class Select extends PureComponent {
       borderColor: isFocused
         ? COLOR.NEUTRAL.DARKEST
         : error
-          ? COLOR.RUBY.DARK
-          : warning
-            ? COLOR.GOLD.DARK
-            : success
-              ? COLOR.MINT.DARK
-              : isDisabled
-                ? COLOR.NEUTRAL.NORMAL
-                : COLOR.NEUTRAL.DARK,
+        ? COLOR.RUBY.DARK
+        : warning
+        ? COLOR.GOLD.DARK
+        : success
+        ? COLOR.MINT.DARK
+        : isDisabled
+        ? COLOR.NEUTRAL.NORMAL
+        : COLOR.NEUTRAL.DARK,
       boxShadow: isFocused
         ? `0 0 0 1px ${COLOR.NEUTRAL.DARKEST}`
         : error
-          ? `0 0 0 1px ${COLOR.RUBY.DARK}`
-          : warning
-            ? `0 0 0 1px ${COLOR.GOLD.DARK}`
-            : success
-              ? `0 0 0 1px ${COLOR.MINT.DARK}`
-              : 'none',
+        ? `0 0 0 1px ${COLOR.RUBY.DARK}`
+        : warning
+        ? `0 0 0 1px ${COLOR.GOLD.DARK}`
+        : success
+        ? `0 0 0 1px ${COLOR.MINT.DARK}`
+        : 'none',
     };
   };
 
@@ -206,10 +206,10 @@ class Select extends PureComponent {
         color: isDisabled
           ? COLOR.TEAL.LIGHT
           : isSelected
-            ? COLOR.NEUTRAL.LIGHTEST
-            : isFocused
-              ? COLOR.TEAL.DARK
-              : COLOR.NEUTRAL.LIGHTEST,
+          ? COLOR.NEUTRAL.LIGHTEST
+          : isFocused
+          ? COLOR.TEAL.DARK
+          : COLOR.NEUTRAL.LIGHTEST,
         backgroundColor: isSelected ? COLOR.TEAL.DARK : isFocused ? COLOR.TEAL.LIGHT : COLOR.TEAL.NORMAL,
         '&:active': {
           backgroundColor: isDisabled ? COLOR.TEAL.NORMAL : COLOR.TEAL.DARK,

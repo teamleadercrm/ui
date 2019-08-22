@@ -1,8 +1,9 @@
+import AdvancedCollapsible from './components/advancedCollapsible';
 import Avatar, { AvatarInitials, AvatarStack } from './components/avatar';
 import Badge from './components/badge';
 import Banner from './components/banner';
 import Box from './components/box';
-import Button, { ButtonGroup, IconButton } from './components/button';
+import Button, { ButtonGroup, IconButton, SplitButton } from './components/button';
 import {
   Heading1,
   Heading2,
@@ -67,6 +68,7 @@ import {
 } from './constants';
 
 export {
+  AdvancedCollapsible,
   Avatar,
   AvatarInitials,
   AvatarStack,
@@ -124,6 +126,7 @@ export {
   ScrollContainer,
   Section,
   Select,
+  SplitButton,
   StatusBullet,
   StatusLabel,
   TextBody,

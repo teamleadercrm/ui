@@ -5,12 +5,125 @@
 ### Changed
 
 - `DatePicker`: the `onChange` handler is no longer triggered when a disabled date has been selected. ([@Kemosabert](https://github.com/Kemosabert)) in [#664](https://github.com/teamleadercrm/ui/pull/664)
+- `Publishing settings`: expose postcss.config.js in published dependency. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#660](https://github.com/teamleadercrm/ui/pull/660))
 
 ### Deprecated
 
 ### Removed
 
 ### Fixed
+
+## [0.27.7] - 2019-08-14
+
+### Removed
+
+- `DatePickerInput`: removed left margin of the prefix icon. ([@driesd](https://github.com/driesd) in [#658](https://github.com/teamleadercrm/ui/pull/658))
+
+## [0.27.6] - 2019-08-09
+
+### Fixed
+
+- `AvatarInitials`: other props were not destructured onto the wrapping element. ([@lowiebenoot](https://github.com/lowiebenoot) in [#656](https://github.com/teamleadercrm/ui/pull/656))
+
+## [0.27.5] - 2019-08-07
+
+### Changed
+
+- `Label`: changed the `css display rule` to use the `display prop` of our Box component.
+
+- `Dependencies`:
+  - `eslint-plugin-node` from `^6.0.0` to `^9.1.0`
+  - `eslint-config-standard` from `^11.0.0` to `^13.0.1`
+
+## [0.27.4] - 2019-07-19
+
+### Changed
+
+- `Dependencies`:
+  - `react-select` from `^2.0.0` to `^3.0.4`
+  - `babel-eslint` from `^8.0.2` to `^10.0.2`
+  - `eslint-plugin-standard` from `^3.0.1` to `^4.0.0`
+  - `eslint-plugin-prettier` from `^2.1.2` to `^3.1.0`
+  - `eslint-config-standard-react` from `^6.0.0` to `^8.0.0`
+
+### Fixed
+
+- `Button`: fixed the loading spinner position. ([@driesd](https://github.com/driesd) in [#649](https://github.com/teamleadercrm/ui/pull/649))
+
+## [0.27.3] - 2019-07-12
+
+### Added
+
+- `AdvancedCollapsible`: added `AdvancedCollapsible` component. ([@driesd](https://github.com/driesd) in [#637](https://github.com/teamleadercrm/ui/pull/637))
+
+### Changed
+
+- `Dependencies`:
+  - `@teamleader/ui-animations` from `^0.0.2` to `^0.0.3`
+  - `eslint` from `^4.11.0` to `^6.0.1`
+  - `husky` from `^0.14.3` to `^3.0.0`
+  - `image-webpack-loader` from `^4.1.0` to `^5.0.0`
+  - `react-transition-group` from `^2.2.1` to `^4.2.1`
+
+### Removed
+
+- `Dependency`: removed the `url-loader` dependency because we're not using it. ([@driesd](https://github.com/driesd) in [#638](https://github.com/teamleadercrm/ui/pull/638))
+
+## [0.27.2] - 2019-07-09
+
+### Added
+
+- `AvatarInitials`: added a default `color` value. ([@driesd](https://github.com/driesd) in [#626](https://github.com/teamleadercrm/ui/pull/626))
+- `SplitButton`: added `SplitButton` component. ([@TaraldRotsaert](https://github.com/TaraldRotsaert) in [#629](https://github.com/teamleadercrm/ui/pull/629))
+
+### Changed
+
+- `Avatar`: changed the CSS `display: inline-block;` to `display: flex;` to fix the vertical alignment issue. ([@driesd](https://github.com/driesd) in [#625](https://github.com/teamleadercrm/ui/pull/625))
+- `ProgressStep`: changed the clickable area to only be the status bullet, instead of the whole wrapper. ([@driesd](https://github.com/driesd) in [#627](https://github.com/teamleadercrm/ui/pull/627))
+- `Dependencies`:
+  - `css-loader` from ^0.28.7 to `^3.0.0`
+  - `eslint-config-prettier` from ^2.2.0 to `^6.0.0`
+  - `eslint-plugin-promise` from ^3.3.0 to `^4.2.1`
+  - `file-loader` from ^1.1.5 to `^4.0.0`
+  - `postcss` from ^6.0.14 to `^7.0.17`
+  - `postcss-cssnext` from ^3.0.2 to `^3.1.0`
+  - `postcss-import` from ^11.0.0 to `^12.0.1`
+  - `postcss-loader` from ^2.0.7 to `^3.0.0`
+  - `postcss-mixins` from ^6.1.0 to `^6.2.1`
+  - `postcss-nested` from ^3.0.0 to `^4.1.2`
+  - `postcss-reporter` from ^5.0.0 to `^6.0.1`
+  - `prettier` from 1.13.7 to `1.18.2`
+  - `pretty-quick` from 1.6.0 to `1.11.1`
+  - `react-resize-detector` from ^2.3.0 to `^4.2.0`
+  - `style-loader` from ^0.20.2 to `^0.23.1`
+
+### Removed
+
+- `Dependency`: removed the `imports-loader` dependency because we're not using it. ([@driesd](https://github.com/driesd) in [#617](https://github.com/teamleadercrm/ui/pull/617))
+- `Dependency`: removed the `react-hot-loader` dependency because Storybook has its own HMR. ([@driesd](https://github.com/driesd) in [#620](https://github.com/teamleadercrm/ui/pull/620))
+
+## [0.27.1] - 2019-06-24
+
+### Added
+
+- `Avatar`, `AvatarInitials` & `AvatarStack`: added a `large` size variation. ([@driesd](https://github.com/driesd) in [#610](https://github.com/teamleadercrm/ui/pull/610))
+- `Bullet`: added a `large` size variation. ([@driesd](https://github.com/driesd) in [#611](https://github.com/teamleadercrm/ui/pull/611))
+
+### Changed
+
+- `Bullet`: changed border thickness from 1px to 2px. ([@driesd](https://github.com/driesd) in [#611](https://github.com/teamleadercrm/ui/pull/611))
+- `Counter`: changed the font weight from `black` to `bold`. ([@driesd](https://github.com/driesd) in [#612](https://github.com/teamleadercrm/ui/pull/612))
+- `Infrastructure`: changed the way this module is exported. CommonJS and ES modules are now available, which enables tree shaking. ([@duivvv](https://github.com/duivvv) in [#609](https://github.com/teamleadercrm/ui/pull/609))
+
+## [0.27.0] - 2019-06-04
+
+### Added
+
+- `ProgressStep`: added the `onClick` prop to make a `ProgressStep` interactional. ([@driesd](https://github.com/driesd) in [#607](https://github.com/teamleadercrm/ui/pull/607))
+
+### Removed
+
+- [BREAKING] `ProgressStep`: removed the `color` prop. ([@driesd](https://github.com/driesd) in [#607](https://github.com/teamleadercrm/ui/pull/607))
 
 ## [0.26.0] - 2019-05-09
 

@@ -10,7 +10,7 @@
   border-radius: var(--border-radius);
   color: var(--color-white);
   display: inline-block;
-  font-family: var(--font-family-black);
+  font-family: var(--font-family-bold);
   font-size: calc(1.2 * var(--unit));
   line-height: 1;
   vertical-align: middle;

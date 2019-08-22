@@ -1,11 +1,7 @@
 const path = require('path');
 
-module.exports = ctx => {
+module.exports = ({ file, options, env }) => {
   return {
-    parser: false,
-    map: ctx.env === 'development' ? ctx.map : false,
-    from: ctx.from,
-    to: ctx.to,
     plugins: {
       'postcss-import': {
         root: './',
@@ -25,6 +21,7 @@ module.exports = ctx => {
       'postcss-reporter': {
         clearMessages: true,
       },
+      cssnano: env === 'production',
     },
   };
 };

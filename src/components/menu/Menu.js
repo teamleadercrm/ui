@@ -23,6 +23,8 @@ class Menu extends PureComponent {
   menuNode = createRef();
   componentDidMount() {
     const { width, height } = this.menuNode.current.getBoundingClientRect();
+
+    /* eslint-disable react/no-did-update-set-state */
     this.setState({ width, height });
 
     const { position } = this.props;

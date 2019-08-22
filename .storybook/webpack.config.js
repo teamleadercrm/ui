@@ -9,21 +9,39 @@ const globals = {
   __BASENAME__: JSON.stringify(process.env.BASENAME || ''),
   __VERSION__: JSON.stringify(pkg.version),
 };
-const cssModulesLoader = [
-  'css-loader?sourceMap&-minimize',
-  'modules',
-  'importLoaders=1',
-  'localIdentName=[name]__[local]___[hash:base64:5]',
-].join('&');
 
 // Export a function. Accept the base config as the only param.
-module.exports = (storybookBaseConfig, configType) => {
-  storybookBaseConfig.module.rules.push({
-    test: /\.css$/,
-    use: ['style-loader', cssModulesLoader, 'postcss-loader'],
+module.exports = async ({ config }) => {
+  // Overwrite some default rules
+  // https://github.com/storybooks/storybook/issues/6319#issuecomment-477852640
+  config.module.rules = config.module.rules.filter(f => {
+    const ruleTest = f.test.toString();
+
+    return (
+      ruleTest !== '/\\.css$/' &&
+      ruleTest !== '/\\.(svg|ico|jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|cur|ani)(\\?.*)?$/'
+    );
   });
 
-  storybookBaseConfig.module.rules.push({
+  config.module.rules.push({
+    test: /\.css$/,
+    use: [
+      'style-loader',
+      {
+        loader: 'css-loader',
+        options: {
+          sourceMap: true,
+          modules: {
+            localIdentName: '[name]__[local]___[hash:base64:5]',
+          },
+          importLoaders: 1,
+        },
+      },
+      'postcss-loader',
+    ],
+  });
+
+  config.module.rules.push({
     test: /\.(jpe?g|png|gif|svg)$/i,
     use: [
       {
@@ -55,20 +73,17 @@ module.exports = (storybookBaseConfig, configType) => {
     ],
   });
 
-  if (storybookBaseConfig.optimization) {
-    storybookBaseConfig.optimization.minimize = false;
+  if (config.optimization) {
+    config.optimization.minimize = false;
   }
 
-  storybookBaseConfig.plugins.map(plugin => {
+  config.plugins.map(plugin => {
     if (plugin instanceof webpack.DefinePlugin) {
-      plugin.definitions = {
-        ...plugin.definitions,
-        'process.env': globals,
-      };
+      plugin.definitions = { ...plugin.definitions, 'process.env': globals };
     }
     return plugin;
   });
 
   // Return the altered config
-  return storybookBaseConfig;
+  return config;
 };

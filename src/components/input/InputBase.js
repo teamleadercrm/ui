@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import omit from 'lodash.omit';
 import { omitBoxProps } from '../box';
 import theme from './theme.css';
 
