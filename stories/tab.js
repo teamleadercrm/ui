@@ -39,7 +39,7 @@ storiesOf('Tab', module)
     },
   })
   .add('Title tab', () => (
-    <TabGroup inverted={boolean('Inverted', true)} display={'flex'}>
+    <TabGroup inverted={boolean('Inverted', true)} display="flex">
       {tabItems.map((item, key) => {
         const optionalProps = item.count
           ? { counter: React.createElement(TitleCounter, { count: item.count, color: 'mint' }) }
@@ -61,7 +61,7 @@ storiesOf('Tab', module)
     </TabGroup>
   ))
   .add('Icon tab', () => (
-    <TabGroup inverted={boolean('Inverted', true)} display={'flex'}>
+    <TabGroup inverted={boolean('Inverted', true)} display="flex">
       {invertedTabItems.map((item, key) => {
         const optionalProps = item.count
           ? { counter: React.createElement(IconCounter, { count: item.count, color: 'mint' }) }

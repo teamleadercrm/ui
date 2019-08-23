@@ -15,6 +15,7 @@ import uiUtilities from '@teamleader/ui-utilities';
 
 class Popover extends PureComponent {
   popoverNode = createRef();
+
   popoverRoot = document.createElement('div');
 
   state = { positioning: { left: 0, top: 0, maxHeight: 'initial' } };
@@ -97,7 +98,7 @@ class Popover extends PureComponent {
                 onMouseUp={onOverlayMouseUp}
               />
               <div
-                data-teamleader-ui={'popover'}
+                data-teamleader-ui="popover"
                 className={cx(uiUtilities['box-shadow-200'], theme['popover'], className)}
                 style={{ left: `${left}px`, top: `${top}px`, maxWidth: fullWidth ? '100vw' : maxWidth, minWidth }}
                 ref={this.popoverNode}
