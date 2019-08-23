@@ -25,7 +25,7 @@ class DatePicker extends PureComponent {
   }
 
   handleDayClick = (day, modifiers = {}) => {
-    if (modifiers.disabled) {
+    if (modifiers[theme['disabled']]) {
       return;
     }
 
