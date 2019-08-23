@@ -37,6 +37,7 @@ class IconMenu extends PureComponent {
       position,
       selectable,
       selected,
+      active,
       ...other
     } = this.props;
 

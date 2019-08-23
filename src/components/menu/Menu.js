@@ -218,7 +218,7 @@ class Menu extends PureComponent {
 
   render() {
     const { width, height, active, position } = this.state;
-    const { className, outline, ...others } = this.props;
+    const { className, outline, active: activeProp, onHide, onShow, selectable, ...others } = this.props;
 
     const classNames = cx(
       theme['menu'],
