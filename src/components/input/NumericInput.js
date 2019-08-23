@@ -91,6 +91,7 @@ class NumericInput extends PureComponent {
 
   getSuffixWithSpinner = () => [
     ...this.props.suffix,
+    /* eslint-disable-next-line react/jsx-key */
     <SpinnerControls
       inverse={this.props.inverse}
       spinnerUpProps={{
