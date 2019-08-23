@@ -22,21 +22,21 @@ class Popover extends PureComponent {
 
   componentDidMount() {
     document.body.appendChild(this.popoverRoot);
-    events.addEventsToWindow({ resize: this.setPlacementThrottled, scroll: this.setPlacementThrottled });
+    events.addEventsToWindow({ resize: this.handleResizeThrottled, scroll: this.handleResizeThrottled });
   }
 
   componentWillUnmount() {
-    events.removeEventsFromWindow({ resize: this.setPlacementThrottled, scroll: this.setPlacementThrottled });
+    events.removeEventsFromWindow({ resize: this.handleResizeThrottled, scroll: this.handleResizeThrottled });
     document.body.removeChild(this.popoverRoot);
   }
 
   componentDidUpdate(prevProps) {
     if (this.props.active && prevProps !== this.props) {
-      this.setPlacement();
+      this.handleResize();
     }
   }
 
-  setPlacement = () => {
+  handleResize = () => {
     const { anchorEl, direction, position, offsetCorrection } = this.props;
 
     if (this.popoverNode.current) {
@@ -46,7 +46,7 @@ class Popover extends PureComponent {
     }
   };
 
-  setPlacementThrottled = throttle(this.setPlacement, 250);
+  handleResizeThrottled = throttle(this.handleResize, 250);
 
   render() {
     const { left, top, maxHeight } = this.state.positioning;
@@ -115,7 +115,7 @@ class Popover extends PureComponent {
                 <ReactResizeDetector
                   handleHeight
                   handleWidth
-                  onResize={this.setPlacement}
+                  onResize={this.handleResize}
                   refreshMode="throttle"
                   refreshRate={250}
                 />
