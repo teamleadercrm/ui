@@ -86,10 +86,12 @@ class NumericInput extends PureComponent {
   };
 
   isMaxReached = () => this.state.value >= this.props.max;
+
   isMinReached = () => this.state.value <= this.props.min;
 
   getSuffixWithSpinner = () => [
     ...this.props.suffix,
+    /* eslint-disable-next-line react/jsx-key */
     <SpinnerControls
       inverse={this.props.inverse}
       spinnerUpProps={{

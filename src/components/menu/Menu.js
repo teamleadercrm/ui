@@ -20,7 +20,9 @@ const POSITION = {
 
 class Menu extends PureComponent {
   state = {};
+
   menuNode = createRef();
+
   componentDidMount() {
     const { width, height } = this.menuNode.current.getBoundingClientRect();
 

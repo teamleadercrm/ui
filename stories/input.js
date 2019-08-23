@@ -45,11 +45,14 @@ const types = [
 ];
 const placeholder = 'I am the placeholder';
 const prefix = [
+  /* eslint-disable-next-line react/jsx-key */
   <Icon color="neutral" tint="darkest">
     <IconCalendarSmallOutline />
   </Icon>,
+  /* eslint-disable-next-line react/jsx-key */
   <TextBody color="neutral">€</TextBody>,
 ];
+/* eslint-disable-next-line react/jsx-key */
 const suffix = [<TextSmall color="neutral">incl. BTW</TextSmall>, <Counter count={99} />, <LoadingSpinner />];
 
 const timeInputStore = new Store({

@@ -21,6 +21,12 @@
       }
     ],
     "curly": ["error", "all"],
-    "react/prop-types": 0
+    "react/prop-types": 0,
+    "dot-notation": 0
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }

@@ -19,24 +19,36 @@ export default {
   },
 
   addEventsToDocument(eventMap) {
+    // remove this disable once this gets fixed
+    // https://github.com/eslint/eslint/issues/12117
+    /* eslint-disable-next-line no-unused-vars */
     for (const key in eventMap) {
       document.addEventListener(key, eventMap[key], false);
     }
   },
 
   removeEventsFromDocument(eventMap) {
+    // remove this disable once this gets fixed
+    // https://github.com/eslint/eslint/issues/12117
+    /* eslint-disable-next-line no-unused-vars */
     for (const key in eventMap) {
       document.removeEventListener(key, eventMap[key], false);
     }
   },
 
   addEventsToWindow(eventMap) {
+    // remove this disable once this gets fixed
+    // https://github.com/eslint/eslint/issues/12117
+    /* eslint-disable-next-line no-unused-vars */
     for (const key in eventMap) {
       window.addEventListener(key, eventMap[key], false);
     }
   },
 
   removeEventsFromWindow(eventMap) {
+    // remove this disable once this gets fixed
+    // https://github.com/eslint/eslint/issues/12117
+    /* eslint-disable-next-line no-unused-vars */
     for (const key in eventMap) {
       window.removeEventListener(key, eventMap[key], false);
     }
@@ -80,6 +92,9 @@ const TRANSITIONS = {
 };
 
 function transitionEventNamesFor(element) {
+  // remove this disable once this gets fixed
+  // https://github.com/eslint/eslint/issues/12117
+  /* eslint-disable-next-line no-unused-vars */
   for (const transition in TRANSITIONS) {
     if (element && element.style[transition] !== undefined) {
       return TRANSITIONS[transition];

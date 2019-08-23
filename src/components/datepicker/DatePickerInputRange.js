@@ -1,4 +1,4 @@
-import React, { Fragment, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
@@ -140,7 +140,7 @@ class DatePickerInputRange extends PureComponent {
     };
 
     return (
-      <Fragment>
+      <>
         <DayPickerInput
           dayPickerProps={{
             disabledDays: { after: selectedEndDate },
@@ -179,7 +179,7 @@ class DatePickerInputRange extends PureComponent {
           {...commonDayPickerInputProps}
           {...dayPickerInputEndDateProps}
         />
-      </Fragment>
+      </>
     );
   };
 
