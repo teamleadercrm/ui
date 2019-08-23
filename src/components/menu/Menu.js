@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import cx from 'classnames';
 import { events } from '../utils';
 import { getViewport } from '../utils/utils';
-import Box from '../box';
+import Box, { pickBoxProps } from '../box';
 import MenuItem from './MenuItem.js';
 import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
@@ -218,7 +218,7 @@ class Menu extends PureComponent {
 
   render() {
     const { width, height, active, position } = this.state;
-    const { className, outline, active: activeProp, onHide, onShow, selectable, ...others } = this.props;
+    const { className, outline, ...others } = this.props;
 
     const classNames = cx(
       theme['menu'],
@@ -233,8 +233,10 @@ class Menu extends PureComponent {
       [uiUtilities['box-shadow-200']]: position !== POSITION.STATIC,
     });
 
+    const boxProps = pickBoxProps(others);
+
     return (
-      <Box data-teamleader-ui="menu" className={classNames} style={this.getRootStyle()} {...others}>
+      <Box data-teamleader-ui="menu" className={classNames} style={this.getRootStyle()} {...boxProps}>
         {outline ? <div className={outlineClassNames} style={{ width, height }} /> : null}
         <ul ref={this.menuNode} className={theme['menu-inner']} style={this.getMenuStyle()}>
           {this.getItems()}
