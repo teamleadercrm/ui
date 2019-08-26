@@ -32,8 +32,12 @@ class DatePickerRange extends PureComponent {
     return null;
   }
 
-  handleDayClick = day => {
+  handleDayClick = (day, modifiers = {}) => {
     const { selectedStartDate, selectedEndDate } = this.state;
+
+    if (modifiers.disabled) {
+      return;
+    }
 
     if (isSelectingFirstDay(selectedStartDate, selectedEndDate, day)) {
       this.setState(

@@ -1,4 +1,4 @@
-import React, { Fragment, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import theme from './theme.css';
@@ -19,13 +19,13 @@ class Passport extends PureComponent {
 
     if (Array.isArray(description)) {
       return (
-        <Fragment>
+        <>
           {description.map((child, index) => (
             <TextBody color="teal" key={index}>
               {child}
             </TextBody>
           ))}
-        </Fragment>
+        </>
       );
     } else {
       return <TextBody color="teal">{description}</TextBody>;

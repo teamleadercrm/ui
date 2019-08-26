@@ -23,6 +23,7 @@ class DataGrid extends PureComponent {
   };
 
   rowNodes = new Map();
+
   scrollableNode = null;
 
   componentDidUpdate(prevProps) {
