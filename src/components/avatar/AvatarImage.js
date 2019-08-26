@@ -4,14 +4,14 @@ import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
 
-class Avatar extends PureComponent {
+class AvatarImage extends PureComponent {
   render() {
     const { children, className, image, imageAlt, imageClassName, shape, size, ...others } = this.props;
 
-    const avatarClassNames = cx(theme['avatar'], theme[`is-${shape}`], theme[`is-${size}`], className);
+    const avatarClassNames = cx(theme['avatar-image'], theme[`is-${shape}`], theme[`is-${size}`], className);
 
     return (
-      <Box className={avatarClassNames} {...others} data-teamleader-ui="avatar">
+      <Box className={avatarClassNames} {...others} data-teamleader-ui="avatar-image">
         <img alt={imageAlt} src={image} className={cx(theme['image'], imageClassName)} />
         {children && <div className={theme['children']}>{children}</div>}
       </Box>
@@ -19,7 +19,7 @@ class Avatar extends PureComponent {
   }
 }
 
-Avatar.propTypes = {
+AvatarImage.propTypes = {
   /** Component that will be placed top right of the avatar image. */
   children: PropTypes.any,
   /** A class name for the wrapper to give custom styles. */
@@ -36,9 +36,9 @@ Avatar.propTypes = {
   size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large']),
 };
 
-Avatar.defaultProps = {
+AvatarImage.defaultProps = {
   shape: 'circle',
   size: 'medium',
 };
 
-export default Avatar;
+export default AvatarImage;

@@ -15,8 +15,8 @@
   --shape-rounded-image-border-radius: 4px;
 }
 
-/* Avatar */
-.avatar {
+/* AvatarImage */
+.avatar-image {
   display: flex;
   position: relative;
 
@@ -87,7 +87,7 @@
 }
 
 .is-tiny {
-  &.avatar,
+  &.avatar-image,
   &.avatar-initials,
   .image {
     height: var(--tiny-size);
@@ -113,7 +113,7 @@
 }
 
 .is-small {
-  &.avatar,
+  &.avatar-image,
   &.avatar-initials,
   .image {
     height: var(--small-size);
@@ -134,7 +134,7 @@
 }
 
 .is-medium {
-  &.avatar,
+  &.avatar-image,
   &.avatar-initials,
   .image {
     height: var(--medium-size);
@@ -155,7 +155,7 @@
 }
 
 .is-large {
-  &.avatar,
+  &.avatar-image,
   &.avatar-initials,
   .image {
     height: var(--large-size);
