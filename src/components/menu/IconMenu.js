@@ -5,7 +5,7 @@ import { IconMoreMediumOutline } from '@teamleader/ui-icons';
 import IconButton from '../button/IconButton.js';
 import Menu from './Menu.js';
 import theme from './theme.css';
-import Box from '../box';
+import Box, { pickBoxProps } from '../box';
 
 class IconMenu extends PureComponent {
   state = {
@@ -37,13 +37,14 @@ class IconMenu extends PureComponent {
       position,
       selectable,
       selected,
-      ...other
+      ...others
     } = this.props;
 
     const buttonIcon = icon || <IconMoreMediumOutline />;
+    const boxProps = pickBoxProps(others);
 
     return (
-      <Box data-teamleader-ui="icon-menu" {...other} className={cx(theme['icon-menu'], className)}>
+      <Box data-teamleader-ui="icon-menu" {...boxProps} className={cx(theme['icon-menu'], className)}>
         <IconButton className={theme['icon']} icon={buttonIcon} onClick={this.handleButtonClick} />
         <Menu
           active={this.state.active}

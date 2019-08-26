@@ -13,6 +13,8 @@
 
 ### Fixed
 
+- Console errors when using the Menu component ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#666](https://github.com/teamleadercrm/ui/pull/666))
+
 ## [0.27.7] - 2019-08-14
 
 ### Removed
