@@ -2,9 +2,12 @@
 
 ### Added
 
+- `Checkbox`: added `position: absolute;` to the input element to fix alignment issue in Firefox on Linux. ([@driesd](https://github.com/driesd) in [#667](https://github.com/teamleadercrm/ui/pull/667))
+
 ### Changed
 
 - `AvatarInitials`: changed so the text is not selectable anymore. ([@driesd](https://github.com/driesd) in [#669](https://github.com/teamleadercrm/ui/pull/669))
+- `DataGrid`: adjust `HeaderCell` to meet its new design ([@driesd](https://github.com/driesd) in [#668](https://github.com/teamleadercrm/ui/pull/668))
 - `DatePicker`: the `onChange` handler is no longer triggered when a disabled date has been selected. ([@Kemosabert](https://github.com/Kemosabert)) in [#664](https://github.com/teamleadercrm/ui/pull/664)
 - `Publishing settings`: expose postcss.config.js in published dependency. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#660](https://github.com/teamleadercrm/ui/pull/660))
 
