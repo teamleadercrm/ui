@@ -2,8 +2,11 @@
 
 ### Added
 
+- `Avatar`: added new `Avatar` component which renders `AvatarInitials` or `AvatarImage`. ([@driesd](https://github.com/driesd) in [#670](https://github.com/teamleadercrm/ui/pull/670))
+
 ### Changed
 
+- [BREAKING] `Avatar`: renamed to `AvatarImage`. ([@driesd](https://github.com/driesd) in [#670](https://github.com/teamleadercrm/ui/pull/670))
 - `DatePicker`: the `onChange` handler is no longer triggered when a disabled date has been selected. ([@Kemosabert](https://github.com/Kemosabert)) in [#664](https://github.com/teamleadercrm/ui/pull/664)
 - `Publishing settings`: expose postcss.config.js in published dependency. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#660](https://github.com/teamleadercrm/ui/pull/660))
 
