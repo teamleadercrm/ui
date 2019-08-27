@@ -2,6 +2,8 @@
 
 ### Added
 
+- `Checkbox`: added `position: absolute;` to the input element to fix alignment issue in Firefox on Linux. ([@driesd](https://github.com/driesd) in [#667](https://github.com/teamleadercrm/ui/pull/667))
+
 ### Changed
 
 - `DatePicker`: the `onChange` handler is no longer triggered when a disabled date has been selected. ([@Kemosabert](https://github.com/Kemosabert)) in [#664](https://github.com/teamleadercrm/ui/pull/664)
