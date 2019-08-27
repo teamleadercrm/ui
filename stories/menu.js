@@ -2,10 +2,10 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, select } from '@storybook/addon-knobs/react';
 import { IconClockSmallOutline, IconTrashSmallOutline } from '@teamleader/ui-icons';
-import { Avatar, IconMenu, Menu, MenuItem, MenuDivider, MenuTitle } from '../src';
+import { AvatarImage, IconMenu, Menu, MenuItem, MenuDivider, MenuTitle } from '../src';
 import avatars from './static/data/avatar';
 
-const avatar = <Avatar image={avatars[0].image} size="tiny" shape="circle" />;
+const avatar = <AvatarImage image={avatars[0].image} size="tiny" shape="circle" />;
 const positions = ['top-left', 'top-right', 'bottom-left', 'bottom-right'];
 
 storiesOf('Menus', module)

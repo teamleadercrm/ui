@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, number, select, text } from '@storybook/addon-knobs';
-import { Avatar, AvatarInitials, AvatarStack, Bullet, Counter, TextBody, Tooltip } from '../src';
+import { Avatar, AvatarImage, AvatarInitials, AvatarStack, Bullet, Counter, TextBody, Tooltip } from '../src';
 import avatars from './static/data/avatar';
 
 const directions = ['horizontal', 'vertical'];
@@ -9,7 +9,7 @@ const sizes = ['tiny', 'small', 'medium', 'large'];
 const shapes = [null, 'circle', 'rounded'];
 const colors = ['teal', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua'];
 
-const TooltippedAvatar = Tooltip(Avatar);
+const TooltippedAvatarImage = Tooltip(AvatarImage);
 
 storiesOf('Avatars', module)
   .addParameters({
@@ -17,14 +17,23 @@ storiesOf('Avatars', module)
       propTablesExclude: [Bullet, Counter],
     },
   })
-  .add('Sizes', () => (
+  .add('Avatar', () => (
     <Avatar
+      fullName={text('Full name', 'John Doe')}
+      id="63227a3c-c80b-11e9-a32f-2a2ae2dbcce4"
+      imageUrl={boolean('Image available', false) ? avatars[0].image : null}
+      size={select('Size', sizes, 'medium')}
+      shape={select('Shape', shapes) || undefined}
+    />
+  ))
+  .add('AvatarImage', () => (
+    <AvatarImage
       image={avatars[0].image}
       size={select('Size', sizes, 'medium')}
       shape={select('Shape', shapes) || undefined}
     />
   ))
-  .add('Initials', () => (
+  .add('AvatarInitials', () => (
     <AvatarInitials
       color={select('Color', colors, 'neutral')}
       size={select('Size', sizes, 'medium')}
@@ -32,7 +41,7 @@ storiesOf('Avatars', module)
       name={text('Name', undefined)}
     />
   ))
-  .add('Stacked', () => (
+  .add('AvatarStack', () => (
     <AvatarStack
       direction={select('Direction', directions, 'horizontal')}
       displayMax={number('Display max', 5)}
@@ -40,28 +49,22 @@ storiesOf('Avatars', module)
       size={select('Size', sizes, 'medium')}
     >
       {avatars.map(({ image }, index) => (
-        <Avatar key={index} image={image} />
+        <AvatarImage key={index} image={image} />
       ))}
     </AvatarStack>
   ))
   .add('With bullet', () => (
-    <Avatar image={avatars[0].image} size={select('Size', sizes, 'medium')}>
+    <AvatarImage image={avatars[0].image} size={select('Size', sizes, 'medium')}>
       <Bullet borderColor="neutral" borderTint="lightest" color="ruby" />
-    </Avatar>
+    </AvatarImage>
   ))
   .add('With counter', () => (
-    <Avatar image={avatars[0].image} size={select('Size', sizes, 'medium')}>
-      <Counter
-        color="ruby"
-        count={avatars[0].count}
-        maxCount={avatars[0].maxCount}
-        borderColor="neutral"
-        borderTint="lightest"
-      />
-    </Avatar>
+    <AvatarImage image={avatars[0].image} size={select('Size', sizes, 'medium')}>
+      <Counter color="ruby" count={15} maxCount={6} borderColor="neutral" borderTint="lightest" />
+    </AvatarImage>
   ))
   .add('With tooltip', () => (
-    <TooltippedAvatar
+    <TooltippedAvatarImage
       image={avatars[0].image}
       size={select('Size', sizes, 'medium')}
       tooltip={<TextBody>I am the tooltip</TextBody>}
