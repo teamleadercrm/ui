@@ -8,14 +8,14 @@ import Image7 from '../avatars/7.png';
 import Image8 from '../avatars/8.png';
 
 const avatars = [
-  { image: Image1, count: 21, color: 'ruby', maxCount: 20 },
-  { image: Image2, count: 15, color: 'neutral', inactive: true },
-  { image: Image3, count: 5, color: 'neutral' },
-  { image: Image4, count: 3, color: 'ruby' },
-  { image: Image5, count: 0, color: 'ruby' },
-  { image: Image6, count: 4, color: 'ruby' },
-  { image: Image7, count: 5, color: 'neutral', inactive: true },
-  { image: Image8, count: 2, color: 'neutral', inactive: true },
+  { image: Image1 },
+  { image: Image2 },
+  { image: Image3 },
+  { image: Image4 },
+  { image: Image5 },
+  { image: Image6 },
+  { image: Image7 },
+  { image: Image8 },
 ];
 
 export default avatars;

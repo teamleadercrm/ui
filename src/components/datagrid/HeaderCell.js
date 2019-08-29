@@ -4,29 +4,25 @@ import theme from './theme.css';
 import Cell from './Cell';
 import Icon from '../icon';
 import cx from 'classnames';
-import { IconChevronDownSmallOutline, IconChevronUpSmallOutline, IconSortSmallOutline } from '@teamleader/ui-icons';
+import { IconArrowDownSmallOutline, IconArrowUpSmallOutline } from '@teamleader/ui-icons';
 
 class HeaderCell extends PureComponent {
   renderSortedIndicators = () => {
-    const { sorted } = this.props;
+    const { onClick, sorted } = this.props;
 
-    if (sorted === 'asc') {
-      return <IconChevronUpSmallOutline />;
+    if (sorted === 'asc' || (!sorted && onClick)) {
+      return <IconArrowDownSmallOutline />;
     }
 
     if (sorted === 'desc') {
-      return <IconChevronDownSmallOutline />;
-    }
-
-    if (!sorted) {
-      return <IconSortSmallOutline />;
+      return <IconArrowUpSmallOutline />;
     }
 
     return null;
   };
 
   render() {
-    const { children, className, onClick, sorted, ...others } = this.props;
+    const { align, children, className, onClick, sorted, ...others } = this.props;
 
     const classNames = cx(
       theme['header-cell'],
@@ -38,15 +34,18 @@ class HeaderCell extends PureComponent {
     );
 
     return (
-      <Cell className={classNames} onClick={onClick} {...others} preventOverflow={false}>
+      <Cell align={align} className={classNames} onClick={onClick} {...others} preventOverflow={false}>
+        {align === 'right' && <Icon marginRight={1}>{this.renderSortedIndicators()}</Icon>}
         <span className={theme['has-overflow-prevention']}>{children}</span>
-        <Icon>{this.renderSortedIndicators()}</Icon>
+        {align === 'left' && <Icon marginLeft={1}>{this.renderSortedIndicators()}</Icon>}
       </Cell>
     );
   }
 }
 
 HeaderCell.propTypes = {
+  /** The horizontal alignment of the text inside the cell. */
+  align: PropTypes.oneOf(['left', 'center', 'right']),
   /** The content to display inside the cell. */
   children: PropTypes.any,
   /** A class name for the wrapper to give custom styles. */
@@ -54,11 +53,11 @@ HeaderCell.propTypes = {
   /** Callback function that is fired when clicking on the cell. */
   onClick: PropTypes.func,
   /** The order in which the grid rows will be sorted. */
-  sorted: PropTypes.oneOf(['none', false, 'asc', 'desc']),
+  sorted: PropTypes.oneOf(['asc', 'desc']),
 };
 
 HeaderCell.defaultProps = {
-  sorted: 'none',
+  align: 'left',
 };
 
 export default HeaderCell;

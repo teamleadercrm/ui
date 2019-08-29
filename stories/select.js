@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, select, number, text } from '@storybook/addon-knobs/react';
-import { Avatar, Box, Label, Select, AsyncSelect, TextBody } from '../src';
+import { AvatarImage, Box, Label, Select, AsyncSelect, TextBody } from '../src';
 import { customOptions, groupedOptions, options } from './static/data/select';
 
 const sizes = ['small', 'medium', 'large'];
@@ -21,7 +21,7 @@ const CustomOption = ({ children, data, innerProps, isFocused, isSelected, isDis
 
   return (
     <Box paddingVertical={2} paddingHorizontal={2} display="flex" alignItems="center" {...innerProps} style={boxStyles}>
-      <Avatar image={data.avatar} size="tiny" marginRight={2} />
+      <AvatarImage image={data.avatar} size="tiny" marginRight={2} />
       <TextBody style={textStyles}>{children}</TextBody>
     </Box>
   );

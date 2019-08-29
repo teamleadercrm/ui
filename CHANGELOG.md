@@ -4,8 +4,7 @@
 
 ### Changed
 
-- `DatePicker`: the `onChange` handler is no longer triggered when a disabled date has been selected. ([@Kemosabert](https://github.com/Kemosabert)) in [#664](https://github.com/teamleadercrm/ui/pull/664)
-- `Publishing settings`: expose postcss.config.js in published dependency. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#660](https://github.com/teamleadercrm/ui/pull/660))
+### Changed
 
 ### Deprecated
 
@@ -13,7 +12,36 @@
 
 ### Fixed
 
-- Console errors when using the Menu component ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#666](https://github.com/teamleadercrm/ui/pull/666))
+## [0.28.0] - 2019-08-29
+
+### Added
+
+- `Avatar`: added new `Avatar` component which renders `AvatarInitials` or `AvatarImage`. ([@driesd](https://github.com/driesd) in [#670](https://github.com/teamleadercrm/ui/pull/670))
+
+### Changed
+
+- [BREAKING] `Avatar`: renamed to `AvatarImage`. ([@driesd](https://github.com/driesd) in [#670](https://github.com/teamleadercrm/ui/pull/670))
+- `AvatarInitials`: changed so the text is not selectable anymore. ([@driesd](https://github.com/driesd) in [#669](https://github.com/teamleadercrm/ui/pull/669))
+- `Checkbox`: added `position: absolute;` to the input element to fix alignment issue in Firefox on Linux. ([@driesd](https://github.com/driesd) in [#667](https://github.com/teamleadercrm/ui/pull/667))
+- `DataGrid`: adjust `HeaderCell` to meet its new design ([@driesd](https://github.com/driesd) in [#668](https://github.com/teamleadercrm/ui/pull/668))
+- `DatePicker`: the `onChange` handler is no longer triggered when a disabled date has been selected. ([@Kemosabert](https://github.com/Kemosabert)) in [#664](https://github.com/teamleadercrm/ui/pull/664)
+- `Publishing settings`: expose postcss.config.js in published dependency. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#660](https://github.com/teamleadercrm/ui/pull/660))
+
+### Fixed
+
+- `Console errors` when using the `Menu` component ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#666](https://github.com/teamleadercrm/ui/pull/666))
+
+### Dependency updates
+
+- `eslint` from `^6.0.1` to `^6.2.1`
+- `eslint-config-prettier` from `^6.0.0` to `^6.1.0`
+- `eslint-config-standard` from `^13.0.1` to `^14.0.1`
+- `eslint-config-standard-react` from `^8.0.0` to `^9.0.0`
+- `eslint-plugin-babel` from `^5.1.0` to `^5.3.0`
+- `eslint-plugin-import` from `^2.8.0` to `^2.18.2`
+- `eslint-plugin-react` from `^7.4.0` to `^7.14.3`
+- `eslint-plugin-standard` from `^4.0.0` to `^4.0.1`
+- `rimraf` from `^2.5.4` to `^3.0.0`
 
 ## [0.27.7] - 2019-08-14
 
