@@ -4,7 +4,7 @@
 
 ### Changed
 
-### Changed
+- `Select`: changed font smoothing css props from kebab-case to camelCase to fix emotion warnings. ([@driesd](https://github.com/driesd) in [#672](https://github.com/teamleadercrm/ui/pull/672))
 
 ### Deprecated
 
