@@ -1,7 +1,7 @@
 {
   "name": "@teamleader/ui",
   "description": "Teamleader UI library",
-  "version": "0.28.0",
+  "version": "0.28.1",
   "author": "Teamleader <development@teamleader.eu>",
   "bugs": {
     "url": "https://github.com/teamleadercrm/ui/issues"
@@ -10,7 +10,12 @@
     "Dries Decramer <dries.decramer@teamleader.eu>",
     "Nick Waelkens <nick.waelkens@teamleader.eu>",
     "Lowie Benoot <lowie.benoot@teamleader.eu>",
-    "Kevin Waelkens <kevin.waelkens@teamleader.eu>"
+    "Kevin Waelkens <kevin.waelkens@teamleader.eu>",
+    "Lennert Blommaert <lennert.blommaert@teamleader.eu>",
+    "Tarald Rotsaert <tarald.rotsaert@teamleader.eu>",
+    "Bert Coppens <bert.coppens@teamleader.eu>",
+    "Arnaud Weyts <arnaud.weyts@teamleader.eu>",
+    "Mike Verfaille  <mike.verfaille@teamleader.eu>"
   ],
   "files": [
     "cjs",
