@@ -48,6 +48,7 @@ class Box extends PureComponent {
       paddingRight = paddingHorizontal,
       paddingTop = paddingVertical,
       style,
+      textAlign,
       ...others
     } = this.props;
 
@@ -72,6 +73,7 @@ class Box extends PureComponent {
         [theme[`padding-left-${paddingLeft}`]]: paddingLeft > 0,
         [theme[`padding-right-${paddingRight}`]]: paddingRight > 0,
         [theme[`padding-top-${paddingTop}`]]: paddingTop > 0,
+        [theme[`text-align-${textAlign}`]]: textAlign,
       },
       className,
     );
@@ -143,6 +145,7 @@ Box.propTypes = {
   paddingRight: PropTypes.oneOf(spacings),
   paddingTop: PropTypes.oneOf(spacings),
   style: PropTypes.object,
+  textAlign: PropTypes.oneOf(['center', 'left', 'right']),
 };
 
 Box.defaultProps = {

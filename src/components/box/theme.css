@@ -100,3 +100,9 @@
     }
   }
 }
+
+@each $text-alignment in (center, left, right) {
+  .text-align-$(text-alignment) {
+    text-align: $text-alignment;
+  }
+}

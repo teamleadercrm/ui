@@ -141,8 +141,8 @@ class Select extends PureComponent {
       fontFamily: 'Inter-UI-Regular',
       fontSize: '14px',
       fontSmoothing: 'antialiased',
-      '-moz-osx-font-smoothing': 'grayscale',
-      '-webkit-font-smoothing': 'antialiased',
+      MozOsxFontSmoothing: 'grayscale',
+      WebkitFontSmoothing: 'antialiased',
       zIndex: 500,
     };
   };
