@@ -12,6 +12,10 @@
 
 ### Fixed
 
+### Dependency updates
+
+- `@teamleader/ui-illustrations` from `^0.0.20` to `^0.0.21`. ([@driesd](https://github.com/driesd) in [#674](https://github.com/teamleadercrm/ui/pull/674))
+
 ## [0.28.0] - 2019-08-29
 
 ### Added
