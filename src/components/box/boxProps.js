@@ -35,6 +35,7 @@ const boxProps = [
   'paddingLeft',
   'paddingRight',
   'paddingTop',
+  'textAlign',
 ];
 
 const omitBoxProps = props => omit(props, boxProps);

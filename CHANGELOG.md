@@ -2,6 +2,8 @@
 
 ### Added
 
+- `Box`: added `textAlign` prop. Possible values are `center`, `left` & `right`. ([@driesd](https://github.com/driesd) in [#673](https://github.com/teamleadercrm/ui/pull/673))
+
 ### Changed
 
 - `Select`: changed font smoothing css props from kebab-case to camelCase to fix emotion warnings. ([@driesd](https://github.com/driesd) in [#672](https://github.com/teamleadercrm/ui/pull/672))

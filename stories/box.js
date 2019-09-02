@@ -5,6 +5,7 @@ import { Box, TextBody, COLORS, TINTS } from '../src';
 
 const displayValues = ['inline', 'inline-block', 'block', 'flex', 'inline-flex'];
 const justifyContentValues = ['center', 'flex-start', 'flex-end', 'space-around', 'space-between', 'space-evenly'];
+const textAlignValues = ['center', 'left', 'right'];
 
 const spacingOptions = {
   range: true,
@@ -27,6 +28,7 @@ storiesOf('Box', module)
       justifyContent={select('Justify Content', justifyContentValues, 'flex-start')}
       margin={number('Margin', 0, spacingOptions)}
       padding={number('Padding', 3, spacingOptions)}
+      textAlign={select('Text align', textAlignValues, 'left')}
     >
       <TextBody>I'm body text inside a Box component</TextBody>
     </Box>
