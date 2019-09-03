@@ -2,6 +2,8 @@
 
 ### Added
 
+- `AvatarImage`, `AvatarInitials` & `AvatarStack`: added `hero` size variation. ([@driesd](https://github.com/driesd) in [#676](https://github.com/teamleadercrm/ui/pull/676))
+
 ### Changed
 
 ### Deprecated

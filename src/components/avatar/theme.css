@@ -10,6 +10,7 @@
   --small-size: 36px;
   --medium-size: 48px;
   --large-size: 72px;
+  --hero-size: 144px;
 
   --shape-circle-image-border-radius: 50%;
   --shape-rounded-image-border-radius: 4px;
@@ -32,6 +33,10 @@
 .children {
   position: absolute;
   z-index: 1;
+}
+
+.initials {
+  line-height: 1;
 }
 
 .image {
@@ -94,9 +99,8 @@
     width: var(--tiny-size);
   }
 
-  .content {
+  .initials {
     font-size: 8px;
-    line-height: 16px;
   }
 
   .children {
@@ -164,7 +168,6 @@
 
   .content {
     font-size: 18px;
-    line-height: 24px;
   }
 
   .children {
@@ -177,6 +180,31 @@
     font-size: calc(1.8 * var(--unit));
     height: var(--large-size);
     min-width: calc(var(--large-size) - var(--overflow-padding-horizontal) * 2);
+  }
+}
+
+.is-hero {
+  &.avatar-image,
+  &.avatar-initials,
+  .image {
+    height: var(--hero-size);
+    width: var(--hero-size);
+  }
+
+  .initials {
+    font-size: 36px;
+  }
+
+  .children {
+    bottom: 81%;
+    left: 81%;
+  }
+
+  .overflow {
+    border-radius: var(--hero-size);
+    font-size: calc(3.6 * var(--unit));
+    height: var(--hero-size);
+    min-width: calc(var(--hero-size) - var(--overflow-padding-horizontal) * 2);
   }
 }
 
@@ -195,8 +223,8 @@
     border-radius: var(--shape-rounded-image-border-radius);
   }
 
-  .content {
-    color: white;
+  .initials {
+    color: var(--color-neutral-lightest);
     text-transform: uppercase;
     letter-spacing: 0px;
   }

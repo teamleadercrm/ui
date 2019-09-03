@@ -29,7 +29,7 @@ class AvatarInitials extends PureComponent {
 
     return (
       <Box className={avatarClassNames} {...others} data-teamleader-ui="avatar-initials">
-        <Heading4 className={theme['content']}>{this.getInitials()}</Heading4>
+        <Heading4 className={theme['initials']}>{this.getInitials()}</Heading4>
       </Box>
     );
   }
@@ -43,7 +43,7 @@ AvatarInitials.propTypes = {
   /** The shape of the avatar. */
   shape: PropTypes.oneOf(['circle', 'rounded']),
   /** The size of the avatar. */
-  size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large']),
+  size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large', 'hero']),
   /** The name for in the avatar. */
   name: PropTypes.string,
 };
