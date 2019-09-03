@@ -224,7 +224,7 @@
   }
 
   .initials {
-    color: white;
+    color: var(--color-neutral-lightest);
     text-transform: uppercase;
     letter-spacing: 0px;
   }
