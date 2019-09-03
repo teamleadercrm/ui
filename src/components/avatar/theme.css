@@ -10,6 +10,7 @@
   --small-size: 36px;
   --medium-size: 48px;
   --large-size: 72px;
+  --hero-size: 144px;
 
   --shape-circle-image-border-radius: 50%;
   --shape-rounded-image-border-radius: 4px;
@@ -177,6 +178,31 @@
     font-size: calc(1.8 * var(--unit));
     height: var(--large-size);
     min-width: calc(var(--large-size) - var(--overflow-padding-horizontal) * 2);
+  }
+}
+
+.is-hero {
+  &.avatar-image,
+  &.avatar-initials,
+  .image {
+    height: var(--hero-size);
+    width: var(--hero-size);
+  }
+
+  .content {
+    font-size: 36px;
+  }
+
+  .children {
+    bottom: 81%;
+    left: 81%;
+  }
+
+  .overflow {
+    border-radius: var(--hero-size);
+    font-size: calc(3.6 * var(--unit));
+    height: var(--hero-size);
+    min-width: calc(var(--hero-size) - var(--overflow-padding-horizontal) * 2);
   }
 }
 

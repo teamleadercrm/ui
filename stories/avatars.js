@@ -5,7 +5,7 @@ import { Avatar, AvatarImage, AvatarInitials, AvatarStack, Bullet, Counter, Text
 import avatars from './static/data/avatar';
 
 const directions = ['horizontal', 'vertical'];
-const sizes = ['tiny', 'small', 'medium', 'large'];
+const sizes = ['tiny', 'small', 'medium', 'large', 'hero'];
 const shapes = [null, 'circle', 'rounded'];
 const colors = ['teal', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua'];
 
