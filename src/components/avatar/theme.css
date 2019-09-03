@@ -35,7 +35,7 @@
   z-index: 1;
 }
 
-.content {
+.initials {
   line-height: 1;
 }
 
@@ -99,7 +99,7 @@
     width: var(--tiny-size);
   }
 
-  .content {
+  .initials {
     font-size: 8px;
   }
 
@@ -191,7 +191,7 @@
     width: var(--hero-size);
   }
 
-  .content {
+  .initials {
     font-size: 36px;
   }
 
@@ -223,7 +223,7 @@
     border-radius: var(--shape-rounded-image-border-radius);
   }
 
-  .content {
+  .initials {
     color: white;
     text-transform: uppercase;
     letter-spacing: 0px;

@@ -29,7 +29,7 @@ class AvatarInitials extends PureComponent {
 
     return (
       <Box className={avatarClassNames} {...others} data-teamleader-ui="avatar-initials">
-        <Heading4 className={theme['content']}>{this.getInitials()}</Heading4>
+        <Heading4 className={theme['initials']}>{this.getInitials()}</Heading4>
       </Box>
     );
   }
