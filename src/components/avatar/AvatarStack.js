@@ -47,7 +47,7 @@ AvatarStack.propTypes = {
   /** Callback function that is fired when the overflow circle is clicked. */
   onOverflowClick: PropTypes.func,
   /** The size of the avatar stack. */
-  size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large']),
+  size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large', 'hero']),
 };
 
 AvatarStack.defaultProps = {
