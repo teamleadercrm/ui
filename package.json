@@ -82,7 +82,7 @@
     "file-loader": "^4.0.0",
     "html-webpack-plugin": "^4.0.0-alpha.2",
     "husky": "^3.0.0",
-    "image-webpack-loader": "^5.0.0",
+    "image-webpack-loader": "^6.0.0",
     "json-loader": "^0.5.4",
     "moment": "^2.22.2",
     "postcss": "^7.0.17",
