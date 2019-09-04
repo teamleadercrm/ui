@@ -70,7 +70,7 @@ storiesOf('Passport', module)
           description="Regional manager"
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
-          avatar={{ image: contactAvatar }}
+          avatar={{ imageUrl: contactAvatar, fullName: 'David Brent' }}
           lineItems={contactLineItems}
           title={{ children: 'David Brent', href: 'https://www.teamleader.eu' }}
         />
@@ -88,7 +88,7 @@ storiesOf('Passport', module)
           description={['1725 Slough Avenue', 'Sranton, PA 18540', 'United Kingdom']}
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
-          avatar={{ image: companyAvatar, shape: 'rounded' }}
+          avatar={{ imageUrl: companyAvatar, shape: 'rounded', fullName: 'Dunder Miflin' }}
           lineItems={companyLineItems}
           title="Dunder Miflin"
         />
@@ -107,7 +107,7 @@ storiesOf('Passport', module)
           description="It looks like you haven't added any contact information yet."
           onEscKeyDown={handleCloseClick}
           onOverlayClick={handleCloseClick}
-          avatar={{ image: emptyAvatar }}
+          avatar={{ imageUrl: emptyAvatar, fullName: 'No Information' }}
           title="No information to show"
         />
       </State>
