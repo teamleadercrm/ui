@@ -18,40 +18,29 @@ class AvatarInitials extends PureComponent {
   };
 
   render() {
-    const { className, color, shape, size, ...others } = this.props;
-    const avatarClassNames = cx(
-      theme['avatar-initials'],
-      theme[`is-${size}`],
-      theme[`is-${shape}`],
-      theme[color],
-      className,
-    );
+    const { children, color, shape, ...others } = this.props;
+    const avatarClassNames = cx(theme['avatar-initials'], theme[color]);
 
     return (
       <Box className={avatarClassNames} {...others} data-teamleader-ui="avatar-initials">
         <Heading4 className={theme['initials']}>{this.getInitials()}</Heading4>
+        {children && <div className={theme['children']}>{children}</div>}
       </Box>
     );
   }
 }
 
 AvatarInitials.propTypes = {
-  /** A class name for the wrapper to give custom styles. */
-  className: PropTypes.string,
+  /** Component that will be placed top right of the avatar image. */
+  children: PropTypes.any,
   /** The color of the avatar. */
   color: PropTypes.oneOf(['neutral', 'mint', 'aqua', 'violet', 'teal', 'gold', 'ruby']),
-  /** The shape of the avatar. */
-  shape: PropTypes.oneOf(['circle', 'rounded']),
-  /** The size of the avatar. */
-  size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large', 'hero']),
   /** The name for in the avatar. */
   name: PropTypes.string,
 };
 
 AvatarInitials.defaultProps = {
   color: 'neutral',
-  shape: 'circle',
-  size: 'medium',
   name: 'Michael Scott',
 };
 

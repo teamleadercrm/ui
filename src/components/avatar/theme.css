@@ -16,18 +16,13 @@
   --shape-rounded-image-border-radius: 4px;
 }
 
+.avatar {
+  position: relative;
+}
+
 /* AvatarImage */
 .avatar-image {
   display: flex;
-  position: relative;
-
-  &.is-circle .image {
-    border-radius: var(--shape-circle-image-border-radius);
-  }
-
-  &.is-rounded .image {
-    border-radius: var(--shape-rounded-image-border-radius);
-  }
 }
 
 .children {
@@ -62,10 +57,9 @@
 }
 
 .overlay {
-  background-position: bottom center;
-  background-repeat: no-repeat;
   bottom: 0;
   cursor: pointer;
+  height: 24px;
   left: 0;
   padding-bottom: 5px;
   position: absolute;
@@ -102,8 +96,9 @@
 }
 
 .is-tiny {
-  &.avatar-image,
-  &.avatar-initials,
+  &.avatar,
+  .avatar-image,
+  .avatar-initials,
   .image {
     height: var(--tiny-size);
     width: var(--tiny-size);
@@ -127,8 +122,9 @@
 }
 
 .is-small {
-  &.avatar-image,
-  &.avatar-initials,
+  &.avatar,
+  .avatar-image,
+  .avatar-initials,
   .image {
     height: var(--small-size);
     width: var(--small-size);
@@ -148,8 +144,9 @@
 }
 
 .is-medium {
-  &.avatar-image,
-  &.avatar-initials,
+  &.avatar,
+  .avatar-image,
+  .avatar-initials,
   .image {
     height: var(--medium-size);
     width: var(--medium-size);
@@ -169,10 +166,10 @@
 }
 
 .is-large {
-  &.avatar-image,
-  &.avatar-initials,
-  .image,
-  .overlay {
+  &.avatar,
+  .avatar-image,
+  .avatar-initials,
+  .image {
     height: var(--large-size);
     width: var(--large-size);
   }
@@ -194,15 +191,15 @@
   }
 
   .overlay {
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2OCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDY4IDI0Ij4gIDxwYXRoIGZpbGw9IiMzNDRCNjMiIGZpbGwtb3BhY2l0eT0iLjg1IiBkPSJNNjkuOTUxMjYyNCw0OC4wMDA2NDU1IEM2NS4wMDkwMTA1LDYxLjk4MjU1NjIgNTEuNjc0MzQxNCw3MS45OTk4ODQxIDM2LDcxLjk5OTg4NDEgQzIwLjMyNTY1ODYsNzEuOTk5ODg0MSA2Ljk5MDk4OTUxLDYxLjk4MjU1NjIgMi4wNDg3Mzc2Myw0OC4wMDA2NDU1IFoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yIC00OCkiLz48L3N2Zz4=);
+    width: var(--large-size);
   }
 }
 
 .is-hero {
-  &.avatar-image,
-  &.avatar-initials,
-  .image,
-  .overlay {
+  &.avatar,
+  .avatar-image,
+  .avatar-initials,
+  .image {
     height: var(--hero-size);
     width: var(--hero-size);
   }
@@ -224,7 +221,39 @@
   }
 
   .overlay {
+    width: var(--hero-size);
+  }
+}
+
+.is-circle {
+  .avatar-image .image,
+  .avatar-initials {
+    border-radius: var(--shape-circle-image-border-radius);
+  }
+
+  .overlay {
+    background-position: bottom center;
+    background-repeat: no-repeat;
+  }
+
+  &.is-large .overlay {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2OCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDY4IDI0Ij4gIDxwYXRoIGZpbGw9IiMzNDRCNjMiIGZpbGwtb3BhY2l0eT0iLjg1IiBkPSJNNjkuOTUxMjYyNCw0OC4wMDA2NDU1IEM2NS4wMDkwMTA1LDYxLjk4MjU1NjIgNTEuNjc0MzQxNCw3MS45OTk4ODQxIDM2LDcxLjk5OTg4NDEgQzIwLjMyNTY1ODYsNzEuOTk5ODg0MSA2Ljk5MDk4OTUxLDYxLjk4MjU1NjIgMi4wNDg3Mzc2Myw0OC4wMDA2NDU1IFoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yIC00OCkiLz48L3N2Zz4=);
+  }
+
+  &.is-hero .overlay {
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDgiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAxMDggMjQiPiAgPHBhdGggZmlsbD0iIzM0NEI2MyIgZmlsbC1vcGFjaXR5PSIuODUiIGQ9Ik0xMjUuNjY0NDY0LDEyMCBDMTEyLjQ4MDgzNiwxMzQuNzI4NjI4IDkzLjMyMjg2NzYsMTQzLjk5NzY2MyA3MiwxNDMuOTk3NjYzIEM1MC42NzcxMzI0LDE0My45OTc2NjMgMzEuNTE5MTYzOCwxMzQuNzI4NjI4IDE4LjMzNTUzNTgsMTIwIFoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xOCAtMTIwKSIvPjwvc3ZnPg==);
+  }
+}
+
+.is-rounded {
+  .avatar-image .image,
+  .avatar-initials {
+    border-radius: var(--shape-rounded-image-border-radius);
+  }
+
+  .overlay {
+    background-color: color(var(--color-teal-darkest) a(0.84));
+    border-radius: 0 0 var(--shape-rounded-image-border-radius) var(--shape-rounded-image-border-radius);
   }
 }
 
@@ -234,14 +263,6 @@
   align-items: center;
   justify-content: center;
   user-select: none;
-
-  &.is-circle {
-    border-radius: var(--shape-circle-image-border-radius);
-  }
-
-  &.is-rounded {
-    border-radius: var(--shape-rounded-image-border-radius);
-  }
 
   .initials {
     color: var(--color-neutral-lightest);
