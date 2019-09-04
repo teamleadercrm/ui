@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import theme from './theme.css';
-import AvatarImage from '../avatar';
+import Avatar from '../avatar';
 import Box from '../box';
 import Icon from '../icon';
 import Link from '../link';
@@ -50,7 +50,7 @@ class Passport extends PureComponent {
         <Box padding={3}>
           <Box display="flex">
             <Box flex="48px 0 0" paddingRight={3}>
-              <AvatarImage {...avatar} size="small" />
+              <Avatar {...avatar} size="small" />
             </Box>
             <Box className={theme['prevent-overflow']}>
               {this.renderTitle()}
@@ -89,7 +89,7 @@ class Passport extends PureComponent {
 }
 
 Passport.propTypes = {
-  /** Object containing the props of an AvatarImage. */
+  /** Object containing the props of an Avatar. */
   avatar: PropTypes.object.isRequired,
   /** The class names for the wrapper to apply custom styling. */
   className: PropTypes.string,
