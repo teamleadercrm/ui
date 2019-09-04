@@ -1,5 +1,5 @@
 import AdvancedCollapsible from './components/advancedCollapsible';
-import Avatar, { AvatarImage, AvatarInitials, AvatarStack } from './components/avatar';
+import Avatar, { AvatarImage, AvatarStack } from './components/avatar';
 import Badge from './components/badge';
 import Banner from './components/banner';
 import Box from './components/box';
@@ -71,7 +71,6 @@ export {
   AdvancedCollapsible,
   Avatar,
   AvatarImage,
-  AvatarInitials,
   AvatarStack,
   AsyncSelect,
   Badge,
