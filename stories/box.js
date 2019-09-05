@@ -24,6 +24,13 @@ storiesOf('Box', module)
     <Box
       backgroundColor={select('Background color', COLORS, 'neutral')}
       backgroundTint={select('Background tint', TINTS, 'light')}
+      borderWidth={number('Border width', 0)}
+      borderBottomWidth={number('Border bottom width', 0)}
+      borderLeftWidth={number('Border left width', 0)}
+      borderRightWidth={number('Border right width', 0)}
+      borderTopWidth={number('Border top width', 0)}
+      borderColor={select('Border color', COLORS, 'neutral')}
+      borderTint={select('Border tint', TINTS, 'dark')}
       display={select('Display', displayValues, 'block')}
       justifyContent={select('Justify Content', justifyContentValues, 'flex-start')}
       margin={number('Margin', 0, spacingOptions)}
