@@ -17,6 +17,10 @@ module.exports = ({ file, options, env }) => {
           },
         },
       },
+      'postcss-preset-env': {
+        stage: false,
+        customProperties: true,
+      },
       'postcss-nested': {},
       'postcss-reporter': {
         clearMessages: true,
