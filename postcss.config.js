@@ -10,13 +10,6 @@ module.exports = ({ file, options, env }) => {
       'postcss-pseudoelements': {},
       'postcss-mixins': {},
       'postcss-each': {},
-      'postcss-cssnext': {
-        features: {
-          customProperties: {
-            warnings: false,
-          },
-        },
-      },
       'postcss-preset-env': {
         stage: false,
         customProperties: true,
