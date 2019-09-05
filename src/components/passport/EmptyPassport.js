@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import theme from './theme.css';
-import AvatarImage from '../avatar';
+import Avatar from '../avatar';
 import Box from '../box';
 import Link from '../link';
 import Popover from '../popover';
@@ -16,7 +16,7 @@ class EmptyPassport extends PureComponent {
       <Popover {...others} backdrop="transparent" className={cx(theme['passport-empty'], className)}>
         <Box paddingHorizontal={4} paddingVertical={5}>
           <Box display="flex" flexDirection="column" alignItems="center">
-            {avatar && <AvatarImage {...avatar} size="small" marginBottom={4} />}
+            {avatar && <Avatar {...avatar} size="small" marginBottom={4} />}
             <Heading3 color="teal">{title}</Heading3>
             {description && (
               <TextBody color="neutral" marginTop={2}>

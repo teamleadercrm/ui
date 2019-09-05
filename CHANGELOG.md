@@ -2,6 +2,7 @@
 
 ### Added
 
+- `Avatar`: added `editable` boolean prop & `onImageChange` function prop. ([@driesd](https://github.com/driesd) in [#678](https://github.com/teamleadercrm/ui/pull/678))
 - `AvatarImage`, `AvatarInitials` & `AvatarStack`: added `hero` size variation. ([@driesd](https://github.com/driesd) in [#676](https://github.com/teamleadercrm/ui/pull/676))
 
 ### Changed
@@ -9,6 +10,8 @@
 ### Deprecated
 
 ### Removed
+
+- [BREAKING] `AvatarImage` & `AvatarInitials`: removed from export. `Avatar` should be used instead. ([@driesd](https://github.com/driesd) in [#678](https://github.com/teamleadercrm/ui/pull/678))
 
 ### Fixed
 
