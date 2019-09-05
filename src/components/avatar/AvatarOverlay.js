@@ -7,11 +7,13 @@ import { IconEditSmallFilled } from '@teamleader/ui-icons';
 class AvatarOverlay extends PureComponent {
   render() {
     return (
-      <Box {...this.props} alignItems="flex-end" className={theme['overlay']} display="flex" justifyContent="center">
-        <Icon color="neutral" tint="lightest">
-          <IconEditSmallFilled />
-        </Icon>
-      </Box>
+      <div {...this.props} className={theme['overlay']}>
+        <Box className={theme['overlay-background']} display="flex" justifyContent="center">
+          <Icon color="neutral" tint="lightest">
+            <IconEditSmallFilled />
+          </Icon>
+        </Box>
+      </div>
     );
   }
 }
