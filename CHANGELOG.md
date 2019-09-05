@@ -2,21 +2,32 @@
 
 ### Added
 
-- `Avatar`: added `editable` boolean prop & `onImageChange` function prop. ([@driesd](https://github.com/driesd) in [#678](https://github.com/teamleadercrm/ui/pull/678))
-- `AvatarImage`, `AvatarInitials` & `AvatarStack`: added `hero` size variation. ([@driesd](https://github.com/driesd) in [#676](https://github.com/teamleadercrm/ui/pull/676))
-- `Box`: added `borderWidth`, `borderBottomWidth`, `borderLeftWidth`, `borderRightWidth`, `borderTopWidth`, `borderColor`, `borderTint` props. ([@driesd](https://github.com/driesd) in [#681](https://github.com/teamleadercrm/ui/pull/681))
-
 ### Changed
 
 ### Deprecated
 
 ### Removed
 
-- [BREAKING] `AvatarImage` & `AvatarInitials`: removed from export. `Avatar` should be used instead. ([@driesd](https://github.com/driesd) in [#678](https://github.com/teamleadercrm/ui/pull/678))
-
 ### Fixed
 
 ### Dependency updates
+
+## [0.29.0] - 2019-09-05
+
+### Added
+
+- `Avatar`: added `editable` boolean prop & `onImageChange` function prop. ([@driesd](https://github.com/driesd) in [#678](https://github.com/teamleadercrm/ui/pull/678))
+- `AvatarImage`, `AvatarInitials` & `AvatarStack`: added `hero` size variation. ([@driesd](https://github.com/driesd) in [#676](https://github.com/teamleadercrm/ui/pull/676))
+- `Box`: added `borderWidth`, `borderBottomWidth`, `borderLeftWidth`, `borderRightWidth`, `borderTopWidth`, `borderColor`, `borderTint` props. ([@driesd](https://github.com/driesd) in [#681](https://github.com/teamleadercrm/ui/pull/681))
+
+### Removed
+
+- [BREAKING] `AvatarImage` & `AvatarInitials`: removed from export. `Avatar` should be used instead. ([@driesd](https://github.com/driesd) in [#678](https://github.com/teamleadercrm/ui/pull/678))
+
+### Dependency updates
+
+- `eslint-plugin-node` from `^9.1.0` to `^10.0.0`
+- `image-loader-webpack` from `^5.0.0` to `^6.0.0`
 
 ## [0.28.1] - 2019-09-02
 
