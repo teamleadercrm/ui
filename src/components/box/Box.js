@@ -1,7 +1,7 @@
 import React, { createRef, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import { COLORS, TINTS } from '../../constants';
+import { COLOR, COLORS, TINTS } from '../../constants';
 import theme from './theme.css';
 
 const overflows = ['auto', 'hidden', 'scroll', 'visible'];
@@ -10,6 +10,11 @@ const spacings = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 class Box extends PureComponent {
   boxNode = createRef();
 
+  getBorder = value => {
+    const { borderColor, borderTint } = this.props;
+    return `${value}px solid ${COLOR[borderColor.toUpperCase()][borderTint.toUpperCase()]}`;
+  };
+
   render() {
     const {
       alignContent,
@@ -17,6 +22,13 @@ class Box extends PureComponent {
       alignSelf,
       backgroundColor,
       backgroundTint,
+      borderBottomWidth,
+      borderColor,
+      borderLeftWidth,
+      borderRightWidth,
+      borderTint,
+      borderTopWidth,
+      borderWidth,
       boxSizing,
       children,
       className,
@@ -79,6 +91,11 @@ class Box extends PureComponent {
     );
 
     const elementStyles = {
+      ...(borderWidth && { border: this.getBorder(borderWidth) }),
+      ...(borderBottomWidth && { borderBottom: this.getBorder(borderBottomWidth) }),
+      ...(borderLeftWidth && { borderLeft: this.getBorder(borderLeftWidth) }),
+      ...(borderRightWidth && { borderRight: this.getBorder(borderRightWidth) }),
+      ...(borderTopWidth && { borderTop: this.getBorder(borderTopWidth) }),
       ...(boxSizing && { boxSizing }),
       ...(flex && { flex }),
       ...(flexBasis && { flexBasis }),
@@ -107,6 +124,13 @@ Box.propTypes = {
   alignSelf: PropTypes.oneOf(['center', 'flex-start', 'flex-end', 'stretch']),
   backgroundColor: PropTypes.oneOf(COLORS),
   backgroundTint: PropTypes.oneOf(TINTS),
+  borderBottomWidth: PropTypes.number,
+  borderColor: PropTypes.oneOf(COLORS),
+  borderLeftWidth: PropTypes.number,
+  borderRightWidth: PropTypes.number,
+  borderTint: PropTypes.oneOf(TINTS),
+  borderTopWidth: PropTypes.number,
+  borderWidth: PropTypes.number,
   boxSizing: PropTypes.oneOf(['border-box', 'content-box']),
   children: PropTypes.any,
   className: PropTypes.string,
@@ -149,6 +173,8 @@ Box.propTypes = {
 };
 
 Box.defaultProps = {
+  borderColor: 'neutral',
+  borderTint: 'dark',
   element: 'div',
   margin: 0,
   padding: 0,

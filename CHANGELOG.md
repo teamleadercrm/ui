@@ -4,6 +4,7 @@
 
 - `Avatar`: added `editable` boolean prop & `onImageChange` function prop. ([@driesd](https://github.com/driesd) in [#678](https://github.com/teamleadercrm/ui/pull/678))
 - `AvatarImage`, `AvatarInitials` & `AvatarStack`: added `hero` size variation. ([@driesd](https://github.com/driesd) in [#676](https://github.com/teamleadercrm/ui/pull/676))
+- `Box`: added `borderWidth`, `borderBottomWidth`, `borderLeftWidth`, `borderRightWidth`, `borderTopWidth`, `borderColor`, `borderTint` props. ([@driesd](https://github.com/driesd) in [#681](https://github.com/teamleadercrm/ui/pull/681))
 
 ### Changed
 
