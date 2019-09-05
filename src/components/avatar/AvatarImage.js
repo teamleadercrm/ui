@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
 
@@ -9,10 +8,10 @@ class AvatarImage extends PureComponent {
     const { children, image, imageAlt, imageClassName, ...others } = this.props;
 
     return (
-      <Box className={theme['avatar-image']} {...others} data-teamleader-ui="avatar-image">
+      <div className={theme['avatar-image']} {...others} data-teamleader-ui="avatar-image">
         <img alt={imageAlt} src={image} className={cx(theme['image'], imageClassName)} />
         {children && <div className={theme['children']}>{children}</div>}
-      </Box>
+      </div>
     );
   }
 }

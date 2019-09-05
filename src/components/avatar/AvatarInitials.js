@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
 import { Heading4 } from '../typography';
@@ -22,10 +21,10 @@ class AvatarInitials extends PureComponent {
     const avatarClassNames = cx(theme['avatar-initials'], theme[color]);
 
     return (
-      <Box className={avatarClassNames} {...others} data-teamleader-ui="avatar-initials">
+      <div className={avatarClassNames} {...others} data-teamleader-ui="avatar-initials">
         <Heading4 className={theme['initials']}>{this.getInitials()}</Heading4>
         {children && <div className={theme['children']}>{children}</div>}
-      </Box>
+      </div>
     );
   }
 }
