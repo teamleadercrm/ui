@@ -12,6 +12,18 @@
 
 ### Dependency updates
 
+- [BREAKING] Removed deprecated `postcss-cssnext` and replaced it with the recommended package `postcss-preset-env`. ([@rathesDot](https://github.com/rathesDot) in [#680](https://github.com/teamleadercrm/ui/pull/680)). Install `postcss-preset-env` manually as a devDependecy if you enounter any issues in your build process. Alternatively, explicitly add your postcss config file's path to the postcss-loader option of your webpack.
+  ```js
+  {
+    loader: 'postcss-loader',
+    options: {
+      config: {
+        path: `${__dirname}/postcss.config.js`,
+      },
+    },
+  },
+  ```
+
 ## [0.29.0] - 2019-09-05
 
 ### Added
