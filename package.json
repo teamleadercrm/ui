@@ -1,7 +1,7 @@
 {
   "name": "@teamleader/ui",
   "description": "Teamleader UI library",
-  "version": "0.29.0",
+  "version": "0.30.0",
   "author": "Teamleader <development@teamleader.eu>",
   "bugs": {
     "url": "https://github.com/teamleadercrm/ui/issues"
@@ -86,12 +86,12 @@
     "json-loader": "^0.5.4",
     "moment": "^2.22.2",
     "postcss": "^7.0.17",
-    "postcss-cssnext": "^3.1.0",
     "postcss-each": "^0.10.0",
     "postcss-import": "^12.0.1",
     "postcss-loader": "^3.0.0",
     "postcss-mixins": "^6.2.1",
     "postcss-nested": "^4.1.2",
+    "postcss-preset-env": "^6.7.0",
     "postcss-pseudoelements": "^5.0.0",
     "postcss-reporter": "^6.0.1",
     "prettier": "1.18.2",
