@@ -108,7 +108,7 @@
           }
 
           &:focus {
-            border-color: color(var(--color-$(color)-light: #ffffff) a(100%));
+            border-color: color(var(--color-$(color)-light) a(100%));
             box-shadow: 0 0 0 var(--badge-border-width) color(var(--color-$(color)-light) a(100%));
           }
 
