@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- Fixed a postcss config issue ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#684](https://github.com/teamleadercrm/ui/pull/684))
+
 ### Dependency updates
 
 ## [0.30.0] - 2019-09-09
