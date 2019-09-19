@@ -35,7 +35,7 @@ addDecorator(
     styles: stylesheet => {
       stylesheet.infoBody = {
         color: COLOR.TEAL.DARKEST,
-        fontFamily: 'Inter-UI-Regular',
+        fontFamily: 'Inter-Regular',
         fontSize: '14px',
         margin: '48px 0',
         padding: '0',
@@ -43,7 +43,7 @@ addDecorator(
 
       stylesheet.header = {
         h1: {
-          fontFamily: 'Inter-UI-Medium',
+          fontFamily: 'Inter-Medium',
           fontSize: '24px',
           fontWeight: 500,
           lineHeight: '30px',
@@ -51,7 +51,7 @@ addDecorator(
         },
         h2: {
           color: COLOR.NEUTRAL.DARKEST,
-          fontFamily: 'Inter-UI-Medium',
+          fontFamily: 'Inter-Medium',
           fontSize: '18px',
           fontWeight: 500,
           lineHeight: '24px',
@@ -68,7 +68,7 @@ addDecorator(
         h1: {
           borderBottom: `1px solid ${COLOR.NEUTRAL.NORMAL}`,
           color: COLOR.NEUTRAL.DARKEST,
-          fontFamily: 'Inter-UI-Medium',
+          fontFamily: 'Inter-Medium',
           margin: '24px 0 10px 0',
           fontWeight: 500,
           fontSize: '18px',
@@ -79,7 +79,7 @@ addDecorator(
 
       stylesheet.propTableHead = {
         color: COLOR.TEAL.DARKEST,
-        fontFamily: 'Inter-UI-Medium',
+        fontFamily: 'Inter-Medium',
         fontWeight: 500,
         fontSize: '16px',
         lineHeight: '21px',
