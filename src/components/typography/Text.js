@@ -8,9 +8,18 @@ import theme from './theme.css';
 const factory = (baseType, type, defaultElement) => {
   class Text extends PureComponent {
     render() {
-      const { children, className, color, element, tint, ...others } = this.props;
+      const { children, className, color, element, ellipsis, tint, ...others } = this.props;
 
-      const classNames = cx(theme[baseType], theme[type], theme[color], theme[tint], className);
+      const classNames = cx(
+        theme[baseType],
+        theme[type],
+        theme[color],
+        theme[tint],
+        {
+          [theme['overflow-ellipsis']]: ellipsis,
+        },
+        className,
+      );
 
       const Element = element || defaultElement;
 
@@ -27,11 +36,13 @@ const factory = (baseType, type, defaultElement) => {
     className: PropTypes.string,
     color: PropTypes.oneOf(COLORS),
     element: PropTypes.node,
+    ellipsis: PropTypes.bool,
     tint: PropTypes.oneOf(TINTS),
   };
 
   Text.defaultProps = {
     element: null,
+    ellipsis: false,
     tint: 'darkest',
   };
 

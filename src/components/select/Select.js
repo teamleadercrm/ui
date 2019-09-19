@@ -138,7 +138,7 @@ class Select extends PureComponent {
     return {
       ...base,
       backgroundColor: inverse ? COLOR.TEAL.NORMAL : COLOR.NEUTRAL.LIGHTEST,
-      fontFamily: 'Inter-UI-Regular',
+      fontFamily: 'Inter-Regular',
       fontSize: '14px',
       fontSmoothing: 'antialiased',
       MozOsxFontSmoothing: 'grayscale',
@@ -168,7 +168,7 @@ class Select extends PureComponent {
       backgroundColor: inverse ? COLOR.TEAL.DARK : COLOR.NEUTRAL.LIGHT,
       borderRadius: 0,
       color: inverse ? COLOR.NEUTRAL.LIGHTEST : COLOR.TEAL.DARKEST,
-      fontFamily: 'Inter-UI-Medium',
+      fontFamily: 'Inter-Medium',
       fontSize: size === 'small' ? '12px' : '14px',
       lineHeight: size === 'small' ? '1' : '18px',
       padding: size === 'large' ? '9px' : '6px',
