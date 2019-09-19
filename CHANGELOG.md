@@ -2,17 +2,25 @@
 
 ### Added
 
-- `Text`: added `ellipsis` prop which forces the text on one line and overflows with an ellipsis. ([@driesd](https://github.com/driesd) in [#687](https://github.com/teamleadercrm/ui/pull/687))
-
 ### Changed
-
-- `Select`: changed `Inter-UI` fonts to `Inter` since we updated `@teamleader/ui-typography`. ([@driesd](https://github.com/driesd) in [#686](https://github.com/teamleadercrm/ui/pull/686))
 
 ### Deprecated
 
 ### Removed
 
 ### Fixed
+
+### Dependency updates
+
+## [0.30.2] - 2019-09-19
+
+### Added
+
+- `Text`: added `ellipsis` prop which forces the text on one line and overflows with an ellipsis. ([@driesd](https://github.com/driesd) in [#687](https://github.com/teamleadercrm/ui/pull/687))
+
+### Changed
+
+- `Select`: changed `Inter-UI` fonts to `Inter` since we updated `@teamleader/ui-typography`. ([@driesd](https://github.com/driesd) in [#686](https://github.com/teamleadercrm/ui/pull/686))
 
 ### Dependency updates
 
