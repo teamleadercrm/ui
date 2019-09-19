@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `Select`: changed `Inter-UI` fonts to `Inter` since we updated `@teamleader/ui-typography`. ([@driesd](https://github.com/driesd) in [#686](https://github.com/teamleadercrm/ui/pull/686))
+
 ### Deprecated
 
 ### Removed
@@ -11,6 +13,8 @@
 ### Fixed
 
 ### Dependency updates
+
+- `@teamleader/ui-typography` from `^0.1.2` to `^0.2.1` ([@driesd](https://github.com/driesd) in [#686](https://github.com/teamleadercrm/ui/pull/686))
 
 ## [0.30.1] - 2019-09-10
 
