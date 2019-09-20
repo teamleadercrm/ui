@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `Select:` fixed line-height issue. ([@driesd](https://github.com/driesd) in [#689](https://github.com/teamleadercrm/ui/pull/689))
+
 ### Dependency updates
 
 ## [0.30.2] - 2019-09-19
