@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `StatusLabel`: decreased horizontal padding from 12px to 6px. ([@driesd](https://github.com/driesd) in [#690](https://github.com/teamleadercrm/ui/pull/690))
+
 ### Deprecated
 
 ### Removed
