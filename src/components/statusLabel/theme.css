@@ -29,14 +29,14 @@
   font-size: calc(1.4 * var(--unit));
   line-height: calc(1.8 * var(--unit));
   border-radius: 14px;
-  padding: 3px 12px;
+  padding: 3px 6px;
 }
 
 .small {
   font-size: calc(1.2 * var(--unit));
   line-height: calc(1.4 * var(--unit));
   border-radius: 11px;
-  padding: 2px 12px;
+  padding: 2px 6px;
 }
 
 h1,
