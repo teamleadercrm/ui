@@ -4,6 +4,7 @@ import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
+import Monospaced from '../typography/Monospaced';
 
 class Counter extends PureComponent {
   render() {
@@ -23,7 +24,7 @@ class Counter extends PureComponent {
 
     return (
       <Box className={classNames} element="span" {...others} data-teamleader-ui="counter">
-        {count > maxCount ? `${maxCount}+` : count} {children}
+        <Monospaced>{count > maxCount ? `${maxCount}+` : count}</Monospaced> {children}
       </Box>
     );
   }
