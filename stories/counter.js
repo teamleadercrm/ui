@@ -17,6 +17,16 @@ storiesOf('Counters', module)
       maxCount={number('Maximum count', 100)}
     />
   ))
+  .add('With extra text', () => (
+    <Counter
+      count={number('Count', 99)}
+      color={select('Color', colors, 'neutral')}
+      size={select('Size', sizes, 'medium')}
+      maxCount={number('Maximum count', 100)}
+    >
+      Tasks
+    </Counter>
+  ))
   .add('With tooltip', () => (
     <TooltippedCounter
       count={number('Count', 99)}
