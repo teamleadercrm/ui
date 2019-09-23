@@ -2,8 +2,11 @@
 
 ### Added
 
+- `Counter`: added a `min-width` & `text-align: center` for both sizes. ([@driesd](https://github.com/driesd) in [#691](https://github.com/teamleadercrm/ui/pull/691))
+
 ### Changed
 
+- `Counter`: changed the counter number to be monospaced. ([@driesd](https://github.com/driesd) in [#691](https://github.com/teamleadercrm/ui/pull/691))
 - `StatusLabel`: decreased horizontal padding from 12px to 6px. ([@driesd](https://github.com/driesd) in [#690](https://github.com/teamleadercrm/ui/pull/690))
 
 ### Deprecated
