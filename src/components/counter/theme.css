@@ -13,14 +13,17 @@
   font-family: var(--font-family-bold);
   font-size: calc(1.2 * var(--unit));
   line-height: 1;
+  text-align: center;
   vertical-align: middle;
 }
 
 .medium {
+  min-width: calc(2.4 * var(--unit));
   padding: var(--spacer-smaller);
 }
 
 .small {
+  min-width: calc(1.8 * var(--unit));
   padding: var(--spacer-smallest) var(--spacer-smaller);
 }
 
