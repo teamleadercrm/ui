@@ -6,7 +6,9 @@ import AvatarOverlay from './AvatarOverlay';
 import Box, { pickBoxProps } from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
-import { COLORS } from '../../constants';
+import { colorsWithout } from '../../constants';
+
+const colors = colorsWithout(['neutral']);
 
 const hashCode = str => {
   let hash = 0;
@@ -21,7 +23,7 @@ const hashCode = str => {
   return hash;
 };
 
-const getColor = id => (id ? COLORS[Math.abs(hashCode(id)) % COLORS.length] : COLORS[2]);
+const getColor = id => (id ? colors[Math.abs(hashCode(id)) % colors.length] : 'neutral');
 
 class Avatar extends PureComponent {
   render() {
