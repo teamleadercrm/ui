@@ -21,7 +21,7 @@ const hashCode = str => {
   return hash;
 };
 
-const getColor = id => (id ? COLORS[Math.abs(hashCode(id)) % COLORS.length] : COLORS[0]);
+const getColor = id => (id ? COLORS[Math.abs(hashCode(id)) % COLORS.length] : COLORS[2]);
 
 class Avatar extends PureComponent {
   render() {
