@@ -35,7 +35,7 @@ class Link extends PureComponent {
       theme['link'],
       {
         [theme['is-disabled']]: disabled,
-        [theme['inherit']]: inherit,
+        [theme['is-inherit']]: inherit,
         [theme['is-inverse']]: inverse,
         [theme['has-icon']]: icon,
       },

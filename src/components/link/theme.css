@@ -27,12 +27,12 @@
     outline: 0;
   }
 
-  &:not(.inherit) {
+  &:not(.is-inherit) {
     color: var(--color-aqua-dark);
     font-family: var(--font-family-regular);
   }
 
-  &.inherit {
+  &.is-inherit {
     color: inherit;
 
     &:hover,
@@ -41,7 +41,7 @@
     }
   }
 
-  &:not(.inherit),
+  &:not(.is-inherit),
   &.has-icon {
     &:not(.is-inverse) {
       text-decoration: none;
@@ -61,7 +61,7 @@
     }
   }
 
-  &.inherit:not(.has-icon) {
+  &.is-inherit:not(.has-icon) {
     &:not(.is-inverse) {
       text-decoration: underline;
 
