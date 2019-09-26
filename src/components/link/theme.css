@@ -43,20 +43,41 @@
 
   &:not(.inherit),
   &.has-icon {
-    text-decoration: none;
+    &:not(.is-inverse) {
+      text-decoration: none;
 
-    &:hover,
-    &:active {
+      &:hover,
+      &:active {
+        text-decoration: underline;
+      }
+    }
+    &.is-inverse {
       text-decoration: underline;
+
+      &:hover,
+      &:active {
+        text-decoration: none;
+      }
     }
   }
 
   &.inherit:not(.has-icon) {
-    text-decoration: underline;
+    &:not(.is-inverse) {
+      text-decoration: underline;
 
-    &:hover,
-    &:active {
+      &:hover,
+      &:active {
+        text-decoration: none;
+      }
+    }
+
+    &.is-inverse {
       text-decoration: none;
+
+      &:hover,
+      &:active {
+        text-decoration: underline;
+      }
     }
   }
 }
