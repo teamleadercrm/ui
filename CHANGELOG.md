@@ -3,6 +3,7 @@
 ### Added
 
 - `Counter`: added a `min-width` & `text-align: center` for both sizes. ([@driesd](https://github.com/driesd) in [#691](https://github.com/teamleadercrm/ui/pull/691))
+- `Link`: added `inverse` prop which inverts the underline behavior on hover. ([@driesd](https://github.com/driesd) in [#694](https://github.com/teamleadercrm/ui/pull/694))
 
 ### Changed
 
