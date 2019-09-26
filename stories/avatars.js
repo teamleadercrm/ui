@@ -20,7 +20,7 @@ storiesOf('Avatars', module)
     <Avatar
       editable={boolean('Editable', false)}
       fullName={text('Full name', 'John Doe')}
-      id="63227a3c-c80b-11e9-a32f-2a2ae2dbcce4"
+      id={text('Id', '63227a3c-c80b-11e9-a32f-2a2ae2dbcce4')}
       imageUrl={boolean('Image available', false) ? avatars[0].image : null}
       onImageChange={() => console.log('Change image')}
       size={select('Size', sizes, 'large')}

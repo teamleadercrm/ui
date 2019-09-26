@@ -5,16 +5,6 @@ import cx from 'classnames';
 import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
 
-const SIZES = {
-  medium: {
-    paddingHorizontal: 2,
-    paddingVertical: 1,
-  },
-  small: {
-    paddingHorizontal: 2,
-  },
-};
-
 class StatusLabel extends PureComponent {
   render() {
     const { children, className, color, size, ...others } = this.props;
@@ -22,7 +12,7 @@ class StatusLabel extends PureComponent {
     const classNames = cx(uiUtilities['reset-font-smoothing'], theme['label'], theme[color], theme[size], className);
 
     return (
-      <Box className={classNames} element="span" {...SIZES[size]} {...others} data-teamleader-ui="status-label">
+      <Box className={classNames} element="span" {...others} data-teamleader-ui="status-label">
         {children}
       </Box>
     );
@@ -37,7 +27,7 @@ StatusLabel.propTypes = {
   /** The name of the color them you want to give to the status label */
   color: PropTypes.oneOf(['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua']),
   /** Size of the button */
-  size: PropTypes.oneOf(Object.keys(SIZES)),
+  size: PropTypes.oneOf(['small', 'medium']),
 };
 
 StatusLabel.defaultProps = {

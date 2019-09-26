@@ -10,7 +10,7 @@ const iconPositions = ['left', 'right'];
 storiesOf('Links', module)
   .addParameters({
     info: {
-      propTablesExclude: [TextDisplay, TextSmall],
+      propTablesExclude: [TextBody, TextDisplay, TextSmall],
     },
   })
   .add('Link only', () => (
@@ -19,6 +19,7 @@ storiesOf('Links', module)
       href="https://www.teamleader.be"
       target="_blank"
       inherit={boolean('Inherit', false)}
+      inverse={boolean('Inverse', false)}
     >
       link
     </Link>
@@ -31,6 +32,7 @@ storiesOf('Links', module)
         target="_blank"
         disabled={boolean('Disabled', false)}
         inherit={boolean('Inherit', false)}
+        inverse={boolean('Inverse', false)}
       >
         link
       </Link>{' '}
@@ -46,6 +48,7 @@ storiesOf('Links', module)
         iconPlacement={select('Icon placement', iconPositions, 'left')}
         target="_blank"
         inherit={boolean('Inherit', false)}
+        inverse={boolean('Inverse', false)}
       >
         link
       </Link>
@@ -59,6 +62,7 @@ storiesOf('Links', module)
         icon={<IconAddSmallOutline />}
         iconPlacement={select('Icon placement', iconPositions, 'left')}
         inherit={boolean('Inherit', false)}
+        inverse={boolean('Inverse', false)}
       >
         link
       </Link>
@@ -72,6 +76,7 @@ storiesOf('Links', module)
         icon={<IconAddSmallOutline />}
         iconPlacement={select('Icon placement', iconPositions, 'left')}
         inherit={boolean('Inherit', true)}
+        inverse={boolean('Inverse', false)}
       >
         Discount
       </Link>

@@ -1,7 +1,7 @@
 {
   "name": "@teamleader/ui",
   "description": "Teamleader UI library",
-  "version": "0.30.2",
+  "version": "0.30.3",
   "author": "Teamleader <development@teamleader.eu>",
   "bugs": {
     "url": "https://github.com/teamleadercrm/ui/issues"
@@ -28,7 +28,7 @@
     "@teamleader/ui-animations": "^0.0.3",
     "@teamleader/ui-colors": "^0.0.7",
     "@teamleader/ui-icons": "^0.2.17",
-    "@teamleader/ui-illustrations": "^0.0.21",
+    "@teamleader/ui-illustrations": "^0.0.22",
     "@teamleader/ui-typography": "^0.2.1",
     "@teamleader/ui-utilities": "^0.1.1",
     "classnames": "^2.2.5",
