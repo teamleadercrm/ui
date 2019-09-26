@@ -2,6 +2,20 @@
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Dependency updates
+
+## [0.30.3] - 2019-09-26
+
+### Added
+
 - `Counter`: added a `min-width` & `text-align: center` for both sizes. ([@driesd](https://github.com/driesd) in [#691](https://github.com/teamleadercrm/ui/pull/691))
 - `Link`: added `inverse` prop which inverts the underline behavior on hover. ([@driesd](https://github.com/driesd) in [#694](https://github.com/teamleadercrm/ui/pull/694))
 
@@ -10,15 +24,13 @@
 - `Counter`: changed the counter number to be monospaced. ([@driesd](https://github.com/driesd) in [#691](https://github.com/teamleadercrm/ui/pull/691))
 - `StatusLabel`: decreased horizontal padding from 12px to 6px. ([@driesd](https://github.com/driesd) in [#690](https://github.com/teamleadercrm/ui/pull/690))
 
-### Deprecated
-
-### Removed
-
 ### Fixed
 
 - `Select:` fixed line-height issue. ([@driesd](https://github.com/driesd) in [#689](https://github.com/teamleadercrm/ui/pull/689))
 
 ### Dependency updates
+
+- `@teamleader/ui-illustrations` from `^0.0.21` to `^0.0.22`
 
 ## [0.30.2] - 2019-09-19
 
