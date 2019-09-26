@@ -28,7 +28,7 @@ class Link extends PureComponent {
   };
 
   render() {
-    const { children, className, disabled, icon, iconPlacement, element, inherit, ...others } = this.props;
+    const { children, className, disabled, icon, iconPlacement, element, inherit, inverse, ...others } = this.props;
 
     const classNames = cx(
       uiUtilities['reset-font-smoothing'],
@@ -36,6 +36,7 @@ class Link extends PureComponent {
       {
         [theme['is-disabled']]: disabled,
         [theme['inherit']]: inherit,
+        [theme['is-inverse']]: inverse,
         [theme['has-icon']]: icon,
       },
       className,
@@ -74,6 +75,8 @@ Link.propTypes = {
   iconPlacement: PropTypes.oneOf(['left', 'right']),
   /** If true, the link style inherits the parent element style. */
   inherit: PropTypes.bool,
+  /** If true, the underline behavior will be inverted. */
+  inverse: PropTypes.bool,
   /** A custom element to be rendered */
   element: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
   /** Callback function that is fired when mouse leaves the component. */
@@ -87,6 +90,7 @@ Link.defaultProps = {
   disabled: false,
   element: 'a',
   inherit: true,
+  inverse: false,
 };
 
 export default Link;
