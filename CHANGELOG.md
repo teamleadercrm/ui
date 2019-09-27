@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `Counter`: decreased horizontal padding from `6px` to `3px` for the `small` size variant. ([@driesd](https://github.com/driesd) in [#696](https://github.com/teamleadercrm/ui/pull/696))
+
 ### Deprecated
 
 ### Removed
