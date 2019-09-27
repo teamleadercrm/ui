@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `Button & IconButton`: use `Box` as the base component. ([@driesd](https://github.com/driesd) in [#697](https://github.com/teamleadercrm/ui/pull/697))
+
 ### Deprecated
 
 ### Removed
