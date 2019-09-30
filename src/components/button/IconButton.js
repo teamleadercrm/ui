@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
@@ -49,13 +50,19 @@ class IconButton extends Component {
       },
       className: classNames,
       disabled: element === 'button' ? disabled : null,
+      element: element,
       onMouseUp: this.handleMouseUp,
       onMouseLeave: this.handleMouseLeave,
       type: element === 'button' ? type : null,
       'data-teamleader-ui': 'button',
     };
 
-    return React.createElement(element, props, icon, children);
+    return (
+      <Box {...props}>
+        {icon}
+        {children}
+      </Box>
+    );
   }
 }
 
