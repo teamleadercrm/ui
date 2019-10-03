@@ -14,7 +14,6 @@
 
 .content {
   flex: 1;
-  padding-right: var(--spacer-big);
 }
 
 .close-button {
