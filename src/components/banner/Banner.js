@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import cx from 'classnames';
 
+import Box from '../box';
 import Island from '../island';
 import Section from '../section';
 import { IconButton } from '../button';
@@ -18,13 +18,13 @@ class Banner extends PureComponent {
     const { children, className, icon, onClose, fullWidth, ...others } = this.props;
     const Element = fullWidth ? Section : Island;
 
-    const contentClassNames = cx(theme['content'], { [theme['content--closable']]: onClose });
-
     return (
       <Element data-teamleader-ui="banner" className={className} {...others}>
         <div className={theme['inner']}>
           {icon && <span className={theme['icon']}>{icon}</span>}
-          <span className={contentClassNames}>{children}</span>
+          <Box flex={1} element="span" paddingRight={onClose && 7}>
+            {children}
+          </Box>
           {onClose && (
             <IconButton
               className={theme['close-button']}
