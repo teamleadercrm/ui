@@ -29,7 +29,7 @@
 
   .shape {
     box-sizing: border-box;
-    background: var(--color-neutral-light);
+    background: var(--color-neutral-lightest);
     border: var(--checkbox-border-width) solid var(--color-neutral-dark);
     border-radius: 100%;
     color: var(--color-white);
