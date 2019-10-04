@@ -80,10 +80,10 @@ storiesOf('Widget', module)
           <IconButton icon={<IconEditMediumOutline />} />
           <IconButton icon={<IconAddMediumOutline />} />
           <IconMenu active position="top-right">
-            <MenuItem caption="Menu item 1" />
-            <MenuItem caption="Menu item 2" />
+            <MenuItem label="Menu item 1" />
+            <MenuItem label="Menu item 2" />
             <MenuDivider />
-            <MenuItem caption="Disabled menu item..." disabled />
+            <MenuItem label="Disabled menu item..." disabled />
           </IconMenu>
         </Box>
       </Widget.Header>
