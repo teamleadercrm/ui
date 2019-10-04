@@ -26,6 +26,10 @@
     margin: 0;
   }
 
+  .label {
+    margin-left: var(--spacer-small);
+  }
+
   .shape {
     box-sizing: border-box;
     background-color: var(--color-neutral-lightest);
@@ -103,10 +107,6 @@
   }
 
   &.is-small {
-    .label {
-      margin-left: var(--spacer-smaller);
-    }
-
     .shape {
       width: var(--checkbox-shape-size-small);
       height: var(--checkbox-shape-size-small);
@@ -115,7 +115,6 @@
 
   &.is-medium {
     .label {
-      margin-left: var(--spacer-small);
       padding-top: 2px;
     }
 
@@ -127,7 +126,6 @@
 
   &.is-large {
     .label {
-      margin-left: var(--spacer-small);
       padding-top: 4px;
     }
 
