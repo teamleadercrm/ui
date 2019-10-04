@@ -9,10 +9,10 @@ import { IconChevronDownSmallOutline } from '@teamleader/ui-icons';
 import pick from 'lodash.pick';
 
 class SplitButton extends PureComponent {
-  firstChild = pick(this.props.children[0].props, ['caption']);
+  firstChild = pick(this.props.children[0].props, ['label']);
 
   state = {
-    buttonLabel: this.firstChild.caption,
+    buttonLabel: this.firstChild.label,
     popoverActive: false,
     popoverAnchorEl: null,
   };
@@ -30,7 +30,7 @@ class SplitButton extends PureComponent {
     this.setState({
       popoverActive: false,
     });
-    childProps.onClick(childProps.caption);
+    childProps.onClick(childProps.label);
   };
 
   handleCloseClick = () => {
@@ -62,7 +62,7 @@ class SplitButton extends PureComponent {
         >
           <Menu>
             {React.Children.map(children, child => {
-              if (child.props.caption !== buttonLabel) {
+              if (child.props.label !== buttonLabel) {
                 return React.cloneElement(child, {
                   onClick: () => this.handleMenuItemClick(child),
                 });

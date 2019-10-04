@@ -11,23 +11,23 @@ const positions = ['top-left', 'top-right', 'bottom-left', 'bottom-right'];
 storiesOf('Menus', module)
   .add('Menu', () => (
     <Menu selectable={boolean('Selectable', false)} selected="bar">
-      <MenuItem value="foo" caption="Foo caption" />
-      <MenuItem value="bar" caption="Bar caption" />
-      <MenuItem caption="Disabled ..." disabled />
+      <MenuItem value="foo" label="Foo label" caption="This is foo's caption" />
+      <MenuItem value="bar" label="Bar label" caption="Caption of bar" />
+      <MenuItem label="Disabled ..." disabled />
       <MenuDivider />
-      <MenuItem caption="Caption & avatar" icon={avatar} />
+      <MenuItem label="Label & avatar" icon={avatar} />
       <MenuDivider />
       <MenuTitle>Group title</MenuTitle>
-      <MenuItem caption="Caption & icon" icon={<IconClockSmallOutline />} />
-      <MenuItem caption="Destructive" icon={<IconTrashSmallOutline />} destructive />
-      <MenuItem caption="Destructive & disabled" icon={<IconTrashSmallOutline />} destructive disabled />
+      <MenuItem label="Label & icon" icon={<IconClockSmallOutline />} />
+      <MenuItem label="Destructive" icon={<IconTrashSmallOutline />} destructive />
+      <MenuItem label="Destructive & disabled" icon={<IconTrashSmallOutline />} destructive disabled />
     </Menu>
   ))
   .add('IconMenu', () => (
     <IconMenu active position={select('Position', positions, 'top-left')}>
-      <MenuItem caption="Menu item 1" />
-      <MenuItem caption="Menu item 2" />
+      <MenuItem label="Menu item 1" />
+      <MenuItem label="Menu item 2" />
       <MenuDivider />
-      <MenuItem caption="Disabled menu item..." disabled />
+      <MenuItem label="Disabled menu item..." disabled />
     </IconMenu>
   ));
