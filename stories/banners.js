@@ -38,4 +38,15 @@ storiesOf('Banner', module)
         I am a banner with an <Link href="http://teamleader.eu">optional link</Link> inside.
       </TextDisplay>
     </Banner>
+  ))
+  .add('Closable Banner', () => (
+    <Banner
+      color={select('Color', colors, 'white')}
+      fullWidth={boolean('Full width', false)}
+      icon={<IconIdeaMediumOutline />}
+      size={select('Size', [SMALL, MEDIUM, LARGE], MEDIUM)}
+      onClose={() => {}}
+    >
+      <TextDisplay>{text('Banner text', 'I am a banner that can be closed.')}</TextDisplay>
+    </Banner>
   ));

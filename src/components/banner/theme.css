@@ -12,11 +12,6 @@
   position: relative;
 }
 
-.content {
-  flex: 1;
-  padding-right: var(--spacer-big);
-}
-
 .close-button {
   position: absolute;
   top: -3px;

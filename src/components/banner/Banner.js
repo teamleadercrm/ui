@@ -1,5 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+
+import Box from '../box';
 import Island from '../island';
 import Section from '../section';
 import { IconButton } from '../button';
@@ -20,7 +22,9 @@ class Banner extends PureComponent {
       <Element data-teamleader-ui="banner" className={className} {...others}>
         <div className={theme['inner']}>
           {icon && <span className={theme['icon']}>{icon}</span>}
-          <span className={theme['content']}>{children}</span>
+          <Box flex={1} element="span" paddingRight={onClose && 7}>
+            {children}
+          </Box>
           {onClose && (
             <IconButton
               className={theme['close-button']}
