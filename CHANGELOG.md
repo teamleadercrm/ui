@@ -8,6 +8,7 @@
 - `Checkbox`: increased spacing between checkbox and label for small sized variant. ([@driesd](https://github.com/driesd) in [#702](https://github.com/teamleadercrm/ui/pull/702))
 - `Counter`: decreased horizontal padding from `6px` to `3px` for the `small` size variant. ([@driesd](https://github.com/driesd) in [#696](https://github.com/teamleadercrm/ui/pull/696))
 - `Link`: set `left` as the default value for the `iconPlacement` prop. ([@driesd](https://github.com/driesd) in [#698](https://github.com/teamleadercrm/ui/pull/698))
+- `Radio`: changed the default background color from neutral light to neutral lightest (white). ([@driesd](https://github.com/driesd) in [#700](https://github.com/teamleadercrm/ui/pull/700))
 - `Radio`: increased spacing between radio and label for small sized variant. ([@driesd](https://github.com/driesd) in [#701](https://github.com/teamleadercrm/ui/pull/701))
 - `Banner`: remove padding on the right side of the banner content. ([@rathesDot](https://github.com/rathesDot)) in [#699](https://github.com/teamleadercrm/ui/pull/699)
 
