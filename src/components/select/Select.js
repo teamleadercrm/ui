@@ -263,7 +263,7 @@ class Select extends PureComponent {
     return {
       ...base,
       minHeight: size === 'small' ? '28px' : size === 'medium' ? '34px' : '46px',
-      lineHeight: 1, // Core override
+      lineHeight: '18px',
       padding: isMulti && size !== 'large' ? '0' : '0 4px',
     };
   };
