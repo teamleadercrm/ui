@@ -16,7 +16,7 @@ class MenuItem extends PureComponent {
   };
 
   render() {
-    const { icon, caption, className, destructive, selected, disabled, ...others } = this.props;
+    const { icon, caption, className, destructive, label, selected, disabled, ...others } = this.props;
 
     const classNames = cx(
       theme['menu-item'],
@@ -40,31 +40,43 @@ class MenuItem extends PureComponent {
         element="li"
         onClick={this.handleClick}
         paddingHorizontal={3}
+        paddingVertical={2}
       >
         {icon && (
           <Icon color={color} tint={tint} marginRight={3}>
             {icon}
           </Icon>
         )}
-        <TextBody color={color} tint={tint} element="span">
-          {caption}
-        </TextBody>
+        <Box flex={1}>
+          {label && (
+            <TextBody color={color} tint={tint}>
+              {label}
+            </TextBody>
+          )}
+          {caption && (
+            <TextBody color="neutral" tint="darkest">
+              {caption}
+            </TextBody>
+          )}
+        </Box>
       </Box>
     );
   }
 }
 
 MenuItem.propTypes = {
-  /** The text to display inside the component. */
+  /** A caption displayed underneath the label. */
   caption: PropTypes.string,
   /** A class name for the wrapper to give custom styles. */
   className: PropTypes.string,
-  /** If true, the color of caption and icon will be ruby */
+  /** If true, the color of label and icon will be ruby */
   destructive: PropTypes.bool,
   /** If true, component will be disabled. */
   disabled: PropTypes.bool,
-  /** The icon to display on the left side of the caption. */
+  /** The icon to display on the left side of the label. */
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  /** The text used as the label for the component. */
+  label: PropTypes.string,
   /** Callback function that is fired when clicking the component. */
   onClick: PropTypes.func,
   /** If true, component will look active. */

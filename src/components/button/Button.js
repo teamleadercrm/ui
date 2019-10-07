@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import Box from '../box';
 import LoadingSpinner from '../loadingSpinner';
 import cx from 'classnames';
 import theme from './theme.css';
@@ -100,31 +101,32 @@ class Button extends PureComponent {
       },
       className: classNames,
       disabled: element === 'button' ? disabled : null,
+      element: element,
       onMouseUp: this.handleMouseUp,
       onMouseLeave: this.handleMouseLeave,
       type: element === 'button' ? type : null,
       'data-teamleader-ui': 'button',
     };
 
-    return React.createElement(
-      element,
-      props,
-      icon && iconPlacement === 'left' && icon,
-      (label || children) && (
-        <span>
-          {label}
-          {children}
-        </span>
-      ),
-      icon && iconPlacement === 'right' && icon,
-      processing && (
-        <LoadingSpinner
-          className={theme['spinner']}
-          color={this.getSpinnerColor()}
-          size={size === 'small' ? 'small' : 'medium'}
-          tint={this.getSpinnerTint()}
-        />
-      ),
+    return (
+      <Box {...props}>
+        {icon && iconPlacement === 'left' && icon}
+        {(label || children) && (
+          <span>
+            {label}
+            {children}
+          </span>
+        )}
+        {icon && iconPlacement === 'right' && icon}
+        {processing && (
+          <LoadingSpinner
+            className={theme['spinner']}
+            color={this.getSpinnerColor()}
+            size={size === 'small' ? 'small' : 'medium'}
+            tint={this.getSpinnerTint()}
+          />
+        )}
+      </Box>
     );
   }
 }

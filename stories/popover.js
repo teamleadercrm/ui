@@ -248,14 +248,14 @@ storiesOf('Popover', module)
         >
           <Box overflowY="auto">
             <Menu outline={false} selected="bar">
-              <MenuItem value="foo" caption="Foo caption" />
-              <MenuItem value="bar" caption="Bar caption" />
-              <MenuItem caption="Disabled ..." disabled />
+              <MenuItem value="foo" label="Foo label" />
+              <MenuItem value="bar" label="Bar label" />
+              <MenuItem label="Disabled ..." disabled />
               <MenuDivider />
               <MenuTitle>Group title</MenuTitle>
-              <MenuItem caption="Caption & icon" icon={<IconClockSmallOutline />} />
-              <MenuItem caption="Destructive" icon={<IconTrashSmallOutline />} destructive />
-              <MenuItem caption="Destructive & disabled" icon={<IconCloseSmallOutline />} destructive disabled />
+              <MenuItem label="Label & icon" icon={<IconClockSmallOutline />} />
+              <MenuItem label="Destructive" icon={<IconTrashSmallOutline />} destructive />
+              <MenuItem label="Destructive & disabled" icon={<IconCloseSmallOutline />} destructive disabled />
             </Menu>
           </Box>
         </Popover>
@@ -285,13 +285,13 @@ storiesOf('Popover', module)
             <Menu outline={false}>
               <MenuItem
                 value="foo"
-                caption="Primary action"
+                label="Primary action"
                 icon={<IconClockSmallOutline />}
                 onClick={handleSplitButtonNormalMenuItemClick}
               />
               <MenuItem
                 value="bar"
-                caption="Destructive action"
+                label="Destructive action"
                 icon={<IconTrashSmallOutline />}
                 destructive
                 onClick={handleSplitButtonDestructiveMenuItemClick}

@@ -89,6 +89,7 @@ Link.defaultProps = {
   className: '',
   disabled: false,
   element: 'a',
+  iconPlacement: 'left',
   inherit: true,
   inverse: false,
 };

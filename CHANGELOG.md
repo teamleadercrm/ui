@@ -12,6 +12,20 @@
 
 ### Dependency updates
 
+## [0.31.0] - 2019-10-07
+
+### Changed
+
+- `Button & IconButton`: use `Box` as the base component. ([@driesd](https://github.com/driesd) in [#697](https://github.com/teamleadercrm/ui/pull/697))
+- `Checkbox`: increased spacing between checkbox and label for small sized variant. ([@driesd](https://github.com/driesd) in [#702](https://github.com/teamleadercrm/ui/pull/702))
+- `Counter`: decreased horizontal padding from `6px` to `3px` for the `small` size variant. ([@driesd](https://github.com/driesd) in [#696](https://github.com/teamleadercrm/ui/pull/696))
+- `Link`: set `left` as the default value for the `iconPlacement` prop. ([@driesd](https://github.com/driesd) in [#698](https://github.com/teamleadercrm/ui/pull/698))
+- [BREAKING] `MenuItem`: The old `caption` prop has been recycled to be used as an actual caption, which is now displayed underneath the `label`. ([@driesd](https://github.com/driesd) in [#703](https://github.com/teamleadercrm/ui/pull/703))
+- `Select:` fixed line-height issue. ([@driesd](https://github.com/driesd) in [#704](https://github.com/teamleadercrm/ui/pull/704))
+- `Radio`: changed the default background color from neutral light to neutral lightest (white). ([@driesd](https://github.com/driesd) in [#700](https://github.com/teamleadercrm/ui/pull/700))
+- `Radio`: increased spacing between radio and label for small sized variant. ([@driesd](https://github.com/driesd) in [#701](https://github.com/teamleadercrm/ui/pull/701))
+- `Banner`: remove padding on the right side of the banner content. ([@rathesDot](https://github.com/rathesDot)) in [#699](https://github.com/teamleadercrm/ui/pull/699)
+
 ## [0.30.3] - 2019-09-26
 
 ### Added

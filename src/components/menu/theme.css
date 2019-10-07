@@ -127,7 +127,7 @@
 }
 
 .menu-item {
-  height: var(--menu-item-height);
+  min-height: var(--menu-item-height);
   overflow: hidden;
   position: relative;
   -webkit-user-select: none;
