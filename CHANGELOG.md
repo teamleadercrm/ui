@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `Avatar`: changed the way our `hashCode` function calculates the `background-color` passed to the `AvatarInitials` component. ([@driesd](https://github.com/driesd) in [#706](https://github.com/teamleadercrm/ui/pull/706))
+
 ### Deprecated
 
 ### Removed
