@@ -10,18 +10,7 @@ import { colorsWithout } from '../../constants';
 
 const colors = colorsWithout(['neutral']);
 
-const hashCode = str => {
-  let hash = 0;
-  if (!str || str.length === 0) {
-    return hash;
-  }
-  for (let i = 0; i < str.length; i++) {
-    const char = str.charCodeAt(i);
-    hash = (hash << 5) - hash + char;
-    hash &= hash; // Convert to 32bit integer
-  }
-  return hash;
-};
+const hashCode = hexString => parseInt(hexString.substr(-5), 16);
 
 const getColor = id => (id ? colors[Math.abs(hashCode(id)) % colors.length] : 'neutral');
 
