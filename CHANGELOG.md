@@ -12,6 +12,8 @@
 
 ### Fixed
 
+- `Avatar`: Don't pass boxProps to Avatar child components. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#708](https://github.com/teamleadercrm/ui/pull/708))
+
 ### Dependency updates
 
 ## [0.31.0] - 2019-10-07
