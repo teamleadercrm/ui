@@ -3,25 +3,14 @@ import PropTypes from 'prop-types';
 import AvatarImage from './AvatarImage';
 import AvatarInitials from './AvatarInitials';
 import AvatarOverlay from './AvatarOverlay';
-import Box, { pickBoxProps } from '../box';
+import Box, { pickBoxProps, omitBoxProps } from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
 import { colorsWithout } from '../../constants';
 
 const colors = colorsWithout(['neutral']);
 
-const hashCode = str => {
-  let hash = 0;
-  if (!str || str.length === 0) {
-    return hash;
-  }
-  for (let i = 0; i < str.length; i++) {
-    const char = str.charCodeAt(i);
-    hash = (hash << 5) - hash + char;
-    hash &= hash; // Convert to 32bit integer
-  }
-  return hash;
-};
+const hashCode = hexString => parseInt(hexString.substr(-5), 16);
 
 const getColor = id => (id ? colors[Math.abs(hashCode(id)) % colors.length] : 'neutral');
 
@@ -30,13 +19,14 @@ class Avatar extends PureComponent {
     const { className, editable, imageUrl, fullName, id, onImageChange, size, shape, ...others } = this.props;
     const avatarClassNames = cx(theme['avatar'], theme[`is-${size}`], theme[`is-${shape}`], className);
     const boxProps = pickBoxProps(others);
+    const propsWithoutBoxProps = omitBoxProps(others);
 
     return (
       <Box className={avatarClassNames} {...boxProps}>
         {imageUrl ? (
-          <AvatarImage image={imageUrl} imageAlt={fullName} {...others} />
+          <AvatarImage image={imageUrl} imageAlt={fullName} {...propsWithoutBoxProps} />
         ) : (
-          <AvatarInitials color={getColor(id)} name={fullName} {...others} />
+          <AvatarInitials color={getColor(id)} name={fullName} {...propsWithoutBoxProps} />
         )}
         {editable && (size === 'large' || size === 'hero') && <AvatarOverlay onClick={onImageChange} />}
       </Box>
