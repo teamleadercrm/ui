@@ -4,19 +4,29 @@
 
 ### Changed
 
-- `Avatar`: changed the way our `hashCode` function calculates the `background-color` passed to the `AvatarInitials` component. ([@driesd](https://github.com/driesd) in [#706](https://github.com/teamleadercrm/ui/pull/706))
-- `Avatar`: changed the size of our `small variant`, from 36x36px to `30x30px`. ([@driesd](https://github.com/driesd) in [#709](https://github.com/teamleadercrm/ui/pull/709))
-- `Box`: remove `children` from the box props list. ([@driesd](https://github.com/driesd) in [#710](https://github.com/teamleadercrm/ui/pull/710))
-
 ### Deprecated
 
 ### Removed
 
 ### Fixed
 
+### Dependency updates
+
+## [0.31.1] - 2019-10-24
+
+### Changed
+
+- `Avatar`: changed the way our `hashCode` function calculates the `background-color` passed to the `AvatarInitials` component. ([@driesd](https://github.com/driesd) in [#706](https://github.com/teamleadercrm/ui/pull/706))
+- `Avatar`: changed the size of our `small variant`, from 36x36px to `30x30px`. ([@driesd](https://github.com/driesd) in [#709](https://github.com/teamleadercrm/ui/pull/709))
+- `Box`: remove `children` from the box props list. ([@driesd](https://github.com/driesd) in [#710](https://github.com/teamleadercrm/ui/pull/710))
+
+### Fixed
+
 - `Avatar`: Don't pass boxProps to Avatar child components. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#708](https://github.com/teamleadercrm/ui/pull/708))
 
 ### Dependency updates
+
+- `pretty-quick` from `1.11.1` to `2.0.0`
 
 ## [0.31.0] - 2019-10-07
 
