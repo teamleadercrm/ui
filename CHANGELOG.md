@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `NumericInput`: fix spinner height for all size variants. ([@driesd](https://github.com/driesd) in [#713](https://github.com/teamleadercrm/ui/pull/713))
+
 ### Dependency updates
 
 ## [0.31.1] - 2019-10-24
