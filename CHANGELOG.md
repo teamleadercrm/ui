@@ -12,6 +12,16 @@
 
 ### Dependency updates
 
+## [0.31.2] - 2019-10-31
+
+### Added
+
+- `Link`: added an outline effect to indicate focus state. ([@driesd](https://github.com/driesd) in [#712](https://github.com/teamleadercrm/ui/pull/712))
+
+### Fixed
+
+- `NumericInput`: fix spinner height for all size variants. ([@driesd](https://github.com/driesd) in [#713](https://github.com/teamleadercrm/ui/pull/713))
+
 ## [0.31.1] - 2019-10-24
 
 ### Changed
