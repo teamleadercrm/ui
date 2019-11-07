@@ -12,6 +12,16 @@
 
 ### Dependency updates
 
+## [0.31.3] - 2019-11-07
+
+### Fixed
+
+- `DatePickerInput`: instead of the DateTime error, show the placeholder when `selectedDate` is not set. ([@driesd](https://github.com/driesd) in [#716](https://github.com/teamleadercrm/ui/pull/716))
+
+### Dependency updates
+
+- `pretty-quick` from `2.0.0` to `2.0.1`
+
 ## [0.31.2] - 2019-10-31
 
 ### Added
