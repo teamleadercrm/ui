@@ -27,6 +27,21 @@ class DatePickerInput extends PureComponent {
     return null;
   }
 
+  getFormattedDate = () => {
+    const { formatDate: customFormatDate, locale } = this.props;
+    const { selectedDate } = this.state;
+
+    if (!selectedDate) {
+      return null;
+    }
+
+    if (!customFormatDate) {
+      return formatDate(selectedDate, locale);
+    }
+
+    return customFormatDate(selectedDate, locale);
+  };
+
   handleInputFocus = event => {
     const { onFocus, readOnly } = this.props.inputProps;
 
@@ -76,9 +91,6 @@ class DatePickerInput extends PureComponent {
     const { isPopoverActive, popoverAnchorEl, selectedDate } = this.state;
     const boxProps = pickBoxProps(others);
     const datePickerClassNames = cx(theme['date-picker-input'], theme[`is-${size}`]);
-    const formattedDate = this.props.formatDate
-      ? this.props.formatDate(selectedDate, locale)
-      : formatDate(selectedDate, locale);
 
     return (
       <Box className={className} {...boxProps}>
@@ -87,7 +99,7 @@ class DatePickerInput extends PureComponent {
           onFocus={this.handleInputFocus}
           prefix={this.renderIcon()}
           size={size}
-          value={formattedDate}
+          value={this.getFormattedDate()}
           width="120px"
           {...inputProps}
         />
