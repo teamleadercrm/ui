@@ -2,6 +2,8 @@
 
 ### Added
 
+- `MenuItem`: render a `button` or `a`-tag depending on the `element` prop. ([@driesd](https://github.com/driesd) in [#721](https://github.com/teamleadercrm/ui/pull/721))
+
 ### Changed
 
 ### Deprecated
