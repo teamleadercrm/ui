@@ -9,6 +9,7 @@
   --menu-padding: calc(0.6 * var(--unit)) 0;
   --menu-outline-border-radius: var(--border-radius-medium);
   --menu-outline-box-shadow: 0 0 0 1px color(var(--color-teal-darkest) a(24%));
+  --menu-item-background: var(--color-neutral-lightest);
   --menu-item-hover-background: var(--color-neutral-light);
   --menu-item-selected-background: var(--color-aqua-lightest);
   --menu-item-height: calc(3.6 * var(--unit));
@@ -127,9 +128,12 @@
 }
 
 .menu-item {
+  background-color: var(--menu-item-background);
+  border: 0;
   min-height: var(--menu-item-height);
   overflow: hidden;
   position: relative;
+  text-decoration: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -140,13 +144,25 @@
     cursor: pointer;
   }
 
+  &:not(.is-disabled):not(.is-selected):focus {
+    background-color: var(--menu-item-hover-background);
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:focus {
+    z-index: 1;
+  }
+
   &.is-disabled {
     pointer-events: none;
+    outline: 0;
   }
 
   &.is-selected {
     background-color: var(--menu-item-selected-background);
-    font-weight: 500;
   }
 }
 

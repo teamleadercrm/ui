@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import Box from '../box';
+import Box, { omitBoxProps, pickBoxProps } from '../box';
 import Icon from '../icon';
 import { TextBody } from '../typography';
 import cx from 'classnames';
@@ -16,7 +16,7 @@ class MenuItem extends PureComponent {
   };
 
   render() {
-    const { icon, caption, className, destructive, label, selected, disabled, ...others } = this.props;
+    const { icon, caption, className, destructive, element, label, selected, disabled, ...others } = this.props;
 
     const classNames = cx(
       theme['menu-item'],
@@ -30,34 +30,42 @@ class MenuItem extends PureComponent {
     const color = destructive ? 'ruby' : disabled ? 'neutral' : 'teal';
     const tint = disabled && destructive ? 'light' : disabled || destructive ? 'dark' : 'darkest';
 
+    const boxProps = pickBoxProps(others);
+    const restProps = omitBoxProps(others);
+
     return (
-      <Box
-        {...others}
-        alignItems="center"
-        className={classNames}
-        data-teamleader-ui="menu-item"
-        display="flex"
-        element="li"
-        onClick={this.handleClick}
-        paddingHorizontal={3}
-        paddingVertical={2}
-      >
-        {icon && (
-          <Icon color={color} tint={tint} marginRight={3}>
-            {icon}
-          </Icon>
-        )}
-        <Box flex={1}>
-          {label && (
-            <TextBody color={color} tint={tint}>
-              {label}
-            </TextBody>
+      <Box {...boxProps} data-teamleader-ui="menu-item" display="flex" element="li">
+        <Box
+          onClick={this.handleClick}
+          alignItems="center"
+          className={classNames}
+          disabled={disabled}
+          display="flex"
+          element={element}
+          flex="1 0 auto"
+          paddingHorizontal={3}
+          paddingVertical={2}
+          textAlign="left"
+          {...(element === 'a' && disabled && { tabIndex: '-1' })}
+          {...restProps}
+        >
+          {icon && (
+            <Icon color={color} tint={tint} marginRight={3}>
+              {icon}
+            </Icon>
           )}
-          {caption && (
-            <TextBody color="neutral" tint="darkest">
-              {caption}
-            </TextBody>
-          )}
+          <Box flex="1 0 auto">
+            {label && (
+              <TextBody color={color} tint={tint}>
+                {label}
+              </TextBody>
+            )}
+            {caption && (
+              <TextBody color="neutral" tint="darkest">
+                {caption}
+              </TextBody>
+            )}
+          </Box>
         </Box>
       </Box>
     );
@@ -73,6 +81,8 @@ MenuItem.propTypes = {
   destructive: PropTypes.bool,
   /** If true, component will be disabled. */
   disabled: PropTypes.bool,
+  /** The element to render. */
+  element: PropTypes.oneOf(['a', 'button']),
   /** The icon to display on the left side of the label. */
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   /** The text used as the label for the component. */
@@ -87,6 +97,7 @@ MenuItem.defaultProps = {
   className: '',
   destructive: false,
   disabled: false,
+  element: 'button',
   selected: false,
 };
 
