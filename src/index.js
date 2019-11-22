@@ -11,6 +11,7 @@ import {
   Heading4,
   Monospaced,
   TextBody,
+  TextBodyCompact,
   TextDisplay,
   TextSmall,
 } from './components/typography';
@@ -129,6 +130,7 @@ export {
   StatusBullet,
   StatusLabel,
   TextBody,
+  TextBodyCompact,
   TextDisplay,
   TextSmall,
   TabGroup,
