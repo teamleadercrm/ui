@@ -9,6 +9,7 @@ const Heading5 = textFactory('heading', 'heading-5', 'h5');
 
 const TextDisplay = textFactory('text', 'text-display', 'p');
 const TextBody = textFactory('text', 'text-body', 'p');
+const TextBodyCompact = textFactory('text', 'text-body-compact', 'p');
 const TextSmall = textFactory('text', 'text-small', 'p');
 
 Heading1.displayName = 'Heading1';
@@ -18,6 +19,18 @@ Heading4.displayName = 'Heading4';
 Heading5.displayName = 'Heading5';
 TextDisplay.displayName = 'TextDisplay';
 TextBody.displayName = 'TextBody';
+TextBodyCompact.displayName = 'TextBodyCompact';
 TextSmall.displayName = 'TextSmall';
 
-export { Heading1, Heading2, Heading3, Heading4, Heading5, Monospaced, TextBody, TextDisplay, TextSmall };
+export {
+  Heading1,
+  Heading2,
+  Heading3,
+  Heading4,
+  Heading5,
+  Monospaced,
+  TextBody,
+  TextBodyCompact,
+  TextDisplay,
+  TextSmall,
+};
