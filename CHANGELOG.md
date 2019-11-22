@@ -12,6 +12,21 @@
 
 ### Dependency updates
 
+## [0.31.4] - 2019-11-22
+
+### Added
+
+- `MenuItem`: render a `button` or `a`-tag depending on the `element` prop. ([@driesd](https://github.com/driesd) in [#721](https://github.com/teamleadercrm/ui/pull/721))
+- `Typography`: added `Heading5`. ([@driesd](https://github.com/driesd) in [#722](https://github.com/teamleadercrm/ui/pull/722))
+- `Typography`: added `TextBodyCompact`. ([@driesd](https://github.com/driesd) in [#724](https://github.com/teamleadercrm/ui/pull/724))
+
+### Dependency updates
+
+- `@teamleader/ui-illustrations` from `0.0.22` to `0.0.23`
+- `@teamleader/ui-typography` from `0.2.1` to `0.2.3`
+- `@teamleader/ui-utilities` from `0.1.2` to `0.2.0`
+- `prettier` from `1.18.2` to `1.19.1`
+
 ## [0.31.3] - 2019-11-07
 
 ### Fixed

@@ -9,8 +9,10 @@ import {
   Heading2,
   Heading3,
   Heading4,
+  Heading5,
   Monospaced,
   TextBody,
+  TextBodyCompact,
   TextDisplay,
   TextSmall,
 } from '../src';
@@ -54,6 +56,14 @@ storiesOf('Typography', module)
       >
         Heading 4 / font-size: 12px / line-height: 18px / weight: bold (700) / tracking: 0.6px
       </Heading4>
+      <Heading5
+        color={select('Color', COLORS, 'teal')}
+        ellipsis={boolean('Overflow ellipsis', false)}
+        tint={select('Tint', TINTS, 'darkest')}
+        marginTop={4}
+      >
+        Heading 5 / font-size: 14px / line-height: 18px / weight: semi bold (600) / tracking: 0
+      </Heading5>
     </div>
   ))
   .add('Text', () => (
@@ -63,23 +73,31 @@ storiesOf('Typography', module)
         ellipsis={boolean('Overflow ellipsis', false)}
         tint={select('Tint', TINTS, 'darkest')}
       >
-        Text display / font-size: 16px / line-height: 24px / weight: regular (400) / tracking: 0
+        <strong>Text display</strong> / font-size: 16px / line-height: 24px / weight: regular (400) / tracking: 0
       </TextDisplay>
       <TextBody
         color={select('Color', COLORS, 'teal')}
         ellipsis={boolean('Overflow ellipsis', false)}
         tint={select('Tint', TINTS, 'darkest')}
-        marginTop={2}
+        marginTop={4}
       >
-        Text body / font-size: 14px / line-height: 21px / weight: regular (400) / tracking: 0
+        <strong>Text body</strong> / font-size: 14px / line-height: 21px / weight: regular (400) / tracking: 0
       </TextBody>
+      <TextBodyCompact
+        color={select('Color', COLORS, 'teal')}
+        ellipsis={boolean('Overflow ellipsis', false)}
+        tint={select('Tint', TINTS, 'darkest')}
+        marginTop={4}
+      >
+        <strong>Text body compact</strong> / font-size: 14px / line-height: 18px / weight: regular (400) / tracking: 0
+      </TextBodyCompact>
       <TextSmall
         color={select('Color', COLORS, 'teal')}
         ellipsis={boolean('Overflow ellipsis', false)}
         tint={select('Tint', TINTS, 'darkest')}
-        marginTop={2}
+        marginTop={4}
       >
-        Text small / font-size: 12px / line-height: 18px / weight: regular (400) / tracking: 0
+        <strong>Text small</strong> / font-size: 12px / line-height: 18px / weight: regular (400) / tracking: 0
       </TextSmall>
     </Box>
   ))
@@ -116,6 +134,14 @@ storiesOf('Typography', module)
       >
         <Monospaced>1234567890</Monospaced>
       </Heading4>
+      <Heading5
+        color={select('Color', COLORS, 'teal')}
+        ellipsis={boolean('Overflow ellipsis', false)}
+        tint={select('Tint', TINTS, 'darkest')}
+        marginTop={2}
+      >
+        <Monospaced>1234567890</Monospaced>
+      </Heading5>
       <TextDisplay
         color={select('Color', COLORS, 'teal')}
         ellipsis={boolean('Overflow ellipsis', false)}
