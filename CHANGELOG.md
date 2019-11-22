@@ -4,6 +4,7 @@
 
 - `MenuItem`: render a `button` or `a`-tag depending on the `element` prop. ([@driesd](https://github.com/driesd) in [#721](https://github.com/teamleadercrm/ui/pull/721))
 - `Typography`: added `Heading5`. ([@driesd](https://github.com/driesd) in [#722](https://github.com/teamleadercrm/ui/pull/722))
+- `Typography`: added `TextBodyCompact`. ([@driesd](https://github.com/driesd) in [#724](https://github.com/teamleadercrm/ui/pull/724))
 
 ### Changed
 
