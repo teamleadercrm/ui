@@ -4,6 +4,8 @@
 
 ### Changed
 
+- [BREAKING] `Node version`: the minimum required node version is now `10.13.0`
+
 ### Deprecated
 
 ### Removed
