@@ -184,3 +184,7 @@
   -ms-user-select: none;
   user-select: none;
 }
+
+.menu-item-text-container {
+  pointer-events: none;
+}
