@@ -54,7 +54,12 @@ class MenuItem extends PureComponent {
               {icon}
             </Icon>
           )}
-          <Box flex="1 0 auto">
+          <Box
+            className={cx({
+              [theme['menu-item-text-container']]: element === 'a',
+            })}
+            flex="1 0 auto"
+          >
             {label && (
               <TextBody color={color} tint={tint}>
                 {label}
