@@ -4,8 +4,6 @@
 
 ### Changed
 
-- `MenuItem`: when element is `a` the text container gets `pointer-events: none` ([@kevinwaelkens](https://github.com/kevinwaelkens) in [#727](https://github.com/teamleadercrm/ui/pull/727))
-
 ### Deprecated
 
 ### Removed
@@ -13,6 +11,12 @@
 ### Fixed
 
 ### Dependency updates
+
+## [0.31.5] - 2019-11-27
+
+### Changed
+
+- `MenuItem`: when element is `a` the text container gets `pointer-events: none` ([@kevinwaelkens](https://github.com/kevinwaelkens) in [#727](https://github.com/teamleadercrm/ui/pull/727))
 
 ## [0.31.4] - 2019-11-22
 
