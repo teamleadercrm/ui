@@ -67,6 +67,8 @@ $ PORT=3001 npm start
       ### Removed
 
       ### Fixed
+      
+      ### Dependency updates
       ```
 
     - Commit with message `Update changelog` and push.
