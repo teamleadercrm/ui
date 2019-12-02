@@ -4,10 +4,6 @@
 
 ### Changed
 
-- [BREAKING] `Node version`: the minimum required node version is now `10.13.0`
-- `Tooltip`: Added a delay of 100ms when initially showing the tooltip, and added a new prop `onTooltipEnter` which gets triggered after the tooltip is mounted. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#730](https://github.com/teamleadercrm/ui/pull/730))
-- `Build process & dependency resolution`: changed from npm to yarn, added yarn.lock ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#731](https://github.com/teamleadercrm/ui/pull/731))
-
 ### Deprecated
 
 ### Removed
@@ -15,6 +11,12 @@
 ### Fixed
 
 ### Dependency updates
+
+## [0.31.6] - 2019-12-02
+
+- [BREAKING] `Node version`: the minimum required node version is now `10.13.0`
+- `Tooltip`: Added a delay of 100ms when initially showing the tooltip, and added a new prop `onTooltipEnter` which gets triggered after the tooltip is mounted. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#730](https://github.com/teamleadercrm/ui/pull/730))
+- `Build process & dependency resolution`: changed from npm to yarn, added yarn.lock ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#731](https://github.com/teamleadercrm/ui/pull/731))
 
 ## [0.31.5] - 2019-11-27
 
