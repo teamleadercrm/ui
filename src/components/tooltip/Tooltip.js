@@ -161,7 +161,11 @@ const Tooltip = ComposedComponent => {
         childProps,
         children,
         createPortal(
-          <Transition in={active} onExited={this.handleTransitionExited} timeout={{ enter: 0, exit: 1000 }}>
+          <Transition
+            in={active}
+            onExited={this.handleTransitionExited}
+            timeout={{ enter: 100, exit: 1000 }}
+          >
             {state => {
               const classNames = cx(
                 uiUtilities['box-shadow-200'],
