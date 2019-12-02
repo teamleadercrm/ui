@@ -5,6 +5,7 @@
 ### Changed
 
 - [BREAKING] `Node version`: the minimum required node version is now `10.13.0`
+- `Build process & dependency resolution`: changed from npm to yarn, added yarn.lock ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#731](https://github.com/teamleadercrm/ui/pull/731))
 
 ### Deprecated
 
