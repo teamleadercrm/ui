@@ -5,6 +5,7 @@
 ### Changed
 
 - [BREAKING] `Node version`: the minimum required node version is now `10.13.0`
+- `Tooltip`: Added a delay of 100ms when initially showing the tooltip, and added a new prop `onTooltipEnter` which gets triggered after the tooltip is mounted. [@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#730](https://github.com/teamleadercrm/ui/pull/730)
 
 ### Deprecated
 
