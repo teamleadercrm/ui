@@ -134,6 +134,11 @@ const Tooltip = ComposedComponent => {
       this.props.documentObject.body.removeChild(this.tooltipRoot);
     };
 
+    handleTransitionEntered = () => {
+      const { onTooltipEntered } = this.props;
+      onTooltipEntered && onTooltipEntered();
+    };
+
     render() {
       const { active, left, top, position } = this.state;
       const { children, className, tooltip, tooltipColor, tooltipIcon, tooltipSize, ...other } = this.props;
@@ -142,6 +147,7 @@ const Tooltip = ComposedComponent => {
         'onClick',
         'onMouseEnter',
         'onMouseLeave',
+        'onTooltipEntered',
         'tooltipHideOnClick',
         'tooltipPosition',
         'tooltipShowOnClick',
@@ -164,6 +170,7 @@ const Tooltip = ComposedComponent => {
           <Transition
             in={active}
             onExited={this.handleTransitionExited}
+            onEntered={this.handleTransitionEntered}
             timeout={{ enter: 100, exit: 1000 }}
           >
             {state => {
@@ -202,6 +209,7 @@ const Tooltip = ComposedComponent => {
     onClick: PropTypes.func,
     onMouseEnter: PropTypes.func,
     onMouseLeave: PropTypes.func,
+    onTooltipEntered: PropTypes.func,
     tooltip: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
     tooltipColor: PropTypes.oneOf(['white', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'inverse']),
     tooltipHideOnClick: PropTypes.bool,
