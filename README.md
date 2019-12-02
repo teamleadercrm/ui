@@ -10,6 +10,12 @@ Teamleader UI can be installed as an [npm package](https://www.npmjs.com/package
 $ npm install --save @teamleader/ui
 ```
 
+or
+
+```bash
+$ yarn install @teamleader/ui
+```
+
 ## Basic usage
 
 In this minimal example, we import a `Button` with styles already bundled:
@@ -31,8 +37,8 @@ To start the spec site locally, follow these simple steps:
 ```bash
 $ git clone https://github.com/teamleadercrm/ui
 $ cd ui/
-$ npm i
-$ npm start
+$ yarn install
+$ yarn start
 ```
 
 Open up a browser and the local spec will be available at [http://localhost:3000/](http://localhost:3000/).
@@ -41,7 +47,7 @@ To start the project on another port, set the `PORT` variable when running the `
 As in this example for port `3001`:
 
 ```bash
-$ PORT=3001 npm start
+$ PORT=3001 yarn start
 ```
 
 ## How to make a release
@@ -67,6 +73,8 @@ $ PORT=3001 npm start
       ### Removed
 
       ### Fixed
+
+      ### Dependency updates
       ```
 
     - Commit with message `Update changelog` and push.
