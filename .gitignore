@@ -2,8 +2,11 @@ es
 cjs
 coverage
 dist
+
 node_modules
 npm-debug.log
+yarn-error.log
+
 .cache
 .idea
 .DS_Store
