@@ -1,16 +1,15 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import cx from 'classnames';
 import theme from './theme.css';
 import AvatarOverlay from './AvatarOverlay';
 
 class AvatarImage extends PureComponent {
   render() {
-    const { children, editable, image, imageAlt, imageClassName, onImageChange, size } = this.props;
+    const { children, editable, image, imageAlt, onImageChange, size } = this.props;
 
     return (
       <div className={theme['avatar-image']} data-teamleader-ui="avatar-image">
-        <img alt={imageAlt} src={image} className={cx(theme['image'], imageClassName)} />
+        <img alt={imageAlt} src={image} className={theme['image']} />
         {editable && (size === 'large' || size === 'hero') && <AvatarOverlay onClick={onImageChange} />}
         {children && <div className={theme['children']}>{children}</div>}
       </div>
@@ -25,8 +24,6 @@ AvatarImage.propTypes = {
   image: PropTypes.string,
   /** An alternative text for the image element. */
   imageAlt: PropTypes.string,
-  /** A class name for the image to give custom styles. */
-  imageClassName: PropTypes.string,
 };
 
 export default AvatarImage;
