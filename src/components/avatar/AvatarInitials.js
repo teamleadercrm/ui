@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import theme from './theme.css';
+import AvatarOverlay from './AvatarOverlay';
 import Box from '../box';
 import { Heading4 } from '../typography';
 import { colorsWithout } from '../../constants';
@@ -31,7 +32,7 @@ class AvatarInitials extends PureComponent {
   };
 
   render() {
-    const { children, color, shape, ...others } = this.props;
+    const { children, color, editable, onImageChange, size, shape, ...others } = this.props;
 
     return (
       <Box
@@ -42,6 +43,7 @@ class AvatarInitials extends PureComponent {
         data-teamleader-ui="avatar-initials"
       >
         <Heading4 className={theme['initials']}>{this.getInitials()}</Heading4>
+        {editable && (size === 'large' || size === 'hero') && <AvatarOverlay onClick={onImageChange} />}
         {children && <div className={theme['children']}>{children}</div>}
       </Box>
     );

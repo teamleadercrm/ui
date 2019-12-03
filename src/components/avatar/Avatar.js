@@ -4,14 +4,13 @@ import AvatarAdd from './AvatarAdd';
 import AvatarAnonymous from './AvatarAnonymous';
 import AvatarImage from './AvatarImage';
 import AvatarInitials from './AvatarInitials';
-import AvatarOverlay from './AvatarOverlay';
 import Box, { pickBoxProps, omitBoxProps } from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
 
 class Avatar extends PureComponent {
   renderComponent = () => {
-    const { creatable, imageUrl, fullName, id, ...others } = this.props;
+    const { creatable, editable, imageUrl, fullName, id, onImageChange, ...others } = this.props;
     const propsWithoutBoxProps = omitBoxProps(others);
 
     if (creatable) {
@@ -19,25 +18,40 @@ class Avatar extends PureComponent {
     }
 
     if (imageUrl) {
-      return <AvatarImage image={imageUrl} imageAlt={fullName} {...propsWithoutBoxProps} />;
+      return (
+        <AvatarImage
+          editable={editable}
+          image={imageUrl}
+          imageAlt={fullName}
+          onImageChange={onImageChange}
+          {...propsWithoutBoxProps}
+        />
+      );
     }
 
     if (fullName && id) {
-      return <AvatarInitials id={id} name={fullName} {...propsWithoutBoxProps} />;
+      return (
+        <AvatarInitials
+          editable={editable}
+          id={id}
+          name={fullName}
+          onImageChange={onImageChange}
+          {...propsWithoutBoxProps}
+        />
+      );
     }
 
     return <AvatarAnonymous {...propsWithoutBoxProps} />;
   };
 
   render() {
-    const { className, editable, imageUrl, fullName, id, onImageChange, size, shape, ...others } = this.props;
+    const { className, size, shape, ...others } = this.props;
     const avatarClassNames = cx(theme['avatar'], theme[`is-${size}`], theme[`is-${shape}`], className);
     const boxProps = pickBoxProps(others);
 
     return (
       <Box className={avatarClassNames} {...boxProps}>
         {this.renderComponent()}
-        {editable && (size === 'large' || size === 'hero') && <AvatarOverlay onClick={onImageChange} />}
       </Box>
     );
   }
