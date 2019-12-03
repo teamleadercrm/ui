@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import cx from 'classnames';
 import theme from './theme.css';
+import Box from '../box';
+import { COLORS } from '../../constants';
 import { Heading4 } from '../typography';
 
 class AvatarInitials extends PureComponent {
@@ -18,13 +19,18 @@ class AvatarInitials extends PureComponent {
 
   render() {
     const { children, color, shape, ...others } = this.props;
-    const avatarClassNames = cx(theme['avatar-initials'], theme[color]);
 
     return (
-      <div className={avatarClassNames} {...others} data-teamleader-ui="avatar-initials">
+      <Box
+        {...others}
+        backgroundColor={color}
+        backgroundTint="normal"
+        className={theme['avatar-initials']}
+        data-teamleader-ui="avatar-initials"
+      >
         <Heading4 className={theme['initials']}>{this.getInitials()}</Heading4>
         {children && <div className={theme['children']}>{children}</div>}
-      </div>
+      </Box>
     );
   }
 }
@@ -33,7 +39,7 @@ AvatarInitials.propTypes = {
   /** Component that will be placed top right of the avatar image. */
   children: PropTypes.any,
   /** The color of the avatar. */
-  color: PropTypes.oneOf(['neutral', 'mint', 'aqua', 'violet', 'teal', 'gold', 'ruby']),
+  color: PropTypes.oneOf(COLORS),
   /** The name for in the avatar. */
   name: PropTypes.string,
 };
