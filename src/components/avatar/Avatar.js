@@ -35,6 +35,8 @@ class Avatar extends PureComponent {
 }
 
 Avatar.propTypes = {
+  /** If true, an add user icon will be shown. */
+  creatable: PropTypes.bool,
   /** If true, an overlay will be shown with edit icon. */
   editable: PropTypes.bool,
   /** The image url to show as an avatar. */
@@ -52,6 +54,7 @@ Avatar.propTypes = {
 };
 
 Avatar.defaultProps = {
+  creatable: false,
   shape: 'circle',
   size: 'medium',
 };
