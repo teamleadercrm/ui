@@ -1,5 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import AvatarAdd from './AvatarAdd';
+import AvatarAnonymous from './AvatarAnonymous';
 import AvatarImage from './AvatarImage';
 import AvatarInitials from './AvatarInitials';
 import AvatarOverlay from './AvatarOverlay';
@@ -15,19 +17,33 @@ const hashCode = hexString => parseInt(hexString.substr(-5), 16);
 const getColor = id => (id ? colors[Math.abs(hashCode(id)) % colors.length] : 'neutral');
 
 class Avatar extends PureComponent {
+  renderComponent = () => {
+    const { creatable, imageUrl, fullName, id, ...others } = this.props;
+    const propsWithoutBoxProps = omitBoxProps(others);
+
+    if (creatable) {
+      return <AvatarAdd {...propsWithoutBoxProps} />;
+    }
+
+    if (imageUrl) {
+      return <AvatarImage image={imageUrl} imageAlt={fullName} {...propsWithoutBoxProps} />;
+    }
+
+    if (fullName && id) {
+      return <AvatarInitials color={getColor(id)} name={fullName} {...propsWithoutBoxProps} />;
+    }
+
+    return <AvatarAnonymous {...propsWithoutBoxProps} />;
+  };
+
   render() {
     const { className, editable, imageUrl, fullName, id, onImageChange, size, shape, ...others } = this.props;
     const avatarClassNames = cx(theme['avatar'], theme[`is-${size}`], theme[`is-${shape}`], className);
     const boxProps = pickBoxProps(others);
-    const propsWithoutBoxProps = omitBoxProps(others);
 
     return (
       <Box className={avatarClassNames} {...boxProps}>
-        {imageUrl ? (
-          <AvatarImage image={imageUrl} imageAlt={fullName} {...propsWithoutBoxProps} />
-        ) : (
-          <AvatarInitials color={getColor(id)} name={fullName} {...propsWithoutBoxProps} />
-        )}
+        {this.renderComponent()}
         {editable && (size === 'large' || size === 'hero') && <AvatarOverlay onClick={onImageChange} />}
       </Box>
     );
