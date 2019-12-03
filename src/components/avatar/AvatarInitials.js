@@ -32,11 +32,10 @@ class AvatarInitials extends PureComponent {
   };
 
   render() {
-    const { children, color, editable, onImageChange, size, shape, ...others } = this.props;
+    const { children, editable, onImageChange, size } = this.props;
 
     return (
       <Box
-        {...others}
         backgroundColor={this.getColor()}
         backgroundTint="normal"
         className={theme['avatar-initials']}

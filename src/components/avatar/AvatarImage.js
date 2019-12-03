@@ -6,10 +6,10 @@ import AvatarOverlay from './AvatarOverlay';
 
 class AvatarImage extends PureComponent {
   render() {
-    const { children, editable, image, imageAlt, imageClassName, onImageChange, size, ...others } = this.props;
+    const { children, editable, image, imageAlt, imageClassName, onImageChange, size } = this.props;
 
     return (
-      <div className={theme['avatar-image']} {...others} data-teamleader-ui="avatar-image">
+      <div className={theme['avatar-image']} data-teamleader-ui="avatar-image">
         <img alt={imageAlt} src={image} className={cx(theme['image'], imageClassName)} />
         {editable && (size === 'large' || size === 'hero') && <AvatarOverlay onClick={onImageChange} />}
         {children && <div className={theme['children']}>{children}</div>}

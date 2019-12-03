@@ -4,27 +4,27 @@ import AvatarAdd from './AvatarAdd';
 import AvatarAnonymous from './AvatarAnonymous';
 import AvatarImage from './AvatarImage';
 import AvatarInitials from './AvatarInitials';
-import Box, { pickBoxProps, omitBoxProps } from '../box';
+import Box, { pickBoxProps } from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
 
 class Avatar extends PureComponent {
   renderComponent = () => {
-    const { creatable, editable, imageUrl, fullName, id, onImageChange, ...others } = this.props;
-    const propsWithoutBoxProps = omitBoxProps(others);
+    const { creatable, children, editable, imageUrl, fullName, id, onImageChange, size } = this.props;
 
     if (creatable) {
-      return <AvatarAdd {...propsWithoutBoxProps} />;
+      return <AvatarAdd size={size} />;
     }
 
     if (imageUrl) {
       return (
         <AvatarImage
+          children={children}
           editable={editable}
           image={imageUrl}
           imageAlt={fullName}
           onImageChange={onImageChange}
-          {...propsWithoutBoxProps}
+          size={size}
         />
       );
     }
@@ -32,16 +32,17 @@ class Avatar extends PureComponent {
     if (fullName && id) {
       return (
         <AvatarInitials
+          children={children}
           editable={editable}
           id={id}
           name={fullName}
           onImageChange={onImageChange}
-          {...propsWithoutBoxProps}
+          size={size}
         />
       );
     }
 
-    return <AvatarAnonymous {...propsWithoutBoxProps} />;
+    return <AvatarAnonymous size={size} />;
   };
 
   render() {
