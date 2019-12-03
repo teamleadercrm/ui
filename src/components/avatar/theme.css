@@ -109,6 +109,7 @@
   &.avatar,
   .avatar-image,
   .avatar-initials,
+  .avatar-add,
   .avatar-anonymous,
   .image {
     height: var(--tiny-size);
@@ -136,6 +137,7 @@
   &.avatar,
   .avatar-image,
   .avatar-initials,
+  .avatar-add,
   .avatar-anonymous,
   .image {
     height: var(--small-size);
@@ -159,6 +161,7 @@
   &.avatar,
   .avatar-image,
   .avatar-initials,
+  .avatar-add,
   .avatar-anonymous,
   .image {
     height: var(--medium-size);
@@ -182,6 +185,7 @@
   &.avatar,
   .avatar-image,
   .avatar-initials,
+  .avatar-add,
   .avatar-anonymous,
   .image {
     height: var(--large-size);
@@ -209,6 +213,7 @@
   &.avatar,
   .avatar-image,
   .avatar-initials,
+  .avatar-add,
   .avatar-anonymous,
   .image {
     height: var(--hero-size);
@@ -236,6 +241,7 @@
   .avatar-image .image,
   .avatar-initials,
   .avatar-anonymous,
+  .avatar-add,
   .overlay {
     border-radius: var(--shape-circle-image-border-radius);
   }
@@ -244,7 +250,8 @@
 .is-rounded {
   .avatar-image .image,
   .avatar-initials,
-  .avatar-anonymous {
+  .avatar-anonymous,
+  .avatar-add {
     border-radius: var(--shape-rounded-image-border-radius);
   }
 
@@ -265,6 +272,13 @@
     text-transform: uppercase;
     letter-spacing: 0px;
   }
+}
+
+/* AvatarAdd */
+.avatar-add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* AvatarAnonymous */
