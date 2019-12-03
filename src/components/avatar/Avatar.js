@@ -8,13 +8,6 @@ import AvatarOverlay from './AvatarOverlay';
 import Box, { pickBoxProps, omitBoxProps } from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
-import { colorsWithout } from '../../constants';
-
-const colors = colorsWithout(['neutral']);
-
-const hashCode = hexString => parseInt(hexString.substr(-5), 16);
-
-const getColor = id => (id ? colors[Math.abs(hashCode(id)) % colors.length] : 'neutral');
 
 class Avatar extends PureComponent {
   renderComponent = () => {
@@ -30,7 +23,7 @@ class Avatar extends PureComponent {
     }
 
     if (fullName && id) {
-      return <AvatarInitials color={getColor(id)} name={fullName} {...propsWithoutBoxProps} />;
+      return <AvatarInitials id={id} name={fullName} {...propsWithoutBoxProps} />;
     }
 
     return <AvatarAnonymous {...propsWithoutBoxProps} />;

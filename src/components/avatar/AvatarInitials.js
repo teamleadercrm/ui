@@ -2,10 +2,23 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import theme from './theme.css';
 import Box from '../box';
-import { COLORS } from '../../constants';
 import { Heading4 } from '../typography';
+import { colorsWithout } from '../../constants';
+
+const colors = colorsWithout(['neutral']);
+const hashCode = hexString => parseInt(hexString.substr(-5), 16);
 
 class AvatarInitials extends PureComponent {
+  getColor = () => {
+    const { id } = this.props;
+
+    if (!id) {
+      return 'neutral';
+    }
+
+    return colors[Math.abs(hashCode(id)) % colors.length];
+  };
+
   getInitials = () => {
     const { name } = this.props;
     const splitName = name.split(' ');
@@ -23,7 +36,7 @@ class AvatarInitials extends PureComponent {
     return (
       <Box
         {...others}
-        backgroundColor={color}
+        backgroundColor={this.getColor()}
         backgroundTint="normal"
         className={theme['avatar-initials']}
         data-teamleader-ui="avatar-initials"
@@ -38,14 +51,13 @@ class AvatarInitials extends PureComponent {
 AvatarInitials.propTypes = {
   /** Component that will be placed top right of the avatar image. */
   children: PropTypes.any,
-  /** The color of the avatar. */
-  color: PropTypes.oneOf(COLORS),
+  /** The uui to determine the background color of the avatar. */
+  id: PropTypes.string,
   /** The name for in the avatar. */
   name: PropTypes.string,
 };
 
 AvatarInitials.defaultProps = {
-  color: 'neutral',
   name: 'Michael Scott',
 };
 
