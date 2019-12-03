@@ -4,16 +4,17 @@ import AvatarAdd from './AvatarAdd';
 import AvatarAnonymous from './AvatarAnonymous';
 import AvatarImage from './AvatarImage';
 import AvatarInitials from './AvatarInitials';
-import Box, { pickBoxProps } from '../box';
+import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
+import omit from 'lodash.omit';
 
 class Avatar extends PureComponent {
   renderComponent = () => {
     const { creatable, children, editable, imageUrl, fullName, id, onImageChange, size } = this.props;
 
     if (creatable) {
-      return <AvatarAdd size={size} />;
+      return <AvatarAdd children={children} size={size} />;
     }
 
     if (imageUrl) {
@@ -42,16 +43,24 @@ class Avatar extends PureComponent {
       );
     }
 
-    return <AvatarAnonymous size={size} />;
+    return <AvatarAnonymous children={children} size={size} />;
   };
 
   render() {
     const { className, size, shape, ...others } = this.props;
     const avatarClassNames = cx(theme['avatar'], theme[`is-${size}`], theme[`is-${shape}`], className);
-    const boxProps = pickBoxProps(others);
+    const restProps = omit(others, [
+      'children',
+      'creatable',
+      'editable',
+      'imageUrl',
+      'fullName',
+      'id',
+      'onImageChange',
+    ]);
 
     return (
-      <Box className={avatarClassNames} {...boxProps}>
+      <Box className={avatarClassNames} {...restProps}>
         {this.renderComponent()}
       </Box>
     );

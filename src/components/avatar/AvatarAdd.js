@@ -7,7 +7,7 @@ import { IconUserAddMediumOutline, IconUserAddSmallOutline } from '@teamleader/u
 
 class AvatarAdd extends PureComponent {
   render() {
-    const { size } = this.props;
+    const { children, size } = this.props;
 
     return (
       <Box
@@ -19,6 +19,7 @@ class AvatarAdd extends PureComponent {
         <Icon color="neutral" tint="darkest">
           {size === 'tiny' || size === 'small' ? <IconUserAddSmallOutline /> : <IconUserAddMediumOutline />}
         </Icon>
+        {children && <div className={theme['children']}>{children}</div>}
       </Box>
     );
   }

@@ -7,7 +7,7 @@ import { IconUserMediumOutline, IconUserSmallOutline } from '@teamleader/ui-icon
 
 class AvatarAnonymous extends PureComponent {
   render() {
-    const { size } = this.props;
+    const { children, size } = this.props;
 
     return (
       <Box
@@ -19,6 +19,7 @@ class AvatarAnonymous extends PureComponent {
         <Icon color="neutral" tint="darkest">
           {size === 'tiny' || size === 'small' ? <IconUserSmallOutline /> : <IconUserMediumOutline />}
         </Icon>
+        {children && <div className={theme['children']}>{children}</div>}
       </Box>
     );
   }
