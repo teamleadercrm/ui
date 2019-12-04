@@ -41,38 +41,6 @@ module.exports = async ({ config }) => {
     ],
   });
 
-  config.module.rules.push({
-    test: /\.(jpe?g|png|gif|svg)$/i,
-    use: [
-      {
-        loader: 'file-loader',
-        options: {
-          query: {
-            hash: 'sha512',
-            digest: 'hex',
-            name: '[hash].[ext]',
-          },
-        },
-      },
-      {
-        loader: 'image-webpack-loader',
-        options: {
-          query: {
-            mozjpeg: {
-              progressive: true,
-            },
-            gifsicle: {
-              interlaced: true,
-            },
-            optipng: {
-              optimizationLevel: 7,
-            },
-          },
-        },
-      },
-    ],
-  });
-
   if (config.optimization) {
     config.optimization.minimize = false;
   }
