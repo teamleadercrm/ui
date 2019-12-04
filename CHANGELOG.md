@@ -8,6 +8,8 @@
 
 ### Removed
 
+- `Storybook`: removed custom config override for `file-loader` to fix broken images. ([@driesd](https://github.com/driesd) in [#736](https://github.com/teamleadercrm/ui/pull/736))
+
 ### Fixed
 
 ### Dependency updates
