@@ -4,9 +4,13 @@
 
 ### Changed
 
+- [BREAKING] `Avatar`: added `creatable` prop with default value `false`. ([@driesd](https://github.com/driesd) in [#735](https://github.com/teamleadercrm/ui/pull/735))
+
 ### Deprecated
 
 ### Removed
+
+- [BREAKING] `Avatar`: removed `imageClassName` prop from the internally used `AvatarImage` component. ([@driesd](https://github.com/driesd) in [#735](https://github.com/teamleadercrm/ui/pull/735))
 
 ### Fixed
 
