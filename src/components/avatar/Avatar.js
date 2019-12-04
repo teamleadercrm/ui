@@ -68,6 +68,10 @@ class Avatar extends PureComponent {
 }
 
 Avatar.propTypes = {
+  /** Component that will be placed top right of the avatar image. */
+  children: PropTypes.any,
+  /** A class name for the wrapper to give custom styles. */
+  className: PropTypes.string,
   /** If true, an add user icon will be shown. */
   creatable: PropTypes.bool,
   /** If true, an overlay will be shown with edit icon. */
@@ -88,6 +92,7 @@ Avatar.propTypes = {
 
 Avatar.defaultProps = {
   creatable: false,
+  editable: false,
   shape: 'circle',
   size: 'medium',
 };

@@ -26,6 +26,8 @@ class AvatarAdd extends PureComponent {
 }
 
 AvatarAdd.propTypes = {
+  /** Component that will be placed top right of the avatar image. */
+  children: PropTypes.any,
   /** The size of the avatar. */
   size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large', 'hero']),
 };

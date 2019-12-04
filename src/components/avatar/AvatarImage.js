@@ -20,10 +20,16 @@ class AvatarImage extends PureComponent {
 AvatarImage.propTypes = {
   /** Component that will be placed top right of the avatar image. */
   children: PropTypes.any,
+  /** If true, an overlay will be shown with edit icon. */
+  editable: PropTypes.bool,
   /** An image source or an image element. */
   image: PropTypes.string,
   /** An alternative text for the image element. */
   imageAlt: PropTypes.string,
+  /** Callback function that is fired when user clicks the edit icon. */
+  onImageChange: PropTypes.func,
+  /** The size of the avatar. */
+  size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large', 'hero']),
 };
 
 export default AvatarImage;
