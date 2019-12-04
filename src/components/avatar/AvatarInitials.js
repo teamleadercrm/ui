@@ -52,7 +52,7 @@ class AvatarInitials extends PureComponent {
 AvatarInitials.propTypes = {
   /** Component that will be placed top right of the avatar image. */
   children: PropTypes.any,
-  /** The uui to determine the background color of the avatar. */
+  /** The uuid to determine the background color of the avatar. */
   id: PropTypes.string,
   /** The name for in the avatar. */
   name: PropTypes.string,
