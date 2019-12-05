@@ -82,6 +82,8 @@ Avatar.propTypes = {
   fullName: PropTypes.string,
   /** Expects a uuid to determine the avatar initials background color. */
   id: PropTypes.string,
+  /** Callback function that is fired when user clicks the avatar. */
+  onClick: PropTypes.func,
   /** Callback function that is fired when user clicks the edit icon. */
   onImageChange: PropTypes.func,
   /** If true, the avatar will have a selected state. */
