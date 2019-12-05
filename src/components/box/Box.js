@@ -7,6 +7,12 @@ import theme from './theme.css';
 const overflows = ['auto', 'hidden', 'scroll', 'visible'];
 const spacings = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 
+const borderRadiuses = {
+  square: null,
+  circle: '50%',
+  rounded: '4px',
+};
+
 class Box extends PureComponent {
   boxNode = createRef();
 
@@ -29,6 +35,11 @@ class Box extends PureComponent {
       borderTint,
       borderTopWidth,
       borderWidth,
+      borderRadius,
+      borderTopLeftRadius = borderRadius,
+      borderTopRightRadius = borderRadius,
+      borderBottomLeftRadius = borderRadius,
+      borderBottomRightRadius = borderRadius,
       boxSizing,
       children,
       className,
@@ -96,6 +107,11 @@ class Box extends PureComponent {
       ...(borderLeftWidth && { borderLeft: this.getBorder(borderLeftWidth) }),
       ...(borderRightWidth && { borderRight: this.getBorder(borderRightWidth) }),
       ...(borderTopWidth && { borderTop: this.getBorder(borderTopWidth) }),
+      ...(borderRadius && { borderRadius: borderRadiuses[borderRadius] }),
+      ...(borderTopLeftRadius && { borderTopLeftRadius: borderRadiuses[borderTopLeftRadius] }),
+      ...(borderTopRightRadius && { borderTopRightRadius: borderRadiuses[borderTopRightRadius] }),
+      ...(borderBottomLeftRadius && { borderBottomLeftRadius: borderRadiuses[borderBottomLeftRadius] }),
+      ...(borderBottomRightRadius && { borderBottomRightRadius: borderRadiuses[borderBottomRightRadius] }),
       ...(boxSizing && { boxSizing }),
       ...(flex && { flex }),
       ...(flexBasis && { flexBasis }),
@@ -131,6 +147,11 @@ Box.propTypes = {
   borderTint: PropTypes.oneOf(TINTS),
   borderTopWidth: PropTypes.number,
   borderWidth: PropTypes.number,
+  borderRadius: PropTypes.oneOf(Object.keys(borderRadiuses)),
+  borderTopLeftRadius: PropTypes.oneOf(Object.keys(borderRadiuses)),
+  borderTopRightRadius: PropTypes.oneOf(Object.keys(borderRadiuses)),
+  borderBottomLeftRadius: PropTypes.oneOf(Object.keys(borderRadiuses)),
+  borderBottomRightRadius: PropTypes.oneOf(Object.keys(borderRadiuses)),
   boxSizing: PropTypes.oneOf(['border-box', 'content-box']),
   children: PropTypes.any,
   className: PropTypes.string,
@@ -175,6 +196,7 @@ Box.propTypes = {
 Box.defaultProps = {
   borderColor: 'neutral',
   borderTint: 'dark',
+  borderRadius: 'square',
   element: 'div',
   margin: 0,
   padding: 0,
