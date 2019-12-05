@@ -1,8 +1,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { number, select, text } from '@storybook/addon-knobs/react';
+import { number, select } from '@storybook/addon-knobs/react';
 import { Box, TextBody, COLORS, TINTS } from '../src';
 
+const borderRadiusValues = ['square', 'circle', 'rounded'];
 const displayValues = ['inline', 'inline-block', 'block', 'flex', 'inline-flex'];
 const justifyContentValues = ['center', 'flex-start', 'flex-end', 'space-around', 'space-between', 'space-evenly'];
 const textAlignValues = ['center', 'left', 'right'];
@@ -31,7 +32,11 @@ storiesOf('Box', module)
       borderTopWidth={number('Border top width', 0)}
       borderColor={select('Border color', COLORS, 'neutral')}
       borderTint={select('Border tint', TINTS, 'dark')}
-      borderRadius={text('Border radius', undefined)}
+      borderRadius={select('Border radius', borderRadiusValues, 'square')}
+      borderTopLeftRadius={select('Border top left radius', borderRadiusValues, 'square')}
+      borderTopRightRadius={select('Border top right radius', borderRadiusValues, 'square')}
+      borderBottomLeftRadius={select('Border bottom left radius', borderRadiusValues, 'square')}
+      borderBottomRightRadius={select('Border bottom right radius', borderRadiusValues, 'square')}
       display={select('Display', displayValues, 'block')}
       justifyContent={select('Justify Content', justifyContentValues, 'flex-start')}
       margin={number('Margin', 0, spacingOptions)}
