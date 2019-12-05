@@ -43,7 +43,6 @@
 .stack {
   align-items: center;
   display: flex;
-  justify-content: flex-end;
 }
 
 .overflow {
@@ -90,7 +89,7 @@
 }
 
 .horizontal {
-  flex-direction: row-reverse;
+  flex-direction: row;
 
   > *:not(:last-child) {
     margin-left: var(--stacked-avatars-spacing);
@@ -98,7 +97,7 @@
 }
 
 .vertical {
-  flex-direction: column-reverse;
+  flex-direction: column;
 
   > *:not(:last-child) {
     margin-top: var(--stacked-avatars-spacing);
