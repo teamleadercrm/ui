@@ -260,6 +260,50 @@
   }
 }
 
+.is-selectable {
+  cursor: pointer;
+}
+
+.is-selectable {
+  &:not(.is-hero):hover {
+    .avatar-image .image,
+    .avatar-initials,
+    .avatar-add,
+    .avatar-anonymous {
+      box-shadow: 0 0 0 3px var(--color-aqua-light);
+    }
+  }
+
+  &.is-hero:hover {
+    .avatar-image .image,
+    .avatar-initials,
+    .avatar-add,
+    .avatar-anonymous {
+      box-shadow: 0 0 0 6px var(--color-aqua-light);
+    }
+  }
+}
+
+.is-selected {
+  &:not(.is-hero) {
+    .avatar-image .image,
+    .avatar-initials,
+    .avatar-anonymous,
+    .avatar-add {
+      box-shadow: 0 0 0 3px var(--color-aqua-dark) !important;
+    }
+  }
+
+  &.is-hero {
+    .avatar-image .image,
+    .avatar-initials,
+    .avatar-anonymous,
+    .avatar-add {
+      box-shadow: 0 0 0 6px var(--color-aqua-dark) !important;
+    }
+  }
+}
+
 /*AvatarInitials*/
 .avatar-initials {
   display: flex;
