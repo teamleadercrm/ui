@@ -7,6 +7,8 @@
 ### Changed
 
 - `Avatar`: added `creatable` prop with default value `false`. ([@driesd](https://github.com/driesd) in [#735](https://github.com/teamleadercrm/ui/pull/735))
+- `Avatar`: added `onClick` prop to show a hover state. ([@driesd](https://github.com/driesd) in [#738](https://github.com/teamleadercrm/ui/pull/738))
+- `Avatar`: added `selected` prop with default value `false` to show a selected state. ([@driesd](https://github.com/driesd) in [#738](https://github.com/teamleadercrm/ui/pull/738))
 
 ### Deprecated
 
