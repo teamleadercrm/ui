@@ -5,13 +5,32 @@ import AvatarAnonymous from './AvatarAnonymous';
 import AvatarImage from './AvatarImage';
 import AvatarInitials from './AvatarInitials';
 import Box from '../box';
+import Icon from '../icon';
 import cx from 'classnames';
 import theme from './theme.css';
 import omit from 'lodash.omit';
+import { IconCloseMediumOutline, IconCloseSmallOutline } from '@teamleader/ui-icons';
 
 class Avatar extends PureComponent {
   renderComponent = () => {
-    const { creatable, children, editable, imageUrl, fullName, id, onImageChange, size } = this.props;
+    const { creatable, children, editable, imageUrl, fullName, id, onImageChange, selected, size } = this.props;
+
+    const childrenToRender = selected ? (
+      <Icon
+        backgroundColor="aqua"
+        backgroundTint="dark"
+        borderColor="aqua"
+        borderTint="dark"
+        borderRadius="circle"
+        borderWidth={size === 'hero' ? 6 : 2}
+        color="neutral"
+        tint="lightest"
+      >
+        {size === 'hero' ? <IconCloseMediumOutline /> : <IconCloseSmallOutline />}
+      </Icon>
+    ) : (
+      children
+    );
 
     if (creatable) {
       return <AvatarAdd children={children} size={size} />;
@@ -20,7 +39,7 @@ class Avatar extends PureComponent {
     if (imageUrl) {
       return (
         <AvatarImage
-          children={children}
+          children={childrenToRender}
           editable={editable}
           image={imageUrl}
           imageAlt={fullName}
@@ -33,7 +52,7 @@ class Avatar extends PureComponent {
     if (fullName && id) {
       return (
         <AvatarInitials
-          children={children}
+          children={childrenToRender}
           editable={editable}
           id={id}
           name={fullName}
@@ -43,7 +62,7 @@ class Avatar extends PureComponent {
       );
     }
 
-    return <AvatarAnonymous children={children} size={size} />;
+    return <AvatarAnonymous children={childrenToRender} size={size} />;
   };
 
   render() {
