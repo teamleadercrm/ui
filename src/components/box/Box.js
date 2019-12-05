@@ -8,6 +8,7 @@ const overflows = ['auto', 'hidden', 'scroll', 'visible'];
 const spacings = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 
 const borderRadiuses = {
+  square: null,
   circle: '50%',
   rounded: '4px',
 };
@@ -183,6 +184,7 @@ Box.propTypes = {
 Box.defaultProps = {
   borderColor: 'neutral',
   borderTint: 'dark',
+  borderRadius: 'square',
   element: 'div',
   margin: 0,
   padding: 0,
