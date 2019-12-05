@@ -4,7 +4,7 @@
 
 :root {
   --overflow-padding-horizontal: 8px;
-  --stacked-avatars-overlap-margin: -4px;
+  --stacked-avatars-spacing: 6px;
 
   --tiny-size: 24px;
   --small-size: 30px;
@@ -93,7 +93,7 @@
   flex-direction: row-reverse;
 
   > *:not(:last-child) {
-    margin-left: var(--stacked-avatars-overlap-margin);
+    margin-left: var(--stacked-avatars-spacing);
   }
 }
 
@@ -101,7 +101,7 @@
   flex-direction: column-reverse;
 
   > *:not(:last-child) {
-    margin-top: var(--stacked-avatars-overlap-margin);
+    margin-top: var(--stacked-avatars-spacing);
   }
 }
 
