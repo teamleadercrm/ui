@@ -2,7 +2,7 @@
 
 ### Added
 
-- `Box`: added `borderRadius` prop. ([@driesd](https://github.com/driesd) in [#737](https://github.com/teamleadercrm/ui/pull/737))
+- `Box`: added `borderRadius`, `borderTopLeftRadius`, `borderTopRightRadius`, `borderBottomLeftRadius`, `borderBottomRightRadius` props with default value `square`. ([@driesd](https://github.com/driesd) in [#737](https://github.com/teamleadercrm/ui/pull/737))
 
 ### Changed
 
