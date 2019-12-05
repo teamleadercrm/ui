@@ -2,6 +2,8 @@
 
 ### Added
 
+- `Box`: added `borderRadius` prop. ([@driesd](https://github.com/driesd) in [#737](https://github.com/teamleadercrm/ui/pull/737))
+
 ### Changed
 
 - `Avatar`: added `creatable` prop with default value `false`. ([@driesd](https://github.com/driesd) in [#735](https://github.com/teamleadercrm/ui/pull/735))
