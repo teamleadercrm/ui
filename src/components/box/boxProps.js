@@ -12,6 +12,7 @@ const boxProps = [
   'borderRightWidth',
   'borderTint',
   'borderTopWidth',
+  'borderRadius',
   'boxSizing',
   'className',
   'display',
