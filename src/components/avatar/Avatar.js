@@ -90,7 +90,12 @@ class Avatar extends PureComponent {
     ]);
 
     return (
-      <Box className={avatarClassNames} {...restProps}>
+      <Box
+        {...restProps}
+        className={avatarClassNames}
+        padding={onClick ? (size === 'hero' ? 2 : 1) : 0}
+        boxSizing="content-box"
+      >
         {this.renderComponent()}
       </Box>
     );
