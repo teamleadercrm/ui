@@ -47,8 +47,19 @@ class Avatar extends PureComponent {
   };
 
   render() {
-    const { className, size, shape, ...others } = this.props;
-    const avatarClassNames = cx(theme['avatar'], theme[`is-${size}`], theme[`is-${shape}`], className);
+    const { className, onClick, selected, size, shape, ...others } = this.props;
+
+    const avatarClassNames = cx(
+      theme['avatar'],
+      theme[`is-${size}`],
+      theme[`is-${shape}`],
+      {
+        [theme['is-selectable']]: onClick,
+        [theme['is-selected']]: selected,
+      },
+      className,
+    );
+
     const restProps = omit(others, [
       'children',
       'creatable',
