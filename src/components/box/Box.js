@@ -7,6 +7,11 @@ import theme from './theme.css';
 const overflows = ['auto', 'hidden', 'scroll', 'visible'];
 const spacings = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 
+const borderRadiuses = {
+  circle: '50%',
+  rounded: '4px',
+};
+
 class Box extends PureComponent {
   boxNode = createRef();
 
@@ -97,7 +102,7 @@ class Box extends PureComponent {
       ...(borderLeftWidth && { borderLeft: this.getBorder(borderLeftWidth) }),
       ...(borderRightWidth && { borderRight: this.getBorder(borderRightWidth) }),
       ...(borderTopWidth && { borderTop: this.getBorder(borderTopWidth) }),
-      ...(borderRadius && { borderRadius }),
+      ...(borderRadius && { borderRadius: borderRadiuses[borderRadius] }),
       ...(boxSizing && { boxSizing }),
       ...(flex && { flex }),
       ...(flexBasis && { flexBasis }),
@@ -133,7 +138,7 @@ Box.propTypes = {
   borderTint: PropTypes.oneOf(TINTS),
   borderTopWidth: PropTypes.number,
   borderWidth: PropTypes.number,
-  borderRadius: PropTypes.string,
+  borderRadius: PropTypes.oneOf(Object.keys(borderRadiuses)),
   boxSizing: PropTypes.oneOf(['border-box', 'content-box']),
   children: PropTypes.any,
   className: PropTypes.string,
