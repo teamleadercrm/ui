@@ -4,10 +4,13 @@
 
 ### Changed
 
+- `Avatar`: added `creatable` prop with default value `false`. ([@driesd](https://github.com/driesd) in [#735](https://github.com/teamleadercrm/ui/pull/735))
+
 ### Deprecated
 
 ### Removed
 
+- [BREAKING] `Avatar`: removed `imageClassName` prop from the internally used `AvatarImage` component. ([@driesd](https://github.com/driesd) in [#735](https://github.com/teamleadercrm/ui/pull/735))
 - `Storybook`: removed custom config override for `file-loader` to fix broken images. ([@driesd](https://github.com/driesd) in [#736](https://github.com/teamleadercrm/ui/pull/736))
 
 ### Fixed

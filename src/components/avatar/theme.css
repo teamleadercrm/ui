@@ -109,6 +109,8 @@
   &.avatar,
   .avatar-image,
   .avatar-initials,
+  .avatar-add,
+  .avatar-anonymous,
   .image {
     height: var(--tiny-size);
     width: var(--tiny-size);
@@ -135,6 +137,8 @@
   &.avatar,
   .avatar-image,
   .avatar-initials,
+  .avatar-add,
+  .avatar-anonymous,
   .image {
     height: var(--small-size);
     width: var(--small-size);
@@ -157,6 +161,8 @@
   &.avatar,
   .avatar-image,
   .avatar-initials,
+  .avatar-add,
+  .avatar-anonymous,
   .image {
     height: var(--medium-size);
     width: var(--medium-size);
@@ -179,6 +185,8 @@
   &.avatar,
   .avatar-image,
   .avatar-initials,
+  .avatar-add,
+  .avatar-anonymous,
   .image {
     height: var(--large-size);
     width: var(--large-size);
@@ -205,6 +213,8 @@
   &.avatar,
   .avatar-image,
   .avatar-initials,
+  .avatar-add,
+  .avatar-anonymous,
   .image {
     height: var(--hero-size);
     width: var(--hero-size);
@@ -230,6 +240,8 @@
 .is-circle {
   .avatar-image .image,
   .avatar-initials,
+  .avatar-anonymous,
+  .avatar-add,
   .overlay {
     border-radius: var(--shape-circle-image-border-radius);
   }
@@ -237,7 +249,9 @@
 
 .is-rounded {
   .avatar-image .image,
-  .avatar-initials {
+  .avatar-initials,
+  .avatar-anonymous,
+  .avatar-add {
     border-radius: var(--shape-rounded-image-border-radius);
   }
 
@@ -260,30 +274,16 @@
   }
 }
 
-.neutral {
-  background-color: var(--color-neutral-darkest);
+/* AvatarAdd */
+.avatar-add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.mint {
-  background-color: var(--color-mint);
-}
-
-.violet {
-  background-color: var(--color-violet);
-}
-
-.teal {
-  background-color: var(--color-teal);
-}
-
-.ruby {
-  background-color: var(--color-ruby);
-}
-
-.gold {
-  background-color: var(--color-gold);
-}
-
-.aqua {
-  background-color: var(--color-aqua);
+/* AvatarAnonymous */
+.avatar-anonymous {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
