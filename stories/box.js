@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { number, select } from '@storybook/addon-knobs/react';
+import { number, select, text } from '@storybook/addon-knobs/react';
 import { Box, TextBody, COLORS, TINTS } from '../src';
 
 const displayValues = ['inline', 'inline-block', 'block', 'flex', 'inline-flex'];
@@ -31,6 +31,7 @@ storiesOf('Box', module)
       borderTopWidth={number('Border top width', 0)}
       borderColor={select('Border color', COLORS, 'neutral')}
       borderTint={select('Border tint', TINTS, 'dark')}
+      borderRadius={text('Border radius', undefined)}
       display={select('Display', displayValues, 'block')}
       justifyContent={select('Justify Content', justifyContentValues, 'flex-start')}
       margin={number('Margin', 0, spacingOptions)}
