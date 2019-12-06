@@ -23,7 +23,9 @@ storiesOf('Avatars', module)
       fullName={text('Full name', 'John Doe')}
       id={text('Id', '63227a3c-c80b-11e9-a32f-2a2ae2dbcce4')}
       imageUrl={boolean('Image available', false) ? avatars[0].image : null}
+      onClick={() => console.log('Clicked on the avatar')}
       onImageChange={() => console.log('Change image')}
+      selected={boolean('Selected', false)}
       size={select('Size', sizes, 'large')}
       shape={select('Shape', shapes, 'circle')}
     />
@@ -36,7 +38,12 @@ storiesOf('Avatars', module)
       size={select('Size', sizes, 'large')}
     >
       {avatars.map(({ image }, index) => (
-        <Avatar key={index} imageUrl={image} />
+        <Avatar
+          key={index}
+          imageUrl={image}
+          onClick={() => console.log('Clicked on the avatar')}
+          selected={boolean('Selected', false)}
+        />
       ))}
     </AvatarStack>
   ))
@@ -48,6 +55,7 @@ storiesOf('Avatars', module)
       id={text('Id', '63227a3c-c80b-11e9-a32f-2a2ae2dbcce4')}
       imageUrl={boolean('Image available', false) ? avatars[0].image : null}
       onImageChange={() => console.log('Change image')}
+      selected={boolean('Selected', false)}
       size={select('Size', sizes, 'large')}
       shape={select('Shape', shapes, 'circle')}
     >
@@ -62,6 +70,7 @@ storiesOf('Avatars', module)
       id={text('Id', '63227a3c-c80b-11e9-a32f-2a2ae2dbcce4')}
       imageUrl={boolean('Image available', false) ? avatars[0].image : null}
       onImageChange={() => console.log('Change image')}
+      selected={boolean('Selected', false)}
       size={select('Size', sizes, 'large')}
       shape={select('Shape', shapes, 'circle')}
     >
@@ -76,6 +85,7 @@ storiesOf('Avatars', module)
       id={text('Id', '63227a3c-c80b-11e9-a32f-2a2ae2dbcce4')}
       imageUrl={boolean('Image available', false) ? avatars[0].image : null}
       onImageChange={() => console.log('Change image')}
+      selected={boolean('Selected', false)}
       size={select('Size', sizes, 'large')}
       shape={select('Shape', shapes, 'circle')}
       tooltip={<TextBody>I am the tooltip</TextBody>}

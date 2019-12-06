@@ -21,13 +21,13 @@ class AvatarStack extends PureComponent {
     const overflowAmount = children.length - displayMax;
     return (
       <Box data-teamleader-ui="avatar-stack" className={classNames} {...others}>
+        {childrenToDisplay.map((child, index) => cloneElement(child, { key: index, ...child.props, size }))}
         {overflowAmount > 0 && (
           <div
             className={cx(uiUtilities['reset-font-smoothing'], theme['overflow'])}
             onClick={onOverflowClick}
           >{`+${overflowAmount}`}</div>
         )}
-        {childrenToDisplay.map((child, index) => cloneElement(child, { key: index, ...child.props, size }))}
       </Box>
     );
   }
