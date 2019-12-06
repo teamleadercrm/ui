@@ -2,6 +2,20 @@
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Dependency updates
+
+## [0.33.0] - 2019-12-06
+
+### Added
+
 - `Box`: added `borderRadius`, `borderTopLeftRadius`, `borderTopRightRadius`, `borderBottomLeftRadius`, `borderBottomRightRadius` props with default value `square`. ([@driesd](https://github.com/driesd) in [#737](https://github.com/teamleadercrm/ui/pull/737))
 
 ### Changed
@@ -10,16 +24,14 @@
 - `Avatar`: added `onClick` prop to show a hover state. ([@driesd](https://github.com/driesd) in [#738](https://github.com/teamleadercrm/ui/pull/738))
 - `Avatar`: added `selected` prop with default value `false` to show a selected state. ([@driesd](https://github.com/driesd) in [#738](https://github.com/teamleadercrm/ui/pull/738))
 
-### Deprecated
-
 ### Removed
 
 - [BREAKING] `Avatar`: removed `imageClassName` prop from the internally used `AvatarImage` component. ([@driesd](https://github.com/driesd) in [#735](https://github.com/teamleadercrm/ui/pull/735))
 - `Storybook`: removed custom config override for `file-loader` to fix broken images. ([@driesd](https://github.com/driesd) in [#736](https://github.com/teamleadercrm/ui/pull/736))
 
-### Fixed
-
 ### Dependency updates
+
+- `css-loader` from `3.2.0` to `3.2.1`
 
 ## [0.32.0] - 2019-12-02
 
