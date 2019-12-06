@@ -4,7 +4,7 @@
 
 :root {
   --overflow-padding-horizontal: 8px;
-  --stacked-avatars-overlap-margin: -4px;
+  --stacked-avatars-spacing: 6px;
 
   --tiny-size: 24px;
   --small-size: 30px;
@@ -43,7 +43,6 @@
 .stack {
   align-items: center;
   display: flex;
-  justify-content: flex-end;
 }
 
 .overflow {
@@ -90,18 +89,18 @@
 }
 
 .horizontal {
-  flex-direction: row-reverse;
+  flex-direction: row;
 
   > *:not(:last-child) {
-    margin-left: var(--stacked-avatars-overlap-margin);
+    margin-left: var(--stacked-avatars-spacing);
   }
 }
 
 .vertical {
-  flex-direction: column-reverse;
+  flex-direction: column;
 
   > *:not(:last-child) {
-    margin-top: var(--stacked-avatars-overlap-margin);
+    margin-top: var(--stacked-avatars-spacing);
   }
 }
 
@@ -109,6 +108,8 @@
   &.avatar,
   .avatar-image,
   .avatar-initials,
+  .avatar-add,
+  .avatar-anonymous,
   .image {
     height: var(--tiny-size);
     width: var(--tiny-size);
@@ -135,6 +136,8 @@
   &.avatar,
   .avatar-image,
   .avatar-initials,
+  .avatar-add,
+  .avatar-anonymous,
   .image {
     height: var(--small-size);
     width: var(--small-size);
@@ -157,6 +160,8 @@
   &.avatar,
   .avatar-image,
   .avatar-initials,
+  .avatar-add,
+  .avatar-anonymous,
   .image {
     height: var(--medium-size);
     width: var(--medium-size);
@@ -179,6 +184,8 @@
   &.avatar,
   .avatar-image,
   .avatar-initials,
+  .avatar-add,
+  .avatar-anonymous,
   .image {
     height: var(--large-size);
     width: var(--large-size);
@@ -205,6 +212,8 @@
   &.avatar,
   .avatar-image,
   .avatar-initials,
+  .avatar-add,
+  .avatar-anonymous,
   .image {
     height: var(--hero-size);
     width: var(--hero-size);
@@ -215,8 +224,8 @@
   }
 
   .children {
-    bottom: 81%;
-    left: 81%;
+    bottom: 76%;
+    left: 76%;
   }
 
   .overflow {
@@ -230,6 +239,8 @@
 .is-circle {
   .avatar-image .image,
   .avatar-initials,
+  .avatar-anonymous,
+  .avatar-add,
   .overlay {
     border-radius: var(--shape-circle-image-border-radius);
   }
@@ -237,12 +248,58 @@
 
 .is-rounded {
   .avatar-image .image,
-  .avatar-initials {
+  .avatar-initials,
+  .avatar-anonymous,
+  .avatar-add {
     border-radius: var(--shape-rounded-image-border-radius);
   }
 
   .overlay {
     border-radius: 0 0 var(--shape-rounded-image-border-radius) var(--shape-rounded-image-border-radius);
+  }
+}
+
+.is-selectable {
+  cursor: pointer;
+}
+
+.is-selectable {
+  &:not(.is-hero):hover {
+    .avatar-image .image,
+    .avatar-initials,
+    .avatar-add,
+    .avatar-anonymous {
+      box-shadow: 0 0 0 3px var(--color-aqua-light);
+    }
+  }
+
+  &.is-hero:hover {
+    .avatar-image .image,
+    .avatar-initials,
+    .avatar-add,
+    .avatar-anonymous {
+      box-shadow: 0 0 0 6px var(--color-aqua-light);
+    }
+  }
+}
+
+.is-selected {
+  &:not(.is-hero) {
+    .avatar-image .image,
+    .avatar-initials,
+    .avatar-anonymous,
+    .avatar-add {
+      box-shadow: 0 0 0 3px var(--color-aqua-dark) !important;
+    }
+  }
+
+  &.is-hero {
+    .avatar-image .image,
+    .avatar-initials,
+    .avatar-anonymous,
+    .avatar-add {
+      box-shadow: 0 0 0 6px var(--color-aqua-dark) !important;
+    }
   }
 }
 
@@ -260,30 +317,16 @@
   }
 }
 
-.neutral {
-  background-color: var(--color-neutral-darkest);
+/* AvatarAdd */
+.avatar-add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.mint {
-  background-color: var(--color-mint);
-}
-
-.violet {
-  background-color: var(--color-violet);
-}
-
-.teal {
-  background-color: var(--color-teal);
-}
-
-.ruby {
-  background-color: var(--color-ruby);
-}
-
-.gold {
-  background-color: var(--color-gold);
-}
-
-.aqua {
-  background-color: var(--color-aqua);
+/* AvatarAnonymous */
+.avatar-anonymous {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
