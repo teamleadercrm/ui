@@ -30,7 +30,11 @@ const groupedOptions = [
   },
   {
     label: 'Colors',
-    options: [{ label: 'Red', value: 'red' }, { label: 'Green', value: 'green' }, { label: 'Blue', value: 'blue' }],
+    options: [
+      { label: 'Red', value: 'red' },
+      { label: 'Green', value: 'green' },
+      { label: 'Blue', value: 'blue' },
+    ],
   },
 ];
 

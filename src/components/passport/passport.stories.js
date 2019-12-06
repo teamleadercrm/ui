@@ -2,9 +2,9 @@ import React from 'react';
 import { Store, State } from '@sambego/storybook-state';
 import { IconBuildingSmallOutline, IconPhoneSmallOutline, IconMailSmallOutline } from '@teamleader/ui-icons';
 import { Badge, Box, EmptyPassport, Passport } from '../../index';
-import contactAvatar from './static/avatars/2.png';
-import companyAvatar from './static/avatars/3.png';
-import emptyAvatar from './static/avatars/4.png';
+import contactAvatar from '../../static/avatars/2.png';
+import companyAvatar from '../../static/avatars/3.png';
+import emptyAvatar from '../../static/avatars/4.png';
 
 const store = new Store({
   active: false,

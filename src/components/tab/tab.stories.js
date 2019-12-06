@@ -1,7 +1,7 @@
 import React from 'react';
 import { boolean } from '@storybook/addon-knobs/react';
 import { IconTab, TabGroup, TitleTab, Box, Counter as UICounter } from '../../index';
-import { tabItems, invertedTabItems } from './static/data/tab';
+import { tabItems, invertedTabItems } from '../../static/data/tab';
 
 import {
   IconCalendarMediumOutline,

@@ -13,7 +13,7 @@ import {
   ButtonGroup,
 } from '../../index';
 
-import { rows1, rows2 } from './static/data/datagrid';
+import { rows1, rows2 } from '../../static/data/datagrid';
 
 const TooltippedStatusBullet = Tooltip(StatusBullet);
 

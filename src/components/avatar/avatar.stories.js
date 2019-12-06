@@ -1,7 +1,7 @@
 import React from 'react';
 import { boolean, number, select, text } from '@storybook/addon-knobs';
 import { Avatar, AvatarStack, Bullet, Counter, TextBody, Tooltip } from '../../index';
-import avatars from './static/data/avatar';
+import avatars from '../../static/data/avatar';
 
 const directions = ['horizontal', 'vertical'];
 const sizes = ['tiny', 'small', 'medium', 'large', 'hero'];

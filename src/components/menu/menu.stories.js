@@ -2,7 +2,7 @@ import React from 'react';
 import { boolean, select } from '@storybook/addon-knobs/react';
 import { IconClockSmallOutline, IconTrashSmallOutline } from '@teamleader/ui-icons';
 import { Avatar, IconMenu, Menu, MenuItem, MenuDivider, MenuTitle } from '../../index';
-import avatars from './static/data/avatar';
+import avatars from '../../static/data/avatar';
 
 const avatar = <Avatar imageUrl={avatars[0].image} size="tiny" shape="circle" />;
 const positions = ['top-left', 'top-right', 'bottom-left', 'bottom-right'];

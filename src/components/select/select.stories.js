@@ -1,7 +1,7 @@
 import React from 'react';
 import { boolean, select, number, text } from '@storybook/addon-knobs/react';
 import { Avatar, Box, Label, Select, AsyncSelect, TextBody } from '../../index';
-import { customOptions, groupedOptions, options } from './static/data/select';
+import { customOptions, groupedOptions, options } from '../../static/data/select';
 
 const sizes = ['small', 'medium', 'large'];
 
