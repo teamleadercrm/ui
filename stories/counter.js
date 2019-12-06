@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { number, select } from '@storybook/addon-knobs/react';
 import { Counter, Tooltip, TextBody } from '../src';
 
@@ -8,33 +7,46 @@ const sizes = ['small', 'medium'];
 
 const TooltippedCounter = Tooltip(Counter);
 
-storiesOf('Counters', module)
-  .add('Basic', () => (
-    <Counter
-      count={number('Count', 99)}
-      color={select('Color', colors, 'neutral')}
-      size={select('Size', sizes, 'medium')}
-      maxCount={number('Maximum count', 100)}
-    />
-  ))
-  .add('With extra text', () => (
-    <Counter
-      count={number('Count', 99)}
-      color={select('Color', colors, 'neutral')}
-      size={select('Size', sizes, 'medium')}
-      maxCount={number('Maximum count', 100)}
-    >
-      Tasks
-    </Counter>
-  ))
-  .add('With tooltip', () => (
-    <TooltippedCounter
-      count={number('Count', 99)}
-      color={select('Color', colors, 'neutral')}
-      size={select('Size', sizes, 'medium')}
-      maxCount={number('Maximum count', 100)}
-      tooltip={<TextBody>I am the tooltip</TextBody>}
-    >
-      tasks
-    </TooltippedCounter>
-  ));
+export default {
+  title: 'Counters',
+};
+
+export const basic = () => (
+  <Counter
+    count={number('Count', 99)}
+    color={select('Color', colors, 'neutral')}
+    size={select('Size', sizes, 'medium')}
+    maxCount={number('Maximum count', 100)}
+  />
+);
+
+export const withExtraText = () => (
+  <Counter
+    count={number('Count', 99)}
+    color={select('Color', colors, 'neutral')}
+    size={select('Size', sizes, 'medium')}
+    maxCount={number('Maximum count', 100)}
+  >
+    Tasks
+  </Counter>
+);
+
+withExtraText.story = {
+  name: 'With extra text',
+};
+
+export const withTooltip = () => (
+  <TooltippedCounter
+    count={number('Count', 99)}
+    color={select('Color', colors, 'neutral')}
+    size={select('Size', sizes, 'medium')}
+    maxCount={number('Maximum count', 100)}
+    tooltip={<TextBody>I am the tooltip</TextBody>}
+  >
+    tasks
+  </TooltippedCounter>
+);
+
+withTooltip.story = {
+  name: 'With tooltip',
+};

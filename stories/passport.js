@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { Store, State } from '@sambego/storybook-state';
 import { IconBuildingSmallOutline, IconPhoneSmallOutline, IconMailSmallOutline } from '@teamleader/ui-icons';
 import { Badge, Box, EmptyPassport, Passport } from '../src';
@@ -53,63 +52,69 @@ const handleCloseClick = () => {
   store.set({ active: false });
 };
 
-storiesOf('Passport', module)
-  .addParameters({
+export default {
+  title: 'Passport',
+
+  parameters: {
     info: {
       propTablesExclude: [Badge, State, Box],
     },
-  })
-  .add('Contact', () => (
-    <Box display="flex" justifyContent="center">
-      <Badge onClick={handleButtonClick} icon={<IconBuildingSmallOutline />} inherit={false}>
-        David Brent
-      </Badge>
-      <State store={store}>
-        <Passport
-          active={false}
-          description="Regional manager"
-          onEscKeyDown={handleCloseClick}
-          onOverlayClick={handleCloseClick}
-          avatar={{ imageUrl: contactAvatar, fullName: 'David Brent' }}
-          lineItems={contactLineItems}
-          title={{ children: 'David Brent', href: 'https://www.teamleader.eu' }}
-        />
-      </State>
-    </Box>
-  ))
-  .add('Company', () => (
-    <Box display="flex" justifyContent="center">
-      <Badge onClick={handleButtonClick} icon={<IconBuildingSmallOutline />} inherit={false}>
-        Dunder Miflin
-      </Badge>
-      <State store={store}>
-        <Passport
-          active={false}
-          description={['1725 Slough Avenue', 'Sranton, PA 18540', 'United Kingdom']}
-          onEscKeyDown={handleCloseClick}
-          onOverlayClick={handleCloseClick}
-          avatar={{ imageUrl: companyAvatar, shape: 'rounded', fullName: 'Dunder Miflin' }}
-          lineItems={companyLineItems}
-          title="Dunder Miflin"
-        />
-      </State>
-    </Box>
-  ))
-  .add('Empty', () => (
-    <Box display="flex" justifyContent="center">
-      <Badge onClick={handleButtonClick} icon={<IconBuildingSmallOutline />} inherit={false}>
-        No information
-      </Badge>
-      <State store={store}>
-        <EmptyPassport
-          active={false}
-          link={{ children: 'Start now', href: 'https://www.teamleader.eu' }}
-          description="It looks like you haven't added any contact information yet."
-          onEscKeyDown={handleCloseClick}
-          onOverlayClick={handleCloseClick}
-          avatar={{ imageUrl: emptyAvatar, fullName: 'No Information' }}
-          title="No information to show"
-        />
-      </State>
-    </Box>
-  ));
+  },
+};
+
+export const contact = () => (
+  <Box display="flex" justifyContent="center">
+    <Badge onClick={handleButtonClick} icon={<IconBuildingSmallOutline />} inherit={false}>
+      David Brent
+    </Badge>
+    <State store={store}>
+      <Passport
+        active={false}
+        description="Regional manager"
+        onEscKeyDown={handleCloseClick}
+        onOverlayClick={handleCloseClick}
+        avatar={{ imageUrl: contactAvatar, fullName: 'David Brent' }}
+        lineItems={contactLineItems}
+        title={{ children: 'David Brent', href: 'https://www.teamleader.eu' }}
+      />
+    </State>
+  </Box>
+);
+
+export const company = () => (
+  <Box display="flex" justifyContent="center">
+    <Badge onClick={handleButtonClick} icon={<IconBuildingSmallOutline />} inherit={false}>
+      Dunder Miflin
+    </Badge>
+    <State store={store}>
+      <Passport
+        active={false}
+        description={['1725 Slough Avenue', 'Sranton, PA 18540', 'United Kingdom']}
+        onEscKeyDown={handleCloseClick}
+        onOverlayClick={handleCloseClick}
+        avatar={{ imageUrl: companyAvatar, shape: 'rounded', fullName: 'Dunder Miflin' }}
+        lineItems={companyLineItems}
+        title="Dunder Miflin"
+      />
+    </State>
+  </Box>
+);
+
+export const empty = () => (
+  <Box display="flex" justifyContent="center">
+    <Badge onClick={handleButtonClick} icon={<IconBuildingSmallOutline />} inherit={false}>
+      No information
+    </Badge>
+    <State store={store}>
+      <EmptyPassport
+        active={false}
+        link={{ children: 'Start now', href: 'https://www.teamleader.eu' }}
+        description="It looks like you haven't added any contact information yet."
+        onEscKeyDown={handleCloseClick}
+        onOverlayClick={handleCloseClick}
+        avatar={{ imageUrl: emptyAvatar, fullName: 'No Information' }}
+        title="No information to show"
+      />
+    </State>
+  </Box>
+);

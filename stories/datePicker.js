@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { boolean, number, select, text } from '@storybook/addon-knobs/react';
 import { DatePicker, DatePickerRange, DatePickerInput, DatePickerInputRange } from '../src';
 import { DateTime } from 'luxon';
@@ -47,112 +46,130 @@ const preSelectedRange = {
     .toJSDate(),
 };
 
-storiesOf('Form elements/DatePicker', module)
-  .add('Single date', () => {
-    const handleOnChange = selectedDate => {
-      console.log('Selected date', selectedDate);
-    };
+export default {
+  title: 'Form elements/DatePicker',
+};
 
-    return (
-      <DatePicker
-        bordered={boolean('bordered', true)}
-        locale={select('Locale', languages, 'nl-BE')}
-        localeUtils={CustomLocaleUtils}
-        numberOfMonths={number('Number of months', 1)}
-        onChange={handleOnChange}
-        selectedDate={preSelectedDate}
-        showOutsideDays={boolean('Show outside days', true)}
-        showWeekNumbers={boolean('Show week numbers', true)}
-        size={select('Size', sizes, 'medium')}
-      />
-    );
-  })
-  .add('Input single date', () => {
-    const handleOnChange = selectedDate => {
-      console.log('Selected date', selectedDate);
-    };
+export const singleDate = () => {
+  const handleOnChange = selectedDate => {
+    console.log('Selected date', selectedDate);
+  };
 
-    return (
-      <DatePickerInput
-        bordered={boolean('bordered', false)}
-        dayPickerProps={{
-          numberOfMonths: number('Number of months', 1),
-          showOutsideDays: boolean('Show outside days', true),
-          showWeekNumbers: boolean('Show week numbers', true),
-        }}
-        formatDate={customFormatDate}
-        inputProps={{
-          bold: boolean('Bold', false),
-          disabled: boolean('Disabled', false),
-          error: text('Error', ''),
-          helpText: text('Help text', 'Pick a date'),
-          inverse: boolean('Inverse', false),
-          warning: text('Warning', ''),
-          placeholder: inputPlaceholderToday,
-          readOnly: boolean('Read only', false),
-          width: text('Width', '120px'),
-        }}
-        locale={select('Locale', languages, 'nl-BE')}
-        onChange={handleOnChange}
-        selectedDate={preSelectedDate}
-        size={select('Size', sizes, 'medium')}
-      />
-    );
-  })
-  .add('Range', () => {
-    const handleOnChange = selectedRange => {
-      console.log('Selected range', selectedRange);
-    };
+  return (
+    <DatePicker
+      bordered={boolean('bordered', true)}
+      locale={select('Locale', languages, 'nl-BE')}
+      localeUtils={CustomLocaleUtils}
+      numberOfMonths={number('Number of months', 1)}
+      onChange={handleOnChange}
+      selectedDate={preSelectedDate}
+      showOutsideDays={boolean('Show outside days', true)}
+      showWeekNumbers={boolean('Show week numbers', true)}
+      size={select('Size', sizes, 'medium')}
+    />
+  );
+};
 
-    return (
-      <DatePickerRange
-        bordered={boolean('bordered', true)}
-        locale={select('Locale', languages, 'nl-BE')}
-        localeUtils={CustomLocaleUtils}
-        numberOfMonths={number('Number of months', 2)}
-        onChange={handleOnChange}
-        selectedRange={preSelectedRange}
-        showOutsideDays={boolean('Show outside days', false)}
-        showWeekNumbers={boolean('Show week numbers', true)}
-        size={select('Size', sizes, 'medium')}
-      />
-    );
-  })
-  .add('Input range', () => {
-    const handleOnChange = selectedRange => {
-      console.log('Selected range', selectedRange);
-    };
+singleDate.story = {
+  name: 'Single date',
+};
 
-    return (
-      <DatePickerInputRange
-        bold={boolean('Bold', false)}
-        dayPickerProps={{
-          locale: select('Locale', languages, 'nl-BE'),
-          localeUtils: CustomLocaleUtils,
-          numberOfMonths: number('Number of months', 2),
-          showOutsideDays: boolean('Show outside days', false),
-          showWeekNumbers: boolean('Show week numbers', true),
-        }}
-        dayPickerInputStartDateProps={{
-          placeholder: inputPlaceholderToday,
-          value: preSelectedRange.selectedStartDate,
-        }}
-        dayPickerInputEndDateProps={{
-          placeholder: inputPlaceholderTomorrow,
-          value: preSelectedRange.selectedEndDate,
-        }}
-        formatDate={formatDate}
-        parseDate={parseDate}
-        disabled={boolean('Disabled', false)}
-        error={text('error', '')}
-        helpText={text('helpText', 'Pick a date')}
-        warning={text('warning', '')}
-        inverse={boolean('Inverse', false)}
-        readOnly={boolean('Read only', false)}
-        onChange={handleOnChange}
-        selectedRange={preSelectedRange}
-        size={select('Size', sizes, 'medium')}
-        width={text('width', undefined)}
-      />
-    );
-  });
+export const inputSingleDate = () => {
+  const handleOnChange = selectedDate => {
+    console.log('Selected date', selectedDate);
+  };
+
+  return (
+    <DatePickerInput
+      bordered={boolean('bordered', false)}
+      dayPickerProps={{
+        numberOfMonths: number('Number of months', 1),
+        showOutsideDays: boolean('Show outside days', true),
+        showWeekNumbers: boolean('Show week numbers', true),
+      }}
+      formatDate={customFormatDate}
+      inputProps={{
+        bold: boolean('Bold', false),
+        disabled: boolean('Disabled', false),
+        error: text('Error', ''),
+        helpText: text('Help text', 'Pick a date'),
+        inverse: boolean('Inverse', false),
+        warning: text('Warning', ''),
+        placeholder: inputPlaceholderToday,
+        readOnly: boolean('Read only', false),
+        width: text('Width', '120px'),
+      }}
+      locale={select('Locale', languages, 'nl-BE')}
+      onChange={handleOnChange}
+      selectedDate={preSelectedDate}
+      size={select('Size', sizes, 'medium')}
+    />
+  );
+};
+
+inputSingleDate.story = {
+  name: 'Input single date',
+};
+
+export const range = () => {
+  const handleOnChange = selectedRange => {
+    console.log('Selected range', selectedRange);
+  };
+
+  return (
+    <DatePickerRange
+      bordered={boolean('bordered', true)}
+      locale={select('Locale', languages, 'nl-BE')}
+      localeUtils={CustomLocaleUtils}
+      numberOfMonths={number('Number of months', 2)}
+      onChange={handleOnChange}
+      selectedRange={preSelectedRange}
+      showOutsideDays={boolean('Show outside days', false)}
+      showWeekNumbers={boolean('Show week numbers', true)}
+      size={select('Size', sizes, 'medium')}
+    />
+  );
+};
+
+export const inputRange = () => {
+  const handleOnChange = selectedRange => {
+    console.log('Selected range', selectedRange);
+  };
+
+  return (
+    <DatePickerInputRange
+      bold={boolean('Bold', false)}
+      dayPickerProps={{
+        locale: select('Locale', languages, 'nl-BE'),
+        localeUtils: CustomLocaleUtils,
+        numberOfMonths: number('Number of months', 2),
+        showOutsideDays: boolean('Show outside days', false),
+        showWeekNumbers: boolean('Show week numbers', true),
+      }}
+      dayPickerInputStartDateProps={{
+        placeholder: inputPlaceholderToday,
+        value: preSelectedRange.selectedStartDate,
+      }}
+      dayPickerInputEndDateProps={{
+        placeholder: inputPlaceholderTomorrow,
+        value: preSelectedRange.selectedEndDate,
+      }}
+      formatDate={formatDate}
+      parseDate={parseDate}
+      disabled={boolean('Disabled', false)}
+      error={text('error', '')}
+      helpText={text('helpText', 'Pick a date')}
+      warning={text('warning', '')}
+      inverse={boolean('Inverse', false)}
+      readOnly={boolean('Read only', false)}
+      onChange={handleOnChange}
+      selectedRange={preSelectedRange}
+      size={select('Size', sizes, 'medium')}
+      width={text('width', undefined)}
+    />
+  );
+};
+
+inputRange.story = {
+  name: 'Input range',
+};

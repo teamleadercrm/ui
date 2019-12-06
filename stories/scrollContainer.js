@@ -1,8 +1,11 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { Box, Heading2, Heading3, ScrollContainer, TextBody } from '../src';
 
-storiesOf('ScrollContainer', module).add('Basic', () => (
+export default {
+  title: 'ScrollContainer',
+};
+
+export const basic = () => (
   <Box style={{ height: 500 }}>
     <ScrollContainer
       header={
@@ -70,4 +73,4 @@ storiesOf('ScrollContainer', module).add('Basic', () => (
       }
     />
   </Box>
-));
+);

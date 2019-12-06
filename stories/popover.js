@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { select, boolean, number, text } from '@storybook/addon-knobs/react';
 import { Store, State } from '@sambego/storybook-state';
 import {
@@ -87,294 +86,330 @@ const contentBoxWithSingleTextLine = (
   </Box>
 );
 
-storiesOf('Popover', module)
-  .addParameters({
+export default {
+  title: 'Popover',
+
+  parameters: {
     info: {
       propTablesExclude: [Link, TextBody, TextSmall, Button, State, Banner, Heading3, ButtonGroup, Box],
     },
-  })
-  .add('Basic', () => (
-    <Box display="flex" justifyContent="center">
-      <Button onClick={handleButtonClick} label="Open a basic Popover" />
-      <State store={popoverStore}>
-        <Popover
-          active={false}
-          backdrop={select('Backdrop', backdrops, 'transparent')}
-          color={select('Color', colors, 'neutral')}
-          direction={select('Direction', directions, 'south')}
-          fullHeight={boolean('Full height', true)}
-          position={select('Position', positions, 'center')}
-          onEscKeyDown={handleCloseClick}
-          onOverlayClick={handleCloseClick}
-          tint={select('Tint', tints, 'lightest')}
-          lockScroll={boolean('Lock scroll', true)}
-          maxWidth={text('Max width', '50vw')}
-          minWidth={text('Min width', undefined)}
-          offsetCorrection={number('Offset correction', 0)}
-        >
-          {contentBoxWithSingleTextLine}
-        </Popover>
+  },
+};
+
+export const basic = () => (
+  <Box display="flex" justifyContent="center">
+    <Button onClick={handleButtonClick} label="Open a basic Popover" />
+    <State store={popoverStore}>
+      <Popover
+        active={false}
+        backdrop={select('Backdrop', backdrops, 'transparent')}
+        color={select('Color', colors, 'neutral')}
+        direction={select('Direction', directions, 'south')}
+        fullHeight={boolean('Full height', true)}
+        position={select('Position', positions, 'center')}
+        onEscKeyDown={handleCloseClick}
+        onOverlayClick={handleCloseClick}
+        tint={select('Tint', tints, 'lightest')}
+        lockScroll={boolean('Lock scroll', true)}
+        maxWidth={text('Max width', '50vw')}
+        minWidth={text('Min width', undefined)}
+        offsetCorrection={number('Offset correction', 0)}
+      >
+        {contentBoxWithSingleTextLine}
+      </Popover>
+    </State>
+  </Box>
+);
+
+export const withTitle = () => (
+  <Box display="flex" justifyContent="center">
+    <Button onClick={handleButtonClick} label="Open titled Popover" />
+    <State store={popoverStore}>
+      <Popover
+        active={false}
+        backdrop={select('Backdrop', backdrops, 'transparent')}
+        color={select('Color', colors, 'neutral')}
+        direction={select('Direction', directions, 'south')}
+        fullHeight={boolean('Full height', true)}
+        position={select('Position', positions, 'center')}
+        onEscKeyDown={handleCloseClick}
+        onOverlayClick={handleCloseClick}
+        tint={select('Tint', tints, 'lightest')}
+        lockScroll={boolean('Lock scroll', true)}
+        maxWidth={text('Max width', '50vw')}
+        minWidth={text('Min width', undefined)}
+        offsetCorrection={number('Offset correction', 0)}
+      >
+        <Banner fullWidth>
+          <Heading3>Popover Title</Heading3>
+        </Banner>
+        {contentBoxWithSingleTextLine}
+      </Popover>
+    </State>
+  </Box>
+);
+
+withTitle.story = {
+  name: 'With title',
+};
+
+export const withTitleSubtitle = () => (
+  <Box display="flex" justifyContent="center">
+    <Button onClick={handleButtonClick} label="Open titled & subtitled Popover" />
+    <State store={popoverStore}>
+      <Popover
+        active={false}
+        backdrop={select('Backdrop', backdrops, 'transparent')}
+        color={select('Color', colors, 'neutral')}
+        direction={select('Direction', directions, 'south')}
+        fullHeight={boolean('Full height', true)}
+        position={select('Position', positions, 'center')}
+        onEscKeyDown={handleCloseClick}
+        onOverlayClick={handleCloseClick}
+        tint={select('Tint', tints, 'lightest')}
+        lockScroll={boolean('Lock scroll', true)}
+        maxWidth={text('Max width', '50vw')}
+        minWidth={text('Min width', undefined)}
+        offsetCorrection={number('Offset correction', 0)}
+      >
+        <Banner color="neutral" fullWidth>
+          <Heading3>Popover Title</Heading3>
+          <TextSmall marginTop={1}>This is the popover content</TextSmall>
+        </Banner>
+        {contentBoxWithSingleTextLine}
+      </Popover>
+    </State>
+  </Box>
+);
+
+withTitleSubtitle.story = {
+  name: 'With title & subtitle',
+};
+
+export const withCloseButton = () => (
+  <Box display="flex" justifyContent="center">
+    <Button onClick={handleButtonClick} label="Open Popover with close button" />
+    <State store={popoverStore}>
+      <Popover
+        active={false}
+        backdrop={select('Backdrop', backdrops, 'transparent')}
+        color={select('Color', colors, 'neutral')}
+        direction="south"
+        fullHeight={boolean('Full height', true)}
+        position={select('Position', positions, 'center')}
+        onEscKeyDown={handleCloseClick}
+        onOverlayClick={handleCloseClick}
+        tint={select('Tint', tints, 'lightest')}
+        lockScroll={boolean('Lock scroll', true)}
+        maxWidth={text('Max width', '50vw')}
+        minWidth={text('Min width', undefined)}
+        offsetCorrection={number('Offset correction', 0)}
+      >
+        <Banner onClose={handleCloseClick} fullWidth>
+          <Heading3>I am a heading 3</Heading3>
+        </Banner>
+        {contentBoxWithSingleTextLine}
+      </Popover>
+    </State>
+  </Box>
+);
+
+withCloseButton.story = {
+  name: 'With close button',
+};
+
+export const withActions = () => (
+  <Box display="flex" justifyContent="center">
+    <Button onClick={handleButtonClick} label="Open Popover with actions" />
+    <State store={popoverStore}>
+      <Popover
+        active={false}
+        backdrop={select('Backdrop', backdrops, 'transparent')}
+        color={select('Color', colors, 'neutral')}
+        direction={select('Direction', directions, 'south')}
+        fullHeight={boolean('Full height', true)}
+        position={select('Position', positions, 'center')}
+        onEscKeyDown={handleCloseClick}
+        onOverlayClick={handleCloseClick}
+        tint={select('Tint', tints, 'lightest')}
+        lockScroll={boolean('Lock scroll', true)}
+        maxWidth={text('Max width', '50vw')}
+        minWidth={text('Min width', undefined)}
+        offsetCorrection={number('Offset correction', 0)}
+      >
+        {contentBoxWithSingleTextLine}
+        <ButtonGroup justifyContent="flex-end" padding={4}>
+          <Button label="Cancel" />
+          <Button level="primary" label="Confirm" />
+        </ButtonGroup>
+      </Popover>
+    </State>
+  </Box>
+);
+
+withActions.story = {
+  name: 'With actions',
+};
+
+export const withMenu = () => (
+  <Box display="flex" justifyContent="center">
+    <Button onClick={handleButtonClick} label="Open Popover with menu" />
+    <State store={popoverStore}>
+      <Popover
+        active={false}
+        backdrop={select('Backdrop', backdrops, 'transparent')}
+        color={select('Color', colors, 'neutral')}
+        direction={select('Direction', directions, 'south')}
+        fullHeight={boolean('Full height', true)}
+        position={select('Position', positions, 'end')}
+        onEscKeyDown={handleCloseClick}
+        onOverlayClick={handleCloseClick}
+        tint={select('Tint', tints, 'lightest')}
+        lockScroll={boolean('Lock scroll', true)}
+        maxWidth={text('Max width', '50vw')}
+        minWidth={text('Min width', undefined)}
+        offsetCorrection={number('Offset correction', 0)}
+      >
+        <Box overflowY="auto">
+          <Menu outline={false} selected="bar">
+            <MenuItem value="foo" label="Foo label" />
+            <MenuItem value="bar" label="Bar label" />
+            <MenuItem label="Disabled ..." disabled />
+            <MenuDivider />
+            <MenuTitle>Group title</MenuTitle>
+            <MenuItem label="Label & icon" icon={<IconClockSmallOutline />} />
+            <MenuItem label="Destructive" icon={<IconTrashSmallOutline />} destructive />
+            <MenuItem label="Destructive & disabled" icon={<IconCloseSmallOutline />} destructive disabled />
+          </Menu>
+        </Box>
+      </Popover>
+    </State>
+  </Box>
+);
+
+withMenu.story = {
+  name: 'With menu',
+};
+
+export const withSplitButtonMenu = () => (
+  <Box display="flex" justifyContent="center">
+    <ButtonGroup segmented>
+      <State store={splitButtonStore}>
+        <Button />
       </State>
-    </Box>
-  ))
-  .add('With title', () => (
-    <Box display="flex" justifyContent="center">
-      <Button onClick={handleButtonClick} label="Open titled Popover" />
-      <State store={popoverStore}>
-        <Popover
-          active={false}
-          backdrop={select('Backdrop', backdrops, 'transparent')}
-          color={select('Color', colors, 'neutral')}
-          direction={select('Direction', directions, 'south')}
-          fullHeight={boolean('Full height', true)}
-          position={select('Position', positions, 'center')}
-          onEscKeyDown={handleCloseClick}
-          onOverlayClick={handleCloseClick}
-          tint={select('Tint', tints, 'lightest')}
-          lockScroll={boolean('Lock scroll', true)}
-          maxWidth={text('Max width', '50vw')}
-          minWidth={text('Min width', undefined)}
-          offsetCorrection={number('Offset correction', 0)}
-        >
-          <Banner fullWidth>
-            <Heading3>Popover Title</Heading3>
-          </Banner>
-          {contentBoxWithSingleTextLine}
-        </Popover>
+      <State store={splitButtonChevronStore}>
+        <Button onClick={handleButtonClick} icon={<IconChevronDownSmallOutline />} />
       </State>
-    </Box>
-  ))
-  .add('With title & subtitle', () => (
-    <Box display="flex" justifyContent="center">
-      <Button onClick={handleButtonClick} label="Open titled & subtitled Popover" />
-      <State store={popoverStore}>
-        <Popover
-          active={false}
-          backdrop={select('Backdrop', backdrops, 'transparent')}
-          color={select('Color', colors, 'neutral')}
-          direction={select('Direction', directions, 'south')}
-          fullHeight={boolean('Full height', true)}
-          position={select('Position', positions, 'center')}
-          onEscKeyDown={handleCloseClick}
-          onOverlayClick={handleCloseClick}
-          tint={select('Tint', tints, 'lightest')}
-          lockScroll={boolean('Lock scroll', true)}
-          maxWidth={text('Max width', '50vw')}
-          minWidth={text('Min width', undefined)}
-          offsetCorrection={number('Offset correction', 0)}
-        >
-          <Banner color="neutral" fullWidth>
-            <Heading3>Popover Title</Heading3>
-            <TextSmall marginTop={1}>This is the popover content</TextSmall>
-          </Banner>
-          {contentBoxWithSingleTextLine}
-        </Popover>
-      </State>
-    </Box>
-  ))
-  .add('With close button', () => (
-    <Box display="flex" justifyContent="center">
-      <Button onClick={handleButtonClick} label="Open Popover with close button" />
-      <State store={popoverStore}>
-        <Popover
-          active={false}
-          backdrop={select('Backdrop', backdrops, 'transparent')}
-          color={select('Color', colors, 'neutral')}
-          direction="south"
-          fullHeight={boolean('Full height', true)}
-          position={select('Position', positions, 'center')}
-          onEscKeyDown={handleCloseClick}
-          onOverlayClick={handleCloseClick}
-          tint={select('Tint', tints, 'lightest')}
-          lockScroll={boolean('Lock scroll', true)}
-          maxWidth={text('Max width', '50vw')}
-          minWidth={text('Min width', undefined)}
-          offsetCorrection={number('Offset correction', 0)}
-        >
-          <Banner onClose={handleCloseClick} fullWidth>
-            <Heading3>I am a heading 3</Heading3>
-          </Banner>
-          {contentBoxWithSingleTextLine}
-        </Popover>
-      </State>
-    </Box>
-  ))
-  .add('With actions', () => (
-    <Box display="flex" justifyContent="center">
-      <Button onClick={handleButtonClick} label="Open Popover with actions" />
-      <State store={popoverStore}>
-        <Popover
-          active={false}
-          backdrop={select('Backdrop', backdrops, 'transparent')}
-          color={select('Color', colors, 'neutral')}
-          direction={select('Direction', directions, 'south')}
-          fullHeight={boolean('Full height', true)}
-          position={select('Position', positions, 'center')}
-          onEscKeyDown={handleCloseClick}
-          onOverlayClick={handleCloseClick}
-          tint={select('Tint', tints, 'lightest')}
-          lockScroll={boolean('Lock scroll', true)}
-          maxWidth={text('Max width', '50vw')}
-          minWidth={text('Min width', undefined)}
-          offsetCorrection={number('Offset correction', 0)}
-        >
-          {contentBoxWithSingleTextLine}
-          <ButtonGroup justifyContent="flex-end" padding={4}>
-            <Button label="Cancel" />
-            <Button level="primary" label="Confirm" />
-          </ButtonGroup>
-        </Popover>
-      </State>
-    </Box>
-  ))
-  .add('With menu', () => (
-    <Box display="flex" justifyContent="center">
-      <Button onClick={handleButtonClick} label="Open Popover with menu" />
-      <State store={popoverStore}>
-        <Popover
-          active={false}
-          backdrop={select('Backdrop', backdrops, 'transparent')}
-          color={select('Color', colors, 'neutral')}
-          direction={select('Direction', directions, 'south')}
-          fullHeight={boolean('Full height', true)}
-          position={select('Position', positions, 'end')}
-          onEscKeyDown={handleCloseClick}
-          onOverlayClick={handleCloseClick}
-          tint={select('Tint', tints, 'lightest')}
-          lockScroll={boolean('Lock scroll', true)}
-          maxWidth={text('Max width', '50vw')}
-          minWidth={text('Min width', undefined)}
-          offsetCorrection={number('Offset correction', 0)}
-        >
-          <Box overflowY="auto">
-            <Menu outline={false} selected="bar">
-              <MenuItem value="foo" label="Foo label" />
-              <MenuItem value="bar" label="Bar label" />
-              <MenuItem label="Disabled ..." disabled />
-              <MenuDivider />
-              <MenuTitle>Group title</MenuTitle>
-              <MenuItem label="Label & icon" icon={<IconClockSmallOutline />} />
-              <MenuItem label="Destructive" icon={<IconTrashSmallOutline />} destructive />
-              <MenuItem label="Destructive & disabled" icon={<IconCloseSmallOutline />} destructive disabled />
-            </Menu>
-          </Box>
-        </Popover>
-      </State>
-    </Box>
-  ))
-  .add('With split button menu', () => (
-    <Box display="flex" justifyContent="center">
-      <ButtonGroup segmented>
-        <State store={splitButtonStore}>
-          <Button />
+    </ButtonGroup>
+    <State store={popoverStore}>
+      <Popover
+        active={false}
+        backdrop="transparent"
+        position="start"
+        onEscKeyDown={handleCloseClick}
+        onOverlayClick={handleCloseClick}
+        lockScroll={boolean('Lock scroll', true)}
+      >
+        <State store={splitButtonMenuStore}>
+          <Menu outline={false}>
+            <MenuItem
+              value="foo"
+              label="Primary action"
+              icon={<IconClockSmallOutline />}
+              onClick={handleSplitButtonNormalMenuItemClick}
+            />
+            <MenuItem
+              value="bar"
+              label="Destructive action"
+              icon={<IconTrashSmallOutline />}
+              destructive
+              onClick={handleSplitButtonDestructiveMenuItemClick}
+            />
+          </Menu>
         </State>
-        <State store={splitButtonChevronStore}>
-          <Button onClick={handleButtonClick} icon={<IconChevronDownSmallOutline />} />
-        </State>
-      </ButtonGroup>
-      <State store={popoverStore}>
-        <Popover
-          active={false}
-          backdrop="transparent"
-          position="start"
-          onEscKeyDown={handleCloseClick}
-          onOverlayClick={handleCloseClick}
-          lockScroll={boolean('Lock scroll', true)}
-        >
-          <State store={splitButtonMenuStore}>
-            <Menu outline={false}>
-              <MenuItem
-                value="foo"
-                label="Primary action"
-                icon={<IconClockSmallOutline />}
-                onClick={handleSplitButtonNormalMenuItemClick}
-              />
-              <MenuItem
-                value="bar"
-                label="Destructive action"
-                icon={<IconTrashSmallOutline />}
-                destructive
-                onClick={handleSplitButtonDestructiveMenuItemClick}
-              />
-            </Menu>
-          </State>
-        </Popover>
-      </State>
-    </Box>
-  ))
-  .add('Experiment 1', () => (
-    <Box display="flex" justifyContent="center">
-      <Button onClick={handleButtonClick} label="Open a experimental Popover" />
-      <State store={popoverStore}>
-        <Popover
-          active={false}
-          backdrop={select('Backdrop', backdrops, 'transparent')}
-          color={select('Color', colors, 'neutral')}
-          direction={select('Direction', directions, 'south')}
-          fullHeight={boolean('Full height', true)}
-          position={select('Position', positions, 'center')}
-          onEscKeyDown={handleCloseClick}
-          onOverlayClick={handleCloseClick}
-          tint={select('Tint', tints, 'lightest')}
-          lockScroll={boolean('Lock scroll', true)}
-          maxWidth={text('Max width', '50vw')}
-          minWidth={text('Min width', undefined)}
-          offsetCorrection={number('Offset correction', 0)}
-        >
-          <Banner color="neutral" fullWidth>
-            <Heading3>Popover Title</Heading3>
-            <TextSmall marginTop={1}>This is the popover content</TextSmall>
-          </Banner>
-          <Box padding={4} overflow="auto">
-            <TextBody>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-              ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-              fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-              mollit anim id est laborum.
-            </TextBody>
-          </Box>
-        </Popover>
-      </State>
-    </Box>
-  ))
-  .add('Experiment 2', () => (
-    <Box display="flex" justifyContent="center">
-      <Button onClick={handleButtonClick} label="Open a experimental Popover" />
-      <State store={popoverStore}>
-        <Popover
-          active={false}
-          backdrop={select('Backdrop', backdrops, 'transparent')}
-          color={select('Color', colors, 'neutral')}
-          direction={select('Direction', directions, 'south')}
-          fullHeight={boolean('Full height', true)}
-          position={select('Position', positions, 'center')}
-          onEscKeyDown={handleCloseClick}
-          onOverlayClick={handleCloseClick}
-          tint={select('Tint', tints, 'lightest')}
-          lockScroll={boolean('Lock scroll', true)}
-          maxWidth={text('Max width', '50vw')}
-          minWidth={text('Min width', undefined)}
-          offsetCorrection={number('Offset correction', 0)}
-        >
-          <Banner color="neutral" fullWidth>
-            <Heading3>Popover Title</Heading3>
-            <TextSmall marginTop={1}>This is the popover content</TextSmall>
-          </Banner>
-          <Box padding={4} overflow="auto">
-            <TextBody>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-              ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-              fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-              mollit anim id est laborum.
-            </TextBody>
-          </Box>
-          <ButtonGroup justifyContent="flex-end" padding={4}>
-            <Button label="Cancel" />
-            <Button level="primary" label="Confirm" />
-          </ButtonGroup>
-        </Popover>
-      </State>
-    </Box>
-  ));
+      </Popover>
+    </State>
+  </Box>
+);
+
+withSplitButtonMenu.story = {
+  name: 'With split button menu',
+};
+
+export const experiment1 = () => (
+  <Box display="flex" justifyContent="center">
+    <Button onClick={handleButtonClick} label="Open a experimental Popover" />
+    <State store={popoverStore}>
+      <Popover
+        active={false}
+        backdrop={select('Backdrop', backdrops, 'transparent')}
+        color={select('Color', colors, 'neutral')}
+        direction={select('Direction', directions, 'south')}
+        fullHeight={boolean('Full height', true)}
+        position={select('Position', positions, 'center')}
+        onEscKeyDown={handleCloseClick}
+        onOverlayClick={handleCloseClick}
+        tint={select('Tint', tints, 'lightest')}
+        lockScroll={boolean('Lock scroll', true)}
+        maxWidth={text('Max width', '50vw')}
+        minWidth={text('Min width', undefined)}
+        offsetCorrection={number('Offset correction', 0)}
+      >
+        <Banner color="neutral" fullWidth>
+          <Heading3>Popover Title</Heading3>
+          <TextSmall marginTop={1}>This is the popover content</TextSmall>
+        </Banner>
+        <Box padding={4} overflow="auto">
+          <TextBody>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.
+          </TextBody>
+        </Box>
+      </Popover>
+    </State>
+  </Box>
+);
+
+export const experiment2 = () => (
+  <Box display="flex" justifyContent="center">
+    <Button onClick={handleButtonClick} label="Open a experimental Popover" />
+    <State store={popoverStore}>
+      <Popover
+        active={false}
+        backdrop={select('Backdrop', backdrops, 'transparent')}
+        color={select('Color', colors, 'neutral')}
+        direction={select('Direction', directions, 'south')}
+        fullHeight={boolean('Full height', true)}
+        position={select('Position', positions, 'center')}
+        onEscKeyDown={handleCloseClick}
+        onOverlayClick={handleCloseClick}
+        tint={select('Tint', tints, 'lightest')}
+        lockScroll={boolean('Lock scroll', true)}
+        maxWidth={text('Max width', '50vw')}
+        minWidth={text('Min width', undefined)}
+        offsetCorrection={number('Offset correction', 0)}
+      >
+        <Banner color="neutral" fullWidth>
+          <Heading3>Popover Title</Heading3>
+          <TextSmall marginTop={1}>This is the popover content</TextSmall>
+        </Banner>
+        <Box padding={4} overflow="auto">
+          <TextBody>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.
+          </TextBody>
+        </Box>
+        <ButtonGroup justifyContent="flex-end" padding={4}>
+          <Button label="Cancel" />
+          <Button level="primary" label="Confirm" />
+        </ButtonGroup>
+      </Popover>
+    </State>
+  </Box>
+);

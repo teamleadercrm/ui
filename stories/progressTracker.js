@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { number, boolean } from '@storybook/addon-knobs/react';
 import { ProgressTracker, Island } from '../src';
 
@@ -11,27 +10,32 @@ const options = {
   step: 1,
 };
 
-storiesOf('ProgressTracker', module)
-  .addParameters({
+export default {
+  title: 'ProgressTracker',
+
+  parameters: {
     info: {
       propTablesExclude: [Island],
     },
-  })
-  .add('Basic', () => (
-    <Island size="small">
-      <ProgressTracker currentStep={number('Current step', 1, options)} done={boolean('Completed', false)}>
-        {steps.map((step, index) => (
-          <ProgressTracker.ProgressStep label={step} key={index} />
-        ))}
-      </ProgressTracker>
-    </Island>
-  ))
-  .add('Interactional', () => (
-    <Island size="small">
-      <ProgressTracker currentStep={number('Current step', 1, options)} done={boolean('Completed', false)}>
-        {steps.map((step, index) => (
-          <ProgressTracker.ProgressStep label={step} key={index} onClick={() => console.log('step clicked')} />
-        ))}
-      </ProgressTracker>
-    </Island>
-  ));
+  },
+};
+
+export const basic = () => (
+  <Island size="small">
+    <ProgressTracker currentStep={number('Current step', 1, options)} done={boolean('Completed', false)}>
+      {steps.map((step, index) => (
+        <ProgressTracker.ProgressStep label={step} key={index} />
+      ))}
+    </ProgressTracker>
+  </Island>
+);
+
+export const interactional = () => (
+  <Island size="small">
+    <ProgressTracker currentStep={number('Current step', 1, options)} done={boolean('Completed', false)}>
+      {steps.map((step, index) => (
+        <ProgressTracker.ProgressStep label={step} key={index} onClick={() => console.log('step clicked')} />
+      ))}
+    </ProgressTracker>
+  </Island>
+);

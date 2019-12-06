@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { select } from '@storybook/addon-knobs/react';
 import { SplitButton, MenuDivider, MenuItem } from '../src';
 
@@ -14,7 +13,11 @@ const handleMenuItemClick = () => {
   console.log('clicked menu item');
 };
 
-storiesOf('Split button', module).add('Basic', () => (
+export default {
+  title: 'Split button',
+};
+
+export const basic = () => (
   <SplitButton
     level={select('Level', levels, 'primary')}
     onButtonClick={handleButtonClick}
@@ -25,4 +28,4 @@ storiesOf('Split button', module).add('Basic', () => (
     <MenuDivider />
     <MenuItem onClick={handleMenuItemClick} label="Via Marketplace integrations" />
   </SplitButton>
-));
+);

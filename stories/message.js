@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { select } from '@storybook/addon-knobs/react';
 import { IllustrationInvoices120X120Static, IllustrationSharpie48X48Static } from '@teamleader/ui-illustrations';
 import { Button, Message, CompactMessage, Island, Heading2, Link, TextBody } from '../src';
@@ -26,35 +25,45 @@ const content = (
   </div>
 );
 
-storiesOf('Message', module)
-  .addParameters({
+export default {
+  title: 'Message',
+
+  parameters: {
     info: {
       propTablesExclude: [TextBody, Heading2, Link, Island],
     },
-  })
-  .add('Basic', () => (
-    <Island>
-      <Message button={button} link={link}>
-        {content}
-      </Message>
-    </Island>
-  ))
-  .add('Compact', () => (
-    <Island>
-      <CompactMessage button={button} image={imageSmall}>
-        {content}
-      </CompactMessage>
-    </Island>
-  ))
-  .add('With image', () => (
-    <Island>
-      <Message
-        button={button}
-        link={link}
-        image={image}
-        imagePositioning={select('Image positioning', imagePositions, 'left')}
-      >
-        {content}
-      </Message>
-    </Island>
-  ));
+  },
+};
+
+export const basic = () => (
+  <Island>
+    <Message button={button} link={link}>
+      {content}
+    </Message>
+  </Island>
+);
+
+export const compact = () => (
+  <Island>
+    <CompactMessage button={button} image={imageSmall}>
+      {content}
+    </CompactMessage>
+  </Island>
+);
+
+export const withImage = () => (
+  <Island>
+    <Message
+      button={button}
+      link={link}
+      image={image}
+      imagePositioning={select('Image positioning', imagePositions, 'left')}
+    >
+      {content}
+    </Message>
+  </Island>
+);
+
+withImage.story = {
+  name: 'With image',
+};

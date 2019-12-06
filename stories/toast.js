@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { Store, State } from '@sambego/storybook-state';
 import { Button, Toast, Link, ToastContainer } from '../src';
 
@@ -92,49 +91,77 @@ const handleAddToastWithSpinner = () => {
   store.set({ children: [...currentChildren, toast] });
 };
 
-storiesOf('Toast', module)
-  .addParameters({
+export default {
+  title: 'Toast',
+
+  parameters: {
     info: {
       propTablesExclude: [Button, State],
     },
-  })
-  .add('With close button', () => (
-    <div>
-      <Button label="Make a toast" onClick={handleAddToastWithClose} />
-      <State store={store}>
-        <ToastContainer children={[]} />
-      </State>
-    </div>
-  ))
-  .add('With custom action', () => (
-    <div>
-      <Button label="Make a toast" onClick={handleAddToastWithAction} />
-      <State store={store}>
-        <ToastContainer children={[]} />
-      </State>
-    </div>
-  ))
-  .add('With custom link', () => (
-    <div>
-      <Button label="Make a toast" onClick={handleAddToastWithLink} />
-      <State store={store}>
-        <ToastContainer children={[]} />
-      </State>
-    </div>
-  ))
-  .add('With multiline label', () => (
-    <div>
-      <Button label="Make a toast" onClick={handleAddToastWithMultilineLabel} />
-      <State store={store}>
-        <ToastContainer children={[]} />
-      </State>
-    </div>
-  ))
-  .add('With loading spinner', () => (
-    <div>
-      <Button label="Make a toast" onClick={handleAddToastWithSpinner} />
-      <State store={store}>
-        <ToastContainer children={[]} />
-      </State>
-    </div>
-  ));
+  },
+};
+
+export const withCloseButton = () => (
+  <div>
+    <Button label="Make a toast" onClick={handleAddToastWithClose} />
+    <State store={store}>
+      <ToastContainer children={[]} />
+    </State>
+  </div>
+);
+
+withCloseButton.story = {
+  name: 'With close button',
+};
+
+export const withCustomAction = () => (
+  <div>
+    <Button label="Make a toast" onClick={handleAddToastWithAction} />
+    <State store={store}>
+      <ToastContainer children={[]} />
+    </State>
+  </div>
+);
+
+withCustomAction.story = {
+  name: 'With custom action',
+};
+
+export const withCustomLink = () => (
+  <div>
+    <Button label="Make a toast" onClick={handleAddToastWithLink} />
+    <State store={store}>
+      <ToastContainer children={[]} />
+    </State>
+  </div>
+);
+
+withCustomLink.story = {
+  name: 'With custom link',
+};
+
+export const withMultilineLabel = () => (
+  <div>
+    <Button label="Make a toast" onClick={handleAddToastWithMultilineLabel} />
+    <State store={store}>
+      <ToastContainer children={[]} />
+    </State>
+  </div>
+);
+
+withMultilineLabel.story = {
+  name: 'With multiline label',
+};
+
+export const withLoadingSpinner = () => (
+  <div>
+    <Button label="Make a toast" onClick={handleAddToastWithSpinner} />
+    <State store={store}>
+      <ToastContainer children={[]} />
+    </State>
+  </div>
+);
+
+withLoadingSpinner.story = {
+  name: 'With loading spinner',
+};
