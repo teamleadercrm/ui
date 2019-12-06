@@ -10,7 +10,11 @@
       "plugins": ["@babel/plugin-transform-react-jsx-source"]
     },
     "cjs": {
-      "plugins": ["transform-react-remove-prop-types"]
+      "plugins": ["transform-react-remove-prop-types"],
+      "ignore": [
+        "**/*.stories.js",
+        "./src/static/**/*"
+      ]
     },
     "es": {
       "plugins": ["transform-react-remove-prop-types"],
@@ -21,6 +25,10 @@
             "modules": false
           }
         ]
+      ],
+      "ignore": [
+        "**/*.stories.js",
+        "./src/static/**/*"
       ]
     }
   }
