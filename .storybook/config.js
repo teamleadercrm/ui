@@ -98,8 +98,4 @@ addDecorator(withKnobs);
 // addon-styles
 addDecorator(styles({ ...centerStyles }));
 
-const req = require.context('../stories', true, /\.js$/);
-
-configure(() => {
-  req.keys().forEach(filename => req(filename));
-}, module);
+configure(require.context('../src/components', true, /\.stories\.js$/), module);
