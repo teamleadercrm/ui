@@ -8,8 +8,23 @@ export default {
   title: 'Form elements/Toggle',
 };
 
+const ControlledToggle = props => {
+  const handleChange = event => {
+    window.__STORYBOOK_ADDONS.channel.emit('storybookjs/knobs/change', {
+      name: 'Checked',
+      value: event.target.checked,
+    });
+  };
+
+  return <Toggle {...props} onChange={handleChange} />;
+};
+
+ControlledToggle.propTypes = Toggle.propTypes;
+ControlledToggle.defaultProps = Toggle.defaultProps;
+ControlledToggle.displayName = 'Toggle';
+
 export const basic = () => (
-  <Toggle
+  <ControlledToggle
     checked={boolean('Checked', false)}
     disabled={boolean('Disabled', false)}
     size={select('Size', sizes, 'medium')}
@@ -17,7 +32,7 @@ export const basic = () => (
 );
 
 export const withLabels = () => (
-  <Toggle
+  <ControlledToggle
     checked={boolean('Checked', false)}
     disabled={boolean('Disabled', false)}
     label={`I'm a toggle`}
