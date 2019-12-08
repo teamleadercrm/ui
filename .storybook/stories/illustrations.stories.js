@@ -1,6 +1,6 @@
 import React from 'react';
 import * as Illustrations from '@teamleader/ui-illustrations';
-import { Box, TextSmall } from '../src';
+import { Box, TextSmall } from '../../src';
 
 const gridStyles = {
   display: 'flex',

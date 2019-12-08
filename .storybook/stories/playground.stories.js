@@ -31,11 +31,11 @@ import {
   ToastContainer,
   Tooltip,
   QTip,
-} from '../src';
+} from '../../src';
 
-import { rows1, rows3 } from './static/data/datagrid';
-import options, { groupedOptions } from './static/data/select';
-import { LANGUAGES } from './static/data/languages';
+import { rows1, rows3 } from '../../src/static/data/datagrid';
+import options, { groupedOptions } from '../../src/static/data/select';
+import { LANGUAGES } from '../../src/static/data/languages';
 
 const inputPlaceholderToday = DateTime.fromJSDate(new Date())
   .setLocale('nl')
