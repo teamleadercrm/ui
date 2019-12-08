@@ -98,4 +98,7 @@ addDecorator(withKnobs);
 // addon-styles
 addDecorator(styles({ ...centerStyles }));
 
-configure(require.context('../src/components', true, /\.stories\.js$/), module);
+configure(
+  [require.context('../src/components', true, /\.stories\.js$/), require.context('./stories', true, /\.stories\.js$/)],
+  module,
+);
