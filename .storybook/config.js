@@ -3,7 +3,7 @@ import { configure, addDecorator, addParameters } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs } from '@storybook/addon-knobs';
 import { COLOR } from '../src/constants';
-import PropTable from '../stories/components/propTable';
+import PropTable from './components/propTable';
 import styles from '@sambego/storybook-styles';
 import teamleaderTheme from './teamleaderTheme';
 
