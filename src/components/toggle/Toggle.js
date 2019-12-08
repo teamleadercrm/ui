@@ -61,7 +61,6 @@ class Toggle extends PureComponent {
           disabled={disabled}
           onChange={this.handleToggle}
           ref={this.inputNode}
-          readOnly
           {...inputProps}
         />
         <span className={theme['track']}>
