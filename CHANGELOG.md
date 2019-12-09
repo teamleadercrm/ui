@@ -4,6 +4,8 @@
 
 ### Changed
 
+- [BREAKING] `Toggle`: Fix onChange signature to pass the actual internally used checkbox event. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#745](https://github.com/teamleadercrm/ui/pull/745))
+
 ### Deprecated
 
 ### Removed
