@@ -23,8 +23,8 @@
     "postcss.config.js"
   ],
   "dependencies": {
-    "@babel/cli": "^7.4.4",
-    "@babel/runtime": "^7.0.0",
+    "@babel/cli": "^7.7.5",
+    "@babel/runtime": "^7.7.6",
     "@teamleader/ui-animations": "^0.0.3",
     "@teamleader/ui-colors": "^0.0.7",
     "@teamleader/ui-icons": "^0.2.17",
@@ -48,12 +48,12 @@
     "react-transition-group": "^4.2.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.1.0",
-    "@babel/plugin-proposal-export-default-from": "^7.0.0",
-    "@babel/plugin-transform-react-jsx-source": "^7.0.0",
-    "@babel/plugin-transform-runtime": "^7.1.0",
-    "@babel/preset-env": "^7.1.0",
-    "@babel/preset-react": "^7.0.0",
+    "@babel/core": "^7.7.5",
+    "@babel/plugin-proposal-export-default-from": "^7.7.4",
+    "@babel/plugin-transform-react-jsx-source": "^7.7.4",
+    "@babel/plugin-transform-runtime": "^7.7.6",
+    "@babel/preset-env": "^7.7.6",
+    "@babel/preset-react": "^7.7.4",
     "@sambego/storybook-state": "^1.0.7",
     "@sambego/storybook-styles": "^1.0.0",
     "@storybook/addon-backgrounds": "^5.0.11",
