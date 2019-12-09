@@ -5,6 +5,7 @@
 ### Changed
 
 - [INTERNAL]: changed all stories to Component Story Format (CSF) and moved them next to their respective components. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#740](https://github.com/teamleadercrm/ui/pull/740))
+- [BREAKING] `Toggle`: Fix onChange signature to pass the actual internally used checkbox event. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#745](https://github.com/teamleadercrm/ui/pull/745))
 
 ### Deprecated
 

@@ -10,14 +10,14 @@ class Toggle extends PureComponent {
   inputNode = createRef();
 
   handleToggle = event => {
-    const { disabled, checked, onChange } = this.props;
+    const { disabled, onChange } = this.props;
 
     if (event.pageX !== 0 && event.pageY !== 0) {
       this.blur();
     }
 
     if (!disabled && onChange) {
-      onChange(!checked, event);
+      onChange(event);
     }
   };
 
@@ -59,9 +59,8 @@ class Toggle extends PureComponent {
           type="checkbox"
           checked={checked}
           disabled={disabled}
-          onClick={this.handleToggle}
+          onChange={this.handleToggle}
           ref={this.inputNode}
-          readOnly
           {...inputProps}
         />
         <span className={theme['track']}>
