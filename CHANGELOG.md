@@ -4,6 +4,8 @@
 
 ### Changed
 
+- [INTERNAL]: changed all stories to Component Story Format (CSF) and moved them next to their respective components. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#740](https://github.com/teamleadercrm/ui/pull/740))
+
 ### Deprecated
 
 ### Removed
