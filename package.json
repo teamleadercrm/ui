@@ -134,7 +134,7 @@
     "compile": "build-storybook -o dist",
     "lint:clean": "yarn lint && rimraf dist",
     "deploy:prod": "yarn lint:clean && NODE_ENV=production yarn compile",
-    "lint": "eslint ./src ./stories",
+    "lint": "eslint ./src",
     "lint:fix": "yarn lint --fix",
     "precommit": "pretty-quick --staged",
     "prettier": "prettier --write '**/*.{js,json,md,css}'",
