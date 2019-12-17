@@ -9,6 +9,7 @@ import {
 import Button from '../button';
 import Icon from '../icon';
 import SingleLineInputBase from './SingleLineInputBase';
+import omit from 'lodash.omit';
 import theme from './theme.css';
 
 class StepperControls extends PureComponent {
@@ -154,7 +155,8 @@ class NumericInput extends PureComponent {
   };
 
   render() {
-    const { onChange, suffix, ...others } = this.props;
+    const { onChange, ...others } = this.props;
+    const restProps = omit(others, ['suffix']);
 
     return (
       <SingleLineInputBase
@@ -164,7 +166,7 @@ class NumericInput extends PureComponent {
           this.handleOnChange(event);
           onChange && onChange(event, event.currentTarget.value);
         }}
-        {...others}
+        {...restProps}
         connectedLeft={this.getConnectedLeft()}
         connectedRight={this.getConnectedRight()}
         suffix={this.getSuffix()}
