@@ -99,6 +99,11 @@
     "pretty-quick": "2.0.1",
     "proptypes": "^1.1.0",
     "rimraf": "^3.0.0",
+    "rollup": "^1.27.13",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-postcss": "^2.0.3",
     "style-loader": "^1.0.0",
     "webpack": "^4.1.1"
   },
