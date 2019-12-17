@@ -89,21 +89,29 @@ class NumericInput extends PureComponent {
 
   isMinReached = () => this.state.value <= this.props.min;
 
-  getSuffixWithSpinner = () => [
-    ...this.props.suffix,
-    /* eslint-disable-next-line react/jsx-key */
-    <SpinnerControls
-      inverse={this.props.inverse}
-      spinnerUpProps={{
-        onClick: this.handleIncreaseValue,
-        disabled: this.isMaxReached(),
-      }}
-      spinnerDownProps={{
-        onClick: this.handleDecreaseValue,
-        disabled: this.isMinReached(),
-      }}
-    />,
-  ];
+  getSuffix = () => {
+    const { inverse, spinner, suffix } = this.props;
+
+    if (spinner === 'suffix') {
+      return [
+        ...suffix,
+        /* eslint-disable-next-line react/jsx-key */
+        <SpinnerControls
+          inverse={inverse}
+          spinnerUpProps={{
+            onClick: this.handleIncreaseValue,
+            disabled: this.isMaxReached(),
+          }}
+          spinnerDownProps={{
+            onClick: this.handleDecreaseValue,
+            disabled: this.isMinReached(),
+          }}
+        />,
+      ];
+    }
+
+    return suffix;
+  };
 
   render() {
     const { spinner, suffix, onChange, ...others } = this.props;
@@ -112,7 +120,7 @@ class NumericInput extends PureComponent {
       <SingleLineInputBase
         type="number"
         value={this.state.value}
-        suffix={spinner === 'suffix' ? this.getSuffixWithSpinner() : suffix}
+        suffix={this.getSuffix()}
         onChange={event => {
           this.handleOnChange(event);
           onChange && onChange(event, event.currentTarget.value);
