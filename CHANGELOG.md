@@ -6,6 +6,7 @@
 
 - [BREAKING] `NumericInput`: changed prop type `spinner` from `boolean` (default `true`) to `oneOf` (default `suffix`). ([@driesd](https://github.com/driesd) in [#756](https://github.com/teamleadercrm/ui/pull/756))
 - [BREAKING] `NumericInput`: renamed `spinner` prop to `stepper`. ([@driesd](https://github.com/driesd) in [#756](https://github.com/teamleadercrm/ui/pull/756))
+- [BUILD]: Don't require library users to use a postcss setup. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#755](https://github.com/teamleadercrm/ui/pull/755))
 
 ### Deprecated
 
