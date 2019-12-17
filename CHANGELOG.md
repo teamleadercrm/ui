@@ -4,6 +4,8 @@
 
 ### Changed
 
+- [BUILD]: Don't require library users to use a postcss setup. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#755](https://github.com/teamleadercrm/ui/pull/755))
+
 ### Deprecated
 
 ### Removed
