@@ -17,9 +17,10 @@
     "Arnaud Weyts <arnaud.weyts@teamleader.eu>",
     "Mike Verfaille  <mike.verfaille@teamleader.eu>"
   ],
+  "main": "./lib/bundle.cjs.js",
+  "module": "./lib/bundle.esm.js",
   "files": [
-    "cjs",
-    "es",
+    "lib",
     "postcss.config.js"
   ],
   "dependencies": {
@@ -116,8 +117,6 @@
     "ui"
   ],
   "license": "MIT",
-  "main": "cjs/index.js",
-  "module": "es/index.js",
   "engines": {
     "node": ">=10.13.0"
   },
