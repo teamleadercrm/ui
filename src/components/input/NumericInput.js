@@ -5,9 +5,9 @@ import Icon from '../icon';
 import SingleLineInputBase from './SingleLineInputBase';
 import theme from './theme.css';
 
-class SpinnerControls extends PureComponent {
+class StepperControls extends PureComponent {
   render() {
-    const { inverse, spinnerUpProps, spinnerDownProps } = this.props;
+    const { inverse, stepperUpProps, stepperDownProps } = this.props;
     const iconProps = {
       color: inverse ? 'teal' : 'neutral',
       element: 'button',
@@ -17,11 +17,11 @@ class SpinnerControls extends PureComponent {
     };
 
     return (
-      <div className={theme['spinner']}>
-        <Icon className={theme['spinner-up']} {...spinnerUpProps} {...iconProps}>
+      <div className={theme['stepper']}>
+        <Icon className={theme['stepper-up']} {...stepperUpProps} {...iconProps}>
           <IconChevronUpSmallOutline />
         </Icon>
-        <Icon className={theme['spinner-down']} {...spinnerDownProps} {...iconProps}>
+        <Icon className={theme['stepper-down']} {...stepperDownProps} {...iconProps}>
           <IconChevronDownSmallOutline />
         </Icon>
       </div>
@@ -90,19 +90,19 @@ class NumericInput extends PureComponent {
   isMinReached = () => this.state.value <= this.props.min;
 
   getSuffix = () => {
-    const { inverse, spinner, suffix } = this.props;
+    const { inverse, stepper, suffix } = this.props;
 
-    if (spinner === 'suffix') {
+    if (stepper === 'suffix') {
       return [
         ...suffix,
         /* eslint-disable-next-line react/jsx-key */
-        <SpinnerControls
+        <StepperControls
           inverse={inverse}
-          spinnerUpProps={{
+          stepperUpProps={{
             onClick: this.handleIncreaseValue,
             disabled: this.isMaxReached(),
           }}
-          spinnerDownProps={{
+          stepperDownProps={{
             onClick: this.handleDecreaseValue,
             disabled: this.isMinReached(),
           }}
@@ -114,7 +114,7 @@ class NumericInput extends PureComponent {
   };
 
   render() {
-    const { spinner, suffix, onChange, ...others } = this.props;
+    const { onChange, suffix, ...others } = this.props;
 
     return (
       <SingleLineInputBase
@@ -138,8 +138,8 @@ NumericInput.propTypes = {
   max: PropTypes.number,
   /** The minimum value that can be inputted */
   min: PropTypes.number,
-  /** Specify where the spinner controls should be rendered */
-  spinner: PropTypes.oneOf(['none', 'connected', 'suffix']),
+  /** Specify where the stepper controls should be rendered */
+  stepper: PropTypes.oneOf(['none', 'connected', 'suffix']),
   /** Limit increment value for numeric inputs. */
   step: PropTypes.number,
 };
@@ -149,7 +149,7 @@ NumericInput.defaultProps = {
   max: Number.MAX_SAFE_INTEGER,
   step: 1,
   suffix: [],
-  spinner: 'suffix',
+  stepper: 'suffix',
 };
 
 export default NumericInput;
