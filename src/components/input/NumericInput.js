@@ -1,6 +1,12 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { IconChevronUpSmallOutline, IconChevronDownSmallOutline } from '@teamleader/ui-icons';
+import {
+  IconAddSmallOutline,
+  IconChevronUpSmallOutline,
+  IconChevronDownSmallOutline,
+  IconMinusSmallOutline,
+} from '@teamleader/ui-icons';
+import Button from '../button';
 import Icon from '../icon';
 import SingleLineInputBase from './SingleLineInputBase';
 import theme from './theme.css';
@@ -89,6 +95,30 @@ class NumericInput extends PureComponent {
 
   isMinReached = () => this.state.value <= this.props.min;
 
+  getConnectedRight = () => {
+    const { connectedRight, stepper } = this.props;
+
+    if (stepper === 'connected') {
+      return (
+        <Button disabled={this.isMaxReached()} icon={<IconAddSmallOutline />} onClick={this.handleIncreaseValue} />
+      );
+    }
+
+    return connectedRight;
+  };
+
+  getConnectedLeft = () => {
+    const { connectedLeft, stepper } = this.props;
+
+    if (stepper === 'connected') {
+      return (
+        <Button disabled={this.isMinReached()} icon={<IconMinusSmallOutline />} onClick={this.handleDecreaseValue} />
+      );
+    }
+
+    return connectedLeft;
+  };
+
   getSuffix = () => {
     const { inverse, stepper, suffix } = this.props;
 
@@ -120,12 +150,14 @@ class NumericInput extends PureComponent {
       <SingleLineInputBase
         type="number"
         value={this.state.value}
-        suffix={this.getSuffix()}
         onChange={event => {
           this.handleOnChange(event);
           onChange && onChange(event, event.currentTarget.value);
         }}
         {...others}
+        connectedLeft={this.getConnectedLeft()}
+        connectedRight={this.getConnectedRight()}
+        suffix={this.getSuffix()}
       />
     );
   }
