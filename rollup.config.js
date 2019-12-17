@@ -29,6 +29,8 @@ export default {
     }),
     babel({
       exclude: 'node_modules/**',
+      plugins: ['transform-react-remove-prop-types'],
+      ignore: ['**/*.stories.js', './src/static/**/*'],
     }),
     commonjs({
       include: 'node_modules/**',
