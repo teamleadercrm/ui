@@ -96,11 +96,16 @@ class NumericInput extends PureComponent {
   isMinReached = () => this.state.value <= this.props.min;
 
   getConnectedRight = () => {
-    const { connectedRight, stepper } = this.props;
+    const { connectedRight, size, stepper } = this.props;
 
     if (stepper === 'connected') {
       return (
-        <Button disabled={this.isMaxReached()} icon={<IconAddSmallOutline />} onClick={this.handleIncreaseValue} />
+        <Button
+          disabled={this.isMaxReached()}
+          icon={<IconAddSmallOutline />}
+          onClick={this.handleIncreaseValue}
+          size={size}
+        />
       );
     }
 
@@ -108,11 +113,16 @@ class NumericInput extends PureComponent {
   };
 
   getConnectedLeft = () => {
-    const { connectedLeft, stepper } = this.props;
+    const { connectedLeft, size, stepper } = this.props;
 
     if (stepper === 'connected') {
       return (
-        <Button disabled={this.isMinReached()} icon={<IconMinusSmallOutline />} onClick={this.handleDecreaseValue} />
+        <Button
+          disabled={this.isMinReached()}
+          icon={<IconMinusSmallOutline />}
+          onClick={this.handleDecreaseValue}
+          size={size}
+        />
       );
     }
 
