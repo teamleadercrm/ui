@@ -51,6 +51,7 @@ const prefix = [
   /* eslint-disable-next-line react/jsx-key */
   <TextBody color="neutral">€</TextBody>,
 ];
+const spinnerOptions = ['none', 'connected', 'suffix'];
 /* eslint-disable-next-line react/jsx-key */
 const suffix = [<TextSmall color="neutral">incl. BTW</TextSmall>, <Counter count={99} />, <LoadingSpinner />];
 
@@ -119,7 +120,7 @@ export const numericInput = () => (
     placeholder={text('Placeholder', placeholder)}
     readOnly={boolean('Read only', false)}
     size={select('Size', sizes) || undefined}
-    spinner={boolean('Spinner', true)}
+    spinner={select('Spinner', spinnerOptions, 'suffix')}
     step={number('Step', 1)}
     connectedLeft={
       boolean('Toggle connected left', false) ? <Button size={select('Size', sizes, 'medium')} label="€" /> : undefined

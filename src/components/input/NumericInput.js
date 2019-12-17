@@ -112,7 +112,7 @@ class NumericInput extends PureComponent {
       <SingleLineInputBase
         type="number"
         value={this.state.value}
-        suffix={spinner ? this.getSuffixWithSpinner() : suffix}
+        suffix={spinner === 'suffix' ? this.getSuffixWithSpinner() : suffix}
         onChange={event => {
           this.handleOnChange(event);
           onChange && onChange(event, event.currentTarget.value);
@@ -130,8 +130,8 @@ NumericInput.propTypes = {
   max: PropTypes.number,
   /** The minimum value that can be inputted */
   min: PropTypes.number,
-  /** Boolean indicating whether to number type input should render spinner controls */
-  spinner: PropTypes.bool,
+  /** Specify where the spinner controls should be rendered */
+  spinner: PropTypes.oneOf(['none', 'connected', 'suffix']),
   /** Limit increment value for numeric inputs. */
   step: PropTypes.number,
 };
@@ -141,7 +141,7 @@ NumericInput.defaultProps = {
   max: Number.MAX_SAFE_INTEGER,
   step: 1,
   suffix: [],
-  spinner: true,
+  spinner: 'suffix',
 };
 
 export default NumericInput;
