@@ -1,13 +1,20 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { IconChevronUpSmallOutline, IconChevronDownSmallOutline } from '@teamleader/ui-icons';
+import {
+  IconAddSmallOutline,
+  IconChevronUpSmallOutline,
+  IconChevronDownSmallOutline,
+  IconMinusSmallOutline,
+} from '@teamleader/ui-icons';
+import Button from '../button';
 import Icon from '../icon';
 import SingleLineInputBase from './SingleLineInputBase';
+import omit from 'lodash.omit';
 import theme from './theme.css';
 
-class SpinnerControls extends PureComponent {
+class StepperControls extends PureComponent {
   render() {
-    const { inverse, spinnerUpProps, spinnerDownProps } = this.props;
+    const { inverse, stepperUpProps, stepperDownProps } = this.props;
     const iconProps = {
       color: inverse ? 'teal' : 'neutral',
       element: 'button',
@@ -17,11 +24,11 @@ class SpinnerControls extends PureComponent {
     };
 
     return (
-      <div className={theme['spinner']}>
-        <Icon className={theme['spinner-up']} {...spinnerUpProps} {...iconProps}>
+      <div className={theme['stepper']}>
+        <Icon className={theme['stepper-up']} {...stepperUpProps} {...iconProps}>
           <IconChevronUpSmallOutline />
         </Icon>
-        <Icon className={theme['spinner-down']} {...spinnerDownProps} {...iconProps}>
+        <Icon className={theme['stepper-down']} {...stepperDownProps} {...iconProps}>
           <IconChevronDownSmallOutline />
         </Icon>
       </div>
@@ -89,35 +96,80 @@ class NumericInput extends PureComponent {
 
   isMinReached = () => this.state.value <= this.props.min;
 
-  getSuffixWithSpinner = () => [
-    ...this.props.suffix,
-    /* eslint-disable-next-line react/jsx-key */
-    <SpinnerControls
-      inverse={this.props.inverse}
-      spinnerUpProps={{
-        onClick: this.handleIncreaseValue,
-        disabled: this.isMaxReached(),
-      }}
-      spinnerDownProps={{
-        onClick: this.handleDecreaseValue,
-        disabled: this.isMinReached(),
-      }}
-    />,
-  ];
+  getConnectedRight = () => {
+    const { connectedRight, size, stepper } = this.props;
+
+    if (stepper === 'connected') {
+      return (
+        <Button
+          disabled={this.isMaxReached()}
+          icon={<IconAddSmallOutline />}
+          onClick={this.handleIncreaseValue}
+          size={size}
+        />
+      );
+    }
+
+    return connectedRight;
+  };
+
+  getConnectedLeft = () => {
+    const { connectedLeft, size, stepper } = this.props;
+
+    if (stepper === 'connected') {
+      return (
+        <Button
+          disabled={this.isMinReached()}
+          icon={<IconMinusSmallOutline />}
+          onClick={this.handleDecreaseValue}
+          size={size}
+        />
+      );
+    }
+
+    return connectedLeft;
+  };
+
+  getSuffix = () => {
+    const { inverse, stepper, suffix } = this.props;
+
+    if (stepper === 'suffix') {
+      return [
+        ...suffix,
+        /* eslint-disable-next-line react/jsx-key */
+        <StepperControls
+          inverse={inverse}
+          stepperUpProps={{
+            onClick: this.handleIncreaseValue,
+            disabled: this.isMaxReached(),
+          }}
+          stepperDownProps={{
+            onClick: this.handleDecreaseValue,
+            disabled: this.isMinReached(),
+          }}
+        />,
+      ];
+    }
+
+    return suffix;
+  };
 
   render() {
-    const { spinner, suffix, onChange, ...others } = this.props;
+    const { onChange, ...others } = this.props;
+    const restProps = omit(others, ['suffix']);
 
     return (
       <SingleLineInputBase
         type="number"
         value={this.state.value}
-        suffix={spinner ? this.getSuffixWithSpinner() : suffix}
         onChange={event => {
           this.handleOnChange(event);
           onChange && onChange(event, event.currentTarget.value);
         }}
-        {...others}
+        {...restProps}
+        connectedLeft={this.getConnectedLeft()}
+        connectedRight={this.getConnectedRight()}
+        suffix={this.getSuffix()}
       />
     );
   }
@@ -130,8 +182,8 @@ NumericInput.propTypes = {
   max: PropTypes.number,
   /** The minimum value that can be inputted */
   min: PropTypes.number,
-  /** Boolean indicating whether to number type input should render spinner controls */
-  spinner: PropTypes.bool,
+  /** Specify where the stepper controls should be rendered */
+  stepper: PropTypes.oneOf(['none', 'connected', 'suffix']),
   /** Limit increment value for numeric inputs. */
   step: PropTypes.number,
 };
@@ -141,7 +193,7 @@ NumericInput.defaultProps = {
   max: Number.MAX_SAFE_INTEGER,
   step: 1,
   suffix: [],
-  spinner: true,
+  stepper: 'suffix',
 };
 
 export default NumericInput;
