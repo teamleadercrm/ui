@@ -4,13 +4,21 @@
 
 ### Changed
 
-- [BREAKING] `NumericInput`: changed prop type `spinner` from `boolean` (default `true`) to `oneOf` (default `suffix`). ([@driesd](https://github.com/driesd) in [#756](https://github.com/teamleadercrm/ui/pull/756))
-- [BREAKING] `NumericInput`: renamed `spinner` prop to `stepper`. ([@driesd](https://github.com/driesd) in [#756](https://github.com/teamleadercrm/ui/pull/756))
-- [BUILD]: Don't require library users to use a postcss setup. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#755](https://github.com/teamleadercrm/ui/pull/755))
-
 ### Deprecated
 
 ### Removed
+
+### Fixed
+
+### Dependency updates
+
+## [0.35.0] - 2019-12-18
+
+### Changed
+
+- [BREAKING] `NumericInput`: changed prop type `spinner` from `boolean` (default `true`) to `oneOf` (default `suffix`). ([@driesd](https://github.com/driesd) in [#756](https://github.com/teamleadercrm/ui/pull/756))
+- [BREAKING] `NumericInput`: renamed `spinner` prop to `stepper`. ([@driesd](https://github.com/driesd) in [#756](https://github.com/teamleadercrm/ui/pull/756))
+- [BUILD]: Don't require library users to use a postcss setup. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#755](https://github.com/teamleadercrm/ui/pull/755))
 
 ### Fixed
 
@@ -18,6 +26,12 @@
 - `Select`: focus state should not overrule any other state. ([@driesd](https://github.com/driesd) in [#759](https://github.com/teamleadercrm/ui/pull/759))
 
 ### Dependency updates
+
+- `css-loader` from `3.3.0` to `3.4.0`
+- `eslint-plugin-prettier` from `3.1.1` to `3.1.2`
+- `postcss` from `7.0.24` to `7.0.25`
+- `style-loader` from `1.0.1` to `1.0.2`
+- `webpack` from `4.41.2` to `4.41.3`
 
 ## [0.34.0] - 2019-12-12
 
