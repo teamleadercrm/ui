@@ -14,6 +14,9 @@
 
 ### Fixed
 
+- `Input`: focus state should not overrule any other state. ([@driesd](https://github.com/driesd) in [#759](https://github.com/teamleadercrm/ui/pull/759))
+- `Select`: focus state should not overrule any other state. ([@driesd](https://github.com/driesd) in [#759](https://github.com/teamleadercrm/ui/pull/759))
+
 ### Dependency updates
 
 ## [0.34.0] - 2019-12-12
