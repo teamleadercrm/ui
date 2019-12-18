@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `DataGrid`: extended the `flex` prop `values` of the `Cell` component up to `12`. ([@driesd](https://github.com/driesd) in [#761](https://github.com/teamleadercrm/ui/pull/761))
+
 ### Deprecated
 
 ### Removed
