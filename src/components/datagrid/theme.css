@@ -4,6 +4,7 @@
 
 :root {
   --datagrid-blend-width: 12px;
+  --datagrid-cell-width-base: 80px;
 }
 
 .data-grid {
@@ -225,24 +226,11 @@
   min-width: 30px;
 }
 
-.flex-1 {
-  flex: 1 0 100px;
-  min-width: 100px;
-}
-
-.flex-2 {
-  flex: 2 0 200px;
-  min-width: 200px;
-}
-
-.flex-3 {
-  flex: 3 0 300px;
-  min-width: 300px;
-}
-
-.flex-4 {
-  flex: 4 0 400px;
-  min-width: 400px;
+@each $factor in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12) {
+  .flex-$(factor) {
+    flex: $factor 0 calc($factor * var(--datagrid-cell-width-base));
+    min-width: calc($factor * var(--datagrid-cell-width-base));
+  }
 }
 
 /* Cell alignment */
