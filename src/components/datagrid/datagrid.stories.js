@@ -59,7 +59,7 @@ export const basic = () => (
       <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} align="right">
         Amount
       </DataGrid.HeaderCell>
-      <DataGrid.HeaderCell flex="2" onClick={() => console.log('onClick: column sort')}>
+      <DataGrid.HeaderCell flex="5" onClick={() => console.log('onClick: column sort')}>
         Customer
       </DataGrid.HeaderCell>
       <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')}>Due date</DataGrid.HeaderCell>
@@ -86,7 +86,7 @@ export const basic = () => (
             {' '}
             {`€ ${row.column3}`}
           </DataGrid.Cell>
-          <DataGrid.Cell flex="2">{row.column2}</DataGrid.Cell>
+          <DataGrid.Cell flex="5">{row.column2}</DataGrid.Cell>
           <DataGrid.Cell soft>{row.column4}</DataGrid.Cell>
           <DataGrid.Cell align="right" flex="min-width" preventOverflow={false}>
             <IconMenu position="top-right">
