@@ -43,11 +43,9 @@ class Select extends PureComponent {
         ...commonStyles,
         backgroundColor: isDisabled ? COLOR.TEAL.DARK : COLOR.TEAL.NORMAL,
         '&:hover': {
-          borderColor: !isFocused && !error && !warning && !success && COLOR.TEAL.LIGHT,
+          borderColor: !error && !warning && !success && COLOR.TEAL.LIGHT,
         },
-        borderColor: isFocused
-          ? COLOR.TEAL.LIGHT
-          : error
+        borderColor: error
           ? COLOR.RUBY.LIGHT
           : warning
           ? COLOR.GOLD.LIGHT
@@ -55,15 +53,17 @@ class Select extends PureComponent {
           ? COLOR.MINT.LIGHT
           : isDisabled
           ? COLOR.TEAL.DARK
+          : isFocused
+          ? COLOR.TEAL.LIGHT
           : COLOR.TEAL.NORMAL,
-        boxShadow: isFocused
-          ? `0 0 0 1px ${COLOR.TEAL.LIGHT}`
-          : error
+        boxShadow: error
           ? `0 0 0 1px ${COLOR.RUBY.LIGHT}`
           : warning
           ? `0 0 0 1px ${COLOR.GOLD.LIGHT}`
           : success
           ? `0 0 0 1px ${COLOR.MINT.LIGHT}`
+          : isFocused
+          ? `0 0 0 1px ${COLOR.TEAL.LIGHT}`
           : 'none',
       };
     }
@@ -72,11 +72,9 @@ class Select extends PureComponent {
       ...commonStyles,
       backgroundColor: isDisabled ? COLOR.NEUTRAL.NORMAL : COLOR.NEUTRAL.LIGHTEST,
       '&:hover': {
-        borderColor: !isFocused && !error && !warning && !success && COLOR.NEUTRAL.DARKEST,
+        borderColor: !error && !warning && !success && COLOR.NEUTRAL.DARKEST,
       },
-      borderColor: isFocused
-        ? COLOR.NEUTRAL.DARKEST
-        : error
+      borderColor: error
         ? COLOR.RUBY.DARK
         : warning
         ? COLOR.GOLD.DARK
@@ -84,15 +82,17 @@ class Select extends PureComponent {
         ? COLOR.MINT.DARK
         : isDisabled
         ? COLOR.NEUTRAL.NORMAL
+        : isFocused
+        ? COLOR.NEUTRAL.DARKEST
         : COLOR.NEUTRAL.DARK,
-      boxShadow: isFocused
-        ? `0 0 0 1px ${COLOR.NEUTRAL.DARKEST}`
-        : error
+      boxShadow: error
         ? `0 0 0 1px ${COLOR.RUBY.DARK}`
         : warning
         ? `0 0 0 1px ${COLOR.GOLD.DARK}`
         : success
         ? `0 0 0 1px ${COLOR.MINT.DARK}`
+        : isFocused
+        ? `0 0 0 1px ${COLOR.NEUTRAL.DARKEST}`
         : 'none',
     };
   };
