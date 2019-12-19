@@ -1,6 +1,24 @@
 declare module '@teamleader/ui' {
   import { ReactNode, RefObject, HTMLAttributes, CSSProperties } from 'react';
 
+  enum Color {
+    aqua = 'aqua',
+    gold = 'gold',
+    neutral = 'neutral',
+    mint = 'mint',
+    ruby = 'ruby',
+    teal = 'teal',
+    violet = 'violet',
+  }
+
+  enum Tint {
+    lightest = 'lightest',
+    light = 'light',
+    normal = 'normal',
+    dark = 'dark',
+    darkest = 'darkest',
+  }
+
   type SpacingProps = {
     margin: Unit;
     marginTop: Unit;
@@ -18,15 +36,59 @@ declare module '@teamleader/ui' {
     paddingHorizontal: Unit;
   };
 
-  type LayoutProps = Pick<CSSProperties, 'display' | 'position' | 'alignItems' | 'justifyContent'>;
+  enum BorderRadius {
+    square = 'square',
+    circle = 'circle',
+    rounded = 'rounded',
+  }
+
+  type BorderProps = {
+    borderWidth: number;
+    borderBottomWidth: number;
+    borderLeftWidth: number;
+    borderRightWidth: number;
+    borderTopWidth: number;
+    borderColor: Color;
+    borderTint: Tint;
+    borderRadius: BorderRadius;
+    borderTopLeftRadius: BorderRadius;
+    borderTopRightRadius: BorderRadius;
+    borderBottomLeftRadius: BorderRadius;
+    borderBottomRightRadius: BorderRadius;
+  };
+
+  type LayoutProps = Pick<
+    CSSProperties,
+    | 'boxSizing'
+    | 'display'
+    | 'position'
+    | 'alignContent'
+    | 'alignItems'
+    | 'alignSelf'
+    | 'justifyContent'
+    | 'flex'
+    | 'flexBasis'
+    | 'flexDirection'
+    | 'flexGrow'
+    | 'flexShrink'
+    | 'flexWrap'
+    | 'justifyContent'
+    | 'order'
+    | 'overflow'
+    | 'overflowX'
+    | 'overflowY'
+    | 'textAlign'
+  >;
 
   type BoxProps = HTMLAttributes<HTMLDivElement> &
     Partial<SpacingProps> &
-    Partial<LayoutProps> & {
+    Partial<LayoutProps> &
+    Partial<BorderProps> & {
       ref?: RefObject<{ boxNode: RefObject<HTMLDivElement> }>;
       backgroundColor?: string;
       backgroundTint?: string;
       children?: ReactNode;
+      element?: ReactNode;
     };
 
   export function AdvancedCollapsible(props: any): any;
