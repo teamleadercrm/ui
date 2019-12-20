@@ -1,16 +1,33 @@
 {
-  "presets": [
-    "@babel/preset-env",
-    "@babel/preset-react"
-  ],
+  "presets": ["@babel/preset-env", "@babel/preset-react"],
   "plugins": [
     "@babel/plugin-proposal-export-default-from",
     "@babel/plugin-proposal-class-properties"
   ],
   "env": {
     "development": {
-      "plugins": [
-        "@babel/plugin-transform-react-jsx-source"
+      "plugins": ["@babel/plugin-transform-react-jsx-source"]
+    },
+    "cjs": {
+      "plugins": ["transform-react-remove-prop-types"],
+      "ignore": [
+        "**/*.stories.js",
+        "./src/static/**/*"
+      ]
+    },
+    "es": {
+      "plugins": ["transform-react-remove-prop-types"],
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "modules": false
+          }
+        ]
+      ],
+      "ignore": [
+        "**/*.stories.js",
+        "./src/static/**/*"
       ]
     }
   }
