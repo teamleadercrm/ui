@@ -12,6 +12,13 @@
 
 ### Dependency updates
 
+## [0.35.1] - 2019-12-23
+
+### Changed
+
+- [BUILD]: Revert "🔧 Don't require library users to use postcss". ([@ArnaudWeyts](https://github.com/driesd) in [#768](https://github.com/teamleadercrm/ui/pull/768))
+- `DataGrid`: extended the `flex` prop `values` of the `Cell` component up to `12`. ([@driesd](https://github.com/driesd) in [#761](https://github.com/teamleadercrm/ui/pull/761))
+
 ## [0.35.0] - 2019-12-18
 
 ### Changed
