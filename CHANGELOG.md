@@ -12,6 +12,12 @@
 
 ### Dependency updates
 
+## [0.35.2] - 2019-12-23
+
+### Changed
+
+- [INTERNAL]: Added a yml deploy script to be used by Teamleader's CI in order to deploy components. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#768](https://github.com/teamleadercrm/ui/pull/772))
+
 ## [0.35.1] - 2019-12-23
 
 ### Changed
