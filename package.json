@@ -17,11 +17,9 @@
     "Arnaud Weyts <arnaud.weyts@teamleader.eu>",
     "Mike Verfaille  <mike.verfaille@teamleader.eu>"
   ],
-  "main": "./lib/bundle.cjs.js",
-  "module": "./lib/bundle.esm.js",
   "files": [
-    "lib",
-    "index.d.ts",
+    "cjs",
+    "es",
     "postcss.config.js"
   ],
   "types": "index.d.ts",
@@ -55,6 +53,7 @@
     "@babel/plugin-proposal-export-default-from": "^7.7.4",
     "@babel/plugin-transform-react-jsx-source": "^7.7.4",
     "@babel/preset-env": "^7.7.7",
+    "@babel/plugin-transform-runtime": "^7.7.6",
     "@babel/preset-react": "^7.7.4",
     "@sambego/storybook-state": "^1.0.7",
     "@sambego/storybook-styles": "^1.0.0",
@@ -101,11 +100,6 @@
     "pretty-quick": "2.0.1",
     "proptypes": "^1.1.0",
     "rimraf": "^3.0.0",
-    "rollup": "^1.27.13",
-    "rollup-plugin-babel": "^4.3.3",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-postcss": "^2.0.3",
     "style-loader": "^1.0.0",
     "webpack": "^4.1.1"
   },
@@ -118,6 +112,8 @@
     "ui"
   ],
   "license": "MIT",
+  "main": "cjs/index.js",
+  "module": "es/index.js",
   "engines": {
     "node": ">=10.13.0"
   },
@@ -131,7 +127,11 @@
   ],
   "browserslist": ">0.5%, ie 11, not op_mini all",
   "scripts": {
-    "build": "rimraf lib && rollup -c",
+    "build:css": "postcss ./src/**/*.css --base src --dir ./es && cp -R ./es ./cjs",
+    "build:js": "yarn build:es; yarn build:cjs",
+    "build:cjs": "NODE_ENV=cjs babel src --out-dir cjs",
+    "build:es": "NODE_ENV=es babel src --out-dir es",
+    "build": "rimraf es && rimraf cjs && yarn build:css && yarn build:js",
     "compile": "build-storybook -o dist",
     "lint:clean": "yarn lint && rimraf dist",
     "deploy:prod": "yarn lint:clean && NODE_ENV=production yarn compile",
