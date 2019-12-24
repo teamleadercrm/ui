@@ -12,6 +12,12 @@
 
 ### Dependency updates
 
+## [0.35.3] - 2019-12-24
+
+### Changed
+
+- [Typescript]: Include the typescript declaration file ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#774](https://github.com/teamleadercrm/ui/pull/774))
+
 ## [0.35.2] - 2019-12-23
 
 ### Changed
