@@ -20,7 +20,8 @@
   "files": [
     "cjs",
     "es",
-    "postcss.config.js"
+    "postcss.config.js",
+    "index.d.ts"
   ],
   "types": "index.d.ts",
   "dependencies": {

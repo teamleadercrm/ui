@@ -4,6 +4,8 @@
 
 ### Changed
 
+- [Typescript]: Include the typescript declaration file ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#774](https://github.com/teamleadercrm/ui/pull/774))
+
 ### Deprecated
 
 ### Removed
