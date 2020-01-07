@@ -1848,9 +1848,9 @@
   integrity sha512-KEYb0q+EspPbkVyyf45houJgwUhNyBH+CfNNEKM5uMk8eiEJMs7Q8uxvNc4cSHcwV1MUUK71sKxyPS8amLCOZA==
 
 "@teamleader/ui-utilities@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@teamleader/ui-utilities/-/ui-utilities-0.2.0.tgz#3c97bfcfd7fadd5486cc50bcc349237db68d502a"
-  integrity sha512-45BdRk+Xca9DJLf1TT4JZcVCrxwNQ3JKS3JhoiXBatcaeRUMHmKnWSXnA9419OCxlZQy05nwNZkplWXbpVPPvA==
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@teamleader/ui-utilities/-/ui-utilities-0.2.1.tgz#81efcef5067476f766a21248c14ee136f90fe7c1"
+  integrity sha512-jlFtpcA3bB7Wbe863rOQDP5z0L6EZMHZ2vsSjE0zDcXUcAtiImk9I/FnmMlS4/AbUgYl5qshteyqbtyvSjQkwQ==
 
 "@types/events@*":
   version "3.0.0"
