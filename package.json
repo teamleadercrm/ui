@@ -138,9 +138,13 @@
     "deploy:prod": "yarn lint:clean && NODE_ENV=production yarn compile",
     "lint": "eslint ./src",
     "lint:fix": "yarn lint --fix",
-    "precommit": "pretty-quick --staged",
     "prettier": "prettier --write '**/*.{js,json,md,css}'",
     "prepare": "yarn build",
     "start": "PORT=${PORT:-3000}; start-storybook --port $PORT"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   }
 }
