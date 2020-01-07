@@ -12,6 +12,19 @@
 
 ### Dependency updates
 
+## [0.35.4] - 2019-01-07
+
+### Dependency updates
+
+- `@teamleader/ui-utilities` from `0.2.0` to `0.2.1`
+- `css-loader` from `3.4.0` to `3.4.1`
+- `eslint-config-prettier` from `6.7.0` to `6.9.0`
+- `eslint-plugin-node` from `10.0.0` to `11.0.0`
+- `husky` from `3.1.0` to `4.0.0`
+- `postcss` from `7.0.25` to `7.0.26`
+- `style-loader` from `1.0.2` to `1.1.2`
+- `webpack` from `4.41.4` to `4.41.5`
+
 ## [0.35.3] - 2019-12-24
 
 ### Changed

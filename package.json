@@ -1,7 +1,7 @@
 {
   "name": "@teamleader/ui",
   "description": "Teamleader UI library",
-  "version": "0.35.3",
+  "version": "0.35.4",
   "author": "Teamleader <development@teamleader.eu>",
   "bugs": {
     "url": "https://github.com/teamleadercrm/ui/issues"
@@ -75,7 +75,7 @@
     "eslint-config-standard-react": "^9.0.0",
     "eslint-plugin-babel": "^5.3.0",
     "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.14.3",
@@ -83,7 +83,7 @@
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^5.0.2",
     "html-webpack-plugin": "^4.0.0-alpha.2",
-    "husky": "^3.0.0",
+    "husky": "^4.0.0",
     "image-webpack-loader": "^6.0.0",
     "json-loader": "^0.5.4",
     "moment": "^2.22.2",
@@ -138,7 +138,6 @@
     "deploy:prod": "yarn lint:clean && NODE_ENV=production yarn compile",
     "lint": "eslint ./src",
     "lint:fix": "yarn lint --fix",
-    "precommit": "pretty-quick --staged",
     "prettier": "prettier --write '**/*.{js,json,md,css}'",
     "prepare": "yarn build",
     "start": "PORT=${PORT:-3000}; start-storybook --port $PORT"
