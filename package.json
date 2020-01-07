@@ -141,10 +141,5 @@
     "prettier": "prettier --write '**/*.{js,json,md,css}'",
     "prepare": "yarn build",
     "start": "PORT=${PORT:-3000}; start-storybook --port $PORT"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
   }
 }
