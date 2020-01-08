@@ -359,30 +359,6 @@
   }
 }
 
-.overlay {
-  composes: box-shadow-200;
-  background: var(--color-white);
-  border-radius: var(--border-radius);
-  left: 0;
-  margin-top: 16px;
-  position: absolute;
-  z-index: 400;
-
-  &::after {
-    border: solid var(--color-neutral);
-    border-width: 1px 0 0 1px;
-    content: '';
-    width: 14px;
-    height: 14px;
-    position: absolute;
-    top: -8px;
-    left: 10px;
-    background: var(--color-white);
-    transform: rotate(45deg);
-    z-index: 401;
-  }
-}
-
 .input-wrapper {
   align-items: center;
   border: 1px solid;
