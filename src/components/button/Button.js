@@ -4,7 +4,6 @@ import Box from '../box';
 import LoadingSpinner from '../loadingSpinner';
 import cx from 'classnames';
 import theme from './theme.css';
-import uiUtilities from '@teamleader/ui-utilities';
 
 class Button extends PureComponent {
   getSpinnerColor() {
@@ -77,8 +76,8 @@ class Button extends PureComponent {
     } = this.props;
 
     const classNames = cx(
-      uiUtilities['reset-box-sizing'],
-      uiUtilities['reset-font-smoothing'],
+      theme['reset-box-sizing'],
+      theme['reset-font-smoothing'],
       theme['button-base'],
       theme['button'],
       theme[level],
