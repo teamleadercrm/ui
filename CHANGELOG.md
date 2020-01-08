@@ -12,6 +12,22 @@
 
 ### Dependency updates
 
+## [0.35.5] - 2019-01-08
+
+### Changed
+
+- `Button`: `size` css class is not conditional and should always be applied. ([@driesd](https://github.com/driesd) in [#792](https://github.com/teamleadercrm/ui/pull/792))
+- `Button`: No need to import `ui-utilities` in JS, we do this already in CSS. ([@driesd](https://github.com/driesd) in [#792](https://github.com/teamleadercrm/ui/pull/792))
+
+### Removed
+
+- `DatePicker`: remove obsolete `.overlay` styles. ([@driesd](https://github.com/driesd) in [#791](https://github.com/teamleadercrm/ui/pull/791))
+
+### Dependency updates
+
+- `husky` from `4.0.0` to `4.0.1`
+- `postcss-cli` from `6.1.3` to `7.0.0`
+
 ## [0.35.4] - 2019-01-07
 
 ### Dependency updates
