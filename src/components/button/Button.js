@@ -82,6 +82,7 @@ class Button extends PureComponent {
       theme['button-base'],
       theme['button'],
       theme[level],
+      theme[size],
       {
         [theme['has-icon-only']]: (!children && !label) || (Array.isArray(children) && !children[0] && !label),
         [theme['is-inverse']]: inverse && (level === 'outline' || level === 'link'),
@@ -89,7 +90,6 @@ class Button extends PureComponent {
         [theme['is-full-width']]: fullWidth,
         [theme['is-processing']]: processing,
         [theme['is-active']]: active,
-        [theme[size]]: theme[size],
       },
       className,
     );
