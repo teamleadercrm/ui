@@ -312,7 +312,18 @@ class Select extends PureComponent {
   };
 
   render() {
-    const { components, creatable, error, inverse, helpText, size, success, warning, ...otherProps } = this.props;
+    const {
+      components,
+      creatable,
+      error,
+      inverse,
+      helpText,
+      menuPortalTarget,
+      size,
+      success,
+      warning,
+      ...otherProps
+    } = this.props;
 
     const boxProps = pickBoxProps(otherProps);
     const restProps = omitBoxProps(otherProps);
@@ -323,6 +334,7 @@ class Select extends PureComponent {
     });
 
     const Element = creatable ? ReactCreatableSelect : ReactSelect;
+    const portalTarget = menuPortalTarget || typeof window !== 'undefined' ? window.document.body : undefined;
 
     return (
       <Box className={wrapperClassnames} {...boxProps}>
@@ -334,6 +346,7 @@ class Select extends PureComponent {
             IndicatorSeparator: null,
             ...components,
           }}
+          menuPortalTarget={portalTarget}
           styles={this.getStyles()}
           {...restProps}
         />
@@ -371,7 +384,6 @@ Select.propTypes = {
 Select.defaultProps = {
   creatable: false,
   inverse: false,
-  menuPortalTarget: document ? document.body : undefined,
   size: 'medium',
   width: '100%',
 };
