@@ -371,7 +371,7 @@ Select.propTypes = {
 Select.defaultProps = {
   creatable: false,
   inverse: false,
-  menuPortalTarget: document && document.body,
+  menuPortalTarget: document ? document.body : undefined,
   size: 'medium',
   width: '100%',
 };
