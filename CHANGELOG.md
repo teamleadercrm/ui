@@ -4,8 +4,6 @@
 
 ### Changed
 
-- `Select`: check if `document` exists while setting `menuPortalTarget`'s default value. ([@driesd](https://github.com/driesd) in [#795](https://github.com/teamleadercrm/ui/pull/795))
-
 ### Deprecated
 
 ### Removed
@@ -13,6 +11,16 @@
 ### Fixed
 
 ### Dependency updates
+
+## [0.35.6] - 2019-01-09
+
+### Changed
+
+- `Select`: check if `document` exists while setting `menuPortalTarget`'s default value. ([@driesd](https://github.com/driesd) in [#795](https://github.com/teamleadercrm/ui/pull/795))
+
+### Dependency updates
+
+- `husky` from `4.0.1` to `4.0.3`
 
 ## [0.35.5] - 2019-01-08
 
