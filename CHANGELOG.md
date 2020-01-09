@@ -12,12 +12,17 @@
 
 ### Dependency updates
 
+## [0.35.7] - 2019-01-09
+
+### Changed
+
+- `Select`: provide fallback in render function & get rid of the `menuPortalTarget`'s default value. ([@driesd](https://github.com/driesd) in [#797](https://github.com/teamleadercrm/ui/pull/797))
+
 ## [0.35.6] - 2019-01-09
 
 ### Changed
 
 - `Select`: check if `document` exists while setting `menuPortalTarget`'s default value. ([@driesd](https://github.com/driesd) in [#795](https://github.com/teamleadercrm/ui/pull/795))
-- `Select`: provide fallback in render function & get rid of the `menuPortalTarget`'s default value. ([@driesd](https://github.com/driesd) in [#797](https://github.com/teamleadercrm/ui/pull/797))
 
 ### Dependency updates
 
