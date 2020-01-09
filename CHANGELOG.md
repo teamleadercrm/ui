@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `Select`: check if `document` exists while setting `menuPortalTarget`'s default value. ([@driesd](https://github.com/driesd) in [#795](https://github.com/teamleadercrm/ui/pull/795))
+
 ### Deprecated
 
 ### Removed
