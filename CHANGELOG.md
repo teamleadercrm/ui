@@ -12,6 +12,15 @@
 
 ### Dependency updates
 
+- `@babel/cli` from `7.7.7` to `7.8.0`
+- `@babel/runtime` from `7.7.7` to `7.8.0`
+- `@babel/core` from `7.7.7` to `7.8.0`
+- `@babel/plugin-proposal-export-default-from` from `7.7.4` to `7.8.0`
+- `@babel/plugin-transform-react-jsx-source` from `7.7.4` to `7.8.0`
+- `@babel/plugin-transform-runtime` from `7.7.6` to `7.8.0`
+- `@babel/preset-env` from `7.7.7` to `7.8.2`
+- `@babel/preset-react` from `7.7.4` to `7.8.0`
+
 ## [0.35.7] - 2019-01-09
 
 ### Changed
