@@ -12,6 +12,13 @@
 
 ### Dependency updates
 
+- `@storybook/addon-backgrounds` from `5.0.11` to `5.3.1`
+- `@storybook/addon-info` from `5.0.11` to `5.3.1`
+- `@storybook/addon-knobs` from `5.0.11` to `5.3.1`
+- `@storybook/addon-links` from `5.0.11` to `5.3.1`
+- `@storybook/react` from `5.0.11` to `5.3.1`
+- `@storybook/ui` from `5.0.11` to `5.3.1`
+
 ## [0.35.7] - 2019-01-09
 
 ### Changed
