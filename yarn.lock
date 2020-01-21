@@ -1988,14 +1988,14 @@
     util-deprecate "^1.0.2"
 
 "@storybook/addon-info@^5.3.1":
-  version "5.3.1"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-info/-/addon-info-5.3.1.tgz#bbeebab7fde9727cf2b0af24b02249a4fd5c052a"
-  integrity sha512-wUbuc8Uv03V211+2nQnYUpAD4mQAjGT86nffmkyZwAS9P/PQb6Rj4A4xmzhNd5IQ3d2VvPD/rznNAerB3+sLWw==
+  version "5.3.7"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-info/-/addon-info-5.3.7.tgz#e66a3aeb0b533be7da45bfd862296a3272c8a569"
+  integrity sha512-OYMOb1sKp+J1iOOK/REzEyZKP0Hi7bQIfGM88Egg9DGf6hM3XOaPJ2HxcWjEVjW/MJRAO1NFtBjnj6QtAqx3oQ==
   dependencies:
-    "@storybook/addons" "5.3.1"
-    "@storybook/client-logger" "5.3.1"
-    "@storybook/components" "5.3.1"
-    "@storybook/theming" "5.3.1"
+    "@storybook/addons" "5.3.7"
+    "@storybook/client-logger" "5.3.7"
+    "@storybook/components" "5.3.7"
+    "@storybook/theming" "5.3.7"
     core-js "^3.0.1"
     global "^4.3.2"
     marksy "^8.0.0"
