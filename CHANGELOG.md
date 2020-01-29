@@ -2,7 +2,11 @@
 
 ### Added
 
+- `Tooltip`: added `large` sized variant. ([@driesd](https://github.com/driesd) in [#833](https://github.com/teamleadercrm/ui/pull/833))
+
 ### Changed
+
+- `Tooltip`: increased max width for `medium` sized variant. ([@driesd](https://github.com/driesd) in [#833](https://github.com/teamleadercrm/ui/pull/833))
 
 ### Deprecated
 
