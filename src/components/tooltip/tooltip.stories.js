@@ -4,7 +4,7 @@ import { IconHelpBadgedMediumOutline } from '@teamleader/ui-icons';
 import { Badge, Button, Link, StatusLabel, TextBody, TextDisplay, TextSmall, Tooltip } from '../../index';
 
 const colors = ['white', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'inverse'];
-const sizes = ['small', 'medium'];
+const sizes = ['small', 'medium', 'large'];
 const positions = ['horizontal', 'vertical', 'top', 'bottom', 'left', 'right'];
 
 const TooltippedButton = Tooltip(Button);
@@ -13,8 +13,16 @@ const TooltippedLink = Tooltip(Link);
 const TooltippedStatusLabel = Tooltip(StatusLabel);
 const TooltippedStrong = Tooltip('strong');
 
-const textBodyTooltipContent = <TextBody>I am body sized tooltip text</TextBody>;
-const textSmallTooltipContent = <TextSmall>I am small sized tooltip text</TextSmall>;
+const textBodyTooltipContent = (
+  <TextBody>
+    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+    magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+    gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  </TextBody>
+);
+const textSmallTooltipContent = (
+  <TextSmall>I am small sized tooltip text with lorem ipsum text and so many more!</TextSmall>
+);
 
 export default {
   title: 'Tooltip',
@@ -28,7 +36,7 @@ export default {
 
 export const basic = () => (
   <TooltippedButton
-    tooltip={textSmallTooltipContent}
+    tooltip={textBodyTooltipContent}
     tooltipColor={select('Color', colors, 'white')}
     tooltipPosition={select('Position', positions, 'horizontal')}
     tooltipSize={select('Size', sizes, 'medium')}
