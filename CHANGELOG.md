@@ -2,17 +2,25 @@
 
 ### Added
 
-- `Tooltip`: added `large` sized variant. ([@driesd](https://github.com/driesd) in [#833](https://github.com/teamleadercrm/ui/pull/833))
-
 ### Changed
-
-- `Tooltip`: increased max width for `medium` sized variant. ([@driesd](https://github.com/driesd) in [#833](https://github.com/teamleadercrm/ui/pull/833))
 
 ### Deprecated
 
 ### Removed
 
 ### Fixed
+
+### Dependency updates
+
+## [0.35.8] - 2019-01-29
+
+### Added
+
+- `Tooltip`: added `large` sized variant. ([@driesd](https://github.com/driesd) in [#833](https://github.com/teamleadercrm/ui/pull/833))
+
+### Changed
+
+- `Tooltip`: increased max width for `medium` sized variant. ([@driesd](https://github.com/driesd) in [#833](https://github.com/teamleadercrm/ui/pull/833))
 
 ### Dependency updates
 
@@ -24,12 +32,20 @@
 - `@babel/plugin-transform-runtime` from `7.7.6` to `7.8.3`
 - `@babel/preset-env` from `7.7.7` to `7.8.3`
 - `@babel/preset-react` from `7.7.4` to `7.8.3`
-- `@storybook/addon-backgrounds` from `5.0.11` to `5.3.1`
-- `@storybook/addon-info` from `5.0.11` to `5.3.1`
-- `@storybook/addon-knobs` from `5.0.11` to `5.3.1`
-- `@storybook/addon-links` from `5.0.11` to `5.3.1`
-- `@storybook/react` from `5.0.11` to `5.3.1`
-- `@storybook/ui` from `5.0.11` to `5.3.1`
+- `@sambego/storybook-state` from `1.3.6` to `2.0.1`
+- `@storybook/addon-backgrounds` from `5.0.11` to `5.3.7`
+- `@storybook/addon-info` from `5.0.11` to `5.3.7`
+- `@storybook/addon-knobs` from `5.0.11` to `5.3.7`
+- `@storybook/addon-links` from `5.0.11` to `5.3.9`
+- `@storybook/react` from `5.0.11` to `5.3.9`
+- `@storybook/ui` from `5.0.11` to `5.3.8`
+- `css-loader` from `3.4.1` to `3.4.2`
+- `eslint-plugin-import` from `2.19.1` to `2.20.0`
+- `eslint-plugin-react` from `7.17.0` to `7.18.0`
+- `husky` from `4.0.3` to `4.0.10`
+- `luxon` from `1.21.3` to `1.22.0`
+- `postcss-cli` from `7.0.0` to `7.1.0`
+- `style-loader` from `1.1.2` to `1.1.3`
 
 ## [0.35.7] - 2019-01-09
 
