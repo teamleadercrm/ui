@@ -4,6 +4,7 @@ import DayPicker from 'react-day-picker';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import NavigationBar from './NavigationBar';
 import WeekDay from './WeekDay';
+import MonthPicker from './MonthPicker';
 import { convertModifiersToClassnames } from './utils';
 import cx from 'classnames';
 import theme from './theme.css';
@@ -12,6 +13,7 @@ import uiUtilities from '@teamleader/ui-utilities';
 class DatePicker extends PureComponent {
   state = {
     selectedDate: null,
+    selectedMonth: null,
   };
 
   static getDerivedStateFromProps(props, state) {
@@ -37,9 +39,13 @@ class DatePicker extends PureComponent {
     );
   };
 
+  handleYearMonthChange = selectedMonth => {
+    this.setState({ selectedMonth });
+  };
+
   render() {
-    const { bordered, className, modifiers, size, ...others } = this.props;
-    const { selectedDate } = this.state;
+    const { bordered, className, modifiers, size, withMonthPicker, showWeekNumbers, ...others } = this.props;
+    const { selectedDate, selectedMonth } = this.state;
     const boxProps = pickBoxProps(others);
     const restProps = omitBoxProps(others);
     const classNames = cx(
@@ -56,13 +62,27 @@ class DatePicker extends PureComponent {
       <Box {...boxProps}>
         <DayPicker
           {...restProps}
+          month={selectedMonth}
           className={classNames}
           classNames={theme}
           modifiers={convertModifiersToClassnames(modifiers, theme)}
-          navbarElement={<NavigationBar size={size} />}
+          navbarElement={<NavigationBar size={size} withMonthPicker={withMonthPicker} />}
           onDayClick={this.handleDayClick}
           selectedDays={selectedDate}
           weekdayElement={<WeekDay size={size} />}
+          showWeekNumbers={showWeekNumbers}
+          captionElement={
+            withMonthPicker
+              ? ({ date, localeUtils }) => (
+                  <MonthPicker
+                    date={date}
+                    localeUtils={localeUtils}
+                    onChange={this.handleYearMonthChange}
+                    small={!showWeekNumbers}
+                  />
+                )
+              : undefined
+          }
         />
       </Box>
     );
