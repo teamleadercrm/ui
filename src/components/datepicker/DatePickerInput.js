@@ -101,6 +101,7 @@ class DatePickerInput extends PureComponent {
           size={size}
           value={this.getFormattedDate()}
           width="120px"
+          noInputStyling={dayPickerProps && dayPickerProps.withMonthPicker}
           {...inputProps}
         />
         <Popover
