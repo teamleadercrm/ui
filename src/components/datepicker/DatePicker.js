@@ -43,6 +43,16 @@ class DatePicker extends PureComponent {
     this.setState({ selectedMonth });
   };
 
+  getMonthPickerSize = () => {
+    const { showWeekNumbers, size } = this.props;
+    const monthPickerSizeByDatePickerSize = {
+      small: 'smallest',
+      medium: showWeekNumbers ? 'medium' : 'small',
+      large: 'large',
+    };
+    return monthPickerSizeByDatePickerSize[size];
+  };
+
   render() {
     const { bordered, className, modifiers, size, withMonthPicker, showWeekNumbers, ...others } = this.props;
     const { selectedDate, selectedMonth } = this.state;
@@ -78,7 +88,7 @@ class DatePicker extends PureComponent {
                     date={date}
                     localeUtils={localeUtils}
                     onChange={this.handleYearMonthChange}
-                    small={!showWeekNumbers}
+                    size={this.getMonthPickerSize()}
                   />
                 )
               : undefined

@@ -12,7 +12,7 @@ const toMonth = new Date(currentYear + 10, 11);
 
 const formatSelectedMonth = ({ label, value }) => ({ value, label: label.substring(0, 3) });
 
-const MonthPicker = ({ date, localeUtils, onChange, small }) => {
+const MonthPicker = ({ date, localeUtils, onChange, size }) => {
   const [selectedMonth, setSelectedMonth] = useState({
     value: date.getMonth(),
     label: localeUtils.formatMonthTitle(date),
@@ -49,14 +49,14 @@ const MonthPicker = ({ date, localeUtils, onChange, small }) => {
           className={theme['month-picker-field']}
           options={months}
           onChange={handleChangeMonth}
-          width={small ? 88 : 112}
+          width={size === 'small' ? 88 : 112}
           size="small"
         />
         <NumericInput
           value={`${selectedYear}`}
           className={theme['month-picker-field']}
           onChange={handleChangeYear}
-          width={small ? 72 : 80}
+          width={size === 'small' ? 72 : 80}
           size="small"
         />
       </Box>
@@ -71,6 +71,8 @@ MonthPicker.propTypes = {
   onChange: PropTypes.func,
   /** The localeUtils from the DatePicker */
   localeUtils: PropTypes.instanceOf(Date),
+  /** Size of the MonthPicker component. */
+  size: PropTypes.oneOf(['smallest', 'small', 'medium', 'large']),
 };
 
 export default MonthPicker;
