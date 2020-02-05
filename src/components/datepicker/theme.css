@@ -67,6 +67,13 @@
   right: 0;
 }
 
+.navBar-with-month-picker {
+  position: absolute;
+  left: 0;
+  top: 6px;
+  right: 0;
+}
+
 .caption {
   color: var(--color-teal-darkest);
   display: table-caption;

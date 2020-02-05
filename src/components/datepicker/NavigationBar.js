@@ -8,6 +8,8 @@ import {
   IconArrowLeftSmallOutline,
   IconArrowRightSmallOutline,
 } from '@teamleader/ui-icons';
+import theme from './theme.css';
+import cx from 'classnames';
 
 class NavigationBar extends PureComponent {
   handlePreviousClick = () => {
@@ -19,14 +21,18 @@ class NavigationBar extends PureComponent {
   };
 
   render() {
-    const { className, localeUtils, nextMonth, previousMonth, size } = this.props;
+    const { className, localeUtils, nextMonth, previousMonth, size, withMonthPicker } = this.props;
 
     const months = localeUtils.getMonths();
     const previousMonthButtonLabel = months[previousMonth.getMonth()];
     const nextMonthButtonLabel = months[nextMonth.getMonth()];
 
     return (
-      <Box className={className} display="flex" justifyContent="space-between">
+      <Box
+        className={withMonthPicker ? cx(theme['navBar-with-month-picker'], className) : className}
+        display="flex"
+        justifyContent="space-between"
+      >
         <IconButton
           icon={size === 'large' ? <IconArrowLeftMediumOutline /> : <IconArrowLeftSmallOutline />}
           onClick={this.handlePreviousClick}
