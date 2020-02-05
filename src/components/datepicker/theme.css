@@ -82,7 +82,7 @@
 }
 
 .month-picker-field {
-  width: 87px;
+  width: auto !important;
   margin: 0 3px;
 }
 
