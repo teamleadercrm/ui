@@ -10,6 +10,8 @@ const currentYear = new Date().getFullYear();
 const fromMonth = new Date(currentYear, 0);
 const toMonth = new Date(currentYear + 10, 11);
 
+const formatSelectedMonth = ({ label, value }) => ({ value, label: label.substring(0, 3) });
+
 const MonthPicker = ({ date, localeUtils, onChange, small }) => {
   const [selectedMonth, setSelectedMonth] = useState({
     value: date.getMonth(),
@@ -43,7 +45,7 @@ const MonthPicker = ({ date, localeUtils, onChange, small }) => {
     <Box className={theme['caption']}>
       <Box display="flex" justifyContent="center">
         <Select
-          value={selectedMonth}
+          value={formatSelectedMonth(selectedMonth)}
           className={theme['month-picker-field']}
           options={months}
           onChange={handleChangeMonth}
