@@ -74,6 +74,11 @@
   text-align: center;
 }
 
+.month-picker-field {
+  width: 87px;
+  margin: 0 3px;
+}
+
 .weekdays {
   background-color: var(--color-neutral-light);
   border-radius: var(--border-radius) var(--border-radius) 0 0;
