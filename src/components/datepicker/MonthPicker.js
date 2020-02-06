@@ -28,7 +28,10 @@ const getMonthOptions = localeUtils => {
   return monthOptions;
 };
 
+// e.g. "February 2020" => "Feb"
 const formatSelectedMonth = ({ label, value }) => ({ value, label: label.substring(0, 3) });
+
+// e.g. "February 2020" => "Feb 2020"
 const formatSelectMonthAndYear = ({ label, value }) => ({
   value,
   label: label.replace(/(\w{3})\w+\s(\d{4})/, '$1 $2'),
