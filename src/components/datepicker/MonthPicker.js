@@ -6,9 +6,6 @@ import { Select } from '../select';
 import { NumericInput } from '../input';
 import theme from './theme.css';
 
-const currentYear = new Date().getFullYear();
-const fromMonth = new Date(currentYear, 0);
-const toMonth = new Date(currentYear + 10, 11);
 
 const formatSelectedMonth = ({ label, value }) => ({ value, label: label.substring(0, 3) });
 
@@ -22,11 +19,6 @@ const MonthPicker = ({ date, localeUtils, onChange, size }) => {
   const months = localeUtils.getMonths().map((monthName, index) => {
     return { value: index, label: monthName };
   });
-
-  const years = [];
-  for (let i = fromMonth.getFullYear(); i <= toMonth.getFullYear(); i += 1) {
-    years.push(i);
-  }
 
   useEffect(() => {
     setSelectedMonth({ value: date.getMonth(), label: localeUtils.formatMonthTitle(date) });
