@@ -6,8 +6,59 @@ import { Select } from '../select';
 import { NumericInput } from '../input';
 import theme from './theme.css';
 
+// We want all the months from current month to current month in next year
+const getMonthOptions = localeUtils => {
+  let currentYear = new Date().getFullYear();
+  const currentMonth = new Date().getMonth();
+
+  const monthOptions = [];
+  for (let i = currentMonth; i <= 13; i++) {
+    const currentMonthInYear = i % 12;
+
+    if (currentMonthInYear === 0) {
+      currentYear++;
+    }
+
+    const monthOption = new Date(currentYear, currentMonthInYear);
+    monthOptions.push({
+      value: monthOption,
+      label: localeUtils.formatMonthTitle(monthOption),
+    });
+  }
+  return monthOptions;
+};
 
 const formatSelectedMonth = ({ label, value }) => ({ value, label: label.substring(0, 3) });
+
+const MonthPickerUnary = ({ date, localeUtils, onChange }) => {
+  const [selectedMonth, setSelectedMonth] = useState({
+    value: date.getMonth(),
+    label: localeUtils.formatMonthTitle(date),
+  });
+
+  useEffect(() => {
+    setSelectedMonth({ value: date, label: localeUtils.formatMonthTitle(date) });
+  }, [date]);
+
+  const handleChangeMonth = selectedMonth => {
+    onChange(selectedMonth.value);
+  };
+
+  return (
+    <Box className={theme['caption']}>
+      <Box display="flex" justifyContent="center">
+        <Select
+          value={selectedMonth}
+          className={theme['month-picker-field']}
+          options={getMonthOptions(localeUtils)}
+          onChange={handleChangeMonth}
+          width={112}
+          size="small"
+        />
+      </Box>
+    </Box>
+  );
+};
 
 const MonthPickerSplit = ({ date, localeUtils, onChange, size }) => {
   const [selectedMonth, setSelectedMonth] = useState({
@@ -57,6 +108,10 @@ const MonthPickerSplit = ({ date, localeUtils, onChange, size }) => {
 };
 
 const MonthPicker = ({ size, ...props }) => {
+  if (size === 'smallest') {
+    return <MonthPickerUnary {...props} />;
+  }
+
   return <MonthPickerSplit {...props} />;
 };
 
