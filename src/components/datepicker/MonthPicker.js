@@ -9,7 +9,7 @@ import theme from './theme.css';
 
 const formatSelectedMonth = ({ label, value }) => ({ value, label: label.substring(0, 3) });
 
-const MonthPicker = ({ date, localeUtils, onChange, size }) => {
+const MonthPickerSplit = ({ date, localeUtils, onChange, size }) => {
   const [selectedMonth, setSelectedMonth] = useState({
     value: date.getMonth(),
     label: localeUtils.formatMonthTitle(date),
@@ -54,6 +54,10 @@ const MonthPicker = ({ date, localeUtils, onChange, size }) => {
       </Box>
     </Box>
   );
+};
+
+const MonthPicker = ({ size, ...props }) => {
+  return <MonthPickerSplit {...props} />;
 };
 
 MonthPicker.propTypes = {
