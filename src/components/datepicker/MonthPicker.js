@@ -29,6 +29,10 @@ const getMonthOptions = localeUtils => {
 };
 
 const formatSelectedMonth = ({ label, value }) => ({ value, label: label.substring(0, 3) });
+const formatSelectMonthAndYear = ({ label, value }) => ({
+  value,
+  label: label.replace(/(\w{3})\w+\s(\d{4})/, '$1 $2'),
+});
 
 const MonthPickerUnary = ({ date, localeUtils, onChange }) => {
   const [selectedMonth, setSelectedMonth] = useState({
@@ -48,7 +52,7 @@ const MonthPickerUnary = ({ date, localeUtils, onChange }) => {
     <Box className={theme['caption']}>
       <Box display="flex" justifyContent="center">
         <Select
-          value={selectedMonth}
+          value={formatSelectMonthAndYear(selectedMonth)}
           className={theme['month-picker-field']}
           options={getMonthOptions(localeUtils)}
           onChange={handleChangeMonth}
