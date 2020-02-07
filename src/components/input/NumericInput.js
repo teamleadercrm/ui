@@ -11,7 +11,7 @@ import Icon from '../icon';
 import SingleLineInputBase from './SingleLineInputBase';
 import omit from 'lodash.omit';
 import theme from './theme.css';
-import { bindToMinMax } from './utils';
+import { bindToMinMax, toNumber } from './utils';
 
 class StepperControls extends PureComponent {
   render() {
@@ -61,7 +61,7 @@ class NumericInput extends PureComponent {
   updateStep = n => {
     const { onChange, step } = this.props;
 
-    const currentValue = this.toNumber(this.state.value || 0);
+    const currentValue = toNumber(this.state.value || 0);
     const newValue = this.parseValue(currentValue + step * n);
 
     if (newValue !== currentValue) {
@@ -70,15 +70,7 @@ class NumericInput extends PureComponent {
     }
   };
 
-  parseValue = value => bindToMinMax(this.toNumber(value), this.props.min, this.props.max);
-
-  toNumber = rawNumber => {
-    let number = parseFloat(rawNumber);
-    if (isNaN(number) || !isFinite(number)) {
-      number = 0;
-    }
-    return number;
-  };
+  parseValue = value => bindToMinMax(toNumber(value), this.props.min, this.props.max);
 
   handleIncreaseValue = () => {
     this.updateStep(1);
