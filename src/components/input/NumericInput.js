@@ -11,7 +11,7 @@ import Icon from '../icon';
 import SingleLineInputBase from './SingleLineInputBase';
 import omit from 'lodash.omit';
 import theme from './theme.css';
-import { bindToMinMax, toNumber } from './utils';
+import { parseValue, toNumber } from './utils';
 
 class StepperControls extends PureComponent {
   render() {
@@ -55,22 +55,20 @@ class NumericInput extends PureComponent {
   };
 
   handleOnChange = event => {
-    this.setState({ value: this.parseValue(event.currentTarget.value) });
+    this.setState({ value: parseValue(event.currentTarget.value) });
   };
 
   updateStep = n => {
     const { onChange, step } = this.props;
 
     const currentValue = toNumber(this.state.value || 0);
-    const newValue = this.parseValue(currentValue + step * n);
+    const newValue = parseValue(currentValue + step * n);
 
     if (newValue !== currentValue) {
       this.setState({ value: newValue });
       onChange && onChange(null, newValue);
     }
   };
-
-  parseValue = value => bindToMinMax(toNumber(value), this.props.min, this.props.max);
 
   handleIncreaseValue = () => {
     this.updateStep(1);
