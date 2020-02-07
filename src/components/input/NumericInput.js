@@ -11,6 +11,7 @@ import Icon from '../icon';
 import SingleLineInputBase from './SingleLineInputBase';
 import omit from 'lodash.omit';
 import theme from './theme.css';
+import { bindToMinMax } from './utils';
 
 class StepperControls extends PureComponent {
   render() {
@@ -69,7 +70,7 @@ class NumericInput extends PureComponent {
     }
   };
 
-  parseValue = value => this.bindToMinMax(this.toNumber(value));
+  parseValue = value => bindToMinMax(this.toNumber(value), this.props.min, this.props.max);
 
   toNumber = rawNumber => {
     let number = parseFloat(rawNumber);
@@ -77,11 +78,6 @@ class NumericInput extends PureComponent {
       number = 0;
     }
     return number;
-  };
-
-  bindToMinMax = value => {
-    const { min, max } = this.props;
-    return Math.min(Math.max(value, min), max);
   };
 
   handleIncreaseValue = () => {
