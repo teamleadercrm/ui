@@ -2,6 +2,8 @@
 
 ### Added
 
+- `Select`: added `menuWidth` prop to set a custom width for the menu dropdown. ([@driesd](https://github.com/driesd) in [#845](https://github.com/teamleadercrm/ui/pull/845))
+
 ### Changed
 
 ### Deprecated
