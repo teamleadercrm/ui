@@ -133,10 +133,11 @@ class Select extends PureComponent {
   };
 
   getMenuPortalStyles = base => {
-    const { inverse } = this.props;
+    const { inverse, menuWidth } = this.props;
 
     return {
       ...base,
+      ...(menuWidth && { width: menuWidth }),
       backgroundColor: inverse ? COLOR.TEAL.NORMAL : COLOR.NEUTRAL.LIGHTEST,
       fontFamily: 'Inter-Regular',
       fontSize: '14px',
@@ -369,6 +370,8 @@ Select.propTypes = {
   inverse: PropTypes.bool,
   /** The HTML DOM node on which the portal should append */
   menuPortalTarget: PropTypes.instanceOf(Element),
+  /** A custom width for the menu dropdown */
+  menuWidth: PropTypes.string,
   /** Size of the input element. */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   /** The text string/element to use as success message below the input. */
