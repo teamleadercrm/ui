@@ -197,7 +197,7 @@ class Select extends PureComponent {
   getOptionStyles = (base, { isDisabled, isFocused, isSelected }) => {
     const commonStyles = {
       ...base,
-      wordBreak: 'break-all',
+      wordBreak: 'break-word',
       padding: '8px 12px',
     };
 
