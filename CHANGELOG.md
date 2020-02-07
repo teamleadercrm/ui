@@ -2,8 +2,6 @@
 
 ### Added
 
-- `Select`: added `menuWidth` prop to set a custom width for the menu dropdown. ([@driesd](https://github.com/driesd) in [#845](https://github.com/teamleadercrm/ui/pull/845))
-
 ### Changed
 
 ### Deprecated
@@ -15,6 +13,25 @@
 - `NumericInput`: fixed the min and max value validation. ([@driesd](https://github.com/driesd) in [#846](https://github.com/teamleadercrm/ui/pull/846))
 
 ### Dependency updates
+
+## [0.36.0] - 2019-02-07
+
+### Added
+
+- `Select`: added `menuWidth` prop to set a custom width for the menu dropdown. ([@driesd](https://github.com/driesd) in [#845](https://github.com/teamleadercrm/ui/pull/845))
+
+### Fixed
+
+- [Breaking] `NumericInput`: fixed the min and max value validation. ([@driesd](https://github.com/driesd) in [#846](https://github.com/teamleadercrm/ui/pull/846))
+
+### Dependency updates
+
+- `@storybook/ui` from `5.3.8` to `5.3.12`
+- `@storybook/addon-links` from `5.3.9` to `5.3.12`
+- `@babel/preset-env` from `7.8.3` to `7.8.4`
+- `@babel/runtime` from `7.8.3` to `7.8.4`
+- `eslint-config-prettier` from `6.9.0` to `6.10.0`
+- `husky` from `4.0.10` to `4.2.1`
 
 ## [0.35.8] - 2019-01-29
 
