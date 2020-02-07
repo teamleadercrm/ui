@@ -43,7 +43,7 @@ class NumericInput extends PureComponent {
       const newValue = nextProps.value || '';
       if (newValue !== prevState.value) {
         return {
-          value: newValue,
+          value: parseValue(newValue, nextProps.min, nextProps.max),
         };
       }
     }
