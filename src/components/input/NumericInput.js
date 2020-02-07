@@ -143,7 +143,7 @@ class NumericInput extends PureComponent {
 
   render() {
     const { onChange, ...others } = this.props;
-    const restProps = omit(others, ['suffix']);
+    const restProps = omit(others, ['suffix', 'value']);
 
     return (
       <SingleLineInputBase
