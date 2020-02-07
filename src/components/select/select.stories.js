@@ -49,6 +49,7 @@ export const basic = () => (
     placeholder="Select your favourite(s)"
     size={select('Size', sizes, 'medium')}
     hideSelectedOptions={boolean('Hide selected options', true)}
+    menuWidth={text('Menu width', undefined)}
     error={text('error', '')}
     helpText={text('helpText', '')}
     success={text('success', '')}
