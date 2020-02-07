@@ -10,8 +10,6 @@
 
 ### Fixed
 
-- `NumericInput`: fixed the min and max value validation. ([@driesd](https://github.com/driesd) in [#846](https://github.com/teamleadercrm/ui/pull/846))
-
 ### Dependency updates
 
 ## [0.36.0] - 2019-02-07
