@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 
 import Box from '../box';
@@ -38,14 +38,7 @@ const formatSelectMonthAndYear = ({ label, value }) => ({
 });
 
 const MonthPickerUnary = ({ date, localeUtils, onChange }) => {
-  const [selectedMonth, setSelectedMonth] = useState({
-    value: date.getMonth(),
-    label: localeUtils.formatMonthTitle(date),
-  });
-
-  useEffect(() => {
-    setSelectedMonth({ value: date, label: localeUtils.formatMonthTitle(date) });
-  }, [date]);
+  const selectedMonth = useMemo(() => ({ value: date.getMonth(), label: localeUtils.formatMonthTitle(date) }), [date]);
 
   const handleChangeMonth = selectedMonth => {
     onChange(selectedMonth.value);
@@ -68,20 +61,12 @@ const MonthPickerUnary = ({ date, localeUtils, onChange }) => {
 };
 
 const MonthPickerSplit = ({ date, localeUtils, onChange, size }) => {
-  const [selectedMonth, setSelectedMonth] = useState({
-    value: date.getMonth(),
-    label: localeUtils.formatMonthTitle(date),
-  });
-  const [selectedYear, setSelectedYear] = useState(date.getFullYear());
+  const selectedMonth = useMemo(() => ({ value: date.getMonth(), label: localeUtils.formatMonthTitle(date) }), [date]);
+  const selectedYear = useMemo(() => date.getFullYear(), [date]);
 
   const months = localeUtils.getMonths().map((monthName, index) => {
     return { value: index, label: monthName };
   });
-
-  useEffect(() => {
-    setSelectedMonth({ value: date.getMonth(), label: localeUtils.formatMonthTitle(date) });
-    setSelectedYear(date.getFullYear());
-  }, [date]);
 
   const handleChangeMonth = selectedMonth => {
     onChange(new Date(selectedYear, selectedMonth.value));
