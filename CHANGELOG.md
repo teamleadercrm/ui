@@ -10,9 +10,19 @@
 
 ### Fixed
 
+### Dependency updates
+
+## [0.36.1] - 2019-02-07
+
+### Fixed
+
 - `NumericInput`: remove min and max validation when input value changes. ([@driesd](https://github.com/driesd) in [#851](https://github.com/teamleadercrm/ui/pull/851))
 
 ### Dependency updates
+
+- `@storybook/addon-knobs` from `5.3.7` to `5.3.12`
+- `@storybook/react` from `5.3.9` to `5.3.12`
+- `rimraf` from `3.0.0` to `3.0.2`
 
 ## [0.36.0] - 2019-02-07
 
