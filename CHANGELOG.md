@@ -2,10 +2,6 @@
 
 ### Added
 
-- `MonthPicker`: added `MonthPicker` component, for use in `DatePicker` caption ([@mikeverf](https://github.com/mikeverf) in [#840](https://github.com/teamleadercrm/ui/pull/840))
-- `DatePicker`: added `withMonthPicker` prop, to use the newly added `MonthPicker` ([@mikeverf](https://github.com/mikeverf) in [#840](https://github.com/teamleadercrm/ui/pull/840))
-- `SingleLineInputBase`: added `noInputStyling` prop, to disable styling hinting at being able to type in the input field ([@mikeverf](https://github.com/mikeverf) in [#840](https://github.com/teamleadercrm/ui/pull/840))
-
 ### Changed
 
 ### Deprecated
@@ -13,6 +9,16 @@
 ### Removed
 
 ### Fixed
+
+### Dependency updates
+
+## [0.36.2] - 2019-02-11
+
+### Added
+
+- `MonthPicker`: added `MonthPicker` component, for use in `DatePicker` caption ([@mikeverf](https://github.com/mikeverf) in [#840](https://github.com/teamleadercrm/ui/pull/840))
+- `DatePicker`: added `withMonthPicker` prop, to use the newly added `MonthPicker` ([@mikeverf](https://github.com/mikeverf) in [#840](https://github.com/teamleadercrm/ui/pull/840))
+- `SingleLineInputBase`: added `noInputStyling` prop, to disable styling hinting at being able to type in the input field ([@mikeverf](https://github.com/mikeverf) in [#840](https://github.com/teamleadercrm/ui/pull/840))
 
 ### Dependency updates
 
