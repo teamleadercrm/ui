@@ -11,6 +11,7 @@ import Icon from '../icon';
 import SingleLineInputBase from './SingleLineInputBase';
 import omit from 'lodash.omit';
 import theme from './theme.css';
+import { parseValue, toNumber } from './utils';
 
 class StepperControls extends PureComponent {
   render() {
@@ -42,7 +43,7 @@ class NumericInput extends PureComponent {
       const newValue = nextProps.value || '';
       if (newValue !== prevState.value) {
         return {
-          value: newValue,
+          value: parseValue(newValue, nextProps.min, nextProps.max),
         };
       }
     }
@@ -54,34 +55,19 @@ class NumericInput extends PureComponent {
   };
 
   handleOnChange = event => {
-    this.setState({ value: this.parseValue(event.currentTarget.value) });
+    this.setState({ value: event.currentTarget.value });
   };
 
   updateStep = n => {
-    const { onChange, step } = this.props;
+    const { min, max, onChange, step } = this.props;
 
-    const currentValue = this.toNumber(this.state.value || 0);
-    const newValue = this.parseValue(currentValue + step * n);
+    const currentValue = toNumber(this.state.value || 0);
+    const newValue = parseValue(currentValue + step * n, min, max);
 
     if (newValue !== currentValue) {
       this.setState({ value: newValue });
       onChange && onChange(null, newValue);
     }
-  };
-
-  parseValue = value => this.bindToMinMax(this.toNumber(value));
-
-  toNumber = rawNumber => {
-    let number = parseFloat(rawNumber);
-    if (isNaN(number) || !isFinite(number)) {
-      number = 0;
-    }
-    return number;
-  };
-
-  bindToMinMax = value => {
-    const { min, max } = this.props;
-    return Math.min(Math.max(value, min), max);
   };
 
   handleIncreaseValue = () => {
@@ -156,7 +142,7 @@ class NumericInput extends PureComponent {
 
   render() {
     const { onChange, ...others } = this.props;
-    const restProps = omit(others, ['suffix']);
+    const restProps = omit(others, ['suffix', 'value']);
 
     return (
       <SingleLineInputBase

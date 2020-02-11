@@ -12,6 +12,98 @@
 
 ### Dependency updates
 
+## [0.36.2] - 2019-02-11
+
+### Added
+
+- `MonthPicker`: added `MonthPicker` component, for use in `DatePicker` caption ([@mikeverf](https://github.com/mikeverf) in [#840](https://github.com/teamleadercrm/ui/pull/840))
+- `DatePicker`: added `withMonthPicker` prop, to use the newly added `MonthPicker` ([@mikeverf](https://github.com/mikeverf) in [#840](https://github.com/teamleadercrm/ui/pull/840))
+- `SingleLineInputBase`: added `noInputStyling` prop, to disable styling hinting at being able to type in the input field ([@mikeverf](https://github.com/mikeverf) in [#840](https://github.com/teamleadercrm/ui/pull/840))
+
+### Dependency updates
+
+## [0.36.1] - 2019-02-11
+
+### Fixed
+
+- `NumericInput`: remove min and max validation when input value changes. ([@driesd](https://github.com/driesd) in [#851](https://github.com/teamleadercrm/ui/pull/851))
+
+### Dependency updates
+
+- `@storybook/addon-knobs` from `5.3.7` to `5.3.12`
+- `@storybook/react` from `5.3.9` to `5.3.12`
+- `rimraf` from `3.0.0` to `3.0.2`
+
+## [0.36.0] - 2019-02-07
+
+### Added
+
+- `Select`: added `menuWidth` prop to set a custom width for the menu dropdown. ([@driesd](https://github.com/driesd) in [#845](https://github.com/teamleadercrm/ui/pull/845))
+
+### Fixed
+
+- [Breaking] `NumericInput`: fixed the min and max value validation. ([@driesd](https://github.com/driesd) in [#846](https://github.com/teamleadercrm/ui/pull/846))
+
+### Dependency updates
+
+- `@storybook/ui` from `5.3.8` to `5.3.12`
+- `@storybook/addon-links` from `5.3.9` to `5.3.12`
+- `@babel/preset-env` from `7.8.3` to `7.8.4`
+- `@babel/runtime` from `7.8.3` to `7.8.4`
+- `eslint-config-prettier` from `6.9.0` to `6.10.0`
+- `husky` from `4.0.10` to `4.2.1`
+
+## [0.35.8] - 2019-01-29
+
+### Added
+
+- `Tooltip`: added `large` sized variant. ([@driesd](https://github.com/driesd) in [#833](https://github.com/teamleadercrm/ui/pull/833))
+
+### Changed
+
+- `Tooltip`: increased max width for `medium` sized variant. ([@driesd](https://github.com/driesd) in [#833](https://github.com/teamleadercrm/ui/pull/833))
+
+### Dependency updates
+
+- `@babel/cli` from `7.7.7` to `7.8.3`
+- `@babel/runtime` from `7.7.7` to `7.8.3`
+- `@babel/core` from `7.7.7` to `7.8.3`
+- `@babel/plugin-proposal-export-default-from` from `7.7.4` to `7.8.3`
+- `@babel/plugin-transform-react-jsx-source` from `7.7.4` to `7.8.3`
+- `@babel/plugin-transform-runtime` from `7.7.6` to `7.8.3`
+- `@babel/preset-env` from `7.7.7` to `7.8.3`
+- `@babel/preset-react` from `7.7.4` to `7.8.3`
+- `@sambego/storybook-state` from `1.3.6` to `2.0.1`
+- `@storybook/addon-backgrounds` from `5.0.11` to `5.3.7`
+- `@storybook/addon-info` from `5.0.11` to `5.3.7`
+- `@storybook/addon-knobs` from `5.0.11` to `5.3.7`
+- `@storybook/addon-links` from `5.0.11` to `5.3.9`
+- `@storybook/react` from `5.0.11` to `5.3.9`
+- `@storybook/ui` from `5.0.11` to `5.3.8`
+- `css-loader` from `3.4.1` to `3.4.2`
+- `eslint-plugin-import` from `2.19.1` to `2.20.0`
+- `eslint-plugin-react` from `7.17.0` to `7.18.0`
+- `husky` from `4.0.3` to `4.0.10`
+- `luxon` from `1.21.3` to `1.22.0`
+- `postcss-cli` from `7.0.0` to `7.1.0`
+- `style-loader` from `1.1.2` to `1.1.3`
+
+## [0.35.7] - 2019-01-09
+
+### Changed
+
+- `Select`: provide fallback in render function & get rid of the `menuPortalTarget`'s default value. ([@driesd](https://github.com/driesd) in [#797](https://github.com/teamleadercrm/ui/pull/797))
+
+## [0.35.6] - 2019-01-09
+
+### Changed
+
+- `Select`: check if `document` exists while setting `menuPortalTarget`'s default value. ([@driesd](https://github.com/driesd) in [#795](https://github.com/teamleadercrm/ui/pull/795))
+
+### Dependency updates
+
+- `husky` from `4.0.1` to `4.0.3`
+
 ## [0.35.5] - 2019-01-08
 
 ### Changed

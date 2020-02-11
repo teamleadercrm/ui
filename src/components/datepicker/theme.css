@@ -67,11 +67,23 @@
   right: 0;
 }
 
+.navBar-with-month-picker {
+  position: absolute;
+  left: 0;
+  top: 6px;
+  right: 0;
+}
+
 .caption {
   color: var(--color-teal-darkest);
   display: table-caption;
   font-family: var(--font-family-regular);
   text-align: center;
+}
+
+.month-picker-field {
+  width: auto !important;
+  margin: 0 3px;
 }
 
 .weekdays {

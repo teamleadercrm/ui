@@ -20,6 +20,9 @@ const POSITIONS = {
 };
 
 const SIZES = {
+  large: {
+    padding: 4,
+  },
   medium: {
     padding: 3,
   },

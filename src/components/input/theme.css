@@ -443,3 +443,12 @@
     }
   }
 }
+
+.is-input-disabled {
+  caret-color: transparent;
+
+  &.wrapper:hover .input-inner-wrapper,
+  .input:hover {
+    cursor: default;
+  }
+}
