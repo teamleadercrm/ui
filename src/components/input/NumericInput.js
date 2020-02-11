@@ -55,8 +55,7 @@ class NumericInput extends PureComponent {
   };
 
   handleOnChange = event => {
-    const { min, max } = this.props;
-    this.setState({ value: parseValue(event.currentTarget.value, min, max) });
+    this.setState({ value: event.currentTarget.value });
   };
 
   updateStep = n => {

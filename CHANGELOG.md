@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `NumericInput`: remove min and max validation when input value changes. ([@driesd](https://github.com/driesd) in [#851](https://github.com/teamleadercrm/ui/pull/851))
+
 ### Dependency updates
 
 ## [0.36.0] - 2019-02-07
