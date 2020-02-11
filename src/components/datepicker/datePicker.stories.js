@@ -66,6 +66,7 @@ export const singleDate = () => {
       showOutsideDays={boolean('Show outside days', true)}
       showWeekNumbers={boolean('Show week numbers', true)}
       size={select('Size', sizes, 'medium')}
+      withMonthPicker={boolean('Use month picker', false)}
     />
   );
 };
@@ -86,6 +87,7 @@ export const inputSingleDate = () => {
         numberOfMonths: number('Number of months', 1),
         showOutsideDays: boolean('Show outside days', true),
         showWeekNumbers: boolean('Show week numbers', true),
+        withMonthPicker: boolean('Use month picker', false),
       }}
       formatDate={customFormatDate}
       inputProps={{
