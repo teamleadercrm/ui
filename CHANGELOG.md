@@ -10,6 +10,9 @@
 
 ### Fixed
 
+- `MonthPicker`: Make sure you can type a year number in the year field of MonthPicker ([@mikeverf](https://github.com/mikeverf) in [#868](https://github.com/teamleadercrm/ui/pull/868))
+- `MonthPicker`: Don't allow searching in MonthPicker select ([@mikeverf](https://github.com/mikeverf) in [#868](https://github.com/teamleadercrm/ui/pull/868))
+
 ### Dependency updates
 
 ## [0.36.2] - 2019-02-11
