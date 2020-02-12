@@ -85,6 +85,10 @@ const MonthPickerSplit = ({ date, localeUtils, onChange, size }) => {
     }
   };
 
+  const handleYearBlur = () => {
+    setYearInput(`${date.getFullYear()}`);
+  };
+
   return (
     <Box className={theme['caption']}>
       <Box display="flex" justifyContent="center">
@@ -101,6 +105,7 @@ const MonthPickerSplit = ({ date, localeUtils, onChange, size }) => {
           value={`${yearInput}`}
           className={theme['month-picker-field']}
           onChange={handleChangeYear}
+          onBlur={handleYearBlur}
           width={size === 'small' ? 72 : 80}
           size="small"
         />
