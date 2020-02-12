@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import Box from '../box';
@@ -62,6 +62,7 @@ const MonthPickerUnary = ({ date, localeUtils, onChange }) => {
 };
 
 const MonthPickerSplit = ({ date, localeUtils, onChange, size }) => {
+  const [yearInput, setYearInput] = useState(`${date.getFullYear()}`);
   const selectedMonth = useMemo(() => ({ value: date.getMonth(), label: localeUtils.formatMonthTitle(date) }), [date]);
   const selectedYear = useMemo(() => date.getFullYear(), [date]);
 
@@ -73,8 +74,15 @@ const MonthPickerSplit = ({ date, localeUtils, onChange, size }) => {
     onChange(new Date(selectedYear, selectedMonth.value));
   };
 
+  useEffect(() => {
+    setYearInput(`${date.getFullYear()}`);
+  }, [date]);
+
   const handleChangeYear = (_, selectedYear) => {
-    onChange(new Date(selectedYear, selectedMonth.value));
+    setYearInput(selectedYear);
+    if (selectedYear.match(/\d{4}/)) {
+      onChange(new Date(selectedYear, selectedMonth.value));
+    }
   };
 
   return (
@@ -90,7 +98,7 @@ const MonthPickerSplit = ({ date, localeUtils, onChange, size }) => {
           isSearchable={false}
         />
         <NumericInput
-          value={`${selectedYear}`}
+          value={`${yearInput}`}
           className={theme['month-picker-field']}
           onChange={handleChangeYear}
           width={size === 'small' ? 72 : 80}
