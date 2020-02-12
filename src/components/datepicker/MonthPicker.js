@@ -80,7 +80,7 @@ const MonthPickerSplit = ({ date, localeUtils, onChange, size }) => {
 
   const handleChangeYear = (_, selectedYear) => {
     setYearInput(selectedYear);
-    if (selectedYear.match(/\d{4}/)) {
+    if (`${selectedYear}`.match(/\d{4}/)) {
       onChange(new Date(selectedYear, selectedMonth.value));
     }
   };
