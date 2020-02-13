@@ -12,7 +12,16 @@
 
 ### Dependency updates
 
-## [0.36.2] - 2019-02-11
+## [0.36.3] - 2020-02-13
+
+### Fixed
+
+- `MonthPicker`: Make sure you can type a year number in the year field of MonthPicker ([@mikeverf](https://github.com/mikeverf) in [#868](https://github.com/teamleadercrm/ui/pull/868))
+- `MonthPicker`: Don't allow searching in MonthPicker select ([@mikeverf](https://github.com/mikeverf) in [#868](https://github.com/teamleadercrm/ui/pull/868))
+
+### Dependency updates
+
+## [0.36.2] - 2020-02-11
 
 ### Added
 
@@ -22,7 +31,7 @@
 
 ### Dependency updates
 
-## [0.36.1] - 2019-02-11
+## [0.36.1] - 2020-02-11
 
 ### Fixed
 
@@ -34,7 +43,7 @@
 - `@storybook/react` from `5.3.9` to `5.3.12`
 - `rimraf` from `3.0.0` to `3.0.2`
 
-## [0.36.0] - 2019-02-07
+## [0.36.0] - 2020-02-07
 
 ### Added
 
@@ -53,7 +62,7 @@
 - `eslint-config-prettier` from `6.9.0` to `6.10.0`
 - `husky` from `4.0.10` to `4.2.1`
 
-## [0.35.8] - 2019-01-29
+## [0.35.8] - 2020-01-29
 
 ### Added
 
@@ -88,13 +97,13 @@
 - `postcss-cli` from `7.0.0` to `7.1.0`
 - `style-loader` from `1.1.2` to `1.1.3`
 
-## [0.35.7] - 2019-01-09
+## [0.35.7] - 2020-01-09
 
 ### Changed
 
 - `Select`: provide fallback in render function & get rid of the `menuPortalTarget`'s default value. ([@driesd](https://github.com/driesd) in [#797](https://github.com/teamleadercrm/ui/pull/797))
 
-## [0.35.6] - 2019-01-09
+## [0.35.6] - 2020-01-09
 
 ### Changed
 
@@ -104,7 +113,7 @@
 
 - `husky` from `4.0.1` to `4.0.3`
 
-## [0.35.5] - 2019-01-08
+## [0.35.5] - 2020-01-08
 
 ### Changed
 
@@ -120,7 +129,7 @@
 - `husky` from `4.0.0` to `4.0.1`
 - `postcss-cli` from `6.1.3` to `7.0.0`
 
-## [0.35.4] - 2019-01-07
+## [0.35.4] - 2020-01-07
 
 ### Dependency updates
 
