@@ -32,7 +32,7 @@ class DatePickerInput extends PureComponent {
     const { selectedDate } = this.state;
 
     if (!selectedDate) {
-      return undefined;
+      return '';
     }
 
     if (!customFormatDate) {
