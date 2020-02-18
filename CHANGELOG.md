@@ -2,6 +2,8 @@
 
 ### Added
 
+- `Dialog`: added a `DialogBase.Header`, `DialogBase.Body` and `DialogBase.Footer` component, for if you want to make custom dialogs ([@lowiebenoot](https://github.com/lowiebenoot) in [#875](https://github.com/teamleadercrm/ui/pull/875))
+
 ### Changed
 
 ### Deprecated

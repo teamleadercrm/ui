@@ -5,7 +5,7 @@ import cx from 'classnames';
 
 import theme from './theme.css';
 
-import { Banner, Box, Button, ButtonGroup, DialogBase, Heading2, Heading3, Link } from '../../index';
+import { Button, ButtonGroup, DialogBase, Heading2, Heading3, Link } from '../../index';
 import { COLORS } from '../../constants';
 
 class Dialog extends PureComponent {
@@ -13,9 +13,9 @@ class Dialog extends PureComponent {
     const { headerColor, headerIcon, headingLevel, onCloseClick, title } = this.props;
 
     return (
-      <Banner color={headerColor} fullWidth icon={headerIcon} onClose={onCloseClick}>
+      <DialogBase.Header color={headerColor} icon={headerIcon} onClose={onCloseClick}>
         {headingLevel === 2 ? <Heading2>{title}</Heading2> : <Heading3>{title}</Heading3>}
-      </Banner>
+      </DialogBase.Header>
     );
   };
 
@@ -23,11 +23,13 @@ class Dialog extends PureComponent {
     const { tertiaryAction, secondaryAction, primaryAction } = this.props;
 
     return (
-      <ButtonGroup justifyContent="flex-end" padding={4}>
-        {tertiaryAction && <Link inherit={false} {...tertiaryAction} />}
-        {secondaryAction && <Button {...secondaryAction} />}
-        <Button level="primary" {...primaryAction} />
-      </ButtonGroup>
+      <DialogBase.Footer>
+        <ButtonGroup justifyContent="flex-end">
+          {tertiaryAction && <Link inherit={false} {...tertiaryAction} />}
+          {secondaryAction && <Button {...secondaryAction} />}
+          <Button level="primary" {...primaryAction} />
+        </ButtonGroup>
+      </DialogBase.Footer>
     );
   };
 
@@ -47,13 +49,7 @@ class Dialog extends PureComponent {
     return (
       <DialogBase className={classNames} {...restProps} scrollable={false}>
         {title && this.getHeader()}
-        {scrollable ? (
-          <Box display="flex" flexDirection="column" overflowY="auto">
-            {children}
-          </Box>
-        ) : (
-          children
-        )}
+        <DialogBase.Body scrollable={scrollable}>{children}</DialogBase.Body>
         {this.getFooter()}
       </DialogBase>
     );
