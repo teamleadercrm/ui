@@ -61,7 +61,6 @@
     "@storybook/addon-backgrounds": "5.3.13",
     "@storybook/addon-info": "5.3.13",
     "@storybook/addon-knobs": "5.3.13",
-    "@storybook/addon-options": "^5.3.13",
     "@storybook/addons": "5.3.13",
     "@storybook/react": "5.3.13",
     "@storybook/theming": "^5.3.13",
