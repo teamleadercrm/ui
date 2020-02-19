@@ -106,7 +106,22 @@ declare module '@teamleader/ui' {
     size?: Size.small | Size.medium | Size.large;
   };
   export function AdvancedCollapsible(props: AdvancedCollapsibleProps): JSX.Element;
-  export function Avatar(props: any): any;
+
+  type AvatarProps = BoxProps & {
+    children?: ReactNode;
+    className?: string;
+    creatable?: boolean;
+    editable?: boolean;
+    imageUrl?: string;
+    fullName?: string | null;
+    id?: string;
+    onClick?: Pick<BoxProps, 'onClick'>;
+    onImageChange?: () => void;
+    selected?: boolean;
+    shape?: 'circle' | 'rounded';
+    size?: keyof typeof Size;
+  };
+  export function Avatar(props: AvatarProps): JSX.Element;
   export function AvatarStack(props: any): any;
   export function AsyncSelect(props: any): any;
   export function Badge(props: any): any;
