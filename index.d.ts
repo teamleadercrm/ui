@@ -48,13 +48,13 @@ declare module '@teamleader/ui' {
     borderLeftWidth: number;
     borderRightWidth: number;
     borderTopWidth: number;
-    borderColor: Color;
-    borderTint: Tint;
-    borderRadius: BorderRadius;
-    borderTopLeftRadius: BorderRadius;
-    borderTopRightRadius: BorderRadius;
-    borderBottomLeftRadius: BorderRadius;
-    borderBottomRightRadius: BorderRadius;
+    borderColor: keyof typeof Color;
+    borderTint: keyof typeof Tint;
+    borderRadius: keyof typeof BorderRadius;
+    borderTopLeftRadius: keyof typeof BorderRadius;
+    borderTopRightRadius: keyof typeof BorderRadius;
+    borderBottomLeftRadius: keyof typeof BorderRadius;
+    borderBottomRightRadius: keyof typeof BorderRadius;
   };
 
   type LayoutProps = Pick<
@@ -85,8 +85,8 @@ declare module '@teamleader/ui' {
     Partial<LayoutProps> &
     Partial<BorderProps> & {
       ref?: RefObject<{ boxNode: RefObject<HTMLDivElement> }>;
-      backgroundColor?: string;
-      backgroundTint?: string;
+      backgroundColor?: keyof typeof Color;
+      backgroundTint?: keyof typeof Tint;
       children?: ReactNode;
       element?: ReactNode;
     };
