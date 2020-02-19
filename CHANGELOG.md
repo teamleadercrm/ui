@@ -10,6 +10,8 @@
 
 ### Removed
 
+- `NumericInput`: remove value parsing in `getDerivedStateFromProps`. ([@driesd](https://github.com/driesd) in [#876](https://github.com/teamleadercrm/ui/pull/876))
+
 ### Fixed
 
 ### Dependency updates
