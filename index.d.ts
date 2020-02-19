@@ -133,7 +133,16 @@ declare module '@teamleader/ui' {
     size?: keyof typeof Size;
   };
   export function AvatarStack(props: AvatarStackProps): JSX.Element;
-  export function AsyncSelect(props: any): any;
+
+  type AsyncSelectProps = {
+    loadOptions: (searchTerm: string, pageSize?: number, pageNumber?: number) => void;
+    onMenuScrollToBottom?: () => void;
+    onInputChange?: (term: string) => void;
+    paginate?: boolean;
+    pageSize?: number;
+    cacheOptions?: boolean;
+  };
+  export function AsyncSelect(props: AsyncSelectProps): JSX.Element;
   export function Badge(props: any): any;
   export function Banner(props: any): any;
   export function Box(props: BoxProps): any;
