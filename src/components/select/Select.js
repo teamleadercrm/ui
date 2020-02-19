@@ -133,10 +133,11 @@ class Select extends PureComponent {
   };
 
   getMenuPortalStyles = base => {
-    const { inverse } = this.props;
+    const { inverse, menuWidth } = this.props;
 
     return {
       ...base,
+      ...(menuWidth && { width: menuWidth }),
       backgroundColor: inverse ? COLOR.TEAL.NORMAL : COLOR.NEUTRAL.LIGHTEST,
       fontFamily: 'Inter-Regular',
       fontSize: '14px',
@@ -196,7 +197,7 @@ class Select extends PureComponent {
   getOptionStyles = (base, { isDisabled, isFocused, isSelected }) => {
     const commonStyles = {
       ...base,
-      wordBreak: 'break-all',
+      wordBreak: 'break-word',
       padding: '8px 12px',
     };
 
@@ -312,7 +313,18 @@ class Select extends PureComponent {
   };
 
   render() {
-    const { components, creatable, error, inverse, helpText, size, success, warning, ...otherProps } = this.props;
+    const {
+      components,
+      creatable,
+      error,
+      inverse,
+      helpText,
+      menuPortalTarget,
+      size,
+      success,
+      warning,
+      ...otherProps
+    } = this.props;
 
     const boxProps = pickBoxProps(otherProps);
     const restProps = omitBoxProps(otherProps);
@@ -323,6 +335,7 @@ class Select extends PureComponent {
     });
 
     const Element = creatable ? ReactCreatableSelect : ReactSelect;
+    const portalTarget = menuPortalTarget || typeof window !== 'undefined' ? window.document.body : undefined;
 
     return (
       <Box className={wrapperClassnames} {...boxProps}>
@@ -334,6 +347,7 @@ class Select extends PureComponent {
             IndicatorSeparator: null,
             ...components,
           }}
+          menuPortalTarget={portalTarget}
           styles={this.getStyles()}
           {...restProps}
         />
@@ -356,6 +370,8 @@ Select.propTypes = {
   inverse: PropTypes.bool,
   /** The HTML DOM node on which the portal should append */
   menuPortalTarget: PropTypes.instanceOf(Element),
+  /** A custom width for the menu dropdown */
+  menuWidth: PropTypes.string,
   /** Size of the input element. */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   /** The text string/element to use as success message below the input. */
@@ -371,7 +387,6 @@ Select.propTypes = {
 Select.defaultProps = {
   creatable: false,
   inverse: false,
-  menuPortalTarget: document.body,
   size: 'medium',
   width: '100%',
 };

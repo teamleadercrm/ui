@@ -32,7 +32,7 @@ class DatePickerInput extends PureComponent {
     const { selectedDate } = this.state;
 
     if (!selectedDate) {
-      return null;
+      return '';
     }
 
     if (!customFormatDate) {
@@ -101,6 +101,7 @@ class DatePickerInput extends PureComponent {
           size={size}
           value={this.getFormattedDate()}
           width="120px"
+          noInputStyling={dayPickerProps && dayPickerProps.withMonthPicker}
           {...inputProps}
         />
         <Popover

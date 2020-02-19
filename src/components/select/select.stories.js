@@ -49,6 +49,7 @@ export const basic = () => (
     placeholder="Select your favourite(s)"
     size={select('Size', sizes, 'medium')}
     hideSelectedOptions={boolean('Hide selected options', true)}
+    menuWidth={text('Menu width', undefined)}
     error={text('error', '')}
     helpText={text('helpText', '')}
     success={text('success', '')}
@@ -101,32 +102,6 @@ export const customOption = () => (
     width={text('width', undefined)}
   />
 );
-
-export const withLabel = () => (
-  <Label inverse={boolean('Inverse', false)} size={select('Size', sizes, 'medium')}>
-    Select something
-    <Select
-      closeMenuOnSelect={boolean('Close menu on select', true)}
-      creatable={boolean('creatable', false)}
-      isClearable={boolean('Clearable', false)}
-      isDisabled={boolean('Disabled', false)}
-      isMulti={boolean('Multi select', false)}
-      isSearchable={boolean('Searchable', false)}
-      options={options}
-      placeholder="Select your favourite(s)"
-      hideSelectedOptions={boolean('Hide selected options', true)}
-      error={text('error', '')}
-      helpText={text('helpText', '')}
-      success={text('success', '')}
-      warning={text('warning', '')}
-      width={text('width', undefined)}
-    />
-  </Label>
-);
-
-withLabel.story = {
-  name: 'With label',
-};
 
 export const async = () => {
   const loadOptions = (searchTerm, pageSize = 10, pageNumber = 1) => {

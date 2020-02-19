@@ -59,8 +59,16 @@ const timeInputStore = new Store({
   value: '',
 });
 
+const numericInputStore = new Store({
+  value: 6,
+});
+
 const handleTimeInputChange = event => {
   timeInputStore.set({ value: event.currentTarget.value });
+};
+
+const handleNumericInputChange = (event, value) => {
+  numericInputStore.set({ value });
 };
 
 export default {
@@ -105,40 +113,49 @@ export const input = () => (
   />
 );
 
-export const numericInput = () => (
-  <NumericInput
-    bold={boolean('Bold', false)}
-    disabled={boolean('Disabled', false)}
-    error={text('Error', '')}
-    helpText={text('Help text', '')}
-    success={text('Success', '')}
-    warning={text('Warning', '')}
-    id="input1"
-    inverse={boolean('Inverse', false)}
-    max={number('Max', 10)}
-    min={number('Min', 0)}
-    placeholder={text('Placeholder', placeholder)}
-    readOnly={boolean('Read only', false)}
-    size={select('Size', sizes) || undefined}
-    stepper={select('Stepper', stepperOptions, 'suffix')}
-    step={number('Step', 1)}
-    connectedLeft={
-      boolean('Toggle connected left', false) ? <Button size={select('Size', sizes, 'medium')} label="€" /> : undefined
-    }
-    connectedRight={
-      boolean('Toggle connected right', false) ? (
-        <Button size={select('Size', sizes, 'medium')}>
-          <Checkbox size="small">Discount</Checkbox>
-        </Button>
-      ) : (
-        undefined
-      )
-    }
-    prefix={boolean('Toggle prefix', false) ? prefix : undefined}
-    suffix={boolean('Toggle suffix', false) ? suffix : undefined}
-    width={text('Width', undefined)}
-  />
-);
+export const numericInput = () => {
+  return (
+    <State store={numericInputStore}>
+      <NumericInput
+        bold={boolean('Bold', false)}
+        disabled={boolean('Disabled', false)}
+        error={text('Error', '')}
+        helpText={text('Help text', '')}
+        success={text('Success', '')}
+        warning={text('Warning', '')}
+        id="input1"
+        inverse={boolean('Inverse', false)}
+        max={number('Max', 10)}
+        min={number('Min', 0)}
+        placeholder={text('Placeholder', placeholder)}
+        readOnly={boolean('Read only', false)}
+        size={select('Size', sizes) || undefined}
+        stepper={select('Stepper', stepperOptions, 'suffix')}
+        step={number('Step', 1)}
+        connectedLeft={
+          boolean('Toggle connected left', false) ? (
+            <Button size={select('Size', sizes, 'medium')} label="€" />
+          ) : (
+            undefined
+          )
+        }
+        connectedRight={
+          boolean('Toggle connected right', false) ? (
+            <Button size={select('Size', sizes, 'medium')}>
+              <Checkbox size="small">Discount</Checkbox>
+            </Button>
+          ) : (
+            undefined
+          )
+        }
+        onChange={handleNumericInputChange}
+        prefix={boolean('Toggle prefix', false) ? prefix : undefined}
+        suffix={boolean('Toggle suffix', false) ? suffix : undefined}
+        width={text('Width', undefined)}
+      />
+    </State>
+  );
+};
 
 numericInput.story = {
   name: 'NumericInput',

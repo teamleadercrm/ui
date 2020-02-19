@@ -5,6 +5,9 @@ import cx from 'classnames';
 import Box from '../box';
 import Overlay from '../overlay/Overlay';
 import Transition from 'react-transition-group/Transition';
+import Header from './Header';
+import Body from './Body';
+import Footer from './Footer';
 import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
 
@@ -112,5 +115,9 @@ DialogBase.defaultProps = {
   scrollable: true,
   size: 'medium',
 };
+
+DialogBase.Header = Header;
+DialogBase.Body = Body;
+DialogBase.Footer = Footer;
 
 export default DialogBase;

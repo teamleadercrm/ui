@@ -52,6 +52,7 @@ class SingleLineInputBase extends PureComponent {
       suffix,
       width,
       warning,
+      noInputStyling,
       ...others
     } = this.props;
 
@@ -83,7 +84,7 @@ class SingleLineInputBase extends PureComponent {
 
     return (
       <Box className={classNames} {...boxProps}>
-        <div className={theme['input-wrapper']}>
+        <div className={cx(theme['input-wrapper'], noInputStyling && theme['is-input-disabled'])}>
           {connectedLeft}
           <div className={theme['input-inner-wrapper']} style={{ width, flex: width && '0 0 auto' }}>
             {prefix && <div className={theme['prefix-wrapper']}>{this.renderOneOrMultipleElements(prefix)}</div>}
@@ -117,6 +118,8 @@ SingleLineInputBase.propTypes = {
   warning: PropTypes.oneOfType([PropTypes.bool, PropTypes.node]),
   /** A custom width for the input field */
   width: PropTypes.string,
+  /** Whether to disable styling that hints being able to type in the input field */
+  noInputStyling: PropTypes.bool,
 };
 
 export default SingleLineInputBase;
