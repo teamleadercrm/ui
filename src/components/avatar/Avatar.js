@@ -93,6 +93,7 @@ class Avatar extends PureComponent {
       <Box
         {...restProps}
         className={avatarClassNames}
+        onClick={onClick}
         padding={onClick ? (size === 'hero' ? 2 : 1) : 0}
         boxSizing="content-box"
       >
