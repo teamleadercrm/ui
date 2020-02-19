@@ -88,7 +88,12 @@ declare module '@teamleader/ui' {
     | 'textAlign'
   >;
 
-  type BoxProps = HTMLAttributes<HTMLDivElement> &
+  /**
+   * @TODO Record<string, any> should be something like HTMLAttributes<element>
+   * and be based on the element property, not sure how to create
+   * a dynamic type like that
+   */
+  type BoxProps = Record<string, any> &
     Partial<SpacingProps> &
     Partial<LayoutProps> &
     Partial<BorderProps> & {
