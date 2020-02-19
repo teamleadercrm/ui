@@ -19,6 +19,14 @@ declare module '@teamleader/ui' {
     darkest = 'darkest',
   }
 
+  enum Size {
+    'tiny' = 'tiny',
+    'small' = 'small',
+    'medium' = 'medium',
+    'large' = 'large',
+    'hero' = 'hero',
+  }
+
   type SpacingProps = {
     margin: Unit;
     marginTop: Unit;
