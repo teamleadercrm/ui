@@ -122,7 +122,17 @@ declare module '@teamleader/ui' {
     size?: keyof typeof Size;
   };
   export function Avatar(props: AvatarProps): JSX.Element;
-  export function AvatarStack(props: any): any;
+
+  type AvatarStackProps = {
+    children: ReactNode;
+    className?: string;
+    direction?: 'horizontal' | 'vertical';
+    displayMax?: number;
+    inverse?: boolean;
+    onOverflowClick?: React.MouseEvent<HTMLDivElement, 'onclick'>;
+    size?: keyof typeof Size;
+  };
+  export function AvatarStack(props: AvatarStackProps): JSX.Element;
   export function AsyncSelect(props: any): any;
   export function Badge(props: any): any;
   export function Banner(props: any): any;
