@@ -148,7 +148,20 @@ declare module '@teamleader/ui' {
     cacheOptions?: boolean;
   };
   export function AsyncSelect(props: AsyncSelectProps): JSX.Element;
-  export function Badge(props: any): any;
+
+  type Badge = BoxProps & {
+    children: ReactNode;
+    className?: string;
+    disabled?: boolean;
+    icon?: ReactNode;
+    iconPlacement?: 'left' | 'right';
+    inherit?: boolean;
+    inverse?: boolean;
+    onMouseLeave?: Pick<BoxProps, 'onMouseLeave'>;
+    onMouseUp?: Pick<BoxProps, 'onMouseUp'>;
+    color?: Exclude<Color, Color.teal>;
+  };
+  export function Badge(props: Badge): JSX.Element;
   export function Banner(props: any): any;
   export function Box(props: BoxProps): any;
   export function Bullet(props: any): any;
