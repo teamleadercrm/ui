@@ -99,7 +99,13 @@ declare module '@teamleader/ui' {
       element?: ReactNode;
     };
 
-  export function AdvancedCollapsible(props: any): any;
+  type AdvancedCollapsibleProps = BoxProps & {
+    color?: Color.neutral | Color.teal;
+    children?: ReactNode;
+    title: string;
+    size?: Size.small | Size.medium | Size.large;
+  };
+  export function AdvancedCollapsible(props: AdvancedCollapsibleProps): JSX.Element;
   export function Avatar(props: any): any;
   export function AvatarStack(props: any): any;
   export function AsyncSelect(props: any): any;
