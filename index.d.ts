@@ -162,7 +162,16 @@ declare module '@teamleader/ui' {
     color?: Exclude<Color, Color.teal>;
   };
   export function Badge(props: Badge): JSX.Element;
-  export function Banner(props: any): any;
+
+  type BannerProps = BoxProps & {
+    children: ReactNode;
+    className?: string;
+    color?: keyof typeof Color;
+    icon?: ReactNode;
+    onClose?: Pick<BoxProps, 'onClick'>;
+    fullWidth?: boolean;
+  };
+  export function Banner(props: BannerProps): JSX.Element;
   export function Box(props: BoxProps): any;
   export function Bullet(props: any): any;
   export function Button(props: any): any;
