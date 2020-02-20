@@ -103,6 +103,7 @@ declare module '@teamleader/ui' {
       children?: ReactNode;
       element?: ReactNode;
     };
+  export function Box(props: BoxProps): JSX.Element;
 
   type AdvancedCollapsibleProps = BoxProps & {
     color?: Color.neutral | Color.teal;
@@ -172,7 +173,6 @@ declare module '@teamleader/ui' {
     fullWidth?: boolean;
   };
   export function Banner(props: BannerProps): JSX.Element;
-  export function Box(props: BoxProps): any;
   export function Bullet(props: any): any;
   export function Button(props: any): any;
   export function ButtonGroup(props: any): any;
