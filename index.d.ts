@@ -182,7 +182,26 @@ declare module '@teamleader/ui' {
     size?: Size.small | Size.medium | Size.large;
   };
   export function Bullet(props: BulletProps): JSX.Element;
-  export function Button(props: any): any;
+
+  type ButtonProps = BoxProps & {
+    children?: ReactNode;
+    className?: string;
+    element?: ReactNode;
+    level?: 'outline' | 'primary' | 'secondary' | 'destructive' | 'link' | 'timer';
+    disabled?: boolean;
+    active?: boolean;
+    fullWidth?: boolean;
+    icon?: ReactNode;
+    iconPlacement?: 'left' | 'right';
+    inverse?: boolean;
+    label?: ReactNode;
+    onMouseLeave?: Pick<BoxProps, 'onMouseLeave'>;
+    onMouseUp?: Pick<BoxProps, 'onMouseUp'>;
+    processing?: boolean;
+    size?: Size.small | Size.medium | Size.large;
+    type?: string;
+  };
+  export function Button(props: ButtonProps): JSX.Element;
   export function ButtonGroup(props: any): any;
   export function Checkbox(props: any): any;
   export function CompactMessage(props: any): any;
