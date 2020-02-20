@@ -1,25 +1,22 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { TextSmall } from '../typography';
-import Box from '../box';
 
 export default class ErrorText extends PureComponent {
   render() {
     const { children, className, inverse, ...others } = this.props;
 
     return (
-      <Box
+      <TextSmall
         className={className}
-        alignItems="center"
+        color="ruby"
         data-teamleader-ui="error-text"
-        display="flex"
         marginTop={2}
+        tint={inverse ? 'light' : 'dark'}
         {...others}
       >
-        <TextSmall color="ruby" element="span" tint={inverse ? 'light' : 'dark'}>
-          {children}
-        </TextSmall>
-      </Box>
+        {children}
+      </TextSmall>
     );
   }
 }
