@@ -173,7 +173,15 @@ declare module '@teamleader/ui' {
     fullWidth?: boolean;
   };
   export function Banner(props: BannerProps): JSX.Element;
-  export function Bullet(props: any): any;
+
+  type BulletProps = BoxProps & {
+    borderColor: keyof typeof Color;
+    borderTint: Exclude<Tint, 'normal'>;
+    className?: string;
+    color?: keyof typeof Color;
+    size?: Size.small | Size.medium | Size.large;
+  };
+  export function Bullet(props: BulletProps): JSX.Element;
   export function Button(props: any): any;
   export function ButtonGroup(props: any): any;
   export function Checkbox(props: any): any;
