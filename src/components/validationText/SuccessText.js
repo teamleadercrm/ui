@@ -1,9 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { IconCheckmarkSmallFilled } from '@teamleader/ui-icons';
 import { TextSmall } from '../typography';
 import Box from '../box';
-import Icon from '../icon';
 
 export default class SuccessText extends PureComponent {
   render() {
@@ -18,9 +16,6 @@ export default class SuccessText extends PureComponent {
         marginTop={2}
         {...others}
       >
-        <Icon color="mint" tint={inverse ? 'light' : 'dark'}>
-          <IconCheckmarkSmallFilled />
-        </Icon>
         <TextSmall color="mint" element="span" marginLeft={1} tint={inverse ? 'light' : 'dark'}>
           {children}
         </TextSmall>
