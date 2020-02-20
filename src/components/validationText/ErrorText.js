@@ -11,7 +11,7 @@ export default class ErrorText extends PureComponent {
         className={className}
         color="ruby"
         data-teamleader-ui="error-text"
-        marginTop={2}
+        marginTop={1}
         tint={inverse ? 'light' : 'dark'}
         {...others}
       >
