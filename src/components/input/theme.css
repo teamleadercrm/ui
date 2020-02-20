@@ -384,6 +384,10 @@
   }
 }
 
+.has-text-align-right {
+  text-align: right;
+}
+
 .has-success {
   &:not(.is-inverse) {
     .input-inner-wrapper,
