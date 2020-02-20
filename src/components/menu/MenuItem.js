@@ -42,7 +42,7 @@ class MenuItem extends PureComponent {
           disabled={disabled}
           display="flex"
           element={element}
-          flex="1 0 auto"
+          flex="1 1 auto"
           paddingHorizontal={3}
           paddingVertical={2}
           textAlign="left"
@@ -58,7 +58,7 @@ class MenuItem extends PureComponent {
             className={cx({
               [theme['menu-item-text-container']]: element === 'a',
             })}
-            flex="1 0 auto"
+            flex="1 1 auto"
           >
             {label && (
               <TextBody color={color} tint={tint}>

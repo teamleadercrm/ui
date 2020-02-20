@@ -109,6 +109,7 @@ export const input = () => (
     }
     prefix={boolean('Toggle prefix', false) ? prefix : undefined}
     suffix={boolean('Toggle suffix', false) ? suffix : undefined}
+    textAlignRight={boolean('Text align right', false)}
     width={text('Width', undefined)}
   />
 );
@@ -151,6 +152,7 @@ export const numericInput = () => {
         onChange={handleNumericInputChange}
         prefix={boolean('Toggle prefix', false) ? prefix : undefined}
         suffix={boolean('Toggle suffix', false) ? suffix : undefined}
+        textAlignRight={boolean('Text align right', false)}
         width={text('Width', undefined)}
       />
     </State>
@@ -193,6 +195,7 @@ export const timeInput = () => (
       }
       prefix={boolean('Toggle prefix', false) ? prefix : undefined}
       suffix={boolean('Toggle suffix', false) ? suffix : undefined}
+      textAlignRight={boolean('Text align right', false)}
       width={text('Width', '90px')}
       onChange={handleTimeInputChange}
     />
@@ -216,6 +219,7 @@ export const textarea = () => (
     placeholder={text('Placeholder', placeholder)}
     readOnly={boolean('Read only', false)}
     size={select('Size', sizes) || undefined}
+    textAlignRight={boolean('Text align right', false)}
     value={text('Value', undefined)}
   />
 );

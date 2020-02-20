@@ -12,14 +12,44 @@
 
 ### Dependency updates
 
+## [0.36.5] - 2020-02-20
+
+### Added
+
+- `InputBase`: added `textAlignRight` prop. If true, the input text is aligned to the right. ([@driesd](https://github.com/driesd) in [#879](https://github.com/teamleadercrm/ui/pull/879))
+
+### Removed
+
+- `ErrorText`, `SuccessText` & `WarningText`: removed the icon in front of the text. ([@driesd](https://github.com/driesd) in [#881](https://github.com/teamleadercrm/ui/pull/881))
+
+### Fixed
+
+- `MenuItem`: make sure that their text wraps when overflow would happen. ([@driesd](https://github.com/driesd) in [#878](https://github.com/teamleadercrm/ui/pull/878))
+
+### Dependency updates
+
+- `file-loader` from `5.0.2` to `5.1.0`
+
+## [0.36.4] - 2020-02-19
+
+### Added
+
+- `Dialog`: added a `DialogBase.Header`, `DialogBase.Body` and `DialogBase.Footer` component, for if you want to make custom dialogs ([@lowiebenoot](https://github.com/lowiebenoot) in [#875](https://github.com/teamleadercrm/ui/pull/875))
+
+### Removed
+
+- `NumericInput`: remove value parsing in `getDerivedStateFromProps`. ([@driesd](https://github.com/driesd) in [#876](https://github.com/teamleadercrm/ui/pull/876))
+
+### Dependency updates
+
+- `postcss` from `7.0.26` to `7.0.27`
+
 ## [0.36.3] - 2020-02-13
 
 ### Fixed
 
 - `MonthPicker`: Make sure you can type a year number in the year field of MonthPicker ([@mikeverf](https://github.com/mikeverf) in [#868](https://github.com/teamleadercrm/ui/pull/868))
 - `MonthPicker`: Don't allow searching in MonthPicker select ([@mikeverf](https://github.com/mikeverf) in [#868](https://github.com/teamleadercrm/ui/pull/868))
-
-### Dependency updates
 
 ## [0.36.2] - 2020-02-11
 
@@ -28,8 +58,6 @@
 - `MonthPicker`: added `MonthPicker` component, for use in `DatePicker` caption ([@mikeverf](https://github.com/mikeverf) in [#840](https://github.com/teamleadercrm/ui/pull/840))
 - `DatePicker`: added `withMonthPicker` prop, to use the newly added `MonthPicker` ([@mikeverf](https://github.com/mikeverf) in [#840](https://github.com/teamleadercrm/ui/pull/840))
 - `SingleLineInputBase`: added `noInputStyling` prop, to disable styling hinting at being able to type in the input field ([@mikeverf](https://github.com/mikeverf) in [#840](https://github.com/teamleadercrm/ui/pull/840))
-
-### Dependency updates
 
 ## [0.36.1] - 2020-02-11
 
