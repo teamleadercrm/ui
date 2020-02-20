@@ -4,11 +4,10 @@ import { TextSmall } from '../typography';
 
 export default class SuccessText extends PureComponent {
   render() {
-    const { children, className, inverse, ...others } = this.props;
+    const { children, inverse, ...others } = this.props;
 
     return (
       <TextSmall
-        className={className}
         color="mint"
         data-teamleader-ui="success-text"
         marginTop={1}
@@ -24,8 +23,6 @@ export default class SuccessText extends PureComponent {
 SuccessText.propTypes = {
   /** The displayed text */
   children: PropTypes.node,
-  /** The class name for the wrapper to give custom styles */
-  className: PropTypes.string,
   /** Determines if the component will be rendered in inverse mode */
   inverse: PropTypes.bool,
 };

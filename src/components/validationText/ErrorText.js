@@ -4,11 +4,10 @@ import { TextSmall } from '../typography';
 
 export default class ErrorText extends PureComponent {
   render() {
-    const { children, className, inverse, ...others } = this.props;
+    const { children, inverse, ...others } = this.props;
 
     return (
       <TextSmall
-        className={className}
         color="ruby"
         data-teamleader-ui="error-text"
         marginTop={1}
@@ -24,8 +23,6 @@ export default class ErrorText extends PureComponent {
 ErrorText.propTypes = {
   /** The displayed text */
   children: PropTypes.node,
-  /** The class name for the wrapper to give custom styles */
-  className: PropTypes.string,
   /** Determines if the component will be rendered in inverse mode */
   inverse: PropTypes.bool,
 };
