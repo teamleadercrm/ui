@@ -2,6 +2,8 @@
 
 ### Added
 
+- `InputBase`: added `textAlignRight` prop. If true, the input text is aligned to the right. ([@driesd](https://github.com/driesd) in [#879](https://github.com/teamleadercrm/ui/pull/879))
+
 ### Changed
 
 ### Deprecated
