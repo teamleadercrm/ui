@@ -1,9 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { IconWarningBadgedSmallFilled } from '@teamleader/ui-icons';
 import { TextSmall } from '../typography';
 import Box from '../box';
-import Icon from '../icon';
 
 export default class ErrorText extends PureComponent {
   render() {
@@ -18,10 +16,7 @@ export default class ErrorText extends PureComponent {
         marginTop={2}
         {...others}
       >
-        <Icon color="ruby" tint={inverse ? 'light' : 'dark'}>
-          <IconWarningBadgedSmallFilled />
-        </Icon>
-        <TextSmall color="ruby" element="span" marginLeft={1} tint={inverse ? 'light' : 'dark'}>
+        <TextSmall color="ruby" element="span" tint={inverse ? 'light' : 'dark'}>
           {children}
         </TextSmall>
       </Box>
