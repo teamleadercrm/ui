@@ -12,6 +12,24 @@
 
 ### Dependency updates
 
+## [0.36.5] - 2020-02-20
+
+### Added
+
+- `InputBase`: added `textAlignRight` prop. If true, the input text is aligned to the right. ([@driesd](https://github.com/driesd) in [#879](https://github.com/teamleadercrm/ui/pull/879))
+
+### Removed
+
+- `ErrorText`, `SuccessText` & `WarningText`: removed the icon in front of the text. ([@driesd](https://github.com/driesd) in [#881](https://github.com/teamleadercrm/ui/pull/881))
+
+### Fixed
+
+- `MenuItem`: make sure that their text wraps when overflow would happen. ([@driesd](https://github.com/driesd) in [#878](https://github.com/teamleadercrm/ui/pull/878))
+
+### Dependency updates
+
+- `file-loader` from `5.0.2` to `5.1.0`
+
 ## [0.36.4] - 2020-02-19
 
 ### Added

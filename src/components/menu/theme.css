@@ -89,6 +89,7 @@
       top: 0;
       transition: opacity var(--menu-fade-duration) var(--animation-curve-default),
         clip var(--menu-expand-duration) var(--animation-curve-default);
+      white-space: nowrap;
     }
 
     &.active {
@@ -124,7 +125,6 @@
   padding: var(--menu-padding);
   position: relative;
   text-align: left;
-  white-space: nowrap;
 }
 
 .menu-item {

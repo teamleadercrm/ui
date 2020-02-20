@@ -6,7 +6,7 @@ import theme from './theme.css';
 
 class InputBase extends PureComponent {
   render() {
-    const { bold, className, element, innerRef, inverse, size, ...otherProps } = this.props;
+    const { bold, className, element, innerRef, inverse, size, textAlignRight, ...otherProps } = this.props;
 
     const classNames = cx(
       theme['input'],
@@ -14,6 +14,7 @@ class InputBase extends PureComponent {
       {
         [theme['is-inverse']]: inverse,
         [theme['is-bold']]: bold,
+        [theme['has-text-align-right']]: textAlignRight,
       },
       className,
     );
