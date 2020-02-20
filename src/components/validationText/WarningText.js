@@ -1,25 +1,22 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { TextSmall } from '../typography';
-import Box from '../box';
 
 export default class WarningText extends PureComponent {
   render() {
     const { children, className, inverse, ...others } = this.props;
 
     return (
-      <Box
+      <TextSmall
         className={className}
-        alignItems="center"
+        color="gold"
         data-teamleader-ui="warning-text"
-        display="flex"
-        marginTop={2}
+        marginTop={1}
+        tint={inverse ? 'light' : 'dark'}
         {...others}
       >
-        <TextSmall color="gold" element="span" marginLeft={1} tint={inverse ? 'light' : 'dark'}>
-          {children}
-        </TextSmall>
-      </Box>
+        {children}
+      </TextSmall>
     );
   }
 }
