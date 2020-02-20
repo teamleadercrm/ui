@@ -10,6 +10,8 @@
 
 ### Removed
 
+- `ErrorText`, `SuccessText` & `WarningText`: removed the icon in front of the text. ([@driesd](https://github.com/driesd) in [#881](https://github.com/teamleadercrm/ui/pull/881))
+
 ### Fixed
 
 ### Dependency updates

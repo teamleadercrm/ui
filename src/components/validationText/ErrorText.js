@@ -1,30 +1,21 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { IconWarningBadgedSmallFilled } from '@teamleader/ui-icons';
 import { TextSmall } from '../typography';
-import Box from '../box';
-import Icon from '../icon';
 
 export default class ErrorText extends PureComponent {
   render() {
-    const { children, className, inverse, ...others } = this.props;
+    const { children, inverse, ...others } = this.props;
 
     return (
-      <Box
-        className={className}
-        alignItems="center"
+      <TextSmall
+        color="ruby"
         data-teamleader-ui="error-text"
-        display="flex"
-        marginTop={2}
+        marginTop={1}
+        tint={inverse ? 'light' : 'dark'}
         {...others}
       >
-        <Icon color="ruby" tint={inverse ? 'light' : 'dark'}>
-          <IconWarningBadgedSmallFilled />
-        </Icon>
-        <TextSmall color="ruby" element="span" marginLeft={1} tint={inverse ? 'light' : 'dark'}>
-          {children}
-        </TextSmall>
-      </Box>
+        {children}
+      </TextSmall>
     );
   }
 }
@@ -32,8 +23,6 @@ export default class ErrorText extends PureComponent {
 ErrorText.propTypes = {
   /** The displayed text */
   children: PropTypes.node,
-  /** The class name for the wrapper to give custom styles */
-  className: PropTypes.string,
   /** Determines if the component will be rendered in inverse mode */
   inverse: PropTypes.bool,
 };
