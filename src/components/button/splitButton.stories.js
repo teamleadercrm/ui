@@ -1,5 +1,5 @@
 import React from 'react';
-import { select } from '@storybook/addon-knobs/react';
+import { select, boolean } from '@storybook/addon-knobs/react';
 import SplitButton from './SplitButton';
 import MenuDivider from '../menu/MenuDivider';
 import MenuItem from '../menu/MenuItem';
@@ -24,6 +24,7 @@ export const basic = () => (
     level={select('Level', levels, 'primary')}
     onButtonClick={handleButtonClick}
     size={select('Size', sizes, 'medium')}
+    disabled={boolean('Disabled', false)}
   >
     <MenuItem onClick={handleMenuItemClick} label="Main action" />
     <MenuItem onClick={handleMenuItemClick} label="Via file upload" caption="(.CVS, . XLS & .XLSX)" />
