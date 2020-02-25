@@ -38,17 +38,24 @@ class SplitButton extends PureComponent {
   };
 
   render() {
-    const { children, level, size, ...others } = this.props;
+    const { children, level, size, disabled, ...others } = this.props;
     const { buttonLabel, popoverActive, popoverAnchorEl } = this.state;
     const boxProps = pickBoxProps(others);
     return (
       <Box display="flex" justifyContent="center" {...boxProps} data-teamleader-ui="split-menu">
         <ButtonGroup segmented>
-          <Button label={buttonLabel} level={level} size={size} onClick={this.handleMainButtonClick} />
+          <Button
+            label={buttonLabel}
+            level={level}
+            size={size}
+            disabled={disabled}
+            onClick={this.handleMainButtonClick}
+          />
           <Button
             icon={<IconChevronDownSmallOutline />}
             level={level}
             size={size}
+            disabled={disabled}
             onClick={this.handleSecondaryButtonClick}
           />
         </ButtonGroup>
@@ -89,6 +96,8 @@ SplitButton.propTypes = {
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   /** The function executed, when we click on the main button. */
   onButtonClick: PropTypes.func.isRequired,
+  /** If true, component will be disabled. */
+  disabled: PropTypes.bool,
 };
 
 export default SplitButton;
