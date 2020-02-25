@@ -2,6 +2,8 @@
 
 ### Added
 
+- `SplitButton`: added `disabled` prop. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#883](https://github.com/teamleadercrm/ui/pull/883))
+
 ### Changed
 
 ### Deprecated
