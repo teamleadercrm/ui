@@ -2,6 +2,20 @@
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Dependency updates
+
+## [0.36.6] - 2020-02-26
+
+### Added
+
 - `SplitButton`: added `disabled` prop. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#883](https://github.com/teamleadercrm/ui/pull/883))
 
 ### Changed
@@ -13,6 +27,9 @@
 ### Fixed
 
 ### Dependency updates
+
+- Bump `babel-eslint` from `10.0.3` to `10.1.0`
+- Update all Storybook dependencies to `5.3.14`
 
 ## [0.36.5] - 2020-02-20
 
