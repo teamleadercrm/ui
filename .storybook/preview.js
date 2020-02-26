@@ -1,20 +1,10 @@
-import { centerStyles } from './styles';
-import { configure, addDecorator, addParameters } from '@storybook/react';
+import { addDecorator, addParameters } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs } from '@storybook/addon-knobs';
 import { COLOR } from '../src/constants';
-import PropTable from './components/propTable';
 import styles from '@sambego/storybook-styles';
-import teamleaderTheme from './teamleaderTheme';
+import PropTable from './components/propTable';
 
-// global parameters
 addParameters({
-  options: {
-    panelPosition: 'right',
-    enableShortcuts: false,
-    theme: teamleaderTheme,
-    url: 'https://teamleader.design',
-  },
   backgrounds: [
     { name: 'Aqua lightest', value: COLOR.AQUA.LIGHTEST },
     { name: 'Neutral', value: COLOR.NEUTRAL.NORMAL },
@@ -92,13 +82,10 @@ addDecorator(
   }),
 );
 
-// addon-knobs
-addDecorator(withKnobs);
-
 // addon-styles
-addDecorator(styles({ ...centerStyles }));
-
-configure(
-  [require.context('../src/components', true, /\.stories\.js$/), require.context('./stories', true, /\.stories\.js$/)],
-  module,
+addDecorator(
+  styles({
+    margin: '24px auto',
+    maxWidth: '90%',
+  }),
 );
