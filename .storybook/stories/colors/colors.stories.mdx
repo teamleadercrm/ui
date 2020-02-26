@@ -1,0 +1,148 @@
+import { Meta, ColorPalette, ColorItem, Story } from '@storybook/addon-docs/blocks';
+import { Box, COLOR, Heading2, Island, StatusLabel, TextBody } from '../../../src';
+
+<Meta title="Primitives/Colors" />
+
+# Colors
+
+Color makes the visual design more consistent, provides meaning & adds hierarchy to the interface.
+
+<Story name="Primary" />
+
+## Primary
+
+<ColorPalette>
+  <ColorItem
+    title="Neutral"
+    colors={[COLOR.NEUTRAL.LIGHTEST,COLOR.NEUTRAL.LIGHT,COLOR.NEUTRAL.NORMAL,COLOR.NEUTRAL.DARK,COLOR.NEUTRAL.DARKEST]}
+  />
+  <ColorItem
+    title="Teal"
+    colors={[COLOR.TEAL.LIGHTEST,COLOR.TEAL.LIGHT,COLOR.TEAL.NORMAL,COLOR.TEAL.DARK,COLOR.TEAL.DARKEST]}
+  />
+  <ColorItem
+    title="Mint"
+    colors={[COLOR.MINT.LIGHTEST,COLOR.MINT.LIGHT,COLOR.MINT.NORMAL,COLOR.MINT.DARK,COLOR.MINT.DARKEST]}
+  />
+</ColorPalette>
+
+<Story name="Secondary" />
+
+## Secondary
+
+<ColorPalette>
+  <ColorItem
+    title="Aqua"
+    colors={[COLOR.AQUA.LIGHTEST,COLOR.AQUA.LIGHT,COLOR.AQUA.NORMAL,COLOR.AQUA.DARK,COLOR.AQUA.DARKEST]}
+  />
+  <ColorItem
+    title="Gold"
+    colors={[COLOR.GOLD.LIGHTEST,COLOR.GOLD.LIGHT,COLOR.GOLD.NORMAL,COLOR.GOLD.DARK,COLOR.GOLD.DARKEST]}
+  />
+  <ColorItem
+    title="Ruby"
+    colors={[COLOR.RUBY.LIGHTEST,COLOR.RUBY.LIGHT,COLOR.RUBY.NORMAL,COLOR.RUBY.DARK,COLOR.RUBY.DARKEST]}
+  />
+  <ColorItem
+    title="Violet"
+    colors={[COLOR.VIOLET.LIGHTEST,COLOR.VIOLET.LIGHT,COLOR.VIOLET.NORMAL,COLOR.VIOLET.DARK,COLOR.VIOLET.DARKEST]}
+  />
+</ColorPalette>
+
+<Story name="Usage" />
+
+## Usage
+Color adds extra meaning to a components state. Below is a list on which ones are specific for Teamleader.
+
+<Box display="flex" marginBottom={3}>
+  <Island color="white" flex={1} marginRight={2}>
+    <Heading2 marginBottom={3}>Neutral Light</Heading2>
+    <TextBody>Default sections</TextBody>
+  </Island>
+  <Island color="neutral" flex={1} marginLeft={2}>
+    <Heading2 marginBottom={3}>Neutral dark</Heading2>
+    <TextBody>Headers, footers, editable sections</TextBody>
+  </Island>
+</Box>
+
+<Box backgroundColor="teal" backgroundTint="darkest" borderRadius="rounded" marginBottom={3} padding={4}>
+  <Heading2 color="neutral" tint="lightest" marginBottom={3}>Teal</Heading2>
+  <TextBody color="neutral" tint="lightest">Main navigation and text</TextBody>
+</Box>
+
+<Island color="mint" marginBottom={3}>
+  <Heading2 marginBottom={3}>Mint</Heading2>
+  <TextBody>Success messages</TextBody>
+</Island>
+
+<Island color="aqua" marginBottom={3}>
+  <Heading2 marginBottom={3}>Aqua</Heading2>
+  <TextBody>Neutral messages and text links</TextBody>
+</Island>
+
+<Island color="gold" marginBottom={3}>
+  <Heading2 marginBottom={3}>Gold</Heading2>
+  <TextBody>Warning messages</TextBody>
+</Island>
+
+<Island color="ruby" marginBottom={3}>
+  <Heading2 marginBottom={3}>Ruby</Heading2>
+  <TextBody>Error messages, desctructive actions</TextBody>
+</Island>
+
+<Island color="violet" marginBottom={3}>
+  <Heading2 marginBottom={3}>Violet</Heading2>
+  <TextBody>Ongoing messages</TextBody>
+</Island>
+
+<Story name="Best practices" />
+
+## Best practices
+### Contrast
+For optimal contrast, backgrounds have the lightest tint, while text has the darkest tint.
+
+<Box display="flex">
+  <Box flex={1} marginRight={2}>
+    <StatusLabel color="mint">Do</StatusLabel>
+    <Island color="violet" marginTop="3">
+      <Heading2 marginBottom={3}>Teamleader</Heading2>
+      <TextBody>More business. Fewer chores.</TextBody>
+    </Island>
+  </Box>
+  <Box flex={1} marginLeft={2}>
+    <StatusLabel color="ruby">Don't</StatusLabel>
+    <Box
+      backgroundColor="violet"
+      backgroundTint="normal"
+      borderColor="violet"
+      borderTint="normal"
+      borderRadius="rounded"
+      borderWidth={1}
+      marginTop="3"
+      padding={4}
+    >
+      <Heading2 color="violet" tint="darkest" marginBottom={3}>Teamleader</Heading2>
+      <TextBody color="violet" tint="darkest">More business. Fewer chores.</TextBody>
+    </Box>
+  </Box>
+</Box>
+
+### Combination
+Stay within the same tint when combining text with a color background.
+
+<Box display="flex">
+  <Box flex={1} marginRight={2}>
+    <StatusLabel color="mint">Do</StatusLabel>
+    <Island color="gold" marginTop="3">
+      <Heading2 marginBottom={3}>Teamleader</Heading2>
+      <TextBody>More business. Fewer chores.</TextBody>
+    </Island>
+  </Box>
+  <Box flex={1} marginLeft={2}>
+    <StatusLabel color="ruby">Don't</StatusLabel>
+    <Island color="gold" marginTop="3">
+      <Heading2 color="teal" marginBottom={3}>Teamleader</Heading2>
+      <TextBody color="teal">More business. Fewer chores.</TextBody>
+    </Island>
+  </Box>
+</Box>
