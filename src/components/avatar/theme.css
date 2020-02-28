@@ -303,6 +303,18 @@
   }
 }
 
+.has-overflow {
+  .is-selectable,
+  .is-selected {
+    &:not(.is-hero) + .overflow {
+      margin: 3px;
+    }
+    &.is-hero + .overflow {
+      margin: 6px;
+    }
+  }
+}
+
 /*AvatarInitials*/
 .avatar-initials {
   display: flex;
