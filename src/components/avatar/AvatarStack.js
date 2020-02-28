@@ -9,20 +9,24 @@ class AvatarStack extends PureComponent {
   render() {
     const { children, className, direction, displayMax, inverse, onOverflowClick, size, ...others } = this.props;
 
+    const childrenToDisplay = displayMax > 0 ? children.slice(0, displayMax) : children;
+    const overflowAmount = children.length - displayMax;
+    const hasOverflow = overflowAmount > 0;
+
     const classNames = cx(
       theme['stack'],
       theme[direction],
       theme[`is-${size}`],
       inverse ? [theme['light']] : [theme['dark']],
+      {
+        [theme['has-overflow']]: hasOverflow,
+      },
       className,
     );
-
-    const childrenToDisplay = displayMax > 0 ? children.slice(0, displayMax) : children;
-    const overflowAmount = children.length - displayMax;
     return (
       <Box data-teamleader-ui="avatar-stack" className={classNames} {...others}>
         {childrenToDisplay.map((child, index) => cloneElement(child, { key: index, ...child.props, size }))}
-        {overflowAmount > 0 && (
+        {hasOverflow && (
           <div
             className={cx(uiUtilities['reset-font-smoothing'], theme['overflow'])}
             onClick={onOverflowClick}
