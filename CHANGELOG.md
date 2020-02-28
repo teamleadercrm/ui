@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `AvatarStack`: fixed the spacing between the avatars. ([@driesd](https://github.com/driesd) in [#895](https://github.com/teamleadercrm/ui/pull/895))
+
 ### Dependency updates
 
 ## [0.36.6] - 2020-02-26
@@ -17,14 +19,6 @@
 ### Added
 
 - `SplitButton`: added `disabled` prop. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#883](https://github.com/teamleadercrm/ui/pull/883))
-
-### Changed
-
-### Deprecated
-
-### Removed
-
-### Fixed
 
 ### Dependency updates
 

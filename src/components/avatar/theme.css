@@ -92,7 +92,7 @@
   flex-direction: row;
 
   > *:not(:last-child) {
-    margin-left: var(--stacked-avatars-spacing);
+    margin-right: var(--stacked-avatars-spacing);
   }
 }
 
@@ -100,7 +100,7 @@
   flex-direction: column;
 
   > *:not(:last-child) {
-    margin-top: var(--stacked-avatars-spacing);
+    margin-bottom: var(--stacked-avatars-spacing);
   }
 }
 
@@ -299,6 +299,18 @@
     .avatar-anonymous,
     .avatar-add {
       box-shadow: 0 0 0 6px var(--color-aqua-dark) !important;
+    }
+  }
+}
+
+.has-overflow {
+  .is-selectable,
+  .is-selected {
+    &:not(.is-hero) + .overflow {
+      margin: 3px;
+    }
+    &.is-hero + .overflow {
+      margin: 6px;
     }
   }
 }
