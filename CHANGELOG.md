@@ -10,9 +10,20 @@
 
 ### Fixed
 
+### Dependency updates
+
+## [0.36.7] - 2020-03-02
+
+### Fixed
+
 - `AvatarStack`: fixed the spacing between the avatars. ([@driesd](https://github.com/driesd) in [#895](https://github.com/teamleadercrm/ui/pull/895))
 
 ### Dependency updates
+
+- `@babel/core` from `7.8.4` to `7.8.6`
+- `@babel/preset-env` from `7.8.4` to `7.8.6`
+- `react` from `16.12.0` to `16.13.0`
+- `react-dom` from `16.12.0` to `16.13.0`
 
 ## [0.36.6] - 2020-02-26
 
