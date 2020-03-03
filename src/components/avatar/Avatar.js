@@ -12,7 +12,18 @@ import omit from 'lodash.omit';
 import { IconCloseMediumOutline, IconCloseSmallOutline } from '@teamleader/ui-icons';
 
 class Avatar extends PureComponent {
+  state = {
+    failedToLoadImage: false,
+  };
+
+  onImageLoadFailure = () => {
+    this.setState({
+      failedToLoadImage: true,
+    })
+  };
+
   renderComponent = () => {
+    const { failedToLoadImage } = this.state;
     const { creatable, children, editable, imageUrl, fullName, id, onImageChange, selected, size } = this.props;
 
     const childrenToRender = selected ? (
@@ -36,7 +47,7 @@ class Avatar extends PureComponent {
       return <AvatarAdd children={children} size={size} />;
     }
 
-    if (imageUrl) {
+    if (imageUrl && !failedToLoadImage) {
       return (
         <AvatarImage
           children={childrenToRender}
@@ -44,6 +55,7 @@ class Avatar extends PureComponent {
           image={imageUrl}
           imageAlt={fullName}
           onImageChange={onImageChange}
+          onImageLoadFailure={this.onImageLoadFailure}
           size={size}
         />
       );
