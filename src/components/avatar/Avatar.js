@@ -49,7 +49,7 @@ class Avatar extends PureComponent {
       );
     }
 
-    if (fullName && id) {
+    if (fullName) {
       return (
         <AvatarInitials
           children={childrenToRender}
