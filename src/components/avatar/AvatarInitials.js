@@ -32,7 +32,7 @@ class AvatarInitials extends PureComponent {
   };
 
   render() {
-    const { children, editable, onImageChange, size } = this.props;
+    const { children, editable, id, onImageChange, size } = this.props;
 
     return (
       <Box
@@ -41,7 +41,9 @@ class AvatarInitials extends PureComponent {
         className={theme['avatar-initials']}
         data-teamleader-ui="avatar-initials"
       >
-        <Heading4 className={theme['initials']}>{this.getInitials()}</Heading4>
+        <Heading4 className={theme['initials']} color="neutral" tint={id ? 'lightest' : 'darkest'}>
+          {this.getInitials()}
+        </Heading4>
         {editable && (size === 'large' || size === 'hero') && <AvatarOverlay onClick={onImageChange} />}
         {children && <div className={theme['children']}>{children}</div>}
       </Box>

@@ -323,7 +323,6 @@
   user-select: none;
 
   .initials {
-    color: var(--color-neutral-lightest);
     text-transform: uppercase;
     letter-spacing: 0px;
   }
