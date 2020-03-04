@@ -1,4 +1,5 @@
 import React from 'react';
+import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { select } from '@storybook/addon-knobs/react';
 import {
   Box,
@@ -16,7 +17,7 @@ const colors = ['mint', 'violet', 'ruby', 'gold', 'aqua', 'neutral'];
 const sizes = ['small', 'medium'];
 
 export default {
-  title: 'Status Labels',
+  title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Status Label'),
 
   parameters: {
     info: {

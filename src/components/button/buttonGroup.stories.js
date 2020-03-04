@@ -1,4 +1,5 @@
 import React from 'react';
+import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { boolean } from '@storybook/addon-knobs/react';
 import { Store, State } from '@sambego/storybook-state';
 import { IconAddMediumOutline } from '@teamleader/ui-icons';
@@ -14,7 +15,7 @@ const handleChangeValue = (value, event) => {
 };
 
 export default {
-  title: 'Button groups',
+  title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Button group'),
 
   parameters: {
     info: {

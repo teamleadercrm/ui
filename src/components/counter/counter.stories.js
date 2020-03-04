@@ -1,4 +1,5 @@
 import React from 'react';
+import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { number, select } from '@storybook/addon-knobs/react';
 import { Counter, Tooltip, TextBody } from '../../index';
 
@@ -8,7 +9,7 @@ const sizes = ['small', 'medium'];
 const TooltippedCounter = Tooltip(Counter);
 
 export default {
-  title: 'Counters',
+  title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Counter'),
 };
 
 export const basic = () => (

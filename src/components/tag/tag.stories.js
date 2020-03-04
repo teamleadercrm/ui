@@ -1,4 +1,5 @@
 import React from 'react';
+import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { boolean, select } from '@storybook/addon-knobs/react';
 import { Tag, TextBody, Tooltip } from '../../index';
 
@@ -8,7 +9,7 @@ const colors = ['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua'];
 const TooltippedTag = Tooltip(Tag);
 
 export default {
-  title: 'Tags',
+  title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Tag'),
 };
 
 export const basic = () => (

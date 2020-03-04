@@ -1,4 +1,5 @@
 import React from 'react';
+import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { boolean, select } from '@storybook/addon-knobs/react';
 import { IconBuildingSmallOutline } from '@teamleader/ui-icons';
 import { colorsWithout, Badge, TextDisplay } from '../../index';
@@ -7,7 +8,7 @@ const colors = colorsWithout(['teal']);
 const iconPositions = ['left', 'right'];
 
 export default {
-  title: 'Badge',
+  title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Badge'),
 
   parameters: {
     info: {
