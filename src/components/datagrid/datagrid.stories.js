@@ -1,4 +1,5 @@
 import React from 'react';
+import { addStoryInGroup, COMPOSITIONS } from '../../../.storybook/utils';
 import { boolean, number, select } from '@storybook/addon-knobs/react';
 import {
   DataGrid,
@@ -22,7 +23,7 @@ const handleRowSelectionChange = selectedRows => {
 };
 
 export default {
-  title: 'DataGrids',
+  title: addStoryInGroup(COMPOSITIONS, 'DataGrids'),
 
   parameters: {
     info: {
