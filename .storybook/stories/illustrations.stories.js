@@ -1,4 +1,5 @@
 import React from 'react';
+import { addStoryInGroup, FOUNDATION } from '../utils';
 import * as Illustrations from '@teamleader/ui-illustrations';
 import { Box, TextSmall } from '../../src';
 
@@ -20,7 +21,7 @@ const itemStyles = {
 };
 
 export default {
-  title: 'Illustrations',
+  title: addStoryInGroup(FOUNDATION, 'Illustrations'),
 };
 
 export const _36X24 = () => (

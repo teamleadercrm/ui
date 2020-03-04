@@ -1,4 +1,5 @@
 import React from 'react';
+import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { boolean, number, select, text } from '@storybook/addon-knobs/react';
 import { Store, State } from '@sambego/storybook-state';
 import { IconCalendarSmallOutline } from '@teamleader/ui-icons';
@@ -72,7 +73,7 @@ const handleNumericInputChange = (event, value) => {
 };
 
 export default {
-  title: 'Form elements/Input',
+  title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Form elements/Input'),
 
   parameters: {
     info: {

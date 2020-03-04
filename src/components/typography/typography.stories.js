@@ -1,4 +1,5 @@
 import React from 'react';
+import { addStoryInGroup, PRIMITIVES } from '../../../.storybook/utils';
 import { boolean, select } from '@storybook/addon-knobs/react';
 import {
   COLORS,
@@ -17,7 +18,7 @@ import {
 } from '../../index';
 
 export default {
-  title: 'Typography',
+  title: addStoryInGroup(PRIMITIVES, 'Typography'),
 
   parameters: {
     info: {

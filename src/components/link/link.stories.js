@@ -1,4 +1,5 @@
 import React from 'react';
+import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { boolean, select } from '@storybook/addon-knobs/react';
 import { IconAddSmallOutline } from '@teamleader/ui-icons';
 import { COLORS, TINTS, Link, TextBody, TextDisplay, TextSmall } from '../../index';
@@ -7,7 +8,7 @@ const elements = ['a', 'button'];
 const iconPositions = ['left', 'right'];
 
 export default {
-  title: 'Links',
+  title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Link'),
 
   parameters: {
     info: {

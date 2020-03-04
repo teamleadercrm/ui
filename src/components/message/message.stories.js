@@ -1,4 +1,5 @@
 import React from 'react';
+import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { select } from '@storybook/addon-knobs/react';
 import { IllustrationInvoices120X120Static, IllustrationSharpie48X48Static } from '@teamleader/ui-illustrations';
 import { Button, Message, CompactMessage, Island, Heading2, Link, TextBody } from '../../index';
@@ -26,7 +27,7 @@ const content = (
 );
 
 export default {
-  title: 'Message',
+  title: addStoryInGroup(MID_LEVEL_BLOCKS, 'Message'),
 
   parameters: {
     info: {

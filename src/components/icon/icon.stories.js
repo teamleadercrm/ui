@@ -1,4 +1,5 @@
 import React from 'react';
+import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { number, select } from '@storybook/addon-knobs/react';
 import * as Icons from '@teamleader/ui-icons';
 import { Box, Icon, TextSmall } from '../../index';
@@ -19,7 +20,7 @@ const itemStyles = {
 };
 
 export default {
-  title: 'Icons',
+  title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Icon'),
 
   parameters: {
     info: {

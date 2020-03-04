@@ -1,4 +1,5 @@
 import React from 'react';
+import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { boolean, select } from '@storybook/addon-knobs/react';
 import { IconAddMediumOutline, IconAddSmallOutline } from '@teamleader/ui-icons';
 import { Button } from '../../index';
@@ -9,7 +10,7 @@ const levels = ['primary', 'secondary', 'outline', 'destructive', 'link', 'timer
 const sizes = ['small', 'medium', 'large'];
 
 export default {
-  title: 'Buttons',
+  title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Button'),
 };
 
 export const withText = () => (

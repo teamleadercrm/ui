@@ -1,4 +1,5 @@
 import React from 'react';
+import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { select } from '@storybook/addon-knobs/react';
 import { LoadingBar } from '../../index';
 
@@ -7,7 +8,7 @@ const sizes = ['small', 'medium', 'large'];
 const tints = ['lightest', 'light', 'normal', 'dark', 'darkest'];
 
 export default {
-  title: 'LoadingBar',
+  title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'LoadingBar'),
 };
 
 export const basic = () => (

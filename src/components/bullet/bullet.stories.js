@@ -1,4 +1,5 @@
 import React from 'react';
+import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { select } from '@storybook/addon-knobs/react';
 import {
   Box,
@@ -21,7 +22,7 @@ const sizes = ['small', 'medium', 'large'];
 const TooltippedBullet = Tooltip(Bullet);
 
 export default {
-  title: 'Bullets',
+  title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Bullet'),
 
   parameters: {
     info: {

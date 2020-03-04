@@ -1,4 +1,5 @@
 import React from 'react';
+import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { number, boolean } from '@storybook/addon-knobs/react';
 import { ProgressTracker, Island } from '../../index';
 
@@ -11,7 +12,7 @@ const options = {
 };
 
 export default {
-  title: 'ProgressTracker',
+  title: addStoryInGroup(MID_LEVEL_BLOCKS, 'ProgressTracker'),
 
   parameters: {
     info: {

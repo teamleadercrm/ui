@@ -1,9 +1,5 @@
 import React from 'react';
-import MomentLocaleUtils, { formatDate, parseDate } from 'react-day-picker/moment';
-import { boolean, select } from '@storybook/addon-knobs/react';
-import { Store, State } from '@sambego/storybook-state';
-import { DateTime } from 'luxon';
-import { IconIdeaMediumOutline, IconInfoBadgedSmallFilled } from '@teamleader/ui-icons';
+import { addStoryInGroup, PLAYGROUND } from '../../utils';
 import {
   Box,
   Button,
@@ -16,26 +12,38 @@ import {
   Heading4,
   Icon,
   IconMenu,
-  Input,
-  MenuItem,
-  NumericInput,
   Label,
   Link,
+  MenuItem,
   Popover,
+  QTip,
   Select,
   StatusBullet,
-  Textarea,
   TextBody,
   TextSmall,
   Toast,
   ToastContainer,
   Tooltip,
-  QTip,
-} from '../../src';
+} from '../../../src';
+import { State, Store } from '@sambego/storybook-state';
+import { boolean, select } from '@storybook/addon-knobs/react';
+import { DateTime } from 'luxon';
+import { IconIdeaMediumOutline, IconInfoBadgedSmallFilled } from '@teamleader/ui-icons';
+import options, { groupedOptions } from '../../../src/static/data/select';
+import { LANGUAGES } from '../../../src/static/data/languages';
+import MomentLocaleUtils, { formatDate, parseDate } from 'react-day-picker/moment';
+import { rows1 } from '../../../src/static/data/datagrid';
 
-import { rows1, rows3 } from '../../src/static/data/datagrid';
-import options, { groupedOptions } from '../../src/static/data/select';
-import { LANGUAGES } from '../../src/static/data/languages';
+export default {
+  title: addStoryInGroup(PLAYGROUND, 'Depths'),
+
+  parameters: {
+    info: {
+      source: false,
+      propTables: false,
+    },
+  },
+};
 
 const inputPlaceholderToday = DateTime.fromJSDate(new Date())
   .setLocale('nl')
@@ -78,12 +86,12 @@ const qTipStore = new Store({
   closed: true,
 });
 
-const showHideDialog = () => {
-  dialogStore.set({ active: !dialogStore.get('active') });
-};
-
 const hidePopover = () => {
   popoverStore.set({ active: false });
+};
+
+const showHideDialog = () => {
+  dialogStore.set({ active: !dialogStore.get('active') });
 };
 
 const showPopover = event => {
@@ -156,6 +164,7 @@ const MyDatagrid = ({ ...props }) => (
           <DataGrid.Cell soft>{row.column4}</DataGrid.Cell>
           <DataGrid.Cell align="right" flex="min-width" preventOverflow={false}>
             <IconMenu position="top-right">
+              <MenuItem onClick={() => console.log('onClick: duplicate row')}>Duplicate row</MenuItem>
               <MenuItem onClick={() => console.log('onClick: delete row')}>Remove row</MenuItem>
             </IconMenu>
           </DataGrid.Cell>
@@ -202,17 +211,6 @@ const MyDatagrid = ({ ...props }) => (
     </DataGrid.FooterRow>
   </DataGrid>
 );
-
-export default {
-  title: 'Playground',
-
-  parameters: {
-    info: {
-      source: false,
-      propTables: false,
-    },
-  },
-};
 
 export const zIndexes = () => (
   <Box>
@@ -350,108 +348,4 @@ export const zIndexes = () => (
 
 zIndexes.story = {
   name: 'Z-Indexes',
-};
-
-export const forms = () => {
-  const inputRef = React.createRef();
-  const numericInputRef = React.createRef();
-  const textareaRef = React.createRef();
-
-  const focusOnInput = () => {
-    inputRef.current.focus();
-  };
-
-  const focusOnNumericInput = () => {
-    numericInputRef.current.focus();
-  };
-
-  const focusOnTextarea = () => {
-    textareaRef.current.focus();
-  };
-
-  return (
-    <Box>
-      <ButtonGroup>
-        <Button label="Focus the Input" onClick={focusOnInput} />
-        <Button label="Focus the NumericInput" onClick={focusOnNumericInput} />
-        <Button label="Focus the Textarea" onClick={focusOnTextarea} />
-      </ButtonGroup>
-      <Box display="flex" marginTop={4}>
-        <Label flex={1} marginRight={2}>
-          Input
-          <Input innerRef={inputRef} />
-        </Label>
-        <Label flex={1} marginLeft={2}>
-          NumericInput
-          <NumericInput innerRef={numericInputRef} />
-        </Label>
-      </Box>
-      <Label marginTop={4}>
-        Textarea
-        <Textarea innerRef={textareaRef} />
-      </Label>
-    </Box>
-  );
-};
-
-export const datagridInDialog = () => {
-  return (
-    <Box>
-      <Button label="Open Dialog" onClick={showHideDialog} />
-      <State store={dialogStore}>
-        <Dialog
-          title="Set unit costs"
-          onCloseClick={showHideDialog}
-          onEscKeyDown={showHideDialog}
-          onOverlayClick={showHideDialog}
-          primaryAction={{ label: 'Confirm', onClick: showHideDialog }}
-          scrollable={false}
-          secondaryAction={{ label: 'Cancel', onClick: showHideDialog }}
-          size="large"
-        >
-          <Box padding={0} style={{ borderBottom: '1px solid', borderColor: '#f7f7fa' }}>
-            <DataGrid selectable={false} comparableId={1}>
-              <DataGrid.HeaderRow>
-                <DataGrid.HeaderCell style={{ paddingLeft: '18px' }}>PRODUCT</DataGrid.HeaderCell>
-                <DataGrid.HeaderCell>ID</DataGrid.HeaderCell>
-                <DataGrid.HeaderCell>UNIT PRICE</DataGrid.HeaderCell>
-                <DataGrid.HeaderCell align="right" style={{ paddingRight: '20px' }}>
-                  UNIT COST
-                </DataGrid.HeaderCell>
-              </DataGrid.HeaderRow>
-            </DataGrid>
-          </Box>
-          <Box
-            padding={0}
-            overflowY="auto"
-            style={{ borderBottom: '1px solid', borderTop: '1px solid', borderColor: '#e4e4e6' }}
-          >
-            <DataGrid selectable={false} comparableId={1}>
-              {rows3.map((row, index) => {
-                return (
-                  <DataGrid.BodyRow key={index}>
-                    <DataGrid.Cell style={{ paddingLeft: '18px' }}>
-                      <TextBody>{row.column1}</TextBody>
-                    </DataGrid.Cell>
-                    <DataGrid.Cell>{row.column2}</DataGrid.Cell>
-                    <DataGrid.Cell>{row.column3}</DataGrid.Cell>
-                    <DataGrid.Cell align="right" style={{ paddingRight: '20px' }}>
-                      <Box display="flex" alignItems="center" justifyContent="space-between" style={{ width: '100px' }}>
-                        <TextBody marginRight={2}>€</TextBody>
-                        <Input placeholder={row.column4} />
-                      </Box>
-                    </DataGrid.Cell>
-                  </DataGrid.BodyRow>
-                );
-              })}
-            </DataGrid>
-          </Box>
-        </Dialog>
-      </State>
-    </Box>
-  );
-};
-
-datagridInDialog.story = {
-  name: 'Datagrid in Dialog',
 };

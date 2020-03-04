@@ -1,4 +1,5 @@
 import React from 'react';
+import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { boolean, select } from '@storybook/addon-knobs/react';
 import { Section, TextBody } from '../../index';
 
@@ -6,7 +7,7 @@ const colors = ['mint', 'violet', 'ruby', 'gold', 'aqua', 'white', 'neutral'];
 const sizes = ['small', 'medium', 'large'];
 
 export default {
-  title: 'Section',
+  title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Section'),
 
   parameters: {
     info: {

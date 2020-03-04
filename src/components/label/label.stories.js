@@ -2,12 +2,13 @@ import React from 'react';
 import { boolean, select, text } from '@storybook/addon-knobs/react';
 import { IconInfoBadgedSmallFilled, IconMarkerSmallOutline } from '@teamleader/ui-icons';
 import { Icon, Input, Label, TextSmall, Tooltip } from '../../index';
+import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 
 const sizes = ['small', 'medium', 'large'];
 const TooltippedIcon = Tooltip(Icon);
 
 export default {
-  title: 'Form elements/Label',
+  title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Form elements/Label'),
 
   parameters: {
     info: {
