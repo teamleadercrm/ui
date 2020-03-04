@@ -17,6 +17,12 @@ addParameters({
   ],
 });
 
+addParameters({
+  options: {
+    showRoots: true,
+  },
+});
+
 // addon-info
 addDecorator(
   withInfo({
