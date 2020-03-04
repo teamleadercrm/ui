@@ -1,8 +1,9 @@
 import React from 'react';
+import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { Box, Heading2, Heading3, ScrollContainer, TextBody } from '../../index';
 
 export default {
-  title: 'ScrollContainer',
+  title: addStoryInGroup(MID_LEVEL_BLOCKS, 'ScrollContainer'),
 };
 
 export const basic = () => (

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Store, State } from '@sambego/storybook-state';
 import { Button, Toast, Link, ToastContainer } from '../../index';
+import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
 
 const store = new Store({
   children: [],
@@ -92,7 +93,7 @@ const handleAddToastWithSpinner = () => {
 };
 
 export default {
-  title: 'Toast',
+  title: addStoryInGroup(MID_LEVEL_BLOCKS, 'Toast'),
 
   parameters: {
     info: {

@@ -1,4 +1,5 @@
 import React from 'react';
+import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { select, text } from '@storybook/addon-knobs';
 import { AdvancedCollapsible, TextBody } from '../../index';
 
@@ -6,7 +7,7 @@ const colors = ['neutral', 'teal'];
 const sizes = ['small', 'medium', 'large'];
 
 export default {
-  title: 'AdvancedCollapsible',
+  title: addStoryInGroup(MID_LEVEL_BLOCKS, 'AdvancedCollapsible'),
 
   parameters: {
     info: {

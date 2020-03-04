@@ -2,6 +2,7 @@ import React from 'react';
 import { boolean, number, select, text } from '@storybook/addon-knobs';
 import { Avatar, AvatarStack, Bullet, Counter, TextBody, Tooltip } from '../../index';
 import avatars from '../../static/data/avatar';
+import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
 
 const directions = ['horizontal', 'vertical'];
 const sizes = ['tiny', 'small', 'medium', 'large', 'hero'];
@@ -10,7 +11,7 @@ const shapes = ['circle', 'rounded'];
 const TooltippedAvatar = Tooltip(Avatar);
 
 export default {
-  title: 'Avatars',
+  title: addStoryInGroup(MID_LEVEL_BLOCKS, 'Avatar'),
 
   parameters: {
     info: {

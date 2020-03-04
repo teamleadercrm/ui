@@ -1,4 +1,5 @@
 import React from 'react';
+import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { Store, State } from '@sambego/storybook-state';
 import { boolean, number, select, text } from '@storybook/addon-knobs/react';
 import { IconWarningBadgedMediumOutline } from '@teamleader/ui-icons';
@@ -16,7 +17,7 @@ const handleActiveToggle = () => {
 };
 
 export default {
-  title: 'Dialogs',
+  title: addStoryInGroup(MID_LEVEL_BLOCKS, 'Dialog'),
 
   parameters: {
     info: {
