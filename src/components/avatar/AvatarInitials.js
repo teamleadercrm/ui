@@ -10,7 +10,7 @@ const colors = colorsWithout(['neutral']);
 const hashCode = hexString => parseInt(hexString.substr(-5), 16);
 
 class AvatarInitials extends PureComponent {
-  getColor = () => {
+  getBackgroundColor = () => {
     const { id } = this.props;
 
     if (!id) {
@@ -36,7 +36,7 @@ class AvatarInitials extends PureComponent {
 
     return (
       <Box
-        backgroundColor={this.getColor()}
+        backgroundColor={this.getBackgroundColor()}
         backgroundTint="normal"
         className={theme['avatar-initials']}
         data-teamleader-ui="avatar-initials"
