@@ -55,7 +55,6 @@ addDecorator(
           margin: '24px 0 10px 0',
         },
         body: {
-          borderBottom: `1px solid ${COLOR.NEUTRAL.NORMAL}`,
           paddingTop: 10,
           marginBottom: 10,
         },
@@ -63,7 +62,6 @@ addDecorator(
 
       stylesheet.source = {
         h1: {
-          borderBottom: `1px solid ${COLOR.NEUTRAL.NORMAL}`,
           color: COLOR.NEUTRAL.DARKEST,
           fontFamily: 'Inter-Medium',
           margin: '24px 0 10px 0',
