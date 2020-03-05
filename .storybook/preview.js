@@ -34,7 +34,7 @@ addDecorator(
         color: COLOR.TEAL.DARKEST,
         fontFamily: 'Inter-Regular',
         fontSize: '14px',
-        margin: '48px 0',
+        margin: '24px 0',
         padding: '0',
       };
 
