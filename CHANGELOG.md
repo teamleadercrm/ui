@@ -12,6 +12,23 @@
 
 ### Dependency updates
 
+## [0.36.8] - 2020-03-06
+
+### Changed
+
+- `Avatar`: fallback to `AvatarInitials` when image not found. ([@kevinwaelkens](https://github.com/kevinwaelkens) in [#898](https://github.com/teamleadercrm/ui/pull/898))
+
+### Removed
+
+- `Avatar`: removed check for `id` because it will fallback to a neutral background color. ([@kevinwaelkens](https://github.com/kevinwaelkens) in [#899](https://github.com/teamleadercrm/ui/pull/899))
+
+### Dependency updates
+
+- `@babel/core` from `7.8.6` to `7.8.7`
+- `@babel/preset-env` from `7.8.6` to `7.8.7`
+- `@babel/runtime` from `7.8.4` to `7.8.7`
+- `webpack` from `4.41.6` to `4.42.0`
+
 ## [0.36.7] - 2020-03-02
 
 ### Fixed
