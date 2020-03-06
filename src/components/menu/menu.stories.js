@@ -1,4 +1,5 @@
 import React from 'react';
+import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { boolean, select } from '@storybook/addon-knobs/react';
 import { IconClockSmallOutline, IconTrashSmallOutline } from '@teamleader/ui-icons';
 import { Avatar, IconMenu, Menu, MenuItem, MenuDivider, MenuTitle } from '../../index';
@@ -8,7 +9,7 @@ const avatar = <Avatar imageUrl={avatars[0].image} size="tiny" shape="circle" />
 const positions = ['top-left', 'top-right', 'bottom-left', 'bottom-right'];
 
 export default {
-  title: 'Menus',
+  title: addStoryInGroup(MID_LEVEL_BLOCKS, 'Menu'),
 };
 
 export const menuWithButtons = () => (

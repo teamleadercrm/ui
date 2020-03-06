@@ -1,4 +1,5 @@
 import React from 'react';
+import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { number, select } from '@storybook/addon-knobs/react';
 import { Box, TextBody, COLORS, TINTS } from '../../index';
 
@@ -15,7 +16,7 @@ const spacingOptions = {
 };
 
 export default {
-  title: 'Box',
+  title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Box'),
 
   parameters: {
     info: {

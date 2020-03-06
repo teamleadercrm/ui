@@ -1,11 +1,12 @@
 import React from 'react';
+import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { select } from '@storybook/addon-knobs/react';
 import { LoadingMolecule } from '../../index';
 
 const sizes = ['small', 'large'];
 
 export default {
-  title: 'Loading molecules',
+  title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Loading molecule'),
 };
 
 export const color = () => (

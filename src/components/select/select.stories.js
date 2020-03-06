@@ -1,4 +1,5 @@
 import React from 'react';
+import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { boolean, select, number, text } from '@storybook/addon-knobs/react';
 import { Avatar, Box, Label, Select, AsyncSelect, TextBody } from '../../index';
 import { customOptions, groupedOptions, options } from '../../static/data/select';
@@ -27,7 +28,7 @@ const CustomOption = ({ children, data, innerProps, isFocused, isSelected, isDis
 };
 
 export default {
-  title: 'Form elements/Select',
+  title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Form elements/Select'),
 
   parameters: {
     info: {

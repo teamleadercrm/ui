@@ -1,4 +1,5 @@
 import React from 'react';
+import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { boolean, select } from '@storybook/addon-knobs/react';
 import { Store, State } from '@sambego/storybook-state';
 import { RadioGroup, RadioButton } from '../../index';
@@ -14,7 +15,7 @@ const updateState = value => {
 };
 
 export default {
-  title: 'Form elements/Radio',
+  title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Form elements/Radio'),
 
   parameters: {
     info: {

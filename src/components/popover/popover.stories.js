@@ -1,4 +1,5 @@
 import React from 'react';
+import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { select, boolean, number, text } from '@storybook/addon-knobs/react';
 import { Store, State } from '@sambego/storybook-state';
 import {
@@ -87,7 +88,7 @@ const contentBoxWithSingleTextLine = (
 );
 
 export default {
-  title: 'Popover',
+  title: addStoryInGroup(MID_LEVEL_BLOCKS, 'Popover'),
 
   parameters: {
     info: {

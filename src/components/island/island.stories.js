@@ -1,4 +1,5 @@
 import React from 'react';
+import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { boolean, select } from '@storybook/addon-knobs/react';
 import {
   IllustrationInvoices120X120Static,
@@ -6,14 +7,13 @@ import {
   IllustrationDeals120X120Static,
 } from '@teamleader/ui-illustrations';
 import { Island, IslandGroup, Link, TextBody, TextSmall, Heading3 } from '../../index';
-
 import { IconChevronRightSmallOutline } from '@teamleader/ui-icons';
 
 const colors = ['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'white'];
 const sizes = ['small', 'medium', 'large'];
 
 export default {
-  title: 'Island',
+  title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Island'),
 
   parameters: {
     info: {

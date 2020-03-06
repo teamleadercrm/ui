@@ -1,4 +1,5 @@
 import React from 'react';
+import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { boolean, number, select, text } from '@storybook/addon-knobs/react';
 import { DatePicker, DatePickerRange, DatePickerInput, DatePickerInputRange } from '../../index';
 import { DateTime } from 'luxon';
@@ -47,7 +48,7 @@ const preSelectedRange = {
 };
 
 export default {
-  title: 'Form elements/DatePicker',
+  title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Form elements/DatePicker'),
 };
 
 export const singleDate = () => {

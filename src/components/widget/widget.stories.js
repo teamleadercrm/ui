@@ -1,4 +1,5 @@
 import React from 'react';
+import { addStoryInGroup, COMPOSITIONS } from '../../../.storybook/utils';
 import { boolean, select } from '@storybook/addon-knobs/react';
 import {
   Box,
@@ -28,7 +29,7 @@ const sizes = ['small', 'medium', 'large'];
 const TooltippedStatusBullet = Tooltip(StatusBullet);
 
 export default {
-  title: 'Widget',
+  title: addStoryInGroup(COMPOSITIONS, 'Widget'),
 };
 
 export const basic = () => (

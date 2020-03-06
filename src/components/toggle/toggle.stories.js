@@ -1,11 +1,12 @@
 import React from 'react';
 import { boolean, select } from '@storybook/addon-knobs/react';
 import { Toggle } from '../../index';
+import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 
 const sizes = ['small', 'medium', 'large'];
 
 export default {
-  title: 'Form elements/Toggle',
+  title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Form elements/Toggle'),
 };
 
 const ControlledToggle = props => {

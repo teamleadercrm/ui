@@ -4,6 +4,7 @@ import { TextSmall } from '../../../src/components/typography';
 import Tooltip from '../../../src/components/tooltip';
 import Badge from '../../../src/components/badge';
 import DataGrid from '../../../src/components/datagrid';
+import Island from '../../../src/components/island';
 
 const Red = props => <span style={{ color: 'red' }} {...props} />;
 const TooltippedBadge = Tooltip(Badge);
@@ -54,15 +55,17 @@ const PropTable = ({ propDefinitions }) => {
   });
 
   return (
-    <DataGrid marginVertical={4}>
-      <DataGrid.HeaderRow>
-        <DataGrid.HeaderCell>name</DataGrid.HeaderCell>
-        <DataGrid.HeaderCell>type</DataGrid.HeaderCell>
-        <DataGrid.HeaderCell>default</DataGrid.HeaderCell>
-        <DataGrid.HeaderCell flex="2">description</DataGrid.HeaderCell>
-      </DataGrid.HeaderRow>
-      {props}
-    </DataGrid>
+    <Island marginVertical={4} overflow="hidden" padding={0}>
+      <DataGrid>
+        <DataGrid.HeaderRow>
+          <DataGrid.HeaderCell>Name</DataGrid.HeaderCell>
+          <DataGrid.HeaderCell>Type</DataGrid.HeaderCell>
+          <DataGrid.HeaderCell>Default</DataGrid.HeaderCell>
+          <DataGrid.HeaderCell flex="2">Description</DataGrid.HeaderCell>
+        </DataGrid.HeaderRow>
+        {props}
+      </DataGrid>
+    </Island>
   );
 };
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { addStoryInGroup, COMPOSITIONS } from '../../../.storybook/utils';
 import { Store, State } from '@sambego/storybook-state';
 import { IconBuildingSmallOutline, IconPhoneSmallOutline, IconMailSmallOutline } from '@teamleader/ui-icons';
 import { Badge, Box, EmptyPassport, Passport } from '../../index';
@@ -53,7 +54,7 @@ const handleCloseClick = () => {
 };
 
 export default {
-  title: 'Passport',
+  title: addStoryInGroup(COMPOSITIONS, 'Passport'),
 
   parameters: {
     info: {

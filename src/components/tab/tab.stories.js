@@ -1,8 +1,9 @@
 import React from 'react';
+import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { boolean } from '@storybook/addon-knobs/react';
 import { IconTab, TabGroup, TitleTab, Box, Counter as UICounter } from '../../index';
-import { tabItems, invertedTabItems } from '../../static/data/tab';
 
+import { tabItems, invertedTabItems } from '../../static/data/tab';
 import {
   IconCalendarMediumOutline,
   IconCheckmarkMediumOutline,
@@ -32,7 +33,7 @@ const TitleCounter = props => <UICounter color="ruby" marginLeft={3} {...props} 
 const IconCounter = props => <UICounter color="ruby" {...props} />;
 
 export default {
-  title: 'Tab',
+  title: addStoryInGroup(MID_LEVEL_BLOCKS, 'Tab'),
 
   parameters: {
     info: {
