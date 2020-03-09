@@ -4,6 +4,20 @@
 
 ### Changed
 
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Dependency updates
+
+## [0.36.9] - 2020-03-09
+
+### Added
+
+### Changed
+
 - Typescript: loosely type all the components to prevent issues with static properties for `DataGrid` and `Widget` ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#907](https://github.com/teamleadercrm/ui/pull/907)
 
 ### Deprecated
