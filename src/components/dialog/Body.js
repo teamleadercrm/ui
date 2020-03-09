@@ -1,18 +1,18 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 
 import { Box } from '../../index';
 
 class Body extends PureComponent {
   render() {
-    const { scrollable, children, ...rest } = this.props;
+    const { scrollable, children, forwardedRef, ...rest } = this.props;
 
     if (!scrollable) {
       return children;
     }
 
     return (
-      <Box display="flex" flexDirection="column" overflowY="auto" {...rest}>
+      <Box display="flex" flexDirection="column" overflowY="auto" {...rest} ref={forwardedRef}>
         {children}
       </Box>
     );
@@ -26,4 +26,4 @@ Body.propTypes = {
   scrollable: PropTypes.bool,
 };
 
-export default Body;
+export default forwardRef((props, ref) => <Body {...props} forwardedRef={ref} />);

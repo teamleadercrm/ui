@@ -2,6 +2,8 @@
 
 ### Added
 
+- Forward ref in `DialogBase.Body` to its `Box` wrapper ([@mikeverf](https://github.com/mikeverf)) in [#911](https://github.com/teamleadercrm/ui/pull/911)
+
 ### Changed
 
 ### Deprecated
