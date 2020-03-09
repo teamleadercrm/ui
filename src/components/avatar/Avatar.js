@@ -16,10 +16,10 @@ class Avatar extends PureComponent {
     failedToLoadImage: false,
   };
 
-  onImageLoadFailure = () => {
+  handleImageLoadFailure = () => {
     this.setState({
       failedToLoadImage: true,
-    })
+    });
   };
 
   renderComponent = () => {
@@ -55,7 +55,7 @@ class Avatar extends PureComponent {
           image={imageUrl}
           imageAlt={fullName}
           onImageChange={onImageChange}
-          onImageLoadFailure={this.onImageLoadFailure}
+          onImageLoadFailure={this.handleImageLoadFailure}
           size={size}
         />
       );
