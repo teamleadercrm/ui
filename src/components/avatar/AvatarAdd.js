@@ -11,10 +11,13 @@ class AvatarAdd extends PureComponent {
 
     return (
       <Box
+        alignItems="center"
         backgroundColor="neutral"
         backgroundTint="normal"
         className={theme['avatar-add']}
         data-teamleader-ui="avatar-add"
+        display="flex"
+        justifyContent="center"
       >
         <Icon color="neutral" tint="darkest">
           {size === 'tiny' || size === 'small' ? <IconUserAddSmallOutline /> : <IconUserAddMediumOutline />}

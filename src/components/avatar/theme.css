@@ -313,13 +313,6 @@
   }
 }
 
-/* AvatarAdd */
-.avatar-add {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 /* AvatarAnonymous */
 .avatar-anonymous {
   display: flex;
