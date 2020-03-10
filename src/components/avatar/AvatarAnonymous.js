@@ -11,10 +11,13 @@ class AvatarAnonymous extends PureComponent {
 
     return (
       <Box
+        alignItems="center"
         backgroundColor="neutral"
         backgroundTint="normal"
         className={theme['avatar-anonymous']}
         data-teamleader-ui="avatar-anonymous"
+        display="flex"
+        justifyContent="center"
       >
         <Icon color="neutral" tint="darkest">
           {size === 'tiny' || size === 'small' ? <IconUserSmallOutline /> : <IconUserMediumOutline />}
