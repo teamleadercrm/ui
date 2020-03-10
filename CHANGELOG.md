@@ -12,6 +12,26 @@
 
 ### Dependency updates
 
+## [0.36.10] - 2020-03-10
+
+### Added
+
+- Forward ref in `DialogBase.Body` to its `Box` wrapper ([@mikeverf](https://github.com/mikeverf)) in [#911](https://github.com/teamleadercrm/ui/pull/911)
+
+### Fixed
+
+- `Avatar`: fix linting error to fix CI build process. ([@driesd](https://github.com/driesd) in [#910](https://github.com/teamleadercrm/ui/pull/910))
+
+### Dependency updates
+
+- `eslint-plugin-react` from `7.18.3` to `7.19.0`
+
+## [0.36.9] - 2020-03-09
+
+### Changed
+
+- Typescript: loosely type all the components to prevent issues with static properties for `DataGrid` and `Widget` ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#907](https://github.com/teamleadercrm/ui/pull/907)
+
 ## [0.36.8] - 2020-03-06
 
 ### Changed
