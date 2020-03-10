@@ -33,6 +33,7 @@
 }
 
 .image {
+  border-radius: inherit;
   display: block;
   height: inherit;
   overflow: hidden;
@@ -228,7 +229,7 @@
 }
 
 .is-circle {
-  .avatar-image .image,
+  .avatar-image,
   .avatar-initials,
   .avatar-anonymous,
   .avatar-add,
@@ -238,7 +239,7 @@
 }
 
 .is-rounded {
-  .avatar-image .image,
+  .avatar-image,
   .avatar-initials,
   .avatar-anonymous,
   .avatar-add {
