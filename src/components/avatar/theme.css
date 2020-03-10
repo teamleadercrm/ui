@@ -34,7 +34,9 @@
 
 .image {
   display: block;
+  height: inherit;
   overflow: hidden;
+  width: inherit;
 }
 
 /* AvatarStack */
@@ -103,8 +105,7 @@
   .avatar-image,
   .avatar-initials,
   .avatar-add,
-  .avatar-anonymous,
-  .image {
+  .avatar-anonymous {
     height: var(--tiny-size);
     width: var(--tiny-size);
   }
@@ -131,8 +132,7 @@
   .avatar-image,
   .avatar-initials,
   .avatar-add,
-  .avatar-anonymous,
-  .image {
+  .avatar-anonymous {
     height: var(--small-size);
     width: var(--small-size);
   }
@@ -155,8 +155,7 @@
   .avatar-image,
   .avatar-initials,
   .avatar-add,
-  .avatar-anonymous,
-  .image {
+  .avatar-anonymous {
     height: var(--medium-size);
     width: var(--medium-size);
   }
@@ -179,8 +178,7 @@
   .avatar-image,
   .avatar-initials,
   .avatar-add,
-  .avatar-anonymous,
-  .image {
+  .avatar-anonymous {
     height: var(--large-size);
     width: var(--large-size);
   }
@@ -207,8 +205,7 @@
   .avatar-image,
   .avatar-initials,
   .avatar-add,
-  .avatar-anonymous,
-  .image {
+  .avatar-anonymous {
     height: var(--hero-size);
     width: var(--hero-size);
   }
