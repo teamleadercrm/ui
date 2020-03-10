@@ -122,7 +122,7 @@
     border-radius: var(--tiny-size);
     font-size: calc(1.2 * var(--unit));
     height: var(--tiny-size);
-    min-width: calc(var(--tiny-size) - var(--overflow-padding-horizontal) * 2);
+    min-width: var(--tiny-size);
   }
 }
 
@@ -146,7 +146,7 @@
     border-radius: var(--small-size);
     font-size: calc(1.4 * var(--unit));
     height: var(--small-size);
-    min-width: calc(var(--small-size) - var(--overflow-padding-horizontal) * 2);
+    min-width: var(--small-size);
   }
 }
 
@@ -170,7 +170,7 @@
     border-radius: var(--medium-size);
     font-size: calc(1.6 * var(--unit));
     height: var(--medium-size);
-    min-width: calc(var(--medium-size) - var(--overflow-padding-horizontal) * 2);
+    min-width: var(--medium-size);
   }
 }
 
@@ -198,7 +198,7 @@
     border-radius: var(--large-size);
     font-size: calc(1.8 * var(--unit));
     height: var(--large-size);
-    min-width: calc(var(--large-size) - var(--overflow-padding-horizontal) * 2);
+    min-width: var(--large-size);
   }
 }
 
@@ -226,7 +226,7 @@
     border-radius: var(--hero-size);
     font-size: calc(3.6 * var(--unit));
     height: var(--hero-size);
-    min-width: calc(var(--hero-size) - var(--overflow-padding-horizontal) * 2);
+    min-width: var(--hero-size);
   }
 }
 
