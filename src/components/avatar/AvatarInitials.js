@@ -36,10 +36,13 @@ class AvatarInitials extends PureComponent {
 
     return (
       <Box
+        alignItems="center"
         backgroundColor={this.getBackgroundColor()}
         backgroundTint="normal"
         className={theme['avatar-initials']}
         data-teamleader-ui="avatar-initials"
+        display="flex"
+        justifyContent="center"
       >
         <Heading4 className={theme['initials']} color="neutral" tint={id ? 'lightest' : 'darkest'}>
           {this.getInitials()}
