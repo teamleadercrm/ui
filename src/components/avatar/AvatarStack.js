@@ -27,10 +27,15 @@ class AvatarStack extends PureComponent {
       <Box data-teamleader-ui="avatar-stack" className={classNames} {...others}>
         {childrenToDisplay.map((child, index) => cloneElement(child, { key: index, ...child.props, size }))}
         {hasOverflow && (
-          <div
+          <Box
+            alignItems="center"
             className={cx(uiUtilities['reset-font-smoothing'], theme['overflow'])}
+            display="flex"
+            justifyContent="center"
             onClick={onOverflowClick}
-          >{`+${overflowAmount}`}</div>
+          >
+            {`+${overflowAmount}`}
+          </Box>
         )}
       </Box>
     );
