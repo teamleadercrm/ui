@@ -44,7 +44,6 @@
 }
 
 .overflow {
-  align-self: center;
   font-family: var(--font-family-medium);
   line-height: 1;
   padding: 0 var(--overflow-padding-horizontal);
