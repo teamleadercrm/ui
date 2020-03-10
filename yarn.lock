@@ -2012,9 +2012,9 @@
   integrity sha512-4Fx77vRM4w9zwp3Gxd86UsEygq0xuL3WsXhQcuaRXXNbJxM2z8oKE9uQTQ5LfAUkHD4+CjDyrSE//a6CJlsoCw==
 
 "@teamleader/ui-icons@^0.2.17":
-  version "0.2.23"
-  resolved "https://registry.yarnpkg.com/@teamleader/ui-icons/-/ui-icons-0.2.23.tgz#fc33adcad6d3f55a1b5ba48461ea9fad3b8ca487"
-  integrity sha512-+RtxjsuqAo+hDJnOtjVfOMdUkW6gGZmo6UqJp1e+FmC7II/oswjtMY9jI72eR461onVCgt0OuZijmb1WmxDQdA==
+  version "0.2.24"
+  resolved "https://registry.yarnpkg.com/@teamleader/ui-icons/-/ui-icons-0.2.24.tgz#86b576cfd611aa6a7244cc11b19202d6bc0c8ca5"
+  integrity sha512-cHdusXs4knLUn1EExbxr7yfDaq48ybNwBwJsmEp2KWsy7V3OGnBZZAs8cDA9N1ujCoOLRM6lOfUPttIrYxcIbA==
 
 "@teamleader/ui-illustrations@^0.0.25":
   version "0.0.25"
