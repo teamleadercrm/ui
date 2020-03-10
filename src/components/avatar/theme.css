@@ -25,8 +25,17 @@
   z-index: 1;
 }
 
-.initials {
-  line-height: 1;
+/*AvatarInitials*/
+.avatar-initials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .initials {
+    letter-spacing: 0px;
+    line-height: 1;
+    user-select: none;
+  }
 }
 
 .image {
@@ -307,18 +316,6 @@
     &.is-hero + .overflow {
       margin: 6px;
     }
-  }
-}
-
-/*AvatarInitials*/
-.avatar-initials {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  user-select: none;
-
-  .initials {
-    letter-spacing: 0px;
   }
 }
 
