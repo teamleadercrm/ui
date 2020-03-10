@@ -20,11 +20,6 @@
   position: relative;
 }
 
-/* AvatarImage */
-.avatar-image {
-  display: flex;
-}
-
 .children {
   position: absolute;
   z-index: 1;
