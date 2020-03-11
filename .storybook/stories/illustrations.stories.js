@@ -24,6 +24,29 @@ export default {
   title: addStoryInGroup(FOUNDATION, 'Illustrations'),
 };
 
+export const _24X24 = () => (
+  <Box style={gridStyles}>
+    {Object.keys(Illustrations).map((key, index) => {
+      if (key.includes('24X24')) {
+        const IllustrationToRender = Illustrations[key];
+
+        return (
+          <Box key={index} style={itemStyles} {...itemProps}>
+            <Box flex="0 0 24px">
+              <IllustrationToRender />
+            </Box>
+            <TextSmall marginLeft={3}>{key}</TextSmall>
+          </Box>
+        );
+      }
+    })}
+  </Box>
+);
+
+_24X24.story = {
+  name: '24x24',
+};
+
 export const _36X24 = () => (
   <Box style={gridStyles}>
     {Object.keys(Illustrations).map((key, index) => {
