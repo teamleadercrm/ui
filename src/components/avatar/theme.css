@@ -251,7 +251,7 @@
 
 .is-selectable {
   &:not(.is-hero):hover {
-    .avatar-image .image,
+    .avatar-image,
     .avatar-initials,
     .avatar-add,
     .avatar-anonymous {
@@ -260,7 +260,7 @@
   }
 
   &.is-hero:hover {
-    .avatar-image .image,
+    .avatar-image,
     .avatar-initials,
     .avatar-add,
     .avatar-anonymous {
@@ -271,7 +271,7 @@
 
 .is-selected {
   &:not(.is-hero) {
-    .avatar-image .image,
+    .avatar-image,
     .avatar-initials,
     .avatar-anonymous,
     .avatar-add {
@@ -280,7 +280,7 @@
   }
 
   &.is-hero {
-    .avatar-image .image,
+    .avatar-image,
     .avatar-initials,
     .avatar-anonymous,
     .avatar-add {
