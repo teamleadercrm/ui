@@ -14,7 +14,6 @@ class AvatarStack extends PureComponent {
     const hasOverflow = overflowAmount > 0;
 
     const classNames = cx(
-      theme['stack'],
       theme[direction],
       theme[`is-${size}`],
       inverse ? [theme['light']] : [theme['dark']],
@@ -24,7 +23,7 @@ class AvatarStack extends PureComponent {
       className,
     );
     return (
-      <Box data-teamleader-ui="avatar-stack" className={classNames} {...others}>
+      <Box data-teamleader-ui="avatar-stack" className={classNames} {...others} alignItems="center" display="flex">
         {childrenToDisplay.map((child, index) => cloneElement(child, { key: index, ...child.props, size }))}
         {hasOverflow && (
           <Box

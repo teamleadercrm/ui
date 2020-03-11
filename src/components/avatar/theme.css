@@ -40,12 +40,6 @@
   width: inherit;
 }
 
-/* AvatarStack */
-.stack {
-  align-items: center;
-  display: flex;
-}
-
 .overflow {
   font-family: var(--font-family-medium);
   line-height: 1;
