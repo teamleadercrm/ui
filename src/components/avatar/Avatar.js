@@ -81,7 +81,7 @@ class Avatar extends PureComponent {
     const { className, onClick, selected, size, shape, ...others } = this.props;
 
     const avatarClassNames = cx(
-      theme['avatar'],
+      theme['wrapper'],
       theme[`is-${size}`],
       theme[`is-${shape}`],
       {
