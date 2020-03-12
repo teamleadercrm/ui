@@ -2016,10 +2016,10 @@
   resolved "https://registry.yarnpkg.com/@teamleader/ui-icons/-/ui-icons-0.2.24.tgz#86b576cfd611aa6a7244cc11b19202d6bc0c8ca5"
   integrity sha512-cHdusXs4knLUn1EExbxr7yfDaq48ybNwBwJsmEp2KWsy7V3OGnBZZAs8cDA9N1ujCoOLRM6lOfUPttIrYxcIbA==
 
-"@teamleader/ui-illustrations@^0.0.25":
-  version "0.0.25"
-  resolved "https://registry.yarnpkg.com/@teamleader/ui-illustrations/-/ui-illustrations-0.0.25.tgz#160a0e7dbb7e14fa5cf471953b89b3c39be6cb8a"
-  integrity sha512-OKDvvcTyOqsqp9TnqgBe+sqrKIyEyk+alZOgu6meC6z3cEhDEttbGyfgLePqJk8Vt5SyJXDZGGzkZqfTpYOVqw==
+"@teamleader/ui-illustrations@^0.0.26":
+  version "0.0.26"
+  resolved "https://registry.yarnpkg.com/@teamleader/ui-illustrations/-/ui-illustrations-0.0.26.tgz#03632691898f1e4f5d5f2edd7f9dcde7a8fe46e3"
+  integrity sha512-j9PQ4UKcoOTK3doMGlQwBWYRIHa3i9/WhUMyti8T/Tsgq4W3wN7BIGilq/pPZs5IVgiX1/utJeu6IMUcgqTJhQ==
 
 "@teamleader/ui-typography@^0.2.3":
   version "0.2.3"
