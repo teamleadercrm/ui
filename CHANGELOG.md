@@ -4,11 +4,15 @@
 
 ### Changed
 
+- `Avatar`: removed 3px spacing around avatars. ([@driesd](https://github.com/driesd) in [#914](https://github.com/teamleadercrm/ui/pull/914)
+
 ### Deprecated
 
 ### Removed
 
 ### Fixed
+
+- `Avatar`: fixed a visual glitch when `editable` prop was `true`. ([@driesd](https://github.com/driesd) in [#914](https://github.com/teamleadercrm/ui/pull/914)
 
 ### Dependency updates
 
@@ -20,7 +24,7 @@
 
 ### Fixed
 
-- `Avatar`: fix linting error to fix CI build process. ([@driesd](https://github.com/driesd) in [#910](https://github.com/teamleadercrm/ui/pull/910))
+- `Avatar`: fix linting error to fix CI build process. ([@driesd](https://github.com/driesd) in [#910](https://github.com/teamleadercrm/ui/pull/910)
 
 ### Dependency updates
 
