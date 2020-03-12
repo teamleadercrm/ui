@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 import theme from './theme.css';
 import AvatarOverlay from './AvatarOverlay';
 
@@ -8,7 +9,7 @@ class AvatarImage extends PureComponent {
     const { children, editable, image, imageAlt, onImageChange, size, onImageLoadFailure } = this.props;
 
     return (
-      <div className={theme['avatar-image']} data-teamleader-ui="avatar-image">
+      <div className={cx(theme['avatar'], theme['avatar-image'])} data-teamleader-ui="avatar-image">
         <img alt={imageAlt} onError={onImageLoadFailure} src={image} className={theme['image']} />
         {editable && (size === 'large' || size === 'hero') && <AvatarOverlay onClick={onImageChange} />}
         {children && <div className={theme['children']}>{children}</div>}
