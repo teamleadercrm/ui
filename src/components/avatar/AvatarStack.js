@@ -23,7 +23,14 @@ class AvatarStack extends PureComponent {
       className,
     );
     return (
-      <Box data-teamleader-ui="avatar-stack" className={classNames} {...others} alignItems="center" display="flex">
+      <Box
+        {...others}
+        data-teamleader-ui="avatar-stack"
+        className={classNames}
+        alignItems="center"
+        display="flex"
+        flexDirection={direction === 'horizontal' ? 'row' : 'column'}
+      >
         {childrenToDisplay.map((child, index) => cloneElement(child, { key: index, ...child.props, size }))}
         {hasOverflow && (
           <Box

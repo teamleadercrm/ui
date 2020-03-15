@@ -80,16 +80,12 @@
 }
 
 .horizontal {
-  flex-direction: row;
-
   > *:not(:last-child) {
     margin-right: var(--stacked-avatars-spacing);
   }
 }
 
 .vertical {
-  flex-direction: column;
-
   > *:not(:last-child) {
     margin-bottom: var(--stacked-avatars-spacing);
   }
