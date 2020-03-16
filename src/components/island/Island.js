@@ -18,14 +18,21 @@ class Island extends PureComponent {
 
     const isDark = elementIsDark(color, dark);
 
-    const classNames = cx(theme['island'], className, theme[color], {
-      [theme['dark']]: isDark,
-    });
+    const classNames = cx(theme['island'], className, theme[color]);
 
     const rest = omit(others, ['dark']);
 
     return (
-      <Box data-teamleader-ui="island" borderRadius="rounded" className={classNames} padding={SIZES[size]} {...rest}>
+      <Box
+        data-teamleader-ui="island"
+        borderRadius="rounded"
+        borderColor={color === 'white' ? 'neutral' : color}
+        borderTint={isDark ? 'dark' : 'normal'}
+        borderWidth={1}
+        className={classNames}
+        padding={SIZES[size]}
+        {...rest}
+      >
         {children}
       </Box>
     );
