@@ -26,6 +26,10 @@ class IslandGroup extends PureComponent {
                 borderRadius: 'square',
               }),
             ...(direction === 'horizontal' &&
+              !isFirstChild && {
+                borderLeftWidth: 0,
+              }),
+            ...(direction === 'horizontal' &&
               hasMoreThanOneChild &&
               isFirstChild && {
                 borderBottomRightRadius: 'square',
@@ -36,6 +40,10 @@ class IslandGroup extends PureComponent {
               isLastChild && {
                 borderBottomLeftRadius: 'square',
                 borderTopLeftRadius: 'square',
+              }),
+            ...(direction === 'vertical' &&
+              !isFirstChild && {
+                borderTopWidth: 0,
               }),
             ...(direction === 'vertical' &&
               hasMoreThanOneChild &&

@@ -42,33 +42,10 @@
 
     .island {
       align-items: center;
-      border-width: 1px 1px 1px 0;
       display: flex;
       flex: 1;
       flex-direction: column;
       text-align: center;
-
-      &:first-child {
-        border-width: 1px;
-      }
-
-      &:last-child:not(:only-child) {
-        border-width: 1px 1px 1px 0;
-      }
-    }
-  }
-
-  &.direction-vertical {
-    .island {
-      border-width: 0 1px 1px 1px;
-
-      &:first-child {
-        border-width: 1px;
-      }
-
-      &:last-child:not(:only-child) {
-        border-width: 0 1px 1px 1px;
-      }
     }
   }
 }
