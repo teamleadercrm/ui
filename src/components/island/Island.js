@@ -16,10 +16,8 @@ class Island extends PureComponent {
   render() {
     const { children, className, color, dark, size, ...others } = this.props;
 
+    const classNames = cx(theme[color], className);
     const isDark = elementIsDark(color, dark);
-
-    const classNames = cx(theme['island'], className, theme[color]);
-
     const rest = omit(others, ['dark']);
 
     return (
