@@ -35,17 +35,3 @@
   background-color: var(--color-aqua-lightest);
   color: var(--color-aqua-darkest);
 }
-
-.island-group {
-  &.direction-horizontal {
-    display: flex;
-
-    .island {
-      align-items: center;
-      display: flex;
-      flex: 1;
-      flex-direction: column;
-      text-align: center;
-    }
-  }
-}

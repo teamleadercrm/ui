@@ -79,7 +79,7 @@ export const group = () => (
     {islandData
       .slice(0, number('Island amount', 3, islandAmountOptions))
       .map(({ illustration, title, text }, index) => (
-        <Island key={index}>
+        <Island key={index} alignItems="center" display="flex" flex={1} flexDirection="column" textAlign="center">
           {illustration}
           <Heading3 marginBottom={3}>{title}</Heading3>
           <TextBody>{text}</TextBody>
