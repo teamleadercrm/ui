@@ -1,8 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import Box from '../box';
+import Box, { pickBoxProps } from '../box';
 import cx from 'classnames';
-import omit from 'lodash.omit';
 import theme from './theme.css';
 import { elementIsDark } from '../utils/utils';
 
@@ -18,7 +17,7 @@ class Island extends PureComponent {
 
     const classNames = cx(theme[color], className);
     const isDark = elementIsDark(color, dark);
-    const rest = omit(others, ['dark']);
+    const boxProps = pickBoxProps(others);
 
     return (
       <Box
@@ -34,7 +33,7 @@ class Island extends PureComponent {
         borderTopWidth={1}
         className={classNames}
         padding={SIZES[size]}
-        {...rest}
+        {...boxProps}
       >
         {children}
       </Box>
