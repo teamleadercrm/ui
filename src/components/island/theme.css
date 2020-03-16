@@ -1,10 +1,6 @@
 @import '@teamleader/ui-colors';
 @import '@teamleader/ui-utilities';
 
-:root {
-  --border-radius: 4px;
-}
-
 .island {
   border: 1px solid;
 }
@@ -60,14 +56,6 @@
 }
 
 .island-group {
-  .island {
-    border-radius: 0;
-
-    &:only-child {
-      border-radius: var(--border-radius);
-    }
-  }
-
   &.direction-horizontal {
     display: flex;
 
@@ -83,12 +71,7 @@
         border-width: 1px;
       }
 
-      &:first-child:not(:only-child) {
-        border-radius: var(--border-radius) 0 0 var(--border-radius);
-      }
-
       &:last-child:not(:only-child) {
-        border-radius: 0 var(--border-radius) var(--border-radius) 0;
         border-width: 1px 1px 1px 0;
       }
     }
@@ -102,12 +85,7 @@
         border-width: 1px;
       }
 
-      &:first-child:not(:only-child) {
-        border-radius: var(--border-radius) var(--border-radius) 0 0;
-      }
-
       &:last-child:not(:only-child) {
-        border-radius: 0 0 var(--border-radius) var(--border-radius);
         border-width: 0 1px 1px 1px;
       }
     }
