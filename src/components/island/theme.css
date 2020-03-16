@@ -2,36 +2,29 @@
 @import '@teamleader/ui-utilities';
 
 .white {
-  background-color: var(--color-white);
   color: var(--color-teal-darkest);
 }
 
 .neutral {
-  background-color: var(--color-neutral-light);
   color: var(--color-teal-darkest);
 }
 
 .mint {
-  background-color: var(--color-mint-lightest);
   color: var(--color-mint-darkest);
 }
 
 .violet {
-  background-color: var(--color-violet-lightest);
   color: var(--color-violet-darkest);
 }
 
 .ruby {
-  background-color: var(--color-ruby-lightest);
   color: var(--color-ruby-darkest);
 }
 
 .gold {
-  background-color: var(--color-gold-lightest);
   color: var(--color-gold-darkest);
 }
 
 .aqua {
-  background-color: var(--color-aqua-lightest);
   color: var(--color-aqua-darkest);
 }

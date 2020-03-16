@@ -25,6 +25,8 @@ class Island extends PureComponent {
     return (
       <Box
         data-teamleader-ui="island"
+        backgroundColor={color === 'white' ? 'neutral' : color}
+        backgroundTint={color === 'neutral' ? 'light' : 'lightest'}
         borderRadius="rounded"
         borderColor={color === 'white' ? 'neutral' : color}
         borderTint={isDark ? 'dark' : 'normal'}
