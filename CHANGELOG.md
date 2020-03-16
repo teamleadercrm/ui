@@ -5,7 +5,7 @@
 ### Changed
 
 - `Avatar`: removed 3px spacing around avatars. ([@driesd](https://github.com/driesd) in [#914](https://github.com/teamleadercrm/ui/pull/914)
-- `IslandGroup`: removed center alignment of the content inside an `Island` within an `IslandGroup`. ([@driesd](https://github.com/driesd) in [#921](https://github.com/teamleadercrm/ui/pull/921)
+- [Breaking] `IslandGroup`: removed center alignment of the content inside an `Island` within an `IslandGroup`. ([@driesd](https://github.com/driesd) in [#921](https://github.com/teamleadercrm/ui/pull/921)
 
 ### Deprecated
 
