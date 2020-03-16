@@ -28,7 +28,10 @@ class Island extends PureComponent {
         borderRadius="rounded"
         borderColor={color === 'white' ? 'neutral' : color}
         borderTint={isDark ? 'dark' : 'normal'}
-        borderWidth={1}
+        borderBottomWidth={1}
+        borderLeftWidth={1}
+        borderRightWidth={1}
+        borderTopWidth={1}
         className={classNames}
         padding={SIZES[size]}
         {...rest}
