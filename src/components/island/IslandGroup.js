@@ -23,7 +23,7 @@ class IslandGroup extends PureComponent {
           return React.cloneElement(child, {
             ...(!isFirstChild &&
               !isLastChild && {
-                borderRadius: 'none',
+                borderRadius: 'square',
               }),
             ...(direction === 'horizontal' &&
               hasMoreThanOneChild &&
