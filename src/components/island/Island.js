@@ -25,7 +25,7 @@ class Island extends PureComponent {
     const rest = omit(others, ['dark']);
 
     return (
-      <Box data-teamleader-ui="island" className={classNames} padding={SIZES[size]} {...rest}>
+      <Box data-teamleader-ui="island" borderRadius="rounded" className={classNames} padding={SIZES[size]} {...rest}>
         {children}
       </Box>
     );
