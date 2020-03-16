@@ -1,5 +1,4 @@
 @import '@teamleader/ui-colors';
-@import '@teamleader/ui-utilities';
 
 .white {
   color: var(--color-teal-darkest);
