@@ -4,6 +4,7 @@ import { boolean, select } from '@storybook/addon-knobs/react';
 import { IconAddMediumOutline, IconAddSmallOutline } from '@teamleader/ui-icons';
 import { Button } from '../../index';
 
+const colors = ['teal', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'white'];
 const elements = ['a', 'button'];
 const iconPositions = ['left', 'right'];
 const levels = ['primary', 'secondary', 'outline', 'destructive', 'link', 'timer'];
@@ -16,6 +17,7 @@ export default {
 export const withText = () => (
   <Button
     active={boolean('Active', false)}
+    color={select('Color', colors, 'teal')}
     label="Button"
     level={select('Level', levels, 'secondary')}
     disabled={boolean('Disabled', false)}
@@ -33,6 +35,7 @@ withText.story = {
 export const withIcon = () => (
   <Button
     active={boolean('Active', false)}
+    color={select('Color', colors, 'teal')}
     icon={select('Size', sizes, 'medium') === 'small' ? <IconAddSmallOutline /> : <IconAddMediumOutline />}
     level={select('Level', levels, 'secondary')}
     disabled={boolean('Disabled', false)}
@@ -50,6 +53,7 @@ withIcon.story = {
 export const withTextAndIcon = () => (
   <Button
     active={boolean('Active', false)}
+    color={select('Color', colors, 'teal')}
     icon={select('Size', sizes, 'medium') === 'small' ? <IconAddSmallOutline /> : <IconAddMediumOutline />}
     iconPlacement={select('Icon placement', iconPositions, 'left')}
     label="Button"
@@ -69,6 +73,7 @@ withTextAndIcon.story = {
 export const withCustomElement = () => (
   <Button
     active={boolean('Active', false)}
+    color={select('Color', colors, 'teal')}
     element={select('Element', elements, 'a')}
     label="Button"
     level={select('Level', levels, 'secondary')}
