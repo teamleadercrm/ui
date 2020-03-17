@@ -2,7 +2,7 @@ import React from 'react';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { boolean, select } from '@storybook/addon-knobs/react';
 import { IconAddSmallOutline } from '@teamleader/ui-icons';
-import { COLORS, TINTS, Link, TextBody, TextDisplay, TextSmall } from '../../index';
+import { COLORS, TINTS, Box, Link, TextBody, TextDisplay, TextSmall } from '../../index';
 
 const elements = ['a', 'button'];
 const iconPositions = ['left', 'right'];
@@ -109,4 +109,88 @@ export const subtleIconLink = () => (
 
 subtleIconLink.story = {
   name: 'Subtle icon link',
+};
+
+export const badgedLink = () => (
+  <Box>
+    <TextSmall color={select('Color', COLORS, 'neutral')} tint={select('Tint', TINTS, 'darkest')} marginVertical={5}>
+      <Link
+        badged={boolean('Badged', true)}
+        disabled={boolean('Disabled', false)}
+        element={select('Element', elements, 'button')}
+        inherit={boolean('Inherit', false)}
+        inverse={boolean('Inverse', false)}
+        marginLeft={-2}
+      >
+        Badged link
+      </Link>
+    </TextSmall>
+    <TextBody color={select('Color', COLORS, 'neutral')} tint={select('Tint', TINTS, 'darkest')} marginVertical={5}>
+      <Link
+        badged={boolean('Badged', true)}
+        disabled={boolean('Disabled', false)}
+        element={select('Element', elements, 'button')}
+        inherit={boolean('Inherit', false)}
+        inverse={boolean('Inverse', false)}
+        marginLeft={-2}
+      >
+        Badged link
+      </Link>
+    </TextBody>
+    <TextDisplay color={select('Color', COLORS, 'neutral')} tint={select('Tint', TINTS, 'darkest')} marginVertical={5}>
+      <Link
+        badged={boolean('Badged', true)}
+        disabled={boolean('Disabled', false)}
+        element={select('Element', elements, 'button')}
+        inherit={boolean('Inherit', false)}
+        inverse={boolean('Inverse', false)}
+        marginLeft={-2}
+      >
+        Badged link
+      </Link>
+    </TextDisplay>
+    <TextSmall color={select('Color', COLORS, 'neutral')} tint={select('Tint', TINTS, 'darkest')} marginVertical={5}>
+      A small text paragraph with a
+      <Link
+        badged={boolean('Badged', true)}
+        disabled={boolean('Disabled', false)}
+        element={select('Element', elements, 'button')}
+        inherit={boolean('Inherit', false)}
+        inverse={boolean('Inverse', false)}
+      >
+        badged link
+      </Link>
+      inside.
+    </TextSmall>
+    <TextBody color={select('Color', COLORS, 'neutral')} tint={select('Tint', TINTS, 'darkest')} marginVertical={5}>
+      A small text paragraph with a
+      <Link
+        badged={boolean('Badged', true)}
+        disabled={boolean('Disabled', false)}
+        element={select('Element', elements, 'button')}
+        inherit={boolean('Inherit', false)}
+        inverse={boolean('Inverse', false)}
+      >
+        badged link
+      </Link>
+      inside.
+    </TextBody>
+    <TextDisplay color={select('Color', COLORS, 'neutral')} tint={select('Tint', TINTS, 'darkest')} marginVertical={5}>
+      A small text paragraph with a
+      <Link
+        badged={boolean('Badged', true)}
+        disabled={boolean('Disabled', false)}
+        element={select('Element', elements, 'button')}
+        inherit={boolean('Inherit', false)}
+        inverse={boolean('Inverse', false)}
+      >
+        badged link
+      </Link>
+      inside.
+    </TextDisplay>
+  </Box>
+);
+
+badgedLink.story = {
+  name: 'Badged link',
 };
