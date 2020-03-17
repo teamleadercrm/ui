@@ -4,10 +4,12 @@
 
 - `Box`: added support for negative margin values. ([@driesd](https://github.com/driesd) in [#927](https://github.com/teamleadercrm/ui/pull/927)
 - `Button`: added `color` prop which to combine with button level `outline`. ([@driesd](https://github.com/driesd) in [#925](https://github.com/teamleadercrm/ui/pull/925)
+- `Link`: added `badged` prop (default `false`) which renders a semi-transparent background color on hover. ([@driesd](https://github.com/driesd) in [#928](https://github.com/teamleadercrm/ui/pull/928)
 
 ### Changed
 
 - `Avatar`: removed 3px spacing around avatars. ([@driesd](https://github.com/driesd) in [#914](https://github.com/teamleadercrm/ui/pull/914)
+- `Link`: changed the base component to `Box`. ([@driesd](https://github.com/driesd) in [#928](https://github.com/teamleadercrm/ui/pull/928)
 - [Breaking] `IslandGroup`: removed center alignment of the content inside an `Island` within an `IslandGroup`. ([@driesd](https://github.com/driesd) in [#921](https://github.com/teamleadercrm/ui/pull/921)
 
 ### Deprecated
