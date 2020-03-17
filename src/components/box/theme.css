@@ -31,6 +31,22 @@
     margin-top: $spacer;
   }
 
+  .margin-bottom-negative-$(factor) {
+    margin-bottom: calc($spacer * -1);
+  }
+
+  .margin-left-negative-$(factor) {
+    margin-left: calc($spacer * -1);
+  }
+
+  .margin-right-negative-$(factor) {
+    margin-right: calc($spacer * -1);
+  }
+
+  .margin-top-negative-$(factor) {
+    margin-top: calc($spacer * -1);
+  }
+
   .padding-bottom-$(factor) {
     padding-bottom: $spacer;
   }
