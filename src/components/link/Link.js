@@ -64,6 +64,8 @@ class Link extends PureComponent {
 }
 
 Link.propTypes = {
+  /** If true, component will be rendered with badged hover effect. */
+  badged: PropTypes.bool,
   /** The content to display inside the link. */
   children: PropTypes.any.isRequired,
   /** A class name for the link to give custom styles. */
@@ -87,6 +89,7 @@ Link.propTypes = {
 };
 
 Link.defaultProps = {
+  badged: false,
   className: '',
   disabled: false,
   element: 'a',
