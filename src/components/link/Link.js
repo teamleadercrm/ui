@@ -1,6 +1,7 @@
 import React, { createRef, Fragment, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import Box from '../box';
 import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
 
@@ -43,10 +44,10 @@ class Link extends PureComponent {
     );
 
     const ChildrenWrapper = icon ? 'span' : Fragment;
-    const Element = element;
 
     return (
-      <Element
+      <Box
+        element={element}
         ref={this.linkNode}
         className={classNames}
         data-teamleader-ui="link"
@@ -57,7 +58,7 @@ class Link extends PureComponent {
         {icon && iconPlacement === 'left' && icon}
         <ChildrenWrapper>{children}</ChildrenWrapper>
         {icon && iconPlacement === 'right' && icon}
-      </Element>
+      </Box>
     );
   }
 }
