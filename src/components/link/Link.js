@@ -29,12 +29,24 @@ class Link extends PureComponent {
   };
 
   render() {
-    const { children, className, disabled, icon, iconPlacement, element, inherit, inverse, ...others } = this.props;
+    const {
+      badged,
+      children,
+      className,
+      disabled,
+      icon,
+      iconPlacement,
+      element,
+      inherit,
+      inverse,
+      ...others
+    } = this.props;
 
     const classNames = cx(
       uiUtilities['reset-font-smoothing'],
       theme['link'],
       {
+        [theme['is-badged']]: badged,
         [theme['is-disabled']]: disabled,
         [theme['is-inherit']]: inherit,
         [theme['is-inverse']]: inverse,
