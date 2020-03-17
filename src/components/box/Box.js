@@ -5,7 +5,8 @@ import { COLOR, COLORS, TINTS } from '../../constants';
 import theme from './theme.css';
 
 const overflows = ['auto', 'hidden', 'scroll', 'visible'];
-const spacings = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+const margins = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+const paddings = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 
 const borderRadiuses = {
   square: null,
@@ -171,24 +172,24 @@ Box.propTypes = {
     'space-between',
     'space-evenly',
   ]),
-  margin: PropTypes.oneOf(spacings),
-  marginHorizontal: PropTypes.oneOf(spacings),
-  marginVertical: PropTypes.oneOf(spacings),
-  marginBottom: PropTypes.oneOf(spacings),
-  marginLeft: PropTypes.oneOf(spacings),
-  marginRight: PropTypes.oneOf(spacings),
-  marginTop: PropTypes.oneOf(spacings),
+  margin: PropTypes.oneOf(margins),
+  marginHorizontal: PropTypes.oneOf(margins),
+  marginVertical: PropTypes.oneOf(margins),
+  marginBottom: PropTypes.oneOf(margins),
+  marginLeft: PropTypes.oneOf(margins),
+  marginRight: PropTypes.oneOf(margins),
+  marginTop: PropTypes.oneOf(margins),
   order: PropTypes.number,
   overflow: PropTypes.oneOf(overflows),
   overflowX: PropTypes.oneOf(overflows),
   overflowY: PropTypes.oneOf(overflows),
-  padding: PropTypes.oneOf(spacings),
-  paddingHorizontal: PropTypes.oneOf(spacings),
-  paddingVertical: PropTypes.oneOf(spacings),
-  paddingBottom: PropTypes.oneOf(spacings),
-  paddingLeft: PropTypes.oneOf(spacings),
-  paddingRight: PropTypes.oneOf(spacings),
-  paddingTop: PropTypes.oneOf(spacings),
+  padding: PropTypes.oneOf(paddings),
+  paddingHorizontal: PropTypes.oneOf(paddings),
+  paddingVertical: PropTypes.oneOf(paddings),
+  paddingBottom: PropTypes.oneOf(paddings),
+  paddingLeft: PropTypes.oneOf(paddings),
+  paddingRight: PropTypes.oneOf(paddings),
+  paddingTop: PropTypes.oneOf(paddings),
   style: PropTypes.object,
   textAlign: PropTypes.oneOf(['center', 'left', 'right']),
 };
