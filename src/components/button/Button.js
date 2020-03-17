@@ -7,13 +7,13 @@ import theme from './theme.css';
 
 class Button extends PureComponent {
   getSpinnerColor() {
-    const { inverse, level } = this.props;
+    const { color, inverse, level } = this.props;
 
     switch (level) {
       case 'secondary':
         return 'teal';
       case 'outline':
-        return inverse ? 'neutral' : 'teal';
+        return color === 'white' ? 'neutral' : color;
       case 'link':
         return inverse ? 'neutral' : 'aqua';
       default:
@@ -22,13 +22,13 @@ class Button extends PureComponent {
   }
 
   getSpinnerTint() {
-    const { inverse, level } = this.props;
+    const { color, inverse, level } = this.props;
 
     switch (level) {
       case 'secondary':
         return 'darkest';
       case 'outline':
-        return inverse ? 'lightest' : 'darkest';
+        return color === 'white' ? 'lightest' : 'darkest';
       case 'link':
         return inverse ? 'lightest' : 'dark';
       default:
@@ -60,6 +60,7 @@ class Button extends PureComponent {
     const {
       children,
       className,
+      color,
       level,
       disabled,
       element,
@@ -84,7 +85,8 @@ class Button extends PureComponent {
       theme[size],
       {
         [theme['has-icon-only']]: (!children && !label) || (Array.isArray(children) && !children[0] && !label),
-        [theme['is-inverse']]: inverse && (level === 'outline' || level === 'link'),
+        [theme[color]]: level === 'outline',
+        [theme['is-inverse']]: inverse && level === 'link',
         [theme['is-disabled']]: disabled,
         [theme['is-full-width']]: fullWidth,
         [theme['is-processing']]: processing,
@@ -135,6 +137,8 @@ Button.propTypes = {
   children: PropTypes.any,
   /** A class name for the button to give custom styles. */
   className: PropTypes.string,
+  /** The color which the button should have when 'level' is set to 'outline' */
+  color: PropTypes.oneOf(['teal', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'white']),
   /** A custom element to be rendered */
   element: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
   /** Determines which kind of button to be rendered. */
@@ -167,6 +171,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
   className: '',
+  color: 'teal',
   element: 'button',
   fullWidth: false,
   level: 'secondary',
