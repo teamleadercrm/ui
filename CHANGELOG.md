@@ -2,6 +2,8 @@
 
 ### Added
 
+- `Button`: added `color` prop which to combine with button level `outline`. ([@driesd](https://github.com/driesd) in [#925](https://github.com/teamleadercrm/ui/pull/925)
+
 ### Changed
 
 - `Avatar`: removed 3px spacing around avatars. ([@driesd](https://github.com/driesd) in [#914](https://github.com/teamleadercrm/ui/pull/914)
@@ -10,6 +12,8 @@
 ### Deprecated
 
 ### Removed
+
+- [Breaking] `Button`: removed the `inverse` prop for `outline` buttons. Use `color="white"` instead. ([@driesd](https://github.com/driesd) in [#925](https://github.com/teamleadercrm/ui/pull/925)
 
 ### Fixed
 
