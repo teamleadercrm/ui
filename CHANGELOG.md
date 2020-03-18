@@ -2,8 +2,23 @@
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Dependency updates
+
+## [0.37.0] - 2020-03-18
+
+### Added
+
 - `Box`: added support for negative margin values. ([@driesd](https://github.com/driesd) in [#927](https://github.com/teamleadercrm/ui/pull/927)
 - `Button`: added `color` prop which to combine with button level `outline`. ([@driesd](https://github.com/driesd) in [#925](https://github.com/teamleadercrm/ui/pull/925)
+- Added optional `onSecondaryButtonClick` prop to `SplitButton`. ([@mikeverf](https://github.com/mikeverf) in [#931](https://github.com/teamleadercrm/ui/pull/931)
 
 ### Changed
 
@@ -11,9 +26,6 @@
 - [Breaking] `IslandGroup`: removed center alignment of the content inside an `Island` within an `IslandGroup`. ([@driesd](https://github.com/driesd) in [#921](https://github.com/teamleadercrm/ui/pull/921)
 - [Breaking] `onButtonClick` on `SplitButton` now passes an `event` instead of `currentTarget`. ([@mikeverf](https://github.com/mikeverf) in [#931](https://github.com/teamleadercrm/ui/pull/931)
 - [Breaking] `onClick` on child of `SplitButton` now passes the `event` instead of the `label` prop of the child. ([@mikeverf](https://github.com/mikeverf) in [#931](https://github.com/teamleadercrm/ui/pull/931)
-- Added optional `onSecondaryButtonClick` prop to `SplitButton`. ([@mikeverf](https://github.com/mikeverf) in [#931](https://github.com/teamleadercrm/ui/pull/931)
-
-### Deprecated
 
 ### Removed
 
@@ -22,8 +34,6 @@
 ### Fixed
 
 - `Avatar`: fixed a visual glitch when `editable` prop was `true`. ([@driesd](https://github.com/driesd) in [#914](https://github.com/teamleadercrm/ui/pull/914)
-
-### Dependency updates
 
 ## [0.36.10] - 2020-03-10
 
