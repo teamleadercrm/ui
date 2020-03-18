@@ -2,6 +2,7 @@
 
 ### Added
 
+- `Box`: added support for negative margin values. ([@driesd](https://github.com/driesd) in [#927](https://github.com/teamleadercrm/ui/pull/927)
 - `Button`: added `color` prop which to combine with button level `outline`. ([@driesd](https://github.com/driesd) in [#925](https://github.com/teamleadercrm/ui/pull/925)
 
 ### Changed
