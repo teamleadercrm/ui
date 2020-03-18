@@ -18,19 +18,23 @@ class SplitButton extends PureComponent {
   };
 
   handleMainButtonClick = event => {
-    this.props.onButtonClick(event.currentTarget);
+    this.props.onButtonClick(event);
   };
 
   handleSecondaryButtonClick = event => {
+    const { onSecondaryButtonClick } = this.props;
     this.setState({ popoverActive: true, popoverAnchorEl: event.currentTarget });
+    if (onSecondaryButtonClick) {
+      onSecondaryButtonClick(event);
+    }
   };
 
-  handleMenuItemClick = child => {
+  handleMenuItemClick = (child, event) => {
     const childProps = child.props;
     this.setState({
       popoverActive: false,
     });
-    childProps.onClick(childProps.label);
+    childProps.onClick(event);
   };
 
   handleCloseClick = () => {
@@ -71,7 +75,7 @@ class SplitButton extends PureComponent {
             {React.Children.map(children, child => {
               if (child.props.label !== buttonLabel) {
                 return React.cloneElement(child, {
-                  onClick: () => this.handleMenuItemClick(child),
+                  onClick: event => this.handleMenuItemClick(child, event),
                 });
               }
             })}
@@ -96,6 +100,8 @@ SplitButton.propTypes = {
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   /** The function executed, when we click on the main button. */
   onButtonClick: PropTypes.func.isRequired,
+  /** The function executed, when we click on the secondary button. */
+  onSecondaryButtonClick: PropTypes.func,
   /** If true, component will be disabled. */
   disabled: PropTypes.bool,
 };
