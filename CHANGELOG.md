@@ -35,6 +35,17 @@
 
 - `Avatar`: fixed a visual glitch when `editable` prop was `true`. ([@driesd](https://github.com/driesd) in [#914](https://github.com/teamleadercrm/ui/pull/914)
 
+### Dependency updates
+
+- `@teamleader/ui-icons` from `0.2.23` to `0.2.24`
+- [Security] `acorn` from `6.4.0` to `6.4.1`
+- `@storybook/ui` from `5.3.14` to `5.3.17`
+- `@storybook/addon-info` from `5.3.14` to `5.3.17`
+- `@storybook/addons` from `5.3.14` to `5.3.17`
+- `@storybook/addon-backgrounds` from `5.3.14` to `5.3.17`
+- `@storybook/react` from `5.3.14` to `5.3.17`
+- `@storybook/addon-knobs` from `5.3.14` to `5.3.17`
+
 ## [0.36.10] - 2020-03-10
 
 ### Added
