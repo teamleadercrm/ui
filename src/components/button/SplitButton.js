@@ -18,7 +18,7 @@ class SplitButton extends PureComponent {
   };
 
   handleMainButtonClick = event => {
-    this.props.onButtonClick(event.currentTarget);
+    this.props.onButtonClick(event);
   };
 
   handleSecondaryButtonClick = event => {
