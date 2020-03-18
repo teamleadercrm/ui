@@ -200,36 +200,34 @@
 }
 
 .outline {
-  &:not(.is-inverse) {
-    color: var(--color-teal-darkest);
+  @each $color in (aqua, gold, mint, neutral, ruby, teal, violet) {
+    &.$(color) {
+      color: var(--color-$(color)-darkest);
 
-    &.is-disabled {
-      background-color: color(var(--color-teal-darkest) a(12%));
-      border: 1px solid color(var(--color-teal-darkest) a(12%));
-      color: color(var(--color-teal-darkest) a(36%));
-    }
-
-    &:not(.is-disabled) {
-      background-color: transparent;
-      border: 1px solid color(var(--color-teal-darkest) a(72%));
-
-      &:hover {
-        background-color: color(var(--color-teal-darkest) a(6%));
-        border: 1px solid var(--color-teal-darkest);
+      &.is-disabled {
+        background-color: color(var(--color-$(color)-darkest) a(12%));
+        border: 1px solid color(var(--color-$(color)-darkest) a(12%));
+        color: color(var(--color-$(color)-darkest) a(36%));
       }
 
-      &:focus {
-        border: 1px solid var(--color-teal-darkest);
-        box-shadow: 0 0 0 1px var(--color-teal-darkest);
-      }
-    }
+      &:not(.is-disabled) {
+        background-color: transparent;
+        border: 1px solid color(var(--color-$(color)-darkest) a(72%));
 
-    &.is-processing {
-      color: transparent;
+        &:hover {
+          background-color: color(var(--color-$(color)-darkest) a(6%));
+          border: 1px solid var(--color-$(color)-darkest);
+        }
+
+        &:focus {
+          border: 1px solid var(--color-$(color)-darkest);
+          box-shadow: 0 0 0 1px var(--color-$(color)-darkest);
+        }
+      }
     }
   }
 
-  &.is-inverse {
+  &.white {
     color: var(--color-neutral-lightest);
 
     &.is-disabled {
@@ -252,10 +250,10 @@
         box-shadow: 0 0 0 1px var(--color-neutral-lightest);
       }
     }
+  }
 
-    &.is-processing {
-      color: transparent;
-    }
+  &.is-processing {
+    color: transparent;
   }
 }
 

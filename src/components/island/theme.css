@@ -1,116 +1,29 @@
 @import '@teamleader/ui-colors';
-@import '@teamleader/ui-utilities';
-
-:root {
-  --border-radius: 4px;
-}
-
-.island {
-  border: 1px solid;
-  border-radius: var(--border-radius);
-}
 
 .white {
-  background-color: var(--color-white);
-  border-color: var(--color-neutral);
   color: var(--color-teal-darkest);
-
-  &.dark {
-    border-color: var(--color-neutral-dark);
-  }
 }
 
 .neutral {
-  background-color: var(--color-neutral-light);
-  border-color: var(--color-neutral);
   color: var(--color-teal-darkest);
-
-  &.dark {
-    border-color: var(--color-neutral-dark);
-  }
 }
 
 .mint {
-  background-color: var(--color-mint-lightest);
-  border-color: var(--color-mint);
   color: var(--color-mint-darkest);
 }
 
 .violet {
-  background-color: var(--color-violet-lightest);
-  border-color: var(--color-violet);
   color: var(--color-violet-darkest);
 }
 
 .ruby {
-  background-color: var(--color-ruby-lightest);
-  border-color: var(--color-ruby);
   color: var(--color-ruby-darkest);
 }
 
 .gold {
-  background-color: var(--color-gold-lightest);
-  border-color: var(--color-gold);
   color: var(--color-gold-darkest);
 }
 
 .aqua {
-  background-color: var(--color-aqua-lightest);
-  border-color: var(--color-aqua);
   color: var(--color-aqua-darkest);
-}
-
-.island-group {
-  .island {
-    border-radius: 0;
-
-    &:only-child {
-      border-radius: var(--border-radius);
-    }
-  }
-
-  &.direction-horizontal {
-    display: flex;
-
-    .island {
-      align-items: center;
-      border-width: 1px 1px 1px 0;
-      display: flex;
-      flex: 1;
-      flex-direction: column;
-      text-align: center;
-
-      &:first-child {
-        border-width: 1px;
-      }
-
-      &:first-child:not(:only-child) {
-        border-radius: var(--border-radius) 0 0 var(--border-radius);
-      }
-
-      &:last-child:not(:only-child) {
-        border-radius: 0 var(--border-radius) var(--border-radius) 0;
-        border-width: 1px 1px 1px 0;
-      }
-    }
-  }
-
-  &.direction-vertical {
-    .island {
-      border-width: 0 1px 1px 1px;
-
-      &:first-child {
-        border-width: 1px;
-      }
-
-      &:first-child:not(:only-child) {
-        border-radius: var(--border-radius) var(--border-radius) 0 0;
-      }
-
-      &:last-child:not(:only-child) {
-        border-radius: 0 0 var(--border-radius) var(--border-radius);
-        border-width: 0 1px 1px 1px;
-      }
-    }
-  }
 }

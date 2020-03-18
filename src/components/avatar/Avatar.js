@@ -81,7 +81,7 @@ class Avatar extends PureComponent {
     const { className, onClick, selected, size, shape, ...others } = this.props;
 
     const avatarClassNames = cx(
-      theme['avatar'],
+      theme['wrapper'],
       theme[`is-${size}`],
       theme[`is-${shape}`],
       {
@@ -102,12 +102,7 @@ class Avatar extends PureComponent {
     ]);
 
     return (
-      <Box
-        {...restProps}
-        className={avatarClassNames}
-        padding={onClick ? (size === 'hero' ? 2 : 1) : 0}
-        boxSizing="content-box"
-      >
+      <Box {...restProps} className={avatarClassNames}>
         {this.renderComponent()}
       </Box>
     );

@@ -1,8 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import Box from '../box';
+import Box, { pickBoxProps } from '../box';
 import cx from 'classnames';
-import omit from 'lodash.omit';
 import theme from './theme.css';
 import { elementIsDark } from '../utils/utils';
 
@@ -16,16 +15,26 @@ class Island extends PureComponent {
   render() {
     const { children, className, color, dark, size, ...others } = this.props;
 
+    const classNames = cx(theme[color], className);
     const isDark = elementIsDark(color, dark);
-
-    const classNames = cx(theme['island'], className, theme[color], {
-      [theme['dark']]: isDark,
-    });
-
-    const rest = omit(others, ['dark']);
+    const boxProps = pickBoxProps(others);
 
     return (
-      <Box data-teamleader-ui="island" className={classNames} padding={SIZES[size]} {...rest}>
+      <Box
+        data-teamleader-ui="island"
+        backgroundColor={color === 'white' ? 'neutral' : color}
+        backgroundTint={color === 'neutral' ? 'light' : 'lightest'}
+        borderRadius="rounded"
+        borderColor={color === 'white' ? 'neutral' : color}
+        borderTint={isDark ? 'dark' : 'normal'}
+        borderBottomWidth={1}
+        borderLeftWidth={1}
+        borderRightWidth={1}
+        borderTopWidth={1}
+        className={classNames}
+        padding={SIZES[size]}
+        {...boxProps}
+      >
         {children}
       </Box>
     );

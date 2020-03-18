@@ -8,7 +8,13 @@ const displayValues = ['inline', 'inline-block', 'block', 'flex', 'inline-flex']
 const justifyContentValues = ['center', 'flex-start', 'flex-end', 'space-around', 'space-between', 'space-evenly'];
 const textAlignValues = ['center', 'left', 'right'];
 
-const spacingOptions = {
+const marginOptions = {
+  range: true,
+  min: -8,
+  max: 8,
+  step: 1,
+};
+const paddingOptions = {
   range: true,
   min: 0,
   max: 8,
@@ -43,8 +49,12 @@ export const basic = () => (
     borderBottomRightRadius={select('Border bottom right radius', borderRadiusValues, 'square')}
     display={select('Display', displayValues, 'block')}
     justifyContent={select('Justify Content', justifyContentValues, 'flex-start')}
-    margin={number('Margin', 0, spacingOptions)}
-    padding={number('Padding', 3, spacingOptions)}
+    margin={number('Margin', 0, marginOptions)}
+    marginBottom={number('Margin bottom', 0, marginOptions)}
+    marginLeft={number('Margin left', 0, marginOptions)}
+    marginRight={number('Margin right', 0, marginOptions)}
+    marginTop={number('Margin top', 0, marginOptions)}
+    padding={number('Padding', 3, paddingOptions)}
     textAlign={select('Text align', textAlignValues, 'left')}
   >
     <TextBody>I'm body text inside a Box component</TextBody>

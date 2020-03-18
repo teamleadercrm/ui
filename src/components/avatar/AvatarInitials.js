@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 import theme from './theme.css';
 import AvatarOverlay from './AvatarOverlay';
 import Box from '../box';
@@ -36,10 +37,13 @@ class AvatarInitials extends PureComponent {
 
     return (
       <Box
+        alignItems="center"
         backgroundColor={this.getBackgroundColor()}
         backgroundTint="normal"
-        className={theme['avatar-initials']}
+        className={cx(theme['avatar'], theme['avatar-initials'])}
         data-teamleader-ui="avatar-initials"
+        display="flex"
+        justifyContent="center"
       >
         <Heading4 className={theme['initials']} color="neutral" tint={id ? 'lightest' : 'darkest'}>
           {this.getInitials()}

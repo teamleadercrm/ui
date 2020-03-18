@@ -5,7 +5,8 @@ import { COLOR, COLORS, TINTS } from '../../constants';
 import theme from './theme.css';
 
 const overflows = ['auto', 'hidden', 'scroll', 'visible'];
-const spacings = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+const margins = [-8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8];
+const paddings = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 
 const borderRadiuses = {
   square: null,
@@ -92,6 +93,10 @@ class Box extends PureComponent {
         [theme[`margin-left-${marginLeft}`]]: marginLeft > 0,
         [theme[`margin-right-${marginRight}`]]: marginRight > 0,
         [theme[`margin-top-${marginTop}`]]: marginTop > 0,
+        [theme[`margin-bottom-negative-${Math.abs(marginBottom)}`]]: marginBottom < 0,
+        [theme[`margin-left-negative-${Math.abs(marginLeft)}`]]: marginLeft < 0,
+        [theme[`margin-right-negative-${Math.abs(marginRight)}`]]: marginRight < 0,
+        [theme[`margin-top-negative-${Math.abs(marginTop)}`]]: marginTop < 0,
         [theme[`padding-bottom-${paddingBottom}`]]: paddingBottom > 0,
         [theme[`padding-left-${paddingLeft}`]]: paddingLeft > 0,
         [theme[`padding-right-${paddingRight}`]]: paddingRight > 0,
@@ -171,24 +176,24 @@ Box.propTypes = {
     'space-between',
     'space-evenly',
   ]),
-  margin: PropTypes.oneOf(spacings),
-  marginHorizontal: PropTypes.oneOf(spacings),
-  marginVertical: PropTypes.oneOf(spacings),
-  marginBottom: PropTypes.oneOf(spacings),
-  marginLeft: PropTypes.oneOf(spacings),
-  marginRight: PropTypes.oneOf(spacings),
-  marginTop: PropTypes.oneOf(spacings),
+  margin: PropTypes.oneOf(margins),
+  marginHorizontal: PropTypes.oneOf(margins),
+  marginVertical: PropTypes.oneOf(margins),
+  marginBottom: PropTypes.oneOf(margins),
+  marginLeft: PropTypes.oneOf(margins),
+  marginRight: PropTypes.oneOf(margins),
+  marginTop: PropTypes.oneOf(margins),
   order: PropTypes.number,
   overflow: PropTypes.oneOf(overflows),
   overflowX: PropTypes.oneOf(overflows),
   overflowY: PropTypes.oneOf(overflows),
-  padding: PropTypes.oneOf(spacings),
-  paddingHorizontal: PropTypes.oneOf(spacings),
-  paddingVertical: PropTypes.oneOf(spacings),
-  paddingBottom: PropTypes.oneOf(spacings),
-  paddingLeft: PropTypes.oneOf(spacings),
-  paddingRight: PropTypes.oneOf(spacings),
-  paddingTop: PropTypes.oneOf(spacings),
+  padding: PropTypes.oneOf(paddings),
+  paddingHorizontal: PropTypes.oneOf(paddings),
+  paddingVertical: PropTypes.oneOf(paddings),
+  paddingBottom: PropTypes.oneOf(paddings),
+  paddingLeft: PropTypes.oneOf(paddings),
+  paddingRight: PropTypes.oneOf(paddings),
+  paddingTop: PropTypes.oneOf(paddings),
   style: PropTypes.object,
   textAlign: PropTypes.oneOf(['center', 'left', 'right']),
 };

@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 import theme from './theme.css';
 import Box from '../box';
 import Icon from '../icon';
@@ -11,10 +12,13 @@ class AvatarAdd extends PureComponent {
 
     return (
       <Box
+        alignItems="center"
         backgroundColor="neutral"
         backgroundTint="normal"
-        className={theme['avatar-add']}
+        className={cx(theme['avatar'], theme['avatar-add'])}
         data-teamleader-ui="avatar-add"
+        display="flex"
+        justifyContent="center"
       >
         <Icon color="neutral" tint="darkest">
           {size === 'tiny' || size === 'small' ? <IconUserAddSmallOutline /> : <IconUserAddMediumOutline />}
