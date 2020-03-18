@@ -9,6 +9,9 @@
 
 - `Avatar`: removed 3px spacing around avatars. ([@driesd](https://github.com/driesd) in [#914](https://github.com/teamleadercrm/ui/pull/914)
 - [Breaking] `IslandGroup`: removed center alignment of the content inside an `Island` within an `IslandGroup`. ([@driesd](https://github.com/driesd) in [#921](https://github.com/teamleadercrm/ui/pull/921)
+- [Breaking] `onButtonClick` on `SplitButton` now passes an `event` instead of `currentTarget`. ([@mikeverf](https://github.com/mikeverf) in [#931](https://github.com/teamleadercrm/ui/pull/931)
+- [Breaking] `onClick` on child of `SplitButton` now passes the `event` instead of the `label` prop of the child. ([@mikeverf](https://github.com/mikeverf) in [#931](https://github.com/teamleadercrm/ui/pull/931)
+- Added optional `onSecondaryButtonClick` prop to `SplitButton`. ([@mikeverf](https://github.com/mikeverf) in [#931](https://github.com/teamleadercrm/ui/pull/931)
 
 ### Deprecated
 
