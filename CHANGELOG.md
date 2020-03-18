@@ -2,17 +2,33 @@
 
 ### Added
 
+- `Link`: added `badged` prop (default `false`) which renders a semi-transparent background color on hover. ([@driesd](https://github.com/driesd) in [#928](https://github.com/teamleadercrm/ui/pull/928)
+
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Dependency updates
+
+## [0.37.0] - 2020-03-18
+
+### Added
+
 - `Box`: added support for negative margin values. ([@driesd](https://github.com/driesd) in [#927](https://github.com/teamleadercrm/ui/pull/927)
 - `Button`: added `color` prop which to combine with button level `outline`. ([@driesd](https://github.com/driesd) in [#925](https://github.com/teamleadercrm/ui/pull/925)
-- `Link`: added `badged` prop (default `false`) which renders a semi-transparent background color on hover. ([@driesd](https://github.com/driesd) in [#928](https://github.com/teamleadercrm/ui/pull/928)
+- Added optional `onSecondaryButtonClick` prop to `SplitButton`. ([@mikeverf](https://github.com/mikeverf) in [#931](https://github.com/teamleadercrm/ui/pull/931)
 
 ### Changed
 
 - `Avatar`: removed 3px spacing around avatars. ([@driesd](https://github.com/driesd) in [#914](https://github.com/teamleadercrm/ui/pull/914)
 - `Link`: changed the base component to `Box`. ([@driesd](https://github.com/driesd) in [#928](https://github.com/teamleadercrm/ui/pull/928)
 - [Breaking] `IslandGroup`: removed center alignment of the content inside an `Island` within an `IslandGroup`. ([@driesd](https://github.com/driesd) in [#921](https://github.com/teamleadercrm/ui/pull/921)
-
-### Deprecated
+- [Breaking] `onButtonClick` on `SplitButton` now passes an `event` instead of `currentTarget`. ([@mikeverf](https://github.com/mikeverf) in [#931](https://github.com/teamleadercrm/ui/pull/931)
+- [Breaking] `onClick` on child of `SplitButton` now passes the `event` instead of the `label` prop of the child. ([@mikeverf](https://github.com/mikeverf) in [#931](https://github.com/teamleadercrm/ui/pull/931)
 
 ### Removed
 
@@ -23,6 +39,15 @@
 - `Avatar`: fixed a visual glitch when `editable` prop was `true`. ([@driesd](https://github.com/driesd) in [#914](https://github.com/teamleadercrm/ui/pull/914)
 
 ### Dependency updates
+
+- `@teamleader/ui-icons` from `0.2.23` to `0.2.24`
+- [Security] `acorn` from `6.4.0` to `6.4.1`
+- `@storybook/ui` from `5.3.14` to `5.3.17`
+- `@storybook/addon-info` from `5.3.14` to `5.3.17`
+- `@storybook/addons` from `5.3.14` to `5.3.17`
+- `@storybook/addon-backgrounds` from `5.3.14` to `5.3.17`
+- `@storybook/react` from `5.3.14` to `5.3.17`
+- `@storybook/addon-knobs` from `5.3.14` to `5.3.17`
 
 ## [0.36.10] - 2020-03-10
 
