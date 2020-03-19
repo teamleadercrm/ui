@@ -40,6 +40,7 @@ export const avatarStack = () => (
     direction={select('Direction', directions, 'horizontal')}
     displayMax={number('Display max', 5)}
     inverse={boolean('Inverse', false)}
+    selectable={boolean('Selectable', false)}
     size={select('Size', sizes, 'large')}
   >
     {avatars.map(({ image }, index) => (
