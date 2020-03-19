@@ -17,7 +17,17 @@ const SPACING = 6;
 
 class AvatarStack extends PureComponent {
   render() {
-    const { children, className, direction, displayMax, inverse, onOverflowClick, size, ...others } = this.props;
+    const {
+      children,
+      className,
+      direction,
+      displayMax,
+      inverse,
+      onOverflowClick,
+      selectable,
+      size,
+      ...others
+    } = this.props;
 
     const childrenToDisplay = displayMax > 0 ? children.slice(0, displayMax) : children;
     const overflowAmount = children.length - displayMax;
@@ -41,7 +51,14 @@ class AvatarStack extends PureComponent {
         display="flex"
         flexDirection={direction === 'horizontal' ? 'row' : 'column'}
       >
-        {childrenToDisplay.map((child, index) => cloneElement(child, { key: index, ...child.props, size }))}
+        {childrenToDisplay.map((child, index) => {
+          return cloneElement(child, {
+            key: index,
+            ...child.props,
+            selectable,
+            size,
+          });
+        })}
         {hasOverflow && (
           <Box
             alignItems="center"
