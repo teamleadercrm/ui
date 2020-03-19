@@ -78,14 +78,14 @@ class Avatar extends PureComponent {
   };
 
   render() {
-    const { className, onClick, selected, size, shape, ...others } = this.props;
+    const { className, selectable, selected, size, shape, ...others } = this.props;
 
     const avatarClassNames = cx(
       theme['wrapper'],
       theme[`is-${size}`],
       theme[`is-${shape}`],
       {
-        [theme['is-selectable']]: onClick,
+        [theme['is-selectable']]: selectable,
         [theme['is-selected']]: selected,
       },
       className,
@@ -124,8 +124,6 @@ Avatar.propTypes = {
   fullName: PropTypes.string,
   /** Expects a uuid to determine the avatar initials background color. */
   id: PropTypes.string,
-  /** Callback function that is fired when user clicks the avatar. */
-  onClick: PropTypes.func,
   /** Callback function that is fired when user clicks the edit icon. */
   onImageChange: PropTypes.func,
   /** If true, the avatar will have a selected state. */
