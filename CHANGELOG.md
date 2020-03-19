@@ -2,9 +2,12 @@
 
 ### Added
 
+- `AvatarStack`: added `selectable` prop (default `false`). ([@driesd](https://github.com/driesd) in [#933](https://github.com/teamleadercrm/ui/pull/933)
 - `Link`: added `badged` prop (default `false`) which renders a semi-transparent background color on hover. ([@driesd](https://github.com/driesd) in [#928](https://github.com/teamleadercrm/ui/pull/928)
 
 ### Changed
+
+- [Breaking] `AvatarStack`: changed so that the avatars now overlap each other by default. ([@driesd](https://github.com/driesd) in [#933](https://github.com/teamleadercrm/ui/pull/933)
 
 ### Deprecated
 

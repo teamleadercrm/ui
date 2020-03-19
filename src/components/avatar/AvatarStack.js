@@ -5,9 +5,29 @@ import cx from 'classnames';
 import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
 
+const OVERLAP_SPACINGS = {
+  tiny: -6,
+  small: -6,
+  medium: -18,
+  large: -24,
+  hero: -48,
+};
+
+const SPACING = 6;
+
 class AvatarStack extends PureComponent {
   render() {
-    const { children, className, direction, displayMax, inverse, onOverflowClick, size, ...others } = this.props;
+    const {
+      children,
+      className,
+      direction,
+      displayMax,
+      inverse,
+      onOverflowClick,
+      selectable,
+      size,
+      ...others
+    } = this.props;
 
     const childrenToDisplay = displayMax > 0 ? children.slice(0, displayMax) : children;
     const overflowAmount = children.length - displayMax;
@@ -19,12 +39,38 @@ class AvatarStack extends PureComponent {
       inverse ? [theme['light']] : [theme['dark']],
       {
         [theme['has-overflow']]: hasOverflow,
+        [theme['has-overlapping-avatars']]: !selectable,
       },
       className,
     );
+
+    const spacingStyles = {
+      ...(direction === 'horizontal' && { marginRight: selectable ? SPACING : OVERLAP_SPACINGS[size] }),
+      ...(direction === 'vertical' && { marginBottom: selectable ? SPACING : OVERLAP_SPACINGS[size] }),
+    };
+
     return (
-      <Box data-teamleader-ui="avatar-stack" className={classNames} {...others} alignItems="center" display="flex">
-        {childrenToDisplay.map((child, index) => cloneElement(child, { key: index, ...child.props, size }))}
+      <Box
+        {...others}
+        data-teamleader-ui="avatar-stack"
+        className={classNames}
+        alignItems="center"
+        display="flex"
+        flexDirection={direction === 'horizontal' ? 'row' : 'column'}
+      >
+        {childrenToDisplay.map((child, index) => {
+          return cloneElement(child, {
+            key: index,
+            ...child.props,
+            selectable,
+            size,
+            style: {
+              ...spacingStyles,
+              zIndex: childrenToDisplay.length - index,
+              ...child.props.style,
+            },
+          });
+        })}
         {hasOverflow && (
           <Box
             alignItems="center"
@@ -54,6 +100,8 @@ AvatarStack.propTypes = {
   inverse: PropTypes.bool,
   /** Callback function that is fired when the overflow circle is clicked. */
   onOverflowClick: PropTypes.func,
+  /** If true, avatars will not be overlapping each other and will become interactive. */
+  selectable: PropTypes.bool,
   /** The size of the avatar stack. */
   size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large', 'hero']),
 };
@@ -62,6 +110,7 @@ AvatarStack.defaultProps = {
   direction: 'horizontal',
   displayMax: 0,
   inverse: false,
+  selectable: false,
   size: 'medium',
 };
 
