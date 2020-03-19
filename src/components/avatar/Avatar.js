@@ -102,7 +102,11 @@ class Avatar extends PureComponent {
     ]);
 
     return (
-      <Box {...restProps} className={avatarClassNames}>
+      <Box
+        {...restProps}
+        {...(selectable && { boxSizing: 'content-box', padding: size === 'hero' ? 2 : 1 })}
+        className={avatarClassNames}
+      >
         {this.renderComponent()}
       </Box>
     );
