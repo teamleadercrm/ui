@@ -39,6 +39,7 @@ class AvatarStack extends PureComponent {
       inverse ? [theme['light']] : [theme['dark']],
       {
         [theme['has-overflow']]: hasOverflow,
+        [theme['has-overlapping-avatars']]: !selectable,
       },
       className,
     );
