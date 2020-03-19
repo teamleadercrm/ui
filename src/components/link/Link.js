@@ -1,6 +1,7 @@
 import React, { createRef, Fragment, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import Box from '../box';
 import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
 
@@ -28,12 +29,24 @@ class Link extends PureComponent {
   };
 
   render() {
-    const { children, className, disabled, icon, iconPlacement, element, inherit, inverse, ...others } = this.props;
+    const {
+      badged,
+      children,
+      className,
+      disabled,
+      icon,
+      iconPlacement,
+      element,
+      inherit,
+      inverse,
+      ...others
+    } = this.props;
 
     const classNames = cx(
       uiUtilities['reset-font-smoothing'],
       theme['link'],
       {
+        [theme['is-badged']]: badged,
         [theme['is-disabled']]: disabled,
         [theme['is-inherit']]: inherit,
         [theme['is-inverse']]: inverse,
@@ -43,10 +56,10 @@ class Link extends PureComponent {
     );
 
     const ChildrenWrapper = icon ? 'span' : Fragment;
-    const Element = element;
 
     return (
-      <Element
+      <Box
+        element={element}
         ref={this.linkNode}
         className={classNames}
         data-teamleader-ui="link"
@@ -57,12 +70,14 @@ class Link extends PureComponent {
         {icon && iconPlacement === 'left' && icon}
         <ChildrenWrapper>{children}</ChildrenWrapper>
         {icon && iconPlacement === 'right' && icon}
-      </Element>
+      </Box>
     );
   }
 }
 
 Link.propTypes = {
+  /** If true, component will be rendered with badged hover effect. */
+  badged: PropTypes.bool,
   /** The content to display inside the link. */
   children: PropTypes.any.isRequired,
   /** A class name for the link to give custom styles. */
@@ -86,6 +101,7 @@ Link.propTypes = {
 };
 
 Link.defaultProps = {
+  badged: false,
   className: '',
   disabled: false,
   element: 'a',

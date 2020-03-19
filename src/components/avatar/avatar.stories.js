@@ -40,6 +40,7 @@ export const avatarStack = () => (
     direction={select('Direction', directions, 'horizontal')}
     displayMax={number('Display max', 5)}
     inverse={boolean('Inverse', false)}
+    selectable={boolean('Selectable', false)}
     size={select('Size', sizes, 'large')}
   >
     {avatars.map(({ image }, index) => (
@@ -75,26 +76,6 @@ export const withBullet = () => (
 
 withBullet.story = {
   name: 'With bullet',
-};
-
-export const withCounter = () => (
-  <Avatar
-    creatable={boolean('Creatable', false)}
-    editable={boolean('Editable', false)}
-    fullName={text('Full name', 'John Doe')}
-    id={text('Id', '63227a3c-c80b-11e9-a32f-2a2ae2dbcce4')}
-    imageUrl={boolean('Image available', false) ? avatars[0].image : null}
-    onImageChange={() => console.log('Change image')}
-    selected={boolean('Selected', false)}
-    size={select('Size', sizes, 'large')}
-    shape={select('Shape', shapes, 'circle')}
-  >
-    <Counter color="ruby" count={15} maxCount={6} borderColor="neutral" borderTint="lightest" />
-  </Avatar>
-);
-
-withCounter.story = {
-  name: 'With counter',
 };
 
 export const withTooltip = () => (
