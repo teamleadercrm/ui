@@ -42,6 +42,12 @@ class AvatarStack extends PureComponent {
       },
       className,
     );
+
+    const spacingStyles = {
+      ...(direction === 'horizontal' && { marginRight: selectable ? SPACING : OVERLAP_SPACINGS[size] }),
+      ...(direction === 'vertical' && { marginBottom: selectable ? SPACING : OVERLAP_SPACINGS[size] }),
+    };
+
     return (
       <Box
         {...others}
@@ -57,6 +63,10 @@ class AvatarStack extends PureComponent {
             ...child.props,
             selectable,
             size,
+            style: {
+              ...spacingStyles,
+              ...child.props.style,
+            },
           });
         })}
         {hasOverflow && (
