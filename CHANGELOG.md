@@ -2,12 +2,7 @@
 
 ### Added
 
-- `AvatarStack`: added `selectable` prop (default `false`). ([@driesd](https://github.com/driesd) in [#933](https://github.com/teamleadercrm/ui/pull/933)
-- `Link`: added `badged` prop (default `false`) which renders a semi-transparent background color on hover. ([@driesd](https://github.com/driesd) in [#928](https://github.com/teamleadercrm/ui/pull/928)
-
 ### Changed
-
-- [Breaking] `AvatarStack`: changed so that the avatars now overlap each other by default. ([@driesd](https://github.com/driesd) in [#933](https://github.com/teamleadercrm/ui/pull/933)
 
 ### Deprecated
 
@@ -16,6 +11,22 @@
 ### Fixed
 
 ### Dependency updates
+
+## [0.38.0] - 2020-03-19
+
+### Added
+
+- `AvatarStack`: added `selectable` prop (default `false`). ([@driesd](https://github.com/driesd) in [#933](https://github.com/teamleadercrm/ui/pull/933)
+- `Link`: added `badged` prop (default `false`) which renders a semi-transparent background color on hover. ([@driesd](https://github.com/driesd) in [#928](https://github.com/teamleadercrm/ui/pull/928)
+
+### Changed
+
+- [Breaking] `AvatarStack`: changed so that the avatars now overlap each other by default. ([@driesd](https://github.com/driesd) in [#933](https://github.com/teamleadercrm/ui/pull/933)
+
+### Dependency updates
+
+- `file-loader` from `5.1.0` to `6.0.0`
+- `html-webpack-plugin` from `4.0.0-beta.11` to `4.0.0-beta.14`
 
 ## [0.37.0] - 2020-03-18
 
