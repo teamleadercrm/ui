@@ -5,6 +5,16 @@ import cx from 'classnames';
 import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
 
+const OVERLAP_SPACINGS = {
+  tiny: -6,
+  small: -6,
+  medium: -18,
+  large: -24,
+  hero: -48,
+};
+
+const SPACING = 6;
+
 class AvatarStack extends PureComponent {
   render() {
     const { children, className, direction, displayMax, inverse, onOverflowClick, size, ...others } = this.props;
