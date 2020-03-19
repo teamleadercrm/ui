@@ -61,6 +61,8 @@ AvatarStack.propTypes = {
   inverse: PropTypes.bool,
   /** Callback function that is fired when the overflow circle is clicked. */
   onOverflowClick: PropTypes.func,
+  /** If true, avatars will not be overlapping each other. */
+  selectable: PropTypes.bool,
   /** The size of the avatar stack. */
   size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large', 'hero']),
 };
@@ -69,6 +71,7 @@ AvatarStack.defaultProps = {
   direction: 'horizontal',
   displayMax: 0,
   inverse: false,
+  selectable: false,
   size: 'medium',
 };
 
