@@ -65,6 +65,7 @@ class AvatarStack extends PureComponent {
             size,
             style: {
               ...spacingStyles,
+              zIndex: childrenToDisplay.length - index,
               ...child.props.style,
             },
           });
