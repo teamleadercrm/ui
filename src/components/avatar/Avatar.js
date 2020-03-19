@@ -130,6 +130,8 @@ Avatar.propTypes = {
   id: PropTypes.string,
   /** Callback function that is fired when user clicks the edit icon. */
   onImageChange: PropTypes.func,
+  /** If true, avatars will become interactive. */
+  selectable: PropTypes.bool,
   /** If true, the avatar will have a selected state. */
   selected: PropTypes.bool,
   /** The shape of the avatar. */
@@ -141,6 +143,7 @@ Avatar.propTypes = {
 Avatar.defaultProps = {
   creatable: false,
   editable: false,
+  selectable: false,
   selected: false,
   shape: 'circle',
   size: 'medium',
