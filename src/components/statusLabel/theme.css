@@ -27,7 +27,7 @@
 
 .small {
   font-size: calc(1.2 * var(--unit));
-  line-height: calc(1.4 * var(--unit));
+  line-height: calc(1.8 * var(--unit));
   border-radius: 9px;
   height: 18px;
 }
