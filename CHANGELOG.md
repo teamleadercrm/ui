@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `StatusLabel`: changed background colors to their lighter variant for better contrast. ([@driesd](https://github.com/driesd) in [#937](https://github.com/teamleadercrm/ui/pull/937)
+
 ### Deprecated
 
 ### Removed
