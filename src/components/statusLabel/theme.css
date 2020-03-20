@@ -3,8 +3,6 @@
 @import '@teamleader/ui-utilities';
 
 .label {
-  border-style: solid;
-  border-width: 1px;
   font-family: var(--font-family-medium);
   text-transform: none;
   vertical-align: middle;
@@ -12,14 +10,12 @@
 
 .neutral {
   background-color: color(var(--color-neutral) a(48%));
-  border-color: color(var(--color-neutral-dark) a(48%));
   color: var(--color-teal-darkest);
 }
 
 @each $color in (mint, violet, ruby, gold, aqua) {
   .$(color) {
     background-color: color(var(--color-$(color)-light) a(48%));
-    border-color: color(var(--color-$(color)-light) a(48%));
     color: var(--color-$(color)-darkest);
   }
 }

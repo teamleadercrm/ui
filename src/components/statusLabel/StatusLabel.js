@@ -16,9 +16,12 @@ class StatusLabel extends PureComponent {
         element="span"
         {...others}
         alignItems="center"
+        borderColor={color}
+        borderTint={color === 'neutral' ? 'dark' : 'light'}
+        borderWidth={1}
         className={classNames}
-        display="inline-flex"
         data-teamleader-ui="status-label"
+        display="inline-flex"
         paddingHorizontal={2}
       >
         {children}
