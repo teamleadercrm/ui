@@ -16,6 +16,8 @@ class StatusLabel extends PureComponent {
         element="span"
         {...others}
         alignItems="center"
+        backgroundColor={color}
+        backgroundTint={color === 'neutral' ? 'light' : 'lightest'}
         borderColor={color}
         borderTint={color === 'neutral' ? 'dark' : 'light'}
         borderWidth={1}
