@@ -12,6 +12,8 @@
 
 ### Dependency updates
 
+- [Breaking] `@teamleader/ui-colors` from `0.0.7` to `0.1.0`
+
 ## [0.38.0] - 2020-03-19
 
 ### Added
