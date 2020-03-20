@@ -19,6 +19,7 @@ class StatusLabel extends PureComponent {
         className={classNames}
         display="inline-flex"
         data-teamleader-ui="status-label"
+        paddingHorizontal={2}
       >
         {children}
       </Box>
