@@ -108,7 +108,7 @@ AvatarStack.propTypes = {
 
 AvatarStack.defaultProps = {
   direction: 'horizontal',
-  displayMax: 0,
+  displayMax: 99,
   inverse: false,
   selectable: false,
   size: 'medium',
