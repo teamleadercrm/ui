@@ -8,16 +8,16 @@ import {
   DataGrid,
   DatePicker,
   Heading3,
+  Heading5,
   IconButton,
   IconMenu,
   Link,
   MenuItem,
   StatusBullet,
-  Tooltip,
-  Widget,
   TextBody,
   TextSmall,
-  Heading2,
+  Tooltip,
+  Widget,
   MenuDivider,
   Bullet,
 } from '../../index';
@@ -35,8 +35,7 @@ export default {
 export const basic = () => (
   <Widget size={select('Size', sizes, 'medium')}>
     <Widget.Body>
-      <Heading3>I am the body title</Heading3>
-      <TextBody>I am the body content</TextBody>
+      <TextBody>Here you can add arbitrary content.</TextBody>
     </Widget.Body>
   </Widget>
 );
@@ -44,11 +43,10 @@ export const basic = () => (
 export const withHeader = () => (
   <Widget size={select('Size', sizes, 'medium')}>
     <Widget.Header color={select('Header color', colors, 'neutral')}>
-      <Heading2>I am the widget header title</Heading2>
+      <Heading3>I am the widget header title</Heading3>
     </Widget.Header>
     <Widget.Body>
-      <Heading3>I am the body title</Heading3>
-      <TextBody>I am the body content</TextBody>
+      <TextBody>Here you can add arbitrary content.</TextBody>
     </Widget.Body>
   </Widget>
 );
@@ -61,15 +59,14 @@ export const withHeaderAndAction = () => (
   <Widget size={select('Size', sizes, 'medium')}>
     <Widget.Header color={select('Header color', colors, 'neutral')} display="flex" alignItems="center">
       <Box flex={1}>
-        <Heading2>I am the widget header title</Heading2>
+        <Heading3>I am the widget header title</Heading3>
       </Box>
       <Box>
         <IconButton icon={<IconAddMediumOutline />} />
       </Box>
     </Widget.Header>
     <Widget.Body>
-      <Heading3>I am the body title</Heading3>
-      <TextBody>I am the body content</TextBody>
+      <TextBody>Here you can add arbitrary content.</TextBody>
     </Widget.Body>
   </Widget>
 );
@@ -102,8 +99,7 @@ export const withHeaderAndMulipleActions = () => (
       </ButtonGroup>
     </Widget.Header>
     <Widget.Body>
-      <Heading3>I am the body title</Heading3>
-      <TextBody>I am the body content</TextBody>
+      <TextBody>Here you can add arbitrary content.</TextBody>
     </Widget.Body>
   </Widget>
 );
@@ -115,13 +111,11 @@ withHeaderAndMulipleActions.story = {
 export const withFooter = () => (
   <Widget size={select('Size', sizes, 'medium')}>
     <Widget.Body>
-      <Heading3>I am the body title</Heading3>
-      <TextBody>I am the body content</TextBody>
+      <TextBody>Here you can add arbitrary content.</TextBody>
     </Widget.Body>
     <Widget.Footer>
       <Box display="flex" alignItems="center" justifyContent="space-between">
-        <Heading3>I am the widget footer</Heading3>
-        <TextBody>Meta information</TextBody>
+        <TextBody>I am the widget footer</TextBody>
       </Box>
     </Widget.Footer>
   </Widget>
@@ -134,16 +128,14 @@ withFooter.story = {
 export const fullWidget = () => (
   <Widget size={select('Size', sizes, 'medium')}>
     <Widget.Header color={select('Header color', colors, 'neutral')}>
-      <Heading2>I am the widget header title</Heading2>
+      <Heading3>I am the widget header title</Heading3>
     </Widget.Header>
     <Widget.Body>
-      <Heading3>I am the body title</Heading3>
-      <TextBody>I am the body content</TextBody>
+      <TextBody>Here you can add arbitrary content.</TextBody>
     </Widget.Body>
     <Widget.Footer>
       <Box display="flex" alignItems="center" justifyContent="space-between">
-        <Heading3>I am the widget footer</Heading3>
-        <TextBody>Meta information</TextBody>
+        <TextBody>I am the widget footer</TextBody>
       </Box>
     </Widget.Footer>
   </Widget>
@@ -156,22 +148,21 @@ fullWidget.story = {
 export const fullWidget2Cols = () => (
   <Widget size={select('Size', sizes, 'medium')}>
     <Widget.Header color={select('Header color', colors, 'neutral')}>
-      <Heading2>I am the widget header title</Heading2>
+      <Heading3>I am the widget header title</Heading3>
     </Widget.Header>
     <Widget.Body display="flex">
       <Box flex={1}>
-        <Heading3>Column 1 header</Heading3>
-        <TextBody>I am the body content</TextBody>
+        <Heading5>Column 1 header</Heading5>
+        <TextBody>Here you can add arbitrary content.</TextBody>
       </Box>
       <Box flex={1}>
-        <Heading3>Column 2 header</Heading3>
-        <TextBody>I am the body content</TextBody>
+        <Heading5>Column 2 header</Heading5>
+        <TextBody>Here you can add arbitrary content.</TextBody>
       </Box>
     </Widget.Body>
     <Widget.Footer>
       <Box display="flex" alignItems="center" justifyContent="space-between">
-        <Heading3>I am the widget footer</Heading3>
-        <TextBody>Meta information</TextBody>
+        <TextBody>I am the widget footer</TextBody>
       </Box>
     </Widget.Footer>
   </Widget>
@@ -184,7 +175,7 @@ fullWidget2Cols.story = {
 export const withDatePicker = () => (
   <Widget size={select('Size', sizes, 'medium')}>
     <Widget.Header color={select('Header color', colors, 'neutral')}>
-      <Heading2>I am the widget header title</Heading2>
+      <Heading3>I am the widget header title</Heading3>
     </Widget.Header>
     <Widget.Body padding={0}>
       <DatePicker
@@ -283,7 +274,7 @@ withDataGridOnly.story = {
 export const withDataGrid = () => (
   <Widget size={select('Size', sizes, 'medium')}>
     <Widget.Header color={select('Header color', colors, 'neutral')}>
-      <Heading2>I am the widget header title</Heading2>
+      <Heading3>I am the widget header title</Heading3>
     </Widget.Header>
     <Widget.Body padding={0}>
       <DataGrid
@@ -356,8 +347,7 @@ export const withDataGrid = () => (
     </Widget.Body>
     <Widget.Footer>
       <Box display="flex" alignItems="center" justifyContent="space-between">
-        <Heading3>I am the widget footer</Heading3>
-        <TextBody>Meta information</TextBody>
+        <TextBody>I am the widget footer</TextBody>
       </Box>
     </Widget.Footer>
   </Widget>
