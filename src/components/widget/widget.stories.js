@@ -86,11 +86,11 @@ export const withHeaderAndMulipleActions = () => (
       alignItems="center"
       justifyContent="space-between"
     >
-      <Box display="flex" alignItems="center">
-        <Heading2>I am the widget header title</Heading2>
+      <Box display="flex" alignItems="center" flex={1}>
+        <Heading3>I am the widget header title</Heading3>
         <Bullet color="mint" marginLeft={3} />
       </Box>
-      <Box display="flex" alignItems="center" justifyContent="space-between" style={{ width: '130px' }}>
+      <ButtonGroup>
         <IconButton icon={<IconEditMediumOutline />} />
         <IconButton icon={<IconAddMediumOutline />} />
         <IconMenu active position="top-right">
@@ -99,7 +99,7 @@ export const withHeaderAndMulipleActions = () => (
           <MenuDivider />
           <MenuItem label="Disabled menu item..." disabled />
         </IconMenu>
-      </Box>
+      </ButtonGroup>
     </Widget.Header>
     <Widget.Body>
       <Heading3>I am the body title</Heading3>
