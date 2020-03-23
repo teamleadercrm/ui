@@ -4,6 +4,7 @@
 
 ### Changed
 
+- `AvatarStack`: changed `displayMax` default value from `0` to `99`. ([@driesd](https://github.com/driesd) in [#938](https://github.com/teamleadercrm/ui/pull/938)
 - `StatusLabel`: changed background colors to their lighter variant for better contrast. ([@driesd](https://github.com/driesd) in [#937](https://github.com/teamleadercrm/ui/pull/937)
 
 ### Deprecated
@@ -11,6 +12,8 @@
 ### Removed
 
 ### Fixed
+
+- `AvatarStack`: fixed an error when containing only one Avatar. ([@driesd](https://github.com/driesd) in [#938](https://github.com/teamleadercrm/ui/pull/938)
 
 ### Dependency updates
 

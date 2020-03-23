@@ -29,7 +29,7 @@ class AvatarStack extends PureComponent {
       ...others
     } = this.props;
 
-    const childrenToDisplay = displayMax > 0 ? children.slice(0, displayMax) : children;
+    const childrenToDisplay = children.length > displayMax ? children.slice(0, displayMax) : children;
     const overflowAmount = children.length - displayMax;
     const hasOverflow = overflowAmount > 0;
 
@@ -108,7 +108,7 @@ AvatarStack.propTypes = {
 
 AvatarStack.defaultProps = {
   direction: 'horizontal',
-  displayMax: 0,
+  displayMax: 99,
   inverse: false,
   selectable: false,
   size: 'medium',
