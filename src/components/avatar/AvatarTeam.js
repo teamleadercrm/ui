@@ -14,13 +14,13 @@ class AvatarTeam extends PureComponent {
       <Box
         alignItems="center"
         backgroundColor="neutral"
-        backgroundTint="normal"
+        backgroundTint="darkest"
         className={cx(theme['avatar'], theme['avatar-team'])}
         data-teamleader-ui="avatar-team"
         display="flex"
         justifyContent="center"
       >
-        <Icon color="neutral" tint="darkest">
+        <Icon color="neutral" tint="light">
           {size === 'tiny' || size === 'small' ? <IconTeamSmallOutline /> : <IconTeamMediumOutline />}
         </Icon>
       </Box>
