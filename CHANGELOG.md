@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `AvatarStack`: only show a `+` sign in front of the overflow number when `displayMax` is greater than zero. ([@driesd](https://github.com/driesd) in [#949](https://github.com/teamleadercrm/ui/pull/949)
+
 ### Deprecated
 
 ### Removed

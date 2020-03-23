@@ -85,7 +85,8 @@ class AvatarStack extends PureComponent {
             justifyContent="center"
             onClick={onOverflowClick}
           >
-            {`+${overflowAmount}`}
+            {displayMax > 0 && `+`}
+            {overflowAmount}
           </Box>
         )}
       </Box>
