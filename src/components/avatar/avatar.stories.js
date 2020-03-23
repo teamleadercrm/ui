@@ -32,6 +32,7 @@ export const avatar = () => (
     selected={boolean('Selected', false)}
     size={select('Size', sizes, 'large')}
     shape={select('Shape', shapes, 'circle')}
+    team={boolean('Team', false)}
   />
 );
 
