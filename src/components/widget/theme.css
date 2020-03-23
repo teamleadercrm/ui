@@ -1,0 +1,11 @@
+.is-small {
+  min-height: 36px;
+}
+
+.is-medium {
+  min-height: 48px;
+}
+
+.is-large {
+  min-height: 72px;
+}

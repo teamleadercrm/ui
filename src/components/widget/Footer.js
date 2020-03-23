@@ -6,11 +6,7 @@ class Footer extends PureComponent {
   render() {
     const { children, ...others } = this.props;
 
-    return (
-      <Island padding={4} {...others}>
-        {children}
-      </Island>
-    );
+    return <Island {...others}>{children}</Island>;
   }
 }
 
