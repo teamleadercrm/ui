@@ -29,7 +29,7 @@ class AvatarStack extends PureComponent {
       ...others
     } = this.props;
 
-    const childrenToDisplay = displayMax > 0 ? children.slice(0, displayMax) : children;
+    const childrenToDisplay = children.length > displayMax ? children.slice(0, displayMax) : children;
     const overflowAmount = children.length - displayMax;
     const hasOverflow = overflowAmount > 0;
 
@@ -49,6 +49,11 @@ class AvatarStack extends PureComponent {
       ...(direction === 'vertical' && { marginBottom: selectable ? SPACING : OVERLAP_SPACINGS[size] }),
     };
 
+    const wrapperPaddingStyles = {
+      ...(direction === 'horizontal' && { paddingRight: Math.abs(OVERLAP_SPACINGS[size]) }),
+      ...(direction === 'vertical' && { paddingBottom: Math.abs(OVERLAP_SPACINGS[size]) }),
+    };
+
     return (
       <Box
         {...others}
@@ -57,6 +62,7 @@ class AvatarStack extends PureComponent {
         alignItems="center"
         display="flex"
         flexDirection={direction === 'horizontal' ? 'row' : 'column'}
+        style={!selectable && !hasOverflow && wrapperPaddingStyles}
       >
         {childrenToDisplay.map((child, index) => {
           return cloneElement(child, {
@@ -108,7 +114,7 @@ AvatarStack.propTypes = {
 
 AvatarStack.defaultProps = {
   direction: 'horizontal',
-  displayMax: 0,
+  displayMax: 99,
   inverse: false,
   selectable: false,
   size: 'medium',
