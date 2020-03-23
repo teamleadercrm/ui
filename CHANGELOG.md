@@ -2,6 +2,9 @@
 
 ### Added
 
+- `Avatar`: added `team` prop (default `false`). ([@driesd](https://github.com/driesd) in [#953](https://github.com/teamleadercrm/ui/pull/953)
+- `AvatarTeam`: rendered by the `Avatar` component when its `team` prop is `true`. ([@driesd](https://github.com/driesd) in [#953](https://github.com/teamleadercrm/ui/pull/953)
+
 ### Changed
 
 ### Deprecated
