@@ -4,6 +4,7 @@ import AvatarAdd from './AvatarAdd';
 import AvatarAnonymous from './AvatarAnonymous';
 import AvatarImage from './AvatarImage';
 import AvatarInitials from './AvatarInitials';
+import AvatarTeam from './AvatarTeam';
 import Box from '../box';
 import Icon from '../icon';
 import cx from 'classnames';
@@ -24,7 +25,7 @@ class Avatar extends PureComponent {
 
   renderComponent = () => {
     const { failedToLoadImage } = this.state;
-    const { creatable, children, editable, imageUrl, fullName, id, onImageChange, selected, size } = this.props;
+    const { creatable, children, editable, imageUrl, fullName, id, onImageChange, selected, size, team } = this.props;
 
     const childrenToRender = selected ? (
       <Icon
@@ -42,6 +43,10 @@ class Avatar extends PureComponent {
     ) : (
       children
     );
+
+    if (team) {
+      return <AvatarTeam size={size} />;
+    }
 
     if (creatable) {
       return <AvatarAdd children={children} size={size} />;
