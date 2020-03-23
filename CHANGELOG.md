@@ -5,6 +5,7 @@
 ### Changed
 
 - [Breaking] `Widget.Header`: decreased vertical padding and switched to min-height & flexbox alignment. ([@driesd](https://github.com/driesd) in [#940](https://github.com/teamleadercrm/ui/pull/940)
+- `StatusLabel`: changed background colors to their lighter variant for better contrast. ([@driesd](https://github.com/driesd) in [#937](https://github.com/teamleadercrm/ui/pull/937)
 
 ### Deprecated
 

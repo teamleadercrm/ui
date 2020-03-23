@@ -12,7 +12,20 @@ class StatusLabel extends PureComponent {
     const classNames = cx(uiUtilities['reset-font-smoothing'], theme['label'], theme[color], theme[size], className);
 
     return (
-      <Box className={classNames} element="span" {...others} data-teamleader-ui="status-label">
+      <Box
+        element="span"
+        {...others}
+        alignItems="center"
+        backgroundColor={color}
+        backgroundTint={color === 'neutral' ? 'light' : 'lightest'}
+        borderColor={color}
+        borderTint={color === 'neutral' ? 'dark' : 'light'}
+        borderWidth={1}
+        className={classNames}
+        data-teamleader-ui="status-label"
+        display="inline-flex"
+        paddingHorizontal={2}
+      >
         {children}
       </Box>
     );
