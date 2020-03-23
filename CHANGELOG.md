@@ -14,6 +14,7 @@
 ### Fixed
 
 - `AvatarStack`: fixed an error when containing only one Avatar. ([@driesd](https://github.com/driesd) in [#938](https://github.com/teamleadercrm/ui/pull/938)
+- `AvatarStack`: fixes the bounding box of the wrapper. ([@driesd](https://github.com/driesd) in [#939](https://github.com/teamleadercrm/ui/pull/939)
 
 ### Dependency updates
 
