@@ -138,6 +138,8 @@ Avatar.propTypes = {
   shape: PropTypes.oneOf(['circle', 'rounded']),
   /** The size of the avatar. */
   size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large', 'hero']),
+  /** If true, a team icon will be shown. */
+  team: PropTypes.bool,
 };
 
 Avatar.defaultProps = {
@@ -147,6 +149,7 @@ Avatar.defaultProps = {
   selected: false,
   shape: 'circle',
   size: 'medium',
+  team: false,
 };
 
 export default Avatar;
