@@ -4,13 +4,21 @@
 
 ### Changed
 
-- [Breaking] `Widget.Header`: decreased vertical padding and switched to min-height & flexbox alignment. ([@driesd](https://github.com/driesd) in [#940](https://github.com/teamleadercrm/ui/pull/940)
-- `AvatarStack`: changed `displayMax` default value from `0` to `99`. ([@driesd](https://github.com/driesd) in [#938](https://github.com/teamleadercrm/ui/pull/938)
-- `StatusLabel`: changed background colors to their lighter variant for better contrast. ([@driesd](https://github.com/driesd) in [#937](https://github.com/teamleadercrm/ui/pull/937)
-
 ### Deprecated
 
 ### Removed
+
+### Fixed
+
+### Dependency updates
+
+## [0.39.0] - 2020-03-23
+
+### Changed
+
+- [Breaking] `Widget.Header`: decreased vertical padding and switched to min-height & flexbox alignment. ([@driesd](https://github.com/driesd) in [#940](https://github.com/teamleadercrm/ui/pull/940)
+- `AvatarStack`: changed `displayMax` default value from `0` to `99`. ([@driesd](https://github.com/driesd) in [#938](https://github.com/teamleadercrm/ui/pull/938)
+- `StatusLabel`: changed background colors to their lighter variant for better contrast. ([@driesd](https://github.com/driesd) in [#937](https://github.com/teamleadercrm/ui/pull/937)
 
 ### Fixed
 
@@ -20,6 +28,14 @@
 ### Dependency updates
 
 - [Breaking] `@teamleader/ui-colors` from `0.0.7` to `0.1.0`
+- `@babel/core` from `7.8.7` to `7.9.0`
+- `@babel/plugin-transform-runtime` from `7.8.3` to `7.9.0`
+- `@babel/runtime` from `7.8.7` to `7.9.2`
+- `babel-loader` from `8.0.6` to `8.1.0`
+- `eslint-config-prettier` from `6.10.0` to `6.10.1`
+- `eslint-config-standard` from `14.1.0` to `14.1.1`
+- `minimist` from `1.2.0` to `1.2.5`
+- `react` from `16.13.0` to `16.13.1`
 
 ## [0.38.0] - 2020-03-19
 
