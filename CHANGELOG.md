@@ -2,12 +2,7 @@
 
 ### Added
 
-- `Avatar`: added `team` prop (default `false`). ([@driesd](https://github.com/driesd) in [#953](https://github.com/teamleadercrm/ui/pull/953)
-- `AvatarTeam`: rendered by the `Avatar` component when its `team` prop is `true`. ([@driesd](https://github.com/driesd) in [#953](https://github.com/teamleadercrm/ui/pull/953)
-
 ### Changed
-
-- `AvatarStack`: only show a `+` sign in front of the overflow number when `displayMax` is greater than zero. ([@driesd](https://github.com/driesd) in [#949](https://github.com/teamleadercrm/ui/pull/949)
 
 ### Deprecated
 
@@ -15,9 +10,34 @@
 
 ### Fixed
 
+### Dependency updates
+
+## [0.39.1] - 2020-03-25
+
+### Added
+
+- `Avatar`: added `team` prop (default `false`). ([@driesd](https://github.com/driesd) in [#953](https://github.com/teamleadercrm/ui/pull/953)
+- `AvatarTeam`: rendered by the `Avatar` component when its `team` prop is `true`. ([@driesd](https://github.com/driesd) in [#953](https://github.com/teamleadercrm/ui/pull/953)
+
+### Changed
+
+- `AvatarStack`: only show a `+` sign in front of the overflow number when `displayMax` is greater than zero. ([@driesd](https://github.com/driesd) in [#949](https://github.com/teamleadercrm/ui/pull/949)
+
+### Fixed
+
 - `Widget`: having null as a child of a Widget was causing an error. ([@lowiebenoot](https://github.com/lowiebenoot) in [#961](https://github.com/teamleadercrm/ui/pull/961))
 
 ### Dependency updates
+
+- `@babel/plugin-transform-react-jsx-source` from `7.8.3` to `7.9.0`
+- `@babel/preset-env` from `7.8.7` to `7.9.0`
+- `@babel/preset-react` from `7.8.3` to `7.9.4`
+- `@teamleader/ui-icons` from `0.2.17` to `0.2.25`
+- `html-webpack-plugin` from `4.0.0-beta.14` to `4.0.1`
+- `prettier` from `1.19.1` to `2.0.2`
+- `react-dom` from `16.13.0` to `16.13.1`
+- `react-select` from `3.0.8` to `3.1.0`
+- `webpack` from `4.42.0` to `4.42.1`
 
 ## [0.39.0] - 2020-03-23
 
