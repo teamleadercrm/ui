@@ -54,11 +54,11 @@ class NumericInput extends PureComponent {
     value: '',
   };
 
-  handleOnChange = event => {
+  handleOnChange = (event) => {
     this.setState({ value: event.currentTarget.value });
   };
 
-  updateStep = n => {
+  updateStep = (n) => {
     const { min, max, onChange, step } = this.props;
 
     const currentValue = toNumber(this.state.value || 0);
@@ -148,7 +148,7 @@ class NumericInput extends PureComponent {
       <SingleLineInputBase
         type="number"
         value={this.state.value}
-        onChange={event => {
+        onChange={(event) => {
           this.handleOnChange(event);
           onChange && onChange(event, event.currentTarget.value);
         }}

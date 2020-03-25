@@ -18,7 +18,7 @@ import { rows1, rows2 } from '../../static/data/datagrid';
 
 const TooltippedStatusBullet = Tooltip(StatusBullet);
 
-const handleRowSelectionChange = selectedRows => {
+const handleRowSelectionChange = (selectedRows) => {
   console.log(`onSelectionChange - selected row indexes: ${selectedRows}`);
 };
 
@@ -42,7 +42,7 @@ export const basic = () => (
     processing={boolean('Processing', false)}
   >
     <DataGrid.HeaderRowOverlay
-      numSelectedRowsLabel={numSelectedRows => (numSelectedRows === 1 ? 'sélectionné' : 'sélectionnés')}
+      numSelectedRowsLabel={(numSelectedRows) => (numSelectedRows === 1 ? 'sélectionné' : 'sélectionnés')}
     >
       <Button size="small" level="primary" label="Marks as paid" />
       <ButtonGroup segmented marginHorizontal={3}>
@@ -68,7 +68,7 @@ export const basic = () => (
     </DataGrid.HeaderRow>
     {rows1.map((row, index) => {
       return (
-        <DataGrid.BodyRow key={index} onClick={event => console.log('onClick:', row.column5, event)}>
+        <DataGrid.BodyRow key={index} onClick={(event) => console.log('onClick:', row.column5, event)}>
           <DataGrid.Cell align="center" flex="min-width">
             <TooltippedStatusBullet
               color={row.column1}
@@ -135,7 +135,7 @@ export const withFooter = () => (
     </DataGrid.HeaderRow>
     {rows2.map((row, index) => {
       return (
-        <DataGrid.BodyRow key={index} onClick={event => console.log('onClick:', row.column5, event)}>
+        <DataGrid.BodyRow key={index} onClick={(event) => console.log('onClick:', row.column5, event)}>
           <DataGrid.Cell align="center" flex="min-width">
             <TooltippedStatusBullet
               color={row.column1}
@@ -211,7 +211,7 @@ export const withStickyColumns = () => (
     </DataGrid.HeaderRow>
     {rows1.map((row, index) => {
       return (
-        <DataGrid.BodyRow key={index} onClick={event => console.log('onClick:', row.column5, event)}>
+        <DataGrid.BodyRow key={index} onClick={(event) => console.log('onClick:', row.column5, event)}>
           <DataGrid.Cell align="center" flex="min-width">
             <TooltippedStatusBullet
               color={row.column1}
@@ -284,7 +284,7 @@ export const advanced = () => (
     </DataGrid.HeaderRow>
     {rows1.map((row, index) => {
       return (
-        <DataGrid.BodyRow key={index} onClick={event => console.log('onClick:', row.column5, event)}>
+        <DataGrid.BodyRow key={index} onClick={(event) => console.log('onClick:', row.column5, event)}>
           <DataGrid.Cell align="center" flex="min-width">
             <TooltippedStatusBullet
               color={row.column1}

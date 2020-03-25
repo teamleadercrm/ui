@@ -7,7 +7,7 @@ import cx from 'classnames';
 import theme from './theme.css';
 
 class MenuItem extends PureComponent {
-  handleClick = event => {
+  handleClick = (event) => {
     const { disabled, onClick } = this.props;
 
     if (onClick && !disabled) {

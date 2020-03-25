@@ -28,7 +28,7 @@ class Input extends PureComponent {
     return (
       <SingleLineInputBase
         value={this.state.value}
-        onChange={event => {
+        onChange={(event) => {
           this.setState({ value: event.currentTarget.value });
           onChange && onChange(event, event.currentTarget.value);
         }}

@@ -65,7 +65,7 @@ class Pagination extends PureComponent {
               })}
             </li>
           )}
-          {iterator.map(page => {
+          {iterator.map((page) => {
             const isActive = page === currentPage;
 
             return (

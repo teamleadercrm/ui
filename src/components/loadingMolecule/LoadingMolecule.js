@@ -4,9 +4,7 @@ import cx from 'classnames';
 import theme from './theme.css';
 
 class LoadingMolecule extends PureComponent {
-  randomGradientPostFix = Math.random()
-    .toString(16)
-    .slice(2);
+  randomGradientPostFix = Math.random().toString(16).slice(2);
 
   render() {
     const { className, basePath, startColor, stopColor, type, ...others } = this.props;

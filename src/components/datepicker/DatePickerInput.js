@@ -42,7 +42,7 @@ class DatePickerInput extends PureComponent {
     return customFormatDate(selectedDate, locale);
   };
 
-  handleInputFocus = event => {
+  handleInputFocus = (event) => {
     const { onFocus, readOnly } = this.props.inputProps;
 
     if (readOnly) {
@@ -62,7 +62,7 @@ class DatePickerInput extends PureComponent {
     this.setState({ isPopoverActive: false });
   };
 
-  handleDatePickerDateChange = date => {
+  handleDatePickerDateChange = (date) => {
     this.setState({ isPopoverActive: false, selectedDay: date }, () => this.props.onChange(date));
   };
 

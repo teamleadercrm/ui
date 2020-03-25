@@ -10,7 +10,7 @@ const values = ['Option one', 'Option two', 'Option three'];
 const store = new Store({
   value: 'Option one',
 });
-const updateState = value => {
+const updateState = (value) => {
   store.set({ value });
 };
 

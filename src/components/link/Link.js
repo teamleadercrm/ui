@@ -14,14 +14,14 @@ class Link extends PureComponent {
     }
   }
 
-  handleMouseUp = event => {
+  handleMouseUp = (event) => {
     const { onMouseUp } = this.props;
 
     this.blur();
     onMouseUp && onMouseUp(event);
   };
 
-  handleMouseLeave = event => {
+  handleMouseLeave = (event) => {
     const { onMouseLeave } = this.props;
 
     this.blur();

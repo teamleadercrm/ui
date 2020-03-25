@@ -29,8 +29,8 @@ const handleClick = (event, title) => {
   event.preventDefault();
 };
 
-const TitleCounter = props => <UICounter color="ruby" marginLeft={3} {...props} />;
-const IconCounter = props => <UICounter color="ruby" {...props} />;
+const TitleCounter = (props) => <UICounter color="ruby" marginLeft={3} {...props} />;
+const IconCounter = (props) => <UICounter color="ruby" {...props} />;
 
 export default {
   title: addStoryInGroup(MID_LEVEL_BLOCKS, 'Tab'),
@@ -52,7 +52,7 @@ export const titleTab = () => (
         <TitleTab
           active={item.active}
           href={item.href}
-          onClick={event => {
+          onClick={(event) => {
             handleClick(event, item.title);
           }}
           {...optionalProps}
@@ -80,7 +80,7 @@ export const iconTab = () => (
         <IconTab
           active={item.active}
           href={item.href}
-          onClick={event => {
+          onClick={(event) => {
             handleClick(event, item.title);
           }}
           icon={<IconToRender />}

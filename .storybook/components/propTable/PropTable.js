@@ -6,10 +6,10 @@ import Badge from '../../../src/components/badge';
 import DataGrid from '../../../src/components/datagrid';
 import Island from '../../../src/components/island';
 
-const Red = props => <span style={{ color: 'red' }} {...props} />;
+const Red = (props) => <span style={{ color: 'red' }} {...props} />;
 const TooltippedBadge = Tooltip(Badge);
 
-const renderPropTypeValues = propType => {
+const renderPropTypeValues = (propType) => {
   if (!propType) {
     return;
   }

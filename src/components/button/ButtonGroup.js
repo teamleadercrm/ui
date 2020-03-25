@@ -27,7 +27,7 @@ class ButtonGroup extends PureComponent {
 
     return (
       <Box data-teamleader-ui="button-group" className={classNames} {...others}>
-        {React.Children.map(children, child => {
+        {React.Children.map(children, (child) => {
           if (!isComponentOfType(Button, child)) {
             return child;
           }
@@ -36,7 +36,7 @@ class ButtonGroup extends PureComponent {
           if (value) {
             optionalChildProps = {
               active: child.props.value === value,
-              onClick: event => this.handleChange(child.props.value, event),
+              onClick: (event) => this.handleChange(child.props.value, event),
             };
           }
 

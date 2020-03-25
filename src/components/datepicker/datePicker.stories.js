@@ -22,9 +22,7 @@ const languages = [
 const sizes = ['small', 'medium', 'large'];
 
 const customFormatDate = (date, locale) => {
-  return DateTime.fromJSDate(date)
-    .setLocale(locale)
-    .toLocaleString(DateTime.DATETIME_HUGE);
+  return DateTime.fromJSDate(date).setLocale(locale).toLocaleString(DateTime.DATETIME_HUGE);
 };
 
 const inputPlaceholderToday = DateTime.fromJSDate(new Date())
@@ -35,16 +33,10 @@ const inputPlaceholderTomorrow = DateTime.fromJSDate(new Date())
   .plus({ days: 1 })
   .toLocaleString(DateTime.DATE_SHORT);
 
-const preSelectedDate = DateTime.local()
-  .plus({ days: 3 })
-  .toJSDate();
+const preSelectedDate = DateTime.local().plus({ days: 3 }).toJSDate();
 const preSelectedRange = {
-  selectedStartDate: DateTime.local()
-    .plus({ days: 3 })
-    .toJSDate(),
-  selectedEndDate: DateTime.local()
-    .plus({ days: 8 })
-    .toJSDate(),
+  selectedStartDate: DateTime.local().plus({ days: 3 }).toJSDate(),
+  selectedEndDate: DateTime.local().plus({ days: 8 }).toJSDate(),
 };
 
 export default {
@@ -52,7 +44,7 @@ export default {
 };
 
 export const singleDate = () => {
-  const handleOnChange = selectedDate => {
+  const handleOnChange = (selectedDate) => {
     console.log('Selected date', selectedDate);
   };
 
@@ -77,7 +69,7 @@ singleDate.story = {
 };
 
 export const inputSingleDate = () => {
-  const handleOnChange = selectedDate => {
+  const handleOnChange = (selectedDate) => {
     console.log('Selected date', selectedDate);
   };
 
@@ -115,7 +107,7 @@ inputSingleDate.story = {
 };
 
 export const range = () => {
-  const handleOnChange = selectedRange => {
+  const handleOnChange = (selectedRange) => {
     console.log('Selected range', selectedRange);
   };
 
@@ -135,7 +127,7 @@ export const range = () => {
 };
 
 export const inputRange = () => {
-  const handleOnChange = selectedRange => {
+  const handleOnChange = (selectedRange) => {
     console.log('Selected range', selectedRange);
   };
 

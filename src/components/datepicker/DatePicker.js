@@ -39,7 +39,7 @@ class DatePicker extends PureComponent {
     );
   };
 
-  handleYearMonthChange = selectedMonth => {
+  handleYearMonthChange = (selectedMonth) => {
     this.setState({ selectedMonth });
   };
 

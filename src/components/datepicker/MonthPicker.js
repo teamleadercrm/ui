@@ -7,7 +7,7 @@ import { NumericInput } from '../input';
 import theme from './theme.css';
 
 // We want all the months from current month to current month in next year
-const getMonthOptions = localeUtils => {
+const getMonthOptions = (localeUtils) => {
   let currentYear = new Date().getFullYear();
   const currentMonth = new Date().getMonth();
 
@@ -40,7 +40,7 @@ const formatSelectMonthAndYear = ({ label, value }) => ({
 const MonthPickerUnary = ({ date, localeUtils, onChange }) => {
   const selectedMonth = useMemo(() => ({ value: date.getMonth(), label: localeUtils.formatMonthTitle(date) }), [date]);
 
-  const handleChangeMonth = selectedMonth => {
+  const handleChangeMonth = (selectedMonth) => {
     onChange(selectedMonth.value);
   };
 
@@ -70,7 +70,7 @@ const MonthPickerSplit = ({ date, localeUtils, onChange, size }) => {
     return { value: index, label: monthName };
   });
 
-  const handleChangeMonth = selectedMonth => {
+  const handleChangeMonth = (selectedMonth) => {
     onChange(new Date(selectedYear, selectedMonth.value));
   };
 

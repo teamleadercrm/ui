@@ -17,11 +17,11 @@ class SplitButton extends PureComponent {
     popoverAnchorEl: null,
   };
 
-  handleMainButtonClick = event => {
+  handleMainButtonClick = (event) => {
     this.props.onButtonClick(event);
   };
 
-  handleSecondaryButtonClick = event => {
+  handleSecondaryButtonClick = (event) => {
     const { onSecondaryButtonClick } = this.props;
     this.setState({ popoverActive: true, popoverAnchorEl: event.currentTarget });
     if (onSecondaryButtonClick) {
@@ -72,10 +72,10 @@ class SplitButton extends PureComponent {
           position="start"
         >
           <Menu>
-            {React.Children.map(children, child => {
+            {React.Children.map(children, (child) => {
               if (child.props.label !== buttonLabel) {
                 return React.cloneElement(child, {
-                  onClick: event => this.handleMenuItemClick(child, event),
+                  onClick: (event) => this.handleMenuItemClick(child, event),
                 });
               }
             })}

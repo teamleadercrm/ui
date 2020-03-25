@@ -64,7 +64,7 @@ const numericInputStore = new Store({
   value: 6,
 });
 
-const handleTimeInputChange = event => {
+const handleTimeInputChange = (event) => {
   timeInputStore.set({ value: event.currentTarget.value });
 };
 
@@ -104,9 +104,7 @@ export const input = () => (
         <Button size={select('Size', sizes, 'medium')}>
           <Checkbox size="small">Discount</Checkbox>
         </Button>
-      ) : (
-        undefined
-      )
+      ) : undefined
     }
     prefix={boolean('Toggle prefix', false) ? prefix : undefined}
     suffix={boolean('Toggle suffix', false) ? suffix : undefined}
@@ -137,18 +135,14 @@ export const numericInput = () => {
         connectedLeft={
           boolean('Toggle connected left', false) ? (
             <Button size={select('Size', sizes, 'medium')} label="€" />
-          ) : (
-            undefined
-          )
+          ) : undefined
         }
         connectedRight={
           boolean('Toggle connected right', false) ? (
             <Button size={select('Size', sizes, 'medium')}>
               <Checkbox size="small">Discount</Checkbox>
             </Button>
-          ) : (
-            undefined
-          )
+          ) : undefined
         }
         onChange={handleNumericInputChange}
         prefix={boolean('Toggle prefix', false) ? prefix : undefined}
@@ -181,18 +175,14 @@ export const timeInput = () => (
       connectedLeft={
         boolean('Toggle connected left', false) ? (
           <Button size={select('Size', sizes, 'medium')} label="€" />
-        ) : (
-          undefined
-        )
+        ) : undefined
       }
       connectedRight={
         boolean('Toggle connected right', false) ? (
           <Button size={select('Size', sizes, 'medium')}>
             <Checkbox size="small">Discount</Checkbox>
           </Button>
-        ) : (
-          undefined
-        )
+        ) : undefined
       }
       prefix={boolean('Toggle prefix', false) ? prefix : undefined}
       suffix={boolean('Toggle suffix', false) ? suffix : undefined}

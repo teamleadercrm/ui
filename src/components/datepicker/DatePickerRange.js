@@ -59,7 +59,7 @@ class DatePickerRange extends PureComponent {
     }
   };
 
-  handleDayMouseEnter = day => {
+  handleDayMouseEnter = (day) => {
     const { selectedStartDate, selectedEndDate } = this.state;
 
     if (!isSelectingFirstDay(selectedStartDate, selectedEndDate, day)) {

@@ -2,7 +2,7 @@ import React, { PureComponent, createContext } from 'react';
 
 export const Context = createContext();
 
-const DocumentObjectProvider = WrappedComponent => {
+const DocumentObjectProvider = (WrappedComponent) => {
   return class extends PureComponent {
     componentDidMount() {
       this.forceUpdate(); // force a re-render because we have the document ref now
@@ -13,7 +13,7 @@ const DocumentObjectProvider = WrappedComponent => {
         return (
           <span
             style={{ display: 'none' }}
-            ref={node => {
+            ref={(node) => {
               if (!node) {
                 return;
               }

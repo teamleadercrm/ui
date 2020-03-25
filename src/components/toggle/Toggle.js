@@ -9,7 +9,7 @@ import { TextBody, TextDisplay, TextSmall } from '../typography';
 class Toggle extends PureComponent {
   inputNode = createRef();
 
-  handleToggle = event => {
+  handleToggle = (event) => {
     const { disabled, onChange } = this.props;
 
     if (event.pageX !== 0 && event.pageY !== 0) {

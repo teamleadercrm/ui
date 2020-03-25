@@ -58,7 +58,7 @@ class DatePickerInputRange extends PureComponent {
     this.setState({ inputHasFocus: true }, () => this.props.onStartDateFocus && this.props.onStartDateFocus());
   };
 
-  handleFromChange = day => {
+  handleFromChange = (day) => {
     this.setState({ selectedStartDate: day }, () => {
       const { selectedEndDate } = this.state;
       this.focusTo();
@@ -66,7 +66,7 @@ class DatePickerInputRange extends PureComponent {
     });
   };
 
-  handleToChange = day => {
+  handleToChange = (day) => {
     this.setState({ selectedEndDate: day, mouseEnteredEndDate: day }, () => {
       const { selectedStartDate } = this.state;
       this.showFromMonth();
@@ -155,7 +155,7 @@ class DatePickerInputRange extends PureComponent {
             ...commonInputProps,
             ...inputStartDateProps,
           }}
-          ref={el => (this.startDate = el)}
+          ref={(el) => (this.startDate = el)}
           {...commonDayPickerInputProps}
           {...dayPickerInputStartDateProps}
         />
@@ -175,7 +175,7 @@ class DatePickerInputRange extends PureComponent {
             ...commonInputProps,
             ...inputEndDateProps,
           }}
-          ref={el => (this.endDate = el)}
+          ref={(el) => (this.endDate = el)}
           {...commonDayPickerInputProps}
           {...dayPickerInputEndDateProps}
         />
@@ -208,7 +208,7 @@ class DatePickerInputRange extends PureComponent {
     this.endDate.getDayPicker().showMonth(DateUtils.addMonths(selectedEndDate, -1));
   };
 
-  handleDayMouseEnter = day => {
+  handleDayMouseEnter = (day) => {
     const { selectedStartDate, selectedEndDate } = this.state;
 
     if (!isSelectingFirstDay(selectedStartDate, selectedEndDate, day)) {

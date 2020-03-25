@@ -42,7 +42,7 @@ export const basic = () => (
 
 export const withHeader = () => (
   <Widget size={select('Size', sizes, 'medium')}>
-    <Widget.Header color={select('Header color', colors, 'neutral')}>
+    <Widget.Header color={select('Header color', colors, 'white')}>
       <Heading3>I am the widget header title</Heading3>
     </Widget.Header>
     <Widget.Body>
@@ -57,7 +57,7 @@ withHeader.story = {
 
 export const withHeaderAndAction = () => (
   <Widget size={select('Size', sizes, 'medium')}>
-    <Widget.Header color={select('Header color', colors, 'neutral')} display="flex" alignItems="center">
+    <Widget.Header color={select('Header color', colors, 'white')} display="flex" alignItems="center">
       <Box flex={1}>
         <Heading3>I am the widget header title</Heading3>
       </Box>
@@ -78,15 +78,12 @@ withHeaderAndAction.story = {
 export const withHeaderAndMulipleActions = () => (
   <Widget size={select('Size', sizes, 'medium')}>
     <Widget.Header
-      color={select('header color', colors, 'neutral')}
+      color={select('header color', colors, 'white')}
       display="flex"
       alignItems="center"
       justifyContent="space-between"
     >
-      <Box display="flex" alignItems="center" flex={1}>
-        <Heading3>I am the widget header title</Heading3>
-        <Bullet color="mint" marginLeft={3} />
-      </Box>
+      <Heading3>I am the widget header title</Heading3>
       <ButtonGroup>
         <IconButton icon={<IconEditMediumOutline />} />
         <IconButton icon={<IconAddMediumOutline />} />
@@ -127,7 +124,7 @@ withFooter.story = {
 
 export const fullWidget = () => (
   <Widget size={select('Size', sizes, 'medium')}>
-    <Widget.Header color={select('Header color', colors, 'neutral')}>
+    <Widget.Header color={select('Header color', colors, 'white')}>
       <Heading3>I am the widget header title</Heading3>
     </Widget.Header>
     <Widget.Body>
@@ -147,7 +144,7 @@ fullWidget.story = {
 
 export const fullWidget2Cols = () => (
   <Widget size={select('Size', sizes, 'medium')}>
-    <Widget.Header color={select('Header color', colors, 'neutral')}>
+    <Widget.Header color={select('Header color', colors, 'white')}>
       <Heading3>I am the widget header title</Heading3>
     </Widget.Header>
     <Widget.Body display="flex">
@@ -174,7 +171,7 @@ fullWidget2Cols.story = {
 
 export const withDatePicker = () => (
   <Widget size={select('Size', sizes, 'medium')}>
-    <Widget.Header color={select('Header color', colors, 'neutral')}>
+    <Widget.Header color={select('Header color', colors, 'white')}>
       <Heading3>I am the widget header title</Heading3>
     </Widget.Header>
     <Widget.Body padding={0}>
@@ -205,7 +202,7 @@ export const withDataGridOnly = () => (
         processing={boolean('Processing', false)}
       >
         <DataGrid.HeaderRowOverlay
-          numSelectedRowsLabel={numSelectedRows => (numSelectedRows === 1 ? 'sélectionné' : 'sélectionnés')}
+          numSelectedRowsLabel={(numSelectedRows) => (numSelectedRows === 1 ? 'sélectionné' : 'sélectionnés')}
         >
           <Button size="small" level="primary" label="Marks as paid" />
           <ButtonGroup segmented marginHorizontal={3}>
@@ -231,7 +228,7 @@ export const withDataGridOnly = () => (
         </DataGrid.HeaderRow>
         {rows1.map((row, index) => {
           return (
-            <DataGrid.BodyRow key={index} onClick={event => console.log('onClick:', row.column5, event)}>
+            <DataGrid.BodyRow key={index} onClick={(event) => console.log('onClick:', row.column5, event)}>
               <DataGrid.Cell align="center" flex="min-width">
                 <TooltippedStatusBullet
                   color={row.column1}
@@ -273,7 +270,7 @@ withDataGridOnly.story = {
 
 export const withDataGrid = () => (
   <Widget size={select('Size', sizes, 'medium')}>
-    <Widget.Header color={select('Header color', colors, 'neutral')}>
+    <Widget.Header color={select('Header color', colors, 'white')}>
       <Heading3>I am the widget header title</Heading3>
     </Widget.Header>
     <Widget.Body padding={0}>
@@ -286,7 +283,7 @@ export const withDataGrid = () => (
         processing={boolean('Processing', false)}
       >
         <DataGrid.HeaderRowOverlay
-          numSelectedRowsLabel={numSelectedRows => (numSelectedRows === 1 ? 'sélectionné' : 'sélectionnés')}
+          numSelectedRowsLabel={(numSelectedRows) => (numSelectedRows === 1 ? 'sélectionné' : 'sélectionnés')}
         >
           <Button size="small" level="primary" label="Marks as paid" />
           <ButtonGroup segmented marginHorizontal={3}>
@@ -312,7 +309,7 @@ export const withDataGrid = () => (
         </DataGrid.HeaderRow>
         {rows1.map((row, index) => {
           return (
-            <DataGrid.BodyRow key={index} onClick={event => console.log('onClick:', row.column5, event)}>
+            <DataGrid.BodyRow key={index} onClick={(event) => console.log('onClick:', row.column5, event)}>
               <DataGrid.Cell align="center" flex="min-width">
                 <TooltippedStatusBullet
                   color={row.column1}

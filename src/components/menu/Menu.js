@@ -116,7 +116,7 @@ class Menu extends PureComponent {
     });
   }
 
-  handleDocumentClick = event => {
+  handleDocumentClick = (event) => {
     if (this.state.active && !events.targetIsDescendant(event, ReactDOM.findDOMNode(this))) {
       this.hide();
     }
@@ -200,9 +200,9 @@ class Menu extends PureComponent {
     // Because React Hot Loader creates proxied versions of your components,
     // comparing reference types of elements won't work
     // https://github.com/gaearon/react-hot-loader/blob/master/docs/Known%20Limitations.md#checking-element-types
-    const MenuItemType = <MenuItem />.type;
+    const MenuItemType = (<MenuItem />).type;
 
-    return React.Children.map(children, item => {
+    return React.Children.map(children, (item) => {
       if (!item) {
         return item;
       }
@@ -264,7 +264,7 @@ Menu.propTypes = {
   /** If true, a border is rendered around the menu. */
   outline: PropTypes.bool,
   /** The position in which the menu is rendered. */
-  position: PropTypes.oneOf(Object.keys(POSITION).map(key => POSITION[key])),
+  position: PropTypes.oneOf(Object.keys(POSITION).map((key) => POSITION[key])),
   /** If true, the menu will highlight the selected value. */
   selectable: PropTypes.bool,
   /** The value of the menu item that will be highlighted. */

@@ -106,7 +106,7 @@ export const customOption = () => (
 
 export const async = () => {
   const loadOptions = (searchTerm, pageSize = 10, pageNumber = 1) => {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       setTimeout(() => {
         const options = [];
         for (let i = 0; i < pageSize; i += 1) {

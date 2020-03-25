@@ -21,7 +21,7 @@ class AsyncSelect extends PureComponent {
     if (this.props.pageSize !== prevProps.pageSize || this.props.loadOptions !== prevProps.loadOptions) {
       /* eslint-disable react/no-did-update-set-state */
       this.setState(
-        state => ({
+        (state) => ({
           ...state,
           options: [],
           cache: {},
@@ -32,7 +32,7 @@ class AsyncSelect extends PureComponent {
     }
   }
 
-  handleInputChange = searchTerm => {
+  handleInputChange = (searchTerm) => {
     if (this.props.onInputChange) {
       this.props.onInputChange(searchTerm);
     }
@@ -69,7 +69,7 @@ class AsyncSelect extends PureComponent {
   };
 
   handleOptionsLoaded(options, cache) {
-    this.setState(state => {
+    this.setState((state) => {
       const newOptions = state.options.concat(options);
       const isLastPage = options.length < this.props.pageSize;
 
@@ -102,7 +102,7 @@ class AsyncSelect extends PureComponent {
       },
       () => {
         loadOptions(searchTerm, ...(this.props.paginate ? [pageSize, pageNumber] : [])).then(
-          options => {
+          (options) => {
             if (
               searchTerm !== this.state.searchTerm ||
               pageSize !== this.props.pageSize ||

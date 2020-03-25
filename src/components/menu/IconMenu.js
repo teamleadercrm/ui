@@ -12,7 +12,7 @@ class IconMenu extends PureComponent {
     active: false,
   };
 
-  handleButtonClick = event => {
+  handleButtonClick = (event) => {
     this.setState({ active: !this.state.active });
     if (this.props.onClick) {
       this.props.onClick(event);

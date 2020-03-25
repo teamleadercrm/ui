@@ -77,7 +77,7 @@ class Popover extends PureComponent {
 
     const popover = (
       <Transition timeout={0} in={active} appear>
-        {state => {
+        {(state) => {
           return (
             <div
               className={cx(theme['wrapper'], theme[color], theme[tint], {
