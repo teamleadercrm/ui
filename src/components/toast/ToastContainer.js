@@ -12,7 +12,7 @@ class ToastContainer extends PureComponent {
     return (
       <ul className={classNames} data-teamleader-ui="toast-container">
         <TransitionGroup component="li">
-          {React.Children.map(children, child => {
+          {React.Children.map(children, (child) => {
             return (
               <CSSTransition
                 timeout={1000}

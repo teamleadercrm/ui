@@ -11,7 +11,7 @@ class Widget extends PureComponent {
 
     return (
       <IslandGroup direction="vertical" {...others}>
-        {React.Children.map(children, child => {
+        {React.Children.map(children, (child) => {
           return React.cloneElement(child, {
             ...child.props,
             size,

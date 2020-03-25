@@ -13,14 +13,14 @@ class SingleLineInputBase extends PureComponent {
     inputHasfocus: false,
   };
 
-  handleBlur = event => {
+  handleBlur = (event) => {
     this.setState({ inputHasfocus: false });
     if (this.props.onBlur) {
       this.props.onBlur(event);
     }
   };
 
-  handleFocus = event => {
+  handleFocus = (event) => {
     this.setState({ inputHasfocus: true });
     if (this.props.onFocus) {
       this.props.onFocus(event);

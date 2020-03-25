@@ -10,7 +10,7 @@ import { IconCheckmarkSmallOutline, IconCheckmarkMediumOutline, IconMinusSmallOu
 class Checkbox extends PureComponent {
   inputNode = createRef();
 
-  handleToggle = event => {
+  handleToggle = (event) => {
     const { disabled, checked, onChange } = this.props;
 
     if (event.pageX !== 0 && event.pageY !== 0) {

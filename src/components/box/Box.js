@@ -17,7 +17,7 @@ const borderRadiuses = {
 class Box extends PureComponent {
   boxNode = createRef();
 
-  getBorder = value => {
+  getBorder = (value) => {
     const { borderColor, borderTint } = this.props;
     return `${value}px solid ${COLOR[borderColor.toUpperCase()][borderTint.toUpperCase()]}`;
   };

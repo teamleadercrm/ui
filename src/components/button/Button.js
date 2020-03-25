@@ -36,14 +36,14 @@ class Button extends PureComponent {
     }
   }
 
-  handleMouseUp = event => {
+  handleMouseUp = (event) => {
     this.blur();
     if (this.props.onMouseUp) {
       this.props.onMouseUp(event);
     }
   };
 
-  handleMouseLeave = event => {
+  handleMouseLeave = (event) => {
     this.blur();
     if (this.props.onMouseLeave) {
       this.props.onMouseLeave(event);
@@ -97,7 +97,7 @@ class Button extends PureComponent {
 
     const props = {
       ...others,
-      ref: node => {
+      ref: (node) => {
         this.buttonNode = node;
       },
       className: classNames,

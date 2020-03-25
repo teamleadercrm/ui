@@ -18,13 +18,13 @@ class RadioGroup extends PureComponent {
 
     return (
       <Box data-teamleader-ui="radio-group" className={className} {...rest}>
-        {React.Children.map(children, child =>
+        {React.Children.map(children, (child) =>
           !isComponentOfType(RadioButton, child)
             ? child
             : React.cloneElement(child, {
                 checked: child.props.value === value,
                 disabled: disabled || child.props.disabled,
-                onChange: event => this.handleChange(child.props.value, event),
+                onChange: (event) => this.handleChange(child.props.value, event),
               }),
         )}
       </Box>

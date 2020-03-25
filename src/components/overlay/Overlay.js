@@ -46,13 +46,13 @@ class Overlay extends PureComponent {
     }
   }
 
-  handleEscKey = e => {
+  handleEscKey = (e) => {
     if (this.props.active && this.props.onEscKeyDown && e.which === 27) {
       this.props.onEscKeyDown(e);
     }
   };
 
-  handleClick = event => {
+  handleClick = (event) => {
     event.preventDefault();
     event.stopPropagation();
     if (this.props.onClick) {
@@ -72,7 +72,7 @@ class Overlay extends PureComponent {
 
     return (
       <Transition timeout={0} in={active} appear>
-        {state => {
+        {(state) => {
           return (
             <div
               data-teamleader-ui="overlay"

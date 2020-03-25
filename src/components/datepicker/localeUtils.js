@@ -21,14 +21,10 @@ const firstDayOfWeek = {
 };
 
 export const formatDay = (day, locale = defaultLocale) =>
-  DateTime.fromJSDate(day)
-    .setLocale(locale)
-    .toLocaleString(DateTime.DATE_HUGE);
+  DateTime.fromJSDate(day).setLocale(locale).toLocaleString(DateTime.DATE_HUGE);
 
 export const formatMonthTitle = (date, locale = defaultLocale) =>
-  DateTime.fromJSDate(date)
-    .setLocale(locale)
-    .toLocaleString({ month: 'long', year: 'numeric' });
+  DateTime.fromJSDate(date).setLocale(locale).toLocaleString({ month: 'long', year: 'numeric' });
 
 export const formatWeekdayShort = (dayOfWeekNumber, locale = defaultLocale) => {
   const dayIndex = (7 + dayOfWeekNumber - getFirstDayOfWeek(locale)) % 7;
@@ -47,9 +43,7 @@ export const getFirstDayOfWeek = (locale = defaultLocale) => {
 export const getMonths = (locale = defaultLocale) => Info.months('long', { locale });
 
 export const formatDate = (date, locale = defaultLocale, format = DateTime.DATE_SHORT) =>
-  DateTime.fromJSDate(date)
-    .setLocale(locale)
-    .toLocaleString(format);
+  DateTime.fromJSDate(date).setLocale(locale).toLocaleString(format);
 
 export const parseDate = (string, format = DateTime.DATE_SHORT, locale = defaultLocale) =>
   DateTime.fromFormat(string, format, { locale }).toJSDate();

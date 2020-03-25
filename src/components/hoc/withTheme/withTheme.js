@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { COLORS, TINTS } from '../../../constants';
 
-const withTheme = theme => WrappedComponent => {
+const withTheme = (theme) => (WrappedComponent) => {
   class WithTheme extends PureComponent {
     render() {
       const { color, size, tint, className, ...others } = this.props;

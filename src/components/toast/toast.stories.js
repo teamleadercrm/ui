@@ -11,10 +11,10 @@ let key = 0;
 
 const handleCustomAction = () => true;
 
-const handleRemoveToast = keyToRemove => {
+const handleRemoveToast = (keyToRemove) => {
   const currentChildren = store.get('children');
   store.set({
-    children: currentChildren.filter(child => child.key !== String(keyToRemove)),
+    children: currentChildren.filter((child) => child.key !== String(keyToRemove)),
   });
 };
 

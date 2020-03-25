@@ -6,14 +6,14 @@ import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
 
 class IconButton extends Component {
-  handleMouseUp = event => {
+  handleMouseUp = (event) => {
     this.blur();
     if (this.props.onMouseUp) {
       this.props.onMouseUp(event);
     }
   };
 
-  handleMouseLeave = event => {
+  handleMouseLeave = (event) => {
     this.blur();
     if (this.props.onMouseLeave) {
       this.props.onMouseLeave(event);
@@ -45,7 +45,7 @@ class IconButton extends Component {
 
     const props = {
       ...others,
-      ref: node => {
+      ref: (node) => {
         this.buttonNode = node;
       },
       className: classNames,

@@ -47,7 +47,7 @@ const backdrops = ['transparent', 'dark'];
 const directions = ['north', 'south', 'east', 'west'];
 const positions = ['start', 'center', 'end'];
 
-const handleButtonClick = event => {
+const handleButtonClick = (event) => {
   popoverStore.set({ anchorEl: event.currentTarget, active: true });
 };
 

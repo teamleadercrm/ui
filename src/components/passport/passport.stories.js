@@ -45,7 +45,7 @@ const companyLineItems = [
   },
 ];
 
-const handleButtonClick = event => {
+const handleButtonClick = (event) => {
   store.set({ anchorEl: event.currentTarget, active: true });
 };
 

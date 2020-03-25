@@ -9,8 +9,8 @@ export default {
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Form elements/Toggle'),
 };
 
-const ControlledToggle = props => {
-  const handleChange = event => {
+const ControlledToggle = (props) => {
+  const handleChange = (event) => {
     // storybook/knobs controls our state, this changes its state
     // https://github.com/storybookjs/storybook/issues/3855#issuecomment-503795595
     window.__STORYBOOK_ADDONS.channel.emit('storybookjs/knobs/change', {

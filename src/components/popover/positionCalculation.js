@@ -9,7 +9,7 @@ const DIRECTION_EAST = 'east';
 const DIRECTION_SOUTH = 'south';
 const DIRECTION_WEST = 'west';
 
-const getElementPositionValues = element => {
+const getElementPositionValues = (element) => {
   const { top, left, right, bottom } = element.getBoundingClientRect();
 
   return {
@@ -22,7 +22,7 @@ const getElementPositionValues = element => {
   };
 };
 
-const getElementDimensionValues = element => {
+const getElementDimensionValues = (element) => {
   const { width, height } = element.getBoundingClientRect();
   return { width, height };
 };
@@ -136,7 +136,7 @@ const isInViewport = ({ direction, anchorPosition, popoverDimensions }) => {
   }
 };
 
-const getOppositeDirection = direction => {
+const getOppositeDirection = (direction) => {
   switch (direction) {
     case DIRECTION_NORTH:
       return DIRECTION_SOUTH;
@@ -195,7 +195,7 @@ const isHorizontalDirectionPositionPossible = (position, anchorPosition, popover
   }
 };
 
-const getOppositePosition = direction => {
+const getOppositePosition = (direction) => {
   switch (direction) {
     case POSITION_START:
       return POSITION_END;

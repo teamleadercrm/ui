@@ -8,7 +8,7 @@ import omit from 'lodash.omit';
 class IconTab extends PureComponent {
   tabNode = createRef();
 
-  handleClick = event => {
+  handleClick = (event) => {
     if (this.props.onClick) {
       this.props.onClick(event);
     }
