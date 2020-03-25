@@ -12,7 +12,7 @@ import cx from 'classnames';
 import uiUtilities from '@teamleader/ui-utilities';
 
 class Select extends PureComponent {
-  getClearIndicatorStyles = base => {
+  getClearIndicatorStyles = (base) => {
     const { inverse } = this.props;
 
     return {
@@ -97,7 +97,7 @@ class Select extends PureComponent {
     };
   };
 
-  getGroupStyles = base => {
+  getGroupStyles = (base) => {
     const { inverse } = this.props;
 
     return {
@@ -111,7 +111,7 @@ class Select extends PureComponent {
     };
   };
 
-  getGroupHeadingStyles = base => {
+  getGroupHeadingStyles = (base) => {
     const { inverse } = this.props;
 
     return {
@@ -123,7 +123,7 @@ class Select extends PureComponent {
     };
   };
 
-  getInput = base => {
+  getInput = (base) => {
     const { size, value } = this.props;
 
     return {
@@ -132,7 +132,7 @@ class Select extends PureComponent {
     };
   };
 
-  getMenuPortalStyles = base => {
+  getMenuPortalStyles = (base) => {
     const { inverse, menuWidth } = this.props;
 
     return {
@@ -148,7 +148,7 @@ class Select extends PureComponent {
     };
   };
 
-  getMultiValueStyles = base => {
+  getMultiValueStyles = (base) => {
     const { inverse } = this.props;
 
     return {
@@ -161,7 +161,7 @@ class Select extends PureComponent {
     };
   };
 
-  getMultiValueLabelStyles = base => {
+  getMultiValueLabelStyles = (base) => {
     const { inverse, size } = this.props;
 
     return {
@@ -176,7 +176,7 @@ class Select extends PureComponent {
     };
   };
 
-  getMultiValueRemoveStyles = base => {
+  getMultiValueRemoveStyles = (base) => {
     const { inverse } = this.props;
 
     return {
@@ -253,7 +253,7 @@ class Select extends PureComponent {
     };
   };
 
-  getSingleValueStyles = base => ({
+  getSingleValueStyles = (base) => ({
     ...base,
     color: this.props.inverse ? COLOR.NEUTRAL.LIGHTEST : COLOR.TEAL.DARKEST,
   });

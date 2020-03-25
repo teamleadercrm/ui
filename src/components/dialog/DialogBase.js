@@ -45,7 +45,7 @@ class DialogBase extends PureComponent {
 
     const dialog = (
       <Transition timeout={0} in={active} appear>
-        {state => {
+        {(state) => {
           return (
             <div
               className={cx(theme['wrapper'], {

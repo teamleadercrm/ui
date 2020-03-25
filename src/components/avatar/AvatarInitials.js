@@ -8,7 +8,7 @@ import { Heading4 } from '../typography';
 import { colorsWithout } from '../../constants';
 
 const colors = colorsWithout(['neutral']);
-const hashCode = hexString => parseInt(hexString.substr(-5), 16);
+const hashCode = (hexString) => parseInt(hexString.substr(-5), 16);
 
 class AvatarInitials extends PureComponent {
   getBackgroundColor = () => {

@@ -7,4 +7,4 @@ export const LARGE = 'large';
 export const FULLSCREEN = 'fullscreen';
 
 export const SIZES = [TINY, SMALL, MEDIUM, LARGE, FULLSCREEN];
-export const sizesWithout = sizesToExclude => without(SIZES, ...sizesToExclude);
+export const sizesWithout = (sizesToExclude) => without(SIZES, ...sizesToExclude);

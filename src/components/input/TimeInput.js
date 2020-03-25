@@ -4,7 +4,7 @@ import Icon from '../icon';
 import SingleLineInputBase from './SingleLineInputBase';
 import { IconTimerSmallOutline } from '@teamleader/ui-icons';
 
-const isValidTime = input => RegExp('([0-1][0-9]|[2][0-3]):([0-5][0-9])').test(input);
+const isValidTime = (input) => RegExp('([0-1][0-9]|[2][0-3]):([0-5][0-9])').test(input);
 class TimeInput extends PureComponent {
   beforeMaskedValueChange = ({ value: newValue, selection }, { value: oldValue }) => {
     if (!isValidTime(newValue)) {
@@ -17,7 +17,7 @@ class TimeInput extends PureComponent {
     const { disabled, readOnly } = this.props;
     return (
       <InputMask {...this.props} mask="99:99" maskChar="0" beforeMaskedValueChange={this.beforeMaskedValueChange}>
-        {inputProps => (
+        {(inputProps) => (
           <SingleLineInputBase
             {...inputProps}
             autoComplete="off"

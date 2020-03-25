@@ -10,7 +10,7 @@ import theme from './theme.css';
 class Badge extends PureComponent {
   badgeNode = createRef();
 
-  handleMouseUp = event => {
+  handleMouseUp = (event) => {
     this.badgeNode.current.boxNode.current.blur();
 
     if (this.props.onMouseUp) {
@@ -18,7 +18,7 @@ class Badge extends PureComponent {
     }
   };
 
-  handleMouseLeave = event => {
+  handleMouseLeave = (event) => {
     this.badgeNode.current.boxNode.current.blur();
 
     if (this.props.onMouseLeave) {

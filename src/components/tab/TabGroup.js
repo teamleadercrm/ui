@@ -18,7 +18,7 @@ class TabGroup extends PureComponent {
 
     return (
       <Box data-teamleader-ui="tab-group" className={classNames} {...others}>
-        {React.Children.map(children, child => React.cloneElement(child, { size }))}
+        {React.Children.map(children, (child) => React.cloneElement(child, { size }))}
       </Box>
     );
   }

@@ -19,7 +19,7 @@ class Icon extends PureComponent {
         element="span"
         {...others}
       >
-        {React.Children.map(children, child => {
+        {React.Children.map(children, (child) => {
           // Check if child is an actual React component
           // if so, pass the needed props. If not, just render it.
           if (!child.type) {

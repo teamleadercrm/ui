@@ -20,7 +20,7 @@ class Toast extends PureComponent {
     clearTimeout(this.currentTimeout);
   }
 
-  scheduleTimeout = props => {
+  scheduleTimeout = (props) => {
     const { onTimeout, timeout } = props;
 
     if (this.currentTimeout) {

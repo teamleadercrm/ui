@@ -29,7 +29,7 @@ addDecorator(
   withInfo({
     inline: true,
     source: true,
-    styles: stylesheet => {
+    styles: (stylesheet) => {
       stylesheet.infoBody = {
         color: COLOR.TEAL.DARKEST,
         fontFamily: 'Inter-Regular',

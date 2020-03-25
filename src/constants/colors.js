@@ -52,8 +52,8 @@ export const COLOR = {
   },
 };
 
-export const COLORS = Object.keys(COLOR).map(key => key.toLowerCase());
-export const TINTS = Object.keys(COLOR[Object.keys(COLOR)[0]]).map(key => key.toLowerCase());
+export const COLORS = Object.keys(COLOR).map((key) => key.toLowerCase());
+export const TINTS = Object.keys(COLOR[Object.keys(COLOR)[0]]).map((key) => key.toLowerCase());
 
-export const colorsWithout = colorsToExclude => without(COLORS, ...colorsToExclude);
-export const tintsWithout = tintsToExclude => without(TINTS, ...tintsToExclude);
+export const colorsWithout = (colorsToExclude) => without(COLORS, ...colorsToExclude);
+export const tintsWithout = (tintsToExclude) => without(TINTS, ...tintsToExclude);

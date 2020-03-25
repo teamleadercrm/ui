@@ -32,7 +32,7 @@ const SIZES = {
   },
 };
 
-const Tooltip = ComposedComponent => {
+const Tooltip = (ComposedComponent) => {
   class TooltippedComponent extends Component {
     tooltipRoot = this.props.documentObject.createElement('div');
 
@@ -103,7 +103,7 @@ const Tooltip = ComposedComponent => {
       }
     }
 
-    handleMouseEnter = event => {
+    handleMouseEnter = (event) => {
       this.activate(this.calculatePosition(event.currentTarget));
 
       if (this.props.onMouseEnter) {
@@ -111,7 +111,7 @@ const Tooltip = ComposedComponent => {
       }
     };
 
-    handleMouseLeave = event => {
+    handleMouseLeave = (event) => {
       this.deactivate();
 
       if (this.props.onMouseLeave) {
@@ -119,7 +119,7 @@ const Tooltip = ComposedComponent => {
       }
     };
 
-    handleClick = event => {
+    handleClick = (event) => {
       if (this.props.tooltipHideOnClick && this.state.active) {
         this.deactivate();
       }
@@ -176,7 +176,7 @@ const Tooltip = ComposedComponent => {
             onEntered={this.handleTransitionEntered}
             timeout={{ enter: 100, exit: 1000 }}
           >
-            {state => {
+            {(state) => {
               const classNames = cx(
                 uiUtilities['box-shadow-200'],
                 theme['tooltip'],
@@ -217,7 +217,7 @@ const Tooltip = ComposedComponent => {
     tooltipColor: PropTypes.oneOf(['white', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'inverse']),
     tooltipHideOnClick: PropTypes.bool,
     tooltipIcon: PropTypes.element,
-    tooltipPosition: PropTypes.oneOf(Object.keys(POSITIONS).map(key => POSITIONS[key])),
+    tooltipPosition: PropTypes.oneOf(Object.keys(POSITIONS).map((key) => POSITIONS[key])),
     tooltipShowOnClick: PropTypes.bool,
     tooltipSize: PropTypes.oneOf(Object.keys(SIZES)),
     documentObject: PropTypes.object.isRequired,
@@ -233,10 +233,10 @@ const Tooltip = ComposedComponent => {
     tooltipSize: 'medium',
   };
 
-  return DocumentObjectProvider(props => {
+  return DocumentObjectProvider((props) => {
     return (
       <DocumentObjectContext.Consumer>
-        {documentObject => <TooltippedComponent {...props} documentObject={documentObject} />}
+        {(documentObject) => <TooltippedComponent {...props} documentObject={documentObject} />}
       </DocumentObjectContext.Consumer>
     );
   });

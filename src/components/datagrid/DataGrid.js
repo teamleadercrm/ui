@@ -40,7 +40,7 @@ class DataGrid extends PureComponent {
   }
 
   handleHeaderRowSelectionChange = (checked, event) => {
-    const allBodyRowIndexes = React.Children.map(this.props.children, child => {
+    const allBodyRowIndexes = React.Children.map(this.props.children, (child) => {
       if (isComponentOfType(BodyRow, child)) {
         return child.key;
       }
@@ -70,9 +70,9 @@ class DataGrid extends PureComponent {
   };
 
   handleBodyRowSelectionChange = (rowIndex, event) => {
-    this.setState(prevState => {
+    this.setState((prevState) => {
       const selectedRows = prevState.selectedRows.includes(rowIndex)
-        ? prevState.selectedRows.filter(row => row !== rowIndex)
+        ? prevState.selectedRows.filter((row) => row !== rowIndex)
         : [...prevState.selectedRows, rowIndex];
 
       this.handleSelectionChange(selectedRows, event);
@@ -104,13 +104,13 @@ class DataGrid extends PureComponent {
     let maxRowWidth = 0;
 
     [...this.rowNodes.values()]
-      .filter(rowNode => rowNode != null)
-      .forEach(rowNode => {
+      .filter((rowNode) => rowNode != null)
+      .forEach((rowNode) => {
         const rowDOMNode = ReactDOM.findDOMNode(rowNode);
 
         if (rowDOMNode) {
           const totalRowChildrenWidth = [...rowDOMNode.children]
-            .map(child => child.offsetWidth)
+            .map((child) => child.offsetWidth)
             .reduce((accumulatedChildWidth, currentChildWidth) => accumulatedChildWidth + currentChildWidth);
 
           maxRowWidth = maxRowWidth < totalRowChildrenWidth ? totalRowChildrenWidth : maxRowWidth;
@@ -118,7 +118,7 @@ class DataGrid extends PureComponent {
         }
       });
 
-    rowDOMNodes.forEach(rowDOMNode => (rowDOMNode.style.minWidth = `${maxRowWidth}px`));
+    rowDOMNodes.forEach((rowDOMNode) => (rowDOMNode.style.minWidth = `${maxRowWidth}px`));
   };
 
   render() {
@@ -159,7 +159,7 @@ class DataGrid extends PureComponent {
           </div>
         )}
         {selectedRows.length > 0 &&
-          React.Children.map(children, child => {
+          React.Children.map(children, (child) => {
             if (isComponentOfType(HeaderRowOverlay, child)) {
               return React.cloneElement(child, {
                 numSelectedRows: selectedRows.length,
@@ -170,12 +170,12 @@ class DataGrid extends PureComponent {
         <Box display="flex" className={cx(theme['section-wrapper'])}>
           {(selectable || stickyFromLeft > 0) && (
             <div className={sectionLeftClassNames}>
-              {React.Children.map(children, child => {
+              {React.Children.map(children, (child) => {
                 if (isComponentOfType(HeaderRow, child)) {
                   return React.cloneElement(child, {
                     checkboxSize,
                     onSelectionChange: this.handleHeaderRowSelectionChange,
-                    selected: selectedRows.length === children.find(child => Array.isArray(child)).length,
+                    selected: selectedRows.length === children.find((child) => Array.isArray(child)).length,
                     selectable,
                     sliceTo: stickyFromLeft > 0 ? stickyFromLeft : 0,
                   });
@@ -183,8 +183,8 @@ class DataGrid extends PureComponent {
                   return React.cloneElement(child, {
                     checkboxSize,
                     hovered: hoveredRow === child.key,
-                    onMouseEnter: event => this.handleBodyRowMouseEnter(child, event),
-                    onMouseLeave: event => this.handleBodyRowMouseLeave(child, event),
+                    onMouseEnter: (event) => this.handleBodyRowMouseEnter(child, event),
+                    onMouseLeave: (event) => this.handleBodyRowMouseLeave(child, event),
                     onSelectionChange: (checked, event) => this.handleBodyRowSelectionChange(child.key, event),
                     selected: selectedRows.indexOf(child.key) !== -1,
                     selectable,
@@ -199,36 +199,36 @@ class DataGrid extends PureComponent {
               })}
             </div>
           )}
-          <div className={cx(theme['section'], theme['is-scrollable'])} ref={node => (this.scrollableNode = node)}>
+          <div className={cx(theme['section'], theme['is-scrollable'])} ref={(node) => (this.scrollableNode = node)}>
             {React.Children.map(children, (child, key) => {
               if (isComponentOfType(HeaderRow, child) || isComponentOfType(FooterRow, child)) {
                 return React.cloneElement(child, {
                   sliceFrom: stickyFromLeft > 0 ? stickyFromLeft : 0,
                   sliceTo: stickyFromRight > 0 ? -stickyFromRight : undefined,
-                  ref: rowNode => this.rowNodes.set(key, rowNode),
+                  ref: (rowNode) => this.rowNodes.set(key, rowNode),
                 });
               } else if (isComponentOfType(BodyRow, child)) {
                 return React.cloneElement(child, {
                   hovered: hoveredRow === child.key,
-                  onMouseEnter: event => this.handleBodyRowMouseEnter(child, event),
-                  onMouseLeave: event => this.handleBodyRowMouseLeave(child, event),
+                  onMouseEnter: (event) => this.handleBodyRowMouseEnter(child, event),
+                  onMouseLeave: (event) => this.handleBodyRowMouseLeave(child, event),
                   sliceFrom: stickyFromLeft > 0 ? stickyFromLeft : 0,
                   sliceTo: stickyFromRight > 0 ? -stickyFromRight : undefined,
-                  ref: rowNode => this.rowNodes.set(key, rowNode),
+                  ref: (rowNode) => this.rowNodes.set(key, rowNode),
                 });
               }
             })}
           </div>
           {stickyFromRight > 0 && (
             <div className={cx(theme['section'], theme['has-blend-left'])}>
-              {React.Children.map(children, child => {
+              {React.Children.map(children, (child) => {
                 if (isComponentOfType(HeaderRow, child) || isComponentOfType(FooterRow, child)) {
                   return React.cloneElement(child, { sliceFrom: -stickyFromRight });
                 } else if (isComponentOfType(BodyRow, child)) {
                   return React.cloneElement(child, {
                     hovered: hoveredRow === child.key,
-                    onMouseEnter: event => this.handleBodyRowMouseEnter(child, event),
-                    onMouseLeave: event => this.handleBodyRowMouseLeave(child, event),
+                    onMouseEnter: (event) => this.handleBodyRowMouseEnter(child, event),
+                    onMouseLeave: (event) => this.handleBodyRowMouseLeave(child, event),
                     sliceFrom: -stickyFromRight,
                   });
                 }

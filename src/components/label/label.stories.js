@@ -29,18 +29,14 @@ export const label = () => (
         <Icon>
           <IconMarkerSmallOutline />
         </Icon>
-      ) : (
-        undefined
-      )
+      ) : undefined
     }
     connectedRight={
       boolean('Toggle connected right', false) ? (
         <TooltippedIcon tooltip={<TextSmall>This is the label tooltip text</TextSmall>} tooltipSize="small">
           <IconInfoBadgedSmallFilled />
         </TooltippedIcon>
-      ) : (
-        undefined
-      )
+      ) : undefined
     }
   >
     Input label
