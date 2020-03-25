@@ -1710,9 +1710,9 @@
   integrity sha512-Ef0Iwxpng9rfyJs5PIVfF6Rd0CEIEmTog2E6uz+Sel6dP61HORaZQ3f6EX6grzQh1o0tyQJmmoI9aUJhtr9uPw==
 
 "@teamleader/ui-typography@^0.2.3":
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/@teamleader/ui-typography/-/ui-typography-0.2.3.tgz#4e6a69e8f9ec45df3086b2bf5bb9807ce299155d"
-  integrity sha512-KEYb0q+EspPbkVyyf45houJgwUhNyBH+CfNNEKM5uMk8eiEJMs7Q8uxvNc4cSHcwV1MUUK71sKxyPS8amLCOZA==
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/@teamleader/ui-typography/-/ui-typography-0.2.4.tgz#4a4afc6f33b7c7336527d34e0df694121953964a"
+  integrity sha512-GEsb7QV7KZRZ1A5k6Yc4jERDlkSmEo/DY9SPrdehvLWrhAy4Uvu6U8kfduRKbZ+vrEaFIs3XeqDIB78W5a7rcw==
 
 "@teamleader/ui-utilities@^0.2.0":
   version "0.2.1"
