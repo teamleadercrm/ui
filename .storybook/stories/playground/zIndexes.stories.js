@@ -45,26 +45,18 @@ export default {
   },
 };
 
-const inputPlaceholderToday = DateTime.fromJSDate(new Date())
-  .setLocale('nl')
-  .toLocaleString(DateTime.DATE_SHORT);
+const inputPlaceholderToday = DateTime.fromJSDate(new Date()).setLocale('nl').toLocaleString(DateTime.DATE_SHORT);
 
 const inputPlaceholderTomorrow = DateTime.fromJSDate(new Date())
   .setLocale('nl')
   .plus({ days: 1 })
   .toLocaleString(DateTime.DATE_SHORT);
 
-const preSelectedDate = DateTime.local()
-  .plus({ days: 63 })
-  .toJSDate();
+const preSelectedDate = DateTime.local().plus({ days: 63 }).toJSDate();
 
 const preSelectedRange = {
-  selectedStartDate: DateTime.local()
-    .plus({ days: 3 })
-    .toJSDate(),
-  selectedEndDate: DateTime.local()
-    .plus({ days: 8 })
-    .toJSDate(),
+  selectedStartDate: DateTime.local().plus({ days: 3 }).toJSDate(),
+  selectedEndDate: DateTime.local().plus({ days: 8 }).toJSDate(),
 };
 
 const TooltippedIcon = Tooltip(Icon);
@@ -94,7 +86,7 @@ const showHideDialog = () => {
   dialogStore.set({ active: !dialogStore.get('active') });
 };
 
-const showPopover = event => {
+const showPopover = (event) => {
   popoverStore.set({ anchorEl: event.currentTarget, active: true });
 };
 
@@ -102,15 +94,13 @@ const showHideQTip = () => {
   qTipStore.set({ active: !qTipStore.get('active') });
 };
 
-const handleDatePickerDateChanged = selectedDate => {
+const handleDatePickerDateChanged = (selectedDate) => {
   datePickerStore.set({ selectedDate });
   console.log('selectedDate', selectedDate);
 };
 
 const customFormatDate = (date, locale) => {
-  return DateTime.fromJSDate(date)
-    .setLocale(locale)
-    .toLocaleString(DateTime.DATETIME_HUGE);
+  return DateTime.fromJSDate(date).setLocale(locale).toLocaleString(DateTime.DATETIME_HUGE);
 };
 
 const MyDatagrid = ({ ...props }) => (

@@ -14,7 +14,7 @@ const globals = {
 module.exports = async ({ config }) => {
   // Overwrite some default rules
   // https://github.com/storybooks/storybook/issues/6319#issuecomment-477852640
-  config.module.rules = config.module.rules.filter(f => {
+  config.module.rules = config.module.rules.filter((f) => {
     const ruleTest = f.test.toString();
 
     return (
@@ -45,7 +45,7 @@ module.exports = async ({ config }) => {
     config.optimization.minimize = false;
   }
 
-  config.plugins.map(plugin => {
+  config.plugins.map((plugin) => {
     if (plugin instanceof webpack.DefinePlugin) {
       plugin.definitions = { ...plugin.definitions, 'process.env': globals };
     }
