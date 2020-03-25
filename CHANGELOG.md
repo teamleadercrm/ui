@@ -15,6 +15,8 @@
 
 ### Fixed
 
+- `Widget`: having null as a child of a Widget was causing an error. ([@lowiebenoot](https://github.com/lowiebenoot) in [#961](https://github.com/teamleadercrm/ui/pull/961))
+
 ### Dependency updates
 
 ## [0.39.0] - 2020-03-23
