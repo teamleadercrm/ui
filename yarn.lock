@@ -1704,10 +1704,10 @@
   resolved "https://registry.yarnpkg.com/@teamleader/ui-icons/-/ui-icons-0.2.25.tgz#5bcc4467fa75bf74a242ee50b385c282c00c27e7"
   integrity sha512-tSlagN+4VRRWhaAh0VovfV+9+WEvfpV+1WwBZAeRsdZiueUG/3jYOe+E0OR6uYkdcniN4YeHFxPd+dB3t9vy2g==
 
-"@teamleader/ui-illustrations@0.0.26":
-  version "0.0.26"
-  resolved "https://registry.yarnpkg.com/@teamleader/ui-illustrations/-/ui-illustrations-0.0.26.tgz#03632691898f1e4f5d5f2edd7f9dcde7a8fe46e3"
-  integrity sha512-j9PQ4UKcoOTK3doMGlQwBWYRIHa3i9/WhUMyti8T/Tsgq4W3wN7BIGilq/pPZs5IVgiX1/utJeu6IMUcgqTJhQ==
+"@teamleader/ui-illustrations@0.0.27":
+  version "0.0.27"
+  resolved "https://registry.yarnpkg.com/@teamleader/ui-illustrations/-/ui-illustrations-0.0.27.tgz#a1164cb22b5b7d045a988e5a3fd434f6cc0d9aef"
+  integrity sha512-Ef0Iwxpng9rfyJs5PIVfF6Rd0CEIEmTog2E6uz+Sel6dP61HORaZQ3f6EX6grzQh1o0tyQJmmoI9aUJhtr9uPw==
 
 "@teamleader/ui-typography@^0.2.3":
   version "0.2.3"
