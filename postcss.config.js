@@ -11,6 +11,7 @@ module.exports = ({ file, options, env }) => {
       'postcss-mixins': {},
       'postcss-each': {},
       'postcss-nested': {},
+      'postcss-custom-media': {},
       'postcss-reporter': {
         clearMessages: true,
       },
