@@ -6,14 +6,10 @@ import Row from './Row';
 import cx from 'classnames';
 import theme from './theme.css';
 
-const allowedParentNodes = ['datagrid-body-row', 'datagrid-cell'];
-
 class BodyRow extends PureComponent {
   handleClick = (event) => {
-    if (allowedParentNodes.includes(event.target.parentNode.dataset.teamleaderUi)) {
-      const { onClick } = this.props;
-      onClick && onClick(event);
-    }
+    const { onClick } = this.props;
+    onClick && onClick(event);
   };
 
   render() {
