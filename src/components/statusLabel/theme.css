@@ -31,13 +31,3 @@
   border-radius: 9px;
   height: 18px;
 }
-
-h1,
-h2,
-h3,
-h4,
-p {
-  .label {
-    margin: 0 6px;
-  }
-}
