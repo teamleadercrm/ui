@@ -8,6 +8,8 @@
 
 ### Removed
 
+- [Breaking] `Badge`: remove the hardcoded horizontal margin. You can optionally pass the `marginHorizontal` prop with a corresponding value. ([@driesd](https://github.com/driesd) in [#968](https://github.com/teamleadercrm/ui/pull/968)
+
 ### Fixed
 
 ### Dependency updates
