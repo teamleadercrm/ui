@@ -79,7 +79,7 @@ export const basic = () => (
             />
           </DataGrid.Cell>
           <DataGrid.Cell>
-            <Link href="#" inherit={false}>
+            <Link href="#" onClick={(event) => event.stopPropagation()} inherit={false}>
               {row.column5}
             </Link>{' '}
           </DataGrid.Cell>
@@ -146,7 +146,7 @@ export const withFooter = () => (
             />
           </DataGrid.Cell>
           <DataGrid.Cell>
-            <Link href="#" inherit={false}>
+            <Link href="#" onClick={(event) => event.stopPropagation()} inherit={false}>
               {row.column5}
             </Link>{' '}
           </DataGrid.Cell>
@@ -222,7 +222,7 @@ export const withStickyColumns = () => (
             />
           </DataGrid.Cell>
           <DataGrid.Cell>
-            <Link href="#" inherit={false}>
+            <Link href="#" onClick={(event) => event.stopPropagation()} inherit={false}>
               {row.column5}
             </Link>{' '}
           </DataGrid.Cell>
@@ -295,7 +295,7 @@ export const advanced = () => (
             />
           </DataGrid.Cell>
           <DataGrid.Cell>
-            <Link href="#" inherit={false}>
+            <Link href="#" onClick={(event) => event.stopPropagation()} inherit={false}>
               {row.column5}
             </Link>{' '}
           </DataGrid.Cell>
