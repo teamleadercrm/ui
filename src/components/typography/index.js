@@ -12,6 +12,10 @@ const TextBody = textFactory('text', 'text-body', 'p');
 const TextBodyCompact = textFactory('text', 'text-body-compact', 'p');
 const TextSmall = textFactory('text', 'text-small', 'p');
 
+const UITextDisplay = textFactory('ui-text', 'ui-text-display', 'p');
+const UITextBody = textFactory('ui-text', 'ui-text-body', 'p');
+const UITextSmall = textFactory('ui-text', 'ui-text-small', 'p');
+
 Heading1.displayName = 'Heading1';
 Heading2.displayName = 'Heading2';
 Heading3.displayName = 'Heading3';
@@ -21,6 +25,10 @@ TextDisplay.displayName = 'TextDisplay';
 TextBody.displayName = 'TextBody';
 TextBodyCompact.displayName = 'TextBodyCompact';
 TextSmall.displayName = 'TextSmall';
+
+UITextDisplay.displayName = 'UITextDisplay';
+UITextBody.displayName = 'UITextBody';
+UITextSmall.displayName = 'UITextSmall';
 
 export {
   Heading1,
@@ -33,4 +41,7 @@ export {
   TextBodyCompact,
   TextDisplay,
   TextSmall,
+  UITextDisplay,
+  UITextBody,
+  UITextSmall,
 };
