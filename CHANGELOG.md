@@ -2,6 +2,8 @@
 
 ### Added
 
+- `Typography`: added `UITextDisplay`, `UITextBody` & `UITextSmall` components. ([@driesd](https://github.com/driesd) in [#969](https://github.com/teamleadercrm/ui/pull/969)
+
 ### Changed
 
 ### Deprecated
@@ -9,6 +11,7 @@
 ### Removed
 
 - [Breaking] `StatusLabel`: remove the hardcoded horizontal margin. You can optionally pass the `marginHorizontal` prop with a corresponding value. ([@driesd](https://github.com/driesd) in [#970](https://github.com/teamleadercrm/ui/pull/970)
+- [Breaking] `Badge`: remove the hardcoded horizontal margin. You can optionally pass the `marginHorizontal` prop with a corresponding value. ([@driesd](https://github.com/driesd) in [#968](https://github.com/teamleadercrm/ui/pull/968)
 
 ### Fixed
 

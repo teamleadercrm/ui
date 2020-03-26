@@ -15,6 +15,9 @@ import {
   TextBodyCompact,
   TextDisplay,
   TextSmall,
+  UITextDisplay,
+  UITextBody,
+  UITextSmall,
 } from '../../index';
 
 export default {
@@ -104,6 +107,34 @@ export const text = () => (
     >
       <strong>Text small</strong> / font-size: 12px / line-height: 18px / weight: regular (400) / tracking: 0
     </TextSmall>
+  </Box>
+);
+
+export const UIText = () => (
+  <Box overflow="hidden">
+    <UITextDisplay
+      color={select('Color', COLORS, 'teal')}
+      ellipsis={boolean('Overflow ellipsis', false)}
+      tint={select('Tint', TINTS, 'darkest')}
+    >
+      <strong>UI Text display</strong> / font-size: 16px / line-height: 24px / weight: medium (500) / tracking: 0
+    </UITextDisplay>
+    <UITextBody
+      color={select('Color', COLORS, 'teal')}
+      ellipsis={boolean('Overflow ellipsis', false)}
+      tint={select('Tint', TINTS, 'darkest')}
+      marginTop={4}
+    >
+      <strong>UI Text body</strong> / font-size: 14px / line-height: 18px / weight: medium (500) / tracking: 0
+    </UITextBody>
+    <UITextSmall
+      color={select('Color', COLORS, 'teal')}
+      ellipsis={boolean('Overflow ellipsis', false)}
+      tint={select('Tint', TINTS, 'darkest')}
+      marginTop={4}
+    >
+      <strong>UIText small</strong> / font-size: 12px / line-height: 18px / weight: medium (500) / tracking: 0
+    </UITextSmall>
   </Box>
 );
 
