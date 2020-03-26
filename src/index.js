@@ -15,6 +15,9 @@ import {
   TextBodyCompact,
   TextDisplay,
   TextSmall,
+  UITextDisplay,
+  UITextBody,
+  UITextSmall,
 } from './components/typography';
 import Bullet from './components/bullet';
 import Checkbox from './components/checkbox';
@@ -145,6 +148,9 @@ export {
   ToastContainer,
   Toggle,
   Tooltip,
+  UITextDisplay,
+  UITextBody,
+  UITextSmall,
   ValidationText,
   Widget,
   QTip,

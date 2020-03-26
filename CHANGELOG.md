@@ -2,6 +2,8 @@
 
 ### Added
 
+- `Typography`: added `UITextDisplay`, `UITextBody` & `UITextSmall` components. ([@driesd](https://github.com/driesd) in [#969](https://github.com/teamleadercrm/ui/pull/969)
+
 ### Changed
 
 ### Deprecated
