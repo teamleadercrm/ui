@@ -12,6 +12,26 @@
 
 ### Dependency updates
 
+## [0.40.0] - 2020-03-27
+
+### Added
+
+- `Typography`: added `UITextDisplay`, `UITextBody` & `UITextSmall` components. ([@driesd](https://github.com/driesd) in [#969](https://github.com/teamleadercrm/ui/pull/969)
+
+### Removed
+
+- [Breaking] `StatusLabel`: remove the hardcoded horizontal margin. You can optionally pass the `marginHorizontal` prop with a corresponding value. ([@driesd](https://github.com/driesd) in [#970](https://github.com/teamleadercrm/ui/pull/970)
+- [Breaking] `Badge`: remove the hardcoded horizontal margin. You can optionally pass the `marginHorizontal` prop with a corresponding value. ([@driesd](https://github.com/driesd) in [#968](https://github.com/teamleadercrm/ui/pull/968)
+- [Breaking] `BodyRow`: Removed check that stops `onClick` of `BodyRow` to be triggered when it's child `onClick` is triggered. Add `event.stopPropagation()` to the `onClick` of any children of `BodyRow` to ensure same behaviour. ([@mikeverf](https://github.com/mikeverf) in [#971](https://github.com/teamleadercrm/ui/pull/971)
+
+### Dependency updates
+
+- `@teamleader/ui-illustrations` from `0.0.26` to `0.0.28`
+- `@teamleader/ui-typography` from `0.2.3` to `0.2.4`
+- `@teamleader/ui-icons` from `0.2.25` to `0.2.26`
+- `html-webpack-plugin` from `4.0.1` to `4.0.2`
+- `luxon` from `1.22.0` to `1.22.2`
+
 ## [0.39.1] - 2020-03-25
 
 ### Added

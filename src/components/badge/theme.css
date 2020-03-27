@@ -150,7 +150,6 @@
     font-size: inherit;
     font-weight: inherit;
     letter-spacing: inherit;
-    margin: auto var(--spacer-smallest);
     text-transform: inherit;
   }
 }

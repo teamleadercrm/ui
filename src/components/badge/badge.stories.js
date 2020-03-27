@@ -25,6 +25,7 @@ export const inline = () => (
       disabled={boolean('Disabled', false)}
       inherit={boolean('Inherit', true)}
       inverse={boolean('Inverse', false)}
+      marginHorizontal={1}
     >
       badge
     </Badge>
