@@ -12,6 +12,7 @@
 
 - [Breaking] `StatusLabel`: remove the hardcoded horizontal margin. You can optionally pass the `marginHorizontal` prop with a corresponding value. ([@driesd](https://github.com/driesd) in [#970](https://github.com/teamleadercrm/ui/pull/970)
 - [Breaking] `Badge`: remove the hardcoded horizontal margin. You can optionally pass the `marginHorizontal` prop with a corresponding value. ([@driesd](https://github.com/driesd) in [#968](https://github.com/teamleadercrm/ui/pull/968)
+- [Breaking] `BodyRow`: Removed check that stops `onClick` of `BodyRow` to be triggered when it's child `onClick` is triggered. Add `event.stopPropagation()` to the `onClick` of any children of `BodyRow` to ensure same behaviour. ([@mikeverf](https://github.com/mikeverf) in [#971](https://github.com/teamleadercrm/ui/pull/971)
 
 ### Fixed
 
