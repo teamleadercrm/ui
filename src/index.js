@@ -22,6 +22,7 @@ import {
 import Bullet from './components/bullet';
 import Checkbox from './components/checkbox';
 import CompactMessage from './components/compactMessage';
+import Container from './components/container';
 import Counter from './components/counter';
 import DataGrid from './components/datagrid';
 import { DatePicker, DatePickerRange, DatePickerInput, DatePickerInputRange } from './components/datepicker';
@@ -86,6 +87,7 @@ export {
   ButtonGroup,
   Checkbox,
   CompactMessage,
+  Container,
   Counter,
   DataGrid,
   DatePicker,
