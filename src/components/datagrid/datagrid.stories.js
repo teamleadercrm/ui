@@ -79,7 +79,7 @@ export const basic = () => (
             />
           </DataGrid.Cell>
           <DataGrid.Cell>
-            <Link href="#" inherit={false}>
+            <Link href="#" onClick={(event) => event.stopPropagation()} inherit={false}>
               {row.column5}
             </Link>{' '}
           </DataGrid.Cell>
@@ -90,10 +90,33 @@ export const basic = () => (
           <DataGrid.Cell flex="5">{row.column2}</DataGrid.Cell>
           <DataGrid.Cell soft>{row.column4}</DataGrid.Cell>
           <DataGrid.Cell align="right" flex="min-width" preventOverflow={false}>
-            <IconMenu position="top-right">
-              <MenuItem label="Duplicate row" onClick={() => console.log('onClick: duplicate row')} />
-              <MenuItem label="Inactive row" onClick={() => console.log('onClick: inactivate row')} />
-              <MenuItem label="Remove row" onClick={() => console.log('onClick: remove row')} />
+            <IconMenu
+              position="top-right"
+              onClick={(event) => {
+                event.stopPropagation();
+              }}
+            >
+              <MenuItem
+                label="Duplicate row"
+                onClick={(event) => {
+                  console.log('onClick: duplicate row');
+                  event.stopPropagation();
+                }}
+              />
+              <MenuItem
+                label="Inactive row"
+                onClick={(event) => {
+                  console.log('onClick: inactivate row');
+                  event.stopPropagation();
+                }}
+              />
+              <MenuItem
+                label="Remove row"
+                onClick={(event) => {
+                  console.log('onClick: remove row');
+                  event.stopPropagation();
+                }}
+              />
             </IconMenu>
           </DataGrid.Cell>
         </DataGrid.BodyRow>
@@ -146,7 +169,7 @@ export const withFooter = () => (
             />
           </DataGrid.Cell>
           <DataGrid.Cell>
-            <Link href="#" inherit={false}>
+            <Link href="#" onClick={(event) => event.stopPropagation()} inherit={false}>
               {row.column5}
             </Link>{' '}
           </DataGrid.Cell>
@@ -222,7 +245,7 @@ export const withStickyColumns = () => (
             />
           </DataGrid.Cell>
           <DataGrid.Cell>
-            <Link href="#" inherit={false}>
+            <Link href="#" onClick={(event) => event.stopPropagation()} inherit={false}>
               {row.column5}
             </Link>{' '}
           </DataGrid.Cell>
@@ -295,7 +318,7 @@ export const advanced = () => (
             />
           </DataGrid.Cell>
           <DataGrid.Cell>
-            <Link href="#" inherit={false}>
+            <Link href="#" onClick={(event) => event.stopPropagation()} inherit={false}>
               {row.column5}
             </Link>{' '}
           </DataGrid.Cell>
