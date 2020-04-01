@@ -8,11 +8,11 @@
 
 .is-fixed {
   margin: 0 auto;
-  max-width: 1080px;
+  max-width: 990px;
 }
 
 @media (--larger-than-lg-viewport) {
-  .container {
+  .container:not(.is-fixed) {
     padding-left: var(--spacer-biggest);
     padding-right: var(--spacer-biggest);
   }
