@@ -26,6 +26,7 @@ import Container from './components/container';
 import Counter from './components/counter';
 import DataGrid from './components/datagrid';
 import { DatePicker, DatePickerRange, DatePickerInput, DatePickerInputRange } from './components/datepicker';
+import DetailPage, { DetailPageBody, DetailPageHeader } from './components/detailPage';
 import Dialog, { DialogBase } from './components/dialog';
 import Icon from './components/icon';
 import Input, { InputBase, NumericInput, Textarea, TimeInput } from './components/input';
@@ -94,6 +95,9 @@ export {
   DatePickerInput,
   DatePickerRange,
   DatePickerInputRange,
+  DetailPage,
+  DetailPageBody,
+  DetailPageHeader,
   Dialog,
   DialogBase,
   EmptyPassport,
