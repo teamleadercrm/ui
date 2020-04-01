@@ -25,6 +25,7 @@ class Container extends PureComponent {
 }
 
 Container.propTypes = {
+  children: PropTypes.node,
   fixed: PropTypes.bool,
 };
 
