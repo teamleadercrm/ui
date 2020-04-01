@@ -17,7 +17,7 @@ class Container extends PureComponent {
     );
 
     return (
-      <Box {...others} className={classNames}>
+      <Box {...others} boxSizing="content-box" className={classNames}>
         {children}
       </Box>
     );
