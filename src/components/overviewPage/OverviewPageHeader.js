@@ -19,7 +19,7 @@ class OverviewPageHeader extends PureComponent {
 
 OverviewPageHeader.propTypes = {
   children: PropTypes.node,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.oneOf([PropTypes.string, PropTypes.node]).isRequired,
 };
 
 export default OverviewPageHeader;
