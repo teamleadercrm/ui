@@ -1888,10 +1888,10 @@
   resolved "https://registry.yarnpkg.com/@teamleader/ui-animations/-/ui-animations-0.0.3.tgz#e80d91bff37cdf96e928c008cfca0add5c86d375"
   integrity sha512-gM+8TvZekcNcKWV3iZNXOXbLqpJytg33nYXcx7WgVQINbheeiPIv8Cj8XQZhHjwKP/TQJcNgiCTBjjo/dUu/EA==
 
-"@teamleader/ui-colors@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@teamleader/ui-colors/-/ui-colors-0.1.0.tgz#78b55444659f9f735a6bc2aa5070bce51f41e9bd"
-  integrity sha512-sAofd7VtphJXfYHw0QY94tPKtlb78/qBOySkcq9g0CUWn3AUJtetNs+H+hFwqiLdod/h0Pz1m1EqKpiZdX9/vg==
+"@teamleader/ui-colors@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@teamleader/ui-colors/-/ui-colors-0.2.0.tgz#2e106d234178dd24c05e54d9fa5a6d5297d1c33d"
+  integrity sha512-V5QRgHI6TaJIs53KtbqLytA1bLdGZfSD/Q8bVC0agPKhvgJ1KfmXiWcpue3HIpdSHvRxPOj2xB3XtTyYixnK5Q==
 
 "@teamleader/ui-icons@0.2.26":
   version "0.2.26"
