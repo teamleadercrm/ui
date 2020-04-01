@@ -2,7 +2,8 @@
 
 ### Added
 
-- `Container`: added as a new component. Fluid width by default. Fixed width when passing `fixed` as boolean prop. ([@driesd](https://github.com/driesd) in [#977](https://github.com/teamleadercrm/ui/pull/977)
+- `Container`: added as a new component. Fluid width by default. Fixed width when passing `fixed` as boolean prop. ([@driesd](https://github.com/driesd) in [#977](https://github.com/teamleadercrm/ui/pull/977))
+- `Page`: added as a new component. ([@driesd](https://github.com/driesd) in [#981](https://github.com/teamleadercrm/ui/pull/981))
 
 ### Changed
 
