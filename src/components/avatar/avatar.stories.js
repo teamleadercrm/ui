@@ -14,6 +14,10 @@ export default {
   title: addStoryInGroup(MID_LEVEL_BLOCKS, 'Avatar'),
 
   parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/LHH25GN90ljQaBEUNMsdJn/Desktop-components?node-id=225%3A1020',
+    },
     info: {
       propTablesExclude: [Bullet, Counter],
     },

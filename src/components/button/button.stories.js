@@ -12,6 +12,13 @@ const sizes = ['small', 'medium', 'large'];
 
 export default {
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Button'),
+
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/LHH25GN90ljQaBEUNMsdJn/Desktop-components?node-id=225%3A2',
+    },
+  },
 };
 
 export const withText = () => (
