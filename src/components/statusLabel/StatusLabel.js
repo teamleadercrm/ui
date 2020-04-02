@@ -1,18 +1,19 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
-import uiUtilities from '@teamleader/ui-utilities';
+import { UITextBody, UITextSmall } from '../typography';
 
 class StatusLabel extends PureComponent {
   render() {
     const { children, className, color, size, ...others } = this.props;
 
-    const classNames = cx(uiUtilities['reset-font-smoothing'], theme['label'], theme[color], theme[size], className);
+    const classNames = cx(theme['label'], theme[color], theme[size], className);
+
+    const Element = size === 'small' ? UITextSmall : UITextBody;
 
     return (
-      <Box
+      <Element
         element="span"
         {...others}
         alignItems="center"
@@ -27,7 +28,7 @@ class StatusLabel extends PureComponent {
         paddingHorizontal={2}
       >
         {children}
-      </Box>
+      </Element>
     );
   }
 }
