@@ -6,6 +6,8 @@
 
 ### Changed
 
+- `Statuslabel`: changed internally to use `UIText components` instead of CSS styles. ([@driesd](https://github.com/driesd) in [#989](https://github.com/teamleadercrm/ui/pull/989))
+
 ### Deprecated
 
 ### Removed
