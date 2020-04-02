@@ -34,6 +34,7 @@ import Menu, { IconMenu, MenuItem, MenuDivider, MenuTitle } from './components/m
 import Link from './components/link';
 import Message from './components/message';
 import Overlay from './components/overlay';
+import OverviewPage, { OverviewPageBody, OverviewPageHeader } from './components/overviewPage';
 import LoadingBar from './components/loadingBar';
 import LoadingMolecule from './components/loadingMolecule';
 import LoadingSpinner from './components/loadingSpinner';
@@ -128,6 +129,9 @@ export {
   Monospaced,
   NumericInput,
   Overlay,
+  OverviewPage,
+  OverviewPageBody,
+  OverviewPageHeader,
   Passport,
   Pagination,
   Popover,
