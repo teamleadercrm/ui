@@ -20,6 +20,10 @@ export default {
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Status Label'),
 
   parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/LHH25GN90ljQaBEUNMsdJn/Desktop-components?node-id=246%3A1041',
+    },
     info: {
       propTablesExclude: [Box, Heading1, Heading2, Heading3, Heading4, TextBody, TextDisplay, TextSmall],
     },
