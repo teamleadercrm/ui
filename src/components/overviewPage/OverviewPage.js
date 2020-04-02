@@ -17,6 +17,8 @@ OverviewPage.propTypes = {
 };
 
 OverviewPage.Body = OverviewPageBody;
+OverviewPage.Body.displayName = 'OverviewPage.Body';
 OverviewPage.Header = OverviewPageHeader;
+OverviewPage.Header.displayName = 'OverviewPage.Header';
 
 export default OverviewPage;
