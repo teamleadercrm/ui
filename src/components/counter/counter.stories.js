@@ -10,6 +10,13 @@ const TooltippedCounter = Tooltip(Counter);
 
 export default {
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Counter'),
+
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/LHH25GN90ljQaBEUNMsdJn/Desktop-components?node-id=246%3A985',
+    },
+  },
 };
 
 export const basic = () => (
