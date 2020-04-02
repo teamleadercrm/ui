@@ -1,18 +1,6 @@
-@import '@teamleader/ui-colors';
-
 .label {
   text-transform: none;
   vertical-align: middle;
-}
-
-.neutral {
-  color: var(--color-teal-darkest);
-}
-
-@each $color in (mint, violet, ruby, gold, aqua) {
-  .$(color) {
-    color: var(--color-$(color)-darkest);
-  }
 }
 
 .medium {

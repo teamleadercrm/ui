@@ -8,7 +8,7 @@ class StatusLabel extends PureComponent {
   render() {
     const { children, className, color, size, ...others } = this.props;
 
-    const classNames = cx(theme['label'], theme[color], theme[size], className);
+    const classNames = cx(theme['label'], theme[size], className);
 
     const Element = size === 'small' ? UITextSmall : UITextBody;
 
@@ -23,6 +23,8 @@ class StatusLabel extends PureComponent {
         borderTint={color === 'neutral' ? 'dark' : 'light'}
         borderWidth={1}
         className={classNames}
+        color={color === 'neutral' ? 'teal' : color}
+        tint={color === 'neutral' ? 'dark' : 'darkest'}
         data-teamleader-ui="status-label"
         display="inline-flex"
         paddingHorizontal={2}
