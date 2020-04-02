@@ -1,4 +1,5 @@
 import { addDecorator, addParameters } from '@storybook/react';
+import { withDesign } from 'storybook-addon-designs';
 import { withInfo } from '@storybook/addon-info';
 import { COLOR } from '../src/constants';
 import styles from '@sambego/storybook-styles';
@@ -94,3 +95,6 @@ addDecorator(
     maxWidth: '90%',
   }),
 );
+
+// addon-designs
+addDecorator(withDesign());
