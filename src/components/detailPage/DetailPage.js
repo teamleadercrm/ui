@@ -17,6 +17,8 @@ DetailPage.propTypes = {
 };
 
 DetailPage.Body = DetailPageBody;
+DetailPage.Body.displayName = 'DetailPage.Body';
 DetailPage.Header = DetailPageHeader;
+DetailPage.Header.displayName = 'DetailPage.Header';
 
 export default DetailPage;
