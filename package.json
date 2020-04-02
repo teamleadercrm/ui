@@ -64,7 +64,7 @@
     "@storybook/addons": "5.3.18",
     "@storybook/react": "5.3.18",
     "@storybook/theming": "^5.3.14",
-    "@storybook/ui": "5.3.17",
+    "@storybook/ui": "5.3.18",
     "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.0-beta.6",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.13",
