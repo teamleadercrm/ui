@@ -3,6 +3,7 @@
 ### Added
 
 - `Container`: added as a new component. Fluid width by default. Fixed width when passing `fixed` as boolean prop. ([@driesd](https://github.com/driesd) in [#977](https://github.com/teamleadercrm/ui/pull/977))
+- `DetailPage`, `DetailPageBody` & `DetailPageHeader`: added as new components. ([@driesd](https://github.com/driesd) in [#983](https://github.com/teamleadercrm/ui/pull/983))
 - `OverviewPage`, `OverviewPageBody` & `OverviewPageHeader`: added as new components. ([@driesd](https://github.com/driesd) in [#982](https://github.com/teamleadercrm/ui/pull/982))
 
 ### Changed
