@@ -22,9 +22,11 @@ import {
 import Bullet from './components/bullet';
 import Checkbox from './components/checkbox';
 import CompactMessage from './components/compactMessage';
+import Container from './components/container';
 import Counter from './components/counter';
 import DataGrid from './components/datagrid';
 import { DatePicker, DatePickerRange, DatePickerInput, DatePickerInputRange } from './components/datepicker';
+import DetailPage, { DetailPageBody, DetailPageHeader } from './components/detailPage';
 import Dialog, { DialogBase } from './components/dialog';
 import Icon from './components/icon';
 import Input, { InputBase, NumericInput, Textarea, TimeInput } from './components/input';
@@ -32,6 +34,7 @@ import Menu, { IconMenu, MenuItem, MenuDivider, MenuTitle } from './components/m
 import Link from './components/link';
 import Message from './components/message';
 import Overlay from './components/overlay';
+import OverviewPage, { OverviewPageBody, OverviewPageHeader } from './components/overviewPage';
 import LoadingBar from './components/loadingBar';
 import LoadingMolecule from './components/loadingMolecule';
 import LoadingSpinner from './components/loadingSpinner';
@@ -86,12 +89,16 @@ export {
   ButtonGroup,
   Checkbox,
   CompactMessage,
+  Container,
   Counter,
   DataGrid,
   DatePicker,
   DatePickerInput,
   DatePickerRange,
   DatePickerInputRange,
+  DetailPage,
+  DetailPageBody,
+  DetailPageHeader,
   Dialog,
   DialogBase,
   EmptyPassport,
@@ -122,6 +129,9 @@ export {
   Monospaced,
   NumericInput,
   Overlay,
+  OverviewPage,
+  OverviewPageBody,
+  OverviewPageHeader,
   Passport,
   Pagination,
   Popover,

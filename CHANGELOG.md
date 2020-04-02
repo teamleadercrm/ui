@@ -12,17 +12,37 @@
 
 ### Dependency updates
 
+## [0.40.1] - 2020-04-02
+
+### Added
+
+- `Container`: added as a new component. Fluid width by default. Fixed width when passing `fixed` as boolean prop. ([@driesd](https://github.com/driesd) in [#977](https://github.com/teamleadercrm/ui/pull/977))
+- `DetailPage`, `DetailPageBody` & `DetailPageHeader`: added as new components. ([@driesd](https://github.com/driesd) in [#983](https://github.com/teamleadercrm/ui/pull/983))
+- `OverviewPage`, `OverviewPageBody` & `OverviewPageHeader`: added as new components. ([@driesd](https://github.com/driesd) in [#982](https://github.com/teamleadercrm/ui/pull/982))
+
+### Dependency updates
+
+- `@storybook/addon-backgrounds` from `5.3.17` to `5.3.18`
+- `@storybook/addon-info` from `5.3.17` to `5.3.18`
+- `@storybook/addon-knobs` from `5.3.17` to `5.3.18`
+- `@storybook/addons` from `5.3.17` to `5.3.18`
+- `@storybook/react` from `5.3.17` to `5.3.18`
+- `@storybook/ui` from `5.3.17` to `5.3.18`
+- `eslint-plugin-import` from `2.20.1` to `2.20.2`
+- `eslint-plugin-node` from `11.0.0` to `11.1.0`
+- `html-webpack-plugin` from `4.0.2` to `4.0.4`
+
 ## [0.40.0] - 2020-03-27
 
 ### Added
 
-- `Typography`: added `UITextDisplay`, `UITextBody` & `UITextSmall` components. ([@driesd](https://github.com/driesd) in [#969](https://github.com/teamleadercrm/ui/pull/969)
+- `Typography`: added `UITextDisplay`, `UITextBody` & `UITextSmall` components. ([@driesd](https://github.com/driesd) in [#969](https://github.com/teamleadercrm/ui/pull/969))
 
 ### Removed
 
-- [Breaking] `StatusLabel`: remove the hardcoded horizontal margin. You can optionally pass the `marginHorizontal` prop with a corresponding value. ([@driesd](https://github.com/driesd) in [#970](https://github.com/teamleadercrm/ui/pull/970)
-- [Breaking] `Badge`: remove the hardcoded horizontal margin. You can optionally pass the `marginHorizontal` prop with a corresponding value. ([@driesd](https://github.com/driesd) in [#968](https://github.com/teamleadercrm/ui/pull/968)
-- [Breaking] `BodyRow`: Removed check that stops `onClick` of `BodyRow` to be triggered when it's child `onClick` is triggered. Add `event.stopPropagation()` to the `onClick` of any children of `BodyRow` to ensure same behaviour. ([@mikeverf](https://github.com/mikeverf) in [#971](https://github.com/teamleadercrm/ui/pull/971)
+- [Breaking] `StatusLabel`: remove the hardcoded horizontal margin. You can optionally pass the `marginHorizontal` prop with a corresponding value. ([@driesd](https://github.com/driesd) in [#970](https://github.com/teamleadercrm/ui/pull/970))
+- [Breaking] `Badge`: remove the hardcoded horizontal margin. You can optionally pass the `marginHorizontal` prop with a corresponding value. ([@driesd](https://github.com/driesd) in [#968](https://github.com/teamleadercrm/ui/pull/968))
+- [Breaking] `BodyRow`: Removed check that stops `onClick` of `BodyRow` to be triggered when it's child `onClick` is triggered. Add `event.stopPropagation()` to the `onClick` of any children of `BodyRow` to ensure same behaviour. ([@mikeverf](https://github.com/mikeverf) in [#971](https://github.com/teamleadercrm/ui/pull/971))
 
 ### Dependency updates
 
@@ -36,12 +56,12 @@
 
 ### Added
 
-- `Avatar`: added `team` prop (default `false`). ([@driesd](https://github.com/driesd) in [#953](https://github.com/teamleadercrm/ui/pull/953)
-- `AvatarTeam`: rendered by the `Avatar` component when its `team` prop is `true`. ([@driesd](https://github.com/driesd) in [#953](https://github.com/teamleadercrm/ui/pull/953)
+- `Avatar`: added `team` prop (default `false`). ([@driesd](https://github.com/driesd) in [#953](https://github.com/teamleadercrm/ui/pull/953))
+- `AvatarTeam`: rendered by the `Avatar` component when its `team` prop is `true`. ([@driesd](https://github.com/driesd) in [#953](https://github.com/teamleadercrm/ui/pull/953))
 
 ### Changed
 
-- `AvatarStack`: only show a `+` sign in front of the overflow number when `displayMax` is greater than zero. ([@driesd](https://github.com/driesd) in [#949](https://github.com/teamleadercrm/ui/pull/949)
+- `AvatarStack`: only show a `+` sign in front of the overflow number when `displayMax` is greater than zero. ([@driesd](https://github.com/driesd) in [#949](https://github.com/teamleadercrm/ui/pull/949))
 
 ### Fixed
 
@@ -63,14 +83,14 @@
 
 ### Changed
 
-- [Breaking] `Widget.Header`: decreased vertical padding and switched to min-height & flexbox alignment. ([@driesd](https://github.com/driesd) in [#940](https://github.com/teamleadercrm/ui/pull/940)
-- `AvatarStack`: changed `displayMax` default value from `0` to `99`. ([@driesd](https://github.com/driesd) in [#938](https://github.com/teamleadercrm/ui/pull/938)
-- `StatusLabel`: changed background colors to their lighter variant for better contrast. ([@driesd](https://github.com/driesd) in [#937](https://github.com/teamleadercrm/ui/pull/937)
+- [Breaking] `Widget.Header`: decreased vertical padding and switched to min-height & flexbox alignment. ([@driesd](https://github.com/driesd) in [#940](https://github.com/teamleadercrm/ui/pull/940))
+- `AvatarStack`: changed `displayMax` default value from `0` to `99`. ([@driesd](https://github.com/driesd) in [#938](https://github.com/teamleadercrm/ui/pull/938))
+- `StatusLabel`: changed background colors to their lighter variant for better contrast. ([@driesd](https://github.com/driesd) in [#937](https://github.com/teamleadercrm/ui/pull/937))
 
 ### Fixed
 
-- `AvatarStack`: fixed an error when containing only one Avatar. ([@driesd](https://github.com/driesd) in [#938](https://github.com/teamleadercrm/ui/pull/938)
-- `AvatarStack`: fixes the bounding box of the wrapper. ([@driesd](https://github.com/driesd) in [#939](https://github.com/teamleadercrm/ui/pull/939)
+- `AvatarStack`: fixed an error when containing only one Avatar. ([@driesd](https://github.com/driesd) in [#938](https://github.com/teamleadercrm/ui/pull/938))
+- `AvatarStack`: fixes the bounding box of the wrapper. ([@driesd](https://github.com/driesd) in [#939](https://github.com/teamleadercrm/ui/pull/939))
 
 ### Dependency updates
 
@@ -88,12 +108,12 @@
 
 ### Added
 
-- `AvatarStack`: added `selectable` prop (default `false`). ([@driesd](https://github.com/driesd) in [#933](https://github.com/teamleadercrm/ui/pull/933)
-- `Link`: added `badged` prop (default `false`) which renders a semi-transparent background color on hover. ([@driesd](https://github.com/driesd) in [#928](https://github.com/teamleadercrm/ui/pull/928)
+- `AvatarStack`: added `selectable` prop (default `false`). ([@driesd](https://github.com/driesd) in [#933](https://github.com/teamleadercrm/ui/pull/933))
+- `Link`: added `badged` prop (default `false`) which renders a semi-transparent background color on hover. ([@driesd](https://github.com/driesd) in [#928](https://github.com/teamleadercrm/ui/pull/928))
 
 ### Changed
 
-- [Breaking] `AvatarStack`: changed so that the avatars now overlap each other by default. ([@driesd](https://github.com/driesd) in [#933](https://github.com/teamleadercrm/ui/pull/933)
+- [Breaking] `AvatarStack`: changed so that the avatars now overlap each other by default. ([@driesd](https://github.com/driesd) in [#933](https://github.com/teamleadercrm/ui/pull/933))
 
 ### Dependency updates
 
@@ -104,25 +124,25 @@
 
 ### Added
 
-- `Box`: added support for negative margin values. ([@driesd](https://github.com/driesd) in [#927](https://github.com/teamleadercrm/ui/pull/927)
-- `Button`: added `color` prop which to combine with button level `outline`. ([@driesd](https://github.com/driesd) in [#925](https://github.com/teamleadercrm/ui/pull/925)
-- Added optional `onSecondaryButtonClick` prop to `SplitButton`. ([@mikeverf](https://github.com/mikeverf) in [#931](https://github.com/teamleadercrm/ui/pull/931)
+- `Box`: added support for negative margin values. ([@driesd](https://github.com/driesd) in [#927](https://github.com/teamleadercrm/ui/pull/927))
+- `Button`: added `color` prop which to combine with button level `outline`. ([@driesd](https://github.com/driesd) in [#925](https://github.com/teamleadercrm/ui/pull/925))
+- Added optional `onSecondaryButtonClick` prop to `SplitButton`. ([@mikeverf](https://github.com/mikeverf) in [#931](https://github.com/teamleadercrm/ui/pull/931))
 
 ### Changed
 
-- `Avatar`: removed 3px spacing around avatars. ([@driesd](https://github.com/driesd) in [#914](https://github.com/teamleadercrm/ui/pull/914)
-- `Link`: changed the base component to `Box`. ([@driesd](https://github.com/driesd) in [#928](https://github.com/teamleadercrm/ui/pull/928)
-- [Breaking] `IslandGroup`: removed center alignment of the content inside an `Island` within an `IslandGroup`. ([@driesd](https://github.com/driesd) in [#921](https://github.com/teamleadercrm/ui/pull/921)
-- [Breaking] `onButtonClick` on `SplitButton` now passes an `event` instead of `currentTarget`. ([@mikeverf](https://github.com/mikeverf) in [#931](https://github.com/teamleadercrm/ui/pull/931)
-- [Breaking] `onClick` on child of `SplitButton` now passes the `event` instead of the `label` prop of the child. ([@mikeverf](https://github.com/mikeverf) in [#931](https://github.com/teamleadercrm/ui/pull/931)
+- `Avatar`: removed 3px spacing around avatars. ([@driesd](https://github.com/driesd) in [#914](https://github.com/teamleadercrm/ui/pull/914))
+- `Link`: changed the base component to `Box`. ([@driesd](https://github.com/driesd) in [#928](https://github.com/teamleadercrm/ui/pull/928))
+- [Breaking] `IslandGroup`: removed center alignment of the content inside an `Island` within an `IslandGroup`. ([@driesd](https://github.com/driesd) in [#921](https://github.com/teamleadercrm/ui/pull/921))
+- [Breaking] `onButtonClick` on `SplitButton` now passes an `event` instead of `currentTarget`. ([@mikeverf](https://github.com/mikeverf) in [#931](https://github.com/teamleadercrm/ui/pull/931))
+- [Breaking] `onClick` on child of `SplitButton` now passes the `event` instead of the `label` prop of the child. ([@mikeverf](https://github.com/mikeverf) in [#931](https://github.com/teamleadercrm/ui/pull/931))
 
 ### Removed
 
-- [Breaking] `Button`: removed the `inverse` prop for `outline` buttons. Use `color="white"` instead. ([@driesd](https://github.com/driesd) in [#925](https://github.com/teamleadercrm/ui/pull/925)
+- [Breaking] `Button`: removed the `inverse` prop for `outline` buttons. Use `color="white"` instead. ([@driesd](https://github.com/driesd) in [#925](https://github.com/teamleadercrm/ui/pull/925))
 
 ### Fixed
 
-- `Avatar`: fixed a visual glitch when `editable` prop was `true`. ([@driesd](https://github.com/driesd) in [#914](https://github.com/teamleadercrm/ui/pull/914)
+- `Avatar`: fixed a visual glitch when `editable` prop was `true`. ([@driesd](https://github.com/driesd) in [#914](https://github.com/teamleadercrm/ui/pull/914))
 
 ### Dependency updates
 
@@ -139,11 +159,11 @@
 
 ### Added
 
-- Forward ref in `DialogBase.Body` to its `Box` wrapper ([@mikeverf](https://github.com/mikeverf)) in [#911](https://github.com/teamleadercrm/ui/pull/911)
+- Forward ref in `DialogBase.Body` to its `Box` wrapper ([@mikeverf](https://github.com/mikeverf)) in [#911](https://github.com/teamleadercrm/ui/pull/911))
 
 ### Fixed
 
-- `Avatar`: fix linting error to fix CI build process. ([@driesd](https://github.com/driesd) in [#910](https://github.com/teamleadercrm/ui/pull/910)
+- `Avatar`: fix linting error to fix CI build process. ([@driesd](https://github.com/driesd) in [#910](https://github.com/teamleadercrm/ui/pull/910))
 
 ### Dependency updates
 
@@ -153,7 +173,7 @@
 
 ### Changed
 
-- Typescript: loosely type all the components to prevent issues with static properties for `DataGrid` and `Widget` ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#907](https://github.com/teamleadercrm/ui/pull/907)
+- Typescript: loosely type all the components to prevent issues with static properties for `DataGrid` and `Widget` ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#907](https://github.com/teamleadercrm/ui/pull/907))
 
 ## [0.36.8] - 2020-03-06
 
@@ -605,7 +625,7 @@
 - `AvatarInitials`: changed so the text is not selectable anymore. ([@driesd](https://github.com/driesd) in [#669](https://github.com/teamleadercrm/ui/pull/669))
 - `Checkbox`: added `position: absolute;` to the input element to fix alignment issue in Firefox on Linux. ([@driesd](https://github.com/driesd) in [#667](https://github.com/teamleadercrm/ui/pull/667))
 - `DataGrid`: adjust `HeaderCell` to meet its new design ([@driesd](https://github.com/driesd) in [#668](https://github.com/teamleadercrm/ui/pull/668))
-- `DatePicker`: the `onChange` handler is no longer triggered when a disabled date has been selected. ([@Kemosabert](https://github.com/Kemosabert)) in [#664](https://github.com/teamleadercrm/ui/pull/664)
+- `DatePicker`: the `onChange` handler is no longer triggered when a disabled date has been selected. ([@Kemosabert](https://github.com/Kemosabert)) in [#664](https://github.com/teamleadercrm/ui/pull/664))
 - `Publishing settings`: expose postcss.config.js in published dependency. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#660](https://github.com/teamleadercrm/ui/pull/660))
 
 ### Fixed

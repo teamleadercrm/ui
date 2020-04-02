@@ -1,0 +1,11 @@
+@import '@teamleader/ui-utilities';
+
+.header-inner {
+  position: relative;
+}
+
+.back-link {
+  position: absolute;
+  top: 0;
+  left: -25px;
+}

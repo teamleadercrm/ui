@@ -7,7 +7,7 @@ import PropTable from './components/propTable';
 addParameters({
   backgrounds: [
     { name: 'Aqua lightest', value: COLOR.AQUA.LIGHTEST },
-    { name: 'Neutral', value: COLOR.NEUTRAL.NORMAL },
+    { name: 'Neutral light', value: COLOR.NEUTRAL.LIGHT },
     { name: 'Gold lightest', value: COLOR.GOLD.LIGHTEST },
     { name: 'Mint lightest', value: COLOR.MINT.LIGHTEST },
     { name: 'Ruby lightest', value: COLOR.RUBY.LIGHTEST },

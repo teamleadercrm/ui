@@ -19,7 +19,6 @@ import {
   Tooltip,
   Widget,
   MenuDivider,
-  Bullet,
 } from '../../index';
 import { rows1 } from '../../static/data/datagrid';
 import { IconAddMediumOutline, IconEditMediumOutline } from '@teamleader/ui-icons';
