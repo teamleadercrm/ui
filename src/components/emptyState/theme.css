@@ -1,0 +1,59 @@
+@import '@teamleader/ui-utilities';
+
+.wrapper {
+  position: relative;
+}
+
+.pointer {
+  position: absolute;
+  top: var(--spacer-smaller);
+}
+
+.is-small {
+  padding: var(--spacer-regular);
+
+  .content {
+    max-width: 324px;
+  }
+
+  .pointer {
+    right: var(--spacer-small);
+  }
+
+  &.has-pointer {
+    padding: var(--spacer-medium) 60px;
+  }
+}
+
+.is-medium {
+  padding: var(--spacer-regular);
+
+  .content {
+    max-width: 432px;
+  }
+
+  .pointer {
+    right: 15px;
+  }
+
+  &.has-pointer {
+    padding: var(--spacer-medium) 84px;
+  }
+}
+
+.is-large {
+  min-height: 280px;
+
+  .content {
+    max-width: 530px;
+  }
+
+  .pointer {
+    right: var(--spacer-small);
+  }
+
+  &.has-pointer {
+    padding-left: 172px;
+    padding-right: 172px;
+  }
+}
