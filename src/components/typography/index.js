@@ -1,3 +1,4 @@
+import Marker from './Marker';
 import Monospaced from './Monospaced';
 import { textFactory } from './Text';
 
@@ -36,6 +37,7 @@ export {
   Heading3,
   Heading4,
   Heading5,
+  Marker,
   Monospaced,
   TextBody,
   TextBodyCompact,
