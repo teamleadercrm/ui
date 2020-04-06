@@ -154,3 +154,8 @@
     color: var(--color-gold-darkest);
   }
 }
+
+.marker {
+  background-color: color(var(--color-mint-light) a(0.3));
+  color: inherit;
+}
