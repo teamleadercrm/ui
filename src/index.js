@@ -28,6 +28,7 @@ import DataGrid from './components/datagrid';
 import { DatePicker, DatePickerRange, DatePickerInput, DatePickerInputRange } from './components/datepicker';
 import DetailPage, { DetailPageBody, DetailPageHeader } from './components/detailPage';
 import Dialog, { DialogBase } from './components/dialog';
+import EmptyState from './components/emptyState';
 import Icon from './components/icon';
 import Input, { InputBase, NumericInput, Textarea, TimeInput } from './components/input';
 import Menu, { IconMenu, MenuItem, MenuDivider, MenuTitle } from './components/menu';
@@ -102,6 +103,7 @@ export {
   Dialog,
   DialogBase,
   EmptyPassport,
+  EmptyState,
   ErrorText,
   Heading1,
   Heading2,
