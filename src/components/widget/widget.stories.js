@@ -22,6 +22,7 @@ import {
 } from '../../index';
 import { rows1 } from '../../static/data/datagrid';
 import { IconAddMediumOutline, IconEditMediumOutline } from '@teamleader/ui-icons';
+import { basic as EmptyState, withTitle as EmptyStateWithTitle } from '../emptyState/emptyState.stories';
 
 const colors = ['mint', 'violet', 'ruby', 'gold', 'aqua', 'white', 'neutral'];
 const sizes = ['small', 'medium', 'large'];
@@ -34,7 +35,7 @@ export default {
 export const basic = () => (
   <Widget size={select('Size', sizes, 'medium')}>
     <Widget.Body>
-      <TextBody>Here you can add arbitrary content.</TextBody>
+      <EmptyState />
     </Widget.Body>
   </Widget>
 );
@@ -45,7 +46,7 @@ export const withHeader = () => (
       <Heading3>I am the widget header title</Heading3>
     </Widget.Header>
     <Widget.Body>
-      <TextBody>Here you can add arbitrary content.</TextBody>
+      <EmptyState />
     </Widget.Body>
   </Widget>
 );
@@ -65,7 +66,7 @@ export const withHeaderAndAction = () => (
       </Box>
     </Widget.Header>
     <Widget.Body>
-      <TextBody>Here you can add arbitrary content.</TextBody>
+      <EmptyStateWithTitle />
     </Widget.Body>
   </Widget>
 );
