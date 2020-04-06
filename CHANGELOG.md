@@ -2,6 +2,8 @@
 
 ### Added
 
+- `EmptyState`: added as a new component and come in three sizes. `Title` and `metaText` are both optional. ([@driesd](https://github.com/driesd) in [#996](https://github.com/teamleadercrm/ui/pull/996))
+
 ### Changed
 
 ### Deprecated
