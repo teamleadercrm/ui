@@ -207,13 +207,13 @@ export const monospaced = () => (
   </Box>
 );
 
-export const marked = () => (
+export const marker = () => (
   <Heading3 color={select('Color', COLORS, 'teal')} tint={select('Tint', TINTS, 'darkest')}>
     We can use our <Marker>Marker component</Marker> to highlight some keywords
   </Heading3>
 );
 
-marked.story = {
+marker.story = {
   parameters: {
     info: {
       propTables: [Marker],
