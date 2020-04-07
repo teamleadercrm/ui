@@ -3,8 +3,11 @@
 ### Added
 
 - `EmptyState`: added as a new component and come in three sizes. `Title` and `metaText` are both optional. ([@driesd](https://github.com/driesd) in [#996](https://github.com/teamleadercrm/ui/pull/996))
+- `Marker`: added as a new component. Can be used inside `Heading` and `Text` components. ([@driesd](https://github.com/driesd) in [#997](https://github.com/teamleadercrm/ui/pull/997))
 
 ### Changed
+
+- `Statuslabel`: changed internally to use `UIText components` instead of CSS styles. ([@driesd](https://github.com/driesd) in [#989](https://github.com/teamleadercrm/ui/pull/989))
 
 ### Deprecated
 
