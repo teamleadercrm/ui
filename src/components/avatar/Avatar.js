@@ -104,6 +104,7 @@ class Avatar extends PureComponent {
       'fullName',
       'id',
       'onImageChange',
+      'team',
     ]);
 
     return (
