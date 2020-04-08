@@ -8,6 +8,7 @@
 ### Changed
 
 - `Container`: changed the min & max width from `990px` to `1056px`. ([@driesd](https://github.com/driesd) in [#1000](https://github.com/teamleadercrm/ui/pull/1000))
+- `DataGrid`: decreased cell paddings with 6px. ([@driesd](https://github.com/driesd) in [#1003](https://github.com/teamleadercrm/ui/pull/1003))
 - `Statuslabel`: changed internally to use `UIText components` instead of CSS styles. ([@driesd](https://github.com/driesd) in [#989](https://github.com/teamleadercrm/ui/pull/989))
 
 ### Deprecated

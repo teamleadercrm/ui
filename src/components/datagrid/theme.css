@@ -3,7 +3,7 @@
 @import '@teamleader/ui-typography';
 
 :root {
-  --datagrid-blend-width: 12px;
+  --datagrid-blend-width: 6px;
   --datagrid-cell-width-base: 80px;
 }
 
@@ -24,11 +24,11 @@
   flex-direction: column;
 
   &:first-child .row .cell:first-child {
-    padding-left: var(--spacer-medium);
+    padding-left: var(--spacer-regular);
   }
 
   &:last-child .row .cell:last-child {
-    padding-right: var(--spacer-medium);
+    padding-right: var(--spacer-regular);
   }
 }
 
@@ -51,7 +51,7 @@
   flex: 1;
   font-family: var(--font-family-regular);
   min-height: 36px;
-  padding: var(--spacer-smaller) var(--spacer-small);
+  padding: var(--spacer-smaller);
   position: relative;
   white-space: nowrap;
 }
