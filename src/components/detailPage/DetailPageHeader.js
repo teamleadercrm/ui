@@ -10,7 +10,7 @@ import Container from '../container';
 
 class DetailPageHeader extends PureComponent {
   render() {
-    const { backLinkProps, children, className, title, titleSuffix, ...others } = this.props;
+    const { backLinkProps, children, title, titleSuffix, ...others } = this.props;
 
     return (
       <Container {...others} element={Section}>
