@@ -1,22 +1,9 @@
 import React from 'react';
 import { addStoryInGroup, COMPOSITIONS } from '../../../.storybook/utils';
 import { boolean, number, select } from '@storybook/addon-knobs/react';
-import {
-  DataGrid,
-  Heading4,
-  IconMenu,
-  MenuItem,
-  Link,
-  StatusBullet,
-  TextSmall,
-  Tooltip,
-  Button,
-  ButtonGroup,
-} from '../../index';
+import { DataGrid, Heading4, IconMenu, MenuItem, Link, TextSmall, Button, ButtonGroup } from '../../index';
 
 import { rows1, rows2 } from '../../static/data/datagrid';
-
-const TooltippedStatusBullet = Tooltip(StatusBullet);
 
 const handleRowSelectionChange = (selectedRows) => {
   console.log(`onSelectionChange - selected row indexes: ${selectedRows}`);
@@ -57,7 +44,6 @@ export const basic = () => (
     </DataGrid.HeaderRowOverlay>
 
     <DataGrid.HeaderRow>
-      <DataGrid.HeaderCell flex="min-width" />
       <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} sorted="asc">
         Invoice
       </DataGrid.HeaderCell>
@@ -73,15 +59,6 @@ export const basic = () => (
     {rows1.map((row, index) => {
       return (
         <DataGrid.BodyRow key={index} onClick={(event) => console.log('onClick:', row.column5, event)}>
-          <DataGrid.Cell align="center" flex="min-width">
-            <TooltippedStatusBullet
-              color={row.column1}
-              tooltip={<TextSmall>Overdue</TextSmall>}
-              tooltipColor={row.column1}
-              tooltipSize="small"
-              size="medium"
-            />
-          </DataGrid.Cell>
           <DataGrid.Cell>
             <Link href="#" onClick={(event) => event.stopPropagation()} inherit={false}>
               {row.column5}
@@ -147,7 +124,6 @@ export const withFooter = () => (
     </DataGrid.HeaderRowOverlay>
 
     <DataGrid.HeaderRow>
-      <DataGrid.HeaderCell flex="min-width" />
       <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} sorted="asc">
         Invoice
       </DataGrid.HeaderCell>
@@ -163,15 +139,6 @@ export const withFooter = () => (
     {rows2.map((row, index) => {
       return (
         <DataGrid.BodyRow key={index} onClick={(event) => console.log('onClick:', row.column5, event)}>
-          <DataGrid.Cell align="center" flex="min-width">
-            <TooltippedStatusBullet
-              color={row.column1}
-              tooltip={<TextSmall>Overdue</TextSmall>}
-              tooltipColor={row.column1}
-              tooltipSize="small"
-              size="medium"
-            />
-          </DataGrid.Cell>
           <DataGrid.Cell>
             <Link href="#" onClick={(event) => event.stopPropagation()} inherit={false}>
               {row.column5}
@@ -223,7 +190,6 @@ export const withStickyColumns = () => (
     </DataGrid.HeaderRowOverlay>
 
     <DataGrid.HeaderRow>
-      <DataGrid.HeaderCell flex="min-width" />
       <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} sorted="asc">
         Invoice
       </DataGrid.HeaderCell>
@@ -239,15 +205,6 @@ export const withStickyColumns = () => (
     {rows1.map((row, index) => {
       return (
         <DataGrid.BodyRow key={index} onClick={(event) => console.log('onClick:', row.column5, event)}>
-          <DataGrid.Cell align="center" flex="min-width">
-            <TooltippedStatusBullet
-              color={row.column1}
-              tooltip={<TextSmall>Overdue</TextSmall>}
-              tooltipColor={row.column1}
-              tooltipSize="small"
-              size="medium"
-            />
-          </DataGrid.Cell>
           <DataGrid.Cell>
             <Link href="#" onClick={(event) => event.stopPropagation()} inherit={false}>
               {row.column5}
@@ -296,7 +253,6 @@ export const advanced = () => (
     </DataGrid.HeaderRowOverlay>
 
     <DataGrid.HeaderRow>
-      <DataGrid.HeaderCell flex="min-width" />
       <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} sorted="asc">
         Invoice
       </DataGrid.HeaderCell>
@@ -312,15 +268,6 @@ export const advanced = () => (
     {rows1.map((row, index) => {
       return (
         <DataGrid.BodyRow key={index} onClick={(event) => console.log('onClick:', row.column5, event)}>
-          <DataGrid.Cell align="center" flex="min-width">
-            <TooltippedStatusBullet
-              color={row.column1}
-              tooltip={<TextSmall>Overdue</TextSmall>}
-              tooltipColor={row.column1}
-              tooltipSize="small"
-              size="medium"
-            />
-          </DataGrid.Cell>
           <DataGrid.Cell>
             <Link href="#" onClick={(event) => event.stopPropagation()} inherit={false}>
               {row.column5}
