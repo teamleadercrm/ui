@@ -10,6 +10,7 @@ import {
   Heading3,
   Heading4,
   Heading5,
+  Marker,
   Monospaced,
   TextBody,
   TextBodyCompact,
@@ -205,3 +206,17 @@ export const monospaced = () => (
     </TextSmall>
   </Box>
 );
+
+export const marker = () => (
+  <Heading3 color={select('Color', COLORS, 'teal')} tint={select('Tint', TINTS, 'darkest')}>
+    We can use our <Marker>Marker component</Marker> to highlight some keywords
+  </Heading3>
+);
+
+marker.story = {
+  parameters: {
+    info: {
+      propTables: [Marker],
+    },
+  },
+};

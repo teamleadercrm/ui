@@ -26,6 +26,10 @@ export default {
   title: addStoryInGroup(COMPOSITIONS, 'DataGrids'),
 
   parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/LHH25GN90ljQaBEUNMsdJn/Desktop-components?node-id=503%3A4737',
+    },
     info: {
       propTablesExclude: [Button, ButtonGroup, Heading4, IconMenu, Link, MenuItem, TextSmall],
     },

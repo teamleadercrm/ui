@@ -15,6 +15,10 @@ export default {
   title: addStoryInGroup(MID_LEVEL_BLOCKS, 'ProgressTracker'),
 
   parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/LHH25GN90ljQaBEUNMsdJn/Desktop-components?node-id=865%3A0',
+    },
     info: {
       propTablesExclude: [Island],
     },
