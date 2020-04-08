@@ -35,9 +35,9 @@ class HeaderCell extends PureComponent {
 
     return (
       <Cell align={align} className={classNames} onClick={onClick} {...others} preventOverflow={false}>
-        {align === 'right' && <Icon marginRight={1}>{this.renderSortedIndicators()}</Icon>}
+        {sortable && align === 'right' && <Icon marginRight={1}>{this.renderSortedIndicators()}</Icon>}
         <span className={theme['has-overflow-prevention']}>{children}</span>
-        {align === 'left' && <Icon marginLeft={1}>{this.renderSortedIndicators()}</Icon>}
+        {sortable && align === 'left' && <Icon marginLeft={1}>{this.renderSortedIndicators()}</Icon>}
       </Cell>
     );
   }
