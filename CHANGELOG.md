@@ -2,6 +2,20 @@
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Dependency updates
+
+## [0.40.2] - 2020-04-08
+
+### Added
+
 - `EmptyState`: added as a new component and come in three sizes. `Title` and `metaText` are both optional. ([@driesd](https://github.com/driesd) in [#996](https://github.com/teamleadercrm/ui/pull/996))
 - `Marker`: added as a new component. Can be used inside `Heading` and `Text` components. ([@driesd](https://github.com/driesd) in [#997](https://github.com/teamleadercrm/ui/pull/997))
 
@@ -11,13 +25,12 @@
 - `DataGrid`: decreased cell paddings with 6px. ([@driesd](https://github.com/driesd) in [#1003](https://github.com/teamleadercrm/ui/pull/1003))
 - `Statuslabel`: changed internally to use `UIText components` instead of CSS styles. ([@driesd](https://github.com/driesd) in [#989](https://github.com/teamleadercrm/ui/pull/989))
 
-### Deprecated
-
-### Removed
-
-### Fixed
-
 ### Dependency updates
+
+- `@teamleader/ui-illustrations` from `0.0.28` to `0.0.30`
+- `css-loader` from `3.4.2` to `3.5.1`
+- `luxon` from `1.22.2` to `1.23.0`
+- `prettier` from `2.0.2` to `2.0.4`
 
 ## [0.40.1] - 2020-04-02
 
