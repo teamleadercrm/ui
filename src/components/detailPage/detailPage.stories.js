@@ -13,12 +13,12 @@ import { COLOR } from '../../constants';
 
 const actionButtons = () => (
   <ButtonGroup marginLeft={7}>
+    <IconButton icon={<IconTrashMediumOutline />} />
     <ButtonGroup segmented>
       <Button>Open</Button>
       <Button active>Won</Button>
       <Button>Lost</Button>
     </ButtonGroup>
-    <IconButton icon={<IconTrashMediumOutline />} />
   </ButtonGroup>
 );
 
