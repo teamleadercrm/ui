@@ -1,6 +1,6 @@
 import React from 'react';
 import { addStoryInGroup, COMPOSITIONS } from '../../../.storybook/utils';
-import { boolean, number, select } from '@storybook/addon-knobs/react';
+import { boolean, number } from '@storybook/addon-knobs/react';
 import { DataGrid, Heading4, IconMenu, MenuItem, Link, TextSmall, Button, ButtonGroup } from '../../index';
 
 import { rows1, rows2 } from '../../static/data/datagrid';
@@ -29,7 +29,6 @@ export const basic = () => (
     selectable={boolean('Selectable', true)}
     comparableId={1}
     onSelectionChange={handleRowSelectionChange}
-    checkboxSize={select('Checkbox size', ['small', 'medium', 'large'], 'small')}
     processing={boolean('Processing', false)}
   >
     <DataGrid.HeaderRowOverlay

@@ -8,17 +8,7 @@ import theme from './theme.css';
 
 class HeaderRow extends PureComponent {
   render() {
-    const {
-      className,
-      checkboxSize,
-      children,
-      sliceFrom,
-      sliceTo,
-      onSelectionChange,
-      selected,
-      selectable,
-      ...others
-    } = this.props;
+    const { className, children, sliceFrom, sliceTo, onSelectionChange, selected, selectable, ...others } = this.props;
 
     const childrenArray = Array.isArray(children) ? children : [children];
     const childrenSliced = childrenArray.slice(sliceFrom, sliceTo);
@@ -28,7 +18,7 @@ class HeaderRow extends PureComponent {
       <Row backgroundColor="neutral" className={classNames} data-teamleader-ui="datagrid-header-row" {...others}>
         {selectable && (
           <HeaderCell flex="min-width">
-            <Checkbox checked={selected} onChange={onSelectionChange} size={checkboxSize} />
+            <Checkbox checked={selected} onChange={onSelectionChange} size="small" />
           </HeaderCell>
         )}
         {childrenSliced}
@@ -38,8 +28,6 @@ class HeaderRow extends PureComponent {
 }
 
 HeaderRow.propTypes = {
-  /** The size of the checkbox rendered on the left side of the row. */
-  checkboxSize: PropTypes.oneOf(['small', 'medium', 'large']),
   /** A class name for the row to give custom styles. */
   className: PropTypes.string,
   /** The cells to display inside the row. */

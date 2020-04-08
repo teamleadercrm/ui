@@ -15,7 +15,6 @@ class BodyRow extends PureComponent {
   render() {
     const {
       className,
-      checkboxSize,
       children,
       hovered,
       sliceFrom,
@@ -47,7 +46,7 @@ class BodyRow extends PureComponent {
       >
         {selectable && (
           <Cell flex="min-width" onClick={(event) => event.stopPropagation()}>
-            <Checkbox checked={selected} onChange={onSelectionChange} size={checkboxSize} />
+            <Checkbox checked={selected} onChange={onSelectionChange} size="small" />
           </Cell>
         )}
         {childrenSliced}
@@ -57,8 +56,6 @@ class BodyRow extends PureComponent {
 }
 
 BodyRow.propTypes = {
-  /** The size of the checkbox rendered on the left side of the row. */
-  checkboxSize: PropTypes.oneOf(['small', 'medium', 'large']),
   /** A class name for the row to give custom styles. */
   className: PropTypes.string,
   /** The cells to display inside the row. */
