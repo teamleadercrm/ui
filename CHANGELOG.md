@@ -11,6 +11,7 @@
 ### Fixed
 
 - `Avatar`: fixed a react-dom warning where the team prop was put onto a div. ([@lowiebenoot](https://github.com/lowiebenoot) in [#1000](https://github.com/teamleadercrm/ui/pull/1005))
+- `DetailPage.Header`: adding a className was not possible. ([@lowiebenoot](https://github.com/lowiebenoot) in [#1008](https://github.com/teamleadercrm/ui/pull/1008))
 
 ### Dependency updates
 
