@@ -8,9 +8,9 @@ import { IconArrowDownSmallOutline, IconArrowUpSmallOutline } from '@teamleader/
 
 class HeaderCell extends PureComponent {
   renderSortedIndicators = () => {
-    const { onClick, sorted } = this.props;
+    const { sortable, sorted } = this.props;
 
-    if (sorted === 'asc' || (!sorted && onClick)) {
+    if (sorted === 'asc' || (!sorted && sortable)) {
       return <IconArrowDownSmallOutline />;
     }
 
@@ -22,12 +22,12 @@ class HeaderCell extends PureComponent {
   };
 
   render() {
-    const { align, children, className, onClick, sorted, ...others } = this.props;
+    const { align, children, className, onClick, sortable, sorted, ...others } = this.props;
 
     const classNames = cx(
       theme['header-cell'],
       {
-        [theme['is-sortable']]: onClick,
+        [theme['is-sortable']]: sortable,
         [theme['is-sorted']]: sorted === 'asc' || sorted === 'desc',
       },
       className,
@@ -52,6 +52,8 @@ HeaderCell.propTypes = {
   className: PropTypes.string,
   /** Callback function that is fired when clicking on the cell. */
   onClick: PropTypes.func,
+  /** If true, sorting arrows will appear next to the text */
+  sortable: PropTypes.bool,
   /** The order in which the grid rows will be sorted. */
   sorted: PropTypes.oneOf(['asc', 'desc']),
 };
