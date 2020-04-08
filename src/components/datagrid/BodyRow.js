@@ -45,7 +45,7 @@ class BodyRow extends PureComponent {
         {...others}
       >
         {selectable && (
-          <Cell flex="checkbox-width" onClick={(event) => event.stopPropagation()}>
+          <Cell flex="checkbox-width" onClick={(event) => event.stopPropagation()} preventOverflow={false}>
             <Checkbox checked={selected} onChange={onSelectionChange} size="small" />
           </Cell>
         )}
