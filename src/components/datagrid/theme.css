@@ -32,6 +32,14 @@
   }
 }
 
+.is-sticky-left .row .cell:last-child {
+  padding-right: var(--spacer-regular);
+}
+
+.is-sticky-left + .section .row .cell:first-child {
+  padding-left: var(--spacer-regular);
+}
+
 .row {
   display: flex;
 
