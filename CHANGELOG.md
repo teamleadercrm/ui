@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `Avatar`: fixed a react-dom warning where the team prop was put onto a div. ([@lowiebenoot](https://github.com/lowiebenoot) in [#1000](https://github.com/teamleadercrm/ui/pull/1005))
+
 ### Dependency updates
 
 ## [0.40.2] - 2020-04-08
