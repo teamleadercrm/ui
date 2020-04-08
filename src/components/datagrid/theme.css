@@ -221,6 +221,11 @@
 }
 
 /* Cell widths */
+.flex-checkbox-width {
+  flex: 0 0 18px;
+  min-width: 18px;
+}
+
 .flex-min-width {
   flex: 0 0 30px;
   min-width: 30px;

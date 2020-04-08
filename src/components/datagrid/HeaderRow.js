@@ -17,7 +17,7 @@ class HeaderRow extends PureComponent {
     return (
       <Row backgroundColor="neutral" className={classNames} data-teamleader-ui="datagrid-header-row" {...others}>
         {selectable && (
-          <HeaderCell flex="min-width">
+          <HeaderCell flex="checkbox-width" sortable={false}>
             <Checkbox checked={selected} onChange={onSelectionChange} size="small" />
           </HeaderCell>
         )}
