@@ -28,7 +28,7 @@
 ### Dependency updates
 
 - `@teamleader/ui-illustrations` from `0.0.28` to `0.0.30`
-- `css-loader` from `3.4.2` to `3.5.0`
+- `css-loader` from `3.4.2` to `3.5.1`
 - `luxon` from `1.22.2` to `1.23.0`
 - `prettier` from `2.0.2` to `2.0.4`
 
