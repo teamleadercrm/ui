@@ -32,7 +32,6 @@ class IconButton extends Component {
     const { children, className, disabled, element, icon, size, color, type, ...others } = this.props;
 
     const classNames = cx(
-      uiUtilities['reset-box-sizing'],
       uiUtilities['reset-font-smoothing'],
       buttonTheme['button-base'],
       theme['icon-button'],
