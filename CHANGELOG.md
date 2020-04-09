@@ -10,9 +10,29 @@
 
 ### Fixed
 
-- `Avatar`: fixed a react-dom warning where the team prop was put onto a div. ([@lowiebenoot](https://github.com/lowiebenoot) in [#1000](https://github.com/teamleadercrm/ui/pull/1005))
-
 ### Dependency updates
+
+## [0.41.0] - 2020-04-09
+
+### Added
+
+- `DetailPage.Header`: added `titleColor` prop. Possible values are `neutral` and `teal` (default). ([@driesd](https://github.com/driesd) in [#1010](https://github.com/teamleadercrm/ui/pull/1010))
+- `DataGrid`: added a `sortable` prop to the `HeaderCell`. ([@driesd](https://github.com/driesd) in [#1007](https://github.com/teamleadercrm/ui/pull/1007))
+
+### Changed
+
+- [Breaking] `DataGrid`: rendering of the sorting arrows now depends on the `sortable` prop instead of `onClick`. ([@driesd](https://github.com/driesd) in [#1007](https://github.com/teamleadercrm/ui/pull/1007))
+
+### Removed
+
+- [Breaking] `DataGrid`: removed `checkboxSize` prop, the `Checkbox` size will always be `small`. ([@driesd](https://github.com/driesd) in [#1007](https://github.com/teamleadercrm/ui/pull/1007))
+
+### Fixed
+
+- `DataGrid`: fixed unwanted overflow prevention for `Cells` containing a `Checkbox`. ([@driesd](https://github.com/driesd) in [#1007](https://github.com/teamleadercrm/ui/pull/1007))
+- `DataGrid`: fixed `Cell` padding along each side of the vertical separator line. ([@driesd](https://github.com/driesd) in [#1007](https://github.com/teamleadercrm/ui/pull/1007))
+- `Avatar`: fixed a react-dom warning where the team prop was put onto a div. ([@lowiebenoot](https://github.com/lowiebenoot) in [#1005](https://github.com/teamleadercrm/ui/pull/1005))
+- `DetailPage.Header`: adding a className was not possible. ([@lowiebenoot](https://github.com/lowiebenoot) in [#1008](https://github.com/teamleadercrm/ui/pull/1008))
 
 ## [0.40.2] - 2020-04-08
 

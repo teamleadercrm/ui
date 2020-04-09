@@ -124,7 +124,6 @@ class DataGrid extends PureComponent {
   render() {
     const {
       bordered,
-      checkboxSize,
       children,
       className,
       processing,
@@ -163,7 +162,6 @@ class DataGrid extends PureComponent {
             if (isComponentOfType(HeaderRowOverlay, child)) {
               return React.cloneElement(child, {
                 numSelectedRows: selectedRows.length,
-                headerCellCheckboxSize: checkboxSize,
               });
             }
           })}
@@ -173,7 +171,6 @@ class DataGrid extends PureComponent {
               {React.Children.map(children, (child) => {
                 if (isComponentOfType(HeaderRow, child)) {
                   return React.cloneElement(child, {
-                    checkboxSize,
                     onSelectionChange: this.handleHeaderRowSelectionChange,
                     selected: selectedRows.length === children.find((child) => Array.isArray(child)).length,
                     selectable,
@@ -181,7 +178,6 @@ class DataGrid extends PureComponent {
                   });
                 } else if (isComponentOfType(BodyRow, child)) {
                   return React.cloneElement(child, {
-                    checkboxSize,
                     hovered: hoveredRow === child.key,
                     onMouseEnter: (event) => this.handleBodyRowMouseEnter(child, event),
                     onMouseLeave: (event) => this.handleBodyRowMouseLeave(child, event),
@@ -245,8 +241,6 @@ class DataGrid extends PureComponent {
 DataGrid.propTypes = {
   /** If true, datagrid will have a border and rounded corners. */
   bordered: PropTypes.bool,
-  /** The size of the checkbox rendered on the left side of each row */
-  checkboxSize: PropTypes.oneOf(['small', 'medium', 'large']),
   /** The content to display inside the data grid. */
   children: PropTypes.node,
   /** A class name for the wrapper to give custom styles. */
@@ -267,7 +261,6 @@ DataGrid.propTypes = {
 
 DataGrid.defaultProps = {
   bordered: false,
-  checkboxSize: 'small',
   processing: false,
 };
 

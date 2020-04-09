@@ -11,6 +11,8 @@ import { Box } from '../box';
 import { Heading1, Monospaced, TextBody } from '../typography';
 import { COLOR } from '../../constants';
 
+const titleColors = ['neutral', 'teal'];
+
 const actionButtons = () => (
   <ButtonGroup marginLeft={7}>
     <IconButton icon={<IconTrashMediumOutline />} />
@@ -117,7 +119,8 @@ export const header = () => (
       element: select('Back link element', ['a', 'button'], 'button'),
       children: text('Back link label', 'Back to overview'),
     }}
-    title={text('title', 'I am the detail page title')}
+    title={text('Title', 'I am the detail page title')}
+    titleColor={select('Title color', titleColors, 'teal')}
   />
 );
 
@@ -136,7 +139,8 @@ export const headerWithTitleSuffix = () => (
       element: select('Back link element', ['a', 'button'], 'button'),
       children: text('Back link label', 'Back to overview'),
     }}
-    title={text('title', 'I am the detail page title')}
+    title={text('Title', 'I am the detail page title')}
+    titleColor={select('Title color', titleColors, 'teal')}
     titleSuffix={<StatusLabel color="violet">Draft</StatusLabel>}
   />
 );
@@ -156,7 +160,8 @@ export const headerWithActions = () => (
       element: select('Back link element', ['a', 'button'], 'button'),
       children: text('Back link label', 'Back to overview'),
     }}
-    title={text('title', 'I am the detail page title')}
+    title={text('Title', 'I am the detail page title')}
+    titleColor={select('Title color', titleColors, 'teal')}
   >
     {actionButtons()}
   </DetailPage.Header>
@@ -177,7 +182,8 @@ export const headerWithTotals = () => (
       element: select('Back link element', ['a', 'button'], 'button'),
       children: text('Back link label', 'Back to overview'),
     }}
-    title={text('title', 'I am the detail page title')}
+    title={text('Title', 'I am the detail page title')}
+    titleColor={select('Title color', titleColors, 'teal')}
   >
     {totals()}
   </DetailPage.Header>
@@ -198,7 +204,8 @@ export const headerWithTotalsAndActions = () => (
       element: select('Back link element', ['a', 'button'], 'button'),
       children: text('Back link label', 'Back to overview'),
     }}
-    title={text('title', 'I am a way too long detail page title which will overflow with an ellipsis')}
+    title={text('Title', 'I am a way too long detail page title which will overflow with an ellipsis')}
+    titleColor={select('Title color', titleColors, 'teal')}
   >
     {totals()}
     {actionButtons()}
@@ -220,7 +227,8 @@ export const headerWithEverthingTogether = () => (
       element: select('Back link element', ['a', 'button'], 'button'),
       children: text('Back link label', 'Back to overview'),
     }}
-    title={text('title', 'I am a way too long detail page title which will overflow with an ellipsis')}
+    title={text('Title', 'I am a way too long detail page title which will overflow with an ellipsis')}
+    titleColor={select('Title color', titleColors, 'teal')}
     titleSuffix={<StatusLabel color="violet">Draft</StatusLabel>}
   >
     {totals()}

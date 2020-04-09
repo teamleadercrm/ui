@@ -1,6 +1,6 @@
 import React from 'react';
 import { addStoryInGroup, COMPOSITIONS } from '../../../.storybook/utils';
-import { boolean, number, select } from '@storybook/addon-knobs/react';
+import { boolean, number } from '@storybook/addon-knobs/react';
 import { DataGrid, Heading4, IconMenu, MenuItem, Link, TextSmall, Button, ButtonGroup } from '../../index';
 
 import { rows1, rows2 } from '../../static/data/datagrid';
@@ -29,7 +29,6 @@ export const basic = () => (
     selectable={boolean('Selectable', true)}
     comparableId={1}
     onSelectionChange={handleRowSelectionChange}
-    checkboxSize={select('Checkbox size', ['small', 'medium', 'large'], 'small')}
     processing={boolean('Processing', false)}
   >
     <DataGrid.HeaderRowOverlay
@@ -124,16 +123,18 @@ export const withFooter = () => (
     </DataGrid.HeaderRowOverlay>
 
     <DataGrid.HeaderRow>
-      <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} sorted="asc">
+      <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} sortable sorted="asc">
         Invoice
       </DataGrid.HeaderCell>
-      <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} align="right">
+      <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} sortable align="right">
         Amount
       </DataGrid.HeaderCell>
-      <DataGrid.HeaderCell flex="2" onClick={() => console.log('onClick: column sort')}>
+      <DataGrid.HeaderCell flex="2" onClick={() => console.log('onClick: column sort')} sortable>
         Customer
       </DataGrid.HeaderCell>
-      <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')}>Due date</DataGrid.HeaderCell>
+      <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} sortable>
+        Due date
+      </DataGrid.HeaderCell>
       <DataGrid.HeaderCell flex="min-width" />
     </DataGrid.HeaderRow>
     {rows2.map((row, index) => {
@@ -190,16 +191,18 @@ export const withStickyColumns = () => (
     </DataGrid.HeaderRowOverlay>
 
     <DataGrid.HeaderRow>
-      <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} sorted="asc">
+      <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} sorted="asc" sortable>
         Invoice
       </DataGrid.HeaderCell>
-      <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} align="right">
+      <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} align="right" sortable>
         Amount
       </DataGrid.HeaderCell>
-      <DataGrid.HeaderCell flex="2" onClick={() => console.log('onClick: column sort')}>
+      <DataGrid.HeaderCell flex="2" onClick={() => console.log('onClick: column sort')} sortable>
         Customer
       </DataGrid.HeaderCell>
-      <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')}>Due date</DataGrid.HeaderCell>
+      <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} sortable>
+        Due date
+      </DataGrid.HeaderCell>
       <DataGrid.HeaderCell flex="min-width" />
     </DataGrid.HeaderRow>
     {rows1.map((row, index) => {
@@ -253,16 +256,18 @@ export const advanced = () => (
     </DataGrid.HeaderRowOverlay>
 
     <DataGrid.HeaderRow>
-      <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} sorted="asc">
+      <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} sorted="asc" sortable>
         Invoice
       </DataGrid.HeaderCell>
-      <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} align="right">
+      <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} align="right" sortable>
         Amount
       </DataGrid.HeaderCell>
-      <DataGrid.HeaderCell flex="2" onClick={() => console.log('onClick: column sort')}>
+      <DataGrid.HeaderCell flex="2" onClick={() => console.log('onClick: column sort')} sortable>
         Customer
       </DataGrid.HeaderCell>
-      <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')}>Due date</DataGrid.HeaderCell>
+      <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} sortable>
+        Due date
+      </DataGrid.HeaderCell>
       <DataGrid.HeaderCell flex="min-width" />
     </DataGrid.HeaderRow>
     {rows1.map((row, index) => {
