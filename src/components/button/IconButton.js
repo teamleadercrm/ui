@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../box';
+import Icon from '../icon';
 import cx from 'classnames';
 import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
@@ -34,7 +35,6 @@ class IconButton extends Component {
       uiUtilities['reset-font-smoothing'],
       theme['button-base'],
       theme['icon-button'],
-      theme[color],
       {
         [theme['is-disabled']]: disabled,
         [theme[size]]: theme[size],
@@ -58,7 +58,9 @@ class IconButton extends Component {
 
     return (
       <Box {...props}>
-        {icon}
+        <Icon color={color === 'white' ? 'neutral' : color} tint={color === 'white' ? 'lightest' : 'darkest'}>
+          {icon}
+        </Icon>
         {children}
       </Box>
     );

@@ -91,7 +91,7 @@
   }
 }
 
-/* Button colors */
+/* IconButton */
 .icon-button {
   background-color: transparent;
   border: 0;
@@ -113,34 +113,6 @@
       box-shadow: inset 0 2px 3px color(var(--color-neutral-darkest) a(12%));
       background-color: color(var(--color-neutral-darkest) a(18%));
     }
-  }
-
-  &.neutral {
-    color: var(--color-neutral-darkest);
-  }
-
-  &.mint {
-    color: var(--color-mint-darkest);
-  }
-
-  &.violet {
-    color: var(--color-violet-darkest);
-  }
-
-  &.ruby {
-    color: var(--color-ruby-darkest);
-  }
-
-  &.gold {
-    color: var(--color-gold-darkest);
-  }
-
-  &.aqua {
-    color: var(--color-aqua-darkest);
-  }
-
-  &.white {
-    color: var(--color-neutral-lightest);
   }
 }
 
