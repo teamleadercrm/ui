@@ -1,4 +1,5 @@
 @import '@teamleader/ui-colors';
+@import '@teamleader/ui-utilities';
 
 .icon-button {
   background-color: transparent;
@@ -24,4 +25,19 @@
       background-color: color(var(--color-neutral-darkest) a(18%));
     }
   }
+}
+
+.is-small {
+  height: calc(1.8 * var(--unit));
+  min-width: calc(1.8 * var(--unit));
+}
+
+.is-medium {
+  height: calc(3 * var(--unit));
+  min-width: calc(3 * var(--unit));
+}
+
+.is-large {
+  height: calc(3.6 * var(--unit));
+  min-width: calc(3.6 * var(--unit));
 }

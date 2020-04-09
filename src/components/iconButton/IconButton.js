@@ -36,9 +36,9 @@ class IconButton extends Component {
       uiUtilities['reset-font-smoothing'],
       buttonTheme['button-base'],
       theme['icon-button'],
+      theme[`is-${size}`],
       {
         [theme['is-disabled']]: disabled,
-        [theme[size]]: theme[size],
       },
       className,
     );
