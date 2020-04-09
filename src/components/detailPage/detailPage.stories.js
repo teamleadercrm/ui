@@ -4,7 +4,7 @@ import { addStoryInGroup, COMPOSITIONS } from '../../../.storybook/utils';
 import Button, { ButtonGroup } from '../button';
 import DetailPage from './DetailPage';
 import Icon from '../icon';
-import IconButton from '../button/IconButton';
+import IconButton from '../iconButton';
 import { IconTrashMediumOutline, IconWarningBadgedMediumFilled } from '@teamleader/ui-icons';
 import StatusLabel from '../statusLabel';
 import { Box } from '../box';

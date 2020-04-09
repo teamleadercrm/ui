@@ -91,31 +91,6 @@
   }
 }
 
-/* IconButton */
-.icon-button {
-  background-color: transparent;
-  border: 0;
-
-  &.is-disabled {
-    opacity: 0.48;
-  }
-
-  &:not(.is-disabled) {
-    &:hover {
-      background-color: color(var(--color-neutral-darkest) a(18%));
-    }
-
-    &:focus {
-      box-shadow: 0 0 0 2px color(var(--color-neutral-darkest) a(24%));
-    }
-
-    &:active {
-      box-shadow: inset 0 2px 3px color(var(--color-neutral-darkest) a(12%));
-      background-color: color(var(--color-neutral-darkest) a(18%));
-    }
-  }
-}
-
 .outline {
   @each $color in (aqua, gold, mint, neutral, ruby, teal, violet) {
     &.$(color) {

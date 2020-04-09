@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Box } from '../box';
-import { IconButton } from '../button';
+import IconButton from '../iconButton';
 import {
   IconArrowLeftMediumOutline,
   IconArrowRightMediumOutline,
