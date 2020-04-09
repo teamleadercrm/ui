@@ -25,6 +25,10 @@
       background-color: color(var(--color-neutral-darkest) a(18%));
     }
   }
+
+  &.is-selected {
+    background-color: color(var(--color-neutral-darkest) a(24%)) !important;
+  }
 }
 
 .is-small {

@@ -28,7 +28,7 @@ class IconButton extends Component {
   }
 
   render() {
-    const { children, className, disabled, element, icon, size, color, type, ...others } = this.props;
+    const { children, className, disabled, element, icon, size, color, selected, type, ...others } = this.props;
 
     const classNames = cx(
       buttonTheme['button-base'],
@@ -36,6 +36,7 @@ class IconButton extends Component {
       theme[`is-${size}`],
       {
         [theme['is-disabled']]: disabled,
+        [theme['is-selected']]: selected,
       },
       className,
     );
@@ -74,6 +75,8 @@ IconButton.propTypes = {
   icon: PropTypes.element,
   onMouseLeave: PropTypes.func,
   onMouseUp: PropTypes.func,
+  /** If true, component will be shown in a selected state */
+  selected: PropTypes.bool,
   size: PropTypes.oneOf(['small', 'medium']),
   color: PropTypes.oneOf(['neutral', 'white', 'mint', 'violet', 'ruby', 'gold', 'aqua']),
   type: PropTypes.string,
