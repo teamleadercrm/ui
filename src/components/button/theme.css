@@ -100,88 +100,38 @@
     opacity: 0.24;
   }
 
+  &:not(.is-disabled) {
+    &:hover {
+      background-color: color(var(--color-neutral-darkest) a(18%));
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px color(var(--color-neutral-darkest) a(24%));
+    }
+  }
+
   &.neutral {
     color: var(--color-neutral-darkest);
-
-    &:not(.is-disabled) {
-      &:hover {
-        background-color: color(var(--color-neutral-darkest) a(18%));
-      }
-
-      &:focus {
-        box-shadow: 0 0 0 2px color(var(--color-neutral-darkest) a(50%));
-      }
-    }
   }
 
   &.mint {
     color: var(--color-mint-darkest);
-
-    &:not(.is-disabled) {
-      &:hover {
-        background-color: color(var(--color-mint-darkest) a(18%));
-      }
-
-      &:focus {
-        box-shadow: 0 0 0 2px color(var(--color-mint-darkest) a(50%));
-      }
-    }
   }
 
   &.violet {
     color: var(--color-violet-darkest);
-
-    &:not(.is-disabled) {
-      &:hover {
-        background-color: color(var(--color-violet-darkest) a(18%));
-      }
-
-      &:focus {
-        box-shadow: 0 0 0 2px color(var(--color-violet-darkest) a(50%));
-      }
-    }
   }
 
   &.ruby {
     color: var(--color-ruby-darkest);
-
-    &:not(.is-disabled) {
-      &:hover {
-        background-color: color(var(--color-ruby-darkest) a(18%));
-      }
-
-      &:focus {
-        box-shadow: 0 0 0 2px color(var(--color-ruby-darkest) a(50%));
-      }
-    }
   }
 
   &.gold {
     color: var(--color-gold-darkest);
-
-    &:not(.is-disabled) {
-      &:hover {
-        background-color: color(var(--color-gold-darkest) a(18%));
-      }
-
-      &:focus {
-        box-shadow: 0 0 0 2px color(var(--color-gold-darkest) a(50%));
-      }
-    }
   }
 
   &.aqua {
     color: var(--color-aqua-darkest);
-
-    &:not(.is-disabled) {
-      &:hover {
-        background-color: color(var(--color-aqua-darkest) a(18%));
-      }
-
-      &:focus {
-        box-shadow: 0 0 0 2px color(var(--color-aqua-darkest) a(50%));
-      }
-    }
   }
 
   &.white {
@@ -193,7 +143,7 @@
       }
 
       &:focus {
-        box-shadow: 0 0 0 2px color(var(--color-neutral-lightest) a(50%));
+        box-shadow: 0 0 0 2px color(var(--color-neutral-lightest) a(24%));
       }
     }
   }
