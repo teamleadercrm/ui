@@ -141,16 +141,6 @@
 
   &.white {
     color: var(--color-neutral-lightest);
-
-    &:not(.is-disabled) {
-      &:hover {
-        background-color: color(var(--color-neutral-lightest) a(18%));
-      }
-
-      &:focus {
-        box-shadow: 0 0 0 2px color(var(--color-neutral-lightest) a(24%));
-      }
-    }
   }
 }
 
