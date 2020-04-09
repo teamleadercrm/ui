@@ -67,18 +67,27 @@ class IconButton extends Component {
 }
 
 IconButton.propTypes = {
+  /** The content to display inside the button. */
   children: PropTypes.node,
+  /** A class name for the button to give custom styles. */
   className: PropTypes.string,
+  /** If true, component will be disabled. */
   disabled: PropTypes.bool,
   /** A custom element to be rendered */
   element: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
+  /** The icon displayed inside the button. */
   icon: PropTypes.element,
+  /** Callback function that is fired when mouse leaves the component. */
   onMouseLeave: PropTypes.func,
+  /** Callback function that is fired when the mouse button is released. */
   onMouseUp: PropTypes.func,
   /** If true, component will be shown in a selected state */
   selected: PropTypes.bool,
+  /** Size of the button. */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
+  /** The color which the icon should have */
   color: PropTypes.oneOf(['neutral', 'white', 'mint', 'violet', 'ruby', 'gold', 'aqua']),
+  /** Type of the button element. */
   type: PropTypes.string,
 };
 
