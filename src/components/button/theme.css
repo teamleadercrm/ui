@@ -97,7 +97,7 @@
   border: 0;
 
   &.is-disabled {
-    opacity: 0.24;
+    opacity: 0.48;
   }
 
   &:not(.is-disabled) {
