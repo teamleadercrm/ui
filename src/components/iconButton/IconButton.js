@@ -5,7 +5,6 @@ import Icon from '../icon';
 import cx from 'classnames';
 import buttonTheme from '../button/theme.css';
 import theme from './theme.css';
-import uiUtilities from '@teamleader/ui-utilities';
 
 class IconButton extends Component {
   handleMouseUp = (event) => {
@@ -32,7 +31,6 @@ class IconButton extends Component {
     const { children, className, disabled, element, icon, size, color, type, ...others } = this.props;
 
     const classNames = cx(
-      uiUtilities['reset-font-smoothing'],
       buttonTheme['button-base'],
       theme['icon-button'],
       theme[`is-${size}`],
