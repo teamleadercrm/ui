@@ -77,7 +77,7 @@ IconButton.propTypes = {
   onMouseUp: PropTypes.func,
   /** If true, component will be shown in a selected state */
   selected: PropTypes.bool,
-  size: PropTypes.oneOf(['small', 'medium']),
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
   color: PropTypes.oneOf(['neutral', 'white', 'mint', 'violet', 'ruby', 'gold', 'aqua']),
   type: PropTypes.string,
 };
