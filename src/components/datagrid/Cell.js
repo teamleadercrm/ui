@@ -54,7 +54,7 @@ Cell.propTypes = {
   /** A class name for the cell to give custom styles. */
   className: PropTypes.string,
   /** The width proportion of the cell against the others. */
-  flex: PropTypes.oneOf(['min-width', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']),
+  flex: PropTypes.oneOf(['checkbox-width', 'min-width', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']),
   /** If true, an ellipsis will be shown when the cell content is too long. */
   preventOverflow: PropTypes.bool,
   /** If true, the text inside the cell will be bold */
