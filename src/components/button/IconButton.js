@@ -33,7 +33,6 @@ class IconButton extends Component {
       uiUtilities['reset-box-sizing'],
       uiUtilities['reset-font-smoothing'],
       theme['button-base'],
-      theme['button'],
       theme['icon-button'],
       theme[color],
       {
