@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Box from '../box';
 import Icon from '../icon';
 import cx from 'classnames';
+import buttonTheme from '../button/theme.css';
 import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
 
@@ -33,7 +34,7 @@ class IconButton extends Component {
     const classNames = cx(
       uiUtilities['reset-box-sizing'],
       uiUtilities['reset-font-smoothing'],
-      theme['button-base'],
+      buttonTheme['button-base'],
       theme['icon-button'],
       {
         [theme['is-disabled']]: disabled,
