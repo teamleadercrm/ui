@@ -10,7 +10,7 @@ import Container from '../container';
 
 class DetailPageHeader extends PureComponent {
   render() {
-    const { backLinkProps, children, title, titleSuffix, ...others } = this.props;
+    const { backLinkProps, children, title, titleColor, titleSuffix, ...others } = this.props;
 
     return (
       <Container {...others} element={Section}>
@@ -22,7 +22,7 @@ class DetailPageHeader extends PureComponent {
           )}
           <Box flex="1 0 200px" paddingTop={5} overflow="hidden">
             <Box alignItems="center" display="flex">
-              <Heading1 color="teal" ellipsis title={title}>
+              <Heading1 color={titleColor} ellipsis tint={titleColor === 'neutral' ? 'dark' : 'darkest'} title={title}>
                 {title}
               </Heading1>
               {titleSuffix && <Box marginLeft={3}>{titleSuffix}</Box>}
@@ -43,7 +43,13 @@ DetailPageHeader.propTypes = {
   backLinkProps: PropTypes.object,
   children: PropTypes.node,
   title: PropTypes.oneOf([PropTypes.string, PropTypes.node]).isRequired,
+  /** The color which the title should have */
+  titleColor: PropTypes.oneOf(['neutral', 'teal']),
   titleSuffix: PropTypes.node,
+};
+
+DetailPageHeader.defaultProps = {
+  titleColor: 'teal',
 };
 
 export default DetailPageHeader;
