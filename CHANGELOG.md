@@ -18,7 +18,8 @@
 
 - `DataGrid`: fixed unwanted overflow prevention for `Cells` containing a `Checkbox`. ([@driesd](https://github.com/driesd) in [#1007](https://github.com/teamleadercrm/ui/pull/1007))
 - `DataGrid`: fixed `Cell` padding along each side of the vertical separator line. ([@driesd](https://github.com/driesd) in [#1007](https://github.com/teamleadercrm/ui/pull/1007))
-- `Avatar`: fixed a react-dom warning where the team prop was put onto a div. ([@lowiebenoot](https://github.com/lowiebenoot) in [#1000](https://github.com/teamleadercrm/ui/pull/1005))
+- `Avatar`: fixed a react-dom warning where the team prop was put onto a div. ([@lowiebenoot](https://github.com/lowiebenoot) in [#1005](https://github.com/teamleadercrm/ui/pull/1005))
+- `DetailPage.Header`: adding a className was not possible. ([@lowiebenoot](https://github.com/lowiebenoot) in [#1008](https://github.com/teamleadercrm/ui/pull/1008))
 
 ### Dependency updates
 
