@@ -2,7 +2,7 @@
 
 ### Added
 
-- `DetailPage.Header`: added `titleColor` prop. Possible values are `neutral` and `teal` (default). ([@driesd](https://github.com/driesd) in [#1007](https://github.com/teamleadercrm/ui/pull/1007))
+- `DetailPage.Header`: added `titleColor` prop. Possible values are `neutral` and `teal` (default). ([@driesd](https://github.com/driesd) in [#1010](https://github.com/teamleadercrm/ui/pull/1010))
 - `DataGrid`: added a `sortable` prop to the `HeaderCell`. ([@driesd](https://github.com/driesd) in [#1007](https://github.com/teamleadercrm/ui/pull/1007))
 
 ### Changed
