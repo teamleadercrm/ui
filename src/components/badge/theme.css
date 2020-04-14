@@ -37,9 +37,8 @@
   }
 
   &:not(.is-disabled) {
-    &:hover,
-    &:active {
-      background-color: color(var(--color-neutral-darkest) a(24%));
+    &:hover {
+      background-color: color(var(--color-neutral-darkest) a(18%));
     }
 
     &:focus {
