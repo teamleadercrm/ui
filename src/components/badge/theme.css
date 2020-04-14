@@ -42,7 +42,7 @@
     }
 
     &:focus {
-      background-color: color(var(--color-teal-darkest) a(6%));
+      background-color: color(var(--color-neutral-darkest) a(12%));
       border-color: color(var(--color-neutral-darkest) a(24%));
       box-shadow: 0 0 0 var(--badge-border-width) color(var(--color-neutral-darkest) a(24%));
     }
