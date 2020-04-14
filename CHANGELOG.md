@@ -2,7 +2,13 @@
 
 ### Added
 
+- `IconButton`: added `large` size variation. ([@driesd](https://github.com/driesd) in [#1009](https://github.com/teamleadercrm/ui/pull/1009))
+- `IconButton`: added `selected` boolean prop which shows the button in a selected state. ([@driesd](https://github.com/driesd) in [#1009](https://github.com/teamleadercrm/ui/pull/1009))
+
 ### Changed
+
+- `IconButton`: adjusted visual states. ([@driesd](https://github.com/driesd) in [#1009](https://github.com/teamleadercrm/ui/pull/1009))
+- [Breaking] `IconButton`: changed attribute `data-teamleader-ui` value from `button` to `icon-button`. ([@driesd](https://github.com/driesd) in [#1009](https://github.com/teamleadercrm/ui/pull/1009))
 
 ### Deprecated
 

@@ -1,0 +1,47 @@
+@import '@teamleader/ui-colors';
+@import '@teamleader/ui-utilities';
+
+.icon-button {
+  background-color: transparent;
+  border: 0;
+
+  &.is-disabled {
+    cursor: auto;
+    opacity: 0.48;
+    pointer-events: none;
+  }
+
+  &:not(.is-disabled) {
+    &:hover {
+      background-color: color(var(--color-neutral-darkest) a(18%));
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px color(var(--color-neutral-darkest) a(24%));
+    }
+
+    &:active {
+      box-shadow: inset 0 2px 3px color(var(--color-neutral-darkest) a(12%));
+      background-color: color(var(--color-neutral-darkest) a(18%));
+    }
+  }
+
+  &.is-selected {
+    background-color: color(var(--color-neutral-darkest) a(24%)) !important;
+  }
+}
+
+.is-small {
+  height: calc(1.8 * var(--unit));
+  min-width: calc(1.8 * var(--unit));
+}
+
+.is-medium {
+  height: calc(3 * var(--unit));
+  min-width: calc(3 * var(--unit));
+}
+
+.is-large {
+  height: calc(3.6 * var(--unit));
+  min-width: calc(3.6 * var(--unit));
+}

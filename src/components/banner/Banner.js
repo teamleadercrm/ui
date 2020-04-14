@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Box from '../box';
 import Island from '../island';
 import Section from '../section';
-import { IconButton } from '../button';
+import IconButton from '../iconButton';
 import theme from './theme.css';
 import { IconCloseMediumOutline } from '@teamleader/ui-icons';
 

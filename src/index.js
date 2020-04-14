@@ -3,7 +3,7 @@ import Avatar, { AvatarStack } from './components/avatar';
 import Badge from './components/badge';
 import Banner from './components/banner';
 import Box from './components/box';
-import Button, { ButtonGroup, IconButton, SplitButton } from './components/button';
+import Button, { ButtonGroup, SplitButton } from './components/button';
 import {
   Heading1,
   Heading2,
@@ -31,6 +31,7 @@ import DetailPage, { DetailPageBody, DetailPageHeader } from './components/detai
 import Dialog, { DialogBase } from './components/dialog';
 import EmptyState from './components/emptyState';
 import Icon from './components/icon';
+import IconButton from './components/iconButton';
 import Input, { InputBase, NumericInput, Textarea, TimeInput } from './components/input';
 import Menu, { IconMenu, MenuItem, MenuDivider, MenuTitle } from './components/menu';
 import Link from './components/link';
