@@ -23,6 +23,7 @@ export const withIcon = () => (
     disabled={boolean('Disabled', false)}
     icon={<IconBuildingSmallOutline />}
     iconPlacement={select('Icon placement', iconPositions, 'left')}
+    selected={boolean('Selected', false)}
   >
     I'm a badge
   </Badge>
@@ -33,7 +34,12 @@ withIcon.story = {
 };
 
 export const withCustomElement = () => (
-  <Badge disabled={boolean('Disabled', false)} element="a" href="https://teamleader.eu">
+  <Badge
+    disabled={boolean('Disabled', false)}
+    element="a"
+    href="https://teamleader.eu"
+    selected={boolean('Selected', false)}
+  >
     I'm a badge
   </Badge>
 );

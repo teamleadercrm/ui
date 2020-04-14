@@ -36,12 +36,13 @@ class Badge extends PureComponent {
   };
 
   render() {
-    const { children, className, disabled, element, icon, iconPlacement, ...others } = this.props;
+    const { children, className, disabled, element, icon, iconPlacement, selected, ...others } = this.props;
 
     const classNames = cx(
       theme['badge'],
       {
         [theme['is-disabled']]: disabled,
+        [theme['is-selected']]: selected,
       },
       className,
     );
@@ -85,6 +86,8 @@ Badge.propTypes = {
   onMouseLeave: PropTypes.func,
   /** Callback function that is fired when the mouse button is released. */
   onMouseUp: PropTypes.func,
+  /** If true, component will be shown in a selected state */
+  selected: PropTypes.bool,
 };
 
 Badge.defaultProps = {

@@ -58,4 +58,8 @@
     opacity: 0.48;
     pointer-events: none;
   }
+
+  &.is-selected {
+    background-color: color(var(--color-neutral-darkest) a(24%)) !important;
+  }
 }
