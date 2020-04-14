@@ -24,7 +24,6 @@ export const inline = () => (
       color={select('Color', colors, 'neutral')}
       disabled={boolean('Disabled', false)}
       inherit={boolean('Inherit', true)}
-      inverse={boolean('Inverse', false)}
       marginHorizontal={1}
     >
       badge
@@ -38,7 +37,6 @@ export const standalone = () => (
     color={select('Color', colors, 'neutral')}
     disabled={boolean('Disabled', false)}
     inherit={boolean('Inherit', false)}
-    inverse={boolean('Inverse', false)}
   >
     I'm a badge
   </Badge>
@@ -51,7 +49,6 @@ export const withIcon = () => (
     icon={<IconBuildingSmallOutline />}
     iconPlacement={select('Icon placement', iconPositions, 'left')}
     inherit={boolean('Inherit', false)}
-    inverse={boolean('Inverse', false)}
   >
     I'm a badge
   </Badge>
@@ -68,7 +65,6 @@ export const withCustomElement = () => (
     element="a"
     href="https://teamleader.eu"
     inherit={boolean('Inherit', false)}
-    inverse={boolean('Inverse', false)}
   >
     I'm a badge
   </Badge>

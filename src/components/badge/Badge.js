@@ -27,32 +27,17 @@ class Badge extends PureComponent {
   };
 
   renderIcon = () => {
-    const { color, icon, inverse } = this.props;
+    const { color, icon } = this.props;
 
     return (
-      <Icon
-        className={theme['icon']}
-        color={color === 'neutral' ? 'teal' : color}
-        tint={inverse ? 'lightest' : 'darkest'}
-      >
+      <Icon className={theme['icon']} color={color === 'neutral' ? 'teal' : color} tint="darkest">
         {icon}
       </Icon>
     );
   };
 
   render() {
-    const {
-      children,
-      className,
-      disabled,
-      element,
-      icon,
-      iconPlacement,
-      inherit,
-      inverse,
-      color,
-      ...others
-    } = this.props;
+    const { children, className, disabled, element, icon, iconPlacement, inherit, color, ...others } = this.props;
 
     const classNames = cx(
       theme['badge'],
@@ -60,7 +45,6 @@ class Badge extends PureComponent {
       {
         [theme['is-disabled']]: disabled,
         [theme['is-inherit']]: inherit,
-        [theme['is-inverse']]: inverse,
       },
       className,
     );
@@ -106,8 +90,6 @@ Badge.propTypes = {
   iconPlacement: PropTypes.oneOf(['left', 'right']),
   /** If true, component will adapt styles from it's parent component. */
   inherit: PropTypes.bool,
-  /** If true, component will be rendered in inverse mode. */
-  inverse: PropTypes.bool,
   /** Callback function that is fired when mouse leaves the component. */
   onMouseLeave: PropTypes.func,
   /** Callback function that is fired when the mouse button is released. */
@@ -121,7 +103,6 @@ Badge.defaultProps = {
   element: 'button',
   iconPlacement: 'left',
   inherit: true,
-  inverse: false,
   color: 'neutral',
 };
 
