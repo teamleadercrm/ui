@@ -2,7 +2,6 @@ import React, { createRef, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../box';
 import Icon from '../icon';
-import { colorsWithout } from '../../constants';
 import { TextBody } from '../typography';
 import cx from 'classnames';
 import theme from './theme.css';
@@ -27,21 +26,20 @@ class Badge extends PureComponent {
   };
 
   renderIcon = () => {
-    const { color, icon } = this.props;
+    const { icon } = this.props;
 
     return (
-      <Icon className={theme['icon']} color={color === 'neutral' ? 'teal' : color} tint="darkest">
+      <Icon className={theme['icon']} color="teal" tint="darkest">
         {icon}
       </Icon>
     );
   };
 
   render() {
-    const { children, className, disabled, element, icon, iconPlacement, inherit, color, ...others } = this.props;
+    const { children, className, disabled, element, icon, iconPlacement, inherit, ...others } = this.props;
 
     const classNames = cx(
       theme['badge'],
-      theme[color],
       {
         [theme['is-disabled']]: disabled,
         [theme['is-inherit']]: inherit,
@@ -94,8 +92,6 @@ Badge.propTypes = {
   onMouseLeave: PropTypes.func,
   /** Callback function that is fired when the mouse button is released. */
   onMouseUp: PropTypes.func,
-  /** Add a color theme to the badge */
-  color: PropTypes.oneOf(colorsWithout(['teal'])),
 };
 
 Badge.defaultProps = {
@@ -103,7 +99,6 @@ Badge.defaultProps = {
   element: 'button',
   iconPlacement: 'left',
   inherit: true,
-  color: 'neutral',
 };
 
 export default Badge;

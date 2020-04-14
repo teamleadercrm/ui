@@ -2,9 +2,8 @@ import React from 'react';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { boolean, select } from '@storybook/addon-knobs/react';
 import { IconBuildingSmallOutline } from '@teamleader/ui-icons';
-import { colorsWithout, Badge, TextDisplay } from '../../index';
+import { Badge, TextDisplay } from '../../index';
 
-const colors = colorsWithout(['teal']);
 const iconPositions = ['left', 'right'];
 
 export default {
@@ -20,12 +19,7 @@ export default {
 export const inline = () => (
   <TextDisplay>
     I'm display text with a
-    <Badge
-      color={select('Color', colors, 'neutral')}
-      disabled={boolean('Disabled', false)}
-      inherit={boolean('Inherit', true)}
-      marginHorizontal={1}
-    >
+    <Badge disabled={boolean('Disabled', false)} inherit={boolean('Inherit', true)} marginHorizontal={1}>
       badge
     </Badge>
     inside.
@@ -33,18 +27,13 @@ export const inline = () => (
 );
 
 export const standalone = () => (
-  <Badge
-    color={select('Color', colors, 'neutral')}
-    disabled={boolean('Disabled', false)}
-    inherit={boolean('Inherit', false)}
-  >
+  <Badge disabled={boolean('Disabled', false)} inherit={boolean('Inherit', false)}>
     I'm a badge
   </Badge>
 );
 
 export const withIcon = () => (
   <Badge
-    color={select('Color', colors, 'neutral')}
     disabled={boolean('Disabled', false)}
     icon={<IconBuildingSmallOutline />}
     iconPlacement={select('Icon placement', iconPositions, 'left')}
@@ -60,7 +49,6 @@ withIcon.story = {
 
 export const withCustomElement = () => (
   <Badge
-    color={select('Color', colors, 'neutral')}
     disabled={boolean('Disabled', false)}
     element="a"
     href="https://teamleader.eu"
