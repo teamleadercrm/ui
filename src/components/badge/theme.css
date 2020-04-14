@@ -29,10 +29,6 @@
     margin-left: var(--spacer-smaller);
   }
 
-  .icon {
-    opacity: 0.86;
-  }
-
   .label {
     overflow: hidden;
     text-overflow: ellipsis;
