@@ -9,9 +9,10 @@
 }
 
 .badge {
+  background-color: color(var(--color-neutral-darkest) a(12%));
+  border: var(--badge-border-width) solid color(var(--color-neutral-darkest) a(12%));
   border-radius: var(--badge-border-radius);
-  border-style: solid;
-  border-width: var(--badge-border-width);
+  color: var(--color-teal-darkest);
   display: inline-flex;
   align-items: center;
   outline: none;
@@ -34,10 +35,6 @@
     text-overflow: ellipsis;
     white-space: nowrap;
   }
-
-  background-color: color(var(--color-neutral-darkest) a(12%));
-  border-color: color(var(--color-neutral-darkest) a(12%));
-  color: var(--color-teal-darkest);
 
   &:not(.is-disabled) {
     &:hover,
