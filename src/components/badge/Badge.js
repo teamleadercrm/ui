@@ -36,13 +36,12 @@ class Badge extends PureComponent {
   };
 
   render() {
-    const { children, className, disabled, element, icon, iconPlacement, inherit, ...others } = this.props;
+    const { children, className, disabled, element, icon, iconPlacement, ...others } = this.props;
 
     const classNames = cx(
       theme['badge'],
       {
         [theme['is-disabled']]: disabled,
-        [theme['is-inherit']]: inherit,
       },
       className,
     );
@@ -60,13 +59,9 @@ class Badge extends PureComponent {
         {...others}
       >
         {icon && iconPlacement === 'left' && this.renderIcon()}
-        {inherit ? (
-          <span className={theme['label']}>{children}</span>
-        ) : (
-          <TextBody className={theme['label']} element="span">
-            {children}
-          </TextBody>
-        )}
+        <TextBody className={theme['label']} element="span">
+          {children}
+        </TextBody>
         {icon && iconPlacement === 'right' && this.renderIcon()}
       </Box>
     );
@@ -86,8 +81,6 @@ Badge.propTypes = {
   icon: PropTypes.element,
   /** The position of the icon inside the badge. */
   iconPlacement: PropTypes.oneOf(['left', 'right']),
-  /** If true, component will adapt styles from it's parent component. */
-  inherit: PropTypes.bool,
   /** Callback function that is fired when mouse leaves the component. */
   onMouseLeave: PropTypes.func,
   /** Callback function that is fired when the mouse button is released. */
@@ -98,7 +91,6 @@ Badge.defaultProps = {
   disabled: false,
   element: 'button',
   iconPlacement: 'left',
-  inherit: true,
 };
 
 export default Badge;

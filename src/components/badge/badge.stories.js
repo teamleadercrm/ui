@@ -16,28 +16,13 @@ export default {
   },
 };
 
-export const inline = () => (
-  <TextDisplay>
-    I'm display text with a
-    <Badge disabled={boolean('Disabled', false)} inherit={boolean('Inherit', true)} marginHorizontal={1}>
-      badge
-    </Badge>
-    inside.
-  </TextDisplay>
-);
-
-export const standalone = () => (
-  <Badge disabled={boolean('Disabled', false)} inherit={boolean('Inherit', false)}>
-    I'm a badge
-  </Badge>
-);
+export const basic = () => <Badge disabled={boolean('Disabled', false)}>I'm a badge</Badge>;
 
 export const withIcon = () => (
   <Badge
     disabled={boolean('Disabled', false)}
     icon={<IconBuildingSmallOutline />}
     iconPlacement={select('Icon placement', iconPositions, 'left')}
-    inherit={boolean('Inherit', false)}
   >
     I'm a badge
   </Badge>
@@ -48,12 +33,7 @@ withIcon.story = {
 };
 
 export const withCustomElement = () => (
-  <Badge
-    disabled={boolean('Disabled', false)}
-    element="a"
-    href="https://teamleader.eu"
-    inherit={boolean('Inherit', false)}
-  >
+  <Badge disabled={boolean('Disabled', false)} element="a" href="https://teamleader.eu">
     I'm a badge
   </Badge>
 );

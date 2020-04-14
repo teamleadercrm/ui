@@ -81,12 +81,4 @@
     opacity: 0.48;
     pointer-events: none;
   }
-
-  &.is-inherit {
-    font-family: inherit;
-    font-size: inherit;
-    font-weight: inherit;
-    letter-spacing: inherit;
-    text-transform: inherit;
-  }
 }
