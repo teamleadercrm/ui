@@ -5,6 +5,7 @@ import { IconBuildingSmallOutline } from '@teamleader/ui-icons';
 import { Badge, TextDisplay } from '../../index';
 
 const iconPositions = ['left', 'right'];
+const sizes = ['small', 'medium', 'large'];
 
 export default {
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Badge'),
@@ -16,7 +17,11 @@ export default {
   },
 };
 
-export const basic = () => <Badge disabled={boolean('Disabled', false)}>I'm a badge</Badge>;
+export const basic = () => (
+  <Badge disabled={boolean('Disabled', false)} size={select('Size', sizes, 'medium')}>
+    I'm a badge
+  </Badge>
+);
 
 export const withIcon = () => (
   <Badge
@@ -24,6 +29,7 @@ export const withIcon = () => (
     icon={<IconBuildingSmallOutline />}
     iconPlacement={select('Icon placement', iconPositions, 'left')}
     selected={boolean('Selected', false)}
+    size={select('Size', sizes, 'medium')}
   >
     I'm a badge
   </Badge>
@@ -39,6 +45,7 @@ export const withCustomElement = () => (
     element="a"
     href="https://teamleader.eu"
     selected={boolean('Selected', false)}
+    size={select('Size', sizes, 'medium')}
   >
     I'm a badge
   </Badge>

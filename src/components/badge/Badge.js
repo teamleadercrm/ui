@@ -2,7 +2,7 @@ import React, { createRef, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../box';
 import Icon from '../icon';
-import { TextBody } from '../typography';
+import { TextSmall, TextBody, TextDisplay } from '../typography';
 import cx from 'classnames';
 import theme from './theme.css';
 
@@ -36,7 +36,7 @@ class Badge extends PureComponent {
   };
 
   render() {
-    const { children, className, disabled, element, icon, iconPlacement, selected, ...others } = this.props;
+    const { children, className, disabled, element, icon, iconPlacement, selected, size, ...others } = this.props;
 
     const classNames = cx(
       theme['badge'],
@@ -46,6 +46,8 @@ class Badge extends PureComponent {
       },
       className,
     );
+
+    const TextElement = size === 'small' ? TextSmall : size === 'large' ? TextDisplay : TextBody;
 
     return (
       <Box
@@ -60,9 +62,9 @@ class Badge extends PureComponent {
         {...others}
       >
         {icon && iconPlacement === 'left' && this.renderIcon()}
-        <TextBody className={theme['label']} element="span">
+        <TextElement className={theme['label']} element="span">
           {children}
-        </TextBody>
+        </TextElement>
         {icon && iconPlacement === 'right' && this.renderIcon()}
       </Box>
     );
@@ -88,12 +90,15 @@ Badge.propTypes = {
   onMouseUp: PropTypes.func,
   /** If true, component will be shown in a selected state */
   selected: PropTypes.bool,
+  /** Size of the button. */
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
 };
 
 Badge.defaultProps = {
   disabled: false,
   element: 'button',
   iconPlacement: 'left',
+  size: 'medium',
 };
 
 export default Badge;
