@@ -2,10 +2,10 @@ import React from 'react';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { boolean, select } from '@storybook/addon-knobs/react';
 import { IconBuildingSmallOutline } from '@teamleader/ui-icons';
-import { colorsWithout, Badge, TextDisplay } from '../../index';
+import { Badge, TextDisplay } from '../../index';
 
-const colors = colorsWithout(['teal']);
 const iconPositions = ['left', 'right'];
+const sizes = ['small', 'medium', 'large'];
 
 export default {
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Badge'),
@@ -17,41 +17,19 @@ export default {
   },
 };
 
-export const inline = () => (
-  <TextDisplay>
-    I'm display text with a
-    <Badge
-      color={select('Color', colors, 'neutral')}
-      disabled={boolean('Disabled', false)}
-      inherit={boolean('Inherit', true)}
-      inverse={boolean('Inverse', false)}
-      marginHorizontal={1}
-    >
-      badge
-    </Badge>
-    inside.
-  </TextDisplay>
-);
-
-export const standalone = () => (
-  <Badge
-    color={select('Color', colors, 'neutral')}
-    disabled={boolean('Disabled', false)}
-    inherit={boolean('Inherit', false)}
-    inverse={boolean('Inverse', false)}
-  >
+export const basic = () => (
+  <Badge disabled={boolean('Disabled', false)} size={select('Size', sizes, 'medium')}>
     I'm a badge
   </Badge>
 );
 
 export const withIcon = () => (
   <Badge
-    color={select('Color', colors, 'neutral')}
     disabled={boolean('Disabled', false)}
     icon={<IconBuildingSmallOutline />}
     iconPlacement={select('Icon placement', iconPositions, 'left')}
-    inherit={boolean('Inherit', false)}
-    inverse={boolean('Inverse', false)}
+    selected={boolean('Selected', false)}
+    size={select('Size', sizes, 'medium')}
   >
     I'm a badge
   </Badge>
@@ -63,12 +41,11 @@ withIcon.story = {
 
 export const withCustomElement = () => (
   <Badge
-    color={select('Color', colors, 'neutral')}
     disabled={boolean('Disabled', false)}
     element="a"
     href="https://teamleader.eu"
-    inherit={boolean('Inherit', false)}
-    inverse={boolean('Inverse', false)}
+    selected={boolean('Selected', false)}
+    size={select('Size', sizes, 'medium')}
   >
     I'm a badge
   </Badge>
