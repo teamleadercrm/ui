@@ -63,3 +63,12 @@
     background-color: color(var(--color-neutral-darkest) a(24%)) !important;
   }
 }
+
+.is-small,
+.is-medium {
+  height: 24px;
+}
+
+.is-large {
+  height: 30px;
+}

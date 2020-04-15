@@ -2,7 +2,7 @@ import React, { createRef, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../box';
 import Icon from '../icon';
-import { TextSmall, TextBody, TextDisplay } from '../typography';
+import { UITextSmall, UITextBody, UITextDisplay } from '../typography';
 import cx from 'classnames';
 import theme from './theme.css';
 
@@ -40,6 +40,7 @@ class Badge extends PureComponent {
 
     const classNames = cx(
       theme['badge'],
+      theme[`is-${size}`],
       {
         [theme['is-disabled']]: disabled,
         [theme['is-selected']]: selected,
@@ -47,7 +48,7 @@ class Badge extends PureComponent {
       className,
     );
 
-    const TextElement = size === 'small' ? TextSmall : size === 'large' ? TextDisplay : TextBody;
+    const TextElement = size === 'small' ? UITextSmall : size === 'large' ? UITextDisplay : UITextBody;
 
     return (
       <Box
@@ -58,7 +59,6 @@ class Badge extends PureComponent {
         onMouseUp={this.handleMouseUp}
         onMouseLeave={this.handleMouseLeave}
         paddingHorizontal={2}
-        paddingVertical={1}
         {...others}
       >
         {icon && iconPlacement === 'left' && this.renderIcon()}
