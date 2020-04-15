@@ -145,5 +145,8 @@
     "prettier": "prettier --write './{src,.storybook}/**/*.{js,json,md,css}'",
     "prepare": "yarn build",
     "start": "PORT=${PORT:-3000}; start-storybook --port $PORT"
+  },
+  "peerDependencies": {
+    "draft-js": "0.10.5"
   }
 }
