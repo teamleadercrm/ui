@@ -10,7 +10,7 @@ import { UITextBody, UITextDisplay, UITextSmall } from '../typography';
 
 class Tag extends PureComponent {
   render() {
-    const { children, className, onLabelClick, onRemoveClick, size, disabled, ...others } = this.props;
+    const { children, className, onRemoveClick, size, disabled, ...others } = this.props;
 
     const classNames = cx(
       theme['tag'],
@@ -25,7 +25,7 @@ class Tag extends PureComponent {
     const TextElement = size === 'small' ? UITextSmall : size === 'large' ? UITextDisplay : UITextBody;
 
     return (
-      <Box className={classNames} data-teamleader-ui="tag" onClick={onLabelClick} {...others}>
+      <Box className={classNames} data-teamleader-ui="tag" {...others}>
         <TextElement marginHorizontal={2}>{children}</TextElement>
         {onRemoveClick && (
           <IconButton
@@ -46,7 +46,6 @@ Tag.propTypes = {
   children: PropTypes.any.isRequired,
   className: PropTypes.string,
   disabled: PropTypes.bool,
-  onLabelClick: PropTypes.func,
   onRemoveClick: PropTypes.func,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
 };
