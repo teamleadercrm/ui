@@ -10,12 +10,11 @@ import uiUtilities from '@teamleader/ui-utilities';
 
 class Tag extends PureComponent {
   render() {
-    const { children, className, onLabelClick, onRemoveClick, size, color, disabled, ...others } = this.props;
+    const { children, className, onLabelClick, onRemoveClick, size, disabled, ...others } = this.props;
 
     const classNames = cx(
       theme['tag'],
       theme[`is-${size}`],
-      theme[color],
       {
         [theme['is-removable']]: onRemoveClick,
         [theme['is-disabled']]: disabled,
@@ -58,12 +57,10 @@ Tag.propTypes = {
   onLabelClick: PropTypes.func,
   onRemoveClick: PropTypes.func,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
-  color: PropTypes.oneOf(['neutral', 'mint', 'gold', 'ruby', 'violet', 'aqua']),
 };
 
 Tag.defaultProps = {
   size: 'medium',
-  color: 'neutral',
 };
 
 export default Tag;
