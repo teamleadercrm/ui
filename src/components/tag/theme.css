@@ -18,8 +18,11 @@
   border-width: 1px;
   background-color: color(var(--color-neutral-darkest) a(12%));
   border-color: color(var(--color-neutral-darkest) a(12%));
+  outline: none;
 
-  &:not(.is-disabled) {
+  &.is-clickable:not(.is-disabled) {
+    cursor: pointer;
+
     &:hover {
       background-color: color(var(--color-neutral-darkest) a(18%));
     }
@@ -38,6 +41,7 @@
 
   &.is-disabled {
     opacity: 0.48;
+    pointer-events: none;
   }
 
   &.is-selected {

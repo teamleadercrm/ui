@@ -9,12 +9,13 @@ import { UITextBody, UITextDisplay, UITextSmall } from '../typography';
 
 class Tag extends PureComponent {
   render() {
-    const { children, className, onRemoveClick, selected, size, disabled, ...others } = this.props;
+    const { children, className, onClick, onRemoveClick, selected, size, disabled, ...others } = this.props;
 
     const classNames = cx(
       theme['tag'],
       theme[`is-${size}`],
       {
+        [theme['is-clickable']]: onClick,
         [theme['is-removable']]: onRemoveClick,
         [theme['is-disabled']]: disabled,
         [theme['is-selected']]: selected,
