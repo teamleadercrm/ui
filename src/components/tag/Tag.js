@@ -22,9 +22,6 @@ class Tag extends PureComponent {
       className,
     );
 
-    const closeButtonColor = 'neutral';
-    const closeButtonIcon = <IconCloseSmallOutline />;
-
     return (
       <Box className={classNames} data-teamleader-ui="tag" {...others}>
         {onLabelClick ? (
@@ -38,8 +35,8 @@ class Tag extends PureComponent {
         {onRemoveClick && (
           <IconButton
             className={theme['remove-button']}
-            color={closeButtonColor}
-            icon={closeButtonIcon}
+            color="teal"
+            icon={<IconCloseSmallOutline />}
             onClick={onRemoveClick}
             size="small"
             disabled={disabled}
