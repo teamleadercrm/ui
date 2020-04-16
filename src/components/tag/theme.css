@@ -19,7 +19,7 @@
   background-color: color(var(--color-neutral-darkest) a(12%));
   border-color: color(var(--color-neutral-darkest) a(12%));
 
-  .label-button:not(:disabled) {
+  &:not(.is-disabled) {
     &:focus {
       box-shadow: 0 0 0 var(--tag-border-width) color(var(--color-teal-darkest) a(36%)) !important;
     }
@@ -32,14 +32,8 @@
 
   &.is-disabled {
     opacity: 0.48;
-
-    button {
-      background-color: transparent !important;
-      opacity: 1 !important;
-    }
   }
 
-  .button-label,
   .remove-button {
     transition: background-color 0.2s var(--animation-curve-fast-out-slow-in),
       border-color var(--animation-duration) var(--animation-curve-fast-out-slow-in),
@@ -52,33 +46,13 @@
   padding: 0 var(--spacer-smaller) !important;
 }
 
-.label-button {
-  border: 0 !important;
-}
-
-.is-removable {
-  .label-button {
-    border-radius: var(--tag-border-radius) 0 0 var(--tag-border-radius);
-  }
-}
-
 /* Tag sizes */
 .is-small {
   height: var(--tag-size-small);
 
   .remove-button {
-    margin-left: calc(-1 * var(--spacer-smallest));
-  }
-
-  .label-button {
-    font-size: calc(1.2 * var(--unit));
-    line-height: var(--tag-size-small);
-    padding: 0 var(--spacer-smaller);
-  }
-
-  .label-button,
-  .remove-button {
     height: var(--tag-size-small);
+    margin-left: calc(-1 * var(--spacer-smallest));
   }
 }
 
@@ -86,18 +60,8 @@
   height: var(--tag-size-medium);
 
   .remove-button {
-    margin-left: calc(-1 * var(--spacer-smaller));
-  }
-
-  .label-button {
-    font-size: calc(1.4 * var(--unit));
-    line-height: var(--tag-size-medium);
-    padding: 0 var(--spacer-small);
-  }
-
-  .label-button,
-  .remove-button {
     height: var(--tag-size-medium);
+    margin-left: calc(-1 * var(--spacer-smaller));
   }
 }
 
@@ -105,17 +69,7 @@
   height: var(--tag-size-large);
 
   .remove-button {
-    margin-left: calc(-1 * var(--spacer-smaller));
-  }
-
-  .label-button {
-    font-size: calc(1.4 * var(--unit));
-    line-height: var(--tag-size-large);
-    padding: 0 var(--spacer-small);
-  }
-
-  .label-button,
-  .remove-button {
     height: var(--tag-size-large);
+    margin-left: calc(-1 * var(--spacer-smaller));
   }
 }

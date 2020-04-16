@@ -25,15 +25,8 @@ class Tag extends PureComponent {
     const TextElement = size === 'small' ? UITextSmall : size === 'large' ? UITextDisplay : UITextBody;
 
     return (
-      <Box className={classNames} data-teamleader-ui="tag" {...others}>
-        {onLabelClick ? (
-          <Button className={theme['label-button']} onClick={onLabelClick} level="outline" disabled={disabled}>
-            {children}
-          </Button>
-        ) : (
-          <TextElement marginHorizontal={2}>{children}</TextElement>
-        )}
-
+      <Box className={classNames} data-teamleader-ui="tag" onClick={onLabelClick} {...others}>
+        <TextElement marginHorizontal={2}>{children}</TextElement>
         {onRemoveClick && (
           <IconButton
             className={theme['remove-button']}
