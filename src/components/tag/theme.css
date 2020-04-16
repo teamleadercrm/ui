@@ -40,6 +40,10 @@
     opacity: 0.48;
   }
 
+  &.is-selected {
+    background-color: color(var(--color-neutral-darkest) a(24%)) !important;
+  }
+
   .remove-button {
     transition: background-color 0.2s var(--animation-curve-fast-out-slow-in),
       border-color var(--animation-duration) var(--animation-curve-fast-out-slow-in),

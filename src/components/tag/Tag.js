@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../box';
-import Button from '../button';
 import IconButton from '../iconButton';
 import cx from 'classnames';
 import theme from './theme.css';
@@ -10,7 +9,7 @@ import { UITextBody, UITextDisplay, UITextSmall } from '../typography';
 
 class Tag extends PureComponent {
   render() {
-    const { children, className, onRemoveClick, size, disabled, ...others } = this.props;
+    const { children, className, onRemoveClick, selected, size, disabled, ...others } = this.props;
 
     const classNames = cx(
       theme['tag'],
@@ -18,6 +17,7 @@ class Tag extends PureComponent {
       {
         [theme['is-removable']]: onRemoveClick,
         [theme['is-disabled']]: disabled,
+        [theme['is-selected']]: selected,
       },
       className,
     );
@@ -47,6 +47,8 @@ Tag.propTypes = {
   className: PropTypes.string,
   disabled: PropTypes.bool,
   onRemoveClick: PropTypes.func,
+  /** If true, component will be shown in a selected state */
+  selected: PropTypes.bool,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
 };
 

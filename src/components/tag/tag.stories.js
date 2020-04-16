@@ -21,6 +21,7 @@ export const clickable = () => (
   <Tag
     element="button"
     onClick={() => console.log('Tag label clicked')}
+    selected={boolean('Selected', false)}
     size={select('Size', sizes, 'medium')}
     disabled={boolean('Disabled', false)}
   >
@@ -31,6 +32,7 @@ export const clickable = () => (
 export const closable = () => (
   <Tag
     onRemoveClick={() => console.log('Tag removed')}
+    selected={boolean('Selected', false)}
     size={select('Size', sizes, 'medium')}
     disabled={boolean('Disabled', false)}
   >
@@ -43,6 +45,7 @@ export const clickableClosable = () => (
     element="button"
     onClick={() => console.log('Tag label clicked')}
     onRemoveClick={() => console.log('Tag removed')}
+    selected={boolean('Selected', false)}
     size={select('Size', sizes, 'medium')}
     disabled={boolean('Disabled', false)}
   >
@@ -55,7 +58,11 @@ clickableClosable.story = {
 };
 
 export const withTooltip = () => (
-  <TooltippedTag tooltip={<TextBody>I am the tooltip</TextBody>} disabled={boolean('Disabled', false)}>
+  <TooltippedTag
+    tooltip={<TextBody>I am the tooltip</TextBody>}
+    disabled={boolean('Disabled', false)}
+    selected={boolean('Selected', false)}
+  >
     Tag with tooltip
   </TooltippedTag>
 );
