@@ -45,6 +45,10 @@
     color: var(--color-neutral-darkest);
     pointer-events: none;
   }
+
+  :global(.public-DraftEditorPlaceholder-hasFocus) {
+    color: var(--color-neutral-dark);
+  }
 }
 
 .toolbar {
