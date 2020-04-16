@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Editor } from 'react-draft-wysiwyg';
 import cx from 'classnames';
-import { IconTextBoldMediumOutline, IconTextItalicMediumOutline } from '@teamleader/ui-icons';
+import { IconTextBoldMediumOutline, IconTextItalicMediumOutline, IconListNumeredMediumOutline, IconListMediumOutline } from '@teamleader/ui-icons';
 
 import Box from '../box';
 import IconButton from '../iconButton';
@@ -25,7 +25,7 @@ const InlineStyling = ({
   };
 
   return (
-    <Box display="flex" borderRightWidth={1}>
+    <Box display="flex" borderRightWidth={1} marginRight={2}>
       {options.map((optionType) => (
         <IconButton
           icon={iconsByOptionType[optionType]}
@@ -41,13 +41,50 @@ const InlineStyling = ({
   );
 };
 
+const ListStyling = ({
+    config: {
+      options,
+      unordered: { icon: unorderedIcon },
+      ordered: { icon: orderedIcon },
+    },
+    currentState,
+    onChange,
+  }) => {
+    const iconsByOptionType = {
+      unordered: unorderedIcon,
+      ordered: orderedIcon,
+    };
+  
+    return (
+      <Box display="flex" borderRightWidth={1} marginRight={2}>
+        {options.map((optionType) => (
+          <IconButton
+            icon={iconsByOptionType[optionType]}
+            color="black"
+            key={optionType}
+            title={optionType}
+            onClick={() => onChange(optionType)}
+            selected={currentState.listType === optionType}
+            marginRight={2}
+          />
+        ))}
+      </Box>
+    );
+  };
+
 const toolbar = {
-  options: ['inline'],
+  options: ['inline', 'list'],
   inline: {
     options: ['bold', 'italic'],
     bold: { icon: <IconTextBoldMediumOutline /> },
     italic: { icon: <IconTextItalicMediumOutline /> },
     component: InlineStyling,
+  },
+  list: {
+    component: ListStyling,
+    options: ['unordered', 'ordered'],
+    unordered: { icon: <IconListMediumOutline /> },
+    ordered: { icon: <IconListNumeredMediumOutline /> },
   },
 };
 
