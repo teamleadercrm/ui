@@ -57,7 +57,7 @@ const customStyleMap = {
   },
 };
 
-const WysiwygEditor = ({ className, error, onFocus, onBlur, success, warning, helpText, ...others }) => {
+const WysiwygEditor = ({ className, error, onFocus, onBlur, success, warning, helpText, width, ...others }) => {
   const [isFocused, setIsFocused] = useState(false);
 
   const handleBlur = (event) => {
@@ -86,7 +86,7 @@ const WysiwygEditor = ({ className, error, onFocus, onBlur, success, warning, he
   );
 
   return (
-    <>
+    <Box style={{ width, flex: width && '0 0 auto' }}>
       <Editor
         toolbar={toolbar}
         wrapperClassName={wrapperClassNames}
@@ -98,7 +98,7 @@ const WysiwygEditor = ({ className, error, onFocus, onBlur, success, warning, he
         {...others}
       />
       <ValidationText error={error} help={helpText} success={success} warning={warning} />
-    </>
+    </Box>
   );
 };
 
@@ -111,6 +111,8 @@ WysiwygEditor.propTypes = {
   success: PropTypes.oneOfType([PropTypes.bool, PropTypes.node]),
   /** The text string/element to use as a suffix inside the input field */
   warning: PropTypes.oneOfType([PropTypes.bool, PropTypes.node]),
+  /** A custom width for the editor field */
+  width: PropTypes.string,
 };
 
 export default WysiwygEditor;

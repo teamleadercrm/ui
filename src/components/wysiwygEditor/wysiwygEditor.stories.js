@@ -15,5 +15,6 @@ export const wysiwygEditor = () => (
     success={text('Success', '')}
     warning={text('Warning', '')}
     helpText={text('Help text', '')}
+    width={text('Width', undefined)}
   />
 );
