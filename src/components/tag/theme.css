@@ -52,7 +52,6 @@
 
   .remove-button {
     height: var(--tag-size-small);
-    margin-left: calc(-1 * var(--spacer-smallest));
   }
 }
 
@@ -61,7 +60,6 @@
 
   .remove-button {
     height: var(--tag-size-medium);
-    margin-left: calc(-1 * var(--spacer-smaller));
   }
 }
 
@@ -70,6 +68,5 @@
 
   .remove-button {
     height: var(--tag-size-large);
-    margin-left: calc(-1 * var(--spacer-smaller));
   }
 }
