@@ -10,7 +10,7 @@ import uiUtilities from '@teamleader/ui-utilities';
 
 class Tag extends PureComponent {
   render() {
-    const { children, className, inverse, onLabelClick, onRemoveClick, size, color, disabled, ...others } = this.props;
+    const { children, className, onLabelClick, onRemoveClick, size, color, disabled, ...others } = this.props;
 
     const classNames = cx(
       theme['tag'],
@@ -18,25 +18,18 @@ class Tag extends PureComponent {
       theme[color],
       {
         [theme['is-removable']]: onRemoveClick,
-        [theme['is-inverse']]: inverse,
         [theme['is-disabled']]: disabled,
       },
       className,
     );
 
-    const closeButtonColor = inverse ? 'white' : 'neutral';
+    const closeButtonColor = 'neutral';
     const closeButtonIcon = <IconCloseSmallOutline />;
 
     return (
       <Box className={classNames} data-teamleader-ui="tag" {...others}>
         {onLabelClick ? (
-          <Button
-            className={theme['label-button']}
-            onClick={onLabelClick}
-            level="outline"
-            inverse={inverse}
-            disabled={disabled}
-          >
+          <Button className={theme['label-button']} onClick={onLabelClick} level="outline" disabled={disabled}>
             {children}
           </Button>
         ) : (
@@ -62,7 +55,6 @@ Tag.propTypes = {
   children: PropTypes.any.isRequired,
   className: PropTypes.string,
   disabled: PropTypes.bool,
-  inverse: PropTypes.bool,
   onLabelClick: PropTypes.func,
   onRemoveClick: PropTypes.func,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
@@ -70,7 +62,6 @@ Tag.propTypes = {
 };
 
 Tag.defaultProps = {
-  inverse: false,
   size: 'medium',
   color: 'neutral',
 };

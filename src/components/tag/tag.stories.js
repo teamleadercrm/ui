@@ -16,7 +16,6 @@ export const basic = () => (
   <Tag
     color={select('Color', colors, 'neutral')}
     size={select('Size', sizes, 'medium')}
-    inverse={boolean('Inverse', false)}
     disabled={boolean('Disabled', false)}
   >
     I am a tag
@@ -26,7 +25,6 @@ export const basic = () => (
 export const clickable = () => (
   <Tag
     color={select('Color', colors, 'neutral')}
-    inverse={boolean('Inverse', false)}
     onLabelClick={() => console.log('Tag label clicked')}
     size={select('Size', sizes, 'medium')}
     disabled={boolean('Disabled', false)}
@@ -38,7 +36,6 @@ export const clickable = () => (
 export const closable = () => (
   <Tag
     color={select('Color', colors, 'neutral')}
-    inverse={boolean('Inverse', false)}
     onRemoveClick={() => console.log('Tag removed')}
     size={select('Size', sizes, 'medium')}
     disabled={boolean('Disabled', false)}
@@ -50,7 +47,6 @@ export const closable = () => (
 export const clickableClosable = () => (
   <Tag
     color={select('Color', colors, 'neutral')}
-    inverse={boolean('Inverse', false)}
     onLabelClick={() => console.log('Tag label clicked')}
     onRemoveClick={() => console.log('Tag removed')}
     size={select('Size', sizes, 'medium')}
@@ -67,7 +63,6 @@ clickableClosable.story = {
 export const withTooltip = () => (
   <TooltippedTag
     color={select('Color', colors, 'neutral')}
-    inverse={boolean('Inverse', false)}
     tooltip={<TextBody>I am the tooltip</TextBody>}
     disabled={boolean('Disabled', false)}
   >
