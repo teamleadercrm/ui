@@ -6,7 +6,7 @@ import IconButton from '../iconButton';
 import cx from 'classnames';
 import theme from './theme.css';
 import { IconCloseSmallOutline } from '@teamleader/ui-icons';
-import uiUtilities from '@teamleader/ui-utilities';
+import { UITextBody, UITextDisplay, UITextSmall } from '../typography';
 
 class Tag extends PureComponent {
   render() {
@@ -22,6 +22,8 @@ class Tag extends PureComponent {
       className,
     );
 
+    const TextElement = size === 'small' ? UITextSmall : size === 'large' ? UITextDisplay : UITextBody;
+
     return (
       <Box className={classNames} data-teamleader-ui="tag" {...others}>
         {onLabelClick ? (
@@ -29,7 +31,7 @@ class Tag extends PureComponent {
             {children}
           </Button>
         ) : (
-          <span className={cx(uiUtilities['reset-font-smoothing'], theme['label'])}>{children}</span>
+          <TextElement marginHorizontal={2}>{children}</TextElement>
         )}
 
         {onRemoveClick && (
