@@ -27,6 +27,10 @@
   font-size: var(--input-text-size);
   font-family: var(--font-family-regular);
 
+  &:hover {
+    cursor: text;
+  }
+
   & div[id*='placeholder'] {
     position: absolute;
     color: var(--color-neutral-darkest);
