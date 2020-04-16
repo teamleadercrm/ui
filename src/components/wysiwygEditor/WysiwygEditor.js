@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Editor } from 'react-draft-wysiwyg';
 import cx from 'classnames';
-import { IconTextBoldMediumOutline, IconTextItalicMediumOutline, IconListNumeredMediumOutline, IconListMediumOutline } from '@teamleader/ui-icons';
+import {
+  IconTextBoldMediumOutline,
+  IconTextItalicMediumOutline,
+  IconListNumeredMediumOutline,
+  IconListMediumOutline,
+} from '@teamleader/ui-icons';
 
 import Box from '../box';
 import IconButton from '../iconButton';
@@ -42,35 +47,35 @@ const InlineStyling = ({
 };
 
 const ListStyling = ({
-    config: {
-      options,
-      unordered: { icon: unorderedIcon },
-      ordered: { icon: orderedIcon },
-    },
-    currentState,
-    onChange,
-  }) => {
-    const iconsByOptionType = {
-      unordered: unorderedIcon,
-      ordered: orderedIcon,
-    };
-  
-    return (
-      <Box display="flex" borderRightWidth={1} marginRight={2}>
-        {options.map((optionType) => (
-          <IconButton
-            icon={iconsByOptionType[optionType]}
-            color="black"
-            key={optionType}
-            title={optionType}
-            onClick={() => onChange(optionType)}
-            selected={currentState.listType === optionType}
-            marginRight={2}
-          />
-        ))}
-      </Box>
-    );
+  config: {
+    options,
+    unordered: { icon: unorderedIcon },
+    ordered: { icon: orderedIcon },
+  },
+  currentState,
+  onChange,
+}) => {
+  const iconsByOptionType = {
+    unordered: unorderedIcon,
+    ordered: orderedIcon,
   };
+
+  return (
+    <Box display="flex" borderRightWidth={1} marginRight={2}>
+      {options.map((optionType) => (
+        <IconButton
+          icon={iconsByOptionType[optionType]}
+          color="black"
+          key={optionType}
+          title={optionType}
+          onClick={() => onChange(optionType)}
+          selected={currentState.listType === optionType}
+          marginRight={2}
+        />
+      ))}
+    </Box>
+  );
+};
 
 const toolbar = {
   options: ['inline', 'list'],
@@ -96,6 +101,7 @@ const customStyleMap = {
 
 const WysiwygEditor = ({ className, error, onFocus, onBlur, success, warning, helpText, width, ...others }) => {
   const [isFocused, setIsFocused] = useState(false);
+  const [isPlaceholderShown, setIsPlaceholderShown] = useState(true);
 
   const handleBlur = (event) => {
     setIsFocused(false);
@@ -111,6 +117,14 @@ const WysiwygEditor = ({ className, error, onFocus, onBlur, success, warning, he
     }
   };
 
+  const handleContentStateChange = ({ blocks: [{ type }] }) => {
+    if (type === 'unstyled') {
+      setIsPlaceholderShown(true);
+      return;
+    }
+    setIsPlaceholderShown(false);
+  };
+
   const wrapperClassNames = cx(
     theme['wrapper'],
     {
@@ -118,6 +132,7 @@ const WysiwygEditor = ({ className, error, onFocus, onBlur, success, warning, he
       [theme['has-error']]: error,
       [theme['has-success']]: success,
       [theme['has-warning']]: warning,
+      [theme['has-placeholder']]: isPlaceholderShown,
     },
     className,
   );
@@ -131,6 +146,7 @@ const WysiwygEditor = ({ className, error, onFocus, onBlur, success, warning, he
         toolbarClassName={theme['toolbar']}
         onFocus={handleFocus}
         onBlur={handleBlur}
+        onContentStateChange={handleContentStateChange}
         customStyleMap={customStyleMap}
         {...others}
       />

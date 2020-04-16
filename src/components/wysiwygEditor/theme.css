@@ -30,17 +30,21 @@
   &:hover {
     cursor: text;
   }
-
-  & div[id*='placeholder'] {
-    position: absolute;
-    color: var(--color-neutral-darkest);
-    pointer-events: none;
-  }
 }
 
 .wrapper {
   width: 100%;
   border-radius: var(--input-border-radius);
+
+  &:not(.has-placeholder) :global(.public-DraftEditorPlaceholder-root) {
+    display: none;
+  }
+
+  :global(.public-DraftEditorPlaceholder-root) {
+    position: absolute;
+    color: var(--color-neutral-darkest);
+    pointer-events: none;
+  }
 }
 
 .toolbar {
