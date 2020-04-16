@@ -34,6 +34,7 @@
     "@teamleader/ui-typography": "^0.2.3",
     "@teamleader/ui-utilities": "^0.2.0",
     "classnames": "^2.2.5",
+    "draft-js": "0.10.5",
     "lodash.omit": "^4.5.0",
     "lodash.pick": "^4.4.0",
     "lodash.throttle": "^4.1.1",
@@ -145,8 +146,5 @@
     "prettier": "prettier --write './{src,.storybook}/**/*.{js,json,md,css}'",
     "prepare": "yarn build",
     "start": "PORT=${PORT:-3000}; start-storybook --port $PORT"
-  },
-  "peerDependencies": {
-    "draft-js": "0.10.5"
   }
 }
