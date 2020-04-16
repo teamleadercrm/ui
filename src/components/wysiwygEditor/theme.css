@@ -35,6 +35,10 @@
 .wrapper {
   width: 100%;
   border-radius: var(--input-border-radius);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  text-size-adjust: 100%;
 
   &:not(.has-placeholder) :global(.public-DraftEditorPlaceholder-root) {
     display: none;
