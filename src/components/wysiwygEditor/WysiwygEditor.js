@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Editor } from 'react-draft-wysiwyg';
 import cx from 'classnames';
 import { IconTextBoldMediumOutline, IconTextItalicMediumOutline } from '@teamleader/ui-icons';
@@ -99,6 +100,17 @@ const WysiwygEditor = ({ className, error, onFocus, onBlur, success, warning, he
       <ValidationText error={error} help={helpText} success={success} warning={warning} />
     </>
   );
+};
+
+WysiwygEditor.propTypes = {
+  /** The text string/element to use as error message below the input. */
+  error: PropTypes.oneOfType([PropTypes.bool, PropTypes.node]),
+  /** The text string to use as help text below the input. */
+  helpText: PropTypes.string,
+  /** The text string/element to use as a prefix inside the input field */
+  success: PropTypes.oneOfType([PropTypes.bool, PropTypes.node]),
+  /** The text string/element to use as a suffix inside the input field */
+  warning: PropTypes.oneOfType([PropTypes.bool, PropTypes.node]),
 };
 
 export default WysiwygEditor;
