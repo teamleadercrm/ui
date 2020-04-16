@@ -6,8 +6,8 @@
   --tag-border-radius: calc(0.4 * var(--unit));
   --tag-border-width: 2px;
   --tag-size-small: 24px;
-  --tag-size-medium: 30px;
-  --tag-size-large: 36px;
+  --tag-size-medium: 24px;
+  --tag-size-large: 30px;
 }
 
 .tag {
@@ -65,7 +65,7 @@
   height: var(--tag-size-small);
 
   .remove-button {
-    height: var(--tag-size-small);
+    height: calc(var(--tag-size-small) - 2px);
   }
 }
 
@@ -73,7 +73,7 @@
   height: var(--tag-size-medium);
 
   .remove-button {
-    height: var(--tag-size-medium);
+    height: calc(var(--tag-size-medium) - 2px);
   }
 }
 
@@ -81,6 +81,6 @@
   height: var(--tag-size-large);
 
   .remove-button {
-    height: var(--tag-size-large);
+    height: calc(var(--tag-size-large) - 2px);
   }
 }
