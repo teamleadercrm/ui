@@ -1,0 +1,97 @@
+@import '@teamleader/ui-colors';
+@import '@teamleader/ui-typography';
+@import '@teamleader/ui-animations';
+
+/**
+ * Variables
+ */
+:root {
+  --input-text-size: calc(1.4 * var(--unit));
+  --input-border-radius: calc(0.4 * var(--unit));
+  --input-error-border: var(--color-ruby-dark);
+  --input-success-border: var(--color-mint-dark);
+  --input-warning-border: var(--color-gold-dark);
+  --input-min-height: calc(15.4 * var(--unit));
+  --input-spacing: calc(0.5 * var(--unit));
+}
+
+/**
+ * Components
+ */
+.input {
+  height: 100%;
+  overflow: auto;
+  min-height: var(--input-min-height);
+  margin: var(--input-spacing);
+  resize: vertical;
+  font-size: var(--input-text-size);
+  font-family: var(--font-family-regular);
+
+  &:hover {
+    cursor: text;
+  }
+
+  & div[id*='placeholder'] {
+    position: absolute;
+    color: var(--color-neutral-darkest);
+    pointer-events: none;
+  }
+}
+
+.wrapper {
+  width: 100%;
+  border-radius: var(--input-border-radius);
+}
+
+.toolbar {
+  background-color: var(--color-neutral-light);
+  border-bottom: solid 1px var(--color-neutral);
+  border-radius: var(--input-border-radius) var(--input-border-radius) 0 0;
+  display: flex;
+  padding: calc(0.6 * var(--unit));
+}
+
+/*
+  Default styling
+*/
+
+.wrapper {
+  border: 1px solid var(--color-neutral-dark);
+  background-color: var(--color-white);
+}
+
+/* Hover state */
+.wrapper:hover {
+  border-color: var(--color-neutral-darkest);
+}
+
+/* Focus state */
+.wrapper.has-focus {
+  z-index: 1;
+}
+
+.wrapper.has-focus {
+  border-color: var(--color-neutral-darkest);
+  box-shadow: 0 0 0 1px var(--color-neutral-darkest);
+}
+
+/**
+ * Modifiers
+ */
+.wrapper.has-success {
+  border-color: var(--input-success-border);
+  box-shadow: 0 0 0 1px var(--input-success-border);
+  z-index: 2;
+}
+
+.wrapper.has-warning {
+  border-color: var(--input-warning-border);
+  box-shadow: 0 0 0 1px var(--input-warning-border);
+  z-index: 2;
+}
+
+.wrapper.has-error {
+  border-color: var(--input-error-border);
+  box-shadow: 0 0 0 1px var(--input-error-border);
+  z-index: 2;
+}
