@@ -6,12 +6,14 @@
 - `Badge`: added `selected` boolean prop which shows the badge in a selected state. ([@driesd](https://github.com/driesd) in [#1014](https://github.com/teamleadercrm/ui/pull/1014))
 - `IconButton`: added `large` size variation. ([@driesd](https://github.com/driesd) in [#1009](https://github.com/teamleadercrm/ui/pull/1009))
 - `IconButton`: added `selected` boolean prop which shows the button in a selected state. ([@driesd](https://github.com/driesd) in [#1009](https://github.com/teamleadercrm/ui/pull/1009))
+- `Tag`: added `selected` boolean prop which shows the tag in a selected state. ([@driesd](https://github.com/driesd) in [#1020](https://github.com/teamleadercrm/ui/pull/1020))
 
 ### Changed
 
 - `Badge`: adjusted visual states. ([@driesd](https://github.com/driesd) in [#1014](https://github.com/teamleadercrm/ui/pull/1014))
 - `IconButton`: adjusted visual states. ([@driesd](https://github.com/driesd) in [#1009](https://github.com/teamleadercrm/ui/pull/1009))
 - [Breaking] `IconButton`: changed attribute `data-teamleader-ui` value from `button` to `icon-button`. ([@driesd](https://github.com/driesd) in [#1009](https://github.com/teamleadercrm/ui/pull/1009))
+- `Tag`: adjusted visual states. ([@driesd](https://github.com/driesd) in [#1020](https://github.com/teamleadercrm/ui/pull/1020))
 
 ### Deprecated
 
@@ -20,6 +22,9 @@
 - [Breaking] `Badge`: removed `inherit` mode. ([@driesd](https://github.com/driesd) in [#1014](https://github.com/teamleadercrm/ui/pull/1014))
 - [Breaking] `Badge`: removed `inverse` mode. ([@driesd](https://github.com/driesd) in [#1014](https://github.com/teamleadercrm/ui/pull/1014))
 - [Breaking] `Badge`: removed `color` variants. ([@driesd](https://github.com/driesd) in [#1014](https://github.com/teamleadercrm/ui/pull/1014))
+- [Breaking] `Tag`: removed `inverse` mode. ([@driesd](https://github.com/driesd) in [#1020](https://github.com/teamleadercrm/ui/pull/1020))
+- [Breaking] `Tag`: removed `color` variants. ([@driesd](https://github.com/driesd) in [#1020](https://github.com/teamleadercrm/ui/pull/1020))
+- [Breaking] `Tag`: removed `onLabelClick` prop. Use `onClick` instead ([@driesd](https://github.com/driesd) in [#1020](https://github.com/teamleadercrm/ui/pull/1020))
 
 ### Fixed
 

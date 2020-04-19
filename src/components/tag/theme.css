@@ -6,103 +6,48 @@
   --tag-border-radius: calc(0.4 * var(--unit));
   --tag-border-width: 2px;
   --tag-size-small: 24px;
-  --tag-size-medium: 30px;
-  --tag-size-large: 36px;
+  --tag-size-medium: 24px;
+  --tag-size-large: 30px;
 }
 
 .tag {
   border-radius: var(--tag-border-radius);
   display: inline-flex;
   align-items: center;
+  border-style: solid;
+  border-width: 1px;
+  background-color: color(var(--color-neutral-darkest) a(12%));
+  border-color: color(var(--color-neutral-darkest) a(12%));
+  outline: none;
 
-  &.neutral {
-    border-style: solid;
-    border-width: 1px;
+  &.is-clickable:not(.is-disabled) {
+    cursor: pointer;
 
-    &:not(.is-inverse) {
+    &:hover {
+      background-color: color(var(--color-neutral-darkest) a(18%));
+    }
+
+    &:focus {
       background-color: color(var(--color-neutral-darkest) a(12%));
-      border-color: color(var(--color-neutral-darkest) a(12%));
-
-      .label {
-        color: var(--color-teal-darkest);
-      }
-
-      .label-button:not(:disabled) {
-        &:focus {
-          box-shadow: 0 0 0 var(--tag-border-width) color(var(--color-teal-darkest) a(36%)) !important;
-        }
-
-        &:active {
-          background-color: color(var(--color-teal-darkest) a(6%));
-          box-shadow: inset 0 2px 3px 0 color(var(--color-teal-darkest) a(12%)) !important;
-        }
-      }
+      border-color: color(var(--color-neutral-darkest) a(24%));
+      box-shadow: 0 0 0 var(--tag-border-width) color(var(--color-neutral-darkest) a(24%));
     }
 
-    &.is-inverse {
-      background: color(var(--color-neutral-lightest) a(12%));
-      border-color: color(var(--color-neutral-lightest) a(12%));
-
-      .label {
-        color: var(--color-neutral-lightest);
-      }
-
-      .label-button:not(:disabled) {
-        &:focus {
-          box-shadow: 0 0 0 var(--tag-border-width) color(var(--color-white) a(50%)) !important;
-        }
-
-        &:active {
-          background-color: color(var(--color-white) a(12%));
-          box-shadow: inset 0 2px 3px 0 color(var(--color-teal-darkest) a(12%)) !important;
-        }
-      }
-    }
-  }
-
-  @each $color in (mint, violet, ruby, gold, aqua) {
-    &.$(color) {
-      background-color: color(var(--color-$(color)-light) a(48%));
-      border: 1px solid color(var(--color-$(color)-light) a(48%));
-
-      .label,
-      .label-button,
-      .remove-button {
-        color: var(--color-$(color)-darkest);
-      }
-
-      &:not(.is-disabled) {
-        .label-button,
-        .remove-button {
-          &:hover {
-            background-color: transparent;
-            box-shadow: 0 0 0 var(--tag-border-width) color(var(--color-$(color)-light) a(100%)) !important;
-          }
-
-          &:active {
-            box-shadow: inset 0 1px 3px 0 var(--color-$(color)-light) !important;
-            background-color: color(var(--color-$(color)-light) a(48%));
-          }
-
-          &:focus {
-            background-color: color(var(--color-$(color)-light) a(48%));
-            box-shadow: 0 0 0 var(--tag-border-width) color(var(--color-$(color)-light) a(100%)) !important;
-          }
-        }
-      }
+    &:active {
+      box-shadow: inset 0 2px 3px color(var(--color-neutral-darkest) a(12%));
+      background-color: color(var(--color-neutral-darkest) a(18%));
     }
   }
 
   &.is-disabled {
     opacity: 0.48;
-
-    button {
-      background-color: transparent !important;
-      opacity: 1 !important;
-    }
+    pointer-events: none;
   }
 
-  .button-label,
+  &.is-selected {
+    background-color: color(var(--color-neutral-darkest) a(24%)) !important;
+  }
+
   .remove-button {
     transition: background-color 0.2s var(--animation-curve-fast-out-slow-in),
       border-color var(--animation-duration) var(--animation-curve-fast-out-slow-in),
@@ -110,23 +55,9 @@
   }
 }
 
-.label {
-  font-family: var(--font-family-medium);
-}
-
 .remove-button {
   border-radius: 0 var(--tag-border-radius) var(--tag-border-radius) 0;
   padding: 0 var(--spacer-smaller) !important;
-}
-
-.label-button {
-  border: 0 !important;
-}
-
-.is-removable {
-  .label-button {
-    border-radius: var(--tag-border-radius) 0 0 var(--tag-border-radius);
-  }
 }
 
 /* Tag sizes */
@@ -134,19 +65,7 @@
   height: var(--tag-size-small);
 
   .remove-button {
-    margin-left: calc(-1 * var(--spacer-smallest));
-  }
-
-  .label,
-  .label-button {
-    font-size: calc(1.2 * var(--unit));
-    line-height: var(--tag-size-small);
-    padding: 0 var(--spacer-smaller);
-  }
-
-  .label-button,
-  .remove-button {
-    height: var(--tag-size-small);
+    height: calc(var(--tag-size-small) - 2px);
   }
 }
 
@@ -154,19 +73,7 @@
   height: var(--tag-size-medium);
 
   .remove-button {
-    margin-left: calc(-1 * var(--spacer-smaller));
-  }
-
-  .label,
-  .label-button {
-    font-size: calc(1.4 * var(--unit));
-    line-height: var(--tag-size-medium);
-    padding: 0 var(--spacer-small);
-  }
-
-  .label-button,
-  .remove-button {
-    height: var(--tag-size-medium);
+    height: calc(var(--tag-size-medium) - 2px);
   }
 }
 
@@ -174,18 +81,6 @@
   height: var(--tag-size-large);
 
   .remove-button {
-    margin-left: calc(-1 * var(--spacer-smaller));
-  }
-
-  .label,
-  .label-button {
-    font-size: calc(1.4 * var(--unit));
-    line-height: var(--tag-size-large);
-    padding: 0 var(--spacer-small);
-  }
-
-  .label-button,
-  .remove-button {
-    height: var(--tag-size-large);
+    height: calc(var(--tag-size-large) - 2px);
   }
 }
