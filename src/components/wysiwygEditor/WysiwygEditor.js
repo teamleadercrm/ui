@@ -18,38 +18,8 @@ import Input from '../input';
 import Button from '../button';
 import Label from '../label';
 
+import InlineStylingOptions from './InlineStylingOptions';
 import theme from './theme.css';
-
-const InlineStyling = ({
-  config: {
-    options,
-    bold: { icon: boldIcon },
-    italic: { icon: italicIcon },
-  },
-  currentState,
-  onChange,
-}) => {
-  const iconsByOptionType = {
-    bold: boldIcon,
-    italic: italicIcon,
-  };
-
-  return (
-    <Box display="flex" borderRightWidth={1} marginRight={2}>
-      {options.map((optionType) => (
-        <IconButton
-          icon={iconsByOptionType[optionType]}
-          color="black"
-          key={optionType}
-          title={optionType}
-          onClick={() => onChange(optionType)}
-          selected={currentState[optionType]}
-          marginRight={2}
-        />
-      ))}
-    </Box>
-  );
-};
 
 const ListStyling = ({
   config: {
@@ -175,7 +145,7 @@ const toolbar = {
     options: ['bold', 'italic'],
     bold: { icon: <IconTextBoldMediumOutline /> },
     italic: { icon: <IconTextItalicMediumOutline /> },
-    component: InlineStyling,
+    component: InlineStylingOptions,
   },
   list: {
     component: ListStyling,
