@@ -16,6 +16,7 @@ import ValidationText from '../validationText';
 import InlineStylingOptions from './InlineStylingOptions';
 import ListStylingOptions from './ListStylingOptions';
 import LinkOptions from './LinkOptions';
+import { linkDecorator } from './decorators';
 import theme from './theme.css';
 
 const toolbar = {
@@ -96,6 +97,7 @@ const WysiwygEditor = ({ className, error, onFocus, onBlur, success, warning, he
         onBlur={handleBlur}
         onContentStateChange={handleContentStateChange}
         customStyleMap={customStyleMap}
+        customDecorators={[linkDecorator]}
         {...others}
       />
       <ValidationText error={error} help={helpText} success={success} warning={warning} />
