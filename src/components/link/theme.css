@@ -95,8 +95,11 @@
 
   &:hover,
   &:focus {
-    background: color(var(--color-neutral-darkest) a(12%));
     text-decoration: none !important;
+  }
+
+  &:hover {
+    background: color(var(--color-neutral-darkest) a(18%));
   }
 
   &:focus {
