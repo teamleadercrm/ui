@@ -2,6 +2,20 @@
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Dependency updates
+
+## [0.42.0] - 2020-04-20
+
+### Added
+
 - `Badge`: added `size` prop with `small`, `medium` (default) & `large` as possible values. ([@driesd](https://github.com/driesd) in [#1014](https://github.com/teamleadercrm/ui/pull/1014))
 - `Badge`: added `selected` boolean prop which shows the badge in a selected state. ([@driesd](https://github.com/driesd) in [#1014](https://github.com/teamleadercrm/ui/pull/1014))
 - `IconButton`: added `large` size variation. ([@driesd](https://github.com/driesd) in [#1009](https://github.com/teamleadercrm/ui/pull/1009))
@@ -17,8 +31,6 @@
 - `Link`: adjusted visual states. ([@driesd](https://github.com/driesd) in [#1027](https://github.com/teamleadercrm/ui/pull/1027))
 - `Tag`: adjusted visual states. ([@driesd](https://github.com/driesd) in [#1020](https://github.com/teamleadercrm/ui/pull/1020))
 
-### Deprecated
-
 ### Removed
 
 - [Breaking] `Badge`: removed `inherit` mode. ([@driesd](https://github.com/driesd) in [#1014](https://github.com/teamleadercrm/ui/pull/1014))
@@ -28,9 +40,17 @@
 - [Breaking] `Tag`: removed `color` variants. ([@driesd](https://github.com/driesd) in [#1020](https://github.com/teamleadercrm/ui/pull/1020))
 - [Breaking] `Tag`: removed `onLabelClick` prop. Use `onClick` instead ([@driesd](https://github.com/driesd) in [#1020](https://github.com/teamleadercrm/ui/pull/1020))
 
-### Fixed
-
 ### Dependency updates
+
+- `@babel/preset-env from 7.9.0 to 7.9.5`
+- `@teamleader/ui-icons from 0.2.26 to 0.2.27`
+- `css-loader from 3.5.1 to 3.5.2`
+- `eslint-plugin-prettier from 3.1.2 to 3.1.3`
+- `husky from 4.2.3 to 4.2.5`
+- `html-webpack-plugin from 4.0.4 to 4.2.0`
+- `react-resize-detector from 4.2.1 to 4.2.3`
+- `react-day-picker from 7.4.0 to 7.4.6`
+- `style-loader from 1.1.3 to 1.1.4`
 
 ## [0.41.0] - 2020-04-09
 
