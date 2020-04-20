@@ -6,6 +6,7 @@
 - `Badge`: added `selected` boolean prop which shows the badge in a selected state. ([@driesd](https://github.com/driesd) in [#1014](https://github.com/teamleadercrm/ui/pull/1014))
 - `IconButton`: added `large` size variation. ([@driesd](https://github.com/driesd) in [#1009](https://github.com/teamleadercrm/ui/pull/1009))
 - `IconButton`: added `selected` boolean prop which shows the button in a selected state. ([@driesd](https://github.com/driesd) in [#1009](https://github.com/teamleadercrm/ui/pull/1009))
+- `Link`: added `selected` boolean prop which shows the link in a selected state. ([@driesd](https://github.com/driesd) in [#1027](https://github.com/teamleadercrm/ui/pull/1027))
 - `Tag`: added `selected` boolean prop which shows the tag in a selected state. ([@driesd](https://github.com/driesd) in [#1020](https://github.com/teamleadercrm/ui/pull/1020))
 
 ### Changed
@@ -13,6 +14,7 @@
 - `Badge`: adjusted visual states. ([@driesd](https://github.com/driesd) in [#1014](https://github.com/teamleadercrm/ui/pull/1014))
 - `IconButton`: adjusted visual states. ([@driesd](https://github.com/driesd) in [#1009](https://github.com/teamleadercrm/ui/pull/1009))
 - [Breaking] `IconButton`: changed attribute `data-teamleader-ui` value from `button` to `icon-button`. ([@driesd](https://github.com/driesd) in [#1009](https://github.com/teamleadercrm/ui/pull/1009))
+- `Link`: adjusted visual states. ([@driesd](https://github.com/driesd) in [#1027](https://github.com/teamleadercrm/ui/pull/1027))
 - `Tag`: adjusted visual states. ([@driesd](https://github.com/driesd) in [#1020](https://github.com/teamleadercrm/ui/pull/1020))
 
 ### Deprecated
