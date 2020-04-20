@@ -11,7 +11,7 @@
   --input-error-border: var(--color-ruby-dark);
   --input-success-border: var(--color-mint-dark);
   --input-warning-border: var(--color-gold-dark);
-  --input-min-height: calc(15.4 * var(--unit));
+  --input-min-height: calc(9.3 * var(--unit));
   --input-spacing: calc(0.5 * var(--unit));
 }
 
@@ -30,17 +30,29 @@
   &:hover {
     cursor: text;
   }
-
-  & div[id*='placeholder'] {
-    position: absolute;
-    color: var(--color-neutral-darkest);
-    pointer-events: none;
-  }
 }
 
 .wrapper {
   width: 100%;
   border-radius: var(--input-border-radius);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  text-size-adjust: 100%;
+
+  &:not(.has-placeholder) :global(.public-DraftEditorPlaceholder-root) {
+    display: none;
+  }
+
+  :global(.public-DraftEditorPlaceholder-root) {
+    position: absolute;
+    color: var(--color-neutral-darkest);
+    pointer-events: none;
+  }
+
+  :global(.public-DraftEditorPlaceholder-hasFocus) {
+    color: var(--color-neutral-dark);
+  }
 }
 
 .toolbar {
