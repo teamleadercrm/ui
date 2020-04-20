@@ -103,7 +103,6 @@
   }
 
   &:focus {
-    background-color: color(var(--color-teal-darkest) a(6%));
     box-shadow: 0 0 0 2px color(var(--color-neutral-darkest) a(24%));
     outline: 0;
   }
