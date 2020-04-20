@@ -19,38 +19,8 @@ import Button from '../button';
 import Label from '../label';
 
 import InlineStylingOptions from './InlineStylingOptions';
+import ListStylingOptions from './ListStylingOptions';
 import theme from './theme.css';
-
-const ListStyling = ({
-  config: {
-    options,
-    unordered: { icon: unorderedIcon },
-    ordered: { icon: orderedIcon },
-  },
-  currentState,
-  onChange,
-}) => {
-  const iconsByOptionType = {
-    unordered: unorderedIcon,
-    ordered: orderedIcon,
-  };
-
-  return (
-    <Box display="flex" borderRightWidth={1} marginRight={2}>
-      {options.map((optionType) => (
-        <IconButton
-          icon={iconsByOptionType[optionType]}
-          color="black"
-          key={optionType}
-          title={optionType}
-          onClick={() => onChange(optionType)}
-          selected={currentState.listType === optionType}
-          marginRight={2}
-        />
-      ))}
-    </Box>
-  );
-};
 
 const LinkOptions = ({
   config: {
@@ -148,7 +118,7 @@ const toolbar = {
     component: InlineStylingOptions,
   },
   list: {
-    component: ListStyling,
+    component: ListStylingOptions,
     options: ['unordered', 'ordered'],
     unordered: { icon: <IconListMediumOutline /> },
     ordered: { icon: <IconListNumeredMediumOutline /> },
