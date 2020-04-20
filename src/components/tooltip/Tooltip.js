@@ -144,7 +144,16 @@ const Tooltip = (ComposedComponent) => {
 
     render() {
       const { active, left, top, position } = this.state;
-      const { children, className, tooltip, tooltipColor, tooltipIcon, tooltipSize, ...other } = this.props;
+      const {
+        children,
+        className,
+        tooltip,
+        tooltipColor,
+        tooltipIcon,
+        tooltipSize,
+        tooltipShowDelay,
+        ...other
+      } = this.props;
 
       const rest = omit(other, [
         'onClick',
@@ -154,6 +163,7 @@ const Tooltip = (ComposedComponent) => {
         'tooltipHideOnClick',
         'tooltipPosition',
         'tooltipShowOnClick',
+        'tooltipShowDelay',
         'documentObject',
       ]);
 
@@ -174,7 +184,7 @@ const Tooltip = (ComposedComponent) => {
             in={active}
             onExited={this.handleTransitionExited}
             onEntered={this.handleTransitionEntered}
-            timeout={{ enter: 100, exit: 1000 }}
+            timeout={{ enter: tooltipShowDelay, exit: 1000 }}
           >
             {(state) => {
               const classNames = cx(
@@ -221,6 +231,7 @@ const Tooltip = (ComposedComponent) => {
     tooltipShowOnClick: PropTypes.bool,
     tooltipSize: PropTypes.oneOf(Object.keys(SIZES)),
     documentObject: PropTypes.object.isRequired,
+    tooltipShowDelay: PropTypes.number,
   };
 
   TooltippedComponent.defaultProps = {
@@ -231,6 +242,7 @@ const Tooltip = (ComposedComponent) => {
     tooltipPosition: POSITIONS.TOP,
     tooltipShowOnClick: false,
     tooltipSize: 'medium',
+    tooltipShowDelay: 100,
   };
 
   return DocumentObjectProvider((props) => {

@@ -53,6 +53,7 @@ const InlineStylingOptions = ({
         <TooltippedIconButton
           tooltip={<TooltipMessage optionType={optionType} />}
           tooltipSize="small"
+          tooltipShowDelay={1000}
           icon={iconsByOptionType[optionType]}
           color="black"
           key={optionType}
