@@ -120,6 +120,7 @@ export const badgedLink = () => (
         element={select('Element', elements, 'button')}
         inherit={boolean('Inherit', false)}
         inverse={boolean('Inverse', false)}
+        selected={boolean('Selected', false)}
         marginLeft={-2}
       >
         Badged link
@@ -132,6 +133,7 @@ export const badgedLink = () => (
         element={select('Element', elements, 'button')}
         inherit={boolean('Inherit', false)}
         inverse={boolean('Inverse', false)}
+        selected={boolean('Selected', false)}
         marginLeft={-2}
       >
         Badged link
@@ -144,6 +146,7 @@ export const badgedLink = () => (
         element={select('Element', elements, 'button')}
         inherit={boolean('Inherit', false)}
         inverse={boolean('Inverse', false)}
+        selected={boolean('Selected', false)}
         marginLeft={-2}
       >
         Badged link
@@ -157,6 +160,7 @@ export const badgedLink = () => (
         element={select('Element', elements, 'button')}
         inherit={boolean('Inherit', false)}
         inverse={boolean('Inverse', false)}
+        selected={boolean('Selected', false)}
       >
         badged link
       </Link>
@@ -170,6 +174,7 @@ export const badgedLink = () => (
         element={select('Element', elements, 'button')}
         inherit={boolean('Inherit', false)}
         inverse={boolean('Inverse', false)}
+        selected={boolean('Selected', false)}
       >
         badged link
       </Link>
@@ -183,6 +188,7 @@ export const badgedLink = () => (
         element={select('Element', elements, 'button')}
         inherit={boolean('Inherit', false)}
         inverse={boolean('Inverse', false)}
+        selected={boolean('Selected', false)}
       >
         badged link
       </Link>
