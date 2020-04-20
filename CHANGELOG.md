@@ -22,6 +22,10 @@
 - `IconButton`: added `selected` boolean prop which shows the button in a selected state. ([@driesd](https://github.com/driesd) in [#1009](https://github.com/teamleadercrm/ui/pull/1009))
 - `Link`: added `selected` boolean prop which shows the link in a selected state. ([@driesd](https://github.com/driesd) in [#1027](https://github.com/teamleadercrm/ui/pull/1027))
 - `Tag`: added `selected` boolean prop which shows the tag in a selected state. ([@driesd](https://github.com/driesd) in [#1020](https://github.com/teamleadercrm/ui/pull/1020))
+- `WysiwygEditor`: added a first basic version of this component. ([@mikeverf](https://github.com/mikeverf) in [#1021](https://github.com/teamleadercrm/ui/pull/1021))
+- `WysiwygEditor`: added functionality to insert a list. ([@mikeverf](https://github.com/mikeverf) in [#1022](https://github.com/teamleadercrm/ui/pull/1022))
+- `draft-js`: added as dependency. ([@mikeverf](https://github.com/mikeverf) in [#1021](https://github.com/teamleadercrm/ui/pull/1021))
+- `react-draft-wysiwyg`: added as dependency. ([@mikeverf](https://github.com/mikeverf) in [#1021](https://github.com/teamleadercrm/ui/pull/1021))
 
 ### Changed
 
