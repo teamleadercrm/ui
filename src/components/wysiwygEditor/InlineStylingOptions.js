@@ -25,9 +25,7 @@ const TooltipMessage = ({ optionType }) => {
 
   return (
     <>
-      <TextSmall>
-        <strong>{shortcutsByOptionType[optionType].name}</strong>
-      </TextSmall>
+      <TextSmall>{shortcutsByOptionType[optionType].name}</TextSmall>
       <TextSmall color="neutral">{shortcutsByOptionType[optionType].shortcut}</TextSmall>
     </>
   );
