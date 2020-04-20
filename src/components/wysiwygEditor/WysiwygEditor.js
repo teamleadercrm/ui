@@ -155,7 +155,13 @@ const LinkOptions = ({
           </Label>
           <Box display="flex" justifyContent="flex-end" alignItems="center" marginTop={4}>
             <Button level="secondary" label="Cancel" size="small" marginRight={3} onClick={handleClosePopoverClick} />
-            <Button level="primary" label="Add link" size="small" onClick={handleAddLinkClick} />
+            <Button
+              level="primary"
+              label="Add link"
+              size="small"
+              disabled={!linkValue || !textValue}
+              onClick={handleAddLinkClick}
+            />
           </Box>
         </Box>
       </Popover>
