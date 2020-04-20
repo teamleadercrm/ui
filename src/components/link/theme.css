@@ -20,7 +20,7 @@
   }
 
   &.is-disabled {
-    opacity: 0.36;
+    opacity: 0.48;
     pointer-events: none;
   }
 
