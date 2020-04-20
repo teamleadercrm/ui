@@ -57,7 +57,6 @@ const InlineStylingOptions = ({
           icon={iconsByOptionType[optionType]}
           color="black"
           key={optionType}
-          title={optionType}
           onClick={() => onChange(optionType)}
           selected={currentState[optionType]}
           marginRight={2}
