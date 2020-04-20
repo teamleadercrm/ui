@@ -53,6 +53,14 @@
   :global(.public-DraftEditorPlaceholder-hasFocus) {
     color: var(--color-neutral-dark);
   }
+
+  :global(.public-DraftStyleDefault-block) {
+    margin: 1em 0;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
 }
 
 .toolbar {
