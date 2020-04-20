@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Editor } from 'react-draft-wysiwyg';
 import cx from 'classnames';
@@ -7,11 +7,13 @@ import {
   IconTextItalicMediumOutline,
   IconListNumeredMediumOutline,
   IconListMediumOutline,
+  IconLinkMediumOutline,
 } from '@teamleader/ui-icons';
 
 import Box from '../box';
 import IconButton from '../iconButton';
 import ValidationText from '../validationText';
+import Popover from '../popover';
 
 import theme from './theme.css';
 
@@ -77,8 +79,55 @@ const ListStyling = ({
   );
 };
 
+const LinkOptions = ({
+  config: {
+    options,
+    link: { icon: linkIcon },
+  },
+  currentState: { link, selectionText },
+  onChange,
+}) => {
+  const [isPopoverShown, setIsPopoverShown] = useState(false);
+  const iconButtonRef = useRef();
+
+  const handleOpenPopoverClick = () => {
+    setIsPopoverShown(true);
+  };
+
+  const handleClosePopoverClick = () => {
+    setIsPopoverShown(false);
+  };
+
+  return (
+    <>
+      <IconButton
+        icon={linkIcon}
+        color="black"
+        key="link"
+        title="link"
+        onClick={handleOpenPopoverClick}
+        selected={!!link || isPopoverShown}
+        marginRight={2}
+        ref={iconButtonRef}
+      />
+      <Popover
+        anchorEl={iconButtonRef?.current?.buttonNode?.boxNode?.current}
+        active={isPopoverShown}
+        backdrop="transparent"
+        onEscKeyDown={handleClosePopoverClick}
+        onOverlayClick={handleClosePopoverClick}
+        minWidth={276}
+        position="end"
+      >
+        <Box display="flex" flexDirection="column" padding={4}>
+        </Box>
+      </Popover>
+    </>
+  );
+};
+
 const toolbar = {
-  options: ['inline', 'list'],
+  options: ['inline', 'list', 'link'],
   inline: {
     options: ['bold', 'italic'],
     bold: { icon: <IconTextBoldMediumOutline /> },
@@ -90,6 +139,13 @@ const toolbar = {
     options: ['unordered', 'ordered'],
     unordered: { icon: <IconListMediumOutline /> },
     ordered: { icon: <IconListNumeredMediumOutline /> },
+  },
+  link: {
+    component: LinkOptions,
+    defaultTargetOption: '_self',
+    showOpenOptionOnHover: false,
+    options: ['link'],
+    link: { icon: <IconLinkMediumOutline /> },
   },
 };
 
