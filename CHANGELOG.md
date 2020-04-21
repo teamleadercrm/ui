@@ -5,6 +5,7 @@
 - `WysiywygEditor`: added functionality to add a link with the editor. ([@mikeverf](https://github.com/mikeverf) in [#1029])
 - `WysiywygEditor`: added tooltips to the toolbar options. ([@mikeverf](https://github.com/mikeverf) in [#1030])
 - `Tooltip`: added `showTooltipDelay` prop that defaults to `100` (current default). ([@mikeverf](https://github.com/mikeverf) in [#1030])
+- `WysiywygEditor`: added `locale` prop and translations for the component. ([@mikeverf](https://github.com/mikeverf) in [#1037])
 
 ### Changed
 
