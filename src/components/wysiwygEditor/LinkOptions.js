@@ -6,6 +6,10 @@ import Popover from '../popover';
 import Label from '../label';
 import Input from '../input';
 import Button from '../button';
+import Tooltip from '../tooltip';
+import { TextSmall } from '../typography';
+
+const TooltippedIconButton = Tooltip(IconButton);
 
 const LinkOptions = ({
   config: {
@@ -50,18 +54,21 @@ const LinkOptions = ({
 
   return (
     <>
-      <IconButton
-        icon={linkIcon}
-        color="black"
-        key="link"
-        title="link"
-        onClick={handleOpenPopoverClick}
-        selected={!!link || isPopoverShown}
-        marginRight={2}
-        ref={iconButtonRef}
-      />
+      <Box ref={iconButtonRef}>
+        <TooltippedIconButton
+          tooltip={<TextSmall>Link</TextSmall>}
+          tooltipSize="small"
+          tooltipShowDelay={1000}
+          icon={linkIcon}
+          color="black"
+          key="link"
+          onClick={handleOpenPopoverClick}
+          selected={!!link || isPopoverShown}
+          marginRight={2}
+        />
+      </Box>
       <Popover
-        anchorEl={iconButtonRef?.current?.buttonNode?.boxNode?.current}
+        anchorEl={iconButtonRef?.current?.boxNode?.current}
         active={isPopoverShown}
         backdrop="transparent"
         onEscKeyDown={handleClosePopoverClick}

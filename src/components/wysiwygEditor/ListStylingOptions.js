@@ -2,6 +2,10 @@ import React from 'react';
 
 import Box from '../box';
 import IconButton from '../iconButton';
+import Tooltip from '../tooltip';
+import { TextSmall } from '../typography';
+
+const TooltippedIconButton = Tooltip(IconButton);
 
 const ListStylingOptions = ({
   config: {
@@ -17,14 +21,21 @@ const ListStylingOptions = ({
     ordered: orderedIcon,
   };
 
+  const titlesByOptionType = {
+    unordered: 'Bulleted list',
+    ordered: 'Numbered list',
+  };
+
   return (
     <Box display="flex" borderRightWidth={1} marginRight={2}>
       {options.map((optionType) => (
-        <IconButton
+        <TooltippedIconButton
+          tooltip={<TextSmall>{titlesByOptionType[optionType]}</TextSmall>}
+          tooltipSize="small"
+          tooltipShowDelay={1000}
           icon={iconsByOptionType[optionType]}
           color="black"
           key={optionType}
-          title={optionType}
           onClick={() => onChange(optionType)}
           selected={currentState.listType === optionType}
           marginRight={2}
