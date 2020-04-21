@@ -2,28 +2,63 @@
 
 ### Added
 
+- `WysiywygEditor`: added functionality to add a link with the editor. ([@mikeverf](https://github.com/mikeverf) in [#1029])
+- `WysiywygEditor`: added tooltips to the toolbar options. ([@mikeverf](https://github.com/mikeverf) in [#1030])
+- `Tooltip`: added `showTooltipDelay` prop that defaults to `100` (current default). ([@mikeverf](https://github.com/mikeverf) in [#1030])
+
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Dependency updates
+
+## [0.42.0] - 2020-04-20
+
+### Added
+
 - `Badge`: added `size` prop with `small`, `medium` (default) & `large` as possible values. ([@driesd](https://github.com/driesd) in [#1014](https://github.com/teamleadercrm/ui/pull/1014))
 - `Badge`: added `selected` boolean prop which shows the badge in a selected state. ([@driesd](https://github.com/driesd) in [#1014](https://github.com/teamleadercrm/ui/pull/1014))
 - `IconButton`: added `large` size variation. ([@driesd](https://github.com/driesd) in [#1009](https://github.com/teamleadercrm/ui/pull/1009))
 - `IconButton`: added `selected` boolean prop which shows the button in a selected state. ([@driesd](https://github.com/driesd) in [#1009](https://github.com/teamleadercrm/ui/pull/1009))
+- `Link`: added `selected` boolean prop which shows the link in a selected state. ([@driesd](https://github.com/driesd) in [#1027](https://github.com/teamleadercrm/ui/pull/1027))
+- `Tag`: added `selected` boolean prop which shows the tag in a selected state. ([@driesd](https://github.com/driesd) in [#1020](https://github.com/teamleadercrm/ui/pull/1020))
+- `WysiwygEditor`: added a first basic version of this component. ([@mikeverf](https://github.com/mikeverf) in [#1021](https://github.com/teamleadercrm/ui/pull/1021))
+- `WysiwygEditor`: added functionality to insert a list. ([@mikeverf](https://github.com/mikeverf) in [#1022](https://github.com/teamleadercrm/ui/pull/1022))
+- `draft-js`: added as dependency. ([@mikeverf](https://github.com/mikeverf) in [#1021](https://github.com/teamleadercrm/ui/pull/1021))
+- `react-draft-wysiwyg`: added as dependency. ([@mikeverf](https://github.com/mikeverf) in [#1021](https://github.com/teamleadercrm/ui/pull/1021))
 
 ### Changed
 
 - `Badge`: adjusted visual states. ([@driesd](https://github.com/driesd) in [#1014](https://github.com/teamleadercrm/ui/pull/1014))
 - `IconButton`: adjusted visual states. ([@driesd](https://github.com/driesd) in [#1009](https://github.com/teamleadercrm/ui/pull/1009))
 - [Breaking] `IconButton`: changed attribute `data-teamleader-ui` value from `button` to `icon-button`. ([@driesd](https://github.com/driesd) in [#1009](https://github.com/teamleadercrm/ui/pull/1009))
-
-### Deprecated
+- `Link`: adjusted visual states. ([@driesd](https://github.com/driesd) in [#1027](https://github.com/teamleadercrm/ui/pull/1027))
+- `Tag`: adjusted visual states. ([@driesd](https://github.com/driesd) in [#1020](https://github.com/teamleadercrm/ui/pull/1020))
 
 ### Removed
 
 - [Breaking] `Badge`: removed `inherit` mode. ([@driesd](https://github.com/driesd) in [#1014](https://github.com/teamleadercrm/ui/pull/1014))
 - [Breaking] `Badge`: removed `inverse` mode. ([@driesd](https://github.com/driesd) in [#1014](https://github.com/teamleadercrm/ui/pull/1014))
 - [Breaking] `Badge`: removed `color` variants. ([@driesd](https://github.com/driesd) in [#1014](https://github.com/teamleadercrm/ui/pull/1014))
-
-### Fixed
+- [Breaking] `Tag`: removed `inverse` mode. ([@driesd](https://github.com/driesd) in [#1020](https://github.com/teamleadercrm/ui/pull/1020))
+- [Breaking] `Tag`: removed `color` variants. ([@driesd](https://github.com/driesd) in [#1020](https://github.com/teamleadercrm/ui/pull/1020))
+- [Breaking] `Tag`: removed `onLabelClick` prop. Use `onClick` instead ([@driesd](https://github.com/driesd) in [#1020](https://github.com/teamleadercrm/ui/pull/1020))
 
 ### Dependency updates
+
+- `@babel/preset-env from 7.9.0 to 7.9.5`
+- `@teamleader/ui-icons from 0.2.26 to 0.2.27`
+- `css-loader from 3.5.1 to 3.5.2`
+- `eslint-plugin-prettier from 3.1.2 to 3.1.3`
+- `husky from 4.2.3 to 4.2.5`
+- `html-webpack-plugin from 4.0.4 to 4.2.0`
+- `react-resize-detector from 4.2.1 to 4.2.3`
+- `react-day-picker from 7.4.0 to 7.4.6`
+- `style-loader from 1.1.3 to 1.1.4`
 
 ## [0.41.0] - 2020-04-09
 

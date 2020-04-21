@@ -39,6 +39,7 @@ class Link extends PureComponent {
       element,
       inherit,
       inverse,
+      selected,
       ...others
     } = this.props;
 
@@ -50,6 +51,7 @@ class Link extends PureComponent {
         [theme['is-disabled']]: disabled,
         [theme['is-inherit']]: inherit,
         [theme['is-inverse']]: inverse,
+        [theme['is-selected']]: selected,
         [theme['has-icon']]: icon,
       },
       className,
@@ -98,6 +100,8 @@ Link.propTypes = {
   onMouseLeave: PropTypes.func,
   /** Callback function that is fired when the mouse button is released. */
   onMouseUp: PropTypes.func,
+  /** If true, component will be shown in a selected state */
+  selected: PropTypes.bool,
 };
 
 Link.defaultProps = {
