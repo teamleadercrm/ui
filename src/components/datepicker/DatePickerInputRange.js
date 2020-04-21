@@ -6,7 +6,7 @@ import Icon from '../icon';
 import NavigationBar from './NavigationBar';
 import WeekDay from './WeekDay';
 import { convertModifiersToClassnames, isSelectingFirstDay } from './utils';
-import { DateUtils } from 'react-day-picker/lib/src/index';
+import { DateUtils } from 'react-day-picker';
 import { IconCalendarSmallOutline } from '@teamleader/ui-icons';
 import ValidationText from '../validationText';
 import cx from 'classnames';
