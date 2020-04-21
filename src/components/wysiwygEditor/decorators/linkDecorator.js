@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IconChevronRightSmallOutline } from '@teamleader/ui-icons';
+import { IconExternalLinkSmallOutline } from '@teamleader/ui-icons';
 
 import Box from '../../box';
 import Link from '../../link';
@@ -30,7 +30,7 @@ const LinkEntity = ({ entityKey, contentState, children }) => {
       <Link className={theme['link']} href="" inherit={false} onClick={(event) => event.preventDefault()}>
         {children}
       </Link>
-      {showOpenLinkIcon && <IconChevronRightSmallOutline onClick={openLink} className={theme['icon']} />}
+      {showOpenLinkIcon && <IconExternalLinkSmallOutline onClick={openLink} className={theme['icon']} />}
     </Box>
   );
 };
