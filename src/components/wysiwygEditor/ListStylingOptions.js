@@ -15,22 +15,18 @@ const ListStylingOptions = ({
   },
   currentState,
   onChange,
+  translations,
 }) => {
   const iconsByOptionType = {
     unordered: unorderedIcon,
     ordered: orderedIcon,
   };
 
-  const titlesByOptionType = {
-    unordered: 'Bulleted list',
-    ordered: 'Numbered list',
-  };
-
   return (
     <Box display="flex" borderRightWidth={1} marginRight={2}>
       {options.map((optionType) => (
         <TooltippedIconButton
-          tooltip={<TextSmall>{titlesByOptionType[optionType]}</TextSmall>}
+          tooltip={<TextSmall>{translations[`components.controls.list.${optionType}`]}</TextSmall>}
           tooltipSize="small"
           tooltipShowDelay={1000}
           icon={iconsByOptionType[optionType]}
