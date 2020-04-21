@@ -9,11 +9,16 @@
 
 ### Changed
 
+- `WysiywygEditor`: Link popover is now displayed at center of toolbar icon instead of at end, to avoid issues on smaller sizes. ([@mikeverf](https://github.com/mikeverf) in [#1038])
+
 ### Deprecated
 
 ### Removed
 
 ### Fixed
+
+- `WysiywygEditor`: Link popover can now handle buttons with long labels. ([@mikeverf](https://github.com/mikeverf) in [#1038])
+- `WysiywygEditor`: Certain links were handled as relative links, so didn't open correctly. ([@mikeverf](https://github.com/mikeverf) in [#1038])
 
 ### Dependency updates
 
