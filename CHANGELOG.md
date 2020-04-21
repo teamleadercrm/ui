@@ -2,6 +2,8 @@
 
 ### Added
 
+- `WysiywygEditor`: added functionality to add a link with the editor. ([@mikeverf](https://github.com/mikeverf) in [#1029])
+
 ### Changed
 
 ### Deprecated
