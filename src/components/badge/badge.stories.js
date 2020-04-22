@@ -11,6 +11,10 @@ export default {
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Badge'),
 
   parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/LHH25GN90ljQaBEUNMsdJn/Desktop-components?node-id=3943%3A715',
+    },
     info: {
       propTablesExclude: [TextDisplay],
     },
