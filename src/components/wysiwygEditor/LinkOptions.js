@@ -17,9 +17,9 @@ const LinkOptions = ({
     link: { icon: linkIcon },
     defaultTargetOption,
   },
-  currentState,
   currentState: { link, selectionText },
   onChange,
+  translations,
 }) => {
   const [isPopoverShown, setIsPopoverShown] = useState(false);
   const iconButtonRef = useRef();
@@ -56,7 +56,7 @@ const LinkOptions = ({
     <>
       <Box ref={iconButtonRef}>
         <TooltippedIconButton
-          tooltip={<TextSmall>Link</TextSmall>}
+          tooltip={<TextSmall>{translations['components.controls.link.link']}</TextSmall>}
           tooltipSize="small"
           tooltipShowDelay={1000}
           icon={linkIcon}
@@ -74,22 +74,34 @@ const LinkOptions = ({
         onEscKeyDown={handleClosePopoverClick}
         onOverlayClick={handleClosePopoverClick}
         minWidth={276}
+        maxWidth="100%"
         position="end"
       >
         <Box display="flex" flexDirection="column" padding={4}>
           <Label htmlFor="linkText" helpText="">
-            Text
+            {translations['components.controls.link.popover.text']}
             <Input id="linkText" autoFocus value={textValue || ''} onChange={onTextChange} />
           </Label>
           <Label htmlFor="link" helpText="" marginBottom={4}>
-            Link
-            <Input id="link" value={linkValue || ''} onChange={onLinkChange} placeholder="e.g. www.teamleader.eu" />
+            {translations['components.controls.link.popover.link']}
+            <Input
+              id="link"
+              value={linkValue || ''}
+              onChange={onLinkChange}
+              placeholder={translations['components.controls.link.popover.placeholder']}
+            />
           </Label>
           <Box display="flex" justifyContent="flex-end" alignItems="center" marginTop={4}>
-            <Button level="secondary" label="Cancel" size="small" marginRight={3} onClick={handleClosePopoverClick} />
+            <Button
+              level="secondary"
+              label={translations['components.controls.link.popover.cancel']}
+              size="small"
+              marginRight={3}
+              onClick={handleClosePopoverClick}
+            />
             <Button
               level="primary"
-              label="Add link"
+              label={translations['components.controls.link.popover.addLink']}
               size="small"
               disabled={!linkValue || !textValue}
               onClick={handleAddLinkClick}
