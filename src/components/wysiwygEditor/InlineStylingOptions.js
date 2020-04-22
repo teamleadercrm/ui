@@ -10,22 +10,20 @@ const TooltippedIconButton = Tooltip(IconButton);
 
 const OPERATING_SYSTEM = getOS();
 
-const TooltipMessage = ({ optionType }) => {
+const TooltipMessage = ({ optionType, name }) => {
   const isMacOS = OPERATING_SYSTEM === OS_TYPES.MAC_OS;
   const shortcutsByOptionType = {
     bold: {
-      name: 'Bold',
       shortcut: isMacOS ? '⌘ Cmd + B' : 'Ctrl + B',
     },
     italic: {
-      name: 'Italic',
       shortcut: isMacOS ? '⌘ Cmd + I' : 'Ctrl + I',
     },
   };
 
   return (
     <>
-      <TextSmall>{shortcutsByOptionType[optionType].name}</TextSmall>
+      <TextSmall>{name}</TextSmall>
       <TextSmall color="neutral">{shortcutsByOptionType[optionType].shortcut}</TextSmall>
     </>
   );
@@ -39,6 +37,7 @@ const InlineStylingOptions = ({
   },
   currentState,
   onChange,
+  translations,
 }) => {
   const iconsByOptionType = {
     bold: boldIcon,
@@ -49,7 +48,9 @@ const InlineStylingOptions = ({
     <Box display="flex" borderRightWidth={1} marginRight={2}>
       {options.map((optionType) => (
         <TooltippedIconButton
-          tooltip={<TooltipMessage optionType={optionType} />}
+          tooltip={
+            <TooltipMessage optionType={optionType} name={translations[`components.controls.inline.${optionType}`]} />
+          }
           tooltipSize="small"
           tooltipShowDelay={1000}
           icon={iconsByOptionType[optionType]}

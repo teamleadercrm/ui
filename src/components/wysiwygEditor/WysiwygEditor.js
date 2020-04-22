@@ -18,6 +18,7 @@ import ListStylingOptions from './ListStylingOptions';
 import LinkOptions from './LinkOptions';
 import { linkDecorator } from './decorators';
 import theme from './theme.css';
+import translations from './translations';
 
 const toolbar = {
   options: ['inline', 'list', 'link'],
@@ -48,7 +49,18 @@ const customStyleMap = {
   },
 };
 
-const WysiwygEditor = ({ className, error, onFocus, onBlur, success, warning, helpText, width, ...others }) => {
+const WysiwygEditor = ({
+  className,
+  error,
+  onFocus,
+  onBlur,
+  success,
+  warning,
+  helpText,
+  width,
+  locale = 'en',
+  ...others
+}) => {
   const [isFocused, setIsFocused] = useState(false);
   const [isPlaceholderShown, setIsPlaceholderShown] = useState(true);
 
@@ -98,6 +110,10 @@ const WysiwygEditor = ({ className, error, onFocus, onBlur, success, warning, he
         onContentStateChange={handleContentStateChange}
         customStyleMap={customStyleMap}
         customDecorators={[linkDecorator]}
+        localization={{
+          locale,
+          translations: translations[locale],
+        }}
         {...others}
       />
       <ValidationText error={error} help={helpText} success={success} warning={warning} />
@@ -116,6 +132,8 @@ WysiwygEditor.propTypes = {
   warning: PropTypes.oneOfType([PropTypes.bool, PropTypes.node]),
   /** A custom width for the editor field */
   width: PropTypes.string,
+  /** Locale key for the language you want the editor to be displayed in. */
+  locale: PropTypes.string,
 };
 
 export default WysiwygEditor;
