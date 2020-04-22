@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { IconMoreMediumOutline } from '@teamleader/ui-icons';
-import IconButton from '../button/IconButton.js';
+import IconButton from '../iconButton';
 import Menu from './Menu.js';
 import theme from './theme.css';
 import Box, { pickBoxProps } from '../box';

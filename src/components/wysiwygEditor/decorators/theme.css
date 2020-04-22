@@ -1,0 +1,7 @@
+.link:hover {
+  cursor: inherit;
+}
+
+.icon:hover {
+  cursor: pointer;
+}

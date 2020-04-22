@@ -18,6 +18,7 @@ export const basic = () => (
     color={select('Color', colors, 'neutral')}
     size={select('Size', sizes, 'medium')}
     disabled={boolean('Disabled', false)}
+    selected={boolean('Selected', false)}
   />
 );
 
@@ -28,6 +29,7 @@ export const withCustomElement = () => (
     element={select('Element', elements, 'a')}
     size={select('Size', sizes, 'medium')}
     disabled={boolean('Disabled', false)}
+    selected={boolean('Selected', false)}
   />
 );
 

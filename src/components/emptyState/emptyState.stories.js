@@ -1,9 +1,15 @@
 import React from 'react';
-import { select, text } from '@storybook/addon-knobs';
+import { select } from '@storybook/addon-knobs';
 import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import EmptyState from './EmptyState';
+import { Marker } from '../typography';
 
 const sizes = ['small', 'medium', 'large'];
+const title = (
+  <>
+    I am the empty state title that <Marker>highlights</Marker> a keyword
+  </>
+);
 
 export default {
   title: addStoryInGroup(MID_LEVEL_BLOCKS, 'EmptyState'),
@@ -16,15 +22,12 @@ export default {
   },
 };
 
-export const basic = () => <EmptyState metaText={text('Meta text', 'I am the meta information of the EmptyState')} />;
+export const basic = () => <EmptyState metaText="I am the meta information of the EmptyState" />;
 
 export const withTitle = () => (
   <EmptyState
-    metaText={text(
-      'Meta text',
-      'I am the meta information and I basically explain that you can start adding content via the add button above.',
-    )}
+    metaText="I am the meta information and I basically explain that you can start adding content via the add button above."
     size={select('Size', sizes, 'medium')}
-    title={text('Title', 'I am the empty state title that highlights a keyword')}
+    title={title}
   />
 );

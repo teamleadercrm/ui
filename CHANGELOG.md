@@ -12,6 +12,101 @@
 
 ### Dependency updates
 
+## [0.42.1] - 2020-04-22
+
+### Added
+
+- `Timer`: added as a new component. ([@driesd](https://github.com/driesd) in [#1039](https://github.com/teamleadercrm/ui/pull/1039))
+- `Tooltip`: added `showTooltipDelay` prop that defaults to `100` (current default). ([@mikeverf](https://github.com/mikeverf) in [#1030])
+- `WysiywygEditor`: added functionality to add a link with the editor. ([@mikeverf](https://github.com/mikeverf) in [#1029])
+- `WysiywygEditor`: added tooltips to the toolbar options. ([@mikeverf](https://github.com/mikeverf) in [#1030])
+- `WysiywygEditor`: added `locale` prop and translations for the component. ([@mikeverf](https://github.com/mikeverf) in [#1037])
+
+### Changed
+
+- `WysiywygEditor`: Link popover is now displayed at center of toolbar icon instead of at end, to avoid issues on smaller sizes. ([@mikeverf](https://github.com/mikeverf) in [#1038])
+
+### Fixed
+
+- `WysiywygEditor`: Link popover can now handle buttons with long labels. ([@mikeverf](https://github.com/mikeverf) in [#1038])
+- `WysiywygEditor`: Certain links were handled as relative links, so didn't open correctly. ([@mikeverf](https://github.com/mikeverf) in [#1038])
+
+### Dependency updates
+
+- `@teamleader/ui-icons` from `0.2.27` to `0.2.29`
+- `@teamleader/ui-illustrations` from `0.0.30` to `0.0.31`
+- `draft-js` from `0.10.5` to `0.11.5`
+- `prettier` from `2.0.4` to `2.0.5`
+- `react-day-picker` from `7.4.6` to `7.4.7`
+- `react-draft-wysiwyg` from `1.14.4` to `1.14.5`
+- `webpack` from `4.42.1` to `4.43.0`
+
+## [0.42.0] - 2020-04-20
+
+### Added
+
+- `Badge`: added `size` prop with `small`, `medium` (default) & `large` as possible values. ([@driesd](https://github.com/driesd) in [#1014](https://github.com/teamleadercrm/ui/pull/1014))
+- `Badge`: added `selected` boolean prop which shows the badge in a selected state. ([@driesd](https://github.com/driesd) in [#1014](https://github.com/teamleadercrm/ui/pull/1014))
+- `IconButton`: added `large` size variation. ([@driesd](https://github.com/driesd) in [#1009](https://github.com/teamleadercrm/ui/pull/1009))
+- `IconButton`: added `selected` boolean prop which shows the button in a selected state. ([@driesd](https://github.com/driesd) in [#1009](https://github.com/teamleadercrm/ui/pull/1009))
+- `Link`: added `selected` boolean prop which shows the link in a selected state. ([@driesd](https://github.com/driesd) in [#1027](https://github.com/teamleadercrm/ui/pull/1027))
+- `Tag`: added `selected` boolean prop which shows the tag in a selected state. ([@driesd](https://github.com/driesd) in [#1020](https://github.com/teamleadercrm/ui/pull/1020))
+- `WysiwygEditor`: added a first basic version of this component. ([@mikeverf](https://github.com/mikeverf) in [#1021](https://github.com/teamleadercrm/ui/pull/1021))
+- `WysiwygEditor`: added functionality to insert a list. ([@mikeverf](https://github.com/mikeverf) in [#1022](https://github.com/teamleadercrm/ui/pull/1022))
+- `draft-js`: added as dependency. ([@mikeverf](https://github.com/mikeverf) in [#1021](https://github.com/teamleadercrm/ui/pull/1021))
+- `react-draft-wysiwyg`: added as dependency. ([@mikeverf](https://github.com/mikeverf) in [#1021](https://github.com/teamleadercrm/ui/pull/1021))
+
+### Changed
+
+- `Badge`: adjusted visual states. ([@driesd](https://github.com/driesd) in [#1014](https://github.com/teamleadercrm/ui/pull/1014))
+- `IconButton`: adjusted visual states. ([@driesd](https://github.com/driesd) in [#1009](https://github.com/teamleadercrm/ui/pull/1009))
+- [Breaking] `IconButton`: changed attribute `data-teamleader-ui` value from `button` to `icon-button`. ([@driesd](https://github.com/driesd) in [#1009](https://github.com/teamleadercrm/ui/pull/1009))
+- `Link`: adjusted visual states. ([@driesd](https://github.com/driesd) in [#1027](https://github.com/teamleadercrm/ui/pull/1027))
+- `Tag`: adjusted visual states. ([@driesd](https://github.com/driesd) in [#1020](https://github.com/teamleadercrm/ui/pull/1020))
+
+### Removed
+
+- [Breaking] `Badge`: removed `inherit` mode. ([@driesd](https://github.com/driesd) in [#1014](https://github.com/teamleadercrm/ui/pull/1014))
+- [Breaking] `Badge`: removed `inverse` mode. ([@driesd](https://github.com/driesd) in [#1014](https://github.com/teamleadercrm/ui/pull/1014))
+- [Breaking] `Badge`: removed `color` variants. ([@driesd](https://github.com/driesd) in [#1014](https://github.com/teamleadercrm/ui/pull/1014))
+- [Breaking] `Tag`: removed `inverse` mode. ([@driesd](https://github.com/driesd) in [#1020](https://github.com/teamleadercrm/ui/pull/1020))
+- [Breaking] `Tag`: removed `color` variants. ([@driesd](https://github.com/driesd) in [#1020](https://github.com/teamleadercrm/ui/pull/1020))
+- [Breaking] `Tag`: removed `onLabelClick` prop. Use `onClick` instead ([@driesd](https://github.com/driesd) in [#1020](https://github.com/teamleadercrm/ui/pull/1020))
+
+### Dependency updates
+
+- `@babel/preset-env from 7.9.0 to 7.9.5`
+- `@teamleader/ui-icons from 0.2.26 to 0.2.27`
+- `css-loader from 3.5.1 to 3.5.2`
+- `eslint-plugin-prettier from 3.1.2 to 3.1.3`
+- `husky from 4.2.3 to 4.2.5`
+- `html-webpack-plugin from 4.0.4 to 4.2.0`
+- `react-resize-detector from 4.2.1 to 4.2.3`
+- `react-day-picker from 7.4.0 to 7.4.6`
+- `style-loader from 1.1.3 to 1.1.4`
+
+## [0.41.0] - 2020-04-09
+
+### Added
+
+- `DetailPage.Header`: added `titleColor` prop. Possible values are `neutral` and `teal` (default). ([@driesd](https://github.com/driesd) in [#1010](https://github.com/teamleadercrm/ui/pull/1010))
+- `DataGrid`: added a `sortable` prop to the `HeaderCell`. ([@driesd](https://github.com/driesd) in [#1007](https://github.com/teamleadercrm/ui/pull/1007))
+
+### Changed
+
+- [Breaking] `DataGrid`: rendering of the sorting arrows now depends on the `sortable` prop instead of `onClick`. ([@driesd](https://github.com/driesd) in [#1007](https://github.com/teamleadercrm/ui/pull/1007))
+
+### Removed
+
+- [Breaking] `DataGrid`: removed `checkboxSize` prop, the `Checkbox` size will always be `small`. ([@driesd](https://github.com/driesd) in [#1007](https://github.com/teamleadercrm/ui/pull/1007))
+
+### Fixed
+
+- `DataGrid`: fixed unwanted overflow prevention for `Cells` containing a `Checkbox`. ([@driesd](https://github.com/driesd) in [#1007](https://github.com/teamleadercrm/ui/pull/1007))
+- `DataGrid`: fixed `Cell` padding along each side of the vertical separator line. ([@driesd](https://github.com/driesd) in [#1007](https://github.com/teamleadercrm/ui/pull/1007))
+- `Avatar`: fixed a react-dom warning where the team prop was put onto a div. ([@lowiebenoot](https://github.com/lowiebenoot) in [#1005](https://github.com/teamleadercrm/ui/pull/1005))
+- `DetailPage.Header`: adding a className was not possible. ([@lowiebenoot](https://github.com/lowiebenoot) in [#1008](https://github.com/teamleadercrm/ui/pull/1008))
+
 ## [0.40.2] - 2020-04-08
 
 ### Added

@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../box';
+import Icon from '../icon';
 import cx from 'classnames';
+import buttonTheme from '../button/theme.css';
 import theme from './theme.css';
-import uiUtilities from '@teamleader/ui-utilities';
 
 class IconButton extends Component {
   handleMouseUp = (event) => {
@@ -27,18 +28,15 @@ class IconButton extends Component {
   }
 
   render() {
-    const { children, className, disabled, element, icon, size, color, type, ...others } = this.props;
+    const { children, className, disabled, element, icon, size, color, selected, type, ...others } = this.props;
 
     const classNames = cx(
-      uiUtilities['reset-box-sizing'],
-      uiUtilities['reset-font-smoothing'],
-      theme['button-base'],
-      theme['button'],
+      buttonTheme['button-base'],
       theme['icon-button'],
-      theme[color],
+      theme[`is-${size}`],
       {
         [theme['is-disabled']]: disabled,
-        [theme[size]]: theme[size],
+        [theme['is-selected']]: selected,
       },
       className,
     );
@@ -54,12 +52,14 @@ class IconButton extends Component {
       onMouseUp: this.handleMouseUp,
       onMouseLeave: this.handleMouseLeave,
       type: element === 'button' ? type : null,
-      'data-teamleader-ui': 'button',
+      'data-teamleader-ui': 'icon-button',
     };
 
     return (
       <Box {...props}>
-        {icon}
+        <Icon color={color === 'white' ? 'neutral' : color} tint={color === 'white' ? 'lightest' : 'darkest'}>
+          {icon}
+        </Icon>
         {children}
       </Box>
     );
@@ -67,16 +67,27 @@ class IconButton extends Component {
 }
 
 IconButton.propTypes = {
+  /** The content to display inside the button. */
   children: PropTypes.node,
+  /** A class name for the button to give custom styles. */
   className: PropTypes.string,
+  /** If true, component will be disabled. */
   disabled: PropTypes.bool,
   /** A custom element to be rendered */
   element: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
+  /** The icon displayed inside the button. */
   icon: PropTypes.element,
+  /** Callback function that is fired when mouse leaves the component. */
   onMouseLeave: PropTypes.func,
+  /** Callback function that is fired when the mouse button is released. */
   onMouseUp: PropTypes.func,
-  size: PropTypes.oneOf(['small', 'medium']),
+  /** If true, component will be shown in a selected state */
+  selected: PropTypes.bool,
+  /** Size of the button. */
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  /** The color which the icon should have */
   color: PropTypes.oneOf(['neutral', 'white', 'mint', 'violet', 'ruby', 'gold', 'aqua']),
+  /** Type of the button element. */
   type: PropTypes.string,
 };
 

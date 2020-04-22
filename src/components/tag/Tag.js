@@ -1,52 +1,38 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../box';
-import Button, { IconButton } from '../button';
+import IconButton from '../iconButton';
 import cx from 'classnames';
 import theme from './theme.css';
 import { IconCloseSmallOutline } from '@teamleader/ui-icons';
-import uiUtilities from '@teamleader/ui-utilities';
+import { UITextBody, UITextDisplay, UITextSmall } from '../typography';
 
 class Tag extends PureComponent {
   render() {
-    const { children, className, inverse, onLabelClick, onRemoveClick, size, color, disabled, ...others } = this.props;
+    const { children, className, onClick, onRemoveClick, selected, size, disabled, ...others } = this.props;
 
     const classNames = cx(
       theme['tag'],
       theme[`is-${size}`],
-      theme[color],
       {
+        [theme['is-clickable']]: onClick,
         [theme['is-removable']]: onRemoveClick,
-        [theme['is-inverse']]: inverse,
         [theme['is-disabled']]: disabled,
+        [theme['is-selected']]: selected,
       },
       className,
     );
 
-    const closeButtonColor = inverse ? 'white' : 'neutral';
-    const closeButtonIcon = <IconCloseSmallOutline />;
+    const TextElement = size === 'small' ? UITextSmall : size === 'large' ? UITextDisplay : UITextBody;
 
     return (
       <Box className={classNames} data-teamleader-ui="tag" {...others}>
-        {onLabelClick ? (
-          <Button
-            className={theme['label-button']}
-            onClick={onLabelClick}
-            level="outline"
-            inverse={inverse}
-            disabled={disabled}
-          >
-            {children}
-          </Button>
-        ) : (
-          <span className={cx(uiUtilities['reset-font-smoothing'], theme['label'])}>{children}</span>
-        )}
-
+        <TextElement marginHorizontal={2}>{children}</TextElement>
         {onRemoveClick && (
           <IconButton
             className={theme['remove-button']}
-            color={closeButtonColor}
-            icon={closeButtonIcon}
+            color="teal"
+            icon={<IconCloseSmallOutline />}
             onClick={onRemoveClick}
             size="small"
             disabled={disabled}
@@ -61,17 +47,14 @@ Tag.propTypes = {
   children: PropTypes.any.isRequired,
   className: PropTypes.string,
   disabled: PropTypes.bool,
-  inverse: PropTypes.bool,
-  onLabelClick: PropTypes.func,
   onRemoveClick: PropTypes.func,
+  /** If true, component will be shown in a selected state */
+  selected: PropTypes.bool,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
-  color: PropTypes.oneOf(['neutral', 'mint', 'gold', 'ruby', 'violet', 'aqua']),
 };
 
 Tag.defaultProps = {
-  inverse: false,
   size: 'medium',
-  color: 'neutral',
 };
 
 export default Tag;

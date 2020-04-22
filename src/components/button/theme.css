@@ -91,114 +91,6 @@
   }
 }
 
-/* Button colors */
-.icon-button {
-  background-color: transparent;
-  border: 0;
-
-  &.is-disabled {
-    opacity: 0.24;
-  }
-
-  &.neutral {
-    color: var(--color-neutral-darkest);
-
-    &:not(.is-disabled) {
-      &:hover {
-        background-color: color(var(--color-neutral-darkest) a(18%));
-      }
-
-      &:focus {
-        box-shadow: 0 0 0 2px color(var(--color-neutral-darkest) a(50%));
-      }
-    }
-  }
-
-  &.mint {
-    color: var(--color-mint-darkest);
-
-    &:not(.is-disabled) {
-      &:hover {
-        background-color: color(var(--color-mint-darkest) a(18%));
-      }
-
-      &:focus {
-        box-shadow: 0 0 0 2px color(var(--color-mint-darkest) a(50%));
-      }
-    }
-  }
-
-  &.violet {
-    color: var(--color-violet-darkest);
-
-    &:not(.is-disabled) {
-      &:hover {
-        background-color: color(var(--color-violet-darkest) a(18%));
-      }
-
-      &:focus {
-        box-shadow: 0 0 0 2px color(var(--color-violet-darkest) a(50%));
-      }
-    }
-  }
-
-  &.ruby {
-    color: var(--color-ruby-darkest);
-
-    &:not(.is-disabled) {
-      &:hover {
-        background-color: color(var(--color-ruby-darkest) a(18%));
-      }
-
-      &:focus {
-        box-shadow: 0 0 0 2px color(var(--color-ruby-darkest) a(50%));
-      }
-    }
-  }
-
-  &.gold {
-    color: var(--color-gold-darkest);
-
-    &:not(.is-disabled) {
-      &:hover {
-        background-color: color(var(--color-gold-darkest) a(18%));
-      }
-
-      &:focus {
-        box-shadow: 0 0 0 2px color(var(--color-gold-darkest) a(50%));
-      }
-    }
-  }
-
-  &.aqua {
-    color: var(--color-aqua-darkest);
-
-    &:not(.is-disabled) {
-      &:hover {
-        background-color: color(var(--color-aqua-darkest) a(18%));
-      }
-
-      &:focus {
-        box-shadow: 0 0 0 2px color(var(--color-aqua-darkest) a(50%));
-      }
-    }
-  }
-
-  &.white {
-    color: var(--color-neutral-lightest);
-
-    &:not(.is-disabled) {
-      &:hover {
-        background-color: color(var(--color-neutral-lightest) a(18%));
-      }
-
-      &:focus {
-        box-shadow: 0 0 0 2px color(var(--color-neutral-lightest) a(50%));
-      }
-    }
-  }
-}
-
 .outline {
   @each $color in (aqua, gold, mint, neutral, ruby, teal, violet) {
     &.$(color) {
@@ -455,12 +347,6 @@
   &.has-icon-only {
     padding: 0 calc(0.7 * var(--unit));
   }
-
-  &.icon-button {
-    height: calc(1.8 * var(--unit));
-    min-width: calc(1.8 * var(--unit));
-    padding: 0 calc(0.2 * var(--unit));
-  }
 }
 
 .medium {
@@ -472,12 +358,6 @@
 
   &.has-icon-only {
     padding: 0 calc(0.5 * var(--unit));
-  }
-
-  &.icon-button {
-    height: calc(3 * var(--unit));
-    min-width: calc(3 * var(--unit));
-    padding: 0 var(--spacer-smallest);
   }
 }
 
