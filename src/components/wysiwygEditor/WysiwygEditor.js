@@ -7,89 +7,38 @@ import {
   IconTextItalicMediumOutline,
   IconListNumeredMediumOutline,
   IconListMediumOutline,
+  IconLinkMediumOutline,
 } from '@teamleader/ui-icons';
 
 import Box from '../box';
-import IconButton from '../iconButton';
 import ValidationText from '../validationText';
 
+import InlineStylingOptions from './InlineStylingOptions';
+import ListStylingOptions from './ListStylingOptions';
+import LinkOptions from './LinkOptions';
+import { linkDecorator } from './decorators';
 import theme from './theme.css';
 
-const InlineStyling = ({
-  config: {
-    options,
-    bold: { icon: boldIcon },
-    italic: { icon: italicIcon },
-  },
-  currentState,
-  onChange,
-}) => {
-  const iconsByOptionType = {
-    bold: boldIcon,
-    italic: italicIcon,
-  };
-
-  return (
-    <Box display="flex" borderRightWidth={1} marginRight={2}>
-      {options.map((optionType) => (
-        <IconButton
-          icon={iconsByOptionType[optionType]}
-          color="black"
-          key={optionType}
-          title={optionType}
-          onClick={() => onChange(optionType)}
-          selected={currentState[optionType]}
-          marginRight={2}
-        />
-      ))}
-    </Box>
-  );
-};
-
-const ListStyling = ({
-  config: {
-    options,
-    unordered: { icon: unorderedIcon },
-    ordered: { icon: orderedIcon },
-  },
-  currentState,
-  onChange,
-}) => {
-  const iconsByOptionType = {
-    unordered: unorderedIcon,
-    ordered: orderedIcon,
-  };
-
-  return (
-    <Box display="flex" borderRightWidth={1} marginRight={2}>
-      {options.map((optionType) => (
-        <IconButton
-          icon={iconsByOptionType[optionType]}
-          color="black"
-          key={optionType}
-          title={optionType}
-          onClick={() => onChange(optionType)}
-          selected={currentState.listType === optionType}
-          marginRight={2}
-        />
-      ))}
-    </Box>
-  );
-};
-
 const toolbar = {
-  options: ['inline', 'list'],
+  options: ['inline', 'list', 'link'],
   inline: {
     options: ['bold', 'italic'],
     bold: { icon: <IconTextBoldMediumOutline /> },
     italic: { icon: <IconTextItalicMediumOutline /> },
-    component: InlineStyling,
+    component: InlineStylingOptions,
   },
   list: {
-    component: ListStyling,
+    component: ListStylingOptions,
     options: ['unordered', 'ordered'],
     unordered: { icon: <IconListMediumOutline /> },
     ordered: { icon: <IconListNumeredMediumOutline /> },
+  },
+  link: {
+    component: LinkOptions,
+    defaultTargetOption: '_self',
+    showOpenOptionOnHover: true,
+    options: ['link'],
+    link: { icon: <IconLinkMediumOutline /> },
   },
 };
 
@@ -148,6 +97,7 @@ const WysiwygEditor = ({ className, error, onFocus, onBlur, success, warning, he
         onBlur={handleBlur}
         onContentStateChange={handleContentStateChange}
         customStyleMap={customStyleMap}
+        customDecorators={[linkDecorator]}
         {...others}
       />
       <ValidationText error={error} help={helpText} success={success} warning={warning} />
