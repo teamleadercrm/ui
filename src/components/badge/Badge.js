@@ -62,9 +62,11 @@ class Badge extends PureComponent {
         {...others}
       >
         {icon && iconPlacement === 'left' && this.renderIcon()}
-        <TextElement className={theme['label']} element="span">
-          {children}
-        </TextElement>
+        {children && (
+          <TextElement className={theme['label']} element="span">
+            {children}
+          </TextElement>
+        )}
         {icon && iconPlacement === 'right' && this.renderIcon()}
       </Box>
     );
