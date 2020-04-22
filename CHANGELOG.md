@@ -2,6 +2,20 @@
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Dependency updates
+
+## [0.42.1] - 2020-04-22
+
+### Added
+
 - `Timer`: added as a new component. ([@driesd](https://github.com/driesd) in [#1039](https://github.com/teamleadercrm/ui/pull/1039))
 - `Tooltip`: added `showTooltipDelay` prop that defaults to `100` (current default). ([@mikeverf](https://github.com/mikeverf) in [#1030])
 - `WysiywygEditor`: added functionality to add a link with the editor. ([@mikeverf](https://github.com/mikeverf) in [#1029])
@@ -12,16 +26,20 @@
 
 - `WysiywygEditor`: Link popover is now displayed at center of toolbar icon instead of at end, to avoid issues on smaller sizes. ([@mikeverf](https://github.com/mikeverf) in [#1038])
 
-### Deprecated
-
-### Removed
-
 ### Fixed
 
 - `WysiywygEditor`: Link popover can now handle buttons with long labels. ([@mikeverf](https://github.com/mikeverf) in [#1038])
 - `WysiywygEditor`: Certain links were handled as relative links, so didn't open correctly. ([@mikeverf](https://github.com/mikeverf) in [#1038])
 
 ### Dependency updates
+
+- `@teamleader/ui-icons` from `0.2.27` to `0.2.29`
+- `@teamleader/ui-illustrations` from `0.0.30` to `0.0.31`
+- `draft-js` from `0.10.5` to `0.11.5`
+- `prettier` from `2.0.4` to `2.0.5`
+- `react-day-picker` from `7.4.6` to `7.4.7`
+- `react-draft-wysiwyg` from `1.14.4` to `1.14.5`
+- `webpack` from `4.42.1` to `4.43.0`
 
 ## [0.42.0] - 2020-04-20
 
