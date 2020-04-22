@@ -1,86 +1,15 @@
-@import '@teamleader/ui-colors';
-@import '@teamleader/ui-typography';
-@import '@teamleader/ui-utilities';
-
-:root {
-  --tag-border-radius: calc(0.4 * var(--unit));
-  --tag-border-width: 2px;
-  --tag-size-small: 24px;
-  --tag-size-medium: 24px;
-  --tag-size-large: 30px;
+.wrapper {
+  max-width: 100%;
 }
 
-.tag {
-  border-radius: var(--tag-border-radius);
-  display: inline-flex;
-  align-items: center;
-  border-style: solid;
-  border-width: 1px;
-  background-color: color(var(--color-neutral-darkest) a(12%));
-  border-color: color(var(--color-neutral-darkest) a(12%));
-  outline: none;
-
-  &.is-clickable:not(.is-disabled) {
-    cursor: pointer;
-
-    &:hover {
-      background-color: color(var(--color-neutral-darkest) a(18%));
-    }
-
-    &:focus {
-      background-color: color(var(--color-neutral-darkest) a(12%));
-      border-color: color(var(--color-neutral-darkest) a(24%));
-      box-shadow: 0 0 0 var(--tag-border-width) color(var(--color-neutral-darkest) a(24%));
-    }
-
-    &:active {
-      box-shadow: inset 0 2px 3px color(var(--color-neutral-darkest) a(12%));
-      background-color: color(var(--color-neutral-darkest) a(18%));
-    }
-  }
-
-  &.is-disabled {
-    opacity: 0.48;
-    pointer-events: none;
-  }
-
-  &.is-selected {
-    background-color: color(var(--color-neutral-darkest) a(24%)) !important;
-  }
-
-  .remove-button {
-    transition: background-color 0.2s var(--animation-curve-fast-out-slow-in),
-      border-color var(--animation-duration) var(--animation-curve-fast-out-slow-in),
-      color var(--animation-duration) var(--animation-curve-fast-out-slow-in);
-  }
+.label {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 0;
 }
 
 .remove-button {
-  border-radius: 0 var(--tag-border-radius) var(--tag-border-radius) 0;
-  padding: 0 var(--spacer-smaller) !important;
-}
-
-/* Tag sizes */
-.is-small {
-  height: var(--tag-size-small);
-
-  .remove-button {
-    height: calc(var(--tag-size-small) - 2px);
-  }
-}
-
-.is-medium {
-  height: var(--tag-size-medium);
-
-  .remove-button {
-    height: calc(var(--tag-size-medium) - 2px);
-  }
-}
-
-.is-large {
-  height: var(--tag-size-large);
-
-  .remove-button {
-    height: calc(var(--tag-size-large) - 2px);
-  }
+  border-left: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
