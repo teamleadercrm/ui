@@ -2,6 +2,8 @@
 
 ### Added
 
+- `Timer`: added as a new component. ([@driesd](https://github.com/driesd) in [#1039](https://github.com/teamleadercrm/ui/pull/1039))
+
 ### Changed
 
 ### Deprecated
