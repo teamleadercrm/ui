@@ -18,7 +18,11 @@ const LinkEntity = ({ entityKey, contentState, children }) => {
   const { url } = contentState.getEntity(entityKey).getData();
 
   const openLink = () => {
-    window.open(url, 'blank');
+    let prefixedUrl = url;
+    if (!url.includes('//')) {
+      prefixedUrl = '//' + url;
+    }
+    window.open(prefixedUrl, '_blank');
   };
 
   const toggleShowOpenLinkIcon = () => {
