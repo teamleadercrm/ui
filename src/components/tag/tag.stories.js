@@ -26,7 +26,6 @@ export const basic = () => (
 
 export const clickable = () => (
   <Tag
-    element="button"
     onClick={() => console.log('Tag label clicked')}
     selected={boolean('Selected', false)}
     size={select('Size', sizes, 'medium')}
@@ -49,7 +48,6 @@ export const closable = () => (
 
 export const clickableClosable = () => (
   <Tag
-    element="button"
     onClick={() => console.log('Tag label clicked')}
     onRemoveClick={() => console.log('Tag removed')}
     selected={boolean('Selected', false)}

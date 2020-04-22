@@ -61,6 +61,17 @@
       margin-top: 0;
     }
   }
+
+  & ul,
+  ol {
+    margin: 0;
+    padding-left: 12px;
+  }
+
+  & ol > li,
+  & ul > li {
+    margin-left: 12px;
+  }
 }
 
 .toolbar {

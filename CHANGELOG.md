@@ -12,6 +12,26 @@
 
 ### Dependency updates
 
+## [0.42.3] - 2020-04-22
+
+### Changed
+
+- `Tag`: changed internally to use `Badge` components. ([@driesd](https://github.com/driesd) in [#1046])
+
+### Fixed
+
+- `Tag`: fixed accidentally removed `onClick` prop. ([@driesd](https://github.com/driesd) in [#1046])
+
+## [0.42.2] - 2020-04-22
+
+### Added
+
+- `WysiywygEditor`: Allow boxProps that are now set on the wrapper box. ([@mikeverf](https://github.com/mikeverf) in [#1044])
+
+### Fixed
+
+- `WysiywygEditor`: added list styling instead of relying on browser styling. ([@mikeverf](https://github.com/mikeverf) in [#1044])
+
 ## [0.42.1] - 2020-04-22
 
 ### Added
