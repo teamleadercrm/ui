@@ -9,6 +9,13 @@ const TooltippedTag = Tooltip(Tag);
 
 export default {
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Tag'),
+
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/LHH25GN90ljQaBEUNMsdJn/Desktop-components?node-id=3943%3A1784',
+    },
+  },
 };
 
 export const basic = () => (
