@@ -53,6 +53,7 @@ import StatusBullet from './components/statusBullet';
 import StatusLabel from './components/statusLabel';
 import { IconTab, TitleTab, TabGroup } from './components/tab';
 import Tag from './components/tag';
+import Timer from './components/timer';
 import TimerPulser from './components/timerPulser';
 import { Toast, ToastContainer } from './components/toast';
 import Toggle from './components/toggle';
@@ -158,6 +159,7 @@ export {
   Tag,
   Textarea,
   TimeInput,
+  Timer,
   TimerPulser,
   TitleTab,
   Toast,
