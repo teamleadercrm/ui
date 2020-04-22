@@ -10,7 +10,7 @@ import {
   IconLinkMediumOutline,
 } from '@teamleader/ui-icons';
 
-import Box from '../box';
+import Box, { pickBoxProps } from '../box';
 import ValidationText from '../validationText';
 
 import InlineStylingOptions from './InlineStylingOptions';
@@ -98,8 +98,10 @@ const WysiwygEditor = ({
     className,
   );
 
+  const boxProps = pickBoxProps(others);
+
   return (
-    <Box style={{ width, flex: width && '0 0 auto' }}>
+    <Box style={{ width, flex: width && '0 0 auto' }} {...boxProps}>
       <Editor
         toolbar={toolbar}
         wrapperClassName={wrapperClassNames}
