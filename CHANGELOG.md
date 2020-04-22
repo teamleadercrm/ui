@@ -2,6 +2,8 @@
 
 ### Added
 
+- `WysiywygEditor`: Allow boxProps that are now set on the wrapper box. ([@mikeverf](https://github.com/mikeverf) in [#1044])
+
 ### Changed
 
 ### Deprecated
@@ -9,6 +11,8 @@
 ### Removed
 
 ### Fixed
+
+- `WysiywygEditor`: added list styling instead of relying on browser styling. ([@mikeverf](https://github.com/mikeverf) in [#1044])
 
 ### Dependency updates
 
