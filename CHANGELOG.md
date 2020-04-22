@@ -4,11 +4,15 @@
 
 ### Changed
 
+- `Tag`: changed internally to use `Badge` components. ([@driesd](https://github.com/driesd) in [#1046])
+
 ### Deprecated
 
 ### Removed
 
 ### Fixed
+
+- `Tag`: fixed accidentally removed `onClick` prop. ([@driesd](https://github.com/driesd) in [#1046])
 
 ### Dependency updates
 
