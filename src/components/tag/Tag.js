@@ -1,41 +1,43 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import Badge from '../badge';
 import Box from '../box';
-import IconButton from '../iconButton';
 import cx from 'classnames';
 import theme from './theme.css';
 import { IconCloseSmallOutline } from '@teamleader/ui-icons';
-import { UITextBody, UITextDisplay, UITextSmall } from '../typography';
 
 class Tag extends PureComponent {
   render() {
     const { children, className, onClick, onRemoveClick, selected, size, disabled, ...others } = this.props;
 
     const classNames = cx(
-      theme['tag'],
-      theme[`is-${size}`],
+      theme['wrapper'],
       {
-        [theme['is-clickable']]: onClick,
         [theme['is-removable']]: onRemoveClick,
-        [theme['is-disabled']]: disabled,
-        [theme['is-selected']]: selected,
       },
       className,
     );
 
-    const TextElement = size === 'small' ? UITextSmall : size === 'large' ? UITextDisplay : UITextBody;
-
     return (
-      <Box className={classNames} data-teamleader-ui="tag" {...others}>
-        <TextElement marginHorizontal={2}>{children}</TextElement>
+      <Box {...others} className={classNames} data-teamleader-ui="tag" display="inline-flex">
+        <Badge
+          className={theme['label']}
+          disabled={disabled}
+          onClick={onClick}
+          overflow="hidden"
+          selected={selected}
+          size={size}
+        >
+          {children}
+        </Badge>
         {onRemoveClick && (
-          <IconButton
+          <Badge
             className={theme['remove-button']}
-            color="teal"
+            disabled={disabled}
             icon={<IconCloseSmallOutline />}
             onClick={onRemoveClick}
-            size="small"
-            disabled={disabled}
+            selected={selected}
+            size={size}
           />
         )}
       </Box>
