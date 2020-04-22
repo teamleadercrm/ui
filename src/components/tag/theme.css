@@ -2,14 +2,16 @@
   max-width: 100%;
 }
 
-.label {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  border-right: 0;
-}
+.is-removable {
+  .label {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: 0;
+  }
 
-.remove-button {
-  border-left: 0;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+  .remove-button {
+    border-left: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
 }

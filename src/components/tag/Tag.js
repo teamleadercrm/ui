@@ -10,7 +10,13 @@ class Tag extends PureComponent {
   render() {
     const { children, className, onClick, onRemoveClick, selected, size, disabled, ...others } = this.props;
 
-    const classNames = cx(theme['wrapper'], className);
+    const classNames = cx(
+      theme['wrapper'],
+      {
+        [theme['is-removable']]: onRemoveClick,
+      },
+      className,
+    );
 
     return (
       <Box {...others} className={classNames} data-teamleader-ui="tag" display="inline-flex">
