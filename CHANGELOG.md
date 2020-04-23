@@ -14,7 +14,7 @@
 
 ### Added
 
-- `WysiwygEditor`: Add type export. ([@mikeverf](https://github.com/mikeverf) in [#1048])
+- `WysiwygEditor`: Add type export. ([@mikeverf](https://github.com/mikeverf) in [#1050])
 
 ## [0.42.3] - 2020-04-22
 
