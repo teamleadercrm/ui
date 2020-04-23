@@ -10,6 +10,10 @@
 
 ### Fixed
 
+## [0.42.7] - 2020-04-23
+
+### Fixed
+
 - `WysiwygEditor`: Remove href attribute from `linkDecorator` of `WysiwygEditor`. ([@mikeverf](https://github.com/mikeverf) in [#1057])
 
 ## [0.42.6] - 2020-04-23
