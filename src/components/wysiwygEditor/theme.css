@@ -75,6 +75,10 @@
   & ol > li,
   & ul > li {
     margin-left: 12px;
+
+    & > :global(.public-DraftStyleDefault-block) {
+      margin: 0.5em 0;
+    }
   }
 }
 
