@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `WysiwygEditor`: Make spacing between list items less high. ([@mikeverf](https://github.com/mikeverf) in [#1055])
+
 ### Deprecated
 
 ### Removed
