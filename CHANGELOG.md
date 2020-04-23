@@ -10,11 +10,22 @@
 
 ### Fixed
 
+## [0.42.5] - 2020-04-23
+
+### Fixed
+
+- `WysiwygEditor`: Fall back to `en` when `locale` prop isn't one of `en`, `it`, `nl`, `de`, `fr` or `es`. ([@mikeverf](https://github.com/mikeverf) in [#1052])
+
+### Dependency updates
+
+- `react-day-picker` from `7.4.7` to `7.4.8`
+- `eslint-config-prettier` from `6.10.1` to `6.11.0`
+
 ## [0.42.4] - 2020-04-23
 
 ### Added
 
-- `WysiwygEditor`: Add type export. ([@mikeverf](https://github.com/mikeverf) in [#1048])
+- `WysiwygEditor`: Add type export. ([@mikeverf](https://github.com/mikeverf) in [#1050])
 
 ## [0.42.3] - 2020-04-22
 
