@@ -116,7 +116,7 @@ class Button extends PureComponent {
       <Box {...props}>
         {icon && iconPlacement === 'left' && icon}
         {(label || children) && (
-          <Text element="span">
+          <Text element="span" ellipsis>
             {label}
             {children}
           </Text>

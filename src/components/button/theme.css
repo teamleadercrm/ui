@@ -60,6 +60,8 @@
 }
 
 .button {
+  max-width: 100%;
+
   &:not(.is-disabled) {
     &:hover {
       z-index: 1;
