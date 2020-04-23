@@ -49,6 +49,8 @@ const customStyleMap = {
   },
 };
 
+const availableLocales = ['en', 'es', 'it', 'nl', 'fr', 'de'];
+
 const WysiwygEditor = ({
   className,
   error,
@@ -112,10 +114,17 @@ const WysiwygEditor = ({
         onContentStateChange={handleContentStateChange}
         customStyleMap={customStyleMap}
         customDecorators={[linkDecorator]}
-        localization={{
-          locale,
-          translations: translations[locale],
-        }}
+        localization={
+          availableLocales.includes(locale)
+            ? {
+                locale,
+                translations: translations[locale],
+              }
+            : {
+                locale: 'en',
+                translations: translations['en'],
+              }
+        }
         {...others}
       />
       <ValidationText error={error} help={helpText} success={success} warning={warning} />
