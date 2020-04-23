@@ -11,11 +11,11 @@ class HeaderCell extends PureComponent {
     const { sortable, sorted } = this.props;
 
     if (sorted === 'asc' || (!sorted && sortable)) {
-      return <IconArrowDownSmallOutline />;
+      return <IconArrowUpSmallOutline />;
     }
 
     if (sorted === 'desc') {
-      return <IconArrowUpSmallOutline />;
+      return <IconArrowDownSmallOutline />;
     }
 
     return null;
