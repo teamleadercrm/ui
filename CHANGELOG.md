@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `WysiwygEditor`: Make sure placeholder is positioned correctly on scroll. ([@mikeverf](https://github.com/mikeverf) in [#1055])
+
 ## [0.42.5] - 2020-04-23
 
 ### Fixed
