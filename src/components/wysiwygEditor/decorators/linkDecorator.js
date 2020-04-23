@@ -31,7 +31,7 @@ const LinkEntity = ({ entityKey, contentState, children }) => {
 
   return (
     <Box display="inline-block" onMouseEnter={toggleShowOpenLinkIcon} onMouseLeave={toggleShowOpenLinkIcon}>
-      <Link className={theme['link']} href="" inherit={false} onClick={(event) => event.preventDefault()}>
+      <Link className={theme['link']} inherit={false} onClick={(event) => event.preventDefault()}>
         {children}
       </Link>
       {showOpenLinkIcon && <IconExternalLinkSmallOutline onClick={openLink} className={theme['icon']} />}
