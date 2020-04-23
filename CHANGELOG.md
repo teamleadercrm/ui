@@ -10,6 +10,16 @@
 
 ### Fixed
 
+## [0.42.6] - 2020-04-23
+
+### Changed
+
+- `WysiwygEditor`: Make spacing between list items less high. ([@mikeverf](https://github.com/mikeverf) in [#1055])
+
+### Fixed
+
+- `WysiwygEditor`: Make sure placeholder is positioned correctly on scroll. ([@mikeverf](https://github.com/mikeverf) in [#1055])
+
 ## [0.42.5] - 2020-04-23
 
 ### Fixed
