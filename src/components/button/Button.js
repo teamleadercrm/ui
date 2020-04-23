@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../box';
 import LoadingSpinner from '../loadingSpinner';
+import { UITextBody, UITextDisplay } from '../typography';
 import cx from 'classnames';
 import theme from './theme.css';
 
@@ -109,14 +110,16 @@ class Button extends PureComponent {
       'data-teamleader-ui': 'button',
     };
 
+    const Text = size === 'large' ? UITextDisplay : UITextBody;
+
     return (
       <Box {...props}>
         {icon && iconPlacement === 'left' && icon}
         {(label || children) && (
-          <span>
+          <Text element="span">
             {label}
             {children}
-          </span>
+          </Text>
         )}
         {icon && iconPlacement === 'right' && icon}
         {processing && (
