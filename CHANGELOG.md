@@ -10,7 +10,11 @@
 
 ### Fixed
 
-### Dependency updates
+## [0.42.4] - 2020-04-23
+
+### Added
+
+- `WysiwygEditor`: Add type export. ([@mikeverf](https://github.com/mikeverf) in [#1048])
 
 ## [0.42.3] - 2020-04-22
 
