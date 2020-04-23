@@ -40,6 +40,10 @@
   font-smoothing: antialiased;
   text-size-adjust: 100%;
 
+  :global(.DraftEditor-root) {
+    position: relative;
+  }
+
   &:not(.has-placeholder) :global(.public-DraftEditorPlaceholder-root) {
     display: none;
   }
