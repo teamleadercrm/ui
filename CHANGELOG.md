@@ -16,16 +16,6 @@
 
 - `WysiwygEditor`: Add type export. ([@mikeverf](https://github.com/mikeverf) in [#1048])
 
-### Changed
-
-### Deprecated
-
-### Removed
-
-### Fixed
-
-### Dependency updates
-
 ## [0.42.3] - 2020-04-22
 
 ### Changed
