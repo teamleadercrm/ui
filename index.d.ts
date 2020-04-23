@@ -106,6 +106,7 @@ declare module '@teamleader/ui' {
   export const Tooltip: any;
   export const ValidationText: any;
   export const Widget: any;
+  export const WysiwygEditor: any;
   export const QTip: any;
   export const COLOR: any;
   export const COLORS: any;
