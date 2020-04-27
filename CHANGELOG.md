@@ -16,6 +16,8 @@
 
 ### Fixed
 
+- `Console warnings`: fixed console warnings in various components. ([@driesd](https://github.com/driesd) in [#1063])
+
 ## [0.42.7] - 2020-04-23
 
 ### Fixed
