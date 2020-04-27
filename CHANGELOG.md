@@ -2,7 +2,11 @@
 
 ### Added
 
+- `Button`: handle overflowing text. ([@driesd](https://github.com/driesd) in [#1059])
+
 ### Changed
+
+- `Button`: replaced `span` wrapper, containing `label` & `children`, with our `UIText` components. ([@driesd](https://github.com/driesd) in [#1059])
 
 ### Deprecated
 
