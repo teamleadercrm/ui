@@ -19,7 +19,7 @@ class Marker extends Component {
 }
 
 Marker.propTypes = {
-  children: PropTypes.oneOf([PropTypes.node, PropTypes.string]),
+  children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
 };
 
 export default Marker;

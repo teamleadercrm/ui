@@ -10,6 +10,29 @@
 
 ### Fixed
 
+### Dependency updates
+
+## [0.42.8] - 2020-04-27
+
+### Added
+
+- `Button`: handle overflowing text. ([@driesd](https://github.com/driesd) in [#1059])
+
+### Changed
+
+- `Button`: replaced `span` wrapper, containing `label` & `children`, with our `UIText` components. ([@driesd](https://github.com/driesd) in [#1059])
+- `Datagrid`: changed the sorting arrow direction in `HeaderCell`. ([@driesd](https://github.com/driesd) in [#1060])
+- `Datagrid`: changed to use `UITextBody` for `HeaderCell` text. ([@driesd](https://github.com/driesd) in [#1060])
+
+### Fixed
+
+- `Console warnings`: fixed console warnings in various components. ([@driesd](https://github.com/driesd) in [#1063])
+
+### Dependency updates
+
+- `css-loader` from `3.5.2` to `3.5.3`
+- `style-loader` from `1.1.4` to `1.2.0`
+
 ## [0.42.7] - 2020-04-23
 
 ### Fixed

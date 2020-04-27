@@ -1699,12 +1699,12 @@
   resolved "https://registry.yarnpkg.com/@teamleader/ui-colors/-/ui-colors-0.1.0.tgz#78b55444659f9f735a6bc2aa5070bce51f41e9bd"
   integrity sha512-sAofd7VtphJXfYHw0QY94tPKtlb78/qBOySkcq9g0CUWn3AUJtetNs+H+hFwqiLdod/h0Pz1m1EqKpiZdX9/vg==
 
-"@teamleader/ui-icons@0.2.29":
+"@teamleader/ui-icons@^0.2.29":
   version "0.2.29"
   resolved "https://registry.yarnpkg.com/@teamleader/ui-icons/-/ui-icons-0.2.29.tgz#5ea5b66f092daf4e18109ad015845a6628335003"
   integrity sha512-gPbx9kjt26yxQCdamZafvqfQsnK3C+YnQrkuy59rXzvmdrE6d4NU9jxn3nWWrTvECwgpdmokDPPMsL59m2RyMg==
 
-"@teamleader/ui-illustrations@0.0.31":
+"@teamleader/ui-illustrations@^0.0.31":
   version "0.0.31"
   resolved "https://registry.yarnpkg.com/@teamleader/ui-illustrations/-/ui-illustrations-0.0.31.tgz#fba3bf155859780889f06316ae93a3322bd11493"
   integrity sha512-SCdULuvbmnGYMFBcvCwD6RQuGuVwZMsas4p8paQD/4Ekv58oyQNwOPUyppCTGrVaxmmtvpBXPzVr3ea5aKFGpA==
@@ -3830,9 +3830,9 @@ css-has-pseudo@^0.10.0:
     postcss-selector-parser "^5.0.0-rc.4"
 
 css-loader@^3.0.0:
-  version "3.5.2"
-  resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-3.5.2.tgz#6483ae56f48a7f901fbe07dde2fc96b01eafab3c"
-  integrity sha512-hDL0DPopg6zQQSRlZm0hyeaqIRnL0wbWjay9BZxoiJBpbfOW4WHfbaYQhwnDmEa0kZUc1CJ3IFo15ot1yULMIQ==
+  version "3.5.3"
+  resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-3.5.3.tgz#95ac16468e1adcd95c844729e0bb167639eb0bcf"
+  integrity sha512-UEr9NH5Lmi7+dguAm+/JSPovNjYbm2k3TK58EiwQHzOHH5Jfq1Y+XoP2bQO6TMn7PptMd0opxxedAWcaSTRKHw==
   dependencies:
     camelcase "^5.3.1"
     cssesc "^3.0.0"
@@ -3845,7 +3845,7 @@ css-loader@^3.0.0:
     postcss-modules-scope "^2.2.0"
     postcss-modules-values "^3.0.0"
     postcss-value-parser "^4.0.3"
-    schema-utils "^2.6.5"
+    schema-utils "^2.6.6"
     semver "^6.3.0"
 
 css-prefers-color-scheme@^3.1.1:
@@ -10419,10 +10419,10 @@ schema-utils@^1.0.0:
     ajv-errors "^1.0.0"
     ajv-keywords "^3.1.0"
 
-schema-utils@^2.0.1, schema-utils@^2.5.0, schema-utils@^2.6.1, schema-utils@^2.6.5:
-  version "2.6.5"
-  resolved "https://registry.yarnpkg.com/schema-utils/-/schema-utils-2.6.5.tgz#c758f0a7e624263073d396e29cd40aa101152d8a"
-  integrity sha512-5KXuwKziQrTVHh8j/Uxz+QUbxkaLW9X/86NBlx/gnKgtsZA2GIVMUn17qWhRFwF8jdYb3Dig5hRO/W5mZqy6SQ==
+schema-utils@^2.0.1, schema-utils@^2.5.0, schema-utils@^2.6.1, schema-utils@^2.6.5, schema-utils@^2.6.6:
+  version "2.6.6"
+  resolved "https://registry.yarnpkg.com/schema-utils/-/schema-utils-2.6.6.tgz#299fe6bd4a3365dc23d99fd446caff8f1d6c330c"
+  integrity sha512-wHutF/WPSbIi9x6ctjGGk2Hvl0VOz5l3EKEuKbjPlB30mKZUzb9A5k9yEXRX3pwyqVLPvpfZZEllaFq/M718hA==
   dependencies:
     ajv "^6.12.0"
     ajv-keywords "^3.4.1"
@@ -11107,12 +11107,12 @@ strip-outer@^1.0.0:
     escape-string-regexp "^1.0.2"
 
 style-loader@^1.0.0:
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/style-loader/-/style-loader-1.1.4.tgz#1ad81283cefe51096756fd62697258edad933230"
-  integrity sha512-SbBHRD8fwK3pX+4UDF4ETxUF0+rCvk29LWTTI7Rt0cgsDjAj3SWM76ByTe6u2+4IlJ/WwluB7wuslWETCoPQdg==
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/style-loader/-/style-loader-1.2.0.tgz#f78e4d49caf5018f7c03ae1886e1270124feeb0a"
+  integrity sha512-HC8WcGnjwNrKji7HSBqFOhGNUSt7UDU/jHxT6bA83Gk+JWJBmgitWlGihc0V1w6ZvwlzcX5LJOsofZzSP7b1tQ==
   dependencies:
     loader-utils "^2.0.0"
-    schema-utils "^2.6.5"
+    schema-utils "^2.6.6"
 
 stylehacks@^4.0.0:
   version "4.0.3"

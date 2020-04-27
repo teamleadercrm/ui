@@ -60,7 +60,7 @@
 }
 
 .button {
-  font-family: var(--font-family-medium);
+  max-width: 100%;
 
   &:not(.is-disabled) {
     &:hover {
@@ -338,9 +338,7 @@
 
 /* Button sizes */
 .small {
-  font-size: calc(1.4 * var(--unit));
   height: calc(3 * var(--unit));
-  line-height: calc(2.8 * var(--unit));
   min-width: calc(3 * var(--unit));
   padding: 0 calc(1.2 * var(--unit));
 
@@ -350,9 +348,7 @@
 }
 
 .medium {
-  font-size: calc(1.4 * var(--unit));
   height: calc(3.6 * var(--unit));
-  line-height: calc(3.4 * var(--unit));
   min-width: calc(3.6 * var(--unit));
   padding: 0 calc(1.2 * var(--unit));
 
@@ -362,9 +358,7 @@
 }
 
 .large {
-  font-size: calc(1.6 * var(--unit));
   height: calc(4.8 * var(--unit));
-  line-height: calc(4.6 * var(--unit));
   min-width: calc(4.8 * var(--unit));
   padding: 0 calc(1.8 * var(--unit));
 

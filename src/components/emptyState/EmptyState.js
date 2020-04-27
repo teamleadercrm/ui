@@ -54,9 +54,9 @@ class EmptyState extends PureComponent {
 }
 
 EmptyState.propTypes = {
-  metaText: PropTypes.oneOf([PropTypes.node, PropTypes.string]),
+  metaText: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
   size: PropTypes.oneOf(['small', 'medium', 'large']),
-  title: PropTypes.oneOf([PropTypes.node, PropTypes.string]),
+  title: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
 };
 
 EmptyState.defaultProps = {

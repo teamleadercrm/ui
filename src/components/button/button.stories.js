@@ -1,6 +1,6 @@
 import React from 'react';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
-import { boolean, select } from '@storybook/addon-knobs/react';
+import { boolean, select, text } from '@storybook/addon-knobs/react';
 import { IconAddMediumOutline, IconAddSmallOutline } from '@teamleader/ui-icons';
 import { Button } from '../../index';
 
@@ -25,7 +25,7 @@ export const withText = () => (
   <Button
     active={boolean('Active', false)}
     color={select('Color', colors, 'teal')}
-    label="Button"
+    label={text('Label', 'Button with label')}
     level={select('Level', levels, 'secondary')}
     disabled={boolean('Disabled', false)}
     fullWidth={boolean('Full width', false)}
@@ -63,7 +63,7 @@ export const withTextAndIcon = () => (
     color={select('Color', colors, 'teal')}
     icon={select('Size', sizes, 'medium') === 'small' ? <IconAddSmallOutline /> : <IconAddMediumOutline />}
     iconPlacement={select('Icon placement', iconPositions, 'left')}
-    label="Button"
+    label={text('Label', 'Button with icon and label')}
     level={select('Level', levels, 'secondary')}
     disabled={boolean('Disabled', false)}
     fullWidth={boolean('Full width', false)}
@@ -82,7 +82,7 @@ export const withCustomElement = () => (
     active={boolean('Active', false)}
     color={select('Color', colors, 'teal')}
     element={select('Element', elements, 'a')}
-    label="Button"
+    label={text('Label', 'Button with custom element')}
     level={select('Level', levels, 'secondary')}
     disabled={boolean('Disabled', false)}
     fullWidth={boolean('Full width', false)}
