@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import theme from './theme.css';
 import Cell from './Cell';
 import Icon from '../icon';
+import { UITextBody } from '../typography';
 import cx from 'classnames';
 import { IconArrowDownSmallOutline, IconArrowUpSmallOutline } from '@teamleader/ui-icons';
 
@@ -36,7 +37,9 @@ class HeaderCell extends PureComponent {
     return (
       <Cell align={align} className={classNames} onClick={onClick} {...others} preventOverflow={false}>
         {sortable && align === 'right' && <Icon marginRight={1}>{this.renderSortedIndicators()}</Icon>}
-        <span className={theme['has-overflow-prevention']}>{children}</span>
+        <UITextBody element="span" ellipsis>
+          {children}
+        </UITextBody>
         {sortable && align === 'left' && <Icon marginLeft={1}>{this.renderSortedIndicators()}</Icon>}
       </Cell>
     );
