@@ -66,7 +66,6 @@
 
 .header-cell {
   color: var(--color-teal-dark);
-  font-family: var(--font-family-medium);
 }
 
 .has-overflow-prevention {

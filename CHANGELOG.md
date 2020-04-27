@@ -7,6 +7,8 @@
 ### Changed
 
 - `Button`: replaced `span` wrapper, containing `label` & `children`, with our `UIText` components. ([@driesd](https://github.com/driesd) in [#1059])
+- `Datagrid`: changed the sorting arrow direction in `HeaderCell`. ([@driesd](https://github.com/driesd) in [#1060])
+- `Datagrid`: changed to use `UITextBody` for `HeaderCell` text. ([@driesd](https://github.com/driesd) in [#1060])
 
 ### Deprecated
 
