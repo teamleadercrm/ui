@@ -116,6 +116,29 @@ _60X60.story = {
   name: '60x60',
 };
 
+export const _84X84 = () => (
+  <Box style={gridStyles}>
+    {Object.keys(Illustrations).map((key) => {
+      if (key.includes('84X84')) {
+        const IllustrationToRender = Illustrations[key];
+
+        return (
+          <Box key={key} style={itemStyles} {...itemProps}>
+            <Box flex="0 0 84px">
+              <IllustrationToRender />
+            </Box>
+            <TextSmall marginLeft={3}>{key}</TextSmall>
+          </Box>
+        );
+      }
+    })}
+  </Box>
+);
+
+_84X84.story = {
+  name: '84x84',
+};
+
 export const _90X90 = () => (
   <Box style={gridStyles}>
     {Object.keys(Illustrations).map((key) => {
