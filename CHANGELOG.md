@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- Fix incorrect month being displayed on initial render ([ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1067](https://github.com/teamleadercrm/ui/pull/1067))
+
 ### Dependency updates
 
 ## [0.42.8] - 2020-04-27
