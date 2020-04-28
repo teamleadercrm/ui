@@ -72,6 +72,7 @@ class DatePicker extends PureComponent {
       <Box {...boxProps}>
         <DayPicker
           {...restProps}
+          initialMonth={selectedDate}
           month={selectedMonth}
           className={classNames}
           classNames={theme}
