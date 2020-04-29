@@ -27,10 +27,6 @@
   white-space: nowrap;
   vertical-align: middle;
 
-  svg {
-    margin: auto 0; /* fix for vertical centering in safari */
-  }
-
   & > * {
     pointer-events: none;
   }
