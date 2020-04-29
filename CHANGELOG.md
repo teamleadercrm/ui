@@ -5,6 +5,7 @@
 ### Changed
 
 - `Button`: changed to handle spacing between icon an label with margin `Box` props, instead of dirty CSS. ([@driesd](https://github.com/driesd) in [#1072])
+- `SplitButton`: prevent scroll lock when showing `Popover` menu. ([@driesd](https://github.com/driesd) in [#1071])
 
 ### Deprecated
 

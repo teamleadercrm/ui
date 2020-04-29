@@ -3,7 +3,7 @@ import Avatar, { AvatarStack } from './components/avatar';
 import Badge from './components/badge';
 import Banner from './components/banner';
 import Box from './components/box';
-import Button, { ButtonGroup, SplitButton } from './components/button';
+import Button, { ButtonGroup } from './components/button';
 import {
   Heading1,
   Heading2,
@@ -49,6 +49,7 @@ import ScrollContainer from './components/scrollContainer';
 import Section from './components/section';
 import Select, { AsyncSelect } from './components/select';
 import { Island, IslandGroup } from './components/island';
+import SplitButton from './components/splitButton';
 import StatusBullet from './components/statusBullet';
 import StatusLabel from './components/statusLabel';
 import { IconTab, TitleTab, TabGroup } from './components/tab';
