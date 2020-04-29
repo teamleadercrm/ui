@@ -66,6 +66,7 @@ class SplitButton extends PureComponent {
           active={popoverActive}
           anchorEl={popoverAnchorEl}
           backdrop="transparent"
+          lockScroll={false}
           onEscKeyDown={this.handleCloseClick}
           onOverlayClick={this.handleCloseClick}
           position="start"
