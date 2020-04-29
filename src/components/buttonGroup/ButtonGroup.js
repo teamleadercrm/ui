@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash.omit';
 import Box, { omitBoxProps } from '../box';
-import Button from './Button';
+import Button from '../button';
 import cx from 'classnames';
 import isComponentOfType from '../utils/is-component-of-type';
 import theme from './theme.css';
