@@ -1,7 +1,8 @@
 import React from 'react';
 import { select, text } from '@storybook/addon-knobs/react';
 import { addStoryInGroup, COMPOSITIONS } from '../../../.storybook/utils';
-import Button, { ButtonGroup } from '../button';
+import Button from '../button';
+import ButtonGroup from '../buttonGroup';
 import DetailPage from './DetailPage';
 import Icon from '../icon';
 import IconButton from '../iconButton';

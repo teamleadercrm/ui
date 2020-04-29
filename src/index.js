@@ -3,7 +3,8 @@ import Avatar, { AvatarStack } from './components/avatar';
 import Badge from './components/badge';
 import Banner from './components/banner';
 import Box from './components/box';
-import Button, { ButtonGroup } from './components/button';
+import Button from './components/button';
+import ButtonGroup from './components/buttonGroup';
 import {
   Heading1,
   Heading2,

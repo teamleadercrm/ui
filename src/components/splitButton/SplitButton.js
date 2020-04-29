@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Box, { pickBoxProps } from '../box';
-import Button, { ButtonGroup } from '../button';
+import Button from '../button';
+import ButtonGroup from '../buttonGroup';
 import { Menu } from '../menu';
 import Popover from '../popover';
 import { IconChevronDownSmallOutline } from '@teamleader/ui-icons';
