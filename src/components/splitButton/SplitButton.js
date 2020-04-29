@@ -1,8 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Box, { pickBoxProps } from '../box';
-import Button from './Button';
-import ButtonGroup from './ButtonGroup';
+import Button, { ButtonGroup } from '../button';
 import { Menu } from '../menu';
 import Popover from '../popover';
 import { IconChevronDownSmallOutline } from '@teamleader/ui-icons';
@@ -67,6 +66,7 @@ class SplitButton extends PureComponent {
           active={popoverActive}
           anchorEl={popoverAnchorEl}
           backdrop="transparent"
+          lockScroll={false}
           onEscKeyDown={this.handleCloseClick}
           onOverlayClick={this.handleCloseClick}
           position="start"

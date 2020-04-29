@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `SplitButton`: prevent scroll lock when showing `Popover` menu. ([@driesd](https://github.com/driesd) in [#1071])
+
 ### Deprecated
 
 ### Removed
