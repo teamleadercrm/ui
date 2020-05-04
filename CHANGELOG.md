@@ -19,6 +19,11 @@
 
 ### Dependency updates
 
+- `@babel/core` from `7.9.0` to `7.9.6`
+- `@babel/plugin-transform-runtime` from `7.9.0` to `7.9.6`
+- `@babel/preset-env` from `7.9.5` to `7.9.6`
+- `@babel/runtime` from `7.9.2` to `7.9.6`
+
 ## [0.42.8] - 2020-04-27
 
 ### Added
