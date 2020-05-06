@@ -1,12 +1,20 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, isValidElement } from 'react';
 import PropTypes from 'prop-types';
 import Box, { pickBoxProps } from '../box';
 
 class IslandGroup extends PureComponent {
   render() {
-    const { children, className, color, dark, direction, size, ...otherProps } = this.props;
+    const { children: originalChildren, className, color, dark, direction, size, ...otherProps } = this.props;
 
     const boxProps = pickBoxProps(otherProps);
+    const children = [];
+
+    React.Children.forEach(originalChildren, (child) => {
+      if (isValidElement(child)) {
+        children.push(child);
+      }
+    });
+
     const hasMoreThanOneChild = children.length > 1;
 
     return (
