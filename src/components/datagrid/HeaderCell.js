@@ -37,7 +37,7 @@ class HeaderCell extends PureComponent {
     return (
       <Cell align={align} className={classNames} onClick={onClick} {...others} preventOverflow={false}>
         {sortable && align === 'right' && <Icon marginRight={1}>{this.renderSortedIndicators()}</Icon>}
-        <UITextBody element="span" ellipsis>
+        <UITextBody element="span" maxLines={1}>
           {children}
         </UITextBody>
         {sortable && align === 'left' && <Icon marginLeft={1}>{this.renderSortedIndicators()}</Icon>}

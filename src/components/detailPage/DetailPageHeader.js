@@ -22,7 +22,12 @@ class DetailPageHeader extends PureComponent {
           )}
           <Box flex="1 0 200px" paddingTop={5} overflow="hidden">
             <Box alignItems="center" display="flex">
-              <Heading1 color={titleColor} ellipsis tint={titleColor === 'neutral' ? 'dark' : 'darkest'} title={title}>
+              <Heading1
+                color={titleColor}
+                maxLines={1}
+                tint={titleColor === 'neutral' ? 'dark' : 'darkest'}
+                title={title}
+              >
                 {title}
               </Heading1>
               {titleSuffix && <Box marginLeft={3}>{titleSuffix}</Box>}
