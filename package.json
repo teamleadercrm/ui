@@ -1,7 +1,7 @@
 {
   "name": "@teamleader/ui",
   "description": "Teamleader UI library",
-  "version": "0.42.8",
+  "version": "0.42.9",
   "author": "Teamleader <development@teamleader.eu>",
   "bugs": {
     "url": "https://github.com/teamleadercrm/ui/issues"
@@ -26,11 +26,11 @@
   "types": "index.d.ts",
   "dependencies": {
     "@babel/cli": "^7.8.3",
-    "@babel/runtime": "^7.8.3",
+    "@babel/runtime": "^7.9.6",
     "@teamleader/ui-animations": "^0.0.3",
     "@teamleader/ui-colors": "^0.1.0",
     "@teamleader/ui-icons": "^0.2.29",
-    "@teamleader/ui-illustrations": "^0.0.31",
+    "@teamleader/ui-illustrations": "^0.0.32",
     "@teamleader/ui-typography": "^0.2.3",
     "@teamleader/ui-utilities": "^0.2.0",
     "classnames": "^2.2.5",
@@ -52,11 +52,11 @@
     "react-transition-group": "^4.2.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.8.3",
+    "@babel/core": "^7.9.6",
     "@babel/plugin-proposal-export-default-from": "^7.8.3",
     "@babel/plugin-transform-react-jsx-source": "^7.8.3",
-    "@babel/plugin-transform-runtime": "^7.8.3",
-    "@babel/preset-env": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
     "@babel/preset-react": "^7.8.3",
     "@sambego/storybook-state": "^2.0.1",
     "@sambego/storybook-styles": "^1.0.0",

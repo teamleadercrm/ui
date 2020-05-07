@@ -2,6 +2,8 @@
 
 ### Added
 
+- [Breaking] `Text`: added `maxLines` prop (number), which replaces `ellipsis`. ([@driesd](https://github.com/driesd) in [#1092])
+
 ### Changed
 
 ### Deprecated
@@ -11,6 +13,38 @@
 ### Fixed
 
 ### Dependency updates
+
+## [0.42.9] - 2020-05-07
+
+### Changed
+
+- `Button`: changed to handle spacing between icon an label with margin `Box` props, instead of dirty CSS. ([@driesd](https://github.com/driesd) in [#1072])
+- `SplitButton`: prevent scroll lock when showing `Popover` menu. ([@driesd](https://github.com/driesd) in [#1071])
+- `Popover`: set min width to 180px. ([@lorgan3](https://github.com/lorgan3) in [#1090])
+
+### Removed
+
+- `Button`: removed an obsolete SVG alignment fix for Safari. ([@driesd](https://github.com/driesd) in [#1072])
+
+### Fixed
+
+- `DatePicker`: fixed incorrect month being displayed on initial render. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1067])
+- `IslandGroup`: fixed attempting to change props of invalid react elements (undefined, null, etc.). ([@timdegroote](https://github.com/timdegroote) in [#1089])
+
+### Dependency updates
+
+- `@babel/core` from `7.9.0` to `7.9.6`
+- `@babel/plugin-transform-runtime` from `7.9.0` to `7.9.6`
+- `@babel/preset-env` from `7.9.5` to `7.9.6`
+- `@babel/runtime` from `7.9.2` to `7.9.6`
+- `@teamleader/ui-illustrations` from `0.0.31` to `0.0.32`
+- `html-webpack-plugin` from `4.2.0` to `4.3.0`
+- `luxon` from `1.23.0` to `1.24.1`
+- `moment` from `2.24.0` to `2.25.3`
+- `postcss` from `7.0.27` to `7.0.29`
+- `postcss-cli` from `7.1.0` to `7.1.1`
+- `storybook-addon-designs` from `5.2.0` to `5.2.1`
+- `style-loader` from `1.2.0` to `1.2.1`
 
 ## [0.42.8] - 2020-04-27
 

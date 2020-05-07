@@ -1,6 +1,6 @@
 import React from 'react';
 import { addStoryInGroup, PRIMITIVES } from '../../../.storybook/utils';
-import { boolean, select } from '@storybook/addon-knobs/react';
+import { number, select } from '@storybook/addon-knobs/react';
 import {
   COLORS,
   TINTS,
@@ -35,14 +35,14 @@ export const headings = () => (
   <div>
     <Heading1
       color={select('Color', COLORS, 'teal')}
-      ellipsis={boolean('Overflow ellipsis', false)}
+      maxLines={number('Max lines', undefined)}
       tint={select('Tint', TINTS, 'darkest')}
     >
       Heading 1 / font-size: 24px / line-height: 30px / weight: bold (700) / tracking: 0
     </Heading1>
     <Heading2
       color={select('Color', COLORS, 'teal')}
-      ellipsis={boolean('Overflow ellipsis', false)}
+      maxLines={number('Max lines', undefined)}
       tint={select('Tint', TINTS, 'darkest')}
       marginTop={4}
     >
@@ -50,7 +50,7 @@ export const headings = () => (
     </Heading2>
     <Heading3
       color={select('Color', COLORS, 'teal')}
-      ellipsis={boolean('Overflow ellipsis', false)}
+      maxLines={number('Max lines', undefined)}
       tint={select('Tint', TINTS, 'darkest')}
       marginTop={4}
     >
@@ -58,7 +58,7 @@ export const headings = () => (
     </Heading3>
     <Heading4
       color={select('Color', COLORS, 'teal')}
-      ellipsis={boolean('Overflow ellipsis', false)}
+      maxLines={number('Max lines', undefined)}
       tint={select('Tint', TINTS, 'darkest')}
       marginTop={4}
     >
@@ -66,7 +66,7 @@ export const headings = () => (
     </Heading4>
     <Heading5
       color={select('Color', COLORS, 'teal')}
-      ellipsis={boolean('Overflow ellipsis', false)}
+      maxLines={number('Max lines', undefined)}
       tint={select('Tint', TINTS, 'darkest')}
       marginTop={4}
     >
@@ -79,14 +79,14 @@ export const text = () => (
   <Box overflow="hidden">
     <TextDisplay
       color={select('Color', COLORS, 'teal')}
-      ellipsis={boolean('Overflow ellipsis', false)}
+      maxLines={number('Max lines', undefined)}
       tint={select('Tint', TINTS, 'darkest')}
     >
       <strong>Text display</strong> / font-size: 16px / line-height: 24px / weight: regular (400) / tracking: 0
     </TextDisplay>
     <TextBody
       color={select('Color', COLORS, 'teal')}
-      ellipsis={boolean('Overflow ellipsis', false)}
+      maxLines={number('Max lines', undefined)}
       tint={select('Tint', TINTS, 'darkest')}
       marginTop={4}
     >
@@ -94,7 +94,7 @@ export const text = () => (
     </TextBody>
     <TextBodyCompact
       color={select('Color', COLORS, 'teal')}
-      ellipsis={boolean('Overflow ellipsis', false)}
+      maxLines={number('Max lines', undefined)}
       tint={select('Tint', TINTS, 'darkest')}
       marginTop={4}
     >
@@ -102,7 +102,7 @@ export const text = () => (
     </TextBodyCompact>
     <TextSmall
       color={select('Color', COLORS, 'teal')}
-      ellipsis={boolean('Overflow ellipsis', false)}
+      maxLines={number('Max lines', undefined)}
       tint={select('Tint', TINTS, 'darkest')}
       marginTop={4}
     >
@@ -115,14 +115,14 @@ export const UIText = () => (
   <Box overflow="hidden">
     <UITextDisplay
       color={select('Color', COLORS, 'teal')}
-      ellipsis={boolean('Overflow ellipsis', false)}
+      maxLines={number('Max lines', undefined)}
       tint={select('Tint', TINTS, 'darkest')}
     >
       <strong>UI Text display</strong> / font-size: 16px / line-height: 24px / weight: medium (500) / tracking: 0
     </UITextDisplay>
     <UITextBody
       color={select('Color', COLORS, 'teal')}
-      ellipsis={boolean('Overflow ellipsis', false)}
+      maxLines={number('Max lines', undefined)}
       tint={select('Tint', TINTS, 'darkest')}
       marginTop={4}
     >
@@ -130,7 +130,7 @@ export const UIText = () => (
     </UITextBody>
     <UITextSmall
       color={select('Color', COLORS, 'teal')}
-      ellipsis={boolean('Overflow ellipsis', false)}
+      maxLines={number('Max lines', undefined)}
       tint={select('Tint', TINTS, 'darkest')}
       marginTop={4}
     >
@@ -143,14 +143,14 @@ export const monospaced = () => (
   <Box padding={5}>
     <Heading1
       color={select('Color', COLORS, 'teal')}
-      ellipsis={boolean('Overflow ellipsis', false)}
+      maxLines={number('Max lines', undefined)}
       tint={select('Tint', TINTS, 'darkest')}
     >
       <Monospaced>1234567890</Monospaced>
     </Heading1>
     <Heading2
       color={select('Color', COLORS, 'teal')}
-      ellipsis={boolean('Overflow ellipsis', false)}
+      maxLines={number('Max lines', undefined)}
       tint={select('Tint', TINTS, 'darkest')}
       marginTop={2}
     >
@@ -158,7 +158,7 @@ export const monospaced = () => (
     </Heading2>
     <Heading3
       color={select('Color', COLORS, 'teal')}
-      ellipsis={boolean('Overflow ellipsis', false)}
+      maxLines={number('Max lines', undefined)}
       tint={select('Tint', TINTS, 'darkest')}
       marginTop={2}
     >
@@ -166,7 +166,7 @@ export const monospaced = () => (
     </Heading3>
     <Heading4
       color={select('Color', COLORS, 'teal')}
-      ellipsis={boolean('Overflow ellipsis', false)}
+      maxLines={number('Max lines', undefined)}
       tint={select('Tint', TINTS, 'darkest')}
       marginTop={2}
     >
@@ -174,7 +174,7 @@ export const monospaced = () => (
     </Heading4>
     <Heading5
       color={select('Color', COLORS, 'teal')}
-      ellipsis={boolean('Overflow ellipsis', false)}
+      maxLines={number('Max lines', undefined)}
       tint={select('Tint', TINTS, 'darkest')}
       marginTop={2}
     >
@@ -182,7 +182,7 @@ export const monospaced = () => (
     </Heading5>
     <TextDisplay
       color={select('Color', COLORS, 'teal')}
-      ellipsis={boolean('Overflow ellipsis', false)}
+      maxLines={number('Max lines', undefined)}
       tint={select('Tint', TINTS, 'darkest')}
       marginTop={6}
     >
@@ -190,7 +190,7 @@ export const monospaced = () => (
     </TextDisplay>
     <TextBody
       color={select('Color', COLORS, 'teal')}
-      ellipsis={boolean('Overflow ellipsis', false)}
+      maxLines={number('Max lines', undefined)}
       tint={select('Tint', TINTS, 'darkest')}
       marginTop={2}
     >
@@ -198,7 +198,7 @@ export const monospaced = () => (
     </TextBody>
     <TextSmall
       color={select('Color', COLORS, 'teal')}
-      ellipsis={boolean('Overflow ellipsis', false)}
+      maxLines={number('Max lines', undefined)}
       tint={select('Tint', TINTS, 'darkest')}
       marginTop={2}
     >

@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../box';
-import { ButtonGroup } from '../button';
+import ButtonGroup from '../buttonGroup';
 import cx from 'classnames';
 import theme from './theme.css';
 

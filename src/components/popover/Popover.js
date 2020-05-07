@@ -185,7 +185,7 @@ Popover.defaultProps = {
   color: 'neutral',
   lockScroll: true,
   maxWidth: '50vw',
-  minWidth: 'auto',
+  minWidth: '180px',
   offsetCorrection: 0,
   position: 'center',
   tint: 'lightest',
