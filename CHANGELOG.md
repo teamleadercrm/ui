@@ -26,8 +26,8 @@
 
 ### Fixed
 
-- Fix incorrect month being displayed on initial render ([ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1067](https://github.com/teamleadercrm/ui/pull/1067))
-- Fix IslandGroup attempting to change props of invalid react elements (undefined, null, etc.).
+- `DatePicker`: fixed incorrect month being displayed on initial render. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1067])
+- `IslandGroup`: fixed attempting to change props of invalid react elements (undefined, null, etc.). ([@timdegroote](https://github.com/timdegroote) in [#1089])
 
 ### Dependency updates
 
