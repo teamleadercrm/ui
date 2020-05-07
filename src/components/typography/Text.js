@@ -8,7 +8,7 @@ import theme from './theme.css';
 const factory = (baseType, type, defaultElement) => {
   class Text extends PureComponent {
     render() {
-      const { children, className, color, element, ellipsis, tint, ...others } = this.props;
+      const { children, className, color, element, maxLines, style, tint, ...others } = this.props;
 
       const classNames = cx(
         theme[baseType],
@@ -16,15 +16,21 @@ const factory = (baseType, type, defaultElement) => {
         theme[color],
         theme[tint],
         {
-          [theme['overflow-ellipsis']]: ellipsis,
+          [theme['overflow-multiline']]: maxLines > 1,
+          [theme['overflow-singleline']]: maxLines === 1,
         },
         className,
       );
 
+      const styles = {
+        ...(maxLines > 1 && { MozLineClamp: maxLines, WebkitLineClamp: maxLines }),
+        ...style,
+      };
+
       const Element = element || defaultElement;
 
       return (
-        <Box className={classNames} data-teamleader-ui={baseType} element={Element} {...others}>
+        <Box className={classNames} data-teamleader-ui={baseType} element={Element} {...others} style={styles}>
           {children}
         </Box>
       );
@@ -36,13 +42,13 @@ const factory = (baseType, type, defaultElement) => {
     className: PropTypes.string,
     color: PropTypes.oneOf(COLORS),
     element: PropTypes.node,
-    ellipsis: PropTypes.bool,
+    maxLines: PropTypes.number,
+    style: PropTypes.object,
     tint: PropTypes.oneOf(TINTS),
   };
 
   Text.defaultProps = {
     element: null,
-    ellipsis: false,
     tint: 'darkest',
   };
 

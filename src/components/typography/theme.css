@@ -159,3 +159,18 @@
   background-color: color(var(--color-mint-light) a(0.3));
   color: inherit;
 }
+
+.overflow-multiline {
+  display: -webkit-box;
+  box-orient: vertical;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.overflow-singleline {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
