@@ -2,6 +2,8 @@
 
 ### Added
 
+- [Breaking] `Text`: added `maxLines` prop (number), which replaces `ellipsis`. ([@driesd](https://github.com/driesd) in [#1092])
+
 ### Changed
 
 ### Deprecated
@@ -23,6 +25,7 @@
 ### Removed
 
 - `Button`: removed an obsolete SVG alignment fix for Safari. ([@driesd](https://github.com/driesd) in [#1072])
+- [Breaking] `Text`: removed `ellipsis` prop in order to use `maxLines` instead. ([@driesd](https://github.com/driesd) in [#1092])
 
 ### Fixed
 

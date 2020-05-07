@@ -118,7 +118,7 @@ class Button extends PureComponent {
         {(label || children) && (
           <Text
             element="span"
-            ellipsis
+            maxLines={1}
             marginLeft={icon && iconPlacement === 'left' && 2}
             marginRight={icon && iconPlacement === 'right' && 2}
           >
