@@ -2,19 +2,25 @@
 
 ### Added
 
-- `Text`: added `maxLines` prop (number), which replaces `ellipsis`. ([@driesd](https://github.com/driesd) in [#1092])
-
 ### Changed
 
 ### Deprecated
 
 ### Removed
 
-- [Breaking] `Text`: removed `ellipsis` prop in order to use `maxLines` instead. ([@driesd](https://github.com/driesd) in [#1092])
-
 ### Fixed
 
 ### Dependency updates
+
+## [0.43.0] - 2020-05-11
+
+### Added
+
+- `Text`: added `maxLines` prop (number), which replaces `ellipsis`. ([@driesd](https://github.com/driesd) in [#1092])
+
+### Removed
+
+- [Breaking] `Text`: removed `ellipsis` prop in order to use `maxLines` instead. ([@driesd](https://github.com/driesd) in [#1092])
 
 ## [0.42.9] - 2020-05-07
 
