@@ -12,6 +12,17 @@
 
 ### Dependency updates
 
+## [0.43.1] - 2020-05-11
+
+### Added
+
+- `LabelValuePair`, `LabelValuePair.Label` & `LabelValuePair.Value`: added new components. ([@driesd](https://github.com/driesd) in [#1095])
+- `LabelValuePairGroup`: added new component. ([@driesd](https://github.com/driesd) in [#1095])
+
+### Dependency updates
+
+- `react-transition-group` from `4.3.0` to `4.4.1`
+
 ## [0.43.0] - 2020-05-11
 
 ### Added
