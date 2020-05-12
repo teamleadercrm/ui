@@ -49,7 +49,7 @@ export const basic = () => (
     options={options}
     placeholder="Select your favourite(s)"
     size={select('Size', sizes, 'medium')}
-    hideSelectedOptions={boolean('Hide selected options', true)}
+    hideSelectedOptions={boolean('Hide selected options', false)}
     menuWidth={text('Menu width', undefined)}
     error={text('error', '')}
     helpText={text('helpText', '')}
@@ -71,7 +71,7 @@ export const grouped = () => (
     options={groupedOptions}
     placeholder="Select your favourite(s)"
     size={select('Size', sizes, 'medium')}
-    hideSelectedOptions={boolean('Hide selected options', true)}
+    hideSelectedOptions={boolean('Hide selected options', false)}
     error={text('error', '')}
     helpText={text('helpText', '')}
     success={text('success', '')}
@@ -95,7 +95,7 @@ export const customOption = () => (
     options={customOptions}
     placeholder="Select your favourite(s)"
     size={select('Size', sizes, 'medium')}
-    hideSelectedOptions={boolean('Hide selected options', true)}
+    hideSelectedOptions={boolean('Hide selected options', false)}
     error={text('error', '')}
     helpText={text('helpText', '')}
     success={text('success', '')}
@@ -136,7 +136,7 @@ export const async = () => {
       options={options}
       placeholder="Select your favourite(s)"
       size={select('size', sizes, 'medium')}
-      hideSelectedOptions={boolean('hideSelectedOptions', true)}
+      hideSelectedOptions={boolean('hideSelectedOptions', false)}
       error={text('error', '')}
       helpText={text('helpText', '')}
       success={text('success', '')}

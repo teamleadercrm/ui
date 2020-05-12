@@ -4,13 +4,15 @@
 
 ### Changed
 
+- `Select`: changed so the selected options still show up in the list by default. ([@driesd](https://github.com/driesd) in [#1099])
+
 ### Deprecated
 
 ### Removed
 
 ### Fixed
 
-- `DatePickerInput` Fix months not being formatted according to the passed locale. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1095])
+- `DatePickerInput` Fix months not being formatted according to the passed locale. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1098])
 
 ### Dependency updates
 
