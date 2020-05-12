@@ -347,6 +347,7 @@ class Select extends PureComponent {
             IndicatorSeparator: null,
             ...components,
           }}
+          hideSelectedOptions={false}
           menuPortalTarget={portalTarget}
           styles={this.getStyles()}
           {...restProps}
