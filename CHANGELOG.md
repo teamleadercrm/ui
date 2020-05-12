@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `DatePickerInput` Fix months not being formatted according to the passed locale. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1095])
+
 ### Dependency updates
 
 ## [0.43.1] - 2020-05-11
