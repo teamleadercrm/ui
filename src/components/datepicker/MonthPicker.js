@@ -7,7 +7,7 @@ import { NumericInput } from '../input';
 import theme from './theme.css';
 
 // We want all the months from current month to current month in next year
-const getMonthOptions = (localeUtils) => {
+const getMonthOptions = (localeUtils, locale) => {
   let currentYear = new Date().getFullYear();
   const currentMonth = new Date().getMonth();
 
@@ -22,7 +22,7 @@ const getMonthOptions = (localeUtils) => {
     const monthOption = new Date(currentYear, currentMonthInYear);
     monthOptions.push({
       value: monthOption,
-      label: localeUtils.formatMonthTitle(monthOption),
+      label: localeUtils.formatMonthTitle(monthOption, locale),
     });
   }
   return monthOptions;
@@ -37,8 +37,10 @@ const formatSelectMonthAndYear = ({ label, value }) => ({
   label: label.replace(/(\w{3})\w+\s(\d{4})/, '$1 $2'),
 });
 
-const MonthPickerUnary = ({ date, localeUtils, onChange }) => {
-  const selectedMonth = useMemo(() => ({ value: date.getMonth(), label: localeUtils.formatMonthTitle(date) }), [date]);
+const MonthPickerUnary = ({ date, locale, localeUtils, onChange }) => {
+  const selectedMonth = useMemo(() => ({ value: date.getMonth(), label: localeUtils.formatMonthTitle(date, locale) }), [
+    date,
+  ]);
 
   const handleChangeMonth = (selectedMonth) => {
     onChange(selectedMonth.value);
@@ -50,7 +52,7 @@ const MonthPickerUnary = ({ date, localeUtils, onChange }) => {
         <Select
           value={formatSelectMonthAndYear(selectedMonth)}
           className={theme['month-picker-field']}
-          options={getMonthOptions(localeUtils)}
+          options={getMonthOptions(localeUtils, locale)}
           onChange={handleChangeMonth}
           width={112}
           size="small"
@@ -61,12 +63,14 @@ const MonthPickerUnary = ({ date, localeUtils, onChange }) => {
   );
 };
 
-const MonthPickerSplit = ({ date, localeUtils, onChange, size }) => {
+const MonthPickerSplit = ({ date, locale, localeUtils, onChange, size }) => {
   const [yearInput, setYearInput] = useState(`${date.getFullYear()}`);
-  const selectedMonth = useMemo(() => ({ value: date.getMonth(), label: localeUtils.formatMonthTitle(date) }), [date]);
+  const selectedMonth = useMemo(() => ({ value: date.getMonth(), label: localeUtils.formatMonthTitle(date, locale) }), [
+    date,
+  ]);
   const selectedYear = useMemo(() => date.getFullYear(), [date]);
 
-  const months = localeUtils.getMonths().map((monthName, index) => {
+  const months = localeUtils.getMonths(locale).map((monthName, index) => {
     return { value: index, label: monthName };
   });
 
@@ -127,6 +131,8 @@ MonthPicker.propTypes = {
   date: PropTypes.bool,
   /** Callback function that is fired when the month has changed. */
   onChange: PropTypes.func,
+  /** The set locale */
+  locale: PropTypes.string,
   /** The localeUtils from the DatePicker */
   localeUtils: PropTypes.instanceOf(Date),
   /** Size of the MonthPicker component. */
