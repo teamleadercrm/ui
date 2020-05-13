@@ -2,7 +2,11 @@
 
 ### Added
 
+- `EmptyState`: added `hidePointer` boolean prop (default false). ([@driesd](https://github.com/driesd) in [#1104])
+
 ### Changed
+
+- `EmptyState`: changed meta text component to increase line-height from 18px to 21px. ([@driesd](https://github.com/driesd) in [#1104])
 
 ### Deprecated
 
