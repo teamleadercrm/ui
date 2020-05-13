@@ -1,5 +1,5 @@
 import React from 'react';
-import { select } from '@storybook/addon-knobs';
+import { boolean, select } from '@storybook/addon-knobs';
 import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import EmptyState from './EmptyState';
 import { Marker } from '../typography';
@@ -26,6 +26,7 @@ export const basic = () => <EmptyState metaText="I am the meta information of th
 
 export const withTitle = () => (
   <EmptyState
+    hidePointer={boolean('Hide pointer', false)}
     metaText="I am the meta information and I basically explain that you can start adding content via the add button above."
     size={select('Size', sizes, 'medium')}
     title={title}
