@@ -7,7 +7,7 @@ import {
   IllustrationEmptyState48X48Pointer,
   IllustrationEmptyState130X130Pointer,
 } from '@teamleader/ui-illustrations';
-import { Heading3, TextBodyCompact } from '../typography';
+import { Heading3, TextBody } from '../typography';
 import theme from './theme.css';
 
 const illustrationMap = {
@@ -43,9 +43,9 @@ class EmptyState extends PureComponent {
         <div className={theme['content']}>
           {title && <Heading3 color="teal">{title}</Heading3>}
           {metaText && (
-            <TextBodyCompact marginTop={title && 2} color="neutral">
+            <TextBody marginTop={title && 2} color="neutral">
               {metaText}
-            </TextBodyCompact>
+            </TextBody>
           )}
         </div>
       </Box>
