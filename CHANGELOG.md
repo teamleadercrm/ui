@@ -12,6 +12,22 @@
 
 ### Dependency updates
 
+## [0.43.2] - 2020-05-13
+
+### Changed
+
+- `Select`: changed so the selected options still show up in the list by default. ([@driesd](https://github.com/driesd) in [#1099])
+
+### Fixed
+
+- `DatePickerInput` Fix months not being formatted according to the passed locale. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1098])
+- `WysiwygEditor` Fix input overflowing wrapper when wrapper has set height. ([@mikeverf](https://github.com/mikeverf) in [#1101])
+
+### Dependency updates
+
+- `eslint-plugin-react` from `7.19.0` to `7.20.0`
+- `postcss` from `7.0.29` to `7.0.30`
+
 ## [0.43.1] - 2020-05-11
 
 ### Added

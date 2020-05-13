@@ -84,9 +84,10 @@ class DatePicker extends PureComponent {
           showWeekNumbers={showWeekNumbers}
           captionElement={
             withMonthPicker
-              ? ({ date, localeUtils }) => (
+              ? ({ date, locale, localeUtils }) => (
                   <MonthPicker
                     date={date}
+                    locale={locale}
                     localeUtils={localeUtils}
                     onChange={this.handleYearMonthChange}
                     size={this.getMonthPickerSize()}
