@@ -2,6 +2,8 @@
 
 ### Added
 
+- `WysiwygEditor` Added `inputClassname` prop. ([@mikeverf](https://github.com/mikeverf) in #1103)
+
 ### Changed
 
 ### Deprecated
