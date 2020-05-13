@@ -18,7 +18,7 @@ const illustrationMap = {
 
 class EmptyState extends PureComponent {
   render() {
-    const { className, metaText, size, title, ...others } = this.props;
+    const { className, metaText, hidePointer, size, title, ...others } = this.props;
 
     const classNames = cx(
       theme['wrapper'],
@@ -39,7 +39,7 @@ class EmptyState extends PureComponent {
         justifyContent="center"
         textAlign="center"
       >
-        {title && <div className={theme['pointer']}>{illustrationMap[size]}</div>}
+        {title && !hidePointer && <div className={theme['pointer']}>{illustrationMap[size]}</div>}
         <div className={theme['content']}>
           {title && <Heading3 color="teal">{title}</Heading3>}
           {metaText && (
@@ -54,12 +54,14 @@ class EmptyState extends PureComponent {
 }
 
 EmptyState.propTypes = {
+  hidePointer: PropTypes.bool,
   metaText: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   title: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
 };
 
 EmptyState.defaultProps = {
+  hidePointer: false,
   size: 'medium',
 };
 
