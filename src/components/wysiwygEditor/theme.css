@@ -13,13 +13,14 @@
   --input-warning-border: var(--color-gold-dark);
   --input-min-height: calc(9.3 * var(--unit));
   --input-spacing: calc(0.5 * var(--unit));
+  --toolbar-height: 43px;
 }
 
 /**
  * Components
  */
 .input {
-  height: 100%;
+  height: calc(100% - var(--toolbar-height) - 2 * var(--input-spacing));
   overflow: auto;
   min-height: var(--input-min-height);
   margin: var(--input-spacing);
