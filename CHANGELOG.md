@@ -13,6 +13,7 @@
 ### Fixed
 
 - `DatePickerInput` Fix months not being formatted according to the passed locale. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1098])
+- `WysiwygEditor` Fix input overflowing wrapper when wrapper has set height. ([@mikeverf](https://github.com/mikeverf) in [#1101])
 
 ### Dependency updates
 
