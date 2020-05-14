@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `LabelValuePair` and `LabelValuePairGroup` were not exported. ([@lowiebenoot](https://github.com/lowiebenoot) in [#1107])
+
 ### Dependency updates
 
 ## [0.43.3] - 2020-05-14
