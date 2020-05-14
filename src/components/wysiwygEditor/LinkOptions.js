@@ -75,6 +75,7 @@ const LinkOptions = ({
         onOverlayClick={handleClosePopoverClick}
         minWidth={276}
         maxWidth="100%"
+        zIndex={401}
       >
         <Box display="flex" flexDirection="column" padding={4}>
           <Label htmlFor="linkText" helpText="">

@@ -10,6 +10,7 @@
 
 ### Fixed
 
+- `WysiwygEditor` Set `zIndex` of `LinkOptions` dialog to `401`, so that it's higher than the zIndex of a `Dialog`. ([@mikeverf](https://github.com/mikeverf) in [#1106])
 - `LabelValuePair` and `LabelValuePairGroup` were not exported. ([@lowiebenoot](https://github.com/lowiebenoot) in [#1107])
 
 ### Dependency updates
