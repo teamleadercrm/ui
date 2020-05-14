@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `WysiwygEditor` Set `zIndex` of `LinkOptions` dialog to `401`, so that it's higher than the zIndex of a `Dialog`. ([@mikeverf](https://github.com/mikeverf) in [#1106])
+
 ### Dependency updates
 
 ## [0.43.3] - 2020-05-14
