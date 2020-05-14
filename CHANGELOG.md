@@ -2,12 +2,7 @@
 
 ### Added
 
-- `WysiwygEditor` Added `inputClassname` prop. ([@mikeverf](https://github.com/mikeverf) in #1103)
-- `EmptyState`: added `hidePointer` boolean prop (default false). ([@driesd](https://github.com/driesd) in [#1104])
-
 ### Changed
-
-- `EmptyState`: changed meta text component to increase line-height from 18px to 21px. ([@driesd](https://github.com/driesd) in [#1104])
 
 ### Deprecated
 
@@ -16,6 +11,17 @@
 ### Fixed
 
 ### Dependency updates
+
+## [0.43.3] - 2020-05-14
+
+### Added
+
+- `WysiwygEditor` Added `inputClassname` prop. ([@mikeverf](https://github.com/mikeverf) in [#1103])
+- `EmptyState`: added `hidePointer` boolean prop (default false). ([@driesd](https://github.com/driesd) in [#1104])
+
+### Changed
+
+- `EmptyState`: changed meta text component to increase line-height from 18px to 21px. ([@driesd](https://github.com/driesd) in [#1104])
 
 ## [0.43.2] - 2020-05-13
 
