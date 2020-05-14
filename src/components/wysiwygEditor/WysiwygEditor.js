@@ -61,6 +61,7 @@ const WysiwygEditor = ({
   helpText,
   width,
   locale = 'en',
+  inputClassName,
   ...others
 }) => {
   const [isFocused, setIsFocused] = useState(false);
@@ -100,6 +101,8 @@ const WysiwygEditor = ({
     className,
   );
 
+  const inputClassNames = cx(theme['input'], inputClassName);
+
   const boxProps = pickBoxProps(others);
 
   return (
@@ -107,7 +110,7 @@ const WysiwygEditor = ({
       <Editor
         toolbar={toolbar}
         wrapperClassName={wrapperClassNames}
-        editorClassName={theme['input']}
+        editorClassName={inputClassNames}
         toolbarClassName={theme['toolbar']}
         onFocus={handleFocus}
         onBlur={handleBlur}
@@ -145,6 +148,8 @@ WysiwygEditor.propTypes = {
   width: PropTypes.string,
   /** Locale key for the language you want the editor to be displayed in. */
   locale: PropTypes.string,
+  /** Classname for the WysiwygEditor's input element */
+  inputClassName: PropTypes.string,
 };
 
 export default WysiwygEditor;

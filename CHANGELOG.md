@@ -2,6 +2,7 @@
 
 ### Added
 
+- `WysiwygEditor` Added `inputClassname` prop. ([@mikeverf](https://github.com/mikeverf) in #1103)
 - `EmptyState`: added `hidePointer` boolean prop (default false). ([@driesd](https://github.com/driesd) in [#1104])
 
 ### Changed
