@@ -12,7 +12,7 @@
 
 ### Dependency updates
 
-## [unreleased]
+## [0.43.4] - 2020-05-14
 
 ### Fixed
 
