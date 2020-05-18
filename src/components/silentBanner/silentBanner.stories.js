@@ -10,6 +10,10 @@ export default {
   title: addStoryInGroup(MID_LEVEL_BLOCKS, 'Silent banners'),
 
   parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/LHH25GN90ljQaBEUNMsdJn/Desktop-components?node-id=1225%3A0',
+    },
     info: {
       propTables: [SilentBanner],
     },
