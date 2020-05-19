@@ -74,6 +74,8 @@ class SilentBanner extends PureComponent {
           </Box>
         )}
         <Box
+          backgroundColor="neutral"
+          backgroundTint="lightest"
           borderColor="neutral"
           borderTint="normal"
           borderLeftWidth={status ? 0 : 1}
@@ -86,7 +88,7 @@ class SilentBanner extends PureComponent {
           borderTopLeftRadius={status ? 'square' : 'rounded'}
           display="flex"
         >
-          <Box padding={4}>
+          <Box paddingLeft={status ? 3 : 4} paddingRight={4} paddingVertical={4}>
             {title && (
               <Heading3 color="teal" marginBottom={2}>
                 {title}
