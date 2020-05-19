@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `Teal color`: changed the hex values of our `Teal dark & darkest` color variants. ([@driesd](https://github.com/driesd) in [#1111])
+
 ### Deprecated
 
 ### Removed
