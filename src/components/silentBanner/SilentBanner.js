@@ -95,12 +95,8 @@ class SilentBanner extends PureComponent {
             {children && <TextBody color="teal">{children}</TextBody>}
             {hasActions && (
               <ButtonGroup display="flex" justifyContent="flex-end" marginTop={4}>
-                {secondaryAction && (
-                  <Button level="link" size="small">
-                    Secondary action
-                  </Button>
-                )}
-                {primaryAction && <Button size="small">Primary action</Button>}
+                {secondaryAction && <Button level="link" size="small" {...secondaryAction} />}
+                {primaryAction && <Button size="small" {...primaryAction} />}
               </ButtonGroup>
             )}
           </Box>
@@ -120,10 +116,10 @@ SilentBanner.propTypes = {
   children: PropTypes.node,
   /** Callback function that is fired when the close button of the banner is clicked. */
   onClose: PropTypes.func,
-  /** Callback function that is fired when the primary action button is clicked. */
-  primaryAction: PropTypes.func,
-  /** Callback function that is fired when the secondary action button is clicked. */
-  secondaryAction: PropTypes.func,
+  /** Object containing the props of the primary action (a Button). */
+  primaryAction: PropTypes.object,
+  /** Object containing the props of the secondary action (a Button, with level prop set to 'link'). */
+  secondaryAction: PropTypes.object,
   /** If true, an icon will show up depending on the status type */
   showIcon: PropTypes.bool,
   /** A status type to determine color and icon */
