@@ -74,6 +74,8 @@ class SilentBanner extends PureComponent {
           </Box>
         )}
         <Box
+          backgroundColor="neutral"
+          backgroundTint="lightest"
           borderColor="neutral"
           borderTint="normal"
           borderLeftWidth={status ? 0 : 1}
