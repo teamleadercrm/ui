@@ -50,18 +50,7 @@ const iconTintMap = {
 
 class SilentBanner extends PureComponent {
   render() {
-    const {
-      children,
-      onClose,
-      primaryAction,
-      primaryActionLabel,
-      secondaryAction,
-      secondaryActionLabel,
-      showIcon,
-      status,
-      title,
-      ...others
-    } = this.props;
+    const { children, onClose, primaryAction, secondaryAction, showIcon, status, title, ...others } = this.props;
 
     const hasActions = Boolean(primaryAction || secondaryAction);
     const IconToRender = iconMap[status];
@@ -108,10 +97,10 @@ class SilentBanner extends PureComponent {
               <ButtonGroup display="flex" justifyContent="flex-end" marginTop={4}>
                 {secondaryAction && (
                   <Button level="link" size="small">
-                    {secondaryActionLabel}
+                    Secondary action
                   </Button>
                 )}
-                {primaryAction && <Button size="small">{primaryActionLabel}</Button>}
+                {primaryAction && <Button size="small">Primary action</Button>}
               </ButtonGroup>
             )}
           </Box>
@@ -133,12 +122,8 @@ SilentBanner.propTypes = {
   onClose: PropTypes.func,
   /** Callback function that is fired when the primary action button is clicked. */
   primaryAction: PropTypes.func,
-  /** The primary action button label */
-  primaryActionLabel: PropTypes.node,
   /** Callback function that is fired when the secondary action button is clicked. */
   secondaryAction: PropTypes.func,
-  /** The secondary action button label */
-  secondaryActionLabel: PropTypes.node,
   /** If true, an icon will show up depending on the status type */
   showIcon: PropTypes.bool,
   /** A status type to determine color and icon */

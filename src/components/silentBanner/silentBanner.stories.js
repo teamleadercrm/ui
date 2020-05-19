@@ -40,9 +40,7 @@ export const dismissable = () => (
 export const withActions = () => (
   <SilentBanner
     primaryAction={() => console.log('primaryAction click handler')}
-    primaryActionLabel={text('Primary action label', 'Primary action')}
     secondaryAction={() => console.log('secondaryAction click handler')}
-    secondaryActionLabel={text('Secondary action label', 'Secondary action')}
     title={text('Title', 'I am the title of this message')}
   >
     Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam <Link inherit={false}>nonumy eirmod</Link> tempor
@@ -65,9 +63,7 @@ export const fullOption = () => (
   <SilentBanner
     onClose={() => console.log('onClose click handler')}
     primaryAction={() => console.log('primaryAction click handler')}
-    primaryActionLabel={text('Primary action label', 'Primary action')}
     secondaryAction={() => console.log('secondaryAction click handler')}
-    secondaryActionLabel={text('Secondary action label', 'Secondary action')}
     showIcon={boolean('Show icon', true)}
     status={select('Status', statusValues, 'success')}
     title={text('Title', 'I am the title of this message')}
