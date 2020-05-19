@@ -2,8 +2,6 @@
 
 ### Added
 
-- `SilentBanner`: added as a new component. ([@driesd](https://github.com/driesd) in [#1109])
-
 ### Changed
 
 ### Deprecated
@@ -13,6 +11,12 @@
 ### Fixed
 
 ### Dependency updates
+
+## [0.43.5] - 2020-05-19
+
+### Added
+
+- `SilentBanner`: added as a new component. ([@driesd](https://github.com/driesd) in [#1109])
 
 ## [0.43.4] - 2020-05-14
 
