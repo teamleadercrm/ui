@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `SilentBanner`: added a `white background` and `decreased left padding` when it has a color status. ([@driesd](https://github.com/driesd) in [#1112])
+
 ### Deprecated
 
 ### Removed
