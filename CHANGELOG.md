@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `Container`: changed breakpoint to a large screen (1440px) to avoid horizontal scrollbars. ([@driesd](https://github.com/driesd) in [#1116])
+
 ### Deprecated
 
 ### Removed
