@@ -11,7 +11,7 @@
   max-width: 1056px;
 }
 
-@media (--larger-than-lg-viewport) {
+@media (--larger-than-xl-viewport) {
   .container:not(.is-fixed) {
     padding-left: var(--spacer-biggest);
     padding-right: var(--spacer-biggest);
