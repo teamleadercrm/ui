@@ -10,7 +10,7 @@
 
 ### Fixed
 
-- `LabelValuePair`: fixed right alignment for multiline text. ([@driesd](https://github.com/driesd) in [#1116])
+- `LabelValuePair`: fixed right alignment for multiline text. ([@driesd](https://github.com/driesd) in [#1122])
 
 ### Dependency updates
 
