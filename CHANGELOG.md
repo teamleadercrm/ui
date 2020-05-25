@@ -12,6 +12,17 @@
 
 ### Dependency updates
 
+## [0.43.7] - 2020-05-25
+
+### Changed
+
+- `Container`: changed breakpoint to a large screen (1440px) to avoid horizontal scrollbars. ([@driesd](https://github.com/driesd) in [#1116])
+
+### Dependency updates
+
+- `react-select` from `3.1.0` to `3.0.4` ([@driesd](https://github.com/driesd) in [#1120])
+- `moment` from `2.25.3` to `2.26.0`
+
 ## [0.43.6] - 2020-05-19
 
 ### Changed
