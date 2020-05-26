@@ -4,17 +4,34 @@
 
 ### Changed
 
-- `Teal color`: changed the hex values of our `Teal dark & darkest` color variants. ([@driesd](https://github.com/driesd) in [#1111])
-
 ### Deprecated
 
 ### Removed
 
 ### Fixed
 
+### Dependency updates
+
+## [0.44.0] - 2020-05-26
+
+### Changed
+
+- :boom: `Teal color`: changed the hex values of our `Teal dark & darkest` color variants. ([@driesd](https://github.com/driesd) in [#1111])
+
+### Fixed
+
 - `LabelValuePair`: fixed right alignment for multiline text. ([@driesd](https://github.com/driesd) in [#1122])
 
 ### Dependency updates
+
+- `@storybook/addons` from `5.3.18` to `5.3.19`
+- `@storybook/addon-backgrounds` from `5.3.18` to `5.3.19`
+- `@storybook/addon-info` from `5.3.18` to `5.3.19`
+- `@storybook/addon-knobs` from `5.3.18` to `5.3.19`
+- `@storybook/react` from `5.3.18` to `5.3.19`
+- `@storybook/ui` from `5.3.18` to `5.3.19`
+- `eslint` from `6.8.0` to `7.1.0`
+- `postcss` from `7.0.30` to `7.0.31`
 
 ## [0.43.7] - 2020-05-25
 
