@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `Toast`: changed to have a `teal dark background` instead of teal darkest. ([@driesd](https://github.com/driesd) in [#1131])
+
 ### Deprecated
 
 ### Removed

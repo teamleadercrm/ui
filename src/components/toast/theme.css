@@ -4,7 +4,7 @@
 @import '@teamleader/ui-utilities';
 
 :root {
-  --toast-background-color: var(--color-teal-darkest);
+  --toast-background-color: var(--color-teal-dark);
   --toast-border-radius: calc(0.4 * var(--unit));
   --toast-min-width: calc(18 * var(--unit));
   --toast-max-width: calc(37.2 * var(--unit));
