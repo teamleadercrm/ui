@@ -65,9 +65,28 @@ export const labelValuePairGroup = () => (
     <LabelValuePair alignValue={select('Align value', alignValueValues, 'left')} inline={boolean('Inline', true)}>
       <LabelValuePair.Label>E-mail</LabelValuePair.Label>
       <LabelValuePair.Value>
-        <TextBodyCompact>
-          <Link href="mailto:john.doe@gmail.com" inherit={false}>
+        <TextBodyCompact maxLines={1}>
+          <Link
+            href="mailto:john.doe@gmail.com"
+            inherit={false}
+            onClick={() => console.log('Clicked on email link')}
+            title="john.doe@gmail.com"
+          >
             john.doe@gmail.com
+          </Link>
+        </TextBodyCompact>
+      </LabelValuePair.Value>
+    </LabelValuePair>
+    <LabelValuePair alignValue={select('Align value', alignValueValues, 'left')} inline={boolean('Inline', true)}>
+      <LabelValuePair.Label>Homepage</LabelValuePair.Label>
+      <LabelValuePair.Value>
+        <TextBodyCompact maxLines={1}>
+          <Link
+            href="https://www.a-very-long-url-to-this-website"
+            inherit={false}
+            title="https://www.a-very-long-url-to-this-website"
+          >
+            https://www.a-very-long-url-to-this-website
           </Link>
         </TextBodyCompact>
       </LabelValuePair.Value>
