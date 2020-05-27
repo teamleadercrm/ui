@@ -14,6 +14,14 @@
 
 ### Dependency updates
 
+- `@babel/cli` from `7.8.3` to `7.10.0`
+- `@babel/core` from `7.9.6` to `7.10.0`
+- `@babel/runtime` from `7.9.6` to `7.10.0`
+- `@babel/plugin-transform-react-jsx-source` from `7.8.3` to `7.10.0`
+- `@babel/plugin-transform-runtime` from `7.9.6` to `7.10.0`
+- `@babel/preset-env` from `7.9.6` to `7.10.0`
+- `@babel/preset-react` from `7.8.3` to `7.10.0`
+
 ## [0.44.0] - 2020-05-26
 
 ### Changed
