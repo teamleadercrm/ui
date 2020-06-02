@@ -4,6 +4,7 @@
 
 ### Changed
 
+- `Container`: changed to have `consistent horizontal padding` for `fluid` and `fixed` variants on each breakpoint. ([@driesd](https://github.com/driesd) in [#1144])
 - `Toast`: changed to have a `teal dark background` instead of teal darkest. ([@driesd](https://github.com/driesd) in [#1131])
 
 ### Deprecated

@@ -12,7 +12,7 @@
 }
 
 @media (--larger-than-xl-viewport) {
-  .container:not(.is-fixed) {
+  .container {
     padding-left: var(--spacer-biggest);
     padding-right: var(--spacer-biggest);
   }
