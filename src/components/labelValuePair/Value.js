@@ -7,7 +7,7 @@ class Value extends PureComponent {
     const { children, ...others } = this.props;
 
     return (
-      <Box display="flex" flex={1} overflow="hidden" paddingVertical={1} {...others}>
+      <Box display="flex" flex={1} overflow="hidden" {...others}>
         {children}
       </Box>
     );

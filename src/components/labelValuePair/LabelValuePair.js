@@ -19,6 +19,7 @@ class LabelValuePair extends PureComponent {
           if (isComponentOfType(Value, child)) {
             return React.cloneElement(child, {
               justifyContent: alignValue === 'left' ? 'flex-start' : 'flex-end',
+              paddingVertical: inline ? 1 : 0,
               textAlign: alignValue,
               ...child.props,
             });
