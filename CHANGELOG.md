@@ -4,9 +4,6 @@
 
 ### Changed
 
-- `Container`: changed to have `consistent horizontal padding` for `fluid` and `fixed` variants on each breakpoint. ([@driesd](https://github.com/driesd) in [#1144])
-- `Toast`: changed to have a `teal dark background` instead of teal darkest. ([@driesd](https://github.com/driesd) in [#1131])
-
 ### Deprecated
 
 ### Removed
@@ -15,13 +12,23 @@
 
 ### Dependency updates
 
-- `@babel/cli` from `7.8.3` to `7.10.0`
-- `@babel/core` from `7.9.6` to `7.10.0`
-- `@babel/runtime` from `7.9.6` to `7.10.0`
+## [0.44.1] - 2020-06-02
+
+### Changed
+
+- `Container`: changed to have `consistent horizontal padding` for `fluid` and `fixed` variants on each breakpoint. ([@driesd](https://github.com/driesd) in [#1144])
+- `Toast`: changed to have a `teal dark background` instead of teal darkest. ([@driesd](https://github.com/driesd) in [#1131])
+
+### Dependency updates
+
+- `@babel/cli` from `7.8.3` to `7.10.1`
+- `@babel/core` from `7.9.6` to `7.10.2`
+- `@babel/runtime` from `7.9.6` to `7.10.2`
+- `@babel/plugin-proposal-export-default-from` from `7.8.3` to `7.10.1`
 - `@babel/plugin-transform-react-jsx-source` from `7.8.3` to `7.10.0`
-- `@babel/plugin-transform-runtime` from `7.9.6` to `7.10.0`
-- `@babel/preset-env` from `7.9.6` to `7.10.0`
-- `@babel/preset-react` from `7.8.3` to `7.10.0`
+- `@babel/plugin-transform-runtime` from `7.9.6` to `7.10.1`
+- `@babel/preset-env` from `7.9.6` to `7.10.2`
+- `@babel/preset-react` from `7.8.3` to `7.10.1`
 
 ## [0.44.0] - 2020-05-26
 
