@@ -2,6 +2,8 @@
 
 ### Added
 
+- `Tooltip`: added `zIndex` number prop (default 700). ([@driesd](https://github.com/driesd) in [#1148])
+
 ### Changed
 
 - `LabelValuePair`: only add vertical padding when label and value are displayed inline. ([@driesd](https://github.com/driesd) in [#1146])
