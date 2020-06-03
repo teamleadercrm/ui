@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `LabelValuePair`: only add vertical padding when label and value are displayed inline. ([@driesd](https://github.com/driesd) in [#1146])
+
 ### Deprecated
 
 ### Removed

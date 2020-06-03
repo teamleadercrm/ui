@@ -13,7 +13,7 @@ class Label extends PureComponent {
         marginBottom={inline ? 0 : 1}
         marginRight={inline ? 2 : 0}
         maxLines={2}
-        paddingVertical={1}
+        paddingVertical={inline ? 1 : 0}
         {...others}
       >
         {children}
