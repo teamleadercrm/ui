@@ -12,6 +12,59 @@
 
 ### Dependency updates
 
+## [0.44.2] - 2020-06-03
+
+### Added
+
+- `Tooltip`: added `zIndex` number prop (default 700). ([@driesd](https://github.com/driesd) in [#1148])
+
+### Changed
+
+- `LabelValuePair`: only add vertical padding when label and value are displayed inline. ([@driesd](https://github.com/driesd) in [#1146])
+
+### Dependency updates
+
+- `postcss` from `7.0.31` to `7.0.32`
+
+## [0.44.1] - 2020-06-02
+
+### Changed
+
+- `Container`: changed to have `consistent horizontal padding` for `fluid` and `fixed` variants on each breakpoint. ([@driesd](https://github.com/driesd) in [#1144])
+- `Toast`: changed to have a `teal dark background` instead of teal darkest. ([@driesd](https://github.com/driesd) in [#1131])
+
+### Dependency updates
+
+- `@babel/cli` from `7.8.3` to `7.10.1`
+- `@babel/core` from `7.9.6` to `7.10.2`
+- `@babel/runtime` from `7.9.6` to `7.10.2`
+- `@babel/plugin-proposal-export-default-from` from `7.8.3` to `7.10.1`
+- `@babel/plugin-transform-react-jsx-source` from `7.8.3` to `7.10.0`
+- `@babel/plugin-transform-runtime` from `7.9.6` to `7.10.1`
+- `@babel/preset-env` from `7.9.6` to `7.10.2`
+- `@babel/preset-react` from `7.8.3` to `7.10.1`
+
+## [0.44.0] - 2020-05-26
+
+### Changed
+
+- :boom: `Teal color`: changed the hex values of our `Teal dark & darkest` color variants. ([@driesd](https://github.com/driesd) in [#1111])
+
+### Fixed
+
+- `LabelValuePair`: fixed right alignment for multiline text. ([@driesd](https://github.com/driesd) in [#1122])
+
+### Dependency updates
+
+- `@storybook/addons` from `5.3.18` to `5.3.19`
+- `@storybook/addon-backgrounds` from `5.3.18` to `5.3.19`
+- `@storybook/addon-info` from `5.3.18` to `5.3.19`
+- `@storybook/addon-knobs` from `5.3.18` to `5.3.19`
+- `@storybook/react` from `5.3.18` to `5.3.19`
+- `@storybook/ui` from `5.3.18` to `5.3.19`
+- `eslint` from `6.8.0` to `7.1.0`
+- `postcss` from `7.0.30` to `7.0.31`
+
 ## [0.43.7] - 2020-05-25
 
 ### Changed

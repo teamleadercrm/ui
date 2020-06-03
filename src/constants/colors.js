@@ -40,8 +40,8 @@ export const COLOR = {
     LIGHTEST: '#f0f5fc',
     LIGHT: '#c1cede',
     NORMAL: '#64788f',
-    DARK: '#344b63',
-    DARKEST: '#2a3b4d',
+    DARK: '#2a3b4d',
+    DARKEST: '#1a1c20',
   },
   VIOLET: {
     LIGHTEST: '#f7f7ff',
