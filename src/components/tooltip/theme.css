@@ -11,7 +11,6 @@
   --tooltip-medium-max-width: calc(24 * var(--unit));
   --tooltip-large-max-width: calc(36 * var(--unit));
   --tooltip-animation-duration: 200ms;
-  --tooltip-z-index: 700;
 }
 
 .tooltip {
@@ -27,7 +26,6 @@
   text-align: left;
   transform-origin: top left;
   transition: cubic-bezier(0.4, 0, 0.2, 1) var(--tooltip-animation-duration) transform;
-  z-index: var(--tooltip-z-index);
 
   &::after {
     content: '';

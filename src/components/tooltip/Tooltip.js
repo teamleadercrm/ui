@@ -152,6 +152,7 @@ const Tooltip = (ComposedComponent) => {
         tooltipIcon,
         tooltipSize,
         tooltipShowDelay,
+        zIndex,
         ...other
       } = this.props;
 
@@ -201,7 +202,7 @@ const Tooltip = (ComposedComponent) => {
               );
 
               return (
-                <div className={classNames} data-teamleader-ui="tooltip" style={{ top, left }}>
+                <div className={classNames} data-teamleader-ui="tooltip" style={{ top, left, zIndex }}>
                   <Box className={theme['inner']} {...SIZES[tooltipSize]}>
                     {tooltipIcon && <div className={theme['icon']}>{tooltipIcon}</div>}
                     <div className={theme['text']}>{tooltip}</div>
@@ -232,6 +233,8 @@ const Tooltip = (ComposedComponent) => {
     tooltipSize: PropTypes.oneOf(Object.keys(SIZES)),
     documentObject: PropTypes.object.isRequired,
     tooltipShowDelay: PropTypes.number,
+    /** The z-index of the Tooltip */
+    zIndex: PropTypes.number,
   };
 
   TooltippedComponent.defaultProps = {
@@ -243,6 +246,7 @@ const Tooltip = (ComposedComponent) => {
     tooltipShowOnClick: false,
     tooltipSize: 'medium',
     tooltipShowDelay: 100,
+    zIndex: 700,
   };
 
   return DocumentObjectProvider((props) => {
