@@ -2,11 +2,7 @@
 
 ### Added
 
-- `Tooltip`: added `zIndex` number prop (default 700). ([@driesd](https://github.com/driesd) in [#1148])
-
 ### Changed
-
-- `LabelValuePair`: only add vertical padding when label and value are displayed inline. ([@driesd](https://github.com/driesd) in [#1146])
 
 ### Deprecated
 
@@ -15,6 +11,20 @@
 ### Fixed
 
 ### Dependency updates
+
+## [0.44.2] - 2020-06-03
+
+### Added
+
+- `Tooltip`: added `zIndex` number prop (default 700). ([@driesd](https://github.com/driesd) in [#1148])
+
+### Changed
+
+- `LabelValuePair`: only add vertical padding when label and value are displayed inline. ([@driesd](https://github.com/driesd) in [#1146])
+
+### Dependency updates
+
+- `postcss` from `7.0.31` to `7.0.32`
 
 ## [0.44.1] - 2020-06-02
 
