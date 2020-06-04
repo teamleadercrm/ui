@@ -31,7 +31,9 @@ class LabelValuePair extends PureComponent {
 }
 
 LabelValuePair.Label = Label;
+LabelValuePair.Label.displayName = 'LabelValuePair.Label';
 LabelValuePair.Value = Value;
+LabelValuePair.Value.displayName = 'LabelValuePair.Value';
 
 LabelValuePair.propTypes = {
   alignValue: PropTypes.oneOf(['left', 'right']),
