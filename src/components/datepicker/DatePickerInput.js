@@ -86,11 +86,13 @@ class DatePickerInput extends PureComponent {
       locale,
       popoverProps,
       size,
+      inputSize,
+      datePickerSize,
       ...others
     } = this.props;
     const { isPopoverActive, popoverAnchorEl, selectedDate } = this.state;
     const boxProps = pickBoxProps(others);
-    const datePickerClassNames = cx(theme['date-picker-input'], theme[`is-${size}`]);
+    const datePickerClassNames = cx(theme['date-picker-input'], theme[`is-${datePickerSize || size}`]);
 
     return (
       <Box className={className} {...boxProps}>
@@ -98,7 +100,7 @@ class DatePickerInput extends PureComponent {
           inverse={inverse}
           onFocus={this.handleInputFocus}
           prefix={this.renderIcon()}
-          size={size}
+          size={inputSize || size}
           value={this.getFormattedDate()}
           width="120px"
           noInputStyling={dayPickerProps && dayPickerProps.withMonthPicker}
@@ -125,6 +127,7 @@ class DatePickerInput extends PureComponent {
               month={selectedDate}
               onChange={this.handleDatePickerDateChange}
               selectedDate={selectedDate}
+              size={datePickerSize || size}
               {...dayPickerProps}
             />
           </Box>
@@ -157,6 +160,10 @@ DatePickerInput.propTypes = {
   selectedDate: PropTypes.instanceOf(Date),
   /** Size of the Input & DatePicker components. */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
+  /** Overridable size of the Input component. */
+  inputSize: PropTypes.oneOf(['small', 'medium', 'large']),
+  /** Overridable size of the DatePicker component. */
+  datePickerSize: PropTypes.oneOf(['small', 'medium', 'large']),
 };
 
 DatePickerInput.defaultProps = {
