@@ -20,6 +20,12 @@ const languages = [
   'sv-SE',
 ];
 const sizes = ['small', 'medium', 'large'];
+const optionalSizes = {
+  small: 'small',
+  medium: 'medium',
+  large: 'large',
+  none: null,
+};
 
 const customFormatDate = (date, locale) => {
   return DateTime.fromJSDate(date).setLocale(locale).toLocaleString(DateTime.DATETIME_HUGE);
@@ -113,6 +119,8 @@ export const inputSingleDate = () => {
       onChange={handleOnChange}
       selectedDate={preSelectedDate}
       size={select('Size', sizes, 'medium')}
+      inputSize={select('Input size', optionalSizes, null)}
+      datePickerSize={select('Date picker size', optionalSizes, null)}
     />
   );
 };
