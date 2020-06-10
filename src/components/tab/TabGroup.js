@@ -8,13 +8,7 @@ class TabGroup extends PureComponent {
   render() {
     const { children, className, inverted, size, ...others } = this.props;
 
-    const classNames = cx(
-      theme['tab-group'],
-      {
-        [theme['inverted']]: inverted,
-      },
-      className,
-    );
+    const classNames = cx(theme['tab-group'], className);
 
     return (
       <Box data-teamleader-ui="tab-group" className={classNames} {...others}>
@@ -27,12 +21,7 @@ class TabGroup extends PureComponent {
 TabGroup.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
-  inverted: PropTypes.bool,
   size: PropTypes.oneOf(['small', 'medium']),
-};
-
-TabGroup.defaultProps = {
-  inverted: false,
 };
 
 export default TabGroup;
