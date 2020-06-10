@@ -1,6 +1,5 @@
 import React from 'react';
 import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
-import { boolean } from '@storybook/addon-knobs/react';
 import { IconTab, TabGroup, TitleTab, Box, Counter as UICounter } from '../../index';
 
 import { tabItems, invertedTabItems } from '../../static/data/tab';
@@ -43,7 +42,7 @@ export default {
 };
 
 export const titleTab = () => (
-  <TabGroup inverted={boolean('Inverted', true)} display="flex">
+  <TabGroup display="flex">
     {tabItems.map((item, key) => {
       const optionalProps = item.count
         ? { counter: React.createElement(TitleCounter, { count: item.count, color: 'mint' }) }
@@ -70,7 +69,7 @@ titleTab.story = {
 };
 
 export const iconTab = () => (
-  <TabGroup inverted={boolean('Inverted', true)} display="flex">
+  <TabGroup display="flex">
     {invertedTabItems.map((item, key) => {
       const optionalProps = item.count
         ? { counter: React.createElement(IconCounter, { count: item.count, color: 'mint' }) }
