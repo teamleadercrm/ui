@@ -29,7 +29,7 @@ class NavigationBar extends PureComponent {
 
     return (
       <Box
-        className={withMonthPicker ? cx(theme['navBar-with-month-picker'], className) : className}
+        className={cx(className, { [theme['navBar-with-month-picker']]: withMonthPicker })}
         display="flex"
         justifyContent="space-between"
       >
