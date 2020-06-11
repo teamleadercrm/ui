@@ -56,7 +56,6 @@ const MonthPickerUnary = ({ date, locale, localeUtils, onChange }) => {
           onChange={handleChangeMonth}
           width={112}
           size="small"
-          isSearchable={false}
         />
       </Box>
     </Box>
@@ -103,7 +102,6 @@ const MonthPickerSplit = ({ date, locale, localeUtils, onChange, size }) => {
           onChange={handleChangeMonth}
           width={size === 'small' ? 88 : 112}
           size="small"
-          isSearchable={false}
         />
         <NumericInput
           value={`${yearInput}`}
