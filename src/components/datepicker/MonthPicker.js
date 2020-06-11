@@ -123,7 +123,7 @@ const MonthPicker = ({ size, ...props }) => {
     return <MonthPickerUnary {...props} />;
   }
 
-  return <MonthPickerSplit {...props} />;
+  return <MonthPickerSplit size={size} {...props} />;
 };
 
 MonthPicker.propTypes = {
