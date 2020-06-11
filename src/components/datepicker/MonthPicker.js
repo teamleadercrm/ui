@@ -128,13 +128,13 @@ const MonthPicker = ({ size, ...props }) => {
 
 MonthPicker.propTypes = {
   /** Current date */
-  date: PropTypes.bool,
+  date: PropTypes.instanceOf(Date),
   /** Callback function that is fired when the month has changed. */
   onChange: PropTypes.func,
   /** The set locale */
   locale: PropTypes.string,
   /** The localeUtils from the DatePicker */
-  localeUtils: PropTypes.instanceOf(Date),
+  localeUtils: PropTypes.object,
   /** Size of the MonthPicker component. */
   size: PropTypes.oneOf(['smallest', 'small', 'medium', 'large']),
 };
