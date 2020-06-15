@@ -1,5 +1,6 @@
 import React, { createRef, PureComponent } from 'react';
 import ReactResizeDetector from 'react-resize-detector';
+import smoothScroll from 'smoothscroll-polyfill';
 import PropTypes from 'prop-types';
 import Box from '../box';
 import IconButton from '../iconButton';
@@ -18,6 +19,7 @@ class TabGroup extends PureComponent {
   };
 
   componentDidMount() {
+    smoothScroll.polyfill();
     this.scrollContainerRef.current.boxNode.current.addEventListener('scroll', this.handleScroll);
   }
 
