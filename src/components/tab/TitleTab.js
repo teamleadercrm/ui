@@ -48,6 +48,7 @@ class TitleTab extends PureComponent {
       <Box
         data-teamleader-ui="title-tab"
         className={classNames}
+        marginHorizontal={size === 'small' ? 1 : 2}
         paddingHorizontal={this.getPaddingHorizontal()}
         ref={this.tabNode}
         onClick={this.handleClick}

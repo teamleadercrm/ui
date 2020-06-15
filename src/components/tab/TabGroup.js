@@ -62,10 +62,10 @@ class TabGroup extends PureComponent {
         className={classNames}
         {...others}
         display="flex"
-        paddingHorizontal={1}
+        paddingHorizontal={size === 'small' ? 2 : 0}
       >
         <Box className={theme['scroll-container']} display="flex" overflowX="scroll" ref={this.scrollContainerRef}>
-          {React.Children.map(children, (child) => React.cloneElement(child, { size, marginHorizontal: 1 }))}
+          {React.Children.map(children, (child) => React.cloneElement(child, { size }))}
         </Box>
         {canScrollLeft && (
           <Box className={theme['scroll-left-button-wrapper']}>
