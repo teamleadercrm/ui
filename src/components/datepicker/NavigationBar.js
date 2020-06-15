@@ -29,16 +29,18 @@ class NavigationBar extends PureComponent {
 
     return (
       <Box
-        className={withMonthPicker ? cx(theme['navBar-with-month-picker'], className) : className}
+        className={cx(className, { [theme['navBar-with-month-picker']]: withMonthPicker })}
         display="flex"
         justifyContent="space-between"
       >
         <IconButton
+          size={size === 'large' ? 'medium' : 'small'}
           icon={size === 'large' ? <IconArrowLeftMediumOutline /> : <IconArrowLeftSmallOutline />}
           onClick={this.handlePreviousClick}
           title={previousMonthButtonLabel}
         />
         <IconButton
+          size={size === 'large' ? 'medium' : 'small'}
           icon={size === 'large' ? <IconArrowRightMediumOutline /> : <IconArrowRightSmallOutline />}
           onClick={this.handleNextClick}
           title={nextMonthButtonLabel}

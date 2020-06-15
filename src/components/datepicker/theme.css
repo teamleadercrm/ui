@@ -63,15 +63,12 @@
 .navBar {
   position: absolute;
   left: 0;
-  top: 0;
-  right: 0;
-}
-
-.navBar-with-month-picker {
-  position: absolute;
-  left: 0;
   top: 6px;
   right: 0;
+
+  &-with-month-picker {
+    top: 12px;
+  }
 }
 
 .caption {
@@ -542,6 +539,11 @@
 
   .navBar {
     padding: 15px;
+    top: 0;
+
+    &-with-month-picker {
+      top: 6px;
+    }
   }
 
   .weekday {

@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `DatePicker`, `DatePickerInput`: Allow sizing the input and picker independently, fix alignment when using the `MonthPicker`. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1156](https://github.com/teamleadercrm/ui/pull/1156))
+
 ### Deprecated
 
 ### Removed
