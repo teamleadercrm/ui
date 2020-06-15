@@ -13,6 +13,14 @@ class TabGroup extends PureComponent {
     canScrollRight: false,
   };
 
+  componentDidMount() {
+    this.scrollContainerRef.current.boxNode.current.addEventListener('scroll', this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    this.scrollContainerRef.current.boxNode.current.removeEventListener('scroll', this.handleScroll);
+  }
+
   checkForScrollPosition = () => {
     const { scrollLeft, scrollWidth, clientWidth } = this.scrollContainerRef.current.boxNode.current;
 
@@ -23,6 +31,10 @@ class TabGroup extends PureComponent {
   };
 
   handleResize = () => {
+    this.checkForScrollPosition();
+  };
+
+  handleScroll = () => {
     this.checkForScrollPosition();
   };
 
