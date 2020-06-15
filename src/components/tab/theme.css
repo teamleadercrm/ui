@@ -81,6 +81,17 @@
   }
 }
 
+.scroll-container {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.scroll-container::-webkit-scrollbar {
+  /* WebKit */
+  width: 0;
+  height: 0;
+}
+
 .scroll-left-button-wrapper,
 .scroll-right-button-wrapper {
   background-color: var(--color-neutral-lightest);
