@@ -2,7 +2,7 @@ import React from 'react';
 import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { IconTab, TabGroup, TitleTab, Box, Counter as UICounter } from '../../index';
 
-import { tabItems, invertedTabItems } from '../../static/data/tab';
+import { tabItems } from '../../static/data/tab';
 import {
   IconCalendarMediumOutline,
   IconCheckmarkMediumOutline,
@@ -42,10 +42,10 @@ export default {
 };
 
 export const titleTab = () => (
-  <TabGroup display="flex">
+  <TabGroup>
     {tabItems.map((item, key) => {
       const optionalProps = item.count
-        ? { counter: React.createElement(TitleCounter, { count: item.count, color: 'mint' }) }
+        ? { counter: React.createElement(TitleCounter, { count: item.count, color: item.active ? 'mint' : 'neutral' }) }
         : {};
       return (
         <TitleTab
@@ -69,10 +69,10 @@ titleTab.story = {
 };
 
 export const iconTab = () => (
-  <TabGroup display="flex">
-    {invertedTabItems.map((item, key) => {
+  <TabGroup>
+    {tabItems.map((item, key) => {
       const optionalProps = item.count
-        ? { counter: React.createElement(IconCounter, { count: item.count, color: 'mint' }) }
+        ? { counter: React.createElement(IconCounter, { count: item.count, color: item.active ? 'mint' : 'neutral' }) }
         : {};
       const IconToRender = iconMap[item.icon.toLowerCase()];
       return (
