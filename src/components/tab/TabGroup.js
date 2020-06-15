@@ -1,4 +1,5 @@
-import React, { PureComponent } from 'react';
+import React, { createRef, PureComponent } from 'react';
+import ReactResizeDetector from 'react-resize-detector';
 import PropTypes from 'prop-types';
 import Box from '../box';
 import cx from 'classnames';
@@ -6,6 +7,24 @@ import theme from './theme.css';
 
 class TabGroup extends PureComponent {
   scrollContainerRef = createRef();
+
+  state = {
+    canScrollLeft: false,
+    canScrollRight: false,
+  };
+
+  checkForScrollPosition = () => {
+    const { scrollLeft, scrollWidth, clientWidth } = this.scrollContainerRef.current.boxNode.current;
+
+    this.setState({
+      canScrollLeft: scrollLeft > 0,
+      canScrollRight: scrollLeft !== scrollWidth - clientWidth,
+    });
+  };
+
+  handleResize = () => {
+    this.checkForScrollPosition();
+  };
 
   render() {
     const { children, className, inverted, size, ...others } = this.props;
@@ -25,6 +44,7 @@ class TabGroup extends PureComponent {
         <Box className={theme['scroll-container']} display="flex" overflowX="scroll" ref={this.scrollContainerRef}>
           {React.Children.map(children, (child) => React.cloneElement(child, { size, marginHorizontal: 1 }))}
         </Box>
+        <ReactResizeDetector handleWidth onResize={this.handleResize} />
       </Box>
     );
   }
