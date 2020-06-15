@@ -1,4 +1,5 @@
 import React from 'react';
+import { select } from '@storybook/addon-knobs';
 import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { IconTab, TabGroup, TitleTab, Box, Counter as UICounter } from '../../index';
 
@@ -35,6 +36,10 @@ export default {
   title: addStoryInGroup(MID_LEVEL_BLOCKS, 'Tab'),
 
   parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/LHH25GN90ljQaBEUNMsdJn/Desktop-components?node-id=3336%3A291',
+    },
     info: {
       propTablesExclude: [Box],
     },
@@ -42,10 +47,16 @@ export default {
 };
 
 export const titleTab = () => (
-  <TabGroup>
+  <TabGroup size={select('Size', ['small', 'medium'], 'medium')}>
     {tabItems.map((item, key) => {
       const optionalProps = item.count
-        ? { counter: React.createElement(TitleCounter, { count: item.count, color: item.active ? 'mint' : 'neutral' }) }
+        ? {
+            counter: React.createElement(TitleCounter, {
+              count: item.count,
+              color: item.active ? 'mint' : 'neutral',
+              size: select('Size', ['small', 'medium'], 'medium'),
+            }),
+          }
         : {};
       return (
         <TitleTab
@@ -69,10 +80,16 @@ titleTab.story = {
 };
 
 export const iconTab = () => (
-  <TabGroup>
+  <TabGroup size={select('Size', ['small', 'medium'], 'medium')}>
     {tabItems.map((item, key) => {
       const optionalProps = item.count
-        ? { counter: React.createElement(IconCounter, { count: item.count, color: item.active ? 'mint' : 'neutral' }) }
+        ? {
+            counter: React.createElement(IconCounter, {
+              count: item.count,
+              color: item.active ? 'mint' : 'neutral',
+              size: select('Size', ['small', 'medium'], 'medium'),
+            }),
+          }
         : {};
       const IconToRender = iconMap[item.icon.toLowerCase()];
       return (
