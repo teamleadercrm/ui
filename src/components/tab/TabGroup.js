@@ -2,6 +2,8 @@ import React, { createRef, PureComponent } from 'react';
 import ReactResizeDetector from 'react-resize-detector';
 import PropTypes from 'prop-types';
 import Box from '../box';
+import IconButton from '../iconButton';
+import { IconChevronLeftSmallOutline, IconChevronRightSmallOutline } from '@teamleader/ui-icons';
 import cx from 'classnames';
 import theme from './theme.css';
 
@@ -40,6 +42,7 @@ class TabGroup extends PureComponent {
 
   render() {
     const { children, className, inverted, size, ...others } = this.props;
+    const { canScrollLeft, canScrollRight } = this.state;
 
     const classNames = cx(theme['tab-group'], className);
 
@@ -56,6 +59,16 @@ class TabGroup extends PureComponent {
         <Box className={theme['scroll-container']} display="flex" overflowX="scroll" ref={this.scrollContainerRef}>
           {React.Children.map(children, (child) => React.cloneElement(child, { size, marginHorizontal: 1 }))}
         </Box>
+        {canScrollLeft && (
+          <Box className={theme['scroll-left-button-wrapper']}>
+            <IconButton className={theme['scroll-button']} icon={<IconChevronLeftSmallOutline />} />
+          </Box>
+        )}
+        {canScrollRight && (
+          <Box className={theme['scroll-right-button-wrapper']}>
+            <IconButton className={theme['scroll-button']} icon={<IconChevronRightSmallOutline />} />
+          </Box>
+        )}
         <ReactResizeDetector handleWidth onResize={this.handleResize} />
       </Box>
     );
