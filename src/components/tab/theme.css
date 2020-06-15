@@ -24,6 +24,7 @@
   border: none;
   border-radius: 0;
   flex-shrink: 0;
+  height: 48px;
 
   &:focus {
     box-shadow: inset 0 0 0 2px var(--color-neutral);

@@ -49,7 +49,6 @@ class TitleTab extends PureComponent {
         data-teamleader-ui="title-tab"
         className={classNames}
         paddingHorizontal={this.getPaddingHorizontal()}
-        paddingVertical={4}
         ref={this.tabNode}
         onClick={this.handleClick}
         {...rest}
