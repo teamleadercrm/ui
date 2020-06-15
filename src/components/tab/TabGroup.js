@@ -7,6 +7,8 @@ import { IconChevronLeftSmallOutline, IconChevronRightSmallOutline } from '@team
 import cx from 'classnames';
 import theme from './theme.css';
 
+const SCROLL_DISTANCE = 200;
+
 class TabGroup extends PureComponent {
   scrollContainerRef = createRef();
 
@@ -40,6 +42,10 @@ class TabGroup extends PureComponent {
     this.checkForScrollPosition();
   };
 
+  scrollContainerBy = (distance) => {
+    this.scrollContainerRef.current.boxNode.current.scrollBy({ left: distance, behavior: 'smooth' });
+  };
+
   render() {
     const { children, className, inverted, size, ...others } = this.props;
     const { canScrollLeft, canScrollRight } = this.state;
@@ -61,12 +67,24 @@ class TabGroup extends PureComponent {
         </Box>
         {canScrollLeft && (
           <Box className={theme['scroll-left-button-wrapper']}>
-            <IconButton className={theme['scroll-button']} icon={<IconChevronLeftSmallOutline />} />
+            <IconButton
+              className={theme['scroll-button']}
+              icon={<IconChevronLeftSmallOutline />}
+              onClick={() => {
+                this.scrollContainerBy(-1 * SCROLL_DISTANCE);
+              }}
+            />
           </Box>
         )}
         {canScrollRight && (
           <Box className={theme['scroll-right-button-wrapper']}>
-            <IconButton className={theme['scroll-button']} icon={<IconChevronRightSmallOutline />} />
+            <IconButton
+              className={theme['scroll-button']}
+              icon={<IconChevronRightSmallOutline />}
+              onClick={() => {
+                this.scrollContainerBy(SCROLL_DISTANCE);
+              }}
+            />
           </Box>
         )}
         <ReactResizeDetector handleWidth onResize={this.handleResize} />
