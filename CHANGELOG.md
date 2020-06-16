@@ -2,20 +2,25 @@
 
 ### Added
 
-- `TabGroup`: added scrollable functionality when tabs start to overflow their container. ([@driesd](https://github.com/driesd) in [#1160])
-
 ### Changed
 
 ### Deprecated
 
 ### Removed
 
-- `IconTab`: removed component. ([@driesd](https://github.com/driesd) in [#1161])
-- `TabGroup`: removed `inverted` prop, which caused the tabs to render with a dark teal background. ([@driesd](https://github.com/driesd) in [#1155])
-
 ### Fixed
 
 ### Dependency updates
+
+## [0.46.0] - 2020-06-16
+
+### Added
+
+- `TabGroup`: added scrollable functionality when tabs start to overflow their container. ([@driesd](https://github.com/driesd) in [#1160])
+
+### Removed
+
+- `IconTab`: removed component. ([@driesd](https://github.com/driesd) in [#1161])
 
 ## [0.45.0] - 2020-06-16
 
