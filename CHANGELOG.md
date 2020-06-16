@@ -10,6 +10,9 @@
 
 ### Removed
 
+- `IconTab`: removed component. ([@driesd](https://github.com/driesd) in [#1161])
+- `TabGroup`: removed `inverted` prop, which caused the tabs to render with a dark teal background. ([@driesd](https://github.com/driesd) in [#1155])
+
 ### Fixed
 
 ### Dependency updates

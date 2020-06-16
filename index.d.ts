@@ -60,7 +60,6 @@ declare module '@teamleader/ui' {
   export const Icon: any;
   export const IconButton: any;
   export const IconMenu: any;
-  export const IconTab: any;
   export const Input: any;
   export const InputBase: any;
   export const Island: any;

@@ -55,7 +55,7 @@ import { Island, IslandGroup } from './components/island';
 import SplitButton from './components/splitButton';
 import StatusBullet from './components/statusBullet';
 import StatusLabel from './components/statusLabel';
-import { IconTab, TitleTab, TabGroup } from './components/tab';
+import { TitleTab, TabGroup } from './components/tab';
 import Tag from './components/tag';
 import Timer from './components/timer';
 import TimerPulser from './components/timerPulser';
@@ -122,7 +122,6 @@ export {
   Icon,
   IconButton,
   IconMenu,
-  IconTab,
   Input,
   Island,
   IslandGroup,
