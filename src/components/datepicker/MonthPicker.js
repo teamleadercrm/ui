@@ -56,7 +56,6 @@ const MonthPickerUnary = ({ date, locale, localeUtils, onChange }) => {
           onChange={handleChangeMonth}
           width={112}
           size="small"
-          isSearchable={false}
         />
       </Box>
     </Box>
@@ -103,7 +102,6 @@ const MonthPickerSplit = ({ date, locale, localeUtils, onChange, size }) => {
           onChange={handleChangeMonth}
           width={size === 'small' ? 88 : 112}
           size="small"
-          isSearchable={false}
         />
         <NumericInput
           value={`${yearInput}`}
@@ -123,18 +121,18 @@ const MonthPicker = ({ size, ...props }) => {
     return <MonthPickerUnary {...props} />;
   }
 
-  return <MonthPickerSplit {...props} />;
+  return <MonthPickerSplit size={size} {...props} />;
 };
 
 MonthPicker.propTypes = {
   /** Current date */
-  date: PropTypes.bool,
+  date: PropTypes.instanceOf(Date),
   /** Callback function that is fired when the month has changed. */
   onChange: PropTypes.func,
   /** The set locale */
   locale: PropTypes.string,
   /** The localeUtils from the DatePicker */
-  localeUtils: PropTypes.instanceOf(Date),
+  localeUtils: PropTypes.object,
   /** Size of the MonthPicker component. */
   size: PropTypes.oneOf(['smallest', 'small', 'medium', 'large']),
 };

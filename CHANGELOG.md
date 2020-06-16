@@ -17,6 +17,24 @@
 
 ### Dependency updates
 
+## [0.45.0] - 2020-06-16
+
+### Changed
+
+- `DatePicker`, `DatePickerInput`: Allow sizing the input and picker independently, fix alignment when using the `MonthPicker`. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1156](https://github.com/teamleadercrm/ui/pull/1156))
+
+### Removed
+
+- `TabGroup`: removed `inverted` prop, which caused the tabs to render with a dark teal background. ([@driesd](https://github.com/driesd) in [#1155])
+
+### Dependency updates
+
+- [Security] Bump websocket-extensions from `0.1.3` to `0.1.4`
+- Bump eslint from `7.1.0` to `7.2.0`
+- Bump draft-js from `0.11.5` to `0.11.6`
+- Bump eslint-plugin-import from `2.20.2` to `2.21.2`
+- Bump eslint-plugin-prettier from `3.1.3` to `3.1.4`
+
 ## [0.44.2] - 2020-06-03
 
 ### Added
