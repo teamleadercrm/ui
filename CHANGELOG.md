@@ -2,6 +2,8 @@
 
 ### Added
 
+- `TabGroup`: added scrollable functionality when tabs start to overflow their container. ([@driesd](https://github.com/driesd) in [#1160])
+
 ### Changed
 
 ### Deprecated
