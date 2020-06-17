@@ -2,6 +2,8 @@
 
 ### Added
 
+- `IconButton`: add tint prop to customize the tint of the icon inside of the button. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1156](https://github.com/teamleadercrm/ui/pull/1166))
+
 ### Changed
 
 ### Deprecated

@@ -28,7 +28,7 @@ class IconButton extends Component {
   }
 
   render() {
-    const { children, className, disabled, element, icon, size, color, selected, type, ...others } = this.props;
+    const { children, className, disabled, element, icon, size, color, tint, selected, type, ...others } = this.props;
 
     const classNames = cx(
       buttonTheme['button-base'],
@@ -57,7 +57,7 @@ class IconButton extends Component {
 
     return (
       <Box {...props}>
-        <Icon color={color === 'white' ? 'neutral' : color} tint={color === 'white' ? 'lightest' : 'darkest'}>
+        <Icon color={color === 'white' ? 'neutral' : color} tint={color === 'white' ? 'lightest' : tint}>
           {icon}
         </Icon>
         {children}
@@ -87,6 +87,8 @@ IconButton.propTypes = {
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   /** The color which the icon should have */
   color: PropTypes.oneOf(['neutral', 'white', 'mint', 'violet', 'ruby', 'gold', 'aqua']),
+  /** The tint which the icon should have */
+  tint: PropTypes.oneOf(['lightest', 'light', 'normal', 'dark', 'darkest']),
   /** Type of the button element. */
   type: PropTypes.string,
 };
@@ -96,6 +98,7 @@ IconButton.defaultProps = {
   element: 'button',
   size: 'medium',
   color: 'neutral',
+  tint: 'darkest',
   type: 'button',
 };
 
