@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `IconButton`: fix blurring `onMouseUp` and `onMouseLeave`. ([@driesd](https://github.com/driesd) in [#1170])
+
 ### Dependency updates
 
 ## [0.46.1] - 2020-06-18
