@@ -2,6 +2,8 @@
 
 ### Added
 
+- `TabGroup`: added fading gradients to soften the edges of our scroll buttons. ([@driesd](https://github.com/driesd) in [#1169])
+
 ### Changed
 
 ### Deprecated
@@ -11,6 +13,7 @@
 ### Fixed
 
 - `Button`: fix blurring `onMouseUp` and `onMouseLeave`. ([@driesd](https://github.com/driesd) in [#1171])
+- `IconButton`: fix blurring `onMouseUp` and `onMouseLeave`. ([@driesd](https://github.com/driesd) in [#1170])
 
 ### Dependency updates
 

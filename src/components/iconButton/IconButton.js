@@ -22,8 +22,8 @@ class IconButton extends Component {
   };
 
   blur() {
-    if (this.buttonNode.blur) {
-      this.buttonNode.blur();
+    if (this.buttonNode.boxNode.current.blur) {
+      this.buttonNode.boxNode.current.blur();
     }
   }
 
