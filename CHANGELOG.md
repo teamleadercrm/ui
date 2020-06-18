@@ -2,6 +2,8 @@
 
 ### Added
 
+- `TabGroup`: added fading gradients to soften the edges of our scroll buttons. ([@driesd](https://github.com/driesd) in [#1169])
+
 ### Changed
 
 ### Deprecated
