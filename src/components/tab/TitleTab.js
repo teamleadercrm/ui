@@ -5,7 +5,7 @@ import cx from 'classnames';
 import theme from './theme.css';
 import omit from 'lodash.omit';
 
-import { Heading4 } from '../typography';
+import { Heading4, Heading5 } from '../typography';
 
 class TitleTab extends PureComponent {
   tabNode = createRef();
@@ -37,22 +37,24 @@ class TitleTab extends PureComponent {
   };
 
   render() {
-    const { active, children, className, counter = null, ...others } = this.props;
+    const { active, children, className, counter = null, size, ...others } = this.props;
     const classNames = cx(theme['title-tab'], { [theme['is-active']]: active }, className);
 
     const rest = omit(others, ['onClick']);
+
+    const TextElement = size === 'small' ? Heading5 : Heading4;
 
     return (
       <Box
         data-teamleader-ui="title-tab"
         className={classNames}
+        marginHorizontal={size === 'small' ? 1 : 2}
         paddingHorizontal={this.getPaddingHorizontal()}
-        paddingVertical={4}
         ref={this.tabNode}
         onClick={this.handleClick}
         {...rest}
       >
-        <Heading4 element="span">{children}</Heading4>
+        <TextElement element="span">{children}</TextElement>
         {counter}
       </Box>
     );

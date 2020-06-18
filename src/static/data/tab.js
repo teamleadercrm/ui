@@ -6,30 +6,27 @@ const tabItems = [
     title: 'Invoices',
   },
   {
-    active: true,
+    active: false,
     href: '#',
     icon: 'CRM',
     title: 'CRM',
   },
   {
-    active: false,
+    active: true,
     count: 30,
     href: '#',
     icon: 'Planning',
     title: 'Planning',
   },
-];
-
-const invertedTabItems = [
   {
-    active: true,
-    count: 8,
+    active: false,
     href: '#',
     icon: 'Products',
     title: 'Products',
   },
   {
     active: false,
+    count: 8,
     href: '#',
     icon: 'Deals',
     title: 'Deals',
@@ -42,4 +39,4 @@ const invertedTabItems = [
   },
 ];
 
-export { tabItems, invertedTabItems };
+export { tabItems };

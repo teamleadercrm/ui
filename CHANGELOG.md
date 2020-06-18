@@ -12,6 +12,26 @@
 
 ### Dependency updates
 
+## [0.46.1] - 2020-06-18
+
+### Added
+
+- `IconButton`: add tint prop to customize the tint of the icon inside of the button. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1156](https://github.com/teamleadercrm/ui/pull/1166))
+
+### Dependency updates
+
+- Bump react-resize-detector from `5.0.3` to `5.0.4`
+
+## [0.46.0] - 2020-06-16
+
+### Added
+
+- `TabGroup`: added scrollable functionality when tabs start to overflow their container. ([@driesd](https://github.com/driesd) in [#1160])
+
+### Removed
+
+- `IconTab`: removed component. ([@driesd](https://github.com/driesd) in [#1161])
+
 ## [0.45.0] - 2020-06-16
 
 ### Changed
