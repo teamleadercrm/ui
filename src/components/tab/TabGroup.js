@@ -32,7 +32,7 @@ class TabGroup extends PureComponent {
 
     this.setState({
       canScrollLeft: scrollLeft > 0,
-      canScrollRight: scrollLeft !== scrollWidth - clientWidth,
+      canScrollRight: scrollLeft < scrollWidth - clientWidth,
     });
   };
 
