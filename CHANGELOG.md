@@ -12,6 +12,21 @@
 
 ### Dependency updates
 
+## [0.46.2] - 2020-06-18
+
+### Added
+
+- `TabGroup`: added fading gradients to soften the edges of our scroll buttons. ([@driesd](https://github.com/driesd) in [#1169])
+
+### Fixed
+
+- `Button`: fix blurring `onMouseUp` and `onMouseLeave`. ([@driesd](https://github.com/driesd) in [#1171])
+- `IconButton`: fix blurring `onMouseUp` and `onMouseLeave`. ([@driesd](https://github.com/driesd) in [#1170])
+
+### Dependency updates
+
+- Bump `react-resize-detector` from `5.0.4` to `5.0.6`
+
 ## [0.46.1] - 2020-06-18
 
 ### Added
