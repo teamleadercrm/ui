@@ -52,8 +52,8 @@ class Button extends PureComponent {
   };
 
   blur() {
-    if (this.buttonNode.blur) {
-      this.buttonNode.blur();
+    if (this.buttonNode.boxNode.current.blur) {
+      this.buttonNode.boxNode.current.blur();
     }
   }
 

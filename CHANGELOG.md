@@ -12,6 +12,7 @@
 
 ### Fixed
 
+- `Button`: fix blurring `onMouseUp` and `onMouseLeave`. ([@driesd](https://github.com/driesd) in [#1171])
 - `IconButton`: fix blurring `onMouseUp` and `onMouseLeave`. ([@driesd](https://github.com/driesd) in [#1170])
 
 ### Dependency updates
