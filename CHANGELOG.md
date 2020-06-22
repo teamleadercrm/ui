@@ -2,6 +2,8 @@
 
 ### Added
 
+- The `ToastContainer` component now allows setting the `style` prop on the container ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1181](https://github.com/teamleadercrm/ui/pull/1181))
+
 ### Changed
 
 - The `Menu` component now takes up the full width of its container ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1173](https://github.com/teamleadercrm/ui/pull/1173))
