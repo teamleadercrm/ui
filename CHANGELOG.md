@@ -12,6 +12,8 @@
 
 ### Fixed
 
+- `Radio`: fixed the inconsistent left margin in Firefox vs Chrome on Linux. ([@driesd](https://github.com/driesd) in [#1175])
+
 ### Dependency updates
 
 ## [0.46.2] - 2020-06-18
