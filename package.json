@@ -1,7 +1,7 @@
 {
   "name": "@teamleader/ui",
   "description": "Teamleader UI library",
-  "version": "0.46.2",
+  "version": "0.46.3",
   "author": "Teamleader <development@teamleader.eu>",
   "bugs": {
     "url": "https://github.com/teamleadercrm/ui/issues"
@@ -25,8 +25,8 @@
   ],
   "types": "index.d.ts",
   "dependencies": {
-    "@babel/cli": "^7.10.0",
-    "@babel/runtime": "^7.10.0",
+    "@babel/cli": "^7.10.3",
+    "@babel/runtime": "^7.10.3",
     "@teamleader/ui-animations": "^0.0.3",
     "@teamleader/ui-colors": "^0.3.0",
     "@teamleader/ui-icons": "^0.2.29",
@@ -53,11 +53,11 @@
     "smoothscroll-polyfill": "^0.4.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.10.0",
+    "@babel/core": "^7.10.3",
     "@babel/plugin-proposal-export-default-from": "^7.8.3",
     "@babel/plugin-transform-react-jsx-source": "^7.10.0",
-    "@babel/plugin-transform-runtime": "^7.10.0",
-    "@babel/preset-env": "^7.10.0",
+    "@babel/plugin-transform-runtime": "^7.10.3",
+    "@babel/preset-env": "^7.10.3",
     "@babel/preset-react": "^7.10.0",
     "@sambego/storybook-state": "^2.0.1",
     "@sambego/storybook-styles": "^1.0.0",
