@@ -6,11 +6,11 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 class ToastContainer extends PureComponent {
   render() {
-    const { children, className } = this.props;
+    const { children, className, style } = this.props;
     const classNames = cx(theme['container'], className);
 
     return (
-      <ul className={classNames} data-teamleader-ui="toast-container">
+      <ul className={classNames} style={style} data-teamleader-ui="toast-container">
         <TransitionGroup component="li">
           {React.Children.map(children, (child) => {
             return (
@@ -43,6 +43,8 @@ ToastContainer.propTypes = {
   children: PropTypes.any,
   /** A custom class name for custom styling */
   className: PropTypes.string,
+  /** Custom style properties for the container */
+  style: PropTypes.object,
 };
 
 export default ToastContainer;
