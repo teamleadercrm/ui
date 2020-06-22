@@ -1,4 +1,4 @@
-import React, { createRef, PureComponent } from 'react';
+import React, { forwardRef, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { COLOR, COLORS, TINTS } from '../../constants';
@@ -15,8 +15,6 @@ const borderRadiuses = {
 };
 
 class Box extends PureComponent {
-  boxNode = createRef();
-
   getBorder = (value) => {
     const { borderColor, borderTint } = this.props;
     return `${value}px solid ${COLOR[borderColor.toUpperCase()][borderTint.toUpperCase()]}`;
@@ -52,6 +50,7 @@ class Box extends PureComponent {
       flexGrow,
       flexShrink,
       flexWrap,
+      forwardedRef,
       justifyContent,
       margin,
       marginHorizontal = margin,
@@ -132,7 +131,7 @@ class Box extends PureComponent {
     const Element = element;
 
     return (
-      <Element ref={this.boxNode} className={classNames} style={elementStyles} {...others}>
+      <Element className={classNames} ref={forwardedRef} style={elementStyles} {...others}>
         {children}
       </Element>
     );
@@ -207,4 +206,4 @@ Box.defaultProps = {
   padding: 0,
 };
 
-export default Box;
+export default forwardRef((props, ref) => <Box {...props} forwardedRef={ref} />);
