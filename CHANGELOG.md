@@ -2,11 +2,7 @@
 
 ### Added
 
-- The `ToastContainer` component now allows setting the `style` prop on the container ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1181](https://github.com/teamleadercrm/ui/pull/1181))
-
 ### Changed
-
-- The `Menu` component now takes up the full width of its container ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1173](https://github.com/teamleadercrm/ui/pull/1173))
 
 ### Deprecated
 
@@ -14,9 +10,26 @@
 
 ### Fixed
 
+### Dependency updates
+
+## [0.46.3] - 2020-06-22
+
+### Added
+
+- The `ToastContainer` component now allows setting the `style` prop on the container ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1181](https://github.com/teamleadercrm/ui/pull/1181))
+
+### Changed
+
+- The `Menu` component now takes up the full width of its container ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1173](https://github.com/teamleadercrm/ui/pull/1173))
+
+### Fixed
+
 - `Radio`: fixed the inconsistent left margin in Firefox vs Chrome on Linux. ([@driesd](https://github.com/driesd) in [#1175])
 
 ### Dependency updates
+
+- Bump `@babel` to `7.10.3`
+- Bump moment from `2.26.0` to `2.27.0`
 
 ## [0.46.2] - 2020-06-18
 
