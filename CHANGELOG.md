@@ -2,8 +2,6 @@
 
 ### Added
 
-- :boom: `Box`: added `forwardRef`. ([@driesd](https://github.com/driesd) in [#1183])
-
 ### Changed
 
 ### Deprecated
@@ -13,6 +11,17 @@
 ### Fixed
 
 ### Dependency updates
+
+## [0.47.0] - 2020-06-24
+
+### Added
+
+- :boom: `Box`: added `forwardRef`. ([@driesd](https://github.com/driesd) in [#1183])
+
+### Dependency updates
+
+- `eslint` from `7.3.0` to `7.3.1`
+- `storybook-addon-designs` from `5.2.1` to `5.3.0`
 
 ## [0.46.3] - 2020-06-22
 
