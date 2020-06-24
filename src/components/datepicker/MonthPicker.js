@@ -61,7 +61,7 @@ const MonthPickerUnary = ({ date, locale, localeUtils, onChange }) => {
           className={theme['month-picker-field']}
           options={getMonthOptions(localeUtils, locale)}
           onChange={handleChangeMonth}
-          width={112}
+          width="112px"
           size="small"
         />
       </Box>
@@ -107,7 +107,7 @@ const MonthPickerSplit = ({ date, locale, localeUtils, onChange, size }) => {
           className={theme['month-picker-field']}
           options={months}
           onChange={handleChangeMonth}
-          width={size === 'small' ? 88 : 112}
+          width={size === 'small' ? '88px' : '112px'}
           size="small"
         />
         <NumericInput
@@ -115,7 +115,7 @@ const MonthPickerSplit = ({ date, locale, localeUtils, onChange, size }) => {
           className={theme['month-picker-field']}
           onChange={handleChangeYear}
           onBlur={handleYearBlur}
-          width={size === 'small' ? 72 : 80}
+          width={size === 'small' ? '72px' : '80px'}
           size="small"
         />
       </Box>
