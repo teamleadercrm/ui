@@ -2,6 +2,8 @@
 
 ### Added
 
+- :boom: `Box`: added `forwardRef`. ([@driesd](https://github.com/driesd) in [#1183])
+
 ### Changed
 
 ### Deprecated

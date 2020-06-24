@@ -10,7 +10,7 @@ class Badge extends PureComponent {
   badgeNode = createRef();
 
   handleMouseUp = (event) => {
-    this.badgeNode.current.boxNode.current.blur();
+    this.badgeNode.current.blur();
 
     if (this.props.onMouseUp) {
       this.props.onMouseUp(event);
@@ -18,7 +18,7 @@ class Badge extends PureComponent {
   };
 
   handleMouseLeave = (event) => {
-    this.badgeNode.current.boxNode.current.blur();
+    this.badgeNode.current.blur();
 
     if (this.props.onMouseLeave) {
       this.props.onMouseLeave(event);
