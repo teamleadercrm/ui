@@ -68,7 +68,7 @@ const LinkOptions = ({
         />
       </Box>
       <Popover
-        anchorEl={iconButtonRef?.current?.boxNode?.current}
+        anchorEl={iconButtonRef?.current}
         active={isPopoverShown}
         backdrop="transparent"
         onEscKeyDown={handleClosePopoverClick}

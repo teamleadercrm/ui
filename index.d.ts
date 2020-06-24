@@ -23,7 +23,7 @@ declare module '@teamleader/ui' {
   type BoxProps = HTMLAttributes<HTMLDivElement> &
     Partial<SpacingProps> &
     Partial<LayoutProps> & {
-      ref?: RefObject<{ boxNode: RefObject<HTMLDivElement> }>;
+      ref?: RefObject<HTMLDivElement>;
       backgroundColor?: string;
       backgroundTint?: string;
       children?: ReactNode;

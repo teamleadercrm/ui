@@ -20,15 +20,15 @@ class TabGroup extends PureComponent {
 
   componentDidMount() {
     smoothScroll.polyfill();
-    this.scrollContainerRef.current.boxNode.current.addEventListener('scroll', this.handleScroll);
+    this.scrollContainerRef.current.addEventListener('scroll', this.handleScroll);
   }
 
   componentWillUnmount() {
-    this.scrollContainerRef.current.boxNode.current.removeEventListener('scroll', this.handleScroll);
+    this.scrollContainerRef.current.removeEventListener('scroll', this.handleScroll);
   }
 
   checkForScrollPosition = () => {
-    const { scrollLeft, scrollWidth, clientWidth } = this.scrollContainerRef.current.boxNode.current;
+    const { scrollLeft, scrollWidth, clientWidth } = this.scrollContainerRef.current;
 
     this.setState({
       canScrollLeft: scrollLeft > 0,
@@ -45,7 +45,7 @@ class TabGroup extends PureComponent {
   };
 
   scrollContainerBy = (distance) => {
-    this.scrollContainerRef.current.boxNode.current.scrollBy({ left: distance, behavior: 'smooth' });
+    this.scrollContainerRef.current.scrollBy({ left: distance, behavior: 'smooth' });
   };
 
   render() {
