@@ -29,12 +29,19 @@ const getMonthOptions = (localeUtils, locale) => {
 };
 
 // e.g. "February 2020" => "Feb"
-const formatSelectedMonth = ({ label, value }) => ({ value, label: label.substring(0, 3) });
+// Exception for French language: we use 4 characters
+const formatSelectedMonth = ({ label, value }, locale) => ({
+  value,
+  label: label.substring(0, locale.startsWith('fr-') ? 4 : 3),
+});
 
 // e.g. "February 2020" => "Feb 2020"
-const formatSelectMonthAndYear = ({ label, value }) => ({
+// Exception for French language: we use 4 characters
+const formatSelectMonthAndYear = ({ label, value }, locale) => ({
   value,
-  label: label.replace(/(\w{3})\w+\s(\d{4})/, '$1 $2'),
+  label: locale.startsWith('fr-')
+    ? label.replace(/(\w{4})\w+\s(\d{4})/, '$1 $2')
+    : label.replace(/(\w{3})\w+\s(\d{4})/, '$1 $2'),
 });
 
 const MonthPickerUnary = ({ date, locale, localeUtils, onChange }) => {
@@ -50,11 +57,11 @@ const MonthPickerUnary = ({ date, locale, localeUtils, onChange }) => {
     <Box className={theme['caption']}>
       <Box display="flex" justifyContent="center">
         <Select
-          value={formatSelectMonthAndYear(selectedMonth)}
+          value={formatSelectMonthAndYear(selectedMonth, locale)}
           className={theme['month-picker-field']}
           options={getMonthOptions(localeUtils, locale)}
           onChange={handleChangeMonth}
-          width={112}
+          width="112px"
           size="small"
         />
       </Box>
@@ -96,11 +103,11 @@ const MonthPickerSplit = ({ date, locale, localeUtils, onChange, size }) => {
     <Box className={theme['caption']}>
       <Box display="flex" justifyContent="center">
         <Select
-          value={formatSelectedMonth(selectedMonth)}
+          value={formatSelectedMonth(selectedMonth, locale)}
           className={theme['month-picker-field']}
           options={months}
           onChange={handleChangeMonth}
-          width={size === 'small' ? 88 : 112}
+          width={size === 'small' ? '88px' : '112px'}
           size="small"
         />
         <NumericInput
@@ -108,7 +115,7 @@ const MonthPickerSplit = ({ date, locale, localeUtils, onChange, size }) => {
           className={theme['month-picker-field']}
           onChange={handleChangeYear}
           onBlur={handleYearBlur}
-          width={size === 'small' ? 72 : 80}
+          width={size === 'small' ? '72px' : '80px'}
           size="small"
         />
       </Box>

@@ -8,16 +8,20 @@ import CustomLocaleUtils, { formatDate, parseDate } from './localeUtils';
 const languages = [
   'da-DK',
   'de-DE',
-  'fr-FR',
   'en-GB',
   'en-US',
   'es-ES',
   'fi-FI',
+  'fr-BE',
+  'fr-FR',
   'it-IT',
+  'nb-NO',
   'nl-BE',
-  'pt-PT',
+  'nl-NL',
   'pl-PL',
+  'pt-PT',
   'sv-SE',
+  'tr-TR',
 ];
 const sizes = ['small', 'medium', 'large'];
 const optionalSizes = {

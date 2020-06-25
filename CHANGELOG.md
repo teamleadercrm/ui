@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `DatePicker`: added one extra character to the `short month labels` for the `French` language. ([@driesd](https://github.com/driesd) in [#1187])
+
 ### Deprecated
 
 ### Removed
