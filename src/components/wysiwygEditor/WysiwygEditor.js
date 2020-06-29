@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Editor } from 'react-draft-wysiwyg';
 import cx from 'classnames';
@@ -62,10 +62,19 @@ const WysiwygEditor = ({
   width,
   locale = 'en',
   inputClassName,
+  autoFocus,
   ...others
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [isPlaceholderShown, setIsPlaceholderShown] = useState(true);
+  const editorRef = useRef();
+
+  useEffect(() => {
+    if (autoFocus) {
+      // eslint-disable-next-line no-unused-expressions
+      editorRef?.current?.focusEditor();
+    }
+  }, [autoFocus]);
 
   const handleBlur = (event) => {
     setIsFocused(false);
@@ -128,6 +137,7 @@ const WysiwygEditor = ({
                 translations: translations['en'],
               }
         }
+        ref={editorRef}
         {...others}
       />
       <ValidationText error={error} help={helpText} success={success} warning={warning} />
@@ -150,6 +160,8 @@ WysiwygEditor.propTypes = {
   locale: PropTypes.string,
   /** Classname for the WysiwygEditor's input element */
   inputClassName: PropTypes.string,
+  /** Determines if the editor should be autofocussed on render */
+  autoFocus: PropTypes.bool,
 };
 
 export default WysiwygEditor;
