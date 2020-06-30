@@ -111,7 +111,7 @@ class DatePickerInput extends PureComponent {
           active={isPopoverActive}
           anchorEl={popoverAnchorEl}
           backdrop="transparent"
-          fullWidth
+          maxWidth="min-content"
           onEscKeyDown={this.handlePopoverClose}
           onOverlayClick={this.handlePopoverClose}
           position="end"
