@@ -83,7 +83,7 @@ const WysiwygEditor = ({
     // We have to check on docmument focusin events, because the Editor component's onFocus/onBlur are unreliable
     const editorInput = document.querySelector("[aria-label='rdw-editor']");
 
-    const handleFocus = (event: FocusEvent) => {
+    const handleFocus = (event) => {
       if (event.target.dataset.wysiwyg || event.target === editorInput) {
         setIsFocused(true);
         onFocus && onFocus(event);
