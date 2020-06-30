@@ -100,7 +100,6 @@ export const inputSingleDate = () => {
 
   return (
     <DatePickerInput
-      bordered={boolean('bordered', false)}
       dayPickerProps={{
         numberOfMonths: number('Number of months', 1),
         showOutsideDays: boolean('Show outside days', true),

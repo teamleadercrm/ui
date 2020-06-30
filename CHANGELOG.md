@@ -11,6 +11,8 @@
 
 ### Removed
 
+- :boom: `DatePickerInput`: removed `bordered` prop as the `Popover` already provides one. ([@driesd](https://github.com/driesd) in [#1195])
+
 ### Fixed
 
 ### Dependency updates
