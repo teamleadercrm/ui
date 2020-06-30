@@ -81,6 +81,7 @@ class DatePickerInput extends PureComponent {
       bordered,
       className,
       dayPickerProps,
+      footer,
       inverse,
       inputProps,
       locale,
@@ -110,7 +111,7 @@ class DatePickerInput extends PureComponent {
           active={isPopoverActive}
           anchorEl={popoverAnchorEl}
           backdrop="transparent"
-          fullWidth
+          maxWidth="min-content"
           onEscKeyDown={this.handlePopoverClose}
           onOverlayClick={this.handlePopoverClose}
           position="end"
@@ -131,6 +132,21 @@ class DatePickerInput extends PureComponent {
               {...dayPickerProps}
             />
           </Box>
+          {footer && (
+            <Box
+              backgroundColor="neutral"
+              backgroundTint="light"
+              borderColor="neutral"
+              borderTint="normal"
+              borderTopWidth={1}
+              flex="1 0 auto"
+              overflowX="hidden"
+              paddingHorizontal={3}
+              paddingVertical={3}
+            >
+              {footer}
+            </Box>
+          )}
         </Popover>
       </Box>
     );
@@ -144,6 +160,8 @@ DatePickerInput.propTypes = {
   className: PropTypes.string,
   /** Object with props for the DatePicker component. */
   dayPickerProps: PropTypes.object,
+  /** A footer component, rendered at the bottom of the date picker */
+  footer: PropTypes.any,
   /** A custom function to format a date. */
   formatDate: PropTypes.func,
   /** Object with props for the Input component. */
