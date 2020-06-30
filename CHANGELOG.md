@@ -12,6 +12,12 @@
 
 ### Dependency updates
 
+## [0.48.1] - 2020-06-30
+
+### Fixed
+
+- `WysiwygEditor`: fixed build error due to unsupported typing ([@mikeverf](https://github.com/mikeverf) in [#1198])
+
 ## [0.48.0] - 2020-06-30
 
 ### Added
