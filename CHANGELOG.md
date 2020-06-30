@@ -26,8 +26,6 @@
 - `DatePicker`: added one extra character to the `short month labels` for the `French` language. ([@driesd](https://github.com/driesd) in [#1187])
 - `DatePickerInput`: added `footer` prop, which can take a custom component to render underneath the date picker. ([@driesd](https://github.com/driesd) in [#1193])
 
-### Deprecated
-
 ### Removed
 
 - :boom: `DatePickerInput`: removed `bordered` prop as the `Popover` already provides one. ([@driesd](https://github.com/driesd) in [#1195])
