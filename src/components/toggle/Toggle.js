@@ -34,7 +34,7 @@ class Toggle extends PureComponent {
   }
 
   render() {
-    const { checked, disabled, className, size, label, children, ...others } = this.props;
+    const { checked, disabled, className, maxLines, size, label, children, ...others } = this.props;
 
     const restProps = omit(others, ['onChange']);
     const boxProps = pickBoxProps(restProps);
@@ -69,7 +69,7 @@ class Toggle extends PureComponent {
         {(label || children) && (
           <span className={theme['label']}>
             {label && (
-              <TextElement element="span" color={disabled ? 'neutral' : 'teal'}>
+              <TextElement element="span" color={disabled ? 'neutral' : 'teal'} maxLines={maxLines}>
                 {label}
               </TextElement>
             )}
@@ -85,6 +85,8 @@ Toggle.propTypes = {
   checked: PropTypes.bool,
   children: PropTypes.node,
   disabled: PropTypes.bool,
+  /** The maximum number of lines the label can take */
+  maxLines: PropTypes.number,
   name: PropTypes.string,
   className: PropTypes.string,
   label: PropTypes.string,
