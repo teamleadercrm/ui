@@ -65,6 +65,7 @@ const WysiwygEditor = ({
   locale = 'en',
   inputClassName,
   autoFocus,
+  onKeyDown,
   ...others
 }) => {
   const [isFocused, setIsFocused] = useState(false);
@@ -95,6 +96,23 @@ const WysiwygEditor = ({
 
     return () => {
       document.removeEventListener('focusin', handleFocus);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!onKeyDown || !editorRef?.current?.wrapper) {
+      return;
+    }
+
+    const handleKeyDown = (event) => onKeyDown(event);
+
+    editorRef.current.wrapper.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      if (!onKeyDown && !editorRef?.current?.wrapper) {
+        return;
+      }
+      editorRef.current.wrapper.removeEventListener('keydown', handleKeyDown);
     };
   }, []);
 
@@ -190,6 +208,8 @@ WysiwygEditor.propTypes = {
   onEditorFocus: PropTypes.func,
   /** Callback function for blurring the input field of the editor */
   onEditorBlur: PropTypes.func,
+  /** Callback function for keydown in the input field of the editor */
+  onKeyDown: PropTypes.func,
 };
 
 export default WysiwygEditor;
