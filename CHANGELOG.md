@@ -2,7 +2,10 @@
 
 ### Added
 
-- `Toggle`: added `maxLines` prop and pass it to the label `Text` component. ([@driesd](https://github.com/driesd) in [#1194])
+- `WysiwygEditor`: added `autoFocus` prop ([@mikeverf](https://github.com/mikeverf) in [#1196])
+- `WysiwygEditor`: added `onInputFocus` and `onInputBlur` props ([@mikeverf](https://github.com/mikeverf) in [#1196])
+- `WysiwygEditor`: added `onKeyDown` prop ([@mikeverf](https://github.com/mikeverf) in [#1196])
+- `Toggle`: added `maxLines` prop and pass it to the label `Text` component. ([@driesd](https://github.com/driesd) in [#1194]) next-release -- Current Change
 
 ### Changed
 
@@ -16,6 +19,8 @@
 - :boom: `DatePickerInput`: removed `bordered` prop as the `Popover` already provides one. ([@driesd](https://github.com/driesd) in [#1195])
 
 ### Fixed
+
+- `WysiwygEditor`: added `onFocus` and `onBlur` props now focus and blur reliably on the entire editor ([@mikeverf](https://github.com/mikeverf) in [#1196])
 
 ### Dependency updates
 

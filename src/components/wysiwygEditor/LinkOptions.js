@@ -56,6 +56,7 @@ const LinkOptions = ({
     <>
       <Box ref={iconButtonRef}>
         <TooltippedIconButton
+          data-wysiwyg
           tooltip={<TextSmall>{translations['components.controls.link.link']}</TextSmall>}
           tooltipSize="small"
           tooltipShowDelay={1000}
@@ -80,7 +81,7 @@ const LinkOptions = ({
         <Box display="flex" flexDirection="column" padding={4}>
           <Label htmlFor="linkText" helpText="">
             {translations['components.controls.link.popover.text']}
-            <Input id="linkText" autoFocus value={textValue || ''} onChange={onTextChange} />
+            <Input id="linkText" autoFocus value={textValue || ''} onChange={onTextChange} data-wysiwyg />
           </Label>
           <Label htmlFor="link" helpText="" marginBottom={4}>
             {translations['components.controls.link.popover.link']}
@@ -89,6 +90,7 @@ const LinkOptions = ({
               value={linkValue || ''}
               onChange={onLinkChange}
               placeholder={translations['components.controls.link.popover.placeholder']}
+              data-wysiwyg
             />
           </Label>
           <Box display="flex" justifyContent="flex-end" alignItems="center" marginTop={4}>
@@ -98,6 +100,7 @@ const LinkOptions = ({
               size="small"
               marginRight={3}
               onClick={handleClosePopoverClick}
+              data-wysiwyg
             />
             <Button
               level="primary"
@@ -105,6 +108,7 @@ const LinkOptions = ({
               size="small"
               disabled={!linkValue || !textValue}
               onClick={handleAddLinkClick}
+              data-wysiwyg
             />
           </Box>
         </Box>

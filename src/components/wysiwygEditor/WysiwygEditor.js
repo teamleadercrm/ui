@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Editor } from 'react-draft-wysiwyg';
 import cx from 'classnames';
@@ -54,7 +54,9 @@ const availableLocales = ['en', 'es', 'it', 'nl', 'fr', 'de'];
 const WysiwygEditor = ({
   className,
   error,
+  onInputFocus,
   onFocus,
+  onInputBlur,
   onBlur,
   success,
   warning,
@@ -62,22 +64,67 @@ const WysiwygEditor = ({
   width,
   locale = 'en',
   inputClassName,
+  autoFocus,
+  onKeyDown,
   ...others
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [isPlaceholderShown, setIsPlaceholderShown] = useState(true);
+  const editorRef = useRef();
+
+  useEffect(() => {
+    if (autoFocus) {
+      // eslint-disable-next-line no-unused-expressions
+      editorRef?.current?.focusEditor();
+    }
+  }, [autoFocus]);
+
+  useEffect(() => {
+    // We have to check on docmument focusin events, because the Editor component's onFocus/onBlur are unreliable
+    const editorInput = document.querySelector("[aria-label='rdw-editor']");
+
+    const handleFocus = (event: FocusEvent) => {
+      if (event.target.dataset.wysiwyg || event.target === editorInput) {
+        setIsFocused(true);
+        onFocus && onFocus(event);
+      } else {
+        setIsFocused(false);
+        onBlur && onBlur(event);
+      }
+    };
+    document.addEventListener('focusin', handleFocus);
+
+    return () => {
+      document.removeEventListener('focusin', handleFocus);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!onKeyDown || !editorRef?.current?.wrapper) {
+      return;
+    }
+
+    const handleKeyDown = (event) => onKeyDown(event);
+
+    editorRef.current.wrapper.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      if (!onKeyDown && !editorRef?.current?.wrapper) {
+        return;
+      }
+      editorRef.current.wrapper.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
 
   const handleBlur = (event) => {
-    setIsFocused(false);
-    if (onBlur) {
-      onBlur(event);
+    if (onInputBlur) {
+      onInputBlur(event);
     }
   };
 
   const handleFocus = (event) => {
-    setIsFocused(true);
-    if (onFocus) {
-      onFocus(event);
+    if (onInputFocus) {
+      onInputFocus(event);
     }
   };
 
@@ -128,6 +175,7 @@ const WysiwygEditor = ({
                 translations: translations['en'],
               }
         }
+        ref={editorRef}
         {...others}
       />
       <ValidationText error={error} help={helpText} success={success} warning={warning} />
@@ -150,6 +198,18 @@ WysiwygEditor.propTypes = {
   locale: PropTypes.string,
   /** Classname for the WysiwygEditor's input element */
   inputClassName: PropTypes.string,
+  /** Determines if the editor should be autofocussed on render */
+  autoFocus: PropTypes.bool,
+  /** Callback function for focussing on anything in the editor */
+  onFocus: PropTypes.func,
+  /** Callback function for blurring anything in the editor */
+  onBlur: PropTypes.func,
+  /** Callback function for focussing on the input field of the editor */
+  onEditorFocus: PropTypes.func,
+  /** Callback function for blurring the input field of the editor */
+  onEditorBlur: PropTypes.func,
+  /** Callback function for keydown in the input field of the editor */
+  onKeyDown: PropTypes.func,
 };
 
 export default WysiwygEditor;
