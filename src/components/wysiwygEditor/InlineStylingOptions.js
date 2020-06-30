@@ -48,6 +48,7 @@ const InlineStylingOptions = ({
     <Box display="flex" borderRightWidth={1} marginRight={2}>
       {options.map((optionType) => (
         <TooltippedIconButton
+          data-wysiwyg
           tooltip={
             <TooltipMessage optionType={optionType} name={translations[`components.controls.inline.${optionType}`]} />
           }
