@@ -2,6 +2,20 @@
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Dependency updates
+
+## [0.48.0] - 2020-06-30
+
+### Added
+
 - `WysiwygEditor`: added `autoFocus` prop ([@mikeverf](https://github.com/mikeverf) in [#1196])
 - `WysiwygEditor`: added `onInputFocus` and `onInputBlur` props ([@mikeverf](https://github.com/mikeverf) in [#1196])
 - `WysiwygEditor`: added `onKeyDown` prop ([@mikeverf](https://github.com/mikeverf) in [#1196])
@@ -23,6 +37,11 @@
 - `WysiwygEditor`: added `onFocus` and `onBlur` props now focus and blur reliably on the entire editor ([@mikeverf](https://github.com/mikeverf) in [#1196])
 
 ### Dependency updates
+
+- `eslint-plugin-babel` from `5.3.0` to `5.3.1`
+- `eslint-plugin-import` from `2.21.2` to `2.22.0`
+- `eslint-plugin-react` from `7.20.0` to `7.20.2`
+- `storybook-addon-designs` from `5.3.0` to `5.4.0`
 
 ## [0.47.0] - 2020-06-24
 
