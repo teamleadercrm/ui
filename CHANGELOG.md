@@ -2,6 +2,8 @@
 
 ### Added
 
+- `Toggle`: added `maxLines` prop and pass it to the label `Text` component. ([@driesd](https://github.com/driesd) in [#1194])
+
 ### Changed
 
 - `DatePicker`: added one extra character to the `short month labels` for the `French` language. ([@driesd](https://github.com/driesd) in [#1187])
