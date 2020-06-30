@@ -5,14 +5,18 @@
 - `WysiwygEditor`: added `autoFocus` prop ([@mikeverf](https://github.com/mikeverf) in [#1196])
 - `WysiwygEditor`: added `onInputFocus` and `onInputBlur` props ([@mikeverf](https://github.com/mikeverf) in [#1196])
 - `WysiwygEditor`: added `onKeyDown` prop ([@mikeverf](https://github.com/mikeverf) in [#1196])
+- `Toggle`: added `maxLines` prop and pass it to the label `Text` component. ([@driesd](https://github.com/driesd) in [#1194]) next-release -- Current Change
 
 ### Changed
 
 - `DatePicker`: added one extra character to the `short month labels` for the `French` language. ([@driesd](https://github.com/driesd) in [#1187])
+- `DatePickerInput`: added `footer` prop, which can take a custom component to render underneath the date picker. ([@driesd](https://github.com/driesd) in [#1193])
 
 ### Deprecated
 
 ### Removed
+
+- :boom: `DatePickerInput`: removed `bordered` prop as the `Popover` already provides one. ([@driesd](https://github.com/driesd) in [#1195])
 
 ### Fixed
 
