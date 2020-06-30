@@ -2,6 +2,10 @@
 
 ### Added
 
+- `WysiwygEditor`: added `autoFocus` prop ([@mikeverf](https://github.com/mikeverf) in [#1196])
+- `WysiwygEditor`: added `onInputFocus` and `onInputBlur` props ([@mikeverf](https://github.com/mikeverf) in [#1196])
+- `WysiwygEditor`: added `onKeyDown` prop ([@mikeverf](https://github.com/mikeverf) in [#1196])
+
 ### Changed
 
 - `DatePicker`: added one extra character to the `short month labels` for the `French` language. ([@driesd](https://github.com/driesd) in [#1187])
@@ -11,6 +15,8 @@
 ### Removed
 
 ### Fixed
+
+- `WysiwygEditor`: added `onFocus` and `onBlur` props now focus and blur reliably on the entire editor ([@mikeverf](https://github.com/mikeverf) in [#1196])
 
 ### Dependency updates
 
