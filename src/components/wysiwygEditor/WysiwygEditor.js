@@ -54,7 +54,9 @@ const availableLocales = ['en', 'es', 'it', 'nl', 'fr', 'de'];
 const WysiwygEditor = ({
   className,
   error,
+  onInputFocus,
   onFocus,
+  onInputBlur,
   onBlur,
   success,
   warning,
@@ -76,17 +78,35 @@ const WysiwygEditor = ({
     }
   }, [autoFocus]);
 
+  useEffect(() => {
+    // We have to check on docmument focusin events, because the Editor component's onFocus/onBlur are unreliable
+    const editorInput = document.querySelector("[aria-label='rdw-editor']");
+
+    const handleFocus = (event: FocusEvent) => {
+      if (event.target.dataset.wysiwyg || event.target === editorInput) {
+        setIsFocused(true);
+        onFocus && onFocus(event);
+      } else {
+        setIsFocused(false);
+        onBlur && onBlur(event);
+      }
+    };
+    document.addEventListener('focusin', handleFocus);
+
+    return () => {
+      document.removeEventListener('focusin', handleFocus);
+    };
+  }, []);
+
   const handleBlur = (event) => {
-    setIsFocused(false);
-    if (onBlur) {
-      onBlur(event);
+    if (onInputBlur) {
+      onInputBlur(event);
     }
   };
 
   const handleFocus = (event) => {
-    setIsFocused(true);
-    if (onFocus) {
-      onFocus(event);
+    if (onInputFocus) {
+      onInputFocus(event);
     }
   };
 
@@ -162,6 +182,14 @@ WysiwygEditor.propTypes = {
   inputClassName: PropTypes.string,
   /** Determines if the editor should be autofocussed on render */
   autoFocus: PropTypes.bool,
+  /** Callback function for focussing on anything in the editor */
+  onFocus: PropTypes.func,
+  /** Callback function for blurring anything in the editor */
+  onBlur: PropTypes.func,
+  /** Callback function for focussing on the input field of the editor */
+  onEditorFocus: PropTypes.func,
+  /** Callback function for blurring the input field of the editor */
+  onEditorBlur: PropTypes.func,
 };
 
 export default WysiwygEditor;
