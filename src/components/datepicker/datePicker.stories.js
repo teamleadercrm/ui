@@ -1,23 +1,27 @@
 import React from 'react';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { boolean, number, select, text } from '@storybook/addon-knobs/react';
-import { DatePicker, DatePickerRange, DatePickerInput, DatePickerInputRange } from '../../index';
+import { DatePicker, DatePickerRange, DatePickerInput, DatePickerInputRange, Toggle } from '../../index';
 import { DateTime } from 'luxon';
 import CustomLocaleUtils, { formatDate, parseDate } from './localeUtils';
 
 const languages = [
   'da-DK',
   'de-DE',
-  'fr-FR',
   'en-GB',
   'en-US',
   'es-ES',
   'fi-FI',
+  'fr-BE',
+  'fr-FR',
   'it-IT',
+  'nb-NO',
   'nl-BE',
-  'pt-PT',
+  'nl-NL',
   'pl-PL',
+  'pt-PT',
   'sv-SE',
+  'tr-TR',
 ];
 const sizes = ['small', 'medium', 'large'];
 const optionalSizes = {
@@ -96,13 +100,13 @@ export const inputSingleDate = () => {
 
   return (
     <DatePickerInput
-      bordered={boolean('bordered', false)}
       dayPickerProps={{
         numberOfMonths: number('Number of months', 1),
         showOutsideDays: boolean('Show outside days', true),
         showWeekNumbers: boolean('Show week numbers', true),
         withMonthPicker: boolean('Use month picker', false),
       }}
+      footer={<Toggle label="Lorem ipsum dolor sit amet, suspendisse faucibus nunc et pellentesque" size="small" />}
       formatDate={customFormatDate}
       inputProps={{
         bold: boolean('Bold', false),

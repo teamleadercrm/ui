@@ -1,6 +1,6 @@
 import React from 'react';
-import { boolean, select } from '@storybook/addon-knobs/react';
-import { Toggle } from '../../index';
+import Toggle from './Toggle';
+import { boolean, number, select, text } from '@storybook/addon-knobs/react';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 
 const sizes = ['small', 'medium', 'large'];
@@ -38,7 +38,8 @@ export const withLabels = () => (
   <ControlledToggle
     checked={boolean('Checked', false)}
     disabled={boolean('Disabled', false)}
-    label={`I'm a toggle`}
+    label={text('Label', 'I am a label')}
+    maxLines={number('Max lines', undefined)}
     size={select('Size', sizes, 'medium')}
   />
 );

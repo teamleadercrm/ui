@@ -26,6 +26,7 @@ const ListStylingOptions = ({
     <Box display="flex" borderRightWidth={1} marginRight={2}>
       {options.map((optionType) => (
         <TooltippedIconButton
+          data-wysiwyg
           tooltip={<TextSmall>{translations[`components.controls.list.${optionType}`]}</TextSmall>}
           tooltipSize="small"
           tooltipShowDelay={1000}
