@@ -1,7 +1,7 @@
 import React from 'react';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { boolean, number, select, text } from '@storybook/addon-knobs/react';
-import { DatePicker, DatePickerRange, DatePickerInput, DatePickerInputRange } from '../../index';
+import { DatePicker, DatePickerRange, DatePickerInput, DatePickerInputRange, Toggle } from '../../index';
 import { DateTime } from 'luxon';
 import CustomLocaleUtils, { formatDate, parseDate } from './localeUtils';
 
@@ -107,6 +107,7 @@ export const inputSingleDate = () => {
         showWeekNumbers: boolean('Show week numbers', true),
         withMonthPicker: boolean('Use month picker', false),
       }}
+      footer={<Toggle label="Lorem ipsum dolor sit amet, suspendisse faucibus nunc et pellentesque" size="small" />}
       formatDate={customFormatDate}
       inputProps={{
         bold: boolean('Bold', false),
