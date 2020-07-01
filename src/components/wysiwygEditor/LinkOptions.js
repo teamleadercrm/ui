@@ -31,12 +31,17 @@ const LinkOptions = ({
     setLinkValue(link?.target);
   }, [link?.target, selectionText]);
 
+  const focusEditor = () => {
+    document.querySelector("[aria-label='rdw-editor']").focus();
+  };
+
   const handleOpenPopoverClick = () => {
     setIsPopoverShown(true);
   };
 
   const handleClosePopoverClick = () => {
     setIsPopoverShown(false);
+    focusEditor();
   };
 
   const onTextChange = ({ currentTarget: { value: newText } }) => {
@@ -50,6 +55,7 @@ const LinkOptions = ({
   const handleAddLinkClick = () => {
     onChange('link', textValue, linkValue, defaultTargetOption);
     setIsPopoverShown(false);
+    focusEditor();
   };
 
   return (

@@ -12,6 +12,8 @@
 
 ### Fixed
 
+- `WysiwygEditor`: fixed onFocus and onBlur being called twice or not at all in some cases ([@mikeverf](https://github.com/mikeverf) in [#1205])
+
 ### Dependency updates
 
 ## [0.48.1] - 2020-06-30

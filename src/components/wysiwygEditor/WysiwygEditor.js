@@ -80,26 +80,6 @@ const WysiwygEditor = ({
   }, [autoFocus]);
 
   useEffect(() => {
-    // We have to check on docmument focusin events, because the Editor component's onFocus/onBlur are unreliable
-    const editorInput = document.querySelector("[aria-label='rdw-editor']");
-
-    const handleFocus = (event) => {
-      if (event.target.dataset.wysiwyg || event.target === editorInput) {
-        setIsFocused(true);
-        onFocus && onFocus(event);
-      } else {
-        setIsFocused(false);
-        onBlur && onBlur(event);
-      }
-    };
-    document.addEventListener('focusin', handleFocus);
-
-    return () => {
-      document.removeEventListener('focusin', handleFocus);
-    };
-  }, []);
-
-  useEffect(() => {
     if (!onKeyDown || !editorRef?.current?.wrapper) {
       return;
     }
@@ -117,12 +97,27 @@ const WysiwygEditor = ({
   }, []);
 
   const handleBlur = (event) => {
+    const editorInput = document.querySelector("[aria-label='rdw-editor']");
+    // Only blur when editorInput is blurred and the newly focussed target is not part of the wysiwyg
+    if (event.target === editorInput && !event.relatedTarget?.dataset?.wysiwyg) {
+      setIsFocused(false);
+      onBlur && onBlur(event);
+    }
+
     if (onInputBlur) {
       onInputBlur(event);
     }
   };
 
   const handleFocus = (event) => {
+    const editorInput = document.querySelector("[aria-label='rdw-editor']");
+
+    // Only focus when focussed target is part of the wysiwyg and the editor isn't focussed yet
+    if (event.target.dataset.wysiwyg || (event.target === editorInput && !isFocused)) {
+      setIsFocused(true);
+      onFocus && onFocus(event);
+    }
+
     if (onInputFocus) {
       onInputFocus(event);
     }
