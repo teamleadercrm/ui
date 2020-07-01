@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `Toggle`: changed to have consistent spacing between track and label for all sizes. ([@driesd](https://github.com/driesd) in [#1200])
+
 ### Deprecated
 
 ### Removed
@@ -25,7 +27,7 @@
 - `WysiwygEditor`: added `autoFocus` prop ([@mikeverf](https://github.com/mikeverf) in [#1196])
 - `WysiwygEditor`: added `onInputFocus` and `onInputBlur` props ([@mikeverf](https://github.com/mikeverf) in [#1196])
 - `WysiwygEditor`: added `onKeyDown` prop ([@mikeverf](https://github.com/mikeverf) in [#1196])
-- `Toggle`: added `maxLines` prop and pass it to the label `Text` component. ([@driesd](https://github.com/driesd) in [#1194]) next-release -- Current Change
+- `Toggle`: added `maxLines` prop and pass it to the label `Text` component. ([@driesd](https://github.com/driesd) in [#1194])
 
 ### Changed
 
