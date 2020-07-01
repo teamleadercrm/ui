@@ -33,6 +33,10 @@
     margin: 0;
   }
 
+  .label {
+    margin-left: var(--spacer-small);
+  }
+
   .track {
     box-sizing: border-box;
     background: var(--color-neutral-light);
@@ -119,10 +123,6 @@
   }
 
   &.is-small {
-    .label {
-      margin-left: var(--spacer-smaller);
-    }
-
     .track {
       flex: 0 0 var(--toggle-track-width-small);
       height: var(--toggle-track-height-small);
@@ -149,7 +149,6 @@
 
   &.is-medium {
     .label {
-      margin-left: var(--spacer-small);
       padding-top: 2px;
     }
 
@@ -179,7 +178,6 @@
 
   &.is-large {
     .label {
-      margin-left: var(--spacer-small);
       padding-top: 4px;
     }
 
