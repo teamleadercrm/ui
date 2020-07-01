@@ -113,7 +113,7 @@ const WysiwygEditor = ({
     const editorInput = document.querySelector("[aria-label='rdw-editor']");
 
     // Only focus when focussed target is part of the wysiwyg and the editor isn't focussed yet
-    if (event.target.dataset.wysiwyg || (event.target === editorInput && !isFocused)) {
+    if ((event.target.dataset.wysiwyg || event.target === editorInput) && !isFocused) {
       setIsFocused(true);
       onFocus && onFocus(event);
     }
