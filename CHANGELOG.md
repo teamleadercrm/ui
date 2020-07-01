@@ -10,6 +10,9 @@
 
 ### Fixed
 
+- `WysiwygEditor`: Fix typo which resulted in onFocus being called multiple times anyway ([@mikeverf](https://github.com/mikeverf) in [#1207])
+- `WysiwygEditor`: Fix race condition for refocussing editor after adding a link ([@mikeverf](https://github.com/mikeverf) in [#1207])
+
 ### Dependency updates
 
 ## [0.48.2] - 2020-07-01
