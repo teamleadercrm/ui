@@ -52,10 +52,10 @@ const LinkOptions = ({
     setLinkValue(newLink);
   };
 
-  const handleAddLinkClick = () => {
-    onChange('link', textValue, linkValue, defaultTargetOption);
-    setIsPopoverShown(false);
-    focusEditor();
+  const handleAddLinkClick = async () => {
+    await onChange('link', textValue, linkValue, defaultTargetOption);
+    await setIsPopoverShown(false);
+    await focusEditor();
   };
 
   return (
