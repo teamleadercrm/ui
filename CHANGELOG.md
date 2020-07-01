@@ -4,17 +4,34 @@
 
 ### Changed
 
-- `Toggle`: changed to have consistent spacing between track and label for all sizes. ([@driesd](https://github.com/driesd) in [#1200])
-
 ### Deprecated
 
 ### Removed
 
 ### Fixed
 
+### Dependency updates
+
+## [0.48.2] - 2020-07-01
+
+### Changed
+
+- `Toggle`: changed to have consistent spacing between track and label for all sizes. ([@driesd](https://github.com/driesd) in [#1200])
+
+### Fixed
+
 - `WysiwygEditor`: fixed onFocus and onBlur being called twice or not at all in some cases ([@mikeverf](https://github.com/mikeverf) in [#1205])
 
 ### Dependency updates
+
+- `@babel/cli` from `7.10.3` to `7.10.4`
+- `@babel/runtime` from `7.10.3` to `7.10.4`
+- `@babel/core` from `7.10.3` to `7.10.4`
+- `@babel/plugin-proposal-export-default-from` from `7.8.3` to `7.10.4`
+- `@babel/plugin-transform-react-jsx-source` from `7.10.0` to `7.10.4`
+- `@babel/plugin-transform-runtime` from `7.10.3` to `7.10.4`
+- `@babel/preset-env` from `7.10.3` to `7.10.4`
+- `@babel/preset-react` from `7.10.0` to `7.10.4`
 
 ## [0.48.1] - 2020-06-30
 
