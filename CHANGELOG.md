@@ -12,6 +12,12 @@
 
 ### Dependency updates
 
+## [0.48.4] - 2020-07-02
+
+### Dependency updates
+
+- `react-day-picker`: enforce upgrade to `7.4.8`. ([@lowiebneoot](https://github.com/lowiebneoot) in [#1210])
+
 ## [0.48.3] - 2020-07-01
 
 ### Fixed
