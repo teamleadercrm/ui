@@ -12,6 +12,7 @@ const SCROLL_DISTANCE = 200;
 
 class TabGroup extends PureComponent {
   scrollContainerRef = createRef();
+  activeTabRef = createRef();
 
   state = {
     canScrollLeft: false,
@@ -65,7 +66,12 @@ class TabGroup extends PureComponent {
         paddingHorizontal={size === 'small' ? 2 : 0}
       >
         <Box className={theme['scroll-container']} display="flex" overflowX="scroll" ref={this.scrollContainerRef}>
-          {React.Children.map(children, (child) => React.cloneElement(child, { size }))}
+          {React.Children.map(children, (child) =>
+            React.cloneElement(child, {
+              size,
+              ...(child.props.active && { ref: this.activeTabRef }),
+            }),
+          )}
         </Box>
         {canScrollLeft && (
           <Box className={theme['scroll-left-button-wrapper']}>
