@@ -44,18 +44,38 @@ class DatePickerInput extends PureComponent {
 
   handleInputFocus = (event) => {
     const { onFocus, readOnly } = this.props.inputProps;
+    const { openPickerOnFocus } = this.props;
 
     if (readOnly) {
       return;
     }
 
-    this.setState(
-      {
-        popoverAnchorEl: event.currentTarget,
-        isPopoverActive: true,
-      },
-      () => onFocus && onFocus(),
-    );
+    if (openPickerOnFocus) {
+      this.setState(
+        {
+          popoverAnchorEl: event.currentTarget,
+          isPopoverActive: true,
+        },
+        () => onFocus && onFocus(event),
+      );
+    } else {
+      onFocus && onFocus(event);
+    }
+  };
+
+  handleInputClick = (event) => {
+    const { onFocus } = this.props.inputProps;
+    const { openPickerOnFocus } = this.props;
+
+    if (!openPickerOnFocus) {
+      this.setState(
+        {
+          popoverAnchorEl: event.currentTarget,
+          isPopoverActive: true,
+        },
+        () => onFocus && onFocus(),
+      );
+    }
   };
 
   handlePopoverClose = () => {
@@ -103,6 +123,7 @@ class DatePickerInput extends PureComponent {
           value={this.getFormattedDate()}
           width="120px"
           noInputStyling={dayPickerProps && dayPickerProps.withMonthPicker}
+          onClick={this.handleInputClick}
           {...inputProps}
           onFocus={this.handleInputFocus}
         />
@@ -178,6 +199,8 @@ DatePickerInput.propTypes = {
   inputSize: PropTypes.oneOf(['small', 'medium', 'large']),
   /** Overridable size of the DatePicker component. */
   datePickerSize: PropTypes.oneOf(['small', 'medium', 'large']),
+  /** Whether the picker should automatically open on input focus. True by default. */
+  openPickerOnFocus: PropTypes.bool,
 };
 
 DatePickerInput.defaultProps = {
@@ -187,6 +210,7 @@ DatePickerInput.defaultProps = {
   locale: 'en-GB',
   popoverProps: {},
   size: 'medium',
+  openPickerOnFocus: true,
 };
 
 export default DatePickerInput;
