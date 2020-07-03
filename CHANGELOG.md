@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `DatePicker`: French month names in the month picker not being 4 characters when the locale is the base french locale (fr) ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1212])
+
 ### Dependency updates
 
 ## [0.48.4] - 2020-07-02
