@@ -2,11 +2,7 @@
 
 ### Added
 
-- `TitleTab`: added forwardRef. ([@driesd](https://github.com/driesd) in [#1213])
-
 ### Changed
-
-- `TabGroup`: changed to always scroll to the active tab. ([@driesd](https://github.com/driesd) in [#1213])
 
 ### Deprecated
 
@@ -14,9 +10,21 @@
 
 ### Fixed
 
-- `DatePicker`: French month names in the month picker not being 4 characters when the locale is the base french locale (fr) ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1212])
-
 ### Dependency updates
+
+## [0.48.5] - 2020-07-03
+
+### Added
+
+- `TitleTab`: added forwardRef. ([@driesd](https://github.com/driesd) in [#1213])
+
+### Changed
+
+- `TabGroup`: changed to always scroll to the active tab. ([@driesd](https://github.com/driesd) in [#1213])
+
+### Fixed
+
+- `DatePicker`: French month names in the month picker not being 4 characters when the locale is the base french locale (fr) ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1212])
 
 ## [0.48.4] - 2020-07-02
 
