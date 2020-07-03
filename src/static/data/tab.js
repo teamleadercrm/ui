@@ -12,14 +12,14 @@ const tabItems = [
     title: 'CRM',
   },
   {
-    active: true,
+    active: false,
     count: 30,
     href: '#',
     icon: 'Planning',
     title: 'Planning',
   },
   {
-    active: false,
+    active: true,
     href: '#',
     icon: 'Products',
     title: 'Products',

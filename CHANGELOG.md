@@ -2,7 +2,11 @@
 
 ### Added
 
+- `TitleTab`: added forwardRef. ([@driesd](https://github.com/driesd) in [#1213])
+
 ### Changed
+
+- `TabGroup`: changed to always scroll to the active tab. ([@driesd](https://github.com/driesd) in [#1213])
 
 ### Deprecated
 

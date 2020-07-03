@@ -1,4 +1,4 @@
-import React, { createRef, PureComponent } from 'react';
+import React, { createRef, forwardRef, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../box';
 import cx from 'classnames';
@@ -20,8 +20,12 @@ class TitleTab extends PureComponent {
   };
 
   blur = () => {
+    const { forwardedRef } = this.props;
     if (this.tabNode.current) {
       this.tabNode.current.blur();
+    }
+    if (forwardedRef && forwardedRef.current) {
+      forwardedRef.current.blur();
     }
   };
 
@@ -37,7 +41,7 @@ class TitleTab extends PureComponent {
   };
 
   render() {
-    const { active, children, className, counter = null, size, ...others } = this.props;
+    const { active, children, className, counter = null, forwardedRef, size, ...others } = this.props;
     const classNames = cx(theme['title-tab'], { [theme['is-active']]: active }, className);
 
     const rest = omit(others, ['onClick']);
@@ -50,7 +54,7 @@ class TitleTab extends PureComponent {
         className={classNames}
         marginHorizontal={size === 'small' ? 1 : 2}
         paddingHorizontal={this.getPaddingHorizontal()}
-        ref={this.tabNode}
+        ref={forwardedRef || this.tabNode}
         onClick={this.handleClick}
         {...rest}
       >
@@ -77,4 +81,4 @@ TitleTab.defaultProps = {
   size: 'medium',
 };
 
-export default TitleTab;
+export default forwardRef((props, ref) => <TitleTab {...props} forwardedRef={ref} />);
