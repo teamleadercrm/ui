@@ -9,6 +9,10 @@ export default {
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Form elements/Checkbox'),
 
   parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/LHH25GN90ljQaBEUNMsdJn/Desktop-components?node-id=6454%3A21716',
+    },
     info: {
       propTablesExclude: [Link, TextBody],
     },

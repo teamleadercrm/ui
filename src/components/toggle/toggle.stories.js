@@ -7,6 +7,13 @@ const sizes = ['small', 'medium', 'large'];
 
 export default {
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Form elements/Toggle'),
+
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/LHH25GN90ljQaBEUNMsdJn/Desktop-components?node-id=6454%3A23548',
+    },
+  },
 };
 
 const ControlledToggle = (props) => {

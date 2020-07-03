@@ -30,19 +30,25 @@ const getMonthOptions = (localeUtils, locale) => {
 
 // e.g. "February 2020" => "Feb"
 // Exception for French language: we use 4 characters
-const formatSelectedMonth = ({ label, value }, locale) => ({
-  value,
-  label: label.substring(0, locale.startsWith('fr-') ? 4 : 3),
-});
+const formatSelectedMonth = ({ label, value }, locale) => {
+  const isFrench = locale === 'fr' || locale.startsWith('fr-');
+
+  return {
+    value,
+    label: label.substring(0, isFrench ? 4 : 3),
+  };
+};
 
 // e.g. "February 2020" => "Feb 2020"
 // Exception for French language: we use 4 characters
-const formatSelectMonthAndYear = ({ label, value }, locale) => ({
-  value,
-  label: locale.startsWith('fr-')
-    ? label.replace(/(\w{4})\w+\s(\d{4})/, '$1 $2')
-    : label.replace(/(\w{3})\w+\s(\d{4})/, '$1 $2'),
-});
+const formatSelectMonthAndYear = ({ label, value }, locale) => {
+  const isFrench = locale === 'fr' || locale.startsWith('fr-');
+
+  return {
+    value,
+    label: isFrench ? label.replace(/(\w{4})\w+\s(\d{4})/, '$1 $2') : label.replace(/(\w{3})\w+\s(\d{4})/, '$1 $2'),
+  };
+};
 
 const MonthPickerUnary = ({ date, locale, localeUtils, onChange }) => {
   const selectedMonth = useMemo(() => ({ value: date.getMonth(), label: localeUtils.formatMonthTitle(date, locale) }), [
