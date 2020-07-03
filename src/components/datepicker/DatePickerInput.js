@@ -98,13 +98,13 @@ class DatePickerInput extends PureComponent {
       <Box className={className} {...boxProps}>
         <Input
           inverse={inverse}
-          onFocus={this.handleInputFocus}
           prefix={this.renderIcon()}
           size={inputSize || size}
           value={this.getFormattedDate()}
           width="120px"
           noInputStyling={dayPickerProps && dayPickerProps.withMonthPicker}
           {...inputProps}
+          onFocus={this.handleInputFocus}
         />
         <Popover
           active={isPopoverActive}
