@@ -8,6 +8,7 @@ import { IconChevronLeftSmallOutline, IconChevronRightSmallOutline } from '@team
 import cx from 'classnames';
 import theme from './theme.css';
 
+const SCROLL_BUTTON_WIDTH = 48;
 const SCROLL_DISTANCE = 200;
 
 class TabGroup extends PureComponent {
@@ -28,6 +29,11 @@ class TabGroup extends PureComponent {
     this.scrollContainerRef.current.removeEventListener('scroll', this.handleScroll);
   }
 
+  scrollToActiveTab = () => {
+    const { offsetLeft } = this.activeTabRef.current;
+    this.scrollContainerRef.current.scrollTo({ left: offsetLeft - SCROLL_BUTTON_WIDTH });
+  };
+
   checkForScrollPosition = () => {
     const { scrollLeft, scrollWidth, clientWidth } = this.scrollContainerRef.current;
 
@@ -38,6 +44,7 @@ class TabGroup extends PureComponent {
   };
 
   handleResize = () => {
+    this.scrollToActiveTab();
     this.checkForScrollPosition();
   };
 
