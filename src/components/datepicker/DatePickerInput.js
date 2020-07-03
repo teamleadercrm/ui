@@ -64,7 +64,7 @@ class DatePickerInput extends PureComponent {
   };
 
   handleInputClick = (event) => {
-    const { onFocus } = this.props.inputProps;
+    const { onFocus, onClick } = this.props.inputProps;
     const { openPickerOnFocus } = this.props;
 
     if (!openPickerOnFocus) {
@@ -76,6 +76,8 @@ class DatePickerInput extends PureComponent {
         () => onFocus && onFocus(),
       );
     }
+
+    onClick(event);
   };
 
   handlePopoverClose = () => {
@@ -123,8 +125,8 @@ class DatePickerInput extends PureComponent {
           value={this.getFormattedDate()}
           width="120px"
           noInputStyling={dayPickerProps && dayPickerProps.withMonthPicker}
-          onClick={this.handleInputClick}
           {...inputProps}
+          onClick={this.handleInputClick}
           onFocus={this.handleInputFocus}
         />
         <Popover
