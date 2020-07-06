@@ -6,7 +6,7 @@
 
 ### Changed
 
-- `SilentBanner`: changed to take the full width by default. ([@driesd](https://github.com/driesd) in [#1220])
+- :boom: `SilentBanner`: changed to take the full width by default. ([@driesd](https://github.com/driesd) in [#1220])
 
 ### Deprecated
 
