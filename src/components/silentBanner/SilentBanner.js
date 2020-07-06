@@ -105,7 +105,7 @@ class SilentBanner extends PureComponent {
                 {title}
               </Heading3>
             )}
-            {children && <TextBody color="teal">{children}</TextBody>}
+            {children}
             {hasActions && (
               <ButtonGroup display="flex" justifyContent="flex-end" marginTop={4}>
                 {secondaryAction && <Button level="link" size="small" {...secondaryAction} />}
