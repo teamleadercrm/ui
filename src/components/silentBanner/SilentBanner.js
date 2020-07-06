@@ -50,13 +50,23 @@ const iconTintMap = {
 
 class SilentBanner extends PureComponent {
   render() {
-    const { children, onClose, primaryAction, secondaryAction, showIcon, status, title, ...others } = this.props;
+    const {
+      children,
+      inline,
+      onClose,
+      primaryAction,
+      secondaryAction,
+      showIcon,
+      status,
+      title,
+      ...others
+    } = this.props;
 
     const hasActions = Boolean(primaryAction || secondaryAction);
     const IconToRender = iconMap[status];
 
     return (
-      <Box {...others} display="flex">
+      <Box {...others} display={inline ? 'inline-flex' : 'flex'}>
         {status && (
           <Box
             backgroundColor={backgroundColorMap[status]}
@@ -117,6 +127,8 @@ class SilentBanner extends PureComponent {
 SilentBanner.propTypes = {
   /** The content to display inside the banner. */
   children: PropTypes.node,
+  /** If true, the banner will be rendered inline instead of taking full width. */
+  inline: PropTypes.bool,
   /** Callback function that is fired when the close button of the banner is clicked. */
   onClose: PropTypes.func,
   /** Object containing the props of the primary action (a Button). */
