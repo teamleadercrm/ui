@@ -11,7 +11,7 @@ import Button from '../button';
 import ButtonGroup from '../buttonGroup';
 import Icon from '../icon';
 import { IconButton } from '../iconButton';
-import { Heading3, TextBody } from '../typography';
+import { Heading3 } from '../typography';
 
 const backgroundColorMap = {
   error: 'ruby',
