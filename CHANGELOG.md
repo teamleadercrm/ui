@@ -12,6 +12,8 @@
 
 ### Removed
 
+- :boom: `SilentBanner`: removed children's `TextBody` wrapper. ([@driesd](https://github.com/driesd) in [#1221])
+
 ### Fixed
 
 ### Dependency updates
