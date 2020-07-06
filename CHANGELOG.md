@@ -2,7 +2,11 @@
 
 ### Added
 
+- `SilentBanner`: added `inline` boolean prop (default false), which will render the banner inline instead of taking full width. ([@driesd](https://github.com/driesd) in [#1220])
+
 ### Changed
+
+- `SilentBanner`: changed to take the full width by default. ([@driesd](https://github.com/driesd) in [#1220])
 
 ### Deprecated
 
