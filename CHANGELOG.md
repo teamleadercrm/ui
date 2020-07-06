@@ -12,6 +12,12 @@
 
 ### Dependency updates
 
+## [0.48.6] - 2020-07-06
+
+### Added
+
+- `DatePickerInput` added `openPickerOnFocus` prop that's `true` by default ([@mikeverf](https://github.com/mikeverf) in [#1216](https://github.com/teamleadercrm/ui/pull/1216))
+
 ## [0.48.5] - 2020-07-03
 
 ### Added
