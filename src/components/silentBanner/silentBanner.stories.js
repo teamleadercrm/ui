@@ -1,6 +1,7 @@
 import React from 'react';
 import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { boolean, select, text } from '@storybook/addon-knobs/react';
+import { TextBody } from '../typography';
 import SilentBanner from './SilentBanner';
 import Link from '../link';
 
@@ -22,8 +23,10 @@ export default {
 
 export const basic = () => (
   <SilentBanner inline={boolean('Inline', false)} title={text('Title', 'I am the title of this message')}>
-    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam <Link inherit={false}>nonumy eirmod</Link> tempor
-    invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+    <TextBody color="teal">
+      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam <Link inherit={false}>nonumy eirmod</Link>{' '}
+      tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+    </TextBody>
   </SilentBanner>
 );
 
@@ -33,8 +36,10 @@ export const dismissable = () => (
     onClose={() => console.log('onClose click handler')}
     title={text('Title', 'I am the title of this message')}
   >
-    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam <Link inherit={false}>nonumy eirmod</Link> tempor
-    invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+    <TextBody color="teal">
+      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam <Link inherit={false}>nonumy eirmod</Link>{' '}
+      tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+    </TextBody>
   </SilentBanner>
 );
 
@@ -51,8 +56,10 @@ export const withActions = () => (
     }}
     title={text('Title', 'I am the title of this message')}
   >
-    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam <Link inherit={false}>nonumy eirmod</Link> tempor
-    invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+    <TextBody color="teal">
+      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam <Link inherit={false}>nonumy eirmod</Link>{' '}
+      tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+    </TextBody>
   </SilentBanner>
 );
 
@@ -63,8 +70,10 @@ export const withStatus = () => (
     status={select('Status', statusValues, 'success')}
     title={text('Title', 'I am the title of this message')}
   >
-    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam <Link inherit={false}>nonumy eirmod</Link> tempor
-    invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+    <TextBody color="teal">
+      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam <Link inherit={false}>nonumy eirmod</Link>{' '}
+      tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+    </TextBody>
   </SilentBanner>
 );
 
@@ -84,7 +93,9 @@ export const fullOption = () => (
     status={select('Status', statusValues, 'success')}
     title={text('Title', 'I am the title of this message')}
   >
-    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam <Link inherit={false}>nonumy eirmod</Link> tempor
-    invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+    <TextBody color="teal">
+      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam <Link inherit={false}>nonumy eirmod</Link>{' '}
+      tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+    </TextBody>
   </SilentBanner>
 );
