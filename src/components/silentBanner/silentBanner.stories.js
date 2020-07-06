@@ -21,7 +21,7 @@ export default {
 };
 
 export const basic = () => (
-  <SilentBanner title={text('Title', 'I am the title of this message')}>
+  <SilentBanner inline={boolean('Inline', false)} title={text('Title', 'I am the title of this message')}>
     Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam <Link inherit={false}>nonumy eirmod</Link> tempor
     invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
   </SilentBanner>
@@ -29,6 +29,7 @@ export const basic = () => (
 
 export const dismissable = () => (
   <SilentBanner
+    inline={boolean('Inline', false)}
     onClose={() => console.log('onClose click handler')}
     title={text('Title', 'I am the title of this message')}
   >
@@ -39,6 +40,7 @@ export const dismissable = () => (
 
 export const withActions = () => (
   <SilentBanner
+    inline={boolean('Inline', false)}
     primaryAction={{
       label: text('Primary action label', 'Primary action'),
       onClick: () => console.log('primaryAction.onClick'),
@@ -56,6 +58,7 @@ export const withActions = () => (
 
 export const withStatus = () => (
   <SilentBanner
+    inline={boolean('Inline', false)}
     showIcon={boolean('Show icon', false)}
     status={select('Status', statusValues, 'success')}
     title={text('Title', 'I am the title of this message')}
@@ -67,6 +70,7 @@ export const withStatus = () => (
 
 export const fullOption = () => (
   <SilentBanner
+    inline={boolean('Inline', false)}
     onClose={() => console.log('onClose click handler')}
     primaryAction={{
       label: text('Primary action label', 'Primary action'),
