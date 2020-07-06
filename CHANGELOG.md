@@ -2,21 +2,34 @@
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Dependency updates
+
+## [1.0.0] - 2020-07-06
+
+### Added
+
 - `SilentBanner`: added `inline` boolean prop (default false), which will render the banner inline instead of taking full width. ([@driesd](https://github.com/driesd) in [#1220])
 
 ### Changed
 
 - :boom: `SilentBanner`: changed to take the full width by default. ([@driesd](https://github.com/driesd) in [#1220])
 
-### Deprecated
-
 ### Removed
 
 - :boom: `SilentBanner`: removed children's `TextBody` wrapper. ([@driesd](https://github.com/driesd) in [#1221])
 
-### Fixed
-
 ### Dependency updates
+
+- `eslint` from `7.3.1` to `7.4.0`
+- `postcss-nested` from `4.2.1` to `4.2.2`
 
 ## [0.48.6] - 2020-07-06
 
