@@ -78,6 +78,12 @@ class NumericInput extends PureComponent {
     this.updateStep(-1);
   };
 
+  handleBlur = (...parameters) => {
+    const { onBlur } = this.props;
+
+    onBlur && onBlur(...parameters);
+  };
+
   isMaxReached = () => this.state.value >= this.props.max;
 
   isMinReached = () => this.state.value <= this.props.min;
@@ -91,6 +97,7 @@ class NumericInput extends PureComponent {
           disabled={this.isMaxReached()}
           icon={<IconAddSmallOutline />}
           onClick={this.handleIncreaseValue}
+          onBlur={this.handleBlur}
           size={size}
         />
       );
@@ -108,6 +115,7 @@ class NumericInput extends PureComponent {
           disabled={this.isMinReached()}
           icon={<IconMinusSmallOutline />}
           onClick={this.handleDecreaseValue}
+          onBlur={this.handleBlur}
           size={size}
         />
       );
@@ -127,10 +135,12 @@ class NumericInput extends PureComponent {
           inverse={inverse}
           stepperUpProps={{
             onClick: this.handleIncreaseValue,
+            onBlur: this.handleBlur,
             disabled: this.isMaxReached(),
           }}
           stepperDownProps={{
             onClick: this.handleDecreaseValue,
+            onBlur: this.handleBlur,
             disabled: this.isMinReached(),
           }}
         />,
