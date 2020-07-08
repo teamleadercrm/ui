@@ -4,8 +4,6 @@
 
 ### Changed
 
-- `NumericInput`: call onBlur function if any of the steppers get blurred as well ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1223])
-
 ### Deprecated
 
 ### Removed
@@ -13,6 +11,12 @@
 ### Fixed
 
 ### Dependency updates
+
+## [1.0.1] - 2020-07-08
+
+### Changed
+
+- `NumericInput`: call onBlur function if any of the steppers get blurred as well ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1223])
 
 ## [1.0.0] - 2020-07-06
 
