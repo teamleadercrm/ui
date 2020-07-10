@@ -164,6 +164,7 @@ class DatePickerInput extends PureComponent {
               overflowX="hidden"
               paddingHorizontal={3}
               paddingVertical={3}
+              tabIndex="0"
             >
               {footer}
             </Box>
