@@ -81,6 +81,8 @@ class DatePickerInput extends PureComponent {
   };
 
   handlePopoverClose = () => {
+    const { onBlur } = this.props;
+    onBlur && onBlur({ relatedTarget: null });
     this.setState({ isPopoverActive: false });
   };
 
@@ -192,6 +194,8 @@ DatePickerInput.propTypes = {
   locale: PropTypes.string,
   /** Callback function that is fired when the date has changed. */
   onChange: PropTypes.func,
+  /** Callback function that is fired when the popover with the calendar gets closed (unfocused) */
+  onBlur: PropTypes.func,
   /** Object with props for the Popover component. */
   popoverProps: PropTypes.object,
   /** The current selected date. */
