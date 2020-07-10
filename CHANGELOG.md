@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `DatePicker`: add tabIndex property to footer ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1226])
+
 ### Deprecated
 
 ### Removed
