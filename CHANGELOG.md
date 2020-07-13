@@ -4,7 +4,7 @@
 
 ### Changed
 
-- `DatePicker`: add tabIndex property to footer, add onBlur property ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1226])
+- `DatePicker`: add tabIndex property to footer, add onBlur property, and remove call to optional onClick ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1226])
 
 ### Deprecated
 
