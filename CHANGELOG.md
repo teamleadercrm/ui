@@ -4,8 +4,6 @@
 
 ### Changed
 
-- `DatePicker`: add tabIndex property to footer, add onBlur property, and remove call to optional onClick ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1226])
-
 ### Deprecated
 
 ### Removed
@@ -13,6 +11,12 @@
 ### Fixed
 
 ### Dependency updates
+
+## [1.0.2] - 2020-07-13
+
+### Changed
+
+- `DatePicker`: add tabIndex property to footer, add onBlur property, and remove call to optional onClick ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1226])
 
 ## [1.0.1] - 2020-07-08
 
