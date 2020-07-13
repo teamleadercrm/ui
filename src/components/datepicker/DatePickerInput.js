@@ -77,7 +77,7 @@ class DatePickerInput extends PureComponent {
       );
     }
 
-    onClick(event);
+    onClick && onClick(event);
   };
 
   handlePopoverClose = () => {
