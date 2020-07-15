@@ -20,10 +20,10 @@
   "files": [
     "cjs",
     "es",
-    "postcss.config.js",
-    "index.d.ts"
+    "lib",
+    "postcss.config.js"
   ],
-  "types": "index.d.ts",
+  "types": "lib/index.d.ts",
   "dependencies": {
     "@babel/cli": "^7.10.4",
     "@babel/runtime": "^7.10.4",
@@ -138,16 +138,17 @@
   "browserslist": ">0.5%, ie 11, not op_mini all",
   "scripts": {
     "build:css": "postcss ./src/**/*.css --base src --dir ./es && cp -R ./es ./cjs",
-    "build:js": "yarn build:es; yarn build:cjs",
-    "build:cjs": "NODE_ENV=cjs babel src --out-dir cjs",
-    "build:es": "NODE_ENV=es babel src --out-dir es",
-    "build": "rimraf es && rimraf cjs && yarn build:css && yarn build:js",
+    "build:js": "yarn build:types; yarn build:es; yarn build:cjs",
+    "build:cjs": "NODE_ENV=cjs babel src --extensions '.js,.tsx,.ts' --out-dir cjs",
+    "build:es": "NODE_ENV=es babel src --extensions '.js,.tsx,.ts' --out-dir es",
+    "build:types": "tsc",
+    "build": "rimraf es && rimraf cjs && rimraf lib && yarn build:css && yarn build:js",
     "compile": "build-storybook -o dist",
     "lint:clean": "yarn lint && rimraf dist",
     "deploy:prod": "yarn lint:clean && NODE_ENV=production yarn compile",
     "lint": "eslint ./src",
     "lint:fix": "yarn lint --fix",
-    "prettier": "prettier --write './{src,.storybook}/**/*.{js,json,md,css}'",
+    "prettier": "prettier --write './{src,.storybook}/**/*.{js,json,md,css,ts,tsx}'",
     "prepare": "yarn build",
     "start": "PORT=${PORT:-3000}; start-storybook --port $PORT"
   }
