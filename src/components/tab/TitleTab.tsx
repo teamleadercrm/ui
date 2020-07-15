@@ -1,5 +1,6 @@
 import React, { createRef, forwardRef, PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import PropsType from 'props-type';
 import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
@@ -7,8 +8,28 @@ import omit from 'lodash.omit';
 
 import { Heading4, Heading5 } from '../typography';
 
-class TitleTab extends PureComponent {
-  tabNode = createRef();
+const props = {
+  active: PropTypes.bool,
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+  counter: PropTypes.node,
+  element: PropTypes.node,
+  onClick: PropTypes.func,
+  size: PropTypes.oneOf(['small', 'medium']),
+};
+
+const defaultProps: Partial<PropsType<typeof props>> = {
+  element: 'a',
+  active: false,
+  size: 'medium',
+};
+
+type Props = PropsType<typeof props, typeof defaultProps>;
+class TitleTab extends PureComponent<Props & { forwardedRef: React.RefObject<any> }> {
+  static propTypes = props;
+  static defaultProps = defaultProps;
+
+  tabNode = createRef<any>();
 
   handleClick = (event) => {
     if (this.props.onClick) {
@@ -65,20 +86,6 @@ class TitleTab extends PureComponent {
   }
 }
 
-TitleTab.propTypes = {
-  active: PropTypes.bool,
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string,
-  counter: PropTypes.node,
-  element: PropTypes.node,
-  onClick: PropTypes.func,
-  size: PropTypes.oneOf(['small', 'medium']),
-};
-
-TitleTab.defaultProps = {
-  element: 'a',
-  active: false,
-  size: 'medium',
-};
-
-export default forwardRef((props, ref) => <TitleTab {...props} forwardedRef={ref} />);
+export default forwardRef<any, Props>((props, ref) => (
+  <TitleTab {...props} forwardedRef={ref as React.RefObject<any>} />
+));
