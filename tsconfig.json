@@ -11,7 +11,8 @@
     "noImplicitAny": false,
     "declarationDir": "lib",
     "declaration": true,
-    "emitDeclarationOnly": true
+    "emitDeclarationOnly": true,
+    "strictNullChecks": false
   },
   "include": ["./src/**/*"],
   "exclude": [".storybook", "./src/**/*.stories.js", "./src/static"]

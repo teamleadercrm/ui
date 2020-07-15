@@ -32,7 +32,12 @@
   "overrides": [
     {
       "files": ["**/*.ts", "**/*.tsx"],
-      "parser": "@typescript-eslint/parser"
+      "parser": "@typescript-eslint/parser",
+      "plugins": ["@typescript-eslint"],
+      "rules": {
+        "no-unused-vars": 0,
+        "@typescript-eslint/no-unused-vars": ["error", { "ignoreRestSiblings": true }]
+      }
     }
   ]
 }
