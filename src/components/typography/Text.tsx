@@ -4,9 +4,29 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { COLORS, TINTS } from '../../constants';
 import theme from './theme.css';
+import PropsType from 'props-type';
 
-const factory = (baseType, type, defaultElement) => {
-  class Text extends PureComponent {
+const props = {
+  children: PropTypes.any,
+  className: PropTypes.string,
+  color: PropTypes.oneOf(COLORS),
+  element: PropTypes.node,
+  maxLines: PropTypes.number,
+  style: PropTypes.object,
+  tint: PropTypes.oneOf(TINTS),
+};
+
+const defaultProps: Partial<PropsType<typeof props>> = {
+  element: null,
+  tint: 'darkest',
+};
+
+type Props = Partial<PropsType<typeof props, typeof defaultProps>>;
+const factory = (baseType, type, defaultElement): React.ComponentClass<Props> => {
+  class Text extends PureComponent<Props> {
+    static propTypes = props;
+    static defaultProps = defaultProps;
+
     render() {
       const { children, className, color, element, maxLines, style, tint, ...others } = this.props;
 
@@ -36,21 +56,6 @@ const factory = (baseType, type, defaultElement) => {
       );
     }
   }
-
-  Text.propTypes = {
-    children: PropTypes.any,
-    className: PropTypes.string,
-    color: PropTypes.oneOf(COLORS),
-    element: PropTypes.node,
-    maxLines: PropTypes.number,
-    style: PropTypes.object,
-    tint: PropTypes.oneOf(TINTS),
-  };
-
-  Text.defaultProps = {
-    element: null,
-    tint: 'darkest',
-  };
 
   return Text;
 };
