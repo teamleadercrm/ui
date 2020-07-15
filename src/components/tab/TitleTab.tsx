@@ -24,7 +24,7 @@ const defaultProps: Partial<PropsType<typeof props>> = {
   size: 'medium',
 };
 
-type Props = PropsType<typeof props, typeof defaultProps>;
+type Props = Partial<PropsType<typeof props, typeof defaultProps>>;
 class TitleTab extends PureComponent<Props & { forwardedRef: React.RefObject<any> }> {
   static propTypes = props;
   static defaultProps = defaultProps;
