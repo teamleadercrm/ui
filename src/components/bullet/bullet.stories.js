@@ -22,6 +22,7 @@ const sizes = ['small', 'medium', 'large'];
 const TooltippedBullet = Tooltip(Bullet);
 
 export default {
+  component: Bullet,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Bullet'),
 
   parameters: {

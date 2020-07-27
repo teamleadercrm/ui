@@ -22,6 +22,7 @@ const colors = ['mint', 'violet', 'ruby', 'gold', 'aqua', 'white', 'neutral'];
 const sizes = ['small', 'medium', 'large'];
 
 export default {
+  component: Widget,
   title: addStoryInGroup(COMPOSITIONS, 'Widget'),
 };
 

@@ -27,6 +27,7 @@ const content = (
 );
 
 export default {
+  component: Message,
   title: addStoryInGroup(MID_LEVEL_BLOCKS, 'Message'),
 
   parameters: {

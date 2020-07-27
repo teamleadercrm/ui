@@ -11,6 +11,7 @@ const levels = ['primary', 'secondary', 'outline', 'destructive', 'link', 'timer
 const sizes = ['small', 'medium', 'large'];
 
 export default {
+  component: Button,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Button'),
 
   parameters: {

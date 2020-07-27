@@ -6,6 +6,7 @@ import { TimerPulser } from '../../index';
 const sizes = ['small', 'medium', 'large'];
 
 export default {
+  component: TimerPulser,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'TimerPulser'),
 };
 

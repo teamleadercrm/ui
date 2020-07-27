@@ -6,6 +6,7 @@ import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 const sizes = ['small', 'medium', 'large'];
 
 export default {
+  component: Toggle,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Form elements/Toggle'),
 
   parameters: {

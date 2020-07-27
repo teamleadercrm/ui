@@ -8,6 +8,7 @@ const sizes = ['small', 'medium'];
 const tints = ['lightest', 'light', 'normal', 'dark', 'darkest'];
 
 export default {
+  component: LoadingSpinner,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Loading spinner'),
 };
 

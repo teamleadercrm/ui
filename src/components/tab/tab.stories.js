@@ -13,6 +13,7 @@ const handleClick = (event, title) => {
 const TitleCounter = (props) => <UICounter color="ruby" marginLeft={3} {...props} />;
 
 export default {
+  component: TitleTab,
   title: addStoryInGroup(MID_LEVEL_BLOCKS, 'Tab'),
 
   parameters: {

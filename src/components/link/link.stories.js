@@ -8,6 +8,7 @@ const elements = ['a', 'button'];
 const iconPositions = ['left', 'right'];
 
 export default {
+  component: Link,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Link'),
 
   parameters: {

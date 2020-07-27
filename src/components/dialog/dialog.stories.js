@@ -17,6 +17,7 @@ const handleActiveToggle = () => {
 };
 
 export default {
+  component: Dialog,
   title: addStoryInGroup(MID_LEVEL_BLOCKS, 'Dialog'),
 
   parameters: {

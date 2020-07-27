@@ -8,6 +8,7 @@ const iconPositions = ['left', 'right'];
 const sizes = ['small', 'medium', 'large'];
 
 export default {
+  component: Badge,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Badge'),
 
   parameters: {

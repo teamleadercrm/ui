@@ -11,6 +11,7 @@ const shapes = ['circle', 'rounded'];
 const TooltippedAvatar = Tooltip(Avatar);
 
 export default {
+  component: Avatar,
   title: addStoryInGroup(MID_LEVEL_BLOCKS, 'Avatar'),
 
   parameters: {

@@ -28,6 +28,7 @@ const CustomOption = ({ children, data, innerProps, isFocused, isSelected, isDis
 };
 
 export default {
+  component: Select,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Form elements/Select'),
 
   parameters: {

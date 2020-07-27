@@ -45,6 +45,7 @@ const islandAmountOptions = {
 };
 
 export default {
+  component: Island,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Island'),
 
   parameters: {

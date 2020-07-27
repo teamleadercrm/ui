@@ -54,6 +54,7 @@ const handleCloseClick = () => {
 };
 
 export default {
+  component: Passport,
   title: addStoryInGroup(COMPOSITIONS, 'Passport'),
 
   parameters: {

@@ -10,6 +10,7 @@ const elements = ['a', 'button'];
 const sizes = ['small', 'medium', 'large'];
 
 export default {
+  component: IconButton,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'IconButton'),
 
   parameters: {

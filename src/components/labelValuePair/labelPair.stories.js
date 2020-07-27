@@ -11,6 +11,7 @@ import { TextBodyCompact } from '../typography';
 const alignValueValues = ['left', 'right'];
 
 export default {
+  component: LabelValuePair,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'LabelValuePair'),
 
   parameters: {

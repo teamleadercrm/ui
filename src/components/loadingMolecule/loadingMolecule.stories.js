@@ -6,6 +6,7 @@ import { LoadingMolecule } from '../../index';
 const sizes = ['small', 'large'];
 
 export default {
+  component: LoadingMolecule,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Loading molecule'),
 };
 

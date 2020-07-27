@@ -9,6 +9,7 @@ const sizes = ['small', 'medium'];
 const TooltippedCounter = Tooltip(Counter);
 
 export default {
+  component: Counter,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Counter'),
 
   parameters: {

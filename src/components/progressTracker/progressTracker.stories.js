@@ -12,6 +12,7 @@ const options = {
 };
 
 export default {
+  component: ProgressTracker,
   title: addStoryInGroup(MID_LEVEL_BLOCKS, 'ProgressTracker'),
 
   parameters: {

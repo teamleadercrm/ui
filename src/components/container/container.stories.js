@@ -5,6 +5,7 @@ import Container from '../container';
 import Box from '../box';
 
 export default {
+  component: Container,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Container'),
   parameters: {
     info: {

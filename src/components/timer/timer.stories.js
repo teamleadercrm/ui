@@ -4,6 +4,7 @@ import { boolean } from '@storybook/addon-knobs';
 import Timer from './Timer';
 
 export default {
+  component: Timer,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Timer'),
 };
 

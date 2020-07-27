@@ -73,6 +73,7 @@ const handleNumericInputChange = (event, value) => {
 };
 
 export default {
+  component: Input,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Form elements/Input'),
 
   parameters: {

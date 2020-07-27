@@ -5,6 +5,7 @@ import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { WysiwygEditor } from '../../index';
 
 export default {
+  component: WysiwygEditor,
   title: addStoryInGroup(MID_LEVEL_BLOCKS, 'WysiwygEditor'),
 };
 

@@ -22,6 +22,7 @@ import {
 } from '../../index';
 
 export default {
+  component: Heading1,
   title: addStoryInGroup(PRIMITIVES, 'Typography'),
 
   parameters: {

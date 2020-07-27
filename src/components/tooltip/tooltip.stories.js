@@ -26,6 +26,7 @@ const textSmallTooltipContent = (
 );
 
 export default {
+  component: Tooltip,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Tooltip'),
 
   parameters: {

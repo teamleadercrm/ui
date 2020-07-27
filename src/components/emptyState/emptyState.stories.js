@@ -12,6 +12,7 @@ const title = (
 );
 
 export default {
+  component: EmptyState,
   title: addStoryInGroup(MID_LEVEL_BLOCKS, 'EmptyState'),
 
   parameters: {

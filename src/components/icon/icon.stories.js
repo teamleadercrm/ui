@@ -20,6 +20,7 @@ const itemStyles = {
 };
 
 export default {
+  component: Icon,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Icon'),
 
   parameters: {

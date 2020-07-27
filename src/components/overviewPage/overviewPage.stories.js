@@ -9,6 +9,7 @@ import { COLOR } from '../../constants';
 import { TextBody } from '../typography';
 
 export default {
+  component: OverviewPage,
   title: addStoryInGroup(COMPOSITIONS, 'OverviewPage'),
 
   parameters: {
