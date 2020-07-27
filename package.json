@@ -25,8 +25,8 @@
   ],
   "types": "index.d.ts",
   "dependencies": {
-    "@babel/cli": "^7.10.4",
-    "@babel/runtime": "^7.10.4",
+    "@babel/cli": "^7.10.5",
+    "@babel/runtime": "^7.10.5",
     "@teamleader/ui-animations": "^0.0.3",
     "@teamleader/ui-colors": "^0.3.0",
     "@teamleader/ui-icons": "^0.2.29",
@@ -53,10 +53,10 @@
     "smoothscroll-polyfill": "^0.4.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.10.4",
+    "@babel/core": "^7.10.5",
     "@babel/plugin-proposal-export-default-from": "^7.10.4",
-    "@babel/plugin-transform-react-jsx-source": "^7.10.4",
-    "@babel/plugin-transform-runtime": "^7.10.4",
+    "@babel/plugin-transform-react-jsx-source": "^7.10.5",
+    "@babel/plugin-transform-runtime": "^7.10.5",
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-react": "^7.10.4",
     "@sambego/storybook-state": "^2.0.1",
