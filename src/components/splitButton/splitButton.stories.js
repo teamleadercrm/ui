@@ -1,6 +1,6 @@
 import React from 'react';
 import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
-import { select, boolean } from '@storybook/addon-knobs/react';
+import { select, boolean } from '@storybook/addon-knobs';
 import SplitButton from './SplitButton';
 import MenuDivider from '../menu/MenuDivider';
 import MenuItem from '../menu/MenuItem';

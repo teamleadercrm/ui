@@ -1,5 +1,5 @@
 import React from 'react';
-import { text } from '@storybook/addon-knobs/react';
+import { text } from '@storybook/addon-knobs';
 import { addStoryInGroup, COMPOSITIONS } from '../../../.storybook/utils';
 import { IconChevronDownSmallOutline } from '@teamleader/ui-icons';
 import Button from '../button';

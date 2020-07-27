@@ -1,7 +1,7 @@
 import React from 'react';
 import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { Store, State } from '@sambego/storybook-state';
-import { boolean, number, select, text } from '@storybook/addon-knobs/react';
+import { boolean, number, select, text } from '@storybook/addon-knobs';
 import { IconWarningBadgedMediumOutline } from '@teamleader/ui-icons';
 import { Banner, Box, Button, ButtonGroup, COLORS, Dialog, DialogBase, Heading3, TextBody } from '../../index';
 

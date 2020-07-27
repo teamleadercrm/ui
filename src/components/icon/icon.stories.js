@@ -1,6 +1,6 @@
 import React from 'react';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
-import { number, select } from '@storybook/addon-knobs/react';
+import { number, select } from '@storybook/addon-knobs';
 import * as Icons from '@teamleader/ui-icons';
 import { Box, Icon, TextSmall } from '../../index';
 

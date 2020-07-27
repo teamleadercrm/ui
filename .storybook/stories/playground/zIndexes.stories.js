@@ -26,7 +26,7 @@ import {
   Tooltip,
 } from '../../../src';
 import { State, Store } from '@sambego/storybook-state';
-import { boolean, select } from '@storybook/addon-knobs/react';
+import { boolean, select } from '@storybook/addon-knobs';
 import { DateTime } from 'luxon';
 import { IconIdeaMediumOutline, IconInfoBadgedSmallFilled } from '@teamleader/ui-icons';
 import options, { groupedOptions } from '../../../src/static/data/select';

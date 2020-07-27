@@ -1,6 +1,6 @@
 import React from 'react';
 import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
-import { number, boolean } from '@storybook/addon-knobs/react';
+import { number, boolean } from '@storybook/addon-knobs';
 import { ProgressTracker, Island } from '../../index';
 
 const steps = ['Draft', 'Book', 'Send invoices', 'Get paid'];

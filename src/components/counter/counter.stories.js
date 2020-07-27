@@ -1,6 +1,6 @@
 import React from 'react';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
-import { number, select } from '@storybook/addon-knobs/react';
+import { number, select } from '@storybook/addon-knobs';
 import { Counter, Tooltip, TextBody } from '../../index';
 
 const colors = ['neutral', 'mint', 'aqua', 'violet', 'teal', 'gold', 'ruby'];

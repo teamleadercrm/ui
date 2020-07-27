@@ -1,6 +1,6 @@
 import React from 'react';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
-import { boolean, number, select } from '@storybook/addon-knobs/react';
+import { boolean, number, select } from '@storybook/addon-knobs';
 import {
   IllustrationInvoices120X120Static,
   IllustrationMeetings120X120Static,
