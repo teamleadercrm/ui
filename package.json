@@ -63,7 +63,6 @@
     "@sambego/storybook-state": "^2.0.1",
     "@sambego/storybook-styles": "^1.0.0",
     "@storybook/addon-backgrounds": "6.0.0-rc.15",
-    "@storybook/addon-info": "5.3.19",
     "@storybook/addon-knobs": "6.0.0-rc.15",
     "@storybook/addons": "6.0.0-rc.15",
     "@storybook/react": "6.0.0-rc.15",
