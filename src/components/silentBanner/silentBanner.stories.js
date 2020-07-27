@@ -1,6 +1,6 @@
 import React from 'react';
 import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
-import { boolean, select, text } from '@storybook/addon-knobs/react';
+import { boolean, select, text } from '@storybook/addon-knobs';
 import { TextBody } from '../typography';
 import SilentBanner from './SilentBanner';
 import Link from '../link';

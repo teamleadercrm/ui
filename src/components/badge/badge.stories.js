@@ -1,6 +1,6 @@
 import React from 'react';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
-import { boolean, select } from '@storybook/addon-knobs/react';
+import { boolean, select } from '@storybook/addon-knobs';
 import { IconBuildingSmallOutline } from '@teamleader/ui-icons';
 import { Badge, TextDisplay } from '../../index';
 

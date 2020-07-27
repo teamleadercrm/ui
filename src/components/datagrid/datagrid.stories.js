@@ -1,6 +1,6 @@
 import React from 'react';
 import { addStoryInGroup, COMPOSITIONS } from '../../../.storybook/utils';
-import { boolean, number } from '@storybook/addon-knobs/react';
+import { boolean, number } from '@storybook/addon-knobs';
 import { DataGrid, Heading4, IconMenu, MenuItem, Link, TextSmall, Button, ButtonGroup } from '../../index';
 
 import { rows1, rows2 } from '../../static/data/datagrid';

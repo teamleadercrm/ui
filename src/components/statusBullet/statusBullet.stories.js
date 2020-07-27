@@ -1,6 +1,6 @@
 import React from 'react';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
-import { select } from '@storybook/addon-knobs/react';
+import { select } from '@storybook/addon-knobs';
 import { StatusBullet, TextBody } from '../../index';
 
 const colors = ['mint', 'violet', 'ruby', 'gold', 'aqua', 'neutral'];

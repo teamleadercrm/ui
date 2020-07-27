@@ -1,6 +1,6 @@
 import React from 'react';
 import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
-import { boolean, number } from '@storybook/addon-knobs/react';
+import { boolean, number } from '@storybook/addon-knobs';
 import { Island, Pagination, Button } from '../../index';
 
 export default {

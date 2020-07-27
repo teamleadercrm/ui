@@ -1,6 +1,6 @@
 import React from 'react';
 import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
-import { boolean } from '@storybook/addon-knobs/react';
+import { boolean } from '@storybook/addon-knobs';
 import { Store, State } from '@sambego/storybook-state';
 import { IconIdeaMediumOutline } from '@teamleader/ui-icons';
 import { Island, Link, QTip, TextBody } from '../../index';

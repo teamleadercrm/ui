@@ -1,6 +1,6 @@
 import React from 'react';
 import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
-import { boolean, select } from '@storybook/addon-knobs/react';
+import { boolean, select } from '@storybook/addon-knobs';
 import { IconClockSmallOutline, IconTrashSmallOutline } from '@teamleader/ui-icons';
 import { Avatar, IconMenu, Menu, MenuItem, MenuDivider, MenuTitle } from '../../index';
 import avatars from '../../static/data/avatar';
