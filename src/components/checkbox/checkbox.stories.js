@@ -1,9 +1,6 @@
 import React from 'react';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
-import { boolean, select, text } from '@storybook/addon-knobs';
 import { Checkbox, Link, TextBody } from '../../index';
-
-const sizes = ['small', 'medium', 'large'];
 
 export default {
   component: Checkbox,
@@ -14,31 +11,21 @@ export default {
       type: 'figma',
       url: 'https://www.figma.com/file/LHH25GN90ljQaBEUNMsdJn/Desktop-components?node-id=6454%3A21716',
     },
-    info: {
-      propTablesExclude: [Link, TextBody],
-    },
   },
 };
 
-export const defaultStory = () => (
-  <Checkbox
-    checked={boolean('Checked', false)}
-    disabled={boolean('Disabled', false)}
-    label={text('Label', 'I am the label')}
-    size={select('Size', sizes, 'medium')}
-  />
-);
+export const DefaultStory = (args) => <Checkbox {...args} />;
 
-defaultStory.story = {
+DefaultStory.args = {
+  label: 'I am the label',
+};
+
+DefaultStory.story = {
   name: 'Default',
 };
 
-export const withLinkInLabel = () => (
-  <Checkbox
-    checked={boolean('Checked', false)}
-    disabled={boolean('Disabled', false)}
-    size={select('Size', sizes, 'medium')}
-  >
+export const WithLinkInLabel = () => (
+  <Checkbox>
     <TextBody>
       I'm a medium label with a{' '}
       <Link href="#" inherit={false}>
@@ -49,18 +36,12 @@ export const withLinkInLabel = () => (
   </Checkbox>
 );
 
-withLinkInLabel.story = {
+WithLinkInLabel.story = {
   name: 'With link in label',
 };
 
-export const withIndeterminateState = () => (
-  <Checkbox
-    indeterminate={boolean('Indeterminate', false)}
-    label={text('Label', 'I am the label')}
-    size={select('Size', sizes, 'medium')}
-  />
-);
+export const WithIndeterminateState = () => <Checkbox indeterminate />;
 
-withIndeterminateState.story = {
+WithIndeterminateState.story = {
   name: 'With indeterminate state',
 };
