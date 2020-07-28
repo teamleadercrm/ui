@@ -1,63 +1,36 @@
 import React from 'react';
 import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
-import { boolean, number } from '@storybook/addon-knobs';
-import { Island, Pagination, Button } from '../../index';
+import { Pagination, Button } from '../../index';
 
 export default {
   component: Pagination,
   title: addStoryInGroup(MID_LEVEL_BLOCKS, 'Pagination'),
-
-  parameters: {
-    info: {
-      propTablesExclude: [Island],
-    },
-  },
 };
 
-export const compact = () => (
-  <Island style={boolean('Inverse', false) ? { backgroundColor: '#2a3b4d' } : {}}>
-    <Pagination
-      numPages={number('Number of pages', 21)}
-      currentPage={number('Current page', 1)}
-      inverse={boolean('Inverse', false)}
-    >
-      {({ number, text, isActive, ...others }) => {
-        return (
-          <Button
-            level="link"
-            label={text}
-            disabled={isActive}
-            inverse={boolean('Inverse', false)}
-            size="small"
-            {...others}
-          />
-        );
-      }}
-    </Pagination>
-  </Island>
+export const Full = ({ inverse, ...args }) => (
+  <Pagination inverse={inverse} {...args}>
+    {({ number, text, isActive, ...others }) => {
+      return <Button level="link" label={text} disabled={isActive} inverse={inverse} size="small" {...others} />;
+    }}
+  </Pagination>
 );
 
-export const normal = () => (
-  <Island style={boolean('Inverse', false) ? { backgroundColor: '#2a3b4d' } : {}}>
-    <Pagination
-      numPages={number('Number of pages', 21)}
-      currentPage={number('Current page', 1)}
-      inverse={boolean('Inverse', false)}
-      prevPageText="previous"
-      nextPageText="next"
-    >
-      {({ number, text, isActive, ...others }) => {
-        return (
-          <Button
-            level="link"
-            label={text}
-            disabled={isActive}
-            inverse={boolean('Inverse', false)}
-            size="small"
-            {...others}
-          />
-        );
-      }}
-    </Pagination>
-  </Island>
+Full.args = {
+  currentPage: 3,
+  nextPageText: 'next',
+  numPages: 21,
+  prevPageText: 'previous',
+};
+
+export const Compact = (args) => (
+  <Pagination {...args}>
+    {({ number, text, isActive, ...others }) => {
+      return <Button level="link" label={text} disabled={isActive} size="small" {...others} />;
+    }}
+  </Pagination>
 );
+
+Compact.args = {
+  currentPage: 3,
+  numPages: 21,
+};
