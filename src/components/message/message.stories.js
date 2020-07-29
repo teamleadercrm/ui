@@ -1,10 +1,7 @@
 import React from 'react';
 import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
-import { select } from '@storybook/addon-knobs';
 import { IllustrationInvoices120X120Static, IllustrationSharpie48X48Static } from '@teamleader/ui-illustrations';
 import { Button, Message, CompactMessage, Island, Heading2, Link, TextBody } from '../../index';
-
-const imagePositions = ['left', 'center', 'right'];
 
 const button = <Button level="primary">Button text</Button>;
 const link = (
@@ -37,7 +34,15 @@ export default {
   },
 };
 
-export const basic = () => (
+export const DefaultStory = (args) => (
+  <Island>
+    <Message {...args} button={button} link={link} image={image}>
+      {content}
+    </Message>
+  </Island>
+);
+
+export const Basic = () => (
   <Island>
     <Message button={button} link={link}>
       {content}
@@ -45,27 +50,10 @@ export const basic = () => (
   </Island>
 );
 
-export const compact = () => (
+export const Compact = () => (
   <Island>
     <CompactMessage button={button} image={imageSmall}>
       {content}
     </CompactMessage>
   </Island>
 );
-
-export const withImage = () => (
-  <Island>
-    <Message
-      button={button}
-      link={link}
-      image={image}
-      imagePositioning={select('Image positioning', imagePositions, 'left')}
-    >
-      {content}
-    </Message>
-  </Island>
-);
-
-withImage.story = {
-  name: 'With image',
-};
