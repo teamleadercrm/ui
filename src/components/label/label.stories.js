@@ -8,6 +8,7 @@ const sizes = ['small', 'medium', 'large'];
 const TooltippedIcon = Tooltip(Icon);
 
 export default {
+  component: Label,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Form elements/Label'),
 
   parameters: {

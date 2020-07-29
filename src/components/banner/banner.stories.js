@@ -7,6 +7,7 @@ import { Banner, Link, TextDisplay, SMALL, MEDIUM, LARGE } from '../../index';
 const colors = ['white', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua'];
 
 export default {
+  component: Banner,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Banner'),
 
   parameters: {

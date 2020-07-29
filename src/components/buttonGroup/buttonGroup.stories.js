@@ -15,6 +15,7 @@ const handleChangeValue = (value, event) => {
 };
 
 export default {
+  component: ButtonGroup,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Button group'),
 
   parameters: {

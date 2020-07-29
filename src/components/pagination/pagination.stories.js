@@ -4,6 +4,7 @@ import { boolean, number } from '@storybook/addon-knobs';
 import { Island, Pagination, Button } from '../../index';
 
 export default {
+  component: Pagination,
   title: addStoryInGroup(MID_LEVEL_BLOCKS, 'Pagination'),
 
   parameters: {

@@ -7,6 +7,7 @@ const colors = ['mint', 'violet', 'ruby', 'gold', 'aqua', 'white', 'neutral'];
 const sizes = ['small', 'medium', 'large'];
 
 export default {
+  component: Section,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Section'),
 
   parameters: {

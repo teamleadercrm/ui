@@ -17,6 +17,7 @@ const colors = ['mint', 'violet', 'ruby', 'gold', 'aqua', 'neutral'];
 const sizes = ['small', 'medium'];
 
 export default {
+  component: StatusLabel,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Status Label'),
 
   parameters: {

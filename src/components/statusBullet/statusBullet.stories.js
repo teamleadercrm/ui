@@ -7,6 +7,7 @@ const colors = ['mint', 'violet', 'ruby', 'gold', 'aqua', 'neutral'];
 const sizes = ['small', 'medium'];
 
 export default {
+  component: StatusBullet,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Status Bullet'),
 
   parameters: {

@@ -50,6 +50,7 @@ const preSelectedRange = {
 };
 
 export default {
+  component: DatePicker,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Form elements/DatePicker'),
 };
 

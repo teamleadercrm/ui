@@ -6,6 +6,7 @@ import { Checkbox, Link, TextBody } from '../../index';
 const sizes = ['small', 'medium', 'large'];
 
 export default {
+  component: Checkbox,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Form elements/Checkbox'),
 
   parameters: {

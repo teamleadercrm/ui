@@ -70,6 +70,7 @@ const totals = () => (
 );
 
 export default {
+  component: DetailPage,
   title: addStoryInGroup(COMPOSITIONS, 'DetailPage'),
 
   parameters: {

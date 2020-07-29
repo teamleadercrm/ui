@@ -8,6 +8,7 @@ const sizes = ['small', 'medium', 'large'];
 const TooltippedTag = Tooltip(Tag);
 
 export default {
+  component: Tag,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Tag'),
 
   parameters: {

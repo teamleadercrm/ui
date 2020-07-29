@@ -17,6 +17,7 @@ const handleMenuItemClick = () => {
 };
 
 export default {
+  component: SplitButton,
   title: addStoryInGroup(MID_LEVEL_BLOCKS, 'Split button'),
 };
 

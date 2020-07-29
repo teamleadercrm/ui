@@ -14,6 +14,7 @@ const updateState = () => {
 };
 
 export default {
+  component: QTip,
   title: addStoryInGroup(MID_LEVEL_BLOCKS, 'Q-tip'),
 
   parameters: {

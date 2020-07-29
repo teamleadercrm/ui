@@ -9,6 +9,7 @@ const avatar = <Avatar imageUrl={avatars[0].image} size="tiny" shape="circle" />
 const positions = ['top-left', 'top-right', 'bottom-left', 'bottom-right'];
 
 export default {
+  component: Menu,
   title: addStoryInGroup(MID_LEVEL_BLOCKS, 'Menu'),
 };
 

@@ -10,6 +10,7 @@ const handleRowSelectionChange = (selectedRows) => {
 };
 
 export default {
+  component: DataGrid,
   title: addStoryInGroup(COMPOSITIONS, 'DataGrids'),
 
   parameters: {

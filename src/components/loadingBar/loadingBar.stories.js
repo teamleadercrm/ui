@@ -8,6 +8,7 @@ const sizes = ['small', 'medium', 'large'];
 const tints = ['lightest', 'light', 'normal', 'dark', 'darkest'];
 
 export default {
+  component: LoadingBar,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'LoadingBar'),
 };
 

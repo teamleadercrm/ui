@@ -8,6 +8,7 @@ import Link from '../link';
 const statusValues = ['info', 'error', 'success', 'warning'];
 
 export default {
+  component: SilentBanner,
   title: addStoryInGroup(MID_LEVEL_BLOCKS, 'Silent banners'),
 
   parameters: {

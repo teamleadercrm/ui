@@ -15,6 +15,7 @@ const updateState = (value) => {
 };
 
 export default {
+  component: RadioButton,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Form elements/Radio'),
 
   parameters: {

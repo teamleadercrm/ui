@@ -88,6 +88,7 @@ const contentBoxWithSingleTextLine = (
 );
 
 export default {
+  component: Popover,
   title: addStoryInGroup(MID_LEVEL_BLOCKS, 'Popover'),
 
   parameters: {

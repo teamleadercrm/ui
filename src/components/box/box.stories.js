@@ -22,6 +22,7 @@ const paddingOptions = {
 };
 
 export default {
+  component: Box,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Box'),
 
   parameters: {

@@ -7,6 +7,7 @@ const colors = ['neutral', 'teal'];
 const sizes = ['small', 'medium', 'large'];
 
 export default {
+  component: AdvancedCollapsible,
   title: addStoryInGroup(MID_LEVEL_BLOCKS, 'AdvancedCollapsible'),
 
   parameters: {

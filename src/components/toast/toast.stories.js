@@ -93,6 +93,7 @@ const handleAddToastWithSpinner = () => {
 };
 
 export default {
+  component: Toast,
   title: addStoryInGroup(MID_LEVEL_BLOCKS, 'Toast'),
 
   parameters: {
