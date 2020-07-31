@@ -1,14 +1,11 @@
 import React from 'react';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
-import { boolean, select, text } from '@storybook/addon-knobs';
 import LabelValuePair from './LabelValuePair';
 import LabelValuePairGroup from './LabelValuePairGroup';
 import Badge from '../badge';
 import Link from '../link';
 import { IconBuildingSmallOutline } from '@teamleader/ui-icons';
 import { TextBodyCompact } from '../typography';
-
-const alignValueValues = ['left', 'right'];
 
 export default {
   component: LabelValuePair,
@@ -22,34 +19,26 @@ export default {
   },
 };
 
-export const labelValuePair = () => (
-  <LabelValuePair alignValue={select('Align value', alignValueValues, 'left')} inline={boolean('Inline', true)}>
-    <LabelValuePair.Label>{text('Label', 'I am a label')}</LabelValuePair.Label>
+export const DefaultStory = (args) => (
+  <LabelValuePair {...args}>
+    <LabelValuePair.Label>I am a label</LabelValuePair.Label>
     <LabelValuePair.Value>
       <TextBodyCompact color="teal">with a value next to it</TextBodyCompact>
     </LabelValuePair.Value>
   </LabelValuePair>
 );
 
-labelValuePair.story = {
-  name: 'LabelValuePair',
-
-  parameters: {
-    info: {
-      propTables: [LabelValuePair, LabelValuePair.Label, LabelValuePair.Value],
-    },
-  },
-};
+DefaultStory.storyName = 'LabelValuePair';
 
 export const labelValuePairGroup = () => (
   <LabelValuePairGroup title="I'm a label pair group">
-    <LabelValuePair alignValue={select('Align value', alignValueValues, 'left')} inline={boolean('Inline', true)}>
+    <LabelValuePair>
       <LabelValuePair.Label>I am a label</LabelValuePair.Label>
       <LabelValuePair.Value>
         <TextBodyCompact color="teal">With just a textual value</TextBodyCompact>
       </LabelValuePair.Value>
     </LabelValuePair>
-    <LabelValuePair alignValue={select('Align value', alignValueValues, 'left')} inline={boolean('Inline', true)}>
+    <LabelValuePair>
       <LabelValuePair.Label>Another label, but a very long one this time</LabelValuePair.Label>
       <LabelValuePair.Value paddingVertical={0}>
         <Badge icon={<IconBuildingSmallOutline />} size="medium">
@@ -57,13 +46,13 @@ export const labelValuePairGroup = () => (
         </Badge>
       </LabelValuePair.Value>
     </LabelValuePair>
-    <LabelValuePair alignValue={select('Align value', alignValueValues, 'left')} inline={boolean('Inline', true)}>
+    <LabelValuePair>
       <LabelValuePair.Label>Here comes a money value</LabelValuePair.Label>
       <LabelValuePair.Value>
         <TextBodyCompact color="teal">€22.359</TextBodyCompact>
       </LabelValuePair.Value>
     </LabelValuePair>
-    <LabelValuePair alignValue={select('Align value', alignValueValues, 'left')} inline={boolean('Inline', true)}>
+    <LabelValuePair>
       <LabelValuePair.Label>E-mail</LabelValuePair.Label>
       <LabelValuePair.Value>
         <TextBodyCompact maxLines={1}>
@@ -78,7 +67,7 @@ export const labelValuePairGroup = () => (
         </TextBodyCompact>
       </LabelValuePair.Value>
     </LabelValuePair>
-    <LabelValuePair alignValue={select('Align value', alignValueValues, 'left')} inline={boolean('Inline', true)}>
+    <LabelValuePair>
       <LabelValuePair.Label>Homepage</LabelValuePair.Label>
       <LabelValuePair.Value>
         <TextBodyCompact maxLines={1}>
@@ -95,12 +84,4 @@ export const labelValuePairGroup = () => (
   </LabelValuePairGroup>
 );
 
-labelValuePairGroup.story = {
-  name: 'LabelValuePairGroup',
-
-  parameters: {
-    info: {
-      propTables: [LabelValuePairGroup],
-    },
-  },
-};
+labelValuePairGroup.storyName = 'LabelValuePairGroup';

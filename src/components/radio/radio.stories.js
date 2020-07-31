@@ -1,10 +1,8 @@
 import React from 'react';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
-import { boolean, select } from '@storybook/addon-knobs';
 import { Store, State } from '@sambego/storybook-state';
 import { RadioGroup, RadioButton } from '../../index';
 
-const sizes = ['small', 'medium', 'large'];
 const values = ['Option one', 'Option two', 'Option three'];
 
 const store = new Store({
@@ -23,24 +21,22 @@ export default {
       type: 'figma',
       url: 'https://www.figma.com/file/LHH25GN90ljQaBEUNMsdJn/Desktop-components?node-id=6454%3A22776',
     },
-    info: {
-      propTablesExclude: [State],
-    },
   },
 };
 
-export const basic = () => (
+export const DefaultStory = (args) => <RadioButton {...args} />;
+
+DefaultStory.args = {
+  checked: true,
+  label: 'I am the label',
+  value: 'the_value',
+};
+
+export const Group = () => (
   <State store={store}>
     <RadioGroup name="stringValue" onChange={updateState}>
       {values.map((value, key) => (
-        <RadioButton
-          key={key}
-          size={select('Size', sizes, 'medium')}
-          marginVertical={3}
-          label={value}
-          value={value}
-          disabled={boolean('Disabled', false)}
-        />
+        <RadioButton key={key} marginVertical={3} label={value} value={value} />
       ))}
     </RadioGroup>
   </State>
