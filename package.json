@@ -35,6 +35,7 @@
     "@teamleader/ui-typography": "^0.2.3",
     "@teamleader/ui-utilities": "^0.2.0",
     "classnames": "^2.2.5",
+    "dot-prop": "^5.1.1",
     "draft-js": "0.11.6",
     "lodash.omit": "^4.5.0",
     "lodash.pick": "^4.4.0",
