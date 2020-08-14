@@ -36,12 +36,24 @@ class Badge extends PureComponent {
   };
 
   render() {
-    const { children, className, disabled, element, icon, iconPlacement, selected, size, ...others } = this.props;
+    const {
+      children,
+      className,
+      disabled,
+      element,
+      icon,
+      iconPlacement,
+      selected,
+      size,
+      onClick,
+      ...others
+    } = this.props;
 
     const classNames = cx(
       theme['badge'],
       theme[`is-${size}`],
       {
+        [theme['is-clickable']]: onClick,
         [theme['is-disabled']]: disabled,
         [theme['is-selected']]: selected,
       },
@@ -56,6 +68,7 @@ class Badge extends PureComponent {
         data-teamleader-ui="badge"
         element={element}
         ref={this.badgeNode}
+        onClick={onClick}
         onMouseUp={this.handleMouseUp}
         onMouseLeave={this.handleMouseLeave}
         paddingHorizontal={2}
@@ -86,6 +99,8 @@ Badge.propTypes = {
   icon: PropTypes.element,
   /** The position of the icon inside the badge. */
   iconPlacement: PropTypes.oneOf(['left', 'right']),
+  /** Callback function that is fired when clicking on the component. */
+  onClick: PropTypes.func,
   /** Callback function that is fired when mouse leaves the component. */
   onMouseLeave: PropTypes.func,
   /** Callback function that is fired when the mouse button is released. */

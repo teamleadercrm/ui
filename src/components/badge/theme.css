@@ -13,7 +13,6 @@
   border: var(--badge-border-width) solid color(var(--color-neutral-darkest) a(12%));
   border-radius: var(--badge-border-radius);
   color: var(--color-teal-darkest);
-  cursor: pointer;
   display: inline-flex;
   align-items: center;
   outline: none;
@@ -37,9 +36,10 @@
     white-space: nowrap;
   }
 
-  &:not(.is-disabled) {
+  &.is-clickable:not(.is-disabled) {
     &:hover {
       background-color: color(var(--color-neutral-darkest) a(18%));
+      cursor: pointer;
     }
 
     &:focus {
