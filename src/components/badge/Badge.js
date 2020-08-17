@@ -66,7 +66,7 @@ class Badge extends PureComponent {
       <Box
         className={classNames}
         data-teamleader-ui="badge"
-        element={element}
+        element={element || onClick ? 'button' : 'div'}
         ref={this.badgeNode}
         onClick={onClick}
         onMouseUp={this.handleMouseUp}
@@ -113,7 +113,6 @@ Badge.propTypes = {
 
 Badge.defaultProps = {
   disabled: false,
-  element: 'button',
   iconPlacement: 'left',
   size: 'medium',
 };
