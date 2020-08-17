@@ -10,6 +10,9 @@
 
 ### Fixed
 
+- `Badge/Tag`: when a Badge/Tag is not clickable, it now uses a div as element by default instead of a button ([@lowiebenoot](https://github.com/lowiebenoot) in [#1269])
+- `Badge/Tag`: a clickable Badge/Tag now has a `type="button"` to avoid submitting forms when clicking on the Badge/Tag ([@lowiebenoot](https://github.com/lowiebenoot) in [#1269])
+
 ### Dependency updates
 
 ## [1.0.2] - 2020-07-13
