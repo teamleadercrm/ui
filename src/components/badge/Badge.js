@@ -61,17 +61,19 @@ class Badge extends PureComponent {
     );
 
     const TextElement = size === 'small' ? UITextSmall : size === 'large' ? UITextDisplay : UITextBody;
+    const boxElement = element || onClick ? 'button' : 'div';
 
     return (
       <Box
         className={classNames}
         data-teamleader-ui="badge"
-        element={element || onClick ? 'button' : 'div'}
+        element={boxElement}
         ref={this.badgeNode}
         onClick={onClick}
         onMouseUp={this.handleMouseUp}
         onMouseLeave={this.handleMouseLeave}
         paddingHorizontal={2}
+        type={boxElement === 'button' ? 'button' : undefined}
         {...others}
       >
         {icon && iconPlacement === 'left' && this.renderIcon()}
