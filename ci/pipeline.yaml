@@ -27,14 +27,14 @@ resources:
     type: git
     source:
       uri: git@github.com:teamleadercrm/ui.git
-      branch: add-ci
+      branch: master
       private_key: ((TEAMLEADER_PRIVATE_KEY))
     icon: github-circle
   - name: git-ci-design-ui
     type: git
     source:
       uri: git@github.com:teamleadercrm/ui.git
-      branch: add-ci
+      branch: master
       private_key: ((TEAMLEADER_PRIVATE_KEY))
     icon: github-circle
   - name: git-ci-pull-request
