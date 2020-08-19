@@ -15,6 +15,11 @@ resource_types:
     source:
       repository: teamleader/cf-simple-resource
       tag: latest
+  - name: pull-request
+    type: docker-image
+    source:
+      repository: teliaoss/github-pr-resource
+
 
 resources:
 
@@ -22,14 +27,14 @@ resources:
     type: git
     source:
       uri: git@github.com:teamleadercrm/ui.git
-      branch: master
+      branch: add-ci
       private_key: ((TEAMLEADER_PRIVATE_KEY))
     icon: github-circle
   - name: git-ci-design-ui
     type: git
     source:
       uri: git@github.com:teamleadercrm/ui.git
-      branch: master
+      branch: add-ci
       private_key: ((TEAMLEADER_PRIVATE_KEY))
     icon: github-circle
   - name: git-ci-pull-request
