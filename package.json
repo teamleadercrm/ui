@@ -65,7 +65,7 @@
     "@storybook/addon-backgrounds": "6.0.0-rc.15",
     "@storybook/addon-controls": "^6.0.0-beta.15",
     "@storybook/addon-knobs": "6.0.0-rc.15",
-    "@storybook/addons": "6.0.0-rc.15",
+    "@storybook/addons": "6.0.21",
     "@storybook/react": "6.0.0-rc.15",
     "@storybook/theming": "^6.0.0-rc.15",
     "@storybook/ui": "6.0.0-rc.15",
