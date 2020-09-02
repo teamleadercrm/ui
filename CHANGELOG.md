@@ -2,6 +2,8 @@
 
 ### Added
 
+- `AvatarImage/AvatarInitials`: Added hover functionality for the AvatarInitials and AvatarImage components, which allows medium-sized Avatars to display a full height edit action ([@sanderbrugge](https://github.com/sanderbrugge) in [#1290])
+
 ### Changed
 
 ### Deprecated
