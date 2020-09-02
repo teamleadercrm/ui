@@ -13,8 +13,6 @@ class AvatarOverlay extends PureComponent {
       size === 'medium' ? theme['full-height'] : theme['default-height'],
     );
 
-    console.log(classNames);
-
     return (
       <div {...this.props} className={theme['overlay']}>
         <Box className={classNames} display="flex" justifyContent="center">
