@@ -1,6 +1,6 @@
 import React from 'react';
 import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
-import { select, boolean, number, text } from '@storybook/addon-knobs/react';
+import { select, boolean, number, text } from '@storybook/addon-knobs';
 import { Store, State } from '@sambego/storybook-state';
 import {
   IconChevronDownSmallOutline,
@@ -88,6 +88,7 @@ const contentBoxWithSingleTextLine = (
 );
 
 export default {
+  component: Popover,
   title: addStoryInGroup(MID_LEVEL_BLOCKS, 'Popover'),
 
   parameters: {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
-import { boolean, number, select, text } from '@storybook/addon-knobs/react';
+import { boolean, number, select, text } from '@storybook/addon-knobs';
 import { DatePicker, DatePickerRange, DatePickerInput, DatePickerInputRange, Toggle } from '../../index';
 import { DateTime } from 'luxon';
 import CustomLocaleUtils, { formatDate, parseDate } from './localeUtils';
@@ -50,6 +50,7 @@ const preSelectedRange = {
 };
 
 export default {
+  component: DatePicker,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Form elements/DatePicker'),
 };
 

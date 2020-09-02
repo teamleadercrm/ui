@@ -1,22 +1,32 @@
 import React from 'react';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
-import { select } from '@storybook/addon-knobs/react';
-import { LoadingMolecule } from '../../index';
-
-const sizes = ['small', 'large'];
+import LoadingMolecule from './LoadingMolecule';
 
 export default {
+  component: LoadingMolecule,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Loading molecule'),
 };
 
-export const color = () => (
+export const Color = (args) => (
   <div style={{ height: '300px', position: 'relative' }}>
-    <LoadingMolecule basePath="" startColor="#00ACA9" stopColor="#1F7F79" type={select('Type', sizes, 'large')} />
+    <LoadingMolecule {...args} />
   </div>
 );
 
-export const grayscale = () => (
+Color.args = {
+  basePath: '',
+  startColor: '#00ACA9',
+  stopColor: '#1F7F79',
+};
+
+export const Grayscale = (args) => (
   <div style={{ height: '300px', position: 'relative' }}>
-    <LoadingMolecule basePath="" startColor="#BABABA" stopColor="#DADADA" type={select('Type', sizes, 'large')} />
+    <LoadingMolecule {...args} />
   </div>
 );
+
+Grayscale.args = {
+  basePath: '',
+  startColor: '#BABABA',
+  stopColor: '#DADADA',
+};

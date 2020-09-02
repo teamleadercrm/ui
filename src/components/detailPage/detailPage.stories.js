@@ -1,5 +1,5 @@
 import React from 'react';
-import { select, text } from '@storybook/addon-knobs/react';
+import { select, text } from '@storybook/addon-knobs';
 import { addStoryInGroup, COMPOSITIONS } from '../../../.storybook/utils';
 import Button from '../button';
 import ButtonGroup from '../buttonGroup';
@@ -70,6 +70,7 @@ const totals = () => (
 );
 
 export default {
+  component: DetailPage,
   title: addStoryInGroup(COMPOSITIONS, 'DetailPage'),
 
   parameters: {

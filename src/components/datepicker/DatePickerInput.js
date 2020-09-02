@@ -44,21 +44,45 @@ class DatePickerInput extends PureComponent {
 
   handleInputFocus = (event) => {
     const { onFocus, readOnly } = this.props.inputProps;
+    const { openPickerOnFocus } = this.props;
 
     if (readOnly) {
       return;
     }
 
-    this.setState(
-      {
-        popoverAnchorEl: event.currentTarget,
-        isPopoverActive: true,
-      },
-      () => onFocus && onFocus(),
-    );
+    if (openPickerOnFocus) {
+      this.setState(
+        {
+          popoverAnchorEl: event.currentTarget,
+          isPopoverActive: true,
+        },
+        () => onFocus && onFocus(event),
+      );
+    } else {
+      onFocus && onFocus(event);
+    }
+  };
+
+  handleInputClick = (event) => {
+    const { onFocus, onClick } = this.props.inputProps;
+    const { openPickerOnFocus } = this.props;
+
+    if (!openPickerOnFocus) {
+      this.setState(
+        {
+          popoverAnchorEl: event.currentTarget,
+          isPopoverActive: true,
+        },
+        () => onFocus && onFocus(),
+      );
+    }
+
+    onClick && onClick(event);
   };
 
   handlePopoverClose = () => {
+    const { onBlur } = this.props;
+    onBlur && onBlur({ relatedTarget: null });
     this.setState({ isPopoverActive: false });
   };
 
@@ -98,13 +122,14 @@ class DatePickerInput extends PureComponent {
       <Box className={className} {...boxProps}>
         <Input
           inverse={inverse}
-          onFocus={this.handleInputFocus}
           prefix={this.renderIcon()}
           size={inputSize || size}
           value={this.getFormattedDate()}
           width="120px"
           noInputStyling={dayPickerProps && dayPickerProps.withMonthPicker}
           {...inputProps}
+          onClick={this.handleInputClick}
+          onFocus={this.handleInputFocus}
         />
         <Popover
           active={isPopoverActive}
@@ -141,6 +166,7 @@ class DatePickerInput extends PureComponent {
               overflowX="hidden"
               paddingHorizontal={3}
               paddingVertical={3}
+              tabIndex="0"
             >
               {footer}
             </Box>
@@ -168,6 +194,8 @@ DatePickerInput.propTypes = {
   locale: PropTypes.string,
   /** Callback function that is fired when the date has changed. */
   onChange: PropTypes.func,
+  /** Callback function that is fired when the popover with the calendar gets closed (unfocused) */
+  onBlur: PropTypes.func,
   /** Object with props for the Popover component. */
   popoverProps: PropTypes.object,
   /** The current selected date. */
@@ -178,6 +206,8 @@ DatePickerInput.propTypes = {
   inputSize: PropTypes.oneOf(['small', 'medium', 'large']),
   /** Overridable size of the DatePicker component. */
   datePickerSize: PropTypes.oneOf(['small', 'medium', 'large']),
+  /** Whether the picker should automatically open on input focus. True by default. */
+  openPickerOnFocus: PropTypes.bool,
 };
 
 DatePickerInput.defaultProps = {
@@ -187,6 +217,7 @@ DatePickerInput.defaultProps = {
   locale: 'en-GB',
   popoverProps: {},
   size: 'medium',
+  openPickerOnFocus: true,
 };
 
 export default DatePickerInput;

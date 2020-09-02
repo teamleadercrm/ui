@@ -1,13 +1,9 @@
 import React from 'react';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
-import { boolean, select } from '@storybook/addon-knobs/react';
-import { Tag, TextBody, Tooltip } from '../../index';
-
-const sizes = ['small', 'medium', 'large'];
-
-const TooltippedTag = Tooltip(Tag);
+import Tag from './Tag';
 
 export default {
+  component: Tag,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Tag'),
 
   parameters: {
@@ -18,60 +14,16 @@ export default {
   },
 };
 
-export const basic = () => (
-  <Tag size={select('Size', sizes, 'medium')} disabled={boolean('Disabled', false)}>
-    I am a tag
-  </Tag>
-);
-
-export const clickable = () => (
-  <Tag
-    onClick={() => console.log('Tag label clicked')}
-    selected={boolean('Selected', false)}
-    size={select('Size', sizes, 'medium')}
-    disabled={boolean('Disabled', false)}
-  >
-    I am a clickable tag
-  </Tag>
-);
-
-export const closable = () => (
-  <Tag
-    onRemoveClick={() => console.log('Tag removed')}
-    selected={boolean('Selected', false)}
-    size={select('Size', sizes, 'medium')}
-    disabled={boolean('Disabled', false)}
-  >
-    I am a closable tag
-  </Tag>
-);
-
-export const clickableClosable = () => (
-  <Tag
-    onClick={() => console.log('Tag label clicked')}
-    onRemoveClick={() => console.log('Tag removed')}
-    selected={boolean('Selected', false)}
-    size={select('Size', sizes, 'medium')}
-    disabled={boolean('Disabled', false)}
-  >
+export const ClickableClosable = (args) => (
+  <Tag {...args} onClick={() => console.log('Tag label clicked')} onRemoveClick={() => console.log('Tag removed')}>
     I am a clickable & closable tag
   </Tag>
 );
 
-clickableClosable.story = {
-  name: 'Clickable & closable',
-};
+ClickableClosable.storyName = 'Clickable & closable';
 
-export const withTooltip = () => (
-  <TooltippedTag
-    tooltip={<TextBody>I am the tooltip</TextBody>}
-    disabled={boolean('Disabled', false)}
-    selected={boolean('Selected', false)}
-  >
-    Tag with tooltip
-  </TooltippedTag>
-);
+export const Clickable = () => <Tag onClick={() => console.log('Tag label clicked')}>I am a clickable tag</Tag>;
 
-withTooltip.story = {
-  name: 'With tooltip',
-};
+export const Closable = () => <Tag onRemoveClick={() => console.log('Tag removed')}>I am a closable tag</Tag>;
+
+export const Basic = () => <Tag>I am a tag</Tag>;

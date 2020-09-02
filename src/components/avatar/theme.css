@@ -57,13 +57,21 @@
 }
 
 .overlay-background {
-  background-color: color(var(--color-teal-darkest) a(0.84));
   cursor: pointer;
-  height: 24px;
   left: 0;
   bottom: 0;
   position: absolute;
   width: 100%;
+}
+
+.default-height {
+  background-color: color(var(--color-teal-darkest) a(0.84));
+  height: 24px;
+}
+
+.full-height {
+  background-color: color(var(--color-teal-darkest) a(0.48));
+  height: 100%;
 }
 
 .dark {

@@ -1,45 +1,35 @@
 import React from 'react';
-import { boolean, select, text } from '@storybook/addon-knobs/react';
 import { IconInfoBadgedSmallFilled, IconMarkerSmallOutline } from '@teamleader/ui-icons';
 import { Icon, Input, Label, TextSmall, Tooltip } from '../../index';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 
-const sizes = ['small', 'medium', 'large'];
 const TooltippedIcon = Tooltip(Icon);
 
 export default {
+  component: Label,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Form elements/Label'),
-
-  parameters: {
-    info: {
-      propTablesExclude: [Input],
-    },
-  },
 };
 
-export const label = () => (
+export const DefaultStory = (args) => (
   <Label
-    helpText={text('Help text', 'Optional')}
+    {...args}
     htmlFor="input1"
-    inverse={boolean('Inverse', false)}
-    required={boolean('Required', false)}
-    size={select('Size', sizes, 'medium')}
     connectedLeft={
-      boolean('Toggle connected left', false) ? (
-        <Icon>
-          <IconMarkerSmallOutline />
-        </Icon>
-      ) : undefined
+      <Icon>
+        <IconMarkerSmallOutline />
+      </Icon>
     }
     connectedRight={
-      boolean('Toggle connected right', false) ? (
-        <TooltippedIcon tooltip={<TextSmall>This is the label tooltip text</TextSmall>} tooltipSize="small">
-          <IconInfoBadgedSmallFilled />
-        </TooltippedIcon>
-      ) : undefined
+      <TooltippedIcon tooltip={<TextSmall>This is the label tooltip text</TextSmall>} tooltipSize="small">
+        <IconInfoBadgedSmallFilled />
+      </TooltippedIcon>
     }
   >
     Input label
     <Input id="input1" placeholder="I am the placeholder" />
   </Label>
 );
+
+DefaultStory.args = {
+  helpText: 'Optional',
+};

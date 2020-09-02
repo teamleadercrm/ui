@@ -11,7 +11,7 @@ import Button from '../button';
 import ButtonGroup from '../buttonGroup';
 import Icon from '../icon';
 import { IconButton } from '../iconButton';
-import { Heading3, TextBody } from '../typography';
+import { Heading3 } from '../typography';
 
 const backgroundColorMap = {
   error: 'ruby',
@@ -50,13 +50,23 @@ const iconTintMap = {
 
 class SilentBanner extends PureComponent {
   render() {
-    const { children, onClose, primaryAction, secondaryAction, showIcon, status, title, ...others } = this.props;
+    const {
+      children,
+      inline,
+      onClose,
+      primaryAction,
+      secondaryAction,
+      showIcon,
+      status,
+      title,
+      ...others
+    } = this.props;
 
     const hasActions = Boolean(primaryAction || secondaryAction);
     const IconToRender = iconMap[status];
 
     return (
-      <Box {...others} display="flex">
+      <Box {...others} display={inline ? 'inline-flex' : 'flex'}>
         {status && (
           <Box
             backgroundColor={backgroundColorMap[status]}
@@ -86,15 +96,16 @@ class SilentBanner extends PureComponent {
           borderTopRightRadius="rounded"
           borderBottomLeftRadius={status ? 'square' : 'rounded'}
           borderTopLeftRadius={status ? 'square' : 'rounded'}
+          flex={1}
           display="flex"
         >
-          <Box paddingLeft={status ? 3 : 4} paddingRight={4} paddingVertical={4}>
+          <Box flex={1} paddingLeft={status ? 3 : 4} paddingRight={4} paddingVertical={4}>
             {title && (
               <Heading3 color="teal" marginBottom={2}>
                 {title}
               </Heading3>
             )}
-            {children && <TextBody color="teal">{children}</TextBody>}
+            {children}
             {hasActions && (
               <ButtonGroup display="flex" justifyContent="flex-end" marginTop={4}>
                 {secondaryAction && <Button level="link" size="small" {...secondaryAction} />}
@@ -116,6 +127,8 @@ class SilentBanner extends PureComponent {
 SilentBanner.propTypes = {
   /** The content to display inside the banner. */
   children: PropTypes.node,
+  /** If true, the banner will be rendered inline instead of taking full width. */
+  inline: PropTypes.bool,
   /** Callback function that is fired when the close button of the banner is clicked. */
   onClose: PropTypes.func,
   /** Object containing the props of the primary action (a Button). */
