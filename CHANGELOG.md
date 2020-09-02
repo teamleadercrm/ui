@@ -2,8 +2,6 @@
 
 ### Added
 
-- `AvatarImage/AvatarInitials`: Added hover functionality for the AvatarInitials and AvatarImage components, which allows medium-sized Avatars to display a full height edit action ([@sanderbrugge](https://github.com/sanderbrugge) in [#1290])
-
 ### Changed
 
 ### Deprecated
@@ -12,10 +10,30 @@
 
 ### Fixed
 
+### Dependency updates
+
+## [1.0.3] - 2020-09-02
+
+### Added
+
+- `AvatarImage/AvatarInitials`: Added hover functionality for the AvatarInitials and AvatarImage components, which allows medium-sized Avatars to display a full height edit action ([@sanderbrugge](https://github.com/sanderbrugge) in [#1290])
+
+### Fixed
+
 - `Badge/Tag`: when a Badge/Tag is not clickable, it now uses a div as element by default instead of a button ([@lowiebenoot](https://github.com/lowiebenoot) in [#1269])
 - `Badge/Tag`: a clickable Badge/Tag now has a `type="button"` to avoid submitting forms when clicking on the Badge/Tag ([@lowiebenoot](https://github.com/lowiebenoot) in [#1269])
 
 ### Dependency updates
+
+- `@babel/plugin-transform-runtime` from `7.10.5` to `7.11.0`
+- [Security] `elliptic` from `6.5.2` to `6.5.3`
+- `css-loader` from `3.6.0` to `4.2.1`
+- [Security] `dot-prop` from `4.2.0` to `4.2.1`
+- `eslint` from `7.4.0` to `7.5.0`
+- `eslint-plugin-react` from `7.20.3` to `7.20.6`
+- [Security] `lodash` from `4.17.15` to `4.17.19`
+- `prettier` from `2.0.5` to `2.1.0`
+- `webpack` from `4.43.0` to `4.44.1`
 
 ## [1.0.2] - 2020-07-13
 
