@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `AvatarOverlay` Full height overlays are now correctly rounded for round and medium Avatars. ([@sanderbrugge](https://github.com/sanderbrugge) in [#1292])
+
 ### Dependency updates
 
 ## [1.0.3] - 2020-09-02

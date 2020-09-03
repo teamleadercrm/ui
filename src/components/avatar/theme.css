@@ -231,7 +231,13 @@
   }
 
   .overlay {
-    border-radius: 0 0 var(--shape-rounded-image-border-radius) var(--shape-rounded-image-border-radius);
+    .default-height {
+      border-radius: 0 0 var(--shape-rounded-image-border-radius) var(--shape-rounded-image-border-radius);
+    }
+
+    .full-height {
+      border-radius: var(--shape-rounded-image-border-radius);
+    }
   }
 }
 
