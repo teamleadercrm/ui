@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `Dependencies`: Set "@storybook/addon-docs" as a DevDependency instead of a reguler dependency.
+
 ### Deprecated
 
 ### Removed
