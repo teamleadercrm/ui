@@ -93,7 +93,7 @@
     "image-webpack-loader": "^6.0.0",
     "json-loader": "^0.5.4",
     "moment": "^2.22.2",
-    "postcss": "^7.0.17",
+    "postcss": "^8.0.8",
     "postcss-color-function": "^4.1.0",
     "postcss-custom-media": "^7.0.8",
     "postcss-each": "^0.10.0",
