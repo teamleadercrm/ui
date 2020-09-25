@@ -12,6 +12,24 @@
 
 ### Dependency updates
 
+## [1.0.6] - 2020-09-25
+
+### Dependency updates
+
+- [security] `draft-js` from `0.11.6` to `0.11.7` ([@lorgan3](https://github.com/lorgan3) in [#1298])
+
+## [1.0.5] - 2020-09-08
+
+### Changed
+
+- `Dependencies`: Set "@storybook/addon-docs" as a DevDependency instead of a regular dependency.([@sanderbrugge](https://github.com/sanderbrugge) in [#1296])
+
+## [1.0.4] - 2020-09-03
+
+### Fixed
+
+- `AvatarOverlay` Full height overlays are now correctly rounded for round and medium Avatars. ([@sanderbrugge](https://github.com/sanderbrugge) in [#1292])
+
 ## [1.0.3] - 2020-09-02
 
 ### Added
