@@ -12,6 +12,10 @@
 
 ### Dependency updates
 
+## [1.0.6] - 2020-09-25
+
+### Dependency updates
+
 - [security] `draft-js` from `0.11.6` to `0.11.7` ([@lorgan3](https://github.com/lorgan3) in [#1298])
 
 ## [1.0.5] - 2020-09-08
