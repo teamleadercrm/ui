@@ -12,6 +12,12 @@
 
 ### Dependency updates
 
+## [1.0.7] - 2020-10-20
+
+### Added
+
+- `Button`: added a `tiny` size ([@driesd](https://github.com/driesd) in [#1314])
+
 ## [1.0.6] - 2020-09-25
 
 ### Dependency updates
