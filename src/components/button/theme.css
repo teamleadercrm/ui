@@ -323,6 +323,16 @@
 }
 
 /* Button sizes */
+.tiny {
+  height: calc(2.4 * var(--unit));
+  min-width: calc(2.4 * var(--unit));
+  padding: 0 calc(0.6 * var(--unit));
+
+  &.has-icon-only {
+    padding: 0 calc(0.1 * var(--unit));
+  }
+}
+
 .small {
   height: calc(3 * var(--unit));
   min-width: calc(3 * var(--unit));
