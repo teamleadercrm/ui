@@ -2,6 +2,8 @@
 
 ### Added
 
+- `Button`: added a `tiny` size ([@driesd](https://github.com/driesd) in [#1314])
+
 ### Changed
 
 ### Deprecated
