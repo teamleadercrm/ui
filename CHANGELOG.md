@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `Avatar`: fixed unwanted text-decoration when `element` is an anchor tag ([@driesd](https://github.com/driesd) in [#1319])
+
 ### Dependency updates
 
 ## [1.0.7] - 2020-10-20
