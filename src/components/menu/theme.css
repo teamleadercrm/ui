@@ -9,6 +9,7 @@
   --menu-padding: calc(0.6 * var(--unit)) 0;
   --menu-outline-border-radius: var(--border-radius-medium);
   --menu-outline-box-shadow: 0 0 0 1px color(var(--color-teal-darkest) a(24%));
+  --menu-position-spacing: 7px; /* Spacing of 6px + 1px outline border */
   --menu-item-background: var(--color-neutral-lightest);
   --menu-item-hover-background: var(--color-neutral-light);
   --menu-item-selected-background: var(--color-aqua-lightest);
@@ -28,9 +29,9 @@
   position: relative;
 
   &.top-left {
-    left: 0;
+    left: 1px;
     position: absolute;
-    top: 0;
+    top: calc(100% + var(--menu-position-spacing));
 
     & > .outline {
       transform-origin: 0 0;
@@ -39,8 +40,8 @@
 
   &.top-right {
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 1px;
+    top: calc(100% + var(--menu-position-spacing));
 
     & > .outline {
       transform-origin: 100% 0;
@@ -48,8 +49,8 @@
   }
 
   &.bottom-left {
-    bottom: 0;
-    left: 0;
+    bottom: calc(100% + var(--menu-position-spacing));
+    left: 1px;
     position: absolute;
 
     & > .outline {
@@ -58,9 +59,9 @@
   }
 
   &.bottom-right {
-    bottom: 0;
+    bottom: calc(100% + var(--menu-position-spacing));
     position: absolute;
-    right: 0;
+    right: 1px;
 
     & > .outline {
       transform-origin: 100% 100%;
