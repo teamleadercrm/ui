@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `IconMenu`: changed to preserve the visibility of the IconButton when the IconMenu is open. ([@driesd](https://github.com/driesd) in [#1324])
+
 ### Deprecated
 
 ### Removed
