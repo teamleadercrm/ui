@@ -4,17 +4,23 @@
 
 ### Changed
 
-- `IconMenu`: changed to preserve the visibility of the IconButton when the IconMenu is open. ([@driesd](https://github.com/driesd) in [#1324])
-
 ### Deprecated
 
 ### Removed
 
 ### Fixed
 
-`Menu`: fixed the border-width rendering which occasionally resulted in zero pixels. ([@driesd](https://github.com/driesd) in [#1325])
-
 ### Dependency updates
+
+## [1.0.9] - 2020-11-18
+
+### Changed
+
+- `IconMenu`: changed to preserve the visibility of the IconButton when the IconMenu is open. ([@driesd](https://github.com/driesd) in [#1324])
+
+### Fixed
+
+- `Menu`: fixed the border-width rendering which occasionally resulted in zero pixels. ([@driesd](https://github.com/driesd) in [#1325])
 
 ## [1.0.8] - 2020-10-28
 
