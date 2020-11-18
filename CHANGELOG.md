@@ -12,6 +12,8 @@
 
 ### Fixed
 
+`Menu`: fixed the border-width rendering which occasionally resulted in zero pixels. ([@driesd](https://github.com/driesd) in [#1325])
+
 ### Dependency updates
 
 ## [1.0.8] - 2020-10-28
