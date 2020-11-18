@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `IconMenu`: fixed postioning of the menu. ([@driesd](https://github.com/driesd) in [#1328])
+
 ### Dependency updates
 
 ## [1.0.9] - 2020-11-18
