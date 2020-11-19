@@ -10,9 +10,14 @@
 
 ### Fixed
 
-- `IconMenu`: fixed positioning of the menu. ([@driesd](https://github.com/driesd) in [#1328])
-
 ### Dependency updates
+
+## [1.0.10] - 2020-11-19
+
+### Fixed
+
+- `IconMenu`: fixed positioning of the menu. ([@driesd](https://github.com/driesd) in [#1328])
+- `Menu`: fixed warning when outline width is undefined. ([@driesd](https://github.com/driesd) in [#1327])
 
 ## [1.0.9] - 2020-11-18
 
