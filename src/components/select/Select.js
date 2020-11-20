@@ -195,10 +195,10 @@ class Select extends PureComponent {
   };
 
   getOptionStyles = (base, { isDisabled, isFocused, isSelected }) => {
-    const { singleLineOptions } = this.props;
+    const { truncateOptionText } = this.props;
     const commonStyles = {
       ...base,
-      ...(singleLineOptions
+      ...(truncateOptionText
         ? {
             overflow: 'hidden',
             textOverflow: 'ellipsis',
@@ -382,7 +382,7 @@ Select.propTypes = {
   /** A custom width for the menu dropdown */
   menuWidth: PropTypes.string,
   /** Boolean indicating whether the select option text should render on one single line. */
-  singleLineOptions: PropTypes.bool,
+  truncateOptionText: PropTypes.bool,
   /** Size of the input element. */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   /** The text string/element to use as success message below the input. */

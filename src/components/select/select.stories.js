@@ -22,7 +22,7 @@ const CustomOption = ({ children, data, innerProps, isFocused, isSelected, isDis
   return (
     <Box paddingVertical={2} paddingHorizontal={2} display="flex" alignItems="center" {...innerProps} style={boxStyles}>
       <Avatar imageUrl={data.avatar} size="tiny" marginRight={2} />
-      <TextBody style={textStyles} maxLines={selectProps.singleLineOptions ? 1 : undefined}>
+      <TextBody style={textStyles} maxLines={selectProps.truncateOptionText ? 1 : undefined}>
         {children}
       </TextBody>
     </Box>
@@ -52,7 +52,7 @@ export const basic = () => (
     options={options}
     placeholder="Select your favourite(s)"
     size={select('Size', sizes, 'medium')}
-    singleLineOptions={boolean('Single line options', false)}
+    truncateOptionText={boolean('Truncate option text', false)}
     hideSelectedOptions={boolean('Hide selected options', false)}
     menuWidth={text('Menu width', undefined)}
     error={text('error', '')}
@@ -75,7 +75,7 @@ export const grouped = () => (
     options={groupedOptions}
     placeholder="Select your favourite(s)"
     size={select('Size', sizes, 'medium')}
-    singleLineOptions={boolean('Single line options', false)}
+    truncateOptionText={boolean('Truncate option text', false)}
     hideSelectedOptions={boolean('Hide selected options', false)}
     error={text('error', '')}
     helpText={text('helpText', '')}
@@ -100,7 +100,7 @@ export const customOption = () => (
     options={customOptions}
     placeholder="Select your favourite(s)"
     size={select('Size', sizes, 'medium')}
-    singleLineOptions={boolean('Single line options', false)}
+    truncateOptionText={boolean('Truncate option text', false)}
     hideSelectedOptions={boolean('Hide selected options', false)}
     error={text('error', '')}
     helpText={text('helpText', '')}
@@ -142,7 +142,7 @@ export const async = () => {
       options={options}
       placeholder="Select your favourite(s)"
       size={select('size', sizes, 'medium')}
-      singleLineOptions={boolean('Single line options', false)}
+      truncateOptionText={boolean('Truncate option text', false)}
       hideSelectedOptions={boolean('hideSelectedOptions', false)}
       error={text('error', '')}
       helpText={text('helpText', '')}

@@ -109,7 +109,7 @@ const MonthPickerSplit = ({ date, locale, localeUtils, onChange, size }) => {
           options={months}
           onChange={handleChangeMonth}
           width={size === 'small' ? '88px' : '112px'}
-          singleLineOptions
+          truncateOptionText
           size="small"
         />
         <NumericInput
