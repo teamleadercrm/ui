@@ -28,16 +28,11 @@ const getMonthOptions = (localeUtils, locale) => {
   return monthOptions;
 };
 
-// e.g. "February 2020" => "Feb"
-// Exception for French language: we use 4 characters
-const formatSelectedMonth = ({ label, value }, locale) => {
-  const isFrench = locale === 'fr' || locale.startsWith('fr-');
-
-  return {
-    value,
-    label: label.substring(0, isFrench ? 4 : 3),
-  };
-};
+// e.g. "February 2020" => "February"
+const formatSelectedMonth = ({ label, value }) => ({
+  value,
+  label: label.split(' ')[0],
+});
 
 // e.g. "February 2020" => "Feb 2020"
 // Exception for French language: we use 4 characters
@@ -109,11 +104,12 @@ const MonthPickerSplit = ({ date, locale, localeUtils, onChange, size }) => {
     <Box className={theme['caption']}>
       <Box display="flex" justifyContent="center">
         <Select
-          value={formatSelectedMonth(selectedMonth, locale)}
+          value={formatSelectedMonth(selectedMonth)}
           className={theme['month-picker-field']}
           options={months}
           onChange={handleChangeMonth}
           width={size === 'small' ? '88px' : '112px'}
+          truncateOptionText
           size="small"
         />
         <NumericInput
