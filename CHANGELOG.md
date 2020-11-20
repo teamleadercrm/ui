@@ -2,7 +2,11 @@
 
 ### Added
 
+- `Select`: added `truncateOptionText` boolean prop (default false) which enable truncation of long option text words, but still makes multiline possible. ([@driesd](https://github.com/driesd) in [#1335])
+
 ### Changed
+
+- `DatePicker`: changed the `MonthPicker` to have better text-overflow handling. ([@driesd](https://github.com/driesd) in [#1335])
 
 ### Deprecated
 
