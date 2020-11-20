@@ -7,7 +7,7 @@ import { customOptions, groupedOptions, options } from '../../static/data/select
 const sizes = ['small', 'medium', 'large'];
 
 /* eslint react/prop-types: 0 */
-const CustomOption = ({ children, data, innerProps, isFocused, isSelected, isDisabled }) => {
+const CustomOption = ({ children, data, innerProps, isFocused, isSelected, isDisabled, selectProps }) => {
   const boxStyles = {
     backgroundColor: isFocused ? '#e4e4e6' : isSelected ? '#82828c' : '#fff',
     '&:active': {
@@ -22,7 +22,9 @@ const CustomOption = ({ children, data, innerProps, isFocused, isSelected, isDis
   return (
     <Box paddingVertical={2} paddingHorizontal={2} display="flex" alignItems="center" {...innerProps} style={boxStyles}>
       <Avatar imageUrl={data.avatar} size="tiny" marginRight={2} />
-      <TextBody style={textStyles}>{children}</TextBody>
+      <TextBody style={textStyles} maxLines={selectProps.singleLineOptions ? 1 : undefined}>
+        {children}
+      </TextBody>
     </Box>
   );
 };
@@ -50,6 +52,7 @@ export const basic = () => (
     options={options}
     placeholder="Select your favourite(s)"
     size={select('Size', sizes, 'medium')}
+    singleLineOptions={boolean('Single line options', false)}
     hideSelectedOptions={boolean('Hide selected options', false)}
     menuWidth={text('Menu width', undefined)}
     error={text('error', '')}
@@ -72,6 +75,7 @@ export const grouped = () => (
     options={groupedOptions}
     placeholder="Select your favourite(s)"
     size={select('Size', sizes, 'medium')}
+    singleLineOptions={boolean('Single line options', false)}
     hideSelectedOptions={boolean('Hide selected options', false)}
     error={text('error', '')}
     helpText={text('helpText', '')}
@@ -96,6 +100,7 @@ export const customOption = () => (
     options={customOptions}
     placeholder="Select your favourite(s)"
     size={select('Size', sizes, 'medium')}
+    singleLineOptions={boolean('Single line options', false)}
     hideSelectedOptions={boolean('Hide selected options', false)}
     error={text('error', '')}
     helpText={text('helpText', '')}
@@ -137,6 +142,7 @@ export const async = () => {
       options={options}
       placeholder="Select your favourite(s)"
       size={select('size', sizes, 'medium')}
+      singleLineOptions={boolean('Single line options', false)}
       hideSelectedOptions={boolean('hideSelectedOptions', false)}
       error={text('error', '')}
       helpText={text('helpText', '')}
