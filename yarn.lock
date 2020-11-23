@@ -3946,20 +3946,20 @@
   resolved "https://registry.yarnpkg.com/@teamleader/ui-colors/-/ui-colors-0.3.0.tgz#beafe49d9389230b01310c3e4bd90ed7985ae6c6"
   integrity sha512-TECQkD2Gjp8AvHKL3T+v6VFM95K8rKGE976TtLU8MuhCgUZWbllh9/8LY7+hoIqKVmxIRLbLsj5VFt154LHI1w==
 
-"@teamleader/ui-icons@^0.2.29":
-  version "0.2.29"
-  resolved "https://registry.yarnpkg.com/@teamleader/ui-icons/-/ui-icons-0.2.29.tgz#5ea5b66f092daf4e18109ad015845a6628335003"
-  integrity sha512-gPbx9kjt26yxQCdamZafvqfQsnK3C+YnQrkuy59rXzvmdrE6d4NU9jxn3nWWrTvECwgpdmokDPPMsL59m2RyMg==
+"@teamleader/ui-icons@^0.2.30":
+  version "0.2.30"
+  resolved "https://registry.yarnpkg.com/@teamleader/ui-icons/-/ui-icons-0.2.30.tgz#d19f23152584a37d49f7dd5ae90a15b63ff57bc4"
+  integrity sha512-w1MvTMAiZLbbbx9YzWJWJ3S1UN4hJw4/U/vdLuAT3BmZPVujVQpUrRiZzNw51/c+m87aXQfCuWFC0gD76ei4Eg==
 
 "@teamleader/ui-illustrations@^0.0.33":
   version "0.0.33"
   resolved "https://registry.yarnpkg.com/@teamleader/ui-illustrations/-/ui-illustrations-0.0.33.tgz#4b4f0166d62640468239c7dd1ca82eb3bfe12b4a"
   integrity sha512-Rmu9WL/1WGwYLP46YYWj7ogDkiDoD0PKihI6ZnrHc4xmCyQcB4Y+l1vI/56Yp/hClD1y5/+PTztvB9fHZQZtDg==
 
-"@teamleader/ui-typography@^0.2.3":
-  version "0.2.4"
-  resolved "https://registry.yarnpkg.com/@teamleader/ui-typography/-/ui-typography-0.2.4.tgz#4a4afc6f33b7c7336527d34e0df694121953964a"
-  integrity sha512-GEsb7QV7KZRZ1A5k6Yc4jERDlkSmEo/DY9SPrdehvLWrhAy4Uvu6U8kfduRKbZ+vrEaFIs3XeqDIB78W5a7rcw==
+"@teamleader/ui-typography@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@teamleader/ui-typography/-/ui-typography-1.0.0.tgz#9ebab913c5a28042869e1affb6078a750f5bb349"
+  integrity sha512-xJ5VK+b56OWd2lmFtB916GDr3y9BgS5w8BWEbM2jakja6t8TthSCBGvoE5KkENDmU2gCk7KjQTmKxI6iPFHQMQ==
 
 "@teamleader/ui-utilities@^0.2.0":
   version "0.2.1"
