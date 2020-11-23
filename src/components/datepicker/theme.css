@@ -51,7 +51,7 @@
 
     .weekdays {
       border-radius: 0;
-      box-shadow: inset 0 -1px 0 0 var(--color-neutral), inset 0 1px 0 0 var(--color-neutral);
+      box-shadow: inset 0 -1px 0 0 var(--color-neutral);
     }
 
     .body {
