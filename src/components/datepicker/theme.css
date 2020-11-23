@@ -456,7 +456,8 @@
 .is-small {
   .caption {
     font-size: 12px;
-    padding: 10px;
+    padding-bottom: var(--spacer-smallest);
+    padding-top: var(--spacer-smaller);
   }
 
   .day {
@@ -496,7 +497,8 @@
 .is-medium {
   .caption {
     font-size: 14px;
-    padding: 15px;
+    padding-bottom: var(--spacer-smallest);
+    padding-top: var(--spacer-small);
   }
 
   .day {
@@ -531,7 +533,8 @@
   .caption {
     font-family: var(--font-family-medium);
     font-size: 16px;
-    padding: 21px;
+    padding-bottom: var(--spacer-small);
+    padding-top: var(--spacer-regular);
   }
 
   .day {
