@@ -46,6 +46,12 @@
   margin: 0 var(--spacer-regular) var(--spacer-regular);
   user-select: none;
 
+  &:not(:only-child) {
+    .caption {
+      padding-bottom: 9px;
+    }
+  }
+
   &:only-child {
     margin: 0 !important;
 
