@@ -7,6 +7,7 @@
 ### Changed
 
 - `DatePicker`: changed the `MonthPicker` to have better text-overflow handling. ([@driesd](https://github.com/driesd) in [#1335])
+- `DatePicker`: changed styles to match our new design specs. ([@driesd](https://github.com/driesd) in [#1338])
 
 ### Deprecated
 
