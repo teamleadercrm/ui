@@ -68,12 +68,8 @@
 .navBar {
   position: absolute;
   left: 0;
-  top: 6px;
   right: 0;
-
-  &-with-month-picker {
-    top: 12px;
-  }
+  top: 0;
 }
 
 .caption {
@@ -475,7 +471,13 @@
   }
 
   .navBar {
-    padding: 3px;
+    padding-left: var(--spacer-smaller);
+    padding-right: var(--spacer-smaller);
+    padding-top: var(--spacer-smaller);
+
+    &-with-month-picker {
+      padding-top: var(--spacer-small);
+    }
   }
 
   .weekday {
@@ -510,7 +512,13 @@
   }
 
   .navBar {
-    padding: 9px;
+    padding-top: var(--spacer-small);
+    padding-left: var(--spacer-small);
+    padding-right: var(--spacer-small);
+
+    &-with-month-picker {
+      padding-top: var(--spacer-regular);
+    }
   }
 
   .weekday {
@@ -546,11 +554,12 @@
   }
 
   .navBar {
-    padding: 15px;
-    top: 0;
+    padding-left: var(--spacer-smaller);
+    padding-right: var(--spacer-smaller);
+    padding-top: 15px;
 
     &-with-month-picker {
-      top: 6px;
+      padding-top: var(--spacer-regular);
     }
   }
 
