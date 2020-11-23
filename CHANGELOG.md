@@ -2,12 +2,7 @@
 
 ### Added
 
-- `Select`: added `truncateOptionText` boolean prop (default false) which enable truncation of long option text words, but still makes multiline possible. ([@driesd](https://github.com/driesd) in [#1335])
-
 ### Changed
-
-- `DatePicker`: changed the `MonthPicker` to have better text-overflow handling. ([@driesd](https://github.com/driesd) in [#1335])
-- `DatePicker`: changed styles to match our new design specs. ([@driesd](https://github.com/driesd) in [#1338])
 
 ### Deprecated
 
@@ -16,6 +11,22 @@
 ### Fixed
 
 ### Dependency updates
+
+## [1.0.11] - 2020-11-23
+
+### Added
+
+- `Select`: added `truncateOptionText` boolean prop (default false) which enable truncation of long option text words, but still makes multiline possible. ([@driesd](https://github.com/driesd) in [#1335])
+
+### Changed
+
+- `DatePicker`: changed the `MonthPicker` to have better text-overflow handling. ([@driesd](https://github.com/driesd) in [#1335])
+- `DatePicker`: changed styles to match our new design specs. ([@driesd](https://github.com/driesd) in [#1338])
+
+### Dependency updates
+
+- `@teamleader/ui-icons` from `0.2.29` to `0.2.30` ([@driesd](https://github.com/driesd) in [#1339])
+- `@teamleader/ui-typography` from `0.2.3` to `1.0.0` ([@driesd](https://github.com/driesd) in [#1339])
 
 ## [1.0.10] - 2020-11-19
 
