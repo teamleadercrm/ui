@@ -12,6 +12,92 @@
 
 ### Dependency updates
 
+## [1.0.11] - 2020-11-23
+
+### Added
+
+- `Select`: added `truncateOptionText` boolean prop (default false) which enable truncation of long option text words, but still makes multiline possible. ([@driesd](https://github.com/driesd) in [#1335])
+
+### Changed
+
+- `DatePicker`: changed the `MonthPicker` to have better text-overflow handling. ([@driesd](https://github.com/driesd) in [#1335])
+- `DatePicker`: changed styles to match our new design specs. ([@driesd](https://github.com/driesd) in [#1338])
+
+### Dependency updates
+
+- `@teamleader/ui-icons` from `0.2.29` to `0.2.30` ([@driesd](https://github.com/driesd) in [#1339])
+- `@teamleader/ui-typography` from `0.2.3` to `1.0.0` ([@driesd](https://github.com/driesd) in [#1339])
+
+## [1.0.10] - 2020-11-19
+
+### Fixed
+
+- `IconMenu`: fixed positioning of the menu. ([@driesd](https://github.com/driesd) in [#1328])
+- `Menu`: fixed warning when outline width is undefined. ([@driesd](https://github.com/driesd) in [#1327])
+
+## [1.0.9] - 2020-11-18
+
+### Changed
+
+- `IconMenu`: changed to preserve the visibility of the IconButton when the IconMenu is open. ([@driesd](https://github.com/driesd) in [#1324])
+
+### Fixed
+
+- `Menu`: fixed the border-width rendering which occasionally resulted in zero pixels. ([@driesd](https://github.com/driesd) in [#1325])
+
+## [1.0.8] - 2020-10-28
+
+### Fixed
+
+- `Avatar`: fixed unwanted text-decoration when `element` is an anchor tag ([@driesd](https://github.com/driesd) in [#1319])
+
+## [1.0.7] - 2020-10-20
+
+### Added
+
+- `Button`: added a `tiny` size ([@driesd](https://github.com/driesd) in [#1314])
+
+## [1.0.6] - 2020-09-25
+
+### Dependency updates
+
+- [security] `draft-js` from `0.11.6` to `0.11.7` ([@lorgan3](https://github.com/lorgan3) in [#1298])
+
+## [1.0.5] - 2020-09-08
+
+### Changed
+
+- `Dependencies`: Set "@storybook/addon-docs" as a DevDependency instead of a regular dependency.([@sanderbrugge](https://github.com/sanderbrugge) in [#1296])
+
+## [1.0.4] - 2020-09-03
+
+### Fixed
+
+- `AvatarOverlay` Full height overlays are now correctly rounded for round and medium Avatars. ([@sanderbrugge](https://github.com/sanderbrugge) in [#1292])
+
+## [1.0.3] - 2020-09-02
+
+### Added
+
+- `AvatarImage/AvatarInitials`: Added hover functionality for the AvatarInitials and AvatarImage components, which allows medium-sized Avatars to display a full height edit action ([@sanderbrugge](https://github.com/sanderbrugge) in [#1290])
+
+### Fixed
+
+- `Badge/Tag`: when a Badge/Tag is not clickable, it now uses a div as element by default instead of a button ([@lowiebenoot](https://github.com/lowiebenoot) in [#1269])
+- `Badge/Tag`: a clickable Badge/Tag now has a `type="button"` to avoid submitting forms when clicking on the Badge/Tag ([@lowiebenoot](https://github.com/lowiebenoot) in [#1269])
+
+### Dependency updates
+
+- `@babel/plugin-transform-runtime` from `7.10.5` to `7.11.0`
+- [Security] `elliptic` from `6.5.2` to `6.5.3`
+- `css-loader` from `3.6.0` to `4.2.1`
+- [Security] `dot-prop` from `4.2.0` to `4.2.1`
+- `eslint` from `7.4.0` to `7.5.0`
+- `eslint-plugin-react` from `7.20.3` to `7.20.6`
+- [Security] `lodash` from `4.17.15` to `4.17.19`
+- `prettier` from `2.0.5` to `2.1.0`
+- `webpack` from `4.43.0` to `4.44.1`
+
 ## [1.0.2] - 2020-07-13
 
 ### Changed

@@ -16,7 +16,11 @@ export default {
 };
 
 export const withTextAndIcon = ({ size, ...args }) => (
-  <Button {...args} size={size} icon={size === 'small' ? <IconAddSmallOutline /> : <IconAddMediumOutline />} />
+  <Button
+    {...args}
+    size={size}
+    icon={size === 'tiny' || size === 'small' ? <IconAddSmallOutline /> : <IconAddMediumOutline />}
+  />
 );
 
 withTextAndIcon.args = {

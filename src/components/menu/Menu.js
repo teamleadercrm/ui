@@ -239,7 +239,9 @@ class Menu extends PureComponent {
 
     return (
       <Box data-teamleader-ui="menu" className={classNames} style={this.getRootStyle()} {...boxProps}>
-        {outline ? <div className={outlineClassNames} style={{ width, height }} /> : null}
+        {outline ? (
+          <div className={outlineClassNames} style={{ ...(width && { width: Math.ceil(width) }), height }} />
+        ) : null}
         <ul ref={this.menuNode} className={theme['menu-inner']} style={this.getMenuStyle()}>
           {this.getItems()}
         </ul>

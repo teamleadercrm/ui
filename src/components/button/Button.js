@@ -2,9 +2,16 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../box';
 import LoadingSpinner from '../loadingSpinner';
-import { UITextBody, UITextDisplay } from '../typography';
+import { UITextBody, UITextDisplay, UITextSmall } from '../typography';
 import cx from 'classnames';
 import theme from './theme.css';
+
+const textComponentMap = {
+  tiny: UITextSmall,
+  small: UITextBody,
+  medium: UITextBody,
+  large: UITextDisplay,
+};
 
 class Button extends PureComponent {
   getSpinnerColor() {
@@ -110,7 +117,7 @@ class Button extends PureComponent {
       'data-teamleader-ui': 'button',
     };
 
-    const Text = size === 'large' ? UITextDisplay : UITextBody;
+    const Text = textComponentMap[size];
 
     return (
       <Box {...props}>
@@ -172,7 +179,7 @@ Button.propTypes = {
   /** If true, component will show a loading spinner instead of label or children. */
   processing: PropTypes.bool,
   /** Size of the button. */
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large']),
   /** Type of the button element. */
   type: PropTypes.string,
 };

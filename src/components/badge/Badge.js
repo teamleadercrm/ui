@@ -36,12 +36,24 @@ class Badge extends PureComponent {
   };
 
   render() {
-    const { children, className, disabled, element, icon, iconPlacement, selected, size, ...others } = this.props;
+    const {
+      children,
+      className,
+      disabled,
+      element,
+      icon,
+      iconPlacement,
+      selected,
+      size,
+      onClick,
+      ...others
+    } = this.props;
 
     const classNames = cx(
       theme['badge'],
       theme[`is-${size}`],
       {
+        [theme['is-clickable']]: onClick,
         [theme['is-disabled']]: disabled,
         [theme['is-selected']]: selected,
       },
@@ -49,16 +61,19 @@ class Badge extends PureComponent {
     );
 
     const TextElement = size === 'small' ? UITextSmall : size === 'large' ? UITextDisplay : UITextBody;
+    const boxElement = element || onClick ? 'button' : 'div';
 
     return (
       <Box
         className={classNames}
         data-teamleader-ui="badge"
-        element={element}
+        element={boxElement}
         ref={this.badgeNode}
+        onClick={onClick}
         onMouseUp={this.handleMouseUp}
         onMouseLeave={this.handleMouseLeave}
         paddingHorizontal={2}
+        type={boxElement === 'button' ? 'button' : undefined}
         {...others}
       >
         {icon && iconPlacement === 'left' && this.renderIcon()}
@@ -86,6 +101,8 @@ Badge.propTypes = {
   icon: PropTypes.element,
   /** The position of the icon inside the badge. */
   iconPlacement: PropTypes.oneOf(['left', 'right']),
+  /** Callback function that is fired when clicking on the component. */
+  onClick: PropTypes.func,
   /** Callback function that is fired when mouse leaves the component. */
   onMouseLeave: PropTypes.func,
   /** Callback function that is fired when the mouse button is released. */
@@ -98,7 +115,6 @@ Badge.propTypes = {
 
 Badge.defaultProps = {
   disabled: false,
-  element: 'button',
   iconPlacement: 'left',
   size: 'medium',
 };

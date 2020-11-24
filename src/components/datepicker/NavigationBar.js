@@ -34,12 +34,14 @@ class NavigationBar extends PureComponent {
         justifyContent="space-between"
       >
         <IconButton
+          color="teal"
           size={size === 'large' ? 'medium' : 'small'}
           icon={size === 'large' ? <IconArrowLeftMediumOutline /> : <IconArrowLeftSmallOutline />}
           onClick={this.handlePreviousClick}
           title={previousMonthButtonLabel}
         />
         <IconButton
+          color="teal"
           size={size === 'large' ? 'medium' : 'small'}
           icon={size === 'large' ? <IconArrowRightMediumOutline /> : <IconArrowRightSmallOutline />}
           onClick={this.handleNextClick}

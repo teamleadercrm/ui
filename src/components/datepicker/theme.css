@@ -23,6 +23,7 @@
   .wrapper {
     border: 1px solid var(--color-neutral);
     border-radius: var(--border-radius);
+    overflow: hidden;
   }
 }
 
@@ -45,12 +46,22 @@
   margin: 0 var(--spacer-regular) var(--spacer-regular);
   user-select: none;
 
+  &:not(:only-child) {
+    .caption {
+      padding-bottom: 9px;
+    }
+  }
+
   &:only-child {
     margin: 0 !important;
 
+    .caption {
+      background-color: var(--color-neutral-light);
+    }
+
     .weekdays {
       border-radius: 0;
-      box-shadow: inset 0 -1px 0 0 var(--color-neutral), inset 0 1px 0 0 var(--color-neutral);
+      box-shadow: inset 0 -1px 0 0 var(--color-neutral);
     }
 
     .body {
@@ -63,12 +74,8 @@
 .navBar {
   position: absolute;
   left: 0;
-  top: 6px;
   right: 0;
-
-  &-with-month-picker {
-    top: 12px;
-  }
+  top: 0;
 }
 
 .caption {
@@ -451,7 +458,8 @@
 .is-small {
   .caption {
     font-size: 12px;
-    padding: 10px;
+    padding-bottom: var(--spacer-smallest);
+    padding-top: var(--spacer-smaller);
   }
 
   .day {
@@ -469,7 +477,13 @@
   }
 
   .navBar {
-    padding: 3px;
+    padding-left: var(--spacer-smaller);
+    padding-right: var(--spacer-smaller);
+    padding-top: var(--spacer-smaller);
+
+    &-with-month-picker {
+      padding-top: var(--spacer-small);
+    }
   }
 
   .weekday {
@@ -491,7 +505,8 @@
 .is-medium {
   .caption {
     font-size: 14px;
-    padding: 15px;
+    padding-bottom: var(--spacer-smallest);
+    padding-top: var(--spacer-small);
   }
 
   .day {
@@ -503,7 +518,13 @@
   }
 
   .navBar {
-    padding: 9px;
+    padding-top: var(--spacer-small);
+    padding-left: var(--spacer-small);
+    padding-right: var(--spacer-small);
+
+    &-with-month-picker {
+      padding-top: var(--spacer-regular);
+    }
   }
 
   .weekday {
@@ -526,7 +547,8 @@
   .caption {
     font-family: var(--font-family-medium);
     font-size: 16px;
-    padding: 21px;
+    padding-bottom: var(--spacer-small);
+    padding-top: var(--spacer-regular);
   }
 
   .day {
@@ -538,11 +560,12 @@
   }
 
   .navBar {
-    padding: 15px;
-    top: 0;
+    padding-left: var(--spacer-smaller);
+    padding-right: var(--spacer-smaller);
+    padding-top: 15px;
 
     &-with-month-picker {
-      top: 6px;
+      padding-top: var(--spacer-regular);
     }
   }
 

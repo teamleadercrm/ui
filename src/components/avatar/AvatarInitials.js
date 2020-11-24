@@ -11,6 +11,10 @@ const colors = colorsWithout(['neutral']);
 const hashCode = (hexString) => parseInt(hexString.substr(-5), 16);
 
 class AvatarInitials extends PureComponent {
+  state = {
+    displayAvatarOverlay: false,
+  };
+
   getBackgroundColor = () => {
     const { id } = this.props;
 
@@ -32,8 +36,19 @@ class AvatarInitials extends PureComponent {
     return firstLetter;
   };
 
+  handleOnMouseEnter = () => {
+    this.setState({ displayAvatarOverlay: true });
+  };
+
+  handleOnMouseLeave = () => {
+    this.setState({ displayAvatarOverlay: false });
+  };
+
   render() {
     const { children, editable, id, onImageChange, size } = this.props;
+    const { displayAvatarOverlay } = this.state;
+    const shouldShowAvatarOverlay =
+      editable && (size === 'large' || size === 'hero' || (size === 'medium' && displayAvatarOverlay));
 
     return (
       <Box
@@ -44,11 +59,13 @@ class AvatarInitials extends PureComponent {
         data-teamleader-ui="avatar-initials"
         display="flex"
         justifyContent="center"
+        onMouseEnter={this.handleOnMouseEnter}
+        onMouseLeave={this.handleOnMouseLeave}
       >
         <Heading4 className={theme['initials']} color="neutral" tint={id ? 'lightest' : 'darkest'}>
           {this.getInitials()}
         </Heading4>
-        {editable && (size === 'large' || size === 'hero') && <AvatarOverlay onClick={onImageChange} />}
+        {shouldShowAvatarOverlay && <AvatarOverlay onClick={onImageChange} size={size} />}
         {children && <div className={theme['children']}>{children}</div>}
       </Box>
     );
