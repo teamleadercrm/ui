@@ -13,10 +13,13 @@ export default {
   title: addStoryInGroup(COMPOSITIONS, 'OverviewPage'),
 
   parameters: {
-    backgrounds: [
-      { name: 'Neutral lightest', value: COLOR.NEUTRAL.LIGHTEST },
-      { name: 'Neutral light', value: COLOR.NEUTRAL.LIGHT, default: true },
-    ],
+    backgrounds: {
+      default: 'Neutral light',
+      values: [
+        { name: 'Neutral lightest', value: COLOR.NEUTRAL.LIGHTEST },
+        { name: 'Neutral light', value: COLOR.NEUTRAL.LIGHT },
+      ],
+    },
     info: {
       propTables: false,
     },
