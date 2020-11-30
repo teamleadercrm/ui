@@ -12,6 +12,8 @@
 
 ### Dependency updates
 
+- Removed `html-webpack-plugin` because it's not used anymore ([@lowiebenoot](https://github.com/lowiebenoot) in [#1346])
+
 ## [1.0.11] - 2020-11-23
 
 ### Added
