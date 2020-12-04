@@ -1,6 +1,7 @@
 @import '@teamleader/ui-colors';
 @import '@teamleader/ui-typography';
 @import '@teamleader/ui-animations';
+@import '@teamleader/ui-utilities';
 
 :root {
   --bullet-size: 12px;
@@ -19,6 +20,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  min-width: 0;
   align-items: center;
   justify-content: center;
   flex: 2;
@@ -51,11 +53,21 @@
   &:first-child {
     align-items: flex-start;
     flex: 1;
+
+    .step-label {
+      padding-left: 0;
+      text-align: left;
+    }
   }
 
   &:last-child {
     align-items: flex-end;
     flex: 1;
+
+    .step-label {
+      padding-right: 0;
+      text-align: right;
+    }
   }
 
   &.is-completed {
@@ -100,24 +112,27 @@
   }
 
   .step-label {
-    font-family: var(--font-family-regular);
+    font-family: var(--font-family-semi-bold);
+    color: var(--color-neutral-darkest);
     text-align: center;
     transition: font-family 0.1s var(--animation-curve-default) calc(var(--animation-duration) - 0.1s),
       opacity 0.1s var(--animation-curve-default) calc(var(--animation-duration) - 0.1s);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    padding: 0 var(--spacer-smallest);
   }
 
   &:not(.is-completed):not(.is-active) {
     .status-bullet {
       background-color: var(--color-neutral-dark);
     }
-    .step-label {
-      color: var(--color-neutral-dark);
-    }
   }
 
   &.is-active {
     .step-label {
-      font-family: var(--font-family-bold);
+      color: var(--color-teal-darkest);
     }
     .status-bullet {
       &:before {
@@ -130,9 +145,6 @@
   &.is-active {
     .status-bullet {
       background-color: var(--color-mint);
-    }
-    .step-label {
-      color: var(--color-mint);
     }
   }
 
