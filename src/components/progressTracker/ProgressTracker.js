@@ -10,7 +10,7 @@ class ProgressTracker extends PureComponent {
   render() {
     const { color, children, currentStep, done, alternating } = this.props;
 
-    const classNames = cx(theme['tracker'], { [theme['tracker-alternating']]: alternating });
+    const classNames = cx(theme['tracker'], theme[color], { [theme['tracker-alternating']]: alternating });
 
     return (
       <Box className={classNames}>
@@ -22,7 +22,6 @@ class ProgressTracker extends PureComponent {
               {...child.props}
               active={done ? false : index === activeStep}
               completed={done || index < activeStep}
-              color={color}
             />
           );
         })}
@@ -46,7 +45,7 @@ ProgressTracker.propTypes = {
 
 ProgressTracker.defaultProps = {
   currentStep: 0,
-  color: 'neutral',
+  color: 'mint',
 };
 
 ProgressTracker.ProgressStep = ProgressStep;

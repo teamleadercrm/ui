@@ -39,7 +39,6 @@
   }
 
   &:after {
-    background-color: var(--color-mint);
     left: 50%;
     transition: width var(--animation-duration) var(--animation-curve-default);
     width: 0;
@@ -153,13 +152,6 @@
     }
   }
 
-  &.is-completed,
-  &.is-active {
-    .status-bullet {
-      background-color: var(--color-mint);
-    }
-  }
-
   &.is-clickable {
     .status-bullet:hover {
       cursor: pointer;
@@ -182,6 +174,78 @@
 
     &-label-holder {
       width: 200%;
+    }
+  }
+}
+
+.neutral .step {
+  &.is-completed,
+  &.is-active {
+    &:after {
+      background-color: var(--color-neutral);
+    }
+    .status-bullet {
+      background-color: var(--color-neutral);
+    }
+  }
+}
+
+.mint .step {
+  &.is-completed,
+  &.is-active {
+    &:after {
+      background-color: var(--color-mint);
+    }
+    .status-bullet {
+      background-color: var(--color-mint);
+    }
+  }
+}
+
+.aqua .step {
+  &.is-completed,
+  &.is-active {
+    &:after {
+      background-color: var(--color-aqua);
+    }
+    .status-bullet {
+      background-color: var(--color-aqua);
+    }
+  }
+}
+
+.violet .step {
+  &.is-completed,
+  &.is-active {
+    &:after {
+      background-color: var(--color-violet);
+    }
+    .status-bullet {
+      background-color: var(--color-violet);
+    }
+  }
+}
+
+.gold .step {
+  &.is-completed,
+  &.is-active {
+    &:after {
+      background-color: var(--color-gold);
+    }
+    .status-bullet {
+      background-color: var(--color-gold);
+    }
+  }
+}
+
+.ruby .step {
+  &.is-completed,
+  &.is-active {
+    &:after {
+      background-color: var(--color-ruby);
+    }
+    .status-bullet {
+      background-color: var(--color-ruby);
     }
   }
 }
