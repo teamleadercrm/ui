@@ -8,9 +8,9 @@ import ProgressStep from './ProgressStep';
 
 class ProgressTracker extends PureComponent {
   render() {
-    const { color, children, currentStep, done } = this.props;
+    const { color, children, currentStep, done, alternating } = this.props;
 
-    const classNames = cx(theme['tracker']);
+    const classNames = cx(theme['tracker'], { [theme['tracker-alternating']]: alternating });
 
     return (
       <Box className={classNames}>
@@ -40,6 +40,8 @@ ProgressTracker.propTypes = {
   children: PropTypes.node,
   /** Color theme of the progress tracker. */
   color: PropTypes.oneOf(['neutral', 'mint', 'aqua', 'violet', 'gold', 'ruby']),
+  /** Whether the position of the labels should alternate so they have more space  */
+  alternating: PropTypes.bool,
 };
 
 ProgressTracker.defaultProps = {

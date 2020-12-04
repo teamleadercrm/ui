@@ -9,7 +9,7 @@
 }
 
 .tracker {
-  align-items: flex-end;
+  align-items: flex-start;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -164,6 +164,24 @@
     .status-bullet:hover {
       cursor: pointer;
       transform: scale(1.5);
+    }
+  }
+}
+
+.tracker-alternating {
+  .step {
+    &:nth-child(even) {
+      flex-direction: column-reverse;
+      margin-top: 36px;
+
+      &:before,
+      &:after {
+        top: 11px;
+      }
+    }
+
+    &-label-holder {
+      width: 200%;
     }
   }
 }
