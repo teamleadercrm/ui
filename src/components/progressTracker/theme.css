@@ -54,7 +54,7 @@
     align-items: flex-start;
     flex: 1;
 
-    .step-label {
+    .step-label-holder {
       padding-left: 0;
       text-align: left;
     }
@@ -64,7 +64,7 @@
     align-items: flex-end;
     flex: 1;
 
-    .step-label {
+    .step-label-holder {
       padding-right: 0;
       text-align: right;
     }
@@ -111,17 +111,29 @@
     }
   }
 
-  .step-label {
-    font-family: var(--font-family-semi-bold);
+  .step-label-holder {
+    width: 100%;
+    padding: 0 var(--spacer-smallest);
     color: var(--color-neutral-darkest);
     text-align: center;
+    box-sizing: border-box;
+  }
+
+  .step-label {
+    font-family: var(--font-family-semi-bold);
     transition: font-family 0.1s var(--animation-curve-default) calc(var(--animation-duration) - 0.1s),
       opacity 0.1s var(--animation-curve-default) calc(var(--animation-duration) - 0.1s);
+  }
+
+  .step-meta {
+    font-size: var(--unit);
+  }
+
+  .step-label,
+  .step-meta {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 100%;
-    padding: 0 var(--spacer-smallest);
   }
 
   &:not(.is-completed):not(.is-active) {
@@ -131,7 +143,7 @@
   }
 
   &.is-active {
-    .step-label {
+    .step-label-holder {
       color: var(--color-teal-darkest);
     }
     .status-bullet {
