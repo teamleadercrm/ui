@@ -13,6 +13,7 @@
 ### Dependency updates
 
 - Removed `html-webpack-plugin` because it's not used anymore ([@lowiebenoot](https://github.com/lowiebenoot) in [#1346])
+- [Breaking] `postcss` from `7.0.17` to `8.2.0` ([@lowiebenoot](https://github.com/lowiebenoot) in [#1360]). This removes support for Node 11 and 13.
 
 ## [1.0.11] - 2020-11-23
 
