@@ -123,7 +123,7 @@
   "main": "cjs/index.js",
   "module": "es/index.js",
   "engines": {
-    "node": ">=10.13.0"
+    "node": "^10.13 || ^12 || >=14"
   },
   "repository": {
     "type": "git",
