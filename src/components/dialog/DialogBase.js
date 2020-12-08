@@ -12,16 +12,6 @@ import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
 
 class DialogBase extends PureComponent {
-  dialogRoot = document.createElement('div');
-
-  componentDidMount() {
-    document.body.appendChild(this.dialogRoot);
-  }
-
-  componentWillUnmount() {
-    document.body.removeChild(this.dialogRoot);
-  }
-
   render() {
     const {
       active,
@@ -80,7 +70,7 @@ class DialogBase extends PureComponent {
       </Transition>
     );
 
-    return createPortal(dialog, this.dialogRoot);
+    return createPortal(dialog, document.body);
   }
 }
 

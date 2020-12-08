@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `DialogBase`: Removed redundant wrapper in dialog rendering implementation ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1361])
+
 ### Deprecated
 
 ### Removed
