@@ -16,6 +16,7 @@
 - [Breaking] `postcss` from `7.0.17` to `8.2.0` ([@lowiebenoot](https://github.com/lowiebenoot) in [#1360]). This removes support for Node 11 and 13.
 - [Breaking] `postcss-cli` from `7.0.0` to `8.3.0` ([@lowiebenoot](https://github.com/lowiebenoot) in [#1360]).
 - [Breaking] `postcss-loader` from `3.0.0` to `4.1.0` ([@lowiebenoot](https://github.com/lowiebenoot) in [#1360]).
+- [Breaking] `postcss-import` from `12.0.1` to `13.0.0` ([@lowiebenoot](https://github.com/lowiebenoot) in [#1360]).
 
 ## [1.0.11] - 2020-11-23
 
