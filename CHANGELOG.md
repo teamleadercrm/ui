@@ -15,6 +15,13 @@
 ### Dependency updates
 
 - Removed `html-webpack-plugin` because it's not used anymore ([@lowiebenoot](https://github.com/lowiebenoot) in [#1346])
+- [Breaking] `postcss` from `7.0.17` to `8.2.0` ([@lowiebenoot](https://github.com/lowiebenoot) in [#1360]). This removes support for Node 11 and 13.
+- [Breaking] `postcss-cli` from `7.0.0` to `8.3.0` ([@lowiebenoot](https://github.com/lowiebenoot) in [#1360]).
+- [Breaking] `postcss-loader` from `3.0.0` to `4.1.0` ([@lowiebenoot](https://github.com/lowiebenoot) in [#1360]).
+- [Breaking] `postcss-import` from `12.0.1` to `13.0.0` ([@lowiebenoot](https://github.com/lowiebenoot) in [#1360]).
+- [Breaking] `postcss-mixins` from `6.2.1` to `7.0.1` ([@lowiebenoot](https://github.com/lowiebenoot) in [#1360]).
+- [Breaking] `postcss-nested` from `4.1.2` to `5.0.3` ([@lowiebenoot](https://github.com/lowiebenoot) in [#1360]).
+- [Breaking] `postcss-reporter` from `6.0.1` to `7.0.2` ([@lowiebenoot](https://github.com/lowiebenoot) in [#1360]).
 
 ## [1.0.11] - 2020-11-23
 
