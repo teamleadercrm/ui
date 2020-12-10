@@ -4,13 +4,19 @@
 
 ### Changed
 
-- `DialogBase`: Removed redundant wrapper in dialog rendering implementation ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1361])
-
 ### Deprecated
 
 ### Removed
 
 ### Fixed
+
+### Dependency updates
+
+## [2.0.0] - 2020-12-10
+
+### Changed
+
+- `DialogBase`: Removed redundant wrapper in dialog rendering implementation ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1361])
 
 ### Dependency updates
 
@@ -22,6 +28,15 @@
 - [Breaking] `postcss-mixins` from `6.2.1` to `7.0.1` ([@lowiebenoot](https://github.com/lowiebenoot) in [#1360]).
 - [Breaking] `postcss-nested` from `4.1.2` to `5.0.3` ([@lowiebenoot](https://github.com/lowiebenoot) in [#1360]).
 - [Breaking] `postcss-reporter` from `6.0.1` to `7.0.2` ([@lowiebenoot](https://github.com/lowiebenoot) in [#1360]).
+- `@storybook/addon-backgrounds` from `6.0.0-rc.15` to `6.1.5`
+- `@storybook/addon-controls` from `6.0.0-beta.15` to `6.1.5`
+- `@storybook/addon-docs` from `6.0.0-rc.15` to `6.1.5`
+- `@storybook/addon-knobs` from `6.0.0-rc.15` to `6.1.9`
+- `@storybook/addons` from `6.0.0-rc.15` to `6.1.9`
+- `@storybook/react` from `6.0.0-rc.15` to `6.1.9`
+- `@storybook/theming` from `6.0.0-rc.15` to `6.1.5`
+- `@storybook/ui` from `6.0.0-rc.15` to `6.1.9`
+- `prettier` from `2.1.0` to `2.2.0`
 
 ## [1.0.11] - 2020-11-23
 
