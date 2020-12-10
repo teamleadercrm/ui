@@ -12,6 +12,77 @@
 
 ### Dependency updates
 
+## [2.0.0] - 2020-12-10
+
+### Changed
+
+- `DialogBase`: Removed redundant wrapper in dialog rendering implementation ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1361])
+
+### Dependency updates
+
+- Removed `html-webpack-plugin` because it's not used anymore ([@lowiebenoot](https://github.com/lowiebenoot) in [#1346])
+- [Breaking] `postcss` from `7.0.17` to `8.2.0` ([@lowiebenoot](https://github.com/lowiebenoot) in [#1360]). This removes support for Node 11 and 13.
+- [Breaking] `postcss-cli` from `7.0.0` to `8.3.0` ([@lowiebenoot](https://github.com/lowiebenoot) in [#1360]).
+- [Breaking] `postcss-loader` from `3.0.0` to `4.1.0` ([@lowiebenoot](https://github.com/lowiebenoot) in [#1360]).
+- [Breaking] `postcss-import` from `12.0.1` to `13.0.0` ([@lowiebenoot](https://github.com/lowiebenoot) in [#1360]).
+- [Breaking] `postcss-mixins` from `6.2.1` to `7.0.1` ([@lowiebenoot](https://github.com/lowiebenoot) in [#1360]).
+- [Breaking] `postcss-nested` from `4.1.2` to `5.0.3` ([@lowiebenoot](https://github.com/lowiebenoot) in [#1360]).
+- [Breaking] `postcss-reporter` from `6.0.1` to `7.0.2` ([@lowiebenoot](https://github.com/lowiebenoot) in [#1360]).
+- `@storybook/addon-backgrounds` from `6.0.0-rc.15` to `6.1.5`
+- `@storybook/addon-controls` from `6.0.0-beta.15` to `6.1.5`
+- `@storybook/addon-docs` from `6.0.0-rc.15` to `6.1.5`
+- `@storybook/addon-knobs` from `6.0.0-rc.15` to `6.1.9`
+- `@storybook/addons` from `6.0.0-rc.15` to `6.1.9`
+- `@storybook/react` from `6.0.0-rc.15` to `6.1.9`
+- `@storybook/theming` from `6.0.0-rc.15` to `6.1.5`
+- `@storybook/ui` from `6.0.0-rc.15` to `6.1.9`
+- `prettier` from `2.1.0` to `2.2.0`
+
+## [1.0.11] - 2020-11-23
+
+### Added
+
+- `Select`: added `truncateOptionText` boolean prop (default false) which enable truncation of long option text words, but still makes multiline possible. ([@driesd](https://github.com/driesd) in [#1335])
+
+### Changed
+
+- `DatePicker`: changed the `MonthPicker` to have better text-overflow handling. ([@driesd](https://github.com/driesd) in [#1335])
+- `DatePicker`: changed styles to match our new design specs. ([@driesd](https://github.com/driesd) in [#1338])
+
+### Dependency updates
+
+- `@teamleader/ui-icons` from `0.2.29` to `0.2.30` ([@driesd](https://github.com/driesd) in [#1339])
+- `@teamleader/ui-typography` from `0.2.3` to `1.0.0` ([@driesd](https://github.com/driesd) in [#1339])
+
+## [1.0.10] - 2020-11-19
+
+### Fixed
+
+- `IconMenu`: fixed positioning of the menu. ([@driesd](https://github.com/driesd) in [#1328])
+- `Menu`: fixed warning when outline width is undefined. ([@driesd](https://github.com/driesd) in [#1327])
+
+## [1.0.9] - 2020-11-18
+
+### Changed
+
+- `IconMenu`: changed to preserve the visibility of the IconButton when the IconMenu is open. ([@driesd](https://github.com/driesd) in [#1324])
+
+### Fixed
+
+- `Menu`: fixed the border-width rendering which occasionally resulted in zero pixels. ([@driesd](https://github.com/driesd) in [#1325])
+
+## [1.0.8] - 2020-10-28
+
+### Fixed
+
+- `Avatar`: fixed unwanted text-decoration when `element` is an anchor tag ([@driesd](https://github.com/driesd) in [#1319])
+
+## [1.0.7] - 2020-10-20
+
+### Added
+
+- `Button`: added a `tiny` size ([@driesd](https://github.com/driesd) in [#1314])
+
 ## [1.0.6] - 2020-09-25
 
 ### Dependency updates
