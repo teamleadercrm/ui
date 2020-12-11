@@ -14,7 +14,6 @@ module.exports = ({ file, options, env }) => {
       'postcss-reporter': {},
       'postcss-preset-env': {
         preserve: false,
-        browsers: '>0.5%, ie 11, not op_mini all',
       },
       // @TODO deprecated, a different approach for colors should be used
       'postcss-color-function': {},
