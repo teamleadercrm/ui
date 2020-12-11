@@ -26,7 +26,6 @@
   ],
   "types": "index.d.ts",
   "dependencies": {
-    "@babel/cli": "^7.12.1",
     "@babel/runtime": "^7.12.5",
     "@teamleader/ui-animations": "^0.0.3",
     "@teamleader/ui-colors": "^0.3.0",
@@ -53,6 +52,7 @@
     "smoothscroll-polyfill": "^0.4.4"
   },
   "devDependencies": {
+    "@babel/cli": "^7.12.10",
     "@babel/core": "^7.12.3",
     "@babel/plugin-proposal-export-default-from": "^7.12.1",
     "@babel/plugin-proposal-private-methods": "^7.12.1",
