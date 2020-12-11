@@ -11,9 +11,7 @@ module.exports = ({ file, options, env }) => {
       'postcss-each': {},
       'postcss-nested': {},
       'postcss-custom-media': {},
-      'postcss-reporter': {
-        clearMessages: true,
-      },
+      'postcss-reporter': {},
       'postcss-preset-env': {
         preserve: false,
         browsers: '>0.5%, ie 11, not op_mini all',
