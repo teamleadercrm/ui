@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `Dependencies`: removed redundant postcss-mixins, cleaned up postcss configuration and dependency definition ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1366])
+
 ### Deprecated
 
 ### Removed
