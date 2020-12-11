@@ -8,7 +8,6 @@ module.exports = ({ file, options, env }) => {
         path: [path.join(__dirname, './src/components')],
       },
       'postcss-pseudoelements': {},
-      'postcss-mixins': {},
       'postcss-each': {},
       'postcss-nested': {},
       'postcss-custom-media': {},
