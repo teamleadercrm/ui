@@ -2,6 +2,9 @@
 
 ### Added
 
+- `ProgressTracker`: Added support for `alternating` and `color` props. ([@lorgan3](https://github.com/lorgan3) in [#1368])
+- `ProgressStep`: Added a `meta` prop for displaying additional info below the label. ([@lorgan3](https://github.com/lorgan3) in [#1368])
+
 ### Changed
 
 ### Deprecated
