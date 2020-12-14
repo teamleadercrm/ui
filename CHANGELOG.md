@@ -2,6 +2,9 @@
 
 ### Added
 
+- `ProgressTracker`: Added support for `alternating` and `color` props. ([@lorgan3](https://github.com/lorgan3) in [#1368])
+- `ProgressStep`: Added a `meta` prop for displaying additional info below the label. ([@lorgan3](https://github.com/lorgan3) in [#1368])
+
 ### Changed
 
 - `Dependencies`: removed redundant postcss-mixins, cleaned up postcss configuration and dependency definition ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1366])

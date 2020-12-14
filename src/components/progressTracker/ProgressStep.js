@@ -8,7 +8,7 @@ import { TextSmall } from '../typography';
 
 class ProgressStep extends PureComponent {
   render() {
-    const { label, active, completed, onClick } = this.props;
+    const { label, meta, active, completed, onClick } = this.props;
     const classNames = cx(theme['step'], {
       [theme['is-active']]: active,
       [theme['is-completed']]: completed,
@@ -16,7 +16,10 @@ class ProgressStep extends PureComponent {
     });
     return (
       <Box className={classNames}>
-        <TextSmall className={theme['step-label']}>{label}</TextSmall>
+        <div className={theme['step-label-holder']}>
+          <TextSmall className={theme['step-label']}>{label}</TextSmall>
+          {meta && <TextSmall className={theme['step-meta']}>{meta}</TextSmall>}
+        </div>
         <span className={theme['status-bullet']} onClick={onClick} />
       </Box>
     );
@@ -26,6 +29,8 @@ class ProgressStep extends PureComponent {
 ProgressStep.propTypes = {
   /** The label for the progress step */
   label: PropTypes.string.isRequired,
+  /** The meta text below the label */
+  meta: PropTypes.PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
   /** Whether or not the step is active */
   active: PropTypes.bool.isRequired,
   /** Whether or not the step has been completed */

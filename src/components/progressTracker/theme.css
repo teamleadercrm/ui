@@ -1,6 +1,7 @@
 @import '@teamleader/ui-colors';
 @import '@teamleader/ui-typography';
 @import '@teamleader/ui-animations';
+@import '@teamleader/ui-utilities';
 
 :root {
   --bullet-size: 12px;
@@ -8,20 +9,21 @@
 }
 
 .tracker {
-  align-items: flex-end;
+  align-items: flex-start;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding: 20px 24px;
+  padding: 20px 30px;
 }
 
 .step {
   display: flex;
   flex-direction: column;
   width: 100%;
+  min-width: 0;
   align-items: center;
   justify-content: center;
-  max-width: 180px;
+  flex: 2;
   position: relative;
 
   &:before,
@@ -37,37 +39,48 @@
   }
 
   &:after {
-    background-color: var(--color-mint);
     left: 50%;
     transition: width var(--animation-duration) var(--animation-curve-default);
     width: 0;
     z-index: 1;
   }
 
-  &:not(:first-child):not(:last-child) {
-    &:before {
-      width: 100%;
-      left: 0;
-    }
+  &:before {
+    width: 100%;
   }
 
   &:first-child {
-    &:before {
-      width: 50%;
-      left: 50%;
+    align-items: flex-start;
+    flex: 1;
+
+    .step-label-holder {
+      padding-left: 0;
+      text-align: left;
     }
   }
 
   &:last-child {
-    &:before {
-      width: 50%;
-      left: 0;
+    align-items: flex-end;
+    flex: 1;
+
+    .step-label-holder {
+      padding-right: 0;
+      text-align: right;
     }
   }
 
-  &.is-completed:not(:last-child) {
-    &:after {
-      width: 100%;
+  &.is-completed {
+    &:not(:last-child) {
+      &:after {
+        width: 100%;
+      }
+    }
+
+    &:first-child {
+      &::after {
+        width: 200%;
+        left: 0;
+      }
     }
   }
 
@@ -75,7 +88,6 @@
     background-color: transparent;
     transition: background-color 0.1s var(--animation-curve-default) calc(var(--animation-duration) - 0.1s),
       transform 0.1s var(--animation-curve-fast-out-slow-in);
-    align-self: center;
     border-radius: 50%;
     display: block;
     height: var(--bullet-size);
@@ -98,26 +110,44 @@
     }
   }
 
-  .step-label {
-    font-family: var(--font-family-regular);
+  .step-label-holder {
+    width: 100%;
+    padding: 0 var(--spacer-smallest);
     text-align: center;
+    box-sizing: border-box;
     transition: font-family 0.1s var(--animation-curve-default) calc(var(--animation-duration) - 0.1s),
       opacity 0.1s var(--animation-curve-default) calc(var(--animation-duration) - 0.1s);
+  }
+
+  .step-label {
+    color: var(--color-teal-darkest);
+  }
+
+  .step-meta {
+    color: var(--color-neutral-darkest);
+  }
+
+  .step-label,
+  .step-meta {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &:not(.is-completed):not(.is-active) {
     .status-bullet {
       background-color: var(--color-neutral-dark);
     }
-    .step-label {
-      color: var(--color-neutral-dark);
-    }
   }
 
   &.is-active {
-    .step-label {
-      font-family: var(--font-family-bold);
+    .step-label-holder {
+      .step-label,
+      .step-meta {
+        font-family: var(--font-family-semi-bold);
+      }
     }
+
     .status-bullet {
       &:before {
         animation: showBulletCenter 0.1s calc(var(--animation-duration) - 0.1s) forwards;
@@ -125,20 +155,100 @@
     }
   }
 
-  &.is-completed,
-  &.is-active {
-    .status-bullet {
-      background-color: var(--color-mint);
-    }
-    .step-label {
-      color: var(--color-mint);
-    }
-  }
-
   &.is-clickable {
     .status-bullet:hover {
       cursor: pointer;
       transform: scale(1.5);
+    }
+  }
+}
+
+.tracker-alternating {
+  .step {
+    &:nth-child(even) {
+      flex-direction: column-reverse;
+      margin-top: 36px;
+
+      &:before,
+      &:after {
+        top: 11px;
+      }
+    }
+
+    &-label-holder {
+      width: 200%;
+    }
+  }
+}
+
+.neutral .step {
+  &.is-completed,
+  &.is-active {
+    &:after {
+      background-color: var(--color-neutral);
+    }
+    .status-bullet {
+      background-color: var(--color-neutral);
+    }
+  }
+}
+
+.mint .step {
+  &.is-completed,
+  &.is-active {
+    &:after {
+      background-color: var(--color-mint);
+    }
+    .status-bullet {
+      background-color: var(--color-mint);
+    }
+  }
+}
+
+.aqua .step {
+  &.is-completed,
+  &.is-active {
+    &:after {
+      background-color: var(--color-aqua);
+    }
+    .status-bullet {
+      background-color: var(--color-aqua);
+    }
+  }
+}
+
+.violet .step {
+  &.is-completed,
+  &.is-active {
+    &:after {
+      background-color: var(--color-violet);
+    }
+    .status-bullet {
+      background-color: var(--color-violet);
+    }
+  }
+}
+
+.gold .step {
+  &.is-completed,
+  &.is-active {
+    &:after {
+      background-color: var(--color-gold);
+    }
+    .status-bullet {
+      background-color: var(--color-gold);
+    }
+  }
+}
+
+.ruby .step {
+  &.is-completed,
+  &.is-active {
+    &:after {
+      background-color: var(--color-ruby);
+    }
+    .status-bullet {
+      background-color: var(--color-ruby);
     }
   }
 }
