@@ -8,16 +8,12 @@ module.exports = ({ file, options, env }) => {
         path: [path.join(__dirname, './src/components')],
       },
       'postcss-pseudoelements': {},
-      'postcss-mixins': {},
       'postcss-each': {},
       'postcss-nested': {},
       'postcss-custom-media': {},
-      'postcss-reporter': {
-        clearMessages: true,
-      },
+      'postcss-reporter': {},
       'postcss-preset-env': {
         preserve: false,
-        browsers: '>0.5%, ie 11, not op_mini all',
       },
       // @TODO deprecated, a different approach for colors should be used
       'postcss-color-function': {},

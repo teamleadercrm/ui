@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@babel/cli@^7.12.1":
-  version "7.12.1"
-  resolved "https://registry.yarnpkg.com/@babel/cli/-/cli-7.12.1.tgz#e08a0b1cb6fcd4b9eb6a606ba5602c5c0fe24a0c"
-  integrity sha512-eRJREyrfAJ2r42Iaxe8h3v6yyj1wu9OyosaUHW6UImjGf9ahGL9nsFNh7OCopvtcPL8WnEo7tp78wrZaZ6vG9g==
+"@babel/cli@^7.12.10":
+  version "7.12.10"
+  resolved "https://registry.yarnpkg.com/@babel/cli/-/cli-7.12.10.tgz#67a1015b1cd505bde1696196febf910c4c339a48"
+  integrity sha512-+y4ZnePpvWs1fc/LhZRTHkTesbXkyBYuOB+5CyodZqrEuETXi3zOVfpAQIdgC3lXbHLTDG9dQosxR9BhvLKDLQ==
   dependencies:
     commander "^4.0.1"
     convert-source-map "^1.1.0"
@@ -16,7 +16,7 @@
     slash "^2.0.0"
     source-map "^0.5.0"
   optionalDependencies:
-    "@nicolo-ribaudo/chokidar-2" "^2.1.8"
+    "@nicolo-ribaudo/chokidar-2" "2.1.8-no-fsevents"
     chokidar "^3.4.0"
 
 "@babel/code-frame@7.5.5":
@@ -1354,12 +1354,22 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@nicolo-ribaudo/chokidar-2@^2.1.8":
-  version "2.1.8"
-  resolved "https://registry.yarnpkg.com/@nicolo-ribaudo/chokidar-2/-/chokidar-2-2.1.8.tgz#eef8d9b47e8dc589499f14d656e8d2dd978c3d14"
-  integrity sha512-FohwULwAebCUKi/akMFyGi7jfc7JXTeMHzKxuP3umRd9mK/2Y7/SMBSI2jX+YLopPXi+PF9l307NmpfxTdCegA==
+"@nicolo-ribaudo/chokidar-2@2.1.8-no-fsevents":
+  version "2.1.8-no-fsevents"
+  resolved "https://registry.yarnpkg.com/@nicolo-ribaudo/chokidar-2/-/chokidar-2-2.1.8-no-fsevents.tgz#da7c3996b8e6e19ebd14d82eaced2313e7769f9b"
+  integrity sha512-+nb9vWloHNNMFHjGofEam3wopE3m1yuambrrd/fnPc+lFOMB9ROTqQlche9ByFWNkdNqfSgR/kkQtQ8DzEWt2w==
   dependencies:
-    chokidar "2.1.8"
+    anymatch "^2.0.0"
+    async-each "^1.0.1"
+    braces "^2.3.2"
+    glob-parent "^3.1.0"
+    inherits "^2.0.3"
+    is-binary-path "^1.0.0"
+    is-glob "^4.0.0"
+    normalize-path "^3.0.0"
+    path-is-absolute "^1.0.0"
+    readdirp "^2.2.1"
+    upath "^1.1.1"
 
 "@nodelib/fs.scandir@2.1.3":
   version "2.1.3"
@@ -3462,7 +3472,14 @@ ansi-styles@^3.2.0, ansi-styles@^3.2.1:
   dependencies:
     color-convert "^1.9.0"
 
-ansi-styles@^4.0.0, ansi-styles@^4.1.0:
+ansi-styles@^4.0.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/ansi-styles/-/ansi-styles-4.3.0.tgz#edd803628ae71c04c85ae7a0906edad34b648937"
+  integrity sha512-zbB9rCJAT1rbjiVDb2hqKFHNYLxgtk8NURxZ3IZwD3F6NtxbXZQCnnSi1Lkx+IDohdPlFp222wVALIheZJQSEg==
+  dependencies:
+    color-convert "^2.0.1"
+
+ansi-styles@^4.1.0:
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/ansi-styles/-/ansi-styles-4.2.1.tgz#90ae75c424d008d2624c5bf29ead3177ebfcf359"
   integrity sha512-9VGjrMsG1vePxcSweQsN20KY/c4zN0h9fLjqAbwbPfahM3t+NL+M9HC8xeXG2I8pX5NoamTGNuomEUFI7fcUjA==
@@ -4520,7 +4537,7 @@ camel-case@^3.0.0:
     no-case "^2.2.0"
     upper-case "^1.1.1"
 
-camelcase-css@2.0.1, camelcase-css@^2.0.1:
+camelcase-css@2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/camelcase-css/-/camelcase-css-2.0.1.tgz#ee978f6947914cc30c6b44741b6ed1df7f043fd5"
   integrity sha512-QOSvevhslijgYwRx6Rv7zKdMF8lbRmx+uQGx2+vDc+KI/eBnsy9kit5aj23AgGu3pa4t9AgwbnXWqS+iOY+2aA==
@@ -4661,7 +4678,7 @@ chardet@^0.7.0:
   resolved "https://registry.yarnpkg.com/chardet/-/chardet-0.7.0.tgz#90094849f0937f2eedc2425d0d28a9e5f0cbad9e"
   integrity sha512-mT8iDcrh03qDGRRmoA2hmBJnxpllMR+0/0qlzjqZES6NdiWDcZkCNAk4rPFZ9Q85r27unkiNNg8ZOiwZXBHwcA==
 
-chokidar@2.1.8, chokidar@^2.0.4, chokidar@^2.1.8:
+chokidar@^2.0.4, chokidar@^2.1.8:
   version "2.1.8"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-2.1.8.tgz#804b3a7b6a99358c3c5c61e71d8728f041cff917"
   integrity sha512-ZmZUazfOzf0Nve7duiCKD23PFSCs4JPoYyccjUFF3aQkQadqBhfzhjkwBH2mNOG9cTBwhamM37EIsIkZw3nRgg==
@@ -6813,9 +6830,9 @@ fast-glob@^3.0.3:
     micromatch "^4.0.2"
 
 fast-glob@^3.1.1:
-  version "3.2.2"
-  resolved "https://registry.yarnpkg.com/fast-glob/-/fast-glob-3.2.2.tgz#ade1a9d91148965d4bf7c51f72e1ca662d32e63d"
-  integrity sha512-UDV82o4uQyljznxwMxyVRJgZZt3O5wENYojjzbaGEGZgeOxkLFf+V4cnUD+krzb2F72E18RhamkMZ7AdeggF7A==
+  version "3.2.4"
+  resolved "https://registry.yarnpkg.com/fast-glob/-/fast-glob-3.2.4.tgz#d20aefbf99579383e7f3cc66529158c9b98554d3"
+  integrity sha512-kr/Oo6PX51265qeuCYsyGypiO5uJFgBS0jksyG7FUeCyQzNwYnzrNIMR1NXfkZXsMYXYLRAHgISHBz8gQcxKHQ==
   dependencies:
     "@nodelib/fs.stat" "^2.0.2"
     "@nodelib/fs.walk" "^1.2.3"
@@ -7610,18 +7627,6 @@ globby@^10.0.0:
     slash "^3.0.0"
 
 globby@^11.0.0:
-  version "11.0.0"
-  resolved "https://registry.yarnpkg.com/globby/-/globby-11.0.0.tgz#56fd0e9f0d4f8fb0c456f1ab0dee96e1380bc154"
-  integrity sha512-iuehFnR3xu5wBBtm4xi0dMe92Ob87ufyu/dHwpDYfbcpYpIbrO5OnS8M1vWvrBhSGEJ3/Ecj7gnX76P8YxpPEg==
-  dependencies:
-    array-union "^2.1.0"
-    dir-glob "^3.0.1"
-    fast-glob "^3.1.1"
-    ignore "^5.1.4"
-    merge2 "^1.3.0"
-    slash "^3.0.0"
-
-globby@^11.0.1:
   version "11.0.1"
   resolved "https://registry.yarnpkg.com/globby/-/globby-11.0.1.tgz#9a2bf107a068f3ffeabc49ad702c79ede8cfd357"
   integrity sha512-iH9RmgwCmUJHi2z5o2l3eTtGBtXek1OYlHrbcxOYugyHLmAsZrPj43OtHThd62Buh/Vv6VyCBD2bdyWcGNQqoQ==
@@ -11284,14 +11289,6 @@ postcss-initial@^3.0.0:
     lodash.template "^4.5.0"
     postcss "^7.0.2"
 
-postcss-js@^3.0.1:
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/postcss-js/-/postcss-js-3.0.3.tgz#2f0bd370a2e8599d45439f6970403b5873abda33"
-  integrity sha512-gWnoWQXKFw65Hk/mi2+WTQTHdPD5UJdDXZmX073EY/B3BWnYjO4F4t0VneTCnCGQ5E5GsCdMkzPaTXwl3r5dJw==
-  dependencies:
-    camelcase-css "^2.0.1"
-    postcss "^8.1.6"
-
 postcss-lab-function@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/postcss-lab-function/-/postcss-lab-function-2.0.1.tgz#bb51a6856cd12289ab4ae20db1e3821ef13d7d2e"
@@ -11418,16 +11415,6 @@ postcss-minify-selectors@^4.0.2:
     has "^1.0.0"
     postcss "^7.0.0"
     postcss-selector-parser "^3.0.0"
-
-postcss-mixins@^7.0.1:
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/postcss-mixins/-/postcss-mixins-7.0.1.tgz#f46a18abef1eea727b4f0b6198aada1cae20cafc"
-  integrity sha512-9VLSce+dkPYmeD7/MmPh5HTQch1HEO4avtkrT8x0t8F8TOd+gfUMkJXS82Kx1qV4c2pkMdhq4M5aEnZHYRJWiA==
-  dependencies:
-    globby "^11.0.1"
-    postcss-js "^3.0.1"
-    postcss-simple-vars "^6.0.1"
-    sugarss "^3.0.1"
 
 postcss-modules-extract-imports@^2.0.0:
   version "2.0.0"
@@ -11745,11 +11732,6 @@ postcss-simple-vars@^4.0.0:
   dependencies:
     postcss "^6.0.9"
 
-postcss-simple-vars@^6.0.1:
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/postcss-simple-vars/-/postcss-simple-vars-6.0.1.tgz#7733415a7b57f5cb9b5a15cdd6b0546c505e7ad6"
-  integrity sha512-P1M+APrquBXOPKtk/LlWptuPBwTCjMgxZxv1lkpjG9RdOx8ewi8USOclPCt75xG7UT7viDUB3p3qy2ffPBefjQ==
-
 postcss-svgo@^4.0.2:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/postcss-svgo/-/postcss-svgo-4.0.2.tgz#17b997bc711b333bab143aaed3b8d3d6e3d38258"
@@ -11806,7 +11788,7 @@ postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.14, postcss@^7.0.17, postcss@^7.0.2
     source-map "^0.6.1"
     supports-color "^6.1.0"
 
-postcss@^8.1.6, postcss@^8.2.0:
+postcss@^8.2.0:
   version "8.2.0"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.2.0.tgz#214be4eda36db762eb8a89d7c7362b9341156eb5"
   integrity sha512-vZ8cb6AlN53hHlnPvR+oj7fA46LU05Ysv7O7sNh1ixQrCbtx+d8/h+5tDER9XAccVhkf3aYskAiWmh0DdjNLbw==
@@ -13940,13 +13922,6 @@ stylehacks@^4.0.0:
     browserslist "^4.0.0"
     postcss "^7.0.0"
     postcss-selector-parser "^3.0.0"
-
-sugarss@^3.0.1:
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/sugarss/-/sugarss-3.0.3.tgz#bb2489961b98fbd15e4e35d6b9f4f2ee5547a6cb"
-  integrity sha512-uxa2bbuc+w7ov7DyYIhF6bM0qZF3UkFT5/nE8AJgboiVnKsBDbwxs++dehEIe1JNhpMaGJc37wGQ2QrrWey2Sg==
-  dependencies:
-    postcss "^8.1.6"
 
 supports-color@^2.0.0:
   version "2.0.0"
