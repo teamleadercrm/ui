@@ -19,7 +19,12 @@ export default {
 export const DefaultStory = (args) => (
   <ProgressTracker {...args}>
     {steps.map((step, index) => (
-      <ProgressTracker.ProgressStep label={step} key={index} onClick={() => console.log('step clicked')} />
+      <ProgressTracker.ProgressStep
+        label={step}
+        meta={`${10 + index * 3}/12/2020`}
+        key={index}
+        onClick={() => console.log('step clicked')}
+      />
     ))}
   </ProgressTracker>
 );
