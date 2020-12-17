@@ -358,6 +358,7 @@ class Select extends PureComponent {
           hideSelectedOptions={false}
           menuPortalTarget={portalTarget}
           styles={this.getStyles()}
+          size={size}
           {...restProps}
         />
         <ValidationText error={error} help={helpText} inverse={inverse} success={success} warning={warning} />
