@@ -2,8 +2,6 @@
 
 ### Added
 
-- `Select`: Pass size property to the Select component, allowing custom components to access it. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1375])
-
 ### Changed
 
 ### Deprecated
@@ -13,6 +11,12 @@
 ### Fixed
 
 ### Dependency updates
+
+## [2.2.0] - 2020-12-17
+
+### Added
+
+- `Select`: Pass size property to the Select component, allowing custom components to access it. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1375])
 
 ## [2.1.0] - 2020-12-15
 
