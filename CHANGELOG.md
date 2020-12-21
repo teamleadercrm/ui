@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `ProgressTracker`: Make sure bars are not misaligned on different zoomlevels. ([@lorgan3](https://github.com/lorgan3) in [#1378])
+
 ### Dependency updates
 
 ## [2.2.0] - 2020-12-17
