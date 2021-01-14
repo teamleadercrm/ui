@@ -10,6 +10,7 @@
 
 ### Fixed
 
+- `Dialog`: fixed the horizontal positioning. ([@driesd](https://github.com/driesd) in [#1416])
 - `ProgressTracker`: Make sure bars are not misaligned on different zoomlevels. ([@lorgan3](https://github.com/lorgan3) in [#1378])
 
 ### Dependency updates
