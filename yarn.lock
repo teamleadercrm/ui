@@ -2367,17 +2367,6 @@
     npmlog "^4.1.2"
     pretty-hrtime "^1.0.3"
 
-"@storybook/node-logger@6.1.14":
-  version "6.1.14"
-  resolved "https://registry.yarnpkg.com/@storybook/node-logger/-/node-logger-6.1.14.tgz#e5294f986e3ec5c67b2738895b9d16c9a2b667fa"
-  integrity sha512-3jrw7coAwFXZu4qK1vm54bCPhNRvxjG+7jISbhhocDoNIv0nLWL3+tJyrC5/k/XHQiUlLkhEzpMaASADmkttNw==
-  dependencies:
-    "@types/npmlog" "^4.1.2"
-    chalk "^4.0.0"
-    core-js "^3.0.1"
-    npmlog "^4.1.2"
-    pretty-hrtime "^1.0.3"
-
 "@storybook/postinstall@6.1.12":
   version "6.1.12"
   resolved "https://registry.yarnpkg.com/@storybook/postinstall/-/postinstall-6.1.12.tgz#db561d94c013ada07be381c0faea5b58eb269260"
@@ -13489,9 +13478,9 @@ store2@^2.7.1:
   integrity sha512-tWEpK0snS2RPUq1i3R6OahfJNjWCQYNxq0+by1amCSuw0mXtymJpzmZIeYpA1UAa+7B0grCpNYIbDcd7AgTbFg==
 
 storybook-addon-designs@^5.4.0:
-  version "5.4.2"
-  resolved "https://registry.yarnpkg.com/storybook-addon-designs/-/storybook-addon-designs-5.4.2.tgz#5cd98c2e1665e610c4fb190cfe8310d720657057"
-  integrity sha512-NByEwHN18GZIYD3YmsswcpKfa/R7nlY0fTYt4M158UwZgfg08Mf6v06zhq0I3MaL7CF/DdjBVIIXT13nlSi5BA==
+  version "5.4.3"
+  resolved "https://registry.yarnpkg.com/storybook-addon-designs/-/storybook-addon-designs-5.4.3.tgz#ab4209e180e94c848f5920dc1ebbb075b4283303"
+  integrity sha512-rSEC/jX0ig8qnQz1AzbEU+s2lmlDyZTCEy3Jh//XSBiZWycm0uPbP1vcknVXHbbGhkvHRvoyROqssiCjX661ZA==
   dependencies:
     react-pdf "^4.0.5"
 
