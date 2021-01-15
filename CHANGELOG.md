@@ -12,6 +12,12 @@
 
 ### Dependency updates
 
+## [2.2.2] - 2021-01-15
+
+### Dependency updates
+
+- `react-select`: downgrade from `3.0.11` to `3.0.4`
+
 ## [2.2.1] - 2021-01-14
 
 ### Fixed
