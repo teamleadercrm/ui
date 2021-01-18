@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import Box from '../box';
 import LoadingBar from '../loadingBar';
@@ -104,10 +103,8 @@ class DataGrid extends PureComponent {
     let maxRowWidth = 0;
 
     [...this.rowNodes.values()]
-      .filter((rowNode) => rowNode != null)
-      .forEach((rowNode) => {
-        const rowDOMNode = ReactDOM.findDOMNode(rowNode);
-
+      .filter((rowDOMNode) => rowDOMNode != null)
+      .forEach((rowDOMNode) => {
         if (rowDOMNode) {
           const totalRowChildrenWidth = [...rowDOMNode.children]
             .map((child) => child.offsetWidth)
