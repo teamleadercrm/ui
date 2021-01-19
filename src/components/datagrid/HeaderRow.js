@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { forwardRef, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Row from './Row';
 import HeaderCell from './HeaderCell';
@@ -8,14 +8,30 @@ import theme from './theme.css';
 
 class HeaderRow extends PureComponent {
   render() {
-    const { className, children, sliceFrom, sliceTo, onSelectionChange, selected, selectable, ...others } = this.props;
+    const {
+      className,
+      children,
+      forwardedRef,
+      sliceFrom,
+      sliceTo,
+      onSelectionChange,
+      selected,
+      selectable,
+      ...others
+    } = this.props;
 
     const childrenArray = Array.isArray(children) ? children : [children];
     const childrenSliced = childrenArray.slice(sliceFrom, sliceTo);
     const classNames = cx(theme['header-row'], className);
 
     return (
-      <Row backgroundColor="neutral" className={classNames} data-teamleader-ui="datagrid-header-row" {...others}>
+      <Row
+        backgroundColor="neutral"
+        className={classNames}
+        data-teamleader-ui="datagrid-header-row"
+        ref={forwardedRef}
+        {...others}
+      >
         {selectable && (
           <HeaderCell flex="checkbox-width" sortable={false}>
             <Checkbox checked={selected} onChange={onSelectionChange} size="small" />
@@ -44,4 +60,4 @@ HeaderRow.propTypes = {
   sliceTo: PropTypes.number,
 };
 
-export default HeaderRow;
+export default forwardRef((props, ref) => <HeaderRow {...props} forwardedRef={ref} />);

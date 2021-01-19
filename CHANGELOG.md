@@ -2,7 +2,15 @@
 
 ### Added
 
+- `DataGrid BodyRow`: added forwardRef. ([@driesd](https://github.com/driesd) in [#1422])
+- `DataGrid FooterRow`: added forwardRef. ([@driesd](https://github.com/driesd) in [#1422])
+- `DataGrid HeaderRow`: added forwardRef. ([@driesd](https://github.com/driesd) in [#1422])
+- `DataGrid Row`: added forwardRef. ([@driesd](https://github.com/driesd) in [#1422])
+
 ### Changed
+
+- `DataGrid`: changed from using `findDOMNode` to be using refs. ([@driesd](https://github.com/driesd) in [#1422])
+- `Menu`: changed from using `findDOMNode` to be using refs. ([@driesd](https://github.com/driesd) in [#1422])
 
 ### Deprecated
 
@@ -11,6 +19,8 @@
 ### Fixed
 
 ### Dependency updates
+
+- `eslint-config-standard-react` from `9.2.0` to `11.0.1`. ([@driesd](https://github.com/driesd) in [#1422])
 
 ## [2.2.2] - 2021-01-15
 

@@ -107,7 +107,7 @@ export const withCloseButton = () => (
   <div>
     <Button label="Make a toast" onClick={handleAddToastWithClose} />
     <State store={store}>
-      <ToastContainer children={[]} />
+      <ToastContainer>{[]}</ToastContainer>
     </State>
   </div>
 );
@@ -120,7 +120,7 @@ export const withCustomAction = () => (
   <div>
     <Button label="Make a toast" onClick={handleAddToastWithAction} />
     <State store={store}>
-      <ToastContainer children={[]} />
+      <ToastContainer>{[]}</ToastContainer>
     </State>
   </div>
 );
@@ -133,7 +133,7 @@ export const withCustomLink = () => (
   <div>
     <Button label="Make a toast" onClick={handleAddToastWithLink} />
     <State store={store}>
-      <ToastContainer children={[]} />
+      <ToastContainer>{[]}</ToastContainer>
     </State>
   </div>
 );
@@ -146,7 +146,7 @@ export const withMultilineLabel = () => (
   <div>
     <Button label="Make a toast" onClick={handleAddToastWithMultilineLabel} />
     <State store={store}>
-      <ToastContainer children={[]} />
+      <ToastContainer>{[]}</ToastContainer>
     </State>
   </div>
 );
@@ -159,7 +159,7 @@ export const withLoadingSpinner = () => (
   <div>
     <Button label="Make a toast" onClick={handleAddToastWithSpinner} />
     <State store={store}>
-      <ToastContainer children={[]} />
+      <ToastContainer>{[]}</ToastContainer>
     </State>
   </div>
 );
