@@ -44,6 +44,7 @@ export const Overview14x14 = () => (
           </Box>
         );
       }
+      return null;
     })}
   </Box>
 );
@@ -65,6 +66,7 @@ export const Overview24x24 = () => (
           </Box>
         );
       }
+      return null;
     })}
   </Box>
 );
