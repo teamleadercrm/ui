@@ -29,7 +29,7 @@ resources:
       uri: git@github.com:teamleadercrm/ui.git
       branch: master
       private_key: ((TEAMLEADER_PRIVATE_KEY))
-    icon: github-circle
+    icon: github
   - name: git-ci-design-ui
     type: git
     source:
@@ -37,13 +37,19 @@ resources:
       branch: next-release
       private_key: ((TEAMLEADER_PRIVATE_KEY))
       paths: [ci]
-    icon: github-circle
+    icon: github
   - name: git-ci-pull-request
     type: pull-request
     source:
       access_token: ((GITHUB_ACCESS_TOKEN))
       repository: teamleadercrm/ui
       paths: ['ci/*']
+    icon: github
+  - name: git-pull-request
+    type: pull-request
+    source:
+      access_token: ((GITHUB_ACCESS_TOKEN))
+      repository: teamleadercrm/ui
     icon: github
 
   # Docker image
@@ -56,6 +62,7 @@ resources:
     icon: docker
   - name: docker-fly-validate
     type: docker-image
+    check_every: 24h
     source:
       repository: teamleader/concourse-fly
       tag: ((DOCKER_FLY_VALIDATE_TAG))
@@ -63,6 +70,7 @@ resources:
       password: ((DOCKER_HUB_PASSWORD))
   - name: docker-yamllint
     type: docker-image
+    check_every: 24h
     source:
       repository: teamleader/yamllint
       tag: latest
@@ -79,6 +87,7 @@ resources:
 
   - name: s3-bucket-ui
     type: s3
+    check_every: 24h
     source:
       access_key_id: ((AWS_ACCESS_KEY))
       secret_access_key: ((AWS_ACCESS_SECRET))
@@ -88,6 +97,7 @@ resources:
 
   - name: cloudfront-ui
     type: cf
+    check_every: 24h
     source:
       access_key_id: ((AWS_ACCESS_KEY))
       secret_access_key: ((AWS_ACCESS_SECRET))
@@ -100,6 +110,7 @@ groups:
   - name: design-ui
     jobs:
       - deploy-components
+      - pr-linting
   - name: design-ui-ops
     jobs:
       - pr-yamllint
@@ -139,6 +150,46 @@ jobs:
       - put: cloudfront-ui
     on_failure: ((SLACK_ON_FAILURE_DEPLOYMENT))
     on_success: ((SLACK_ON_SUCCESS_DEPLOYMENT))
+
+  - name: pr-linting
+    plan:
+      - in_parallel:
+          - get: git-pull-request
+            trigger: true
+            version: every
+          - get: docker-node
+            params: {save: true}
+      - put: git-pull-request
+        params:
+          path: git-pull-request
+          status: pending
+          context: linting
+      - task: linting
+        image: docker-node
+        config:
+          platform: linux
+          inputs:
+            - name: git-pull-request
+          run:
+            path: sh
+            args:
+              - -exec
+              - |
+                cd git-pull-request
+                yarn
+                yarn lint
+    on_success:
+      put: git-pull-request
+      params:
+        path: git-pull-request
+        status: success
+        context: linting
+    on_failure:
+      put: git-pull-request
+      params:
+        path: git-pull-request
+        status: failure
+        context: linting
 
   # OPS jobs
 
