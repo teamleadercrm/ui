@@ -168,6 +168,8 @@ jobs:
         image: docker-node
         config:
           platform: linux
+          caches:
+            - path: git-pull-request/node_modules
           inputs:
             - name: git-pull-request
           run:
