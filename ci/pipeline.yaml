@@ -5,21 +5,35 @@ resource_types:
     source:
       repository: cfcommunity/slack-notification-resource
       tag: latest
+      username: ((DOCKER_HUB_USERNAME))
+      password: ((DOCKER_HUB_PASSWORD))
   - name: s3
     type: docker-image
     source:
       repository: teamleader/s3-simple-resource
       tag: latest
+      username: ((DOCKER_HUB_USERNAME))
+      password: ((DOCKER_HUB_PASSWORD))
   - name: cf
     type: docker-image
     source:
       repository: teamleader/cf-simple-resource
       tag: latest
+      username: ((DOCKER_HUB_USERNAME))
+      password: ((DOCKER_HUB_PASSWORD))
   - name: pull-request
     type: docker-image
     source:
       repository: teliaoss/github-pr-resource
-
+      username: ((DOCKER_HUB_USERNAME))
+      password: ((DOCKER_HUB_PASSWORD))
+  - name: github-webhook-resource
+    type: docker-image
+    source:
+      repository: homedepottech/github-webhook-resource
+      tag: latest
+      username: ((DOCKER_HUB_USERNAME))
+      password: ((DOCKER_HUB_PASSWORD))
 
 resources:
 
@@ -40,6 +54,7 @@ resources:
     icon: github
   - name: git-ci-pull-request
     type: pull-request
+    webhook_token: ((TEAMLEADER_WEBHOOK_TOKEN))
     source:
       access_token: ((GITHUB_ACCESS_TOKEN))
       repository: teamleadercrm/ui
@@ -47,6 +62,7 @@ resources:
     icon: github
   - name: git-pull-request
     type: pull-request
+    webhook_token: ((TEAMLEADER_WEBHOOK_TOKEN))
     source:
       access_token: ((GITHUB_ACCESS_TOKEN))
       repository: teamleadercrm/ui
@@ -106,6 +122,13 @@ resources:
       region: eu-west-1
     icon: amazon-drive
 
+  - name: github-webhook
+    type: github-webhook-resource
+    check_every: 24h
+    source:
+      github_api: https://api.github.com
+      github_token: ((GITHUB_ACCESS_TOKEN))
+
 groups:
   - name: design-ui
     jobs:
@@ -118,6 +141,8 @@ groups:
       - yamllint
       - fly-validate
       - set-pipeline
+      - create-repository-ci-webhook
+
 jobs:
   - name: deploy-components
     plan:
@@ -290,3 +315,25 @@ jobs:
           - git-ci-design-ui/ci/common-vars.yaml
           - git-ci-design-ui/ci/params.yaml
     on_failure: ((SLACK_ON_FAILURE))
+
+  - name: create-repository-ci-webhook
+    plan:
+      - in_parallel:
+          - put: create-pr-webhook
+            resource: github-webhook
+            params:
+              org: teamleadercrm
+              repo: ui
+              resource_name: git-pull-request
+              webhook_token: ((TEAMLEADER_WEBHOOK_TOKEN))
+              operation: create
+              events: [push, pull_request]
+          - put: create-ci-pr-webhook
+            resource: github-webhook
+            params:
+              org: teamleadercrm
+              repo: ui
+              resource_name: git-ci-pull-request
+              webhook_token: ((TEAMLEADER_WEBHOOK_TOKEN))
+              operation: create
+              events: [push, pull_request]
