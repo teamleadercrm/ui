@@ -27,15 +27,16 @@ resources:
     type: git
     source:
       uri: git@github.com:teamleadercrm/ui.git
-      branch: add-ci
+      branch: next-release
       private_key: ((TEAMLEADER_PRIVATE_KEY))
     icon: github-circle
   - name: git-ci-design-ui
     type: git
     source:
       uri: git@github.com:teamleadercrm/ui.git
-      branch: add-ci
+      branch: next-release
       private_key: ((TEAMLEADER_PRIVATE_KEY))
+      paths: [ci]
     icon: github-circle
   - name: git-ci-pull-request
     type: pull-request
@@ -51,13 +52,13 @@ resources:
     check_every: 24h
     source:
       repository: node
-      tag: '13-slim'
+      tag: '14-slim'
     icon: docker
   - name: docker-fly-validate
     type: docker-image
     source:
       repository: teamleader/concourse-fly
-      tag: 6.2
+      tag: ((DOCKER_FLY_VALIDATE_TAG))
       username: ((DOCKER_HUB_USERNAME))
       password: ((DOCKER_HUB_PASSWORD))
   - name: docker-yamllint
