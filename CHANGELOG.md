@@ -18,6 +18,8 @@
 
 ### Fixed
 
+- `Counter`: improve centering when zooming out in Chrome on windows. ([@lowiebenoot](https://github.com/lowiebenoot) in [#1436])
+
 ### Dependency updates
 
 - `eslint-config-standard-react` from `9.2.0` to `11.0.1`. ([@driesd](https://github.com/driesd) in [#1422])
