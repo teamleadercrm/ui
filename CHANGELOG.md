@@ -2,6 +2,20 @@
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Dependency updates
+
+## [2.3.0] - 2021-01-22
+
+### Added
+
 - `DataGrid BodyRow`: added forwardRef. ([@driesd](https://github.com/driesd) in [#1422])
 - `DataGrid FooterRow`: added forwardRef. ([@driesd](https://github.com/driesd) in [#1422])
 - `DataGrid HeaderRow`: added forwardRef. ([@driesd](https://github.com/driesd) in [#1422])
@@ -12,17 +26,25 @@
 - `DataGrid`: changed from using `findDOMNode` to be using refs. ([@driesd](https://github.com/driesd) in [#1422])
 - `Menu`: changed from using `findDOMNode` to be using refs. ([@driesd](https://github.com/driesd) in [#1422])
 
-### Deprecated
-
-### Removed
-
 ### Fixed
 
 - `Counter`: improve centering when zooming out in Chrome on windows. ([@lowiebenoot](https://github.com/lowiebenoot) in [#1436])
 
 ### Dependency updates
 
+- `@storybook/addons` from `6.1.11` to `6.1.14`
+- `@storybook/addon-docs` from `6.1.12` to `6.1.14`
+- `@storybook/ui` from `6.1.12` to `6.1.14`
+- `@teamleader/ui-illustrations` from `0.0.35` to `0.0.36`
+- `babel-loader` from `8.1.0` to `8.2.2`
+- `eslint` from `7.17.0` to `7.18.0`
+- `eslint-config-prettier` from `7.1.0` to `7.2.0`
+- `eslint-config-standard` from `14.1.1` to `16.0.2`
 - `eslint-config-standard-react` from `9.2.0` to `11.0.1`. ([@driesd](https://github.com/driesd) in [#1422])
+- `eslint-plugin-import` from `2.22.0` to `2.22.1`
+- `husky` from `4.3.7` to `4.3.8`
+- `postcss-loader` from `4.1.0` to `4.2.0`
+- `storybook-addon-designs` from `5.4.2` to `5.4.3`
 
 ## [2.2.2] - 2021-01-15
 
