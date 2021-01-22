@@ -27,7 +27,7 @@ resources:
     type: git
     source:
       uri: git@github.com:teamleadercrm/ui.git
-      branch: next-release
+      branch: master
       private_key: ((TEAMLEADER_PRIVATE_KEY))
     icon: github-circle
   - name: git-ci-design-ui
