@@ -77,7 +77,7 @@
     "@babel/preset-env": "^7.12.1",
     "@babel/preset-react": "^7.12.5",
     "@sambego/storybook-state": "^2.0.1",
-    "@storybook/addon-backgrounds": "6.1.14",
+    "@storybook/addon-backgrounds": "6.1.15",
     "@storybook/addon-controls": "^6.1.5",
     "@storybook/addon-docs": "^6.1.5",
     "@storybook/addon-knobs": "6.1.14",
