@@ -49,37 +49,33 @@ class Avatar extends PureComponent {
     }
 
     if (creatable) {
-      return <AvatarAdd children={children} size={size} />;
+      return <AvatarAdd size={size}>{children}</AvatarAdd>;
     }
 
     if (imageUrl && !failedToLoadImage) {
       return (
         <AvatarImage
-          children={childrenToRender}
           editable={editable}
           image={imageUrl}
           imageAlt={fullName}
           onImageChange={onImageChange}
           onImageLoadFailure={this.handleImageLoadFailure}
           size={size}
-        />
+        >
+          {childrenToRender}
+        </AvatarImage>
       );
     }
 
     if (fullName) {
       return (
-        <AvatarInitials
-          children={childrenToRender}
-          editable={editable}
-          id={id}
-          name={fullName}
-          onImageChange={onImageChange}
-          size={size}
-        />
+        <AvatarInitials editable={editable} id={id} name={fullName} onImageChange={onImageChange} size={size}>
+          {childrenToRender}
+        </AvatarInitials>
       );
     }
 
-    return <AvatarAnonymous children={childrenToRender} size={size} />;
+    return <AvatarAnonymous size={size}>{childrenToRender}</AvatarAnonymous>;
   };
 
   render() {

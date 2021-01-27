@@ -1,6 +1,8 @@
 import React from 'react';
+import { boolean, number, select } from '@storybook/addon-knobs';
 import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import ProgressTracker from './ProgressTracker';
+import { COLORS } from '../../index';
 
 const steps = ['Draft', 'Book', 'Send invoices', 'Get paid'];
 
@@ -16,8 +18,18 @@ export default {
   },
 };
 
-export const DefaultStory = (args) => (
-  <ProgressTracker {...args}>
+export const DefaultStory = () => (
+  <ProgressTracker
+    done={boolean('Done', false)}
+    alternating={boolean('Alternating', false)}
+    currentStep={number('Current step', 1, {
+      range: true,
+      min: 0,
+      max: steps.length - 1,
+      step: 1,
+    })}
+    color={select('Color', COLORS, 'mint')}
+  >
     {steps.map((step, index) => (
       <ProgressTracker.ProgressStep
         label={step}
@@ -28,7 +40,3 @@ export const DefaultStory = (args) => (
     ))}
   </ProgressTracker>
 );
-
-DefaultStory.args = {
-  currentStep: 1,
-};

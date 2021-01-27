@@ -12,6 +12,87 @@
 
 ### Dependency updates
 
+## [2.3.0] - 2021-01-22
+
+### Added
+
+- `DataGrid BodyRow`: added forwardRef. ([@driesd](https://github.com/driesd) in [#1422])
+- `DataGrid FooterRow`: added forwardRef. ([@driesd](https://github.com/driesd) in [#1422])
+- `DataGrid HeaderRow`: added forwardRef. ([@driesd](https://github.com/driesd) in [#1422])
+- `DataGrid Row`: added forwardRef. ([@driesd](https://github.com/driesd) in [#1422])
+
+### Changed
+
+- `DataGrid`: changed from using `findDOMNode` to be using refs. ([@driesd](https://github.com/driesd) in [#1422])
+- `Menu`: changed from using `findDOMNode` to be using refs. ([@driesd](https://github.com/driesd) in [#1422])
+
+### Fixed
+
+- `Counter`: improve centering when zooming out in Chrome on windows. ([@lowiebenoot](https://github.com/lowiebenoot) in [#1436])
+
+### Dependency updates
+
+- `@storybook/addons` from `6.1.11` to `6.1.14`
+- `@storybook/addon-docs` from `6.1.12` to `6.1.14`
+- `@storybook/ui` from `6.1.12` to `6.1.14`
+- `@teamleader/ui-illustrations` from `0.0.35` to `0.0.36`
+- `babel-loader` from `8.1.0` to `8.2.2`
+- `eslint` from `7.17.0` to `7.18.0`
+- `eslint-config-prettier` from `7.1.0` to `7.2.0`
+- `eslint-config-standard` from `14.1.1` to `16.0.2`
+- `eslint-config-standard-react` from `9.2.0` to `11.0.1`. ([@driesd](https://github.com/driesd) in [#1422])
+- `eslint-plugin-import` from `2.22.0` to `2.22.1`
+- `husky` from `4.3.7` to `4.3.8`
+- `postcss-loader` from `4.1.0` to `4.2.0`
+- `storybook-addon-designs` from `5.4.2` to `5.4.3`
+
+## [2.2.2] - 2021-01-15
+
+### Dependency updates
+
+- `react-select`: downgrade from `3.0.11` to `3.0.4`
+
+## [2.2.1] - 2021-01-14
+
+### Fixed
+
+- `Dialog`: fixed the horizontal positioning. ([@driesd](https://github.com/driesd) in [#1416])
+- `ProgressTracker`: Make sure bars are not misaligned on different zoomlevels. ([@lorgan3](https://github.com/lorgan3) in [#1378])
+
+### Dependency updates
+
+- `@babel/core` from `7.12.9` to `7.12.10`
+- `@babel/plugin-transform-runtime` from `7.12.1` to `7.12.10`
+- `@babel/preset-env` from `7.12.7` to `7.12.11`
+- `@babel/preset-react` from `7.12.7` to `7.12.10`
+- `@storybook/addon-backgrounds` from `6.1.5` to `6.1.14`
+- `@storybook/addon-controls` from `6.1.5` to `6.1.14`
+- `@storybook/addon-docs` from `6.1.5` to `6.1.12`
+- `@storybook/addon-knobs` from `6.1.9` to `6.1.14`
+- `@storybook/react` from `6.1.9` to `6.1.14`
+- `@storybook/ui` from `6.1.10` to `6.1.12`
+- `@teamleader/ui-icons` from `0.2.30` to `0.2.31`
+- `@teamleader/ui-illustrations` from `0.0.33` to `0.0.35`
+- `eslint` from `7.5.0` to `7.17.0`
+- `eslint-config-prettier` from `6.11.0` to `7.1.0`
+- `eslint-plugin-prettier` from `3.1.4` to `3.3.1`
+- `eslint-plugin-standard` from `4.0.1` to `5.0.0`
+- `eslint-plugin-react` from `7.20.6` to `7.22.0`
+- `file-loader` from `6.0.0` to `6.2.0`
+- `husky` from `4.2.5` to `4.3.7`
+- `image-webpack-loader` from `6.0.0` to `7.0.1`
+- `ini` from `1.3.5` to `1.3.8`
+- `moment` from `2.27.0` to `2.29.1`
+- `postcss` from `8.2.0` to `8.2.4`
+- `postcss-cli` from `8.3.0` to `8.3.1`
+- `postcss-custom-media` from `7.0.8` to `8.0.0`
+- `postcss-import` from `13.0.0` to `14.0.0`
+- `pretty-quick` from `2.0.1` to `3.1.0`
+- `react-dom` from `16.13.1` to `16.14.0`
+- `react-select` from `3.0.4` to `3.1.1`
+- `style-loader` from `1.2.1` to `2.0.0`
+- `webpack` from `4.44.2` to `4.46.0`
+
 ## [2.2.0] - 2020-12-17
 
 ### Added

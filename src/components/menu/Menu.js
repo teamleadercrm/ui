@@ -1,6 +1,5 @@
 import React, { createRef, PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import ReactDOM from 'react-dom';
 import cx from 'classnames';
 import { events } from '../utils';
 import { getViewport } from '../utils/utils';
@@ -22,6 +21,7 @@ class Menu extends PureComponent {
   state = {};
 
   menuNode = createRef();
+  menuWrapper = createRef();
 
   componentDidMount() {
     const { width, height } = this.menuNode.current.getBoundingClientRect();
@@ -117,7 +117,7 @@ class Menu extends PureComponent {
   }
 
   handleDocumentClick = (event) => {
-    if (this.state.active && !events.targetIsDescendant(event, ReactDOM.findDOMNode(this))) {
+    if (this.state.active && !events.targetIsDescendant(event, this.menuWrapper.current)) {
       this.hide();
     }
   };
@@ -139,7 +139,7 @@ class Menu extends PureComponent {
   };
 
   calculatePosition() {
-    const parentNode = ReactDOM.findDOMNode(this).parentNode;
+    const parentNode = this.menuWrapper.current.parentNode;
 
     if (!parentNode) {
       return;
@@ -238,7 +238,13 @@ class Menu extends PureComponent {
     const boxProps = pickBoxProps(others);
 
     return (
-      <Box data-teamleader-ui="menu" className={classNames} style={this.getRootStyle()} {...boxProps}>
+      <Box
+        data-teamleader-ui="menu"
+        className={classNames}
+        ref={this.menuWrapper}
+        style={this.getRootStyle()}
+        {...boxProps}
+      >
         {outline ? (
           <div className={outlineClassNames} style={{ ...(width && { width: Math.ceil(width) }), height }} />
         ) : null}

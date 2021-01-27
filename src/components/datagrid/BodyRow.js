@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { forwardRef, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Cell from './Cell';
 import Checkbox from '../checkbox';
@@ -16,6 +16,7 @@ class BodyRow extends PureComponent {
     const {
       className,
       children,
+      forwardedRef,
       hovered,
       sliceFrom,
       sliceTo,
@@ -42,6 +43,7 @@ class BodyRow extends PureComponent {
         className={classNames}
         data-teamleader-ui="datagrid-body-row"
         onClick={this.handleClick}
+        ref={forwardedRef}
         {...others}
       >
         {selectable && (
@@ -76,4 +78,4 @@ BodyRow.propTypes = {
   sliceTo: PropTypes.number,
 };
 
-export default BodyRow;
+export default forwardRef((props, ref) => <BodyRow {...props} forwardedRef={ref} />);
