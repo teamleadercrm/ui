@@ -81,7 +81,7 @@
     "@storybook/addon-controls": "^6.1.5",
     "@storybook/addon-docs": "^6.1.5",
     "@storybook/addon-knobs": "6.1.15",
-    "@storybook/addons": "6.1.14",
+    "@storybook/addons": "6.1.15",
     "@storybook/react": "6.1.15",
     "@storybook/theming": "^6.1.5",
     "@storybook/ui": "6.1.14",
