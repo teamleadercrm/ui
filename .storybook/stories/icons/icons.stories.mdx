@@ -1,0 +1,39 @@
+import { IconGallery, IconItem, Meta, Story } from '@storybook/addon-docs/blocks';
+import { addStoryInGroup, FOUNDATION } from '../../../.storybook/utils';
+import * as Icons from '@teamleader/ui-icons';
+import { Icon, Island } from '../../../src';
+import BoundingBoxSquare from './assets/bounding_1.svg';
+import BoundingBoxCircle from './assets/bounding_2.svg';
+import BoundingBoxRectanglePortrait from './assets/bounding_3.svg';
+import BoundingBoxRectangleLandscape from './assets/bounding_4.svg';
+import Placement from './assets/placement.svg';
+import SecondaryMetaphors from './assets/secondary_metaphors.svg';
+
+<Meta title="3. Foundation / Icons" />
+
+# Icons
+
+Icons support various actions and metaphors. They are designed to work in small sizes, play nice with the typographical context and to look consistent when used next to each other.
+
+<Story name="Bounding box" />
+
+## Bounding box
+
+A uniform bounding box guarantees consistent placement because every icon has equal outer dimensions. Based on Teamleaders typography, we decided on two sizes: Medium (24dp) and Small (14dp). `Key shapes` make it easier to balance visual weights of the inner shapes.
+
+<Island display="flex" justifyContent="space-between" marginVertical={5}>
+  <img src={BoundingBoxSquare} />
+  <img src={BoundingBoxCircle} />
+  <img src={BoundingBoxRectanglePortrait} />
+  <img src={BoundingBoxRectangleLandscape} />
+</Island>
+
+<Story name="Secondary metaphors" />
+
+## Secondary metaphors
+
+Icons that support a secondary meaning have a `badge` in the lower-right corner.
+
+<Island display="flex" justifyContent="center" marginVertical={5}>
+  <img src={SecondaryMetaphors} />
+</Island>
