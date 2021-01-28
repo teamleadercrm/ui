@@ -24,5 +24,9 @@ addParameters({
   },
 });
 
+addParameters({
+  viewMode: 'docs',
+});
+
 // addon-designs
 addDecorator(withDesign());
