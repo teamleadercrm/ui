@@ -16,7 +16,18 @@ class MenuItem extends PureComponent {
   };
 
   render() {
-    const { icon, caption, className, destructive, element, label, selected, disabled, ...others } = this.props;
+    const {
+      icon,
+      caption,
+      children,
+      className,
+      destructive,
+      element,
+      label,
+      selected,
+      disabled,
+      ...others
+    } = this.props;
 
     const classNames = cx(
       theme['menu-item'],
@@ -60,6 +71,7 @@ class MenuItem extends PureComponent {
             })}
             flex="1 1 auto"
           >
+            {children}
             {label && (
               <TextBody color={color} tint={tint}>
                 {label}
@@ -80,6 +92,8 @@ class MenuItem extends PureComponent {
 MenuItem.propTypes = {
   /** A caption displayed underneath the label. */
   caption: PropTypes.string,
+  /** The content to display inside the menu item. */
+  children: PropTypes.any,
   /** A class name for the wrapper to give custom styles. */
   className: PropTypes.string,
   /** If true, the color of label and icon will be ruby */
