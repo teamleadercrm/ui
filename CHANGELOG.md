@@ -12,6 +12,23 @@
 
 ### Dependency updates
 
+## [2.4.0] - 2021-02-03
+
+### Added
+
+- `MenuItem`: added `children` prop. ([@driesd](https://github.com/driesd) in [#1465])
+
+### Dependency updates
+
+- `@storybook/addon-backgrounds` from `6.1.14` to `6.1.16`
+- `@storybook/addon-docs` from `6.1.14` to `6.1.16`
+- `@storybook/addon-knobs` from `6.1.14` to `6.1.16`
+- `@storybook/addon-controls` from `6.1.14` to `6.1.16`
+- `@storybook/addons` from `6.1.14` to `6.1.16`
+- `@storybook/react` from `6.1.14` to `6.1.16`
+- `@storybook/ui` from `6.1.14` to `6.1.16`
+- `eslint` from `7.18.0` to `7.19.0`
+
 ## [2.3.0] - 2021-01-22
 
 ### Added
