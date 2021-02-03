@@ -2,6 +2,8 @@
 
 ### Added
 
+- `MenuItem`: added `children` prop. ([@driesd](https://github.com/driesd) in [#1465])
+
 ### Changed
 
 ### Deprecated
