@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `Select`: fixed menu portal target logic. ([@driesd](https://github.com/driesd) in [#1474])
+
 ### Dependency updates
 
 ## [2.4.0] - 2021-02-03
