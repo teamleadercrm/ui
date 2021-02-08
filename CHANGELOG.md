@@ -10,9 +10,27 @@
 
 ### Fixed
 
+### Dependency updates
+
+## [2.4.1] - 2021-02-08
+
+### Fixed
+
 - `Select`: fixed menu portal target logic. ([@driesd](https://github.com/driesd) in [#1474])
 
 ### Dependency updates
+
+- `@babel/cli` from `7.12.10` to `7.12.13`
+- `@babel/core` from `7.12.10` to `7.12.13`
+- `@babel/plugin-proposal-export-default-from` from `7.12.1` to `7.12.13`
+- `@babel/plugin-proposal-private-methods` from `7.12.1` to `7.12.13`
+- `@babel/plugin-transform-runtime` from `7.12.10` to `7.12.13`
+- `@babel/plugin-transform-react-jsx-source` from `7.12.1` to `7.12.13`
+- `@babel/preset-react` from `7.12.10` to `7.12.13`
+- `@storybook/react` from `6.1.16` to `6.1.17`
+- `@storybook/addon-docs` from `6.1.16` to `6.1.17`
+- `@storybook/addon-backgrounds` from `6.1.16` to `6.1.17`
+- `postcss` from `8.2.4` to `8.2.5`
 
 ## [2.4.0] - 2021-02-03
 
