@@ -343,7 +343,7 @@ class Select extends PureComponent {
     });
 
     const Element = creatable ? ReactCreatableSelect : ReactSelect;
-    const portalTarget = menuPortalTarget || typeof window !== 'undefined' ? window.document.body : undefined;
+    const portalTarget = menuPortalTarget || (typeof window !== 'undefined' ? window.document.body : undefined);
 
     return (
       <Box className={wrapperClassnames} {...boxProps}>
