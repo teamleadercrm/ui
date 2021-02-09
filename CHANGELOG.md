@@ -12,6 +12,17 @@
 
 ### Dependency updates
 
+## [3.1.0] - 2021-02-09
+
+### Changed
+
+- `Select`: changed `menuPlacement` prop to have `auto` as default value. ([@driesd](https://github.com/driesd) in [#1485])
+
+### Dependency updates
+
+- `@storybook/addon-knobs` from `6.1.16` to `6.1.17`
+- `@babel/runtime` from `7.12.5` to `7.12.13`
+
 ## [3.0.0] - 2021-02-09
 
 ### Changed
