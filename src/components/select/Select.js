@@ -356,6 +356,7 @@ class Select extends PureComponent {
             ...components,
           }}
           hideSelectedOptions={false}
+          menuPlacement="auto"
           menuPortalTarget={portalTarget}
           menuShouldBlockScroll
           styles={this.getStyles()}

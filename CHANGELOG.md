@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `Select`: changed `menuPlacement` prop to have `auto` as default value. ([@driesd](https://github.com/driesd) in [#1485])
+
 ### Deprecated
 
 ### Removed
