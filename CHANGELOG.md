@@ -4,8 +4,6 @@
 
 ### Changed
 
-- [Breaking] `Select`: changed `menuShouldBlockScroll` to be the default value. ([@driesd](https://github.com/driesd) in [#1482])
-
 ### Deprecated
 
 ### Removed
@@ -13,6 +11,16 @@
 ### Fixed
 
 ### Dependency updates
+
+## [3.0.0] - 2021-02-09
+
+### Changed
+
+- [Breaking] `Select`: changed `menuShouldBlockScroll` to be the default value. ([@driesd](https://github.com/driesd) in [#1482])
+
+### Dependency updates
+
+- `@babel/plugin-transform-runtime` from `7.12.13` to `7.12.15`
 
 ## [2.4.1] - 2021-02-08
 
