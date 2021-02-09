@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `Select`: changed `menuShouldBlockScroll` to be the default value. ([@driesd](https://github.com/driesd) in [#1482])
+
 ### Deprecated
 
 ### Removed
