@@ -1,4 +1,5 @@
 .label {
+  overflow: hidden;
   text-transform: none;
   vertical-align: middle;
 }
@@ -11,4 +12,10 @@
 .small {
   border-radius: 9px;
   height: 18px;
+}
+
+.inner {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

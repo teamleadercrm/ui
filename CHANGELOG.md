@@ -2,6 +2,8 @@
 
 ### Added
 
+- `StatusLabel`: added text-overflow mode. ([@driesd](https://github.com/driesd) in [#1498])
+
 ### Changed
 
 ### Deprecated
