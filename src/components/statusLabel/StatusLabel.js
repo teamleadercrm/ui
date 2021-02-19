@@ -29,7 +29,7 @@ class StatusLabel extends PureComponent {
         display="inline-flex"
         paddingHorizontal={2}
       >
-        {children}
+        <span className={theme['inner']}>{children}</span>
       </Element>
     );
   }
