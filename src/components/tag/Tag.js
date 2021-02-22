@@ -1,44 +1,34 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import Badge from '../badge';
+import IconButton from '../iconButton';
 import Box from '../box';
+import { UITextBody, UITextSmall, UITextDisplay } from '../typography';
 import cx from 'classnames';
 import theme from './theme.css';
 import { IconCloseSmallOutline } from '@teamleader/ui-icons';
 
 class Tag extends PureComponent {
   render() {
-    const { children, className, onClick, onRemoveClick, selected, size, disabled, ...others } = this.props;
+    const { children, className, onRemoveClick, size, ...others } = this.props;
 
-    const classNames = cx(
-      theme['wrapper'],
-      {
-        [theme['is-removable']]: onRemoveClick,
-      },
-      className,
-    );
+    const classNames = cx(theme[`is-${size}`], theme['wrapper'], className);
+
+    const TextElement = size === 'small' ? UITextSmall : size === 'large' ? UITextDisplay : UITextBody;
 
     return (
       <Box {...others} className={classNames} data-teamleader-ui="tag" display="inline-flex">
-        <Badge
-          className={theme['label']}
-          disabled={disabled}
-          onClick={onClick}
+        <TextElement
+          color="teal"
+          marginLeft={size === 'small' ? 2 : 3}
+          marginRight={onRemoveClick ? 1 : size === 'small' ? 2 : 3}
+          marginVertical={size === 'small' ? 0 : 1}
           overflow="hidden"
-          selected={selected}
-          size={size}
+          tint="darkest"
         >
           {children}
-        </Badge>
+        </TextElement>
         {onRemoveClick && (
-          <Badge
-            className={theme['remove-button']}
-            disabled={disabled}
-            icon={<IconCloseSmallOutline />}
-            onClick={onRemoveClick}
-            selected={selected}
-            size={size}
-          />
+          <IconButton className={theme['remove-button']} icon={<IconCloseSmallOutline />} onClick={onRemoveClick} />
         )}
       </Box>
     );
@@ -48,10 +38,7 @@ class Tag extends PureComponent {
 Tag.propTypes = {
   children: PropTypes.any.isRequired,
   className: PropTypes.string,
-  disabled: PropTypes.bool,
   onRemoveClick: PropTypes.func,
-  /** If true, component will be shown in a selected state */
-  selected: PropTypes.bool,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
 };
 
