@@ -2,8 +2,6 @@
 
 ### Added
 
-- `StatusLabel`: added text-overflow mode. ([@driesd](https://github.com/driesd) in [#1498])
-
 ### Changed
 
 ### Deprecated
@@ -13,6 +11,24 @@
 ### Fixed
 
 ### Dependency updates
+
+## [3.2.0] - 2021-02-22
+
+### Added
+
+- `StatusLabel`: added text-overflow mode. ([@driesd](https://github.com/driesd) in [#1498])
+
+### Dependency updates
+
+- `@babel/core` from `7.12.13` to `7.12.17`
+- `@babel/preset-env` from `7.12.11` to `7.12.17`
+- `@storybook/addons` from `6.1.16` to `6.1.18`
+- `@storybook/addon-backgrounds` from `6.1.17` to `6.1.18`
+- `@storybook/addon-docs` from `6.1.17` to `6.1.18`
+- `@storybook/react` from `6.1.17` to `6.1.18`
+- `@storybook/ui` from `6.1.16` to `6.1.18`
+- `css-loader` from `4.2.1` to `5.0.2`
+- `postcss` from `8.2.5` to `8.2.6`
 
 ## [3.1.0] - 2021-02-09
 
