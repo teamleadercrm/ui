@@ -22,13 +22,18 @@ class Tag extends PureComponent {
           marginLeft={size === 'small' ? 2 : 3}
           marginRight={onRemoveClick ? 1 : size === 'small' ? 2 : 3}
           marginVertical={size === 'small' ? 0 : 1}
-          overflow="hidden"
+          maxLines={1}
           tint="darkest"
         >
           {children}
         </TextElement>
         {onRemoveClick && (
-          <IconButton className={theme['remove-button']} icon={<IconCloseSmallOutline />} onClick={onRemoveClick} />
+          <IconButton
+            className={theme['remove-button']}
+            flexShrink={0}
+            icon={<IconCloseSmallOutline />}
+            onClick={onRemoveClick}
+          />
         )}
       </Box>
     );
