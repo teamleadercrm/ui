@@ -14,8 +14,8 @@ export default {
   },
 };
 
-export const Basic = (args) => (
-  <Tag {...args} onRemoveClick={() => console.log('Tag removed')}>
-    I am a tag
-  </Tag>
-);
+export const Basic = (args) => <Tag {...args} onRemoveClick={() => console.log('Tag removed')} />;
+
+Basic.args = {
+  children: 'I am a tag',
+};
