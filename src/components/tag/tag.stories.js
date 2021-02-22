@@ -14,16 +14,8 @@ export default {
   },
 };
 
-export const ClickableClosable = (args) => (
-  <Tag {...args} onClick={() => console.log('Tag label clicked')} onRemoveClick={() => console.log('Tag removed')}>
-    I am a clickable & closable tag
+export const Basic = (args) => (
+  <Tag {...args} onRemoveClick={() => console.log('Tag removed')}>
+    I am a tag
   </Tag>
 );
-
-ClickableClosable.storyName = 'Clickable & closable';
-
-export const Clickable = () => <Tag onClick={() => console.log('Tag label clicked')}>I am a clickable tag</Tag>;
-
-export const Closable = () => <Tag onRemoveClick={() => console.log('Tag removed')}>I am a closable tag</Tag>;
-
-export const Basic = () => <Tag>I am a tag</Tag>;
