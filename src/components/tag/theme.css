@@ -18,7 +18,7 @@
 }
 
 .is-small {
-  border-radius: var(--size-small) / 2;
+  border-radius: calc(var(--size-small) / 2);
   height: var(--size-small);
 
   .remove-button {
@@ -28,7 +28,7 @@
 }
 
 .is-medium {
-  border-radius: var(--size-medium) / 2;
+  border-radius: calc(var(--size-medium) / 2);
   height: var(--size-medium);
 
   .remove-button {
@@ -38,7 +38,7 @@
 }
 
 .is-large {
-  border-radius: var(--size-large) / 2;
+  border-radius: calc(var(--size-large) / 2);
   height: var(--size-large);
 
   .remove-button {
