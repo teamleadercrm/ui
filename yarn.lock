@@ -1431,17 +1431,17 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.7.0.tgz#9a06f4f137ee84d7df0460c1fdb1135ffa6c50fd"
   integrity sha512-ONhaKPIufzzrlNbqtWFFd+jlnemX6lJAgq9ZeiZtS7I1PIf/la7CW4m83rTXRnVnsMbW2k56pGYu7AUFJD9Pow==
 
-"@storybook/addon-backgrounds@6.1.17":
-  version "6.1.17"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-backgrounds/-/addon-backgrounds-6.1.17.tgz#df4eeec1df72d5f835e82bee433493110463f896"
-  integrity sha512-1a8Vu50eQWdwMek9w2QOehhu10aZYzyR404qwGvPCRGt5uMMsKxoKvv1M6/ETW7d2G4Srl/Ka+k4x6ykoHIepA==
+"@storybook/addon-backgrounds@6.1.18":
+  version "6.1.18"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-backgrounds/-/addon-backgrounds-6.1.18.tgz#1f1b232a76e6c97a5c9e86fc0f51b3fe999f04a8"
+  integrity sha512-8qgA1oKyplJQNtdTsf88zxa/q+YN25C0VCRe8HoL1r5gE7n7qf0bQofq+aMv11upbVNxdFXcoABEyiq/CfTX0g==
   dependencies:
-    "@storybook/addons" "6.1.17"
-    "@storybook/api" "6.1.17"
-    "@storybook/client-logger" "6.1.17"
-    "@storybook/components" "6.1.17"
-    "@storybook/core-events" "6.1.17"
-    "@storybook/theming" "6.1.17"
+    "@storybook/addons" "6.1.18"
+    "@storybook/api" "6.1.18"
+    "@storybook/client-logger" "6.1.18"
+    "@storybook/components" "6.1.18"
+    "@storybook/core-events" "6.1.18"
+    "@storybook/theming" "6.1.18"
     core-js "^3.0.1"
     global "^4.3.2"
     memoizerific "^1.11.3"
