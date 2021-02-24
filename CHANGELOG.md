@@ -4,9 +4,13 @@
 
 ### Changed
 
+- :boom: `Tag`: only the remove button remains interactable. ([@driesd](https://github.com/driesd) in [#1502])
+
 ### Deprecated
 
 ### Removed
+
+- :boom: `Tag`: removed props `disabled`, `onClick` & `selected`. ([@driesd](https://github.com/driesd) in [#1502])
 
 ### Fixed
 
