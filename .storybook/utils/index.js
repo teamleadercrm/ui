@@ -4,6 +4,7 @@ export const FOUNDATION = '3. Foundation';
 export const LOW_LEVEL_BLOCKS = '4. Low level blocks';
 export const MID_LEVEL_BLOCKS = '5. Mid level blocks';
 export const COMPOSITIONS = '6. Compositions';
-export const PLAYGROUND = '7. Playground';
+export const MARKETING = '7. Marketing';
+export const PLAYGROUND = '8. Playground';
 
 export const addStoryInGroup = (groupTitle, storyTitle) => `${groupTitle} / ${storyTitle}`;
