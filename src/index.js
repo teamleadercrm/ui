@@ -36,6 +36,7 @@ import IconButton from './components/iconButton';
 import Input, { InputBase, NumericInput, Textarea, TimeInput } from './components/input';
 import Menu, { IconMenu, MenuItem, MenuDivider, MenuTitle } from './components/menu';
 import Link from './components/link';
+import MarketingButton from './components/marketingButton';
 import Message from './components/message';
 import Overlay from './components/overlay';
 import OverviewPage, { OverviewPageBody, OverviewPageHeader } from './components/overviewPage';
@@ -133,6 +134,7 @@ export {
   LoadingMolecule,
   LoadingSpinner,
   Marker,
+  MarketingButton,
   Menu,
   MenuItem,
   MenuDivider,

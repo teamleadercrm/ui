@@ -2,6 +2,8 @@
 
 ### Added
 
+- `MarketingButton`: add new component. ([@driesd](https://github.com/driesd) in [#1510])
+
 ### Changed
 
 - :boom: `Tag`: only the remove button remains interactable. ([@driesd](https://github.com/driesd) in [#1502])
