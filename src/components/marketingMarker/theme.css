@@ -1,0 +1,8 @@
+:root {
+  --color-marketing-violet-light: #d3d1fe;
+}
+
+.marker {
+  background-color: color(var(--color-marketing-violet-light) a(50%));
+  color: inherit;
+}
