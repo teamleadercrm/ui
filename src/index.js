@@ -37,6 +37,7 @@ import Input, { InputBase, NumericInput, Textarea, TimeInput } from './component
 import Menu, { IconMenu, MenuItem, MenuDivider, MenuTitle } from './components/menu';
 import Link from './components/link';
 import MarketingButton from './components/marketingButton';
+import MarketingMarker from './components/marketingMarker';
 import Message from './components/message';
 import Overlay from './components/overlay';
 import OverviewPage, { OverviewPageBody, OverviewPageHeader } from './components/overviewPage';
@@ -135,6 +136,7 @@ export {
   LoadingSpinner,
   Marker,
   MarketingButton,
+  MarketingMarker,
   Menu,
   MenuItem,
   MenuDivider,
