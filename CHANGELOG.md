@@ -2,7 +2,8 @@
 
 ### Added
 
-- `MarketingButton`: add new component. ([@driesd](https://github.com/driesd) in [#1510])
+- `MarketingButton`: added new component. ([@driesd](https://github.com/driesd) in [#1510])
+- `MarketingMarker`: added new component. ([@driesd](https://github.com/driesd) in [#1515])
 
 ### Changed
 
