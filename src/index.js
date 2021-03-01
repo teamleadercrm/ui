@@ -38,6 +38,7 @@ import Menu, { IconMenu, MenuItem, MenuDivider, MenuTitle } from './components/m
 import Link from './components/link';
 import MarketingButton from './components/marketingButton';
 import MarketingMarker from './components/marketingMarker';
+import { MarketingHeading1 } from './components/marketingTypography';
 import Message from './components/message';
 import Overlay from './components/overlay';
 import OverviewPage, { OverviewPageBody, OverviewPageHeader } from './components/overviewPage';
@@ -137,6 +138,7 @@ export {
   Marker,
   MarketingButton,
   MarketingMarker,
+  MarketingHeading1,
   Menu,
   MenuItem,
   MenuDivider,

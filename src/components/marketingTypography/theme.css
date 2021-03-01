@@ -1,0 +1,10 @@
+@import '@teamleader/ui-colors';
+@import '@teamleader/ui-typography';
+
+.heading-1 {
+  color: var(--color-teal-darkest);
+  font-family: var(--font-family-black);
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 30px;
+}
