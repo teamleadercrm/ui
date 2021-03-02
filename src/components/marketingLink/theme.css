@@ -1,0 +1,28 @@
+@import '@teamleader/ui-colors';
+
+:root {
+  --color-marketing-violet-light: #d3d1fe;
+  --color-marketing-violet: #4f1fff;
+}
+
+.link {
+  cursor: pointer;
+  color: var(--color-marketing-violet);
+  background: transparent;
+  border: 0;
+  font-size: 100%;
+  padding: 0;
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:focus {
+    outline: var(--color-marketing-violet-light) auto 3px;
+  }
+
+  &:active {
+    outline: 0;
+  }
+}
