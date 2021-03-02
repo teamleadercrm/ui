@@ -47,7 +47,7 @@
     "react-dom": "^16.3.1",
     "react-draft-wysiwyg": "^1.14.4",
     "react-input-mask": "^2.0.4",
-    "react-resize-detector": "^5.0.3",
+    "react-resize-detector": "^6.6.1",
     "react-select": "3.0.4",
     "react-transition-group": "^4.2.1",
     "smoothscroll-polyfill": "^0.4.4"
