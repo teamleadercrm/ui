@@ -37,6 +37,7 @@ import Input, { InputBase, NumericInput, Textarea, TimeInput } from './component
 import Menu, { IconMenu, MenuItem, MenuDivider, MenuTitle } from './components/menu';
 import Link from './components/link';
 import MarketingButton from './components/marketingButton';
+import MarketingLink from './components/marketingLink';
 import MarketingMarker from './components/marketingMarker';
 import { MarketingHeading1 } from './components/marketingTypography';
 import Message from './components/message';
@@ -137,6 +138,7 @@ export {
   LoadingSpinner,
   Marker,
   MarketingButton,
+  MarketingLink,
   MarketingMarker,
   MarketingHeading1,
   Menu,
