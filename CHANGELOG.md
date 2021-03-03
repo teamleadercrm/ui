@@ -12,6 +12,57 @@
 
 ### Dependency updates
 
+## [4.0.0] - 2021-03-02
+
+### Added
+
+- `MarketingButton`: added new component. ([@driesd](https://github.com/driesd) in [#1510])
+- `MarketingMarker`: added new component. ([@driesd](https://github.com/driesd) in [#1515])
+- `MarketingHeading1`: added new component. ([@driesd](https://github.com/driesd) in [#1516])
+- `MarketingLink`: added new component. ([@driesd](https://github.com/driesd) in [#1522])
+
+### Changed
+
+- :boom: `Tag`: only the remove button remains interactable. ([@driesd](https://github.com/driesd) in [#1502])
+
+### Removed
+
+- :boom: `Tag`: removed props `disabled`, `onClick` & `selected`. ([@driesd](https://github.com/driesd) in [#1502])
+
+### Dependency updates
+
+- `@babel/core` from `7.12.17` to `7.13.8`
+- `@babel/plugin-transform-runtime` from `7.12.15` to `7.13.7`
+- `@babel/runtime` from `7.12.13` to `7.13.7`
+- `@storybook/addon-controls` from `6.1.16` to `6.1.20`
+- `@storybook/addon-docs` from `6.1.18` to `6.1.20`
+- `@storybook/addon-knobs` from `6.1.17` to `6.1.20`
+- `@teamleader/ui-icons` from `0.2.31` to `0.2.32`
+- `eslint` from `7.19.0` to `7.21.0`
+- `eslint-config-prettier` from `7.2.0` to `8.0.0`
+- `eslint-plugin-promise` from `4.2.1` to `4.3.1`
+- `luxon` from `1.25.0` to `1.26.0`
+- `react-resize-detector` from `5.2.0` to `6.6.1`
+- `storybook-addon-designs` from `5.4.3` to `5.4.5`
+
+## [3.2.0] - 2021-02-22
+
+### Added
+
+- `StatusLabel`: added text-overflow mode. ([@driesd](https://github.com/driesd) in [#1498])
+
+### Dependency updates
+
+- `@babel/core` from `7.12.13` to `7.12.17`
+- `@babel/preset-env` from `7.12.11` to `7.12.17`
+- `@storybook/addons` from `6.1.16` to `6.1.18`
+- `@storybook/addon-backgrounds` from `6.1.17` to `6.1.18`
+- `@storybook/addon-docs` from `6.1.17` to `6.1.18`
+- `@storybook/react` from `6.1.17` to `6.1.18`
+- `@storybook/ui` from `6.1.16` to `6.1.18`
+- `css-loader` from `4.2.1` to `5.0.2`
+- `postcss` from `8.2.5` to `8.2.6`
+
 ## [3.1.0] - 2021-02-09
 
 ### Changed
