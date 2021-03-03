@@ -2867,10 +2867,10 @@
   resolved "https://registry.yarnpkg.com/@teamleader/ui-illustrations/-/ui-illustrations-0.0.36.tgz#dc6898e91ce78926ba7e905ca26a628651122f37"
   integrity sha512-PLnHoN+E4C5xTqR/lbZdqLL0l4VvV3vC9kVBBWeB4VC0G6rtKkx5ktD8In68uY0729H8WBFT5sOtLOrHPIvkyQ==
 
-"@teamleader/ui-typography@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@teamleader/ui-typography/-/ui-typography-1.0.0.tgz#9ebab913c5a28042869e1affb6078a750f5bb349"
-  integrity sha512-xJ5VK+b56OWd2lmFtB916GDr3y9BgS5w8BWEbM2jakja6t8TthSCBGvoE5KkENDmU2gCk7KjQTmKxI6iPFHQMQ==
+"@teamleader/ui-typography@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@teamleader/ui-typography/-/ui-typography-2.0.0.tgz#17d0b1ec2b17bab0bb41229fa30fb61ba3f8e85e"
+  integrity sha512-HZxL6pkUrF71xRrsoKCcrOETsz47YXh5igfIUgW5fPo9c+AuNhm129q8tJoH6EZBcA0aFlCw5B/BwmoyamK+ww==
 
 "@teamleader/ui-utilities@^0.2.0":
   version "0.2.1"
