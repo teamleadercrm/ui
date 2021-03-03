@@ -3,8 +3,8 @@
 
 .heading-1 {
   color: var(--color-teal-darkest);
-  font-family: var(--font-family-black);
-  font-weight: normal;
+  font-family: var(--font-family-inter);
+  font-weight: 800;
   font-size: 24px;
   line-height: 30px;
 }

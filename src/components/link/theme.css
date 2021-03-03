@@ -34,7 +34,8 @@
 
   &:not(.is-inherit) {
     color: var(--color-aqua-dark);
-    font-family: var(--font-family-regular);
+    font-family: var(--font-family-inter);
+    font-weight: 400;
   }
 
   &.is-inherit {

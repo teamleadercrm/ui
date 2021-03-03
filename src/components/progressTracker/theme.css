@@ -145,7 +145,8 @@
     .step-label-holder {
       .step-label,
       .step-meta {
-        font-family: var(--font-family-semi-bold);
+        font-family: var(--font-family-inter);
+        font-weight: 600;
       }
     }
 

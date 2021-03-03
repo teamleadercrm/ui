@@ -180,6 +180,14 @@
 
   color: var(--color-teal-darkest);
 
+  height: var(--input-height-medium);
+  width: 100%;
+  padding: 0 var(--input-horizontal-padding);
+
+  font-size: var(--input-text-size);
+  font-family: var(--font-family-inter);
+  font-weight: 400;
+
   &::placeholder {
     color: var(--color-neutral-darkest);
   }
@@ -187,13 +195,6 @@
   &:-ms-input-placeholder {
     color: var(--color-neutral-darkest);
   }
-
-  height: var(--input-height-medium);
-  width: 100%;
-  padding: 0 var(--input-horizontal-padding);
-
-  font-size: var(--input-text-size);
-  font-family: var(--font-family-regular);
 
   &[type='number'] {
     -moz-appearance: textfield;
@@ -238,7 +239,8 @@
   }
 
   &.is-bold {
-    font-family: var(--font-family-medium);
+    font-family: var(--font-family-inter);
+    font-weight: 500;
   }
 }
 

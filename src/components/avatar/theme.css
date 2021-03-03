@@ -46,7 +46,8 @@
 }
 
 .overflow {
-  font-family: var(--font-family-medium);
+  font-family: var(--font-family-inter);
+  font-weight: 500;
   line-height: 1;
   padding: 0 var(--overflow-padding-horizontal);
   user-select: none;

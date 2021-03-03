@@ -26,7 +26,8 @@
   margin: var(--input-spacing);
   resize: vertical;
   font-size: var(--input-text-size);
-  font-family: var(--font-family-regular);
+  font-family: var(--font-family-inter);
+  font-weight: 400;
 
   &:hover {
     cursor: text;

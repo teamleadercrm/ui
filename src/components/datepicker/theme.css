@@ -81,7 +81,8 @@
 .caption {
   color: var(--color-teal-darkest);
   display: table-caption;
-  font-family: var(--font-family-regular);
+  font-family: var(--font-family-inter);
+  font-weight: 400;
   text-align: center;
 }
 
@@ -106,8 +107,9 @@
 .weekday {
   display: table-cell;
   color: var(--color-neutral-darkest);
-  font-family: var(--font-family-bold);
+  font-family: var(--font-family-inter);
   font-size: 12px;
+  font-weight: 700;
   text-align: center;
   text-transform: uppercase;
 }
@@ -147,8 +149,9 @@
   box-shadow: inset 0 -1px 0 0 var(--color-neutral), inset -1px 0 0 0 var(--color-neutral);
   cursor: pointer;
   display: table-cell;
-  font-family: var(--font-family-regular);
+  font-family: var(--font-family-inter);
   font-size: 14px;
+  font-weight: 400;
   outline: none;
   text-align: center;
   vertical-align: middle;
@@ -163,8 +166,9 @@
   color: var(--color-neutral-dark);
   cursor: pointer;
   display: table-cell;
-  font-family: var(--font-family-regular);
+  font-family: var(--font-family-inter);
   font-size: 12px;
+  font-weight: 400;
   min-width: 1rem;
   outline: none;
   text-align: right;
@@ -190,7 +194,8 @@
 }
 
 .today {
-  font-family: var(--font-family-bold);
+  font-family: var(--font-family-inter);
+  font-weight: 700;
 }
 
 .outside {
@@ -369,7 +374,8 @@
   &.is-bold {
     .input-wrapper {
       input {
-        font-family: var(--font-family-medium);
+        font-family: var(--font-family-inter);
+        font-weight: 500;
       }
     }
   }
@@ -387,8 +393,9 @@
     background: transparent;
     border: 0;
     border-radius: var(--border-radius);
-    font-family: var(--font-family-regular);
+    font-family: var(--font-family-inter);
     font-size: var(--input-text-size);
+    font-weight: 400;
     outline: 0;
     padding: 0;
     width: 100%;
@@ -545,8 +552,9 @@
 
 .is-large {
   .caption {
-    font-family: var(--font-family-medium);
+    font-family: var(--font-family-inter);
     font-size: 16px;
+    font-weight: 500;
     padding-bottom: var(--spacer-small);
     padding-top: var(--spacer-regular);
   }
