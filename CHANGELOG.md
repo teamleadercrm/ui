@@ -12,6 +12,8 @@
 
 ### Dependency updates
 
+- `@teamleader/ui-typograhpy` from `1.0.0` to `2.0.0`. ([@driesd](https://github.com/driesd) in [#1537])
+
 ## [4.0.0] - 2021-03-02
 
 ### Added
