@@ -45,7 +45,8 @@ const toolbar = {
 
 const customStyleMap = {
   BOLD: {
-    fontFamily: 'Inter-Bold',
+    fontFamily: 'Inter',
+    fontWeight: 700,
   },
 };
 
