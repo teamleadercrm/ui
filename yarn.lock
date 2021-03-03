@@ -40,13 +40,6 @@
   dependencies:
     "@babel/highlight" "^7.0.0"
 
-"@babel/code-frame@7.8.3":
-  version "7.8.3"
-  resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.8.3.tgz#33e25903d7481181534e12ec0a25f16b6fcf419e"
-  integrity sha512-a9gxpmdXtZEInkCSHUJDLHZVBgb1QS0jhss4cPP93EW7s+uC5bikET2twEF3KV+7rDblJcmNvTR7VJejqd2C2g==
-  dependencies:
-    "@babel/highlight" "^7.8.3"
-
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.10.4", "@babel/code-frame@^7.12.13", "@babel/code-frame@^7.5.5":
   version "7.12.13"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.12.13.tgz#dcfc826beef65e75c50e21d3837d7d95798dd658"
@@ -327,11 +320,6 @@
   dependencies:
     "@babel/types" "^7.12.13"
 
-"@babel/helper-validator-identifier@^7.10.4":
-  version "7.10.4"
-  resolved "https://registry.yarnpkg.com/@babel/helper-validator-identifier/-/helper-validator-identifier-7.10.4.tgz#a78c7a7251e01f616512d31b10adcf52ada5e0d2"
-  integrity sha512-3U9y+43hz7ZM+rzG24Qe2mufW5KhvFg/NhnNph+i9mgCtdTCtMJuI1TMkrIUiK7Ix4PYlRF9I5dhqaLYA/ADXw==
-
 "@babel/helper-validator-identifier@^7.12.11":
   version "7.12.11"
   resolved "https://registry.yarnpkg.com/@babel/helper-validator-identifier/-/helper-validator-identifier-7.12.11.tgz#c9a1f021917dcb5ccf0d4e453e399022981fc9ed"
@@ -385,15 +373,6 @@
   integrity sha512-kocDQvIbgMKlWxXe9fof3TQ+gkIPOUSEYhJjqUjvKMez3krV7vbzYCDq39Oj11UAVK7JqPVGQPlgE85dPNlQww==
   dependencies:
     "@babel/helper-validator-identifier" "^7.12.11"
-    chalk "^2.0.0"
-    js-tokens "^4.0.0"
-
-"@babel/highlight@^7.8.3":
-  version "7.10.4"
-  resolved "https://registry.yarnpkg.com/@babel/highlight/-/highlight-7.10.4.tgz#7d1bdfd65753538fabe6c38596cdb76d9ac60143"
-  integrity sha512-i6rgnR/YgPEQzZZnbTHHuZdlE8qyoBNalD6F+q4vAFlcMEcqmkoG+mPqJYJCo63qPf74+Y1UZsl3l6f7/RIkmA==
-  dependencies:
-    "@babel/helper-validator-identifier" "^7.10.4"
     chalk "^2.0.0"
     js-tokens "^4.0.0"
 
@@ -1731,19 +1710,6 @@
     global "^4.3.2"
     telejson "^3.2.0"
 
-"@storybook/channel-postmessage@6.1.18":
-  version "6.1.18"
-  resolved "https://registry.yarnpkg.com/@storybook/channel-postmessage/-/channel-postmessage-6.1.18.tgz#9f4aa17612cc3c52a040c99c64d80838f835c410"
-  integrity sha512-49Tae2wwY+b2BL6b+Z+tqM/k8pX5ox/SE23ahtWtovrp/OHOYoXrMXTYuU8MA58xqjR4QhB4KjVB5e0V/iQxYQ==
-  dependencies:
-    "@storybook/channels" "6.1.18"
-    "@storybook/client-logger" "6.1.18"
-    "@storybook/core-events" "6.1.18"
-    core-js "^3.0.1"
-    global "^4.3.2"
-    qs "^6.6.0"
-    telejson "^5.0.2"
-
 "@storybook/channel-postmessage@6.1.20":
   version "6.1.20"
   resolved "https://registry.yarnpkg.com/@storybook/channel-postmessage/-/channel-postmessage-6.1.20.tgz#d23956e553ff7e5f022bd8496ee7a26defa57440"
@@ -1803,30 +1769,6 @@
     qs "^6.6.0"
     stable "^0.1.8"
     ts-dedent "^1.1.0"
-    util-deprecate "^1.0.2"
-
-"@storybook/client-api@6.1.18":
-  version "6.1.18"
-  resolved "https://registry.yarnpkg.com/@storybook/client-api/-/client-api-6.1.18.tgz#7569830375d6618e8b0f3b48c5789798e7474751"
-  integrity sha512-iwHLrirUFM4zQuzrKD+mN14F8/IdpMz4aYRBRDHf/FbG9F0dM27RF8S9a3y7thhAVPiNNT8HJ4YO0ZMTdZ5idg==
-  dependencies:
-    "@storybook/addons" "6.1.18"
-    "@storybook/channel-postmessage" "6.1.18"
-    "@storybook/channels" "6.1.18"
-    "@storybook/client-logger" "6.1.18"
-    "@storybook/core-events" "6.1.18"
-    "@storybook/csf" "0.0.1"
-    "@types/qs" "^6.9.0"
-    "@types/webpack-env" "^1.15.3"
-    core-js "^3.0.1"
-    global "^4.3.2"
-    lodash "^4.17.15"
-    memoizerific "^1.11.3"
-    qs "^6.6.0"
-    regenerator-runtime "^0.13.7"
-    stable "^0.1.8"
-    store2 "^2.7.1"
-    ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
 "@storybook/client-api@6.1.20":
@@ -2056,113 +1998,6 @@
     webpack-hot-middleware "^2.25.0"
     webpack-virtual-modules "^0.2.0"
 
-"@storybook/core@6.1.18":
-  version "6.1.18"
-  resolved "https://registry.yarnpkg.com/@storybook/core/-/core-6.1.18.tgz#0186007c97a3e64f936eac784590d45eee6473d7"
-  integrity sha512-FJAJX39HvyL85riUBjRaiyKmbyppNmzZ4dU/hZpinmXHJDk9d857lmkjSz96N24vwRc5uinsodaPs+ccIUONNg==
-  dependencies:
-    "@babel/core" "^7.12.3"
-    "@babel/plugin-proposal-class-properties" "^7.12.1"
-    "@babel/plugin-proposal-decorators" "^7.12.1"
-    "@babel/plugin-proposal-export-default-from" "^7.12.1"
-    "@babel/plugin-proposal-nullish-coalescing-operator" "^7.12.1"
-    "@babel/plugin-proposal-object-rest-spread" "^7.12.1"
-    "@babel/plugin-proposal-optional-chaining" "^7.12.1"
-    "@babel/plugin-proposal-private-methods" "^7.12.1"
-    "@babel/plugin-syntax-dynamic-import" "^7.8.3"
-    "@babel/plugin-transform-arrow-functions" "^7.12.1"
-    "@babel/plugin-transform-block-scoping" "^7.12.1"
-    "@babel/plugin-transform-classes" "^7.12.1"
-    "@babel/plugin-transform-destructuring" "^7.12.1"
-    "@babel/plugin-transform-for-of" "^7.12.1"
-    "@babel/plugin-transform-parameters" "^7.12.1"
-    "@babel/plugin-transform-shorthand-properties" "^7.12.1"
-    "@babel/plugin-transform-spread" "^7.12.1"
-    "@babel/plugin-transform-template-literals" "^7.12.1"
-    "@babel/preset-env" "^7.12.1"
-    "@babel/preset-react" "^7.12.1"
-    "@babel/preset-typescript" "^7.12.1"
-    "@babel/register" "^7.12.1"
-    "@storybook/addons" "6.1.18"
-    "@storybook/api" "6.1.18"
-    "@storybook/channel-postmessage" "6.1.18"
-    "@storybook/channels" "6.1.18"
-    "@storybook/client-api" "6.1.18"
-    "@storybook/client-logger" "6.1.18"
-    "@storybook/components" "6.1.18"
-    "@storybook/core-events" "6.1.18"
-    "@storybook/csf" "0.0.1"
-    "@storybook/node-logger" "6.1.18"
-    "@storybook/router" "6.1.18"
-    "@storybook/semver" "^7.3.2"
-    "@storybook/theming" "6.1.18"
-    "@storybook/ui" "6.1.18"
-    "@types/glob-base" "^0.3.0"
-    "@types/micromatch" "^4.0.1"
-    "@types/node-fetch" "^2.5.4"
-    airbnb-js-shims "^2.2.1"
-    ansi-to-html "^0.6.11"
-    autoprefixer "^9.7.2"
-    babel-loader "^8.0.6"
-    babel-plugin-emotion "^10.0.20"
-    babel-plugin-macros "^2.8.0"
-    babel-preset-minify "^0.5.0 || 0.6.0-alpha.5"
-    better-opn "^2.0.0"
-    boxen "^4.1.0"
-    case-sensitive-paths-webpack-plugin "^2.2.0"
-    chalk "^4.0.0"
-    cli-table3 "0.6.0"
-    commander "^5.0.0"
-    core-js "^3.0.1"
-    cpy "^8.1.1"
-    css-loader "^3.5.3"
-    detect-port "^1.3.0"
-    dotenv-webpack "^1.7.0"
-    ejs "^3.1.2"
-    express "^4.17.0"
-    file-loader "^6.0.0"
-    file-system-cache "^1.0.5"
-    find-up "^4.1.0"
-    fork-ts-checker-webpack-plugin "^4.1.4"
-    fs-extra "^9.0.0"
-    glob "^7.1.6"
-    glob-base "^0.3.0"
-    glob-promise "^3.4.0"
-    global "^4.3.2"
-    html-webpack-plugin "^4.2.1"
-    inquirer "^7.0.0"
-    interpret "^2.0.0"
-    ip "^1.1.5"
-    json5 "^2.1.1"
-    lazy-universal-dotenv "^3.0.1"
-    micromatch "^4.0.2"
-    node-fetch "^2.6.0"
-    pkg-dir "^4.2.0"
-    pnp-webpack-plugin "1.6.4"
-    postcss-flexbugs-fixes "^4.1.0"
-    postcss-loader "^3.0.0"
-    pretty-hrtime "^1.0.3"
-    qs "^6.6.0"
-    raw-loader "^4.0.1"
-    react-dev-utils "^10.0.0"
-    regenerator-runtime "^0.13.7"
-    resolve-from "^5.0.0"
-    serve-favicon "^2.5.0"
-    shelljs "^0.8.4"
-    stable "^0.1.8"
-    style-loader "^1.2.1"
-    telejson "^5.0.2"
-    terser-webpack-plugin "^3.0.0"
-    ts-dedent "^2.0.0"
-    unfetch "^4.1.0"
-    url-loader "^4.0.0"
-    util-deprecate "^1.0.2"
-    webpack "^4.44.2"
-    webpack-dev-middleware "^3.7.0"
-    webpack-filter-warnings-plugin "^1.2.1"
-    webpack-hot-middleware "^2.25.0"
-    webpack-virtual-modules "^0.2.2"
-
 "@storybook/core@6.1.20":
   version "6.1.20"
   resolved "https://registry.yarnpkg.com/@storybook/core/-/core-6.1.20.tgz#57e8a86305f7da6cdc13185299c4c5f4b90b7308"
@@ -2289,17 +2124,6 @@
     pretty-hrtime "^1.0.3"
     regenerator-runtime "^0.13.3"
 
-"@storybook/node-logger@6.1.18":
-  version "6.1.18"
-  resolved "https://registry.yarnpkg.com/@storybook/node-logger/-/node-logger-6.1.18.tgz#cf45d30f3456b7eeb664233df05f654e5773cb18"
-  integrity sha512-gsiHQVratKBSoP11IqU2Td5W+KUc0qg+czqhzzp1JNMJ25/xBtCJ8MAIOX5JFhovzvB7H0j8y8VNF1YgmcmOQg==
-  dependencies:
-    "@types/npmlog" "^4.1.2"
-    chalk "^4.0.0"
-    core-js "^3.0.1"
-    npmlog "^4.1.2"
-    pretty-hrtime "^1.0.3"
-
 "@storybook/node-logger@6.1.20":
   version "6.1.20"
   resolved "https://registry.yarnpkg.com/@storybook/node-logger/-/node-logger-6.1.20.tgz#40ec44bfd36e799089c831ecb86588c730023e6c"
@@ -2318,17 +2142,17 @@
   dependencies:
     core-js "^3.0.1"
 
-"@storybook/react@6.1.18":
-  version "6.1.18"
-  resolved "https://registry.yarnpkg.com/@storybook/react/-/react-6.1.18.tgz#895cdc252299a181442131f0b3b2506f273888c0"
-  integrity sha512-wAkUn3LPzoo10LgIZ28beJT9hrWAKR5rEl6g3Y4yTqmvfWdaXZOtHomEchq7Cru7C+1jQ60mDMtwu+D2FZP4bQ==
+"@storybook/react@6.1.20":
+  version "6.1.20"
+  resolved "https://registry.yarnpkg.com/@storybook/react/-/react-6.1.20.tgz#0e2b858107fc139aa01a1d0fb2dca0611dd2224b"
+  integrity sha512-9NCWxLXJSjEy/DP9fC8Uj7zUljPA6eREjZuNElHGRI/Tg5R/QBuQnBJX9EagLic1lzpcUbsfWJ/+Bpa2qLXAEw==
   dependencies:
     "@babel/preset-flow" "^7.12.1"
     "@babel/preset-react" "^7.12.1"
     "@pmmmwh/react-refresh-webpack-plugin" "^0.4.2"
-    "@storybook/addons" "6.1.18"
-    "@storybook/core" "6.1.18"
-    "@storybook/node-logger" "6.1.18"
+    "@storybook/addons" "6.1.20"
+    "@storybook/core" "6.1.20"
+    "@storybook/node-logger" "6.1.20"
     "@storybook/semver" "^7.3.2"
     "@types/webpack-env" "^1.15.3"
     babel-plugin-add-react-displayname "^0.0.5"
@@ -2338,7 +2162,7 @@
     global "^4.3.2"
     lodash "^4.17.15"
     prop-types "^15.7.2"
-    react-dev-utils "^10.0.0"
+    react-dev-utils "^11.0.3"
     react-docgen-typescript-plugin "^0.6.2"
     react-refresh "^0.8.3"
     regenerator-runtime "^0.13.7"
@@ -4201,16 +4025,6 @@ browserify-zlib@^0.2.0:
   dependencies:
     pako "~1.0.5"
 
-browserslist@4.10.0:
-  version "4.10.0"
-  resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-4.10.0.tgz#f179737913eaf0d2b98e4926ac1ca6a15cbcc6a9"
-  integrity sha512-TpfK0TDgv71dzuTsEAlQiHeWQ/tiPqgNZVdv046fvNtBZrjbv2O3TsWCDU0AWGJJKCF/KsjNdLzR9hXOsh/CfA==
-  dependencies:
-    caniuse-lite "^1.0.30001035"
-    electron-to-chromium "^1.3.378"
-    node-releases "^1.1.52"
-    pkg-up "^3.1.0"
-
 browserslist@4.14.2:
   version "4.14.2"
   resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-4.14.2.tgz#1b3cec458a1ba87588cc5e9be62f19b6d48813ce"
@@ -4473,11 +4287,6 @@ caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30000989, can
   version "1.0.30001013"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001013.tgz#da2440d4d266a17d40eb79bd19c0c8cc1d029c72"
   integrity sha512-hOAXaWKuq/UVFgYawxIOdPdyMQdYcwOCDOjnZcKn7wCgFUrhP7smuNZjGLuJlPSgE6aRA4cRJ+bGSrhtEt7ZAg==
-
-caniuse-lite@^1.0.30001035:
-  version "1.0.30001107"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001107.tgz#809360df7a5b3458f627aa46b0f6ed6d5239da9a"
-  integrity sha512-86rCH+G8onCmdN4VZzJet5uPELII59cUzDphko3thQFgAQG1RNa+sVLDoALIhRYmflo5iSIzWY3vu1XTWtNMQQ==
 
 caniuse-lite@^1.0.30001125:
   version "1.0.30001194"
@@ -5143,15 +4952,6 @@ cross-spawn@6.0.5, cross-spawn@^6.0.0:
     shebang-command "^1.2.0"
     which "^1.2.9"
 
-cross-spawn@7.0.1:
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-7.0.1.tgz#0ab56286e0f7c24e153d04cc2aa027e43a9a5d14"
-  integrity sha512-u7v4o84SwFpD32Z8IIcPZ6z1/ie24O6RU3RbtL5Y316l3KuHVPx9ItBgWQ6VlfAFnRnTtMUrsQ9MUUTuEZjogg==
-  dependencies:
-    path-key "^3.1.0"
-    shebang-command "^2.0.0"
-    which "^2.0.1"
-
 cross-spawn@7.0.3, cross-spawn@^7.0.0, cross-spawn@^7.0.2:
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-7.0.3.tgz#f73a85b9d5d41d045551c177e2882d4ac85728a6"
@@ -5245,15 +5045,15 @@ css-loader@^3.0.0, css-loader@^3.5.3:
     semver "^6.3.0"
 
 css-loader@^5.0.2:
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-5.0.2.tgz#24f758dae349bad0a440c50d7e2067742e0899cb"
-  integrity sha512-gbkBigdcHbmNvZ1Cg6aV6qh6k9N6XOr8YWzISLQGrwk2mgOH8LLrizhkxbDhQtaLtktyKHD4970S0xwz5btfTA==
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-5.1.1.tgz#9362d444a0f7c08c148a109596715c904e252879"
+  integrity sha512-5FfhpjwtuRgxqmusDidowqmLlcb+1HgnEDMsi2JhiUrZUcoc+cqw+mUtMIF/+OfeMYaaFCLYp1TaIt9H6I/fKA==
   dependencies:
     camelcase "^6.2.0"
     cssesc "^3.0.0"
     icss-utils "^5.1.0"
     loader-utils "^2.0.0"
-    postcss "^8.2.4"
+    postcss "^8.2.6"
     postcss-modules-extract-imports "^3.0.0"
     postcss-modules-local-by-default "^4.0.0"
     postcss-modules-scope "^3.0.0"
@@ -5899,11 +5699,6 @@ electron-to-chromium@^1.3.247:
   version "1.3.321"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.321.tgz#913869f5ec85daabba0e75c9c314b4bf26cdb01e"
   integrity sha512-jJy/BZK2s2eAjMPXVMSaCmo7/pSY2aKkfQ+LoAb5Wk39qAhyP9r8KU74c4qTgr9cD/lPUhJgReZxxqU0n5puog==
-
-electron-to-chromium@^1.3.378:
-  version "1.3.509"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.509.tgz#830fcb89cd66dc2984d18d794973b99e3f00584c"
-  integrity sha512-cN4lkjNRuTG8rtAqTOVgwpecEC2kbKA04PG6YijcKGHK/kD0xLjiqExcAOmLUwtXZRF8cBeam2I0VZcih919Ug==
 
 electron-to-chromium@^1.3.564:
   version "1.3.677"
@@ -6923,11 +6718,6 @@ filesize@3.6.1:
   resolved "https://registry.yarnpkg.com/filesize/-/filesize-3.6.1.tgz#090bb3ee01b6f801a8a8be99d31710b3422bb317"
   integrity sha512-7KjR1vv6qnicaPMi1iiTcI85CyYwRO/PSFCu6SvqL8jN2Wjt/NIYQTFtFs7fSDCYOstUkEWIQGFUg5YZQfjlcg==
 
-filesize@6.0.1:
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/filesize/-/filesize-6.0.1.tgz#f850b509909c7c86f7e450ea19006c31c2ed3d2f"
-  integrity sha512-u4AYWPgbI5GBhs6id1KdImZWn5yfyFrrQ8OWZdN7ZMfA8Bf4HcO0BGo9bmUIEV8yrp8I1xVfJ/dn90GtFNNJcg==
-
 filesize@6.1.0:
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/filesize/-/filesize-6.1.0.tgz#e81bdaa780e2451d714d71c0d7a4f3238d37ad00"
@@ -7086,20 +6876,6 @@ fork-ts-checker-webpack-plugin@1.5.0:
     babel-code-frame "^6.22.0"
     chalk "^2.4.1"
     chokidar "^2.0.4"
-    micromatch "^3.1.10"
-    minimatch "^3.0.4"
-    semver "^5.6.0"
-    tapable "^1.0.0"
-    worker-rpc "^0.1.0"
-
-fork-ts-checker-webpack-plugin@3.1.1:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/fork-ts-checker-webpack-plugin/-/fork-ts-checker-webpack-plugin-3.1.1.tgz#a1642c0d3e65f50c2cc1742e9c0a80f441f86b19"
-  integrity sha512-DuVkPNrM12jR41KM2e+N+styka0EgLkTnXmNcXdgOM37vtGeY+oCBK/Jx0hzSeEU6memFCtWb4htrHPMDfwwUQ==
-  dependencies:
-    babel-code-frame "^6.22.0"
-    chalk "^2.4.1"
-    chokidar "^3.3.0"
     micromatch "^3.1.10"
     minimatch "^3.0.4"
     semver "^5.6.0"
@@ -8217,25 +7993,6 @@ inquirer@6.5.0:
     run-async "^2.2.0"
     rxjs "^6.4.0"
     string-width "^2.1.0"
-    strip-ansi "^5.1.0"
-    through "^2.3.6"
-
-inquirer@7.0.4:
-  version "7.0.4"
-  resolved "https://registry.yarnpkg.com/inquirer/-/inquirer-7.0.4.tgz#99af5bde47153abca23f5c7fc30db247f39da703"
-  integrity sha512-Bu5Td5+j11sCkqfqmUTiwv+tWisMtP0L7Q8WrqA2C/BbBhy1YTdFrvjjlrKq8oagA/tLQBski2Gcx/Sqyi2qSQ==
-  dependencies:
-    ansi-escapes "^4.2.1"
-    chalk "^2.4.2"
-    cli-cursor "^3.1.0"
-    cli-width "^2.0.0"
-    external-editor "^3.0.3"
-    figures "^3.0.0"
-    lodash "^4.17.15"
-    mute-stream "0.0.8"
-    run-async "^2.2.0"
-    rxjs "^6.5.3"
-    string-width "^4.1.0"
     strip-ansi "^5.1.0"
     through "^2.3.6"
 
@@ -10041,11 +9798,6 @@ node-releases@^1.1.29:
   dependencies:
     semver "^6.3.0"
 
-node-releases@^1.1.52:
-  version "1.1.60"
-  resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-1.1.60.tgz#6948bdfce8286f0b5d0e5a88e8384e954dfe7084"
-  integrity sha512-gsO4vjEdQaTusZAEebUWp2a5d7dF5DYoIpDG7WySnk7BuZDW+GPpHXoXXuYawRBr/9t5q54tirPz79kFIWg4dA==
-
 node-releases@^1.1.61, node-releases@^1.1.70:
   version "1.1.71"
   resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-1.1.71.tgz#cb1334b179896b1c89ecfdd4b725fb7bbdfc7dbb"
@@ -10878,7 +10630,7 @@ pkg-up@2.0.0:
   dependencies:
     find-up "^2.1.0"
 
-pkg-up@3.1.0, pkg-up@^3.1.0:
+pkg-up@3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/pkg-up/-/pkg-up-3.1.0.tgz#100ec235cc150e4fd42519412596a28512a0def5"
   integrity sha512-nDywThFk1i4BQK4twPQ6TA4RT8bDY96yeuCVBWL3ePARCiEKDRSrNGbFIgUJpLp+XeIR65v8ra7WuJOFUBtkMA==
@@ -11715,7 +11467,7 @@ postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.14, postcss@^7.0.17, postcss@^7.0.2
     source-map "^0.6.1"
     supports-color "^6.1.0"
 
-postcss@^8.2.0, postcss@^8.2.4:
+postcss@^8.2.0, postcss@^8.2.6:
   version "8.2.6"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.2.6.tgz#5d69a974543b45f87e464bc4c3e392a97d6be9fe"
   integrity sha512-xpB8qYxgPuly166AGlpRjUdEYtmOWx2iCwGmrv4vqZL9YPVviDVPZPRXxnXr6xPZOdxQ9lp3ZBFCRgWJ7LE3Sg==
@@ -12085,36 +11837,6 @@ react-day-picker@^7.4.8:
   dependencies:
     prop-types "^15.6.2"
 
-react-dev-utils@^10.0.0:
-  version "10.2.1"
-  resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-10.2.1.tgz#f6de325ae25fa4d546d09df4bb1befdc6dd19c19"
-  integrity sha512-XxTbgJnYZmxuPtY3y/UV0D8/65NKkmaia4rXzViknVnZeVlklSh8u6TnaEYPfAi/Gh1TP4mEOXHI6jQOPbeakQ==
-  dependencies:
-    "@babel/code-frame" "7.8.3"
-    address "1.1.2"
-    browserslist "4.10.0"
-    chalk "2.4.2"
-    cross-spawn "7.0.1"
-    detect-port-alt "1.1.6"
-    escape-string-regexp "2.0.0"
-    filesize "6.0.1"
-    find-up "4.1.0"
-    fork-ts-checker-webpack-plugin "3.1.1"
-    global-modules "2.0.0"
-    globby "8.0.2"
-    gzip-size "5.1.1"
-    immer "1.10.0"
-    inquirer "7.0.4"
-    is-root "2.1.0"
-    loader-utils "1.2.3"
-    open "^7.0.2"
-    pkg-up "3.1.0"
-    react-error-overlay "^6.0.7"
-    recursive-readdir "2.2.2"
-    shell-quote "1.7.2"
-    strip-ansi "6.0.0"
-    text-table "0.2.0"
-
 react-dev-utils@^11.0.3:
   version "11.0.3"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-11.0.3.tgz#b61ed499c7d74f447d4faddcc547e5e671e97c08"
@@ -12257,11 +11979,6 @@ react-error-overlay@^6.0.3:
   version "6.0.3"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.3.tgz#c378c4b0a21e88b2e159a3e62b2f531fd63bf60d"
   integrity sha512-bOUvMWFQVk5oz8Ded9Xb7WVdEi3QGLC8tH7HmYP0Fdp4Bn3qw0tRFmr5TW6mvahzvmrK4a6bqWGfCevBflP+Xw==
-
-react-error-overlay@^6.0.7:
-  version "6.0.7"
-  resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.7.tgz#1dcfb459ab671d53f660a991513cb2f0a0553108"
-  integrity sha512-TAv1KJFh3RhqxNvhzxj6LeT5NWklP6rDr2a0jaTfsZ5wSZWHOGeqQyejUp3xxLfPt2UpyJEcVQB/zyPcmonNFA==
 
 react-error-overlay@^6.0.9:
   version "6.0.9"
@@ -12964,13 +12681,6 @@ rxjs@^6.4.0:
   version "6.5.3"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.5.3.tgz#510e26317f4db91a7eb1de77d9dd9ba0a4899a3a"
   integrity sha512-wuYsAYYFdWTAnAaPoKGNhfpWwKZbJW+HgAJ+mImp+Epl7BG8oNWBCTyRM8gba9k4lk8BgWdoYm21Mo/RYhhbgA==
-  dependencies:
-    tslib "^1.9.0"
-
-rxjs@^6.5.3:
-  version "6.6.0"
-  resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.6.0.tgz#af2901eedf02e3a83ffa7f886240ff9018bbec84"
-  integrity sha512-3HMA8z/Oz61DUHe+SdOiQyzIf4tOx5oQHmMir7IZEu6TMqCLHT4LRcmNaUS0NwOz8VLvmmBduMsoaUvMaIiqzg==
   dependencies:
     tslib "^1.9.0"
 
