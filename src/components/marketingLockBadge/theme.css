@@ -1,0 +1,25 @@
+@import '@teamleader/ui-colors';
+@import '@teamleader/ui-utilities';
+
+:root {
+  --color-marketing-violet-light: #d3d1fe;
+  --color-marketing-violet: #4f1fff;
+}
+
+.wrapper {
+  background-color: var(--color-marketing-violet-light);
+}
+
+.icon {
+  color: var(--color-marketing-violet) !important;
+}
+
+.is-small {
+  height: 18px;
+  width: 18px;
+}
+
+.is-medium {
+  height: 24px;
+  width: 24px;
+}

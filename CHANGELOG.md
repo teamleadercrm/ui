@@ -2,6 +2,8 @@
 
 ### Added
 
+- `MarketingLockBadge`: added new component. ([@driesd](https://github.com/driesd) in [#1541])
+
 ### Changed
 
 ### Deprecated
