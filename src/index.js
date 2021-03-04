@@ -38,6 +38,7 @@ import Menu, { IconMenu, MenuItem, MenuDivider, MenuTitle } from './components/m
 import Link from './components/link';
 import MarketingButton from './components/marketingButton';
 import MarketingLink from './components/marketingLink';
+import MarketingLockBadge from './components/marketingLockBadge';
 import MarketingMarker from './components/marketingMarker';
 import { MarketingHeading1 } from './components/marketingTypography';
 import Message from './components/message';
@@ -139,6 +140,7 @@ export {
   Marker,
   MarketingButton,
   MarketingLink,
+  MarketingLockBadge,
   MarketingMarker,
   MarketingHeading1,
   Menu,
