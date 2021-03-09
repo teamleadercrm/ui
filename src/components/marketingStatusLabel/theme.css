@@ -1,0 +1,27 @@
+:root {
+  --color-marketing-violet-lightest: #e9e8ff;
+  --color-marketing-violet-light: #d3d1fe;
+  --color-marketing-violet: #4f1fff;
+  --size-small: 18px;
+  --size-medium: 24px;
+}
+
+.wrapper {
+  background-color: var(--color-marketing-violet-lightest);
+  box-shadow: inset 0 0 0 1px var(--color-marketing-violet-light);
+}
+
+.icon,
+.text {
+  color: var(--color-marketing-violet) !important;
+}
+
+.is-small {
+  border-radius: var(--size-small);
+  height: var(--size-small);
+}
+
+.is-medium {
+  border-radius: var(--size-medium);
+  height: var(--size-medium);
+}
