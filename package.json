@@ -30,7 +30,7 @@
     "@babel/runtime": "^7.12.5",
     "@teamleader/ui-animations": "^0.0.3",
     "@teamleader/ui-colors": "^0.3.0",
-    "@teamleader/ui-icons": "^0.2.30",
+    "@teamleader/ui-icons": "^1.0.0",
     "@teamleader/ui-illustrations": "^0.0.36",
     "@teamleader/ui-typography": "^2.0.0",
     "@teamleader/ui-utilities": "^0.2.0",
