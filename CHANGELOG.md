@@ -2,6 +2,7 @@
 
 ### Added
 
+- `MarketingHeading2`: added new component. ([@driesd](https://github.com/driesd) in [#1552])
 - `MarketingLockBadge`: added new component. ([@driesd](https://github.com/driesd) in [#1541])
 - `MarketingStatusLabel`: added new component. ([@driesd](https://github.com/driesd) in [#1550])
 - `MarketingTab`: added new component. ([@driesd](https://github.com/driesd) in [#1551])
