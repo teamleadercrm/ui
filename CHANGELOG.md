@@ -9,6 +9,8 @@
 
 ### Changed
 
+- `Badge`: changes the height of the small sized component from 24px to 18px. ([@driesd](https://github.com/driesd) in [#1556])
+
 ### Deprecated
 
 ### Removed
