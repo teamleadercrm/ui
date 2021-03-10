@@ -1,10 +1,20 @@
 @import '@teamleader/ui-colors';
 @import '@teamleader/ui-typography';
 
-.heading-1 {
+.heading-1,
+.heading-2 {
   color: var(--color-teal-darkest);
   font-family: var(--font-family-inter);
+}
+
+.heading-1 {
   font-weight: 800;
   font-size: 24px;
   line-height: 30px;
+}
+
+.heading-2 {
+  font-weight: 800;
+  font-size: 21px;
+  line-height: 24px;
 }

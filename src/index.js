@@ -42,7 +42,7 @@ import MarketingLockBadge from './components/marketingLockBadge';
 import MarketingMarker from './components/marketingMarker';
 import MarketingStatusLabel from './components/marketingStatusLabel';
 import MarketingTab from './components/marketingTab';
-import { MarketingHeading1 } from './components/marketingTypography';
+import { MarketingHeading1, MarketingHeading2 } from './components/marketingTypography';
 import Message from './components/message';
 import Overlay from './components/overlay';
 import OverviewPage, { OverviewPageBody, OverviewPageHeader } from './components/overviewPage';
@@ -146,6 +146,7 @@ export {
   MarketingMarker,
   MarketingStatusLabel,
   MarketingHeading1,
+  MarketingHeading2,
   MarketingTab,
   Menu,
   MenuItem,
