@@ -64,7 +64,10 @@
   }
 }
 
-.is-small,
+.is-small {
+  height: 18px;
+}
+
 .is-medium {
   height: 24px;
 }

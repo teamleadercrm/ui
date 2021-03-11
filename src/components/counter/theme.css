@@ -12,8 +12,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-family-bold);
+  font-family: var(--font-family-inter);
   font-size: calc(1.2 * var(--unit));
+  font-weight: 700;
   line-height: 1;
 }
 

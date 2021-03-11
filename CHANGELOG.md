@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `Badge`: changes the height of the small sized component from 24px to 18px. ([@driesd](https://github.com/driesd) in [#1556])
+
 ### Deprecated
 
 ### Removed
@@ -11,6 +13,36 @@
 ### Fixed
 
 ### Dependency updates
+
+## [4.1.0] - 2021-03-10
+
+### Added
+
+- `MarketingHeading2`: added new component. ([@driesd](https://github.com/driesd) in [#1552])
+- `MarketingLockBadge`: added new component. ([@driesd](https://github.com/driesd) in [#1541])
+- `MarketingStatusLabel`: added new component. ([@driesd](https://github.com/driesd) in [#1550])
+- `MarketingTab`: added new component. ([@driesd](https://github.com/driesd) in [#1551])
+
+### Dependency updates
+
+- `@babel/core` from `7.13.8` to `7.13.10`
+- `@babel/plugin-transform-runtime` from `7.13.7` to `7.13.9`
+- `@babel/preset-env` from `7.12.17` to `7.13.9`
+- `@babel/runtime` from `7.13.7` to `7.13.10`
+- `@storybook/react` from `6.1.18` to `6.1.20`
+- `@storybook/addon-backgrounds` from `6.1.18` to `6.1.21`
+- `@storybook/addon-controls` from `6.1.20` to `6.1.21`
+- `@storybook/addon-docs` from `6.1.20` to `6.1.21`
+- `@storybook/addon-knobs` from `6.1.20` to `6.1.21`
+- `@storybook/addons` from `6.1.18` to `6.1.21`
+- `@storybook/react` from `6.1.20` to `6.1.21`
+- `@storybook/ui` from `6.1.18` to `6.1.21`
+- `@teamleader/ui-typograhpy` from `1.0.0` to `2.0.0`. ([@driesd](https://github.com/driesd) in [#1537])
+- `css-loader` from `5.0.2` to `5.1.1`
+- `elliptic` from `6.5.3` to `6.5.4`
+- `eslint-config-prettier` from `8.0.0` to `8.1.0`
+- `postcss-nested` from `5.0.3` to `5.0.5`
+- `postcss` from `8.2.6` to `8.2.7`
 
 ## [4.0.0] - 2021-03-02
 

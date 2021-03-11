@@ -48,7 +48,8 @@
 }
 
 .is-current {
-  font-family: var(--font-family-medium);
+  font-family: var(--font-family-inter);
+  font-weight: 500;
   pointer-events: none;
 }
 
