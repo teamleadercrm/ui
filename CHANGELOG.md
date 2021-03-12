@@ -4,8 +4,6 @@
 
 ### Changed
 
-- `Badge`: changes the height of the small sized component from 24px to 18px. ([@driesd](https://github.com/driesd) in [#1556])
-
 ### Deprecated
 
 ### Removed
@@ -13,6 +11,22 @@
 ### Fixed
 
 ### Dependency updates
+
+## [4.2.0] - 2021-03-12
+
+### Changed
+
+- `Badge`: changes the height of the small sized component from 24px to 18px. ([@driesd](https://github.com/driesd) in [#1556])
+
+### Fixed
+
+- Fixed font weight issue by upgrading `@teamleader/ui-typography` to the latest version. ([@driesd](https://github.com/driesd) in [#1560])
+
+### Dependency updates
+
+- `@babel/cli from 7.12.13 to 7.13.10`
+- `@babel/plugin-transform-runtime from 7.13.9 to 7.13.10`
+- `@teamleader/ui-typography` from `2.0.0` to `2.0.1`
 
 ## [4.1.0] - 2021-03-10
 
