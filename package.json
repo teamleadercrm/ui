@@ -32,7 +32,7 @@
     "@teamleader/ui-colors": "^0.3.0",
     "@teamleader/ui-icons": "^1.0.0",
     "@teamleader/ui-illustrations": "^0.0.36",
-    "@teamleader/ui-typography": "^2.0.0",
+    "@teamleader/ui-typography": "^2.0.1",
     "@teamleader/ui-utilities": "^0.2.0",
     "classnames": "^2.2.5",
     "draft-js": "0.11.7",
