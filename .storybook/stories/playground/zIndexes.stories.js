@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { addStoryInGroup, PLAYGROUND } from '../../utils';
 import {
   Box,
@@ -25,7 +25,6 @@ import {
   ToastContainer,
   Tooltip,
 } from '../../../src';
-import { State, Store } from '@sambego/storybook-state';
 import { boolean, select } from '@storybook/addon-knobs';
 import { DateTime } from 'luxon';
 import { IconIdeaMediumOutline, IconInfoBadgedSmallFilled } from '@teamleader/ui-icons';
@@ -61,43 +60,6 @@ const preSelectedRange = {
 
 const TooltippedIcon = Tooltip(Icon);
 const TooltippedStatusBullet = Tooltip(StatusBullet);
-
-const datePickerStore = new Store({
-  selectedDate: preSelectedDate,
-});
-
-const dialogStore = new Store({
-  active: false,
-});
-
-const popoverStore = new Store({
-  active: false,
-});
-
-const qTipStore = new Store({
-  closed: true,
-});
-
-const hidePopover = () => {
-  popoverStore.set({ active: false });
-};
-
-const showHideDialog = () => {
-  dialogStore.set({ active: !dialogStore.get('active') });
-};
-
-const showPopover = (event) => {
-  popoverStore.set({ anchorEl: event.currentTarget, active: true });
-};
-
-const showHideQTip = () => {
-  qTipStore.set({ active: !qTipStore.get('active') });
-};
-
-const handleDatePickerDateChanged = (selectedDate) => {
-  datePickerStore.set({ selectedDate });
-  console.log('selectedDate', selectedDate);
-};
 
 const customFormatDate = (date, locale) => {
   return DateTime.fromJSDate(date).setLocale(locale).toLocaleString(DateTime.DATETIME_HUGE);
@@ -202,10 +164,38 @@ const MyDatagrid = ({ ...props }) => (
   </DataGrid>
 );
 
-export const zIndexes = () => (
-  <Box>
-    <State store={qTipStore}>
+export const zIndexes = () => {
+  const [popoverActive, setPopoverActive] = useState(false);
+  const [popoverAnchorEl, setPopoverAnchorEl] = useState(undefined);
+  const [dialogActive, setDialogActive] = useState(false);
+  const [qTipActive, setQTipActive] = useState(false);
+  const [selectedDate, setSelectedDate] = useState(preSelectedDate);
+
+  const hidePopover = () => {
+    setPopoverActive(false);
+  };
+
+  const showHideDialog = () => {
+    setDialogActive(!dialogActive);
+  };
+
+  const showPopover = (event) => {
+    setPopoverAnchorEl(event.currentTarget);
+    setPopoverActive(true);
+  };
+
+  const showHideQTip = () => {
+    setQTipActive(!qTipActive);
+  };
+
+  const handleDatePickerDateChanged = (selectedDate) => {
+    setSelectedDate(selectedDate);
+  };
+
+  return (
+    <Box>
       <QTip
+        active={qTipActive}
         icon={<IconIdeaMediumOutline />}
         onChange={showHideQTip}
         onEscKeyDown={showHideQTip}
@@ -219,22 +209,21 @@ export const zIndexes = () => (
           elit.
         </TextBody>
       </QTip>
-    </State>
-    <ButtonGroup marginBottom={5}>
-      <Button label="Open Dialog" onClick={showHideDialog} />
-      <Button label="Open Poppover" onClick={showPopover} />
-    </ButtonGroup>
-    <Box display="flex">
-      <Label flex="1" marginRight={3}>
-        Select your flavourite
-        <Select helpText="Please select your favorite flavour" options={options} marginBottom={3} />
-      </Label>
-    </Box>
-    <Box display="flex">
-      <Label required flex="1">
-        Pick a date
-        <State store={datePickerStore}>
+      <ButtonGroup marginBottom={5}>
+        <Button label="Open Dialog" onClick={showHideDialog} />
+        <Button label="Open Poppover" onClick={showPopover} />
+      </ButtonGroup>
+      <Box display="flex">
+        <Label flex="1" marginRight={3}>
+          Select your flavourite
+          <Select helpText="Please select your favorite flavour" options={options} marginBottom={3} />
+        </Label>
+      </Box>
+      <Box display="flex">
+        <Label required flex="1">
+          Pick a date
           <DatePickerInput
+            selectedDate={selectedDate}
             formatDate={customFormatDate}
             inputProps={{
               helpText: 'Please pick a preferred date',
@@ -243,44 +232,49 @@ export const zIndexes = () => (
             }}
             locale={select('Locale', LANGUAGES, 'nl')}
             onChange={handleDatePickerDateChanged}
-            selectedDate={preSelectedDate}
           />
-        </State>
-      </Label>
-      <Label required flex="1" marginLeft={3}>
-        Pick a date
-        <DatePickerInputRange
-          formatDate={formatDate}
-          parseDate={parseDate}
-          dayPickerProps={{
-            locale: select('Locale', LANGUAGES, 'nl'),
-            localeUtils: MomentLocaleUtils,
-            numberOfMonths: 2,
-            showOutsideDays: false,
-            showWeekNumbers: true,
-          }}
-          dayPickerInputStartDateProps={{
-            placeholder: inputPlaceholderToday,
-            value: preSelectedRange.selectedStartDate,
-          }}
-          dayPickerInputEndDateProps={{
-            placeholder: inputPlaceholderTomorrow,
-            value: preSelectedRange.selectedEndDate,
-          }}
-          onChange={() => console.log('Changed')}
-          selectedRange={preSelectedRange}
-        />
-      </Label>
-    </Box>
-    <MyDatagrid
-      selectable={boolean('DataGrid selectable', true)}
-      stickyFromLeft={3}
-      stickyFromRight={1}
-      processing={boolean('DataGrid processing', false)}
-      marginTop={4}
-    />
-    <State store={popoverStore}>
-      <Popover backdrop="dark" onEscKeyDown={hidePopover} onOverlayClick={hidePopover} position="end" direction="south">
+        </Label>
+        <Label required flex="1" marginLeft={3}>
+          Pick a date
+          <DatePickerInputRange
+            formatDate={formatDate}
+            parseDate={parseDate}
+            dayPickerProps={{
+              locale: select('Locale', LANGUAGES, 'nl'),
+              localeUtils: MomentLocaleUtils,
+              numberOfMonths: 2,
+              showOutsideDays: false,
+              showWeekNumbers: true,
+            }}
+            dayPickerInputStartDateProps={{
+              placeholder: inputPlaceholderToday,
+              value: preSelectedRange.selectedStartDate,
+            }}
+            dayPickerInputEndDateProps={{
+              placeholder: inputPlaceholderTomorrow,
+              value: preSelectedRange.selectedEndDate,
+            }}
+            onChange={() => console.log('Changed')}
+            selectedRange={preSelectedRange}
+          />
+        </Label>
+      </Box>
+      <MyDatagrid
+        selectable={boolean('DataGrid selectable', true)}
+        stickyFromLeft={3}
+        stickyFromRight={1}
+        processing={boolean('DataGrid processing', false)}
+        marginTop={4}
+      />
+      <Popover
+        active={popoverActive}
+        anchorEl={popoverAnchorEl}
+        backdrop="dark"
+        onEscKeyDown={hidePopover}
+        onOverlayClick={hidePopover}
+        position="end"
+        direction="south"
+      >
         <Box padding={4}>
           <Heading3 color="teal">I am a Popover</Heading3>
           <Label
@@ -298,9 +292,8 @@ export const zIndexes = () => (
           </Label>
         </Box>
       </Popover>
-    </State>
-    <State store={dialogStore}>
       <Dialog
+        active={dialogActive}
         title="I am the Dialog title"
         onCloseClick={showHideDialog}
         onEscKeyDown={showHideDialog}
@@ -315,26 +308,24 @@ export const zIndexes = () => (
           </Label>
           <Label required flex="1" marginLeft={2}>
             Pick a date
-            <State store={datePickerStore}>
-              <DatePickerInput
-                inputProps={{
-                  helpText: 'Please pick a preferred date',
-                  placeholder: inputPlaceholderToday,
-                }}
-                locale={select('Locale', LANGUAGES, 'nl')}
-                onChange={handleDatePickerDateChanged}
-                selectedDate={preSelectedDate}
-              />
-            </State>
+            <DatePickerInput
+              selectedDate={selectedDate}
+              inputProps={{
+                helpText: 'Please pick a preferred date',
+                placeholder: inputPlaceholderToday,
+              }}
+              locale={select('Locale', LANGUAGES, 'nl')}
+              onChange={handleDatePickerDateChanged}
+            />
           </Label>
         </Box>
       </Dialog>
-    </State>
-    <ToastContainer>
-      <Toast label="Your Toast is ready Sir!" />
-    </ToastContainer>
-  </Box>
-);
+      <ToastContainer>
+        <Toast label="Your Toast is ready Sir!" />
+      </ToastContainer>
+    </Box>
+  );
+};
 
 zIndexes.story = {
   name: 'Z-Indexes',
