@@ -56,7 +56,7 @@ const toastSpawner = (toastProps) => () => {
       <Button label="Make a toast" onClick={() => addToast(toastProps)} />
       <ToastContainer>
         {toasts.map((toastProps) => (
-          <Toast {...toastProps} />
+          <Toast {...toastProps} key={toastProps.key} />
         ))}
       </ToastContainer>
     </div>
