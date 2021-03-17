@@ -1,96 +1,6 @@
-import React from 'react';
-import { Store, State } from '@sambego/storybook-state';
+import React, { useReducer } from 'react';
 import { Button, Toast, Link, ToastContainer } from '../../index';
 import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
-
-const store = new Store({
-  children: [],
-});
-
-let key = 0;
-
-const handleCustomAction = () => true;
-
-const handleRemoveToast = (keyToRemove) => {
-  const currentChildren = store.get('children');
-  store.set({
-    children: currentChildren.filter((child) => child.key !== String(keyToRemove)),
-  });
-};
-
-const handleAddToastWithClose = () => {
-  const currentChildren = store.get('children');
-  const toastKey = key++;
-  const toast = (
-    <Toast
-      key={toastKey}
-      label="Toast label"
-      onClose={() => handleRemoveToast(toastKey)}
-      timeout={3000}
-      onTimeout={() => handleRemoveToast(toastKey)}
-    />
-  );
-  store.set({ children: [...currentChildren, toast] });
-};
-
-const handleAddToastWithAction = () => {
-  const currentChildren = store.get('children');
-  const toastKey = key++;
-  const toast = (
-    <Toast
-      key={toastKey}
-      label="Toast label"
-      onClose={() => handleRemoveToast(toastKey)}
-      timeout={3000}
-      onTimeout={() => handleRemoveToast(toastKey)}
-      actionLabel="confirm"
-      action={handleCustomAction}
-    />
-  );
-  store.set({ children: [...currentChildren, toast] });
-};
-
-const handleAddToastWithLink = () => {
-  const currentChildren = store.get('children');
-  const toastKey = key++;
-  const toast = (
-    <Toast
-      key={toastKey}
-      label="Toast label"
-      onClose={() => handleRemoveToast(toastKey)}
-      timeout={3000}
-      onTimeout={() => handleRemoveToast(toastKey)}
-      link={<Link href="https://www.teamleader.be">link</Link>}
-    />
-  );
-  store.set({ children: [...currentChildren, toast] });
-};
-
-const handleAddToastWithMultilineLabel = () => {
-  const currentChildren = store.get('children');
-  const toastKey = key++;
-  const toast = (
-    <Toast
-      key={toastKey}
-      label="Connection timed out. Showing limited amount of messages."
-      onClose={() => handleRemoveToast(toastKey)}
-      timeout={3000}
-      onTimeout={() => handleRemoveToast(toastKey)}
-      actionLabel="Try again"
-      action={handleCustomAction}
-    />
-  );
-  store.set({ children: [...currentChildren, toast] });
-};
-
-const handleAddToastWithSpinner = () => {
-  const currentChildren = store.get('children');
-  const toastKey = key++;
-  const toast = (
-    <Toast key={toastKey} label="Working..." timeout={3000} onTimeout={() => handleRemoveToast(toastKey)} processing />
-  );
-  store.set({ children: [...currentChildren, toast] });
-};
 
 export default {
   component: Toast,
@@ -98,71 +8,107 @@ export default {
 
   parameters: {
     info: {
-      propTablesExclude: [Button, State],
+      propTablesExclude: [Button],
     },
   },
 };
 
-export const withCloseButton = () => (
-  <div>
-    <Button label="Make a toast" onClick={handleAddToastWithClose} />
-    <State store={store}>
-      <ToastContainer>{[]}</ToastContainer>
-    </State>
-  </div>
-);
+const toastReducer = ({ toasts, key }, action) => {
+  if (action.type === 'REMOVE_TOAST') {
+    return {
+      key,
+      toasts: toasts.filter((t) => t.key !== action.payload),
+    };
+  }
+
+  if (action.type === 'ADD_TOAST') {
+    return {
+      key: key + 1,
+      toasts: toasts.concat([action.payload]),
+    };
+  }
+
+  return {
+    key,
+    toasts,
+  };
+};
+
+const toastSpawner = (toastProps) => () => {
+  const [{ toasts, key }, dispatch] = useReducer(toastReducer, { key: 0, toasts: [] });
+
+  const addToast = (toastProps) => {
+    const props = {
+      ...toastProps,
+      key,
+      onClose: () => dispatch({ type: 'REMOVE_TOAST', payload: key }),
+      onTimeout: () => dispatch({ type: 'REMOVE_TOAST', payload: key }),
+    };
+
+    dispatch({
+      type: 'ADD_TOAST',
+      payload: props,
+    });
+  };
+
+  return (
+    <div>
+      <Button label="Make a toast" onClick={() => addToast(toastProps)} />
+      <ToastContainer>
+        {toasts.map((toastProps) => (
+          <Toast {...toastProps} />
+        ))}
+      </ToastContainer>
+    </div>
+  );
+};
+
+export const withCloseButton = toastSpawner({
+  label: 'Toast label',
+  timeout: 3000,
+});
 
 withCloseButton.story = {
   name: 'With close button',
 };
 
-export const withCustomAction = () => (
-  <div>
-    <Button label="Make a toast" onClick={handleAddToastWithAction} />
-    <State store={store}>
-      <ToastContainer>{[]}</ToastContainer>
-    </State>
-  </div>
-);
+export const withCustomAction = toastSpawner({
+  label: 'Toast label',
+  timeout: 3000,
+  actionLabel: 'confirm',
+  action: () => true,
+});
 
 withCustomAction.story = {
   name: 'With custom action',
 };
 
-export const withCustomLink = () => (
-  <div>
-    <Button label="Make a toast" onClick={handleAddToastWithLink} />
-    <State store={store}>
-      <ToastContainer>{[]}</ToastContainer>
-    </State>
-  </div>
-);
+export const withCustomLink = toastSpawner({
+  label: 'Toast label',
+  link: <Link href="https://www.teamleader.be">link</Link>,
+  timeout: 3000,
+});
 
 withCustomLink.story = {
   name: 'With custom link',
 };
 
-export const withMultilineLabel = () => (
-  <div>
-    <Button label="Make a toast" onClick={handleAddToastWithMultilineLabel} />
-    <State store={store}>
-      <ToastContainer>{[]}</ToastContainer>
-    </State>
-  </div>
-);
+export const withMultilineLabel = toastSpawner({
+  label: 'Connection timed out. Showing limited amount of messages.',
+  timeout: 3000,
+  actionLabel: 'Try again',
+  action: () => true,
+});
 
 withMultilineLabel.story = {
   name: 'With multiline label',
 };
 
-export const withLoadingSpinner = () => (
-  <div>
-    <Button label="Make a toast" onClick={handleAddToastWithSpinner} />
-    <State store={store}>
-      <ToastContainer>{[]}</ToastContainer>
-    </State>
-  </div>
-);
+export const withLoadingSpinner = toastSpawner({
+  label: 'Working...',
+  timeout: 3000,
+  processing: true,
+});
 
 withLoadingSpinner.story = {
   name: 'With loading spinner',
