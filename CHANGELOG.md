@@ -4,6 +4,8 @@
 
 ### Changed
 
+- Replaced storybook-state usages with the useState react hook
+
 ### Deprecated
 
 ### Removed
@@ -11,6 +13,8 @@
 ### Fixed
 
 ### Dependency updates
+
+- Removed `@sambego/storybook-state`
 
 ## [4.2.0] - 2021-03-12
 

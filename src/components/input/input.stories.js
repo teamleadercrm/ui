@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { boolean, number, select, text } from '@storybook/addon-knobs';
-import { Store, State } from '@sambego/storybook-state';
 import { IconCalendarSmallOutline } from '@teamleader/ui-icons';
 import {
   InputBase,
@@ -56,22 +55,6 @@ const stepperOptions = ['none', 'connected', 'suffix'];
 /* eslint-disable-next-line react/jsx-key */
 const suffix = [<TextSmall color="neutral">incl. BTW</TextSmall>, <Counter count={99} />, <LoadingSpinner />];
 
-const timeInputStore = new Store({
-  value: '',
-});
-
-const numericInputStore = new Store({
-  value: 6,
-});
-
-const handleTimeInputChange = (event) => {
-  timeInputStore.set({ value: event.currentTarget.value });
-};
-
-const handleNumericInputChange = (event, value) => {
-  numericInputStore.set({ value });
-};
-
 export default {
   component: Input,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Form elements/Input'),
@@ -115,43 +98,48 @@ export const input = () => (
 );
 
 export const numericInput = () => {
+  const [value, setValue] = useState(6);
+
+  const handleChange = (event, value) => {
+    setValue(value);
+  };
+
   return (
-    <State store={numericInputStore}>
-      <NumericInput
-        bold={boolean('Bold', false)}
-        disabled={boolean('Disabled', false)}
-        error={text('Error', '')}
-        helpText={text('Help text', '')}
-        success={text('Success', '')}
-        warning={text('Warning', '')}
-        id="input1"
-        inverse={boolean('Inverse', false)}
-        max={number('Max', 10)}
-        min={number('Min', 0)}
-        placeholder={text('Placeholder', placeholder)}
-        readOnly={boolean('Read only', false)}
-        size={select('Size', sizes) || undefined}
-        stepper={select('Stepper', stepperOptions, 'suffix')}
-        step={number('Step', 1)}
-        connectedLeft={
-          boolean('Toggle connected left', false) ? (
-            <Button size={select('Size', sizes, 'medium')} label="€" />
-          ) : undefined
-        }
-        connectedRight={
-          boolean('Toggle connected right', false) ? (
-            <Button size={select('Size', sizes, 'medium')}>
-              <Checkbox size="small">Discount</Checkbox>
-            </Button>
-          ) : undefined
-        }
-        onChange={handleNumericInputChange}
-        prefix={boolean('Toggle prefix', false) ? prefix : undefined}
-        suffix={boolean('Toggle suffix', false) ? suffix : undefined}
-        textAlignRight={boolean('Text align right', false)}
-        width={text('Width', undefined)}
-      />
-    </State>
+    <NumericInput
+      value={value}
+      bold={boolean('Bold', false)}
+      disabled={boolean('Disabled', false)}
+      error={text('Error', '')}
+      helpText={text('Help text', '')}
+      success={text('Success', '')}
+      warning={text('Warning', '')}
+      id="input1"
+      inverse={boolean('Inverse', false)}
+      max={number('Max', 10)}
+      min={number('Min', 0)}
+      placeholder={text('Placeholder', placeholder)}
+      readOnly={boolean('Read only', false)}
+      size={select('Size', sizes) || undefined}
+      stepper={select('Stepper', stepperOptions, 'suffix')}
+      step={number('Step', 1)}
+      connectedLeft={
+        boolean('Toggle connected left', false) ? (
+          <Button size={select('Size', sizes, 'medium')} label="€" />
+        ) : undefined
+      }
+      connectedRight={
+        boolean('Toggle connected right', false) ? (
+          <Button size={select('Size', sizes, 'medium')}>
+            <Checkbox size="small">Discount</Checkbox>
+          </Button>
+        ) : undefined
+      }
+      onChange={handleChange}
+      prefix={boolean('Toggle prefix', false) ? prefix : undefined}
+      suffix={boolean('Toggle suffix', false) ? suffix : undefined}
+      textAlignRight={boolean('Text align right', false)}
+      width={text('Width', undefined)}
+    />
   );
 };
 
@@ -159,9 +147,16 @@ numericInput.story = {
   name: 'NumericInput',
 };
 
-export const timeInput = () => (
-  <State store={timeInputStore}>
+export const timeInput = () => {
+  const [value, setValue] = useState('');
+
+  const handleChange = (event) => {
+    setValue(event.currentTarget.value);
+  };
+
+  return (
     <TimeInput
+      value={value}
       bold={boolean('Bold', false)}
       disabled={boolean('Disabled', false)}
       error={text('Error', '')}
@@ -189,10 +184,10 @@ export const timeInput = () => (
       suffix={boolean('Toggle suffix', false) ? suffix : undefined}
       textAlignRight={boolean('Text align right', false)}
       width={text('Width', '90px')}
-      onChange={handleTimeInputChange}
+      onChange={handleChange}
     />
-  </State>
-);
+  );
+};
 
 timeInput.story = {
   name: 'TimeInput',

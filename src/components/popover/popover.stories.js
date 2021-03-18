@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { select, boolean, number, text } from '@storybook/addon-knobs';
-import { Store, State } from '@sambego/storybook-state';
 import {
   IconChevronDownSmallOutline,
   IconCloseSmallOutline,
@@ -24,56 +23,11 @@ import {
   TextSmall,
 } from '../../index';
 
-const popoverStore = new Store({
-  active: false,
-});
-
-const splitButtonStore = new Store({
-  label: 'Primary action',
-  level: 'primary',
-});
-
-const splitButtonChevronStore = new Store({
-  level: 'primary',
-});
-
-const splitButtonMenuStore = new Store({
-  selected: 'foo',
-});
-
 const colors = ['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'teal'];
 const tints = ['lightest', 'light', 'normal', 'dark', 'darkest'];
 const backdrops = ['transparent', 'dark'];
 const directions = ['north', 'south', 'east', 'west'];
 const positions = ['start', 'center', 'end'];
-
-const handleButtonClick = (event) => {
-  popoverStore.set({ anchorEl: event.currentTarget, active: true });
-};
-
-const handleSplitButtonNormalMenuItemClick = () => {
-  splitButtonStore.set({
-    label: 'Primary action',
-    level: 'primary',
-  });
-  splitButtonChevronStore.set({ level: 'primary' });
-  splitButtonMenuStore.set({ selected: 'foo' });
-  popoverStore.set({ active: false });
-};
-
-const handleSplitButtonDestructiveMenuItemClick = () => {
-  splitButtonStore.set({
-    label: 'Destructive action',
-    level: 'destructive',
-  });
-  splitButtonChevronStore.set({ level: 'destructive' });
-  splitButtonMenuStore.set({ selected: 'bar' });
-  popoverStore.set({ active: false });
-};
-
-const handleCloseClick = () => {
-  popoverStore.set({ active: false });
-};
 
 const contentBoxWithSingleTextLine = (
   <Box padding={4}>
@@ -93,17 +47,36 @@ export default {
 
   parameters: {
     info: {
-      propTablesExclude: [Link, TextBody, TextSmall, Button, State, Banner, Heading3, ButtonGroup, Box],
+      propTablesExclude: [Link, TextBody, TextSmall, Button, Banner, Heading3, ButtonGroup, Box],
     },
   },
 };
 
-export const basic = () => (
-  <Box display="flex" justifyContent="center">
-    <Button onClick={handleButtonClick} label="Open a basic Popover" />
-    <State store={popoverStore}>
+const usePopoverTrigger = () => {
+  const [popoverActive, setPopoverActive] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(undefined);
+
+  const triggerPopover = (event) => {
+    setAnchorEl(event.currentTarget);
+    setPopoverActive(true);
+  };
+
+  const closePopover = () => {
+    setPopoverActive(false);
+  };
+
+  return [{ popoverActive, anchorEl }, triggerPopover, closePopover];
+};
+
+export const basic = () => {
+  const [{ popoverActive, anchorEl }, handleButtonClick, handleCloseClick] = usePopoverTrigger();
+
+  return (
+    <Box display="flex" justifyContent="center">
+      <Button onClick={handleButtonClick} label="Open a basic Popover" />
       <Popover
-        active={false}
+        active={popoverActive}
+        anchorEl={anchorEl}
         backdrop={select('Backdrop', backdrops, 'transparent')}
         color={select('Color', colors, 'neutral')}
         direction={select('Direction', directions, 'south')}
@@ -119,16 +92,19 @@ export const basic = () => (
       >
         {contentBoxWithSingleTextLine}
       </Popover>
-    </State>
-  </Box>
-);
+    </Box>
+  );
+};
 
-export const withTitle = () => (
-  <Box display="flex" justifyContent="center">
-    <Button onClick={handleButtonClick} label="Open titled Popover" />
-    <State store={popoverStore}>
+export const withTitle = () => {
+  const [{ popoverActive, anchorEl }, handleButtonClick, handleCloseClick] = usePopoverTrigger();
+
+  return (
+    <Box display="flex" justifyContent="center">
+      <Button onClick={handleButtonClick} label="Open titled Popover" />
       <Popover
-        active={false}
+        active={popoverActive}
+        anchorEl={anchorEl}
         backdrop={select('Backdrop', backdrops, 'transparent')}
         color={select('Color', colors, 'neutral')}
         direction={select('Direction', directions, 'south')}
@@ -147,20 +123,23 @@ export const withTitle = () => (
         </Banner>
         {contentBoxWithSingleTextLine}
       </Popover>
-    </State>
-  </Box>
-);
+    </Box>
+  );
+};
 
 withTitle.story = {
   name: 'With title',
 };
 
-export const withTitleSubtitle = () => (
-  <Box display="flex" justifyContent="center">
-    <Button onClick={handleButtonClick} label="Open titled & subtitled Popover" />
-    <State store={popoverStore}>
+export const withTitleSubtitle = () => {
+  const [{ popoverActive, anchorEl }, handleButtonClick, handleCloseClick] = usePopoverTrigger();
+
+  return (
+    <Box display="flex" justifyContent="center">
+      <Button onClick={handleButtonClick} label="Open titled & subtitled Popover" />
       <Popover
-        active={false}
+        active={popoverActive}
+        anchorEl={anchorEl}
         backdrop={select('Backdrop', backdrops, 'transparent')}
         color={select('Color', colors, 'neutral')}
         direction={select('Direction', directions, 'south')}
@@ -180,20 +159,23 @@ export const withTitleSubtitle = () => (
         </Banner>
         {contentBoxWithSingleTextLine}
       </Popover>
-    </State>
-  </Box>
-);
+    </Box>
+  );
+};
 
 withTitleSubtitle.story = {
   name: 'With title & subtitle',
 };
 
-export const withCloseButton = () => (
-  <Box display="flex" justifyContent="center">
-    <Button onClick={handleButtonClick} label="Open Popover with close button" />
-    <State store={popoverStore}>
+export const withCloseButton = () => {
+  const [{ popoverActive, anchorEl }, handleButtonClick, handleCloseClick] = usePopoverTrigger();
+
+  return (
+    <Box display="flex" justifyContent="center">
+      <Button onClick={handleButtonClick} label="Open Popover with close button" />
       <Popover
-        active={false}
+        active={popoverActive}
+        anchorEl={anchorEl}
         backdrop={select('Backdrop', backdrops, 'transparent')}
         color={select('Color', colors, 'neutral')}
         direction="south"
@@ -212,20 +194,23 @@ export const withCloseButton = () => (
         </Banner>
         {contentBoxWithSingleTextLine}
       </Popover>
-    </State>
-  </Box>
-);
+    </Box>
+  );
+};
 
 withCloseButton.story = {
   name: 'With close button',
 };
 
-export const withActions = () => (
-  <Box display="flex" justifyContent="center">
-    <Button onClick={handleButtonClick} label="Open Popover with actions" />
-    <State store={popoverStore}>
+export const withActions = () => {
+  const [{ popoverActive, anchorEl }, handleButtonClick, handleCloseClick] = usePopoverTrigger();
+
+  return (
+    <Box display="flex" justifyContent="center">
+      <Button onClick={handleButtonClick} label="Open Popover with actions" />
       <Popover
-        active={false}
+        active={popoverActive}
+        anchorEl={anchorEl}
         backdrop={select('Backdrop', backdrops, 'transparent')}
         color={select('Color', colors, 'neutral')}
         direction={select('Direction', directions, 'south')}
@@ -245,20 +230,23 @@ export const withActions = () => (
           <Button level="primary" label="Confirm" />
         </ButtonGroup>
       </Popover>
-    </State>
-  </Box>
-);
+    </Box>
+  );
+};
 
 withActions.story = {
   name: 'With actions',
 };
 
-export const withMenu = () => (
-  <Box display="flex" justifyContent="center">
-    <Button onClick={handleButtonClick} label="Open Popover with menu" />
-    <State store={popoverStore}>
+export const withMenu = () => {
+  const [{ popoverActive, anchorEl }, handleButtonClick, handleCloseClick] = usePopoverTrigger();
+
+  return (
+    <Box display="flex" justifyContent="center">
+      <Button onClick={handleButtonClick} label="Open Popover with menu" />
       <Popover
-        active={false}
+        active={popoverActive}
+        anchorEl={anchorEl}
         backdrop={select('Backdrop', backdrops, 'transparent')}
         color={select('Color', colors, 'neutral')}
         direction={select('Direction', directions, 'south')}
@@ -285,65 +273,92 @@ export const withMenu = () => (
           </Menu>
         </Box>
       </Popover>
-    </State>
-  </Box>
-);
+    </Box>
+  );
+};
 
 withMenu.story = {
   name: 'With menu',
 };
 
-export const withSplitButtonMenu = () => (
-  <Box display="flex" justifyContent="center">
-    <ButtonGroup segmented>
-      <State store={splitButtonStore}>
-        <Button />
-      </State>
-      <State store={splitButtonChevronStore}>
-        <Button onClick={handleButtonClick} icon={<IconChevronDownSmallOutline />} />
-      </State>
-    </ButtonGroup>
-    <State store={popoverStore}>
+export const withSplitButtonMenu = () => {
+  const [buttonLevel, setButtonLevel] = useState('primary');
+  const [buttonLabel, setButtonLabel] = useState('Primary action');
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [popoverActive, setPopoverActive] = useState(false);
+  const [splitButtonSelected, setSplitButtonSelected] = useState('foo');
+
+  const handleSplitButtonNormalMenuItemClick = () => {
+    setButtonLevel('primary');
+    setButtonLabel('Primary action');
+    setPopoverActive(false);
+    setSplitButtonSelected('foo');
+  };
+
+  const handleSplitButtonDestructiveMenuItemClick = () => {
+    setButtonLevel('destructive');
+    setButtonLabel('Destructive action');
+    setPopoverActive(false);
+    setSplitButtonSelected('bar');
+  };
+
+  const handleButtonClick = (event) => {
+    setAnchorEl(event.currentTarget);
+    setPopoverActive(true);
+  };
+
+  const handleCloseClick = () => {
+    setPopoverActive(false);
+  };
+
+  return (
+    <Box display="flex" justifyContent="center">
+      <ButtonGroup segmented>
+        <Button label={buttonLabel} level={buttonLevel} />
+        <Button level={buttonLevel} onClick={handleButtonClick} icon={<IconChevronDownSmallOutline />} />
+      </ButtonGroup>
       <Popover
-        active={false}
+        active={popoverActive}
+        anchorEl={anchorEl}
         backdrop="transparent"
         position="start"
         onEscKeyDown={handleCloseClick}
         onOverlayClick={handleCloseClick}
         lockScroll={boolean('Lock scroll', true)}
       >
-        <State store={splitButtonMenuStore}>
-          <Menu outline={false}>
-            <MenuItem
-              value="foo"
-              label="Primary action"
-              icon={<IconClockSmallOutline />}
-              onClick={handleSplitButtonNormalMenuItemClick}
-            />
-            <MenuItem
-              value="bar"
-              label="Destructive action"
-              icon={<IconTrashSmallOutline />}
-              destructive
-              onClick={handleSplitButtonDestructiveMenuItemClick}
-            />
-          </Menu>
-        </State>
+        <Menu outline={false} selected={splitButtonSelected}>
+          <MenuItem
+            value="foo"
+            label="Primary action"
+            icon={<IconClockSmallOutline />}
+            onClick={handleSplitButtonNormalMenuItemClick}
+          />
+          <MenuItem
+            value="bar"
+            label="Destructive action"
+            icon={<IconTrashSmallOutline />}
+            destructive
+            onClick={handleSplitButtonDestructiveMenuItemClick}
+          />
+        </Menu>
       </Popover>
-    </State>
-  </Box>
-);
+    </Box>
+  );
+};
 
 withSplitButtonMenu.story = {
   name: 'With split button menu',
 };
 
-export const experiment1 = () => (
-  <Box display="flex" justifyContent="center">
-    <Button onClick={handleButtonClick} label="Open a experimental Popover" />
-    <State store={popoverStore}>
+export const experiment1 = () => {
+  const [{ popoverActive, anchorEl }, handleButtonClick, handleCloseClick] = usePopoverTrigger();
+
+  return (
+    <Box display="flex" justifyContent="center">
+      <Button onClick={handleButtonClick} label="Open a experimental Popover" />
       <Popover
-        active={false}
+        active={popoverActive}
+        anchorEl={anchorEl}
         backdrop={select('Backdrop', backdrops, 'transparent')}
         color={select('Color', colors, 'neutral')}
         direction={select('Direction', directions, 'south')}
@@ -371,16 +386,19 @@ export const experiment1 = () => (
           </TextBody>
         </Box>
       </Popover>
-    </State>
-  </Box>
-);
+    </Box>
+  );
+};
 
-export const experiment2 = () => (
-  <Box display="flex" justifyContent="center">
-    <Button onClick={handleButtonClick} label="Open a experimental Popover" />
-    <State store={popoverStore}>
+export const experiment2 = () => {
+  const [{ popoverActive, anchorEl }, handleButtonClick, handleCloseClick] = usePopoverTrigger();
+
+  return (
+    <Box display="flex" justifyContent="center">
+      <Button onClick={handleButtonClick} label="Open a experimental Popover" />
       <Popover
-        active={false}
+        active={popoverActive}
+        anchorEl={anchorEl}
         backdrop={select('Backdrop', backdrops, 'transparent')}
         color={select('Color', colors, 'neutral')}
         direction={select('Direction', directions, 'south')}
@@ -412,6 +430,6 @@ export const experiment2 = () => (
           <Button level="primary" label="Confirm" />
         </ButtonGroup>
       </Popover>
-    </State>
-  </Box>
-);
+    </Box>
+  );
+};

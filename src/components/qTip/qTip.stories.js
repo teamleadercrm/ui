@@ -1,29 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
-import { Store, State } from '@sambego/storybook-state';
 import { IconIdeaMediumOutline } from '@teamleader/ui-icons';
 import { Link, QTip, TextBody } from '../../index';
-
-const store = new Store({
-  active: false,
-});
-
-const updateState = () => {
-  store.set({ active: !store.get('active') });
-};
 
 export default {
   component: QTip,
   title: addStoryInGroup(MID_LEVEL_BLOCKS, 'Q-tip'),
 };
 
-export const DefaultStory = (args) => (
-  <State store={store}>
+export const DefaultStory = (args) => {
+  const [active, setActive] = useState(false);
+
+  const toggleActive = () => {
+    setActive(!active);
+  };
+
+  return (
     <QTip
       {...args}
-      onChange={updateState}
-      onEscKeyDown={updateState}
-      onOverlayClick={updateState}
+      active={active}
+      onChange={toggleActive}
+      onEscKeyDown={toggleActive}
+      onOverlayClick={toggleActive}
       icon={<IconIdeaMediumOutline />}
     >
       <TextBody color="teal">
@@ -34,5 +32,5 @@ export const DefaultStory = (args) => (
         elit.
       </TextBody>
     </QTip>
-  </State>
-);
+  );
+};
