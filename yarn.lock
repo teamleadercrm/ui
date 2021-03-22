@@ -939,12 +939,12 @@
     "@babel/helper-plugin-utils" "^7.12.13"
 
 "@babel/preset-env@^7.12.1":
-  version "7.13.9"
-  resolved "https://registry.yarnpkg.com/@babel/preset-env/-/preset-env-7.13.9.tgz#3ee5f233316b10d066d7f379c6d1e13a96853654"
-  integrity sha512-mcsHUlh2rIhViqMG823JpscLMesRt3QbMsv1+jhopXEb3W2wXvQ9QoiOlZI9ZbR3XqPtaFpZwEZKYqGJnGMZTQ==
+  version "7.13.10"
+  resolved "https://registry.yarnpkg.com/@babel/preset-env/-/preset-env-7.13.10.tgz#b5cde31d5fe77ab2a6ab3d453b59041a1b3a5252"
+  integrity sha512-nOsTScuoRghRtUsRr/c69d042ysfPHcu+KOB4A9aAO9eJYqrkat+LF8G1yp1HD18QiwixT2CisZTr/0b3YZPXQ==
   dependencies:
     "@babel/compat-data" "^7.13.8"
-    "@babel/helper-compilation-targets" "^7.13.8"
+    "@babel/helper-compilation-targets" "^7.13.10"
     "@babel/helper-plugin-utils" "^7.13.0"
     "@babel/helper-validator-option" "^7.12.17"
     "@babel/plugin-proposal-async-generator-functions" "^7.13.8"
@@ -10858,9 +10858,9 @@ react-refresh@^0.8.3:
   integrity sha512-X8jZHc7nCMjaCqoU+V2I0cOhNW+QMBwSUkeXnTi8IPe6zaRWfn60ZzvFDZqWPfmSJfjub7dDW1SP0jaHWLu/hg==
 
 react-resize-detector@^6.6.1:
-  version "6.6.3"
-  resolved "https://registry.yarnpkg.com/react-resize-detector/-/react-resize-detector-6.6.3.tgz#5d6d8b7060d36a9c0566494214eff250032f6369"
-  integrity sha512-L4T4NGua6FnxA3/GRhmm3t1UQx0Wcu7a5evlD6wvCj06OdI+JdMDhngzhk9fpqTiXmsZfdk4DR+vavFIJyfHfQ==
+  version "6.6.4"
+  resolved "https://registry.yarnpkg.com/react-resize-detector/-/react-resize-detector-6.6.4.tgz#704a6c985d666d119d833e908cc555b186cfea0c"
+  integrity sha512-sAAh8TmOp59MFs2HR7D1VGbAq+zL+2klQhFbkXOH5Gy/EBEyHGiWXWMStoB+axSYr/Xw54owg6QRGSFj3z0dew==
   dependencies:
     "@types/resize-observer-browser" "^0.1.5"
     lodash.debounce "^4.0.8"
