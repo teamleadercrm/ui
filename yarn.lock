@@ -1932,9 +1932,9 @@
   integrity sha512-TECQkD2Gjp8AvHKL3T+v6VFM95K8rKGE976TtLU8MuhCgUZWbllh9/8LY7+hoIqKVmxIRLbLsj5VFt154LHI1w==
 
 "@teamleader/ui-icons@^1.0.0":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@teamleader/ui-icons/-/ui-icons-1.0.1.tgz#6e4c8fbed6c3cf2e276f98f74cedf4c2241d44ee"
-  integrity sha512-p9rKZHvHsYKVQcY20enHc8LaPG8x5zGqACEsrwDdrwxFJp5LPwtLygdsjlUFgoFbZM7Oq/3OHk4oCuLYMrhBBA==
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@teamleader/ui-icons/-/ui-icons-1.1.0.tgz#8bafc9fd03c0f9785a37c230ca5e56f570450252"
+  integrity sha512-XbSiJW0tPJwCoP9NkYRu3tV3CxrWq3sSZGCCCdF2R9/1VTTdJLHVxtQ5ud8+Xd+fbdO7x0w8qibVsYwNmiVpyA==
 
 "@teamleader/ui-illustrations@^1.0.0":
   version "1.0.0"
@@ -4312,9 +4312,9 @@ css-loader@^3.5.3:
     semver "^6.3.0"
 
 css-loader@^5.0.2:
-  version "5.1.2"
-  resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-5.1.2.tgz#b93dba498ec948b543b49d4fab5017205d4f5c3e"
-  integrity sha512-T7vTXHSx0KrVEg/xjcl7G01RcVXpcw4OELwDPvkr7izQNny85A84dK3dqrczuEfBcu7Yg7mdTjJLSTibRUoRZg==
+  version "5.1.3"
+  resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-5.1.3.tgz#87f6fc96816b20debe3cf682f85c7e56a963d0d1"
+  integrity sha512-CoPZvyh8sLiGARK3gqczpfdedbM74klGWurF2CsNZ2lhNaXdLIUks+3Mfax3WBeRuHoglU+m7KG/+7gY6G4aag==
   dependencies:
     camelcase "^6.2.0"
     cssesc "^3.0.0"
