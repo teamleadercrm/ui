@@ -1932,9 +1932,9 @@
   integrity sha512-TECQkD2Gjp8AvHKL3T+v6VFM95K8rKGE976TtLU8MuhCgUZWbllh9/8LY7+hoIqKVmxIRLbLsj5VFt154LHI1w==
 
 "@teamleader/ui-icons@^1.0.0":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@teamleader/ui-icons/-/ui-icons-1.0.1.tgz#6e4c8fbed6c3cf2e276f98f74cedf4c2241d44ee"
-  integrity sha512-p9rKZHvHsYKVQcY20enHc8LaPG8x5zGqACEsrwDdrwxFJp5LPwtLygdsjlUFgoFbZM7Oq/3OHk4oCuLYMrhBBA==
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@teamleader/ui-icons/-/ui-icons-1.1.0.tgz#8bafc9fd03c0f9785a37c230ca5e56f570450252"
+  integrity sha512-XbSiJW0tPJwCoP9NkYRu3tV3CxrWq3sSZGCCCdF2R9/1VTTdJLHVxtQ5ud8+Xd+fbdO7x0w8qibVsYwNmiVpyA==
 
 "@teamleader/ui-illustrations@^1.0.0":
   version "1.0.0"
@@ -10738,9 +10738,9 @@ react-color@^2.17.0:
     tinycolor2 "^1.4.1"
 
 react-day-picker@^7.4.8:
-  version "7.4.8"
-  resolved "https://registry.yarnpkg.com/react-day-picker/-/react-day-picker-7.4.8.tgz#675625240d3fae1b41c0a9d5177c968c8517c1d4"
-  integrity sha512-pp0hnxFVoRuBQcRdR1Hofw4CQtOCGVmzCNrscyvS0Q8NEc+UiYLEDqE5dk37bf0leSnBW4lheIt0CKKhuKzDVw==
+  version "7.4.10"
+  resolved "https://registry.yarnpkg.com/react-day-picker/-/react-day-picker-7.4.10.tgz#d3928fa65c04379ad28c76de22aa85374a8361e1"
+  integrity sha512-/QkK75qLKdyLmv0kcVzhL7HoJPazoZXS8a6HixbVoK6vWey1Od1WRLcxfyEiUsRfccAlIlf6oKHShqY2SM82rA==
   dependencies:
     prop-types "^15.6.2"
 
