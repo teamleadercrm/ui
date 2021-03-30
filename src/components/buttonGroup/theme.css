@@ -8,6 +8,7 @@
 .group {
   display: flex;
   align-items: center;
+  min-width: 0;
 
   > * {
     margin-left: var(--button-margin);
