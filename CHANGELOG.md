@@ -2,11 +2,7 @@
 
 ### Added
 
-- `Select`: added tiny size variant. ([@driesd](https://github.com/driesd) in [#1586])
-
 ### Changed
-
-- Replaced storybook-state usages with the useState react hook
 
 ### Deprecated
 
@@ -16,7 +12,33 @@
 
 ### Dependency updates
 
-- Removed `@sambego/storybook-state`
+## [4.3.0] - 2021-04-07
+
+### Added
+
+- `Select`: added tiny size variant. ([@driesd](https://github.com/driesd) in [#1586])
+
+### Changed
+
+- Replaced storybook-state usages with the useState react hook. ([@timdegroote](https://github.com/timdegroote) in [#1566])
+
+### Fixed
+
+- `SplitButton`: fixed text overflow with ellipsis. ([@driesd](https://github.com/driesd) in [#1584])
+
+### Dependency updates
+
+- `@sambego/storybook-state` (removed in [#1566])
+- `@babel/preset-env` from `7.13.9` to `7.13.12`
+- `@teamleader/ui-illustrations` from `0.0.36` to `1.0.0`
+- `@teamleader/ui-icons` from `1.0.0` to `1.1.0`
+- `css-loader` from `5.1.1` to `5.1.3`
+- `eslint` from `7.21.0` to `7.22.0`
+- `eslint-plugin-react` from `7.22.0` to `7.23.1`
+- `highlight.js` from `10.4.0` to `10.4.1`
+- `node-fetch` from `2.6.0` to `2.6.1`
+- `react-day-picker` from `7.4.8` to `7.4.10`
+- `react-resize-detector` from `6.6.1` to `6.6.4`
 
 ## [4.2.0] - 2021-03-12
 
