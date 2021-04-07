@@ -1,12 +1,8 @@
 import React from 'react';
 import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
-import { select, boolean } from '@storybook/addon-knobs';
 import SplitButton from './SplitButton';
 import MenuDivider from '../menu/MenuDivider';
 import MenuItem from '../menu/MenuItem';
-
-const levels = ['primary', 'secondary', 'destructive'];
-const sizes = ['small', 'medium', 'large'];
 
 const handleButtonClick = () => {
   console.log('clicked main button');
@@ -21,13 +17,8 @@ export default {
   title: addStoryInGroup(MID_LEVEL_BLOCKS, 'Split button'),
 };
 
-export const basic = () => (
-  <SplitButton
-    level={select('Level', levels, 'primary')}
-    onButtonClick={handleButtonClick}
-    size={select('Size', sizes, 'medium')}
-    disabled={boolean('Disabled', false)}
-  >
+export const DefaultStory = (args) => (
+  <SplitButton {...args} onButtonClick={handleButtonClick}>
     <MenuItem onClick={handleMenuItemClick} label="Main action" />
     <MenuItem onClick={handleMenuItemClick} label="Via file upload" caption="(.CVS, . XLS & .XLSX)" />
     <MenuDivider />
