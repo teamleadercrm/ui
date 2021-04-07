@@ -2,6 +2,8 @@
 
 ### Added
 
+- `Select`: added tiny size variant. ([@driesd](https://github.com/driesd) in [#1586])
+
 ### Changed
 
 - Replaced storybook-state usages with the useState react hook

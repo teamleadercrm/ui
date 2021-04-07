@@ -11,6 +11,13 @@ import theme from './theme.css';
 import cx from 'classnames';
 import uiUtilities from '@teamleader/ui-utilities';
 
+const minHeightBySizeMap = {
+  tiny: 24,
+  small: 30,
+  medium: 36,
+  large: 48,
+};
+
 class Select extends PureComponent {
   getClearIndicatorStyles = (base) => {
     const { inverse } = this.props;
@@ -34,7 +41,7 @@ class Select extends PureComponent {
 
     const commonStyles = {
       ...base,
-      minHeight: size === 'small' ? '30px' : size === 'medium' ? '36px' : '48px',
+      minHeight: minHeightBySizeMap[size],
       width,
     };
 
@@ -124,11 +131,13 @@ class Select extends PureComponent {
   };
 
   getInput = (base) => {
-    const { size, value } = this.props;
+    const { size } = this.props;
 
     return {
       ...base,
-      marginLeft: value && value.length === 0 && size !== 'large' ? '6px' : '2px',
+      marginLeft: size !== 'large' ? '6px' : '2px',
+      paddingBottom: 0,
+      paddingTop: 0,
     };
   };
 
@@ -172,14 +181,14 @@ class Select extends PureComponent {
       color: inverse ? COLOR.NEUTRAL.LIGHTEST : COLOR.TEAL.DARKEST,
       fontFamily: 'Inter',
       fontWeight: 500,
-      fontSize: size === 'small' ? '12px' : '14px',
-      lineHeight: size === 'small' ? '1' : '18px',
-      padding: size === 'large' ? '9px' : '6px',
+      fontSize: size === 'tiny' || size === 'small' ? '12px' : '14px',
+      lineHeight: size === 'tiny' || size === 'small' ? '1' : '18px',
+      padding: size === 'tiny' ? '3px' : size === 'large' ? '9px' : '6px',
     };
   };
 
   getMultiValueRemoveStyles = (base) => {
-    const { inverse } = this.props;
+    const { inverse, size } = this.props;
 
     return {
       ...base,
@@ -190,8 +199,8 @@ class Select extends PureComponent {
         backgroundColor: inverse ? COLOR.TEAL.DARKEST : COLOR.NEUTRAL.NORMAL,
         color: inverse ? COLOR.NEUTRAL.LIGHTEST : COLOR.TEAL.DARKEST,
       },
-      paddingLeft: '6px',
-      paddingRight: '6px',
+      paddingLeft: size === 'tiny' ? '3px' : '6px',
+      paddingRight: size === 'tiny' ? '3px' : '6px',
       transition: 'background-color .35s cubic-bezier(.4, 0, .2, 1)',
     };
   };
@@ -273,7 +282,7 @@ class Select extends PureComponent {
 
     return {
       ...base,
-      minHeight: size === 'small' ? '28px' : size === 'medium' ? '34px' : '46px',
+      minHeight: minHeightBySizeMap[size] - 2,
       lineHeight: '18px',
       padding: isMulti && size !== 'large' ? '0' : '0 4px',
     };
@@ -389,7 +398,7 @@ Select.propTypes = {
   /** Boolean indicating whether the select option text should render on one single line. */
   truncateOptionText: PropTypes.bool,
   /** Size of the input element. */
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large']),
   /** The text string/element to use as success message below the input. */
   success: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   /** Selected option value(s) */
