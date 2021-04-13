@@ -2,8 +2,6 @@
 
 ### Added
 
-- `Input`: add tiny size variant. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1591])
-
 ### Changed
 
 ### Deprecated
@@ -12,9 +10,17 @@
 
 ### Fixed
 
-- `Select`: fix input and placeholder spacing ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1592])
-
 ### Dependency updates
+
+## [4.4.0] - 2021-04-13
+
+### Added
+
+- `Input`: add tiny size variant. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1591])
+
+### Fixed
+
+- `Select`: fix input and placeholder spacing ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1592])
 
 ## [4.3.0] - 2021-04-07
 
