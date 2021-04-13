@@ -53,7 +53,7 @@ InputBase.propTypes = {
   /** Boolean indicating whether the input should render as read only. */
   readOnly: PropTypes.bool,
   /** Size of the input element. */
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large']),
   /** Type of the input element. It can be a valid HTML5 input type. */
   type: PropTypes.oneOf([
     'button',
