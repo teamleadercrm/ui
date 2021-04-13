@@ -131,11 +131,9 @@ class Select extends PureComponent {
   };
 
   getInput = (base) => {
-    const { size } = this.props;
-
     return {
       ...base,
-      marginLeft: size !== 'large' ? '6px' : '2px',
+      marginLeft: '2px',
       paddingBottom: 0,
       paddingTop: 0,
     };
@@ -249,13 +247,13 @@ class Select extends PureComponent {
     };
   };
 
-  getPlaceholderStyles = (base, { isDisabled, isMulti }) => {
-    const { inverse, size } = this.props;
+  getPlaceholderStyles = (base, { isDisabled }) => {
+    const { inverse } = this.props;
 
     const commonStyles = {
       ...base,
-      marginLeft: isMulti && size !== 'large' ? '6px' : '2px',
-      marginRight: isMulti && size !== 'large' ? '6px' : '2px',
+      marginLeft: '2px',
+      marginRight: '2px',
       whiteSpace: 'nowrap',
     };
 
@@ -277,14 +275,14 @@ class Select extends PureComponent {
     color: this.props.inverse ? COLOR.NEUTRAL.LIGHTEST : COLOR.TEAL.DARKEST,
   });
 
-  getValueContainerStyles = (base, { isMulti }) => {
+  getValueContainerStyles = (base, { isMulti, hasValue }) => {
     const { size } = this.props;
 
     return {
       ...base,
       minHeight: minHeightBySizeMap[size] - 2,
       lineHeight: '18px',
-      padding: isMulti && size !== 'large' ? '0' : '0 4px',
+      padding: isMulti && hasValue && size !== 'large' ? 0 : '0 4px',
     };
   };
 

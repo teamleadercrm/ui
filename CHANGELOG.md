@@ -12,6 +12,8 @@
 
 ### Fixed
 
+- `Select`: fix input and placeholder spacing ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1592])
+
 ### Dependency updates
 
 ## [4.3.0] - 2021-04-07
