@@ -1,15 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { addStoryInGroup, COMPOSITIONS } from '../../../.storybook/utils';
-import { Store, State } from '@sambego/storybook-state';
 import { IconBuildingSmallOutline, IconPhoneSmallOutline, IconMailSmallOutline } from '@teamleader/ui-icons';
 import { Badge, Box, EmptyPassport, Passport } from '../../index';
 import contactAvatar from '../../static/avatars/2.png';
 import companyAvatar from '../../static/avatars/3.png';
 import emptyAvatar from '../../static/avatars/4.png';
-
-const store = new Store({
-  active: false,
-});
 
 const contactLineItems = [
   {
@@ -45,33 +40,44 @@ const companyLineItems = [
   },
 ];
 
-const handleButtonClick = (event) => {
-  store.set({ anchorEl: event.currentTarget, active: true });
-};
-
-const handleCloseClick = () => {
-  store.set({ active: false });
-};
-
 export default {
   component: Passport,
   title: addStoryInGroup(COMPOSITIONS, 'Passport'),
 
   parameters: {
     info: {
-      propTablesExclude: [Badge, State, Box],
+      propTablesExclude: [Badge, Box],
     },
   },
 };
 
-export const contact = () => (
-  <Box display="flex" justifyContent="center">
-    <Badge onClick={handleButtonClick} icon={<IconBuildingSmallOutline />} inherit={false}>
-      David Brent
-    </Badge>
-    <State store={store}>
+const usePassportState = () => {
+  const [active, setActive] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(undefined);
+
+  const handleSetActiveClick = (event) => {
+    setAnchorEl(event.currentTarget);
+    setActive(true);
+  };
+
+  const handleSetInactiveClick = () => {
+    setActive(false);
+  };
+
+  return [{ active, anchorEl }, handleSetActiveClick, handleSetInactiveClick];
+};
+
+export const contact = () => {
+  const [{ active, anchorEl }, handleButtonClick, handleCloseClick] = usePassportState();
+
+  return (
+    <Box display="flex" justifyContent="center">
+      <Badge onClick={handleButtonClick} icon={<IconBuildingSmallOutline />} inherit={false}>
+        David Brent
+      </Badge>
       <Passport
-        active={false}
+        active={active}
+        anchorEl={anchorEl}
         description="Regional manager"
         onEscKeyDown={handleCloseClick}
         onOverlayClick={handleCloseClick}
@@ -79,18 +85,21 @@ export const contact = () => (
         lineItems={contactLineItems}
         title={{ children: 'David Brent', href: 'https://www.teamleader.eu' }}
       />
-    </State>
-  </Box>
-);
+    </Box>
+  );
+};
 
-export const company = () => (
-  <Box display="flex" justifyContent="center">
-    <Badge onClick={handleButtonClick} icon={<IconBuildingSmallOutline />} inherit={false}>
-      Dunder Miflin
-    </Badge>
-    <State store={store}>
+export const company = () => {
+  const [{ active, anchorEl }, handleButtonClick, handleCloseClick] = usePassportState();
+
+  return (
+    <Box display="flex" justifyContent="center">
+      <Badge onClick={handleButtonClick} icon={<IconBuildingSmallOutline />} inherit={false}>
+        Dunder Miflin
+      </Badge>
       <Passport
-        active={false}
+        active={active}
+        anchorEl={anchorEl}
         description={['1725 Slough Avenue', 'Sranton, PA 18540', 'United Kingdom']}
         onEscKeyDown={handleCloseClick}
         onOverlayClick={handleCloseClick}
@@ -98,18 +107,21 @@ export const company = () => (
         lineItems={companyLineItems}
         title="Dunder Miflin"
       />
-    </State>
-  </Box>
-);
+    </Box>
+  );
+};
 
-export const empty = () => (
-  <Box display="flex" justifyContent="center">
-    <Badge onClick={handleButtonClick} icon={<IconBuildingSmallOutline />} inherit={false}>
-      No information
-    </Badge>
-    <State store={store}>
+export const empty = () => {
+  const [{ active, anchorEl }, handleButtonClick, handleCloseClick] = usePassportState();
+
+  return (
+    <Box display="flex" justifyContent="center">
+      <Badge onClick={handleButtonClick} icon={<IconBuildingSmallOutline />} inherit={false}>
+        No information
+      </Badge>
       <EmptyPassport
-        active={false}
+        active={active}
+        anchorEl={anchorEl}
         link={{ children: 'Start now', href: 'https://www.teamleader.eu' }}
         description="It looks like you haven't added any contact information yet."
         onEscKeyDown={handleCloseClick}
@@ -117,6 +129,6 @@ export const empty = () => (
         avatar={{ imageUrl: emptyAvatar, fullName: 'No Information' }}
         title="No information to show"
       />
-    </State>
-  </Box>
-);
+    </Box>
+  );
+};

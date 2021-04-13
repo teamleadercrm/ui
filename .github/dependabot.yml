@@ -1,18 +1,18 @@
 version: 2
 updates:
-- package-ecosystem: npm
-  directory: "/"
-  schedule:
-    interval: daily
-  open-pull-requests-limit: 3
-  target-branch: next-release
-  reviewers:
-  - driesd
-  - ArnaudWeyts
-  - lowiebenoot
-  - sanderbrugge
-  - mikeverf
-  - lorgan3
-  - EOSullivanBerlin
-  labels:
-  - dependencies
+  - package-ecosystem: npm
+    directory: '/'
+    schedule:
+      interval: daily
+    open-pull-requests-limit: 3
+    target-branch: next-release
+    reviewers:
+      - driesd
+      - ArnaudWeyts
+      - lowiebenoot
+      - sanderbrugge
+      - JorenSaeyTL
+      - lorgan3
+      - EOSullivanBerlin
+    labels:
+      - dependencies
