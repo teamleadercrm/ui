@@ -12,6 +12,18 @@
 
 ### Dependency updates
 
+## [4.5.0] - 2021-04-15
+
+### Changed
+
+- `Timer`: updated according to latest design specs. ([@driesd](https://github.com/driesd) in [#1595])
+
+### Dependency updates
+
+- `ssri` from `8.0.0` to `8.0.1`
+- `css-loader` from `5.1.3` to `5.2.1`
+- `react-dev-utils` from `11.0.3` to `11.0.4`
+
 ## [4.4.0] - 2021-04-13
 
 ### Added
