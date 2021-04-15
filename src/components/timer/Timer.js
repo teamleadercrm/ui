@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import Box from '../box';
 import Icon from '../icon';
 import LoadingSpinner from '../loadingSpinner';
-import { Monospaced, Heading4 } from '../typography';
-import { IconTimerSmallOutline } from '@teamleader/ui-icons';
+import { Monospaced, UITextBody } from '../typography';
+import { IconTimerMediumOutline } from '@teamleader/ui-icons';
 import cx from 'classnames';
 import theme from './theme.css';
 
@@ -33,22 +33,17 @@ class Timer extends PureComponent {
         ref={timerRef}
         paddingHorizontal={2}
       >
-        <Icon color={running ? 'violet' : 'teal'} tint={running ? 'darkest' : 'dark'}>
-          <IconTimerSmallOutline />
+        <Icon color={running ? 'violet' : 'teal'} tint="darkest">
+          <IconTimerMediumOutline />
         </Icon>
         {loading ? (
           <Box flex={1} display="flex" justifyContent="center">
             <LoadingSpinner color={running ? 'violet' : 'neutral'} size="small" />
           </Box>
         ) : (
-          <Heading4
-            element={Monospaced}
-            marginLeft={2}
-            color={running ? 'violet' : 'teal'}
-            tint={running ? 'darkest' : 'dark'}
-          >
-            <strong>{children}</strong>
-          </Heading4>
+          <UITextBody element={Monospaced} marginLeft={2} color={running ? 'violet' : 'teal'}>
+            {children}
+          </UITextBody>
         )}
       </Box>
     );
