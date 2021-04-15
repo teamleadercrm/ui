@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `Timer`: updated according to latest design specs. ([@driesd](https://github.com/driesd) in [#1595])
+
 ### Deprecated
 
 ### Removed
