@@ -4,8 +4,6 @@
 
 ### Changed
 
-- `Timer`: changed the wrapper's `display` prop from `inline-flex` to `flex`. ([@driesd](https://github.com/driesd) in [#1599])
-
 ### Deprecated
 
 ### Removed
@@ -13,6 +11,16 @@
 ### Fixed
 
 ### Dependency updates
+
+## [4.5.1] - 2021-04-16
+
+### Changed
+
+- `Timer`: changed the wrapper's `display` prop from `inline-flex` to `flex`. ([@driesd](https://github.com/driesd) in [#1599])
+
+### Dependency updates
+
+- `@storybook/addons` from `6.1.21` to `6.2.8`
 
 ## [4.5.0] - 2021-04-15
 
