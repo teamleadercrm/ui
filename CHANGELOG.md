@@ -2,6 +2,8 @@
 
 ### Added
 
+- `Select`: allow passing a ref to the inner react-select component. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1605])
+
 ### Changed
 
 ### Deprecated
