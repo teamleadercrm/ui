@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { forwardRef, PureComponent } from 'react';
 import ReactSelect from 'react-select';
 import ReactCreatableSelect from 'react-select/creatable';
 import PropTypes from 'prop-types';
@@ -340,6 +340,7 @@ class Select extends PureComponent {
       size,
       success,
       warning,
+      forwardedRef,
       ...otherProps
     } = this.props;
 
@@ -357,6 +358,7 @@ class Select extends PureComponent {
     return (
       <Box className={wrapperClassnames} {...boxProps}>
         <Element
+          ref={forwardedRef}
           className={cx(uiUtilities['reset-font-smoothing'], theme['select'])}
           components={{
             ClearIndicator: this.getClearIndicator(),
@@ -414,4 +416,4 @@ Select.defaultProps = {
   width: '100%',
 };
 
-export default Select;
+export default forwardRef((props, ref) => <Select {...props} forwardedRef={ref} />);

@@ -12,6 +12,34 @@
 
 ### Dependency updates
 
+## [4.6.0] - 2021-04-19
+
+### Added
+
+- `Select`: allow passing a ref to the inner react-select component. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1605])
+
+## [4.5.1] - 2021-04-16
+
+### Changed
+
+- `Timer`: changed the wrapper's `display` prop from `inline-flex` to `flex`. ([@driesd](https://github.com/driesd) in [#1599])
+
+### Dependency updates
+
+- `@storybook/addons` from `6.1.21` to `6.2.8`
+
+## [4.5.0] - 2021-04-15
+
+### Changed
+
+- `Timer`: updated according to latest design specs. ([@driesd](https://github.com/driesd) in [#1595])
+
+### Dependency updates
+
+- `ssri` from `8.0.0` to `8.0.1`
+- `css-loader` from `5.1.3` to `5.2.1`
+- `react-dev-utils` from `11.0.3` to `11.0.4`
+
 ## [4.4.0] - 2021-04-13
 
 ### Added
