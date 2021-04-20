@@ -40,7 +40,6 @@ declare module '@teamleader/ui' {
   export const Button: any;
   export const ButtonGroup: any;
   export const Checkbox: any;
-  export const CompactMessage: any;
   export const Counter: any;
   export const DataGrid: any;
   export const DatePicker: any;
