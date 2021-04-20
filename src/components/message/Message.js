@@ -48,7 +48,7 @@ const iconTintMap = {
   warning: 'dark',
 };
 
-class SilentBanner extends PureComponent {
+class Message extends PureComponent {
   render() {
     const {
       children,
@@ -124,12 +124,12 @@ class SilentBanner extends PureComponent {
   }
 }
 
-SilentBanner.propTypes = {
-  /** The content to display inside the banner. */
+Message.propTypes = {
+  /** The content to display inside the message. */
   children: PropTypes.node,
-  /** If true, the banner will be rendered inline instead of taking full width. */
+  /** If true, the message will be rendered inline instead of taking full width. */
   inline: PropTypes.bool,
-  /** Callback function that is fired when the close button of the banner is clicked. */
+  /** Callback function that is fired when the close button of the message is clicked. */
   onClose: PropTypes.func,
   /** Object containing the props of the primary action (a Button). */
   primaryAction: PropTypes.object,
@@ -139,8 +139,8 @@ SilentBanner.propTypes = {
   showIcon: PropTypes.bool,
   /** A status type to determine color and icon */
   status: PropTypes.oneOf(['info', 'error', 'success', 'warning']),
-  /** The banner title */
+  /** The message title */
   title: PropTypes.node,
 };
 
-export default SilentBanner;
+export default Message;

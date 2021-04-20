@@ -42,6 +42,7 @@ import MarketingMarker from './components/marketingMarker';
 import MarketingStatusLabel from './components/marketingStatusLabel';
 import MarketingTab from './components/marketingTab';
 import { MarketingHeading1, MarketingHeading2 } from './components/marketingTypography';
+import Message from './components/message';
 import Overlay from './components/overlay';
 import OverviewPage, { OverviewPageBody, OverviewPageHeader } from './components/overviewPage';
 import { LabelValuePair, LabelValuePairGroup } from './components/labelValuePair';
@@ -55,7 +56,6 @@ import { RadioButton, RadioGroup } from './components/radio';
 import ScrollContainer from './components/scrollContainer';
 import Section from './components/section';
 import Select, { AsyncSelect } from './components/select';
-import SilentBanner from './components/silentBanner';
 import { Island, IslandGroup } from './components/island';
 import SplitButton from './components/splitButton';
 import StatusBullet from './components/statusBullet';
@@ -149,6 +149,7 @@ export {
   MenuItem,
   MenuDivider,
   MenuTitle,
+  Message,
   Monospaced,
   NumericInput,
   Overlay,
@@ -164,7 +165,6 @@ export {
   ScrollContainer,
   Section,
   Select,
-  SilentBanner,
   SplitButton,
   StatusBullet,
   StatusLabel,

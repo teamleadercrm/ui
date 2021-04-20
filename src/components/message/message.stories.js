@@ -1,12 +1,12 @@
 import React from 'react';
 import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { TextBody } from '../typography';
-import SilentBanner from './SilentBanner';
+import Message from './Message';
 import Link from '../link';
 
 export default {
-  component: SilentBanner,
-  title: addStoryInGroup(MID_LEVEL_BLOCKS, 'Silent banners'),
+  component: Message,
+  title: addStoryInGroup(MID_LEVEL_BLOCKS, 'Message'),
 
   parameters: {
     design: {
@@ -17,12 +17,12 @@ export default {
 };
 
 export const FullOption = (args) => (
-  <SilentBanner {...args}>
+  <Message {...args}>
     <TextBody color="teal">
       Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam <Link inherit={false}>nonumy eirmod</Link>{' '}
       tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
     </TextBody>
-  </SilentBanner>
+  </Message>
 );
 
 FullOption.args = {
@@ -41,25 +41,25 @@ FullOption.args = {
 };
 
 export const Basic = () => (
-  <SilentBanner title="I am the title of this message">
+  <Message title="I am the title of this message">
     <TextBody color="teal">
       Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam <Link inherit={false}>nonumy eirmod</Link>{' '}
       tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
     </TextBody>
-  </SilentBanner>
+  </Message>
 );
 
 export const Dismissable = () => (
-  <SilentBanner onClose={() => console.log('onClose click handler')} title="I am the title of this message">
+  <Message onClose={() => console.log('onClose click handler')} title="I am the title of this message">
     <TextBody color="teal">
       Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam <Link inherit={false}>nonumy eirmod</Link>{' '}
       tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
     </TextBody>
-  </SilentBanner>
+  </Message>
 );
 
 export const WithActions = () => (
-  <SilentBanner
+  <Message
     primaryAction={{
       label: 'Primary action',
       onClick: () => console.log('primaryAction.onClick'),
@@ -74,14 +74,14 @@ export const WithActions = () => (
       Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam <Link inherit={false}>nonumy eirmod</Link>{' '}
       tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
     </TextBody>
-  </SilentBanner>
+  </Message>
 );
 
 export const WithStatus = () => (
-  <SilentBanner status="warning" title="I am the title of this message">
+  <Message status="warning" title="I am the title of this message">
     <TextBody color="teal">
       Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam <Link inherit={false}>nonumy eirmod</Link>{' '}
       tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
     </TextBody>
-  </SilentBanner>
+  </Message>
 );
