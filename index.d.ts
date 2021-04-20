@@ -73,7 +73,6 @@ declare module '@teamleader/ui' {
   export const MenuItem: any;
   export const MenuDivider: any;
   export const MenuTitle: any;
-  export const Message: any;
   export const Monospaced: any;
   export const NumericInput: any;
   export const Overlay: any;

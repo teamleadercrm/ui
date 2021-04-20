@@ -43,7 +43,6 @@ import MarketingMarker from './components/marketingMarker';
 import MarketingStatusLabel from './components/marketingStatusLabel';
 import MarketingTab from './components/marketingTab';
 import { MarketingHeading1, MarketingHeading2 } from './components/marketingTypography';
-import Message from './components/message';
 import Overlay from './components/overlay';
 import OverviewPage, { OverviewPageBody, OverviewPageHeader } from './components/overviewPage';
 import { LabelValuePair, LabelValuePairGroup } from './components/labelValuePair';
@@ -152,7 +151,6 @@ export {
   MenuItem,
   MenuDivider,
   MenuTitle,
-  Message,
   Monospaced,
   NumericInput,
   Overlay,
