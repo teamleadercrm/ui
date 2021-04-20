@@ -4,9 +4,14 @@
 
 ### Changed
 
+- :boom: `SilentBanner`: changed component name to `Message`. ([@driesd](https://github.com/driesd) in [#1612])
+
 ### Deprecated
 
 ### Removed
+
+- :boom: `CompactMessage`: removed component. ([@driesd](https://github.com/driesd) in [#1612])
+- :boom: `Message`: removed component. ([@driesd](https://github.com/driesd) in [#1612])
 
 ### Fixed
 
