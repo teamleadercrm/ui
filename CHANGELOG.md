@@ -12,6 +12,7 @@
 
 - :boom: `CompactMessage`: removed component. ([@driesd](https://github.com/driesd) in [#1612])
 - :boom: `Message`: removed component. ([@driesd](https://github.com/driesd) in [#1612])
+- `Input`: removed `width: 100%` from the component's wrapper. ([@driesd](https://github.com/driesd) in [#1617])
 
 ### Fixed
 
