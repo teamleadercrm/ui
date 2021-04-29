@@ -2399,7 +2399,7 @@
     prettier "~2.2.1"
     regenerator-runtime "^0.13.7"
 
-"@storybook/theming@6.2.8", "@storybook/theming@^6.2.8":
+"@storybook/theming@6.2.8":
   version "6.2.8"
   resolved "https://registry.yarnpkg.com/@storybook/theming/-/theming-6.2.8.tgz#1cb4eeaccdb73924186a06630b4fed3201ee6714"
   integrity sha512-aQ+VCvzbfaAsq99g0ZsP1/rZFwXqbsTYLaRV/uZ8DA+wLF7uzlAl+FA5HyneStSj9ysyvdyARGxT2SBAT+azyQ==
@@ -2417,7 +2417,7 @@
     resolve-from "^5.0.0"
     ts-dedent "^2.0.0"
 
-"@storybook/theming@6.2.9":
+"@storybook/theming@6.2.9", "@storybook/theming@^6.2.8":
   version "6.2.9"
   resolved "https://registry.yarnpkg.com/@storybook/theming/-/theming-6.2.9.tgz#16bf40180861f222c7ed1d80abd5d1e3cb315660"
   integrity sha512-183oJW7AD7Fhqg5NT4ct3GJntwteAb9jZnQ6yhf9JSdY+fk8OhxRbPf7ov0au2gYACcGrWDd9K5pYQsvWlP5gA==
@@ -2516,9 +2516,9 @@
   integrity sha512-TECQkD2Gjp8AvHKL3T+v6VFM95K8rKGE976TtLU8MuhCgUZWbllh9/8LY7+hoIqKVmxIRLbLsj5VFt154LHI1w==
 
 "@teamleader/ui-icons@^1.0.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@teamleader/ui-icons/-/ui-icons-1.1.0.tgz#8bafc9fd03c0f9785a37c230ca5e56f570450252"
-  integrity sha512-XbSiJW0tPJwCoP9NkYRu3tV3CxrWq3sSZGCCCdF2R9/1VTTdJLHVxtQ5ud8+Xd+fbdO7x0w8qibVsYwNmiVpyA==
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@teamleader/ui-icons/-/ui-icons-1.1.2.tgz#7603f4ce6fb1c48a282be941796233f6567c6ba2"
+  integrity sha512-DWsltTLycIGd9zXuuXlgDy1PfiLEN/QG3D+IJBgJS6jTpkTfYDICYJzXajFUu6wWMh3ABRgOjtPhK/HFQ183Hw==
 
 "@teamleader/ui-illustrations@^1.0.0":
   version "1.1.0"
