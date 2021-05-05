@@ -2,6 +2,7 @@
 resource_types:
   - name: slack-notification
     type: docker-image
+    check_every: 24h
     source:
       repository: cfcommunity/slack-notification-resource
       tag: latest
@@ -9,6 +10,7 @@ resource_types:
       password: ((DOCKER_HUB_PASSWORD))
   - name: s3
     type: docker-image
+    check_every: 24h
     source:
       repository: teamleader/s3-simple-resource
       tag: latest
@@ -16,6 +18,7 @@ resource_types:
       password: ((DOCKER_HUB_PASSWORD))
   - name: cf
     type: docker-image
+    check_every: 24h
     source:
       repository: teamleader/cf-simple-resource
       tag: latest
@@ -23,12 +26,14 @@ resource_types:
       password: ((DOCKER_HUB_PASSWORD))
   - name: pull-request
     type: docker-image
+    check_every: 24h
     source:
       repository: teliaoss/github-pr-resource
       username: ((DOCKER_HUB_USERNAME))
       password: ((DOCKER_HUB_PASSWORD))
   - name: github-webhook-resource
     type: docker-image
+    check_every: 24h
     source:
       repository: homedepottech/github-webhook-resource
       tag: latest
@@ -149,7 +154,7 @@ jobs:
           - get: git-design-ui
             trigger: true
           - get: docker-node
-            params: { save: true }
+            params: {save: true}
       - task: build-components
         image: docker-node
         config:
@@ -182,7 +187,7 @@ jobs:
             trigger: true
             version: every
           - get: docker-node
-            params: { save: true }
+            params: {save: true}
       - put: git-pull-request
         params:
           path: git-pull-request
@@ -226,7 +231,7 @@ jobs:
             trigger: true
             version: every
           - get: docker-yamllint
-            params: { save: true }
+            params: {save: true}
       - put: git-ci-pull-request
         params:
           path: git-ci-pull-request
@@ -257,7 +262,7 @@ jobs:
             trigger: true
             version: every
           - get: docker-fly-validate
-            params: { save: true }
+            params: {save: true}
       - put: git-ci-pull-request
         params:
           path: git-ci-pull-request
@@ -285,7 +290,7 @@ jobs:
     plan:
       - in_parallel:
           - get: docker-fly-validate
-            params: { save: true }
+            params: {save: true}
           - get: git-ci-design-ui
             trigger: true
       - task: fly-validate
@@ -296,7 +301,7 @@ jobs:
     plan:
       - in_parallel:
           - get: docker-yamllint
-            params: { save: true }
+            params: {save: true}
           - get: git-ci-design-ui
             trigger: true
       - task: yamllint
