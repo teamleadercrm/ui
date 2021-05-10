@@ -23,7 +23,6 @@ import {
 } from './components/typography';
 import Bullet from './components/bullet';
 import Checkbox from './components/checkbox';
-import CompactMessage from './components/compactMessage';
 import Container from './components/container';
 import Counter from './components/counter';
 import DataGrid from './components/datagrid';
@@ -57,7 +56,6 @@ import { RadioButton, RadioGroup } from './components/radio';
 import ScrollContainer from './components/scrollContainer';
 import Section from './components/section';
 import Select, { AsyncSelect } from './components/select';
-import SilentBanner from './components/silentBanner';
 import { Island, IslandGroup } from './components/island';
 import SplitButton from './components/splitButton';
 import StatusBullet from './components/statusBullet';
@@ -104,7 +102,6 @@ export {
   Button,
   ButtonGroup,
   Checkbox,
-  CompactMessage,
   Container,
   Counter,
   DataGrid,
@@ -168,7 +165,6 @@ export {
   ScrollContainer,
   Section,
   Select,
-  SilentBanner,
   SplitButton,
   StatusBullet,
   StatusLabel,

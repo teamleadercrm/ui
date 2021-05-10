@@ -12,6 +12,38 @@
 
 ### Dependency updates
 
+## [5.0.0] - 2021-05-10
+
+### Changed
+
+- :boom: `SilentBanner`: changed component name to `Message`. ([@driesd](https://github.com/driesd) in [#1612])
+
+### Removed
+
+- :boom: `CompactMessage`: removed component. ([@driesd](https://github.com/driesd) in [#1612])
+- :boom: `Message`: removed component. ([@driesd](https://github.com/driesd) in [#1612])
+- :boom: `Input`: removed `width: 100%` from the component's wrapper. ([@driesd](https://github.com/driesd) in [#1617])
+
+### Dependency updates
+
+- `@babel/cli` from `7.13.14` to `7.13.16`
+- `@babel/core` from `7.13.15` to `7.13.16`
+- `@babel/preset-react` from `7.12.13` to `7.13.13`
+- `@babel/runtime` from `7.13.10` to `7.13.17`
+- `@teamleader/ui-icons` from `1.1.0` to `1.1.2`
+- `@teamleader/ui-illustrations` from `1.0.0` to `1.1.0`
+- `classnames` from `2.2.6` to `2.3.1`
+- `css-loader` from `5.2.1` to `5.2.4`
+- `eslint` from `7.24.0` to `7.25.0`
+- `eslint-config-prettier` from `8.1.0` to `8.2.0`
+- `eslint-plugin-prettier` from `3.3.1` to `3.4.0`
+- `eslint-plugin-react` from `7.23.1` to `7.23.2`
+- `is-svg` from `4.2.1` to `4.3.1`
+- `postcss` from `8.2.8` to `8.2.12`
+- `postcss-import` from `14.0.0` to `14.0.1`
+- `react-draft-wysiwyg` from `1.14.5` to `1.14.6`
+- `react-resize-detector` from `6.6.4` to `6.6.5`
+
 ## [4.6.0] - 2021-04-19
 
 ### Added
