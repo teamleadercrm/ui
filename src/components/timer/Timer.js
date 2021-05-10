@@ -29,7 +29,7 @@ class Timer extends PureComponent {
         data-teamleader-ui="timer"
         element="button"
         alignItems="center"
-        display="inline-flex"
+        display="flex"
         ref={timerRef}
         paddingHorizontal={2}
       >
