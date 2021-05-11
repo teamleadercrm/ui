@@ -36,6 +36,7 @@
 
   &:before {
     background-color: var(--color-neutral-dark);
+    width: 100%;
   }
 
   &:after {
@@ -44,10 +45,6 @@
       background-color 0.1s var(--animation-curve-default) calc(var(--animation-duration) - 0.1s);
     width: 0;
     z-index: 1;
-  }
-
-  &:before {
-    width: 100%;
   }
 
   &:first-child {
