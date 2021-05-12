@@ -126,7 +126,8 @@
   .status-bullet-halo {
     transform: scale(0);
     opacity: 0.5;
-    transition: transform 0.1s var(--animation-curve-default) calc(var(--animation-duration) - 0.1s);
+    transition: transform var(--animation-duration) var(--animation-curve-default)
+      calc(var(--animation-duration) - 0.1s);
     border-radius: 50%;
     display: block;
     margin: 6px 0;
