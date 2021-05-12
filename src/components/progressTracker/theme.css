@@ -370,6 +370,28 @@
   }
 }
 
+.teal .step {
+  &.is-completed,
+  &.is-active {
+    &:after {
+      background-color: var(--color-teal);
+    }
+    .status-bullet {
+      background-color: var(--color-teal);
+    }
+  }
+
+  &.is-active {
+    .status-bullet {
+      background-color: var(--color-teal-dark);
+    }
+  }
+
+  .status-bullet-halo {
+    background-color: var(--color-teal);
+  }
+}
+
 @keyframes showBulletCenter {
   0% {
     background-color: transparent;
