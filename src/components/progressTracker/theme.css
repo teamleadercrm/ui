@@ -6,6 +6,7 @@
 :root {
   --bullet-size: 12px;
   --bullet-center-size: calc(var(--bullet-size) / 2);
+  --bullet-halo-size: 24px;
 }
 
 .tracker {
@@ -55,6 +56,10 @@
       padding-left: 0;
       text-align: left;
     }
+
+    .status-bullet-halo {
+      margin-left: calc(var(--bullet-halo-size) * -0.25);
+    }
   }
 
   &:last-child {
@@ -64,6 +69,10 @@
     .step-label-holder {
       padding-right: 0;
       text-align: right;
+    }
+
+    .status-bullet-halo {
+      margin-right: calc(var(--bullet-halo-size) * -0.25);
     }
   }
 
@@ -106,6 +115,19 @@
       left: 50%;
       transform: translate(-50%, -50%);
     }
+  }
+
+  .status-bullet-halo {
+    transform: scale(0);
+    opacity: 0.5;
+    transition: transform 0.1s var(--animation-curve-default) calc(var(--animation-duration) - 0.1s);
+    border-radius: 50%;
+    display: block;
+    margin: 6px 0;
+    height: var(--bullet-halo-size);
+    width: var(--bullet-halo-size);
+    position: absolute;
+    bottom: calc(var(--bullet-halo-size) * -0.25);
   }
 
   .step-label-holder {
@@ -152,6 +174,10 @@
         animation: showBulletCenter 0.1s calc(var(--animation-duration) - 0.1s) forwards;
       }
     }
+
+    .status-bullet-halo {
+      transform: scale(1);
+    }
   }
 
   &.is-clickable {
@@ -172,6 +198,10 @@
       &:after {
         bottom: 47px;
       }
+
+      .status-bullet-halo {
+        bottom: 30px;
+      }
     }
 
     &-label-holder {
@@ -186,7 +216,8 @@
     &:after {
       background-color: var(--color-neutral);
     }
-    .status-bullet {
+    .status-bullet,
+    .status-bullet-halo {
       background-color: var(--color-neutral);
     }
   }
@@ -204,7 +235,8 @@
     &:after {
       background-color: var(--color-mint);
     }
-    .status-bullet {
+    .status-bullet,
+    .status-bullet-halo {
       background-color: var(--color-mint);
     }
   }
@@ -222,7 +254,8 @@
     &:after {
       background-color: var(--color-aqua);
     }
-    .status-bullet {
+    .status-bullet,
+    .status-bullet-halo {
       background-color: var(--color-aqua);
     }
   }
@@ -240,7 +273,8 @@
     &:after {
       background-color: var(--color-violet);
     }
-    .status-bullet {
+    .status-bullet,
+    .status-bullet-halo {
       background-color: var(--color-violet);
     }
   }
@@ -258,7 +292,8 @@
     &:after {
       background-color: var(--color-gold);
     }
-    .status-bullet {
+    .status-bullet,
+    .status-bullet-halo {
       background-color: var(--color-gold);
     }
   }
@@ -276,7 +311,8 @@
     &:after {
       background-color: var(--color-ruby);
     }
-    .status-bullet {
+    .status-bullet,
+    .status-bullet-halo {
       background-color: var(--color-ruby);
     }
   }
