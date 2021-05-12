@@ -32,15 +32,17 @@
     content: '';
     height: 2px;
     position: absolute;
-    bottom: 11px;
   }
 
   &:before {
     background-color: var(--color-neutral-dark);
     width: 100%;
+    bottom: 11px;
   }
 
   &:after {
+    height: 4px;
+    bottom: 10px;
     left: 50%;
     transition: width var(--animation-duration) var(--animation-curve-default),
       background-color 0.1s var(--animation-curve-default) calc(var(--animation-duration) - 0.1s);
@@ -194,9 +196,12 @@
       flex-direction: column-reverse;
       margin-top: 36px;
 
-      &:before,
-      &:after {
+      &:before {
         bottom: 47px;
+      }
+
+      &:after {
+        bottom: 46px;
       }
 
       .status-bullet-halo {
