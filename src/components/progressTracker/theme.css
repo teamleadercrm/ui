@@ -225,8 +225,7 @@
     &:after {
       background-color: var(--color-neutral);
     }
-    .status-bullet,
-    .status-bullet-halo {
+    .status-bullet {
       background-color: var(--color-neutral);
     }
   }
@@ -236,6 +235,10 @@
       background-color: var(--color-neutral-dark);
     }
   }
+
+  .status-bullet-halo {
+    background-color: var(--color-neutral);
+  }
 }
 
 .mint .step {
@@ -244,8 +247,7 @@
     &:after {
       background-color: var(--color-mint);
     }
-    .status-bullet,
-    .status-bullet-halo {
+    .status-bullet {
       background-color: var(--color-mint);
     }
   }
@@ -255,6 +257,10 @@
       background-color: var(--color-mint-dark);
     }
   }
+
+  .status-bullet-halo {
+    background-color: var(--color-mint);
+  }
 }
 
 .aqua .step {
@@ -263,8 +269,7 @@
     &:after {
       background-color: var(--color-aqua);
     }
-    .status-bullet,
-    .status-bullet-halo {
+    .status-bullet {
       background-color: var(--color-aqua);
     }
   }
@@ -274,6 +279,10 @@
       background-color: var(--color-aqua-dark);
     }
   }
+
+  .status-bullet-halo {
+    background-color: var(--color-aqua);
+  }
 }
 
 .violet .step {
@@ -282,8 +291,7 @@
     &:after {
       background-color: var(--color-violet);
     }
-    .status-bullet,
-    .status-bullet-halo {
+    .status-bullet {
       background-color: var(--color-violet);
     }
   }
@@ -293,6 +301,10 @@
       background-color: var(--color-violet-dark);
     }
   }
+
+  .status-bullet-halo {
+    background-color: var(--color-violet);
+  }
 }
 
 .gold .step {
@@ -301,8 +313,7 @@
     &:after {
       background-color: var(--color-gold);
     }
-    .status-bullet,
-    .status-bullet-halo {
+    .status-bullet {
       background-color: var(--color-gold);
     }
   }
@@ -312,6 +323,10 @@
       background-color: var(--color-gold-dark);
     }
   }
+
+  .status-bullet-halo {
+    background-color: var(--color-gold);
+  }
 }
 
 .ruby .step {
@@ -320,8 +335,7 @@
     &:after {
       background-color: var(--color-ruby);
     }
-    .status-bullet,
-    .status-bullet-halo {
+    .status-bullet {
       background-color: var(--color-ruby);
     }
   }
@@ -330,6 +344,10 @@
     .status-bullet {
       background-color: var(--color-ruby-dark);
     }
+  }
+
+  .status-bullet-halo {
+    background-color: var(--color-ruby);
   }
 }
 
