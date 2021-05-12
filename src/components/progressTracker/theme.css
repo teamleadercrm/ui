@@ -219,6 +219,24 @@
   }
 }
 
+.tracker-bottom {
+  .step {
+    flex-direction: column-reverse;
+
+    &:before {
+      bottom: 47px;
+    }
+
+    &:after {
+      bottom: 46px;
+    }
+
+    .status-bullet-halo {
+      bottom: 30px;
+    }
+  }
+}
+
 .neutral .step {
   &.is-completed,
   &.is-active {
