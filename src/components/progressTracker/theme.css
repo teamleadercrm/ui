@@ -62,6 +62,10 @@
     .status-bullet-halo {
       margin-left: calc(var(--bullet-halo-size) * -0.25);
     }
+
+    &::after {
+      left: 0;
+    }
   }
 
   &:last-child {
