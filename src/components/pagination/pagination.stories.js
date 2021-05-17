@@ -18,7 +18,6 @@ export const Full = ({ inverse, ...args }) => (
 Full.args = {
   currentPage: 3,
   numPages: 21,
-  prevPageText: 'previous',
 };
 
 export const Compact = (args) => (

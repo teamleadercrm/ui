@@ -8,16 +8,7 @@ import theme from './theme.css';
 
 class Pagination extends PureComponent {
   render() {
-    const {
-      className,
-      currentPage,
-      inverse,
-      maxNumPagesVisible,
-      numPages,
-      prevPageText,
-      children,
-      ...others
-    } = this.props;
+    const { className, currentPage, inverse, maxNumPagesVisible, numPages, children, ...others } = this.props;
 
     if (numPages < 2) {
       return null;
@@ -57,7 +48,6 @@ class Pagination extends PureComponent {
             <li className={theme['list-item']}>
               {children({
                 number: currentPage - 1,
-                text: prevPageText,
                 isActive: false,
                 icon: <IconChevronLeftMediumOutline />,
                 iconPlacement: 'left',
@@ -105,7 +95,6 @@ Pagination.propTypes = {
   numPages: PropTypes.number.isRequired,
   maxNumPagesVisible: PropTypes.number,
   currentPage: PropTypes.number.isRequired,
-  prevPageText: PropTypes.string,
   className: PropTypes.string,
   children: PropTypes.func.isRequired,
 };
