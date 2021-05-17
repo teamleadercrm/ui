@@ -38,34 +38,18 @@ class StepperControls extends PureComponent {
 }
 
 class NumericInput extends PureComponent {
-  static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.value !== undefined) {
-      const newValue = nextProps.value || '';
-      if (newValue !== prevState.value) {
-        return {
-          value: newValue,
-        };
-      }
-    }
-    return null;
-  }
-
-  state = {
-    value: '',
-  };
-
   handleOnChange = (event) => {
-    this.setState({ value: event.currentTarget.value });
+    const { onChange } = this.props;
+    onChange && onChange(event, event.currentTarget.value);
   };
 
   updateStep = (n) => {
-    const { min, max, onChange, step } = this.props;
+    const { min, max, value, onChange, step } = this.props;
 
-    const currentValue = toNumber(this.state.value || 0);
+    const currentValue = toNumber(value || 0);
     const newValue = parseValue(currentValue + step * n, min, max);
 
     if (newValue !== currentValue) {
-      this.setState({ value: newValue });
       onChange && onChange(null, newValue);
     }
   };
@@ -84,9 +68,9 @@ class NumericInput extends PureComponent {
     onBlur && onBlur(...parameters);
   };
 
-  isMaxReached = () => this.state.value >= this.props.max;
+  isMaxReached = () => this.props.value >= this.props.max;
 
-  isMinReached = () => this.state.value <= this.props.min;
+  isMinReached = () => this.props.value <= this.props.min;
 
   getConnectedRight = () => {
     const { connectedRight, size, stepper } = this.props;
@@ -151,17 +135,14 @@ class NumericInput extends PureComponent {
   };
 
   render() {
-    const { onChange, ...others } = this.props;
-    const restProps = omit(others, ['suffix', 'value']);
+    const { value, ...rest } = this.props;
+    const restProps = omit(rest, ['suffix', 'onChange']);
 
     return (
       <SingleLineInputBase
         type="number"
-        value={this.state.value}
-        onChange={(event) => {
-          this.handleOnChange(event);
-          onChange && onChange(event, event.currentTarget.value);
-        }}
+        value={value}
+        onChange={this.handleOnChange}
         {...restProps}
         connectedLeft={this.getConnectedLeft()}
         connectedRight={this.getConnectedRight()}
