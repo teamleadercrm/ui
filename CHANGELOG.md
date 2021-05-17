@@ -8,6 +8,8 @@
 
 ### Removed
 
+- :boom: `Pagination`: removed props `prevPageText` and `nextPageText`. ([@driesd](https://github.com/driesd) in [#1643])
+
 ### Fixed
 
 ### Dependency updates
