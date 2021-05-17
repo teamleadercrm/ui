@@ -11,11 +11,30 @@ const DurationInput = ({ value, onChange, onKeyDown }) => {
   };
 
   const handleMinutesChange = (_, minutes) => {
-    onChange &&
+    if (!onChange) {
+      return;
+    }
+
+    if (minutes >= 60) {
       onChange({
-        ...value,
-        minutes,
+        hours: (value?.hours || 0) + 1,
+        minutes: 0,
       });
+      return;
+    }
+
+    if (minutes < 0) {
+      onChange({
+        hours: (value?.hours || 1) - 1,
+        minutes: 59,
+      });
+      return;
+    }
+
+    onChange({
+      ...value,
+      minutes,
+    });
   };
 
   return (
@@ -23,7 +42,7 @@ const DurationInput = ({ value, onChange, onKeyDown }) => {
       <NumericInput
         placeholder="00"
         min={0}
-        value={value?.hours || ''}
+        value={value?.hours ?? ''}
         onChange={handleHoursChanged}
         onKeyDown={onKeyDown}
         size="small"
@@ -34,8 +53,8 @@ const DurationInput = ({ value, onChange, onKeyDown }) => {
       </Box>
       <NumericInput
         placeholder="00"
-        min={0}
-        value={value?.minutes || ''}
+        {...(!value?.hours ? { min: 0 } : {})}
+        value={value?.minutes ?? ''}
         onChange={handleMinutesChange}
         onKeyDown={onKeyDown}
         size="small"
