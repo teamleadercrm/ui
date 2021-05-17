@@ -13,7 +13,6 @@ class Pagination extends PureComponent {
       currentPage,
       inverse,
       maxNumPagesVisible,
-      nextPageText,
       numPages,
       prevPageText,
       children,
@@ -89,7 +88,6 @@ class Pagination extends PureComponent {
             <li className={theme['list-item']}>
               {children({
                 number: currentPage + 1,
-                text: nextPageText,
                 isActive: false,
                 icon: <IconChevronRightMediumOutline />,
                 iconPlacement: 'right',
@@ -104,7 +102,6 @@ class Pagination extends PureComponent {
 
 Pagination.propTypes = {
   inverse: PropTypes.bool,
-  nextPageText: PropTypes.string,
   numPages: PropTypes.number.isRequired,
   maxNumPagesVisible: PropTypes.number,
   currentPage: PropTypes.number.isRequired,

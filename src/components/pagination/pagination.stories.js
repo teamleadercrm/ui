@@ -17,7 +17,6 @@ export const Full = ({ inverse, ...args }) => (
 
 Full.args = {
   currentPage: 3,
-  nextPageText: 'next',
   numPages: 21,
   prevPageText: 'previous',
 };
