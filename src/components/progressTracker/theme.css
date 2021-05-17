@@ -6,6 +6,7 @@
 :root {
   --bullet-size: 12px;
   --bullet-center-size: calc(var(--bullet-size) / 2);
+  --bullet-halo-size: 24px;
 }
 
 .tracker {
@@ -31,23 +32,22 @@
     content: '';
     height: 2px;
     position: absolute;
-    bottom: 11px;
   }
 
   &:before {
     background-color: var(--color-neutral-dark);
+    width: 100%;
+    bottom: 11px;
   }
 
   &:after {
+    height: 4px;
+    bottom: 10px;
     left: 50%;
     transition: width var(--animation-duration) var(--animation-curve-default),
       background-color 0.1s var(--animation-curve-default) calc(var(--animation-duration) - 0.1s);
     width: 0;
     z-index: 1;
-  }
-
-  &:before {
-    width: 100%;
   }
 
   &:first-child {
@@ -58,6 +58,14 @@
       padding-left: 0;
       text-align: left;
     }
+
+    .status-bullet-halo {
+      margin-left: calc(var(--bullet-halo-size) * -0.25);
+    }
+
+    &::after {
+      left: 0;
+    }
   }
 
   &:last-child {
@@ -67,6 +75,10 @@
     .step-label-holder {
       padding-right: 0;
       text-align: right;
+    }
+
+    .status-bullet-halo {
+      margin-right: calc(var(--bullet-halo-size) * -0.25);
     }
   }
 
@@ -109,6 +121,20 @@
       left: 50%;
       transform: translate(-50%, -50%);
     }
+  }
+
+  .status-bullet-halo {
+    transform: scale(0);
+    opacity: 0.5;
+    transition: transform var(--animation-duration) var(--animation-curve-default)
+      calc(var(--animation-duration) - 0.1s);
+    border-radius: 50%;
+    display: block;
+    margin: 6px 0;
+    height: var(--bullet-halo-size);
+    width: var(--bullet-halo-size);
+    position: absolute;
+    bottom: calc(var(--bullet-halo-size) * -0.25);
   }
 
   .step-label-holder {
@@ -155,6 +181,10 @@
         animation: showBulletCenter 0.1s calc(var(--animation-duration) - 0.1s) forwards;
       }
     }
+
+    .status-bullet-halo {
+      transform: scale(1);
+    }
   }
 
   &.is-clickable {
@@ -171,14 +201,39 @@
       flex-direction: column-reverse;
       margin-top: 36px;
 
-      &:before,
-      &:after {
+      &:before {
         bottom: 47px;
+      }
+
+      &:after {
+        bottom: 46px;
+      }
+
+      .status-bullet-halo {
+        bottom: 30px;
       }
     }
 
     &-label-holder {
       width: 200%;
+    }
+  }
+}
+
+.tracker-bottom {
+  .step {
+    flex-direction: column-reverse;
+
+    &:before {
+      bottom: 47px;
+    }
+
+    &:after {
+      bottom: 46px;
+    }
+
+    .status-bullet-halo {
+      bottom: 30px;
     }
   }
 }
@@ -193,6 +248,16 @@
       background-color: var(--color-neutral);
     }
   }
+
+  &.is-active {
+    .status-bullet {
+      background-color: var(--color-neutral-dark);
+    }
+  }
+
+  .status-bullet-halo {
+    background-color: var(--color-neutral);
+  }
 }
 
 .mint .step {
@@ -204,6 +269,16 @@
     .status-bullet {
       background-color: var(--color-mint);
     }
+  }
+
+  &.is-active {
+    .status-bullet {
+      background-color: var(--color-mint-dark);
+    }
+  }
+
+  .status-bullet-halo {
+    background-color: var(--color-mint);
   }
 }
 
@@ -217,6 +292,16 @@
       background-color: var(--color-aqua);
     }
   }
+
+  &.is-active {
+    .status-bullet {
+      background-color: var(--color-aqua-dark);
+    }
+  }
+
+  .status-bullet-halo {
+    background-color: var(--color-aqua);
+  }
 }
 
 .violet .step {
@@ -228,6 +313,16 @@
     .status-bullet {
       background-color: var(--color-violet);
     }
+  }
+
+  &.is-active {
+    .status-bullet {
+      background-color: var(--color-violet-dark);
+    }
+  }
+
+  .status-bullet-halo {
+    background-color: var(--color-violet);
   }
 }
 
@@ -241,6 +336,16 @@
       background-color: var(--color-gold);
     }
   }
+
+  &.is-active {
+    .status-bullet {
+      background-color: var(--color-gold-dark);
+    }
+  }
+
+  .status-bullet-halo {
+    background-color: var(--color-gold);
+  }
 }
 
 .ruby .step {
@@ -252,6 +357,38 @@
     .status-bullet {
       background-color: var(--color-ruby);
     }
+  }
+
+  &.is-active {
+    .status-bullet {
+      background-color: var(--color-ruby-dark);
+    }
+  }
+
+  .status-bullet-halo {
+    background-color: var(--color-ruby);
+  }
+}
+
+.teal .step {
+  &.is-completed,
+  &.is-active {
+    &:after {
+      background-color: var(--color-teal);
+    }
+    .status-bullet {
+      background-color: var(--color-teal);
+    }
+  }
+
+  &.is-active {
+    .status-bullet {
+      background-color: var(--color-teal-dark);
+    }
+  }
+
+  .status-bullet-halo {
+    background-color: var(--color-teal);
   }
 }
 

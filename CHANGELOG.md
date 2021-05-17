@@ -4,6 +4,9 @@
 
 ### Changed
 
+- :boom: `ProgressTracker`: replaced `alternating` prop with `labelPosition` (`top` / `bottom` / `alternating`). ([@lorgan3](https://github.com/lorgan3) in [#1641])
+- `ProgressTracker`: Update design to be more accessible. ([@lorgan3](https://github.com/lorgan3) in [#1641])
+
 ### Deprecated
 
 ### Removed
