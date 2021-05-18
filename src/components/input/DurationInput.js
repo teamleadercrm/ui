@@ -78,6 +78,8 @@ const DurationInput = ({ value, onChange, onKeyDown }) => {
         value={value?.hours ?? ''}
         onChange={handleHoursChanged}
         onKeyDown={onKeyDown}
+        type="text"
+        inputMode="numeric"
         size="small"
         flexGrow={1}
       />
@@ -90,6 +92,8 @@ const DurationInput = ({ value, onChange, onKeyDown }) => {
         value={minutes ?? ''}
         onChange={handleMinutesChange}
         onKeyDown={onKeyDown}
+        type="text"
+        inputMode="numeric"
         size="small"
         flexGrow={1}
       />
