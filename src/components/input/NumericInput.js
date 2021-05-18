@@ -38,6 +38,12 @@ class StepperControls extends PureComponent {
 }
 
 class NumericInput extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.timer = React.createRef();
+    this.timeout = React.createRef();
+  }
+
   handleOnChange = (event) => {
     const { onChange } = this.props;
     onChange && onChange(event, event.currentTarget.value);
@@ -62,6 +68,27 @@ class NumericInput extends PureComponent {
     this.updateStep(-1);
   };
 
+  handleDecreaseMouseDown = () => {
+    this.handleDecreaseValue();
+    const parent = this;
+    this.timeout.current = setTimeout(() => {
+      parent.timer.current = setInterval(this.handleDecreaseValue, 75);
+    }, 300);
+  };
+
+  handleIncreaseMouseDown = () => {
+    this.handleIncreaseValue();
+    const parent = this;
+    this.timeout.current = setTimeout(() => {
+      parent.timer.current = setInterval(this.handleIncreaseValue, 75);
+    }, 300);
+  };
+
+  handleClearStepperTimer = () => {
+    clearTimeout(this.timeout.current);
+    clearInterval(this.timer.current);
+  };
+
   handleBlur = (...parameters) => {
     const { onBlur } = this.props;
 
@@ -80,8 +107,10 @@ class NumericInput extends PureComponent {
         <Button
           disabled={this.isMaxReached()}
           icon={<IconAddSmallOutline />}
-          onClick={this.handleIncreaseValue}
           onBlur={this.handleBlur}
+          onMouseDown={this.handleIncreaseMouseDown}
+          onMouseUp={this.handleClearStepperTimer}
+          onMouseLeave={this.handleClearStepperTimer}
           size={size}
         />
       );
@@ -98,7 +127,9 @@ class NumericInput extends PureComponent {
         <Button
           disabled={this.isMinReached()}
           icon={<IconMinusSmallOutline />}
-          onClick={this.handleDecreaseValue}
+          onMouseDown={this.handleDecreaseMouseDown}
+          onMouseUp={this.handleClearStepperTimer}
+          onMouseLeave={this.handleClearStepperTimer}
           onBlur={this.handleBlur}
           size={size}
         />
@@ -118,14 +149,18 @@ class NumericInput extends PureComponent {
         <StepperControls
           inverse={inverse}
           stepperUpProps={{
-            onClick: this.handleIncreaseValue,
             onBlur: this.handleBlur,
             disabled: this.isMaxReached(),
+            onMouseDown: this.handleIncreaseMouseDown,
+            onMouseUp: this.handleClearStepperTimer,
+            onMouseLeave: this.handleClearStepperTimer,
           }}
           stepperDownProps={{
-            onClick: this.handleDecreaseValue,
             onBlur: this.handleBlur,
             disabled: this.isMinReached(),
+            onMouseDown: this.handleDecreaseMouseDown,
+            onMouseUp: this.handleClearStepperTimer,
+            onMouseLeave: this.handleClearStepperTimer,
           }}
         />,
       ];
