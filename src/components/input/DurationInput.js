@@ -9,6 +9,12 @@ const DurationInput = ({ value, onChange, onKeyDown }) => {
       return;
     }
 
+    if (hours === '') {
+      onChange({
+        minutes: value?.minutes,
+      });
+    }
+
     const parsedHours = parseInt(hours);
     if (!Number.isInteger(parsedHours)) {
       return;
@@ -22,6 +28,13 @@ const DurationInput = ({ value, onChange, onKeyDown }) => {
 
   const handleMinutesChange = (_, minutes) => {
     if (!onChange) {
+      return;
+    }
+
+    if (minutes === '') {
+      onChange({
+        hours: value?.hours,
+      });
       return;
     }
 
