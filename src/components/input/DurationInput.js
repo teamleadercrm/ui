@@ -5,11 +5,19 @@ const transformToPaddedNumber = (number) => (number < 10 ? `0${number}` : number
 
 const DurationInput = ({ value, onChange, onKeyDown }) => {
   const handleHoursChanged = (_, hours) => {
-    onChange &&
-      onChange({
-        ...value,
-        hours,
-      });
+    if (!onChange) {
+      return;
+    }
+
+    const parsedHours = parseInt(hours);
+    if (!Number.isInteger(parsedHours)) {
+      return;
+    }
+
+    onChange({
+      ...value,
+      hours: parsedHours,
+    });
   };
 
   const handleMinutesChange = (_, minutes) => {
@@ -17,7 +25,12 @@ const DurationInput = ({ value, onChange, onKeyDown }) => {
       return;
     }
 
-    if (minutes >= 60) {
+    const parsedMinutes = parseInt(minutes);
+    if (!Number.isInteger(parsedMinutes)) {
+      return;
+    }
+
+    if (parsedMinutes >= 60) {
       onChange({
         hours: (value?.hours || 0) + 1,
         minutes: 0,
@@ -25,7 +38,7 @@ const DurationInput = ({ value, onChange, onKeyDown }) => {
       return;
     }
 
-    if (minutes < 0) {
+    if (parsedMinutes < 0) {
       onChange({
         hours: (value?.hours || 1) - 1,
         minutes: 59,
@@ -35,7 +48,7 @@ const DurationInput = ({ value, onChange, onKeyDown }) => {
 
     onChange({
       ...value,
-      minutes,
+      minutes: parsedMinutes,
     });
   };
 
