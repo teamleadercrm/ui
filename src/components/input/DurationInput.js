@@ -1,6 +1,8 @@
 import React from 'react';
 import { Box, NumericInput } from '../../';
 
+const transformToPaddedNumber = (number) => (number < 10 ? `0${number}` : number.toString());
+
 const DurationInput = ({ value, onChange, onKeyDown }) => {
   const handleHoursChanged = (_, hours) => {
     onChange &&
@@ -37,6 +39,11 @@ const DurationInput = ({ value, onChange, onKeyDown }) => {
     });
   };
 
+  let minutes = value?.minutes;
+  if (Number.isInteger(minutes)) {
+    minutes = transformToPaddedNumber(minutes);
+  }
+
   return (
     <Box display="flex" alignItems="center">
       <NumericInput
@@ -54,7 +61,7 @@ const DurationInput = ({ value, onChange, onKeyDown }) => {
       <NumericInput
         placeholder="00"
         {...(!value?.hours ? { min: 0 } : {})}
-        value={value?.minutes ?? ''}
+        value={minutes ?? ''}
         onChange={handleMinutesChange}
         onKeyDown={onKeyDown}
         size="small"
