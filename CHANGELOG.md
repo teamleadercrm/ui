@@ -2,10 +2,14 @@
 
 ### Added
 
+- `DurationInput`: Added DurationInput component to enter hours and minutes ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1646])
+
 ### Changed
 
 - :boom: `ProgressTracker`: replaced `alternating` prop with `labelPosition` (`top` / `bottom` / `alternating`). ([@lorgan3](https://github.com/lorgan3) in [#1641])
 - `ProgressTracker`: Update design to be more accessible. ([@lorgan3](https://github.com/lorgan3) in [#1641])
+- `NumericInput`: Allow clicking and holding on the stepper controls ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1646])
+- `NumericInput` [Internal]: Removed redundant internal state ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1646])
 
 ### Deprecated
 
