@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Box, NumericInput } from '../../';
 
 const transformToPaddedNumber = (number) => (number < 10 ? `0${number}` : number.toString());
 
-const DurationInput = ({ value, onChange, onKeyDown }) => {
+const DurationInput = ({ value, onChange, onBlur, onKeyDown }) => {
+  const ref = useRef();
+
   const handleHoursChanged = (_, hours) => {
     if (!onChange) {
       return;
@@ -65,18 +67,44 @@ const DurationInput = ({ value, onChange, onKeyDown }) => {
     });
   };
 
+  /**
+   * This blur handler is a special one, because this input consists of multiple focus points:
+   * the two inputs themselves, and the four increment/decrement buttons
+   * we filter out the blur events caused by changing focus between these, so the onBlur event only
+   * gets triggered when really blurring outside of the entire component
+   */
+  const handleBlur = (event) => {
+    if (!event.relatedTarget) {
+      onBlur && onBlur(event);
+      return;
+    }
+
+    const inputs = ref.current?.getElementsByTagName('input') || [];
+    if (Array.from(inputs).find((node) => node === event.relatedTarget)) {
+      return;
+    }
+
+    const buttons = ref.current?.getElementsByTagName('button') || [];
+    if (Array.from(buttons).find((node) => node === event.relatedTarget)) {
+      return;
+    }
+
+    onBlur && onBlur(event);
+  };
+
   let minutes = value?.minutes;
   if (Number.isInteger(minutes)) {
     minutes = transformToPaddedNumber(minutes);
   }
 
   return (
-    <Box display="flex" alignItems="center">
+    <Box display="flex" alignItems="center" ref={ref}>
       <NumericInput
         placeholder="0"
         min={0}
         value={value?.hours ?? ''}
         onChange={handleHoursChanged}
+        onBlur={handleBlur}
         onKeyDown={onKeyDown}
         type="text"
         inputMode="numeric"
@@ -91,6 +119,7 @@ const DurationInput = ({ value, onChange, onKeyDown }) => {
         {...(!value?.hours ? { min: 0 } : {})}
         value={minutes ?? ''}
         onChange={handleMinutesChange}
+        onBlur={handleBlur}
         onKeyDown={onKeyDown}
         type="text"
         inputMode="numeric"
