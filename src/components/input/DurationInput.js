@@ -111,6 +111,7 @@ const DurationInput = ({ value, onChange, onBlur, onKeyDown }) => {
         inputMode="numeric"
         size="small"
         flexGrow={1}
+        className={theme['duration-input-numeric-input']}
       />
       <Box element="span" className={theme['duration-input-colon']}>
         :
@@ -126,6 +127,7 @@ const DurationInput = ({ value, onChange, onBlur, onKeyDown }) => {
         inputMode="numeric"
         size="small"
         flexGrow={1}
+        className={theme['duration-input-numeric-input']}
       />
     </Box>
   );
