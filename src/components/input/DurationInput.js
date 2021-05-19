@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { Box, NumericInput } from '../../';
+import theme from './theme.css';
 
 const transformToPaddedNumber = (number) => (number < 10 ? `0${number}` : number.toString());
 
@@ -111,7 +112,7 @@ const DurationInput = ({ value, onChange, onBlur, onKeyDown }) => {
         size="small"
         flexGrow={1}
       />
-      <Box element="span" marginHorizontal={2}>
+      <Box element="span" className={theme['duration-input-colon']}>
         :
       </Box>
       <NumericInput

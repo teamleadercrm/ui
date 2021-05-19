@@ -466,3 +466,7 @@
     cursor: default;
   }
 }
+
+.duration-input-colon {
+  margin: 0 4px;
+}
