@@ -110,7 +110,6 @@ const DurationInput = ({ value, onChange, onBlur, onFocus, onKeyDown, autoFocus,
         onKeyDown={onKeyDown}
         type="text"
         inputMode="numeric"
-        size="small"
         flexGrow={1}
         className={theme['duration-input-numeric-input']}
         autoFocus={autoFocus}
@@ -128,7 +127,6 @@ const DurationInput = ({ value, onChange, onBlur, onFocus, onKeyDown, autoFocus,
         onKeyDown={onKeyDown}
         type="text"
         inputMode="numeric"
-        size="small"
         flexGrow={1}
         className={theme['duration-input-numeric-input']}
       />
