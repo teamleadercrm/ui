@@ -1,9 +1,10 @@
 import React, { useRef } from 'react';
-import { Box, NumericInput } from '../../';
+import { Box, NumericInput, TextBodyCompact } from '../../';
+import theme from './theme.css';
 
 const transformToPaddedNumber = (number) => (number < 10 ? `0${number}` : number.toString());
 
-const DurationInput = ({ value, onChange, onBlur, onKeyDown }) => {
+const DurationInput = ({ value, onChange, onBlur, onFocus, onKeyDown, autoFocus, className }) => {
   const ref = useRef();
 
   const handleHoursChanged = (_, hours) => {
@@ -45,7 +46,11 @@ const DurationInput = ({ value, onChange, onBlur, onKeyDown }) => {
       return;
     }
 
-    if (parsedMinutes >= 60) {
+    if (parsedMinutes > 60) {
+      return;
+    }
+
+    if (parsedMinutes === 60) {
       onChange({
         hours: (value?.hours || 0) + 1,
         minutes: 0,
@@ -98,33 +103,36 @@ const DurationInput = ({ value, onChange, onBlur, onKeyDown }) => {
   }
 
   return (
-    <Box display="flex" alignItems="center" ref={ref}>
+    <Box display="flex" alignItems="center" ref={ref} className={className}>
       <NumericInput
         placeholder="0"
         min={0}
         value={value?.hours ?? ''}
         onChange={handleHoursChanged}
         onBlur={handleBlur}
+        onFocus={onFocus}
         onKeyDown={onKeyDown}
         type="text"
         inputMode="numeric"
-        size="small"
         flexGrow={1}
+        className={theme['duration-input-numeric-input']}
+        autoFocus={autoFocus}
       />
-      <Box element="span" marginHorizontal={2}>
+      <TextBodyCompact color="neutral" tint="darkest" className={theme['duration-input-colon']}>
         :
-      </Box>
+      </TextBodyCompact>
       <NumericInput
         placeholder="00"
         {...(!value?.hours ? { min: 0 } : {})}
         value={minutes ?? ''}
         onChange={handleMinutesChange}
         onBlur={handleBlur}
+        onFocus={onFocus}
         onKeyDown={onKeyDown}
         type="text"
         inputMode="numeric"
-        size="small"
         flexGrow={1}
+        className={theme['duration-input-numeric-input']}
       />
     </Box>
   );
