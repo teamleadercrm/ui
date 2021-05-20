@@ -21,6 +21,7 @@ const DurationInput = ({ value, onChange, onBlur, onFocus, onKeyDown, autoFocus,
       onChange({
         minutes: value?.minutes,
       });
+      return;
     }
 
     const parsedHours = parseInt(hours);
