@@ -21,7 +21,6 @@ export default {
 export const DefaultStory = () => (
   <ProgressTracker
     done={boolean('Done', false)}
-    alternating={boolean('Alternating', false)}
     currentStep={number('Current step', 1, {
       range: true,
       min: 0,
@@ -29,6 +28,7 @@ export const DefaultStory = () => (
       step: 1,
     })}
     color={select('Color', COLORS, 'mint')}
+    labelPosition={select('Label position', ['top', 'alternating', 'bottom'], 'top')}
   >
     {steps.map((step, index) => (
       <ProgressTracker.ProgressStep

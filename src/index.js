@@ -32,7 +32,7 @@ import Dialog, { DialogBase } from './components/dialog';
 import EmptyState from './components/emptyState';
 import Icon from './components/icon';
 import IconButton from './components/iconButton';
-import Input, { InputBase, NumericInput, Textarea, TimeInput } from './components/input';
+import Input, { InputBase, NumericInput, Textarea, TimeInput, DurationInput } from './components/input';
 import Menu, { IconMenu, MenuItem, MenuDivider, MenuTitle } from './components/menu';
 import Link from './components/link';
 import MarketingButton from './components/marketingButton';
@@ -176,6 +176,7 @@ export {
   Tag,
   Textarea,
   TimeInput,
+  DurationInput,
   Timer,
   TimerPulser,
   TitleTab,

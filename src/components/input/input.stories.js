@@ -15,6 +15,7 @@ import {
   TextBody,
   TextSmall,
   TimeInput,
+  DurationInput,
 } from '../../index';
 
 const sizes = ['small', 'medium', 'large'];
@@ -191,6 +192,16 @@ export const timeInput = () => {
 
 timeInput.story = {
   name: 'TimeInput',
+};
+
+export const durationInput = () => {
+  const [value, setValue] = useState();
+
+  return <DurationInput value={value} onChange={setValue} />;
+};
+
+durationInput.story = {
+  name: 'DurationInput',
 };
 
 export const textarea = () => (
