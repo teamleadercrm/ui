@@ -13,6 +13,11 @@ const DurationInput = ({ value, onChange, onBlur, onFocus, onKeyDown, autoFocus,
     }
 
     if (hours === '') {
+      if (typeof value?.minutes === 'undefined') {
+        onChange();
+        return;
+      }
+
       onChange({
         minutes: value?.minutes,
       });
@@ -35,6 +40,11 @@ const DurationInput = ({ value, onChange, onBlur, onFocus, onKeyDown, autoFocus,
     }
 
     if (minutes === '') {
+      if (typeof value?.hours === 'undefined') {
+        onChange();
+        return;
+      }
+
       onChange({
         hours: value?.hours,
       });
