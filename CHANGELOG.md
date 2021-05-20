@@ -2,8 +2,6 @@
 
 ### Added
 
-- `DurationInput`: Added textAlignRight property ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1650])
-
 ### Changed
 
 ### Deprecated
@@ -13,6 +11,12 @@
 ### Fixed
 
 ### Dependency updates
+
+## [6.1.0] - 2021-05-20
+
+### Added
+
+- `DurationInput`: Added textAlignRight property ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1650])
 
 ## [6.0.0] - 2021-05-20
 
