@@ -4,7 +4,7 @@ import theme from './theme.css';
 
 const transformToPaddedNumber = (number) => (number < 10 ? `0${number}` : number.toString());
 
-const DurationInput = ({ value, onChange, onBlur, onFocus, onKeyDown, autoFocus, className }) => {
+const DurationInput = ({ value, onChange, onBlur, onFocus, onKeyDown, autoFocus, textAlignRight, className }) => {
   const ref = useRef();
 
   const handleHoursChanged = (_, hours) => {
@@ -117,6 +117,7 @@ const DurationInput = ({ value, onChange, onBlur, onFocus, onKeyDown, autoFocus,
         flexGrow={1}
         className={theme['duration-input-numeric-input']}
         autoFocus={autoFocus}
+        textAlignRight={textAlignRight}
       />
       <TextBodyCompact color="neutral" tint="darkest" className={theme['duration-input-colon']}>
         :
@@ -133,6 +134,7 @@ const DurationInput = ({ value, onChange, onBlur, onFocus, onKeyDown, autoFocus,
         inputMode="numeric"
         flexGrow={1}
         className={theme['duration-input-numeric-input']}
+        textAlignRight={textAlignRight}
       />
     </Box>
   );
