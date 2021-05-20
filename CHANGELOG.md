@@ -10,6 +10,7 @@
 - `ProgressTracker`: Update design to be more accessible. ([@lorgan3](https://github.com/lorgan3) in [#1641])
 - `NumericInput`: Allow clicking and holding on the stepper controls ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1646])
 - `NumericInput` [Internal]: Removed redundant internal state ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1646])
+- `DurationInput`: Follow up changes to the newly added duration input ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1647])
 
 ### Deprecated
 
