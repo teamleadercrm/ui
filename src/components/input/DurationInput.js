@@ -46,7 +46,11 @@ const DurationInput = ({ value, onChange, onBlur, onFocus, onKeyDown, autoFocus,
       return;
     }
 
-    if (parsedMinutes >= 60) {
+    if (parsedMinutes > 60) {
+      return;
+    }
+
+    if (parsedMinutes === 60) {
       onChange({
         hours: (value?.hours || 0) + 1,
         minutes: 0,
