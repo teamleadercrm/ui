@@ -121,7 +121,7 @@
     "pretty-quick": "3.1.0",
     "proptypes": "^1.1.0",
     "rimraf": "^3.0.0",
-    "storybook-addon-designs": "^5.4.5",
+    "storybook-addon-designs": "^6.0.0",
     "style-loader": "^2.0.0",
     "webpack": "^4.1.1"
   },
