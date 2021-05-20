@@ -2,6 +2,8 @@
 
 ### Added
 
+- `DurationInput`: Added textAlignRight property ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1650])
+
 ### Changed
 
 ### Deprecated
