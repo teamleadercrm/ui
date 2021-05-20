@@ -2,6 +2,20 @@
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Dependency updates
+
+## [6.0.0] - 2021-05-20
+
+### Added
+
 - `DurationInput`: Added DurationInput component to enter hours and minutes ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1646])
 
 ### Changed
@@ -12,15 +26,20 @@
 - `NumericInput` [Internal]: Removed redundant internal state ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1646])
 - `DurationInput`: Follow up changes to the newly added duration input ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1647])
 
-### Deprecated
-
 ### Removed
 
 - :boom: `Pagination`: removed props `prevPageText` and `nextPageText`. ([@driesd](https://github.com/driesd) in [#1643])
 
-### Fixed
-
 ### Dependency updates
+
+- `@storybook/addon-backgrounds` from `6.2.8` to `6.2.9`
+- `@storybook/ui` from `6.2.8` to `6.2.9`
+- `eslint` from `7.25.0` to `7.26.0`
+- `eslint-config-prettier` from `8.2.0` to `8.3.0`
+- `hosted-git-info` from `2.8.5` to `2.8.9`
+- `postcss` from `8.2.12` to `8.2.14`
+- `postcss-import` `14.0.1` to `14.0.2`
+- `ua-parser-js` from `0.7.20` to `0.7.28`
 
 ## [5.0.0] - 2021-05-10
 
