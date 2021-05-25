@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `DurationInput`: Consistent empty values ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1652])
+
 ### Dependency updates
 
 ## [6.1.0] - 2021-05-20
