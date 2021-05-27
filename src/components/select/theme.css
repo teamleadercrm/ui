@@ -16,3 +16,7 @@
 .is-large .dropdown-indicator {
   width: 36px;
 }
+
+.is-tiny .select {
+  font-size: calc(1.2 * var(--unit));
+}

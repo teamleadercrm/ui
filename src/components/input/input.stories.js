@@ -15,6 +15,7 @@ import {
   TextBody,
   TextSmall,
   TimeInput,
+  DurationInput,
 } from '../../index';
 
 const sizes = ['small', 'medium', 'large'];
@@ -78,7 +79,7 @@ export const input = () => (
     inverse={boolean('Inverse', false)}
     placeholder={text('Placeholder', placeholder)}
     readOnly={boolean('Read only', false)}
-    size={select('Size', sizes) || undefined}
+    size={select('Size', ['tiny', ...sizes], 'medium')}
     type={select('Type', types, 'text')}
     connectedLeft={
       boolean('Toggle connected left', false) ? <Button size={select('Size', sizes, 'medium')} label="€" /> : undefined
@@ -119,7 +120,7 @@ export const numericInput = () => {
       min={number('Min', 0)}
       placeholder={text('Placeholder', placeholder)}
       readOnly={boolean('Read only', false)}
-      size={select('Size', sizes) || undefined}
+      size={select('Size', sizes, 'medium')}
       stepper={select('Stepper', stepperOptions, 'suffix')}
       step={number('Step', 1)}
       connectedLeft={
@@ -191,6 +192,16 @@ export const timeInput = () => {
 
 timeInput.story = {
   name: 'TimeInput',
+};
+
+export const durationInput = () => {
+  const [value, setValue] = useState();
+
+  return <DurationInput value={value} onChange={setValue} />;
+};
+
+durationInput.story = {
+  name: 'DurationInput',
 };
 
 export const textarea = () => (

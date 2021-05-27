@@ -20,6 +20,7 @@ class ProgressStep extends PureComponent {
           <TextSmall className={theme['step-label']}>{label}</TextSmall>
           {meta && <TextSmall className={theme['step-meta']}>{meta}</TextSmall>}
         </div>
+        <span className={theme['status-bullet-halo']} onClick={onClick} />
         <span className={theme['status-bullet']} onClick={onClick} />
       </Box>
     );

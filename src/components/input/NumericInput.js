@@ -38,34 +38,24 @@ class StepperControls extends PureComponent {
 }
 
 class NumericInput extends PureComponent {
-  static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.value !== undefined) {
-      const newValue = nextProps.value || '';
-      if (newValue !== prevState.value) {
-        return {
-          value: newValue,
-        };
-      }
-    }
-    return null;
+  constructor(props) {
+    super(props);
+    this.timer = React.createRef();
+    this.timeout = React.createRef();
   }
 
-  state = {
-    value: '',
-  };
-
   handleOnChange = (event) => {
-    this.setState({ value: event.currentTarget.value });
+    const { onChange } = this.props;
+    onChange && onChange(event, event.currentTarget.value);
   };
 
   updateStep = (n) => {
-    const { min, max, onChange, step } = this.props;
+    const { min, max, value, onChange, step } = this.props;
 
-    const currentValue = toNumber(this.state.value || 0);
+    const currentValue = toNumber(value || 0);
     const newValue = parseValue(currentValue + step * n, min, max);
 
     if (newValue !== currentValue) {
-      this.setState({ value: newValue });
       onChange && onChange(null, newValue);
     }
   };
@@ -78,15 +68,36 @@ class NumericInput extends PureComponent {
     this.updateStep(-1);
   };
 
+  handleDecreaseMouseDown = () => {
+    this.handleDecreaseValue();
+    const parent = this;
+    this.timeout.current = setTimeout(() => {
+      parent.timer.current = setInterval(this.handleDecreaseValue, 75);
+    }, 300);
+  };
+
+  handleIncreaseMouseDown = () => {
+    this.handleIncreaseValue();
+    const parent = this;
+    this.timeout.current = setTimeout(() => {
+      parent.timer.current = setInterval(this.handleIncreaseValue, 75);
+    }, 300);
+  };
+
+  handleClearStepperTimer = () => {
+    clearTimeout(this.timeout.current);
+    clearInterval(this.timer.current);
+  };
+
   handleBlur = (...parameters) => {
     const { onBlur } = this.props;
 
     onBlur && onBlur(...parameters);
   };
 
-  isMaxReached = () => this.state.value >= this.props.max;
+  isMaxReached = () => this.props.value >= this.props.max;
 
-  isMinReached = () => this.state.value <= this.props.min;
+  isMinReached = () => this.props.value <= this.props.min;
 
   getConnectedRight = () => {
     const { connectedRight, size, stepper } = this.props;
@@ -96,8 +107,10 @@ class NumericInput extends PureComponent {
         <Button
           disabled={this.isMaxReached()}
           icon={<IconAddSmallOutline />}
-          onClick={this.handleIncreaseValue}
           onBlur={this.handleBlur}
+          onMouseDown={this.handleIncreaseMouseDown}
+          onMouseUp={this.handleClearStepperTimer}
+          onMouseLeave={this.handleClearStepperTimer}
           size={size}
         />
       );
@@ -114,7 +127,9 @@ class NumericInput extends PureComponent {
         <Button
           disabled={this.isMinReached()}
           icon={<IconMinusSmallOutline />}
-          onClick={this.handleDecreaseValue}
+          onMouseDown={this.handleDecreaseMouseDown}
+          onMouseUp={this.handleClearStepperTimer}
+          onMouseLeave={this.handleClearStepperTimer}
           onBlur={this.handleBlur}
           size={size}
         />
@@ -134,14 +149,18 @@ class NumericInput extends PureComponent {
         <StepperControls
           inverse={inverse}
           stepperUpProps={{
-            onClick: this.handleIncreaseValue,
             onBlur: this.handleBlur,
             disabled: this.isMaxReached(),
+            onMouseDown: this.handleIncreaseMouseDown,
+            onMouseUp: this.handleClearStepperTimer,
+            onMouseLeave: this.handleClearStepperTimer,
           }}
           stepperDownProps={{
-            onClick: this.handleDecreaseValue,
             onBlur: this.handleBlur,
             disabled: this.isMinReached(),
+            onMouseDown: this.handleDecreaseMouseDown,
+            onMouseUp: this.handleClearStepperTimer,
+            onMouseLeave: this.handleClearStepperTimer,
           }}
         />,
       ];
@@ -151,17 +170,14 @@ class NumericInput extends PureComponent {
   };
 
   render() {
-    const { onChange, ...others } = this.props;
-    const restProps = omit(others, ['suffix', 'value']);
+    const { value, ...rest } = this.props;
+    const restProps = omit(rest, ['suffix', 'onChange']);
 
     return (
       <SingleLineInputBase
         type="number"
-        value={this.state.value}
-        onChange={(event) => {
-          this.handleOnChange(event);
-          onChange && onChange(event, event.currentTarget.value);
-        }}
+        value={value}
+        onChange={this.handleOnChange}
         {...restProps}
         connectedLeft={this.getConnectedLeft()}
         connectedRight={this.getConnectedRight()}

@@ -1,98 +1,29 @@
 import React, { useState } from 'react';
 import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
-import { boolean, number, select, text } from '@storybook/addon-knobs';
 import { IconWarningBadgedMediumOutline } from '@teamleader/ui-icons';
-import { Banner, Box, Button, ButtonGroup, COLORS, Dialog, DialogBase, Heading3, TextBody } from '../../index';
-
-const sizes = ['small', 'medium', 'large', 'fullscreen'];
+import { Box, Button, Dialog, TextBody } from '../../index';
 
 export default {
   component: Dialog,
   title: addStoryInGroup(MID_LEVEL_BLOCKS, 'Dialog'),
-
-  parameters: {
-    info: {
-      propTablesExclude: [Box, Button, ButtonGroup, Banner, TextBody, Heading3],
-    },
-  },
 };
 
-export const dialogBase = () => {
+export const DefaultStory = (args) => {
   const [active, setActive] = useState(false);
 
   const toggleDialog = () => {
     setActive(!active);
   };
-
-  return (
-    <Box>
-      <Button onClick={toggleDialog} label="Open a dialog base" />
-      <DialogBase
-        active={active}
-        backdrop={select('Backdrop', ['dark'], 'dark')}
-        onEscKeyDown={toggleDialog}
-        onOverlayClick={toggleDialog}
-        scrollable={boolean('Scrollable', true)}
-        size={select('Size', sizes, 'medium')}
-      >
-        <Box padding={4}>
-          <TextBody>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-            dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-            clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
-            consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-            sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
-            sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
-            elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-            vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
-            Lorem ipsum dolor sit amet.
-          </TextBody>
-        </Box>
-      </DialogBase>
-    </Box>
-  );
-};
-
-dialogBase.story = {
-  name: 'DialogBase',
-};
-
-export const dialog = () => {
-  const [active, setActive] = useState(false);
-
-  const toggleDialog = () => {
-    setActive(!active);
-  };
-
-  const passHeaderIcon = boolean('Pass a headerIcon', false);
 
   return (
     <Box>
       <Button onClick={toggleDialog} label="Open a dialog" />
       <Dialog
+        {...args}
         active={active}
-        headerColor={select('Header color', COLORS, 'neutral')}
-        headerIcon={passHeaderIcon ? <IconWarningBadgedMediumOutline /> : null}
-        headingLevel={number('Heading level', 3, { min: 2, max: 3 })}
         onCloseClick={toggleDialog}
-        primaryAction={{
-          label: text('Primary action label', 'Confirm'),
-          onClick: () => console.log('primaryAction.onClick'),
-        }}
-        secondaryAction={{
-          label: text('Secondary action label', 'Cancel'),
-          onClick: () => console.log('secondaryAction.onClick'),
-        }}
-        tertiaryAction={{
-          children: text('Tertiary action children', 'Read more'),
-          onClick: () => console.log('tertiaryAction.onClick'),
-        }}
-        title={text('Title', 'Dialog title')}
-        backdrop={select('Backdrop', ['dark'], 'dark')}
         onEscKeyDown={toggleDialog}
         onOverlayClick={toggleDialog}
-        scrollable={boolean('Scrollable', true)}
-        size={select('Size', sizes, 'medium')}
       >
         <Box padding={4}>
           <TextBody>Here you can add arbitrary content.</TextBody>
@@ -100,4 +31,21 @@ export const dialog = () => {
       </Dialog>
     </Box>
   );
+};
+
+DefaultStory.args = {
+  headerIcon: <IconWarningBadgedMediumOutline />,
+  primaryAction: {
+    label: 'Confirm',
+    onClick: () => console.log('primaryAction.onClick'),
+  },
+  secondaryAction: {
+    label: 'Cancel',
+    onClick: () => console.log('secondaryAction.onClick'),
+  },
+  tertiaryAction: {
+    children: 'Read more',
+    onClick: () => console.log('tertiaryAction.onClick'),
+  },
+  title: 'Dialog title',
 };

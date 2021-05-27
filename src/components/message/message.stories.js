@@ -1,59 +1,87 @@
 import React from 'react';
 import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
-import { IllustrationInvoices120X120Static, IllustrationSharpie48X48Static } from '@teamleader/ui-illustrations';
-import { Button, Message, CompactMessage, Island, Heading2, Link, TextBody } from '../../index';
-
-const button = <Button level="primary">Button text</Button>;
-const link = (
-  <TextBody>
-    <Link href="https://teamleader.eu" inherit={false}>
-      I'm a link
-    </Link>
-  </TextBody>
-);
-const image = <IllustrationInvoices120X120Static />;
-const imageSmall = <IllustrationSharpie48X48Static />;
-const content = (
-  <div>
-    <Heading2 color="teal">The title</Heading2>
-    <TextBody color="teal" marginVertical={2}>
-      Rinking vinegar adaptogen taiyaki thundercats yr street art. Cardigan beard PBR&B organic small batch church-key
-      mustache unicorn vexillologist humblebrag coloring book helvetica.
-    </TextBody>
-  </div>
-);
+import { TextBody } from '../typography';
+import Message from './Message';
+import Link from '../link';
 
 export default {
   component: Message,
   title: addStoryInGroup(MID_LEVEL_BLOCKS, 'Message'),
 
   parameters: {
-    info: {
-      propTablesExclude: [TextBody, Heading2, Link, Island],
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/LHH25GN90ljQaBEUNMsdJn/Desktop-components?node-id=1225%3A0',
     },
   },
 };
 
-export const DefaultStory = (args) => (
-  <Island>
-    <Message {...args} button={button} link={link} image={image}>
-      {content}
-    </Message>
-  </Island>
+export const FullOption = (args) => (
+  <Message {...args}>
+    <TextBody color="teal">
+      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam <Link inherit={false}>nonumy eirmod</Link>{' '}
+      tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+    </TextBody>
+  </Message>
 );
+
+FullOption.args = {
+  onClose: () => console.log('onClose click handler'),
+  primaryAction: {
+    label: 'Primary action',
+    onClick: () => console.log('primaryAction.onClick'),
+  },
+  secondaryAction: {
+    label: 'Secondary action',
+    onClick: () => console.log('secondaryAction.onClick'),
+  },
+  showIcon: true,
+  status: 'success',
+  title: 'I am the title of this message',
+};
 
 export const Basic = () => (
-  <Island>
-    <Message button={button} link={link}>
-      {content}
-    </Message>
-  </Island>
+  <Message title="I am the title of this message">
+    <TextBody color="teal">
+      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam <Link inherit={false}>nonumy eirmod</Link>{' '}
+      tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+    </TextBody>
+  </Message>
 );
 
-export const Compact = () => (
-  <Island>
-    <CompactMessage button={button} image={imageSmall}>
-      {content}
-    </CompactMessage>
-  </Island>
+export const Dismissable = () => (
+  <Message onClose={() => console.log('onClose click handler')} title="I am the title of this message">
+    <TextBody color="teal">
+      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam <Link inherit={false}>nonumy eirmod</Link>{' '}
+      tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+    </TextBody>
+  </Message>
+);
+
+export const WithActions = () => (
+  <Message
+    primaryAction={{
+      label: 'Primary action',
+      onClick: () => console.log('primaryAction.onClick'),
+    }}
+    secondaryAction={{
+      label: 'Secondary action',
+      onClick: () => console.log('secondaryAction.onClick'),
+    }}
+    title="I am the title of this message"
+  >
+    <TextBody color="teal">
+      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam <Link inherit={false}>nonumy eirmod</Link>{' '}
+      tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+    </TextBody>
+  </Message>
+);
+
+export const WithStatus = () => (
+  <Message status="warning" title="I am the title of this message">
+    <TextBody color="teal">
+      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam <Link inherit={false}>nonumy eirmod</Link>{' '}
+      tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+    </TextBody>
+  </Message>
 );

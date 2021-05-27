@@ -9,7 +9,9 @@
   --input-height-large: calc(4.6 * var(--unit));
   --input-height-medium: calc(3.4 * var(--unit));
   --input-height-small: calc(2.8 * var(--unit));
+  --input-height-tiny: calc(2.2 * var(--unit));
   --input-horizontal-padding: calc(0.5 * var(--unit));
+  --input-text-size-tiny: calc(1.2 * var(--unit));
   --input-text-size: calc(1.4 * var(--unit));
   --input-text-size-large: calc(1.6 * var(--unit));
   --input-border-radius: calc(0.4 * var(--unit));
@@ -38,7 +40,6 @@
 
 .wrapper,
 .input {
-  width: 100%;
   border-radius: var(--input-border-radius);
 }
 
@@ -366,6 +367,13 @@
   }
 }
 
+.is-tiny {
+  &.input {
+    height: var(--input-height-tiny);
+    font-size: var(--input-text-size-tiny);
+  }
+}
+
 .has-connected-left {
   .input-wrapper *:first-child:focus {
     z-index: 3;
@@ -456,5 +464,21 @@
   &.wrapper:hover .input-inner-wrapper,
   .input:hover {
     cursor: default;
+  }
+}
+
+.duration-input-colon {
+  margin: 0 4px;
+}
+
+.duration-input-numeric-input {
+  .input {
+    padding-right: 0;
+  }
+
+  .suffix-wrapper {
+    > * {
+      margin-left: 0;
+    }
   }
 }

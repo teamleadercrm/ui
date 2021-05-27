@@ -4,17 +4,148 @@
 
 ### Changed
 
-- Replaced storybook-state usages with the useState react hook
-
 ### Deprecated
 
 ### Removed
 
 ### Fixed
 
+- `DurationInput`: Consistent empty values ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1652])
+
 ### Dependency updates
 
-- Removed `@sambego/storybook-state`
+## [6.1.0] - 2021-05-20
+
+### Added
+
+- `DurationInput`: Added textAlignRight property ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1650])
+
+## [6.0.0] - 2021-05-20
+
+### Added
+
+- `DurationInput`: Added DurationInput component to enter hours and minutes ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1646])
+
+### Changed
+
+- :boom: `ProgressTracker`: replaced `alternating` prop with `labelPosition` (`top` / `bottom` / `alternating`). ([@lorgan3](https://github.com/lorgan3) in [#1641])
+- `ProgressTracker`: Update design to be more accessible. ([@lorgan3](https://github.com/lorgan3) in [#1641])
+- `NumericInput`: Allow clicking and holding on the stepper controls ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1646])
+- `NumericInput` [Internal]: Removed redundant internal state ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1646])
+- `DurationInput`: Follow up changes to the newly added duration input ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1647])
+
+### Removed
+
+- :boom: `Pagination`: removed props `prevPageText` and `nextPageText`. ([@driesd](https://github.com/driesd) in [#1643])
+
+### Dependency updates
+
+- `@storybook/addon-backgrounds` from `6.2.8` to `6.2.9`
+- `@storybook/ui` from `6.2.8` to `6.2.9`
+- `eslint` from `7.25.0` to `7.26.0`
+- `eslint-config-prettier` from `8.2.0` to `8.3.0`
+- `hosted-git-info` from `2.8.5` to `2.8.9`
+- `postcss` from `8.2.12` to `8.2.14`
+- `postcss-import` `14.0.1` to `14.0.2`
+- `ua-parser-js` from `0.7.20` to `0.7.28`
+
+## [5.0.0] - 2021-05-10
+
+### Changed
+
+- :boom: `SilentBanner`: changed component name to `Message`. ([@driesd](https://github.com/driesd) in [#1612])
+
+### Removed
+
+- :boom: `CompactMessage`: removed component. ([@driesd](https://github.com/driesd) in [#1612])
+- :boom: `Message`: removed component. ([@driesd](https://github.com/driesd) in [#1612])
+- :boom: `Input`: removed `width: 100%` from the component's wrapper. ([@driesd](https://github.com/driesd) in [#1617])
+
+### Dependency updates
+
+- `@babel/cli` from `7.13.14` to `7.13.16`
+- `@babel/core` from `7.13.15` to `7.13.16`
+- `@babel/preset-react` from `7.12.13` to `7.13.13`
+- `@babel/runtime` from `7.13.10` to `7.13.17`
+- `@teamleader/ui-icons` from `1.1.0` to `1.1.2`
+- `@teamleader/ui-illustrations` from `1.0.0` to `1.1.0`
+- `classnames` from `2.2.6` to `2.3.1`
+- `css-loader` from `5.2.1` to `5.2.4`
+- `eslint` from `7.24.0` to `7.25.0`
+- `eslint-config-prettier` from `8.1.0` to `8.2.0`
+- `eslint-plugin-prettier` from `3.3.1` to `3.4.0`
+- `eslint-plugin-react` from `7.23.1` to `7.23.2`
+- `is-svg` from `4.2.1` to `4.3.1`
+- `postcss` from `8.2.8` to `8.2.12`
+- `postcss-import` from `14.0.0` to `14.0.1`
+- `react-draft-wysiwyg` from `1.14.5` to `1.14.6`
+- `react-resize-detector` from `6.6.4` to `6.6.5`
+
+## [4.6.0] - 2021-04-19
+
+### Added
+
+- `Select`: allow passing a ref to the inner react-select component. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1605])
+
+## [4.5.1] - 2021-04-16
+
+### Changed
+
+- `Timer`: changed the wrapper's `display` prop from `inline-flex` to `flex`. ([@driesd](https://github.com/driesd) in [#1599])
+
+### Dependency updates
+
+- `@storybook/addons` from `6.1.21` to `6.2.8`
+
+## [4.5.0] - 2021-04-15
+
+### Changed
+
+- `Timer`: updated according to latest design specs. ([@driesd](https://github.com/driesd) in [#1595])
+
+### Dependency updates
+
+- `ssri` from `8.0.0` to `8.0.1`
+- `css-loader` from `5.1.3` to `5.2.1`
+- `react-dev-utils` from `11.0.3` to `11.0.4`
+
+## [4.4.0] - 2021-04-13
+
+### Added
+
+- `Input`: add tiny size variant. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1591])
+
+### Fixed
+
+- `Select`: fix input and placeholder spacing ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1592])
+
+## [4.3.0] - 2021-04-07
+
+### Added
+
+- `Select`: added tiny size variant. ([@driesd](https://github.com/driesd) in [#1586])
+
+### Changed
+
+- Replaced storybook-state usages with the useState react hook. ([@timdegroote](https://github.com/timdegroote) in [#1566])
+
+### Fixed
+
+- `SplitButton`: fixed text overflow with ellipsis. ([@driesd](https://github.com/driesd) in [#1584])
+
+### Dependency updates
+
+- `@sambego/storybook-state` (removed in [#1566])
+- `@babel/preset-env` from `7.13.9` to `7.13.12`
+- `@teamleader/ui-illustrations` from `0.0.36` to `1.0.0`
+- `@teamleader/ui-icons` from `1.0.0` to `1.1.0`
+- `css-loader` from `5.1.1` to `5.1.3`
+- `eslint` from `7.21.0` to `7.22.0`
+- `eslint-plugin-react` from `7.22.0` to `7.23.1`
+- `highlight.js` from `10.4.0` to `10.4.1`
+- `node-fetch` from `2.6.0` to `2.6.1`
+- `react-day-picker` from `7.4.8` to `7.4.10`
+- `react-resize-detector` from `6.6.1` to `6.6.4`
 
 ## [4.2.0] - 2021-03-12
 
