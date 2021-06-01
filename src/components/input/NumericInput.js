@@ -45,18 +45,6 @@ class NumericInput extends PureComponent {
     this.timeout = React.createRef();
   }
 
-  setNativeValue = (element, value) => {
-    const valueSetter = Object.getOwnPropertyDescriptor(element, 'value').set;
-    const prototype = Object.getPrototypeOf(element);
-    const prototypeValueSetter = Object.getOwnPropertyDescriptor(prototype, 'value').set;
-
-    if (valueSetter && valueSetter !== prototypeValueSetter) {
-      prototypeValueSetter.call(element, value);
-    } else {
-      valueSetter.call(element, value);
-    }
-  };
-
   handleOnChange = (event) => {
     const { onChange } = this.props;
     onChange && onChange(event, event.currentTarget.value);
@@ -69,9 +57,12 @@ class NumericInput extends PureComponent {
     const newValue = parseValue(currentValue + step * n, min, max);
 
     const inputElement = this.inputElement.current;
-    if (inputElement && newValue !== currentValue) {
-      this.setNativeValue(inputElement, newValue);
-      inputElement.dispatchEvent(new Event('input', { bubbles: true }));
+    if (inputElement) {
+      const prototype = Object.getPrototypeOf(inputElement);
+      const prototypeValueSetter = Object.getOwnPropertyDescriptor(prototype, 'value').set;
+
+      prototypeValueSetter.call(inputElement, newValue);
+      inputElement.dispatchEvent(new Event('change', { bubbles: true }));
     }
   };
 
