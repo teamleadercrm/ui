@@ -181,7 +181,7 @@ class NumericInput extends PureComponent {
 
     return (
       <SingleLineInputBase
-        innerRef={this.inputElement}
+        ref={this.inputElement}
         type="number"
         value={value}
         onChange={this.handleOnChange}

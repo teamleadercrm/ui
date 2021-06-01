@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { omitBoxProps } from '../box';
@@ -6,7 +6,7 @@ import theme from './theme.css';
 
 class InputBase extends PureComponent {
   render() {
-    const { bold, className, element, innerRef, inverse, size, textAlignRight, ...otherProps } = this.props;
+    const { bold, className, element, forwardedRef, inverse, size, textAlignRight, ...otherProps } = this.props;
 
     const classNames = cx(
       theme['input'],
@@ -23,7 +23,7 @@ class InputBase extends PureComponent {
 
     const props = {
       className: classNames,
-      ref: innerRef,
+      ref: forwardedRef,
       ...restProps,
     };
 
@@ -41,7 +41,7 @@ InputBase.propTypes = {
   /** The element to render. */
   element: PropTypes.oneOf(['input', 'textarea']),
   /** The reference to the inner html element */
-  innerRef: PropTypes.object,
+  forwaredRef: PropTypes.object,
   /** Boolean indicating whether the input should render as inverse. */
   inverse: PropTypes.bool,
   /** Callback function that is fired when blurring the input field. */
@@ -91,4 +91,4 @@ InputBase.defaultProps = {
   size: 'medium',
 };
 
-export default InputBase;
+export default forwardRef((props, ref) => <InputBase {...props} forwardedRef={ref} />);
