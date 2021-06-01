@@ -46,6 +46,7 @@ class SingleLineInputBase extends PureComponent {
       onFocus,
       onBlur,
       prefix,
+      innerRef,
       inverse,
       readOnly,
       success,
@@ -79,6 +80,7 @@ class SingleLineInputBase extends PureComponent {
       onBlur: this.handleBlur,
       onFocus: this.handleFocus,
       readOnly,
+      innerRef,
       ...omitBoxProps(others),
     };
 

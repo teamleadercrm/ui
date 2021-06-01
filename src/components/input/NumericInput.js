@@ -40,9 +40,22 @@ class StepperControls extends PureComponent {
 class NumericInput extends PureComponent {
   constructor(props) {
     super(props);
+    this.inputElement = React.createRef();
     this.timer = React.createRef();
     this.timeout = React.createRef();
   }
+
+  setNativeValue = (element, value) => {
+    const valueSetter = Object.getOwnPropertyDescriptor(element, 'value').set;
+    const prototype = Object.getPrototypeOf(element);
+    const prototypeValueSetter = Object.getOwnPropertyDescriptor(prototype, 'value').set;
+
+    if (valueSetter && valueSetter !== prototypeValueSetter) {
+      prototypeValueSetter.call(element, value);
+    } else {
+      valueSetter.call(element, value);
+    }
+  };
 
   handleOnChange = (event) => {
     const { onChange } = this.props;
@@ -50,13 +63,15 @@ class NumericInput extends PureComponent {
   };
 
   updateStep = (n) => {
-    const { min, max, value, onChange, step } = this.props;
+    const { min, max, value, step } = this.props;
 
     const currentValue = toNumber(value || 0);
     const newValue = parseValue(currentValue + step * n, min, max);
 
-    if (newValue !== currentValue) {
-      onChange && onChange(null, newValue);
+    const inputElement = this.inputElement.current;
+    if (inputElement && newValue !== currentValue) {
+      this.setNativeValue(inputElement, newValue);
+      inputElement.dispatchEvent(new Event('input', { bubbles: true }));
     }
   };
 
@@ -175,6 +190,7 @@ class NumericInput extends PureComponent {
 
     return (
       <SingleLineInputBase
+        innerRef={this.inputElement}
         type="number"
         value={value}
         onChange={this.handleOnChange}
