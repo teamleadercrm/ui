@@ -867,11 +867,11 @@
     "@babel/plugin-transform-react-jsx" "^7.12.17"
 
 "@babel/plugin-transform-react-jsx-source@^7.12.1":
-  version "7.12.13"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-react-jsx-source/-/plugin-transform-react-jsx-source-7.12.13.tgz#051d76126bee5c9a6aa3ba37be2f6c1698856bcb"
-  integrity sha512-O5JJi6fyfih0WfDgIJXksSPhGP/G0fQpfxYy87sDc+1sFmsCS6wr3aAn+whbzkhbjtq4VMqLRaSzR6IsshIC0Q==
+  version "7.14.2"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-react-jsx-source/-/plugin-transform-react-jsx-source-7.14.2.tgz#2620b57e7de775c0687f65d464026d15812941da"
+  integrity sha512-OMorspVyjxghAjzgeAWc6O7W7vHbJhV69NeTGdl9Mxgz6PaweAuo7ffB9T5A1OQ9dGcw0As4SYMUhyNC4u7mVg==
   dependencies:
-    "@babel/helper-plugin-utils" "^7.12.13"
+    "@babel/helper-plugin-utils" "^7.13.0"
 
 "@babel/plugin-transform-react-jsx@^7.12.12", "@babel/plugin-transform-react-jsx@^7.12.17", "@babel/plugin-transform-react-jsx@^7.13.12":
   version "7.13.12"
@@ -1560,16 +1560,16 @@
     util-deprecate "^1.0.2"
 
 "@storybook/addon-controls@^6.2.8":
-  version "6.2.8"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-controls/-/addon-controls-6.2.8.tgz#15c79b6c1daae218dcabf240bc0013e2c68bf208"
-  integrity sha512-VpMo5qPlRVWr1GALWOCRDuompYZm+7z0FRc3x71AkT3sCIZdiPjHHMt7IkG14ranEumusNtBZ2ez8NgKX0mDdQ==
+  version "6.2.9"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-controls/-/addon-controls-6.2.9.tgz#eeec14b2946f1fb5326115f2205ed72c7f44ccea"
+  integrity sha512-NvXAJ7I5U4CLxv4wL3/Ne9rehJlgnSmQlLIG/z6dg5zm7JIb48LT4IY6GzjlUP5LkjmO9KJ8gJC249uRt2iPBQ==
   dependencies:
-    "@storybook/addons" "6.2.8"
-    "@storybook/api" "6.2.8"
-    "@storybook/client-api" "6.2.8"
-    "@storybook/components" "6.2.8"
-    "@storybook/node-logger" "6.2.8"
-    "@storybook/theming" "6.2.8"
+    "@storybook/addons" "6.2.9"
+    "@storybook/api" "6.2.9"
+    "@storybook/client-api" "6.2.9"
+    "@storybook/components" "6.2.9"
+    "@storybook/node-logger" "6.2.9"
+    "@storybook/theming" "6.2.9"
     core-js "^3.8.2"
     ts-dedent "^2.0.0"
 
