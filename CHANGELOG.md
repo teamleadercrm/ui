@@ -11,6 +11,7 @@
 ### Fixed
 
 - `DurationInput`: Consistent empty values ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1652])
+- `NumericInput`: Make stepper dispatch native onChange events ([@JorenSaeyTL](https://github.com/JorenSaeyTL) in [#1659])
 
 ### Dependency updates
 
