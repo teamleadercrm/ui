@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Toggle from './Toggle';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 
@@ -14,7 +14,15 @@ export default {
   },
 };
 
-export const DefaultStory = (args) => <Toggle {...args} />;
+export const DefaultStory = (args) => {
+  const [checked, setChecked] = useState(args.checked);
+
+  const handleChange = (event) => {
+    setChecked(event.currentTarget.checked);
+  };
+
+  return <Toggle {...args} checked={checked} onChange={handleChange} />;
+};
 
 DefaultStory.args = {
   checked: true,

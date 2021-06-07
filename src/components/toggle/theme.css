@@ -125,6 +125,7 @@
   &.is-small {
     .track {
       flex: 0 0 var(--toggle-track-width-small);
+      width: var(--toggle-track-width-small);
       height: var(--toggle-track-height-small);
       border-radius: var(--toggle-track-height-small);
     }
@@ -154,6 +155,7 @@
 
     .track {
       flex: 0 0 var(--toggle-track-width-medium);
+      width: var(--toggle-track-width-medium);
       height: var(--toggle-track-height-medium);
       border-radius: var(--toggle-track-height-medium);
     }
@@ -183,6 +185,7 @@
 
     .track {
       flex: 0 0 var(--toggle-track-width-large);
+      width: var(--toggle-track-width-large);
       height: var(--toggle-track-height-large);
       border-radius: var(--toggle-track-height-large);
     }

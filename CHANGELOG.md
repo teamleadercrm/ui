@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `Toggle`: Fix layout ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1672])
+
 ### Dependency updates
 
 ## [6.2.0]
@@ -28,7 +30,7 @@
 - `@teamleader/ui-typography` from `2.0.1` to `2.0.2`
 - `css-loader` from `5.2.4` to `5.2.6`
 - `eslint-config-standard` from `16.0.2` to `16.0.3`
-- `eslint` from `7.26.0` to `7.27.0` 
+- `eslint` from `7.26.0` to `7.27.0`
 - `husky` from `4.3.8` to `6.0.0`
 - `postcss ` from `8.2.14` to `8.3.0`
 - `react-resize-detector` from `6.7.1` to `6.7.2`

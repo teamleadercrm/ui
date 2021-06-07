@@ -57,6 +57,7 @@ class Toggle extends PureComponent {
         <input
           className={theme['input']}
           type="checkbox"
+          hidden
           checked={checked}
           disabled={disabled}
           onChange={this.handleToggle}
