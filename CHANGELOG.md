@@ -12,6 +12,36 @@
 
 ### Dependency updates
 
+## [6.2.0]
+
+### Fixed
+
+- `DurationInput`: Consistent empty values ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1652])
+- `NumericInput`: Make stepper dispatch native onChange events ([@JorenSaeyTL](https://github.com/JorenSaeyTL) in [#1659])
+
+### Dependency updates
+
+- `@babel/plugin-transform-react-jsx-source` from `7.12.13` to `7.14.2`
+- `@storybook/addon-controls` from `6.2.8` to `6.2.9`
+- `@storybook/addon-docs` from `6.2.8` to `6.2.9`
+- `@storybook/addon-knobs` from `6.2.8` to `6.2.9`
+- `@teamleader/ui-typography` from `2.0.1` to `2.0.2`
+- `css-loader` from `5.2.4` to `5.2.6`
+- `eslint-config-standard` from `16.0.2` to `16.0.3`
+- `eslint` from `7.26.0` to `7.27.0` 
+- `husky` from `4.3.8` to `6.0.0`
+- `postcss ` from `8.2.14` to `8.3.0`
+- `react-resize-detector` from `6.7.1` to `6.7.2`
+- `react-select` from `3.0.4` to `4.3.1`
+- `react-transition-group` from `4.4.1` to `4.4.2`
+- `storybook-addon-designs` from `5.4.5` to `6.0.0`
+
+## [6.1.0] - 2021-05-20
+
+### Added
+
+- `DurationInput`: Added textAlignRight property ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1650])
+
 ## [6.0.0] - 2021-05-20
 
 ### Added

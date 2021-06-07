@@ -40,6 +40,7 @@ class StepperControls extends PureComponent {
 class NumericInput extends PureComponent {
   constructor(props) {
     super(props);
+    this.inputElement = React.createRef();
     this.timer = React.createRef();
     this.timeout = React.createRef();
   }
@@ -50,13 +51,18 @@ class NumericInput extends PureComponent {
   };
 
   updateStep = (n) => {
-    const { min, max, value, onChange, step } = this.props;
+    const { min, max, value, step } = this.props;
 
     const currentValue = toNumber(value || 0);
     const newValue = parseValue(currentValue + step * n, min, max);
 
-    if (newValue !== currentValue) {
-      onChange && onChange(null, newValue);
+    const inputElement = this.inputElement.current;
+    if (inputElement) {
+      const prototype = Object.getPrototypeOf(inputElement);
+      const prototypeValueSetter = Object.getOwnPropertyDescriptor(prototype, 'value').set;
+
+      prototypeValueSetter.call(inputElement, newValue);
+      inputElement.dispatchEvent(new Event('change', { bubbles: true }));
     }
   };
 
@@ -175,6 +181,7 @@ class NumericInput extends PureComponent {
 
     return (
       <SingleLineInputBase
+        ref={this.inputElement}
         type="number"
         value={value}
         onChange={this.handleOnChange}

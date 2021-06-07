@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 
@@ -42,6 +42,7 @@ class SingleLineInputBase extends PureComponent {
       connectedRight,
       disabled,
       error,
+      forwardedRef,
       helpText,
       onFocus,
       onBlur,
@@ -74,6 +75,7 @@ class SingleLineInputBase extends PureComponent {
 
     const boxProps = pickBoxProps(others);
     const inputProps = {
+      ref: forwardedRef,
       disabled,
       inverse,
       onBlur: this.handleBlur,
@@ -122,4 +124,4 @@ SingleLineInputBase.propTypes = {
   noInputStyling: PropTypes.bool,
 };
 
-export default SingleLineInputBase;
+export default forwardRef((props, ref) => <SingleLineInputBase {...props} forwardedRef={ref} />);
