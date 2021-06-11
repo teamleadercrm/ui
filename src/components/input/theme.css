@@ -468,6 +468,8 @@
 }
 
 .duration-input-numeric-input {
+  width: 100%;
+
   .input {
     padding-right: 0;
   }
