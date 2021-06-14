@@ -113,12 +113,17 @@ const DurationInput = ({ value, onChange, onBlur, onFocus, onKeyDown, autoFocus,
     minutes = transformToPaddedNumber(minutes);
   }
 
+  let hours = value?.hours;
+  if (Number.isInteger(hours)) {
+    hours = transformToPaddedNumber(hours);
+  }
+
   return (
     <Box display="flex" alignItems="center" ref={ref} className={className}>
       <NumericInput
-        placeholder="0"
+        placeholder="00"
         min={0}
-        value={value?.hours ?? ''}
+        value={hours ?? ''}
         onChange={handleHoursChanged}
         onBlur={handleBlur}
         onFocus={onFocus}
