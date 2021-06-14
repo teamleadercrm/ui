@@ -2,7 +2,12 @@
 
 ### Added
 
+- `NumericInput` Holding the keyboard up/down arrows increases/decreases the value ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1687])
+
 ### Changed
+
+- `DurationInput`: The step size for minutes has been increased to 15 ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1687])
+- `DurationInput`: The hours input now has a padded "0" similar to the minutes input ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1687])
 
 ### Deprecated
 
