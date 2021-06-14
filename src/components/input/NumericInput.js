@@ -95,6 +95,16 @@ class NumericInput extends PureComponent {
     clearInterval(this.timer.current);
   };
 
+  handleKeyDown = (event) => {
+    if (event.key === 'ArrowUp') {
+      this.handleIncreaseValue();
+    } else if (event.key === 'ArrowDown') {
+      this.handleDecreaseValue();
+    }
+
+    this.props.onKeyDown && this.props.onKeyDown(event);
+  };
+
   handleBlur = (...parameters) => {
     const { onBlur } = this.props;
 
@@ -177,7 +187,7 @@ class NumericInput extends PureComponent {
 
   render() {
     const { value, ...rest } = this.props;
-    const restProps = omit(rest, ['suffix', 'onChange']);
+    const restProps = omit(rest, ['suffix', 'onChange', 'onKeyDown']);
 
     return (
       <SingleLineInputBase
@@ -185,6 +195,7 @@ class NumericInput extends PureComponent {
         type="number"
         value={value}
         onChange={this.handleOnChange}
+        onKeyDown={this.handleKeyDown}
         {...restProps}
         connectedLeft={this.getConnectedLeft()}
         connectedRight={this.getConnectedRight()}
