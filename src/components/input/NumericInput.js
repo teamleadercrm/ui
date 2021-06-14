@@ -100,8 +100,10 @@ class NumericInput extends PureComponent {
   // https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent#auto-repeat_handling
   handleKeyDown = (event) => {
     if (event.key === 'ArrowUp') {
+      event.preventDefault();
       this.handleIncreaseValue();
     } else if (event.key === 'ArrowDown') {
+      event.preventDefault();
       this.handleDecreaseValue();
     }
 
