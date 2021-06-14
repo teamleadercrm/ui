@@ -4,6 +4,8 @@ import theme from './theme.css';
 
 const transformToPaddedNumber = (number) => (number < 10 ? `0${number}` : number.toString());
 
+const MINUTES_STEP = 15;
+
 const DurationInput = ({ value, onChange, onBlur, onFocus, onKeyDown, autoFocus, textAlignRight, className }) => {
   const ref = useRef();
 
@@ -72,7 +74,7 @@ const DurationInput = ({ value, onChange, onBlur, onFocus, onKeyDown, autoFocus,
     if (parsedMinutes < 0) {
       onChange({
         hours: (value?.hours || 1) - 1,
-        minutes: 59,
+        minutes: 60 - MINUTES_STEP,
       });
       return;
     }
@@ -136,6 +138,7 @@ const DurationInput = ({ value, onChange, onBlur, onFocus, onKeyDown, autoFocus,
       />
       <NumericInput
         placeholder="00"
+        step={MINUTES_STEP}
         {...(!value?.hours ? { min: 0 } : {})}
         value={minutes ?? ''}
         onChange={handleMinutesChange}
