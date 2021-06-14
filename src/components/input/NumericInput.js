@@ -95,6 +95,9 @@ class NumericInput extends PureComponent {
     clearInterval(this.timer.current);
   };
 
+  // Unlike mouse down events, key down events are "auto-repeated" while holding down the key
+  // This means we don't need to use an interval and can directly rely on the handler
+  // https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent#auto-repeat_handling
   handleKeyDown = (event) => {
     if (event.key === 'ArrowUp') {
       this.handleIncreaseValue();
