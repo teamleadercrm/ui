@@ -1,5 +1,6 @@
 import { COLOR, COLORS, TINTS, colorsWithout, tintsWithout } from './colors';
 import { SIZES, sizesWithout, TINY, SMALL, MEDIUM, LARGE, FULLSCREEN } from './sizes';
+import KEY from './keys';
 
 export {
   COLOR,
@@ -14,4 +15,5 @@ export {
   MEDIUM,
   LARGE,
   FULLSCREEN,
+  KEY,
 };
