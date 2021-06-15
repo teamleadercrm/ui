@@ -467,11 +467,9 @@
   }
 }
 
-.duration-input-colon {
-  margin: 0 4px;
-}
-
 .duration-input-numeric-input {
+  width: 100%;
+
   .input {
     padding-right: 0;
   }
@@ -481,4 +479,19 @@
       margin-left: 0;
     }
   }
+}
+
+.duration-input-numeric-input:first-child .input-inner-wrapper {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.duration-input-numeric-input:last-child .input-inner-wrapper {
+  margin-left: -1px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.duration-input-numeric-input:hover {
+  z-index: 1;
 }
