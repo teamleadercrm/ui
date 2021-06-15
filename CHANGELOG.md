@@ -27,7 +27,7 @@
 
 - `Toggle`: Fix layout ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1672])
 
-## [6.2.0]
+## [6.2.0] - 2021-06-07
 
 ### Fixed
 
