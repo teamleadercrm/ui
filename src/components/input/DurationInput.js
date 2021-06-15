@@ -1,8 +1,10 @@
 import React, { useRef } from 'react';
-import { Box, NumericInput, TextBodyCompact } from '../../';
+import { Box, NumericInput } from '../../';
 import theme from './theme.css';
 
 const transformToPaddedNumber = (number) => (number < 10 ? `0${number}` : number.toString());
+
+const MINUTES_STEP = 15;
 
 const DurationInput = ({ value, onChange, onBlur, onFocus, onKeyDown, autoFocus, textAlignRight, className }) => {
   const ref = useRef();
@@ -72,7 +74,7 @@ const DurationInput = ({ value, onChange, onBlur, onFocus, onKeyDown, autoFocus,
     if (parsedMinutes < 0) {
       onChange({
         hours: (value?.hours || 1) - 1,
-        minutes: 59,
+        minutes: 60 - MINUTES_STEP,
       });
       return;
     }
@@ -113,28 +115,30 @@ const DurationInput = ({ value, onChange, onBlur, onFocus, onKeyDown, autoFocus,
     minutes = transformToPaddedNumber(minutes);
   }
 
+  let hours = value?.hours;
+  if (Number.isInteger(hours)) {
+    hours = transformToPaddedNumber(hours);
+  }
+
   return (
     <Box display="flex" alignItems="center" ref={ref} className={className}>
       <NumericInput
-        placeholder="0"
+        placeholder="00"
         min={0}
-        value={value?.hours ?? ''}
+        value={hours ?? ''}
         onChange={handleHoursChanged}
         onBlur={handleBlur}
         onFocus={onFocus}
         onKeyDown={onKeyDown}
         type="text"
         inputMode="numeric"
-        flexGrow={1}
         className={theme['duration-input-numeric-input']}
         autoFocus={autoFocus}
         textAlignRight={textAlignRight}
       />
-      <TextBodyCompact color="neutral" tint="darkest" className={theme['duration-input-colon']}>
-        :
-      </TextBodyCompact>
       <NumericInput
         placeholder="00"
+        step={MINUTES_STEP}
         {...(!value?.hours ? { min: 0 } : {})}
         value={minutes ?? ''}
         onChange={handleMinutesChange}
@@ -143,7 +147,6 @@ const DurationInput = ({ value, onChange, onBlur, onFocus, onKeyDown, autoFocus,
         onKeyDown={onKeyDown}
         type="text"
         inputMode="numeric"
-        flexGrow={1}
         className={theme['duration-input-numeric-input']}
         textAlignRight={textAlignRight}
       />

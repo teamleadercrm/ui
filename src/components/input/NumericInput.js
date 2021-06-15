@@ -12,6 +12,7 @@ import SingleLineInputBase from './SingleLineInputBase';
 import omit from 'lodash.omit';
 import theme from './theme.css';
 import { parseValue, toNumber } from './utils';
+import { KEY } from '../../constants';
 
 class StepperControls extends PureComponent {
   render() {
@@ -93,6 +94,21 @@ class NumericInput extends PureComponent {
   handleClearStepperTimer = () => {
     clearTimeout(this.timeout.current);
     clearInterval(this.timer.current);
+  };
+
+  // Unlike mouse down events, key down events are "auto-repeated" while holding down the key
+  // This means we don't need to use an interval and can directly rely on the handler
+  // https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent#auto-repeat_handling
+  handleKeyDown = (event) => {
+    if (event.key === KEY.ArrowUp) {
+      event.preventDefault();
+      this.handleIncreaseValue();
+    } else if (event.key === KEY.ArrowDown) {
+      event.preventDefault();
+      this.handleDecreaseValue();
+    }
+
+    this.props.onKeyDown && this.props.onKeyDown(event);
   };
 
   handleBlur = (...parameters) => {
@@ -177,7 +193,7 @@ class NumericInput extends PureComponent {
 
   render() {
     const { value, ...rest } = this.props;
-    const restProps = omit(rest, ['suffix', 'onChange']);
+    const restProps = omit(rest, ['suffix', 'onChange', 'onKeyDown']);
 
     return (
       <SingleLineInputBase
@@ -185,6 +201,7 @@ class NumericInput extends PureComponent {
         type="number"
         value={value}
         onChange={this.handleOnChange}
+        onKeyDown={this.handleKeyDown}
         {...restProps}
         connectedLeft={this.getConnectedLeft()}
         connectedRight={this.getConnectedRight()}
