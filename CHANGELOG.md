@@ -16,23 +16,23 @@
 
 ### Added
 
-- `NumericInput` Holding the keyboard up/down arrows increases/decreases the value ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1687])
+- `NumericInput` Holding the keyboard up/down arrows increases/decreases the value ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1687](https://github.com/teamleadercrm/ui/pull/1687))
 
 ### Changed
 
-- `DurationInput`: The step size for minutes has been increased to 15 ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1687])
-- `DurationInput`: The hours input now has a padded "0" similar to the minutes input ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1687])
+- `DurationInput`: The step size for minutes has been increased to 15 ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1687](https://github.com/teamleadercrm/ui/pull/1687))
+- `DurationInput`: The hours input now has a padded "0" similar to the minutes input ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1687](https://github.com/teamleadercrm/ui/pull/1687))
 
 ### Fixed
 
-- `Toggle`: Fix layout ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1672])
+- `Toggle`: Fix layout ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1672](https://github.com/teamleadercrm/ui/pull/1672))
 
 ## [6.2.0] - 2021-06-07
 
 ### Fixed
 
-- `DurationInput`: Consistent empty values ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1652])
-- `NumericInput`: Make stepper dispatch native onChange events ([@JorenSaeyTL](https://github.com/JorenSaeyTL) in [#1659])
+- `DurationInput`: Consistent empty values ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1652](https://github.com/teamleadercrm/ui/pull/1652))
+- `NumericInput`: Make stepper dispatch native onChange events ([@JorenSaeyTL](https://github.com/JorenSaeyTL) in [#1659](https://github.com/teamleadercrm/ui/pull/1659))
 
 ### Dependency updates
 
@@ -55,25 +55,25 @@
 
 ### Added
 
-- `DurationInput`: Added textAlignRight property ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1650])
+- `DurationInput`: Added textAlignRight property ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1650](https://github.com/teamleadercrm/ui/pull/1650))
 
 ## [6.0.0] - 2021-05-20
 
 ### Added
 
-- `DurationInput`: Added DurationInput component to enter hours and minutes ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1646])
+- `DurationInput`: Added DurationInput component to enter hours and minutes ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1646](https://github.com/teamleadercrm/ui/pull/1646))
 
 ### Changed
 
-- :boom: `ProgressTracker`: replaced `alternating` prop with `labelPosition` (`top` / `bottom` / `alternating`). ([@lorgan3](https://github.com/lorgan3) in [#1641])
-- `ProgressTracker`: Update design to be more accessible. ([@lorgan3](https://github.com/lorgan3) in [#1641])
-- `NumericInput`: Allow clicking and holding on the stepper controls ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1646])
-- `NumericInput` [Internal]: Removed redundant internal state ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1646])
-- `DurationInput`: Follow up changes to the newly added duration input ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1647])
+- :boom: `ProgressTracker`: replaced `alternating` prop with `labelPosition` (`top` / `bottom` / `alternating`). ([@lorgan3](https://github.com/lorgan3) in [#1641](https://github.com/teamleadercrm/ui/pull/1641))
+- `ProgressTracker`: Update design to be more accessible. ([@lorgan3](https://github.com/lorgan3) in [#1641](https://github.com/teamleadercrm/ui/pull/1641))
+- `NumericInput`: Allow clicking and holding on the stepper controls ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1646](https://github.com/teamleadercrm/ui/pull/1646))
+- `NumericInput` [Internal]: Removed redundant internal state ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1646](https://github.com/teamleadercrm/ui/pull/1646))
+- `DurationInput`: Follow up changes to the newly added duration input ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1647](https://github.com/teamleadercrm/ui/pull/1647))
 
 ### Removed
 
-- :boom: `Pagination`: removed props `prevPageText` and `nextPageText`. ([@driesd](https://github.com/driesd) in [#1643])
+- :boom: `Pagination`: removed props `prevPageText` and `nextPageText`. ([@driesd](https://github.com/driesd) in [#1643](https://github.com/teamleadercrm/ui/pull/1643))
 
 ### Dependency updates
 
@@ -90,13 +90,13 @@
 
 ### Changed
 
-- :boom: `SilentBanner`: changed component name to `Message`. ([@driesd](https://github.com/driesd) in [#1612])
+- :boom: `SilentBanner`: changed component name to `Message`. ([@driesd](https://github.com/driesd) in [#1612](https://github.com/teamleadercrm/ui/pull/1612))
 
 ### Removed
 
-- :boom: `CompactMessage`: removed component. ([@driesd](https://github.com/driesd) in [#1612])
-- :boom: `Message`: removed component. ([@driesd](https://github.com/driesd) in [#1612])
-- :boom: `Input`: removed `width: 100%` from the component's wrapper. ([@driesd](https://github.com/driesd) in [#1617])
+- :boom: `CompactMessage`: removed component. ([@driesd](https://github.com/driesd) in [#1612](https://github.com/teamleadercrm/ui/pull/1612))
+- :boom: `Message`: removed component. ([@driesd](https://github.com/driesd) in [#1612](https://github.com/teamleadercrm/ui/pull/1612))
+- :boom: `Input`: removed `width: 100%` from the component's wrapper. ([@driesd](https://github.com/driesd) in [#1617](https://github.com/teamleadercrm/ui/pull/1617))
 
 ### Dependency updates
 
@@ -122,13 +122,13 @@
 
 ### Added
 
-- `Select`: allow passing a ref to the inner react-select component. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1605])
+- `Select`: allow passing a ref to the inner react-select component. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1605](https://github.com/teamleadercrm/ui/pull/1605))
 
 ## [4.5.1] - 2021-04-16
 
 ### Changed
 
-- `Timer`: changed the wrapper's `display` prop from `inline-flex` to `flex`. ([@driesd](https://github.com/driesd) in [#1599])
+- `Timer`: changed the wrapper's `display` prop from `inline-flex` to `flex`. ([@driesd](https://github.com/driesd) in [#1599](https://github.com/teamleadercrm/ui/pull/1599))
 
 ### Dependency updates
 
@@ -138,7 +138,7 @@
 
 ### Changed
 
-- `Timer`: updated according to latest design specs. ([@driesd](https://github.com/driesd) in [#1595])
+- `Timer`: updated according to latest design specs. ([@driesd](https://github.com/driesd) in [#1595](https://github.com/teamleadercrm/ui/pull/1595))
 
 ### Dependency updates
 
@@ -150,29 +150,29 @@
 
 ### Added
 
-- `Input`: add tiny size variant. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1591])
+- `Input`: add tiny size variant. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1591](https://github.com/teamleadercrm/ui/pull/1591))
 
 ### Fixed
 
-- `Select`: fix input and placeholder spacing ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1592])
+- `Select`: fix input and placeholder spacing ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1592](https://github.com/teamleadercrm/ui/pull/1592))
 
 ## [4.3.0] - 2021-04-07
 
 ### Added
 
-- `Select`: added tiny size variant. ([@driesd](https://github.com/driesd) in [#1586])
+- `Select`: added tiny size variant. ([@driesd](https://github.com/driesd) in [#1586](https://github.com/teamleadercrm/ui/pull/1586))
 
 ### Changed
 
-- Replaced storybook-state usages with the useState react hook. ([@timdegroote](https://github.com/timdegroote) in [#1566])
+- Replaced storybook-state usages with the useState react hook. ([@timdegroote](https://github.com/timdegroote) in [#1566](https://github.com/teamleadercrm/ui/pull/1566))
 
 ### Fixed
 
-- `SplitButton`: fixed text overflow with ellipsis. ([@driesd](https://github.com/driesd) in [#1584])
+- `SplitButton`: fixed text overflow with ellipsis. ([@driesd](https://github.com/driesd) in [#1584](https://github.com/teamleadercrm/ui/pull/1584))
 
 ### Dependency updates
 
-- `@sambego/storybook-state` (removed in [#1566])
+- `@sambego/storybook-state` (removed in [#1566](https://github.com/teamleadercrm/ui/pull/1566))
 - `@babel/preset-env` from `7.13.9` to `7.13.12`
 - `@teamleader/ui-illustrations` from `0.0.36` to `1.0.0`
 - `@teamleader/ui-icons` from `1.0.0` to `1.1.0`
@@ -188,11 +188,11 @@
 
 ### Changed
 
-- `Badge`: changes the height of the small sized component from 24px to 18px. ([@driesd](https://github.com/driesd) in [#1556])
+- `Badge`: changes the height of the small sized component from 24px to 18px. ([@driesd](https://github.com/driesd) in [#1556](https://github.com/teamleadercrm/ui/pull/1556))
 
 ### Fixed
 
-- Fixed font weight issue by upgrading `@teamleader/ui-typography` to the latest version. ([@driesd](https://github.com/driesd) in [#1560])
+- Fixed font weight issue by upgrading `@teamleader/ui-typography` to the latest version. ([@driesd](https://github.com/driesd) in [#1560](https://github.com/teamleadercrm/ui/pull/1560))
 
 ### Dependency updates
 
@@ -204,10 +204,10 @@
 
 ### Added
 
-- `MarketingHeading2`: added new component. ([@driesd](https://github.com/driesd) in [#1552])
-- `MarketingLockBadge`: added new component. ([@driesd](https://github.com/driesd) in [#1541])
-- `MarketingStatusLabel`: added new component. ([@driesd](https://github.com/driesd) in [#1550])
-- `MarketingTab`: added new component. ([@driesd](https://github.com/driesd) in [#1551])
+- `MarketingHeading2`: added new component. ([@driesd](https://github.com/driesd) in [#1552](https://github.com/teamleadercrm/ui/pull/1552))
+- `MarketingLockBadge`: added new component. ([@driesd](https://github.com/driesd) in [#1541](https://github.com/teamleadercrm/ui/pull/1541))
+- `MarketingStatusLabel`: added new component. ([@driesd](https://github.com/driesd) in [#1550](https://github.com/teamleadercrm/ui/pull/1550))
+- `MarketingTab`: added new component. ([@driesd](https://github.com/driesd) in [#1551](https://github.com/teamleadercrm/ui/pull/1551))
 
 ### Dependency updates
 
@@ -223,7 +223,7 @@
 - `@storybook/addons` from `6.1.18` to `6.1.21`
 - `@storybook/react` from `6.1.20` to `6.1.21`
 - `@storybook/ui` from `6.1.18` to `6.1.21`
-- `@teamleader/ui-typograhpy` from `1.0.0` to `2.0.0`. ([@driesd](https://github.com/driesd) in [#1537])
+- `@teamleader/ui-typograhpy` from `1.0.0` to `2.0.0`. ([@driesd](https://github.com/driesd) in [#1537](https://github.com/teamleadercrm/ui/pull/1537))
 - `css-loader` from `5.0.2` to `5.1.1`
 - `elliptic` from `6.5.3` to `6.5.4`
 - `eslint-config-prettier` from `8.0.0` to `8.1.0`
@@ -234,18 +234,18 @@
 
 ### Added
 
-- `MarketingButton`: added new component. ([@driesd](https://github.com/driesd) in [#1510])
-- `MarketingMarker`: added new component. ([@driesd](https://github.com/driesd) in [#1515])
-- `MarketingHeading1`: added new component. ([@driesd](https://github.com/driesd) in [#1516])
-- `MarketingLink`: added new component. ([@driesd](https://github.com/driesd) in [#1522])
+- `MarketingButton`: added new component. ([@driesd](https://github.com/driesd) in [#1510](https://github.com/teamleadercrm/ui/pull/1510))
+- `MarketingMarker`: added new component. ([@driesd](https://github.com/driesd) in [#1515](https://github.com/teamleadercrm/ui/pull/1515))
+- `MarketingHeading1`: added new component. ([@driesd](https://github.com/driesd) in [#1516](https://github.com/teamleadercrm/ui/pull/1516))
+- `MarketingLink`: added new component. ([@driesd](https://github.com/driesd) in [#1522](https://github.com/teamleadercrm/ui/pull/1522))
 
 ### Changed
 
-- :boom: `Tag`: only the remove button remains interactable. ([@driesd](https://github.com/driesd) in [#1502])
+- :boom: `Tag`: only the remove button remains interactable. ([@driesd](https://github.com/driesd) in [#1502](https://github.com/teamleadercrm/ui/pull/1502))
 
 ### Removed
 
-- :boom: `Tag`: removed props `disabled`, `onClick` & `selected`. ([@driesd](https://github.com/driesd) in [#1502])
+- :boom: `Tag`: removed props `disabled`, `onClick` & `selected`. ([@driesd](https://github.com/driesd) in [#1502](https://github.com/teamleadercrm/ui/pull/1502))
 
 ### Dependency updates
 
@@ -267,7 +267,7 @@
 
 ### Added
 
-- `StatusLabel`: added text-overflow mode. ([@driesd](https://github.com/driesd) in [#1498])
+- `StatusLabel`: added text-overflow mode. ([@driesd](https://github.com/driesd) in [#1498](https://github.com/teamleadercrm/ui/pull/1498))
 
 ### Dependency updates
 
@@ -285,7 +285,7 @@
 
 ### Changed
 
-- `Select`: changed `menuPlacement` prop to have `auto` as default value. ([@driesd](https://github.com/driesd) in [#1485])
+- `Select`: changed `menuPlacement` prop to have `auto` as default value. ([@driesd](https://github.com/driesd) in [#1485](https://github.com/teamleadercrm/ui/pull/1485))
 
 ### Dependency updates
 
@@ -296,7 +296,7 @@
 
 ### Changed
 
-- [Breaking] `Select`: changed `menuShouldBlockScroll` to be the default value. ([@driesd](https://github.com/driesd) in [#1482])
+- [Breaking] `Select`: changed `menuShouldBlockScroll` to be the default value. ([@driesd](https://github.com/driesd) in [#1482](https://github.com/teamleadercrm/ui/pull/1482))
 
 ### Dependency updates
 
@@ -306,7 +306,7 @@
 
 ### Fixed
 
-- `Select`: fixed menu portal target logic. ([@driesd](https://github.com/driesd) in [#1474])
+- `Select`: fixed menu portal target logic. ([@driesd](https://github.com/driesd) in [#1474](https://github.com/teamleadercrm/ui/pull/1474))
 
 ### Dependency updates
 
@@ -326,7 +326,7 @@
 
 ### Added
 
-- `MenuItem`: added `children` prop. ([@driesd](https://github.com/driesd) in [#1465])
+- `MenuItem`: added `children` prop. ([@driesd](https://github.com/driesd) in [#1465](https://github.com/teamleadercrm/ui/pull/1465))
 
 ### Dependency updates
 
@@ -343,19 +343,19 @@
 
 ### Added
 
-- `DataGrid BodyRow`: added forwardRef. ([@driesd](https://github.com/driesd) in [#1422])
-- `DataGrid FooterRow`: added forwardRef. ([@driesd](https://github.com/driesd) in [#1422])
-- `DataGrid HeaderRow`: added forwardRef. ([@driesd](https://github.com/driesd) in [#1422])
-- `DataGrid Row`: added forwardRef. ([@driesd](https://github.com/driesd) in [#1422])
+- `DataGrid BodyRow`: added forwardRef. ([@driesd](https://github.com/driesd) in [#1422](https://github.com/teamleadercrm/ui/pull/1422))
+- `DataGrid FooterRow`: added forwardRef. ([@driesd](https://github.com/driesd) in [#1422](https://github.com/teamleadercrm/ui/pull/1422))
+- `DataGrid HeaderRow`: added forwardRef. ([@driesd](https://github.com/driesd) in [#1422](https://github.com/teamleadercrm/ui/pull/1422))
+- `DataGrid Row`: added forwardRef. ([@driesd](https://github.com/driesd) in [#1422](https://github.com/teamleadercrm/ui/pull/1422))
 
 ### Changed
 
-- `DataGrid`: changed from using `findDOMNode` to be using refs. ([@driesd](https://github.com/driesd) in [#1422])
-- `Menu`: changed from using `findDOMNode` to be using refs. ([@driesd](https://github.com/driesd) in [#1422])
+- `DataGrid`: changed from using `findDOMNode` to be using refs. ([@driesd](https://github.com/driesd) in [#1422](https://github.com/teamleadercrm/ui/pull/1422))
+- `Menu`: changed from using `findDOMNode` to be using refs. ([@driesd](https://github.com/driesd) in [#1422](https://github.com/teamleadercrm/ui/pull/1422))
 
 ### Fixed
 
-- `Counter`: improve centering when zooming out in Chrome on windows. ([@lowiebenoot](https://github.com/lowiebenoot) in [#1436])
+- `Counter`: improve centering when zooming out in Chrome on windows. ([@lowiebenoot](https://github.com/lowiebenoot) in [#1436](https://github.com/teamleadercrm/ui/pull/1436))
 
 ### Dependency updates
 
@@ -367,7 +367,7 @@
 - `eslint` from `7.17.0` to `7.18.0`
 - `eslint-config-prettier` from `7.1.0` to `7.2.0`
 - `eslint-config-standard` from `14.1.1` to `16.0.2`
-- `eslint-config-standard-react` from `9.2.0` to `11.0.1`. ([@driesd](https://github.com/driesd) in [#1422])
+- `eslint-config-standard-react` from `9.2.0` to `11.0.1`. ([@driesd](https://github.com/driesd) in [#1422](https://github.com/teamleadercrm/ui/pull/1422))
 - `eslint-plugin-import` from `2.22.0` to `2.22.1`
 - `husky` from `4.3.7` to `4.3.8`
 - `postcss-loader` from `4.1.0` to `4.2.0`
@@ -383,8 +383,8 @@
 
 ### Fixed
 
-- `Dialog`: fixed the horizontal positioning. ([@driesd](https://github.com/driesd) in [#1416])
-- `ProgressTracker`: Make sure bars are not misaligned on different zoomlevels. ([@lorgan3](https://github.com/lorgan3) in [#1378])
+- `Dialog`: fixed the horizontal positioning. ([@driesd](https://github.com/driesd) in [#1416](https://github.com/teamleadercrm/ui/pull/1416))
+- `ProgressTracker`: Make sure bars are not misaligned on different zoomlevels. ([@lorgan3](https://github.com/lorgan3) in [#1378](https://github.com/teamleadercrm/ui/pull/1378))
 
 ### Dependency updates
 
@@ -424,35 +424,35 @@
 
 ### Added
 
-- `Select`: Pass size property to the Select component, allowing custom components to access it. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1375])
+- `Select`: Pass size property to the Select component, allowing custom components to access it. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1375](https://github.com/teamleadercrm/ui/pull/1375))
 
 ## [2.1.0] - 2020-12-15
 
 ### Added
 
-- `ProgressTracker`: Added support for `alternating` and `color` props. ([@lorgan3](https://github.com/lorgan3) in [#1368])
-- `ProgressStep`: Added a `meta` prop for displaying additional info below the label. ([@lorgan3](https://github.com/lorgan3) in [#1368])
+- `ProgressTracker`: Added support for `alternating` and `color` props. ([@lorgan3](https://github.com/lorgan3) in [#1368](https://github.com/teamleadercrm/ui/pull/1368))
+- `ProgressStep`: Added a `meta` prop for displaying additional info below the label. ([@lorgan3](https://github.com/lorgan3) in [#1368](https://github.com/teamleadercrm/ui/pull/1368))
 
 ### Changed
 
-- `Dependencies`: removed redundant postcss-mixins, cleaned up postcss configuration and dependency definition ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1366])
+- `Dependencies`: removed redundant postcss-mixins, cleaned up postcss configuration and dependency definition ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1366](https://github.com/teamleadercrm/ui/pull/1366))
 
 ## [2.0.0] - 2020-12-10
 
 ### Changed
 
-- `DialogBase`: Removed redundant wrapper in dialog rendering implementation ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1361])
+- `DialogBase`: Removed redundant wrapper in dialog rendering implementation ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1361](https://github.com/teamleadercrm/ui/pull/1361))
 
 ### Dependency updates
 
-- Removed `html-webpack-plugin` because it's not used anymore ([@lowiebenoot](https://github.com/lowiebenoot) in [#1346])
-- [Breaking] `postcss` from `7.0.17` to `8.2.0` ([@lowiebenoot](https://github.com/lowiebenoot) in [#1360]). This removes support for Node 11 and 13.
-- [Breaking] `postcss-cli` from `7.0.0` to `8.3.0` ([@lowiebenoot](https://github.com/lowiebenoot) in [#1360]).
-- [Breaking] `postcss-loader` from `3.0.0` to `4.1.0` ([@lowiebenoot](https://github.com/lowiebenoot) in [#1360]).
-- [Breaking] `postcss-import` from `12.0.1` to `13.0.0` ([@lowiebenoot](https://github.com/lowiebenoot) in [#1360]).
-- [Breaking] `postcss-mixins` from `6.2.1` to `7.0.1` ([@lowiebenoot](https://github.com/lowiebenoot) in [#1360]).
-- [Breaking] `postcss-nested` from `4.1.2` to `5.0.3` ([@lowiebenoot](https://github.com/lowiebenoot) in [#1360]).
-- [Breaking] `postcss-reporter` from `6.0.1` to `7.0.2` ([@lowiebenoot](https://github.com/lowiebenoot) in [#1360]).
+- Removed `html-webpack-plugin` because it's not used anymore ([@lowiebenoot](https://github.com/lowiebenoot) in [#1346](https://github.com/teamleadercrm/ui/pull/1346))
+- [Breaking] `postcss` from `7.0.17` to `8.2.0` ([@lowiebenoot](https://github.com/lowiebenoot) in [#1360](https://github.com/teamleadercrm/ui/pull/1360)). This removes support for Node 11 and 13.
+- [Breaking] `postcss-cli` from `7.0.0` to `8.3.0` ([@lowiebenoot](https://github.com/lowiebenoot) in [#1360](https://github.com/teamleadercrm/ui/pull/1360)).
+- [Breaking] `postcss-loader` from `3.0.0` to `4.1.0` ([@lowiebenoot](https://github.com/lowiebenoot) in [#1360](https://github.com/teamleadercrm/ui/pull/1360)).
+- [Breaking] `postcss-import` from `12.0.1` to `13.0.0` ([@lowiebenoot](https://github.com/lowiebenoot) in [#1360](https://github.com/teamleadercrm/ui/pull/1360)).
+- [Breaking] `postcss-mixins` from `6.2.1` to `7.0.1` ([@lowiebenoot](https://github.com/lowiebenoot) in [#1360](https://github.com/teamleadercrm/ui/pull/1360)).
+- [Breaking] `postcss-nested` from `4.1.2` to `5.0.3` ([@lowiebenoot](https://github.com/lowiebenoot) in [#1360](https://github.com/teamleadercrm/ui/pull/1360)).
+- [Breaking] `postcss-reporter` from `6.0.1` to `7.0.2` ([@lowiebenoot](https://github.com/lowiebenoot) in [#1360](https://github.com/teamleadercrm/ui/pull/1360)).
 - `@storybook/addon-backgrounds` from `6.0.0-rc.15` to `6.1.5`
 - `@storybook/addon-controls` from `6.0.0-beta.15` to `6.1.5`
 - `@storybook/addon-docs` from `6.0.0-rc.15` to `6.1.5`
@@ -467,75 +467,75 @@
 
 ### Added
 
-- `Select`: added `truncateOptionText` boolean prop (default false) which enable truncation of long option text words, but still makes multiline possible. ([@driesd](https://github.com/driesd) in [#1335])
+- `Select`: added `truncateOptionText` boolean prop (default false) which enable truncation of long option text words, but still makes multiline possible. ([@driesd](https://github.com/driesd) in [#1335](https://github.com/teamleadercrm/ui/pull/1335))
 
 ### Changed
 
-- `DatePicker`: changed the `MonthPicker` to have better text-overflow handling. ([@driesd](https://github.com/driesd) in [#1335])
-- `DatePicker`: changed styles to match our new design specs. ([@driesd](https://github.com/driesd) in [#1338])
+- `DatePicker`: changed the `MonthPicker` to have better text-overflow handling. ([@driesd](https://github.com/driesd) in [#1335](https://github.com/teamleadercrm/ui/pull/1335))
+- `DatePicker`: changed styles to match our new design specs. ([@driesd](https://github.com/driesd) in [#1338](https://github.com/teamleadercrm/ui/pull/1338))
 
 ### Dependency updates
 
-- `@teamleader/ui-icons` from `0.2.29` to `0.2.30` ([@driesd](https://github.com/driesd) in [#1339])
-- `@teamleader/ui-typography` from `0.2.3` to `1.0.0` ([@driesd](https://github.com/driesd) in [#1339])
+- `@teamleader/ui-icons` from `0.2.29` to `0.2.30` ([@driesd](https://github.com/driesd) in [#1339](https://github.com/teamleadercrm/ui/pull/1339))
+- `@teamleader/ui-typography` from `0.2.3` to `1.0.0` ([@driesd](https://github.com/driesd) in [#1339](https://github.com/teamleadercrm/ui/pull/1339))
 
 ## [1.0.10] - 2020-11-19
 
 ### Fixed
 
-- `IconMenu`: fixed positioning of the menu. ([@driesd](https://github.com/driesd) in [#1328])
-- `Menu`: fixed warning when outline width is undefined. ([@driesd](https://github.com/driesd) in [#1327])
+- `IconMenu`: fixed positioning of the menu. ([@driesd](https://github.com/driesd) in [#1328](https://github.com/teamleadercrm/ui/pull/1328))
+- `Menu`: fixed warning when outline width is undefined. ([@driesd](https://github.com/driesd) in [#1327](https://github.com/teamleadercrm/ui/pull/1327))
 
 ## [1.0.9] - 2020-11-18
 
 ### Changed
 
-- `IconMenu`: changed to preserve the visibility of the IconButton when the IconMenu is open. ([@driesd](https://github.com/driesd) in [#1324])
+- `IconMenu`: changed to preserve the visibility of the IconButton when the IconMenu is open. ([@driesd](https://github.com/driesd) in [#1324](https://github.com/teamleadercrm/ui/pull/1324))
 
 ### Fixed
 
-- `Menu`: fixed the border-width rendering which occasionally resulted in zero pixels. ([@driesd](https://github.com/driesd) in [#1325])
+- `Menu`: fixed the border-width rendering which occasionally resulted in zero pixels. ([@driesd](https://github.com/driesd) in [#1325](https://github.com/teamleadercrm/ui/pull/1325))
 
 ## [1.0.8] - 2020-10-28
 
 ### Fixed
 
-- `Avatar`: fixed unwanted text-decoration when `element` is an anchor tag ([@driesd](https://github.com/driesd) in [#1319])
+- `Avatar`: fixed unwanted text-decoration when `element` is an anchor tag ([@driesd](https://github.com/driesd) in [#1319](https://github.com/teamleadercrm/ui/pull/1319))
 
 ## [1.0.7] - 2020-10-20
 
 ### Added
 
-- `Button`: added a `tiny` size ([@driesd](https://github.com/driesd) in [#1314])
+- `Button`: added a `tiny` size ([@driesd](https://github.com/driesd) in [#1314](https://github.com/teamleadercrm/ui/pull/1314))
 
 ## [1.0.6] - 2020-09-25
 
 ### Dependency updates
 
-- [security] `draft-js` from `0.11.6` to `0.11.7` ([@lorgan3](https://github.com/lorgan3) in [#1298])
+- [security] `draft-js` from `0.11.6` to `0.11.7` ([@lorgan3](https://github.com/lorgan3) in [#1298](https://github.com/teamleadercrm/ui/pull/1298))
 
 ## [1.0.5] - 2020-09-08
 
 ### Changed
 
-- `Dependencies`: Set "@storybook/addon-docs" as a DevDependency instead of a regular dependency.([@sanderbrugge](https://github.com/sanderbrugge) in [#1296])
+- `Dependencies`: Set "@storybook/addon-docs" as a DevDependency instead of a regular dependency.([@sanderbrugge](https://github.com/sanderbrugge) in [#1296](https://github.com/teamleadercrm/ui/pull/1296))
 
 ## [1.0.4] - 2020-09-03
 
 ### Fixed
 
-- `AvatarOverlay` Full height overlays are now correctly rounded for round and medium Avatars. ([@sanderbrugge](https://github.com/sanderbrugge) in [#1292])
+- `AvatarOverlay` Full height overlays are now correctly rounded for round and medium Avatars. ([@sanderbrugge](https://github.com/sanderbrugge) in [#1292](https://github.com/teamleadercrm/ui/pull/1292))
 
 ## [1.0.3] - 2020-09-02
 
 ### Added
 
-- `AvatarImage/AvatarInitials`: Added hover functionality for the AvatarInitials and AvatarImage components, which allows medium-sized Avatars to display a full height edit action ([@sanderbrugge](https://github.com/sanderbrugge) in [#1290])
+- `AvatarImage/AvatarInitials`: Added hover functionality for the AvatarInitials and AvatarImage components, which allows medium-sized Avatars to display a full height edit action ([@sanderbrugge](https://github.com/sanderbrugge) in [#1290](https://github.com/teamleadercrm/ui/pull/1290))
 
 ### Fixed
 
-- `Badge/Tag`: when a Badge/Tag is not clickable, it now uses a div as element by default instead of a button ([@lowiebenoot](https://github.com/lowiebenoot) in [#1269])
-- `Badge/Tag`: a clickable Badge/Tag now has a `type="button"` to avoid submitting forms when clicking on the Badge/Tag ([@lowiebenoot](https://github.com/lowiebenoot) in [#1269])
+- `Badge/Tag`: when a Badge/Tag is not clickable, it now uses a div as element by default instead of a button ([@lowiebenoot](https://github.com/lowiebenoot) in [#1269](https://github.com/teamleadercrm/ui/pull/1269))
+- `Badge/Tag`: a clickable Badge/Tag now has a `type="button"` to avoid submitting forms when clicking on the Badge/Tag ([@lowiebenoot](https://github.com/lowiebenoot) in [#1269](https://github.com/teamleadercrm/ui/pull/1269))
 
 ### Dependency updates
 
@@ -553,27 +553,27 @@
 
 ### Changed
 
-- `DatePicker`: add tabIndex property to footer, add onBlur property, and remove call to optional onClick ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1226])
+- `DatePicker`: add tabIndex property to footer, add onBlur property, and remove call to optional onClick ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1226](https://github.com/teamleadercrm/ui/pull/1226))
 
 ## [1.0.1] - 2020-07-08
 
 ### Changed
 
-- `NumericInput`: call onBlur function if any of the steppers get blurred as well ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1223])
+- `NumericInput`: call onBlur function if any of the steppers get blurred as well ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1223](https://github.com/teamleadercrm/ui/pull/1223))
 
 ## [1.0.0] - 2020-07-06
 
 ### Added
 
-- `SilentBanner`: added `inline` boolean prop (default false), which will render the banner inline instead of taking full width. ([@driesd](https://github.com/driesd) in [#1220])
+- `SilentBanner`: added `inline` boolean prop (default false), which will render the banner inline instead of taking full width. ([@driesd](https://github.com/driesd) in [#1220](https://github.com/teamleadercrm/ui/pull/1220))
 
 ### Changed
 
-- :boom: `SilentBanner`: changed to take the full width by default. ([@driesd](https://github.com/driesd) in [#1220])
+- :boom: `SilentBanner`: changed to take the full width by default. ([@driesd](https://github.com/driesd) in [#1220](https://github.com/teamleadercrm/ui/pull/1220))
 
 ### Removed
 
-- :boom: `SilentBanner`: removed children's `TextBody` wrapper. ([@driesd](https://github.com/driesd) in [#1221])
+- :boom: `SilentBanner`: removed children's `TextBody` wrapper. ([@driesd](https://github.com/driesd) in [#1221](https://github.com/teamleadercrm/ui/pull/1221))
 
 ### Dependency updates
 
@@ -590,38 +590,38 @@
 
 ### Added
 
-- `TitleTab`: added forwardRef. ([@driesd](https://github.com/driesd) in [#1213])
+- `TitleTab`: added forwardRef. ([@driesd](https://github.com/driesd) in [#1213](https://github.com/teamleadercrm/ui/pull/1213))
 
 ### Changed
 
-- `TabGroup`: changed to always scroll to the active tab. ([@driesd](https://github.com/driesd) in [#1213])
+- `TabGroup`: changed to always scroll to the active tab. ([@driesd](https://github.com/driesd) in [#1213](https://github.com/teamleadercrm/ui/pull/1213))
 
 ### Fixed
 
-- `DatePicker`: French month names in the month picker not being 4 characters when the locale is the base french locale (fr) ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1212])
+- `DatePicker`: French month names in the month picker not being 4 characters when the locale is the base french locale (fr) ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1212](https://github.com/teamleadercrm/ui/pull/1212))
 
 ## [0.48.4] - 2020-07-02
 
 ### Dependency updates
 
-- `react-day-picker`: enforce upgrade to `7.4.8`. ([@lowiebneoot](https://github.com/lowiebneoot) in [#1210])
+- `react-day-picker`: enforce upgrade to `7.4.8`. ([@lowiebneoot](https://github.com/lowiebneoot) in [#1210](https://github.com/teamleadercrm/ui/pull/1210))
 
 ## [0.48.3] - 2020-07-01
 
 ### Fixed
 
-- `WysiwygEditor`: Fix typo which resulted in onFocus being called multiple times anyway ([@mikeverf](https://github.com/mikeverf) in [#1207])
-- `WysiwygEditor`: Fix race condition for refocussing editor after adding a link ([@mikeverf](https://github.com/mikeverf) in [#1207])
+- `WysiwygEditor`: Fix typo which resulted in onFocus being called multiple times anyway ([@mikeverf](https://github.com/mikeverf) in [#1207](https://github.com/teamleadercrm/ui/pull/1207))
+- `WysiwygEditor`: Fix race condition for refocussing editor after adding a link ([@mikeverf](https://github.com/mikeverf) in [#1207](https://github.com/teamleadercrm/ui/pull/1207))
 
 ## [0.48.2] - 2020-07-01
 
 ### Changed
 
-- `Toggle`: changed to have consistent spacing between track and label for all sizes. ([@driesd](https://github.com/driesd) in [#1200])
+- `Toggle`: changed to have consistent spacing between track and label for all sizes. ([@driesd](https://github.com/driesd) in [#1200](https://github.com/teamleadercrm/ui/pull/1200))
 
 ### Fixed
 
-- `WysiwygEditor`: fixed onFocus and onBlur being called twice or not at all in some cases ([@mikeverf](https://github.com/mikeverf) in [#1205])
+- `WysiwygEditor`: fixed onFocus and onBlur being called twice or not at all in some cases ([@mikeverf](https://github.com/mikeverf) in [#1205](https://github.com/teamleadercrm/ui/pull/1205))
 
 ### Dependency updates
 
@@ -638,29 +638,29 @@
 
 ### Fixed
 
-- `WysiwygEditor`: fixed build error due to unsupported typing ([@mikeverf](https://github.com/mikeverf) in [#1198])
+- `WysiwygEditor`: fixed build error due to unsupported typing ([@mikeverf](https://github.com/mikeverf) in [#1198](https://github.com/teamleadercrm/ui/pull/1198))
 
 ## [0.48.0] - 2020-06-30
 
 ### Added
 
-- `WysiwygEditor`: added `autoFocus` prop ([@mikeverf](https://github.com/mikeverf) in [#1196])
-- `WysiwygEditor`: added `onInputFocus` and `onInputBlur` props ([@mikeverf](https://github.com/mikeverf) in [#1196])
-- `WysiwygEditor`: added `onKeyDown` prop ([@mikeverf](https://github.com/mikeverf) in [#1196])
-- `Toggle`: added `maxLines` prop and pass it to the label `Text` component. ([@driesd](https://github.com/driesd) in [#1194])
+- `WysiwygEditor`: added `autoFocus` prop ([@mikeverf](https://github.com/mikeverf) in [#1196](https://github.com/teamleadercrm/ui/pull/1196))
+- `WysiwygEditor`: added `onInputFocus` and `onInputBlur` props ([@mikeverf](https://github.com/mikeverf) in [#1196](https://github.com/teamleadercrm/ui/pull/1196))
+- `WysiwygEditor`: added `onKeyDown` prop ([@mikeverf](https://github.com/mikeverf) in [#1196](https://github.com/teamleadercrm/ui/pull/1196))
+- `Toggle`: added `maxLines` prop and pass it to the label `Text` component. ([@driesd](https://github.com/driesd) in [#1194](https://github.com/teamleadercrm/ui/pull/1194))
 
 ### Changed
 
-- `DatePicker`: added one extra character to the `short month labels` for the `French` language. ([@driesd](https://github.com/driesd) in [#1187])
-- `DatePickerInput`: added `footer` prop, which can take a custom component to render underneath the date picker. ([@driesd](https://github.com/driesd) in [#1193])
+- `DatePicker`: added one extra character to the `short month labels` for the `French` language. ([@driesd](https://github.com/driesd) in [#1187](https://github.com/teamleadercrm/ui/pull/1187))
+- `DatePickerInput`: added `footer` prop, which can take a custom component to render underneath the date picker. ([@driesd](https://github.com/driesd) in [#1193](https://github.com/teamleadercrm/ui/pull/1193))
 
 ### Removed
 
-- :boom: `DatePickerInput`: removed `bordered` prop as the `Popover` already provides one. ([@driesd](https://github.com/driesd) in [#1195])
+- :boom: `DatePickerInput`: removed `bordered` prop as the `Popover` already provides one. ([@driesd](https://github.com/driesd) in [#1195](https://github.com/teamleadercrm/ui/pull/1195))
 
 ### Fixed
 
-- `WysiwygEditor`: added `onFocus` and `onBlur` props now focus and blur reliably on the entire editor ([@mikeverf](https://github.com/mikeverf) in [#1196])
+- `WysiwygEditor`: added `onFocus` and `onBlur` props now focus and blur reliably on the entire editor ([@mikeverf](https://github.com/mikeverf) in [#1196](https://github.com/teamleadercrm/ui/pull/1196))
 
 ### Dependency updates
 
@@ -673,7 +673,7 @@
 
 ### Added
 
-- :boom: `Box`: added `forwardRef`. ([@driesd](https://github.com/driesd) in [#1183])
+- :boom: `Box`: added `forwardRef`. ([@driesd](https://github.com/driesd) in [#1183](https://github.com/teamleadercrm/ui/pull/1183))
 
 ### Dependency updates
 
@@ -692,7 +692,7 @@
 
 ### Fixed
 
-- `Radio`: fixed the inconsistent left margin in Firefox vs Chrome on Linux. ([@driesd](https://github.com/driesd) in [#1175])
+- `Radio`: fixed the inconsistent left margin in Firefox vs Chrome on Linux. ([@driesd](https://github.com/driesd) in [#1175](https://github.com/teamleadercrm/ui/pull/1175))
 
 ### Dependency updates
 
@@ -703,12 +703,12 @@
 
 ### Added
 
-- `TabGroup`: added fading gradients to soften the edges of our scroll buttons. ([@driesd](https://github.com/driesd) in [#1169])
+- `TabGroup`: added fading gradients to soften the edges of our scroll buttons. ([@driesd](https://github.com/driesd) in [#1169](https://github.com/teamleadercrm/ui/pull/1169))
 
 ### Fixed
 
-- `Button`: fix blurring `onMouseUp` and `onMouseLeave`. ([@driesd](https://github.com/driesd) in [#1171])
-- `IconButton`: fix blurring `onMouseUp` and `onMouseLeave`. ([@driesd](https://github.com/driesd) in [#1170])
+- `Button`: fix blurring `onMouseUp` and `onMouseLeave`. ([@driesd](https://github.com/driesd) in [#1171](https://github.com/teamleadercrm/ui/pull/1171))
+- `IconButton`: fix blurring `onMouseUp` and `onMouseLeave`. ([@driesd](https://github.com/driesd) in [#1170](https://github.com/teamleadercrm/ui/pull/1170))
 
 ### Dependency updates
 
@@ -728,11 +728,11 @@
 
 ### Added
 
-- `TabGroup`: added scrollable functionality when tabs start to overflow their container. ([@driesd](https://github.com/driesd) in [#1160])
+- `TabGroup`: added scrollable functionality when tabs start to overflow their container. ([@driesd](https://github.com/driesd) in [#1160](https://github.com/teamleadercrm/ui/pull/1160))
 
 ### Removed
 
-- `IconTab`: removed component. ([@driesd](https://github.com/driesd) in [#1161])
+- `IconTab`: removed component. ([@driesd](https://github.com/driesd) in [#1161](https://github.com/teamleadercrm/ui/pull/1161))
 
 ## [0.45.0] - 2020-06-16
 
@@ -742,7 +742,7 @@
 
 ### Removed
 
-- `TabGroup`: removed `inverted` prop, which caused the tabs to render with a dark teal background. ([@driesd](https://github.com/driesd) in [#1155])
+- `TabGroup`: removed `inverted` prop, which caused the tabs to render with a dark teal background. ([@driesd](https://github.com/driesd) in [#1155](https://github.com/teamleadercrm/ui/pull/1155))
 
 ### Dependency updates
 
@@ -756,11 +756,11 @@
 
 ### Added
 
-- `Tooltip`: added `zIndex` number prop (default 700). ([@driesd](https://github.com/driesd) in [#1148])
+- `Tooltip`: added `zIndex` number prop (default 700). ([@driesd](https://github.com/driesd) in [#1148](https://github.com/teamleadercrm/ui/pull/1148))
 
 ### Changed
 
-- `LabelValuePair`: only add vertical padding when label and value are displayed inline. ([@driesd](https://github.com/driesd) in [#1146])
+- `LabelValuePair`: only add vertical padding when label and value are displayed inline. ([@driesd](https://github.com/driesd) in [#1146](https://github.com/teamleadercrm/ui/pull/1146))
 
 ### Dependency updates
 
@@ -770,8 +770,8 @@
 
 ### Changed
 
-- `Container`: changed to have `consistent horizontal padding` for `fluid` and `fixed` variants on each breakpoint. ([@driesd](https://github.com/driesd) in [#1144])
-- `Toast`: changed to have a `teal dark background` instead of teal darkest. ([@driesd](https://github.com/driesd) in [#1131])
+- `Container`: changed to have `consistent horizontal padding` for `fluid` and `fixed` variants on each breakpoint. ([@driesd](https://github.com/driesd) in [#1144](https://github.com/teamleadercrm/ui/pull/1144))
+- `Toast`: changed to have a `teal dark background` instead of teal darkest. ([@driesd](https://github.com/driesd) in [#1131](https://github.com/teamleadercrm/ui/pull/1131))
 
 ### Dependency updates
 
@@ -788,11 +788,11 @@
 
 ### Changed
 
-- :boom: `Teal color`: changed the hex values of our `Teal dark & darkest` color variants. ([@driesd](https://github.com/driesd) in [#1111])
+- :boom: `Teal color`: changed the hex values of our `Teal dark & darkest` color variants. ([@driesd](https://github.com/driesd) in [#1111](https://github.com/teamleadercrm/ui/pull/1111))
 
 ### Fixed
 
-- `LabelValuePair`: fixed right alignment for multiline text. ([@driesd](https://github.com/driesd) in [#1122])
+- `LabelValuePair`: fixed right alignment for multiline text. ([@driesd](https://github.com/driesd) in [#1122](https://github.com/teamleadercrm/ui/pull/1122))
 
 ### Dependency updates
 
@@ -809,53 +809,53 @@
 
 ### Changed
 
-- `Container`: changed breakpoint to a large screen (1440px) to avoid horizontal scrollbars. ([@driesd](https://github.com/driesd) in [#1116])
+- `Container`: changed breakpoint to a large screen (1440px) to avoid horizontal scrollbars. ([@driesd](https://github.com/driesd) in [#1116](https://github.com/teamleadercrm/ui/pull/1116))
 
 ### Dependency updates
 
-- `react-select` from `3.1.0` to `3.0.4` ([@driesd](https://github.com/driesd) in [#1120])
+- `react-select` from `3.1.0` to `3.0.4` ([@driesd](https://github.com/driesd) in [#1120](https://github.com/teamleadercrm/ui/pull/1120))
 - `moment` from `2.25.3` to `2.26.0`
 
 ## [0.43.6] - 2020-05-19
 
 ### Changed
 
-- `SilentBanner`: added a `white background` and `decreased left padding` when it has a color status. ([@driesd](https://github.com/driesd) in [#1112])
+- `SilentBanner`: added a `white background` and `decreased left padding` when it has a color status. ([@driesd](https://github.com/driesd) in [#1112](https://github.com/teamleadercrm/ui/pull/1112))
 
 ## [0.43.5] - 2020-05-19
 
 ### Added
 
-- `SilentBanner`: added as a new component. ([@driesd](https://github.com/driesd) in [#1109])
+- `SilentBanner`: added as a new component. ([@driesd](https://github.com/driesd) in [#1109](https://github.com/teamleadercrm/ui/pull/1109))
 
 ## [0.43.4] - 2020-05-14
 
 ### Fixed
 
-- `WysiwygEditor` Set `zIndex` of `LinkOptions` dialog to `401`, so that it's higher than the zIndex of a `Dialog`. ([@mikeverf](https://github.com/mikeverf) in [#1106])
-- `LabelValuePair` and `LabelValuePairGroup` were not exported. ([@lowiebenoot](https://github.com/lowiebenoot) in [#1107])
+- `WysiwygEditor` Set `zIndex` of `LinkOptions` dialog to `401`, so that it's higher than the zIndex of a `Dialog`. ([@mikeverf](https://github.com/mikeverf) in [#1106](https://github.com/teamleadercrm/ui/pull/1106))
+- `LabelValuePair` and `LabelValuePairGroup` were not exported. ([@lowiebenoot](https://github.com/lowiebenoot) in [#1107](https://github.com/teamleadercrm/ui/pull/1107))
 
 ## [0.43.3] - 2020-05-14
 
 ### Added
 
-- `WysiwygEditor` Added `inputClassname` prop. ([@mikeverf](https://github.com/mikeverf) in [#1103])
-- `EmptyState`: added `hidePointer` boolean prop (default false). ([@driesd](https://github.com/driesd) in [#1104])
+- `WysiwygEditor` Added `inputClassname` prop. ([@mikeverf](https://github.com/mikeverf) in [#1103](https://github.com/teamleadercrm/ui/pull/1103))
+- `EmptyState`: added `hidePointer` boolean prop (default false). ([@driesd](https://github.com/driesd) in [#1104](https://github.com/teamleadercrm/ui/pull/1104))
 
 ### Changed
 
-- `EmptyState`: changed meta text component to increase line-height from 18px to 21px. ([@driesd](https://github.com/driesd) in [#1104])
+- `EmptyState`: changed meta text component to increase line-height from 18px to 21px. ([@driesd](https://github.com/driesd) in [#1104](https://github.com/teamleadercrm/ui/pull/1104))
 
 ## [0.43.2] - 2020-05-13
 
 ### Changed
 
-- `Select`: changed so the selected options still show up in the list by default. ([@driesd](https://github.com/driesd) in [#1099])
+- `Select`: changed so the selected options still show up in the list by default. ([@driesd](https://github.com/driesd) in [#1099](https://github.com/teamleadercrm/ui/pull/1099))
 
 ### Fixed
 
-- `DatePickerInput` Fix months not being formatted according to the passed locale. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1098])
-- `WysiwygEditor` Fix input overflowing wrapper when wrapper has set height. ([@mikeverf](https://github.com/mikeverf) in [#1101])
+- `DatePickerInput` Fix months not being formatted according to the passed locale. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1098](https://github.com/teamleadercrm/ui/pull/1098))
+- `WysiwygEditor` Fix input overflowing wrapper when wrapper has set height. ([@mikeverf](https://github.com/mikeverf) in [#1101](https://github.com/teamleadercrm/ui/pull/1101))
 
 ### Dependency updates
 
@@ -866,8 +866,8 @@
 
 ### Added
 
-- `LabelValuePair`, `LabelValuePair.Label` & `LabelValuePair.Value`: added new components. ([@driesd](https://github.com/driesd) in [#1095])
-- `LabelValuePairGroup`: added new component. ([@driesd](https://github.com/driesd) in [#1095])
+- `LabelValuePair`, `LabelValuePair.Label` & `LabelValuePair.Value`: added new components. ([@driesd](https://github.com/driesd) in [#1095](https://github.com/teamleadercrm/ui/pull/1095))
+- `LabelValuePairGroup`: added new component. ([@driesd](https://github.com/driesd) in [#1095](https://github.com/teamleadercrm/ui/pull/1095))
 
 ### Dependency updates
 
@@ -877,28 +877,28 @@
 
 ### Added
 
-- `Text`: added `maxLines` prop (number), which replaces `ellipsis`. ([@driesd](https://github.com/driesd) in [#1092])
+- `Text`: added `maxLines` prop (number), which replaces `ellipsis`. ([@driesd](https://github.com/driesd) in [#1092](https://github.com/teamleadercrm/ui/pull/1092))
 
 ### Removed
 
-- [Breaking] `Text`: removed `ellipsis` prop in order to use `maxLines` instead. ([@driesd](https://github.com/driesd) in [#1092])
+- [Breaking] `Text`: removed `ellipsis` prop in order to use `maxLines` instead. ([@driesd](https://github.com/driesd) in [#1092](https://github.com/teamleadercrm/ui/pull/1092))
 
 ## [0.42.9] - 2020-05-07
 
 ### Changed
 
-- `Button`: changed to handle spacing between icon an label with margin `Box` props, instead of dirty CSS. ([@driesd](https://github.com/driesd) in [#1072])
-- `SplitButton`: prevent scroll lock when showing `Popover` menu. ([@driesd](https://github.com/driesd) in [#1071])
-- `Popover`: set min width to 180px. ([@lorgan3](https://github.com/lorgan3) in [#1090])
+- `Button`: changed to handle spacing between icon an label with margin `Box` props, instead of dirty CSS. ([@driesd](https://github.com/driesd) in [#1072](https://github.com/teamleadercrm/ui/pull/1072))
+- `SplitButton`: prevent scroll lock when showing `Popover` menu. ([@driesd](https://github.com/driesd) in [#1071](https://github.com/teamleadercrm/ui/pull/1071))
+- `Popover`: set min width to 180px. ([@lorgan3](https://github.com/lorgan3) in [#1090](https://github.com/teamleadercrm/ui/pull/1090))
 
 ### Removed
 
-- `Button`: removed an obsolete SVG alignment fix for Safari. ([@driesd](https://github.com/driesd) in [#1072])
+- `Button`: removed an obsolete SVG alignment fix for Safari. ([@driesd](https://github.com/driesd) in [#1072](https://github.com/teamleadercrm/ui/pull/1072))
 
 ### Fixed
 
-- `DatePicker`: fixed incorrect month being displayed on initial render. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1067])
-- `IslandGroup`: fixed attempting to change props of invalid react elements (undefined, null, etc.). ([@timdegroote](https://github.com/timdegroote) in [#1089])
+- `DatePicker`: fixed incorrect month being displayed on initial render. ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1067](https://github.com/teamleadercrm/ui/pull/1067))
+- `IslandGroup`: fixed attempting to change props of invalid react elements (undefined, null, etc.). ([@timdegroote](https://github.com/timdegroote) in [#1089](https://github.com/teamleadercrm/ui/pull/1089))
 
 ### Dependency updates
 
@@ -919,17 +919,17 @@
 
 ### Added
 
-- `Button`: handle overflowing text. ([@driesd](https://github.com/driesd) in [#1059])
+- `Button`: handle overflowing text. ([@driesd](https://github.com/driesd) in [#1059](https://github.com/teamleadercrm/ui/pull/1059))
 
 ### Changed
 
-- `Button`: replaced `span` wrapper, containing `label` & `children`, with our `UIText` components. ([@driesd](https://github.com/driesd) in [#1059])
-- `Datagrid`: changed the sorting arrow direction in `HeaderCell`. ([@driesd](https://github.com/driesd) in [#1060])
-- `Datagrid`: changed to use `UITextBody` for `HeaderCell` text. ([@driesd](https://github.com/driesd) in [#1060])
+- `Button`: replaced `span` wrapper, containing `label` & `children`, with our `UIText` components. ([@driesd](https://github.com/driesd) in [#1059](https://github.com/teamleadercrm/ui/pull/1059))
+- `Datagrid`: changed the sorting arrow direction in `HeaderCell`. ([@driesd](https://github.com/driesd) in [#1060](https://github.com/teamleadercrm/ui/pull/1060))
+- `Datagrid`: changed to use `UITextBody` for `HeaderCell` text. ([@driesd](https://github.com/driesd) in [#1060](https://github.com/teamleadercrm/ui/pull/1060))
 
 ### Fixed
 
-- `Console warnings`: fixed console warnings in various components. ([@driesd](https://github.com/driesd) in [#1063])
+- `Console warnings`: fixed console warnings in various components. ([@driesd](https://github.com/driesd) in [#1063](https://github.com/teamleadercrm/ui/pull/1063))
 
 ### Dependency updates
 
@@ -940,23 +940,23 @@
 
 ### Fixed
 
-- `WysiwygEditor`: Remove href attribute from `linkDecorator` of `WysiwygEditor`. ([@mikeverf](https://github.com/mikeverf) in [#1057])
+- `WysiwygEditor`: Remove href attribute from `linkDecorator` of `WysiwygEditor`. ([@mikeverf](https://github.com/mikeverf) in [#1057](https://github.com/teamleadercrm/ui/pull/1057))
 
 ## [0.42.6] - 2020-04-23
 
 ### Changed
 
-- `WysiwygEditor`: Make spacing between list items less high. ([@mikeverf](https://github.com/mikeverf) in [#1055])
+- `WysiwygEditor`: Make spacing between list items less high. ([@mikeverf](https://github.com/mikeverf) in [#1055](https://github.com/teamleadercrm/ui/pull/1055))
 
 ### Fixed
 
-- `WysiwygEditor`: Make sure placeholder is positioned correctly on scroll. ([@mikeverf](https://github.com/mikeverf) in [#1055])
+- `WysiwygEditor`: Make sure placeholder is positioned correctly on scroll. ([@mikeverf](https://github.com/mikeverf) in [#1055](https://github.com/teamleadercrm/ui/pull/1055))
 
 ## [0.42.5] - 2020-04-23
 
 ### Fixed
 
-- `WysiwygEditor`: Fall back to `en` when `locale` prop isn't one of `en`, `it`, `nl`, `de`, `fr` or `es`. ([@mikeverf](https://github.com/mikeverf) in [#1052])
+- `WysiwygEditor`: Fall back to `en` when `locale` prop isn't one of `en`, `it`, `nl`, `de`, `fr` or `es`. ([@mikeverf](https://github.com/mikeverf) in [#1052](https://github.com/teamleadercrm/ui/pull/1052))
 
 ### Dependency updates
 
@@ -967,46 +967,46 @@
 
 ### Added
 
-- `WysiwygEditor`: Add type export. ([@mikeverf](https://github.com/mikeverf) in [#1050])
+- `WysiwygEditor`: Add type export. ([@mikeverf](https://github.com/mikeverf) in [#1050](https://github.com/teamleadercrm/ui/pull/1050))
 
 ## [0.42.3] - 2020-04-22
 
 ### Changed
 
-- `Tag`: changed internally to use `Badge` components. ([@driesd](https://github.com/driesd) in [#1046])
+- `Tag`: changed internally to use `Badge` components. ([@driesd](https://github.com/driesd) in [#1046](https://github.com/teamleadercrm/ui/pull/1046))
 
 ### Fixed
 
-- `Tag`: fixed accidentally removed `onClick` prop. ([@driesd](https://github.com/driesd) in [#1046])
+- `Tag`: fixed accidentally removed `onClick` prop. ([@driesd](https://github.com/driesd) in [#1046](https://github.com/teamleadercrm/ui/pull/1046))
 
 ## [0.42.2] - 2020-04-22
 
 ### Added
 
-- `WysiywygEditor`: Allow boxProps that are now set on the wrapper box. ([@mikeverf](https://github.com/mikeverf) in [#1044])
+- `WysiywygEditor`: Allow boxProps that are now set on the wrapper box. ([@mikeverf](https://github.com/mikeverf) in [#1044](https://github.com/teamleadercrm/ui/pull/1044))
 
 ### Fixed
 
-- `WysiywygEditor`: added list styling instead of relying on browser styling. ([@mikeverf](https://github.com/mikeverf) in [#1044])
+- `WysiywygEditor`: added list styling instead of relying on browser styling. ([@mikeverf](https://github.com/mikeverf) in [#1044](https://github.com/teamleadercrm/ui/pull/1044))
 
 ## [0.42.1] - 2020-04-22
 
 ### Added
 
 - `Timer`: added as a new component. ([@driesd](https://github.com/driesd) in [#1039](https://github.com/teamleadercrm/ui/pull/1039))
-- `Tooltip`: added `showTooltipDelay` prop that defaults to `100` (current default). ([@mikeverf](https://github.com/mikeverf) in [#1030])
-- `WysiywygEditor`: added functionality to add a link with the editor. ([@mikeverf](https://github.com/mikeverf) in [#1029])
-- `WysiywygEditor`: added tooltips to the toolbar options. ([@mikeverf](https://github.com/mikeverf) in [#1030])
-- `WysiywygEditor`: added `locale` prop and translations for the component. ([@mikeverf](https://github.com/mikeverf) in [#1037])
+- `Tooltip`: added `showTooltipDelay` prop that defaults to `100` (current default). ([@mikeverf](https://github.com/mikeverf) in [#1030](https://github.com/teamleadercrm/ui/pull/1030))
+- `WysiywygEditor`: added functionality to add a link with the editor. ([@mikeverf](https://github.com/mikeverf) in [#1029](https://github.com/teamleadercrm/ui/pull/1029))
+- `WysiywygEditor`: added tooltips to the toolbar options. ([@mikeverf](https://github.com/mikeverf) in [#1030](https://github.com/teamleadercrm/ui/pull/1030))
+- `WysiywygEditor`: added `locale` prop and translations for the component. ([@mikeverf](https://github.com/mikeverf) in [#1037](https://github.com/teamleadercrm/ui/pull/1037))
 
 ### Changed
 
-- `WysiywygEditor`: Link popover is now displayed at center of toolbar icon instead of at end, to avoid issues on smaller sizes. ([@mikeverf](https://github.com/mikeverf) in [#1038])
+- `WysiywygEditor`: Link popover is now displayed at center of toolbar icon instead of at end, to avoid issues on smaller sizes. ([@mikeverf](https://github.com/mikeverf) in [#1038](https://github.com/teamleadercrm/ui/pull/1038))
 
 ### Fixed
 
-- `WysiywygEditor`: Link popover can now handle buttons with long labels. ([@mikeverf](https://github.com/mikeverf) in [#1038])
-- `WysiywygEditor`: Certain links were handled as relative links, so didn't open correctly. ([@mikeverf](https://github.com/mikeverf) in [#1038])
+- `WysiywygEditor`: Link popover can now handle buttons with long labels. ([@mikeverf](https://github.com/mikeverf) in [#1038](https://github.com/teamleadercrm/ui/pull/1038))
+- `WysiywygEditor`: Certain links were handled as relative links, so didn't open correctly. ([@mikeverf](https://github.com/mikeverf) in [#1038](https://github.com/teamleadercrm/ui/pull/1038))
 
 ### Dependency updates
 
