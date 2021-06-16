@@ -15,7 +15,7 @@ module.exports = async ({ config }) => {
   // Overwrite some default rules
   // https://github.com/storybooks/storybook/issues/6319#issuecomment-477852640
   config.module.rules = config.module.rules.filter((f) => {
-    const ruleTest = f.test.toString();
+    const ruleTest = f.test && f.test.toString();
 
     return ruleTest !== '/\\.(svg|ico|jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|cur|ani)(\\?.*)?$/';
   });
