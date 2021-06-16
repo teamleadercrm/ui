@@ -5,5 +5,13 @@ module.exports = {
     'storybook-addon-designs',
     '@storybook/addon-docs',
     '@storybook/addon-knobs',
+    {
+      name: '@storybook/addon-postcss',
+      options: {
+        postcssLoaderOptions: {
+          implementation: require('postcss'),
+        },
+      },
+    },
   ],
 };
