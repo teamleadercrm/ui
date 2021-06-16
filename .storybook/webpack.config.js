@@ -17,28 +17,7 @@ module.exports = async ({ config }) => {
   config.module.rules = config.module.rules.filter((f) => {
     const ruleTest = f.test.toString();
 
-    return (
-      ruleTest !== '/\\.css$/' &&
-      ruleTest !== '/\\.(svg|ico|jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|cur|ani)(\\?.*)?$/'
-    );
-  });
-
-  config.module.rules.push({
-    test: /\.css$/,
-    use: [
-      'style-loader',
-      {
-        loader: 'css-loader',
-        options: {
-          sourceMap: true,
-          modules: {
-            localIdentName: '[name]__[local]___[hash:base64:5]',
-          },
-          importLoaders: 1,
-        },
-      },
-      'postcss-loader',
-    ],
+    return ruleTest !== '/\\.(svg|ico|jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|cur|ani)(\\?.*)?$/';
   });
 
   if (config.optimization) {

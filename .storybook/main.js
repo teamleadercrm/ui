@@ -11,6 +11,13 @@ module.exports = {
         postcssLoaderOptions: {
           implementation: require('postcss'),
         },
+        cssLoaderOptions: {
+          sourceMap: true,
+          modules: {
+            localIdentName: '[name]__[local]___[hash:base64:5]',
+          },
+          importLoaders: 1,
+        },
       },
     },
   ],
