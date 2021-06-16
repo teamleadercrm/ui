@@ -7,7 +7,7 @@ const transformToPaddedNumber = (number) => (number < 10 ? `0${number}` : number
 
 const MINUTES_STEP = 15;
 
-const DurationInput = ({ value, onChange, onBlur, onFocus, onKeyDown, autoFocus, textAlignRight, className, error }) => {
+const DurationInput = ({ value, onChange, onBlur, onFocus, onKeyDown, autoFocus, textAlignRight, className, error, max }) => {
   const ref = useRef();
 
   const handleHoursChanged = (_, hours) => {
@@ -111,6 +111,13 @@ const DurationInput = ({ value, onChange, onBlur, onFocus, onKeyDown, autoFocus,
     onBlur && onBlur(event);
   };
 
+  let maxHours = null;
+  let maxMinutes = null;
+  if (max) {
+    maxHours = Math.floor(max / 60);
+    maxMinutes = max % 60;
+  }
+
   let minutes = value?.minutes;
   if (Number.isInteger(minutes)) {
     minutes = transformToPaddedNumber(minutes);
@@ -126,6 +133,7 @@ const DurationInput = ({ value, onChange, onBlur, onFocus, onKeyDown, autoFocus,
       <NumericInput
         placeholder="00"
         min={0}
+        {...(maxHours ? { max: maxHours } : {})}
         value={hours ?? ''}
         onChange={handleHoursChanged}
         onBlur={handleBlur}
@@ -141,6 +149,7 @@ const DurationInput = ({ value, onChange, onBlur, onFocus, onKeyDown, autoFocus,
         placeholder="00"
         step={MINUTES_STEP}
         {...(!value?.hours ? { min: 0 } : {})}
+        {...(maxHours && value?.hours && value.hours >= maxHours ? { max: maxMinutes } : {})}
         value={minutes ?? ''}
         onChange={handleMinutesChange}
         onBlur={handleBlur}
