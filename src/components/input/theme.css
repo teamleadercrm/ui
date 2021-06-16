@@ -495,3 +495,22 @@
 .duration-input-numeric-input:hover {
   z-index: 1;
 }
+
+.duration-input-numeric-container {
+  border-radius: var(--input-border-radius);
+  &.has-error {
+    box-shadow: 0 0 0 1px var(--input-error-border);
+
+    .duration-input-numeric-input:first-child .input-inner-wrapper {
+      border-color: var(--input-error-border);
+      border-right-color: var(--color-neutral-dark);
+      box-shadow: none;
+    }
+
+    .duration-input-numeric-input:last-child .input-inner-wrapper {
+      border-color: var(--input-error-border);
+      border-left-color: var(--color-neutral-dark);
+      box-shadow: none;
+    }
+  }
+}

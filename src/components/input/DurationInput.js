@@ -1,12 +1,13 @@
 import React, { useRef } from 'react';
 import { Box, NumericInput } from '../../';
 import theme from './theme.css';
+import cx from "classnames";
 
 const transformToPaddedNumber = (number) => (number < 10 ? `0${number}` : number.toString());
 
 const MINUTES_STEP = 15;
 
-const DurationInput = ({ value, onChange, onBlur, onFocus, onKeyDown, autoFocus, textAlignRight, className }) => {
+const DurationInput = ({ value, onChange, onBlur, onFocus, onKeyDown, autoFocus, textAlignRight, className, error }) => {
   const ref = useRef();
 
   const handleHoursChanged = (_, hours) => {
@@ -121,7 +122,7 @@ const DurationInput = ({ value, onChange, onBlur, onFocus, onKeyDown, autoFocus,
   }
 
   return (
-    <Box display="flex" alignItems="center" ref={ref} className={className}>
+    <Box display="flex" alignItems="center" ref={ref} className={cx(className, theme['duration-input-numeric-container'], {[theme['has-error']]: error})}>
       <NumericInput
         placeholder="00"
         min={0}
