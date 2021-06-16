@@ -111,8 +111,8 @@ const DurationInput = ({ value, onChange, onBlur, onFocus, onKeyDown, autoFocus,
     onBlur && onBlur(event);
   };
 
-  let maxHours = null;
-  let maxMinutes = null;
+  let maxHours;
+  let maxMinutes;
   if (max) {
     maxHours = Math.floor(max / 60);
     maxMinutes = max % 60;
@@ -128,12 +128,16 @@ const DurationInput = ({ value, onChange, onBlur, onFocus, onKeyDown, autoFocus,
     hours = transformToPaddedNumber(hours);
   }
 
+  const isMaximumMinutesLimited = max
+    && (value?.hours && value.hours >= maxHours)
+    || maxHours === 0;
+
   return (
     <Box display="flex" alignItems="center" ref={ref} className={cx(className, theme['duration-input-numeric-container'], {[theme['has-error']]: error})}>
       <NumericInput
         placeholder="00"
         min={0}
-        {...(maxHours ? { max: maxHours } : {})}
+        {...(max ? { max: maxHours } : {})}
         value={hours ?? ''}
         onChange={handleHoursChanged}
         onBlur={handleBlur}
@@ -149,7 +153,7 @@ const DurationInput = ({ value, onChange, onBlur, onFocus, onKeyDown, autoFocus,
         placeholder="00"
         step={MINUTES_STEP}
         {...(!value?.hours ? { min: 0 } : {})}
-        {...(maxHours && value?.hours && value.hours >= maxHours ? { max: maxMinutes } : {})}
+        {...(isMaximumMinutesLimited ? { max: maxMinutes } : {})}
         value={minutes ?? ''}
         onChange={handleMinutesChange}
         onBlur={handleBlur}
