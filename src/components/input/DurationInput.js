@@ -112,13 +112,6 @@ const DurationInput = ({ value, onChange, onBlur, onFocus, onKeyDown, autoFocus,
     onBlur && onBlur(event);
   };
 
-  let maxHours;
-  let maxMinutes;
-  if (max) {
-    maxHours = Math.floor(max / 60);
-    maxMinutes = max % 60;
-  }
-
   let minutes = value?.minutes;
   if (Number.isInteger(minutes)) {
     minutes = transformToPaddedNumber(minutes);
@@ -129,6 +122,14 @@ const DurationInput = ({ value, onChange, onBlur, onFocus, onKeyDown, autoFocus,
     hours = transformToPaddedNumber(hours);
   }
 
+  let maxHours;
+  let maxMinutes;
+  if (max) {
+    maxHours = Math.floor(max / 60);
+    maxMinutes = max % 60;
+  }
+
+  // Minutes are relative to the already filled in hours, so the max needs to be set on the fly
   const isMaximumMinutesLimited = max
     && (value?.hours && value.hours >= maxHours)
     || maxHours === 0;
