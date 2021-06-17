@@ -59,8 +59,9 @@ class NumericInput extends PureComponent {
     const newValueRemainder = newValue % step;
     if (newValueRemainder) {
       newValue -= newValueRemainder;
-      if (n < 0) {
-        newValue += step;
+      // Decreasing the absolute value (so going closer to 0, both for negative & positive numbers) works the other way around
+      if (Math.sign(newValue) !== Math.sign(n)) {
+        newValue -= step;
       }
     }
     const newValueBoundToMinMax = parseValue(newValue, min, max);
