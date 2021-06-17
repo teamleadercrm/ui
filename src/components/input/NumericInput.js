@@ -55,14 +55,22 @@ class NumericInput extends PureComponent {
     const { min, max, value, step } = this.props;
 
     const currentValue = toNumber(value || 0);
-    const newValue = parseValue(currentValue + step * n, min, max);
+    let newValue = currentValue + step * n;
+    const newValueRemainder = newValue % step;
+    if (newValueRemainder) {
+      newValue -= newValueRemainder;
+      if (n < 0) {
+        newValue += step;
+      }
+    }
+    const newValueBoundToMinMax = parseValue(newValue, min, max);
 
     const inputElement = this.inputElement.current;
     if (inputElement) {
       const prototype = Object.getPrototypeOf(inputElement);
       const prototypeValueSetter = Object.getOwnPropertyDescriptor(prototype, 'value').set;
 
-      prototypeValueSetter.call(inputElement, newValue);
+      prototypeValueSetter.call(inputElement, newValueBoundToMinMax);
       inputElement.dispatchEvent(new Event('change', { bubbles: true }));
     }
   };
