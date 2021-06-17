@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `NumericInput` - increasing or decreasing the stepper should be rounded to the step ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1694](https://github.com/teamleadercrm/ui/pull/1694))
+
 ### Dependency updates
 
 ## [6.3.0] - 2021-06-15
