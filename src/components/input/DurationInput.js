@@ -183,6 +183,4 @@ DurationInput.propTypes = {
   max: PropTypes.number,
 };
 
-DurationInput.defaultProps = {};
-
 export default DurationInput;
