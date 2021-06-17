@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import PropTypes from 'prop-types';
 import { Box, NumericInput } from '../../';
 import theme from './theme.css';
 import cx from "classnames";
@@ -167,5 +168,21 @@ const DurationInput = ({ value, onChange, onBlur, onFocus, onKeyDown, autoFocus,
     </Box>
   );
 };
+
+DurationInput.propTypes = {
+  value: PropTypes.object,
+  onChange: PropTypes.func,
+  onBlur: PropTypes.func,
+  onFocus: PropTypes.func,
+  onKeyDown: PropTypes.func,
+  autoFocus: PropTypes.func,
+  textAlignRight: PropTypes.bool,
+  className: PropTypes.string,
+  error: PropTypes.bool,
+  /** In minutes **/
+  max: PropTypes.number,
+};
+
+DurationInput.defaultProps = {};
 
 export default DurationInput;
