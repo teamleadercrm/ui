@@ -9,6 +9,7 @@ const transformToPaddedNumber = (number) => (number < 10 ? `0${number}` : number
 const MINUTES_STEP = 15;
 
 const DurationInput = ({
+  id,
   value,
   onChange,
   onBlur,
@@ -145,6 +146,7 @@ const DurationInput = ({
 
   return (
     <Box
+      id={id}
       display="flex"
       alignItems="center"
       ref={ref}
@@ -185,6 +187,7 @@ const DurationInput = ({
 };
 
 DurationInput.propTypes = {
+  id: PropTypes.string,
   value: PropTypes.object,
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
