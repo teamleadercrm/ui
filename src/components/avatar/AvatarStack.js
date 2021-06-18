@@ -17,17 +17,8 @@ const SPACING = 6;
 
 class AvatarStack extends PureComponent {
   render() {
-    const {
-      children,
-      className,
-      direction,
-      displayMax,
-      inverse,
-      onOverflowClick,
-      selectable,
-      size,
-      ...others
-    } = this.props;
+    const { children, className, direction, displayMax, inverse, onOverflowClick, selectable, size, ...others } =
+      this.props;
 
     const childrenToDisplay = children.length > displayMax ? children.slice(0, displayMax) : children;
     const overflowAmount = children.length - displayMax;

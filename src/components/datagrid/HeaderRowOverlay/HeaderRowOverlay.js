@@ -8,14 +8,8 @@ import theme from './theme.css';
 
 class HeaderRowOverlay extends PureComponent {
   render() {
-    const {
-      children,
-      className,
-      headerCellCheckboxSize,
-      numSelectedRows,
-      numSelectedRowsLabel,
-      ...others
-    } = this.props;
+    const { children, className, headerCellCheckboxSize, numSelectedRows, numSelectedRowsLabel, ...others } =
+      this.props;
 
     const classNames = cx(
       theme['header-row-overlay'],
