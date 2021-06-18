@@ -16,18 +16,8 @@ class MenuItem extends PureComponent {
   };
 
   render() {
-    const {
-      icon,
-      caption,
-      children,
-      className,
-      destructive,
-      element,
-      label,
-      selected,
-      disabled,
-      ...others
-    } = this.props;
+    const { icon, caption, children, className, destructive, element, label, selected, disabled, ...others } =
+      this.props;
 
     const classNames = cx(
       theme['menu-item'],
