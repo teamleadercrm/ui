@@ -2,8 +2,6 @@
 
 ### Added
 
-- `DurationInput`: Added `id` property ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1698](https://github.com/teamleadercrm/ui/pull/1698))
-
 ### Changed
 
 ### Deprecated
@@ -13,6 +11,12 @@
 ### Fixed
 
 ### Dependency updates
+
+## [6.5.0] - 2021-06-18
+
+### Added
+
+- `DurationInput`: Added `id` property ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1698](https://github.com/teamleadercrm/ui/pull/1698))
 
 ## [6.4.0] - 2021-06-18
 
