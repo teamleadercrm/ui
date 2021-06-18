@@ -1,21 +1,10 @@
 {
   "presets": ["@babel/preset-env", "@babel/preset-react"],
-  "plugins": [
-    "@babel/plugin-proposal-export-default-from",
-    "@babel/plugin-proposal-class-properties",
-    "@babel/plugin-proposal-private-methods",
-    "@babel/plugin-transform-runtime"
-  ],
+  "plugins": ["@babel/plugin-proposal-export-default-from", "@babel/plugin-transform-runtime"],
   "env": {
-    "development": {
-      "plugins": ["@babel/plugin-transform-react-jsx-source"]
-    },
     "cjs": {
       "plugins": ["transform-react-remove-prop-types"],
-      "ignore": [
-        "**/*.stories.js",
-        "./src/static/**/*"
-      ]
+      "ignore": ["**/*.stories.js", "./src/static/**/*"]
     },
     "es": {
       "plugins": ["transform-react-remove-prop-types"],
@@ -27,10 +16,7 @@
           }
         ]
       ],
-      "ignore": [
-        "**/*.stories.js",
-        "./src/static/**/*"
-      ]
+      "ignore": ["**/*.stories.js", "./src/static/**/*"]
     }
   }
 }
