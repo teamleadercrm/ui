@@ -2269,9 +2269,9 @@
   integrity sha512-80o43HVdRq9Ku6j/k+0W41h5WzL1Cn3miC97sfnfVAWV1HVrToLyOSZ3UTVs8vbl+rQWRLzkxQTYTm8vgvqHJg==
 
 "@teamleader/ui-typography@^2.0.2":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@teamleader/ui-typography/-/ui-typography-2.0.2.tgz#0bb0fc1ede7644767e876b4d1e13c98225565ecc"
-  integrity sha512-tIjeuF4+1yKW4a8Cl1orYZwqCp4nNkm9HzFzetPFyeO8QT+iZT0QYBr0iUCZx+EcX1/DroAzPV97n+nQtiIKBw==
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@teamleader/ui-typography/-/ui-typography-2.0.3.tgz#aa6cacf815507b229bbf1abab8fdc1999d814595"
+  integrity sha512-+Ey43uGyBty9RK7yA7p9OjmlB7+x31FDG3W5SMMX904tgyLfRMxhqqm0foIBdxMW9NIjtd9WB1Xht8MfAt7SxQ==
 
 "@teamleader/ui-utilities@^0.2.0":
   version "0.2.1"
