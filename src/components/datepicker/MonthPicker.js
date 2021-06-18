@@ -46,9 +46,10 @@ const formatSelectMonthAndYear = ({ label, value }, locale) => {
 };
 
 const MonthPickerUnary = ({ date, locale, localeUtils, onChange }) => {
-  const selectedMonth = useMemo(() => ({ value: date.getMonth(), label: localeUtils.formatMonthTitle(date, locale) }), [
-    date,
-  ]);
+  const selectedMonth = useMemo(
+    () => ({ value: date.getMonth(), label: localeUtils.formatMonthTitle(date, locale) }),
+    [date],
+  );
 
   const handleChangeMonth = (selectedMonth) => {
     onChange(selectedMonth.value);
@@ -72,9 +73,10 @@ const MonthPickerUnary = ({ date, locale, localeUtils, onChange }) => {
 
 const MonthPickerSplit = ({ date, locale, localeUtils, onChange, size }) => {
   const [yearInput, setYearInput] = useState(`${date.getFullYear()}`);
-  const selectedMonth = useMemo(() => ({ value: date.getMonth(), label: localeUtils.formatMonthTitle(date, locale) }), [
-    date,
-  ]);
+  const selectedMonth = useMemo(
+    () => ({ value: date.getMonth(), label: localeUtils.formatMonthTitle(date, locale) }),
+    [date],
+  );
   const selectedYear = useMemo(() => date.getFullYear(), [date]);
 
   const months = localeUtils.getMonths(locale).map((monthName, index) => {

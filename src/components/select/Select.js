@@ -302,15 +302,22 @@ class Select extends PureComponent {
     valueContainer: this.getValueContainerStyles,
   });
 
-  getClearIndicator = () => ({ innerProps }) => {
-    const { inverse } = this.props;
+  getClearIndicator =
+    () =>
+    ({ innerProps }) => {
+      const { inverse } = this.props;
 
-    return (
-      <Icon color={inverse ? 'teal' : 'neutral'} display="flex" tint={inverse ? 'lightest' : 'darkest'} {...innerProps}>
-        <IconCloseBadgedSmallFilled />
-      </Icon>
-    );
-  };
+      return (
+        <Icon
+          color={inverse ? 'teal' : 'neutral'}
+          display="flex"
+          tint={inverse ? 'lightest' : 'darkest'}
+          {...innerProps}
+        >
+          <IconCloseBadgedSmallFilled />
+        </Icon>
+      );
+    };
 
   getDropDownIndicator = () => () => {
     const { inverse } = this.props;

@@ -119,16 +119,8 @@ class DataGrid extends PureComponent {
   };
 
   render() {
-    const {
-      bordered,
-      children,
-      className,
-      processing,
-      selectable,
-      stickyFromLeft,
-      stickyFromRight,
-      ...others
-    } = this.props;
+    const { bordered, children, className, processing, selectable, stickyFromLeft, stickyFromRight, ...others } =
+      this.props;
     const { hoveredRow, isOverflowing, selectedRows } = this.state;
 
     const classNames = cx(

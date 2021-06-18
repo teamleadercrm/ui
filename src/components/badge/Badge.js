@@ -36,18 +36,8 @@ class Badge extends PureComponent {
   };
 
   render() {
-    const {
-      children,
-      className,
-      disabled,
-      element,
-      icon,
-      iconPlacement,
-      selected,
-      size,
-      onClick,
-      ...others
-    } = this.props;
+    const { children, className, disabled, element, icon, iconPlacement, selected, size, onClick, ...others } =
+      this.props;
 
     const classNames = cx(
       theme['badge'],
