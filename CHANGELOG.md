@@ -2,9 +2,6 @@
 
 ### Added
 
-- `DurationInput`: Added `error` property ([@jnstr](https://github.com/jnstr) in [#1689](https://github.com/teamleadercrm/ui/pull/1689))
-- `DurationInput`: Added `max` property ([@jnstr](https://github.com/jnstr) in [#1689](https://github.com/teamleadercrm/ui/pull/1689))
-
 ### Changed
 
 ### Deprecated
@@ -13,9 +10,18 @@
 
 ### Fixed
 
-- `NumericInput` - increasing or decreasing the stepper should be rounded to the step ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1694](https://github.com/teamleadercrm/ui/pull/1694))
-
 ### Dependency updates
+
+## [6.4.0] - 2021-06-18
+
+### Added
+
+- `DurationInput`: Added `error` property ([@jnstr](https://github.com/jnstr) in [#1689](https://github.com/teamleadercrm/ui/pull/1689))
+- `DurationInput`: Added `max` property ([@jnstr](https://github.com/jnstr) in [#1689](https://github.com/teamleadercrm/ui/pull/1689))
+
+### Fixed
+
+- `NumericInput` - increasing or decreasing the stepper should be rounded to the step ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1694](https://github.com/teamleadercrm/ui/pull/1694))
 
 ## [6.3.0] - 2021-06-15
 
