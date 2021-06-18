@@ -117,7 +117,7 @@
     "postcss-pseudoelements": "^5.0.0",
     "postcss-reporter": "^7.0.2",
     "prettier": "2.3.1",
-    "pretty-quick": "3.1.0",
+    "pretty-quick": "3.1.1",
     "proptypes": "^1.1.0",
     "rimraf": "^3.0.0",
     "storybook-addon-designs": "^6.0.0",
