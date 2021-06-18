@@ -2269,9 +2269,9 @@
   integrity sha512-80o43HVdRq9Ku6j/k+0W41h5WzL1Cn3miC97sfnfVAWV1HVrToLyOSZ3UTVs8vbl+rQWRLzkxQTYTm8vgvqHJg==
 
 "@teamleader/ui-typography@^2.0.2":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@teamleader/ui-typography/-/ui-typography-2.0.2.tgz#0bb0fc1ede7644767e876b4d1e13c98225565ecc"
-  integrity sha512-tIjeuF4+1yKW4a8Cl1orYZwqCp4nNkm9HzFzetPFyeO8QT+iZT0QYBr0iUCZx+EcX1/DroAzPV97n+nQtiIKBw==
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@teamleader/ui-typography/-/ui-typography-2.0.3.tgz#aa6cacf815507b229bbf1abab8fdc1999d814595"
+  integrity sha512-+Ey43uGyBty9RK7yA7p9OjmlB7+x31FDG3W5SMMX904tgyLfRMxhqqm0foIBdxMW9NIjtd9WB1Xht8MfAt7SxQ==
 
 "@teamleader/ui-utilities@^0.2.0":
   version "0.2.1"
@@ -9979,9 +9979,9 @@ postcss-load-config@^3.0.0:
     import-cwd "^3.0.0"
 
 postcss-loader@^4.1.0, postcss-loader@^4.2.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/postcss-loader/-/postcss-loader-4.2.0.tgz#f6993ea3e0f46600fb3ee49bbd010448123a7db4"
-  integrity sha512-mqgScxHqbiz1yxbnNcPdKYo/6aVt+XExURmEbQlviFVWogDbM4AJ0A/B+ZBpYsJrTRxKw7HyRazg9x0Q9SWwLA==
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/postcss-loader/-/postcss-loader-4.3.0.tgz#2c4de9657cd4f07af5ab42bd60a673004da1b8cc"
+  integrity sha512-M/dSoIiNDOo8Rk0mUqoj4kpGq91gcxCfb9PoyZVdZ76/AuhxylHDYZblNE8o+EQ9AMSASeMFEKxZf5aU6wlx1Q==
   dependencies:
     cosmiconfig "^7.0.0"
     klona "^2.0.4"
@@ -10468,7 +10468,12 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
-prettier@2.2.1, prettier@~2.2.1:
+prettier@2.3.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.3.1.tgz#76903c3f8c4449bc9ac597acefa24dc5ad4cbea6"
+  integrity sha512-p+vNbgpLjif/+D+DwAZAbndtRrR0md0MwfmOVN9N+2RgyACMT+7tfaRnT+WDPkqnuVwleyuBIG2XBxKDme3hPA==
+
+prettier@~2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.2.1.tgz#795a1a78dd52f073da0cd42b21f9c91381923ff5"
   integrity sha512-PqyhM2yCjg/oKkFPtTGUojv7gnZAoG80ttl45O6x2Ug/rMJw4wcc9k6aaf2hibP7BGVCCM33gZoGjyvt9mm16Q==
