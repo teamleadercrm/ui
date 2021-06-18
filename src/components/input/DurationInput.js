@@ -1,12 +1,14 @@
 import React, { useRef } from 'react';
+import PropTypes from 'prop-types';
 import { Box, NumericInput } from '../../';
 import theme from './theme.css';
+import cx from "classnames";
 
 const transformToPaddedNumber = (number) => (number < 10 ? `0${number}` : number.toString());
 
 const MINUTES_STEP = 15;
 
-const DurationInput = ({ value, onChange, onBlur, onFocus, onKeyDown, autoFocus, textAlignRight, className }) => {
+const DurationInput = ({ value, onChange, onBlur, onFocus, onKeyDown, autoFocus, textAlignRight, className, error, max }) => {
   const ref = useRef();
 
   const handleHoursChanged = (_, hours) => {
@@ -120,11 +122,24 @@ const DurationInput = ({ value, onChange, onBlur, onFocus, onKeyDown, autoFocus,
     hours = transformToPaddedNumber(hours);
   }
 
+  let maxHours;
+  let maxMinutes;
+  if (max) {
+    maxHours = Math.floor(max / 60);
+    maxMinutes = max % 60;
+  }
+
+  // Minutes are relative to the already filled in hours, so the max needs to be set on the fly
+  const isMaximumMinutesLimited = max
+    && (value?.hours && value.hours >= maxHours)
+    || maxHours === 0;
+
   return (
-    <Box display="flex" alignItems="center" ref={ref} className={className}>
+    <Box display="flex" alignItems="center" ref={ref} className={cx(className, theme['duration-input-numeric-container'], {[theme['has-error']]: error})}>
       <NumericInput
         placeholder="00"
         min={0}
+        {...(max ? { max: maxHours } : {})}
         value={hours ?? ''}
         onChange={handleHoursChanged}
         onBlur={handleBlur}
@@ -140,6 +155,7 @@ const DurationInput = ({ value, onChange, onBlur, onFocus, onKeyDown, autoFocus,
         placeholder="00"
         step={MINUTES_STEP}
         {...(!value?.hours ? { min: 0 } : {})}
+        {...(isMaximumMinutesLimited ? { max: maxMinutes } : {})}
         value={minutes ?? ''}
         onChange={handleMinutesChange}
         onBlur={handleBlur}
@@ -152,6 +168,20 @@ const DurationInput = ({ value, onChange, onBlur, onFocus, onKeyDown, autoFocus,
       />
     </Box>
   );
+};
+
+DurationInput.propTypes = {
+  value: PropTypes.object,
+  onChange: PropTypes.func,
+  onBlur: PropTypes.func,
+  onFocus: PropTypes.func,
+  onKeyDown: PropTypes.func,
+  autoFocus: PropTypes.func,
+  textAlignRight: PropTypes.bool,
+  className: PropTypes.string,
+  error: PropTypes.bool,
+  /** In minutes **/
+  max: PropTypes.number,
 };
 
 export default DurationInput;

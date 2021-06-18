@@ -2,6 +2,9 @@
 
 ### Added
 
+- `DurationInput`: Added `error` property ([@jnstr](https://github.com/jnstr) in [#1689](https://github.com/teamleadercrm/ui/pull/1689))
+- `DurationInput`: Added `max` property ([@jnstr](https://github.com/jnstr) in [#1689](https://github.com/teamleadercrm/ui/pull/1689))
+
 ### Changed
 
 ### Deprecated
