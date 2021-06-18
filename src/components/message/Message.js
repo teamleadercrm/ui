@@ -50,17 +50,8 @@ const iconTintMap = {
 
 class Message extends PureComponent {
   render() {
-    const {
-      children,
-      inline,
-      onClose,
-      primaryAction,
-      secondaryAction,
-      showIcon,
-      status,
-      title,
-      ...others
-    } = this.props;
+    const { children, inline, onClose, primaryAction, secondaryAction, showIcon, status, title, ...others } =
+      this.props;
 
     const hasActions = Boolean(primaryAction || secondaryAction);
     const IconToRender = iconMap[status];

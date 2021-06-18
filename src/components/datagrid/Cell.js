@@ -7,18 +7,8 @@ import uiUtilities from '@teamleader/ui-utilities';
 
 class Cell extends PureComponent {
   render() {
-    const {
-      align,
-      backgroundColor,
-      border,
-      children,
-      className,
-      flex,
-      preventOverflow,
-      soft,
-      strong,
-      ...others
-    } = this.props;
+    const { align, backgroundColor, border, children, className, flex, preventOverflow, soft, strong, ...others } =
+      this.props;
 
     const classNames = cx(
       uiUtilities['reset-font-smoothing'],
