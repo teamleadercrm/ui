@@ -1,0 +1,63 @@
+@import '@teamleader/ui-colors';
+@import '@teamleader/ui-utilities';
+
+.select-control {
+  padding: 0 var(--spacer-small);
+  display: flex;
+  border-radius: 4px;
+  background-color: var(--color-neutral);
+  height: 36px;
+  max-width: 240px;
+  box-sizing: border-box;
+  cursor: default;
+
+  &:hover,
+  &--focused,
+  &--active {
+    background-color: var(--color-aqua-light);
+
+    .select-placeholder,
+    .select-dropdown-indicator,
+    .select-value-container {
+      color: var(--color-aqua-dark);
+    }
+  }
+
+  &--active {
+    border: 2px solid var(--color-aqua-dark);
+  }
+}
+
+.select-value-container {
+  display: flex;
+  align-items: center;
+  margin-right: var(--spacer-smaller);
+  width: 100%;
+}
+
+.select-dropdown-indicator {
+  color: var(--color-teal-dark);
+
+  &--focused {
+    transform: rotateZ(180deg);
+  }
+}
+
+.select-active-options-counter {
+  border-radius: 4px 0 0 4px;
+}
+
+.select-clear-options-button {
+  border-radius: 0 4px 4px 0;
+  margin-left: 1px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--color-aqua-darkest);
+  }
+
+  &--amount-hidden {
+    height: 18px;
+    border-radius: 4px 4px 4px 4px;
+  }
+}
