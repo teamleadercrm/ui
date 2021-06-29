@@ -12,6 +12,12 @@
 
 ### Dependency updates
 
+## [6.5.2] - 2021-06-29
+
+### Fixed
+
+- `Popover`: Check each direction when rendering the popover for the best fit ([@EOSullivanBerlin](https://github.com/EOSullivanBerlin) in [#1710](https://github.com/teamleadercrm/ui/pull/1710))
+
 ## [6.5.1] - 2021-06-29
 
 ### Fixed
