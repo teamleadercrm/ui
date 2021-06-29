@@ -18,6 +18,8 @@ export const Status = {
 };
 
 const FilterSelection = ({ label, status, amount, onClick, onClearClick }, ref) => {
+  const showAmount = typeof amount === 'number';
+
   const handleClearClick = useCallback(
     (event) => {
       event.stopPropagation();
@@ -39,7 +41,7 @@ const FilterSelection = ({ label, status, amount, onClick, onClearClick }, ref) 
       <Box className={theme['select-value-container']}>
         {status === Status.ACTIVE && (
           <Box display="flex">
-            {amount !== null && (
+            {showAmount && (
               <Heading4
                 paddingHorizontal={2}
                 backgroundColor="aqua"
@@ -57,7 +59,7 @@ const FilterSelection = ({ label, status, amount, onClick, onClearClick }, ref) 
               backgroundColor="aqua"
               className={cx(
                 theme['select-clear-options-button'],
-                amount === null && theme['select-clear-options-button--amount-hidden'],
+                !showAmount && theme['select-clear-options-button--amount-hidden'],
               )}
               display="flex"
               onMouseDown={(event) => event.stopPropagation()}
