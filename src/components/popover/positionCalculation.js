@@ -149,6 +149,32 @@ const getOppositeDirection = (direction) => {
   }
 };
 
+const getClockwise90DegreeDirection = (direction) => {
+  switch (direction) {
+    case DIRECTION_NORTH:
+      return DIRECTION_EAST;
+    case DIRECTION_EAST:
+      return DIRECTION_SOUTH;
+    case DIRECTION_SOUTH:
+      return DIRECTION_WEST;
+    case DIRECTION_WEST:
+      return DIRECTION_NORTH;
+  }
+};
+
+const getClockwise270DegreeDirection = (direction) => {
+  switch (direction) {
+    case DIRECTION_NORTH:
+      return DIRECTION_WEST;
+    case DIRECTION_EAST:
+      return DIRECTION_NORTH;
+    case DIRECTION_SOUTH:
+      return DIRECTION_EAST;
+    case DIRECTION_WEST:
+      return DIRECTION_SOUTH;
+  }
+};
+
 const getDirection = ({ direction, anchorPosition, popoverDimensions }) => {
   const inputDirectionRendersOnScreen = isInViewport({ direction, anchorPosition, popoverDimensions });
   const oppositeDirectionRendersOnScreen = isInViewport({
@@ -156,10 +182,31 @@ const getDirection = ({ direction, anchorPosition, popoverDimensions }) => {
     anchorPosition,
     popoverDimensions,
   });
+  const clockwise90DegreeDirectionRendersOnScreen = isInViewport({
+    direction: getClockwise90DegreeDirection(direction),
+    anchorPosition,
+    popoverDimensions,
+  });
 
-  return !inputDirectionRendersOnScreen && oppositeDirectionRendersOnScreen
-    ? getOppositeDirection(direction)
-    : direction;
+  const clockwise270DegreeDirectionRendersOnScreen = isInViewport({
+    direction: getClockwise270DegreeDirection(direction),
+    anchorPosition,
+    popoverDimensions,
+  });
+
+  if (!inputDirectionRendersOnScreen) {
+    if (oppositeDirectionRendersOnScreen) {
+      return getOppositeDirection(direction);
+    }
+    if (clockwise90DegreeDirectionRendersOnScreen) {
+      return getClockwise90DegreeDirection(direction);
+    }
+    if (clockwise270DegreeDirectionRendersOnScreen) {
+      return getClockwise270DegreeDirection(direction);
+    }
+  }
+
+  return direction;
 };
 
 const isPositionPossible = (direction, position, anchorPosition, popoverDimensions) =>
