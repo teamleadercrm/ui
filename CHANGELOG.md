@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `DurationInput`: Fix duration input overlapping other elements ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1704](https://github.com/teamleadercrm/ui/pull/1704))
+
 ### Dependency updates
 
 ## [6.5.0] - 2021-06-18
