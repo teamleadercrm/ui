@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
-import FilterSelection from './FilterSelection';
+import FilterSelection, { Status } from './FilterSelection';
 
 export default {
   component: FilterSelection,
@@ -10,28 +10,52 @@ export default {
 
 export const DefaultState = (args) => <FilterSelection {...args} />;
 
-DefaultState.args = {};
+DefaultState.args = {
+  label: 'default',
+  status: Status.DEFAULT,
+};
 
-export const Hover = (args) => <FilterSelection {...args} />;
+export const Focused = (args) => <FilterSelection label="focused" {...args} />;
 
-Hover.args = {};
+Focused.args = {
+  label: 'focused',
+  status: Status.FOCUSED,
+};
 
-export const Active = (args) => <FilterSelection {...args} />;
+export const Active = (args) => <FilterSelection label="active" {...args} />;
 
-Active.args = {};
+Active.args = {
+  label: 'active',
+  status: Status.ACTIVE,
+};
 
-export const ActiveWithCountableSelection = (args) => <FilterSelection {...args} />;
+export const ActiveWithCountableSelection = (args) => (
+  <FilterSelection label="active with countable selection" {...args} />
+);
 
-ActiveWithCountableSelection.args = {};
+ActiveWithCountableSelection.args = {
+  label: 'active with amount',
+  status: Status.ACTIVE,
+  amount: 3,
+};
 
-export const Disabled = (args) => <FilterSelection {...args} />;
+export const Disabled = (args) => <FilterSelection label="disabled" {...args} />;
 
-Disabled.args = {};
+Disabled.args = {
+  label: 'disabled',
+  status: Status.DISABLED,
+};
 
-export const Invalid = (args) => <FilterSelection {...args} />;
+export const Invalid = (args) => <FilterSelection label="invalid" {...args} />;
 
-Invalid.args = {};
+Invalid.args = {
+  label: 'invalid',
+  status: Status.INVALID,
+};
 
-export const Broken = (args) => <FilterSelection {...args} />;
+export const Broken = (args) => <FilterSelection label="broken" {...args} />;
 
-Broken.args = {};
+Broken.args = {
+  label: 'broken',
+  status: Status.BROKEN,
+};
