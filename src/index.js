@@ -30,6 +30,7 @@ import { DatePicker, DatePickerRange, DatePickerInput, DatePickerInputRange } fr
 import DetailPage, { DetailPageBody, DetailPageHeader } from './components/detailPage';
 import Dialog, { DialogBase } from './components/dialog';
 import EmptyState from './components/emptyState';
+import FilterSelection from './components/filterSelection';
 import Icon from './components/icon';
 import IconButton from './components/iconButton';
 import Input, { InputBase, NumericInput, Textarea, TimeInput, DurationInput } from './components/input';
@@ -117,6 +118,7 @@ export {
   EmptyPassport,
   EmptyState,
   ErrorText,
+  FilterSelection,
   Heading1,
   Heading2,
   Heading3,
