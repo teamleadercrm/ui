@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `Popover`: Check each direction for the be one to render the popover ([@EOSullivanBerlin](https://github.com/EOSullivanBerlin) in [#1710](https://github.com/teamleadercrm/ui/pull/1710))
+
 ### Deprecated
 
 ### Removed

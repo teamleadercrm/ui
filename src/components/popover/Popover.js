@@ -143,7 +143,7 @@ Popover.propTypes = {
   className: PropTypes.string,
   /** The background colour of the Popover. */
   color: PropTypes.oneOf(['aqua', 'gold', 'mint', 'neutral', 'ruby', 'teal', 'violet']),
-  /** The direction in which the Popover is rendered, is overridden with the opposite direction if the Popover cannot be entirely displayed in the current direction. */
+  /** The preferred direction in which the Popover is rendered, is overridden with the opposite or adjacent direction if the Popover cannot be entirely displayed in the current direction. */
   direction: PropTypes.oneOf(['north', 'south', 'east', 'west']),
   /** If true, the Popover stretches to fit its content vertically */
   fullHeight: PropTypes.bool,
