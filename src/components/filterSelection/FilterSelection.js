@@ -52,7 +52,17 @@ const FilterSelection = ({ label, modificationText, status, amount, onClick, onC
       )}
       onClick={onClick}
     >
-      <Container className={theme['select-value-container']} {...tooltipProps}>
+      <Container
+        display="flex"
+        alignItems="center"
+        justifyContent="space-between"
+        marginRight={2}
+        className={theme['select-value-container']}
+        {...tooltipProps}
+      >
+        <TextBodyCompact marginRight={status === Status.ACTIVE && 2}>{`${label}${
+          modified ? ' •' : ''
+        }`}</TextBodyCompact>
         {status === Status.ACTIVE && (
           <Box display="flex">
             {showAmount && (
@@ -86,9 +96,6 @@ const FilterSelection = ({ label, modificationText, status, amount, onClick, onC
             </Box>
           </Box>
         )}
-        <TextBodyCompact marginLeft={status === Status.ACTIVE && 2}>{`${label}${
-          modified ? ' •' : ''
-        }`}</TextBodyCompact>
       </Container>
       <Icon
         className={cx(

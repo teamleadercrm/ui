@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
+import { addStoryInGroup, COMPOSITIONS } from '../../../.storybook/utils';
 import FilterSelection, { Status } from './FilterSelection';
 
 export default {
   component: FilterSelection,
-  title: addStoryInGroup(MID_LEVEL_BLOCKS, 'FilterSelection'),
+  title: addStoryInGroup(COMPOSITIONS, 'FilterSelection'),
 };
 
 export const DefaultState = (args) => <FilterSelection {...args} />;

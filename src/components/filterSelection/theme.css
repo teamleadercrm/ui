@@ -29,9 +29,6 @@
 }
 
 .select-value-container {
-  display: flex;
-  align-items: center;
-  margin-right: var(--spacer-smaller);
   width: 100%;
 }
 
