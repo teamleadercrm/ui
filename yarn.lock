@@ -1556,16 +1556,16 @@
     util-deprecate "^1.0.2"
 
 "@storybook/addon-controls@^6.2.8":
-  version "6.2.9"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-controls/-/addon-controls-6.2.9.tgz#eeec14b2946f1fb5326115f2205ed72c7f44ccea"
-  integrity sha512-NvXAJ7I5U4CLxv4wL3/Ne9rehJlgnSmQlLIG/z6dg5zm7JIb48LT4IY6GzjlUP5LkjmO9KJ8gJC249uRt2iPBQ==
+  version "6.3.1"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-controls/-/addon-controls-6.3.1.tgz#578a767d3f7cd0dd2f8c8f76e8eeaa0e59ca4369"
+  integrity sha512-mrE+EqKGQ8E93C6KI4E1jLnzpzK9LfnTumhRfrI99L23Q74W7otAA+Qc3PQQqc9bCSN0Ma6NPacDzwANo2HDIg==
   dependencies:
-    "@storybook/addons" "6.2.9"
-    "@storybook/api" "6.2.9"
-    "@storybook/client-api" "6.2.9"
-    "@storybook/components" "6.2.9"
-    "@storybook/node-logger" "6.2.9"
-    "@storybook/theming" "6.2.9"
+    "@storybook/addons" "6.3.1"
+    "@storybook/api" "6.3.1"
+    "@storybook/client-api" "6.3.1"
+    "@storybook/components" "6.3.1"
+    "@storybook/node-logger" "6.3.1"
+    "@storybook/theming" "6.3.1"
     core-js "^3.8.2"
     ts-dedent "^2.0.0"
 
@@ -2188,17 +2188,6 @@
     webpack "4"
     webpack-dev-middleware "^3.7.3"
     webpack-virtual-modules "^0.2.2"
-
-"@storybook/node-logger@6.2.9":
-  version "6.2.9"
-  resolved "https://registry.yarnpkg.com/@storybook/node-logger/-/node-logger-6.2.9.tgz#c67d8d7684514b8d00207502e8a9adda0ee750e5"
-  integrity sha512-ryRBChWZf1A5hOVONErJZosS25IdMweoMVFAUAcj91iC0ynoSA6YL2jmoE71jQchxEXEgkDeRkX9lR/GlqFGZQ==
-  dependencies:
-    "@types/npmlog" "^4.1.2"
-    chalk "^4.1.0"
-    core-js "^3.8.2"
-    npmlog "^4.1.2"
-    pretty-hrtime "^1.0.3"
 
 "@storybook/node-logger@6.3.1", "@storybook/node-logger@^6.1.14":
   version "6.3.1"
