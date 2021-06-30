@@ -1,60 +1,50 @@
-@import '@teamleader/ui-colors';
-@import '@teamleader/ui-utilities';
-
 .select-control {
-  padding: 0 var(--spacer-small);
-  display: flex;
-  border-radius: 4px;
-  background-color: var(--color-neutral);
-  height: 36px;
-  max-width: 240px;
-  box-sizing: border-box;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  width: max-content;
   cursor: default;
+}
 
-  &:hover,
-  &--focused,
+.select-clear {
+  height: 18px;
+
   &--active {
-    background-color: var(--color-aqua-light);
-
-    .select-placeholder,
-    .select-dropdown-indicator,
-    .select-value-container {
-      color: var(--color-aqua-dark);
+    background-color: rgba(0, 113, 242, 0.12);
+    &:hover {
+      background-color: rgba(0, 113, 242, 0.24);
     }
   }
 
-  &--active {
-    border: 2px solid var(--color-aqua-dark);
+  &--disabled {
+    background-color: rgba(192, 192, 196, 0.12);
+    &:hover {
+      background-color: rgba(192, 192, 196, 0.24);
+    }
+  }
+
+  &--invalid {
+    background-color: rgba(237, 158, 0, 0.12);
+    &:hover {
+      background-color: rgba(237, 158, 0, 0.24);
+    }
+  }
+
+  &--broken {
+    background-color: rgba(232, 75, 23, 0.12);
+    &:hover {
+      background-color: rgba(232, 75, 23, 0.24);
+    }
   }
 }
 
-.select-value-container {
-  width: 100%;
+.select-clear-icon {
+  cursor: pointer;
 }
 
-.select-dropdown-indicator {
-  color: var(--color-teal-dark);
-
-  &--focused {
-    transform: rotateZ(180deg);
-  }
-}
-
-.select-active-options-counter {
-  border-radius: 4px 0 0 4px;
+.select-dropdown-indicator--focused {
+  transform: rotateZ(180deg);
 }
 
 .select-clear-options-button {
-  border-radius: 0 4px 4px 0;
-  margin-left: 1px;
   cursor: pointer;
-
-  &:hover {
-    background-color: var(--color-aqua-darkest);
-  }
-
-  &--amount-hidden {
-    height: 18px;
-    border-radius: 4px 4px 4px 4px;
-  }
 }

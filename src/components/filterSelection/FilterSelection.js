@@ -20,8 +20,26 @@ export const Status = {
   BROKEN: 'broken',
 };
 
-const FilterSelection = ({ label, modificationText, status, amount, onClick, onClearClick }, ref) => {
-  const showAmount = typeof amount === 'number';
+const ColorByStatus = {
+  [Status.DEFAULT]: 'neutral',
+  [Status.ACTIVE]: 'aqua',
+  [Status.FOCUSED]: 'aqua',
+  [Status.DISABLED]: 'neutral',
+  [Status.INVALID]: 'gold',
+  [Status.BROKEN]: 'ruby',
+};
+
+const BackgroundTintByStatus = {
+  [Status.DEFAULT]: undefined,
+  [Status.ACTIVE]: 'light',
+  [Status.FOCUSED]: 'light',
+  [Status.DISABLED]: undefined,
+  [Status.INVALID]: 'lightest',
+  [Status.BROKEN]: 'lightest',
+};
+
+const FilterSelection = ({ label, modificationText, applied, status, amountApplied, onClick, onClearClick }, ref) => {
+  const showAmount = typeof amountApplied === 'number';
   const modified = typeof modificationText === 'string';
 
   const Container = modified ? TooltippedBox : Box;
@@ -45,52 +63,65 @@ const FilterSelection = ({ label, modificationText, status, amount, onClick, onC
   return (
     <Box
       ref={ref}
-      className={cx(
-        theme['select-control'],
-        status === Status.ACTIVE && theme['select-control--active'],
-        status === Status.FOCUSED && theme['select-control--focused'],
-      )}
+      className={cx(theme['select-control'])}
+      display="flex"
+      boxSizing="border-box"
+      paddingHorizontal={3}
+      backgroundColor={ColorByStatus[status] || 'neutral'}
+      backgroundTint={BackgroundTintByStatus[status] || undefined}
+      borderWidth={applied ? 2 : 0}
+      borderColor={ColorByStatus[status] || 'neutral'}
+      borderTint="dark"
+      borderRadius="rounded"
       onClick={onClick}
     >
       <Container
         display="flex"
+        flex={1}
         alignItems="center"
         justifyContent="space-between"
         marginRight={2}
-        className={theme['select-value-container']}
         {...tooltipProps}
       >
-        <TextBodyCompact marginRight={status === Status.ACTIVE && 2}>{`${label}${
-          modified ? ' •' : ''
-        }`}</TextBodyCompact>
-        {status === Status.ACTIVE && (
-          <Box display="flex">
+        <TextBodyCompact
+          color={status === Status.DEFAULT ? 'teal' : ColorByStatus[status] || 'neutral'}
+          tint={status === Status.DISABLED ? 'dark' : 'darkest'}
+          marginRight={applied ? 2 : 0}
+        >{`${label}${modified ? ' •' : ''}`}</TextBodyCompact>
+        {applied && (
+          <Box
+            display="flex"
+            alignItems="center"
+            borderRadius="rounded"
+            className={cx(theme['select-clear'], theme[`select-clear--${status}`])}
+          >
             {showAmount && (
               <Heading4
-                paddingHorizontal={2}
-                backgroundColor="aqua"
-                backgroundTint="dark"
-                color="neutral"
-                tint="lightest"
-                className={theme['select-active-options-counter']}
+                paddingLeft={2}
+                paddingRight={1}
+                color={ColorByStatus[status] || 'neutral'}
+                tint="dark"
+                borderTopLeftRadius="rounded"
+                borderBottomLeftRadius="rounded"
+                borderTopRightRadius={showAmount ? 'square' : 'rounded'}
+                borderBottomRightRadius={showAmount ? 'square' : 'rounded'}
               >
-                <Monospaced>{amount}</Monospaced>
+                <Monospaced>{amountApplied}</Monospaced>
               </Heading4>
             )}
             <Box
               alignItems="center"
-              backgroundTint="dark"
-              backgroundColor="aqua"
-              className={cx(
-                theme['select-clear-options-button'],
-                !showAmount && theme['select-clear-options-button--amount-hidden'],
-              )}
               display="flex"
-              onMouseDown={(event) => event.stopPropagation()}
               onClick={handleClearClick}
+              onMouseDown={(event) => event.stopPropagation()}
               paddingHorizontal={1}
+              borderTopLeftRadius={showAmount ? 'square' : 'rounded'}
+              borderBottomLeftRadius={showAmount ? 'square' : 'rounded'}
+              borderTopRightRadius="rounded"
+              borderBottomRightRadius="rounded"
+              className={theme['select-clear-icon']}
             >
-              <Icon color="aqua" tint="lightest" opacity={1}>
+              <Icon color={ColorByStatus[status] || 'neutral'} tint="dark" opacity={1}>
                 <IconCloseSmallOutline />
               </Icon>
             </Box>
@@ -98,6 +129,8 @@ const FilterSelection = ({ label, modificationText, status, amount, onClick, onC
         )}
       </Container>
       <Icon
+        color={status === Status.DEFAULT ? 'teal' : ColorByStatus[status] || 'neutral'}
+        tint={status === Status.DISABLED ? 'dark' : 'darkest'}
         className={cx(
           theme['select-dropdown-indicator'],
           status === Status.FOCUSED && theme['select-dropdown-indicator--focused'],
@@ -112,8 +145,9 @@ const FilterSelection = ({ label, modificationText, status, amount, onClick, onC
 FilterSelection.propTypes = {
   label: PropTypes.string,
   modificationText: PropTypes.string,
+  applied: PropTypes.bool,
   status: PropTypes.oneOf(Object.values(Status)),
-  amount: PropTypes.number,
+  amountApplied: PropTypes.number,
   onClick: PropTypes.func,
   onClearClick: PropTypes.func,
 };
@@ -121,8 +155,9 @@ FilterSelection.propTypes = {
 FilterSelection.defaultProps = {
   label: '',
   modificationText: null,
+  applied: false,
   status: Status.DEFAULT,
-  amount: null,
+  amountApplied: null,
   onClick: null,
   onClearClick: null,
 };

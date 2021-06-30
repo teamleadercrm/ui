@@ -35,6 +35,17 @@ export const Active = (args) => <FilterSelection label="active" {...args} />;
 Active.args = {
   label: 'active',
   status: Status.ACTIVE,
+  applied: true,
+};
+
+export const ActiveWithClearableSelection = (args) => (
+  <FilterSelection label="active with clearable selection" {...args} />
+);
+
+ActiveWithClearableSelection.args = {
+  label: 'active with clearable selection',
+  status: Status.ACTIVE,
+  applied: true,
 };
 
 export const ActiveWithCountableSelection = (args) => (
@@ -42,9 +53,10 @@ export const ActiveWithCountableSelection = (args) => (
 );
 
 ActiveWithCountableSelection.args = {
-  label: 'active with amount',
+  label: 'active with countable selection',
   status: Status.ACTIVE,
-  amount: 3,
+  applied: true,
+  amountApplied: 3,
 };
 
 export const Disabled = (args) => <FilterSelection label="disabled" {...args} />;
@@ -52,6 +64,7 @@ export const Disabled = (args) => <FilterSelection label="disabled" {...args} />
 Disabled.args = {
   label: 'disabled',
   status: Status.DISABLED,
+  applied: true,
 };
 
 export const Invalid = (args) => <FilterSelection label="invalid" {...args} />;
@@ -59,6 +72,7 @@ export const Invalid = (args) => <FilterSelection label="invalid" {...args} />;
 Invalid.args = {
   label: 'invalid',
   status: Status.INVALID,
+  applied: true,
 };
 
 export const Broken = (args) => <FilterSelection label="broken" {...args} />;
@@ -66,4 +80,5 @@ export const Broken = (args) => <FilterSelection label="broken" {...args} />;
 Broken.args = {
   label: 'broken',
   status: Status.BROKEN,
+  applied: true,
 };
