@@ -1,5 +1,5 @@
 import { IconCloseSmallOutline, IconChevronDownSmallOutline } from '@teamleader/ui-icons';
-import React, { forwardRef, useCallback } from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 
@@ -52,14 +52,6 @@ const FilterSelection = ({ label, modificationText, applied, status, amountAppli
       }
     : {};
 
-  const handleClearClick = useCallback(
-    (event) => {
-      event.stopPropagation();
-      onClearClick();
-    },
-    [onClearClick],
-  );
-
   return (
     <Box
       ref={ref}
@@ -73,7 +65,7 @@ const FilterSelection = ({ label, modificationText, applied, status, amountAppli
       borderColor={ColorByStatus[status] || 'neutral'}
       borderTint="dark"
       borderRadius="rounded"
-      onClick={onClick}
+      onClick={status !== Status.DISABLED && onClick}
     >
       <Container
         display="flex"
@@ -112,8 +104,7 @@ const FilterSelection = ({ label, modificationText, applied, status, amountAppli
             <Box
               alignItems="center"
               display="flex"
-              onClick={handleClearClick}
-              onMouseDown={(event) => event.stopPropagation()}
+              onClick={status !== Status.DISABLED && onClearClick}
               paddingHorizontal={1}
               borderTopLeftRadius={showAmount ? 'square' : 'rounded'}
               borderBottomLeftRadius={showAmount ? 'square' : 'rounded'}
