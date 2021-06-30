@@ -15,6 +15,14 @@ DefaultState.args = {
   status: Status.DEFAULT,
 };
 
+export const DefaultStateWithModifications = (args) => <FilterSelection {...args} />;
+
+DefaultStateWithModifications.args = {
+  label: 'default with modifications',
+  status: Status.DEFAULT,
+  modificationText: 'This filter was cleared',
+};
+
 export const Focused = (args) => <FilterSelection label="focused" {...args} />;
 
 Focused.args = {

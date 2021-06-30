@@ -6,7 +6,10 @@ import cx from 'classnames';
 import { Heading4, Monospaced, TextBodyCompact } from '../typography';
 import Icon from '../icon';
 import Box from '../box';
+import Tooltip from '../tooltip';
 import theme from './theme.css';
+
+const TooltippedBox = Tooltip(Box);
 
 export const Status = {
   ACTIVE: 'active',
@@ -17,8 +20,19 @@ export const Status = {
   BROKEN: 'broken',
 };
 
-const FilterSelection = ({ label, status, amount, onClick, onClearClick }, ref) => {
+const FilterSelection = ({ label, modificationText, status, amount, onClick, onClearClick }, ref) => {
   const showAmount = typeof amount === 'number';
+  const modified = typeof modificationText === 'string';
+
+  const Container = modified ? TooltippedBox : Box;
+  const tooltipProps = modified
+    ? {
+        tooltip: modificationText,
+        tooltipColor: 'white',
+        tooltipPosition: 'top',
+        tooltipSize: 'small',
+      }
+    : {};
 
   const handleClearClick = useCallback(
     (event) => {
@@ -38,7 +52,7 @@ const FilterSelection = ({ label, status, amount, onClick, onClearClick }, ref) 
       )}
       onClick={onClick}
     >
-      <Box className={theme['select-value-container']}>
+      <Container className={theme['select-value-container']} {...tooltipProps}>
         {status === Status.ACTIVE && (
           <Box display="flex">
             {showAmount && (
@@ -72,8 +86,10 @@ const FilterSelection = ({ label, status, amount, onClick, onClearClick }, ref) 
             </Box>
           </Box>
         )}
-        <TextBodyCompact marginLeft={status === Status.ACTIVE && 2}>{label}</TextBodyCompact>
-      </Box>
+        <TextBodyCompact marginLeft={status === Status.ACTIVE && 2}>{`${label}${
+          modified ? ' •' : ''
+        }`}</TextBodyCompact>
+      </Container>
       <Icon
         className={cx(
           theme['select-dropdown-indicator'],
@@ -88,6 +104,7 @@ const FilterSelection = ({ label, status, amount, onClick, onClearClick }, ref) 
 
 FilterSelection.propTypes = {
   label: PropTypes.string,
+  modificationText: PropTypes.string,
   status: PropTypes.oneOf(Object.values(Status)),
   amount: PropTypes.number,
   onClick: PropTypes.func,
@@ -96,6 +113,7 @@ FilterSelection.propTypes = {
 
 FilterSelection.defaultProps = {
   label: '',
+  modificationText: null,
   status: Status.DEFAULT,
   amount: null,
   onClick: null,
