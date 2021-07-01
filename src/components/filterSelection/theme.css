@@ -1,0 +1,50 @@
+.select-control {
+  padding-top: 9px;
+  padding-bottom: 9px;
+  width: max-content;
+  cursor: default;
+}
+
+.select-clear {
+  height: 18px;
+
+  &--active {
+    background-color: rgba(0, 113, 242, 0.12);
+    &:hover {
+      background-color: rgba(0, 113, 242, 0.24);
+    }
+  }
+
+  &--disabled {
+    background-color: rgba(192, 192, 196, 0.12);
+    &:hover {
+      background-color: rgba(192, 192, 196, 0.24);
+    }
+  }
+
+  &--invalid {
+    background-color: rgba(237, 158, 0, 0.12);
+    &:hover {
+      background-color: rgba(237, 158, 0, 0.24);
+    }
+  }
+
+  &--broken {
+    background-color: rgba(232, 75, 23, 0.12);
+    &:hover {
+      background-color: rgba(232, 75, 23, 0.24);
+    }
+  }
+}
+
+.select-clear-icon {
+  cursor: pointer;
+}
+
+.select-dropdown-indicator--focused {
+  transform: rotateZ(180deg);
+}
+
+.select-clear-options-button {
+  cursor: pointer;
+}
