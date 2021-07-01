@@ -3,6 +3,7 @@ import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 
+import { KEY } from '../../constants';
 import { Heading4, Monospaced, TextBodyCompact } from '../typography';
 import Icon from '../icon';
 import Box from '../box';
@@ -52,6 +53,12 @@ const FilterSelection = ({ label, modificationText, applied, status, amountAppli
       }
     : {};
 
+  const handleKeyDown = (event) => {
+    if (event.key === KEY.Enter && status !== Status.DISABLED) {
+      onClick();
+    }
+  };
+
   const handleClearClick = (event) => {
     event.stopPropagation();
     if (status !== Status.DISABLED) {
@@ -63,6 +70,8 @@ const FilterSelection = ({ label, modificationText, applied, status, amountAppli
     <Box
       ref={ref}
       className={cx(theme['select-control'])}
+      role="button"
+      tabIndex={0}
       display="flex"
       boxSizing="border-box"
       paddingHorizontal={3}
@@ -73,6 +82,7 @@ const FilterSelection = ({ label, modificationText, applied, status, amountAppli
       borderTint="dark"
       borderRadius="rounded"
       onClick={status !== Status.DISABLED && onClick}
+      onKeyDown={handleKeyDown}
     >
       <Container
         display="flex"
