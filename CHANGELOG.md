@@ -16,7 +16,7 @@
 
 ### Changed
 
-- `Popover`: Check each direction for the be one to render the popover ([@EOSullivanBerlin](https://github.com/EOSullivanBerlin) in [#1710](https://github.com/teamleadercrm/ui/pull/1710)
+- `Popover`: Fall back to adjacent directions when there is not enough space in the preferred direction ([@EOSullivanBerlin](https://github.com/EOSullivanBerlin) in [#1710](https://github.com/teamleadercrm/ui/pull/1710))
 
 ## [6.5.1] - 2021-06-29
 
