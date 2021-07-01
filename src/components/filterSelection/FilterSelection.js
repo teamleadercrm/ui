@@ -52,6 +52,13 @@ const FilterSelection = ({ label, modificationText, applied, status, amountAppli
       }
     : {};
 
+  const handleClearClick = (event) => {
+    event.stopPropagation();
+    if (status !== Status.DISABLED) {
+      onClearClick();
+    }
+  };
+
   return (
     <Box
       ref={ref}
@@ -104,7 +111,8 @@ const FilterSelection = ({ label, modificationText, applied, status, amountAppli
             <Box
               alignItems="center"
               display="flex"
-              onClick={status !== Status.DISABLED && onClearClick}
+              onMouseDown={(event) => event.stopPropagation()}
+              onClick={handleClearClick}
               paddingHorizontal={1}
               borderTopLeftRadius={showAmount ? 'square' : 'rounded'}
               borderBottomLeftRadius={showAmount ? 'square' : 'rounded'}
