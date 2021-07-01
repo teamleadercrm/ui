@@ -2,6 +2,8 @@
 
 ### Added
 
+- `FilterSelection` Add FilterSelectionComponent ([@JorenSaeyTL](https://github.com/JorenSaeyTL) in [#1717](https://github.com/teamleadercrm/ui/pull/1717))
+
 ### Changed
 
 ### Deprecated
@@ -9,6 +11,8 @@
 ### Removed
 
 ### Fixed
+
+- `FilterSelection` Add Keyboard accessibility, remove unused style and fix clear handler ([@JorenSaeyTL](https://github.com/JorenSaeyTL) in [#1721](https://github.com/teamleadercrm/ui/pull/1721))
 
 ### Dependency updates
 

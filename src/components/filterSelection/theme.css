@@ -44,7 +44,3 @@
 .select-dropdown-indicator--focused {
   transform: rotateZ(180deg);
 }
-
-.select-clear-options-button {
-  cursor: pointer;
-}
