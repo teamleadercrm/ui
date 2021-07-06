@@ -13,6 +13,7 @@
 ### Fixed
 
 - `FilterSelection` Add Keyboard accessibility, remove unused style and fix clear handler ([@JorenSaeyTL](https://github.com/JorenSaeyTL) in [#1721](https://github.com/teamleadercrm/ui/pull/1721))
+- `FilterSelection` Fixed height and hover state ([@JorenSaeyTL](https://github.com/JorenSaeyTL) in [#1722](https://github.com/teamleadercrm/ui/pull/1722)
 
 ### Dependency updates
 

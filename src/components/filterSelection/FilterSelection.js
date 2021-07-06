@@ -69,7 +69,7 @@ const FilterSelection = ({ label, modificationText, applied, status, amountAppli
   return (
     <Box
       ref={ref}
-      className={cx(theme['select-control'])}
+      className={cx(theme['select-control'], status === Status.DEFAULT && theme['select-control--hovered'])}
       role="button"
       tabIndex={0}
       display="flex"
@@ -96,6 +96,7 @@ const FilterSelection = ({ label, modificationText, applied, status, amountAppli
           color={status === Status.DEFAULT ? 'teal' : ColorByStatus[status] || 'neutral'}
           tint={status === Status.DISABLED ? 'dark' : 'darkest'}
           marginRight={applied ? 2 : 0}
+          className={theme['select-value-container']}
         >{`${label}${modified ? ' •' : ''}`}</TextBodyCompact>
         {applied && (
           <Box
