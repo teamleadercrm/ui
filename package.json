@@ -101,7 +101,7 @@
     "eslint-plugin-standard": "^5.0.0",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^6.0.0",
-    "husky": "^6.0.0",
+    "husky": "^7.0.1",
     "image-webpack-loader": "^7.0.1",
     "json-loader": "^0.5.4",
     "moment": "^2.22.2",
