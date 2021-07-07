@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import {
   IconAddSmallOutline,
@@ -198,13 +198,23 @@ class NumericInput extends PureComponent {
     return suffix;
   };
 
+  setRef = (ref) => {
+    this.inputElement = ref;
+    const { forwardedRef } = this.props;
+    if (typeof forwardedRef === 'function') {
+      forwardedRef(ref);
+    } else if (typeof forwardedRef === 'object' && forwardedRef !== null) {
+      forwardedRef.current = ref;
+    }
+  };
+
   render() {
     const { value, ...rest } = this.props;
     const restProps = omit(rest, ['suffix', 'onChange', 'onKeyDown']);
 
     return (
       <SingleLineInputBase
-        ref={this.inputElement}
+        ref={this.setRef}
         type="number"
         value={value}
         onChange={this.handleOnChange}
@@ -239,4 +249,8 @@ NumericInput.defaultProps = {
   stepper: 'suffix',
 };
 
-export default NumericInput;
+const ForwardedNumericInput = forwardRef((props, ref) => <NumericInput {...props} forwardedRef={ref} />);
+
+ForwardedNumericInput.displayName = 'NumericInput';
+
+export default ForwardedNumericInput;
