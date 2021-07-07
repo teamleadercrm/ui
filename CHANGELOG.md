@@ -3,6 +3,12 @@
 ### Added
 
 - `FilterSelection` Add FilterSelectionComponent ([@JorenSaeyTL](https://github.com/JorenSaeyTL) in [#1717](https://github.com/teamleadercrm/ui/pull/1717))
+- `Button`: now correctly forwards its `ref` prop ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1727))
+- `Input`: now correctly forwards its `ref` prop ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1727))
+- `DurationInput`: now correctly forwards its `ref` prop ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1727))
+- `NumericInput`: now correctly forwards its `ref` prop ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1727))
+- `TextArea`: now correctly forwards its `ref` prop ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1727))
+- `TimeInput`: now correctly forwards its `ref` prop ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1727))
 
 ### Changed
 
@@ -14,6 +20,7 @@
 
 - `FilterSelection` Add Keyboard accessibility, remove unused style and fix clear handler ([@JorenSaeyTL](https://github.com/JorenSaeyTL) in [#1721](https://github.com/teamleadercrm/ui/pull/1721))
 - `FilterSelection` Fixed height and hover state ([@JorenSaeyTL](https://github.com/JorenSaeyTL) in [#1722](https://github.com/teamleadercrm/ui/pull/1722)
+- Display names on multiple components (for debugging) ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1727))
 
 ### Dependency updates
 
