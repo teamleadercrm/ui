@@ -81,4 +81,8 @@ TitleTab.defaultProps = {
   size: 'medium',
 };
 
-export default forwardRef((props, ref) => <TitleTab {...props} forwardedRef={ref} />);
+const ForwardedTitleTab = forwardRef((props, ref) => <TitleTab {...props} forwardedRef={ref} />);
+
+ForwardedTitleTab.displayName = 'TitleTab';
+
+export default ForwardedTitleTab;

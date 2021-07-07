@@ -69,4 +69,8 @@ MarketingTab.defaultProps = {
   size: 'medium',
 };
 
-export default forwardRef((props, ref) => <MarketingTab {...props} forwardedRef={ref} />);
+const ForwardedMarketingTab = forwardRef((props, ref) => <MarketingTab {...props} forwardedRef={ref} />);
+
+ForwardedMarketingTab.displayName = 'MarketingTab';
+
+export default ForwardedMarketingTab;

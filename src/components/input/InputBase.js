@@ -91,4 +91,8 @@ InputBase.defaultProps = {
   size: 'medium',
 };
 
-export default forwardRef((props, ref) => <InputBase {...props} forwardedRef={ref} />);
+const ForwardedInputBase = forwardRef((props, ref) => <InputBase {...props} forwardedRef={ref} />);
+
+ForwardedInputBase.displayName = 'InputBase';
+
+export default ForwardedInputBase;

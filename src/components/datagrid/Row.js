@@ -28,4 +28,8 @@ Row.defaultProps = {
   backgroundColor: 'white',
 };
 
-export default forwardRef((props, ref) => <Row {...props} forwardedRef={ref} />);
+const ForwardedRow = forwardRef((props, ref) => <Row {...props} forwardedRef={ref} />);
+
+ForwardedRow.displayName = 'Row';
+
+export default ForwardedRow;

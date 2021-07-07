@@ -30,4 +30,8 @@ FooterRow.propTypes = {
   sliceTo: PropTypes.number,
 };
 
-export default forwardRef((props, ref) => <FooterRow {...props} forwardedRef={ref} />);
+const ForwardedFooterRow = forwardRef((props, ref) => <FooterRow {...props} forwardedRef={ref} />);
+
+ForwardedFooterRow.displayName = 'FooterRow';
+
+export default ForwardedFooterRow;
