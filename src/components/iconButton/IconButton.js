@@ -86,7 +86,7 @@ IconButton.propTypes = {
   /** Size of the button. */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   /** The color which the icon should have */
-  color: PropTypes.oneOf(['neutral', 'white', 'mint', 'violet', 'ruby', 'gold', 'aqua']),
+  color: PropTypes.oneOf(['neutral', 'white', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'teal']),
   /** The tint which the icon should have */
   tint: PropTypes.oneOf(['lightest', 'light', 'normal', 'dark', 'darkest']),
   /** Type of the button element. */
