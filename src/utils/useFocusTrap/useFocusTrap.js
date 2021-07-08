@@ -14,7 +14,7 @@ const FocusRing = ({ topFocusBumperRef, bottomFocusBumperRef, children }) => {
 
 const openFocusTraps = new Set();
 
-const useFocusTrap = ({ active }) => {
+const useFocusTrap = ({ active, returnFocusToSource = true }) => {
   const ref = useRef();
   const topFocusBumperRef = useRef();
   const bottomFocusBumperRef = useRef();
@@ -31,7 +31,7 @@ const useFocusTrap = ({ active }) => {
 
   useEffect(() => {
     if (active) {
-      const sourceFocusElement = document.activeElement;
+      const sourceFocusElement = returnFocusToSource && document.activeElement;
       const currentFocusRef = ref.current;
       if (!currentFocusRef) {
         return;
@@ -73,7 +73,7 @@ const useFocusTrap = ({ active }) => {
         }
       };
     }
-  }, [active]);
+  }, [active, returnFocusToSource]);
 
   return { ref, FocusRing: InternalFocusRing };
 };

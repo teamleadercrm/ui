@@ -36,9 +36,10 @@ const Popover = (props) => {
     direction,
     position,
     offsetCorrection,
+    returnFocusToSource,
   } = props;
 
-  const { ref, FocusRing } = useFocusTrap({ active });
+  const { ref, FocusRing } = useFocusTrap({ active, returnFocusToSource });
 
   const handleResize = () => {
     if (ref.current) {
@@ -160,6 +161,8 @@ Popover.propTypes = {
   tint: PropTypes.oneOf(['lightest', 'light', 'normal', 'dark', 'darkest']),
   /** The z-index of the Popover */
   zIndex: PropTypes.number,
+  /** Determines wether the focus should be returned to the source element, enabled by default in useFocusTrap */
+  returnFocusToSource: PropTypes.bool,
 };
 
 Popover.defaultProps = {
@@ -176,6 +179,7 @@ Popover.defaultProps = {
   offsetCorrection: 0,
   position: 'center',
   tint: 'lightest',
+  returnFocusToSource: true,
 };
 
 export default Popover;
