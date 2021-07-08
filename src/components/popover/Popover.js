@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
@@ -15,7 +15,6 @@ import uiUtilities from '@teamleader/ui-utilities';
 import useFocusTrap from '../../utils/useFocusTrap';
 
 const Popover = (props) => {
-  const popoverRoot = useMemo(() => document.createElement('div'), []);
   const [state, setState] = useState({ positioning: { left: 0, top: 0, maxHeight: 'initial' } });
 
   const {
@@ -51,14 +50,12 @@ const Popover = (props) => {
 
   useEffect(() => {
     const handleResizeThrottled = throttle(handleResize, 250);
-    document.body.appendChild(popoverRoot);
     events.addEventsToWindow({ resize: handleResizeThrottled, scroll: handleResizeThrottled });
 
     return function cleanup() {
       events.removeEventsFromWindow({ resize: handleResizeThrottled, scroll: handleResizeThrottled });
-      document.body.removeChild(popoverRoot);
     };
-  }, [popoverRoot, handleResize]);
+  }, [handleResize]);
 
   useEffect(() => {
     if (active) {
@@ -123,7 +120,7 @@ const Popover = (props) => {
     </Transition>
   );
 
-  return createPortal(popover, popoverRoot);
+  return createPortal(popover, document.body);
 };
 
 Popover.propTypes = {
