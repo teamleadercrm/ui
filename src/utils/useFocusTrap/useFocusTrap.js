@@ -12,10 +12,10 @@ const FocusRing = ({ topFocusBumperRef, bottomFocusBumperRef, children }) => {
   );
 };
 
-const openDialogs = new Set();
+const openFocusTraps = new Set();
 
 const useFocusTrap = ({ active, sourceRef }) => {
-  const dialogRef = useRef();
+  const ref = useRef();
   const topFocusBumperRef = useRef();
   const bottomFocusBumperRef = useRef();
 
@@ -31,51 +31,51 @@ const useFocusTrap = ({ active, sourceRef }) => {
 
   useEffect(() => {
     if (active) {
-      const currentDialogRef = dialogRef.current;
-      if (!currentDialogRef) {
+      const currentFocusRef = ref.current;
+      if (!currentFocusRef) {
         return;
       }
 
-      if (openDialogs.size > 0) {
-        document.removeEventListener('focusin', openDialogs[openDialogs.size - 1]);
+      if (openFocusTraps.size > 0) {
+        document.removeEventListener('focusin', openFocusTraps[openFocusTraps.size - 1]);
       }
 
-      focusOnFirstDescendent(currentDialogRef);
+      focusOnFirstDescendent(currentFocusRef);
 
-      const trapFocusInDialog = (event) => {
-        if (!currentDialogRef.contains(event.target)) {
+      const trapFocus = (event) => {
+        if (!currentFocusRef.contains(event.target)) {
           if (document.activeElement === event.target) {
             if (event.target === bottomFocusBumperRef.current) {
               // Reset the focus to the first element after reaching the last element
-              focusOnFirstDescendent(currentDialogRef);
+              focusOnFirstDescendent(currentFocusRef);
             } else if (event.target === topFocusBumperRef.current) {
               // Reset the focus to the last element when focusing in reverse (shift-tab)
-              focusOnLastDescendent(currentDialogRef);
+              focusOnLastDescendent(currentFocusRef);
             }
           }
         }
       };
 
-      openDialogs.add(trapFocusInDialog);
-      document.addEventListener('focusin', trapFocusInDialog, true);
+      openFocusTraps.add(trapFocus);
+      document.addEventListener('focusin', trapFocus, true);
 
       return function cleanup() {
-        document.removeEventListener('focusin', trapFocusInDialog, true);
-        openDialogs.delete(trapFocusInDialog);
+        document.removeEventListener('focusin', trapFocus, true);
+        openFocusTraps.delete(trapFocus);
 
         const currentSourceRef = sourceRef?.current;
         if (currentSourceRef) {
           currentSourceRef.focus();
         }
 
-        if (openDialogs.size > 0) {
-          document.addEventListener('focusin', openDialogs[openDialogs.size - 1]);
+        if (openFocusTraps.size > 0) {
+          document.addEventListener('focusin', openFocusTraps[openFocusTraps.size - 1]);
         }
       };
     }
   }, [active, sourceRef]);
 
-  return { dialogRef, FocusRing: InternalFocusRing };
+  return { ref, FocusRing: InternalFocusRing };
 };
 
 export default useFocusTrap;

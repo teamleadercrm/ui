@@ -10,7 +10,7 @@ import Body from './Body';
 import Footer from './Footer';
 import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
-import useFocusTrap from './useFocusTrap';
+import useFocusTrap from '../../utils/useFocusTrap';
 
 export const DialogBase = ({
   active,
@@ -23,7 +23,7 @@ export const DialogBase = ({
   scrollable,
   size,
 }) => {
-  const { dialogRef, FocusRing } = useFocusTrap({ active, sourceRef });
+  const { ref, FocusRing } = useFocusTrap({ active, sourceRef });
 
   if (!active) {
     return null;
@@ -49,7 +49,7 @@ export const DialogBase = ({
             onEscKeyDown={onEscKeyDown}
           >
             <FocusRing>
-              <div ref={dialogRef} data-teamleader-ui="dialog" className={dialogClassNames}>
+              <div ref={ref} data-teamleader-ui="dialog" className={dialogClassNames}>
                 <div className={theme['inner']}>
                   {scrollable ? (
                     <Box display="flex" flexDirection="column" overflowY="auto">
