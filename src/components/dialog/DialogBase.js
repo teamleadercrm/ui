@@ -10,8 +10,21 @@ import Body from './Body';
 import Footer from './Footer';
 import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
+import useFocusTrap from './useFocusTrap';
 
-const DialogBase = ({ active, backdrop, children, className, onEscKeyDown, onOverlayClick, scrollable, size }) => {
+const DialogBase = ({
+  active,
+  sourceRef,
+  backdrop,
+  children,
+  className,
+  onEscKeyDown,
+  onOverlayClick,
+  scrollable,
+  size,
+}) => {
+  const { dialogRef, FocusRing } = useFocusTrap({ active, sourceRef });
+
   if (!active) {
     return null;
   }
@@ -35,17 +48,19 @@ const DialogBase = ({ active, backdrop, children, className, onEscKeyDown, onOve
             onClick={onOverlayClick}
             onEscKeyDown={onEscKeyDown}
           >
-            <div data-teamleader-ui="dialog" className={dialogClassNames}>
-              <div className={theme['inner']}>
-                {scrollable ? (
-                  <Box display="flex" flexDirection="column" overflowY="auto">
-                    {children}
-                  </Box>
-                ) : (
-                  children
-                )}
+            <FocusRing>
+              <div ref={dialogRef} data-teamleader-ui="dialog" className={dialogClassNames}>
+                <div className={theme['inner']}>
+                  {scrollable ? (
+                    <Box display="flex" flexDirection="column" overflowY="auto">
+                      {children}
+                    </Box>
+                  ) : (
+                    children
+                  )}
+                </div>
               </div>
-            </div>
+            </FocusRing>
           </Overlay>
         );
       }}
@@ -58,6 +73,8 @@ const DialogBase = ({ active, backdrop, children, className, onEscKeyDown, onOve
 DialogBase.propTypes = {
   /** If true, the dialog will show on screen. */
   active: PropTypes.bool,
+  /** A reference to the source element that triggered the dialog, will get focused when closing the dialog */
+  sourceRef: PropTypes.any,
   /** Specify which backdrop the dialog should show. */
   backdrop: PropTypes.string,
   /** The content to display inside the dialog. */
