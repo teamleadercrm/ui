@@ -13,19 +13,7 @@ import uiUtilities from '@teamleader/ui-utilities';
 
 class DialogBase extends PureComponent {
   render() {
-    const {
-      active,
-      backdrop,
-      children,
-      className,
-      onEscKeyDown,
-      onOverlayClick,
-      onOverlayMouseDown,
-      onOverlayMouseMove,
-      onOverlayMouseUp,
-      scrollable,
-      size,
-    } = this.props;
+    const { active, backdrop, children, className, onEscKeyDown, onOverlayClick, scrollable, size } = this.props;
 
     if (!active) {
       return null;
@@ -49,9 +37,6 @@ class DialogBase extends PureComponent {
               className={theme['overlay']}
               onClick={onOverlayClick}
               onEscKeyDown={onEscKeyDown}
-              onMouseDown={onOverlayMouseDown}
-              onMouseMove={onOverlayMouseMove}
-              onMouseUp={onOverlayMouseUp}
             >
               <div data-teamleader-ui="dialog" className={dialogClassNames}>
                 <div className={theme['inner']}>
@@ -87,12 +72,6 @@ DialogBase.propTypes = {
   onEscKeyDown: PropTypes.func,
   /** Callback function that is fired when the mouse clicks on the overlay. */
   onOverlayClick: PropTypes.func,
-  /** Callback function that is fired when the mouse button is pressed on the overlay. */
-  onOverlayMouseDown: PropTypes.func,
-  /** Callback function that is fired when the mouse moves over the overlay. */
-  onOverlayMouseMove: PropTypes.func,
-  /** Callback function that is fired when the mouse button is released from the overlay. */
-  onOverlayMouseUp: PropTypes.func,
   /** If true, the content of the dialog will be scrollable when it exceeds the available height. */
   scrollable: PropTypes.bool,
   /** The size of the dialog. */

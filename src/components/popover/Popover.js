@@ -64,9 +64,6 @@ class Popover extends PureComponent {
       minWidth,
       onOverlayClick,
       onEscKeyDown,
-      onOverlayMouseDown,
-      onOverlayMouseMove,
-      onOverlayMouseUp,
       tint,
       zIndex,
     } = this.props;
@@ -93,9 +90,6 @@ class Popover extends PureComponent {
                 lockScroll={lockScroll}
                 onClick={onOverlayClick}
                 onEscKeyDown={onEscKeyDown}
-                onMouseDown={onOverlayMouseDown}
-                onMouseMove={onOverlayMouseMove}
-                onMouseUp={onOverlayMouseUp}
               >
                 <div
                   data-teamleader-ui="popover"
@@ -162,12 +156,6 @@ Popover.propTypes = {
   onEscKeyDown: PropTypes.func,
   /** The function executed, when the Overlay is clicked. */
   onOverlayClick: PropTypes.func,
-  /** The function executed, when the mouse is down on the Overlay. */
-  onOverlayMouseDown: PropTypes.func,
-  /** The function executed, when the mouse is being moved over the Overlay. */
-  onOverlayMouseMove: PropTypes.func,
-  /** The function executed, when the mouse is up on the Overlay. */
-  onOverlayMouseUp: PropTypes.func,
   /** The position in which the Popover is rendered, is overridden with the another position if the Popover cannot be entirely displayed in the current position. */
   position: PropTypes.oneOf(['start', 'center', 'end']),
   /** The tint of the background colour of the Popover. */
