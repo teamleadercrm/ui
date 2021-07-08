@@ -26,4 +26,8 @@ Body.propTypes = {
   scrollable: PropTypes.bool,
 };
 
-export default forwardRef((props, ref) => <Body {...props} forwardedRef={ref} />);
+const ForwardedBody = forwardRef((props, ref) => <Body {...props} forwardedRef={ref} />);
+
+ForwardedBody.displayName = 'Body';
+
+export default ForwardedBody;

@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { forwardRef, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 import SingleLineInputBase from './SingleLineInputBase';
@@ -23,10 +23,11 @@ class Input extends PureComponent {
   };
 
   render() {
-    const { onChange, ...others } = this.props;
+    const { onChange, forwardedRef, ...others } = this.props;
 
     return (
       <SingleLineInputBase
+        ref={forwardedRef}
         value={this.state.value}
         onChange={(event) => {
           this.setState({ value: event.currentTarget.value });
@@ -69,4 +70,8 @@ Input.defaultProps = {
   type: 'text',
 };
 
-export default Input;
+const ForwardedInput = forwardRef((props, ref) => <Input {...props} forwardedRef={ref} />);
+
+ForwardedInput.displayName = 'Input';
+
+export default ForwardedInput;

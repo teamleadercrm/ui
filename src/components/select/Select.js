@@ -423,4 +423,8 @@ Select.defaultProps = {
   width: '100%',
 };
 
-export default forwardRef((props, ref) => <Select {...props} forwardedRef={ref} />);
+const ForwardedSelect = forwardRef((props, ref) => <Select {...props} forwardedRef={ref} />);
+
+ForwardedSelect.displayName = 'Select';
+
+export default ForwardedSelect;

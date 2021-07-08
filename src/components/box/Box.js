@@ -206,4 +206,8 @@ Box.defaultProps = {
   padding: 0,
 };
 
-export default forwardRef((props, ref) => <Box {...props} forwardedRef={ref} />);
+const ForwardedBox = forwardRef((props, ref) => <Box {...props} forwardedRef={ref} />);
+
+ForwardedBox.displayName = 'Box';
+
+export default ForwardedBox;

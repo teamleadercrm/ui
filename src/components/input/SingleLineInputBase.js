@@ -124,4 +124,8 @@ SingleLineInputBase.propTypes = {
   noInputStyling: PropTypes.bool,
 };
 
-export default forwardRef((props, ref) => <SingleLineInputBase {...props} forwardedRef={ref} />);
+const ForwardedSingleInputBase = forwardRef((props, ref) => <SingleLineInputBase {...props} forwardedRef={ref} />);
+
+ForwardedSingleInputBase.displayName = 'SingleLineInputBase';
+
+export default ForwardedSingleInputBase;
