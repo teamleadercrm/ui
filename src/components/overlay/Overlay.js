@@ -3,8 +3,11 @@ import PropTypes from 'prop-types';
 import Transition from 'react-transition-group/Transition';
 import cx from 'classnames';
 import theme from './theme.css';
+import Box from '../box';
 
 class Overlay extends PureComponent {
+  innerWrapperRef = React.createRef();
+
   componentDidMount() {
     const { active, lockScroll } = this.props;
 
@@ -46,7 +49,8 @@ class Overlay extends PureComponent {
   handleClick = (event) => {
     event.preventDefault();
     event.stopPropagation();
-    if (this.props.onClick) {
+    // Only register clicks outside of the children
+    if (this.props.onClick && !this.innerWrapperRef.current?.contains(event.target)) {
       this.props.onClick(event);
     }
   };
@@ -68,8 +72,8 @@ class Overlay extends PureComponent {
             <div
               data-teamleader-ui="overlay"
               {...other}
-              onClick={this.handleClick}
               onKeyDown={this.handleEscKey}
+              onClick={this.handleClick}
               className={cx(
                 theme['overlay'],
                 theme[backdrop],
@@ -79,7 +83,9 @@ class Overlay extends PureComponent {
                 className,
               )}
             >
-              {this.props.children}
+              <Box display="inline" ref={this.innerWrapperRef}>
+                {this.props.children}
+              </Box>
             </div>
           );
         }}
