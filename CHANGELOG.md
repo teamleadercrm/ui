@@ -13,6 +13,7 @@
 ### Changed
 
 - [BREAKING] `Overlay`: The Overlay component should contain children instead of being positioned adjacent to children ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1729](https://github.com/teamleadercrm/ui/pull/1729))
+- `Overlay`: lower the color opacity of the overlay ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1729](https://github.com/teamleadercrm/ui/pull/1729))
 
 ### Deprecated
 
