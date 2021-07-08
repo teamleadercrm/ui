@@ -16,7 +16,6 @@ import {
   Link,
   MenuItem,
   Popover,
-  QTip,
   Select,
   StatusBullet,
   TextBody,
@@ -168,7 +167,6 @@ export const zIndexes = () => {
   const [popoverActive, setPopoverActive] = useState(false);
   const [popoverAnchorEl, setPopoverAnchorEl] = useState(undefined);
   const [dialogActive, setDialogActive] = useState(false);
-  const [qTipActive, setQTipActive] = useState(false);
   const [selectedDate, setSelectedDate] = useState(preSelectedDate);
 
   const hidePopover = () => {
@@ -184,31 +182,12 @@ export const zIndexes = () => {
     setPopoverActive(true);
   };
 
-  const showHideQTip = () => {
-    setQTipActive(!qTipActive);
-  };
-
   const handleDatePickerDateChanged = (selectedDate) => {
     setSelectedDate(selectedDate);
   };
 
   return (
     <Box>
-      <QTip
-        active={qTipActive}
-        icon={<IconIdeaMediumOutline />}
-        onChange={showHideQTip}
-        onEscKeyDown={showHideQTip}
-        onOverlayClick={showHideQTip}
-      >
-        <TextBody color="teal">
-          Lorem ipsum dolor sit amet, consectetur{' '}
-          <Link href="#" inherit={false}>
-            adipiscing
-          </Link>{' '}
-          elit.
-        </TextBody>
-      </QTip>
       <ButtonGroup marginBottom={5}>
         <Button label="Open Dialog" onClick={showHideDialog} />
         <Button label="Open Poppover" onClick={showPopover} />

@@ -70,7 +70,6 @@ import Toggle from './components/toggle';
 import ValidationText, { ErrorText, HelpText } from './components/validationText';
 import Label from './components/label';
 import Tooltip from './components/tooltip';
-import QTip from './components/qTip';
 import ProgressTracker from './components/progressTracker';
 import Widget from './components/widget';
 import WysiwygEditor from './components/wysiwygEditor';
@@ -192,7 +191,6 @@ export {
   ValidationText,
   Widget,
   WysiwygEditor,
-  QTip,
   COLOR,
   COLORS,
   TINTS,
