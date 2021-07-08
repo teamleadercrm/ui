@@ -6,20 +6,14 @@ import theme from './theme.css';
 
 class Overlay extends PureComponent {
   componentDidMount() {
-    const { active, lockScroll, onEscKeyDown } = this.props;
-    if (onEscKeyDown) {
-      document.body.addEventListener('keydown', this.handleEscKey);
-    }
+    const { active, lockScroll } = this.props;
+
     if (active && lockScroll) {
       document.body.style.overflow = 'hidden';
     }
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.active && !prevProps.active && this.props.onEscKeyDown) {
-      document.body.addEventListener('keydown', this.handleEscKey);
-    }
-
     if (this.props.lockScroll) {
       const becomingActive = this.props.active && !prevProps.active;
       const becomingUnactive = !this.props.active && prevProps.active;
@@ -39,10 +33,6 @@ class Overlay extends PureComponent {
       if (!document.querySelectorAll('[data-teamleader-ui="overlay"]')[1]) {
         document.body.style.overflow = '';
       }
-    }
-
-    if (this.props.onEscKeyDown) {
-      document.body.removeEventListener('keydown', this.handleEscKey);
     }
   }
 
@@ -78,6 +68,7 @@ class Overlay extends PureComponent {
               data-teamleader-ui="overlay"
               {...other}
               onClick={this.handleClick}
+              onKeyDown={this.handleEscKey}
               className={cx(
                 theme['overlay'],
                 theme[backdrop],
