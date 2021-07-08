@@ -42,7 +42,7 @@ export const getFirstDayOfWeek = (locale = defaultLocale) => {
 
 export const getMonths = (locale = defaultLocale) => Info.months('long', { locale });
 
-export const formatDate = (date, locale = defaultLocale, format = DateTime.DATE_SHORT) =>
+export const formatDate = (date, format = DateTime.DATE_SHORT, locale = defaultLocale) =>
   DateTime.fromJSDate(date).setLocale(locale).toLocaleString(format);
 
 export const parseDate = (string, format = DateTime.DATE_SHORT, locale = defaultLocale) =>
