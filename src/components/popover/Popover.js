@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
@@ -12,14 +12,15 @@ import { getMaxHeight } from './sizeCalculation';
 import Box from '../box';
 import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
+import useFocusTrap from '../../utils/useFocusTrap';
 
 const Popover = (props) => {
-  const popoverRef = useRef();
   const popoverRoot = useMemo(() => document.createElement('div'), []);
   const [state, setState] = useState({ positioning: { left: 0, top: 0, maxHeight: 'initial' } });
 
   const {
     active,
+    sourceRef,
     backdrop,
     children,
     className,
@@ -39,10 +40,12 @@ const Popover = (props) => {
     offsetCorrection,
   } = props;
 
+  const { ref, FocusRing } = useFocusTrap({ active, sourceRef });
+
   const handleResize = () => {
-    if (popoverRef.current) {
+    if (ref.current) {
       setState({
-        positioning: calculatePositions(anchorEl, popoverRef.current, direction, position, offsetCorrection),
+        positioning: calculatePositions(anchorEl, ref.current, direction, position, offsetCorrection),
       });
     }
   };
@@ -89,29 +92,31 @@ const Popover = (props) => {
               onClick={onOverlayClick}
               onEscKeyDown={onEscKeyDown}
             >
-              <div
-                data-teamleader-ui="popover"
-                className={cx(uiUtilities['box-shadow-200'], theme['popover'], className)}
-                style={{ left: `${left}px`, top: `${top}px`, maxWidth: fullWidth ? '100vw' : maxWidth, minWidth }}
-                ref={popoverRef}
-              >
-                <Box
-                  className={theme['inner']}
-                  display="flex"
-                  flex="1 1 auto"
-                  flexDirection="column"
-                  style={{ maxHeight: getMaxHeight(fullHeight, maxHeight) }}
+              <FocusRing>
+                <div
+                  data-teamleader-ui="popover"
+                  className={cx(uiUtilities['box-shadow-200'], theme['popover'], className)}
+                  style={{ left: `${left}px`, top: `${top}px`, maxWidth: fullWidth ? '100vw' : maxWidth, minWidth }}
+                  ref={ref}
                 >
-                  {children}
-                </Box>
-                <ReactResizeDetector
-                  handleHeight
-                  handleWidth
-                  onResize={handleResize}
-                  refreshMode="throttle"
-                  refreshRate={250}
-                />
-              </div>
+                  <Box
+                    className={theme['inner']}
+                    display="flex"
+                    flex="1 1 auto"
+                    flexDirection="column"
+                    style={{ maxHeight: getMaxHeight(fullHeight, maxHeight) }}
+                  >
+                    {children}
+                  </Box>
+                  <ReactResizeDetector
+                    handleHeight
+                    handleWidth
+                    onResize={handleResize}
+                    refreshMode="throttle"
+                    refreshRate={250}
+                  />
+                </div>
+              </FocusRing>
             </Overlay>
           </div>
         );
