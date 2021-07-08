@@ -63,16 +63,15 @@ const useFocusTrap = ({ active, sourceRef }) => {
         document.removeEventListener('focusin', trapFocusInDialog, true);
         openDialogs.delete(trapFocusInDialog);
 
+        const currentSourceRef = sourceRef?.current;
+        if (currentSourceRef) {
+          currentSourceRef.focus();
+        }
+
         if (openDialogs.size > 0) {
           document.addEventListener('focusin', openDialogs[openDialogs.size - 1]);
         }
       };
-    } else {
-      const currentSourceRef = sourceRef?.current;
-      // sourceRef will be undefined on initial render, so this is a safe operation
-      if (currentSourceRef) {
-        currentSourceRef.focus();
-      }
     }
   }, [active, sourceRef]);
 
