@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Transition from 'react-transition-group/Transition';
 import cx from 'classnames';
 import theme from './theme.css';
-import Box from '../box';
 
 class Overlay extends PureComponent {
   innerWrapperRef = React.createRef();
@@ -83,9 +82,7 @@ class Overlay extends PureComponent {
                 className,
               )}
             >
-              <Box display="inline" ref={this.innerWrapperRef}>
-                {this.props.children}
-              </Box>
+              <div ref={this.innerWrapperRef}>{this.props.children}</div>
             </div>
           );
         }}
