@@ -12,7 +12,7 @@ import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
 import useFocusTrap from './useFocusTrap';
 
-const DialogBase = ({
+export const DialogBase = ({
   active,
   sourceRef,
   backdrop,
