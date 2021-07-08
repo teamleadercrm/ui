@@ -31,28 +31,28 @@ class DialogBase extends PureComponent {
       return null;
     }
 
-    const dialogClassNames = cx(uiUtilities['box-shadow-300'], theme['dialog-base'], theme[`is-${size}`], className);
-
     const dialog = (
       <Transition timeout={0} in={active} appear>
         {(state) => {
+          const dialogClassNames = cx(
+            uiUtilities['box-shadow-300'],
+            theme['dialog-base'],
+            theme[`is-${size}`],
+            { [theme['is-entering']]: state === 'entering', [theme['is-entered']]: state === 'entered' },
+            className,
+          );
+
           return (
-            <div
-              className={cx(theme['wrapper'], {
-                [theme['is-entering']]: state === 'entering',
-                [theme['is-entered']]: state === 'entered',
-              })}
+            <Overlay
+              active={active}
+              backdrop={backdrop}
+              className={theme['overlay']}
+              onClick={onOverlayClick}
+              onEscKeyDown={onEscKeyDown}
+              onMouseDown={onOverlayMouseDown}
+              onMouseMove={onOverlayMouseMove}
+              onMouseUp={onOverlayMouseUp}
             >
-              <Overlay
-                active={active}
-                backdrop={backdrop}
-                className={theme['overlay']}
-                onClick={onOverlayClick}
-                onEscKeyDown={onEscKeyDown}
-                onMouseDown={onOverlayMouseDown}
-                onMouseMove={onOverlayMouseMove}
-                onMouseUp={onOverlayMouseUp}
-              />
               <div data-teamleader-ui="dialog" className={dialogClassNames}>
                 <div className={theme['inner']}>
                   {scrollable ? (
@@ -64,7 +64,7 @@ class DialogBase extends PureComponent {
                   )}
                 </div>
               </div>
-            </div>
+            </Overlay>
           );
         }}
       </Transition>

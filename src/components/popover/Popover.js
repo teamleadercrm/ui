@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import throttle from 'lodash.throttle';
-import InjectOverlay from '../overlay';
+import Overlay from '../overlay';
 import Transition from 'react-transition-group/Transition';
 import ReactResizeDetector from 'react-resize-detector';
 import { events } from '../utils';
@@ -86,7 +86,7 @@ class Popover extends PureComponent {
               })}
               style={{ zIndex }}
             >
-              <InjectOverlay
+              <Overlay
                 active={active}
                 backdrop={backdrop}
                 className={theme['overlay']}
@@ -96,30 +96,31 @@ class Popover extends PureComponent {
                 onMouseDown={onOverlayMouseDown}
                 onMouseMove={onOverlayMouseMove}
                 onMouseUp={onOverlayMouseUp}
-              />
-              <div
-                data-teamleader-ui="popover"
-                className={cx(uiUtilities['box-shadow-200'], theme['popover'], className)}
-                style={{ left: `${left}px`, top: `${top}px`, maxWidth: fullWidth ? '100vw' : maxWidth, minWidth }}
-                ref={this.popoverNode}
               >
-                <Box
-                  className={theme['inner']}
-                  display="flex"
-                  flex="1 1 auto"
-                  flexDirection="column"
-                  style={{ maxHeight: getMaxHeight(fullHeight, maxHeight) }}
+                <div
+                  data-teamleader-ui="popover"
+                  className={cx(uiUtilities['box-shadow-200'], theme['popover'], className)}
+                  style={{ left: `${left}px`, top: `${top}px`, maxWidth: fullWidth ? '100vw' : maxWidth, minWidth }}
+                  ref={this.popoverNode}
                 >
-                  {children}
-                </Box>
-                <ReactResizeDetector
-                  handleHeight
-                  handleWidth
-                  onResize={this.handleResize}
-                  refreshMode="throttle"
-                  refreshRate={250}
-                />
-              </div>
+                  <Box
+                    className={theme['inner']}
+                    display="flex"
+                    flex="1 1 auto"
+                    flexDirection="column"
+                    style={{ maxHeight: getMaxHeight(fullHeight, maxHeight) }}
+                  >
+                    {children}
+                  </Box>
+                  <ReactResizeDetector
+                    handleHeight
+                    handleWidth
+                    onResize={this.handleResize}
+                    refreshMode="throttle"
+                    refreshRate={250}
+                  />
+                </div>
+              </Overlay>
             </div>
           );
         }}
