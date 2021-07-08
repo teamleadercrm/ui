@@ -12,15 +12,21 @@
 
 ### Changed
 
+- [BREAKING] `Overlay`: The Overlay component should contain children instead of being positioned adjacent to children ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1729](https://github.com/teamleadercrm/ui/pull/1729))
+
 ### Deprecated
 
 ### Removed
 
+- [BREAKING] `QTip`: This component has been removed ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1729](https://github.com/teamleadercrm/ui/pull/1729))
+
 ### Fixed
 
 - `FilterSelection` Add Keyboard accessibility, remove unused style and fix clear handler ([@JorenSaeyTL](https://github.com/JorenSaeyTL) in [#1721](https://github.com/teamleadercrm/ui/pull/1721))
-- `FilterSelection` Fixed height and hover state ([@JorenSaeyTL](https://github.com/JorenSaeyTL) in [#1722](https://github.com/teamleadercrm/ui/pull/1722)
+- `FilterSelection` Fixed height and hover state ([@JorenSaeyTL](https://github.com/JorenSaeyTL) in [#1722](https://github.com/teamleadercrm/ui/pull/1722))
 - Display names on multiple components (for debugging) ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1727))
+- `Overlay`: Pressing ESC now closes the relevant overlay, instead of all overlays ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1729](https://github.com/teamleadercrm/ui/pull/1729))
+- `DatePicker`: `formatDate` util function signature ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1729](https://github.com/teamleadercrm/ui/pull/1729))
 
 ### Dependency updates
 
