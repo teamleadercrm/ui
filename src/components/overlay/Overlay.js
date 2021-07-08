@@ -79,7 +79,9 @@ class Overlay extends PureComponent {
                 },
                 className,
               )}
-            />
+            >
+              {this.props.children}
+            </div>
           );
         }}
       </Transition>
