@@ -74,7 +74,6 @@ class Overlay extends PureComponent {
                 theme['overlay'],
                 theme[backdrop],
                 {
-                  [theme['is-entering']]: state === 'entering',
                   [theme['is-entered']]: state === 'entered',
                 },
                 className,
