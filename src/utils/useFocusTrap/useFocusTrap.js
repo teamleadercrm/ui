@@ -14,7 +14,7 @@ const FocusRing = ({ topFocusBumperRef, bottomFocusBumperRef, children }) => {
 
 const openFocusTraps = new Set();
 
-const useFocusTrap = ({ active, returnFocusToSource = true }) => {
+const useFocusTrap = ({ active, returnFocusToSource = true, initialFocusRef }) => {
   const ref = useRef();
   const topFocusBumperRef = useRef();
   const bottomFocusBumperRef = useRef();
@@ -41,7 +41,12 @@ const useFocusTrap = ({ active, returnFocusToSource = true }) => {
         document.removeEventListener('focusin', openFocusTraps[openFocusTraps.size - 1]);
       }
 
-      focusOnFirstDescendent(currentFocusRef);
+      if (typeof initialFocusRef !== 'undefined') {
+        const currentInitialFocusRef = initialFocusRef.current;
+        currentInitialFocusRef && focusOnFirstDescendent(currentInitialFocusRef);
+      } else {
+        focusOnFirstDescendent(currentFocusRef);
+      }
 
       const trapFocus = (event) => {
         if (!currentFocusRef.contains(event.target)) {
