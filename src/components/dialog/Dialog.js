@@ -59,8 +59,6 @@ class Dialog extends PureComponent {
 Dialog.propTypes = {
   /** If true, the dialog will show on screen. */
   active: PropTypes.bool,
-  /** A reference to the source element that triggered the dialog, will get focused when closing the dialog */
-  sourceRef: PropTypes.any,
   /** The content to display inside the dialog. */
   children: PropTypes.any,
   /** A class name for the wrapper to apply custom styles. */

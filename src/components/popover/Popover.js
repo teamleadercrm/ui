@@ -20,7 +20,6 @@ const Popover = (props) => {
 
   const {
     active,
-    sourceRef,
     backdrop,
     children,
     className,
@@ -40,7 +39,7 @@ const Popover = (props) => {
     offsetCorrection,
   } = props;
 
-  const { ref, FocusRing } = useFocusTrap({ active, sourceRef });
+  const { ref, FocusRing } = useFocusTrap({ active });
 
   const handleResize = () => {
     if (ref.current) {

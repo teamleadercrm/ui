@@ -88,7 +88,6 @@ const FocusStates = () => {
       <Dialog
         title="Primary dialog"
         active={primaryDialogActive}
-        sourceRef={firstDialogButtonRef}
         onCloseClick={closePrimaryDialog}
         onEscKeyDown={closePrimaryDialog}
         onOverlayClick={closePrimaryDialog}
@@ -103,7 +102,6 @@ const FocusStates = () => {
           <Dialog
             title="Secondary dialog"
             active={secondaryDialogActive}
-            sourceRef={secondDialogButtonRef}
             onCloseClick={closeSecondaryDialog}
             onEscKeyDown={closeSecondaryDialog}
             onOverlayClick={closeSecondaryDialog}

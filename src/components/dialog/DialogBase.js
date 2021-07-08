@@ -14,7 +14,6 @@ import useFocusTrap from '../../utils/useFocusTrap';
 
 export const DialogBase = ({
   active,
-  sourceRef,
   backdrop,
   children,
   className,
@@ -23,7 +22,7 @@ export const DialogBase = ({
   scrollable,
   size,
 }) => {
-  const { ref, FocusRing } = useFocusTrap({ active, sourceRef });
+  const { ref, FocusRing } = useFocusTrap({ active });
 
   if (!active) {
     return null;
@@ -73,8 +72,6 @@ export const DialogBase = ({
 DialogBase.propTypes = {
   /** If true, the dialog will show on screen. */
   active: PropTypes.bool,
-  /** A reference to the source element that triggered the dialog, will get focused when closing the dialog */
-  sourceRef: PropTypes.any,
   /** Specify which backdrop the dialog should show. */
   backdrop: PropTypes.string,
   /** The content to display inside the dialog. */
