@@ -38,6 +38,7 @@ class Overlay extends PureComponent {
 
   handleEscKey = (e) => {
     if (this.props.active && this.props.onEscKeyDown && e.which === 27) {
+      e.stopPropagation();
       this.props.onEscKeyDown(e);
     }
   };
