@@ -8,7 +8,7 @@ class Body extends PureComponent {
     const { scrollable, children, forwardedRef, ...rest } = this.props;
 
     if (!scrollable) {
-      return children;
+      return <div ref={forwardedRef}>{children}</div>;
     }
 
     return (

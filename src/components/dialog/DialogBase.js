@@ -21,8 +21,9 @@ export const DialogBase = ({
   onOverlayClick,
   scrollable,
   size,
+  initialFocusRef,
 }) => {
-  const { ref, FocusRing } = useFocusTrap({ active });
+  const { ref, FocusRing } = useFocusTrap({ active, initialFocusRef });
 
   if (!active) {
     return null;
@@ -86,6 +87,8 @@ DialogBase.propTypes = {
   scrollable: PropTypes.bool,
   /** The size of the dialog. */
   size: PropTypes.oneOf(['small', 'medium', 'large', 'fullscreen']),
+  /** The initial part of the dialog where the focus will be set, useful to avoid focusing on the close button */
+  initialFocusRef: PropTypes.any,
 };
 
 DialogBase.defaultProps = {
