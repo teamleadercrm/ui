@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { IconWarningBadgedMediumOutline } from '@teamleader/ui-icons';
 import { Box, Button, Dialog, TextBody } from '../../index';
