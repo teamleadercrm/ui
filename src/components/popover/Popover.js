@@ -39,7 +39,7 @@ const Popover = (props) => {
     returnFocusToSource,
   } = props;
 
-  const { ref, FocusRing } = useFocusTrap({ active, returnFocusToSource });
+  const { ref, FocusRing } = useFocusTrap({ active, returnFocusToSource, initialFocusRef: false });
 
   const handleResize = () => {
     if (ref.current) {
