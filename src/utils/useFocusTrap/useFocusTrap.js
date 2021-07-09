@@ -14,6 +14,11 @@ const FocusRing = ({ topFocusBumperRef, bottomFocusBumperRef, children }) => {
 
 const openFocusTraps = new Set();
 
+const getLastItemInSet = (set) => {
+  const array = Array.from(set);
+  return array[array.length - 1];
+};
+
 const useFocusTrap = ({ active, returnFocusToSource = true, initialFocusRef }) => {
   const ref = useRef();
   const topFocusBumperRef = useRef();
@@ -38,25 +43,28 @@ const useFocusTrap = ({ active, returnFocusToSource = true, initialFocusRef }) =
       }
 
       if (openFocusTraps.size > 0) {
-        document.removeEventListener('focusin', openFocusTraps[openFocusTraps.size - 1]);
+        document.removeEventListener('focusin', getLastItemInSet(openFocusTraps), true);
       }
 
-      if (typeof initialFocusRef !== 'undefined') {
+      if (initialFocusRef) {
         const currentInitialFocusRef = initialFocusRef.current;
         currentInitialFocusRef && focusOnFirstDescendent(currentInitialFocusRef);
-      } else {
+      } else if (typeof initialFocusRef === 'undefined') {
         focusOnFirstDescendent(currentFocusRef);
+      } else {
+        focusOnFirstDescendent(topFocusBumperRef.current);
       }
 
       const trapFocus = (event) => {
         if (!currentFocusRef.contains(event.target)) {
           if (document.activeElement === event.target) {
-            if (event.target === bottomFocusBumperRef.current) {
-              // Reset the focus to the first element after reaching the last element
-              focusOnFirstDescendent(currentFocusRef);
-            } else if (event.target === topFocusBumperRef.current) {
+            if (event.target === topFocusBumperRef.current) {
               // Reset the focus to the last element when focusing in reverse (shift-tab)
               focusOnLastDescendent(currentFocusRef);
+            } else {
+              // Reset the focus to the first element after reaching
+              // the last element or any other element outside of the focus trap
+              focusOnFirstDescendent(currentFocusRef);
             }
           }
         }
@@ -74,11 +82,11 @@ const useFocusTrap = ({ active, returnFocusToSource = true, initialFocusRef }) =
         }
 
         if (openFocusTraps.size > 0) {
-          document.addEventListener('focusin', openFocusTraps[openFocusTraps.size - 1]);
+          document.addEventListener('focusin', getLastItemInSet(openFocusTraps), true);
         }
       };
     }
-  }, [active, returnFocusToSource]);
+  }, [active, returnFocusToSource, ref, initialFocusRef]);
 
   return { ref, FocusRing: InternalFocusRing };
 };
