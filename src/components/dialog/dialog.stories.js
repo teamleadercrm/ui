@@ -63,8 +63,6 @@ DefaultStory.args = {
 const FocusStates = () => {
   const [primaryDialogActive, setPrimaryDialogActive] = useState(false);
   const [secondaryDialogActive, setSecondaryDialogActive] = useState(false);
-  const firstDialogButtonRef = useRef();
-  const secondDialogButtonRef = useRef();
 
   const closePrimaryDialog = () => {
     setPrimaryDialogActive(false);
@@ -84,7 +82,7 @@ const FocusStates = () => {
 
   return (
     <Box>
-      <Button ref={firstDialogButtonRef} onClick={openPrimaryDialog} label="Open a dialog" />
+      <Button onClick={openPrimaryDialog} label="Open a dialog" />
       <Dialog
         title="Primary dialog"
         active={primaryDialogActive}
@@ -98,7 +96,7 @@ const FocusStates = () => {
       >
         <Box padding={4}>
           <Input />
-          <Button ref={secondDialogButtonRef} onClick={openSecondaryDialog} label="Open secondary dialog" />
+          <Button onClick={openSecondaryDialog} label="Open secondary dialog" />
           <Dialog
             title="Secondary dialog"
             active={secondaryDialogActive}
