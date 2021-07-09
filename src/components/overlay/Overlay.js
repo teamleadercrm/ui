@@ -5,21 +5,17 @@ import cx from 'classnames';
 import theme from './theme.css';
 
 class Overlay extends PureComponent {
+  innerWrapperRef = React.createRef();
+
   componentDidMount() {
-    const { active, lockScroll, onEscKeyDown } = this.props;
-    if (onEscKeyDown) {
-      document.body.addEventListener('keydown', this.handleEscKey);
-    }
+    const { active, lockScroll } = this.props;
+
     if (active && lockScroll) {
       document.body.style.overflow = 'hidden';
     }
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.active && !prevProps.active && this.props.onEscKeyDown) {
-      document.body.addEventListener('keydown', this.handleEscKey);
-    }
-
     if (this.props.lockScroll) {
       const becomingActive = this.props.active && !prevProps.active;
       const becomingUnactive = !this.props.active && prevProps.active;
@@ -40,14 +36,11 @@ class Overlay extends PureComponent {
         document.body.style.overflow = '';
       }
     }
-
-    if (this.props.onEscKeyDown) {
-      document.body.removeEventListener('keydown', this.handleEscKey);
-    }
   }
 
   handleEscKey = (e) => {
     if (this.props.active && this.props.onEscKeyDown && e.which === 27) {
+      e.stopPropagation();
       this.props.onEscKeyDown(e);
     }
   };
@@ -55,7 +48,8 @@ class Overlay extends PureComponent {
   handleClick = (event) => {
     event.preventDefault();
     event.stopPropagation();
-    if (this.props.onClick) {
+    // Only register clicks outside of the children
+    if (this.props.onClick && !this.innerWrapperRef.current?.contains(event.target)) {
       this.props.onClick(event);
     }
   };
@@ -77,17 +71,19 @@ class Overlay extends PureComponent {
             <div
               data-teamleader-ui="overlay"
               {...other}
+              onKeyDown={this.handleEscKey}
               onClick={this.handleClick}
               className={cx(
                 theme['overlay'],
                 theme[backdrop],
                 {
-                  [theme['is-entering']]: state === 'entering',
                   [theme['is-entered']]: state === 'entered',
                 },
                 className,
               )}
-            />
+            >
+              <div ref={this.innerWrapperRef}>{this.props.children}</div>
+            </div>
           );
         }}
       </Transition>

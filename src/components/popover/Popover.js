@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import throttle from 'lodash.throttle';
-import InjectOverlay from '../overlay';
+import Overlay from '../overlay';
 import Transition from 'react-transition-group/Transition';
 import ReactResizeDetector from 'react-resize-detector';
 import { events } from '../utils';
@@ -64,9 +64,6 @@ class Popover extends PureComponent {
       minWidth,
       onOverlayClick,
       onEscKeyDown,
-      onOverlayMouseDown,
-      onOverlayMouseMove,
-      onOverlayMouseUp,
       tint,
       zIndex,
     } = this.props;
@@ -86,40 +83,38 @@ class Popover extends PureComponent {
               })}
               style={{ zIndex }}
             >
-              <InjectOverlay
+              <Overlay
                 active={active}
                 backdrop={backdrop}
                 className={theme['overlay']}
                 lockScroll={lockScroll}
                 onClick={onOverlayClick}
                 onEscKeyDown={onEscKeyDown}
-                onMouseDown={onOverlayMouseDown}
-                onMouseMove={onOverlayMouseMove}
-                onMouseUp={onOverlayMouseUp}
-              />
-              <div
-                data-teamleader-ui="popover"
-                className={cx(uiUtilities['box-shadow-200'], theme['popover'], className)}
-                style={{ left: `${left}px`, top: `${top}px`, maxWidth: fullWidth ? '100vw' : maxWidth, minWidth }}
-                ref={this.popoverNode}
               >
-                <Box
-                  className={theme['inner']}
-                  display="flex"
-                  flex="1 1 auto"
-                  flexDirection="column"
-                  style={{ maxHeight: getMaxHeight(fullHeight, maxHeight) }}
+                <div
+                  data-teamleader-ui="popover"
+                  className={cx(uiUtilities['box-shadow-200'], theme['popover'], className)}
+                  style={{ left: `${left}px`, top: `${top}px`, maxWidth: fullWidth ? '100vw' : maxWidth, minWidth }}
+                  ref={this.popoverNode}
                 >
-                  {children}
-                </Box>
-                <ReactResizeDetector
-                  handleHeight
-                  handleWidth
-                  onResize={this.handleResize}
-                  refreshMode="throttle"
-                  refreshRate={250}
-                />
-              </div>
+                  <Box
+                    className={theme['inner']}
+                    display="flex"
+                    flex="1 1 auto"
+                    flexDirection="column"
+                    style={{ maxHeight: getMaxHeight(fullHeight, maxHeight) }}
+                  >
+                    {children}
+                  </Box>
+                  <ReactResizeDetector
+                    handleHeight
+                    handleWidth
+                    onResize={this.handleResize}
+                    refreshMode="throttle"
+                    refreshRate={250}
+                  />
+                </div>
+              </Overlay>
             </div>
           );
         }}
@@ -161,12 +156,6 @@ Popover.propTypes = {
   onEscKeyDown: PropTypes.func,
   /** The function executed, when the Overlay is clicked. */
   onOverlayClick: PropTypes.func,
-  /** The function executed, when the mouse is down on the Overlay. */
-  onOverlayMouseDown: PropTypes.func,
-  /** The function executed, when the mouse is being moved over the Overlay. */
-  onOverlayMouseMove: PropTypes.func,
-  /** The function executed, when the mouse is up on the Overlay. */
-  onOverlayMouseUp: PropTypes.func,
   /** The position in which the Popover is rendered, is overridden with the another position if the Popover cannot be entirely displayed in the current position. */
   position: PropTypes.oneOf(['start', 'center', 'end']),
   /** The tint of the background colour of the Popover. */
