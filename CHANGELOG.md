@@ -20,6 +20,8 @@
 ### Removed
 
 - [BREAKING] `QTip`: This component has been removed ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1729](https://github.com/teamleadercrm/ui/pull/1729))
+- [BREAKING]: `Dialog`: Removed the onOverlayMouseDown, onOverlayMouseMove, onOverlayMouseUp properties ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1729](https://github.com/teamleadercrm/ui/pull/1729))
+- [BREAKING]: `Popover`: Removed the onOverlayMouseDown, onOverlayMouseMove, onOverlayMouseUp properties ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1729](https://github.com/teamleadercrm/ui/pull/1729))
 
 ### Fixed
 
