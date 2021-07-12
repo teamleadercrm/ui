@@ -1,76 +1,82 @@
-import React, { Fragment, useRef } from 'react';
+import React, { forwardRef, Fragment, useRef, useImperativeHandle } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import Box from '../box';
 import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
 
-const Link = ({
-  badged,
-  children,
-  className,
-  disabled,
-  icon,
-  iconPlacement,
-  element,
-  inherit,
-  inverse,
-  selected,
-  onMouseUp,
-  onMouseLeave,
-  ...others
-}) => {
-  const linkRef = useRef();
-
-  const blur = () => {
-    const currentLinkRef = linkRef.current;
-    if (currentLinkRef.blur) {
-      currentLinkRef.blur();
-    }
-  };
-
-  const handleMouseUp = (event) => {
-    blur();
-    onMouseUp && onMouseUp(event);
-  };
-
-  const handleMouseLeave = (event) => {
-    blur();
-    onMouseLeave && onMouseLeave(event);
-  };
-
-  const classNames = cx(
-    uiUtilities['reset-font-smoothing'],
-    theme['link'],
+const Link = forwardRef(
+  (
     {
-      [theme['is-badged']]: badged,
-      [theme['is-disabled']]: disabled,
-      [theme['is-inherit']]: inherit,
-      [theme['is-inverse']]: inverse,
-      [theme['is-selected']]: selected,
-      [theme['has-icon']]: icon,
+      badged,
+      children,
+      className,
+      disabled,
+      icon,
+      iconPlacement,
+      element,
+      inherit,
+      inverse,
+      selected,
+      onMouseUp,
+      onMouseLeave,
+      ...others
     },
-    className,
-  );
+    ref,
+  ) => {
+    const linkRef = useRef();
+    useImperativeHandle(ref, () => linkRef.current);
 
-  const ChildrenWrapper = icon ? 'span' : Fragment;
+    const blur = () => {
+      const currentLinkRef = linkRef.current;
+      if (currentLinkRef.blur) {
+        currentLinkRef.blur();
+      }
+    };
 
-  return (
-    <Box
-      element={element}
-      ref={linkRef}
-      className={classNames}
-      data-teamleader-ui="link"
-      onMouseUp={handleMouseUp}
-      onMouseLeave={handleMouseLeave}
-      {...others}
-    >
-      {icon && iconPlacement === 'left' && icon}
-      <ChildrenWrapper>{children}</ChildrenWrapper>
-      {icon && iconPlacement === 'right' && icon}
-    </Box>
-  );
-};
+    const handleMouseUp = (event) => {
+      blur();
+      onMouseUp && onMouseUp(event);
+    };
+
+    const handleMouseLeave = (event) => {
+      blur();
+      onMouseLeave && onMouseLeave(event);
+    };
+
+    const classNames = cx(
+      uiUtilities['reset-font-smoothing'],
+      theme['link'],
+      {
+        [theme['is-badged']]: badged,
+        [theme['is-disabled']]: disabled,
+        [theme['is-inherit']]: inherit,
+        [theme['is-inverse']]: inverse,
+        [theme['is-selected']]: selected,
+        [theme['has-icon']]: icon,
+      },
+      className,
+    );
+
+    const ChildrenWrapper = icon ? 'span' : Fragment;
+
+    return (
+      <Box
+        element={element}
+        ref={linkRef}
+        className={classNames}
+        data-teamleader-ui="link"
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseLeave}
+        {...others}
+      >
+        {icon && iconPlacement === 'left' && icon}
+        <ChildrenWrapper>{children}</ChildrenWrapper>
+        {icon && iconPlacement === 'right' && icon}
+      </Box>
+    );
+  },
+);
 
 Link.propTypes = {
   /** If true, component will be rendered with badged hover effect. */
@@ -108,5 +114,7 @@ Link.defaultProps = {
   inherit: true,
   inverse: false,
 };
+
+Link.displayName = 'Link';
 
 export default Link;
