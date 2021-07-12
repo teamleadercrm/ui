@@ -3,12 +3,12 @@
 ### Added
 
 - `FilterSelection` Add FilterSelectionComponent ([@JorenSaeyTL](https://github.com/JorenSaeyTL) in [#1717](https://github.com/teamleadercrm/ui/pull/1717))
-- `Button`: now correctly forwards its `ref` prop ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1727))
-- `Input`: now correctly forwards its `ref` prop ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1727))
-- `DurationInput`: now correctly forwards its `ref` prop ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1727))
-- `NumericInput`: now correctly forwards its `ref` prop ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1727))
-- `TextArea`: now correctly forwards its `ref` prop ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1727))
-- `TimeInput`: now correctly forwards its `ref` prop ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1727))
+- [BREAKING] `Button`: now correctly forwards its `ref` prop ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1727))
+- [BREAKING] `Input`: now correctly forwards its `ref` prop ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1727))
+- [BREAKING] `DurationInput`: now correctly forwards its `ref` prop ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1727))
+- [BREAKING] `NumericInput`: now correctly forwards its `ref` prop ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1727))
+- [BREAKING] `TextArea`: now correctly forwards its `ref` prop ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1727))
+- [BREAKING] `TimeInput`: now correctly forwards its `ref` prop ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1727))
 
 ### Changed
 
