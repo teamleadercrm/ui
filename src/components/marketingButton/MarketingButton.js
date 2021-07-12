@@ -13,7 +13,7 @@ const textComponentMap = {
   large: UITextDisplay,
 };
 
-const Button = forwardRef(
+const MarketingButton = forwardRef(
   (
     {
       children,
@@ -114,7 +114,7 @@ const Button = forwardRef(
   },
 );
 
-Button.propTypes = {
+MarketingButton.propTypes = {
   /** The content to display inside the button. */
   children: PropTypes.any,
   /** A class name for the button to give custom styles. */
@@ -145,7 +145,7 @@ Button.propTypes = {
   type: PropTypes.string,
 };
 
-Button.defaultProps = {
+MarketingButton.defaultProps = {
   className: '',
   element: 'button',
   fullWidth: false,
@@ -156,6 +156,6 @@ Button.defaultProps = {
   type: 'button',
 };
 
-Button.displayName = 'MarketingButton';
+MarketingButton.displayName = 'MarketingButton';
 
-export default Button;
+export default MarketingButton;
