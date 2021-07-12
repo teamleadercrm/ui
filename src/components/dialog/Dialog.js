@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { createRef, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash.omit';
 import cx from 'classnames';
@@ -9,6 +9,8 @@ import { Button, ButtonGroup, DialogBase, Heading2, Heading3, Link } from '../..
 import { COLORS } from '../../constants';
 
 class Dialog extends PureComponent {
+  bodyRef = createRef();
+
   getHeader = () => {
     const { headerColor, headerIcon, headingLevel, onCloseClick, title } = this.props;
 
@@ -47,9 +49,11 @@ class Dialog extends PureComponent {
     ]);
 
     return (
-      <DialogBase className={classNames} {...restProps} scrollable={false}>
+      <DialogBase className={classNames} {...restProps} scrollable={false} initialFocusRef={this.bodyRef}>
         {title && this.getHeader()}
-        <DialogBase.Body scrollable={scrollable}>{children}</DialogBase.Body>
+        <DialogBase.Body ref={this.bodyRef} scrollable={scrollable}>
+          {children}
+        </DialogBase.Body>
         {this.getFooter()}
       </DialogBase>
     );
@@ -57,6 +61,8 @@ class Dialog extends PureComponent {
 }
 
 Dialog.propTypes = {
+  /** If true, the dialog will show on screen. */
+  active: PropTypes.bool,
   /** The content to display inside the dialog. */
   children: PropTypes.any,
   /** A class name for the wrapper to apply custom styles. */

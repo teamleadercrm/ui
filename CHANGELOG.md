@@ -14,6 +14,9 @@
 
 - [BREAKING] `Overlay`: The Overlay component should contain children instead of being positioned adjacent to children ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1729](https://github.com/teamleadercrm/ui/pull/1729))
 - `Overlay`: lower the color opacity of the overlay ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1729](https://github.com/teamleadercrm/ui/pull/1729))
+- `Dialog`: has been made aria compliant, enabling keyboard navigation ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1729](https://github.com/teamleadercrm/ui/pull/1731))
+- `Popover`: has been made aria compliant, enabling keyboard navigation ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1729](https://github.com/teamleadercrm/ui/pull/1731))
+- [BREAKING] `Popover`: Popovers now mount straight on the body instead of a self-made div ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1729](https://github.com/teamleadercrm/ui/pull/1731))
 
 ### Deprecated
 

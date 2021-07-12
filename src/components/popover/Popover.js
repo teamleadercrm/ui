@@ -1,4 +1,4 @@
-import React, { createRef, PureComponent } from 'react';
+import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
@@ -12,90 +12,89 @@ import { getMaxHeight } from './sizeCalculation';
 import Box from '../box';
 import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
+import useFocusTrap from '../../utils/useFocusTrap';
 
-class Popover extends PureComponent {
-  popoverNode = createRef();
+const Popover = (props) => {
+  const [state, setState] = useState({ positioning: { left: 0, top: 0, maxHeight: 'initial' } });
 
-  popoverRoot = document.createElement('div');
+  const {
+    active,
+    backdrop,
+    children,
+    className,
+    color,
+    fullHeight,
+    fullWidth,
+    lockScroll,
+    maxWidth,
+    minWidth,
+    onOverlayClick,
+    onEscKeyDown,
+    tint,
+    zIndex,
+    anchorEl,
+    direction,
+    position,
+    offsetCorrection,
+    returnFocusToSource,
+  } = props;
 
-  state = { positioning: { left: 0, top: 0, maxHeight: 'initial' } };
+  const { ref, FocusRing } = useFocusTrap({ active, returnFocusToSource, initialFocusRef: false });
 
-  componentDidMount() {
-    document.body.appendChild(this.popoverRoot);
-    events.addEventsToWindow({ resize: this.handleResizeThrottled, scroll: this.handleResizeThrottled });
-  }
-
-  componentWillUnmount() {
-    events.removeEventsFromWindow({ resize: this.handleResizeThrottled, scroll: this.handleResizeThrottled });
-    document.body.removeChild(this.popoverRoot);
-  }
-
-  componentDidUpdate(prevProps) {
-    if (this.props.active && prevProps !== this.props) {
-      this.handleResize();
-    }
-  }
-
-  handleResize = () => {
-    const { anchorEl, direction, position, offsetCorrection } = this.props;
-
-    if (this.popoverNode.current) {
-      this.setState({
-        positioning: calculatePositions(anchorEl, this.popoverNode.current, direction, position, offsetCorrection),
+  const handleResize = () => {
+    if (ref.current) {
+      setState({
+        positioning: calculatePositions(anchorEl, ref.current, direction, position, offsetCorrection),
       });
     }
   };
 
-  handleResizeThrottled = throttle(this.handleResize, 250);
+  useEffect(() => {
+    const handleResizeThrottled = throttle(handleResize, 250);
+    events.addEventsToWindow({ resize: handleResizeThrottled, scroll: handleResizeThrottled });
 
-  render() {
-    const { left, top, maxHeight } = this.state.positioning;
+    return function cleanup() {
+      events.removeEventsFromWindow({ resize: handleResizeThrottled, scroll: handleResizeThrottled });
+    };
+  }, [handleResize]);
 
-    const {
-      active,
-      backdrop,
-      children,
-      className,
-      color,
-      fullHeight,
-      fullWidth,
-      lockScroll,
-      maxWidth,
-      minWidth,
-      onOverlayClick,
-      onEscKeyDown,
-      tint,
-      zIndex,
-    } = this.props;
-
-    if (!active) {
-      return null;
+  useEffect(() => {
+    if (active) {
+      handleResize();
     }
+  }, [props]);
 
-    const popover = (
-      <Transition timeout={0} in={active} appear>
-        {(state) => {
-          return (
-            <div
-              className={cx(theme['wrapper'], theme[color], theme[tint], {
-                [theme['is-entering']]: state === 'entering',
-                [theme['is-entered']]: state === 'entered',
-              })}
-              style={{ zIndex }}
+  const { left, top, maxHeight } = state.positioning;
+
+  if (!active) {
+    return null;
+  }
+
+  const popover = (
+    <Transition timeout={0} in={active} appear>
+      {(state) => {
+        return (
+          <div
+            className={cx(theme['wrapper'], theme[color], theme[tint], {
+              [theme['is-entering']]: state === 'entering',
+              [theme['is-entered']]: state === 'entered',
+            })}
+            style={{ zIndex }}
+          >
+            <Overlay
+              active={active}
+              backdrop={backdrop}
+              className={theme['overlay']}
+              lockScroll={lockScroll}
+              onClick={onOverlayClick}
+              onEscKeyDown={onEscKeyDown}
             >
-              <Overlay
-                active={active}
-                backdrop={backdrop}
-                className={theme['overlay']}
-                lockScroll={lockScroll}
-                onClick={onOverlayClick}
-                onEscKeyDown={onEscKeyDown}
-              >
+              <FocusRing>
                 <div
                   data-teamleader-ui="popover"
                   className={cx(uiUtilities['box-shadow-200'], theme['popover'], className)}
                   style={{ left: `${left}px`, top: `${top}px`, maxWidth: fullWidth ? '100vw' : maxWidth, minWidth }}
-                  ref={this.popoverNode}
+                  ref={ref}
                 >
                   <Box
                     className={theme['inner']}
@@ -109,21 +108,21 @@ class Popover extends PureComponent {
                   <ReactResizeDetector
                     handleHeight
                     handleWidth
-                    onResize={this.handleResize}
+                    onResize={handleResize}
                     refreshMode="throttle"
                     refreshRate={250}
                   />
                 </div>
-              </Overlay>
-            </div>
-          );
-        }}
-      </Transition>
-    );
+              </FocusRing>
+            </Overlay>
+          </div>
+        );
+      }}
+    </Transition>
+  );
 
-    return createPortal(popover, this.popoverRoot);
-  }
-}
+  return createPortal(popover, document.body);
+};
 
 Popover.propTypes = {
   /** The state of the Popover, when true the Popover is rendered otherwise it is not. */
@@ -162,6 +161,8 @@ Popover.propTypes = {
   tint: PropTypes.oneOf(['lightest', 'light', 'normal', 'dark', 'darkest']),
   /** The z-index of the Popover */
   zIndex: PropTypes.number,
+  /** Determines wether the focus should be returned to the source element, enabled by default in useFocusTrap */
+  returnFocusToSource: PropTypes.bool,
 };
 
 Popover.defaultProps = {
@@ -178,6 +179,7 @@ Popover.defaultProps = {
   offsetCorrection: 0,
   position: 'center',
   tint: 'lightest',
+  returnFocusToSource: true,
 };
 
 export default Popover;

@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
@@ -10,35 +10,46 @@ import Body from './Body';
 import Footer from './Footer';
 import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
+import useFocusTrap from '../../utils/useFocusTrap';
 
-class DialogBase extends PureComponent {
-  render() {
-    const { active, backdrop, children, className, onEscKeyDown, onOverlayClick, scrollable, size } = this.props;
+export const DialogBase = ({
+  active,
+  backdrop,
+  children,
+  className,
+  onEscKeyDown,
+  onOverlayClick,
+  scrollable,
+  size,
+  initialFocusRef,
+}) => {
+  const { ref, FocusRing } = useFocusTrap({ active, initialFocusRef });
 
-    if (!active) {
-      return null;
-    }
+  if (!active) {
+    return null;
+  }
 
-    const dialog = (
-      <Transition timeout={0} in={active} appear>
-        {(state) => {
-          const dialogClassNames = cx(
-            uiUtilities['box-shadow-300'],
-            theme['dialog-base'],
-            theme[`is-${size}`],
-            { [theme['is-entering']]: state === 'entering', [theme['is-entered']]: state === 'entered' },
-            className,
-          );
+  const dialog = (
+    <Transition timeout={0} in={active} appear>
+      {(state) => {
+        const dialogClassNames = cx(
+          uiUtilities['box-shadow-300'],
+          theme['dialog-base'],
+          theme[`is-${size}`],
+          { [theme['is-entering']]: state === 'entering', [theme['is-entered']]: state === 'entered' },
+          className,
+        );
 
-          return (
-            <Overlay
-              active={active}
-              backdrop={backdrop}
-              className={theme['overlay']}
-              onClick={onOverlayClick}
-              onEscKeyDown={onEscKeyDown}
-            >
-              <div data-teamleader-ui="dialog" className={dialogClassNames}>
+        return (
+          <Overlay
+            active={active}
+            backdrop={backdrop}
+            className={theme['overlay']}
+            onClick={onOverlayClick}
+            onEscKeyDown={onEscKeyDown}
+          >
+            <FocusRing>
+              <div ref={ref} data-teamleader-ui="dialog" className={dialogClassNames}>
                 <div className={theme['inner']}>
                   {scrollable ? (
                     <Box display="flex" flexDirection="column" overflowY="auto">
@@ -49,15 +60,15 @@ class DialogBase extends PureComponent {
                   )}
                 </div>
               </div>
-            </Overlay>
-          );
-        }}
-      </Transition>
-    );
+            </FocusRing>
+          </Overlay>
+        );
+      }}
+    </Transition>
+  );
 
-    return createPortal(dialog, document.body);
-  }
-}
+  return createPortal(dialog, document.body);
+};
 
 DialogBase.propTypes = {
   /** If true, the dialog will show on screen. */
@@ -76,6 +87,8 @@ DialogBase.propTypes = {
   scrollable: PropTypes.bool,
   /** The size of the dialog. */
   size: PropTypes.oneOf(['small', 'medium', 'large', 'fullscreen']),
+  /** The initial part of the dialog where the focus will be set, useful to avoid focusing on the close button */
+  initialFocusRef: PropTypes.any,
 };
 
 DialogBase.defaultProps = {

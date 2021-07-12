@@ -141,6 +141,7 @@ class DatePickerInput extends PureComponent {
           position="end"
           offsetCorrection={30}
           zIndex={500}
+          returnFocusToSource={false}
           {...popoverProps}
         >
           <Box overflowY="auto">
