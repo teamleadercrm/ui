@@ -1,12 +1,13 @@
-import React, { useRef } from 'react';
+import React, { forwardRef, useRef, useImperativeHandle } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import Box from '../box';
 import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
 
-const Link = ({ children, className, element, onMouseUp, onMouseLeave, ...others }) => {
+const Link = forwardRef(({ children, className, element, onMouseUp, onMouseLeave, ...others }, ref) => {
   const linkRef = useRef();
+  useImperativeHandle(ref, () => linkRef.current);
 
   const blur = () => {
     const currentLinkRef = linkRef.current;
@@ -40,7 +41,7 @@ const Link = ({ children, className, element, onMouseUp, onMouseLeave, ...others
       {children}
     </Box>
   );
-};
+});
 
 Link.propTypes = {
   /** The content to display inside the link. */
@@ -59,5 +60,7 @@ Link.defaultProps = {
   className: '',
   element: 'a',
 };
+
+Link.displayName = 'MarketingLink';
 
 export default Link;
