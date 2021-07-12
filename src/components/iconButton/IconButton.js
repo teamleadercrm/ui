@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useImperativeHandle, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../box';
 import Icon from '../icon';
@@ -6,76 +6,82 @@ import cx from 'classnames';
 import buttonTheme from '../button/theme.css';
 import theme from './theme.css';
 
-const IconButton = ({
-  children,
-  className,
-  disabled,
-  element,
-  icon,
-  size,
-  color,
-  tint,
-  selected,
-  type,
-  onMouseUp,
-  onMouseLeave,
-  ...others
-}) => {
-  const buttonRef = useRef();
-
-  const handleMouseUp = (event) => {
-    blur();
-    if (onMouseUp) {
-      onMouseUp(event);
-    }
-  };
-
-  const handleMouseLeave = (event) => {
-    blur();
-    if (onMouseLeave) {
-      onMouseLeave(event);
-    }
-  };
-
-  const blur = () => {
-    const currentButtonRef = buttonRef.current;
-    if (currentButtonRef.blur) {
-      currentButtonRef.blur();
-    }
-  };
-
-  const classNames = cx(
-    buttonTheme['button-base'],
-    theme['icon-button'],
-    theme[`is-${size}`],
+const IconButton = forwardRef(
+  (
     {
-      [theme['is-disabled']]: disabled,
-      [theme['is-selected']]: selected,
+      children,
+      className,
+      disabled,
+      element,
+      icon,
+      size,
+      color,
+      tint,
+      selected,
+      type,
+      onMouseUp,
+      onMouseLeave,
+      ...others
     },
-    className,
-  );
+    ref,
+  ) => {
+    const buttonRef = useRef();
+    useImperativeHandle(ref, () => buttonRef.current);
 
-  const props = {
-    ...others,
-    ref: buttonRef,
-    className: classNames,
-    disabled: element === 'button' ? disabled : null,
-    element: element,
-    onMouseUp: handleMouseUp,
-    onMouseLeave: handleMouseLeave,
-    type: element === 'button' ? type : null,
-    'data-teamleader-ui': 'icon-button',
-  };
+    const handleMouseUp = (event) => {
+      blur();
+      if (onMouseUp) {
+        onMouseUp(event);
+      }
+    };
 
-  return (
-    <Box {...props}>
-      <Icon color={color === 'white' ? 'neutral' : color} tint={color === 'white' ? 'lightest' : tint}>
-        {icon}
-      </Icon>
-      {children}
-    </Box>
-  );
-};
+    const handleMouseLeave = (event) => {
+      blur();
+      if (onMouseLeave) {
+        onMouseLeave(event);
+      }
+    };
+
+    const blur = () => {
+      const currentButtonRef = buttonRef.current;
+      if (currentButtonRef.blur) {
+        currentButtonRef.blur();
+      }
+    };
+
+    const classNames = cx(
+      buttonTheme['button-base'],
+      theme['icon-button'],
+      theme[`is-${size}`],
+      {
+        [theme['is-disabled']]: disabled,
+        [theme['is-selected']]: selected,
+      },
+      className,
+    );
+
+    const props = {
+      ...others,
+      ref: buttonRef,
+      className: classNames,
+      disabled: element === 'button' ? disabled : null,
+      element: element,
+      onMouseUp: handleMouseUp,
+      onMouseLeave: handleMouseLeave,
+      type: element === 'button' ? type : null,
+      'data-teamleader-ui': 'icon-button',
+    };
+
+    return (
+      <Box {...props}>
+        <Icon color={color === 'white' ? 'neutral' : color} tint={color === 'white' ? 'lightest' : tint}>
+          {icon}
+        </Icon>
+        {children}
+      </Box>
+    );
+  },
+);
 
 IconButton.propTypes = {
   /** The content to display inside the button. */
@@ -112,5 +118,7 @@ IconButton.defaultProps = {
   tint: 'darkest',
   type: 'button',
 };
+
+IconButton.displayName = 'IconButton';
 
 export default IconButton;
