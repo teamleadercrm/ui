@@ -1,81 +1,76 @@
-import React, { createRef, Fragment, PureComponent } from 'react';
+import React, { Fragment, useRef } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import Box from '../box';
 import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
 
-class Link extends PureComponent {
-  linkNode = createRef();
+const Link = ({
+  badged,
+  children,
+  className,
+  disabled,
+  icon,
+  iconPlacement,
+  element,
+  inherit,
+  inverse,
+  selected,
+  onMouseUp,
+  onMouseLeave,
+  ...others
+}) => {
+  const linkRef = useRef();
 
-  blur() {
-    if (this.linkNode.current.blur) {
-      this.linkNode.current.blur();
+  const blur = () => {
+    const currentLinkRef = linkRef.current;
+    if (currentLinkRef.blur) {
+      currentLinkRef.blur();
     }
-  }
+  };
 
-  handleMouseUp = (event) => {
-    const { onMouseUp } = this.props;
-
-    this.blur();
+  const handleMouseUp = (event) => {
+    blur();
     onMouseUp && onMouseUp(event);
   };
 
-  handleMouseLeave = (event) => {
-    const { onMouseLeave } = this.props;
-
-    this.blur();
+  const handleMouseLeave = (event) => {
+    blur();
     onMouseLeave && onMouseLeave(event);
   };
 
-  render() {
-    const {
-      badged,
-      children,
-      className,
-      disabled,
-      icon,
-      iconPlacement,
-      element,
-      inherit,
-      inverse,
-      selected,
-      ...others
-    } = this.props;
+  const classNames = cx(
+    uiUtilities['reset-font-smoothing'],
+    theme['link'],
+    {
+      [theme['is-badged']]: badged,
+      [theme['is-disabled']]: disabled,
+      [theme['is-inherit']]: inherit,
+      [theme['is-inverse']]: inverse,
+      [theme['is-selected']]: selected,
+      [theme['has-icon']]: icon,
+    },
+    className,
+  );
 
-    const classNames = cx(
-      uiUtilities['reset-font-smoothing'],
-      theme['link'],
-      {
-        [theme['is-badged']]: badged,
-        [theme['is-disabled']]: disabled,
-        [theme['is-inherit']]: inherit,
-        [theme['is-inverse']]: inverse,
-        [theme['is-selected']]: selected,
-        [theme['has-icon']]: icon,
-      },
-      className,
-    );
+  const ChildrenWrapper = icon ? 'span' : Fragment;
 
-    const ChildrenWrapper = icon ? 'span' : Fragment;
-
-    return (
-      <Box
-        element={element}
-        ref={this.linkNode}
-        className={classNames}
-        data-teamleader-ui="link"
-        onMouseUp={this.handleMouseUp}
-        onMouseLeave={this.handleMouseLeave}
-        {...others}
-      >
-        {icon && iconPlacement === 'left' && icon}
-        <ChildrenWrapper>{children}</ChildrenWrapper>
-        {icon && iconPlacement === 'right' && icon}
-      </Box>
-    );
-  }
-}
+  return (
+    <Box
+      element={element}
+      ref={linkRef}
+      className={classNames}
+      data-teamleader-ui="link"
+      onMouseUp={handleMouseUp}
+      onMouseLeave={handleMouseLeave}
+      {...others}
+    >
+      {icon && iconPlacement === 'left' && icon}
+      <ChildrenWrapper>{children}</ChildrenWrapper>
+      {icon && iconPlacement === 'right' && icon}
+    </Box>
+  );
+};
 
 Link.propTypes = {
   /** If true, component will be rendered with badged hover effect. */
