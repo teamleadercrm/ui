@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, forwardRef, useImperativeHandle } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../box';
 import LoadingSpinner from '../loadingSpinner';
@@ -13,100 +13,106 @@ const textComponentMap = {
   large: UITextDisplay,
 };
 
-const Button = ({
-  children,
-  className,
-  level,
-  disabled,
-  element,
-  fullWidth,
-  icon,
-  iconPlacement,
-  size,
-  type,
-  processing,
-  onMouseUp,
-  onMouseLeave,
-  ...others
-}) => {
-  const buttonRef = useRef();
-
-  const handleMouseUp = (event) => {
-    blur();
-    if (onMouseUp) {
-      onMouseUp(event);
-    }
-  };
-
-  const handleMouseLeave = (event) => {
-    blur();
-    if (onMouseLeave) {
-      onMouseLeave(event);
-    }
-  };
-
-  const blur = () => {
-    const currentButtonRef = buttonRef.current;
-    if (currentButtonRef.blur) {
-      currentButtonRef.blur();
-    }
-  };
-
-  const classNames = cx(
-    theme['reset-box-sizing'],
-    theme['reset-font-smoothing'],
-    theme['button-base'],
-    theme['button'],
-    theme[level],
-    theme[size],
+const Button = forwardRef(
+  (
     {
-      [theme['has-icon-only']]: !children || (Array.isArray(children) && !children[0]),
-      [theme['is-disabled']]: disabled,
-      [theme['is-full-width']]: fullWidth,
-      [theme['is-processing']]: processing,
+      children,
+      className,
+      level,
+      disabled,
+      element,
+      fullWidth,
+      icon,
+      iconPlacement,
+      size,
+      type,
+      processing,
+      onMouseUp,
+      onMouseLeave,
+      ...others
     },
-    className,
-  );
+    ref,
+  ) => {
+    const buttonRef = useRef();
+    useImperativeHandle(ref, () => buttonRef.current);
 
-  const props = {
-    ...others,
-    ref: buttonRef,
-    className: classNames,
-    disabled: element === 'button' ? disabled : null,
-    element: element,
-    onMouseUp: handleMouseUp,
-    onMouseLeave: handleMouseLeave,
-    type: element === 'button' ? type : null,
-    'data-teamleader-ui': 'button',
-  };
+    const handleMouseUp = (event) => {
+      blur();
+      if (onMouseUp) {
+        onMouseUp(event);
+      }
+    };
 
-  const Text = textComponentMap[size];
+    const handleMouseLeave = (event) => {
+      blur();
+      if (onMouseLeave) {
+        onMouseLeave(event);
+      }
+    };
 
-  return (
-    <Box {...props}>
-      {icon && iconPlacement === 'left' && icon}
-      {children && (
-        <Text
-          element="span"
-          maxLines={1}
-          marginLeft={icon && iconPlacement === 'left' ? 2 : 0}
-          marginRight={icon && iconPlacement === 'right' ? 2 : 0}
-        >
-          {children}
-        </Text>
-      )}
-      {icon && iconPlacement === 'right' && icon}
-      {processing && (
-        <LoadingSpinner
-          className={theme['spinner']}
-          color={level === 'primary' ? 'neutral' : 'violet'}
-          size={size === 'tiny' || size === 'small' ? 'small' : 'medium'}
-          tint={level === 'primary' ? 'lightest' : 'darkest'}
-        />
-      )}
-    </Box>
-  );
-};
+    const blur = () => {
+      const currentButtonRef = buttonRef.current;
+      if (currentButtonRef.blur) {
+        currentButtonRef.blur();
+      }
+    };
+
+    const classNames = cx(
+      theme['reset-box-sizing'],
+      theme['reset-font-smoothing'],
+      theme['button-base'],
+      theme['button'],
+      theme[level],
+      theme[size],
+      {
+        [theme['has-icon-only']]: !children || (Array.isArray(children) && !children[0]),
+        [theme['is-disabled']]: disabled,
+        [theme['is-full-width']]: fullWidth,
+        [theme['is-processing']]: processing,
+      },
+      className,
+    );
+
+    const props = {
+      ...others,
+      ref: buttonRef,
+      className: classNames,
+      disabled: element === 'button' ? disabled : null,
+      element: element,
+      onMouseUp: handleMouseUp,
+      onMouseLeave: handleMouseLeave,
+      type: element === 'button' ? type : null,
+      'data-teamleader-ui': 'button',
+    };
+
+    const Text = textComponentMap[size];
+
+    return (
+      <Box {...props}>
+        {icon && iconPlacement === 'left' && icon}
+        {children && (
+          <Text
+            element="span"
+            maxLines={1}
+            marginLeft={icon && iconPlacement === 'left' ? 2 : 0}
+            marginRight={icon && iconPlacement === 'right' ? 2 : 0}
+          >
+            {children}
+          </Text>
+        )}
+        {icon && iconPlacement === 'right' && icon}
+        {processing && (
+          <LoadingSpinner
+            className={theme['spinner']}
+            color={level === 'primary' ? 'neutral' : 'violet'}
+            size={size === 'tiny' || size === 'small' ? 'small' : 'medium'}
+            tint={level === 'primary' ? 'lightest' : 'darkest'}
+          />
+        )}
+      </Box>
+    );
+  },
+);
 
 Button.propTypes = {
   /** The content to display inside the button. */
@@ -149,5 +155,7 @@ Button.defaultProps = {
   size: 'medium',
   type: 'button',
 };
+
+Button.displayName = 'MarketingButton';
 
 export default Button;
