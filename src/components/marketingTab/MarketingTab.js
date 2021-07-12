@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef } from 'react';
+import React, { forwardRef, useRef, useImperativeHandle } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import theme from './theme.css';
@@ -6,8 +6,9 @@ import Box from '../box';
 import MarketingLockBadge from '../marketingLockBadge';
 import { Heading4, Heading5 } from '../typography';
 
-const MarketingTab = ({ active, children, className, forwardedRef, size, onClick, ...others }) => {
+const MarketingTab = forwardRef(({ active, children, className, size, onClick, ...others }, ref) => {
   const tabRef = useRef();
+  useImperativeHandle(ref, () => tabRef.current);
 
   const handleClick = (event) => {
     if (onClick) {
@@ -43,7 +44,7 @@ const MarketingTab = ({ active, children, className, forwardedRef, size, onClick
       <MarketingLockBadge marginLeft={3} size={size} />
     </Box>
   );
-};
+});
 
 MarketingTab.propTypes = {
   active: PropTypes.bool,
@@ -60,8 +61,6 @@ MarketingTab.defaultProps = {
   size: 'medium',
 };
 
-const ForwardedMarketingTab = forwardRef((props, ref) => <MarketingTab {...props} forwardedRef={ref} />);
+MarketingTab.displayName = 'MarketingTab';
 
-ForwardedMarketingTab.displayName = 'MarketingTab';
-
-export default ForwardedMarketingTab;
+export default MarketingTab;
