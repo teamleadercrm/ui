@@ -1,53 +1,46 @@
-import React, { createRef, PureComponent } from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import Box from '../box';
 import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
 
-class Link extends PureComponent {
-  linkNode = createRef();
+const Link = ({ children, className, element, onMouseUp, onMouseLeave, ...others }) => {
+  const linkRef = useRef();
 
-  blur() {
-    if (this.linkNode.current.blur) {
-      this.linkNode.current.blur();
+  const blur = () => {
+    const currentLinkRef = linkRef.current;
+    if (currentLinkRef.blur) {
+      currentLinkRef.blur();
     }
-  }
+  };
 
-  handleMouseUp = (event) => {
-    const { onMouseUp } = this.props;
-
-    this.blur();
+  const handleMouseUp = (event) => {
+    blur();
     onMouseUp && onMouseUp(event);
   };
 
-  handleMouseLeave = (event) => {
-    const { onMouseLeave } = this.props;
-
-    this.blur();
+  const handleMouseLeave = (event) => {
+    blur();
     onMouseLeave && onMouseLeave(event);
   };
 
-  render() {
-    const { children, className, element, ...others } = this.props;
+  const classNames = cx(uiUtilities['reset-font-smoothing'], theme['link'], className);
 
-    const classNames = cx(uiUtilities['reset-font-smoothing'], theme['link'], className);
-
-    return (
-      <Box
-        element={element}
-        ref={this.linkNode}
-        className={classNames}
-        data-teamleader-ui="marketing-link"
-        onMouseUp={this.handleMouseUp}
-        onMouseLeave={this.handleMouseLeave}
-        {...others}
-      >
-        {children}
-      </Box>
-    );
-  }
-}
+  return (
+    <Box
+      element={element}
+      ref={linkRef}
+      className={classNames}
+      data-teamleader-ui="marketing-link"
+      onMouseUp={handleMouseUp}
+      onMouseLeave={handleMouseLeave}
+      {...others}
+    >
+      {children}
+    </Box>
+  );
+};
 
 Link.propTypes = {
   /** The content to display inside the link. */
