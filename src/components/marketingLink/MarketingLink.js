@@ -5,7 +5,7 @@ import Box from '../box';
 import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
 
-const Link = forwardRef(({ children, className, element, onMouseUp, onMouseLeave, ...others }, ref) => {
+const MarketingLink = forwardRef(({ children, className, element, onMouseUp, onMouseLeave, ...others }, ref) => {
   const linkRef = useRef();
   useImperativeHandle(ref, () => linkRef.current);
 
@@ -43,7 +43,7 @@ const Link = forwardRef(({ children, className, element, onMouseUp, onMouseLeave
   );
 });
 
-Link.propTypes = {
+MarketingLink.propTypes = {
   /** The content to display inside the link. */
   children: PropTypes.any.isRequired,
   /** A class name for the link to give custom styles. */
@@ -56,11 +56,11 @@ Link.propTypes = {
   onMouseUp: PropTypes.func,
 };
 
-Link.defaultProps = {
+MarketingLink.defaultProps = {
   className: '',
   element: 'a',
 };
 
-Link.displayName = 'MarketingLink';
+MarketingLink.displayName = 'MarketingLink';
 
-export default Link;
+export default MarketingLink;
