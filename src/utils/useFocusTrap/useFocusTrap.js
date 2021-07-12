@@ -4,11 +4,11 @@ import { focusOnFirstDescendent, focusOnLastDescendent } from './utils';
 
 const FocusRing = ({ topFocusBumperRef, bottomFocusBumperRef, children }) => {
   return (
-    <>
+    <div>
       <div ref={topFocusBumperRef} tabIndex="0" />
       {children}
       <div ref={bottomFocusBumperRef} tabIndex="0" />
-    </>
+    </div>
   );
 };
 
