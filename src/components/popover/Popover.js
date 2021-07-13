@@ -5,7 +5,7 @@ import cx from 'classnames';
 import throttle from 'lodash.throttle';
 import Overlay from '../overlay';
 import Transition from 'react-transition-group/Transition';
-import ReactResizeDetector from 'react-resize-detector';
+import { useResizeDetector } from 'react-resize-detector';
 import { events } from '../utils';
 import { calculatePositions } from './positionCalculation';
 import { getMaxHeight } from './sizeCalculation';
@@ -48,6 +48,14 @@ const Popover = (props) => {
       });
     }
   };
+
+  useResizeDetector({
+    handleHeight: true,
+    handleWidth: true,
+    onResize: handleResize,
+    refreshMode: 'throttle',
+    refreshRate: 250,
+  });
 
   useEffect(() => {
     const handleResizeThrottled = throttle(handleResize, 250);
@@ -105,13 +113,6 @@ const Popover = (props) => {
                   >
                     {children}
                   </Box>
-                  <ReactResizeDetector
-                    handleHeight
-                    handleWidth
-                    onResize={handleResize}
-                    refreshMode="throttle"
-                    refreshRate={250}
-                  />
                 </div>
               </FocusRing>
             </Overlay>
