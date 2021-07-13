@@ -4,6 +4,7 @@ import Transition from 'react-transition-group/Transition';
 import cx from 'classnames';
 import theme from './theme.css';
 import { KEY } from '../../constants';
+import { selectOverlayNode } from '../select/Select';
 
 class Overlay extends PureComponent {
   innerWrapperRef = React.createRef();
@@ -42,7 +43,10 @@ class Overlay extends PureComponent {
   handleEscKey = (event) => {
     if (this.props.active && event.key === KEY.Escape) {
       event.stopPropagation();
-      this.props.onEscKeyDown && this.props.onEscKeyDown(event);
+      // react-select has its own implementation of an overlay, conflicting with our custom implementation
+      // so escape events fired while the select menu is open should be ignored
+      const selectMenuOpen = selectOverlayNode.hasChildNodes();
+      !selectMenuOpen && this.props.onEscKeyDown && this.props.onEscKeyDown(event);
     }
   };
 
@@ -50,7 +54,13 @@ class Overlay extends PureComponent {
     event.preventDefault();
     event.stopPropagation();
     // Only register clicks outside of the children
-    if (this.props.onClick && !this.innerWrapperRef.current?.contains(event.target)) {
+    if (
+      this.props.onClick &&
+      !this.innerWrapperRef.current?.contains(event.target) &&
+      // react-select has its own implementation of an overlay, conflicting with our custom implementation
+      // so clicks on the select overlay shouldn't be registered either
+      !selectOverlayNode.contains(event.target)
+    ) {
       this.props.onClick(event);
     }
   };
