@@ -51,7 +51,6 @@ class Overlay extends PureComponent {
   };
 
   handleClick = (event) => {
-    event.preventDefault();
     event.stopPropagation();
     // Only register clicks outside of the children
     if (
