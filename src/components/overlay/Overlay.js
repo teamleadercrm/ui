@@ -39,10 +39,10 @@ class Overlay extends PureComponent {
     }
   }
 
-  handleEscKey = (e) => {
-    if (this.props.active && e.key === KEY.Escape) {
-      e.stopPropagation();
-      this.props.onEscKeyDown && this.props.onEscKeyDown(e);
+  handleEscKey = (event) => {
+    if (this.props.active && event.key === KEY.Escape) {
+      event.stopPropagation();
+      this.props.onEscKeyDown && this.props.onEscKeyDown(event);
     }
   };
 
