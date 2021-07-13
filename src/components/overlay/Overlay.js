@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Transition from 'react-transition-group/Transition';
 import cx from 'classnames';
 import theme from './theme.css';
+import { KEY } from '../../constants';
 
 class Overlay extends PureComponent {
   innerWrapperRef = React.createRef();
@@ -39,7 +40,7 @@ class Overlay extends PureComponent {
   }
 
   handleEscKey = (e) => {
-    if (this.props.active && e.which === 27) {
+    if (this.props.active && e.key === KEY.Escape) {
       e.stopPropagation();
       this.props.onEscKeyDown && this.props.onEscKeyDown(e);
     }
