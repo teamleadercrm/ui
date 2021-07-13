@@ -1,8 +1,19 @@
+@import '@teamleader/ui-colors';
+
 .select-control {
-  padding-top: 9px;
-  padding-bottom: 9px;
+  height: 36px;
   width: max-content;
   cursor: default;
+
+  &--hovered {
+    &:hover {
+      background-color: var(--color-aqua-light);
+      .select-dropdown-indicator,
+      .select-value-container {
+        color: var(--color-aqua-dark);
+      }
+    }
+  }
 }
 
 .select-clear {
@@ -43,8 +54,4 @@
 
 .select-dropdown-indicator--focused {
   transform: rotateZ(180deg);
-}
-
-.select-clear-options-button {
-  cursor: pointer;
 }

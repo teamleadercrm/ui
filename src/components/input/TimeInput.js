@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { forwardRef, PureComponent } from 'react';
 import InputMask from 'react-input-mask';
 import Icon from '../icon';
 import SingleLineInputBase from './SingleLineInputBase';
@@ -14,12 +14,13 @@ class TimeInput extends PureComponent {
   };
 
   render() {
-    const { disabled, readOnly } = this.props;
+    const { disabled, readOnly, forwardedRef } = this.props;
     return (
       <InputMask {...this.props} mask="99:99" maskChar="0" beforeMaskedValueChange={this.beforeMaskedValueChange}>
         {(inputProps) => (
           <SingleLineInputBase
             {...inputProps}
+            ref={forwardedRef}
             autoComplete="off"
             readOnly={readOnly}
             disabled={disabled}
@@ -35,4 +36,8 @@ class TimeInput extends PureComponent {
   }
 }
 
-export default TimeInput;
+const ForwardedTimeInput = forwardRef((props, ref) => <TimeInput {...props} forwardedRef={ref} />);
+
+ForwardedTimeInput.displayName = 'TimeInput';
+
+export default ForwardedTimeInput;

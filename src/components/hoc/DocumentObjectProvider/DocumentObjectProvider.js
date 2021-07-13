@@ -3,7 +3,7 @@ import React, { PureComponent, createContext } from 'react';
 export const Context = createContext();
 
 const DocumentObjectProvider = (WrappedComponent) => {
-  return class extends PureComponent {
+  const Provider = class extends PureComponent {
     componentDidMount() {
       this.forceUpdate(); // force a re-render because we have the document ref now
     }
@@ -31,6 +31,10 @@ const DocumentObjectProvider = (WrappedComponent) => {
       );
     }
   };
+
+  Provider.displayName = 'Provider';
+
+  return Provider;
 };
 
 export default DocumentObjectProvider;

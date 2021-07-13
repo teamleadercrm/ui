@@ -78,4 +78,8 @@ BodyRow.propTypes = {
   sliceTo: PropTypes.number,
 };
 
-export default forwardRef((props, ref) => <BodyRow {...props} forwardedRef={ref} />);
+const ForwardedBodyRow = forwardRef((props, ref) => <BodyRow {...props} forwardedRef={ref} />);
+
+ForwardedBodyRow.displayName = 'BodyRow';
+
+export default ForwardedBodyRow;

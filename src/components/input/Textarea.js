@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 
@@ -9,7 +9,7 @@ import theme from './theme.css';
 
 class Textarea extends PureComponent {
   render() {
-    const { className, error, helpText, inverse, success, warning, ...others } = this.props;
+    const { className, error, helpText, inverse, success, warning, forwardedRef, ...others } = this.props;
 
     const classNames = cx(
       theme['wrapper'],
@@ -29,7 +29,7 @@ class Textarea extends PureComponent {
 
     return (
       <Box className={classNames} {...boxProps}>
-        <InputBase className={theme['textarea']} element="textarea" {...inputProps} />
+        <InputBase ref={forwardedRef} className={theme['textarea']} element="textarea" {...inputProps} />
         <ValidationText error={error} help={helpText} inverse={inverse} success={success} warning={warning} />
       </Box>
     );
@@ -55,4 +55,8 @@ Textarea.defaultProps = {
   inverse: false,
 };
 
-export default Textarea;
+const ForwardedTextArea = forwardRef((props, ref) => <Textarea {...props} forwardedRef={ref} />);
+
+ForwardedTextArea.displayName = 'Textarea';
+
+export default ForwardedTextArea;

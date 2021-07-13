@@ -8,15 +8,10 @@
   --dialog-translate-y: calc(-4 * var(--unit));
 }
 
-.wrapper {
+.overlay {
   align-items: center;
   display: flex;
-  height: 100vh;
   justify-content: center;
-  left: 0;
-  position: fixed;
-  top: 0;
-  width: 100vw;
   z-index: 400;
 }
 
@@ -45,13 +40,15 @@
   position: relative;
 }
 
-.is-entering .dialog-base {
-  opacity: 0;
-}
+.dialog-base {
+  &.is-entering {
+    opacity: 0;
+  }
 
-.is-entered .dialog-base {
-  opacity: 1;
-  transform: translateY(0%);
+  &.is-entered {
+    opacity: 1;
+    transform: translateY(0%);
+  }
 }
 
 .is-small {

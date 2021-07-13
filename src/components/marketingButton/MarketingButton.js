@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { useRef, forwardRef, useImperativeHandle } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../box';
 import LoadingSpinner from '../loadingSpinner';
@@ -13,29 +13,9 @@ const textComponentMap = {
   large: UITextDisplay,
 };
 
-class Button extends PureComponent {
-  handleMouseUp = (event) => {
-    this.blur();
-    if (this.props.onMouseUp) {
-      this.props.onMouseUp(event);
-    }
-  };
-
-  handleMouseLeave = (event) => {
-    this.blur();
-    if (this.props.onMouseLeave) {
-      this.props.onMouseLeave(event);
-    }
-  };
-
-  blur() {
-    if (this.buttonNode.blur) {
-      this.buttonNode.blur();
-    }
-  }
-
-  render() {
-    const {
+const MarketingButton = forwardRef(
+  (
+    {
       children,
       className,
       level,
@@ -47,8 +27,35 @@ class Button extends PureComponent {
       size,
       type,
       processing,
+      onMouseUp,
+      onMouseLeave,
       ...others
-    } = this.props;
+    },
+    ref,
+  ) => {
+    const buttonRef = useRef();
+    useImperativeHandle(ref, () => buttonRef.current);
+
+    const handleMouseUp = (event) => {
+      blur();
+      if (onMouseUp) {
+        onMouseUp(event);
+      }
+    };
+
+    const handleMouseLeave = (event) => {
+      blur();
+      if (onMouseLeave) {
+        onMouseLeave(event);
+      }
+    };
+
+    const blur = () => {
+      const currentButtonRef = buttonRef.current;
+      if (currentButtonRef.blur) {
+        currentButtonRef.blur();
+      }
+    };
 
     const classNames = cx(
       theme['reset-box-sizing'],
@@ -68,14 +75,12 @@ class Button extends PureComponent {
 
     const props = {
       ...others,
-      ref: (node) => {
-        this.buttonNode = node;
-      },
+      ref: buttonRef,
       className: classNames,
       disabled: element === 'button' ? disabled : null,
       element: element,
-      onMouseUp: this.handleMouseUp,
-      onMouseLeave: this.handleMouseLeave,
+      onMouseUp: handleMouseUp,
+      onMouseLeave: handleMouseLeave,
       type: element === 'button' ? type : null,
       'data-teamleader-ui': 'button',
     };
@@ -106,10 +111,10 @@ class Button extends PureComponent {
         )}
       </Box>
     );
-  }
-}
+  },
+);
 
-Button.propTypes = {
+MarketingButton.propTypes = {
   /** The content to display inside the button. */
   children: PropTypes.any,
   /** A class name for the button to give custom styles. */
@@ -140,7 +145,7 @@ Button.propTypes = {
   type: PropTypes.string,
 };
 
-Button.defaultProps = {
+MarketingButton.defaultProps = {
   className: '',
   element: 'button',
   fullWidth: false,
@@ -151,4 +156,6 @@ Button.defaultProps = {
   type: 'button',
 };
 
-export default Button;
+MarketingButton.displayName = 'MarketingButton';
+
+export default MarketingButton;

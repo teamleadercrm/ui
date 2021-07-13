@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { useRef, forwardRef, useImperativeHandle } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../box';
 import LoadingSpinner from '../loadingSpinner';
@@ -13,76 +13,79 @@ const textComponentMap = {
   large: UITextDisplay,
 };
 
-class Button extends PureComponent {
-  getSpinnerColor() {
-    const { color, inverse, level } = this.props;
-
-    switch (level) {
-      case 'secondary':
-        return 'teal';
-      case 'outline':
-        return color === 'white' ? 'neutral' : color;
-      case 'link':
-        return inverse ? 'neutral' : 'aqua';
-      default:
-        return 'neutral';
-    }
-  }
-
-  getSpinnerTint() {
-    const { color, inverse, level } = this.props;
-
-    switch (level) {
-      case 'secondary':
-        return 'darkest';
-      case 'outline':
-        return color === 'white' ? 'lightest' : 'darkest';
-      case 'link':
-        return inverse ? 'lightest' : 'dark';
-      default:
-        return 'lightest';
-    }
-  }
-
-  handleMouseUp = (event) => {
-    this.blur();
-    if (this.props.onMouseUp) {
-      this.props.onMouseUp(event);
-    }
-  };
-
-  handleMouseLeave = (event) => {
-    this.blur();
-    if (this.props.onMouseLeave) {
-      this.props.onMouseLeave(event);
-    }
-  };
-
-  blur() {
-    if (this.buttonNode.blur) {
-      this.buttonNode.blur();
-    }
-  }
-
-  render() {
-    const {
+const Button = forwardRef(
+  (
+    {
+      color,
+      inverse,
+      level,
+      onMouseUp,
+      onMouseLeave,
       children,
       className,
-      color,
-      level,
       disabled,
       element,
       active,
       fullWidth,
       icon,
       iconPlacement,
-      inverse,
       label,
       size,
       type,
       processing,
       ...others
-    } = this.props;
+    },
+    ref,
+  ) => {
+    const buttonRef = useRef();
+    useImperativeHandle(ref, () => buttonRef.current);
+
+    const getSpinnerColor = () => {
+      switch (level) {
+        case 'secondary':
+          return 'teal';
+        case 'outline':
+          return color === 'white' ? 'neutral' : color;
+        case 'link':
+          return inverse ? 'neutral' : 'aqua';
+        default:
+          return 'neutral';
+      }
+    };
+
+    const getSpinnerTint = () => {
+      switch (level) {
+        case 'secondary':
+          return 'darkest';
+        case 'outline':
+          return color === 'white' ? 'lightest' : 'darkest';
+        case 'link':
+          return inverse ? 'lightest' : 'dark';
+        default:
+          return 'lightest';
+      }
+    };
+
+    const handleMouseUp = (event) => {
+      blur();
+      if (onMouseUp) {
+        onMouseUp(event);
+      }
+    };
+
+    const handleMouseLeave = (event) => {
+      blur();
+      if (onMouseLeave) {
+        onMouseLeave(event);
+      }
+    };
+
+    const blur = () => {
+      const currentButtonRef = buttonRef.current;
+      if (currentButtonRef) {
+        currentButtonRef.blur();
+      }
+    };
 
     const classNames = cx(
       theme['reset-box-sizing'],
@@ -105,14 +108,12 @@ class Button extends PureComponent {
 
     const props = {
       ...others,
-      ref: (node) => {
-        this.buttonNode = node;
-      },
+      ref: buttonRef,
       className: classNames,
       disabled: element === 'button' ? disabled : null,
       element: element,
-      onMouseUp: this.handleMouseUp,
-      onMouseLeave: this.handleMouseLeave,
+      onMouseUp: handleMouseUp,
+      onMouseLeave: handleMouseLeave,
       type: element === 'button' ? type : null,
       'data-teamleader-ui': 'button',
     };
@@ -137,15 +138,15 @@ class Button extends PureComponent {
         {processing && (
           <LoadingSpinner
             className={theme['spinner']}
-            color={this.getSpinnerColor()}
+            color={getSpinnerColor()}
             size={size === 'small' ? 'small' : 'medium'}
-            tint={this.getSpinnerTint()}
+            tint={getSpinnerTint()}
           />
         )}
       </Box>
     );
-  }
-}
+  },
+);
 
 Button.propTypes = {
   /** The content to display inside the button. */
@@ -196,5 +197,7 @@ Button.defaultProps = {
   size: 'medium',
   type: 'button',
 };
+
+Button.displayName = 'Button';
 
 export default Button;

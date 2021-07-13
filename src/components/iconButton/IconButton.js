@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useRef, useImperativeHandle, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../box';
 import Icon from '../icon';
@@ -6,29 +6,48 @@ import cx from 'classnames';
 import buttonTheme from '../button/theme.css';
 import theme from './theme.css';
 
-class IconButton extends Component {
-  handleMouseUp = (event) => {
-    this.blur();
-    if (this.props.onMouseUp) {
-      this.props.onMouseUp(event);
-    }
-  };
+const IconButton = forwardRef(
+  (
+    {
+      children,
+      className,
+      disabled,
+      element,
+      icon,
+      size,
+      color,
+      tint,
+      selected,
+      type,
+      onMouseUp,
+      onMouseLeave,
+      ...others
+    },
+    ref,
+  ) => {
+    const buttonRef = useRef();
+    useImperativeHandle(ref, () => buttonRef.current);
 
-  handleMouseLeave = (event) => {
-    this.blur();
-    if (this.props.onMouseLeave) {
-      this.props.onMouseLeave(event);
-    }
-  };
+    const handleMouseUp = (event) => {
+      blur();
+      if (onMouseUp) {
+        onMouseUp(event);
+      }
+    };
 
-  blur() {
-    if (this.buttonNode.blur) {
-      this.buttonNode.blur();
-    }
-  }
+    const handleMouseLeave = (event) => {
+      blur();
+      if (onMouseLeave) {
+        onMouseLeave(event);
+      }
+    };
 
-  render() {
-    const { children, className, disabled, element, icon, size, color, tint, selected, type, ...others } = this.props;
+    const blur = () => {
+      const currentButtonRef = buttonRef.current;
+      if (currentButtonRef.blur) {
+        currentButtonRef.blur();
+      }
+    };
 
     const classNames = cx(
       buttonTheme['button-base'],
@@ -43,14 +62,12 @@ class IconButton extends Component {
 
     const props = {
       ...others,
-      ref: (node) => {
-        this.buttonNode = node;
-      },
+      ref: buttonRef,
       className: classNames,
       disabled: element === 'button' ? disabled : null,
       element: element,
-      onMouseUp: this.handleMouseUp,
-      onMouseLeave: this.handleMouseLeave,
+      onMouseUp: handleMouseUp,
+      onMouseLeave: handleMouseLeave,
       type: element === 'button' ? type : null,
       'data-teamleader-ui': 'icon-button',
     };
@@ -63,8 +80,8 @@ class IconButton extends Component {
         {children}
       </Box>
     );
-  }
-}
+  },
+);
 
 IconButton.propTypes = {
   /** The content to display inside the button. */
@@ -86,7 +103,7 @@ IconButton.propTypes = {
   /** Size of the button. */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   /** The color which the icon should have */
-  color: PropTypes.oneOf(['neutral', 'white', 'mint', 'violet', 'ruby', 'gold', 'aqua']),
+  color: PropTypes.oneOf(['neutral', 'white', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'teal']),
   /** The tint which the icon should have */
   tint: PropTypes.oneOf(['lightest', 'light', 'normal', 'dark', 'darkest']),
   /** Type of the button element. */
@@ -101,5 +118,7 @@ IconButton.defaultProps = {
   tint: 'darkest',
   type: 'button',
 };
+
+IconButton.displayName = 'IconButton';
 
 export default IconButton;

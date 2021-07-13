@@ -3,6 +3,7 @@ import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 
+import { KEY } from '../../constants';
 import { Heading4, Monospaced, TextBodyCompact } from '../typography';
 import Icon from '../icon';
 import Box from '../box';
@@ -38,100 +39,120 @@ const BackgroundTintByStatus = {
   [Status.BROKEN]: 'lightest',
 };
 
-const FilterSelection = ({ label, modificationText, applied, status, amountApplied, onClick, onClearClick }, ref) => {
-  const showAmount = typeof amountApplied === 'number';
-  const modified = typeof modificationText === 'string';
+const FilterSelection = forwardRef(
+  ({ label, modificationText, applied, status, amountApplied, onClick, onClearClick }, ref) => {
+    const showAmount = typeof amountApplied === 'number';
+    const modified = typeof modificationText === 'string';
 
-  const Container = modified ? TooltippedBox : Box;
-  const tooltipProps = modified
-    ? {
-        tooltip: modificationText,
-        tooltipColor: 'white',
-        tooltipPosition: 'top',
-        tooltipSize: 'small',
+    const Container = modified ? TooltippedBox : Box;
+    const tooltipProps = modified
+      ? {
+          tooltip: modificationText,
+          tooltipColor: 'white',
+          tooltipPosition: 'top',
+          tooltipSize: 'small',
+        }
+      : {};
+
+    const handleKeyDown = (event) => {
+      if (event.key === KEY.Enter && status !== Status.DISABLED) {
+        onClick();
       }
-    : {};
+    };
 
-  return (
-    <Box
-      ref={ref}
-      className={cx(theme['select-control'])}
-      display="flex"
-      boxSizing="border-box"
-      paddingHorizontal={3}
-      backgroundColor={ColorByStatus[status] || 'neutral'}
-      backgroundTint={BackgroundTintByStatus[status] || undefined}
-      borderWidth={applied ? 2 : 0}
-      borderColor={ColorByStatus[status] || 'neutral'}
-      borderTint="dark"
-      borderRadius="rounded"
-      onClick={status !== Status.DISABLED && onClick}
-    >
-      <Container
+    const handleClearClick = (event) => {
+      event.stopPropagation();
+      if (status !== Status.DISABLED) {
+        onClearClick();
+      }
+    };
+
+    return (
+      <Box
+        ref={ref}
+        className={cx(theme['select-control'], status === Status.DEFAULT && theme['select-control--hovered'])}
+        role="button"
+        tabIndex={0}
         display="flex"
-        flex={1}
-        alignItems="center"
-        justifyContent="space-between"
-        marginRight={2}
-        {...tooltipProps}
+        boxSizing="border-box"
+        paddingHorizontal={3}
+        backgroundColor={ColorByStatus[status] || 'neutral'}
+        backgroundTint={BackgroundTintByStatus[status] || undefined}
+        borderWidth={applied ? 2 : 0}
+        borderColor={ColorByStatus[status] || 'neutral'}
+        borderTint="dark"
+        borderRadius="rounded"
+        onClick={status !== Status.DISABLED && onClick}
+        onKeyDown={handleKeyDown}
       >
-        <TextBodyCompact
+        <Container
+          display="flex"
+          flex={1}
+          alignItems="center"
+          justifyContent="space-between"
+          marginRight={2}
+          {...tooltipProps}
+        >
+          <TextBodyCompact
+            color={status === Status.DEFAULT ? 'teal' : ColorByStatus[status] || 'neutral'}
+            tint={status === Status.DISABLED ? 'dark' : 'darkest'}
+            marginRight={applied ? 2 : 0}
+            className={theme['select-value-container']}
+          >{`${label}${modified ? ' •' : ''}`}</TextBodyCompact>
+          {applied && (
+            <Box
+              display="flex"
+              alignItems="center"
+              borderRadius="rounded"
+              className={cx(theme['select-clear'], theme[`select-clear--${status}`])}
+            >
+              {showAmount && (
+                <Heading4
+                  paddingLeft={2}
+                  paddingRight={1}
+                  color={ColorByStatus[status] || 'neutral'}
+                  tint="dark"
+                  borderTopLeftRadius="rounded"
+                  borderBottomLeftRadius="rounded"
+                  borderTopRightRadius={showAmount ? 'square' : 'rounded'}
+                  borderBottomRightRadius={showAmount ? 'square' : 'rounded'}
+                >
+                  <Monospaced>{amountApplied}</Monospaced>
+                </Heading4>
+              )}
+              <Box
+                alignItems="center"
+                display="flex"
+                onMouseDown={(event) => event.stopPropagation()}
+                onClick={handleClearClick}
+                paddingHorizontal={1}
+                borderTopLeftRadius={showAmount ? 'square' : 'rounded'}
+                borderBottomLeftRadius={showAmount ? 'square' : 'rounded'}
+                borderTopRightRadius="rounded"
+                borderBottomRightRadius="rounded"
+                className={theme['select-clear-icon']}
+              >
+                <Icon color={ColorByStatus[status] || 'neutral'} tint="dark" opacity={1}>
+                  <IconCloseSmallOutline />
+                </Icon>
+              </Box>
+            </Box>
+          )}
+        </Container>
+        <Icon
           color={status === Status.DEFAULT ? 'teal' : ColorByStatus[status] || 'neutral'}
           tint={status === Status.DISABLED ? 'dark' : 'darkest'}
-          marginRight={applied ? 2 : 0}
-        >{`${label}${modified ? ' •' : ''}`}</TextBodyCompact>
-        {applied && (
-          <Box
-            display="flex"
-            alignItems="center"
-            borderRadius="rounded"
-            className={cx(theme['select-clear'], theme[`select-clear--${status}`])}
-          >
-            {showAmount && (
-              <Heading4
-                paddingLeft={2}
-                paddingRight={1}
-                color={ColorByStatus[status] || 'neutral'}
-                tint="dark"
-                borderTopLeftRadius="rounded"
-                borderBottomLeftRadius="rounded"
-                borderTopRightRadius={showAmount ? 'square' : 'rounded'}
-                borderBottomRightRadius={showAmount ? 'square' : 'rounded'}
-              >
-                <Monospaced>{amountApplied}</Monospaced>
-              </Heading4>
-            )}
-            <Box
-              alignItems="center"
-              display="flex"
-              onClick={status !== Status.DISABLED && onClearClick}
-              paddingHorizontal={1}
-              borderTopLeftRadius={showAmount ? 'square' : 'rounded'}
-              borderBottomLeftRadius={showAmount ? 'square' : 'rounded'}
-              borderTopRightRadius="rounded"
-              borderBottomRightRadius="rounded"
-              className={theme['select-clear-icon']}
-            >
-              <Icon color={ColorByStatus[status] || 'neutral'} tint="dark" opacity={1}>
-                <IconCloseSmallOutline />
-              </Icon>
-            </Box>
-          </Box>
-        )}
-      </Container>
-      <Icon
-        color={status === Status.DEFAULT ? 'teal' : ColorByStatus[status] || 'neutral'}
-        tint={status === Status.DISABLED ? 'dark' : 'darkest'}
-        className={cx(
-          theme['select-dropdown-indicator'],
-          status === Status.FOCUSED && theme['select-dropdown-indicator--focused'],
-        )}
-      >
-        <IconChevronDownSmallOutline />
-      </Icon>
-    </Box>
-  );
-};
+          className={cx(
+            theme['select-dropdown-indicator'],
+            status === Status.FOCUSED && theme['select-dropdown-indicator--focused'],
+          )}
+        >
+          <IconChevronDownSmallOutline />
+        </Icon>
+      </Box>
+    );
+  },
+);
 
 FilterSelection.propTypes = {
   label: PropTypes.string,
@@ -153,4 +174,6 @@ FilterSelection.defaultProps = {
   onClearClick: null,
 };
 
-export default forwardRef(FilterSelection);
+FilterSelection.displayName = 'FilterSelection';
+
+export default FilterSelection;
