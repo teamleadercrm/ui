@@ -10,6 +10,9 @@
 
 ### Fixed
 
+- `Overlay`: the overlay now stops propagating the escape key event when active, even when no escape handler is attached ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1737))
+- `NumericInput`: fix stepper controls not updating the value of the input ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1737))
+
 ### Dependency update
 
 ## [7.0.0] - 2021-07-12
