@@ -2,13 +2,27 @@
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Dependency update
+
+## [7.0.0] - 2021-07-12
+
+### Added
+
 - `FilterSelection` Add FilterSelectionComponent ([@JorenSaeyTL](https://github.com/JorenSaeyTL) in [#1717](https://github.com/teamleadercrm/ui/pull/1717))
-- `Button`: now correctly forwards its `ref` prop ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1727))
-- `Input`: now correctly forwards its `ref` prop ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1727))
-- `DurationInput`: now correctly forwards its `ref` prop ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1727))
-- `NumericInput`: now correctly forwards its `ref` prop ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1727))
-- `TextArea`: now correctly forwards its `ref` prop ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1727))
-- `TimeInput`: now correctly forwards its `ref` prop ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1727))
+- [BREAKING] `Button`: now correctly forwards its `ref` prop ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1727))
+- [BREAKING] `Input`: now correctly forwards its `ref` prop ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1727))
+- [BREAKING] `DurationInput`: now correctly forwards its `ref` prop ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1727))
+- [BREAKING] `NumericInput`: now correctly forwards its `ref` prop ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1727))
+- [BREAKING] `TextArea`: now correctly forwards its `ref` prop ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1727))
+- [BREAKING] `TimeInput`: now correctly forwards its `ref` prop ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1727))
 - [BREAKING] `IconButton`: now correctly forwards its `ref` prop ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1736](https://github.com/teamleadercrm/ui/pull/1736))
 - [BREAKING] `Link`: now correctly forwards its `ref` prop ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1736](https://github.com/teamleadercrm/ui/pull/1736))
 - [BREAKING] `TitleTab`: now correctly forwards its `ref` prop ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1736](https://github.com/teamleadercrm/ui/pull/1736))
@@ -24,8 +38,6 @@
 - `Popover`: has been made aria compliant, enabling keyboard navigation ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1729](https://github.com/teamleadercrm/ui/pull/1731))
 - [BREAKING] `Popover`: Popovers now mount straight on the body instead of a self-made div ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1729](https://github.com/teamleadercrm/ui/pull/1731))
 
-### Deprecated
-
 ### Removed
 
 - [BREAKING] `QTip`: This component has been removed ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1729](https://github.com/teamleadercrm/ui/pull/1729))
@@ -39,8 +51,6 @@
 - Display names on multiple components (for debugging) ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1727))
 - `Overlay`: Pressing ESC now closes the relevant overlay, instead of all overlays ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1729](https://github.com/teamleadercrm/ui/pull/1729))
 - `DatePicker`: `formatDate` util function signature ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1729](https://github.com/teamleadercrm/ui/pull/1729))
-
-### Dependency updates
 
 ## [6.6.0] - 2021-07-01
 
