@@ -40,16 +40,16 @@ export const forms = () => {
       <Box display="flex" marginTop={4}>
         <Label flex={1} marginRight={2}>
           Input
-          <Input innerRef={inputRef} />
+          <Input ref={inputRef} />
         </Label>
         <Label flex={1} marginLeft={2}>
           NumericInput
-          <NumericInput innerRef={numericInputRef} />
+          <NumericInput ref={numericInputRef} />
         </Label>
       </Box>
       <Label marginTop={4}>
         Textarea
-        <Textarea innerRef={textareaRef} />
+        <Textarea ref={textareaRef} />
       </Label>
     </Box>
   );

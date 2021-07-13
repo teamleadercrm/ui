@@ -1,35 +1,13 @@
-import React, { createRef, Fragment, PureComponent } from 'react';
+import React, { forwardRef, Fragment, useRef, useImperativeHandle } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import Box from '../box';
 import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
 
-class Link extends PureComponent {
-  linkNode = createRef();
-
-  blur() {
-    if (this.linkNode.current.blur) {
-      this.linkNode.current.blur();
-    }
-  }
-
-  handleMouseUp = (event) => {
-    const { onMouseUp } = this.props;
-
-    this.blur();
-    onMouseUp && onMouseUp(event);
-  };
-
-  handleMouseLeave = (event) => {
-    const { onMouseLeave } = this.props;
-
-    this.blur();
-    onMouseLeave && onMouseLeave(event);
-  };
-
-  render() {
-    const {
+const Link = forwardRef(
+  (
+    {
       badged,
       children,
       className,
@@ -40,8 +18,31 @@ class Link extends PureComponent {
       inherit,
       inverse,
       selected,
+      onMouseUp,
+      onMouseLeave,
       ...others
-    } = this.props;
+    },
+    ref,
+  ) => {
+    const linkRef = useRef();
+    useImperativeHandle(ref, () => linkRef.current);
+
+    const blur = () => {
+      const currentLinkRef = linkRef.current;
+      if (currentLinkRef.blur) {
+        currentLinkRef.blur();
+      }
+    };
+
+    const handleMouseUp = (event) => {
+      blur();
+      onMouseUp && onMouseUp(event);
+    };
+
+    const handleMouseLeave = (event) => {
+      blur();
+      onMouseLeave && onMouseLeave(event);
+    };
 
     const classNames = cx(
       uiUtilities['reset-font-smoothing'],
@@ -62,11 +63,11 @@ class Link extends PureComponent {
     return (
       <Box
         element={element}
-        ref={this.linkNode}
+        ref={linkRef}
         className={classNames}
         data-teamleader-ui="link"
-        onMouseUp={this.handleMouseUp}
-        onMouseLeave={this.handleMouseLeave}
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseLeave}
         {...others}
       >
         {icon && iconPlacement === 'left' && icon}
@@ -74,8 +75,8 @@ class Link extends PureComponent {
         {icon && iconPlacement === 'right' && icon}
       </Box>
     );
-  }
-}
+  },
+);
 
 Link.propTypes = {
   /** If true, component will be rendered with badged hover effect. */
@@ -113,5 +114,7 @@ Link.defaultProps = {
   inherit: true,
   inverse: false,
 };
+
+Link.displayName = 'Link';
 
 export default Link;
