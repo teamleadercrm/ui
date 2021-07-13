@@ -19,7 +19,7 @@ export const basic = ({ size, ...args }) => (
   <IconButton {...args} icon={size === 'small' ? <IconAddSmallOutline /> : <IconAddMediumOutline />} />
 );
 
-export const withCustomElement = () => <IconButton icon={<IconAddMediumOutline />} element="a" href="#" />;
+export const withCustomElement = () => <IconButton icon={<IconAddMediumOutline />} element="a" />;
 
 withCustomElement.story = {
   name: 'With custom element',
