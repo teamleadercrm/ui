@@ -23,6 +23,12 @@
 - [BREAKING] `NumericInput`: now correctly forwards its `ref` prop ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1727))
 - [BREAKING] `TextArea`: now correctly forwards its `ref` prop ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1727))
 - [BREAKING] `TimeInput`: now correctly forwards its `ref` prop ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1727))
+- [BREAKING] `IconButton`: now correctly forwards its `ref` prop ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1736](https://github.com/teamleadercrm/ui/pull/1736))
+- [BREAKING] `Link`: now correctly forwards its `ref` prop ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1736](https://github.com/teamleadercrm/ui/pull/1736))
+- [BREAKING] `TitleTab`: now correctly forwards its `ref` prop ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1736](https://github.com/teamleadercrm/ui/pull/1736))
+- [BREAKING] `MarketingButton`: now correctly forwards its `ref` prop ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1736](https://github.com/teamleadercrm/ui/pull/1736))
+- [BREAKING] `MarketingTab`: now correctly forwards its `ref` prop ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1736](https://github.com/teamleadercrm/ui/pull/1736))
+- [BREAKING] `MarketingLink`: now correctly forwards its `ref` prop ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1736](https://github.com/teamleadercrm/ui/pull/1736))
 
 ### Changed
 
