@@ -118,6 +118,8 @@ const DurationInput = forwardRef(
     if (Number.isInteger(minutes)) {
       minutes = transformToPaddedNumber(minutes);
     }
+    // if it starts with 0, allow one more so we don't block typing (because we autopad the minutes)
+    const maxMinuteLength = (minutes && minutes.length >= 2 && minutes[0] !== '0') ? 2 : 3
 
     let hours = value?.hours;
     if (Number.isInteger(hours)) {
@@ -129,6 +131,15 @@ const DurationInput = forwardRef(
     if (max) {
       maxHours = Math.floor(max / 60);
       maxMinutes = max % 60;
+    }
+    let maxHourLength;
+    if (hours && maxHours) {
+      maxHourLength = maxHours.toString().length;
+
+      // if it starts with 0, allow one more so we don't block typing (because we autopad the hours)
+      if (hours && hours.length >= maxHourLength && hours[0] === '0') {
+        maxHourLength += 1;
+      }
     }
 
     // Minutes are relative to the already filled in hours, so the max needs to be set on the fly
@@ -146,6 +157,7 @@ const DurationInput = forwardRef(
           placeholder="00"
           min={0}
           {...(max ? { max: maxHours } : {})}
+          maxLength={maxHourLength}
           value={hours ?? ''}
           onChange={handleHoursChanged}
           onBlur={handleBlur}
@@ -162,6 +174,7 @@ const DurationInput = forwardRef(
           step={MINUTES_STEP}
           {...(!value?.hours ? { min: 0 } : {})}
           {...(isMaximumMinutesLimited ? { max: maxMinutes } : {})}
+          maxLength={maxMinuteLength}
           value={minutes ?? ''}
           onChange={handleMinutesChange}
           onBlur={handleBlur}

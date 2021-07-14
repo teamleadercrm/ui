@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `DurationInput`: Don't allow more characters than needed ([@jnstr](https://github.com/jnstr) in [#1738](https://github.com/teamleadercrm/ui/pull/1738)) 
+
 ### Deprecated
 
 ### Removed
