@@ -4,9 +4,17 @@
 
 ### Changed
 
-- `DurationInput`: Don't allow more characters than needed ([@jnstr](https://github.com/jnstr) in [#1738](https://github.com/teamleadercrm/ui/pull/1738)) 
-
 ### Deprecated
+
+### Removed
+
+### Fixed
+
+### Dependency updates
+
+## [8.0.0] - 2021-07-14
+
+- `DurationInput`: Don't allow more characters than needed ([@jnstr](https://github.com/jnstr) in [#1738](https://github.com/teamleadercrm/ui/pull/1738))
 
 ### Removed
 
@@ -18,8 +26,6 @@
 - `Overlay`: the overlay allows events originating from children to fulfil their default action ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1737))
 - `NumericInput`: fix stepper controls not updating the value of the input ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1737))
 - `Select` & `Overlay`: a compatibility issue with the Select and Overlay component has been fixed ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1737))
-
-### Dependency update
 
 ## [7.0.0] - 2021-07-12
 
