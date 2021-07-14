@@ -8,7 +8,14 @@
 
 ### Removed
 
+- [BREAKING] `Select`: `menuPortalTarget` has been removed, the Select's menu now always renders on a custom div at the bottom of the body ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1737))
+
 ### Fixed
+
+- `Overlay`: the overlay now stops propagating the escape key event when active, even when no escape handler is attached ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1737))
+- `Overlay`: the overlay allows events originating from children to fulfil their default action ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1737))
+- `NumericInput`: fix stepper controls not updating the value of the input ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1737))
+- `Select` & `Overlay`: a compatibility issue with the Select and Overlay component has been fixed ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1737))
 
 ### Dependency update
 
