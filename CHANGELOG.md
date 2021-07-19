@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `FilterSelection`: Fix text color when hovering, add background color to clear button when focused ([@JorenSaey](https://github.com/JorenSaeyTL) in [#1741](https://github.com/teamleadercrm/ui/pull/1741))
+
 ### Dependency updates
 
 ## [8.0.0] - 2021-07-14

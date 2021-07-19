@@ -10,7 +10,7 @@
       background-color: var(--color-aqua-light);
       .select-dropdown-indicator,
       .select-value-container {
-        color: var(--color-aqua-dark);
+        color: var(--color-aqua-darkest);
       }
     }
   }
@@ -20,6 +20,13 @@
   height: 18px;
 
   &--active {
+    background-color: rgba(0, 113, 242, 0.12);
+    &:hover {
+      background-color: rgba(0, 113, 242, 0.24);
+    }
+  }
+
+  &--focused {
     background-color: rgba(0, 113, 242, 0.12);
     &:hover {
       background-color: rgba(0, 113, 242, 0.24);
