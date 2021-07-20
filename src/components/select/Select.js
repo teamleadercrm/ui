@@ -18,7 +18,28 @@ const minHeightBySizeMap = {
   large: 48,
 };
 
+export const selectOverlayNode = document.createElement('div');
+selectOverlayNode.setAttribute('data-teamleader-ui', 'select-overlay');
+
+const activeSelects = new Set();
+
 class Select extends PureComponent {
+  componentDidMount() {
+    activeSelects.add(this);
+    const isOverlayMounted = document.contains(selectOverlayNode);
+    if (!isOverlayMounted) {
+      document.body.appendChild(selectOverlayNode);
+    }
+  }
+
+  componentWillUnmount() {
+    const isLastSelect = activeSelects.size <= 1;
+    if (isLastSelect) {
+      document.body.removeChild(selectOverlayNode);
+    }
+    activeSelects.delete(this);
+  }
+
   getClearIndicatorStyles = (base) => {
     const { inverse } = this.props;
 
@@ -337,19 +358,8 @@ class Select extends PureComponent {
   };
 
   render() {
-    const {
-      components,
-      creatable,
-      error,
-      inverse,
-      helpText,
-      menuPortalTarget,
-      size,
-      success,
-      warning,
-      forwardedRef,
-      ...otherProps
-    } = this.props;
+    const { components, creatable, error, inverse, helpText, size, success, warning, forwardedRef, ...otherProps } =
+      this.props;
 
     const boxProps = pickBoxProps(otherProps);
     const restProps = omitBoxProps(otherProps);
@@ -360,7 +370,6 @@ class Select extends PureComponent {
     });
 
     const Element = creatable ? ReactCreatableSelect : ReactSelect;
-    const portalTarget = menuPortalTarget || (typeof window !== 'undefined' ? window.document.body : undefined);
 
     return (
       <Box className={wrapperClassnames} {...boxProps}>
@@ -375,7 +384,7 @@ class Select extends PureComponent {
           }}
           hideSelectedOptions={false}
           menuPlacement="auto"
-          menuPortalTarget={portalTarget}
+          menuPortalTarget={selectOverlayNode}
           menuShouldBlockScroll
           styles={this.getStyles()}
           size={size}
@@ -398,8 +407,6 @@ Select.propTypes = {
   helpText: PropTypes.string,
   /** Boolean indicating whether the select should render as inverse. */
   inverse: PropTypes.bool,
-  /** The HTML DOM node on which the portal should append */
-  menuPortalTarget: PropTypes.instanceOf(Element),
   /** A custom width for the menu dropdown */
   menuWidth: PropTypes.string,
   /** Boolean indicating whether the select option text should render on one single line. */

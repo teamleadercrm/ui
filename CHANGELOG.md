@@ -10,7 +10,35 @@
 
 ### Fixed
 
-### Dependency update
+### Dependency updates
+
+## [8.0.1] - 2021-07-20
+
+### Fixed
+
+- `FilterSelection`: Fix text color when hovering, add background color to clear button when focused ([@JorenSaey](https://github.com/JorenSaeyTL) in [#1741](https://github.com/teamleadercrm/ui/pull/1741))
+- `AsyncSelect`: Also pass the `inputActionMeta` to the `onInputChange` handler ([@lowiebenoot](https://github.com/lowiebenoot) in [#1743](https://github.com/teamleadercrm/ui/pull/1743))
+
+### Dependency updates
+
+- `eslint-plugin-react` from `7.23.2` to `7.24.0`
+
+## [8.0.0] - 2021-07-14
+
+### Changed
+
+- `DurationInput`: Don't allow more characters than needed ([@jnstr](https://github.com/jnstr) in [#1738](https://github.com/teamleadercrm/ui/pull/1738))
+
+### Removed
+
+- [BREAKING] `Select`: `menuPortalTarget` has been removed, the Select's menu now always renders on a custom div at the bottom of the body ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1737))
+
+### Fixed
+
+- `Overlay`: the overlay now stops propagating the escape key event when active, even when no escape handler is attached ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1737))
+- `Overlay`: the overlay allows events originating from children to fulfil their default action ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1737))
+- `NumericInput`: fix stepper controls not updating the value of the input ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1737))
+- `Select` & `Overlay`: a compatibility issue with the Select and Overlay component has been fixed ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1727](https://github.com/teamleadercrm/ui/pull/1737))
 
 ## [7.0.0] - 2021-07-12
 

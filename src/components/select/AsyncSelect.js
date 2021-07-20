@@ -32,9 +32,9 @@ class AsyncSelect extends PureComponent {
     }
   }
 
-  handleInputChange = (searchTerm) => {
+  handleInputChange = (searchTerm, inputActionMeta) => {
     if (this.props.onInputChange) {
-      this.props.onInputChange(searchTerm);
+      this.props.onInputChange(searchTerm, inputActionMeta);
     }
     if (searchTerm === this.state.searchTerm) {
       return;

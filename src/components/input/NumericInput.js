@@ -199,7 +199,7 @@ class NumericInput extends PureComponent {
   };
 
   setRef = (ref) => {
-    this.inputElement = ref;
+    this.inputElement.current = ref;
     const { forwardedRef } = this.props;
     if (typeof forwardedRef === 'function') {
       forwardedRef(ref);

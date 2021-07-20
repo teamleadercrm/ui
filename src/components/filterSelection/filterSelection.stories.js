@@ -28,6 +28,7 @@ export const Focused = (args) => <FilterSelection label="focused" {...args} />;
 Focused.args = {
   label: 'focused',
   status: Status.FOCUSED,
+  applied: true,
 };
 
 export const Active = (args) => <FilterSelection label="active" {...args} />;
