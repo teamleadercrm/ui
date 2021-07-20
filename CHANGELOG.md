@@ -10,10 +10,18 @@
 
 ### Fixed
 
+### Dependency updates
+
+## [8.0.1] - 2021-07-20
+
+### Fixed
+
 - `FilterSelection`: Fix text color when hovering, add background color to clear button when focused ([@JorenSaey](https://github.com/JorenSaeyTL) in [#1741](https://github.com/teamleadercrm/ui/pull/1741))
 - `AsyncSelect`: Also pass the `inputActionMeta` to the `onInputChange` handler ([@lowiebenoot](https://github.com/lowiebenoot) in [#1743](https://github.com/teamleadercrm/ui/pull/1743))
 
 ### Dependency updates
+
+- `eslint-plugin-react` from `7.23.2` to `7.24.0`
 
 ## [8.0.0] - 2021-07-14
 
