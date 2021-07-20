@@ -11,6 +11,7 @@
 ### Fixed
 
 - `FilterSelection`: Fix text color when hovering, add background color to clear button when focused ([@JorenSaey](https://github.com/JorenSaeyTL) in [#1741](https://github.com/teamleadercrm/ui/pull/1741))
+- `AsyncSelect`: Also pass the `inputActionMeta` to the `onInputChange` handler ([@lowiebenoot](https://github.com/lowiebenoot) in [#1743](https://github.com/teamleadercrm/ui/pull/1743))
 
 ### Dependency updates
 
