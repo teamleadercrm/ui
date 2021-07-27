@@ -17,7 +17,17 @@ module.exports = async ({ config }) => {
   config.module.rules = config.module.rules.filter((f) => {
     const ruleTest = f.test && f.test.toString();
 
-    return ruleTest !== '/\\.(svg|ico|jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|cur|ani)(\\?.*)?$/';
+    return ruleTest !== '/\\.(svg|ico|jpg|jpeg|png|apng|gif|eot|otf|webp|ttf|woff|woff2|cur|ani|pdf)(\\?.*)?$/';
+  });
+
+  config.module.rules.push({
+    test: /\.(ico|jpg|jpeg|png|apng|gif|eot|otf|webp|ttf|woff|woff2|cur|ani|pdf)(\?.*)?$/,
+    use: ['file-loader'],
+  });
+
+  config.module.rules.push({
+    test: /\.svg$/,
+    use: ['@svgr/webpack'],
   });
 
   if (config.optimization) {
