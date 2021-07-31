@@ -79,7 +79,7 @@
     "@storybook/addon-knobs": "6.2.9",
     "@storybook/addon-postcss": "^2.0.0",
     "@storybook/addons": "6.3.2",
-    "@storybook/react": "6.3.1",
+    "@storybook/react": "6.3.6",
     "@storybook/theming": "^6.2.8",
     "@storybook/ui": "6.3.4",
     "@svgr/webpack": "^5.5.0",
