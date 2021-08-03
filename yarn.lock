@@ -2994,10 +2994,10 @@
   resolved "https://registry.yarnpkg.com/@teamleader/ui-colors/-/ui-colors-0.3.0.tgz#beafe49d9389230b01310c3e4bd90ed7985ae6c6"
   integrity sha512-TECQkD2Gjp8AvHKL3T+v6VFM95K8rKGE976TtLU8MuhCgUZWbllh9/8LY7+hoIqKVmxIRLbLsj5VFt154LHI1w==
 
-"@teamleader/ui-icons@^1.0.0":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@teamleader/ui-icons/-/ui-icons-1.4.0.tgz#c89c9e36c172fee7dc5dd20ab1664fca673cb356"
-  integrity sha512-LxDTo7heiukkd/XL56dmU+H1WXIm2p/iBR3wKMBluKfNd+9KYHAICRFOqd9kBMTfXOS87d6vh5VCCAp18n4Ckg==
+"@teamleader/ui-icons@^1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@teamleader/ui-icons/-/ui-icons-1.5.0.tgz#25044ea85fde9965e3c53221edcdd7ddea022c24"
+  integrity sha512-JonciVCPVJ2duwy6fjL9LjvmMMw6QWQRDCHeTkqMDiTdJ/d9lP5hAFDIkDW4xdYwKR+az1BT6nbfi660Xh1/wg==
 
 "@teamleader/ui-illustrations@^1.0.0":
   version "1.2.0"
