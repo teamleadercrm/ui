@@ -131,18 +131,18 @@ declare module '@teamleader/ui' {
   export const ValidationText: React.ComponentType<any>;
   export const Widget: React.ComponentType<any>;
   export const WysiwygEditor: React.ComponentType<any>;
-  export const COLOR: any;
-  export const COLORS: any;
-  export const TINTS: any;
-  export const colorsWithout: any;
-  export const tintsWithout: any;
-  export const SIZES: any;
-  export const sizesWithout: any;
-  export const TINY: any;
-  export const SMALL: any;
-  export const MEDIUM: any;
-  export const LARGE: any;
-  export const FULLSCREEN: any;
+  export const COLOR: Record<string, Record<string, string>>;
+  export const COLORS: string[];
+  export const TINTS: string[];
+  export const colorsWithout: (...colorsToExclude: string[]) => string[];
+  export const tintsWithout: (...tintsToExclude: string[]) => string[];
+  export const SIZES: string[];
+  export const sizesWithout: (...sizesToExclude: string[]) => string[];
+  export const TINY: string;
+  export const SMALL: string;
+  export const MEDIUM: string;
+  export const LARGE: string;
+  export const FULLSCREEN: string;
 
   export type Unit = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 }
