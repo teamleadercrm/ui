@@ -124,7 +124,7 @@ declare module '@teamleader/ui' {
   export const Toast: React.ComponentType<any>;
   export const ToastContainer: React.ComponentType<any>;
   export const Toggle: React.ComponentType<any>;
-  export const Tooltip: React.ComponentType<any>;
+  export const Tooltip: (component: React.ComponentType<any>) => React.ComponentType<any>;
   export const UITextDisplay: React.ComponentType<any>;
   export const UITextBody: React.ComponentType<any>;
   export const UITextSmall: React.ComponentType<any>;
