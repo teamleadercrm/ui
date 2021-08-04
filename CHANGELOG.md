@@ -12,6 +12,22 @@
 
 ### Dependency updates
 
+## [8.1.0] - 2021-08-04
+
+### Added
+
+- `PoweredByButton`: Added new component. ([@lorgan3](https://github.com/lorgan3) in [#1741](https://github.com/teamleadercrm/ui/pull/1745))
+
+### Dependency updates
+
+- `eslint` from `7.29.0` to `7.32.0`
+- `tar` from `4.4.13` to `4.4.15`
+- `@teamleader/ui-icons` from `1.3.0` to `1.5.0`
+- `@babel/preset-env` from `7.14.8` to `7.14.9`
+- `@storybook/addon-docs` from `6.3.4` to `6.3.6`
+- `@storybook/react` from `6.3.1` to `6.3.6`
+- `@teamleader/ui-illustrations` from `1.1.0` to `1.2.0`
+
 ## [8.0.1] - 2021-07-20
 
 ### Fixed
