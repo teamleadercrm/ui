@@ -10,6 +10,9 @@
 
 ### Fixed
 
+- `PoweredByButton`: Expose component ([@lorgan3](https://github.com/lorgan3) in [#1741](https://github.com/teamleadercrm/ui/pull/1757))
+- `types`: Update and improve TypeScript types ([@lorgan3](https://github.com/lorgan3) in [#1741](https://github.com/teamleadercrm/ui/pull/1757))
+
 ### Dependency updates
 
 ## [8.1.0] - 2021-08-04
