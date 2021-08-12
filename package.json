@@ -165,6 +165,7 @@
     "lint:fix": "yarn lint --fix",
     "prettier": "prettier --write './{src,.storybook}/**/*.{js,json,md,css}'",
     "prepare": "yarn build",
-    "start": "PORT=${PORT:-3000}; start-storybook --port $PORT"
+    "start": "PORT=${PORT:-3000}; start-storybook --port $PORT",
+    "chromatic:storybook": "PORT=${PORT:-3000}; CHROMATIC=true start-storybook --port $PORT",
   }
 }
