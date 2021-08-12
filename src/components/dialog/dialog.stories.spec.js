@@ -31,3 +31,8 @@ export const Main = () => (
     </Box>
   </Dialog>
 );
+
+Main.parameters = {
+  // add a delay to make sure the dialog animation is finished
+  chromatic: { delay: 300 },
+};
