@@ -1,5 +1,8 @@
+const chromaticTestStories = ['../src/**/*.stories.spec.@(js|mdx)'];
+const storybookStories = ['./**/*.stories.@(js|mdx)', '../src/**/*.stories.@(js|mdx)'];
+
 module.exports = {
-  stories: ['./**/*.stories.@(js|mdx)', '../src/**/*.stories.@(js|mdx)'],
+  stories: process.env.CHROMATIC ? chromaticTestStories : storybookStories,
   addons: [
     '@storybook/addon-backgrounds',
     'storybook-addon-designs',
