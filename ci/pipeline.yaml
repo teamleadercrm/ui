@@ -271,7 +271,7 @@ jobs:
             trigger: true
             version: every
           - get: docker-yamllint
-            params: {save: true }
+            params: {save: true}
       - put: git-ci-pull-request
         params:
           path: git-ci-pull-request
