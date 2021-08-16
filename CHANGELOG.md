@@ -10,16 +10,28 @@
 
 ### Fixed
 
-- `PoweredByButton`: Expose component ([@lorgan3](https://github.com/lorgan3) in [#1741](https://github.com/teamleadercrm/ui/pull/1757))
-- `types`: Update and improve TypeScript types ([@lorgan3](https://github.com/lorgan3) in [#1741](https://github.com/teamleadercrm/ui/pull/1757))
+### Dependency updates
+
+## [8.1.1] - 2021-08-16
+
+### Fixed
+
+- `PoweredByButton`: Expose component ([@lorgan3](https://github.com/lorgan3) in [#1757](https://github.com/teamleadercrm/ui/pull/1757))
+- `types`: Update and improve TypeScript types ([@lorgan3](https://github.com/lorgan3) in [#1757](https://github.com/teamleadercrm/ui/pull/1757))
 
 ### Dependency updates
+
+- `react-resize-detector` from `6.7.3` to `6.7.4`
+- `@babel/cli` from `7.14.5` to `7.14.8`
+- `path-parse` from `1.0.6` to `1.0.7`
+- `postcss` from `8.3.5` to `8.3.6`
+- `@storybook/addon-controls` from `6.3.1` to `6.3.7`
 
 ## [8.1.0] - 2021-08-04
 
 ### Added
 
-- `PoweredByButton`: Added new component. ([@lorgan3](https://github.com/lorgan3) in [#1741](https://github.com/teamleadercrm/ui/pull/1745))
+- `PoweredByButton`: Added new component. ([@lorgan3](https://github.com/lorgan3) in [#1745](https://github.com/teamleadercrm/ui/pull/1745))
 
 ### Dependency updates
 
