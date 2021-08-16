@@ -53,6 +53,7 @@ import LoadingSpinner from './components/loadingSpinner';
 import Pagination from './components/pagination';
 import Passport, { EmptyPassport } from './components/passport';
 import Popover from './components/popover';
+import PoweredByButton from './components/poweredByButton';
 import { RadioButton, RadioGroup } from './components/radio';
 import ScrollContainer from './components/scrollContainer';
 import Section from './components/section';
@@ -161,6 +162,7 @@ export {
   Pagination,
   Popover,
   ProgressTracker,
+  PoweredByButton,
   RadioButton,
   RadioGroup,
   ScrollContainer,

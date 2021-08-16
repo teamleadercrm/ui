@@ -50,6 +50,12 @@ As in this example for port `3001`:
 $ PORT=3001 yarn start
 ```
 
+## New component checklist
+
+- [component].stories.js file is present
+- component is exported in index.js
+- component type is exported in index.d.ts
+
 ## How to make a release
 
 1.  Pull the `next-release` branch to make sure you have all the latest code on your local machine.
