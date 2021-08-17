@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `PoweredByButton`: Inline svgs ([@lorgan3](https://github.com/lorgan3) in [#1770](https://github.com/teamleadercrm/ui/pull/1770))
+
 ### Dependency updates
 
 ## [8.1.1] - 2021-08-16
