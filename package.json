@@ -1,7 +1,7 @@
 {
   "name": "@teamleader/ui",
   "description": "Teamleader UI library",
-  "version": "8.1.1",
+  "version": "8.1.2",
   "author": "Teamleader <development@teamleader.eu>",
   "bugs": {
     "url": "https://github.com/teamleadercrm/ui/issues"
@@ -73,12 +73,12 @@
     "@babel/plugin-transform-runtime": "^7.12.1",
     "@babel/preset-env": "^7.13.15",
     "@babel/preset-react": "^7.12.5",
-    "@storybook/addon-backgrounds": "6.3.4",
+    "@storybook/addon-backgrounds": "6.3.7",
     "@storybook/addon-controls": "^6.2.8",
     "@storybook/addon-docs": "^6.2.8",
     "@storybook/addon-knobs": "6.2.9",
     "@storybook/addon-postcss": "^2.0.0",
-    "@storybook/addons": "6.3.6",
+    "@storybook/addons": "6.3.7",
     "@storybook/react": "6.3.6",
     "@storybook/theming": "^6.2.8",
     "@storybook/ui": "6.3.4",
@@ -86,6 +86,7 @@
     "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.0-beta.6",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.13",
+    "chromatic": "^5.9.2",
     "css-loader": "^5.0.2",
     "cssnano": "^5.0.1",
     "eslint": "^7.1.0",
@@ -164,6 +165,8 @@
     "lint:fix": "yarn lint --fix",
     "prettier": "prettier --write './{src,.storybook}/**/*.{js,json,md,css}'",
     "prepare": "yarn build",
-    "start": "PORT=${PORT:-3000}; start-storybook --port $PORT"
+    "start": "PORT=${PORT:-3000}; start-storybook --port $PORT",
+    "chromatic:storybook": "PORT=${PORT:-3000}; CHROMATIC=true start-storybook --port $PORT",
+    "chromatic": "CHROMATIC=true chromatic"
   }
 }
