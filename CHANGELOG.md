@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `ProgressTracker`: Adjust vertical spacing ([@lorgan3](https://github.com/lorgan3) in [#1784](https://github.com/teamleadercrm/ui/pull/1784))
+
 ### Deprecated
 
 ### Removed
