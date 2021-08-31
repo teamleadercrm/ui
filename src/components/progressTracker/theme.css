@@ -200,22 +200,40 @@
   flex-direction: column-reverse;
 
   &:before {
-    bottom: 53px;
+    bottom: 35px;
   }
 
   &:after {
-    bottom: 52px;
+    bottom: 34px;
   }
 
   .status-bullet-halo {
-    bottom: 30px;
+    bottom: 12px;
+  }
+
+  &.has-meta {
+    &:before {
+      bottom: 53px;
+    }
+
+    &:after {
+      bottom: 52px;
+    }
+
+    .status-bullet-halo {
+      bottom: 30px;
+    }
   }
 }
 
 .tracker-alternating {
   .step {
     &:nth-child(even) {
-      margin-top: 36px;
+      margin-top: 18px;
+
+      &.has-meta {
+        margin-top: 36px;
+      }
     }
 
     &-label-holder {
