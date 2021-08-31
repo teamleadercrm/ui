@@ -37,12 +37,12 @@
   &:before {
     background-color: var(--color-neutral-dark);
     width: 100%;
-    bottom: 11px;
+    bottom: 17px;
   }
 
   &:after {
     height: 4px;
-    bottom: 10px;
+    bottom: 16px;
     left: 50%;
     transition: width var(--animation-duration) var(--animation-curve-default),
       background-color 0.1s var(--animation-curve-default) calc(var(--animation-duration) - 0.1s);
@@ -104,7 +104,7 @@
     border-radius: 50%;
     display: block;
     height: var(--bullet-size);
-    margin: 6px 0;
+    margin: 12px 0;
     width: var(--bullet-size);
     z-index: 2;
     position: relative;
@@ -130,7 +130,7 @@
       calc(var(--animation-duration) - 0.1s);
     border-radius: 50%;
     display: block;
-    margin: 6px 0;
+    margin: 12px 0;
     height: var(--bullet-halo-size);
     width: var(--bullet-halo-size);
     position: absolute;
@@ -202,11 +202,11 @@
       margin-top: 36px;
 
       &:before {
-        bottom: 47px;
+        bottom: 53px;
       }
 
       &:after {
-        bottom: 46px;
+        bottom: 52px;
       }
 
       .status-bullet-halo {
@@ -225,11 +225,11 @@
     flex-direction: column-reverse;
 
     &:before {
-      bottom: 47px;
+      bottom: 53px;
     }
 
     &:after {
-      bottom: 46px;
+      bottom: 52px;
     }
 
     .status-bullet-halo {
