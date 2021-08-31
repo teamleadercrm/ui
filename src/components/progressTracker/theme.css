@@ -195,45 +195,31 @@
   }
 }
 
+.tracker-alternating .step:nth-child(even),
+.tracker-bottom .step {
+  flex-direction: column-reverse;
+
+  &:before {
+    bottom: 53px;
+  }
+
+  &:after {
+    bottom: 52px;
+  }
+
+  .status-bullet-halo {
+    bottom: 30px;
+  }
+}
+
 .tracker-alternating {
   .step {
     &:nth-child(even) {
-      flex-direction: column-reverse;
       margin-top: 36px;
-
-      &:before {
-        bottom: 53px;
-      }
-
-      &:after {
-        bottom: 52px;
-      }
-
-      .status-bullet-halo {
-        bottom: 30px;
-      }
     }
 
     &-label-holder {
       width: 200%;
-    }
-  }
-}
-
-.tracker-bottom {
-  .step {
-    flex-direction: column-reverse;
-
-    &:before {
-      bottom: 53px;
-    }
-
-    &:after {
-      bottom: 52px;
-    }
-
-    .status-bullet-halo {
-      bottom: 30px;
     }
   }
 }
