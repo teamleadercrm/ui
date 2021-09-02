@@ -12,7 +12,8 @@ class ProgressStep extends PureComponent {
     const classNames = cx(theme['step'], {
       [theme['is-active']]: active,
       [theme['is-completed']]: completed,
-      [theme['is-clickable']]: onClick,
+      [theme['is-clickable']]: !!onClick,
+      [theme['has-meta']]: !!meta,
     });
     return (
       <Box className={classNames}>
