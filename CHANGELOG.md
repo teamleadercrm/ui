@@ -12,6 +12,8 @@
 
 ### Fixed
 
+- `types`: Fix types for components with static properties ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1789](https://github.com/teamleadercrm/ui/pull/1789))
+
 ### Dependency updates
 
 ## [8.1.2] - 2021-08-23
