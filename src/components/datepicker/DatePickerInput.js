@@ -7,7 +7,7 @@ import Input from '../input';
 import Popover from '../popover';
 import cx from 'classnames';
 import theme from './theme.css';
-import LocaleUtils, { formatDate } from './localeUtils';
+import { formatDate } from './localeUtils';
 import { IconCalendarSmallOutline } from '@teamleader/ui-icons';
 
 class DatePickerInput extends PureComponent {
@@ -148,7 +148,6 @@ class DatePickerInput extends PureComponent {
             <DatePicker
               className={datePickerClassNames}
               locale={locale}
-              localeUtils={LocaleUtils}
               month={selectedDate}
               onChange={this.handleDatePickerDateChange}
               selectedDate={selectedDate}

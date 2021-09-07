@@ -8,6 +8,7 @@ import { convertModifiersToClassnames, isSelectingFirstDay } from './utils';
 import cx from 'classnames';
 import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
+import LocaleUtils from './localeUtils';
 
 class DatePickerRange extends PureComponent {
   state = {
@@ -92,6 +93,7 @@ class DatePickerRange extends PureComponent {
       <Box {...boxProps}>
         <DayPicker
           {...restProps}
+          localeUtils={LocaleUtils}
           className={classNames}
           classNames={theme}
           modifiers={convertModifiersToClassnames(modifiers, theme)}

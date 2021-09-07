@@ -9,6 +9,7 @@ import { convertModifiersToClassnames } from './utils';
 import cx from 'classnames';
 import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
+import LocaleUtils from './localeUtils';
 
 class DatePicker extends PureComponent {
   state = {
@@ -72,6 +73,7 @@ class DatePicker extends PureComponent {
       <Box {...boxProps}>
         <DayPicker
           {...restProps}
+          localeUtils={LocaleUtils}
           initialMonth={selectedDate}
           month={selectedMonth}
           className={classNames}
