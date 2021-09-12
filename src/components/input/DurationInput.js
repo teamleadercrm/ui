@@ -212,6 +212,7 @@ DurationInput.propTypes = {
 };
 
 DurationInput.defaultProps = {
+  textAlignRight: false,
   size: 'medium',
 };
 
