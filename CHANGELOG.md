@@ -2,6 +2,8 @@
 
 ### Added
 
+- `DurationInput`: add `small`, `medium` (default) and `large` size property ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1789](https://github.com/teamleadercrm/ui/pull/1794))
+
 ### Changed
 
 ### Deprecated
