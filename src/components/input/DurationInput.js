@@ -122,7 +122,7 @@ const DurationInput = forwardRef(
       minutes = transformToPaddedNumber(minutes);
     }
     // if it starts with 0, allow one more so we don't block typing (because we autopad the minutes)
-    const maxMinuteLength = (minutes && minutes.length >= 2 && minutes[0] !== '0') ? 2 : 3
+    const maxMinuteLength = minutes && minutes.length >= 2 && minutes[0] !== '0' ? 2 : 3;
 
     let hours = value?.hours;
     if (Number.isInteger(hours)) {
