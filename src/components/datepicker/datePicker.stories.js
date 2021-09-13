@@ -3,7 +3,7 @@ import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { boolean, number, select, text } from '@storybook/addon-knobs';
 import { DatePicker, DatePickerRange, DatePickerInput, DatePickerInputRange, Toggle } from '../../index';
 import { DateTime } from 'luxon';
-import CustomLocaleUtils, { formatDate, parseDate } from './localeUtils';
+import { formatDate, parseDate } from './localeUtils';
 
 const languages = [
   'da-DK',
@@ -63,7 +63,6 @@ export const singleDate = () => {
     <DatePicker
       bordered={boolean('bordered', true)}
       locale={select('Locale', languages, 'nl-BE')}
-      localeUtils={CustomLocaleUtils}
       numberOfMonths={number('Number of months', 1)}
       onChange={handleOnChange}
       selectedDate={preSelectedDate}
@@ -158,7 +157,6 @@ export const range = () => {
     <DatePickerRange
       bordered={boolean('bordered', true)}
       locale={select('Locale', languages, 'nl-BE')}
-      localeUtils={CustomLocaleUtils}
       numberOfMonths={number('Number of months', 2)}
       onChange={handleOnChange}
       selectedRange={preSelectedRange}
@@ -179,7 +177,6 @@ export const inputRange = () => {
       bold={boolean('Bold', false)}
       dayPickerProps={{
         locale: select('Locale', languages, 'nl-BE'),
-        localeUtils: CustomLocaleUtils,
         numberOfMonths: number('Number of months', 2),
         showOutsideDays: boolean('Show outside days', false),
         showWeekNumbers: boolean('Show week numbers', true),
