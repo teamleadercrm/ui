@@ -1,7 +1,7 @@
 {
   "name": "@teamleader/ui",
   "description": "Teamleader UI library",
-  "version": "8.1.1",
+  "version": "8.2.0",
   "author": "Teamleader <development@teamleader.eu>",
   "bugs": {
     "url": "https://github.com/teamleadercrm/ui/issues"
@@ -73,7 +73,7 @@
     "@babel/plugin-transform-runtime": "^7.12.1",
     "@babel/preset-env": "^7.13.15",
     "@babel/preset-react": "^7.12.5",
-    "@storybook/addon-backgrounds": "6.3.4",
+    "@storybook/addon-backgrounds": "6.3.8",
     "@storybook/addon-controls": "^6.2.8",
     "@storybook/addon-docs": "^6.2.8",
     "@storybook/addon-knobs": "6.2.9",
@@ -81,7 +81,7 @@
     "@storybook/addons": "6.3.7",
     "@storybook/react": "6.3.6",
     "@storybook/theming": "^6.2.8",
-    "@storybook/ui": "6.3.4",
+    "@storybook/ui": "6.3.7",
     "@svgr/webpack": "^5.5.0",
     "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.0-beta.6",

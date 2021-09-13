@@ -12,6 +12,30 @@
 
 ### Dependency updates
 
+## [8.2.0] - 2021-09-06
+
+### Changed
+
+- `ProgressTracker`: Adjust vertical spacing ([@lorgan3](https://github.com/lorgan3) in [#1784](https://github.com/teamleadercrm/ui/pull/1784))
+
+### Fixed
+
+- `types`: Fix types for components with static properties ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1789](https://github.com/teamleadercrm/ui/pull/1789))
+
+## [8.1.2] - 2021-08-23
+
+### Fixed
+
+- `PoweredByButton`: Inline svgs ([@lorgan3](https://github.com/lorgan3) in [#1770](https://github.com/teamleadercrm/ui/pull/1770))
+
+### Dependency updates
+
+- `postcss-nested` from `5.0.5` to `5.0.6 `
+- `cssnano` from `5.0.6` to `5.0.7`
+- `@teamleader/ui-illustrations` from `1.2.0` to `1.3.0`
+- `@storybook/addon-backgrounds` from `6.3.4` to `6.3.7`
+- `@storybook/addon-doc`s from `6.3.6` to `6.3.7`
+
 ## [8.1.1] - 2021-08-16
 
 ### Fixed

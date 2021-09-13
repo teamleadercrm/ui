@@ -33,7 +33,7 @@ export const DefaultStory = () => (
     {steps.map((step, index) => (
       <ProgressTracker.ProgressStep
         label={step}
-        meta={`${10 + index * 3}/12/2020`}
+        meta={boolean('Meta labels', true) ? `${10 + index * 3}/12/2020` : undefined}
         key={index}
         onClick={() => console.log('step clicked')}
       />

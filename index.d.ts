@@ -43,16 +43,30 @@ declare module '@teamleader/ui' {
   export const Checkbox: React.ComponentType<any>;
   export const Container: React.ComponentType<any>;
   export const Counter: React.ComponentType<any>;
-  export const DataGrid: React.ComponentType<any>;
+  export const DataGrid: React.ComponentType<any> & {
+    HeaderRowOverlay: React.ComponentType<any>;
+    HeaderRow: React.ComponentType<any>;
+    HeaderCell: React.ComponentType<any>;
+    BodyRow: React.ComponentType<any>;
+    Cell: React.ComponentType<any>;
+    FooterRow: React.ComponentType<any>;
+  };
   export const DatePicker: React.ComponentType<any>;
   export const DatePickerInput: React.ComponentType<any>;
   export const DatePickerRange: React.ComponentType<any>;
   export const DatePickerInputRange: React.ComponentType<any>;
-  export const DetailPage: React.ComponentType<any>;
+  export const DetailPage: React.ComponentType<any> & {
+    Header: React.ComponentType<any>;
+    Body: React.ComponentType<any>;
+  };
   export const DetailPageBody: React.ComponentType<any>;
   export const DetailPageHeader: React.ComponentType<any>;
   export const Dialog: React.ComponentType<any>;
-  export const DialogBase: React.ComponentType<any>;
+  export const DialogBase: React.ComponentType<any> & {
+    Header: React.ComponentType<any>;
+    Body: React.ComponentType<any>;
+    Footer: React.ComponentType<any>;
+  };
   export const EmptyPassport: React.ComponentType<any>;
   export const EmptyState: React.ComponentType<any>;
   export const ErrorText: React.ComponentType<any>;
@@ -70,7 +84,10 @@ declare module '@teamleader/ui' {
   export const Island: React.ComponentType<any>;
   export const IslandGroup: React.ComponentType<any>;
   export const Label: React.ComponentType<any>;
-  export const LabelValuePair: React.ComponentType<any>;
+  export const LabelValuePair: React.ComponentType<any> & {
+    Label: React.ComponentType<any>;
+    Value: React.ComponentType<any>;
+  };
   export const LabelValuePairGroup: React.ComponentType<any>;
   export const Link: React.ComponentType<any>;
   export const LoadingBar: React.ComponentType<any>;
@@ -129,7 +146,11 @@ declare module '@teamleader/ui' {
   export const UITextBody: React.ComponentType<any>;
   export const UITextSmall: React.ComponentType<any>;
   export const ValidationText: React.ComponentType<any>;
-  export const Widget: React.ComponentType<any>;
+  export const Widget: React.ComponentType<any> & {
+    Header: React.ComponentType<any>;
+    Body: React.ComponentType<any>;
+    Footer: React.ComponentType<any>;
+  };
   export const WysiwygEditor: React.ComponentType<any>;
   export const COLOR: Record<string, Record<string, string>>;
   export const COLORS: string[];
