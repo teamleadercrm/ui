@@ -12,6 +12,16 @@
 
 ### Dependency updates
 
+## [8.3.0] - 2021-09-13
+
+### Added
+
+- `DurationInput`: add `small`, `medium` (default) and `large` size property ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1789](https://github.com/teamleadercrm/ui/pull/1794))
+
+### Fixed
+
+- `DatePicker`: Pass localeUtils to support different locales out of the box ([@lorgan3](https://github.com/lorgan3) in [#1791](https://github.com/teamleadercrm/ui/pull/1791))
+
 ## [8.2.0] - 2021-09-06
 
 ### Changed

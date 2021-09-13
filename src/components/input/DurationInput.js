@@ -9,7 +9,10 @@ const transformToPaddedNumber = (number) => (number < 10 ? `0${number}` : number
 const MINUTES_STEP = 15;
 
 const DurationInput = forwardRef(
-  ({ id, value, onChange, onBlur, onFocus, onKeyDown, autoFocus, textAlignRight, className, error, max }, ref) => {
+  (
+    { id, value, onChange, onBlur, onFocus, onKeyDown, autoFocus, textAlignRight, className, error, max, size },
+    ref,
+  ) => {
     const containerRef = useRef();
     useImperativeHandle(ref, () => containerRef.current);
 
@@ -119,7 +122,7 @@ const DurationInput = forwardRef(
       minutes = transformToPaddedNumber(minutes);
     }
     // if it starts with 0, allow one more so we don't block typing (because we autopad the minutes)
-    const maxMinuteLength = (minutes && minutes.length >= 2 && minutes[0] !== '0') ? 2 : 3
+    const maxMinuteLength = minutes && minutes.length >= 2 && minutes[0] !== '0' ? 2 : 3;
 
     let hours = value?.hours;
     if (Number.isInteger(hours)) {
@@ -168,6 +171,7 @@ const DurationInput = forwardRef(
           className={theme['duration-input-numeric-input']}
           autoFocus={autoFocus}
           textAlignRight={textAlignRight}
+          size={size}
         />
         <NumericInput
           placeholder="00"
@@ -184,6 +188,7 @@ const DurationInput = forwardRef(
           inputMode="numeric"
           className={theme['duration-input-numeric-input']}
           textAlignRight={textAlignRight}
+          size={size}
         />
       </Box>
     );
@@ -203,6 +208,12 @@ DurationInput.propTypes = {
   error: PropTypes.bool,
   /** In minutes **/
   max: PropTypes.number,
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
+};
+
+DurationInput.defaultProps = {
+  textAlignRight: false,
+  size: 'medium',
 };
 
 DurationInput.displayName = 'DurationInput';

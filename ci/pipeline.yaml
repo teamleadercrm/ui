@@ -138,7 +138,6 @@ groups:
     jobs:
       - deploy-components
       - pr-linting
-      - pr-chromatic-visual-regression-testing
   - name: design-ui-ops
     jobs:
       - pr-yamllint
@@ -222,50 +221,6 @@ jobs:
         path: git-pull-request
         status: failure
         context: linting
-
-  - name: pr-chromatic-visual-regression-testing
-    plan:
-      - in_parallel:
-          - get: git-pull-request
-            trigger: true
-            version: every
-          - get: docker-node
-            params: {save: true}
-      - put: git-pull-request
-        params:
-          path: git-pull-request
-          status: pending
-          context: chromatic-visual-regression-testing
-      - task: chromatic-visual-regression-testing
-        image: docker-node
-        config:
-          platform: linux
-          caches:
-            - path: git-pull-request/node_modules
-          inputs:
-            - name: git-pull-request
-          params:
-            CHROMATIC_PROJECT_TOKEN: ((CHROMATIC_PROJECT_TOKEN))
-          run:
-            path: sh
-            args:
-              - -exec
-              - |
-                cd git-pull-request
-                yarn
-                yarn run chromatic --project-token=$CHROMATIC_PROJECT_TOKEN
-    on_success:
-      put: git-pull-request
-      params:
-        path: git-pull-request
-        status: success
-        context: chromatic-visual-regression-testing
-    on_failure:
-      put: git-pull-request
-      params:
-        path: git-pull-request
-        status: failure
-        context: chromatic-visual-regression-testing
 
   # OPS jobs
 
