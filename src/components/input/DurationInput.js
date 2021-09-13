@@ -208,7 +208,7 @@ DurationInput.propTypes = {
   error: PropTypes.bool,
   /** In minutes **/
   max: PropTypes.number,
-  size: 'small' | 'medium' | 'large',
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
 };
 
 DurationInput.defaultProps = {
