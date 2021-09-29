@@ -1,0 +1,27 @@
+changesDir: changes
+unreleasedDir: unreleased
+headerPath: header.tpl.md
+versionHeaderPath: ''
+changelogPath: CHANGELOG.md
+versionExt: md
+versionFormat: '## [{{.Version}}] - {{.Time.Format "2006-01-02"}}'
+kindFormat: '### {{.Kind}}'
+changeFormat: '- `{{.Custom.Component}}` {{.Body}} [#{{.Custom.PullRequestNumber}}](https://github.com/teamleadercrm/ui/pull/{{.Custom.PullRequestNumber}})'
+kinds:
+  - label: Added
+  - label: Changed
+  - label: Deprecated
+  - label: Removed
+  - label: Fixed
+  - label: Security
+custom:
+  - key: Component
+    type: string
+  - key: PullRequestNumber
+    label: 'Pull request number'
+    type: int
+    minInt: 1
+replacements:
+  - path: ./package.json
+    find: '  "version": ".*",'
+    replace: '  "version": "{{.VersionNoPrefix}}",'
