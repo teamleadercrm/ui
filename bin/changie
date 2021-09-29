@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+cd $(dirname $0)
+
+echo "Run cd ./docker/changie && docker build . -t localhost:5000/changie before running this command"
+
+docker run -it --rm --init \
+    -v $(pwd)/..:/code \
+    -w /code \
+    localhost:5000/changie changie \
+    "$@"
