@@ -28,6 +28,12 @@ import { Button } from '@teamleader/ui';
 ReactDOM.render(<Button label="Hello World!" />, document.getElementById('app'));
 ```
 
+## Browser support
+
+This library officially supports the last two versions of the major browsers. This is mainly because of dependencies and ease of mind.
+
+- [Luxon browser support](https://moment.github.io/luxon/#/matrix)
+
 ## Contributing
 
 To work in the project you will need a node version supporting ES6 syntax. Although the project is built using the Babel compiler, we use some ES6 features on the development server. Consider using [n](https://github.com/tj/n) or [nvm](https://github.com/creationix/nvm) to handle different node versions!
