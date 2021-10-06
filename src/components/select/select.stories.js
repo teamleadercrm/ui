@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { Avatar, Box, Label, Select, AsyncSelect, TextBody } from '../../index';
 import { customOptions, groupedOptions, options } from '../../static/data/select';
@@ -53,7 +53,12 @@ export default {
   },
 };
 
-export const basic = (args) => <Select {...args} />;
+export const basic = (args) => {
+  /** Needed because the component always has to be controlled now */
+  const [value, setValue] = useState();
+
+  return <Select value={value} onChange={setValue} {...args} />;
+};
 
 basic.args = {
   isClearable: false,

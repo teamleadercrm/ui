@@ -1,5 +1,5 @@
-import React, { forwardRef, useLayoutEffect, useRef } from 'react';
-import ReactSelect from 'react-select';
+import React, { forwardRef, useLayoutEffect, useRef, useState } from 'react';
+import ReactSelect, { components, createFilter } from 'react-select';
 import ReactCreatableSelect from 'react-select/creatable';
 import PropTypes from 'prop-types';
 import { IconCloseBadgedSmallFilled, IconChevronDownSmallOutline } from '@teamleader/ui-icons';
@@ -33,6 +33,8 @@ const DropdownIndicator = ({ selectProps: { inverse }, innerProps }) => {
     </Icon>
   );
 };
+
+const Input = (props) => <components.Input {...props} isHidden={false} />;
 
 const getControlStyles = (
   base,
@@ -266,6 +268,10 @@ selectOverlayNode.setAttribute('data-teamleader-ui', 'select-overlay');
 const activeSelects = new Set();
 
 const Select = ({
+  value,
+  onChange,
+  inputValue: _inputValue,
+  onInputChange,
   components,
   creatable,
   error,
@@ -274,9 +280,13 @@ const Select = ({
   size,
   success,
   warning,
+  isSearchable,
+  isMulti,
   forwardedRef,
   ...otherProps
 }) => {
+  const [inputValue, setInputValue] = useState(value?.label || '');
+  const [isTyping, setIsTyping] = useState(false);
   // Only used to maintain a unique reference to this component
   const componentRef = useRef({});
   useLayoutEffect(() => {
@@ -314,6 +324,43 @@ const Select = ({
     };
   };
 
+  const handleInputChange = (...args) => {
+    onInputChange?.(...args);
+
+    const [inputValue, { action }] = args;
+
+    switch (action) {
+      // Reset input to current value
+      case 'input-blur':
+        setInputValue(value ? value.label : '');
+        setIsTyping(false);
+        break;
+      case 'set-value':
+        setIsTyping(false);
+        break;
+      case 'input-change':
+        setInputValue(inputValue);
+        setIsTyping(true);
+    }
+  };
+
+  const filterOption = (candidate, input) => {
+    if (!isTyping && input === value?.label) {
+      return true;
+    }
+
+    return createFilter()(candidate, input);
+  };
+
+  const handleChange = (...args) => {
+    onChange?.(...args);
+
+    if (isSearchable) {
+      const [currentValue] = args;
+      setInputValue(currentValue ? currentValue.label : '');
+    }
+  };
+
   const styles = {
     control: getControlStyles,
     group: getGroupStyles,
@@ -339,15 +386,26 @@ const Select = ({
 
   const Element = creatable ? ReactCreatableSelect : ReactSelect;
 
+  const valueIsSelectableInInput = isSearchable && !isMulti;
+
   return (
     <Box className={wrapperClassnames} {...boxProps}>
       <Element
         ref={forwardedRef}
+        value={value}
+        onChange={handleChange}
+        {...(valueIsSelectableInInput && {
+          filterOption,
+          inputValue,
+          onInputChange: handleInputChange,
+          controlShouldRenderValue: false,
+        })}
         className={cx(uiUtilities['reset-font-smoothing'], theme['select'])}
         components={{
           ClearIndicator,
           DropdownIndicator,
           IndicatorSeparator: null,
+          ...(valueIsSelectableInInput && { Input }),
           ...components,
         }}
         hideSelectedOptions={false}
@@ -360,6 +418,9 @@ const Select = ({
         error={error}
         warning={warning}
         success={success}
+        isTyping={isTyping}
+        isSearchable={isSearchable}
+        isMulti={isMulti}
         {...restProps}
       />
       <ValidationText error={error} help={helpText} inverse={inverse} success={success} warning={warning} />
@@ -399,6 +460,7 @@ Select.defaultProps = {
   inverse: false,
   size: 'medium',
   width: '100%',
+  isSearchable: true,
 };
 
 const ForwardedSelect = forwardRef((props, ref) => <Select {...props} forwardedRef={ref} />);
