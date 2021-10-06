@@ -48,8 +48,8 @@ const Select = ({
 
     return function cleanup() {
       const isLastSelect = activeSelects.size <= 1;
-      if (isLastSelect) {
-        document.body.removeChild(selectOverlayNode);
+      if (isLastSelect && selectOverlayNode.parentElement) {
+        selectOverlayNode.parentElement.removeChild(selectOverlayNode);
       }
       activeSelects.delete(currentComponentRef);
     };
