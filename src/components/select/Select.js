@@ -11,6 +11,29 @@ import theme from './theme.css';
 import cx from 'classnames';
 import uiUtilities from '@teamleader/ui-utilities';
 
+const ClearIndicator = ({ selectProps: { inverse }, innerProps }) => {
+  return (
+    <Icon color={inverse ? 'teal' : 'neutral'} display="flex" tint={inverse ? 'lightest' : 'darkest'} {...innerProps}>
+      <IconCloseBadgedSmallFilled />
+    </Icon>
+  );
+};
+
+const DropdownIndicator = ({ selectProps: { inverse }, innerProps }) => {
+  return (
+    <Icon
+      alignItems="center"
+      className={theme['dropdown-indicator']}
+      color={inverse ? 'teal' : 'neutral'}
+      display="flex"
+      justifyContent="center"
+      tint={inverse ? 'lightest' : 'darkest'}
+    >
+      <IconChevronDownSmallOutline />
+    </Icon>
+  );
+};
+
 const minHeightBySizeMap = {
   tiny: 24,
   small: 30,
@@ -322,36 +345,6 @@ const Select = ({
     valueContainer: getValueContainerStyles,
   });
 
-  const getClearIndicator =
-    () =>
-    ({ innerProps }) => {
-      return (
-        <Icon
-          color={inverse ? 'teal' : 'neutral'}
-          display="flex"
-          tint={inverse ? 'lightest' : 'darkest'}
-          {...innerProps}
-        >
-          <IconCloseBadgedSmallFilled />
-        </Icon>
-      );
-    };
-
-  const getDropDownIndicator = () => () => {
-    return (
-      <Icon
-        alignItems="center"
-        className={theme['dropdown-indicator']}
-        color={inverse ? 'teal' : 'neutral'}
-        display="flex"
-        justifyContent="center"
-        tint={inverse ? 'lightest' : 'darkest'}
-      >
-        <IconChevronDownSmallOutline />
-      </Icon>
-    );
-  };
-
   const boxProps = pickBoxProps(otherProps);
   const restProps = omitBoxProps(otherProps);
 
@@ -368,8 +361,8 @@ const Select = ({
         ref={forwardedRef}
         className={cx(uiUtilities['reset-font-smoothing'], theme['select'])}
         components={{
-          ClearIndicator: getClearIndicator(),
-          DropdownIndicator: getDropDownIndicator(),
+          ClearIndicator,
+          DropdownIndicator,
           IndicatorSeparator: null,
           ...components,
         }}
@@ -379,6 +372,7 @@ const Select = ({
         menuShouldBlockScroll
         styles={getStyles()}
         size={size}
+        inverse={inverse}
         {...restProps}
       />
       <ValidationText error={error} help={helpText} inverse={inverse} success={success} warning={warning} />
