@@ -78,21 +78,6 @@ const Select = ({
     };
   }, []);
 
-  const getClearIndicatorStyles = (base) => {
-    return {
-      ...base,
-      color: inverse ? COLOR.TEAL.LIGHTEST : COLOR.TEAL.DARK,
-      '&:hover': {
-        color: inverse ? COLOR.NEUTRAL.LIGHTEST : COLOR.TEAL.DARKEST,
-      },
-      cursor: 'pointer',
-      svg: {
-        height: '14px',
-        width: '14px',
-      },
-    };
-  };
-
   const getControlStyles = (base, { isDisabled, isFocused }) => {
     const { width } = otherProps;
 
@@ -330,7 +315,6 @@ const Select = ({
   };
 
   const getStyles = () => ({
-    clearIndicator: getClearIndicatorStyles,
     control: getControlStyles,
     group: getGroupStyles,
     groupHeading: getGroupHeadingStyles,
