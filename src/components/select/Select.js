@@ -1,4 +1,4 @@
-import React, { forwardRef, useLayoutEffect } from 'react';
+import React, { forwardRef, useLayoutEffect, useRef } from 'react';
 import ReactSelect from 'react-select';
 import ReactCreatableSelect from 'react-select/creatable';
 import PropTypes from 'prop-types';
@@ -35,8 +35,12 @@ const Select = ({
   forwardedRef,
   ...otherProps
 }) => {
+  // Only used to maintain a unique reference to this component
+  const componentRef = useRef({});
   useLayoutEffect(() => {
-    activeSelects.add(this);
+    const currentComponentRef = componentRef.current;
+
+    activeSelects.add(currentComponentRef);
     const isOverlayMounted = document.contains(selectOverlayNode);
     if (!isOverlayMounted) {
       document.body.appendChild(selectOverlayNode);
@@ -47,7 +51,7 @@ const Select = ({
       if (isLastSelect) {
         document.body.removeChild(selectOverlayNode);
       }
-      activeSelects.delete(this);
+      activeSelects.delete(currentComponentRef);
     };
   }, []);
 
