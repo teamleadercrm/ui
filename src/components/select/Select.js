@@ -1,4 +1,4 @@
-import React, { forwardRef, PureComponent } from 'react';
+import React, { forwardRef, useLayoutEffect } from 'react';
 import ReactSelect from 'react-select';
 import ReactCreatableSelect from 'react-select/creatable';
 import PropTypes from 'prop-types';
@@ -23,26 +23,35 @@ selectOverlayNode.setAttribute('data-teamleader-ui', 'select-overlay');
 
 const activeSelects = new Set();
 
-class Select extends PureComponent {
-  componentDidMount() {
+const Select = ({
+  components,
+  creatable,
+  error,
+  inverse,
+  helpText,
+  size,
+  success,
+  warning,
+  forwardedRef,
+  ...otherProps
+}) => {
+  useLayoutEffect(() => {
     activeSelects.add(this);
     const isOverlayMounted = document.contains(selectOverlayNode);
     if (!isOverlayMounted) {
       document.body.appendChild(selectOverlayNode);
     }
-  }
 
-  componentWillUnmount() {
-    const isLastSelect = activeSelects.size <= 1;
-    if (isLastSelect) {
-      document.body.removeChild(selectOverlayNode);
-    }
-    activeSelects.delete(this);
-  }
+    return function cleanup() {
+      const isLastSelect = activeSelects.size <= 1;
+      if (isLastSelect) {
+        document.body.removeChild(selectOverlayNode);
+      }
+      activeSelects.delete(this);
+    };
+  }, []);
 
-  getClearIndicatorStyles = (base) => {
-    const { inverse } = this.props;
-
+  const getClearIndicatorStyles = (base) => {
     return {
       ...base,
       color: inverse ? COLOR.TEAL.LIGHTEST : COLOR.TEAL.DARK,
@@ -57,8 +66,8 @@ class Select extends PureComponent {
     };
   };
 
-  getControlStyles = (base, { isDisabled, isFocused }) => {
-    const { error, inverse, size, success, warning, width } = this.props;
+  const getControlStyles = (base, { isDisabled, isFocused }) => {
+    const { width } = otherProps;
 
     const commonStyles = {
       ...base,
@@ -125,9 +134,7 @@ class Select extends PureComponent {
     };
   };
 
-  getGroupStyles = (base) => {
-    const { inverse } = this.props;
-
+  const getGroupStyles = (base) => {
     return {
       ...base,
       borderBottomColor: inverse ? COLOR.TEAL.LIGHT : COLOR.NEUTRAL.NORMAL,
@@ -139,9 +146,7 @@ class Select extends PureComponent {
     };
   };
 
-  getGroupHeadingStyles = (base) => {
-    const { inverse } = this.props;
-
+  const getGroupHeadingStyles = (base) => {
     return {
       ...base,
       color: inverse ? COLOR.NEUTRAL.LIGHTEST : COLOR.TEAL.DARKEST,
@@ -151,7 +156,7 @@ class Select extends PureComponent {
     };
   };
 
-  getInput = (base) => {
+  const getInput = (base) => {
     return {
       ...base,
       marginLeft: '2px',
@@ -160,8 +165,8 @@ class Select extends PureComponent {
     };
   };
 
-  getMenuPortalStyles = (base) => {
-    const { inverse, menuWidth } = this.props;
+  const getMenuPortalStyles = (base) => {
+    const { menuWidth } = otherProps;
 
     return {
       ...base,
@@ -177,9 +182,7 @@ class Select extends PureComponent {
     };
   };
 
-  getMultiValueStyles = (base) => {
-    const { inverse } = this.props;
-
+  const getMultiValueStyles = (base) => {
     return {
       ...base,
       borderColor: inverse ? COLOR.TEAL.DARK : COLOR.NEUTRAL.NORMAL,
@@ -190,9 +193,7 @@ class Select extends PureComponent {
     };
   };
 
-  getMultiValueLabelStyles = (base) => {
-    const { inverse, size } = this.props;
-
+  const getMultiValueLabelStyles = (base) => {
     return {
       ...base,
       backgroundColor: inverse ? COLOR.TEAL.DARK : COLOR.NEUTRAL.LIGHT,
@@ -206,9 +207,7 @@ class Select extends PureComponent {
     };
   };
 
-  getMultiValueRemoveStyles = (base) => {
-    const { inverse, size } = this.props;
-
+  const getMultiValueRemoveStyles = (base) => {
     return {
       ...base,
       backgroundColor: inverse ? COLOR.TEAL.DARK : COLOR.NEUTRAL.LIGHT,
@@ -224,8 +223,8 @@ class Select extends PureComponent {
     };
   };
 
-  getOptionStyles = (base, { isDisabled, isFocused, isSelected }) => {
-    const { truncateOptionText } = this.props;
+  const getOptionStyles = (base, { isDisabled, isFocused, isSelected }) => {
+    const { truncateOptionText } = otherProps;
     const commonStyles = {
       ...base,
       ...(truncateOptionText
@@ -239,7 +238,7 @@ class Select extends PureComponent {
       padding: '8px 12px',
     };
 
-    if (this.props.inverse) {
+    if (inverse) {
       return {
         ...commonStyles,
         color: isDisabled
@@ -268,9 +267,7 @@ class Select extends PureComponent {
     };
   };
 
-  getPlaceholderStyles = (base, { isDisabled }) => {
-    const { inverse } = this.props;
-
+  const getPlaceholderStyles = (base, { isDisabled }) => {
     const commonStyles = {
       ...base,
       marginLeft: '2px',
@@ -291,14 +288,12 @@ class Select extends PureComponent {
     };
   };
 
-  getSingleValueStyles = (base) => ({
+  const getSingleValueStyles = (base) => ({
     ...base,
-    color: this.props.inverse ? COLOR.NEUTRAL.LIGHTEST : COLOR.TEAL.DARKEST,
+    color: inverse ? COLOR.NEUTRAL.LIGHTEST : COLOR.TEAL.DARKEST,
   });
 
-  getValueContainerStyles = (base, { isMulti, hasValue }) => {
-    const { size } = this.props;
-
+  const getValueContainerStyles = (base, { isMulti, hasValue }) => {
     return {
       ...base,
       minHeight: minHeightBySizeMap[size] - 2,
@@ -307,27 +302,25 @@ class Select extends PureComponent {
     };
   };
 
-  getStyles = () => ({
-    clearIndicator: this.getClearIndicatorStyles,
-    control: this.getControlStyles,
-    group: this.getGroupStyles,
-    groupHeading: this.getGroupHeadingStyles,
-    input: this.getInput,
-    menuPortal: this.getMenuPortalStyles,
-    multiValue: this.getMultiValueStyles,
-    multiValueLabel: this.getMultiValueLabelStyles,
-    multiValueRemove: this.getMultiValueRemoveStyles,
-    option: this.getOptionStyles,
-    placeholder: this.getPlaceholderStyles,
-    singleValue: this.getSingleValueStyles,
-    valueContainer: this.getValueContainerStyles,
+  const getStyles = () => ({
+    clearIndicator: getClearIndicatorStyles,
+    control: getControlStyles,
+    group: getGroupStyles,
+    groupHeading: getGroupHeadingStyles,
+    input: getInput,
+    menuPortal: getMenuPortalStyles,
+    multiValue: getMultiValueStyles,
+    multiValueLabel: getMultiValueLabelStyles,
+    multiValueRemove: getMultiValueRemoveStyles,
+    option: getOptionStyles,
+    placeholder: getPlaceholderStyles,
+    singleValue: getSingleValueStyles,
+    valueContainer: getValueContainerStyles,
   });
 
-  getClearIndicator =
+  const getClearIndicator =
     () =>
     ({ innerProps }) => {
-      const { inverse } = this.props;
-
       return (
         <Icon
           color={inverse ? 'teal' : 'neutral'}
@@ -340,9 +333,7 @@ class Select extends PureComponent {
       );
     };
 
-  getDropDownIndicator = () => () => {
-    const { inverse } = this.props;
-
+  const getDropDownIndicator = () => () => {
     return (
       <Icon
         alignItems="center"
@@ -357,44 +348,39 @@ class Select extends PureComponent {
     );
   };
 
-  render() {
-    const { components, creatable, error, inverse, helpText, size, success, warning, forwardedRef, ...otherProps } =
-      this.props;
+  const boxProps = pickBoxProps(otherProps);
+  const restProps = omitBoxProps(otherProps);
 
-    const boxProps = pickBoxProps(otherProps);
-    const restProps = omitBoxProps(otherProps);
+  const wrapperClassnames = cx(theme[`is-${size}`], {
+    [theme['has-error']]: error,
+    [theme['is-inverse']]: inverse,
+  });
 
-    const wrapperClassnames = cx(theme[`is-${size}`], {
-      [theme['has-error']]: error,
-      [theme['is-inverse']]: inverse,
-    });
+  const Element = creatable ? ReactCreatableSelect : ReactSelect;
 
-    const Element = creatable ? ReactCreatableSelect : ReactSelect;
-
-    return (
-      <Box className={wrapperClassnames} {...boxProps}>
-        <Element
-          ref={forwardedRef}
-          className={cx(uiUtilities['reset-font-smoothing'], theme['select'])}
-          components={{
-            ClearIndicator: this.getClearIndicator(),
-            DropdownIndicator: this.getDropDownIndicator(),
-            IndicatorSeparator: null,
-            ...components,
-          }}
-          hideSelectedOptions={false}
-          menuPlacement="auto"
-          menuPortalTarget={selectOverlayNode}
-          menuShouldBlockScroll
-          styles={this.getStyles()}
-          size={size}
-          {...restProps}
-        />
-        <ValidationText error={error} help={helpText} inverse={inverse} success={success} warning={warning} />
-      </Box>
-    );
-  }
-}
+  return (
+    <Box className={wrapperClassnames} {...boxProps}>
+      <Element
+        ref={forwardedRef}
+        className={cx(uiUtilities['reset-font-smoothing'], theme['select'])}
+        components={{
+          ClearIndicator: getClearIndicator(),
+          DropdownIndicator: getDropDownIndicator(),
+          IndicatorSeparator: null,
+          ...components,
+        }}
+        hideSelectedOptions={false}
+        menuPlacement="auto"
+        menuPortalTarget={selectOverlayNode}
+        menuShouldBlockScroll
+        styles={getStyles()}
+        size={size}
+        {...restProps}
+      />
+      <ValidationText error={error} help={helpText} inverse={inverse} success={success} warning={warning} />
+    </Box>
+  );
+};
 
 Select.propTypes = {
   /** Override default components with your own. Pass an object with correct the key and its replacing component */
