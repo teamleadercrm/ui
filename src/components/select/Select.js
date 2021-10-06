@@ -103,6 +103,156 @@ const getControlStyles = (
   };
 };
 
+const getGroupStyles = (base, { selectProps: { inverse } }) => {
+  return {
+    ...base,
+    borderBottomColor: inverse ? COLOR.TEAL.LIGHT : COLOR.NEUTRAL.NORMAL,
+    borderBottomStyle: 'solid',
+    borderBottomWidth: '1px',
+    '&:last-child': {
+      borderWidth: 0,
+    },
+  };
+};
+
+const getGroupHeadingStyles = (base, { selectProps: { inverse } }) => {
+  return {
+    ...base,
+    color: inverse ? COLOR.NEUTRAL.LIGHTEST : COLOR.TEAL.DARKEST,
+    fontSize: '12px',
+    fontWeight: '700',
+    letterSpacing: '0.6px',
+  };
+};
+
+const getInput = (base) => {
+  return {
+    ...base,
+    marginLeft: '2px',
+    paddingBottom: 0,
+    paddingTop: 0,
+  };
+};
+
+const getMultiValueStyles = (base, { selectProps: { inverse } }) => {
+  return {
+    ...base,
+    borderColor: inverse ? COLOR.TEAL.DARK : COLOR.NEUTRAL.NORMAL,
+    borderStyle: 'solid',
+    borderWidth: '1px',
+    borderRadius: '4px',
+    margin: '1px',
+  };
+};
+
+const getMultiValueLabelStyles = (base, { selectProps: { inverse, size } }) => {
+  return {
+    ...base,
+    backgroundColor: inverse ? COLOR.TEAL.DARK : COLOR.NEUTRAL.LIGHT,
+    borderRadius: 0,
+    color: inverse ? COLOR.NEUTRAL.LIGHTEST : COLOR.TEAL.DARKEST,
+    fontFamily: 'Inter',
+    fontWeight: 500,
+    fontSize: size === 'tiny' || size === 'small' ? '12px' : '14px',
+    lineHeight: size === 'tiny' || size === 'small' ? '1' : '18px',
+    padding: size === 'tiny' ? '3px' : size === 'large' ? '9px' : '6px',
+  };
+};
+
+const getMultiValueRemoveStyles = (base, { selectProps: { inverse, size } }) => {
+  return {
+    ...base,
+    backgroundColor: inverse ? COLOR.TEAL.DARK : COLOR.NEUTRAL.LIGHT,
+    borderRadius: 0,
+    color: inverse ? COLOR.NEUTRAL.LIGHTEST : COLOR.TEAL.DARKEST,
+    '&:hover': {
+      backgroundColor: inverse ? COLOR.TEAL.DARKEST : COLOR.NEUTRAL.NORMAL,
+      color: inverse ? COLOR.NEUTRAL.LIGHTEST : COLOR.TEAL.DARKEST,
+    },
+    paddingLeft: size === 'tiny' ? '3px' : '6px',
+    paddingRight: size === 'tiny' ? '3px' : '6px',
+    transition: 'background-color .35s cubic-bezier(.4, 0, .2, 1)',
+  };
+};
+
+const getOptionStyles = (base, { isDisabled, isFocused, isSelected, selectProps: { inverse, truncateOptionText } }) => {
+  const commonStyles = {
+    ...base,
+    ...(truncateOptionText
+      ? {
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+        }
+      : {
+          wordBreak: 'break-word',
+        }),
+    padding: '8px 12px',
+  };
+
+  if (inverse) {
+    return {
+      ...commonStyles,
+      color: isDisabled
+        ? COLOR.TEAL.LIGHT
+        : isSelected
+        ? COLOR.NEUTRAL.LIGHTEST
+        : isFocused
+        ? COLOR.TEAL.DARK
+        : COLOR.NEUTRAL.LIGHTEST,
+      backgroundColor: isSelected ? COLOR.TEAL.DARK : isFocused ? COLOR.TEAL.LIGHT : COLOR.TEAL.NORMAL,
+      '&:active': {
+        backgroundColor: isDisabled ? COLOR.TEAL.NORMAL : COLOR.TEAL.DARK,
+        color: isDisabled ? COLOR.TEAL.LIGHT : COLOR.NEUTRAL.LIGHTEST,
+      },
+    };
+  }
+
+  return {
+    ...commonStyles,
+    color: isDisabled ? COLOR.NEUTRAL.DARK : COLOR.TEAL.DARK,
+    backgroundColor: isSelected ? COLOR.AQUA.LIGHTEST : isFocused ? COLOR.NEUTRAL.LIGHT : COLOR.NEUTRAL.LIGHTEST,
+    '&:active': {
+      backgroundColor: isDisabled ? COLOR.NEUTRAL.LIGHTEST : COLOR.AQUA.LIGHTEST,
+      color: isDisabled ? COLOR.NEUTRAL.DARK : COLOR.TEAL.DARK,
+    },
+  };
+};
+
+const getPlaceholderStyles = (base, { isDisabled, selectProps: { inverse } }) => {
+  const commonStyles = {
+    ...base,
+    marginLeft: '2px',
+    marginRight: '2px',
+    whiteSpace: 'nowrap',
+  };
+
+  if (inverse) {
+    return {
+      ...commonStyles,
+      color: isDisabled ? COLOR.TEAL.NORMAL : COLOR.TEAL.LIGHT,
+    };
+  }
+
+  return {
+    ...commonStyles,
+    color: COLOR.NEUTRAL.DARKEST,
+  };
+};
+
+const getSingleValueStyles = (base, { selectProps: { inverse } }) => ({
+  ...base,
+  color: inverse ? COLOR.NEUTRAL.LIGHTEST : COLOR.TEAL.DARKEST,
+});
+
+const getValueContainerStyles = (base, { isMulti, hasValue, selectProps: { size } }) => {
+  return {
+    ...base,
+    minHeight: minHeightBySizeMap[size] - 2,
+    lineHeight: '18px',
+    padding: isMulti && hasValue && size !== 'large' ? 0 : '0 4px',
+  };
+};
+
 const minHeightBySizeMap = {
   tiny: 24,
   small: 30,
@@ -147,37 +297,6 @@ const Select = ({
     };
   }, []);
 
-  const getGroupStyles = (base) => {
-    return {
-      ...base,
-      borderBottomColor: inverse ? COLOR.TEAL.LIGHT : COLOR.NEUTRAL.NORMAL,
-      borderBottomStyle: 'solid',
-      borderBottomWidth: '1px',
-      '&:last-child': {
-        borderWidth: 0,
-      },
-    };
-  };
-
-  const getGroupHeadingStyles = (base) => {
-    return {
-      ...base,
-      color: inverse ? COLOR.NEUTRAL.LIGHTEST : COLOR.TEAL.DARKEST,
-      fontSize: '12px',
-      fontWeight: '700',
-      letterSpacing: '0.6px',
-    };
-  };
-
-  const getInput = (base) => {
-    return {
-      ...base,
-      marginLeft: '2px',
-      paddingBottom: 0,
-      paddingTop: 0,
-    };
-  };
-
   const getMenuPortalStyles = (base) => {
     const { menuWidth } = otherProps;
 
@@ -195,127 +314,7 @@ const Select = ({
     };
   };
 
-  const getMultiValueStyles = (base) => {
-    return {
-      ...base,
-      borderColor: inverse ? COLOR.TEAL.DARK : COLOR.NEUTRAL.NORMAL,
-      borderStyle: 'solid',
-      borderWidth: '1px',
-      borderRadius: '4px',
-      margin: '1px',
-    };
-  };
-
-  const getMultiValueLabelStyles = (base) => {
-    return {
-      ...base,
-      backgroundColor: inverse ? COLOR.TEAL.DARK : COLOR.NEUTRAL.LIGHT,
-      borderRadius: 0,
-      color: inverse ? COLOR.NEUTRAL.LIGHTEST : COLOR.TEAL.DARKEST,
-      fontFamily: 'Inter',
-      fontWeight: 500,
-      fontSize: size === 'tiny' || size === 'small' ? '12px' : '14px',
-      lineHeight: size === 'tiny' || size === 'small' ? '1' : '18px',
-      padding: size === 'tiny' ? '3px' : size === 'large' ? '9px' : '6px',
-    };
-  };
-
-  const getMultiValueRemoveStyles = (base) => {
-    return {
-      ...base,
-      backgroundColor: inverse ? COLOR.TEAL.DARK : COLOR.NEUTRAL.LIGHT,
-      borderRadius: 0,
-      color: inverse ? COLOR.NEUTRAL.LIGHTEST : COLOR.TEAL.DARKEST,
-      '&:hover': {
-        backgroundColor: inverse ? COLOR.TEAL.DARKEST : COLOR.NEUTRAL.NORMAL,
-        color: inverse ? COLOR.NEUTRAL.LIGHTEST : COLOR.TEAL.DARKEST,
-      },
-      paddingLeft: size === 'tiny' ? '3px' : '6px',
-      paddingRight: size === 'tiny' ? '3px' : '6px',
-      transition: 'background-color .35s cubic-bezier(.4, 0, .2, 1)',
-    };
-  };
-
-  const getOptionStyles = (base, { isDisabled, isFocused, isSelected }) => {
-    const { truncateOptionText } = otherProps;
-    const commonStyles = {
-      ...base,
-      ...(truncateOptionText
-        ? {
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-          }
-        : {
-            wordBreak: 'break-word',
-          }),
-      padding: '8px 12px',
-    };
-
-    if (inverse) {
-      return {
-        ...commonStyles,
-        color: isDisabled
-          ? COLOR.TEAL.LIGHT
-          : isSelected
-          ? COLOR.NEUTRAL.LIGHTEST
-          : isFocused
-          ? COLOR.TEAL.DARK
-          : COLOR.NEUTRAL.LIGHTEST,
-        backgroundColor: isSelected ? COLOR.TEAL.DARK : isFocused ? COLOR.TEAL.LIGHT : COLOR.TEAL.NORMAL,
-        '&:active': {
-          backgroundColor: isDisabled ? COLOR.TEAL.NORMAL : COLOR.TEAL.DARK,
-          color: isDisabled ? COLOR.TEAL.LIGHT : COLOR.NEUTRAL.LIGHTEST,
-        },
-      };
-    }
-
-    return {
-      ...commonStyles,
-      color: isDisabled ? COLOR.NEUTRAL.DARK : COLOR.TEAL.DARK,
-      backgroundColor: isSelected ? COLOR.AQUA.LIGHTEST : isFocused ? COLOR.NEUTRAL.LIGHT : COLOR.NEUTRAL.LIGHTEST,
-      '&:active': {
-        backgroundColor: isDisabled ? COLOR.NEUTRAL.LIGHTEST : COLOR.AQUA.LIGHTEST,
-        color: isDisabled ? COLOR.NEUTRAL.DARK : COLOR.TEAL.DARK,
-      },
-    };
-  };
-
-  const getPlaceholderStyles = (base, { isDisabled }) => {
-    const commonStyles = {
-      ...base,
-      marginLeft: '2px',
-      marginRight: '2px',
-      whiteSpace: 'nowrap',
-    };
-
-    if (inverse) {
-      return {
-        ...commonStyles,
-        color: isDisabled ? COLOR.TEAL.NORMAL : COLOR.TEAL.LIGHT,
-      };
-    }
-
-    return {
-      ...commonStyles,
-      color: COLOR.NEUTRAL.DARKEST,
-    };
-  };
-
-  const getSingleValueStyles = (base) => ({
-    ...base,
-    color: inverse ? COLOR.NEUTRAL.LIGHTEST : COLOR.TEAL.DARKEST,
-  });
-
-  const getValueContainerStyles = (base, { isMulti, hasValue }) => {
-    return {
-      ...base,
-      minHeight: minHeightBySizeMap[size] - 2,
-      lineHeight: '18px',
-      padding: isMulti && hasValue && size !== 'large' ? 0 : '0 4px',
-    };
-  };
-
-  const getStyles = () => ({
+  const styles = {
     control: getControlStyles,
     group: getGroupStyles,
     groupHeading: getGroupHeadingStyles,
@@ -328,7 +327,7 @@ const Select = ({
     placeholder: getPlaceholderStyles,
     singleValue: getSingleValueStyles,
     valueContainer: getValueContainerStyles,
-  });
+  };
 
   const boxProps = pickBoxProps(otherProps);
   const restProps = omitBoxProps(otherProps);
@@ -355,7 +354,7 @@ const Select = ({
         menuPlacement="auto"
         menuPortalTarget={selectOverlayNode}
         menuShouldBlockScroll
-        styles={getStyles()}
+        styles={styles}
         size={size}
         inverse={inverse}
         error={error}
