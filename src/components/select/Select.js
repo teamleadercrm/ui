@@ -34,6 +34,75 @@ const DropdownIndicator = ({ selectProps: { inverse }, innerProps }) => {
   );
 };
 
+const getControlStyles = (
+  base,
+  { isDisabled, isFocused, selectProps: { inverse, width, size, warning, error, success } },
+) => {
+  const commonStyles = {
+    ...base,
+    minHeight: minHeightBySizeMap[size],
+    width,
+  };
+
+  if (inverse) {
+    return {
+      ...commonStyles,
+      backgroundColor: isDisabled ? COLOR.TEAL.DARK : COLOR.TEAL.NORMAL,
+      '&:hover': {
+        borderColor: !error && !warning && !success && COLOR.TEAL.LIGHT,
+      },
+      borderColor: error
+        ? COLOR.RUBY.LIGHT
+        : warning
+        ? COLOR.GOLD.LIGHT
+        : success
+        ? COLOR.MINT.LIGHT
+        : isDisabled
+        ? COLOR.TEAL.DARK
+        : isFocused
+        ? COLOR.TEAL.LIGHT
+        : COLOR.TEAL.NORMAL,
+      boxShadow: error
+        ? `0 0 0 1px ${COLOR.RUBY.LIGHT}`
+        : warning
+        ? `0 0 0 1px ${COLOR.GOLD.LIGHT}`
+        : success
+        ? `0 0 0 1px ${COLOR.MINT.LIGHT}`
+        : isFocused
+        ? `0 0 0 1px ${COLOR.TEAL.LIGHT}`
+        : 'none',
+    };
+  }
+
+  return {
+    ...commonStyles,
+    backgroundColor: isDisabled ? COLOR.NEUTRAL.NORMAL : COLOR.NEUTRAL.LIGHTEST,
+    '&:hover': {
+      borderColor: !error && !warning && !success && COLOR.NEUTRAL.DARKEST,
+    },
+    borderColor: error
+      ? COLOR.RUBY.DARK
+      : warning
+      ? COLOR.GOLD.DARK
+      : success
+      ? COLOR.MINT.DARK
+      : isDisabled
+      ? COLOR.NEUTRAL.NORMAL
+      : isFocused
+      ? COLOR.NEUTRAL.DARKEST
+      : COLOR.NEUTRAL.DARK,
+    boxShadow: error
+      ? `0 0 0 1px ${COLOR.RUBY.DARK}`
+      : warning
+      ? `0 0 0 1px ${COLOR.GOLD.DARK}`
+      : success
+      ? `0 0 0 1px ${COLOR.MINT.DARK}`
+      : isFocused
+      ? `0 0 0 1px ${COLOR.NEUTRAL.DARKEST}`
+      : 'none',
+  };
+};
+
 const minHeightBySizeMap = {
   tiny: 24,
   small: 30,
@@ -77,74 +146,6 @@ const Select = ({
       activeSelects.delete(currentComponentRef);
     };
   }, []);
-
-  const getControlStyles = (base, { isDisabled, isFocused }) => {
-    const { width } = otherProps;
-
-    const commonStyles = {
-      ...base,
-      minHeight: minHeightBySizeMap[size],
-      width,
-    };
-
-    if (inverse) {
-      return {
-        ...commonStyles,
-        backgroundColor: isDisabled ? COLOR.TEAL.DARK : COLOR.TEAL.NORMAL,
-        '&:hover': {
-          borderColor: !error && !warning && !success && COLOR.TEAL.LIGHT,
-        },
-        borderColor: error
-          ? COLOR.RUBY.LIGHT
-          : warning
-          ? COLOR.GOLD.LIGHT
-          : success
-          ? COLOR.MINT.LIGHT
-          : isDisabled
-          ? COLOR.TEAL.DARK
-          : isFocused
-          ? COLOR.TEAL.LIGHT
-          : COLOR.TEAL.NORMAL,
-        boxShadow: error
-          ? `0 0 0 1px ${COLOR.RUBY.LIGHT}`
-          : warning
-          ? `0 0 0 1px ${COLOR.GOLD.LIGHT}`
-          : success
-          ? `0 0 0 1px ${COLOR.MINT.LIGHT}`
-          : isFocused
-          ? `0 0 0 1px ${COLOR.TEAL.LIGHT}`
-          : 'none',
-      };
-    }
-
-    return {
-      ...commonStyles,
-      backgroundColor: isDisabled ? COLOR.NEUTRAL.NORMAL : COLOR.NEUTRAL.LIGHTEST,
-      '&:hover': {
-        borderColor: !error && !warning && !success && COLOR.NEUTRAL.DARKEST,
-      },
-      borderColor: error
-        ? COLOR.RUBY.DARK
-        : warning
-        ? COLOR.GOLD.DARK
-        : success
-        ? COLOR.MINT.DARK
-        : isDisabled
-        ? COLOR.NEUTRAL.NORMAL
-        : isFocused
-        ? COLOR.NEUTRAL.DARKEST
-        : COLOR.NEUTRAL.DARK,
-      boxShadow: error
-        ? `0 0 0 1px ${COLOR.RUBY.DARK}`
-        : warning
-        ? `0 0 0 1px ${COLOR.GOLD.DARK}`
-        : success
-        ? `0 0 0 1px ${COLOR.MINT.DARK}`
-        : isFocused
-        ? `0 0 0 1px ${COLOR.NEUTRAL.DARKEST}`
-        : 'none',
-    };
-  };
 
   const getGroupStyles = (base) => {
     return {
@@ -357,6 +358,9 @@ const Select = ({
         styles={getStyles()}
         size={size}
         inverse={inverse}
+        error={error}
+        warning={warning}
+        success={success}
         {...restProps}
       />
       <ValidationText error={error} help={helpText} inverse={inverse} success={success} warning={warning} />
