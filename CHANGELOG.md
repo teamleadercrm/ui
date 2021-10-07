@@ -12,6 +12,8 @@
 
 ### Fixed
 
+- `DatePickerInput`: Fixed that in case a select was previously rendered, the month picker would be rendered below the DatePicker ([@lorgan3](https://github.com/lorgan3) in [#1806](https://github.com/teamleadercrm/ui/pull/1806))
+
 ### Dependency updates
 
 ## [8.3.0] - 2021-09-13
