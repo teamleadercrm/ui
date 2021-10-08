@@ -140,7 +140,6 @@ class DatePickerInput extends PureComponent {
           onOverlayClick={this.handlePopoverClose}
           position="end"
           offsetCorrection={30}
-          zIndex={500}
           returnFocusToSource={false}
           {...popoverProps}
         >

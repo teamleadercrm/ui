@@ -12,6 +12,8 @@
 
 ### Fixed
 
+- `DatePickerInput`: Fixed that in case a select was previously rendered, the month picker would be rendered below the DatePicker ([@lorgan3](https://github.com/lorgan3) in [#1806](https://github.com/teamleadercrm/ui/pull/1806))
+
 ### Dependency updates
 
 - [BREAKING] `luxon` from `1.28.0` to `2.0.2`, this upgrade drops support for IE11 and older browsers, for more information see https://moment.github.io/luxon/#/matrix
