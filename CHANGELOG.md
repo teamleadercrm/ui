@@ -14,6 +14,8 @@
 
 ### Dependency updates
 
+- [BREAKING] `luxon` from `1.28.0` to `2.0.2`, this upgrade drops support for IE11 and older browsers, for more information see https://moment.github.io/luxon/#/matrix
+
 ## [8.3.0] - 2021-09-13
 
 ### Added
