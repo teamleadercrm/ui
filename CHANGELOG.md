@@ -4,11 +4,19 @@
 
 ### Changed
 
-- `DatePicker`: Change the background for today's button ([@lowiebenoot](https://github.com/lowiebenoot) in [#1803](https://github.com/teamleadercrm/ui/pull/1803))
-
 ### Deprecated
 
 ### Removed
+
+### Fixed
+
+### Dependency updates
+
+## [9.0.0] - 2021-10-11
+
+### Changed
+
+- `DatePicker`: Change the background for today's button ([@lowiebenoot](https://github.com/lowiebenoot) in [#1803](https://github.com/teamleadercrm/ui/pull/1803))
 
 ### Fixed
 
