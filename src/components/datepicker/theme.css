@@ -194,6 +194,7 @@
 }
 
 .today {
+  background: var(--color-neutral);
   font-family: var(--font-family-inter);
   font-weight: 700;
 }
