@@ -95,6 +95,11 @@ const Tooltip = (ComposedComponent) => {
     }
 
     calculatePosition(element) {
+      const { tooltipPosition } = this.props;
+      if (typeof element.getBoundingClientRect !== 'function') {
+        return { top: 0, left: 0, position: tooltipPosition };
+      }
+
       const { top, left, height, width } = element.getBoundingClientRect();
       const position = this.getPosition(element);
       const xOffset = window.scrollX || window.pageXOffset;
