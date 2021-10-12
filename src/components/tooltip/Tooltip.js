@@ -153,6 +153,7 @@ const Tooltip = (ComposedComponent) => {
         tooltipSize,
         tooltipShowDelay,
         zIndex,
+        tooltipActive,
         ...other
       } = this.props;
 
@@ -235,6 +236,7 @@ const Tooltip = (ComposedComponent) => {
     tooltipShowDelay: PropTypes.number,
     /** The z-index of the Tooltip */
     zIndex: PropTypes.number,
+    tooltipActive: PropTypes.bool,
   };
 
   TooltippedComponent.defaultProps = {
@@ -247,6 +249,7 @@ const Tooltip = (ComposedComponent) => {
     tooltipSize: 'medium',
     tooltipShowDelay: 100,
     zIndex: 700,
+    tooltipActive: null,
   };
 
   return DocumentObjectProvider((props) => {

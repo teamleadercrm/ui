@@ -42,6 +42,7 @@ export const basic = () => (
     tooltipColor={select('Color', colors, 'white')}
     tooltipPosition={select('Position', positions, 'horizontal')}
     tooltipSize={select('Size', sizes, 'medium')}
+    tooltipActive={select('Active', [null, true, false])}
   >
     Hover me to see a tooltip
   </TooltippedButton>
@@ -55,6 +56,7 @@ export const withIcon = () => (
       tooltipIcon={<IconHelpBadgedMediumOutline />}
       tooltipPosition={select('Position', positions, 'horizontal')}
       tooltipSize={select('Size', sizes, 'medium')}
+      tooltipActive={select('Active', [null, true, false])}
     >
       Hover me
     </TooltippedStrong>
@@ -69,6 +71,7 @@ export const fromBadge = () => (
       tooltipColor={select('Color', colors, 'white')}
       tooltipPosition={select('Position', positions, 'horizontal')}
       tooltipSize={select('Size', sizes, 'medium')}
+      tooltipActive={select('Active', [null, true, false])}
     >
       hover me
     </TooltippedBadge>{' '}
@@ -82,6 +85,7 @@ export const fromButton = () => (
     tooltipColor={select('Color', colors, 'white')}
     tooltipPosition={select('Position', positions, 'horizontal')}
     tooltipSize={select('Size', sizes, 'medium')}
+    tooltipActive={select('Active', [null, true, false])}
   >
     Hover me
   </TooltippedButton>
@@ -93,6 +97,7 @@ export const fromLink = () => (
     tooltipColor={select('Color', colors, 'white')}
     tooltipPosition={select('Position', positions, 'horizontal')}
     tooltipSize={select('Size', sizes, 'medium')}
+    tooltipActive={select('Active', [null, true, false])}
     href="#"
     inherit={false}
   >
@@ -106,6 +111,7 @@ export const fromStatusLabel = () => (
     tooltipColor={select('Color', colors, 'white')}
     tooltipPosition={select('Position', positions, 'horizontal')}
     tooltipSize={select('Size', sizes, 'medium')}
+    tooltipActive={select('Active', [null, true, false])}
   >
     Hover me
   </TooltippedStatusLabel>
@@ -123,6 +129,7 @@ export const fromInlineElements = () => (
       tooltipColor={select('Color', colors, 'white')}
       tooltipPosition={select('Position', positions, 'horizontal')}
       tooltipSize={select('Size', sizes, 'medium')}
+      tooltipActive={select('Active', [null, true, false])}
     >
       hover me
     </TooltippedStrong>{' '}
