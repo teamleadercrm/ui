@@ -154,14 +154,14 @@ const Tooltip = (ComposedComponent) => {
         tooltipSize,
         tooltipShowDelay,
         zIndex,
+        onClick,
+        onMouseEnter,
+        onMouseLeave,
         tooltipActive,
         ...other
       } = this.props;
 
       const rest = omit(other, [
-        'onClick',
-        'onMouseEnter',
-        'onMouseLeave',
         'onTooltipEntered',
         'tooltipHideOnClick',
         'tooltipPosition',
@@ -170,14 +170,23 @@ const Tooltip = (ComposedComponent) => {
         'documentObject',
       ]);
 
-      const childProps = {
+      let childProps = {
         ...rest,
         className,
-        onClick: this.handleClick,
-        onMouseEnter: this.handleMouseEnter,
-        onMouseLeave: this.handleMouseLeave,
+        onClick,
+        onMouseEnter,
+        onMouseLeave,
         ref: this.ref,
       };
+
+      if (tooltipActive === null) {
+        childProps = {
+          ...childProps,
+          onClick: this.handleClick,
+          onMouseEnter: this.handleMouseEnter,
+          onMouseLeave: this.handleMouseLeave,
+        };
+      }
 
       return React.createElement(
         ComposedComponent,
