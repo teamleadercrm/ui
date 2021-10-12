@@ -35,6 +35,7 @@ const SIZES = {
 const Tooltip = (ComposedComponent) => {
   class TooltippedComponent extends Component {
     tooltipRoot = this.props.documentObject.createElement('div');
+    ref = React.createRef();
 
     state = {
       active: false,
@@ -175,6 +176,7 @@ const Tooltip = (ComposedComponent) => {
         onClick: this.handleClick,
         onMouseEnter: this.handleMouseEnter,
         onMouseLeave: this.handleMouseLeave,
+        ref: this.ref,
       };
 
       return React.createElement(
