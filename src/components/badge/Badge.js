@@ -1,4 +1,4 @@
-import React, { createRef, PureComponent } from 'react';
+import React, { createRef, forwardRef, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../box';
 import Icon from '../icon';
@@ -22,6 +22,16 @@ class Badge extends PureComponent {
 
     if (this.props.onMouseLeave) {
       this.props.onMouseLeave(event);
+    }
+  };
+
+  setRef = (ref) => {
+    this.badgeNode.current = ref;
+    const { forwardedRef } = this.props;
+    if (typeof forwardedRef === 'function') {
+      forwardedRef(ref);
+    } else if (typeof forwardedRef === 'object' && forwardedRef !== null) {
+      forwardedRef.current = ref;
     }
   };
 
@@ -58,7 +68,7 @@ class Badge extends PureComponent {
         className={classNames}
         data-teamleader-ui="badge"
         element={boxElement}
-        ref={this.badgeNode}
+        ref={this.setRef}
         onClick={onClick}
         onMouseUp={this.handleMouseUp}
         onMouseLeave={this.handleMouseLeave}
@@ -109,4 +119,8 @@ Badge.defaultProps = {
   size: 'medium',
 };
 
-export default Badge;
+const ForwardedBadge = forwardRef((props, ref) => <Badge {...props} forwardedRef={ref} />);
+
+ForwardedBadge.displayName = 'Badge';
+
+export default ForwardedBadge;
