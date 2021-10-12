@@ -42,6 +42,29 @@ const Tooltip = (ComposedComponent) => {
       position: this.props.tooltipPosition,
     };
 
+    componentDidMount() {
+      const { tooltipActive } = this.props;
+
+      if (tooltipActive) {
+        this.activate(this.calculatePosition(this.ref.current));
+      }
+    }
+
+    componentDidUpdate({ tooltipActive: prevTooltipActive }) {
+      const { tooltipActive } = this.props;
+      const { active } = this.state;
+
+      if (tooltipActive !== prevTooltipActive) {
+        if (tooltipActive && !active) {
+          this.activate(this.calculatePosition(this.ref.current));
+        }
+
+        if (!tooltipActive && active) {
+          this.deactivate();
+        }
+      }
+    }
+
     getPosition(element) {
       const { tooltipPosition } = this.props;
 
