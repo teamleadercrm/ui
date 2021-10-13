@@ -2,6 +2,8 @@
 
 ### Added
 
+- `Tooltip`: Add `tooltipActive` to allow showing the tooltip programmatically ([@lorgan3](https://github.com/lorgan3) in [#1809](https://github.com/teamleadercrm/ui/pull/1809))
+
 ### Changed
 
 ### Deprecated

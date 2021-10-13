@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { forwardRef, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import theme from './theme.css';
@@ -6,7 +6,7 @@ import { UITextBody, UITextSmall } from '../typography';
 
 class StatusLabel extends PureComponent {
   render() {
-    const { children, className, color, size, ...others } = this.props;
+    const { children, className, color, size, forwardedRef, ...others } = this.props;
 
     const classNames = cx(theme['label'], theme[size], className);
 
@@ -28,6 +28,7 @@ class StatusLabel extends PureComponent {
         data-teamleader-ui="status-label"
         display="inline-flex"
         paddingHorizontal={2}
+        ref={forwardedRef}
       >
         <span className={theme['inner']}>{children}</span>
       </Element>
@@ -51,4 +52,8 @@ StatusLabel.defaultProps = {
   size: 'medium',
 };
 
-export default StatusLabel;
+const ForwardedStatusLabel = forwardRef((props, ref) => <StatusLabel {...props} forwardedRef={ref} />);
+
+ForwardedStatusLabel.displayName = 'StatusLabel';
+
+export default ForwardedStatusLabel;
