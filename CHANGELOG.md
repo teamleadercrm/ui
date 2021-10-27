@@ -2,6 +2,8 @@
 
 ### Added
 
+- `TabGroup`: Add `scrollButtonOffset` to allow the scroll elements to fully use the container width, while still respecting the container paddings when the scroll elements are not visible ([@JorenSaeyTL](https://github.com/JorenSaeyTL) in [#1815](https://github.com/teamleadercrm/ui/pull/1815))
+
 ### Changed
 
 ### Deprecated
