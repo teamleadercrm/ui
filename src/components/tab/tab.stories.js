@@ -28,7 +28,10 @@ export default {
 };
 
 export const titleTab = () => (
-  <TabGroup size={select('Size', ['small', 'medium'], 'medium')}>
+  <TabGroup
+    size={select('Size', ['small', 'medium'], 'medium')}
+    scrollButtonOffset={select('Scroll button offset', [0, 1, 2, 3, 4, 5, 6, 7, 8], 4)}
+  >
     {tabItems.map((item, key) => {
       const optionalProps = item.count
         ? {

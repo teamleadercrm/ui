@@ -57,7 +57,7 @@ class TabGroup extends PureComponent {
   };
 
   render() {
-    const { children, className, inverted, size, ...others } = this.props;
+    const { children, className, inverted, size, scrollButtonOffset = 0, ...others } = this.props;
     const { canScrollLeft, canScrollRight } = this.state;
 
     const classNames = cx(theme['tab-group'], className);
@@ -81,7 +81,12 @@ class TabGroup extends PureComponent {
           )}
         </Box>
         {canScrollLeft && (
-          <Box className={theme['scroll-left-button-wrapper']}>
+          <Box
+            className={cx(
+              theme['scroll-left-button-wrapper'],
+              scrollButtonOffset && theme[`left-negative-${scrollButtonOffset}`],
+            )}
+          >
             <IconButton
               className={theme['scroll-button']}
               icon={<IconChevronLeftSmallOutline />}
@@ -92,7 +97,12 @@ class TabGroup extends PureComponent {
           </Box>
         )}
         {canScrollRight && (
-          <Box className={theme['scroll-right-button-wrapper']}>
+          <Box
+            className={cx(
+              theme['scroll-right-button-wrapper'],
+              scrollButtonOffset && theme[`right-negative-${scrollButtonOffset}`],
+            )}
+          >
             <IconButton
               className={theme['scroll-button']}
               icon={<IconChevronRightSmallOutline />}
@@ -112,6 +122,7 @@ TabGroup.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
   size: PropTypes.oneOf(['small', 'medium']),
+  scrollButtonOffset: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8]),
 };
 
 export default TabGroup;

@@ -133,3 +133,15 @@
   height: var(--scroll-button-size);
   width: var(--scroll-button-size);
 }
+
+/* prettier-ignore */
+@each
+  $factor, $spacer in (1, 2, 3, 4, 5, 6, 7, 8), (var(--spacer-smallest), var(--spacer-smaller), var(--spacer-small), var(--spacer-regular), var(--spacer-medium), var(--spacer-big), var(--spacer-bigger), var(--spacer-biggest)) {
+  .left-negative-$(factor) {
+    left: calc($spacer * -1);
+  }
+
+  .right-negative-$(factor) {
+    right: calc($spacer * -1);
+  }
+}
