@@ -34,7 +34,7 @@ export const DefaultStory = (args) => {
         active={active}
         onCloseClick={toggleDialog}
         onEscKeyDown={toggleDialog}
-        onOverlayClick={toggleDialog}
+        onInteractOutside={toggleDialog}
       >
         <Box padding={4}>
           <TextBody>Here you can add arbitrary content.</TextBody>
@@ -88,7 +88,7 @@ const FocusStates = () => {
         active={primaryDialogActive}
         onCloseClick={closePrimaryDialog}
         onEscKeyDown={closePrimaryDialog}
-        onOverlayClick={closePrimaryDialog}
+        onInteractOutside={closePrimaryDialog}
         primaryAction={{
           label: 'Confirm',
           onClick: () => console.log('primaryAction.onClick'),
@@ -102,7 +102,7 @@ const FocusStates = () => {
             active={secondaryDialogActive}
             onCloseClick={closeSecondaryDialog}
             onEscKeyDown={closeSecondaryDialog}
-            onOverlayClick={closeSecondaryDialog}
+            onInteractOutside={closeSecondaryDialog}
             primaryAction={{
               label: 'Confirm',
               onClick: () => console.log('primaryAction.onClick'),
@@ -149,7 +149,7 @@ export const DialogBaseStory = (args) => {
   return (
     <Box>
       <Button onClick={openDialog} label="Open a dialog base" />
-      <DialogBase active={active} onEscKeyDown={closeDialog} onOverlayClick={closeDialog} {...args}>
+      <DialogBase active={active} onEscKeyDown={closeDialog} onInteractOutside={closeDialog} {...args}>
         <Box padding={4}>
           <TextBody>
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
