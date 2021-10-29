@@ -4,11 +4,16 @@
 
 ### Changed
 
+- `Overlay`: `onClick`'s behaviour has been replaced by `onInteractOutside` ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1823](https://github.com/teamleadercrm/ui/pull/1823))
+- `Dialog, DialogBase, Popover`: `onOverlayClick` has been replaced by `onInteractOutside` ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1823](https://github.com/teamleadercrm/ui/pull/1823))
+
 ### Deprecated
 
 ### Removed
 
 ### Fixed
+
+- `Overlay, Dialog, Popover`: Fix dragging outside of the Overlay causing the Overlay to close ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1823](https://github.com/teamleadercrm/ui/pull/1823))
 
 ### Dependency updates
 
