@@ -69,7 +69,7 @@ class SplitButton extends PureComponent {
           backdrop="transparent"
           lockScroll={false}
           onEscKeyDown={this.handleCloseClick}
-          onOverlayClick={this.handleCloseClick}
+          onInteractOutside={this.handleCloseClick}
           position="start"
         >
           <Menu>

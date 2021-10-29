@@ -28,7 +28,7 @@ const Popover = (props) => {
     lockScroll,
     maxWidth,
     minWidth,
-    onOverlayClick,
+    onInteractOutside,
     onEscKeyDown,
     tint,
     zIndex,
@@ -94,7 +94,7 @@ const Popover = (props) => {
               backdrop={backdrop}
               className={theme['overlay']}
               lockScroll={lockScroll}
-              onClick={onOverlayClick}
+              onInteractOutside={onInteractOutside}
               onEscKeyDown={onEscKeyDown}
             >
               <FocusRing>
@@ -154,8 +154,8 @@ Popover.propTypes = {
   offsetCorrection: PropTypes.number,
   /** The function executed, when the "ESC" key is down. */
   onEscKeyDown: PropTypes.func,
-  /** The function executed, when the Overlay is clicked. */
-  onOverlayClick: PropTypes.func,
+  /** The function executed, when interacting outside of the Popover */
+  onInteractOutside: PropTypes.func,
   /** The position in which the Popover is rendered, is overridden with the another position if the Popover cannot be entirely displayed in the current position. */
   position: PropTypes.oneOf(['start', 'center', 'end']),
   /** The tint of the background colour of the Popover. */
