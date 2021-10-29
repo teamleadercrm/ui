@@ -65,14 +65,7 @@ class Overlay extends PureComponent {
   };
 
   render() {
-    const {
-      active,
-      className,
-      backdrop,
-      lockScroll, // eslint-disable-line
-      onEscKeyDown, // eslint-disable-line
-      ...other
-    } = this.props; // eslint-disable-line
+    const { active, className, backdrop, lockScroll, onEscKeyDown, ...other } = this.props;
 
     return (
       <Transition timeout={0} in={active} appear>
