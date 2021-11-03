@@ -18,7 +18,7 @@ export const DialogBase = ({
   children,
   className,
   onEscKeyDown,
-  onInteractOutside,
+  onOverlayClick,
   scrollable,
   size,
   initialFocusRef,
@@ -45,7 +45,7 @@ export const DialogBase = ({
             active={active}
             backdrop={backdrop}
             className={theme['overlay']}
-            onInteractOutside={onInteractOutside}
+            onClick={onOverlayClick}
             onEscKeyDown={onEscKeyDown}
           >
             <FocusRing>
@@ -81,8 +81,8 @@ DialogBase.propTypes = {
   className: PropTypes.string,
   /** Callback function that is fired when the escape key is pressed. */
   onEscKeyDown: PropTypes.func,
-  /** Callback function that is fired when interacting outside of the Dialog */
-  onInteractOutside: PropTypes.func,
+  /** Callback function that is fired when the mouse clicks on the overlay. */
+  onOverlayClick: PropTypes.func,
   /** If true, the content of the dialog will be scrollable when it exceeds the available height. */
   scrollable: PropTypes.bool,
   /** The size of the dialog. */

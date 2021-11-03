@@ -137,7 +137,7 @@ class DatePickerInput extends PureComponent {
           backdrop="transparent"
           maxWidth="min-content"
           onEscKeyDown={this.handlePopoverClose}
-          onInteractOutside={this.handlePopoverClose}
+          onOverlayClick={this.handlePopoverClose}
           position="end"
           offsetCorrection={30}
           returnFocusToSource={false}
