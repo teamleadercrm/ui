@@ -60,18 +60,18 @@ class Overlay extends PureComponent {
     event.stopPropagation();
     // Only register clicks outside of the children
     if (
-      this.props.onInteractOutside &&
+      this.props.onOverlayClick &&
       !this.innerWrapperRef.current?.contains(this.clickOriginRef.current) &&
       // react-select has its own implementation of an overlay, conflicting with our custom implementation
       // so clicks on the select overlay shouldn't be registered either
       !selectOverlayNode.contains(this.clickOriginRef.current)
     ) {
-      this.props.onInteractOutside(event);
+      this.props.onOverlayClick(event);
     }
   };
 
   render() {
-    const { active, className, backdrop, lockScroll, onEscKeyDown, onInteractOutside, ...other } = this.props;
+    const { active, className, backdrop, lockScroll, onEscKeyDown, onOverlayClick, ...other } = this.props;
 
     return (
       <Transition timeout={0} in={active} appear>
@@ -107,7 +107,7 @@ Overlay.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   lockScroll: PropTypes.bool,
-  onInteractOutside: PropTypes.func,
+  onOverlayClick: PropTypes.func,
   onEscKeyDown: PropTypes.func,
 };
 
