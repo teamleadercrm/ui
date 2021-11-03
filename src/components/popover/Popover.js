@@ -94,7 +94,7 @@ const Popover = (props) => {
               backdrop={backdrop}
               className={theme['overlay']}
               lockScroll={lockScroll}
-              onClick={onOverlayClick}
+              onOverlayClick={onOverlayClick}
               onEscKeyDown={onEscKeyDown}
             >
               <FocusRing>

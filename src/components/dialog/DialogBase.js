@@ -45,7 +45,7 @@ export const DialogBase = ({
             active={active}
             backdrop={backdrop}
             className={theme['overlay']}
-            onClick={onOverlayClick}
+            onOverlayClick={onOverlayClick}
             onEscKeyDown={onEscKeyDown}
           >
             <FocusRing>
