@@ -14,7 +14,7 @@ export const Main = () => (
     active
     onCloseClick={() => {}}
     onEscKeyDown={() => {}}
-    onInteractOutside={() => {}}
+    onOverlayClick={() => {}}
     primaryAction={{
       label: 'Confirm',
     }}

@@ -28,7 +28,7 @@ export const datagridInDialog = () => {
         title="Set unit costs"
         onCloseClick={showHideDialog}
         onEscKeyDown={showHideDialog}
-        onInteractOutside={showHideDialog}
+        onOverlayClick={showHideDialog}
         primaryAction={{ label: 'Confirm', onClick: showHideDialog }}
         scrollable={false}
         secondaryAction={{ label: 'Cancel', onClick: showHideDialog }}

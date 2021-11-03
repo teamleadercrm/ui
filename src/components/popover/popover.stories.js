@@ -83,7 +83,7 @@ export const basic = () => {
         fullHeight={boolean('Full height', true)}
         position={select('Position', positions, 'center')}
         onEscKeyDown={handleCloseClick}
-        onInteractOutside={handleCloseClick}
+        onOverlayClick={handleCloseClick}
         tint={select('Tint', tints, 'lightest')}
         lockScroll={boolean('Lock scroll', true)}
         maxWidth={text('Max width', '50vw')}
@@ -111,7 +111,7 @@ export const withTitle = () => {
         fullHeight={boolean('Full height', true)}
         position={select('Position', positions, 'center')}
         onEscKeyDown={handleCloseClick}
-        onInteractOutside={handleCloseClick}
+        onOverlayClick={handleCloseClick}
         tint={select('Tint', tints, 'lightest')}
         lockScroll={boolean('Lock scroll', true)}
         maxWidth={text('Max width', '50vw')}
@@ -146,7 +146,7 @@ export const withTitleSubtitle = () => {
         fullHeight={boolean('Full height', true)}
         position={select('Position', positions, 'center')}
         onEscKeyDown={handleCloseClick}
-        onInteractOutside={handleCloseClick}
+        onOverlayClick={handleCloseClick}
         tint={select('Tint', tints, 'lightest')}
         lockScroll={boolean('Lock scroll', true)}
         maxWidth={text('Max width', '50vw')}
@@ -182,7 +182,7 @@ export const withCloseButton = () => {
         fullHeight={boolean('Full height', true)}
         position={select('Position', positions, 'center')}
         onEscKeyDown={handleCloseClick}
-        onInteractOutside={handleCloseClick}
+        onOverlayClick={handleCloseClick}
         tint={select('Tint', tints, 'lightest')}
         lockScroll={boolean('Lock scroll', true)}
         maxWidth={text('Max width', '50vw')}
@@ -217,7 +217,7 @@ export const withActions = () => {
         fullHeight={boolean('Full height', true)}
         position={select('Position', positions, 'center')}
         onEscKeyDown={handleCloseClick}
-        onInteractOutside={handleCloseClick}
+        onOverlayClick={handleCloseClick}
         tint={select('Tint', tints, 'lightest')}
         lockScroll={boolean('Lock scroll', true)}
         maxWidth={text('Max width', '50vw')}
@@ -253,7 +253,7 @@ export const withMenu = () => {
         fullHeight={boolean('Full height', true)}
         position={select('Position', positions, 'end')}
         onEscKeyDown={handleCloseClick}
-        onInteractOutside={handleCloseClick}
+        onOverlayClick={handleCloseClick}
         tint={select('Tint', tints, 'lightest')}
         lockScroll={boolean('Lock scroll', true)}
         maxWidth={text('Max width', '50vw')}
@@ -323,7 +323,7 @@ export const withSplitButtonMenu = () => {
         backdrop="transparent"
         position="start"
         onEscKeyDown={handleCloseClick}
-        onInteractOutside={handleCloseClick}
+        onOverlayClick={handleCloseClick}
         lockScroll={boolean('Lock scroll', true)}
       >
         <Menu outline={false} selected={splitButtonSelected}>
@@ -365,7 +365,7 @@ export const experiment1 = () => {
         fullHeight={boolean('Full height', true)}
         position={select('Position', positions, 'center')}
         onEscKeyDown={handleCloseClick}
-        onInteractOutside={handleCloseClick}
+        onOverlayClick={handleCloseClick}
         tint={select('Tint', tints, 'lightest')}
         lockScroll={boolean('Lock scroll', true)}
         maxWidth={text('Max width', '50vw')}
@@ -405,7 +405,7 @@ export const experiment2 = () => {
         fullHeight={boolean('Full height', true)}
         position={select('Position', positions, 'center')}
         onEscKeyDown={handleCloseClick}
-        onInteractOutside={handleCloseClick}
+        onOverlayClick={handleCloseClick}
         tint={select('Tint', tints, 'lightest')}
         lockScroll={boolean('Lock scroll', true)}
         maxWidth={text('Max width', '50vw')}

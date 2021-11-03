@@ -250,7 +250,7 @@ export const zIndexes = () => {
         anchorEl={popoverAnchorEl}
         backdrop="dark"
         onEscKeyDown={hidePopover}
-        onInteractOutside={hidePopover}
+        onOverlayClick={hidePopover}
         position="end"
         direction="south"
       >
@@ -276,7 +276,7 @@ export const zIndexes = () => {
         title="I am the Dialog title"
         onCloseClick={showHideDialog}
         onEscKeyDown={showHideDialog}
-        onInteractOutside={showHideDialog}
+        onOverlayClick={showHideDialog}
         primaryAction={{ label: 'Confirm', onClick: showHideDialog }}
       >
         <TextBody color="teal">I am a Dialog that covers everything below</TextBody>

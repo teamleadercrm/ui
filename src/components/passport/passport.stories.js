@@ -80,7 +80,7 @@ export const contact = () => {
         anchorEl={anchorEl}
         description="Regional manager"
         onEscKeyDown={handleCloseClick}
-        onInteractOutside={handleCloseClick}
+        onOverlayClick={handleCloseClick}
         avatar={{ imageUrl: contactAvatar, fullName: 'David Brent' }}
         lineItems={contactLineItems}
         title={{ children: 'David Brent', href: 'https://www.teamleader.eu' }}
@@ -102,7 +102,7 @@ export const company = () => {
         anchorEl={anchorEl}
         description={['1725 Slough Avenue', 'Sranton, PA 18540', 'United Kingdom']}
         onEscKeyDown={handleCloseClick}
-        onInteractOutside={handleCloseClick}
+        onOverlayClick={handleCloseClick}
         avatar={{ imageUrl: companyAvatar, shape: 'rounded', fullName: 'Dunder Miflin' }}
         lineItems={companyLineItems}
         title="Dunder Miflin"
@@ -125,7 +125,7 @@ export const empty = () => {
         link={{ children: 'Start now', href: 'https://www.teamleader.eu' }}
         description="It looks like you haven't added any contact information yet."
         onEscKeyDown={handleCloseClick}
-        onInteractOutside={handleCloseClick}
+        onOverlayClick={handleCloseClick}
         avatar={{ imageUrl: emptyAvatar, fullName: 'No Information' }}
         title="No information to show"
       />
