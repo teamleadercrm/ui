@@ -4,8 +4,7 @@
 
 ### Changed
 
-- `Overlay`: `onClick`'s behaviour has been replaced by `onInteractOutside` ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1823](https://github.com/teamleadercrm/ui/pull/1823))
-- `Dialog, DialogBase, Popover`: `onOverlayClick` has been replaced by `onInteractOutside` ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1823](https://github.com/teamleadercrm/ui/pull/1823))
+- [BREAKING] `Overlay`: `onClick`'s behavior has been replaced by `onOverlayClick`, which now passes a `mousedown` event instead of a `click` event ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1823](https://github.com/teamleadercrm/ui/pull/1823))
 
 ### Deprecated
 
