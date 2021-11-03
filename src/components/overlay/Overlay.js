@@ -8,6 +8,7 @@ import { selectOverlayNode } from '../select/Select';
 
 class Overlay extends PureComponent {
   innerWrapperRef = React.createRef();
+  clickOriginRef = React.createRef();
 
   componentDidMount() {
     const { active, lockScroll } = this.props;
@@ -50,29 +51,27 @@ class Overlay extends PureComponent {
     }
   };
 
-  handleClick = (event) => {
+  handleMouseDown = (event) => {
+    event.stopPropagation();
+    this.clickOriginRef.current = event.target;
+  };
+
+  handleMouseUp = (event) => {
     event.stopPropagation();
     // Only register clicks outside of the children
     if (
-      this.props.onClick &&
-      !this.innerWrapperRef.current?.contains(event.target) &&
+      this.props.onOverlayClick &&
+      !this.innerWrapperRef.current?.contains(this.clickOriginRef.current) &&
       // react-select has its own implementation of an overlay, conflicting with our custom implementation
       // so clicks on the select overlay shouldn't be registered either
-      !selectOverlayNode.contains(event.target)
+      !selectOverlayNode.contains(this.clickOriginRef.current)
     ) {
-      this.props.onClick(event);
+      this.props.onOverlayClick(event);
     }
   };
 
   render() {
-    const {
-      active,
-      className,
-      backdrop,
-      lockScroll, // eslint-disable-line
-      onEscKeyDown, // eslint-disable-line
-      ...other
-    } = this.props; // eslint-disable-line
+    const { active, className, backdrop, lockScroll, onEscKeyDown, onOverlayClick, ...other } = this.props;
 
     return (
       <Transition timeout={0} in={active} appear>
@@ -82,7 +81,8 @@ class Overlay extends PureComponent {
               data-teamleader-ui="overlay"
               {...other}
               onKeyDown={this.handleEscKey}
-              onClick={this.handleClick}
+              onMouseDown={this.handleMouseDown}
+              onMouseUp={this.handleMouseUp}
               className={cx(
                 theme['overlay'],
                 theme[backdrop],
@@ -107,7 +107,7 @@ Overlay.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   lockScroll: PropTypes.bool,
-  onClick: PropTypes.func,
+  onOverlayClick: PropTypes.func,
   onEscKeyDown: PropTypes.func,
 };
 

@@ -4,11 +4,15 @@
 
 ### Changed
 
+- [BREAKING] `Overlay`: `onClick`'s behavior has been replaced by `onOverlayClick`, which now passes a `mousedown` event instead of a `click` event ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1823](https://github.com/teamleadercrm/ui/pull/1823))
+
 ### Deprecated
 
 ### Removed
 
 ### Fixed
+
+- `Overlay, Dialog, Popover`: Fix dragging outside of the Overlay causing the Overlay to close ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1823](https://github.com/teamleadercrm/ui/pull/1823))
 
 ### Dependency updates
 
