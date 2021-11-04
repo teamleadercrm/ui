@@ -61,6 +61,8 @@ class Overlay extends PureComponent {
     // Only register clicks outside of the children
     if (
       this.props.onOverlayClick &&
+      // if the clickOrigin is no longer part of the DOM tree, (f.e. due to internal React re-renders)
+      document.body.contains(this.clickOriginRef.current) &&
       !this.innerWrapperRef.current?.contains(this.clickOriginRef.current) &&
       // react-select has its own implementation of an overlay, conflicting with our custom implementation
       // so clicks on the select overlay shouldn't be registered either
