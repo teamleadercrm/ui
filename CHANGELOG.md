@@ -10,6 +10,9 @@
 
 ### Fixed
 
+- `Overlay`: fix faulty onOverlayClick trigger if the click origin isn't part of DOM tree ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1823](https://github.com/teamleadercrm/ui/pull/1828))
+- `Select`: prevent redundant complete re-renders of the DropdownIndicator and ClearIndicator component ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1823](https://github.com/teamleadercrm/ui/pull/1828))
+
 ### Dependency updates
 
 ## [10.0.0] - 2021-11-04
