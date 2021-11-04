@@ -12,6 +12,22 @@
 
 ### Dependency updates
 
+## [10.0.0] - 2021-11-04
+
+### Changed
+
+- [BREAKING] `Overlay`: `onClick`'s behavior has been replaced by `onOverlayClick`, which now passes a `mousedown` event instead of a `click` event ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1823](https://github.com/teamleadercrm/ui/pull/1823))
+
+### Fixed
+
+- `Overlay, Dialog, Popover`: Fix dragging outside of the Overlay causing the Overlay to close ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1823](https://github.com/teamleadercrm/ui/pull/1823))
+
+## [9.1.0] - 2021-10-13
+
+### Added
+
+- `Tooltip`: Add `tooltipActive` to allow showing the tooltip programmatically ([@lorgan3](https://github.com/lorgan3) in [#1809](https://github.com/teamleadercrm/ui/pull/1809))
+
 ## [9.0.0] - 2021-10-11
 
 ### Changed

@@ -35,11 +35,35 @@ const SIZES = {
 const Tooltip = (ComposedComponent) => {
   class TooltippedComponent extends Component {
     tooltipRoot = this.props.documentObject.createElement('div');
+    ref = React.createRef();
 
     state = {
       active: false,
       position: this.props.tooltipPosition,
     };
+
+    componentDidMount() {
+      const { tooltipActive } = this.props;
+
+      if (tooltipActive) {
+        this.activate(this.calculatePosition(this.ref.current));
+      }
+    }
+
+    componentDidUpdate({ tooltipActive: prevTooltipActive }) {
+      const { tooltipActive } = this.props;
+      const { active } = this.state;
+
+      if (tooltipActive !== prevTooltipActive) {
+        if (tooltipActive && !active) {
+          this.activate(this.calculatePosition(this.ref.current));
+        }
+
+        if (!tooltipActive && active) {
+          this.deactivate();
+        }
+      }
+    }
 
     getPosition(element) {
       const { tooltipPosition } = this.props;
@@ -71,6 +95,11 @@ const Tooltip = (ComposedComponent) => {
     }
 
     calculatePosition(element) {
+      const { tooltipPosition } = this.props;
+      if (typeof element.getBoundingClientRect !== 'function') {
+        return { top: 0, left: 0, position: tooltipPosition };
+      }
+
       const { top, left, height, width } = element.getBoundingClientRect();
       const position = this.getPosition(element);
       const xOffset = window.scrollX || window.pageXOffset;
@@ -153,13 +182,14 @@ const Tooltip = (ComposedComponent) => {
         tooltipSize,
         tooltipShowDelay,
         zIndex,
+        onClick,
+        onMouseEnter,
+        onMouseLeave,
+        tooltipActive,
         ...other
       } = this.props;
 
       const rest = omit(other, [
-        'onClick',
-        'onMouseEnter',
-        'onMouseLeave',
         'onTooltipEntered',
         'tooltipHideOnClick',
         'tooltipPosition',
@@ -168,13 +198,23 @@ const Tooltip = (ComposedComponent) => {
         'documentObject',
       ]);
 
-      const childProps = {
+      let childProps = {
         ...rest,
         className,
-        onClick: this.handleClick,
-        onMouseEnter: this.handleMouseEnter,
-        onMouseLeave: this.handleMouseLeave,
+        onClick,
+        onMouseEnter,
+        onMouseLeave,
+        ref: this.ref,
       };
+
+      if (tooltipActive === null) {
+        childProps = {
+          ...childProps,
+          onClick: this.handleClick,
+          onMouseEnter: this.handleMouseEnter,
+          onMouseLeave: this.handleMouseLeave,
+        };
+      }
 
       return React.createElement(
         ComposedComponent,
@@ -235,6 +275,7 @@ const Tooltip = (ComposedComponent) => {
     tooltipShowDelay: PropTypes.number,
     /** The z-index of the Tooltip */
     zIndex: PropTypes.number,
+    tooltipActive: PropTypes.bool,
   };
 
   TooltippedComponent.defaultProps = {
@@ -247,6 +288,7 @@ const Tooltip = (ComposedComponent) => {
     tooltipSize: 'medium',
     tooltipShowDelay: 100,
     zIndex: 700,
+    tooltipActive: null,
   };
 
   return DocumentObjectProvider((props) => {
