@@ -1,7 +1,7 @@
 {
   "name": "@teamleader/ui",
   "description": "Teamleader UI library",
-  "version": "10.0.0",
+  "version": "10.1.0",
   "author": "Teamleader <development@teamleader.eu>",
   "bugs": {
     "url": "https://github.com/teamleadercrm/ui/issues"
@@ -81,7 +81,7 @@
     "@storybook/addons": "6.3.12",
     "@storybook/react": "6.3.6",
     "@storybook/theming": "^6.2.8",
-    "@storybook/ui": "6.3.7",
+    "@storybook/ui": "6.3.12",
     "@svgr/webpack": "^5.5.0",
     "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.0-beta.6",
@@ -104,7 +104,7 @@
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^6.0.0",
     "husky": "^7.0.1",
-    "image-webpack-loader": "^7.0.1",
+    "image-webpack-loader": "^8.0.1",
     "json-loader": "^0.5.4",
     "moment": "^2.22.2",
     "postcss": "^8.2.0",

@@ -18,6 +18,29 @@ const minHeightBySizeMap = {
   large: 48,
 };
 
+const DropdownIndicator = ({ selectProps: { inverse } }) => {
+  return (
+    <Icon
+      alignItems="center"
+      className={theme['dropdown-indicator']}
+      color={inverse ? 'teal' : 'neutral'}
+      display="flex"
+      justifyContent="center"
+      tint={inverse ? 'lightest' : 'darkest'}
+    >
+      <IconChevronDownSmallOutline />
+    </Icon>
+  );
+};
+
+const ClearIndicator = ({ innerProps, selectProps: { inverse } }) => {
+  return (
+    <Icon color={inverse ? 'teal' : 'neutral'} display="flex" tint={inverse ? 'lightest' : 'darkest'} {...innerProps}>
+      <IconCloseBadgedSmallFilled />
+    </Icon>
+  );
+};
+
 export const selectOverlayNode = document.createElement('div');
 selectOverlayNode.setAttribute('data-teamleader-ui', 'select-overlay');
 
@@ -323,40 +346,6 @@ class Select extends PureComponent {
     valueContainer: this.getValueContainerStyles,
   });
 
-  getClearIndicator =
-    () =>
-    ({ innerProps }) => {
-      const { inverse } = this.props;
-
-      return (
-        <Icon
-          color={inverse ? 'teal' : 'neutral'}
-          display="flex"
-          tint={inverse ? 'lightest' : 'darkest'}
-          {...innerProps}
-        >
-          <IconCloseBadgedSmallFilled />
-        </Icon>
-      );
-    };
-
-  getDropDownIndicator = () => () => {
-    const { inverse } = this.props;
-
-    return (
-      <Icon
-        alignItems="center"
-        className={theme['dropdown-indicator']}
-        color={inverse ? 'teal' : 'neutral'}
-        display="flex"
-        justifyContent="center"
-        tint={inverse ? 'lightest' : 'darkest'}
-      >
-        <IconChevronDownSmallOutline />
-      </Icon>
-    );
-  };
-
   render() {
     const { components, creatable, error, inverse, helpText, size, success, warning, forwardedRef, ...otherProps } =
       this.props;
@@ -377,8 +366,8 @@ class Select extends PureComponent {
           ref={forwardedRef}
           className={cx(uiUtilities['reset-font-smoothing'], theme['select'])}
           components={{
-            ClearIndicator: this.getClearIndicator(),
-            DropdownIndicator: this.getDropDownIndicator(),
+            ClearIndicator,
+            DropdownIndicator,
             IndicatorSeparator: null,
             ...components,
           }}
