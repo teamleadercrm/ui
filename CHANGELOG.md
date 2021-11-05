@@ -4,6 +4,8 @@
 
 ### Changed
 
+- Increase z-index from 400 to 403 on Dialog overlays ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1834](https://github.com/teamleadercrm/ui/pull/1834))
+
 ### Deprecated
 
 ### Removed
