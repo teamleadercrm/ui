@@ -4,6 +4,8 @@
 
 ### Changed
 
+- Increase z-index from 400 to 403 on Dialog overlays ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1834](https://github.com/teamleadercrm/ui/pull/1834))
+
 ### Deprecated
 
 ### Removed
@@ -16,8 +18,8 @@
 
 ### Fixed
 
-- `Overlay`: fix faulty onOverlayClick trigger if the click origin isn't part of DOM tree ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1823](https://github.com/teamleadercrm/ui/pull/1828))
-- `Select`: prevent redundant complete re-renders of the DropdownIndicator and ClearIndicator component ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1823](https://github.com/teamleadercrm/ui/pull/1828))
+- `Overlay`: fix faulty onOverlayClick trigger if the click origin isn't part of DOM tree ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1828](https://github.com/teamleadercrm/ui/pull/1828))
+- `Select`: prevent redundant complete re-renders of the DropdownIndicator and ClearIndicator component ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1828](https://github.com/teamleadercrm/ui/pull/1828))
 
 ## [10.0.0] - 2021-11-04
 
