@@ -51,6 +51,11 @@ class Overlay extends PureComponent {
     }
   };
 
+  handleClick = (event) => {
+    event.stopPropagation();
+    this.props.onClick?.(event);
+  };
+
   handleMouseDown = (event) => {
     event.stopPropagation();
     this.clickOriginRef.current = event.target;
@@ -85,6 +90,7 @@ class Overlay extends PureComponent {
               onKeyDown={this.handleEscKey}
               onMouseDown={this.handleMouseDown}
               onMouseUp={this.handleMouseUp}
+              onClick={this.handleClick}
               className={cx(
                 theme['overlay'],
                 theme[backdrop],
