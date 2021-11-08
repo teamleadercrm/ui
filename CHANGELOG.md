@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `Overlay`: Prevent click events in the `Overlay` from propagating to the parent ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1836](https://github.com/teamleadercrm/ui/pull/1836))
+
 ### Dependency updates
 
 ## [10.1.0] - 2021-11-05
