@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import Box, { pickBoxProps } from '../box';
 import cx from 'classnames';
@@ -11,7 +11,7 @@ const SIZES = {
   large: 5,
 };
 
-const Island = (props) => {
+const Island = forwardRef((props, ref) => {
   const { children, className, color, dark, size, ...others } = props;
 
   const classNames = cx(theme[color], className);
@@ -20,6 +20,7 @@ const Island = (props) => {
 
   return (
     <Box
+      ref={ref}
       data-teamleader-ui="island"
       backgroundColor={color === 'white' ? 'neutral' : color}
       backgroundTint={color === 'neutral' ? 'light' : 'lightest'}
@@ -37,7 +38,7 @@ const Island = (props) => {
       {children}
     </Box>
   );
-};
+});
 
 Island.propTypes = {
   children: PropTypes.node,
@@ -51,5 +52,7 @@ Island.defaultProps = {
   color: 'white',
   size: 'medium',
 };
+
+Island.displayName = 'Island';
 
 export default Island;
