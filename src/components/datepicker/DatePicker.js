@@ -55,7 +55,7 @@ class DatePicker extends PureComponent {
   };
 
   render() {
-    const { bordered, className, modifiers, size, withMonthPicker, showWeekNumbers, ...others } = this.props;
+    const { bordered, className, style, modifiers, size, withMonthPicker, showWeekNumbers, ...others } = this.props;
     const { selectedDate, selectedMonth } = this.state;
     const boxProps = pickBoxProps(others);
     const restProps = omitBoxProps(others);
@@ -77,6 +77,7 @@ class DatePicker extends PureComponent {
           initialMonth={selectedDate}
           month={selectedMonth}
           className={classNames}
+          style={style}
           classNames={theme}
           modifiers={convertModifiersToClassnames(modifiers, theme)}
           navbarElement={<NavigationBar size={size} withMonthPicker={withMonthPicker} />}

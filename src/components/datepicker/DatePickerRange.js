@@ -71,7 +71,7 @@ class DatePickerRange extends PureComponent {
   };
 
   render() {
-    const { bordered, className, size, ...others } = this.props;
+    const { bordered, className, style, size, ...others } = this.props;
     const { selectedStartDate, mouseEnteredEndDate } = this.state;
     const modifiers = { from: selectedStartDate, to: mouseEnteredEndDate };
     const selectedDays = [selectedStartDate, { from: selectedStartDate, to: mouseEnteredEndDate }];
@@ -95,6 +95,7 @@ class DatePickerRange extends PureComponent {
           {...restProps}
           localeUtils={LocaleUtils}
           className={classNames}
+          style={style}
           classNames={theme}
           modifiers={convertModifiersToClassnames(modifiers, theme)}
           navbarElement={<NavigationBar size={size} />}
