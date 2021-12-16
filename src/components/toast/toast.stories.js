@@ -34,33 +34,37 @@ const toastReducer = ({ toasts, key }, action) => {
   };
 };
 
-const toastSpawner = (toastProps) => () => {
-  const [{ toasts, key }, dispatch] = useReducer(toastReducer, { key: 0, toasts: [] });
+const toastSpawner = (toastProps) => {
+  const Wrapper = () => {
+    const [{ toasts, key }, dispatch] = useReducer(toastReducer, { key: 0, toasts: [] });
 
-  const addToast = (toastProps) => {
-    const props = {
-      ...toastProps,
-      key,
-      onClose: () => dispatch({ type: 'REMOVE_TOAST', payload: key }),
-      onTimeout: () => dispatch({ type: 'REMOVE_TOAST', payload: key }),
+    const addToast = (toastProps) => {
+      const props = {
+        ...toastProps,
+        key,
+        onClose: () => dispatch({ type: 'REMOVE_TOAST', payload: key }),
+        onTimeout: () => dispatch({ type: 'REMOVE_TOAST', payload: key }),
+      };
+
+      dispatch({
+        type: 'ADD_TOAST',
+        payload: props,
+      });
     };
 
-    dispatch({
-      type: 'ADD_TOAST',
-      payload: props,
-    });
+    return (
+      <div>
+        <Button label="Make a toast" onClick={() => addToast(toastProps)} />
+        <ToastContainer>
+          {toasts.map((toastProps) => (
+            <Toast {...toastProps} key={toastProps.key} />
+          ))}
+        </ToastContainer>
+      </div>
+    );
   };
 
-  return (
-    <div>
-      <Button label="Make a toast" onClick={() => addToast(toastProps)} />
-      <ToastContainer>
-        {toasts.map((toastProps) => (
-          <Toast {...toastProps} key={toastProps.key} />
-        ))}
-      </ToastContainer>
-    </div>
-  );
+  return Wrapper;
 };
 
 export const withCloseButton = toastSpawner({
