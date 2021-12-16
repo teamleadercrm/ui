@@ -10,9 +10,13 @@
 
 ### Fixed
 
-- `WysiwygEditor`: Render LinkOptions on top of editor when rendered in a dialog ([@lorgan3](https://github.com/lorgan3) in [#1876](https://github.com/teamleadercrm/ui/pull/1876))
-
 ### Dependency updates
+
+## [10.1.2] - 2021-12-16
+
+### Fixed
+
+- `WysiwygEditor`: Render LinkOptions on top of editor when rendered in a dialog ([@lorgan3](https://github.com/lorgan3) in [#1876](https://github.com/teamleadercrm/ui/pull/1876))
 
 ## [10.1.1] - 2021-11-08
 
