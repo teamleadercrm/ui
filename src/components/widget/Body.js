@@ -1,16 +1,10 @@
-import React, { forwardRef } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Island from '../island';
 
-const Body = forwardRef(({ children, ...others }, ref) => {
-  return (
-    <Island ref={ref} {...others}>
-      {children}
-    </Island>
-  );
-});
-
-Body.displayName = 'Body';
+const Body = ({ children, ...others }) => {
+  return <Island {...others}>{children}</Island>;
+};
 
 Body.propTypes = {
   /** The content to display inside the widget body. */
