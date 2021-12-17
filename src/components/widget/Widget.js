@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import Body from './Body';
 import Footer from './Footer';
 import Header from './Header';
 import { IslandGroup } from '../island';
 
-const Widget = ({ children, size, ...others }) => {
+const Widget = forwardRef(({ children, size, ...others }, ref) => {
   return (
-    <IslandGroup direction="vertical" {...others}>
+    <IslandGroup ref={ref} direction="vertical" {...others}>
       {React.Children.map(children, (child) => {
         if (!child) {
           return child;
@@ -20,7 +20,9 @@ const Widget = ({ children, size, ...others }) => {
       })}
     </IslandGroup>
   );
-};
+});
+
+Widget.displayName = 'Widget';
 
 Widget.propTypes = {
   /** The content to display inside the widget. */
