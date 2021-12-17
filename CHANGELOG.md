@@ -2,7 +2,7 @@
 
 ### Added
 
-- `Widget`: added ref forwarding ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1877](https://github.com/teamleadercrm/ui/pull/1877))
+- `Widget`, `IslandGroup`: added ref forwarding ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1877](https://github.com/teamleadercrm/ui/pull/1877))
 
 ### Changed
 
