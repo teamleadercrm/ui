@@ -1,30 +1,26 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Body from './Body';
 import Footer from './Footer';
 import Header from './Header';
 import { IslandGroup } from '../island';
 
-class Widget extends PureComponent {
-  render() {
-    const { children, size, ...others } = this.props;
+const Widget = ({ children, size, ...others }) => {
+  return (
+    <IslandGroup direction="vertical" {...others}>
+      {React.Children.map(children, (child) => {
+        if (!child) {
+          return child;
+        }
 
-    return (
-      <IslandGroup direction="vertical" {...others}>
-        {React.Children.map(children, (child) => {
-          if (!child) {
-            return child;
-          }
-
-          return React.cloneElement(child, {
-            ...child.props,
-            size,
-          });
-        })}
-      </IslandGroup>
-    );
-  }
-}
+        return React.cloneElement(child, {
+          ...child.props,
+          size,
+        });
+      })}
+    </IslandGroup>
+  );
+};
 
 Widget.propTypes = {
   /** The content to display inside the widget. */
