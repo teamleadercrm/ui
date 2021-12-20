@@ -16,7 +16,7 @@ class MenuItem extends PureComponent {
   };
 
   render() {
-    const { icon, caption, children, className, destructive, element, label, selected, disabled, ...others } =
+    const { icon, caption, children, className, style, destructive, element, label, selected, disabled, ...others } =
       this.props;
 
     const classNames = cx(
@@ -40,6 +40,7 @@ class MenuItem extends PureComponent {
           onClick={this.handleClick}
           alignItems="center"
           className={classNames}
+          style={style}
           disabled={disabled}
           display="flex"
           element={element}
