@@ -12,6 +12,21 @@
 
 ### Dependency updates
 
+## [11.0.0] - 2021-12-20
+
+### Added
+
+- `Widget`, `IslandGroup`: added ref forwarding ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1877](https://github.com/teamleadercrm/ui/pull/1877))
+
+### Changed
+
+- [BREAKING] `Checkbox`, `Input`, `TimeInput`, `NumericInput`, `SingleLineInputBase`, `Textarea`, `RadioButton`, `Select`, `Toggle`: due to the `style` prop now being part of `boxProps`, the property will no longer get passed to the internal elements, but rather the wrapping `Box`, same as `classname` ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1877](https://github.com/teamleadercrm/ui/pull/1877))
+
+### Dependency updates
+
+- [BREAKING] `react-select`: Bump react-select from 4.3.1 to 5.2.1 [#1849](https://github.com/teamleadercrm/ui/pull/1849)
+  - This release of react-select is mostly compatible with existing versions, but make sure to double check if you're replacing internal Components like the `ValueContainer`, since the internal CSS has been revamped to use css grid. See https://react-select.com/upgrade#from-v4-to-v5 for the detailed migration guide.
+
 ## [10.1.2] - 2021-12-16
 
 ### Fixed
