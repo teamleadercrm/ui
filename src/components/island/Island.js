@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Box, { pickBoxProps } from '../box';
 import cx from 'classnames';
@@ -11,35 +11,33 @@ const SIZES = {
   large: 5,
 };
 
-class Island extends PureComponent {
-  render() {
-    const { children, className, color, dark, size, ...others } = this.props;
+const Island = (props) => {
+  const { children, className, color, dark, size, ...others } = props;
 
-    const classNames = cx(theme[color], className);
-    const isDark = elementIsDark(color, dark);
-    const boxProps = pickBoxProps(others);
+  const classNames = cx(theme[color], className);
+  const isDark = elementIsDark(color, dark);
+  const boxProps = pickBoxProps(others);
 
-    return (
-      <Box
-        data-teamleader-ui="island"
-        backgroundColor={color === 'white' ? 'neutral' : color}
-        backgroundTint={color === 'neutral' ? 'light' : 'lightest'}
-        borderRadius="rounded"
-        borderColor={color === 'white' ? 'neutral' : color}
-        borderTint={isDark ? 'dark' : 'normal'}
-        borderBottomWidth={1}
-        borderLeftWidth={1}
-        borderRightWidth={1}
-        borderTopWidth={1}
-        className={classNames}
-        padding={SIZES[size]}
-        {...boxProps}
-      >
-        {children}
-      </Box>
-    );
-  }
-}
+  return (
+    <Box
+      data-teamleader-ui="island"
+      backgroundColor={color === 'white' ? 'neutral' : color}
+      backgroundTint={color === 'neutral' ? 'light' : 'lightest'}
+      borderRadius="rounded"
+      borderColor={color === 'white' ? 'neutral' : color}
+      borderTint={isDark ? 'dark' : 'normal'}
+      borderBottomWidth={1}
+      borderLeftWidth={1}
+      borderRightWidth={1}
+      borderTopWidth={1}
+      className={classNames}
+      padding={SIZES[size]}
+      {...boxProps}
+    >
+      {children}
+    </Box>
+  );
+};
 
 Island.propTypes = {
   children: PropTypes.node,

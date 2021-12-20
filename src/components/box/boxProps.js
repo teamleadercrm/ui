@@ -19,6 +19,7 @@ const boxProps = [
   'borderBottomRightRadius',
   'boxSizing',
   'className',
+  'style',
   'display',
   'element',
   'flex',

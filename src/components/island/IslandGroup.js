@@ -1,11 +1,9 @@
-import React, { PureComponent, isValidElement } from 'react';
+import React, { forwardRef, isValidElement } from 'react';
 import PropTypes from 'prop-types';
 import Box, { pickBoxProps } from '../box';
 
-class IslandGroup extends PureComponent {
-  render() {
-    const { children: originalChildren, className, color, dark, direction, size, ...otherProps } = this.props;
-
+const IslandGroup = forwardRef(
+  ({ children: originalChildren, className, color, dark, direction, size, ...otherProps }, ref) => {
     const boxProps = pickBoxProps(otherProps);
     const children = [];
 
@@ -19,6 +17,7 @@ class IslandGroup extends PureComponent {
 
     return (
       <Box
+        ref={ref}
         {...boxProps}
         className={className}
         display="flex"
@@ -73,8 +72,10 @@ class IslandGroup extends PureComponent {
         })}
       </Box>
     );
-  }
-}
+  },
+);
+
+IslandGroup.displayName = 'IslandGroup';
 
 IslandGroup.propTypes = {
   children: PropTypes.any,
