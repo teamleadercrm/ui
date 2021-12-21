@@ -20,6 +20,5 @@ addons.setConfig({
     inputBg: COLOR.NEUTRAL.LIGHTEST,
     inputBorder: COLOR.NEUTRAL.DARK,
     inputTextColor: COLOR.TEAL.DARKEST,
-    inputBorderRadius: 4,
   }),
 });
