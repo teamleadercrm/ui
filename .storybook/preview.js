@@ -2,6 +2,8 @@ import { addDecorator, addParameters } from '@storybook/react';
 import { withDesign } from 'storybook-addon-designs';
 import { COLOR } from '../src/constants';
 
+import theme from './theme';
+
 addParameters({
   backgrounds: {
     values: [
@@ -21,6 +23,12 @@ addParameters({
   options: {
     showRoots: true,
     storySort: (a, b) => (a[1].kind === b[1].kind ? 0 : a[1].id.localeCompare(b[1].id, undefined, { numeric: true })),
+  },
+});
+
+addParameters({
+  docs: {
+    theme,
   },
 });
 
