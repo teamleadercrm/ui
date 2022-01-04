@@ -1,9 +1,8 @@
 import React from 'react';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { boolean, number, select, text } from '@storybook/addon-knobs';
-import { DatePicker, DatePickerInput, DatePickerInputRange, Toggle } from '../../index';
+import { DatePicker, DatePickerInput, Toggle } from '../../index';
 import { DateTime } from 'luxon';
-import { formatDate, parseDate } from './localeUtils';
 
 const languages = [
   'da-DK',
@@ -146,46 +145,4 @@ inputSingleDate.story = {
       },
     ],
   },
-};
-
-export const inputRange = () => {
-  const handleOnChange = (selectedRange) => {
-    console.log('Selected range', selectedRange);
-  };
-
-  return (
-    <DatePickerInputRange
-      bold={boolean('Bold', false)}
-      dayPickerProps={{
-        locale: select('Locale', languages, 'nl-BE'),
-        numberOfMonths: number('Number of months', 2),
-        showOutsideDays: boolean('Show outside days', false),
-        showWeekNumbers: boolean('Show week numbers', true),
-      }}
-      dayPickerInputStartDateProps={{
-        placeholder: inputPlaceholderToday,
-        value: preSelectedRange.selectedStartDate,
-      }}
-      dayPickerInputEndDateProps={{
-        placeholder: inputPlaceholderTomorrow,
-        value: preSelectedRange.selectedEndDate,
-      }}
-      formatDate={formatDate}
-      parseDate={parseDate}
-      disabled={boolean('Disabled', false)}
-      error={text('error', '')}
-      helpText={text('helpText', 'Pick a date')}
-      warning={text('warning', '')}
-      inverse={boolean('Inverse', false)}
-      readOnly={boolean('Read only', false)}
-      onChange={handleOnChange}
-      selectedRange={preSelectedRange}
-      size={select('Size', sizes, 'medium')}
-      width={text('width', undefined)}
-    />
-  );
-};
-
-inputRange.story = {
-  name: 'Input range',
 };
