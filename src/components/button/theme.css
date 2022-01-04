@@ -275,42 +275,21 @@
   background-color: transparent;
   border: none;
 
-  &:not(.is-inverse) {
-    color: var(--color-aqua-dark);
+  color: var(--color-aqua-dark);
 
-    &:not(.is-disabled) {
-      &:focus {
-        box-shadow: 0 0 0 2px var(--color-aqua-light);
-      }
-
-      &:hover,
-      &:active {
-        background-color: color(var(--color-neutral) a(0.48));
-      }
+  &:not(.is-disabled) {
+    &:focus {
+      box-shadow: 0 0 0 2px var(--color-aqua-light);
     }
 
-    &.is-disabled {
-      color: var(--color-neutral);
+    &:hover,
+    &:active {
+      background-color: color(var(--color-neutral) a(0.48));
     }
   }
 
-  &.is-inverse {
-    color: var(--color-teal-lightest);
-
-    &:not(.is-disabled) {
-      &:focus {
-        box-shadow: 0 0 0 2px var(--color-teal);
-      }
-
-      &:hover,
-      &:active {
-        background-color: color(var(--color-teal) a(0.48));
-      }
-    }
-
-    &.is-disabled {
-      color: var(--color-teal);
-    }
+  &.is-disabled {
+    color: var(--color-neutral);
   }
 
   &.has-icon-only:hover {
