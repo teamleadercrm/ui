@@ -8,6 +8,7 @@
 
 ### Removed
 
+- [BREAKING] `ScrollContainer`: ([@qubis741](https://github.com/qubis741) in [#1891](https://github.com/teamleadercrm/ui/pull/1891))
 - [BREAKING] `LoadingMolecule`: ([@qubis741](https://github.com/qubis741) in [#1888](https://github.com/teamleadercrm/ui/pull/1888)) 
 
 ### Fixed
