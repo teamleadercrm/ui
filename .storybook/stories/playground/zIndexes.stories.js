@@ -6,7 +6,6 @@ import {
   ButtonGroup,
   DataGrid,
   DatePickerInput,
-  DatePickerInputRange,
   Dialog,
   Heading3,
   Heading4,
@@ -17,7 +16,6 @@ import {
   MenuItem,
   Popover,
   Select,
-  StatusBullet,
   TextBody,
   TextSmall,
   Toast,
@@ -26,10 +24,9 @@ import {
 } from '../../../src';
 import { boolean, select } from '@storybook/addon-knobs';
 import { DateTime } from 'luxon';
-import { IconIdeaMediumOutline, IconInfoBadgedSmallFilled } from '@teamleader/ui-icons';
+import { IconInfoBadgedSmallFilled } from '@teamleader/ui-icons';
 import options, { groupedOptions } from '../../../src/static/data/select';
 import { LANGUAGES } from '../../../src/static/data/languages';
-import MomentLocaleUtils, { formatDate, parseDate } from 'react-day-picker/moment';
 import { rows1 } from '../../../src/static/data/datagrid';
 
 export default {
@@ -45,20 +42,9 @@ export default {
 
 const inputPlaceholderToday = DateTime.fromJSDate(new Date()).setLocale('nl').toLocaleString(DateTime.DATE_SHORT);
 
-const inputPlaceholderTomorrow = DateTime.fromJSDate(new Date())
-  .setLocale('nl')
-  .plus({ days: 1 })
-  .toLocaleString(DateTime.DATE_SHORT);
-
 const preSelectedDate = DateTime.local().plus({ days: 63 }).toJSDate();
 
-const preSelectedRange = {
-  selectedStartDate: DateTime.local().plus({ days: 3 }).toJSDate(),
-  selectedEndDate: DateTime.local().plus({ days: 8 }).toJSDate(),
-};
-
 const TooltippedIcon = Tooltip(Icon);
-const TooltippedStatusBullet = Tooltip(StatusBullet);
 
 const customFormatDate = (date, locale) => {
   return DateTime.fromJSDate(date).setLocale(locale).toLocaleString(DateTime.DATETIME_HUGE);
@@ -77,7 +63,6 @@ const MyDatagrid = ({ ...props }) => (
     </DataGrid.HeaderRowOverlay>
 
     <DataGrid.HeaderRow>
-      <DataGrid.HeaderCell flex="min-width" />
       <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} sorted="asc">
         Invoice
       </DataGrid.HeaderCell>
@@ -93,15 +78,6 @@ const MyDatagrid = ({ ...props }) => (
     {rows1.map((row, index) => {
       return (
         <DataGrid.BodyRow key={index}>
-          <DataGrid.Cell align="center" flex="min-width">
-            <TooltippedStatusBullet
-              color={row.column1}
-              tooltip={<TextSmall>Overdue</TextSmall>}
-              tooltipColor={row.column1}
-              tooltipSize="small"
-              size="medium"
-            />
-          </DataGrid.Cell>
           <DataGrid.Cell>
             <Link href="#" inherit={false}>
               {row.column5}
@@ -211,30 +187,6 @@ export const zIndexes = () => {
             }}
             locale={select('Locale', LANGUAGES, 'nl')}
             onChange={handleDatePickerDateChanged}
-          />
-        </Label>
-        <Label required flex="1" marginLeft={3}>
-          Pick a date
-          <DatePickerInputRange
-            formatDate={formatDate}
-            parseDate={parseDate}
-            dayPickerProps={{
-              locale: select('Locale', LANGUAGES, 'nl'),
-              localeUtils: MomentLocaleUtils,
-              numberOfMonths: 2,
-              showOutsideDays: false,
-              showWeekNumbers: true,
-            }}
-            dayPickerInputStartDateProps={{
-              placeholder: inputPlaceholderToday,
-              value: preSelectedRange.selectedStartDate,
-            }}
-            dayPickerInputEndDateProps={{
-              placeholder: inputPlaceholderTomorrow,
-              value: preSelectedRange.selectedEndDate,
-            }}
-            onChange={() => console.log('Changed')}
-            selectedRange={preSelectedRange}
           />
         </Label>
       </Box>
