@@ -55,7 +55,6 @@ import Passport, { EmptyPassport } from './components/passport';
 import Popover from './components/popover';
 import PoweredByButton from './components/poweredByButton';
 import { RadioButton, RadioGroup } from './components/radio';
-import ScrollContainer from './components/scrollContainer';
 import Section from './components/section';
 import Select, { AsyncSelect } from './components/select';
 import { Island, IslandGroup } from './components/island';
@@ -165,7 +164,6 @@ export {
   PoweredByButton,
   RadioButton,
   RadioGroup,
-  ScrollContainer,
   Section,
   Select,
   SplitButton,
