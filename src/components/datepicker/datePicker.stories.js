@@ -1,7 +1,7 @@
 import React from 'react';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { boolean, number, select, text } from '@storybook/addon-knobs';
-import { DatePicker, DatePickerRange, DatePickerInput, DatePickerInputRange, Toggle } from '../../index';
+import { DatePicker, DatePickerInput, DatePickerInputRange, Toggle } from '../../index';
 import { DateTime } from 'luxon';
 import { formatDate, parseDate } from './localeUtils';
 
@@ -146,25 +146,6 @@ inputSingleDate.story = {
       },
     ],
   },
-};
-
-export const range = () => {
-  const handleOnChange = (selectedRange) => {
-    console.log('Selected range', selectedRange);
-  };
-
-  return (
-    <DatePickerRange
-      bordered={boolean('bordered', true)}
-      locale={select('Locale', languages, 'nl-BE')}
-      numberOfMonths={number('Number of months', 2)}
-      onChange={handleOnChange}
-      selectedRange={preSelectedRange}
-      showOutsideDays={boolean('Show outside days', false)}
-      showWeekNumbers={boolean('Show week numbers', true)}
-      size={select('Size', sizes, 'medium')}
-    />
-  );
 };
 
 export const inputRange = () => {

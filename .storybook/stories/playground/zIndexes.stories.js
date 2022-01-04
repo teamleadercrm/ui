@@ -17,7 +17,6 @@ import {
   MenuItem,
   Popover,
   Select,
-  StatusBullet,
   TextBody,
   TextSmall,
   Toast,
@@ -58,7 +57,6 @@ const preSelectedRange = {
 };
 
 const TooltippedIcon = Tooltip(Icon);
-const TooltippedStatusBullet = Tooltip(StatusBullet);
 
 const customFormatDate = (date, locale) => {
   return DateTime.fromJSDate(date).setLocale(locale).toLocaleString(DateTime.DATETIME_HUGE);
@@ -77,7 +75,6 @@ const MyDatagrid = ({ ...props }) => (
     </DataGrid.HeaderRowOverlay>
 
     <DataGrid.HeaderRow>
-      <DataGrid.HeaderCell flex="min-width" />
       <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} sorted="asc">
         Invoice
       </DataGrid.HeaderCell>
@@ -93,15 +90,6 @@ const MyDatagrid = ({ ...props }) => (
     {rows1.map((row, index) => {
       return (
         <DataGrid.BodyRow key={index}>
-          <DataGrid.Cell align="center" flex="min-width">
-            <TooltippedStatusBullet
-              color={row.column1}
-              tooltip={<TextSmall>Overdue</TextSmall>}
-              tooltipColor={row.column1}
-              tooltipSize="small"
-              size="medium"
-            />
-          </DataGrid.Cell>
           <DataGrid.Cell>
             <Link href="#" inherit={false}>
               {row.column5}

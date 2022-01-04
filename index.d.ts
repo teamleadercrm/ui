@@ -53,7 +53,6 @@ declare module '@teamleader/ui' {
   };
   export const DatePicker: React.ComponentType<any>;
   export const DatePickerInput: React.ComponentType<any>;
-  export const DatePickerRange: React.ComponentType<any>;
   export const DatePickerInputRange: React.ComponentType<any>;
   export const DetailPage: React.ComponentType<any> & {
     Header: React.ComponentType<any>;
@@ -124,7 +123,6 @@ declare module '@teamleader/ui' {
   export const Section: React.ComponentType<any>;
   export const Select: React.ComponentType<any>;
   export const SplitButton: React.ComponentType<any>;
-  export const StatusBullet: React.ComponentType<any>;
   export const StatusLabel: React.ComponentType<any>;
   export const TextBody: React.ComponentType<any>;
   export const TextBodyCompact: React.ComponentType<any>;
@@ -136,7 +134,6 @@ declare module '@teamleader/ui' {
   export const TimeInput: React.ComponentType<any>;
   export const DurationInput: React.ComponentType<any>;
   export const Timer: React.ComponentType<any>;
-  export const TimerPulser: React.ComponentType<any>;
   export const TitleTab: React.ComponentType<any>;
   export const Toast: React.ComponentType<any>;
   export const ToastContainer: React.ComponentType<any>;
