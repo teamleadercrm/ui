@@ -7,7 +7,7 @@ export default {
   title: addStoryInGroup(MID_LEVEL_BLOCKS, 'Pagination'),
 };
 
-export const Full = ({ inverse, ...args }) => (
+export const DefaultStory = ({ inverse, ...args }) => (
   <Pagination inverse={inverse} {...args}>
     {({ number, text, isActive, ...others }) => {
       return <Button level="link" label={text} disabled={isActive} inverse={inverse} size="small" {...others} />;
@@ -15,7 +15,7 @@ export const Full = ({ inverse, ...args }) => (
   </Pagination>
 );
 
-Full.args = {
+DefaultStory.args = {
   currentPage: 3,
   numPages: 21,
 };
