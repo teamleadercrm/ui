@@ -19,16 +19,3 @@ Full.args = {
   currentPage: 3,
   numPages: 21,
 };
-
-export const Compact = (args) => (
-  <Pagination {...args}>
-    {({ number, text, isActive, ...others }) => {
-      return <Button level="link" label={text} disabled={isActive} size="small" {...others} />;
-    }}
-  </Pagination>
-);
-
-Compact.args = {
-  currentPage: 3,
-  numPages: 21,
-};
