@@ -48,7 +48,6 @@ import Overlay from './components/overlay';
 import OverviewPage, { OverviewPageBody, OverviewPageHeader } from './components/overviewPage';
 import { LabelValuePair, LabelValuePairGroup } from './components/labelValuePair';
 import LoadingBar from './components/loadingBar';
-import LoadingMolecule from './components/loadingMolecule';
 import LoadingSpinner from './components/loadingSpinner';
 import Pagination from './components/pagination';
 import Passport, { EmptyPassport } from './components/passport';
@@ -136,7 +135,6 @@ export {
   LabelValuePairGroup,
   Link,
   LoadingBar,
-  LoadingMolecule,
   LoadingSpinner,
   Marker,
   MarketingButton,
