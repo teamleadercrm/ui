@@ -8,13 +8,13 @@ import theme from './theme.css';
 
 class Pagination extends PureComponent {
   render() {
-    const { className, currentPage, inverse, maxNumPagesVisible, numPages, children, ...others } = this.props;
+    const { className, currentPage, maxNumPagesVisible, numPages, children, ...others } = this.props;
 
     if (numPages < 2) {
       return null;
     }
 
-    const classNames = cx(theme['pagination'], { [theme['is-inverse']]: inverse }, className);
+    const classNames = cx(theme['pagination'], className);
     const iterator = [currentPage];
 
     let counter = 0;
@@ -91,7 +91,6 @@ class Pagination extends PureComponent {
 }
 
 Pagination.propTypes = {
-  inverse: PropTypes.bool,
   numPages: PropTypes.number.isRequired,
   maxNumPagesVisible: PropTypes.number,
   currentPage: PropTypes.number.isRequired,
@@ -101,7 +100,6 @@ Pagination.propTypes = {
 
 Pagination.defaultProps = {
   currentPage: 1,
-  inverse: false,
   maxNumPagesVisible: 7,
 };
 
