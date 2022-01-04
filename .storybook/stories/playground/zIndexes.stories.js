@@ -6,7 +6,6 @@ import {
   ButtonGroup,
   DataGrid,
   DatePickerInput,
-  DatePickerInputRange,
   Dialog,
   Heading3,
   Heading4,
@@ -25,10 +24,9 @@ import {
 } from '../../../src';
 import { boolean, select } from '@storybook/addon-knobs';
 import { DateTime } from 'luxon';
-import { IconIdeaMediumOutline, IconInfoBadgedSmallFilled } from '@teamleader/ui-icons';
+import { IconInfoBadgedSmallFilled } from '@teamleader/ui-icons';
 import options, { groupedOptions } from '../../../src/static/data/select';
 import { LANGUAGES } from '../../../src/static/data/languages';
-import MomentLocaleUtils, { formatDate, parseDate } from 'react-day-picker/moment';
 import { rows1 } from '../../../src/static/data/datagrid';
 
 export default {
@@ -44,17 +42,7 @@ export default {
 
 const inputPlaceholderToday = DateTime.fromJSDate(new Date()).setLocale('nl').toLocaleString(DateTime.DATE_SHORT);
 
-const inputPlaceholderTomorrow = DateTime.fromJSDate(new Date())
-  .setLocale('nl')
-  .plus({ days: 1 })
-  .toLocaleString(DateTime.DATE_SHORT);
-
 const preSelectedDate = DateTime.local().plus({ days: 63 }).toJSDate();
-
-const preSelectedRange = {
-  selectedStartDate: DateTime.local().plus({ days: 3 }).toJSDate(),
-  selectedEndDate: DateTime.local().plus({ days: 8 }).toJSDate(),
-};
 
 const TooltippedIcon = Tooltip(Icon);
 
@@ -199,30 +187,6 @@ export const zIndexes = () => {
             }}
             locale={select('Locale', LANGUAGES, 'nl')}
             onChange={handleDatePickerDateChanged}
-          />
-        </Label>
-        <Label required flex="1" marginLeft={3}>
-          Pick a date
-          <DatePickerInputRange
-            formatDate={formatDate}
-            parseDate={parseDate}
-            dayPickerProps={{
-              locale: select('Locale', LANGUAGES, 'nl'),
-              localeUtils: MomentLocaleUtils,
-              numberOfMonths: 2,
-              showOutsideDays: false,
-              showWeekNumbers: true,
-            }}
-            dayPickerInputStartDateProps={{
-              placeholder: inputPlaceholderToday,
-              value: preSelectedRange.selectedStartDate,
-            }}
-            dayPickerInputEndDateProps={{
-              placeholder: inputPlaceholderTomorrow,
-              value: preSelectedRange.selectedEndDate,
-            }}
-            onChange={() => console.log('Changed')}
-            selectedRange={preSelectedRange}
           />
         </Label>
       </Box>
