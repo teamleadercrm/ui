@@ -8,6 +8,8 @@
 
 ### Removed
 
+`Pagination`: Removed the `inverse` property ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1890](https://github.com/teamleadercrm/ui/pull/1890))
+
 ### Fixed
 
 ### Dependency updates
