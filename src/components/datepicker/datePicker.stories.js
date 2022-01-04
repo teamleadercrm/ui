@@ -37,16 +37,8 @@ const customFormatDate = (date, locale) => {
 const inputPlaceholderToday = DateTime.fromJSDate(new Date())
   .setLocale(select('Locale', languages, 'nl-BE'))
   .toLocaleString(DateTime.DATE_SHORT);
-const inputPlaceholderTomorrow = DateTime.fromJSDate(new Date())
-  .setLocale(select('Locale', languages, 'nl-BE'))
-  .plus({ days: 1 })
-  .toLocaleString(DateTime.DATE_SHORT);
 
 const preSelectedDate = DateTime.local().plus({ days: 3 }).toJSDate();
-const preSelectedRange = {
-  selectedStartDate: DateTime.local().plus({ days: 3 }).toJSDate(),
-  selectedEndDate: DateTime.local().plus({ days: 8 }).toJSDate(),
-};
 
 export default {
   component: DatePicker,
