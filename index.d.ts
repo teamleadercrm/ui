@@ -90,7 +90,6 @@ declare module '@teamleader/ui' {
   export const LabelValuePairGroup: React.ComponentType<any>;
   export const Link: React.ComponentType<any>;
   export const LoadingBar: React.ComponentType<any>;
-  export const LoadingMolecule: React.ComponentType<any>;
   export const LoadingSpinner: React.ComponentType<any>;
   export const Marker: React.ComponentType<any>;
   export const MarketingButton: React.ComponentType<any>;
@@ -119,7 +118,6 @@ declare module '@teamleader/ui' {
   export const PoweredByButton: React.ComponentType<any>;
   export const RadioButton: React.ComponentType<any>;
   export const RadioGroup: React.ComponentType<any>;
-  export const ScrollContainer: React.ComponentType<any>;
   export const Section: React.ComponentType<any>;
   export const Select: React.ComponentType<any>;
   export const SplitButton: React.ComponentType<any>;

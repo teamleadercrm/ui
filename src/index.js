@@ -48,14 +48,12 @@ import Overlay from './components/overlay';
 import OverviewPage, { OverviewPageBody, OverviewPageHeader } from './components/overviewPage';
 import { LabelValuePair, LabelValuePairGroup } from './components/labelValuePair';
 import LoadingBar from './components/loadingBar';
-import LoadingMolecule from './components/loadingMolecule';
 import LoadingSpinner from './components/loadingSpinner';
 import Pagination from './components/pagination';
 import Passport, { EmptyPassport } from './components/passport';
 import Popover from './components/popover';
 import PoweredByButton from './components/poweredByButton';
 import { RadioButton, RadioGroup } from './components/radio';
-import ScrollContainer from './components/scrollContainer';
 import Section from './components/section';
 import Select, { AsyncSelect } from './components/select';
 import { Island, IslandGroup } from './components/island';
@@ -132,7 +130,6 @@ export {
   LabelValuePairGroup,
   Link,
   LoadingBar,
-  LoadingMolecule,
   LoadingSpinner,
   Marker,
   MarketingButton,
@@ -161,7 +158,6 @@ export {
   PoweredByButton,
   RadioButton,
   RadioGroup,
-  ScrollContainer,
   Section,
   Select,
   SplitButton,
