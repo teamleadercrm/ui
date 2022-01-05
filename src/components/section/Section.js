@@ -2,9 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../box';
 import cx from 'classnames';
-import omit from 'lodash.omit';
 import theme from './theme.css';
-import { elementIsDark } from '../utils/utils';
 
 const SIZES = {
   small: 3,
@@ -14,15 +12,9 @@ const SIZES = {
 
 class Section extends PureComponent {
   render() {
-    const { children, className, color, dark, size, ...others } = this.props;
+    const { children, className, color, size, ...rest } = this.props;
 
-    const isDark = elementIsDark(color, dark);
-
-    const classNames = cx(theme['section'], className, theme[color], {
-      [theme['dark']]: isDark,
-    });
-
-    const rest = omit(others, ['dark']);
+    const classNames = cx(theme['section'], className, theme[color]);
 
     return (
       <Box data-teamleader-ui="section" className={classNames} element="section" padding={SIZES[size]} {...rest}>
@@ -36,7 +28,6 @@ Section.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   color: PropTypes.oneOf(['white', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua']),
-  dark: PropTypes.bool,
   size: PropTypes.oneOf(Object.keys(SIZES)),
 };
 

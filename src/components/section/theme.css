@@ -9,20 +9,12 @@
   background-color: var(--color-white);
   border-color: var(--color-neutral);
   color: var(--color-teal-darkest);
-
-  &.dark {
-    border-color: var(--color-neutral-dark);
-  }
 }
 
 .neutral {
   background-color: var(--color-neutral-light);
   border-color: var(--color-neutral);
   color: var(--color-teal-darkest);
-
-  &.dark {
-    border-color: var(--color-neutral-dark);
-  }
 }
 
 .mint {

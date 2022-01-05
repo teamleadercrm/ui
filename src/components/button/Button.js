@@ -17,7 +17,6 @@ const Button = forwardRef(
   (
     {
       color,
-      inverse,
       level,
       onMouseUp,
       onMouseLeave,
@@ -47,7 +46,7 @@ const Button = forwardRef(
         case 'outline':
           return color === 'white' ? 'neutral' : color;
         case 'link':
-          return inverse ? 'neutral' : 'aqua';
+          return 'aqua';
         default:
           return 'neutral';
       }
@@ -60,7 +59,7 @@ const Button = forwardRef(
         case 'outline':
           return color === 'white' ? 'lightest' : 'darkest';
         case 'link':
-          return inverse ? 'lightest' : 'dark';
+          return 'dark';
         default:
           return 'lightest';
       }
@@ -97,7 +96,6 @@ const Button = forwardRef(
       {
         [theme['has-icon-only']]: (!children && !label) || (Array.isArray(children) && !children[0] && !label),
         [theme[color]]: level === 'outline',
-        [theme['is-inverse']]: inverse && level === 'link',
         [theme['is-disabled']]: disabled,
         [theme['is-full-width']]: fullWidth,
         [theme['is-processing']]: processing,
@@ -169,8 +167,6 @@ Button.propTypes = {
   icon: PropTypes.element,
   /** The position of the icon inside the button. */
   iconPlacement: PropTypes.oneOf(['left', 'right']),
-  /** If true, component will be rendered in inverse mode (only for the levels "link" and "outline"). */
-  inverse: PropTypes.bool,
   /** The textual label displayed inside the button. */
   label: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   /** Callback function that is fired when mouse leaves the component. */
@@ -192,7 +188,6 @@ Button.defaultProps = {
   fullWidth: false,
   level: 'secondary',
   iconPlacement: 'left',
-  inverse: false,
   processing: false,
   size: 'medium',
   type: 'button',

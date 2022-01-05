@@ -8,9 +8,11 @@
 
 ### Removed
 
-- [BREAKING] `StatusBullet, TimerPulser,  DatePickerRange, DatePickerInputRange`: ([@qubis741](https://github.com/qubis741) in [#1889](https://github.com/teamleadercrm/ui/pull/1889))
+- [BREAKING] `Pagination, Button`: Removed the `inverse` property ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1890](https://github.com/teamleadercrm/ui/pull/1890))
+- [BREAKING] `StatusBullet, TimerPulser, DatePickerRange, DatePickerInputRange`: ([@qubis741](https://github.com/qubis741) in [#1889](https://github.com/teamleadercrm/ui/pull/1889))
 - [BREAKING] `ScrollContainer`: ([@qubis741](https://github.com/qubis741) in [#1891](https://github.com/teamleadercrm/ui/pull/1891))
-- [BREAKING] `LoadingMolecule`: ([@qubis741](https://github.com/qubis741) in [#1888](https://github.com/teamleadercrm/ui/pull/1888)) 
+- [BREAKING] `LoadingMolecule`: ([@qubis741](https://github.com/qubis741) in [#1888](https://github.com/teamleadercrm/ui/pull/1888))
+- `IslandGroup`, `Island`, `Section`: removed `dark` property ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1892](https://github.com/teamleadercrm/ui/pull/1892))
 
 ### Fixed
 

@@ -43,9 +43,6 @@ export const ButtonLevels = () => (
       <Button level="link" active>
         link active
       </Button>
-      <Button level="link" inverse>
-        link inverse
-      </Button>
     </Wrapper>
     {['teal', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'white'].map((color) => (
       <Wrapper key={color} inverse={color === 'white'}>
