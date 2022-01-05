@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Box, { pickBoxProps } from '../box';
 
 const IslandGroup = forwardRef(
-  ({ children: originalChildren, className, color, dark, direction, size, ...otherProps }, ref) => {
+  ({ children: originalChildren, className, color, direction, size, ...otherProps }, ref) => {
     const boxProps = pickBoxProps(otherProps);
     const children = [];
 
@@ -66,7 +66,6 @@ const IslandGroup = forwardRef(
               }),
             ...child.props,
             color: color || child.props.color,
-            dark: dark || child.props.dark,
             size: size || child.props.size,
           });
         })}
@@ -81,7 +80,6 @@ IslandGroup.propTypes = {
   children: PropTypes.any,
   className: PropTypes.string,
   color: PropTypes.oneOf(['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'white']),
-  dark: PropTypes.bool,
   direction: PropTypes.oneOf(['horizontal', 'vertical']),
   size: PropTypes.oneOf(['small', 'medium', 'large']),
 };
