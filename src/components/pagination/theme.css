@@ -7,26 +7,13 @@
 }
 
 .pagination {
-  &:not(.is-inverse) {
-    .is-current {
-      background: var(--color-neutral);
-      color: var(--color-teal-darkest);
-    }
-
-    .ellipsis {
-      color: var(--color-teal-darkest);
-    }
+  .is-current {
+    background: var(--color-neutral);
+    color: var(--color-teal-darkest);
   }
 
-  &.is-inverse {
-    .is-current {
-      background: color(var(--color-teal-light) a(0.24));
-      color: var(--color-neutral-lightest);
-    }
-
-    .ellipsis {
-      color: var(--color-neutral-lightest);
-    }
+  .ellipsis {
+    color: var(--color-teal-darkest);
   }
 }
 
