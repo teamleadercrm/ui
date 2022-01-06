@@ -3,6 +3,7 @@ import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import * as Icons from '@teamleader/ui-icons';
 import { Box, Icon, TextSmall } from '../../index';
 import { IconWarningBadgedMediumOutline } from '@teamleader/ui-icons';
+import description from './description.md';
 
 const gridStyles = {
   display: 'flex',
@@ -19,6 +20,13 @@ const itemStyles = {
 export default {
   component: Icon,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Icon'),
+  parameters: {
+    docs: {
+      description: {
+        component: description,
+      },
+    },
+  },
 };
 
 export const DefaultStory = (args) => (

@@ -2,6 +2,7 @@ import React from 'react';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import * as Illustrations from '@teamleader/ui-illustrations';
 import { Box, TextSmall } from '../..';
+import description from './description.md';
 
 const gridStyles = {
   display: 'flex',
@@ -22,6 +23,13 @@ const itemStyles = {
 
 export default {
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Illustration'),
+  parameters: {
+    docs: {
+      description: {
+        component: description,
+      },
+    },
+  },
 };
 
 export const _24X24 = () => (
