@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72">
-  <g fill="none" fill-rule="evenodd">
-    <g stroke-linejoin="square">
-      <rect width="66" height="66" x="3" y="3" stroke="#E6F2FF" stroke-width="6"/>
-      <rect width="71" height="71" x=".5" y=".5" stroke="#99C9FF"/>
-    </g>
-    <rect width="53" height="53" x="9.5" y="9.5" fill="#99C9FF" stroke="#0071F2" transform="rotate(90 36 36)"/>
-  </g>
-</svg>
