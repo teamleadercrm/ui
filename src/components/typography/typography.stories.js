@@ -1,5 +1,5 @@
 import React from 'react';
-import { addStoryInGroup, PRIMITIVES } from '../../../.storybook/utils';
+import { addStoryInGroup, FOUNDATION } from '../../../.storybook/utils';
 import { number, select } from '@storybook/addon-knobs';
 import {
   COLORS,
@@ -23,7 +23,7 @@ import {
 
 export default {
   component: Heading1,
-  title: addStoryInGroup(PRIMITIVES, 'Typography'),
+  title: addStoryInGroup(FOUNDATION, 'Typography'),
 
   parameters: {
     info: {
