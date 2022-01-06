@@ -11,7 +11,6 @@ import {
   MARKETING,
   MID_LEVEL_BLOCKS,
   PLAYGROUND,
-  PRIMITIVES,
 } from './utils';
 
 addParameters({
@@ -32,16 +31,7 @@ addParameters({
 addParameters({
   options: {
     storySort: {
-      order: [
-        ABOUT_AHOY,
-        PRIMITIVES,
-        FOUNDATION,
-        LOW_LEVEL_BLOCKS,
-        MID_LEVEL_BLOCKS,
-        COMPOSITIONS,
-        MARKETING,
-        PLAYGROUND,
-      ],
+      order: [ABOUT_AHOY, FOUNDATION, LOW_LEVEL_BLOCKS, MID_LEVEL_BLOCKS, COMPOSITIONS, MARKETING, PLAYGROUND],
     },
   },
 });
