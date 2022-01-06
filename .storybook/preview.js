@@ -5,6 +5,7 @@ import { COLOR } from '../src/constants';
 import theme from './theme';
 import {
   ABOUT_AHOY,
+  CHANGELOG,
   COMPOSITIONS,
   FOUNDATION,
   LOW_LEVEL_BLOCKS,
@@ -31,7 +32,16 @@ addParameters({
 addParameters({
   options: {
     storySort: {
-      order: [ABOUT_AHOY, FOUNDATION, LOW_LEVEL_BLOCKS, MID_LEVEL_BLOCKS, COMPOSITIONS, MARKETING, PLAYGROUND],
+      order: [
+        ABOUT_AHOY,
+        CHANGELOG,
+        FOUNDATION,
+        LOW_LEVEL_BLOCKS,
+        MID_LEVEL_BLOCKS,
+        COMPOSITIONS,
+        MARKETING,
+        PLAYGROUND,
+      ],
     },
   },
 });

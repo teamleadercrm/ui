@@ -1,4 +1,5 @@
 export const ABOUT_AHOY = 'About Ahoy';
+export const CHANGELOG = 'Changelog';
 export const FOUNDATION = 'Foundation';
 export const LOW_LEVEL_BLOCKS = 'Low level blocks';
 export const MID_LEVEL_BLOCKS = 'Mid level blocks';
