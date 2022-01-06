@@ -31,7 +31,6 @@ addParameters({
 
 addParameters({
   options: {
-    showRoots: true,
     storySort: {
       order: [
         ABOUT_AHOY,
