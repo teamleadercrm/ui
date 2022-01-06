@@ -1,10 +1,10 @@
-export const INTRODUCTION = '1. Introduction';
-export const PRIMITIVES = '2. Primitives';
-export const FOUNDATION = '3. Foundation';
-export const LOW_LEVEL_BLOCKS = '4. Low level blocks';
-export const MID_LEVEL_BLOCKS = '5. Mid level blocks';
-export const COMPOSITIONS = '6. Compositions';
-export const MARKETING = '7. Marketing';
-export const PLAYGROUND = '8. Playground';
+export const ABOUT_AHOY = 'About Ahoy';
+export const PRIMITIVES = 'Primitives';
+export const FOUNDATION = 'Foundation';
+export const LOW_LEVEL_BLOCKS = 'Low level blocks';
+export const MID_LEVEL_BLOCKS = 'Mid level blocks';
+export const COMPOSITIONS = 'Compositions';
+export const MARKETING = 'Marketing';
+export const PLAYGROUND = 'Playground';
 
 export const addStoryInGroup = (groupTitle, storyTitle) => `${groupTitle} / ${storyTitle}`;
