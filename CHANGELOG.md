@@ -18,7 +18,7 @@
 
 ### Dependency updates
 
-- All to latest except `react`, `react-dom`, `react-day-picker` (latest is beta) and vulnerable ones in `resolutions`. Fixed security issues ([@qubis741](https://github.com/qubis741) in [#1893](https://github.com/teamleadercrm/ui/pull/1893))
+- Upgraded all dependencies to latest except `react`, `react-dom`, `react-day-picker` (latest is beta), `postcss-preset-env`, `postcss-each` ([@qubis741](https://github.com/qubis741) in [#1893](https://github.com/teamleadercrm/ui/pull/1893))
 
 ## [11.0.0] - 2021-12-20
 
