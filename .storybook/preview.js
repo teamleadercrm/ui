@@ -44,6 +44,14 @@ addParameters({
 
 addParameters({
   viewMode: 'docs',
+  previewTabs: {
+    canvas: {
+      hidden: process.env.STORYBOOK_HIDE_CANVAS_TAB === 'true',
+    },
+    'storybook/docs/panel': {
+      hidden: process.env.STORYBOOK_HIDE_DOCS_TAB === 'true',
+    },
+  },
 });
 
 // addon-designs
