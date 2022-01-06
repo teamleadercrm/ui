@@ -5,13 +5,6 @@
   "env": {
     "browser": true
   },
-  "globals": {
-    "__DEV__": false,
-    "__PROD__": false,
-    "__DEBUG__": false,
-    "__BASENAME__": false,
-    "__VERSION__": false
-  },
   "rules": {
     "prefer-const": [
       "error",
