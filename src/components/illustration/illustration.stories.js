@@ -34,8 +34,9 @@ export default {
 
 export const _24X24 = () => (
   <Box style={gridStyles}>
-    {Object.keys(Illustrations).map((key) => {
-      if (key.includes('24X24')) {
+    {Object.keys(Illustrations)
+      .filter((key) => key.includes('24X24'))
+      .map((key) => {
         const IllustrationToRender = Illustrations[key];
 
         return (
@@ -46,8 +47,7 @@ export const _24X24 = () => (
             <TextSmall marginLeft={3}>{key}</TextSmall>
           </Box>
         );
-      }
-    })}
+      })}
   </Box>
 );
 
@@ -57,8 +57,9 @@ _24X24.story = {
 
 export const _36X24 = () => (
   <Box style={gridStyles}>
-    {Object.keys(Illustrations).map((key) => {
-      if (key.includes('36X24')) {
+    {Object.keys(Illustrations)
+      .filter((key) => key.includes('36X24'))
+      .map((key) => {
         const IllustrationToRender = Illustrations[key];
 
         return (
@@ -69,8 +70,7 @@ export const _36X24 = () => (
             <TextSmall marginLeft={3}>{key}</TextSmall>
           </Box>
         );
-      }
-    })}
+      })}
   </Box>
 );
 
@@ -80,8 +80,9 @@ _36X24.story = {
 
 export const _48X48 = () => (
   <Box style={gridStyles}>
-    {Object.keys(Illustrations).map((key) => {
-      if (key.includes('48X48')) {
+    {Object.keys(Illustrations)
+      .filter((key) => key.includes('48X48'))
+      .map((key) => {
         const IllustrationToRender = Illustrations[key];
 
         return (
@@ -92,8 +93,7 @@ export const _48X48 = () => (
             <TextSmall marginLeft={3}>{key}</TextSmall>
           </Box>
         );
-      }
-    })}
+      })}
   </Box>
 );
 
@@ -103,8 +103,9 @@ _48X48.story = {
 
 export const _60X60 = () => (
   <Box style={gridStyles}>
-    {Object.keys(Illustrations).map((key) => {
-      if (key.includes('60X60')) {
+    {Object.keys(Illustrations)
+      .filter((key) => key.includes('60X60'))
+      .map((key) => {
         const IllustrationToRender = Illustrations[key];
 
         return (
@@ -115,8 +116,7 @@ export const _60X60 = () => (
             <TextSmall marginLeft={3}>{key}</TextSmall>
           </Box>
         );
-      }
-    })}
+      })}
   </Box>
 );
 
@@ -126,8 +126,9 @@ _60X60.story = {
 
 export const _84X84 = () => (
   <Box style={gridStyles}>
-    {Object.keys(Illustrations).map((key) => {
-      if (key.includes('84X84')) {
+    {Object.keys(Illustrations)
+      .filter((key) => key.includes('84X84'))
+      .map((key) => {
         const IllustrationToRender = Illustrations[key];
 
         return (
@@ -138,8 +139,7 @@ export const _84X84 = () => (
             <TextSmall marginLeft={3}>{key}</TextSmall>
           </Box>
         );
-      }
-    })}
+      })}
   </Box>
 );
 
@@ -149,8 +149,9 @@ _84X84.story = {
 
 export const _90X90 = () => (
   <Box style={gridStyles}>
-    {Object.keys(Illustrations).map((key) => {
-      if (key.includes('90X90')) {
+    {Object.keys(Illustrations)
+      .filter((key) => key.includes('90X90'))
+      .map((key) => {
         const IllustrationToRender = Illustrations[key];
 
         return (
@@ -161,8 +162,7 @@ export const _90X90 = () => (
             <TextSmall marginLeft={3}>{key}</TextSmall>
           </Box>
         );
-      }
-    })}
+      })}
   </Box>
 );
 
@@ -172,8 +172,9 @@ _90X90.story = {
 
 export const _120X120 = () => (
   <Box style={gridStyles}>
-    {Object.keys(Illustrations).map((key) => {
-      if (key.includes('120X120')) {
+    {Object.keys(Illustrations)
+      .filter((key) => key.includes('120X120'))
+      .map((key) => {
         const IllustrationToRender = Illustrations[key];
 
         return (
@@ -184,8 +185,7 @@ export const _120X120 = () => (
             <TextSmall marginLeft={3}>{key}</TextSmall>
           </Box>
         );
-      }
-    })}
+      })}
   </Box>
 );
 
@@ -195,8 +195,9 @@ _120X120.story = {
 
 export const _240X240 = () => (
   <Box style={gridStyles}>
-    {Object.keys(Illustrations).map((key) => {
-      if (key.includes('240X240')) {
+    {Object.keys(Illustrations)
+      .filter((key) => key.includes('240X240'))
+      .map((key) => {
         const IllustrationToRender = Illustrations[key];
 
         return (
@@ -207,8 +208,7 @@ export const _240X240 = () => (
             <TextSmall marginLeft={3}>{key}</TextSmall>
           </Box>
         );
-      }
-    })}
+      })}
   </Box>
 );
 
