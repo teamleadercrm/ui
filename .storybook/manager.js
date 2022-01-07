@@ -5,4 +5,7 @@ import theme from './theme';
 addons.setConfig({
   panelPosition: 'right',
   theme,
+  sidebar: {
+    showRoots: true
+  },
 });
