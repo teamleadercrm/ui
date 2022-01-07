@@ -51,9 +51,7 @@ export const _24X24 = () => (
   </Box>
 );
 
-_24X24.story = {
-  name: '24x24',
-};
+_24X24.storyName = '24x24';
 
 export const _36X24 = () => (
   <Box style={gridStyles}>
@@ -74,9 +72,7 @@ export const _36X24 = () => (
   </Box>
 );
 
-_36X24.story = {
-  name: '36x24',
-};
+_36X24.storyName = '36x24';
 
 export const _48X48 = () => (
   <Box style={gridStyles}>
@@ -97,9 +93,7 @@ export const _48X48 = () => (
   </Box>
 );
 
-_48X48.story = {
-  name: '48x48',
-};
+_48X48.storyName = '48x48';
 
 export const _60X60 = () => (
   <Box style={gridStyles}>
@@ -120,9 +114,7 @@ export const _60X60 = () => (
   </Box>
 );
 
-_60X60.story = {
-  name: '60x60',
-};
+_60X60.storyName = '60x60';
 
 export const _84X84 = () => (
   <Box style={gridStyles}>
@@ -143,9 +135,7 @@ export const _84X84 = () => (
   </Box>
 );
 
-_84X84.story = {
-  name: '84x84',
-};
+_84X84.storyName = '84x84';
 
 export const _90X90 = () => (
   <Box style={gridStyles}>
@@ -166,9 +156,7 @@ export const _90X90 = () => (
   </Box>
 );
 
-_90X90.story = {
-  name: '90x90',
-};
+_90X90.storyName = '90x90';
 
 export const _120X120 = () => (
   <Box style={gridStyles}>
@@ -189,9 +177,7 @@ export const _120X120 = () => (
   </Box>
 );
 
-_120X120.story = {
-  name: '120x120',
-};
+_120X120.storyName = '120x120';
 
 export const _240X240 = () => (
   <Box style={gridStyles}>
@@ -212,6 +198,4 @@ export const _240X240 = () => (
   </Box>
 );
 
-_240X240.story = {
-  name: '240x240',
-};
+_240X240.storyName = '240x240';

@@ -23,9 +23,7 @@ withIcon.args = {
   icon: <IconBuildingSmallOutline />,
 };
 
-withIcon.story = {
-  name: 'With icon',
-};
+withIcon.storyName = 'With icon';
 
 export const withCustomElement = (args) => <Badge {...args}>I'm a badge</Badge>;
 
@@ -34,6 +32,4 @@ withCustomElement.args = {
   href: 'https://teamleader.eu',
 };
 
-withCustomElement.story = {
-  name: 'With custom element',
-};
+withCustomElement.storyName = 'With custom element';
