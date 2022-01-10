@@ -47,7 +47,7 @@
     "react-dom": "^16.3.1",
     "react-draft-wysiwyg": "^1.14.4",
     "react-input-mask": "^2.0.4",
-    "react-resize-detector": "^6.7.7",
+    "react-resize-detector": "^7.0.0",
     "react-select": "5.2.1",
     "react-transition-group": "^4.2.1",
     "smoothscroll-polyfill": "^0.4.4"
@@ -85,7 +85,7 @@
     "@storybook/addons": "6.4.9",
     "@storybook/react": "6.4.9",
     "@storybook/theming": "^6.2.8",
-    "@storybook/ui": "6.4.9",
+    "@storybook/ui": "6.4.10",
     "babel-loader": "^8.0.0-beta.6",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.13",
     "chromatic": "^6.3.3",
