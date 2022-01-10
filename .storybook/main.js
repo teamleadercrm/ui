@@ -24,4 +24,8 @@ module.exports = {
       },
     },
   ],
+  features: {
+    // Use babel config from project root .babelrc file
+    babelModeV7: true,
+  },
 };
