@@ -135,10 +135,8 @@ export const marker = () => (
   </Heading3>
 );
 
-marker.story = {
-  parameters: {
-    info: {
-      propTables: [Marker],
-    },
+marker.parameters = {
+  info: {
+    propTables: [Marker]
   },
-};
+}

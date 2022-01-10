@@ -1,16 +1,16 @@
 import React from 'react';
-import { select, text } from '@storybook/addon-knobs';
-import { addStoryInGroup, COMPOSITIONS } from '../../../.storybook/utils';
+import {select, text} from '@storybook/addon-knobs';
+import {addStoryInGroup, COMPOSITIONS} from '../../../.storybook/utils';
 import Button from '../button';
 import ButtonGroup from '../buttonGroup';
 import DetailPage from './DetailPage';
 import Icon from '../icon';
 import IconButton from '../iconButton';
-import { IconTrashMediumOutline, IconWarningBadgedMediumFilled } from '@teamleader/ui-icons';
+import {IconTrashMediumOutline, IconWarningBadgedMediumFilled} from '@teamleader/ui-icons';
 import StatusLabel from '../statusLabel';
-import { Box } from '../box';
-import { Heading1, Monospaced, TextBody } from '../typography';
-import { COLOR } from '../../constants';
+import {Box} from '../box';
+import {Heading1, Monospaced, TextBody} from '../typography';
+import {COLOR} from '../../constants';
 
 const titleColors = ['neutral', 'teal'];
 
@@ -94,14 +94,12 @@ export const composition = () => (
   </DetailPage>
 );
 
-composition.story = {
-  name: 'Composition',
-  parameters: {
-    info: {
-      propTables: [DetailPage],
-    },
+composition.storyName = 'Composition';
+composition.parameters = {
+  info: {
+    propTables: [DetailPage],
   },
-};
+}
 
 export const body = () => (
   <DetailPage.Body>
@@ -109,14 +107,12 @@ export const body = () => (
   </DetailPage.Body>
 );
 
-body.story = {
-  name: 'Body',
-  parameters: {
-    info: {
-      propTables: [DetailPage.Body],
-    },
+body.storyName = 'Body';
+body.parameters = {
+  info: {
+    propTables: [DetailPage.Body],
   },
-};
+}
 
 export const header = () => (
   <DetailPage.Header
@@ -129,14 +125,12 @@ export const header = () => (
   />
 );
 
-header.story = {
-  name: 'Header',
-  parameters: {
-    info: {
-      propTables: [DetailPage.Header],
-    },
+header.storyName = 'Header';
+header.parameters = {
+  info: {
+    propTables: [DetailPage.Header]
   },
-};
+}
 
 export const headerWithTitleSuffix = () => (
   <DetailPage.Header
@@ -150,14 +144,12 @@ export const headerWithTitleSuffix = () => (
   />
 );
 
-headerWithTitleSuffix.story = {
-  name: 'Header with title suffix',
-  parameters: {
-    info: {
-      propTables: [DetailPage.Header],
-    },
+headerWithTitleSuffix.storyName = 'Header with title suffix';
+headerWithTitleSuffix.parameters = {
+  info: {
+    propTables: [DetailPage.Header]
   },
-};
+}
 
 export const headerWithActions = () => (
   <DetailPage.Header
@@ -172,14 +164,12 @@ export const headerWithActions = () => (
   </DetailPage.Header>
 );
 
-headerWithActions.story = {
-  name: 'Header with actions',
-  parameters: {
-    info: {
-      propTables: [DetailPage.Header],
-    },
+headerWithActions.storyName = 'Header with actions';
+headerWithActions.parameters = {
+  info: {
+    propTables: [DetailPage.Header]
   },
-};
+}
 
 export const headerWithTotals = () => (
   <DetailPage.Header
@@ -194,14 +184,12 @@ export const headerWithTotals = () => (
   </DetailPage.Header>
 );
 
-headerWithTotals.story = {
-  name: 'Header with totals',
-  parameters: {
-    info: {
-      propTables: [DetailPage.Header],
-    },
+headerWithTotals.storyName = 'Header with totals';
+headerWithTotals.parameters = {
+  info: {
+    propTables: [DetailPage.Header]
   },
-};
+}
 
 export const headerWithTotalsAndActions = () => (
   <DetailPage.Header
@@ -217,14 +205,12 @@ export const headerWithTotalsAndActions = () => (
   </DetailPage.Header>
 );
 
-headerWithTotalsAndActions.story = {
-  name: 'Header with totals and actions',
-  parameters: {
-    info: {
-      propTables: [DetailPage.Header],
-    },
+headerWithTotalsAndActions.storyName = 'Header with totals and actions';
+headerWithTotalsAndActions.parameters = {
+  info: {
+    propTables: [DetailPage.Header]
   },
-};
+}
 
 export const headerWithEverthingTogether = () => (
   <DetailPage.Header
@@ -241,11 +227,9 @@ export const headerWithEverthingTogether = () => (
   </DetailPage.Header>
 );
 
-headerWithEverthingTogether.story = {
-  name: 'Header with everything together',
-  parameters: {
-    info: {
-      propTables: [DetailPage.Header],
-    },
+headerWithEverthingTogether.storyName = 'Header with everything together';
+headerWithEverthingTogether.parameters = {
+  info: {
+    propTables: [DetailPage.Header]
   },
-};
+}

@@ -258,6 +258,4 @@ export const zIndexes = () => {
   );
 };
 
-zIndexes.story = {
-  name: 'Z-Indexes',
-};
+zIndexes.storyName = 'Z-Indexes';

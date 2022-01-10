@@ -27,24 +27,16 @@ withTextAndIcon.args = {
   label: 'Button with icon and text',
 };
 
-withTextAndIcon.story = {
-  name: 'With text and icon',
-};
+withTextAndIcon.storyName = 'With text and icon';
 
 export const WithText = () => <Button label="Button with text" />;
 
-WithText.story = {
-  name: 'With text',
-};
+WithText.storyName = 'With text';
 
 export const withIcon = () => <Button icon={<IconAddMediumOutline />} />;
 
-withIcon.story = {
-  name: 'With icon',
-};
+withIcon.storyName = 'With icon';
 
 export const withCustomElement = () => <Button element="a" label="Button with custom element" />;
 
-withCustomElement.story = {
-  name: 'With custom element',
-};
+withCustomElement.storyName = 'With custom element';

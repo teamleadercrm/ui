@@ -55,6 +55,4 @@ export const forms = () => {
   );
 };
 
-forms.story = {
-  name: 'Form elements',
-};
+forms.storyName = 'Form elements';

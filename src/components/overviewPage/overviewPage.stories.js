@@ -33,12 +33,10 @@ export const composition = () => (
   </OverviewPage>
 );
 
-composition.story = {
-  name: 'Composition',
-  parameters: {
-    info: {
-      propTables: [OverviewPage],
-    },
+composition.storyName = 'Composition';
+composition.parameters = {
+  info: {
+    propTables: [OverviewPage]
   },
 };
 
@@ -48,24 +46,20 @@ export const body = () => (
   </OverviewPage.Body>
 );
 
-body.story = {
-  name: 'Body',
-  parameters: {
-    info: {
-      propTables: [OverviewPage.Body],
-    },
-  },
+body.storyName = 'Body';
+body.parameters = {
+  info: {
+    propTables: [OverviewPage.Body]
+  }
 };
 
 export const header = () => <OverviewPage.Header title={text('title', 'I am the overview page title')} />;
 
-header.story = {
-  name: 'Header',
-  parameters: {
-    info: {
-      propTables: [OverviewPage.Header],
-    },
-  },
+header.storyName = 'Header';
+header.parameters = {
+  info: {
+    propTables: [OverviewPage.Header]
+  }
 };
 
 export const headerWithActions = () => (
@@ -80,11 +74,9 @@ export const headerWithActions = () => (
   </OverviewPage.Header>
 );
 
-headerWithActions.story = {
-  name: 'Header with actions',
-  parameters: {
-    info: {
-      propTables: [OverviewPage.Header],
-    },
-  },
+headerWithActions.storyName = 'Header with actions';
+headerWithActions.parameters = {
+  info: {
+    propTables: [OverviewPage.Header]
+  }
 };
