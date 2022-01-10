@@ -1993,7 +1993,6 @@
 ### Changed
 
 - `Label`: changed the `css display rule` to use the `display prop` of our Box component.
-
 - `Dependencies`:
   - `eslint-plugin-node` from `^6.0.0` to `^9.1.0`
   - `eslint-config-standard` from `^11.0.0` to `^13.0.1`

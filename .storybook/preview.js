@@ -3,6 +3,16 @@ import { withDesign } from 'storybook-addon-designs';
 import { COLOR } from '../src/constants';
 
 import theme from './theme';
+import {
+  ABOUT_AHOY,
+  CHANGELOG,
+  COMPOSITIONS,
+  FOUNDATION,
+  LOW_LEVEL_BLOCKS,
+  MARKETING,
+  MID_LEVEL_BLOCKS,
+  PLAYGROUND,
+} from './utils';
 
 addParameters({
   backgrounds: {
@@ -21,8 +31,18 @@ addParameters({
 
 addParameters({
   options: {
-    showRoots: true,
-    storySort: (a, b) => (a[1].kind === b[1].kind ? 0 : a[1].id.localeCompare(b[1].id, undefined, { numeric: true })),
+    storySort: {
+      order: [
+        ABOUT_AHOY,
+        CHANGELOG,
+        FOUNDATION,
+        LOW_LEVEL_BLOCKS,
+        MID_LEVEL_BLOCKS,
+        COMPOSITIONS,
+        MARKETING,
+        PLAYGROUND,
+      ],
+    },
   },
 });
 
@@ -34,6 +54,14 @@ addParameters({
 
 addParameters({
   viewMode: 'docs',
+  previewTabs: {
+    canvas: {
+      hidden: process.env.STORYBOOK_HIDE_CANVAS_TAB === 'true',
+    },
+    'storybook/docs/panel': {
+      hidden: process.env.STORYBOOK_HIDE_DOCS_TAB === 'true',
+    },
+  },
 });
 
 // addon-designs
