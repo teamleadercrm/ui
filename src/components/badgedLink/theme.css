@@ -12,6 +12,7 @@
   font-size: 100%;
   border-radius: var(--border-radius-medium);
   padding: var(--spacer-smallest) var(--spacer-smaller);
+  margin: calc( -1 * var(--spacer-smallest)) calc( -1 * var(--spacer-smaller));
   transition: background-color var(--animation-duration) var(--animation-curve-fast-out-slow-in),
   box-shadow var(--animation-duration) var(--animation-curve-fast-out-slow-in);
   text-decoration: none!important;
