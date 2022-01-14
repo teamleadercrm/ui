@@ -3,7 +3,9 @@
 @import '@teamleader/ui-typography';
 @import '@teamleader/ui-utilities';
 
-.link {
+.badged-link {
+  display: inline-flex;
+  align-items: center;
   cursor: pointer;
   background: transparent;
   border: 0;
@@ -12,11 +14,7 @@
   padding: var(--spacer-smallest) var(--spacer-smaller);
   transition: background-color var(--animation-duration) var(--animation-curve-fast-out-slow-in),
   box-shadow var(--animation-duration) var(--animation-curve-fast-out-slow-in);
-
-  &:hover,
-  &:focus {
-     text-decoration: none !important;
-   }
+  text-decoration: none!important;
 
   &:hover {
      background: color(var(--color-neutral-darkest) a(18%));
@@ -56,11 +54,6 @@
     transform: translate3d(0, -1px, 0);
   }
 
-  * + svg,
-  svg + * {
-    margin-left: var(--spacer-smaller);
-  }
-
   &.is-disabled {
     opacity: 0.48;
     pointer-events: none;
@@ -81,4 +74,12 @@
     }
   }
 
+}
+
+.content:last-child {
+  margin-left: var(--spacer-smaller);
+}
+
+.content:first-child {
+  margin-right: var(--spacer-smaller);
 }

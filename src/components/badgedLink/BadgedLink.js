@@ -45,7 +45,7 @@ const BadgedLink = forwardRef(
 
     const classNames = cx(
       uiUtilities['reset-font-smoothing'],
-      theme['link'],
+      theme['badged-link'],
       {
         // [theme['is-disabled']]: disabled,
         [theme['is-inherit']]: inherit,
@@ -65,10 +65,9 @@ const BadgedLink = forwardRef(
         // onMouseLeave={handleMouseLeave}
         {...others}
       >
-        {icon}
-        {/* {icon && iconPlacement === 'left' && icon} */}
-        <span>{children}</span>
-        {/* {icon && iconPlacement === 'right' && icon} */}
+        {icon && iconPlacement === 'left' && icon}
+        <span className={theme['content']}>{children}</span>
+        {icon && iconPlacement === 'right' && icon}
       </Box>
     );
   },
@@ -82,9 +81,9 @@ BadgedLink.propTypes = {
   // /** If true, component will be disabled. */
   // disabled: PropTypes.bool,
   /** The icon displayed inside the button. */
-  icon: PropTypes.element,
-  // /** The position of the icon inside the button. */
-  // iconPlacement: PropTypes.oneOf(['left', 'right']),
+  icon: PropTypes.element.isRequired,
+  /** The position of the icon inside the button. */
+  iconPlacement: PropTypes.oneOf(['left', 'right']),
   /** If true, the badged link style inherits the parent element style. */
   inherit: PropTypes.bool,
   // /** If true, the underline behavior will be inverted. */
@@ -103,7 +102,7 @@ BadgedLink.defaultProps = {
   className: '',
   // disabled: false,
   // element: 'a',
-  // iconPlacement: 'left',
+  iconPlacement: 'left',
   inherit: true,
   // inverse: false,
 };
