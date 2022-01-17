@@ -48,7 +48,7 @@
     "react-draft-wysiwyg": "^1.14.4",
     "react-input-mask": "^2.0.4",
     "react-resize-detector": "^7.0.0",
-    "react-select": "5.2.1",
+    "react-select": "5.2.2",
     "react-transition-group": "^4.2.1",
     "smoothscroll-polyfill": "^0.4.4"
   },
