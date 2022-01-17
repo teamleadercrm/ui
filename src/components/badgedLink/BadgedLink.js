@@ -57,7 +57,7 @@ const BadgedLink = forwardRef(
 
     return (
       <Box
-        element="a"
+        element={element}
         ref={badgedLinkRef}
         className={classNames}
         data-teamleader-ui="badgedLink"
@@ -88,8 +88,8 @@ BadgedLink.propTypes = {
   inherit: PropTypes.bool,
   // /** If true, the underline behavior will be inverted. */
   // inverse: PropTypes.bool,
-  // /** A custom element to be rendered */
-  // element: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
+  /** A custom element to be rendered */
+  element: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
   // /** Callback function that is fired when mouse leaves the component. */
   // onMouseLeave: PropTypes.func,
   // /** Callback function that is fired when the mouse button is released. */
@@ -101,7 +101,7 @@ BadgedLink.propTypes = {
 BadgedLink.defaultProps = {
   className: '',
   // disabled: false,
-  // element: 'a',
+  element: 'a',
   iconPlacement: 'left',
   inherit: true,
   // inverse: false,
