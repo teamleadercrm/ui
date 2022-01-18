@@ -49,6 +49,7 @@ const BadgedLink = forwardRef(
       {
         // [theme['is-disabled']]: disabled,
         [theme['is-inherit']]: inherit,
+        [theme['is-button']]: element === 'button',
         // [theme['is-inverse']]: inverse,
         // [theme['is-selected']]: selected,
       },
