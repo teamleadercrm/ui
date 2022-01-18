@@ -51,6 +51,8 @@ const BadgedLink = forwardRef(
         // [theme['is-disabled']]: disabled,
         [theme['is-inherit']]: inherit,
         [theme['is-bottom-aligned']]: iconAligment === 'bottom',
+        // Since children can be text node, we have to do spacing according to icon element
+        [theme['is-left-icon-placed']]: iconPlacement === 'left',
         // [theme['is-inverse']]: inverse,
         // [theme['is-selected']]: selected,
       },
@@ -68,7 +70,7 @@ const BadgedLink = forwardRef(
         {...others}
       >
         {icon && iconPlacement === 'left' && icon}
-        <span className={theme['content']}>{children}</span>
+        {children}
         {icon && iconPlacement === 'right' && icon}
       </Box>
     );
