@@ -21,6 +21,4 @@ export const basic = ({ size, ...args }) => (
 
 export const withCustomElement = () => <IconButton icon={<IconAddMediumOutline />} element="a" />;
 
-withCustomElement.story = {
-  name: 'With custom element',
-};
+withCustomElement.storyName = 'With custom element';

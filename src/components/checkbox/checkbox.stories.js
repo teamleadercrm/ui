@@ -20,9 +20,7 @@ DefaultStory.args = {
   label: 'I am the label',
 };
 
-DefaultStory.story = {
-  name: 'Default',
-};
+DefaultStory.storyName = 'Default';
 
 export const WithLinkInLabel = () => (
   <Checkbox>
@@ -36,12 +34,8 @@ export const WithLinkInLabel = () => (
   </Checkbox>
 );
 
-WithLinkInLabel.story = {
-  name: 'With link in label',
-};
+WithLinkInLabel.storyName = 'With link in label';
 
 export const WithIndeterminateState = () => <Checkbox indeterminate />;
 
-WithIndeterminateState.story = {
-  name: 'With indeterminate state',
-};
+WithIndeterminateState.storyName = 'With indeterminate state';

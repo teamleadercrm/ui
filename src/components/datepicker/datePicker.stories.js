@@ -65,24 +65,22 @@ export const singleDate = () => {
   );
 };
 
-singleDate.story = {
-  name: 'Single date',
+singleDate.storyName = 'Single date';
+singleDate.parameters = {
+  design: [
+    {
+      name: 'Figma',
+      type: 'figma',
+      url: 'https://www.figma.com/file/LHH25GN90ljQaBEUNMsdJn/Desktop-components?node-id=980%3A0',
+    },
+    {
+      name: 'Vendor docs',
+      type: 'iframe',
+      url: 'http://react-day-picker.js.org/api/DayPicker',
+    },
+  ],
+}
 
-  parameters: {
-    design: [
-      {
-        name: 'Figma',
-        type: 'figma',
-        url: 'https://www.figma.com/file/LHH25GN90ljQaBEUNMsdJn/Desktop-components?node-id=980%3A0',
-      },
-      {
-        name: 'Vendor docs',
-        type: 'iframe',
-        url: 'http://react-day-picker.js.org/api/DayPicker',
-      },
-    ],
-  },
-};
 
 export const inputSingleDate = () => {
   const handleOnChange = (selectedDate) => {
@@ -120,21 +118,18 @@ export const inputSingleDate = () => {
   );
 };
 
-inputSingleDate.story = {
-  name: 'Input single date',
-
-  parameters: {
-    design: [
-      {
-        name: 'Figma',
-        type: 'figma',
-        url: 'https://www.figma.com/file/LHH25GN90ljQaBEUNMsdJn/Desktop-components?node-id=980%3A0',
-      },
-      {
-        name: 'Vendor docs',
-        type: 'iframe',
-        url: 'http://react-day-picker.js.org/api/DayPickerInput',
-      },
-    ],
-  },
-};
+inputSingleDate.storyName = 'Input single date';
+inputSingleDate.parameters = {
+  design: [
+    {
+      name: 'Figma',
+      type: 'figma',
+      url: 'https://www.figma.com/file/LHH25GN90ljQaBEUNMsdJn/Desktop-components?node-id=980%3A0',
+    },
+    {
+      name: 'Vendor docs',
+      type: 'iframe',
+      url: 'http://react-day-picker.js.org/api/DayPickerInput',
+    },
+  ],
+}

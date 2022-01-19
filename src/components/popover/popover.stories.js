@@ -127,9 +127,7 @@ export const withTitle = () => {
   );
 };
 
-withTitle.story = {
-  name: 'With title',
-};
+withTitle.storyName = 'With title';
 
 export const withTitleSubtitle = () => {
   const [{ popoverActive, anchorEl }, handleButtonClick, handleCloseClick] = usePopoverTrigger();
@@ -163,9 +161,7 @@ export const withTitleSubtitle = () => {
   );
 };
 
-withTitleSubtitle.story = {
-  name: 'With title & subtitle',
-};
+withTitleSubtitle.storyName = 'With title & subtitle';
 
 export const withCloseButton = () => {
   const [{ popoverActive, anchorEl }, handleButtonClick, handleCloseClick] = usePopoverTrigger();
@@ -198,9 +194,7 @@ export const withCloseButton = () => {
   );
 };
 
-withCloseButton.story = {
-  name: 'With close button',
-};
+withCloseButton.storyName = 'With close button';
 
 export const withActions = () => {
   const [{ popoverActive, anchorEl }, handleButtonClick, handleCloseClick] = usePopoverTrigger();
@@ -234,9 +228,7 @@ export const withActions = () => {
   );
 };
 
-withActions.story = {
-  name: 'With actions',
-};
+withActions.storyName = 'With actions';
 
 export const withMenu = () => {
   const [{ popoverActive, anchorEl }, handleButtonClick, handleCloseClick] = usePopoverTrigger();
@@ -277,9 +269,7 @@ export const withMenu = () => {
   );
 };
 
-withMenu.story = {
-  name: 'With menu',
-};
+withMenu.storyName = 'With menu';
 
 export const withSplitButtonMenu = () => {
   const [buttonLevel, setButtonLevel] = useState('primary');
@@ -346,9 +336,7 @@ export const withSplitButtonMenu = () => {
   );
 };
 
-withSplitButtonMenu.story = {
-  name: 'With split button menu',
-};
+withSplitButtonMenu.storyName = 'With split button menu';
 
 export const experiment1 = () => {
   const [{ popoverActive, anchorEl }, handleButtonClick, handleCloseClick] = usePopoverTrigger();

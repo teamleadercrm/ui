@@ -56,6 +56,4 @@ export const titleTab = () => (
   </TabGroup>
 );
 
-titleTab.story = {
-  name: 'Title tab',
-};
+titleTab.storyName = 'Title tab';

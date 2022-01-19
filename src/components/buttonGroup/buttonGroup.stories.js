@@ -33,6 +33,4 @@ export const withActive = () => {
   );
 };
 
-withActive.story = {
-  name: 'With active',
-};
+withActive.storyName = 'With active';
