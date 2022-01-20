@@ -1,9 +1,10 @@
-import React, { forwardRef, useImperativeHandle, useRef } from 'react';
-import PropTypes from 'prop-types';
+import uiTypography from '@teamleader/ui-typography';
+import uiUtilities from '@teamleader/ui-utilities';
 import cx from 'classnames';
+import PropTypes from 'prop-types';
+import React, { forwardRef, useImperativeHandle, useRef } from 'react';
 import Box from '../box';
 import theme from './theme.css';
-import uiUtilities from '@teamleader/ui-utilities';
 
 const BadgedLink = forwardRef(
   (
@@ -46,6 +47,7 @@ const BadgedLink = forwardRef(
 
     const classNames = cx(
       uiUtilities['reset-font-smoothing'],
+      uiTypography['ui-text-body'],
       theme['badged-link'],
       {
         [theme['is-inherit']]: inherit,
