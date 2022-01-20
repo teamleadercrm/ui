@@ -1,29 +1,12 @@
-import React, { forwardRef, Fragment, useRef, useImperativeHandle } from 'react';
-import PropTypes from 'prop-types';
+import uiUtilities from '@teamleader/ui-utilities';
 import cx from 'classnames';
+import PropTypes from 'prop-types';
+import React, { forwardRef, useImperativeHandle, useRef } from 'react';
 import Box from '../box';
 import theme from './theme.css';
-import uiUtilities from '@teamleader/ui-utilities';
 
 const Link = forwardRef(
-  (
-    {
-      badged,
-      children,
-      className,
-      disabled,
-      icon,
-      iconPlacement,
-      element,
-      inherit,
-      inverse,
-      selected,
-      onMouseUp,
-      onMouseLeave,
-      ...others
-    },
-    ref,
-  ) => {
+  ({ children, className, disabled, element, inherit, inverse, selected, onMouseUp, onMouseLeave, ...others }, ref) => {
     const linkRef = useRef();
     useImperativeHandle(ref, () => linkRef.current);
 
@@ -48,17 +31,13 @@ const Link = forwardRef(
       uiUtilities['reset-font-smoothing'],
       theme['link'],
       {
-        [theme['is-badged']]: badged,
         [theme['is-disabled']]: disabled,
         [theme['is-inherit']]: inherit,
         [theme['is-inverse']]: inverse,
         [theme['is-selected']]: selected,
-        [theme['has-icon']]: icon,
       },
       className,
     );
-
-    const ChildrenWrapper = icon ? 'span' : Fragment;
 
     return (
       <Box
@@ -70,27 +49,19 @@ const Link = forwardRef(
         onMouseLeave={handleMouseLeave}
         {...others}
       >
-        {icon && iconPlacement === 'left' && icon}
-        <ChildrenWrapper>{children}</ChildrenWrapper>
-        {icon && iconPlacement === 'right' && icon}
+        {children}
       </Box>
     );
   },
 );
 
 Link.propTypes = {
-  /** If true, component will be rendered with badged hover effect. */
-  badged: PropTypes.bool,
   /** The content to display inside the link. */
   children: PropTypes.any.isRequired,
   /** A class name for the link to give custom styles. */
   className: PropTypes.string,
   /** If true, component will be disabled. */
   disabled: PropTypes.bool,
-  /** The icon displayed inside the button. */
-  icon: PropTypes.element,
-  /** The position of the icon inside the button. */
-  iconPlacement: PropTypes.oneOf(['left', 'right']),
   /** If true, the link style inherits the parent element style. */
   inherit: PropTypes.bool,
   /** If true, the underline behavior will be inverted. */
@@ -106,11 +77,9 @@ Link.propTypes = {
 };
 
 Link.defaultProps = {
-  badged: false,
   className: '',
   disabled: false,
   element: 'a',
-  iconPlacement: 'left',
   inherit: true,
   inverse: false,
 };
