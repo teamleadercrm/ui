@@ -19,8 +19,7 @@ class DetailPageHeader extends PureComponent {
             <TextBody className={theme['back-link']}>
               <BadgedLink
                 {...backLinkProps}
-                icon={<IconArrowLeftSmallOutline />}
-                iconAligment="bottom"
+                icon={<IconArrowLeftSmallOutline className={theme['back-link__icon']} />}
                 inherit={false}
               />
             </TextBody>

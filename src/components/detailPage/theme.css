@@ -8,4 +8,8 @@
   position: absolute;
   top: 0;
   left: -25px;
+
+  &__icon {
+    margin-top: 1px;
+  }
 }
