@@ -65,6 +65,17 @@ const Button = forwardRef(
       }
     };
 
+    const getSpinnerSize = () => {
+      console.log(size);
+      switch (size) {
+        case 'tiny':
+        case 'small':
+          return 'small';
+        default:
+          return 'medium';
+      }
+    };
+
     const handleMouseUp = (event) => {
       blur();
       if (onMouseUp) {
@@ -137,7 +148,7 @@ const Button = forwardRef(
           <LoadingSpinner
             className={theme['spinner']}
             color={getSpinnerColor()}
-            size={size === 'small' ? 'small' : 'medium'}
+            size={getSpinnerSize()}
             tint={getSpinnerTint()}
           />
         )}
