@@ -16,6 +16,8 @@
 
 ### Fixed
 
+- `Button`: fixed `Spinner` size when `Button` size is `tiny` ([@qubis741](https://github.com/qubis741) in [#1931](https://github.com/teamleadercrm/ui/pull/1931))
+
 ### Dependency updates
 
 - Upgraded all dependencies to latest except `react`, `react-dom`, `react-day-picker` (latest is beta), `postcss-preset-env`, `postcss-each` ([@qubis741](https://github.com/qubis741) in [#1893](https://github.com/teamleadercrm/ui/pull/1893))

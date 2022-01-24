@@ -66,7 +66,6 @@ const Button = forwardRef(
     };
 
     const getSpinnerSize = () => {
-      console.log(size);
       switch (size) {
         case 'tiny':
         case 'small':
