@@ -6,8 +6,8 @@
 
 .back-link {
   position: absolute;
-  top: 0;
-  left: -25px;
+  top: -1px;
+  left: -27px;
 
   &__icon {
     margin-top: 1px;
