@@ -66,9 +66,9 @@ const BadgedLink = forwardRef(
         onMouseLeave={handleMouseLeave}
         {...others}
       >
-        {icon && iconPlacement === 'left' && icon}
+        {iconPlacement === 'left' && icon}
         {children}
-        {icon && iconPlacement === 'right' && icon}
+        {iconPlacement === 'right' && icon}
       </Box>
     );
   },

@@ -2,7 +2,7 @@
 
 ### Added
 
-- [BREAKING] `BadgedLink`: ([@qubis741](https://github.com/qubis741) in [#1925](https://github.com/teamleadercrm/ui/pull/1925))
+- `BadgedLink`: ([@qubis741](https://github.com/qubis741) in [#1925](https://github.com/teamleadercrm/ui/pull/1925))
 
 ### Changed
 
