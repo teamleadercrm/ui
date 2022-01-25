@@ -116,7 +116,7 @@ IconButton.propTypes = {
   onMouseUp: PropTypes.func,
   /** If true, component will be shown in a selected state */
   selected: PropTypes.bool,
-  /** If true, component will show a loading spinner instead of label or children. */
+  /** If true, component will show a loading spinner instead of icon or children. */
   processing: PropTypes.bool,
   /** Size of the button. */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
