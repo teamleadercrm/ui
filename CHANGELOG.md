@@ -2,6 +2,7 @@
 
 ### Added
 
+- `IconButton`: added the `processing` state ([@driesd](https://github.com/driesd) in [#1940](https://github.com/teamleadercrm/ui/pull/1940))
 - `DialogBase`, `Dialog`: added `fadeOutOnClose` property ([@JorenSaeyTL](https://github.com/JorenSaeyTL) in [#1939](https://github.com/teamleadercrm/ui/pull/1939))
 
 ### Changed

@@ -29,6 +29,11 @@
   &.is-selected {
     background-color: color(var(--color-neutral-darkest) a(24%)) !important;
   }
+
+  &.is-processing {
+    position: relative;
+    pointer-events: none;
+  }
 }
 
 .is-small {
