@@ -117,9 +117,7 @@ export const fromStatusLabel = () => (
   </TooltippedStatusLabel>
 );
 
-fromStatusLabel.story = {
-  name: 'From StatusLabel',
-};
+fromStatusLabel.storyName = 'From StatusLabel';
 
 export const fromInlineElements = () => (
   <TextBody>
@@ -137,6 +135,4 @@ export const fromInlineElements = () => (
   </TextBody>
 );
 
-fromInlineElements.story = {
-  name: 'From inline elements',
-};
+fromInlineElements.storyName = 'From inline elements';

@@ -34,6 +34,7 @@ declare module '@teamleader/ui' {
   export const AvatarStack: React.ComponentType<any>;
   export const AsyncSelect: React.ComponentType<any>;
   export const Badge: React.ComponentType<any>;
+  export const BadgedLink: React.ComponentType<any>;
   export const Banner: React.ComponentType<any>;
   export const InputBase: React.ComponentType<any>;
   export const Box: React.ComponentType<any>;
@@ -53,7 +54,6 @@ declare module '@teamleader/ui' {
   };
   export const DatePicker: React.ComponentType<any>;
   export const DatePickerInput: React.ComponentType<any>;
-  export const DatePickerRange: React.ComponentType<any>;
   export const DatePickerInputRange: React.ComponentType<any>;
   export const DetailPage: React.ComponentType<any> & {
     Header: React.ComponentType<any>;
@@ -91,7 +91,6 @@ declare module '@teamleader/ui' {
   export const LabelValuePairGroup: React.ComponentType<any>;
   export const Link: React.ComponentType<any>;
   export const LoadingBar: React.ComponentType<any>;
-  export const LoadingMolecule: React.ComponentType<any>;
   export const LoadingSpinner: React.ComponentType<any>;
   export const Marker: React.ComponentType<any>;
   export const MarketingButton: React.ComponentType<any>;
@@ -120,11 +119,9 @@ declare module '@teamleader/ui' {
   export const PoweredByButton: React.ComponentType<any>;
   export const RadioButton: React.ComponentType<any>;
   export const RadioGroup: React.ComponentType<any>;
-  export const ScrollContainer: React.ComponentType<any>;
   export const Section: React.ComponentType<any>;
   export const Select: React.ComponentType<any>;
   export const SplitButton: React.ComponentType<any>;
-  export const StatusBullet: React.ComponentType<any>;
   export const StatusLabel: React.ComponentType<any>;
   export const TextBody: React.ComponentType<any>;
   export const TextBodyCompact: React.ComponentType<any>;
@@ -136,7 +133,6 @@ declare module '@teamleader/ui' {
   export const TimeInput: React.ComponentType<any>;
   export const DurationInput: React.ComponentType<any>;
   export const Timer: React.ComponentType<any>;
-  export const TimerPulser: React.ComponentType<any>;
   export const TitleTab: React.ComponentType<any>;
   export const Toast: React.ComponentType<any>;
   export const ToastContainer: React.ComponentType<any>;

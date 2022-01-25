@@ -1,7 +1,8 @@
 import React from 'react';
-import { addStoryInGroup, FOUNDATION } from '../utils';
+import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import * as Illustrations from '@teamleader/ui-illustrations';
-import { Box, TextSmall } from '../../src';
+import { Box, TextSmall } from '../..';
+import description from './description.md';
 
 const gridStyles = {
   display: 'flex',
@@ -21,13 +22,21 @@ const itemStyles = {
 };
 
 export default {
-  title: addStoryInGroup(FOUNDATION, 'Illustrations'),
+  title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Illustration'),
+  parameters: {
+    docs: {
+      description: {
+        component: description,
+      },
+    },
+  },
 };
 
 export const _24X24 = () => (
   <Box style={gridStyles}>
-    {Object.keys(Illustrations).map((key) => {
-      if (key.includes('24X24')) {
+    {Object.keys(Illustrations)
+      .filter((key) => key.includes('24X24'))
+      .map((key) => {
         const IllustrationToRender = Illustrations[key];
 
         return (
@@ -38,19 +47,17 @@ export const _24X24 = () => (
             <TextSmall marginLeft={3}>{key}</TextSmall>
           </Box>
         );
-      }
-    })}
+      })}
   </Box>
 );
 
-_24X24.story = {
-  name: '24x24',
-};
+_24X24.storyName = '24x24';
 
 export const _36X24 = () => (
   <Box style={gridStyles}>
-    {Object.keys(Illustrations).map((key) => {
-      if (key.includes('36X24')) {
+    {Object.keys(Illustrations)
+      .filter((key) => key.includes('36X24'))
+      .map((key) => {
         const IllustrationToRender = Illustrations[key];
 
         return (
@@ -61,19 +68,17 @@ export const _36X24 = () => (
             <TextSmall marginLeft={3}>{key}</TextSmall>
           </Box>
         );
-      }
-    })}
+      })}
   </Box>
 );
 
-_36X24.story = {
-  name: '36x24',
-};
+_36X24.storyName = '36x24';
 
 export const _48X48 = () => (
   <Box style={gridStyles}>
-    {Object.keys(Illustrations).map((key) => {
-      if (key.includes('48X48')) {
+    {Object.keys(Illustrations)
+      .filter((key) => key.includes('48X48'))
+      .map((key) => {
         const IllustrationToRender = Illustrations[key];
 
         return (
@@ -84,19 +89,17 @@ export const _48X48 = () => (
             <TextSmall marginLeft={3}>{key}</TextSmall>
           </Box>
         );
-      }
-    })}
+      })}
   </Box>
 );
 
-_48X48.story = {
-  name: '48x48',
-};
+_48X48.storyName = '48x48';
 
 export const _60X60 = () => (
   <Box style={gridStyles}>
-    {Object.keys(Illustrations).map((key) => {
-      if (key.includes('60X60')) {
+    {Object.keys(Illustrations)
+      .filter((key) => key.includes('60X60'))
+      .map((key) => {
         const IllustrationToRender = Illustrations[key];
 
         return (
@@ -107,19 +110,17 @@ export const _60X60 = () => (
             <TextSmall marginLeft={3}>{key}</TextSmall>
           </Box>
         );
-      }
-    })}
+      })}
   </Box>
 );
 
-_60X60.story = {
-  name: '60x60',
-};
+_60X60.storyName = '60x60';
 
 export const _84X84 = () => (
   <Box style={gridStyles}>
-    {Object.keys(Illustrations).map((key) => {
-      if (key.includes('84X84')) {
+    {Object.keys(Illustrations)
+      .filter((key) => key.includes('84X84'))
+      .map((key) => {
         const IllustrationToRender = Illustrations[key];
 
         return (
@@ -130,19 +131,17 @@ export const _84X84 = () => (
             <TextSmall marginLeft={3}>{key}</TextSmall>
           </Box>
         );
-      }
-    })}
+      })}
   </Box>
 );
 
-_84X84.story = {
-  name: '84x84',
-};
+_84X84.storyName = '84x84';
 
 export const _90X90 = () => (
   <Box style={gridStyles}>
-    {Object.keys(Illustrations).map((key) => {
-      if (key.includes('90X90')) {
+    {Object.keys(Illustrations)
+      .filter((key) => key.includes('90X90'))
+      .map((key) => {
         const IllustrationToRender = Illustrations[key];
 
         return (
@@ -153,19 +152,17 @@ export const _90X90 = () => (
             <TextSmall marginLeft={3}>{key}</TextSmall>
           </Box>
         );
-      }
-    })}
+      })}
   </Box>
 );
 
-_90X90.story = {
-  name: '90x90',
-};
+_90X90.storyName = '90x90';
 
 export const _120X120 = () => (
   <Box style={gridStyles}>
-    {Object.keys(Illustrations).map((key) => {
-      if (key.includes('120X120')) {
+    {Object.keys(Illustrations)
+      .filter((key) => key.includes('120X120'))
+      .map((key) => {
         const IllustrationToRender = Illustrations[key];
 
         return (
@@ -176,19 +173,17 @@ export const _120X120 = () => (
             <TextSmall marginLeft={3}>{key}</TextSmall>
           </Box>
         );
-      }
-    })}
+      })}
   </Box>
 );
 
-_120X120.story = {
-  name: '120x120',
-};
+_120X120.storyName = '120x120';
 
 export const _240X240 = () => (
   <Box style={gridStyles}>
-    {Object.keys(Illustrations).map((key) => {
-      if (key.includes('240X240')) {
+    {Object.keys(Illustrations)
+      .filter((key) => key.includes('240X240'))
+      .map((key) => {
         const IllustrationToRender = Illustrations[key];
 
         return (
@@ -199,11 +194,8 @@ export const _240X240 = () => (
             <TextSmall marginLeft={3}>{key}</TextSmall>
           </Box>
         );
-      }
-    })}
+      })}
   </Box>
 );
 
-_240X240.story = {
-  name: '240x240',
-};
+_240X240.storyName = '240x240';

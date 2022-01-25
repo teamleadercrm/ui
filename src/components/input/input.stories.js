@@ -144,9 +144,7 @@ export const numericInput = () => {
   );
 };
 
-numericInput.story = {
-  name: 'NumericInput',
-};
+numericInput.storyName = 'NumericInput';
 
 export const timeInput = () => {
   const [value, setValue] = useState('');
@@ -190,9 +188,7 @@ export const timeInput = () => {
   );
 };
 
-timeInput.story = {
-  name: 'TimeInput',
-};
+timeInput.storyName = 'TimeInput';
 
 export const durationInput = () => {
   const [value, setValue] = useState();
@@ -200,9 +196,7 @@ export const durationInput = () => {
   return <DurationInput value={value} onChange={setValue} />;
 };
 
-durationInput.story = {
-  name: 'DurationInput',
-};
+durationInput.storyName = 'DurationInput';
 
 export const textarea = () => (
   <Textarea

@@ -1,12 +1,12 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
 import { IconArrowLeftSmallOutline } from '@teamleader/ui-icons';
+import PropTypes from 'prop-types';
+import React, { PureComponent } from 'react';
+import BadgedLink from '../badgedLink';
 import { Box } from '../box';
-import { Heading1, TextBody } from '../typography';
-import Link from '../link';
-import Section from '../section';
-import theme from './theme.css';
 import Container from '../container';
+import Section from '../section';
+import { Heading1, TextBody } from '../typography';
+import theme from './theme.css';
 
 class DetailPageHeader extends PureComponent {
   render() {
@@ -17,7 +17,7 @@ class DetailPageHeader extends PureComponent {
         <Box className={theme['header-inner']} display="flex">
           {backLinkProps && (
             <TextBody className={theme['back-link']}>
-              <Link {...backLinkProps} badged icon={<IconArrowLeftSmallOutline />} inherit={false} />
+              <BadgedLink {...backLinkProps} icon={<IconArrowLeftSmallOutline />} inherit={false} />
             </TextBody>
           )}
           <Box flex="1 0 200px" paddingTop={5} overflow="hidden">

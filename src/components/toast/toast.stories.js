@@ -72,9 +72,7 @@ export const withCloseButton = toastSpawner({
   timeout: 3000,
 });
 
-withCloseButton.story = {
-  name: 'With close button',
-};
+withCloseButton.storyName = 'With close button';
 
 export const withCustomAction = toastSpawner({
   label: 'Toast label',
@@ -83,9 +81,7 @@ export const withCustomAction = toastSpawner({
   action: () => true,
 });
 
-withCustomAction.story = {
-  name: 'With custom action',
-};
+withCustomAction.storyName = 'With custom action';
 
 export const withCustomLink = toastSpawner({
   label: 'Toast label',
@@ -93,9 +89,7 @@ export const withCustomLink = toastSpawner({
   timeout: 3000,
 });
 
-withCustomLink.story = {
-  name: 'With custom link',
-};
+withCustomLink.storyName = 'With custom link';
 
 export const withMultilineLabel = toastSpawner({
   label: 'Connection timed out. Showing limited amount of messages.',
@@ -104,9 +98,7 @@ export const withMultilineLabel = toastSpawner({
   action: () => true,
 });
 
-withMultilineLabel.story = {
-  name: 'With multiline label',
-};
+withMultilineLabel.storyName = 'With multiline label';
 
 export const withLoadingSpinner = toastSpawner({
   label: 'Working...',
@@ -114,6 +106,4 @@ export const withLoadingSpinner = toastSpawner({
   processing: true,
 });
 
-withLoadingSpinner.story = {
-  name: 'With loading spinner',
-};
+withLoadingSpinner.storyName = 'With loading spinner';

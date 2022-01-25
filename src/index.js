@@ -1,6 +1,7 @@
 import AdvancedCollapsible from './components/advancedCollapsible';
 import Avatar, { AvatarStack } from './components/avatar';
 import Badge from './components/badge';
+import BadgedLink from './components/badgedLink';
 import Banner from './components/banner';
 import Box from './components/box';
 import Button from './components/button';
@@ -26,7 +27,7 @@ import Checkbox from './components/checkbox';
 import Container from './components/container';
 import Counter from './components/counter';
 import DataGrid from './components/datagrid';
-import { DatePicker, DatePickerRange, DatePickerInput, DatePickerInputRange } from './components/datepicker';
+import { DatePicker, DatePickerInput } from './components/datepicker';
 import DetailPage, { DetailPageBody, DetailPageHeader } from './components/detailPage';
 import Dialog, { DialogBase } from './components/dialog';
 import EmptyState from './components/emptyState';
@@ -48,24 +49,20 @@ import Overlay from './components/overlay';
 import OverviewPage, { OverviewPageBody, OverviewPageHeader } from './components/overviewPage';
 import { LabelValuePair, LabelValuePairGroup } from './components/labelValuePair';
 import LoadingBar from './components/loadingBar';
-import LoadingMolecule from './components/loadingMolecule';
 import LoadingSpinner from './components/loadingSpinner';
 import Pagination from './components/pagination';
 import Passport, { EmptyPassport } from './components/passport';
 import Popover from './components/popover';
 import PoweredByButton from './components/poweredByButton';
 import { RadioButton, RadioGroup } from './components/radio';
-import ScrollContainer from './components/scrollContainer';
 import Section from './components/section';
 import Select, { AsyncSelect } from './components/select';
 import { Island, IslandGroup } from './components/island';
 import SplitButton from './components/splitButton';
-import StatusBullet from './components/statusBullet';
 import StatusLabel from './components/statusLabel';
 import { TitleTab, TabGroup } from './components/tab';
 import Tag from './components/tag';
 import Timer from './components/timer';
-import TimerPulser from './components/timerPulser';
 import { Toast, ToastContainer } from './components/toast';
 import Toggle from './components/toggle';
 import ValidationText, { ErrorText, HelpText } from './components/validationText';
@@ -96,6 +93,7 @@ export {
   AvatarStack,
   AsyncSelect,
   Badge,
+  BadgedLink,
   Banner,
   InputBase,
   Box,
@@ -108,8 +106,6 @@ export {
   DataGrid,
   DatePicker,
   DatePickerInput,
-  DatePickerRange,
-  DatePickerInputRange,
   DetailPage,
   DetailPageBody,
   DetailPageHeader,
@@ -136,7 +132,6 @@ export {
   LabelValuePairGroup,
   Link,
   LoadingBar,
-  LoadingMolecule,
   LoadingSpinner,
   Marker,
   MarketingButton,
@@ -165,11 +160,9 @@ export {
   PoweredByButton,
   RadioButton,
   RadioGroup,
-  ScrollContainer,
   Section,
   Select,
   SplitButton,
-  StatusBullet,
   StatusLabel,
   TextBody,
   TextBodyCompact,
@@ -181,7 +174,6 @@ export {
   TimeInput,
   DurationInput,
   Timer,
-  TimerPulser,
   TitleTab,
   Toast,
   ToastContainer,
