@@ -2,6 +2,8 @@
 
 ### Added
 
+- `IconButton`: added the `processing` state ([@driesd](https://github.com/driesd) in [#1940](https://github.com/teamleadercrm/ui/pull/1940))
+
 ### Changed
 
 ### Deprecated
