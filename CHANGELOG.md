@@ -2,6 +2,8 @@
 
 ### Added
 
+- `DialogBase`, `Dialog`: added `fadeOutOnClose` property ([@JorenSaeyTL](https://github.com/JorenSaeyTL) in [#1939](https://github.com/teamleadercrm/ui/pull/1939))
+
 ### Changed
 
 ### Deprecated
