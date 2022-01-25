@@ -32,14 +32,14 @@ export const DialogBase = ({
 
   const shouldRender = fadeOutOnClose ? delayedActive : active;
 
+  const handleExited = () => {
+    setDelayedActive(false);
+  };
+
   useEffect(() => {
     if (active) {
       setDelayedActive(true);
-      return;
     }
-    setTimeout(() => {
-      setDelayedActive(false);
-    }, FADE_OUT_TIME);
   }, [active]);
 
   if (!shouldRender) {
@@ -47,7 +47,12 @@ export const DialogBase = ({
   }
 
   const dialog = (
-    <Transition timeout={{ enter: 0, exit: fadeOutOnClose ? FADE_OUT_TIME : 0 }} in={active} appear>
+    <Transition
+      timeout={{ enter: 0, exit: fadeOutOnClose ? FADE_OUT_TIME : 0 }}
+      in={active}
+      appear
+      onExited={handleExited}
+    >
       {(state) => {
         const overlayClassNames = cx(theme['overlay'], {
           [theme['is-entering']]: state === 'entering',
