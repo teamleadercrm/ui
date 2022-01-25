@@ -7,4 +7,8 @@ export default {
   title: 'BadgedLink',
 };
 
-export const Main = () => <BadgedLink icon={<IconAddSmallOutline />}>I am a badged link</BadgedLink>;
+export const Main = () => (
+  <BadgedLink inherit={false} icon={<IconAddSmallOutline />} href="https://www.teamleader.be" target="_blank">
+    I am a badged link
+  </BadgedLink>
+);
