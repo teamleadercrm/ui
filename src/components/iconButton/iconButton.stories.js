@@ -16,7 +16,7 @@ export default {
 };
 
 export const basic = ({ size, ...args }) => (
-  <IconButton {...args} icon={size === 'small' ? <IconAddSmallOutline /> : <IconAddMediumOutline />} />
+  <IconButton {...args} icon={size === 'small' ? <IconAddSmallOutline /> : <IconAddMediumOutline />} size={size} />
 );
 
 export const withCustomElement = () => <IconButton icon={<IconAddMediumOutline />} element="a" />;
