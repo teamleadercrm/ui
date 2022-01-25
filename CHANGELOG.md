@@ -2,11 +2,21 @@
 
 ### Added
 
-- `BadgedLink`: ([@qubis741](https://github.com/qubis741) in [#1925](https://github.com/teamleadercrm/ui/pull/1925))
-
 ### Changed
 
 ### Deprecated
+
+### Removed
+
+### Fixed
+
+### Dependency updates
+
+## [12.0.0] - 2022-01-25
+
+### Added
+
+- `BadgedLink`: ([@qubis741](https://github.com/qubis741) in [#1925](https://github.com/teamleadercrm/ui/pull/1925))
 
 ### Removed
 
