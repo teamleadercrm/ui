@@ -58,6 +58,7 @@ DefaultStory.args = {
     onClick: () => console.log('tertiaryAction.onClick'),
   },
   title: 'Dialog title',
+  fadeOutOnClose: false,
 };
 
 const FocusStates = () => {
