@@ -13,6 +13,23 @@
   display: flex;
   justify-content: center;
   z-index: 403;
+
+  &.is-entering {
+    opacity: 0;
+  }
+
+  &.is-entered {
+    opacity: 1;
+  }
+
+  &.is-exiting {
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+  }
+
+  &.is-exited {
+    opacity: 0;
+  }
 }
 
 .dialog-base {
@@ -48,6 +65,16 @@
   &.is-entered {
     opacity: 1;
     transform: translateY(0%);
+  }
+
+  &.is-exiting {
+    opacity: 0;
+    transform: translateY(0%);
+    transition: opacity 0.5s ease-out;
+  }
+
+  &.is-exited {
+    opacity: 0;
   }
 }
 

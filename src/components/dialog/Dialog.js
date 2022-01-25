@@ -79,6 +79,8 @@ Dialog.propTypes = {
   primaryAction: PropTypes.object.isRequired,
   /** If true, the content of the dialog will be scrollable when it exceeds the available height. */
   scrollable: PropTypes.bool,
+  /** If true, the the dialog will fade out when closing. */
+  fadeOutOnClose: PropTypes.bool,
   /** Object containing the the props of the secondary action (a Button). */
   secondaryAction: PropTypes.object,
   /** Object containing the props of the tertiary action (a Link, with the inherit props set to false). */

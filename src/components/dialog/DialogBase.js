@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
@@ -12,6 +12,8 @@ import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
 import useFocusTrap from '../../utils/useFocusTrap';
 
+const FADE_OUT_TIME = 500;
+
 export const DialogBase = ({
   active,
   backdrop,
@@ -20,31 +22,58 @@ export const DialogBase = ({
   onEscKeyDown,
   onOverlayClick,
   scrollable,
+  fadeOutOnClose,
   size,
   initialFocusRef,
 }) => {
   const { ref, FocusRing } = useFocusTrap({ active, initialFocusRef });
 
-  if (!active) {
+  const [delayedActive, setDelayedActive] = useState(false);
+
+  const shouldRender = fadeOutOnClose ? delayedActive : active;
+
+  useEffect(() => {
+    if (active) {
+      setDelayedActive(true);
+      return;
+    }
+    setTimeout(() => {
+      setDelayedActive(false);
+    }, FADE_OUT_TIME);
+  }, [active]);
+
+  if (!shouldRender) {
     return null;
   }
 
   const dialog = (
-    <Transition timeout={0} in={active} appear>
+    <Transition timeout={{ enter: 0, exit: fadeOutOnClose ? FADE_OUT_TIME : 0 }} in={active} appear>
       {(state) => {
+        const overlayClassNames = cx(theme['overlay'], {
+          [theme['is-entering']]: state === 'entering',
+          [theme['is-entered']]: state === 'entered',
+          [theme['is-exiting']]: state === 'exiting',
+          [theme['is-exited']]: state === 'exited',
+        });
+
         const dialogClassNames = cx(
           uiUtilities['box-shadow-300'],
           theme['dialog-base'],
           theme[`is-${size}`],
-          { [theme['is-entering']]: state === 'entering', [theme['is-entered']]: state === 'entered' },
+          {
+            [theme['is-entering']]: state === 'entering',
+            [theme['is-entered']]: state === 'entered',
+            [theme['is-exiting']]: state === 'exiting',
+            [theme['is-exited']]: state === 'exited',
+          },
           className,
         );
 
         return (
           <Overlay
-            active={active}
+            active={shouldRender}
             backdrop={backdrop}
-            className={theme['overlay']}
+            className={overlayClassNames}
             onOverlayClick={onOverlayClick}
             onEscKeyDown={onEscKeyDown}
           >
@@ -85,6 +114,8 @@ DialogBase.propTypes = {
   onOverlayClick: PropTypes.func,
   /** If true, the content of the dialog will be scrollable when it exceeds the available height. */
   scrollable: PropTypes.bool,
+  /** If true, the the dialog will fade out when closing. */
+  fadeOutOnClose: PropTypes.bool,
   /** The size of the dialog. */
   size: PropTypes.oneOf(['small', 'medium', 'large', 'fullscreen']),
   /** The initial part of the dialog where the focus will be set, useful to avoid focusing on the close button */
@@ -95,6 +126,7 @@ DialogBase.defaultProps = {
   active: false,
   backdrop: 'dark',
   scrollable: true,
+  fadeOutOnClose: false,
   size: 'medium',
 };
 
