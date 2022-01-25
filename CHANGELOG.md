@@ -2,6 +2,8 @@
 
 ### Added
 
+- `BadgedLink`: ([@qubis741](https://github.com/qubis741) in [#1925](https://github.com/teamleadercrm/ui/pull/1925))
+
 ### Changed
 
 ### Deprecated
@@ -13,6 +15,7 @@
 - [BREAKING] `ScrollContainer`: ([@qubis741](https://github.com/qubis741) in [#1891](https://github.com/teamleadercrm/ui/pull/1891))
 - [BREAKING] `LoadingMolecule`: ([@qubis741](https://github.com/qubis741) in [#1888](https://github.com/teamleadercrm/ui/pull/1888))
 - `IslandGroup`, `Island`, `Section`: removed `dark` property ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#1892](https://github.com/teamleadercrm/ui/pull/1892))
+- [BREAKING] `Link`: removed `icon` and `badged` property ([@qubis741](https://github.com/qubis741) in [#1925](https://github.com/teamleadercrm/ui/pull/1925))
 
 ### Fixed
 

@@ -34,6 +34,7 @@ declare module '@teamleader/ui' {
   export const AvatarStack: React.ComponentType<any>;
   export const AsyncSelect: React.ComponentType<any>;
   export const Badge: React.ComponentType<any>;
+  export const BadgedLink: React.ComponentType<any>;
   export const Banner: React.ComponentType<any>;
   export const InputBase: React.ComponentType<any>;
   export const Box: React.ComponentType<any>;

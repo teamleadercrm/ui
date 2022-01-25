@@ -1,6 +1,7 @@
 import AdvancedCollapsible from './components/advancedCollapsible';
 import Avatar, { AvatarStack } from './components/avatar';
 import Badge from './components/badge';
+import BadgedLink from './components/badgedLink';
 import Banner from './components/banner';
 import Box from './components/box';
 import Button from './components/button';
@@ -92,6 +93,7 @@ export {
   AvatarStack,
   AsyncSelect,
   Badge,
+  BadgedLink,
   Banner,
   InputBase,
   Box,
