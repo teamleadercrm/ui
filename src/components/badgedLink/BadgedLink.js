@@ -16,7 +16,6 @@ const BadgedLink = forwardRef(
       iconPlacement,
       element,
       inherit,
-      iconAligment,
       inverse,
       selected,
       onMouseUp,
@@ -51,7 +50,6 @@ const BadgedLink = forwardRef(
       theme['badged-link'],
       {
         [theme['is-inherit']]: inherit,
-        [theme['is-bottom-aligned']]: iconAligment === 'bottom',
         // Since children can be text node, we have to do spacing according to icon element
         [theme['is-left-icon-placed']]: iconPlacement === 'left',
       },
@@ -83,8 +81,6 @@ BadgedLink.propTypes = {
   className: PropTypes.string,
   /** The icon displayed inside the button. */
   icon: PropTypes.element.isRequired,
-  /** The aligment of the icon inside the button. */
-  iconAligment: PropTypes.oneOf(['center', 'bottom']),
   /** The position of the icon inside the button. */
   iconPlacement: PropTypes.oneOf(['left', 'right']),
   /** If true, the badged link style inherits the parent element style. */
@@ -100,7 +96,6 @@ BadgedLink.propTypes = {
 BadgedLink.defaultProps = {
   className: '',
   element: 'a',
-  iconAligment: 'center',
   iconPlacement: 'left',
   inherit: true,
 };

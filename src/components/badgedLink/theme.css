@@ -36,20 +36,12 @@
     background-color: color(var(--color-neutral-darkest) a(24%)) !important;
   }
 
-  &.is-bottom-aligned {
-    align-items: flex-end;
-  }
-
   &.is-left-icon-placed :first-child {
     margin-right: var(--spacer-smaller);
   }
 
   &:not(.is-left-icon-placed) :last-child {
     margin-left: var(--spacer-smaller);
-  }
-
-  svg {
-    transform: translate3d(0, -1px, 0);
   }
 
   &.is-disabled {
