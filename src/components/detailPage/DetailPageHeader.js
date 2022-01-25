@@ -17,11 +17,7 @@ class DetailPageHeader extends PureComponent {
         <Box className={theme['header-inner']} display="flex">
           {backLinkProps && (
             <TextBody className={theme['back-link']}>
-              <BadgedLink
-                {...backLinkProps}
-                icon={<IconArrowLeftSmallOutline className={theme['back-link__icon']} />}
-                inherit={false}
-              />
+              <BadgedLink {...backLinkProps} icon={<IconArrowLeftSmallOutline />} inherit={false} />
             </TextBody>
           )}
           <Box flex="1 0 200px" paddingTop={5} overflow="hidden">
