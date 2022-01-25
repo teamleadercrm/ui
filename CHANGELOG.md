@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `Overlay`: Restored mouse event propagation ([@jelledc](https://github.com/jelledc) in [#1938](https://github.com/teamleadercrm/ui/pull/1938))
+
 ### Dependency updates
 
 ## [12.0.0] - 2022-01-25
