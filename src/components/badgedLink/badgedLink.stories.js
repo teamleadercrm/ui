@@ -10,7 +10,7 @@ export default {
 
 export const DefaultStory = (args) => (
   <BadgedLink {...args} icon={<IconAddSmallOutline />}>
-    I am a link with an icon
+    I am a badged link
   </BadgedLink>
 );
 
