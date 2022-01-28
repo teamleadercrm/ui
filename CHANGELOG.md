@@ -12,6 +12,16 @@
 
 ### Dependency updates
 
+## [12.1.0] - 2022-01-28
+
+### Added
+
+- `IconButton`: added the `processing` state ([@driesd](https://github.com/driesd) in [#1940](https://github.com/teamleadercrm/ui/pull/1940))
+
+### Fixed
+
+- `Overlay`: Restored mouse event propagation ([@jelledc](https://github.com/jelledc) in [#1938](https://github.com/teamleadercrm/ui/pull/1938))
+
 ## [12.0.0] - 2022-01-25
 
 ### Added

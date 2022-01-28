@@ -5,6 +5,7 @@ import Icon from '../icon';
 import cx from 'classnames';
 import buttonTheme from '../button/theme.css';
 import theme from './theme.css';
+import LoadingSpinner from '../loadingSpinner';
 
 const IconButton = forwardRef(
   (
@@ -21,6 +22,7 @@ const IconButton = forwardRef(
       type,
       onMouseUp,
       onMouseLeave,
+      processing,
       ...others
     },
     ref,
@@ -55,6 +57,7 @@ const IconButton = forwardRef(
       theme[`is-${size}`],
       {
         [theme['is-disabled']]: disabled,
+        [theme['is-processing']]: processing,
         [theme['is-selected']]: selected,
       },
       className,
@@ -71,6 +74,19 @@ const IconButton = forwardRef(
       type: element === 'button' ? type : null,
       'data-teamleader-ui': 'icon-button',
     };
+
+    if (processing) {
+      return (
+      <Box {...props}>
+        <LoadingSpinner
+          className={theme['spinner']}
+          color={color}
+          size={size === 'small' ? 'small' : 'medium'}
+          tint={tint}
+        />
+      </Box>
+      );
+    }
 
     return (
       <Box {...props}>
@@ -100,6 +116,8 @@ IconButton.propTypes = {
   onMouseUp: PropTypes.func,
   /** If true, component will be shown in a selected state */
   selected: PropTypes.bool,
+  /** If true, component will show a loading spinner instead of icon or children. */
+  processing: PropTypes.bool,
   /** Size of the button. */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   /** The color which the icon should have */
@@ -115,6 +133,7 @@ IconButton.defaultProps = {
   element: 'button',
   size: 'medium',
   color: 'neutral',
+  processing: false,
   tint: 'darkest',
   type: 'button',
 };
