@@ -12,6 +12,12 @@
 
 ### Dependency updates
 
+## [12.1.1] - 2022-02-02
+
+### Fixed
+
+- `Overlay`: Prevent clicks in underlying dialogs from closing parent overlays ([@jelledc](https://github.com/jelledc) in [#1958](https://github.com/teamleadercrm/ui/pull/1958))
+
 ## [12.1.0] - 2022-01-28
 
 ### Added

@@ -64,7 +64,9 @@ class Overlay extends PureComponent {
       !this.innerWrapperRef.current?.contains(this.clickOriginRef.current) &&
       // react-select has its own implementation of an overlay, conflicting with our custom implementation
       // so clicks on the select overlay shouldn't be registered either
-      !selectOverlayNode.contains(this.clickOriginRef.current)
+      !selectOverlayNode.contains(this.clickOriginRef.current) &&
+      // make sure only clicks within the current portal's DOM tree are handled
+      event.currentTarget.contains(event.target)
     ) {
       this.props.onOverlayClick(event);
     }
