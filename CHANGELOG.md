@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `Dialog`: onEscKeyDown not triggering ([@qubis741](https://github.com/qubis741) in [#1971](https://github.com/teamleadercrm/ui/pull/1971))
+
 ### Dependency updates
 
 ## [12.1.1] - 2022-02-02
