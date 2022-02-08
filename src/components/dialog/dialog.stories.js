@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { IconWarningBadgedMediumOutline } from '@teamleader/ui-icons';
 import { Box, Button, Dialog, TextBody } from '../../index';
@@ -137,7 +137,7 @@ DialogWithFocusStates.parameters = {
 
 export const DialogBaseStory = (args) => {
   const [active, setActive] = useState(false);
-
+  const bodyRef = useRef()
   const closeDialog = () => {
     setActive(false);
   };
@@ -149,8 +149,14 @@ export const DialogBaseStory = (args) => {
   return (
     <Box>
       <Button onClick={openDialog} label="Open a dialog base" />
-      <DialogBase active={active} onEscKeyDown={closeDialog} onOverlayClick={closeDialog} {...args}>
-        <Box padding={4}>
+      <DialogBase
+        active={active}
+        onEscKeyDown={closeDialog}
+        onOverlayClick={closeDialog}
+        {...args}
+        initialFocusRef={bodyRef}
+      >
+        <Box padding={4} ref={bodyRef}>
           <TextBody>
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
             dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
