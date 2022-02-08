@@ -45,20 +45,19 @@ const useFocusTrap = ({ active, returnFocusToSource = true, initialFocusRef }) =
       if (openFocusTraps.size > 0) {
         document.removeEventListener('focusin', getLastItemInSet(openFocusTraps), true);
       }
-      
-       if (initialFocusRef) {
-         const currentInitialFocusRef = initialFocusRef.current;
-         if (currentInitialFocusRef) {
-           const foundFocus = focusOnFirstDescendent(currentInitialFocusRef);
-           if (!foundFocus) {
-             focusOnFirstDescendent(topFocusBumperRef.current);
-           }
-         }
-       } else if (typeof initialFocusRef === 'undefined') {
-         focusOnFirstDescendent(currentFocusRef);
-       } else {
-         focusOnFirstDescendent(topFocusBumperRef.current);
-       }
+      if (initialFocusRef) {
+        const currentInitialFocusRef = initialFocusRef.current;
+        if (currentInitialFocusRef) {
+          const foundFocus = focusOnFirstDescendent(currentInitialFocusRef);
+          if (!foundFocus) {
+            focusOnFirstDescendent(topFocusBumperRef.current);
+          }
+        }
+      } else if (typeof initialFocusRef === 'undefined') {
+        focusOnFirstDescendent(currentFocusRef);
+      } else {
+        focusOnFirstDescendent(topFocusBumperRef.current);
+      }
 
       const trapFocus = (event) => {
         if (!currentFocusRef.contains(event.target)) {
