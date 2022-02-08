@@ -137,7 +137,7 @@ DialogWithFocusStates.parameters = {
 
 export const DialogBaseStory = (args) => {
   const [active, setActive] = useState(false);
-  const bodyRef = useRef()
+  const bodyRef = useRef();
   const closeDialog = () => {
     setActive(false);
   };
