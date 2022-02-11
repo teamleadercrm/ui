@@ -11,25 +11,23 @@ import Footer from './Footer';
 import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
 import useFocusTrap from '../../utils/useFocusTrap';
+import { useDraggable } from 'use-draggable';
 
-export const DialogBase = ({
+const Dialog = ({
   active,
-  backdrop,
-  children,
   className,
-  onEscKeyDown,
+  backdrop,
   onOverlayClick,
+  onEscKeyDown,
+  initialFocusRef,
   scrollable,
   size,
-  initialFocusRef,
+  children,
 }) => {
   const { ref, FocusRing } = useFocusTrap({ active, initialFocusRef });
+  const { targetRef } = useDraggable({ controlStyle: true });
 
-  if (!active) {
-    return null;
-  }
-
-  const dialog = (
+  return (
     <Transition timeout={0} in={active} appear>
       {(state) => {
         const dialogClassNames = cx(
@@ -49,15 +47,17 @@ export const DialogBase = ({
             onEscKeyDown={onEscKeyDown}
           >
             <FocusRing>
-              <div ref={ref} data-teamleader-ui="dialog" className={dialogClassNames}>
-                <div className={theme['inner']}>
-                  {scrollable ? (
-                    <Box display="flex" flexDirection="column" overflowY="auto">
-                      {children}
-                    </Box>
-                  ) : (
-                    children
-                  )}
+              <div ref={targetRef}>
+                <div ref={ref} data-teamleader-ui="dialog" className={dialogClassNames}>
+                  <div className={theme['inner']}>
+                    {scrollable ? (
+                      <Box display="flex" flexDirection="column" overflowY="auto">
+                        {children}
+                      </Box>
+                    ) : (
+                      children
+                    )}
+                  </div>
                 </div>
               </div>
             </FocusRing>
@@ -66,7 +66,36 @@ export const DialogBase = ({
       }}
     </Transition>
   );
+};
 
+export const DialogBase = ({
+  active,
+  backdrop,
+  children,
+  className,
+  onEscKeyDown,
+  onOverlayClick,
+  scrollable,
+  size,
+  initialFocusRef,
+}) => {
+  if (!active) {
+    return null;
+  }
+  const dialog = (
+    <Dialog
+      active={active}
+      className={className}
+      backdrop={backdrop}
+      onOverlayClick={onOverlayClick}
+      onEscKeyDown={onEscKeyDown}
+      initialFocusRef={initialFocusRef}
+      scrollable={scrollable}
+      size={size}
+    >
+      {children}
+    </Dialog>
+  );
   return createPortal(dialog, document.body);
 };
 
