@@ -12962,6 +12962,11 @@ use-composed-ref@^1.0.0:
   dependencies:
     ts-essentials "^2.0.3"
 
+use-draggable@^1.5.2:
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/use-draggable/-/use-draggable-1.5.2.tgz#ddcc928f6d03826eacffdb75ca89a9a85e9d9b98"
+  integrity sha512-irXfw3KXxaSEHxMQR1XWwhEaObxg0XPYxtRMOLiLizLqDnOJ2GacfhkhNO8DdsUK+Pf9+r4U5hlNW64ya5qYcg==
+
 use-isomorphic-layout-effect@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/use-isomorphic-layout-effect/-/use-isomorphic-layout-effect-1.0.0.tgz#f56b4ed633e1c21cd9fc76fe249002a1c28989fb"

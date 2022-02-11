@@ -50,7 +50,8 @@
     "react-resize-detector": "^7.0.0",
     "react-select": "5.2.2",
     "react-transition-group": "^4.2.1",
-    "smoothscroll-polyfill": "^0.4.4"
+    "smoothscroll-polyfill": "^0.4.4",
+    "use-draggable": "^1.5.2"
   },
   "peerDependencies": {
     "postcss": "^8.2.0",
