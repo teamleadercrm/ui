@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
@@ -24,7 +24,11 @@ export const DialogBase = ({
   initialFocusRef,
 }) => {
   const { ref, FocusRing } = useFocusTrap({ active, initialFocusRef });
-
+  useEffect(() => {
+    if (active) {
+      makeDraggable();
+    }
+  }, [active]);
   if (!active) {
     return null;
   }
@@ -35,6 +39,7 @@ export const DialogBase = ({
         const dialogClassNames = cx(
           uiUtilities['box-shadow-300'],
           theme['dialog-base'],
+          theme['draggable'],
           theme[`is-${size}`],
           { [theme['is-entering']]: state === 'entering', [theme['is-entered']]: state === 'entered' },
           className,
@@ -49,7 +54,7 @@ export const DialogBase = ({
             onEscKeyDown={onEscKeyDown}
           >
             <FocusRing>
-              <div ref={ref} data-teamleader-ui="dialog" className={dialogClassNames}>
+              <div ref={ref} id="dragMe" data-teamleader-ui="dialog" className={dialogClassNames}>
                 <div className={theme['inner']}>
                   {scrollable ? (
                     <Box display="flex" flexDirection="column" overflowY="auto">
@@ -68,6 +73,39 @@ export const DialogBase = ({
   );
 
   return createPortal(dialog, document.body);
+};
+
+const makeDraggable = () => {
+  let x = 0;
+  let y = 0;
+
+  const ele = document.getElementById('dragMe');
+
+  const mouseDownHandler = function (e) {
+    x = e.clientX;
+    y = e.clientY;
+
+    document.addEventListener('mousemove', mouseMoveHandler);
+    document.addEventListener('mouseup', mouseUpHandler);
+  };
+
+  const mouseMoveHandler = function (e) {
+    const dx = e.clientX - x;
+    const dy = e.clientY - y;
+
+    ele.style.top = `${ele.offsetTop + dy}px`;
+    ele.style.left = `${ele.offsetLeft + dx}px`;
+
+    x = e.clientX;
+    y = e.clientY;
+  };
+
+  const mouseUpHandler = function () {
+    document.removeEventListener('mousemove', mouseMoveHandler);
+    document.removeEventListener('mouseup', mouseUpHandler);
+  };
+
+  ele.addEventListener('mousedown', mouseDownHandler);
 };
 
 DialogBase.propTypes = {
