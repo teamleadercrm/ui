@@ -1,4 +1,4 @@
-import React, { createRef, PureComponent } from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash.omit';
 import cx from 'classnames';
@@ -8,57 +8,62 @@ import theme from './theme.css';
 import { Button, ButtonGroup, DialogBase, Heading2, Heading3, Link } from '../../index';
 import { COLORS } from '../../constants';
 
-class Dialog extends PureComponent {
-  bodyRef = createRef();
+const getHeader = (headerColor, headerIcon, headingLevel, onCloseClick, title) => {
+  return (
+    <DialogBase.Header color={headerColor} icon={headerIcon} onClose={onCloseClick}>
+      {headingLevel === 2 ? <Heading2>{title}</Heading2> : <Heading3>{title}</Heading3>}
+    </DialogBase.Header>
+  );
+};
 
-  getHeader = () => {
-    const { headerColor, headerIcon, headingLevel, onCloseClick, title } = this.props;
+const getFooter = (tertiaryAction, secondaryAction, primaryAction) => {
+  return (
+    <DialogBase.Footer>
+      <ButtonGroup justifyContent="flex-end">
+        {tertiaryAction && <Link inherit={false} {...tertiaryAction} />}
+        {secondaryAction && <Button {...secondaryAction} />}
+        <Button level="primary" {...primaryAction} />
+      </ButtonGroup>
+    </DialogBase.Footer>
+  );
+};
 
-    return (
-      <DialogBase.Header color={headerColor} icon={headerIcon} onClose={onCloseClick}>
-        {headingLevel === 2 ? <Heading2>{title}</Heading2> : <Heading3>{title}</Heading3>}
-      </DialogBase.Header>
-    );
-  };
+const Dialog = ({
+  headerColor,
+  headerIcon,
+  headingLevel,
+  onCloseClick,
+  title,
+  tertiaryAction,
+  secondaryAction,
+  primaryAction,
+  children,
+  className,
+  scrollable,
+  ...otherProps
+}) => {
+  const bodyRef = useRef();
 
-  getFooter = () => {
-    const { tertiaryAction, secondaryAction, primaryAction } = this.props;
+  const classNames = cx(theme['dialog'], className);
 
-    return (
-      <DialogBase.Footer>
-        <ButtonGroup justifyContent="flex-end">
-          {tertiaryAction && <Link inherit={false} {...tertiaryAction} />}
-          {secondaryAction && <Button {...secondaryAction} />}
-          <Button level="primary" {...primaryAction} />
-        </ButtonGroup>
-      </DialogBase.Footer>
-    );
-  };
+  const restProps = omit(otherProps, [
+    'headerColor',
+    'onCloseClick',
+    'primaryAction',
+    'secondaryAction',
+    'tertiaryAction',
+  ]);
 
-  render() {
-    const { children, className, scrollable, title, ...otherProps } = this.props;
-
-    const classNames = cx(theme['dialog'], className);
-
-    const restProps = omit(otherProps, [
-      'headerColor',
-      'onCloseClick',
-      'primaryAction',
-      'secondaryAction',
-      'tertiaryAction',
-    ]);
-
-    return (
-      <DialogBase className={classNames} {...restProps} scrollable={false} initialFocusRef={this.bodyRef}>
-        {title && this.getHeader()}
-        <DialogBase.Body ref={this.bodyRef} scrollable={scrollable}>
-          {children}
-        </DialogBase.Body>
-        {this.getFooter()}
-      </DialogBase>
-    );
-  }
-}
+  return (
+    <DialogBase className={classNames} {...restProps} scrollable={false} initialFocusRef={bodyRef}>
+      {title && getHeader(headerColor, headerIcon, headingLevel, onCloseClick, title)}
+      <DialogBase.Body ref={bodyRef} scrollable={scrollable}>
+        {children}
+      </DialogBase.Body>
+      {getFooter(tertiaryAction, secondaryAction, primaryAction)}
+    </DialogBase>
+  );
+};
 
 Dialog.propTypes = {
   /** If true, the dialog will show on screen. */
