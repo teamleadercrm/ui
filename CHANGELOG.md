@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `Dialog, Select`: added `size` prop to documentation, `Dialog` Footer has top border ([@qubis741](https://github.com/qubis741) in [#1993](https://github.com/teamleadercrm/ui/pull/1993))
+
 ### Deprecated
 
 ### Removed
