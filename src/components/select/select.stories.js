@@ -51,6 +51,14 @@ export default {
       propTablesExclude: [Label],
     },
   },
+  argTypes: {
+    size: {
+      options: ['tiny', 'small', 'medium', 'large'],
+      control: {
+        type: 'select',
+      },
+    },
+  },
 };
 
 export const basic = (args) => <Select {...args} />;
@@ -63,6 +71,7 @@ basic.args = {
   hideSelectedOptions: false,
   options,
   placeholder: 'Select your favourite(s)',
+  size: 'medium'
 };
 
 export const grouped = () => <Select options={groupedOptions} />;
