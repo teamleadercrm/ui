@@ -1,0 +1,25 @@
+@import '@teamleader/ui-colors';
+@import '@teamleader/ui-utilities';
+
+.label-input {
+  position: relative;
+  min-height: 36px;
+  border-radius: var(--border-radius-medium);
+  border: 1px solid var(--color-neutral-dark);
+  padding: calc(var(--spacer-smallest) - 1px);
+  cursor: text;
+
+  &:hover {
+    border-color: var(--color-neutral-darkest);
+  }
+
+  &--error {
+    border-color: var(--color-ruby-dark);
+    box-shadow: 0 0 0 1px var(--color-ruby-dark);
+  }
+
+  &--warning {
+    border-color: var(--color-gold-dark);
+    box-shadow: 0 0 0 1px var(--color-gold-dark);
+  }
+}
