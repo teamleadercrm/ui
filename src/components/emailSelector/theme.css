@@ -1,6 +1,11 @@
 @import '@teamleader/ui-colors';
 @import '@teamleader/ui-utilities';
 
+:root {
+  --overlay-z-index: 150;
+  --max-label-width: 300px;
+}
+
 .label-input {
   position: relative;
   min-height: 36px;
@@ -9,8 +14,19 @@
   padding: calc(var(--spacer-smallest) - 1px);
   cursor: text;
 
+  &-focuser {
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+
   &:hover {
     border-color: var(--color-neutral-darkest);
+  }
+
+  &--active {
+    border-color: var(--color-neutral-darkest);
+    box-shadow: 0 0 0 1px var(--color-neutral-darkest);
   }
 
   &--error {
@@ -21,5 +37,55 @@
   &--warning {
     border-color: var(--color-gold-dark);
     box-shadow: 0 0 0 1px var(--color-gold-dark);
+  }
+}
+
+.label {
+  &--editing {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    max-width: var(--max-label-width);
+    padding: var(--spacer-smallest);
+    margin: var(--spacer-smallest) 0;
+    white-space: nowrap;
+    overflow: hidden;
+    z-index: var(--overlay-z-index);
+    line-height: 18px;
+    outline: none;
+  }
+
+  &--error {
+    background-color: color(var(--color-ruby-dark) a(12%)) !important;
+    box-shadow: inset 0 0 0 1px color(var(--color-ruby-dark) a(12%)) !important;
+
+    button {
+      color: var(--color-ruby-dark) !important;
+    }
+
+    & > button {
+      &:not(.is-disabled) {
+        &:hover {
+          background-color: color(var(--color-ruby-dark) a(18%));
+        }
+
+        &:focus {
+          box-shadow: 0 0 0 2px color(var(--color-ruby-dark) a(24%));
+        }
+
+        &:active {
+          box-shadow: inset 0 2px 3px color(var(--color-ruby-dark) a(24%));
+          background-color: color(var(--color-ruby-dark) a(12%));
+        }
+      }
+
+      svg {
+        color: var(--color-ruby-dark);
+      }
+    }
+  }
+
+  &-text {
+    font-weight: 500 !important;
   }
 }

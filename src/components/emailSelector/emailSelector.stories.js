@@ -1,7 +1,7 @@
 import React from 'react';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { text } from '@storybook/addon-knobs';
-import { EmailSelector } from '../../index';
+import EmailSelector from './EmailSelector';
 
 export default {
   component: EmailSelector,
@@ -10,4 +10,10 @@ export default {
   parameters: {},
 };
 
-export const basic = () => <EmailSelector warning={text('Warning', '')} error={text('Error', '')} />;
+export const basic = () => (
+  <EmailSelector
+    warning={text('Warning', '')}
+    error={text('Error', '')}
+    defaultSelection={[{ email: 'info@teamleader.eu' }]}
+  />
+);
