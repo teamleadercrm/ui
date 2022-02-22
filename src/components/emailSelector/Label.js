@@ -1,8 +1,8 @@
-import React, { useCallback, useState, useEffect, useRef } from 'react';
+import React, { useCallback, useState, useEffect, useRef, useMemo } from 'react';
 import PropTypes from 'prop-types';
 
 import theme from './theme.css';
-import { selectContentEditable } from './utils';
+import { filterSuggestions, moveSuggestion, selectContentEditable, validateSuggestion } from './utils';
 import Tag from '../tag';
 import Link from '../link';
 import Box from '../box';
@@ -10,12 +10,33 @@ import Box from '../box';
 const ENTER = 'Enter';
 const ESCAPE = 'Escape';
 const BACKSPACE = 'Backspace';
+const UP_ARROW = 'ArrowUp';
+const DOWN_ARROW = 'ArrowDown';
 const SEMI = ';';
 const COMMA = ',';
 
-const Label = ({ option, editing, invalid, index, onClick, onFocus, onBlur, onRemove, onFinish }) => {
+const Label = ({
+  option,
+  suggestions,
+  editing,
+  invalid,
+  index,
+  onClick,
+  onFocus,
+  onBlur,
+  onRemove,
+  onFinish,
+  renderSuggestion,
+}) => {
   const [content, setContent] = useState(option.email);
+  const [autocompleteOpen, setAutocompleteOpen] = useState(true);
   const ref = useRef();
+
+  const validSuggestions = useMemo(() => filterSuggestions(content, suggestions), [content, suggestions]);
+  const [selectedSuggestion, setSelectedSuggestion] = useState(null);
+
+  const hasValidSuggestions =
+    autocompleteOpen && (Array.isArray(validSuggestions) ? validSuggestions : Object.keys(validSuggestions)).length > 0;
 
   useEffect(() => {
     if (editing) {
@@ -63,13 +84,27 @@ const Label = ({ option, editing, invalid, index, onClick, onFocus, onBlur, onRe
     [onBlur, index, option, content],
   );
 
+  const onInputBlur = useCallback(
+    (event) => {
+      if (event.relatedTarget) {
+        onTagBlur(event);
+      }
+    },
+    [onTagBlur],
+  );
+
   const onKeyDown = useCallback(
     (event) => {
       const trimmedContent = content.trim();
 
       switch (event.key) {
         case ENTER: {
-          const newOption = trimmedContent === option.email ? option : { email: trimmedContent };
+          const newOption =
+            selectedSuggestion && validateSuggestion(trimmedContent, selectedSuggestion)
+              ? selectedSuggestion
+              : trimmedContent === option.email
+              ? option
+              : { email: trimmedContent };
 
           onFinish && onFinish(index, newOption);
           event.preventDefault();
@@ -83,6 +118,12 @@ const Label = ({ option, editing, invalid, index, onClick, onFocus, onBlur, onRe
           break;
 
         case ESCAPE:
+          if (hasValidSuggestions) {
+            setAutocompleteOpen(false);
+            event.stopPropagation();
+            break;
+          }
+
           onFinish && onFinish(index, option);
           break;
 
@@ -91,9 +132,50 @@ const Label = ({ option, editing, invalid, index, onClick, onFocus, onBlur, onRe
             onRemove(index);
           }
           break;
+
+        case UP_ARROW:
+          setSelectedSuggestion(moveSuggestion(validSuggestions, selectedSuggestion, -1));
+          event.preventDefault();
+          break;
+
+        case DOWN_ARROW:
+          setSelectedSuggestion(moveSuggestion(validSuggestions, selectedSuggestion, 1));
+          event.preventDefault();
+          break;
+
+        default:
+          if (!autocompleteOpen) {
+            setAutocompleteOpen(true);
+          }
       }
     },
-    [onFinish, index, content, option, onRemove],
+    [
+      onFinish,
+      index,
+      content,
+      option,
+      hasValidSuggestions,
+      onRemove,
+      validSuggestions,
+      selectedSuggestion,
+      autocompleteOpen,
+    ],
+  );
+
+  const onSuggestionClick = useCallback(
+    (suggestion, event) => {
+      onFinish && onFinish(index, suggestion);
+      event.stopPropagation();
+      event.preventDefault();
+    },
+    [index, onFinish],
+  );
+
+  const onSuggestionHover = useCallback(
+    (suggestion) => {
+      setSelectedSuggestion(suggestion);
+    },
+    [setSelectedSuggestion],
   );
 
   if (editing) {
@@ -107,7 +189,7 @@ const Label = ({ option, editing, invalid, index, onClick, onFocus, onBlur, onRe
           ref={ref}
           onInput={onChange}
           onKeyDown={onKeyDown}
-          onBlur={onTagBlur}
+          onBlur={hasValidSuggestions ? onInputBlur : onTagBlur}
         >
           {option.email}
         </Box>
@@ -146,6 +228,8 @@ Label.propTypes = {
   onBlur: PropTypes.func,
   onRemove: PropTypes.func,
   onFinish: PropTypes.func,
+  suggestions: PropTypes.oneOfType([PropTypes.arrayOf(emailOption), PropTypes.object]),
+  renderSuggestion: PropTypes.elementType,
 };
 
 export default Label;

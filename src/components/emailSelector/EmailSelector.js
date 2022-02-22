@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useMemo, useRef, useState } from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 
@@ -6,8 +6,20 @@ import ValidationText from '../validationText';
 import theme from './theme.css';
 import Box from '../box';
 import Label from './Label';
+import { excludeSuggestions } from './utils';
 
-const EmailSelector = ({ error, defaultSelection, validator, onChange, onBlur, onFocus, id, ...rest }) => {
+const EmailSelector = ({
+  error,
+  defaultSelection,
+  validator,
+  onChange,
+  onBlur,
+  onFocus,
+  id,
+  suggestions,
+  renderSuggestion,
+  ...rest
+}) => {
   const ref = useRef();
   const inputRef = useRef();
 
@@ -23,6 +35,8 @@ const EmailSelector = ({ error, defaultSelection, validator, onChange, onBlur, o
   );
   const [editingLabel, setEditingLabel] = useState(null);
   const [warning, setWarning] = useState(false);
+
+  const validSuggestions = useMemo(() => excludeSuggestions(selection, suggestions), [suggestions, selection]);
 
   const changeHandler = useCallback(
     (selection) => {
@@ -178,6 +192,8 @@ const EmailSelector = ({ error, defaultSelection, validator, onChange, onBlur, o
             onFocus={onTagFocus}
             onBlur={onBlurLabel}
             onRemove={onRemove}
+            suggestions={validSuggestions}
+            renderSuggestion={renderSuggestion}
           />
         ))}
         {(editingLabel === null || selection[editingLabel].email !== '') && (
@@ -189,20 +205,22 @@ const EmailSelector = ({ error, defaultSelection, validator, onChange, onBlur, o
   );
 };
 
+const emailOption = PropTypes.shape({
+  email: PropTypes.string.isRequired,
+  label: PropTypes.string,
+  id: PropTypes.string,
+});
+
 EmailSelector.propTypes = {
   error: PropTypes.oneOfType([PropTypes.bool, PropTypes.node]),
-  defaultSelection: PropTypes.arrayOf(
-    PropTypes.shape({
-      email: PropTypes.string.isRequired,
-      label: PropTypes.string,
-      id: PropTypes.string,
-    }),
-  ),
+  defaultSelection: PropTypes.arrayOf(emailOption),
+  suggestions: PropTypes.oneOfType([PropTypes.arrayOf(emailOption), PropTypes.object]),
   validator: PropTypes.func,
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
   onFocus: PropTypes.func,
   id: PropTypes.any,
+  renderSuggestion: PropTypes.elementType,
 };
 
 export default EmailSelector;
