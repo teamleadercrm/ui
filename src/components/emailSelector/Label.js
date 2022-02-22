@@ -7,7 +7,13 @@ import Tag from '../tag';
 import Link from '../link';
 import Box from '../box';
 
-const Label = ({ option, editing, invalid, index, onClick, onFocus, onBlur, onRemove }) => {
+const ENTER = 'Enter';
+const ESCAPE = 'Escape';
+const BACKSPACE = 'Backspace';
+const SEMI = ';';
+const COMMA = ',';
+
+const Label = ({ option, editing, invalid, index, onClick, onFocus, onBlur, onRemove, onFinish }) => {
   const [content, setContent] = useState(option.email);
   const ref = useRef();
 
@@ -57,6 +63,39 @@ const Label = ({ option, editing, invalid, index, onClick, onFocus, onBlur, onRe
     [onBlur, index, option, content],
   );
 
+  const onKeyDown = useCallback(
+    (event) => {
+      const trimmedContent = content.trim();
+
+      switch (event.key) {
+        case ENTER: {
+          const newOption = trimmedContent === option.email ? option : { email: trimmedContent };
+
+          onFinish && onFinish(index, newOption);
+          event.preventDefault();
+          break;
+        }
+
+        case COMMA:
+        case SEMI:
+          onFinish && onFinish(index, trimmedContent === option.email ? option : { email: trimmedContent });
+          event.preventDefault();
+          break;
+
+        case ESCAPE:
+          onFinish && onFinish(index, option);
+          break;
+
+        case BACKSPACE:
+          if (!event.repeat && content === '' && onRemove) {
+            onRemove(index);
+          }
+          break;
+      }
+    },
+    [onFinish, index, content, option, onRemove],
+  );
+
   if (editing) {
     return (
       <>
@@ -67,6 +106,7 @@ const Label = ({ option, editing, invalid, index, onClick, onFocus, onBlur, onRe
           className={theme['label--editing']}
           ref={ref}
           onInput={onChange}
+          onKeyDown={onKeyDown}
           onBlur={onTagBlur}
         >
           {option.email}
@@ -90,12 +130,14 @@ const Label = ({ option, editing, invalid, index, onClick, onFocus, onBlur, onRe
   );
 };
 
+const emailOption = PropTypes.shape({
+  email: PropTypes.string.isRequired,
+  label: PropTypes.string,
+  id: PropTypes.string,
+});
+
 Label.propTypes = {
-  option: PropTypes.shape({
-    email: PropTypes.string.isRequired,
-    label: PropTypes.string,
-    id: PropTypes.string,
-  }).isRequired,
+  option: emailOption.isRequired,
   index: PropTypes.number.isRequired,
   editing: PropTypes.bool,
   invalid: PropTypes.bool,
@@ -103,6 +145,7 @@ Label.propTypes = {
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
   onRemove: PropTypes.func,
+  onFinish: PropTypes.func,
 };
 
 export default Label;
