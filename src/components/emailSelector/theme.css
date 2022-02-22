@@ -89,3 +89,15 @@
     font-weight: 500 !important;
   }
 }
+
+.autocomplete {
+  position: fixed;
+  margin-left: calc(-1 * var(--spacer-smallest));
+  margin-top: var(--spacer-small);
+  min-width: 300px;
+  z-index: var(--overlay-z-index);
+}
+
+.autocomplete-option {
+  cursor: pointer;
+}
