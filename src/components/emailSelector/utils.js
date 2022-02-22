@@ -38,3 +38,23 @@ export function filterSuggestions(filter, suggestions, maxLength = 5) {
   return filteredSuggestions;
 }
 
+function excludeArraySuggestions(filter, suggestions) {
+  return suggestions.filter((suggestion) => !filter.includes(suggestion.email));
+}
+
+export function excludeSuggestions(filter, suggestions) {
+  const emails = filter.map((option) => option.email);
+
+  if (Array.isArray(suggestions)) {
+    return excludeArraySuggestions(emails, suggestions);
+  }
+
+  const filteredSuggestions = {};
+  for (const key in suggestions) {
+    const result = excludeArraySuggestions(emails, suggestions[key]);
+    if (result.length > 0) {
+      filteredSuggestions[key] = result;
+    }
+  }
+  return filteredSuggestions;
+}
