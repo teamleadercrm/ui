@@ -2,7 +2,7 @@
 @import '@teamleader/ui-utilities';
 
 :root {
-  --overlay-z-index: 150;
+  --overlay-z-index: 500;
   --max-label-width: 300px;
 }
 
