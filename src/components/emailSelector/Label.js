@@ -1,5 +1,7 @@
 import React, { useCallback, useState, useEffect, useRef, useMemo } from 'react';
 import PropTypes from 'prop-types';
+import uiTypography from '@teamleader/ui-typography';
+import cx from 'classnames';
 
 import theme from './theme.css';
 import { filterSuggestions, moveSuggestion, selectContentEditable, validateSuggestion } from './utils';
@@ -188,7 +190,7 @@ const Label = ({
           contentEditable
           suppressContentEditableWarning
           tabIndex={0}
-          className={theme['label--editing']}
+          className={cx(theme['label--editing'], uiTypography['text'], uiTypography['text-body'])}
           ref={ref}
           onInput={onChange}
           onKeyDown={onKeyDown}

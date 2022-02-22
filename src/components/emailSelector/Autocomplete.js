@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import uiUtilities from '@teamleader/ui-utilities';
 
 import theme from './theme.css';
-import uiUtilities from '@teamleader/ui-utilities';
 import Box from '../box';
 import { Heading4 } from '../typography';
 import EmailSuggestion from './EmailSuggestion';
