@@ -58,3 +58,13 @@ export function excludeSuggestions(filter, suggestions) {
   }
   return filteredSuggestions;
 }
+
+export function validateSuggestion(filter, suggestion) {
+  const lowerFilter = filter.toLowerCase();
+
+  return (
+    suggestion.email !== filter &&
+    (suggestion.email.toLowerCase().includes(lowerFilter) ||
+      (suggestion.label?.toLowerCase().includes(lowerFilter) ?? false))
+  );
+}
