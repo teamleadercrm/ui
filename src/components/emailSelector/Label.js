@@ -6,6 +6,8 @@ import { filterSuggestions, moveSuggestion, selectContentEditable, validateSugge
 import Tag from '../tag';
 import Link from '../link';
 import Box from '../box';
+import Autocomplete from './Autocomplete';
+import Overlay from '../overlay';
 
 const ENTER = 'Enter';
 const ESCAPE = 'Escape';
@@ -181,6 +183,7 @@ const Label = ({
   if (editing) {
     return (
       <>
+        {hasValidSuggestions && <Overlay active onOverlayClick={onTagBlur} backdrop="" />}
         <Box
           contentEditable
           suppressContentEditableWarning
@@ -193,6 +196,15 @@ const Label = ({
         >
           {option.email}
         </Box>
+        {hasValidSuggestions && (
+          <Autocomplete
+            suggestions={validSuggestions}
+            highlightedSuggestion={selectedSuggestion}
+            onClick={onSuggestionClick}
+            onHover={onSuggestionHover}
+            renderSuggestion={renderSuggestion}
+          />
+        )}
       </>
     );
   }
