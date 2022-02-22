@@ -13,3 +13,28 @@ export function selectContentEditable(element) {
   }
 }
 
+function filterArraySuggestions(filter, suggestions) {
+  const lowerFilter = filter.toLowerCase();
+
+  return suggestions.filter(
+    (suggestion) =>
+      suggestion.email !== filter &&
+      (suggestion.email.toLowerCase().includes(lowerFilter) || suggestion.label?.toLowerCase().includes(lowerFilter)),
+  );
+}
+
+export function filterSuggestions(filter, suggestions, maxLength = 5) {
+  if (Array.isArray(suggestions)) {
+    return filterArraySuggestions(filter, suggestions).slice(0, maxLength);
+  }
+
+  const filteredSuggestions = {};
+  for (const key in suggestions) {
+    const result = filterArraySuggestions(filter, suggestions[key]).slice(0, maxLength);
+    if (result.length > 0) {
+      filteredSuggestions[key] = result;
+    }
+  }
+  return filteredSuggestions;
+}
+
