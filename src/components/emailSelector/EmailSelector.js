@@ -40,7 +40,7 @@ const EmailSelector = ({
 
   const changeHandler = useCallback(
     (selection) => {
-      onChange && onChange([...selection].filter((selection) => selection.email.trim() !== ''));
+      onChange && onChange(selection.filter((selection) => selection.email.trim() !== ''));
     },
     [onChange],
   );
@@ -48,13 +48,13 @@ const EmailSelector = ({
   const onLabelClick = useCallback(
     (index) => {
       setEditingLabel(index);
-      setSelection([...selection].filter((selection, i) => i <= index || selection.email.trim() !== ''));
+      setSelection(selection.filter((selection, i) => i <= index || selection.email.trim() !== ''));
     },
     [setEditingLabel, setSelection, selection],
   );
 
   const createNewLabel = (selection) => {
-    const newSelection = [...selection].filter((selection) => selection.email.trim() !== '');
+    const newSelection = selection.filter((selection) => selection.email.trim() !== '');
     newSelection.push({ email: '' });
     setSelection(newSelection);
     setEditingLabel(newSelection.length - 1);
@@ -134,7 +134,7 @@ const EmailSelector = ({
         (!ref.current?.contains(event.relatedTarget) || event.relatedTarget === inputRef.current)
       ) {
         setWarning(false);
-        setSelection([...selection].filter((selection) => selection.email.trim() !== ''));
+        setSelection(selection.filter((selection) => selection.email.trim() !== ''));
         setEditingLabel(null);
         onBlur && onBlur(event);
       }
