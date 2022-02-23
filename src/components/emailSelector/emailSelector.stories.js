@@ -24,7 +24,6 @@ const suggestions = [
 
 export const basic = () => (
   <EmailSelector
-    warning={text('Warning', '')}
     error={text('Error', '')}
     validator={validator}
     defaultSelection={[suggestions[0]]}
@@ -34,7 +33,6 @@ export const basic = () => (
 
 export const groupedSuggestions = () => (
   <EmailSelector
-    warning={text('Warning', '')}
     error={text('Error', '')}
     validator={validator}
     suggestions={{
@@ -52,7 +50,6 @@ export const groupedSuggestions = () => (
 
 export const customSuggestions = () => (
   <EmailSelector
-    warning={text('Warning', '')}
     error={text('Error', '')}
     validator={validator}
     suggestions={suggestions}
