@@ -94,6 +94,7 @@ declare module '@teamleader/ui' {
   export const LoadingSpinner: React.ComponentType<any>;
   export const Marker: React.ComponentType<any>;
   export const MarketingButton: React.ComponentType<any>;
+  export const MarketingButtonGroup: React.ComponentType<any>;
   export const MarketingLink: React.ComponentType<any>;
   export const MarketingLockBadge: React.ComponentType<any>;
   export const MarketingMarker: React.ComponentType<any>;
