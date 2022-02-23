@@ -67,6 +67,7 @@ declare module '@teamleader/ui' {
     Body: React.ComponentType<any>;
     Footer: React.ComponentType<any>;
   };
+  export const EmailSelector: React.ComponentType<any>;
   export const EmptyPassport: React.ComponentType<any>;
   export const EmptyState: React.ComponentType<any>;
   export const ErrorText: React.ComponentType<any>;

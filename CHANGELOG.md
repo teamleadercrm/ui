@@ -1,6 +1,7 @@
 ## [unreleased]
 
 ### Added
+- `EmailSelector`: Added new component. ([@lorgan3](https://github.com/lorgan3) in [#2002](https://github.com/teamleadercrm/ui/pull/2002))
 
 - `MarketingButtonGroup`: Added new component. ([@jelledc](https://github.com/jelledc) in [#2003](https://github.com/teamleadercrm/ui/pull/2003))
 
