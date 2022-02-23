@@ -2,6 +2,8 @@
 
 ### Added
 
+- `MarketingButtonGroup`: Added new component. ([@jelledc](https://github.com/jelledc) in [#2003](https://github.com/teamleadercrm/ui/pull/2003))
+
 ### Changed
 
 ### Deprecated
