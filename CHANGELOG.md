@@ -12,6 +12,12 @@
 
 ### Dependency updates
 
+## [12.2.1] - 2022-02-25
+
+### Fixed
+
+- `MarketingButtonGroup`: Added `MarketingButtonGroup.Button` to type index. ([@jelledc](https://github.com/jelledc) in [#2009](https://github.com/teamleadercrm/ui/pull/2009))
+
 ## [12.2.0] - 2022-02-25
 
 ### Added
