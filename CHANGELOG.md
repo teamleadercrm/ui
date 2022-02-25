@@ -2,7 +2,7 @@
 
 ### Added
 
-### Changed
+- `Select`: Changed the margin of the menu to 3 ([@JorenSaeyTL](https://github.com/JorenSaeyTL) in [#2008](https://github.com/teamleadercrm/ui/pull/2008))
 
 ### Deprecated
 
