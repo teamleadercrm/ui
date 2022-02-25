@@ -2,7 +2,8 @@
 
 ### Added
 
-- `Select`: Changed the margin of the menu to 3 ([@JorenSaeyTL](https://github.com/JorenSaeyTL) in [#2008](https://github.com/teamleadercrm/ui/pull/2008))
+- `Select`: Changed the margin of the menu to 3px ([@JorenSaeyTL](https://github.com/JorenSaeyTL) in [#2008](https://github.com/teamleadercrm/ui/pull/2008))
+- `Popover`: Changed the Popover offset to 3px ([@JorenSaeyTL](https://github.com/JorenSaeyTL) in [#2008](https://github.com/teamleadercrm/ui/pull/2008))
 
 ### Deprecated
 
@@ -11,6 +12,7 @@
 ### Fixed
 
 - `MarketingButtonGroup`: Added `MarketingButtonGroup.Button` to type index. ([@jelledc](https://github.com/jelledc) in [#2009](https://github.com/teamleadercrm/ui/pull/2009))
+- `SingleLineInputBase`: Fix width inconsistency ([@JorenSaeyTL](https://github.com/JorenSaeyTL) in [#2008](https://github.com/teamleadercrm/ui/pull/2008))
 
 ### Dependency updates
 
