@@ -38,6 +38,7 @@ import Input, { InputBase, NumericInput, Textarea, TimeInput, DurationInput } fr
 import Menu, { IconMenu, MenuItem, MenuDivider, MenuTitle } from './components/menu';
 import Link from './components/link';
 import MarketingButton from './components/marketingButton';
+import MarketingButtonGroup from './components/marketingButtonGroup';
 import MarketingLink from './components/marketingLink';
 import MarketingLockBadge from './components/marketingLockBadge';
 import MarketingMarker from './components/marketingMarker';
@@ -71,6 +72,7 @@ import Tooltip from './components/tooltip';
 import ProgressTracker from './components/progressTracker';
 import Widget from './components/widget';
 import WysiwygEditor from './components/wysiwygEditor';
+import EmailSelector from './components/emailSelector';
 
 import {
   COLOR,
@@ -89,13 +91,12 @@ import {
 
 export {
   AdvancedCollapsible,
+  AsyncSelect,
   Avatar,
   AvatarStack,
-  AsyncSelect,
   Badge,
   BadgedLink,
   Banner,
-  InputBase,
   Box,
   Bullet,
   Button,
@@ -111,6 +112,8 @@ export {
   DetailPageHeader,
   Dialog,
   DialogBase,
+  DurationInput,
+  EmailSelector,
   EmptyPassport,
   EmptyState,
   ErrorText,
@@ -125,6 +128,7 @@ export {
   IconButton,
   IconMenu,
   Input,
+  InputBase,
   Island,
   IslandGroup,
   Label,
@@ -135,16 +139,17 @@ export {
   LoadingSpinner,
   Marker,
   MarketingButton,
+  MarketingButtonGroup,
+  MarketingHeading1,
+  MarketingHeading2,
   MarketingLink,
   MarketingLockBadge,
   MarketingMarker,
   MarketingStatusLabel,
-  MarketingHeading1,
-  MarketingHeading2,
   MarketingTab,
   Menu,
-  MenuItem,
   MenuDivider,
+  MenuItem,
   MenuTitle,
   Message,
   Monospaced,
@@ -153,26 +158,25 @@ export {
   OverviewPage,
   OverviewPageBody,
   OverviewPageHeader,
-  Passport,
   Pagination,
+  Passport,
   Popover,
-  ProgressTracker,
   PoweredByButton,
+  ProgressTracker,
   RadioButton,
   RadioGroup,
   Section,
   Select,
   SplitButton,
   StatusLabel,
+  TabGroup,
+  Tag,
+  Textarea,
   TextBody,
   TextBodyCompact,
   TextDisplay,
   TextSmall,
-  TabGroup,
-  Tag,
-  Textarea,
   TimeInput,
-  DurationInput,
   Timer,
   TitleTab,
   Toast,

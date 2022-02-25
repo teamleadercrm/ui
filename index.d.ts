@@ -67,6 +67,7 @@ declare module '@teamleader/ui' {
     Body: React.ComponentType<any>;
     Footer: React.ComponentType<any>;
   };
+  export const EmailSelector: React.ComponentType<any>;
   export const EmptyPassport: React.ComponentType<any>;
   export const EmptyState: React.ComponentType<any>;
   export const ErrorText: React.ComponentType<any>;
@@ -94,6 +95,7 @@ declare module '@teamleader/ui' {
   export const LoadingSpinner: React.ComponentType<any>;
   export const Marker: React.ComponentType<any>;
   export const MarketingButton: React.ComponentType<any>;
+  export const MarketingButtonGroup: React.ComponentType<any>;
   export const MarketingLink: React.ComponentType<any>;
   export const MarketingLockBadge: React.ComponentType<any>;
   export const MarketingMarker: React.ComponentType<any>;
