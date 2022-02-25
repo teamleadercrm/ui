@@ -5,6 +5,8 @@
 - `Select`: Changed the margin of the menu to 3px ([@JorenSaeyTL](https://github.com/JorenSaeyTL) in [#2008](https://github.com/teamleadercrm/ui/pull/2008))
 - `Popover`: Changed the Popover offset to 3px ([@JorenSaeyTL](https://github.com/JorenSaeyTL) in [#2008](https://github.com/teamleadercrm/ui/pull/2008))
 
+### Changed
+
 ### Deprecated
 
 ### Removed
