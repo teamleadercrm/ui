@@ -183,6 +183,12 @@ class Select extends PureComponent {
     };
   };
 
+  getMenuStyles = (base) => ({
+    ...base,
+    marginTop: 3,
+    marginBottom: 3,
+  });
+
   getMenuPortalStyles = (base) => {
     const { inverse, menuWidth } = this.props;
 
@@ -336,6 +342,7 @@ class Select extends PureComponent {
     group: this.getGroupStyles,
     groupHeading: this.getGroupHeadingStyles,
     input: this.getInput,
+    menu: this.getMenuStyles,
     menuPortal: this.getMenuPortalStyles,
     multiValue: this.getMultiValueStyles,
     multiValueLabel: this.getMultiValueLabelStyles,
