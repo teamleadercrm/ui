@@ -88,7 +88,7 @@ class SingleLineInputBase extends PureComponent {
       <Box className={classNames} {...boxProps}>
         <div className={cx(theme['input-wrapper'], noInputStyling && theme['is-input-disabled'])}>
           {connectedLeft}
-          <div className={theme['input-inner-wrapper']} style={{ width }}>
+          <div className={theme['input-inner-wrapper']} style={{ width, flex: width && '0 0 auto' }}>
             {prefix && <div className={theme['prefix-wrapper']}>{this.renderOneOrMultipleElements(prefix)}</div>}
             <InputBase {...inputProps} />
             {suffix && <div className={theme['suffix-wrapper']}>{this.renderOneOrMultipleElements(suffix)}</div>}
