@@ -14,22 +14,14 @@
 
 ## [12.3.0] - 2022-02-28
 
-### Added
-
 ### Changed
 
 - `Select`: Changed the margin of the menu to 3px ([@JorenSaeyTL](https://github.com/JorenSaeyTL) in [#2008](https://github.com/teamleadercrm/ui/pull/2008))
 - `Popover`: Changed the Popover offset to 3px ([@JorenSaeyTL](https://github.com/JorenSaeyTL) in [#2008](https://github.com/teamleadercrm/ui/pull/2008))
 
-### Deprecated
-
-### Removed
-
 ### Fixed
 
 - `SingleLineInputBase`: Fixed input being 2px too large when applying `width: 100%`. ([@stefaandevylder](https://github.com/stefaandevylder) in [#2014](https://github.com/teamleadercrm/ui/pull/2014))
-
-### Dependency updates
 
 ### Dependency updates
 
