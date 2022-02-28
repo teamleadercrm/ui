@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `SingleLineInputBase`: Fixed `flex` basis setting. ([@stefaandevylder]https://github.com/stefaandevylder) in [#2014](https://github.com/teamleadercrm/ui/pull/2014)
+
 ### Dependency updates
 
 ## [12.2.1] - 2022-02-25
