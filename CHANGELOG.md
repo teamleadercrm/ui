@@ -13,6 +13,8 @@
 
 ### Fixed
 
+- `SingleLineInputBase`: Fixed input being 2px too large when applying `width: 100%`. ([@stefaandevylder](https://github.com/stefaandevylder) in [#2014](https://github.com/teamleadercrm/ui/pull/2014))
+
 ### Dependency updates
 
 ## [12.2.1] - 2022-02-25
