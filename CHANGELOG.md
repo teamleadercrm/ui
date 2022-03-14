@@ -2,6 +2,8 @@
 
 ### Added
 
+- `Avatar`: Added object-fit to the image inside the Avatar component. ([@stefaandevylder](https://github.com/stefaandevylder) in [#2034](https://github.com/teamleadercrm/ui/pull/2034))
+
 ### Changed
 
 ### Deprecated
