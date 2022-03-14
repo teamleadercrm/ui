@@ -43,6 +43,7 @@
   height: inherit;
   overflow: hidden;
   width: inherit;
+  object-fit: cover;
 }
 
 .overflow {
