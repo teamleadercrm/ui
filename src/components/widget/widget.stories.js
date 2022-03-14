@@ -37,6 +37,17 @@ export const Basic = () => (
   </Widget>
 );
 
+export const WithMultipleBody = () => (
+  <Widget>
+    <Widget.Body>
+      <TextBody>Here you can add arbitrary content.</TextBody>
+    </Widget.Body>
+    <Widget.Body>
+      <TextBody>Here you can add arbitrary content.</TextBody>
+    </Widget.Body>
+  </Widget>
+);
+
 export const WithHeader = () => (
   <Widget>
     <Widget.Header>
