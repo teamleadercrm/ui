@@ -67,6 +67,8 @@ Dialog.propTypes = {
   children: PropTypes.any,
   /** A class name for the wrapper to apply custom styles. */
   className: PropTypes.string,
+  /** If true, the dialog will be draggable. */
+  draggable: PropTypes.bool,
   /** The color of the header of the dialog. */
   headerColor: PropTypes.oneOf(COLORS),
   /** The icon in the header of the dialog. */
