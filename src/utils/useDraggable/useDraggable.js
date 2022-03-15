@@ -12,23 +12,23 @@ export const useDraggable = (active, dragTargetRef, dragHandleRef) => {
     let x = 0;
     let y = 0;
 
-    const mouseDownHandler = function (e) {
-      x = e.clientX;
-      y = e.clientY;
+    const mouseDownHandler = function (event) {
+      x = event.clientX;
+      y = event.clientY;
 
       document.addEventListener('mousemove', mouseMoveHandler);
       document.addEventListener('mouseup', mouseUpHandler);
     };
 
-    const mouseMoveHandler = function (e) {
-      const dx = e.clientX - x;
-      const dy = e.clientY - y;
+    const mouseMoveHandler = function (event) {
+      const dx = event.clientX - x;
+      const dy = event.clientY - y;
 
       currentDragTargetRef.style.top = `${currentDragTargetRef.offsetTop + dy}px`;
       currentDragTargetRef.style.left = `${currentDragTargetRef.offsetLeft + dx}px`;
 
-      x = e.clientX;
-      y = e.clientY;
+      x = event.clientX;
+      y = event.clientY;
     };
 
     const mouseUpHandler = function () {
