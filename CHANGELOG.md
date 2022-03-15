@@ -3,6 +3,7 @@
 ### Added
 
 - `Avatar`: Added object-fit to the image inside the Avatar component. ([@stefaandevylder](https://github.com/stefaandevylder) in [#2034](https://github.com/teamleadercrm/ui/pull/2034))
+- `Dialog`: Added `draggable` prop, which allows the Dialog to be moved around the viewport  ([@driesd](https://github.com/driesd) in [#1979](https://github.com/teamleadercrm/ui/pull/1979))
 
 ### Changed
 
