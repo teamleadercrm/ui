@@ -2,6 +2,8 @@
 
 ### Added
 
+- `Avatar`: Added object-fit to the image inside the Avatar component. ([@stefaandevylder](https://github.com/stefaandevylder) in [#2034](https://github.com/teamleadercrm/ui/pull/2034))
+
 ### Changed
 
 ### Deprecated
@@ -10,9 +12,46 @@
 
 ### Fixed
 
-- `Dialog`: onEscKeyDown not triggering ([@qubis741](https://github.com/qubis741) in [#1971](https://github.com/teamleadercrm/ui/pull/1971))
+### Dependency updates
+
+## [12.3.0] - 2022-02-28
+
+### Changed
+
+- `Select`: Changed the margin of the menu to 3px ([@JorenSaeyTL](https://github.com/JorenSaeyTL) in [#2008](https://github.com/teamleadercrm/ui/pull/2008))
+- `Popover`: Changed the Popover offset to 3px ([@JorenSaeyTL](https://github.com/JorenSaeyTL) in [#2008](https://github.com/teamleadercrm/ui/pull/2008))
+
+### Fixed
+
+- `SingleLineInputBase`: Fixed input being 2px too large when applying `width: 100%`. ([@stefaandevylder](https://github.com/stefaandevylder) in [#2014](https://github.com/teamleadercrm/ui/pull/2014))
 
 ### Dependency updates
+
+## [12.2.1] - 2022-02-25
+
+### Fixed
+
+- `MarketingButtonGroup`: Added `MarketingButtonGroup.Button` to type index. ([@jelledc](https://github.com/jelledc) in [#2009](https://github.com/teamleadercrm/ui/pull/2009))
+
+## [12.2.0] - 2022-02-25
+
+### Added
+
+- `EmailSelector`: Added new component. ([@lorgan3](https://github.com/lorgan3) in [#2002](https://github.com/teamleadercrm/ui/pull/2002))
+- `MarketingButtonGroup`: Added new component. ([@jelledc](https://github.com/jelledc) in [#2003](https://github.com/teamleadercrm/ui/pull/2003))
+
+## [12.1.3] - 2022-02-18
+
+### Changed
+
+- `Dialog`: added `size` prop to documentation, Footer has top border ([@qubis741](https://github.com/qubis741) in [#1993](https://github.com/teamleadercrm/ui/pull/1993))
+- `Select`: added `size` prop to documentation ([@qubis741](https://github.com/qubis741) in [#1993](https://github.com/teamleadercrm/ui/pull/1993))
+
+## [12.1.2] - 2022-02-14
+
+### Fixed
+
+- `Dialog`: onEscKeyDown not triggering ([@qubis741](https://github.com/qubis741) in [#1971](https://github.com/teamleadercrm/ui/pull/1971))
 
 ## [12.1.1] - 2022-02-02
 

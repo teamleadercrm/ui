@@ -88,6 +88,8 @@ Dialog.propTypes = {
   onCloseClick: PropTypes.func,
   /** Object containing the props of the primary action (a Button, with level prop set to 'primary'). */
   primaryAction: PropTypes.object.isRequired,
+  /** The size of the dialog. */
+  size: PropTypes.oneOf(['small', 'medium', 'large', 'fullscreen']),
   /** If true, the content of the dialog will be scrollable when it exceeds the available height. */
   scrollable: PropTypes.bool,
   /** Object containing the the props of the secondary action (a Button). */
@@ -102,6 +104,7 @@ Dialog.defaultProps = {
   headerColor: 'neutral',
   headingLevel: 3,
   scrollable: true,
+  size: 'medium',
 };
 
 export default Dialog;
