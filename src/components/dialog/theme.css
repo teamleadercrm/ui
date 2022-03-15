@@ -88,3 +88,7 @@
 .draggable {
   position: absolute;
 }
+
+.drag-icon {
+  cursor: move;
+}

@@ -15,7 +15,7 @@ class Dialog extends PureComponent {
 
   getHeader = () => {
     const { draggable, headerColor, headerIcon, headingLevel, onCloseClick, title } = this.props;
-    const icon = draggable ? <div ref={this.dragHandleRef} style={{ cursor: 'move'}}><IconDragMediumFilled /></div> : headerIcon;
+    const icon = draggable ? <div className={theme['drag-icon']} ref={this.dragHandleRef}><IconDragMediumFilled /></div> : headerIcon;
 
     return (
       <DialogBase.Header color={headerColor} icon={icon} onClose={onCloseClick}>
