@@ -3,8 +3,8 @@ export const makeDraggable = (dragTargetRef, dragHandleRef) => {
     return;
   }
 
-  const ele = dragTargetRef.current;
-  const handle = dragHandleRef.current;
+  const dragTarget = dragTargetRef.current;
+  const dragHandle = dragHandleRef.current;
   let x = 0;
   let y = 0;
 
@@ -20,8 +20,8 @@ export const makeDraggable = (dragTargetRef, dragHandleRef) => {
     const dx = e.clientX - x;
     const dy = e.clientY - y;
 
-    ele.style.top = `${ele.offsetTop + dy}px`;
-    ele.style.left = `${ele.offsetLeft + dx}px`;
+    dragTarget.style.top = `${dragTarget.offsetTop + dy}px`;
+    dragTarget.style.left = `${dragTarget.offsetLeft + dx}px`;
 
     x = e.clientX;
     y = e.clientY;
@@ -32,5 +32,5 @@ export const makeDraggable = (dragTargetRef, dragHandleRef) => {
     document.removeEventListener('mouseup', mouseUpHandler);
   };
 
-  handle.addEventListener('mousedown', mouseDownHandler);
+  dragHandle.addEventListener('mousedown', mouseDownHandler);
 };
