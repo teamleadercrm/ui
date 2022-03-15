@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
@@ -26,7 +26,7 @@ export const DialogBase = ({
   const { ref, FocusRing } = useFocusTrap({ active, initialFocusRef });
   useEffect(() => {
     if (active) {
-      makeDraggable();
+      makeDraggable(ref);
     }
   }, [active]);
   if (!active) {
@@ -54,7 +54,7 @@ export const DialogBase = ({
             onEscKeyDown={onEscKeyDown}
           >
             <FocusRing>
-              <div ref={ref} id="dragMe" data-teamleader-ui="dialog" className={dialogClassNames}>
+              <div ref={ref} data-teamleader-ui="dialog" className={dialogClassNames}>
                 <div className={theme['inner']}>
                   {scrollable ? (
                     <Box display="flex" flexDirection="column" overflowY="auto">
@@ -75,11 +75,11 @@ export const DialogBase = ({
   return createPortal(dialog, document.body);
 };
 
-const makeDraggable = () => {
+const makeDraggable = (targetRef) => {
   let x = 0;
   let y = 0;
 
-  const ele = document.getElementById('dragMe');
+  const ele = targetRef.current;
 
   const mouseDownHandler = function (e) {
     x = e.clientX;
