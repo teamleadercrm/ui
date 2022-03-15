@@ -7,15 +7,18 @@ import theme from './theme.css';
 
 import { Button, ButtonGroup, DialogBase, Heading2, Heading3, Link } from '../../index';
 import { COLORS } from '../../constants';
+import { IconDragMediumFilled } from '@teamleader/ui-icons';
 
 class Dialog extends PureComponent {
   bodyRef = createRef();
+  dragHandleRef = createRef();
 
   getHeader = () => {
-    const { headerColor, headerIcon, headingLevel, onCloseClick, title } = this.props;
+    const { draggable, headerColor, headerIcon, headingLevel, onCloseClick, title } = this.props;
+    const icon = draggable ? <div ref={this.dragHandleRef} style={{ cursor: 'move'}}><IconDragMediumFilled /></div> : headerIcon;
 
     return (
-      <DialogBase.Header color={headerColor} icon={headerIcon} onClose={onCloseClick}>
+      <DialogBase.Header color={headerColor} icon={icon} onClose={onCloseClick}>
         {headingLevel === 2 ? <Heading2>{title}</Heading2> : <Heading3>{title}</Heading3>}
       </DialogBase.Header>
     );
