@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
@@ -11,7 +11,7 @@ import Footer from './Footer';
 import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
 import useFocusTrap from '../../utils/useFocusTrap';
-import { makeDraggable } from '../../utils/makeDraggable/makeDraggable';
+import { useDraggable } from '../../utils/useDraggable/useDraggable';
 
 export const DialogBase = ({
   active,
@@ -26,11 +26,8 @@ export const DialogBase = ({
   initialFocusRef,
 }) => {
   const { ref, FocusRing } = useFocusTrap({ active, initialFocusRef });
-  useEffect(() => {
-    if (active) {
-      makeDraggable(ref, dragHandleRef);
-    }
-  }, [active]);
+  useDraggable(active, ref, dragHandleRef);
+
   if (!active) {
     return null;
   }
