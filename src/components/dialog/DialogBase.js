@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
@@ -17,6 +17,7 @@ export const DialogBase = ({
   backdrop,
   children,
   className,
+  dragHandleRef,
   onEscKeyDown,
   onOverlayClick,
   scrollable,
@@ -26,7 +27,7 @@ export const DialogBase = ({
   const { ref, FocusRing } = useFocusTrap({ active, initialFocusRef });
   useEffect(() => {
     if (active) {
-      makeDraggable(ref);
+      makeDraggable(ref, dragHandleRef);
     }
   }, [active]);
   if (!active) {
@@ -75,11 +76,15 @@ export const DialogBase = ({
   return createPortal(dialog, document.body);
 };
 
-const makeDraggable = (targetRef) => {
+const makeDraggable = (dragTargetRef, dragHandleRef) => {
+  if (!dragTargetRef?.current || !dragHandleRef?.current) {
+    return;
+  }
+
+  const ele = dragTargetRef.current;
+  const handle = dragHandleRef.current;
   let x = 0;
   let y = 0;
-
-  const ele = targetRef.current;
 
   const mouseDownHandler = function (e) {
     x = e.clientX;
@@ -105,7 +110,7 @@ const makeDraggable = (targetRef) => {
     document.removeEventListener('mouseup', mouseUpHandler);
   };
 
-  ele.addEventListener('mousedown', mouseDownHandler);
+  handle.addEventListener('mousedown', mouseDownHandler);
 };
 
 DialogBase.propTypes = {

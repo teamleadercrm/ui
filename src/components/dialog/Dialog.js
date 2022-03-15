@@ -52,7 +52,13 @@ class Dialog extends PureComponent {
     ]);
 
     return (
-      <DialogBase className={classNames} {...restProps} scrollable={false} initialFocusRef={this.bodyRef}>
+      <DialogBase
+        {...restProps}
+        className={classNames}
+        dragHandleRef={this.dragHandleRef}
+        initialFocusRef={this.bodyRef}
+        scrollable={false}
+      >
         {title && this.getHeader()}
         <DialogBase.Body ref={this.bodyRef} scrollable={scrollable}>
           {children}
