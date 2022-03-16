@@ -1,14 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { IconCloseMediumOutline } from '@teamleader/ui-icons';
 
-import { Banner } from '../../index';
 import { COLORS } from '../../constants';
+import Section from '../section';
+import IconButton from '../iconButton';
 
 const Header = ({ color, icon, onCloseClick, children, ...rest }) => {
   return (
-    <Banner color={color} fullWidth icon={icon} onClose={onCloseClick} {...rest}>
+    <Section display="flex" alignItems="center" color={color} {...rest}>
+      {icon}
       {children}
-    </Banner>
+      {onCloseClick && <IconButton icon={<IconCloseMediumOutline />} onClick={onCloseClick} />}
+    </Section>
   );
 };
 

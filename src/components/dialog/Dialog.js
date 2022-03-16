@@ -25,7 +25,7 @@ class Dialog extends PureComponent {
     );
 
     return (
-      <DialogBase.Header color={headerColor} icon={icon} onClose={onCloseClick}>
+      <DialogBase.Header color={headerColor} icon={icon} onCloseClick={onCloseClick}>
         {headingLevel === 2 ? <Heading2>{title}</Heading2> : <Heading3>{title}</Heading3>}
       </DialogBase.Header>
     );
