@@ -11,6 +11,7 @@ import Footer from './Footer';
 import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
 import useFocusTrap from '../../utils/useFocusTrap';
+import useDraggable from './useDraggable';
 
 export const DialogBase = ({
   active,
@@ -25,6 +26,7 @@ export const DialogBase = ({
   dragHandleRef,
 }) => {
   const { ref, FocusRing } = useFocusTrap({ active, initialFocusRef });
+  useDraggable({ active, dragTargetRef: ref, dragHandleRef });
 
   if (!active) {
     return null;
