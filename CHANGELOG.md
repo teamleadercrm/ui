@@ -3,6 +3,8 @@
 ### Added
 
 - `Avatar`: Added object-fit to the image inside the Avatar component. ([@stefaandevylder](https://github.com/stefaandevylder) in [#2034](https://github.com/teamleadercrm/ui/pull/2034))
+- `Dialog`: Added `draggable` property ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#2040](https://github.com/teamleadercrm/ui/pull/2040))
+- `DialogBase`: Added `dragHandleRef` property ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#2040](https://github.com/teamleadercrm/ui/pull/2040))
 
 ### Changed
 

@@ -11,6 +11,7 @@ import Footer from './Footer';
 import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
 import useFocusTrap from '../../utils/useFocusTrap';
+import useDraggable from './useDraggable';
 
 export const DialogBase = ({
   active,
@@ -22,8 +23,10 @@ export const DialogBase = ({
   scrollable,
   size,
   initialFocusRef,
+  dragHandleRef,
 }) => {
   const { ref, FocusRing } = useFocusTrap({ active, initialFocusRef });
+  useDraggable({ active, dragTargetRef: ref, dragHandleRef });
 
   if (!active) {
     return null;
@@ -89,6 +92,8 @@ DialogBase.propTypes = {
   size: PropTypes.oneOf(['small', 'medium', 'large', 'fullscreen']),
   /** The initial part of the dialog where the focus will be set, useful to avoid focusing on the close button */
   initialFocusRef: PropTypes.any,
+  /** The element used to drag a dialog, @see Dialog component header for an example */
+  dragHandleRef: PropTypes.any,
 };
 
 DialogBase.defaultProps = {
