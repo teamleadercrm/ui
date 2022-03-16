@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { IconCloseMediumOutline } from '@teamleader/ui-icons';
 
-import { COLORS } from '../../constants';
 import Section from '../section';
 import IconButton from '../iconButton';
 
@@ -20,7 +19,7 @@ Header.propTypes = {
   /** The content to display inside the dialog. */
   children: PropTypes.any,
   /** The color of the banner */
-  color: PropTypes.oneOf(COLORS),
+  color: PropTypes.oneOf(['white', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua']),
   /** The icon in the banner. */
   icon: PropTypes.element,
   /** Callback function that is fired when the close icon clicked. */

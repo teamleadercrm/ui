@@ -6,7 +6,6 @@ import cx from 'classnames';
 import theme from './theme.css';
 
 import { Button, ButtonGroup, DialogBase, Heading2, Heading3, Link } from '../../index';
-import { COLORS } from '../../constants';
 import { IconDragMediumFilled } from '@teamleader/ui-icons';
 
 class Dialog extends PureComponent {
@@ -84,7 +83,7 @@ Dialog.propTypes = {
   /** A class name for the wrapper to apply custom styles. */
   className: PropTypes.string,
   /** The color of the header of the dialog. */
-  headerColor: PropTypes.oneOf(COLORS),
+  headerColor: PropTypes.oneOf(['white', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua']),
   /** The icon in the header of the dialog. */
   headerIcon: PropTypes.element,
   /** The level of the heading of the dialog. */
