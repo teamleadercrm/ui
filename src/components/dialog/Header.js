@@ -1,20 +1,16 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Banner } from '../../index';
 import { COLORS } from '../../constants';
 
-class Header extends PureComponent {
-  render() {
-    const { color, icon, onCloseClick, children, ...rest } = this.props;
-
-    return (
-      <Banner color={color} fullWidth icon={icon} onClose={onCloseClick} {...rest}>
-        {children}
-      </Banner>
-    );
-  }
-}
+const Header = ({ color, icon, onCloseClick, children, ...rest }) => {
+  return (
+    <Banner color={color} fullWidth icon={icon} onClose={onCloseClick} {...rest}>
+      {children}
+    </Banner>
+  );
+};
 
 Header.propTypes = {
   /** The content to display inside the dialog. */
