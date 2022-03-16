@@ -11,12 +11,13 @@ import { IconDragMediumFilled } from '@teamleader/ui-icons';
 
 class Dialog extends PureComponent {
   bodyRef = createRef();
+  dragHandleRef = createRef();
 
   getHeader = () => {
     const { draggable, headerColor, headerIcon, headingLevel, onCloseClick, title } = this.props;
 
     const icon = draggable ? (
-      <div className={theme['drag-icon']}>
+      <div className={theme['drag-icon']} ref={this.dragHandleRef}>
         <IconDragMediumFilled />
       </div>
     ) : (
@@ -58,7 +59,13 @@ class Dialog extends PureComponent {
     ]);
 
     return (
-      <DialogBase className={classNames} {...restProps} scrollable={false} initialFocusRef={this.bodyRef}>
+      <DialogBase
+        className={classNames}
+        {...restProps}
+        scrollable={false}
+        initialFocusRef={this.bodyRef}
+        dragHandleRef={this.dragHandleRef}
+      >
         {title && this.getHeader()}
         <DialogBase.Body ref={this.bodyRef} scrollable={scrollable}>
           {children}

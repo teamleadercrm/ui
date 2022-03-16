@@ -22,6 +22,7 @@ export const DialogBase = ({
   scrollable,
   size,
   initialFocusRef,
+  dragHandleRef,
 }) => {
   const { ref, FocusRing } = useFocusTrap({ active, initialFocusRef });
 
@@ -89,6 +90,8 @@ DialogBase.propTypes = {
   size: PropTypes.oneOf(['small', 'medium', 'large', 'fullscreen']),
   /** The initial part of the dialog where the focus will be set, useful to avoid focusing on the close button */
   initialFocusRef: PropTypes.any,
+  /** The element used to drag a dialog, @see Dialog component header for an example */
+  dragHandleRef: PropTypes.any,
 };
 
 DialogBase.defaultProps = {
