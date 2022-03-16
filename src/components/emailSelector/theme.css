@@ -88,6 +88,10 @@
   &-text {
     font-weight: 500 !important;
   }
+
+  &-overlay {
+    z-index: calc(var(--overlay-z-index) - 1);
+  }
 }
 
 .autocomplete {
