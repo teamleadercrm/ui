@@ -79,3 +79,7 @@
   flex: 1;
   overflow: auto;
 }
+
+.drag-icon {
+  cursor: move;
+}
