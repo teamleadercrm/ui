@@ -12,6 +12,8 @@
 
 ### Fixed
 
+- `EmailSelector`: Fix suggestions not always going away when clicking away ([@lorgan3](https://github.com/lorgan3) in [#2041](https://github.com/teamleadercrm/ui/pull/2041))
+
 ### Dependency updates
 
 ## [12.3.0] - 2022-02-28
