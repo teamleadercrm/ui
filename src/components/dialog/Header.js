@@ -4,13 +4,26 @@ import { IconCloseMediumOutline } from '@teamleader/ui-icons';
 
 import Section from '../section';
 import IconButton from '../iconButton';
+import Icon from '../icon';
+
+import theme from './theme.css';
 
 const Header = ({ color, icon, onCloseClick, children, ...rest }) => {
   return (
     <Section display="flex" alignItems="center" color={color} {...rest}>
-      {icon}
+      <Icon color="teal" tint="darkest" marginRight={3}>
+        {icon}
+      </Icon>
       {children}
-      {onCloseClick && <IconButton icon={<IconCloseMediumOutline />} onClick={onCloseClick} />}
+      {onCloseClick && (
+        <IconButton
+          icon={<IconCloseMediumOutline />}
+          onClick={onCloseClick}
+          marginLeft={4}
+          marginVertical={-1}
+          className={theme['close-icon']}
+        />
+      )}
     </Section>
   );
 };
