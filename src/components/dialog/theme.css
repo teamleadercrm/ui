@@ -5,13 +5,13 @@
 :root {
   --dialog-background-color: var(--color-white);
   --dialog-border-radius: calc(0.4 * var(--unit));
-  --dialog-translate-y: calc(-4 * var(--unit));
+  --dialog-initial-translate-y: -75%;
+  --dialog-initial-translate-x: -50%;
+  --dialog-translate-y: -50%;
+  --dialog-translate-x: -50%;
 }
 
 .overlay {
-  align-items: center;
-  display: flex;
-  justify-content: center;
   z-index: 403;
 }
 
@@ -23,7 +23,9 @@
   max-height: 96vh;
   max-width: 90vw;
   opacity: 0;
-  transform: translateY(var(--dialog-translate-y));
+  left: 50%;
+  top: 50%;
+  transform: translateY(var(--dialog-initial-translate-y)) translateX(var(--dialog-initial-translate-x));
   transition: opacity var(--animation-duration) var(--animation-curve-default),
     transform var(--animation-duration) var(--animation-curve-default);
   transition-delay: var(--animation-delay);
@@ -41,13 +43,15 @@
 }
 
 .dialog-base {
+  position: absolute;
+
   &.is-entering {
     opacity: 0;
   }
 
   &.is-entered {
     opacity: 1;
-    transform: translateY(0%);
+    transform: translateY(var(--dialog-translate-y)) translateX(var(--dialog-translate-x));
   }
 }
 
