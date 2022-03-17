@@ -185,7 +185,9 @@ const Label = ({
   if (editing) {
     return (
       <>
-        {hasValidSuggestions && <Overlay active onOverlayClick={onTagBlur} backdrop="" />}
+        {hasValidSuggestions && (
+          <Overlay active onOverlayClick={onTagBlur} backdrop="" className={theme['label-overlay']} />
+        )}
         <Box
           contentEditable
           suppressContentEditableWarning

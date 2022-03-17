@@ -10,8 +10,10 @@ updates:
       - driesd
       - ArnaudWeyts
       - lowiebenoot
-      - sanderbrugge
       - JorenSaeyTL
       - lorgan3
+      - jelledc
+      - farazatarodi
+      - qubis741
     labels:
       - dependencies

@@ -12,6 +12,39 @@
 
 ### Dependency updates
 
+## [12.4.0] - 2022-03-17
+
+### Added
+
+- `Avatar`: Added object-fit to the image inside the Avatar component. ([@stefaandevylder](https://github.com/stefaandevylder) in [#2034](https://github.com/teamleadercrm/ui/pull/2034))
+- `Dialog`: Added `draggable` property ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#2040](https://github.com/teamleadercrm/ui/pull/2040))
+- `DialogBase`: Added `dragHandleRef` property ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#2040](https://github.com/teamleadercrm/ui/pull/2040))
+
+### Changed
+
+- `Dialog`: header title will now overflow into ellipsis instead of wrapping to the next line ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#2042](https://github.com/teamleadercrm/ui/pull/2042))
+
+### Removed
+
+- `Dialog`: removed the `headingLevel` property, the previous default (3) will be used ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#2042](https://github.com/teamleadercrm/ui/pull/2042))
+
+### Fixed
+
+- `EmailSelector`: Fix suggestions not always going away when clicking away ([@lorgan3](https://github.com/lorgan3) in [#2041](https://github.com/teamleadercrm/ui/pull/2041))
+
+## [12.3.0] - 2022-02-28
+
+### Changed
+
+- `Select`: Changed the margin of the menu to 3px ([@JorenSaeyTL](https://github.com/JorenSaeyTL) in [#2008](https://github.com/teamleadercrm/ui/pull/2008))
+- `Popover`: Changed the Popover offset to 3px ([@JorenSaeyTL](https://github.com/JorenSaeyTL) in [#2008](https://github.com/teamleadercrm/ui/pull/2008))
+
+### Fixed
+
+- `SingleLineInputBase`: Fixed input being 2px too large when applying `width: 100%`. ([@stefaandevylder](https://github.com/stefaandevylder) in [#2014](https://github.com/teamleadercrm/ui/pull/2014))
+
+### Dependency updates
+
 ## [12.2.1] - 2022-02-25
 
 ### Fixed

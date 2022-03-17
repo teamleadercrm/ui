@@ -1,26 +1,37 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import { IconCloseMediumOutline } from '@teamleader/ui-icons';
 
-import { Banner } from '../../index';
-import { COLORS } from '../../constants';
+import Section from '../section';
+import IconButton from '../iconButton';
+import Icon from '../icon';
 
-class Header extends PureComponent {
-  render() {
-    const { color, icon, onCloseClick, children, ...rest } = this.props;
+import theme from './theme.css';
 
-    return (
-      <Banner color={color} fullWidth icon={icon} onClose={onCloseClick} {...rest}>
-        {children}
-      </Banner>
-    );
-  }
-}
+const Header = ({ color, icon, onCloseClick, children, ...rest }) => {
+  return (
+    <Section display="flex" alignItems="center" color={color} {...rest}>
+      <Icon color="teal" tint="darkest" marginRight={3}>
+        {icon}
+      </Icon>
+      {children}
+      {onCloseClick && (
+        <IconButton
+          icon={<IconCloseMediumOutline />}
+          onClick={onCloseClick}
+          marginVertical={-1}
+          className={theme['close-icon']}
+        />
+      )}
+    </Section>
+  );
+};
 
 Header.propTypes = {
   /** The content to display inside the dialog. */
   children: PropTypes.any,
   /** The color of the banner */
-  color: PropTypes.oneOf(COLORS),
+  color: PropTypes.oneOf(['white', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua']),
   /** The icon in the banner. */
   icon: PropTypes.element,
   /** Callback function that is fired when the close icon clicked. */
