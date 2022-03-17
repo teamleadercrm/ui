@@ -5,8 +5,7 @@ import cx from 'classnames';
 
 import theme from './theme.css';
 
-import { Button, ButtonGroup, DialogBase, Heading2, Heading3, Link } from '../../index';
-import { COLORS } from '../../constants';
+import { Button, ButtonGroup, DialogBase, Heading3, Link } from '../../index';
 import { IconDragMediumFilled } from '@teamleader/ui-icons';
 
 class Dialog extends PureComponent {
@@ -14,7 +13,7 @@ class Dialog extends PureComponent {
   dragHandleRef = createRef();
 
   getHeader = () => {
-    const { draggable, headerColor, headerIcon, headingLevel, onCloseClick, title } = this.props;
+    const { draggable, headerColor, headerIcon, onCloseClick, title } = this.props;
 
     const icon = draggable ? (
       <div className={theme['drag-icon']} ref={this.dragHandleRef}>
@@ -25,8 +24,8 @@ class Dialog extends PureComponent {
     );
 
     return (
-      <DialogBase.Header color={headerColor} icon={icon} onClose={onCloseClick}>
-        {headingLevel === 2 ? <Heading2>{title}</Heading2> : <Heading3>{title}</Heading3>}
+      <DialogBase.Header color={headerColor} icon={icon} onCloseClick={onCloseClick}>
+        <Heading3 maxLines={1}>{title}</Heading3>
       </DialogBase.Header>
     );
   };
@@ -84,11 +83,9 @@ Dialog.propTypes = {
   /** A class name for the wrapper to apply custom styles. */
   className: PropTypes.string,
   /** The color of the header of the dialog. */
-  headerColor: PropTypes.oneOf(COLORS),
+  headerColor: PropTypes.oneOf(['white', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua']),
   /** The icon in the header of the dialog. */
   headerIcon: PropTypes.element,
-  /** The level of the heading of the dialog. */
-  headingLevel: PropTypes.oneOf([2, 3]),
   /** Callback function that is fired when the close icon (in the header) is clicked. */
   onCloseClick: PropTypes.func,
   /** Object containing the props of the primary action (a Button, with level prop set to 'primary'). */
@@ -109,7 +106,6 @@ Dialog.propTypes = {
 
 Dialog.defaultProps = {
   headerColor: 'neutral',
-  headingLevel: 3,
   scrollable: true,
   size: 'medium',
 };

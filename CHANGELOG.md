@@ -8,9 +8,13 @@
 
 ### Changed
 
+- `Dialog`: header title will now overflow into ellipsis instead of wrapping to the next line ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#2042](https://github.com/teamleadercrm/ui/pull/2042))
+
 ### Deprecated
 
 ### Removed
+
+- `Dialog`: removed the `headingLevel` property, the previous default (3) will be used ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#2042](https://github.com/teamleadercrm/ui/pull/2042))
 
 ### Fixed
 
