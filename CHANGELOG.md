@@ -2,6 +2,20 @@
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Dependency updates
+
+## [12.4.0] - 2022-03-17
+
+### Added
+
 - `Avatar`: Added object-fit to the image inside the Avatar component. ([@stefaandevylder](https://github.com/stefaandevylder) in [#2034](https://github.com/teamleadercrm/ui/pull/2034))
 - `Dialog`: Added `draggable` property ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#2040](https://github.com/teamleadercrm/ui/pull/2040))
 - `DialogBase`: Added `dragHandleRef` property ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#2040](https://github.com/teamleadercrm/ui/pull/2040))
@@ -10,8 +24,6 @@
 
 - `Dialog`: header title will now overflow into ellipsis instead of wrapping to the next line ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#2042](https://github.com/teamleadercrm/ui/pull/2042))
 
-### Deprecated
-
 ### Removed
 
 - `Dialog`: removed the `headingLevel` property, the previous default (3) will be used ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#2042](https://github.com/teamleadercrm/ui/pull/2042))
@@ -19,8 +31,6 @@
 ### Fixed
 
 - `EmailSelector`: Fix suggestions not always going away when clicking away ([@lorgan3](https://github.com/lorgan3) in [#2041](https://github.com/teamleadercrm/ui/pull/2041))
-
-### Dependency updates
 
 ## [12.3.0] - 2022-02-28
 
