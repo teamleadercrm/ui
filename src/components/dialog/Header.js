@@ -19,7 +19,6 @@ const Header = ({ color, icon, onCloseClick, children, ...rest }) => {
         <IconButton
           icon={<IconCloseMediumOutline />}
           onClick={onCloseClick}
-          marginLeft={4}
           marginVertical={-1}
           className={theme['close-icon']}
         />
