@@ -96,7 +96,7 @@ const FocusStates = () => {
       >
         <Box padding={4}>
           <Input />
-          <Button onClick={openSecondaryDialog} label="Open secondary dialog" />
+          <Button onClick={openSecondaryDialog} label="Open secondary dialog" marginTop={3} />
           <Dialog
             title="Secondary dialog"
             active={secondaryDialogActive}
