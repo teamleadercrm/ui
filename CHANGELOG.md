@@ -12,6 +12,12 @@
 
 ### Dependency updates
 
+## [12.4.1] - 2022-03-23
+
+### Fixed
+
+- `Dialog`: fix redundant padding next to the header title when no headerIcon is passed ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#2052](https://github.com/teamleadercrm/ui/pull/2052))
+
 ## [12.4.0] - 2022-03-17
 
 ### Added
