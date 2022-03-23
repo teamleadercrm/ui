@@ -11,9 +11,11 @@ import theme from './theme.css';
 const Header = ({ color, icon, onCloseClick, children, ...rest }) => {
   return (
     <Section display="flex" alignItems="center" color={color} {...rest}>
-      <Icon color="teal" tint="darkest" marginRight={3}>
-        {icon}
-      </Icon>
+      {icon && (
+        <Icon color="teal" tint="darkest" marginRight={3}>
+          {icon}
+        </Icon>
+      )}
       {children}
       {onCloseClick && (
         <IconButton
