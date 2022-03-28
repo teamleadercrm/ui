@@ -5,7 +5,7 @@ import cx from 'classnames';
 
 import theme from './theme.css';
 
-import { Button, ButtonGroup, DialogBase, Heading3, Link } from '../../index';
+import { Button, ButtonGroup, DialogBase, Heading3 } from '../../index';
 import { IconDragMediumFilled } from '@teamleader/ui-icons';
 
 class Dialog extends PureComponent {
@@ -37,7 +37,7 @@ class Dialog extends PureComponent {
       <DialogBase.Footer display="flex" justifyContent={leftAction ? 'space-between' : 'flex-end'}>
         {leftAction && <Button {...leftAction} />}
         <ButtonGroup justifyContent="flex-end">
-          {tertiaryAction && <Link inherit={false} {...tertiaryAction} />}
+          {tertiaryAction && <Button {...tertiaryAction} level="link" />}
           {secondaryAction && <Button {...secondaryAction} />}
           <Button level="primary" {...primaryAction} />
         </ButtonGroup>
