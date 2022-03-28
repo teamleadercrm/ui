@@ -30,6 +30,7 @@ declare module '@teamleader/ui' {
     };
 
   export const AdvancedCollapsible: React.ComponentType<any>;
+  export const Alert: React.ComponentType<any>;
   export const Avatar: React.ComponentType<any>;
   export const AvatarStack: React.ComponentType<any>;
   export const AsyncSelect: React.ComponentType<any>;
