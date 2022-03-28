@@ -45,6 +45,11 @@ export const DefaultStory = (args) => {
 };
 
 DefaultStory.args = {
+  leftAction: {
+    label: 'Remove',
+    level: 'destructive',
+    onClick: () => console.log('leftAction.onClick'),
+  },
   primaryAction: {
     label: 'Confirm',
     onClick: () => console.log('primaryAction.onClick'),

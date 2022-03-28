@@ -9,7 +9,6 @@ class Footer extends PureComponent {
 
     return (
       <Box
-        justifyContent="flex-end"
         padding={4}
         borderColor="neutral"
         borderTopWidth={1}

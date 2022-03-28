@@ -31,10 +31,11 @@ class Dialog extends PureComponent {
   };
 
   getFooter = () => {
-    const { tertiaryAction, secondaryAction, primaryAction } = this.props;
+    const { tertiaryAction, secondaryAction, primaryAction, leftAction } = this.props;
 
     return (
-      <DialogBase.Footer>
+      <DialogBase.Footer display="flex" justifyContent={leftAction ? 'space-between' : 'flex-end'}>
+        {leftAction && <Button {...leftAction} />}
         <ButtonGroup justifyContent="flex-end">
           {tertiaryAction && <Link inherit={false} {...tertiaryAction} />}
           {secondaryAction && <Button {...secondaryAction} />}
@@ -86,6 +87,8 @@ Dialog.propTypes = {
   headerColor: PropTypes.oneOf(['white', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua']),
   /** The icon in the header of the dialog. */
   headerIcon: PropTypes.element,
+  /** Object containing the the props of the action on the left (a Button). */
+  leftAction: PropTypes.object,
   /** Callback function that is fired when the close icon (in the header) is clicked. */
   onCloseClick: PropTypes.func,
   /** Object containing the props of the primary action (a Button, with level prop set to 'primary'). */
