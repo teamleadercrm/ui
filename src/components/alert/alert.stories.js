@@ -30,7 +30,6 @@ export const DefaultStory = (args) => {
       <Alert
         {...args}
         active={active}
-        onCloseClick={toggleAlert}
         onEscKeyDown={toggleAlert}
         onOverlayClick={toggleAlert}
       >
@@ -41,5 +40,13 @@ export const DefaultStory = (args) => {
 };
 
 DefaultStory.args = {
+  primaryAction: {
+    label: 'Confirm',
+    onClick: () => console.log('primaryAction.onClick'),
+  },
+  secondaryAction: {
+    label: 'Cancel',
+    onClick: () => console.log('secondaryAction.onClick'),
+  },
   title: 'Alert title',
 };
