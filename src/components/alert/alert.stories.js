@@ -49,4 +49,5 @@ DefaultStory.args = {
     onClick: () => console.log('secondaryAction.onClick'),
   },
   title: 'Alert title',
+  type: 'confirm',
 };

@@ -6,7 +6,18 @@ import { Box } from '../box';
 import { Button } from '../button';
 import omit from 'lodash.omit';
 
-const Alert = ({ children, primaryAction, secondaryAction, title, ...otherProps }) => {
+const ALERT_TYPES = {
+  confirm: 'confirm',
+  destructive: 'destructive',
+  error: 'error',
+};
+
+const BUTTON_LEVELS = {
+  primary: 'primary',
+  destructive: 'destructive',
+};
+
+const Alert = ({ children, primaryAction, secondaryAction, title, type, ...otherProps }) => {
   const restProps = omit(otherProps, [
     'primaryAction',
     'secondaryAction',
@@ -17,7 +28,7 @@ const Alert = ({ children, primaryAction, secondaryAction, title, ...otherProps 
       <Box alignItems="center" display="flex" flexDirection="column" padding={4}>
         <Heading3 color="teal" marginBottom={2}>{title}</Heading3>
         {children}
-        <Button level="primary" {...primaryAction} fullWidth marginTop={5} />
+        <Button level={type === ALERT_TYPES.destructive ? BUTTON_LEVELS.destructive : BUTTON_LEVELS.primary} {...primaryAction} fullWidth marginTop={5} />
         {secondaryAction && <Button {...secondaryAction} fullWidth marginTop={2} />}
       </Box>
     </DialogBase>
@@ -35,6 +46,12 @@ Alert.propTypes = {
   secondaryAction: PropTypes.object,
   /** The title of the alert. */
   title: PropTypes.string,
+  /** The type of the alert. */
+  type: PropTypes.oneOf([ALERT_TYPES.confirm, ALERT_TYPES.destructive, ALERT_TYPES.error]),
+};
+
+Alert.defaultProps = {
+  type: ALERT_TYPES.confirm,
 };
 
 export default Alert;
