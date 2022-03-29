@@ -5,6 +5,7 @@ import { Heading3 } from '../typography';
 import { Box } from '../box';
 import { Button } from '../button';
 import omit from 'lodash.omit';
+import { Illustration60X60Error, Illustration60X60Info } from '@teamleader/ui-illustrations';
 
 const ALERT_TYPES = {
   confirm: 'confirm',
@@ -26,6 +27,9 @@ const Alert = ({ children, primaryAction, secondaryAction, title, type, ...other
   return (
     <DialogBase  {...restProps} scrollable={false} size="small">
       <Box alignItems="center" display="flex" flexDirection="column" padding={4}>
+        <Box marginBottom={3} marginTop={2}>
+          {type === ALERT_TYPES.confirm ? <Illustration60X60Info/> : <Illustration60X60Error/>}
+        </Box>
         <Heading3 color="teal" marginBottom={2}>{title}</Heading3>
         {children}
         <Button level={type === ALERT_TYPES.destructive ? BUTTON_LEVELS.destructive : BUTTON_LEVELS.primary} {...primaryAction} fullWidth marginTop={5} />
