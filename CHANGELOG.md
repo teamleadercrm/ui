@@ -2,6 +2,8 @@
 
 ### Added
 
+- `Alert`: added new component  ([@driesd](https://github.com/driesd) in [#2057](https://github.com/teamleadercrm/ui/pull/2057))
+
 ### Changed
 
 ### Deprecated
