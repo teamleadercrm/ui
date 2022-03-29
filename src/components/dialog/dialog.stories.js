@@ -1,6 +1,5 @@
 import React, { useRef, useState } from 'react';
 import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
-import { IconWarningBadgedMediumOutline } from '@teamleader/ui-icons';
 import { Box, Button, Dialog, TextBody } from '../../index';
 import Input from '../input';
 import Label from '../label';
@@ -30,7 +29,6 @@ export const DefaultStory = (args) => {
       <Button onClick={toggleDialog} label="Open a dialog" />
       <Dialog
         {...args}
-        headerIcon={<IconWarningBadgedMediumOutline />}
         active={active}
         onCloseClick={toggleDialog}
         onEscKeyDown={toggleDialog}

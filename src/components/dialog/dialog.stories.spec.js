@@ -1,5 +1,4 @@
 import React from 'react';
-import { IconWarningBadgedMediumOutline } from '@teamleader/ui-icons';
 
 import { Dialog, Box, TextBody } from '../..';
 
@@ -10,7 +9,6 @@ export default {
 
 export const Main = () => (
   <Dialog
-    headerIcon={<IconWarningBadgedMediumOutline />}
     active
     onCloseClick={() => {}}
     onEscKeyDown={() => {}}
