@@ -31,7 +31,7 @@
     "@teamleader/ui-animations": "^0.0.3",
     "@teamleader/ui-colors": "^0.3.0",
     "@teamleader/ui-icons": "^1.5.0",
-    "@teamleader/ui-illustrations": "^1.0.0",
+    "@teamleader/ui-illustrations": "^1.10.0",
     "@teamleader/ui-typography": "^2.0.2",
     "@teamleader/ui-utilities": "^0.2.0",
     "classnames": "^2.2.5",
