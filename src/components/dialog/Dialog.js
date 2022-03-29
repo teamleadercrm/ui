@@ -13,7 +13,7 @@ class Dialog extends PureComponent {
   dragHandleRef = createRef();
 
   getHeader = () => {
-    const { draggable, headerColor, onCloseClick, title } = this.props;
+    const { draggable, onCloseClick, title } = this.props;
 
     const dragIcon = (
       <div className={theme['drag-icon']} ref={this.dragHandleRef}>
@@ -22,7 +22,7 @@ class Dialog extends PureComponent {
     );
 
     return (
-      <DialogBase.Header color={headerColor} icon={draggable ? dragIcon : null} onCloseClick={onCloseClick}>
+      <DialogBase.Header icon={draggable ? dragIcon : null} onCloseClick={onCloseClick}>
         <Heading3 maxLines={1}>{title}</Heading3>
       </DialogBase.Header>
     );
@@ -49,7 +49,6 @@ class Dialog extends PureComponent {
     const classNames = cx(theme['dialog'], className);
 
     const restProps = omit(otherProps, [
-      'headerColor',
       'onCloseClick',
       'primaryAction',
       'secondaryAction',
@@ -81,8 +80,6 @@ Dialog.propTypes = {
   children: PropTypes.any,
   /** A class name for the wrapper to apply custom styles. */
   className: PropTypes.string,
-  /** The color of the header of the dialog. */
-  headerColor: PropTypes.oneOf(['white', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua']),
   /** Object containing the the props of the action on the left (a Button). */
   leftAction: PropTypes.object,
   /** Callback function that is fired when the close icon (in the header) is clicked. */
@@ -104,7 +101,6 @@ Dialog.propTypes = {
 };
 
 Dialog.defaultProps = {
-  headerColor: 'neutral',
   scrollable: true,
   size: 'medium',
 };
