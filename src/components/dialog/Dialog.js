@@ -13,7 +13,7 @@ class Dialog extends PureComponent {
   dragHandleRef = createRef();
 
   getHeader = () => {
-    const { draggable, onCloseClick, title } = this.props;
+    const { onCloseClick, title } = this.props;
 
     const dragIcon = (
       <div className={theme['drag-icon']} ref={this.dragHandleRef}>
@@ -22,7 +22,7 @@ class Dialog extends PureComponent {
     );
 
     return (
-      <DialogBase.Header icon={draggable ? dragIcon : null} onCloseClick={onCloseClick}>
+      <DialogBase.Header icon={dragIcon} onCloseClick={onCloseClick}>
         <Heading3 maxLines={1}>{title}</Heading3>
       </DialogBase.Header>
     );
@@ -96,8 +96,6 @@ Dialog.propTypes = {
   tertiaryAction: PropTypes.object,
   /** The title of the dialog. */
   title: PropTypes.string,
-  /** If true, the dialog will be draggable. */
-  draggable: PropTypes.bool,
 };
 
 Dialog.defaultProps = {
