@@ -2,12 +2,12 @@
 
 ### Added
 
-- `Dialog`: added `leftAction` property ([@driesd](https://github.com/driesd) in [#1940](https://github.com/teamleadercrm/ui/pull/1940))
+- `Dialog`: added `leftAction` property ([@driesd](https://github.com/driesd) in [#2058](https://github.com/teamleadercrm/ui/pull/2058))
 
 ### Changed
 
-- `Dialog`: changed `tertiaryAction` from a `Link` to a `Button` component ([@driesd](https://github.com/driesd) in [#1940](https://github.com/teamleadercrm/ui/pull/1940))
-- 
+- `Dialog`: changed `tertiaryAction` from a `Link` to a `Button` component ([@driesd](https://github.com/driesd) in [#2058](https://github.com/teamleadercrm/ui/pull/2058))
+
 ### Deprecated
 
 ### Removed
