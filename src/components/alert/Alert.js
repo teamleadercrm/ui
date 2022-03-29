@@ -3,7 +3,7 @@ import { DialogBase } from '../dialog';
 import PropTypes from 'prop-types';
 import { Heading3 } from '../typography';
 import { Box } from '../box';
-import { Button } from '../button';
+import { Button, BUTTON_LEVELS } from '../button';
 import omit from 'lodash.omit';
 import { Illustration60X60Error, Illustration60X60Info } from '@teamleader/ui-illustrations';
 
@@ -11,11 +11,6 @@ const ALERT_TYPES = {
   confirm: 'confirm',
   destructive: 'destructive',
   error: 'error',
-};
-
-const BUTTON_LEVELS = {
-  primary: 'primary',
-  destructive: 'destructive',
 };
 
 const Alert = ({ children, primaryAction, secondaryAction, title, type, ...otherProps }) => {

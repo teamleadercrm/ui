@@ -6,6 +6,11 @@ import { UITextBody, UITextDisplay, UITextSmall } from '../typography';
 import cx from 'classnames';
 import theme from './theme.css';
 
+export const BUTTON_LEVELS = {
+  primary: 'primary',
+  destructive: 'destructive',
+};
+
 const textComponentMap = {
   tiny: UITextSmall,
   small: UITextBody,
