@@ -1,4 +1,4 @@
-import Button from './Button';
+import Button, { BUTTON_LEVELS } from './Button';
 
 export default Button;
-export { Button };
+export { Button, BUTTON_LEVELS };

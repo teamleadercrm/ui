@@ -48,12 +48,7 @@ class Dialog extends PureComponent {
 
     const classNames = cx(theme['dialog'], className);
 
-    const restProps = omit(otherProps, [
-      'onCloseClick',
-      'primaryAction',
-      'secondaryAction',
-      'tertiaryAction',
-    ]);
+    const restProps = omit(otherProps, ['onCloseClick', 'primaryAction', 'secondaryAction', 'tertiaryAction']);
 
     return (
       <DialogBase

@@ -8,13 +8,7 @@ class Footer extends PureComponent {
     const { children, ...rest } = this.props;
 
     return (
-      <Box
-        padding={4}
-        borderColor="neutral"
-        borderTopWidth={1}
-        borderTint="normal"
-        {...rest}
-      >
+      <Box padding={4} borderColor="neutral" borderTopWidth={1} borderTint="normal" {...rest}>
         {children}
       </Box>
     );

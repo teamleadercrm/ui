@@ -6,6 +6,15 @@ import { UITextBody, UITextDisplay, UITextSmall } from '../typography';
 import cx from 'classnames';
 import theme from './theme.css';
 
+export const BUTTON_LEVELS = {
+  outline: 'outline',
+  primary: 'primary',
+  secondary: 'secondary',
+  destructive: 'destructive',
+  link: 'link',
+  timer: 'timer',
+};
+
 const textComponentMap = {
   tiny: UITextSmall,
   small: UITextBody,
@@ -41,11 +50,11 @@ const Button = forwardRef(
 
     const getSpinnerColor = () => {
       switch (level) {
-        case 'secondary':
+        case BUTTON_LEVELS.secondary:
           return 'teal';
-        case 'outline':
+        case BUTTON_LEVELS.outline:
           return color === 'white' ? 'neutral' : color;
-        case 'link':
+        case BUTTON_LEVELS.link:
           return 'aqua';
         default:
           return 'neutral';
@@ -54,11 +63,11 @@ const Button = forwardRef(
 
     const getSpinnerTint = () => {
       switch (level) {
-        case 'secondary':
+        case BUTTON_LEVELS.secondary:
           return 'darkest';
-        case 'outline':
+        case BUTTON_LEVELS.outline:
           return color === 'white' ? 'lightest' : 'darkest';
-        case 'link':
+        case BUTTON_LEVELS.link:
           return 'dark';
         default:
           return 'lightest';
@@ -105,7 +114,7 @@ const Button = forwardRef(
       theme[size],
       {
         [theme['has-icon-only']]: (!children && !label) || (Array.isArray(children) && !children[0] && !label),
-        [theme[color]]: level === 'outline',
+        [theme[color]]: level === BUTTON_LEVELS.outline,
         [theme['is-disabled']]: disabled,
         [theme['is-full-width']]: fullWidth,
         [theme['is-processing']]: processing,
@@ -166,7 +175,7 @@ Button.propTypes = {
   /** A custom element to be rendered */
   element: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
   /** Determines which kind of button to be rendered. */
-  level: PropTypes.oneOf(['outline', 'primary', 'secondary', 'destructive', 'link', 'timer']),
+  level: PropTypes.oneOf(Object.values(BUTTON_LEVELS)),
   /** If true, component will be disabled. */
   disabled: PropTypes.bool,
   /** If true, component will be shown in an active state */
