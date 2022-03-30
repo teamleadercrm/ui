@@ -8,7 +8,7 @@ import { TextBodyCompact, TextDisplay, TextSmall } from '../typography';
 const TooltippedIcon = Tooltip(Icon);
 export default class Label extends PureComponent {
   render() {
-    const { children, inverse, helpText, required, size, tooltip, ...others } = this.props;
+    const { children, inverse, required, size, tooltip, ...others } = this.props;
 
     const childProps = {
       inverse,
@@ -30,14 +30,14 @@ export default class Label extends PureComponent {
               <Element color={inverse ? 'neutral' : 'teal'} tint={inverse ? 'lightest' : 'darkest'} element="span">
                 {child}
               </Element>
-              {!required && (
+              {required && (
                 <TextSmall
-                  color={inverse ? 'teal' : 'neutral'}
+                  color="ruby"
                   element="span"
                   marginLeft={1}
-                  tint={inverse ? 'light' : 'darkest'}
+                  tint="dark"
                 >
-                  {helpText}
+                  *
                 </TextSmall>
               )}
               {tooltip && (
@@ -46,6 +46,7 @@ export default class Label extends PureComponent {
                   tooltipSize="small"
                   color={inverse ? 'neutral' : 'teal'}
                   tint={inverse ? 'lightest' : 'darkest'}
+                  marginLeft={1}
                 >
                   <IconInfoBadgedSmallFilled />
                 </TooltippedIcon>
@@ -61,15 +62,13 @@ export default class Label extends PureComponent {
 Label.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.string, PropTypes.array]),
   inverse: PropTypes.bool,
-  helpText: PropTypes.string,
   required: PropTypes.bool,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
-  tooltip: PropTypes.string
+  tooltip: PropTypes.string,
 };
 
 Label.defaultProps = {
   inverse: false,
-  helpText: 'Optional',
   required: false,
   size: 'medium',
 };

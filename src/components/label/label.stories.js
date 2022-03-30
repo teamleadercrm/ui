@@ -11,7 +11,6 @@ export const DefaultStory = (args) => (
   <Label
     {...args}
     htmlFor="input1"
-    tooltip="This is the label tooltip text"
   >
     Input label
     <Input id="input1" placeholder="I am the placeholder" />
@@ -19,7 +18,7 @@ export const DefaultStory = (args) => (
 );
 
 DefaultStory.args = {
-  helpText: 'Optional',
+  tooltip: 'This is the label tooltip text',
 };
 DefaultStory.storyName = 'Label + Input';
 
