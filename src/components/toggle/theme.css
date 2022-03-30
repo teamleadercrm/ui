@@ -150,7 +150,7 @@
 
   &.is-medium {
     .label {
-      padding-top: 2px;
+      padding-top: var(--spacer-smallest);
     }
 
     .track {
@@ -180,7 +180,7 @@
 
   &.is-large {
     .label {
-      padding-top: 4px;
+      padding-top: var(--spacer-smallest);
     }
 
     .track {
