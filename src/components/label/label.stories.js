@@ -33,3 +33,12 @@ export const DefaultStory = (args) => (
 DefaultStory.args = {
   helpText: 'Optional',
 };
+DefaultStory.storyName = 'Label + Input';
+
+export const SoloLabelStory = (args) => (
+  <Label
+    {...args}    
+  >
+    Label
+  </Label>
+);
