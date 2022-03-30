@@ -50,11 +50,11 @@ const Button = forwardRef(
 
     const getSpinnerColor = () => {
       switch (level) {
-        case 'secondary':
+        case BUTTON_LEVELS.secondary:
           return 'teal';
-        case 'outline':
+        case BUTTON_LEVELS.outline:
           return color === 'white' ? 'neutral' : color;
-        case 'link':
+        case BUTTON_LEVELS.link:
           return 'aqua';
         default:
           return 'neutral';
@@ -63,11 +63,11 @@ const Button = forwardRef(
 
     const getSpinnerTint = () => {
       switch (level) {
-        case 'secondary':
+        case BUTTON_LEVELS.secondary:
           return 'darkest';
-        case 'outline':
+        case BUTTON_LEVELS.outline:
           return color === 'white' ? 'lightest' : 'darkest';
-        case 'link':
+        case BUTTON_LEVELS.link:
           return 'dark';
         default:
           return 'lightest';
@@ -114,7 +114,7 @@ const Button = forwardRef(
       theme[size],
       {
         [theme['has-icon-only']]: (!children && !label) || (Array.isArray(children) && !children[0] && !label),
-        [theme[color]]: level === 'outline',
+        [theme[color]]: level === BUTTON_LEVELS.outline,
         [theme['is-disabled']]: disabled,
         [theme['is-full-width']]: fullWidth,
         [theme['is-processing']]: processing,
