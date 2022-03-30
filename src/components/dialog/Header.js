@@ -8,9 +8,9 @@ import Icon from '../icon';
 
 import theme from './theme.css';
 
-const Header = ({ color, icon, onCloseClick, children, ...rest }) => {
+const Header = ({ icon, onCloseClick, children, ...rest }) => {
   return (
-    <Section display="flex" alignItems="center" color={color} {...rest}>
+    <Section display="flex" alignItems="center" color="neutral" {...rest}>
       {icon && (
         <Icon color="teal" tint="darkest" marginRight={3}>
           {icon}
@@ -32,8 +32,6 @@ const Header = ({ color, icon, onCloseClick, children, ...rest }) => {
 Header.propTypes = {
   /** The content to display inside the dialog. */
   children: PropTypes.any,
-  /** The color of the banner */
-  color: PropTypes.oneOf(['white', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua']),
   /** The icon in the banner. */
   icon: PropTypes.element,
   /** Callback function that is fired when the close icon clicked. */
