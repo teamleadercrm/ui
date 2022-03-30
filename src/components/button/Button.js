@@ -7,8 +7,12 @@ import cx from 'classnames';
 import theme from './theme.css';
 
 export const BUTTON_LEVELS = {
+  outline: 'outline',
   primary: 'primary',
+  secondary: 'secondary',
   destructive: 'destructive',
+  link: 'link',
+  timer: 'timer',
 };
 
 const textComponentMap = {
@@ -171,7 +175,7 @@ Button.propTypes = {
   /** A custom element to be rendered */
   element: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
   /** Determines which kind of button to be rendered. */
-  level: PropTypes.oneOf(['outline', 'primary', 'secondary', 'destructive', 'link', 'timer']),
+  level: PropTypes.oneOf(Object.values(BUTTON_LEVELS)),
   /** If true, component will be disabled. */
   disabled: PropTypes.bool,
   /** If true, component will be shown in an active state */
