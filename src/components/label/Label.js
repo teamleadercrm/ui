@@ -8,7 +8,7 @@ import { TextBodyCompact, TextDisplay, TextSmall } from '../typography';
 const TooltippedIcon = Tooltip(Icon);
 export default class Label extends PureComponent {
   render() {
-    const { children, connectedLeft, connectedRight, inverse, helpText, required, size, tooltip, ...others } = this.props;
+    const { children, inverse, helpText, required, size, tooltip, ...others } = this.props;
 
     const childProps = {
       inverse,
@@ -27,11 +27,6 @@ export default class Label extends PureComponent {
 
           return (
             <Box display="flex" alignItems="center">
-              {connectedLeft && (
-                <Box element="span" marginRight={1}>
-                  {connectedLeft}
-                </Box>
-              )}
               <Element color={inverse ? 'neutral' : 'teal'} tint={inverse ? 'lightest' : 'darkest'} element="span">
                 {child}
               </Element>
@@ -65,8 +60,6 @@ export default class Label extends PureComponent {
 
 Label.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.string, PropTypes.array]),
-  connectedLeft: PropTypes.element,
-  connectedRight: PropTypes.element,
   inverse: PropTypes.bool,
   helpText: PropTypes.string,
   required: PropTypes.bool,
