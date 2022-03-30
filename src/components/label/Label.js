@@ -1,11 +1,14 @@
+import { IconInfoBadgedSmallFilled } from '@teamleader/ui-icons';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
+import { Icon, Tooltip } from '../..';
 import Box from '../box';
 import { TextBodyCompact, TextDisplay, TextSmall } from '../typography';
 
+const TooltippedIcon = Tooltip(Icon);
 export default class Label extends PureComponent {
   render() {
-    const { children, connectedLeft, connectedRight, inverse, helpText, required, size, ...others } = this.props;
+    const { children, connectedLeft, connectedRight, inverse, helpText, required, size, tooltip, ...others } = this.props;
 
     const childProps = {
       inverse,
@@ -42,10 +45,15 @@ export default class Label extends PureComponent {
                   {helpText}
                 </TextSmall>
               )}
-              {connectedRight && (
-                <Box element="span" marginLeft={1}>
-                  {connectedRight}
-                </Box>
+              {tooltip && (
+                <TooltippedIcon
+                  tooltip={<TextSmall>{tooltip}</TextSmall>}
+                  tooltipSize="small"
+                  color={inverse ? 'neutral' : 'teal'}
+                  tint={inverse ? 'lightest' : 'darkest'}
+                >
+                  <IconInfoBadgedSmallFilled />
+                </TooltippedIcon>
               )}
             </Box>
           );
@@ -63,6 +71,7 @@ Label.propTypes = {
   helpText: PropTypes.string,
   required: PropTypes.bool,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
+  tooltip: PropTypes.string
 };
 
 Label.defaultProps = {
