@@ -1,10 +1,10 @@
-import React, { createRef, PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import theme from './theme.css';
 import cx from 'classnames';
 import omit from 'lodash.omit';
+import PropTypes from 'prop-types';
+import React, { createRef, PureComponent } from 'react';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
-import { TextBody, TextDisplay, TextSmall } from '../typography';
+import { TextBodyCompact, TextDisplay, TextSmall } from '../typography';
+import theme from './theme.css';
 
 class Toggle extends PureComponent {
   inputNode = createRef();
@@ -50,7 +50,7 @@ class Toggle extends PureComponent {
       className,
     );
 
-    const TextElement = size === 'small' ? TextSmall : size === 'medium' ? TextBody : TextDisplay;
+    const TextElement = size === 'small' ? TextSmall : size === 'medium' ? TextBodyCompact : TextDisplay;
 
     return (
       <Box element="label" data-teamleader-ui="toggle" className={classNames} {...boxProps}>
