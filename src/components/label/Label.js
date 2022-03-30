@@ -1,7 +1,7 @@
-import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import React, { PureComponent } from 'react';
 import Box from '../box';
-import { TextBody, TextDisplay, TextSmall } from '../typography';
+import { TextBodyCompact, TextDisplay, TextSmall } from '../typography';
 
 export default class Label extends PureComponent {
   render() {
@@ -13,7 +13,7 @@ export default class Label extends PureComponent {
       size,
     };
 
-    const Element = size === 'large' ? TextDisplay : TextBody;
+    const Element = size === 'large' ? TextDisplay : TextBodyCompact;
 
     return (
       <Box display="block" element="label" marginBottom={3} {...others}>
