@@ -5,7 +5,7 @@ import cx from 'classnames';
 
 import theme from './theme.css';
 
-import { Button, ButtonGroup, DialogBase, Heading3, Link } from '../../index';
+import { Button, ButtonGroup, DialogBase, Heading3 } from '../../index';
 import { IconDragMediumFilled } from '@teamleader/ui-icons';
 
 class Dialog extends PureComponent {
@@ -13,30 +13,29 @@ class Dialog extends PureComponent {
   dragHandleRef = createRef();
 
   getHeader = () => {
-    const { draggable, headerColor, headerIcon, onCloseClick, title } = this.props;
+    const { onCloseClick, title } = this.props;
 
-    const icon = draggable ? (
+    const dragIcon = (
       <div className={theme['drag-icon']} ref={this.dragHandleRef}>
         <IconDragMediumFilled />
       </div>
-    ) : (
-      headerIcon
     );
 
     return (
-      <DialogBase.Header color={headerColor} icon={icon} onCloseClick={onCloseClick}>
+      <DialogBase.Header icon={dragIcon} onCloseClick={onCloseClick}>
         <Heading3 maxLines={1}>{title}</Heading3>
       </DialogBase.Header>
     );
   };
 
   getFooter = () => {
-    const { tertiaryAction, secondaryAction, primaryAction } = this.props;
+    const { tertiaryAction, secondaryAction, primaryAction, leftAction } = this.props;
 
     return (
-      <DialogBase.Footer>
+      <DialogBase.Footer display="flex" justifyContent={leftAction ? 'space-between' : 'flex-end'}>
+        {leftAction && <Button {...leftAction} />}
         <ButtonGroup justifyContent="flex-end">
-          {tertiaryAction && <Link inherit={false} {...tertiaryAction} />}
+          {tertiaryAction && <Button {...tertiaryAction} level="link" />}
           {secondaryAction && <Button {...secondaryAction} />}
           <Button level="primary" {...primaryAction} />
         </ButtonGroup>
@@ -49,13 +48,7 @@ class Dialog extends PureComponent {
 
     const classNames = cx(theme['dialog'], className);
 
-    const restProps = omit(otherProps, [
-      'headerColor',
-      'onCloseClick',
-      'primaryAction',
-      'secondaryAction',
-      'tertiaryAction',
-    ]);
+    const restProps = omit(otherProps, ['onCloseClick', 'primaryAction', 'secondaryAction', 'tertiaryAction']);
 
     return (
       <DialogBase
@@ -82,10 +75,8 @@ Dialog.propTypes = {
   children: PropTypes.any,
   /** A class name for the wrapper to apply custom styles. */
   className: PropTypes.string,
-  /** The color of the header of the dialog. */
-  headerColor: PropTypes.oneOf(['white', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua']),
-  /** The icon in the header of the dialog. */
-  headerIcon: PropTypes.element,
+  /** Object containing the the props of the action on the left (a Button). */
+  leftAction: PropTypes.object,
   /** Callback function that is fired when the close icon (in the header) is clicked. */
   onCloseClick: PropTypes.func,
   /** Object containing the props of the primary action (a Button, with level prop set to 'primary'). */
@@ -100,12 +91,9 @@ Dialog.propTypes = {
   tertiaryAction: PropTypes.object,
   /** The title of the dialog. */
   title: PropTypes.string,
-  /** If true, the dialog will be draggable. */
-  draggable: PropTypes.bool,
 };
 
 Dialog.defaultProps = {
-  headerColor: 'neutral',
   scrollable: true,
   size: 'medium',
 };
