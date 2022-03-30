@@ -2,6 +2,7 @@
 
 ### Added
 
+- `Alert`: added new component ([@driesd](https://github.com/driesd) in [#2057](https://github.com/teamleadercrm/ui/pull/2057))
 - `Dialog`: added `leftAction` property ([@driesd](https://github.com/driesd) in [#2058](https://github.com/teamleadercrm/ui/pull/2058))
 
 ### Changed
