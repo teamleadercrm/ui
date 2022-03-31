@@ -2,6 +2,20 @@
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Dependency updates
+
+## [12.5.0] - 2022-03-30
+
+### Added
+
 - `Alert`: added new component ([@driesd](https://github.com/driesd) in [#2057](https://github.com/teamleadercrm/ui/pull/2057))
 - `Dialog`: added `leftAction` property ([@driesd](https://github.com/driesd) in [#2058](https://github.com/teamleadercrm/ui/pull/2058))
 
@@ -9,17 +23,11 @@
 
 - `Dialog`: changed `tertiaryAction` from a `Link` to a `Button` component ([@driesd](https://github.com/driesd) in [#2058](https://github.com/teamleadercrm/ui/pull/2058))
 
-### Deprecated
-
 ### Removed
 
 - `Dialog`: remove `draggable` property. `Dialog` is draggable by default, when a `title` property is set. ([@driesd](https://github.com/driesd) in [#2059](https://github.com/teamleadercrm/ui/pull/2059))
 - `Dialog`: remove `headerColor` property ([@driesd](https://github.com/driesd) in [#2058](https://github.com/teamleadercrm/ui/pull/2058))
 - `Dialog`: remove `headerIcon` property ([@driesd](https://github.com/driesd) in [#2058](https://github.com/teamleadercrm/ui/pull/2058))
-
-### Fixed
-
-### Dependency updates
 
 ## [12.4.1] - 2022-03-23
 
