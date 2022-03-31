@@ -12,6 +12,24 @@
 
 ### Dependency updates
 
+## [13.0.0] - 2022-03-31
+
+### Added
+
+- [BREAKING]`Label`: `tooltip` property ([@qubis741](https://github.com/qubis741) in [#2061](https://github.com/teamleadercrm/ui/pull/2061))
+
+### Changed
+
+- [BREAKING]`Label`: visual representation of `required` property ([@qubis741](https://github.com/qubis741) in [#2061](https://github.com/teamleadercrm/ui/pull/2061))
+- `Checkbox, RadioButton, Toggle`: `paddingTop` style ([@qubis741](https://github.com/qubis741) in [#2061](https://github.com/teamleadercrm/ui/pull/2061))
+- `Checkbox, RadioButton, Toggle`: text component in `small` and `medium` size ([@qubis741](https://github.com/qubis741) in [#2061](https://github.com/teamleadercrm/ui/pull/2061))
+
+### Removed
+
+- `Label`: `helpText` property ([@qubis741](https://github.com/qubis741) in [#2061](https://github.com/teamleadercrm/ui/pull/2061))
+- [BREAKING]`Label`: `connectedLeft` property ([@qubis741](https://github.com/qubis741) in [#2061](https://github.com/teamleadercrm/ui/pull/2061))
+- [BREAKING]`Label`: `connectedRight` property ([@qubis741](https://github.com/qubis741) in [#2061](https://github.com/teamleadercrm/ui/pull/2061))
+
 ## [12.5.0] - 2022-03-30
 
 ### Added

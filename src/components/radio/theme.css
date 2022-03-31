@@ -129,7 +129,7 @@
 
   &.is-medium {
     .label {
-      padding-top: 2px;
+      padding-top: var(--spacer-smallest);
     }
 
     .shape {
@@ -145,7 +145,7 @@
 
   &.is-large {
     .label {
-      padding-top: 4px;
+      padding-top: var(--spacer-smallest);
     }
 
     .shape {
