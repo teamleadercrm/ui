@@ -1,11 +1,14 @@
-import React, { PureComponent } from 'react';
+import { IconInfoBadgedSmallFilled } from '@teamleader/ui-icons';
 import PropTypes from 'prop-types';
+import React, { PureComponent } from 'react';
+import { Icon, Tooltip } from '../..';
 import Box from '../box';
-import { TextBody, TextDisplay, TextSmall } from '../typography';
+import { TextBodyCompact, TextDisplay, TextSmall } from '../typography';
 
+const TooltippedIcon = Tooltip(Icon);
 export default class Label extends PureComponent {
   render() {
-    const { children, connectedLeft, connectedRight, inverse, helpText, required, size, ...others } = this.props;
+    const { children, inverse, required, size, tooltip, ...others } = this.props;
 
     const childProps = {
       inverse,
@@ -13,7 +16,7 @@ export default class Label extends PureComponent {
       size,
     };
 
-    const Element = size === 'large' ? TextDisplay : TextBody;
+    const Element = size === 'large' ? TextDisplay : TextBodyCompact;
 
     return (
       <Box display="block" element="label" marginBottom={3} {...others}>
@@ -24,28 +27,29 @@ export default class Label extends PureComponent {
 
           return (
             <Box display="flex" alignItems="center">
-              {connectedLeft && (
-                <Box element="span" marginRight={1}>
-                  {connectedLeft}
-                </Box>
-              )}
               <Element color={inverse ? 'neutral' : 'teal'} tint={inverse ? 'lightest' : 'darkest'} element="span">
                 {child}
               </Element>
-              {!required && (
+              {required && (
                 <TextSmall
-                  color={inverse ? 'teal' : 'neutral'}
+                  color="ruby"
                   element="span"
                   marginLeft={1}
-                  tint={inverse ? 'light' : 'darkest'}
+                  tint="dark"
                 >
-                  {helpText}
+                  *
                 </TextSmall>
               )}
-              {connectedRight && (
-                <Box element="span" marginLeft={1}>
-                  {connectedRight}
-                </Box>
+              {tooltip && (
+                <TooltippedIcon
+                  tooltip={<TextSmall>{tooltip}</TextSmall>}
+                  tooltipSize="small"
+                  color={inverse ? 'neutral' : 'teal'}
+                  tint={inverse ? 'lightest' : 'darkest'}
+                  marginLeft={1}
+                >
+                  <IconInfoBadgedSmallFilled />
+                </TooltippedIcon>
               )}
             </Box>
           );
@@ -57,17 +61,14 @@ export default class Label extends PureComponent {
 
 Label.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.string, PropTypes.array]),
-  connectedLeft: PropTypes.element,
-  connectedRight: PropTypes.element,
   inverse: PropTypes.bool,
-  helpText: PropTypes.string,
   required: PropTypes.bool,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
+  tooltip: PropTypes.string,
 };
 
 Label.defaultProps = {
   inverse: false,
-  helpText: 'Optional',
   required: false,
   size: 'medium',
 };

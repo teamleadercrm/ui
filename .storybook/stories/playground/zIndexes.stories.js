@@ -1,5 +1,6 @@
+import { boolean, select } from '@storybook/addon-knobs';
+import { DateTime } from 'luxon';
 import React, { useState } from 'react';
-import { addStoryInGroup, PLAYGROUND } from '../../utils';
 import {
   Box,
   Button,
@@ -16,18 +17,14 @@ import {
   MenuItem,
   Popover,
   Select,
-  TextBody,
-  TextSmall,
-  Toast,
+  TextBody, Toast,
   ToastContainer,
-  Tooltip,
+  Tooltip
 } from '../../../src';
-import { boolean, select } from '@storybook/addon-knobs';
-import { DateTime } from 'luxon';
-import { IconInfoBadgedSmallFilled } from '@teamleader/ui-icons';
-import options, { groupedOptions } from '../../../src/static/data/select';
-import { LANGUAGES } from '../../../src/static/data/languages';
 import { rows1 } from '../../../src/static/data/datagrid';
+import { LANGUAGES } from '../../../src/static/data/languages';
+import options, { groupedOptions } from '../../../src/static/data/select';
+import { addStoryInGroup, PLAYGROUND } from '../../utils';
 
 export default {
   title: addStoryInGroup(PLAYGROUND, 'Depths'),
@@ -209,11 +206,6 @@ export const zIndexes = () => {
         <Box padding={4}>
           <Heading3 color="teal">I am a Popover</Heading3>
           <Label
-            connectedRight={
-              <TooltippedIcon tooltip={<TextSmall>This is the label tooltip text</TextSmall>} tooltipSize="small">
-                <IconInfoBadgedSmallFilled />
-              </TooltippedIcon>
-            }
             marginTop={3}
             marginBottom={0}
             required

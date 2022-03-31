@@ -1,10 +1,10 @@
-import React, { createRef, PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import theme from './theme.css';
 import cx from 'classnames';
 import omit from 'lodash.omit';
+import PropTypes from 'prop-types';
+import React, { createRef, PureComponent } from 'react';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
-import { TextBody, TextDisplay, TextSmall } from '../typography';
+import { TextBodyCompact, TextDisplay, TextSmall } from '../typography';
+import theme from './theme.css';
 
 class RadioButton extends PureComponent {
   inputNode = createRef();
@@ -35,7 +35,7 @@ class RadioButton extends PureComponent {
 
   render() {
     const { checked, disabled, className, size, label, children, onMouseEnter, onMouseLeave, ...others } = this.props;
-    const TextElement = size === 'small' ? TextSmall : size === 'medium' ? TextBody : TextDisplay;
+    const TextElement = size === 'small' ? TextSmall : size === 'medium' ? TextBodyCompact : TextDisplay;
 
     const restProps = omit(others, ['onChange']);
     const boxProps = pickBoxProps(restProps);
