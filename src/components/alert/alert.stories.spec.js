@@ -1,0 +1,30 @@
+import React from 'react';
+import Alert from './Alert';
+import { TextBody } from '../typography';
+
+export default {
+  component: Alert,
+  title: 'Alert',
+};
+
+export const Main = () => (
+  <Alert
+    active
+    primaryAction={{
+      label: 'Confirm',
+      onClick: () => console.log('primaryAction.onClick'),
+    }}
+    secondaryAction={{
+      label: 'Cancel',
+      onClick: () => console.log('secondaryAction.onClick'),
+    }}
+    title="Alert title"
+  >
+    <TextBody>I am the alert body text</TextBody>
+  </Alert>
+);
+
+Main.parameters = {
+  // add a delay to make sure the dialog animation is finished
+  chromatic: { delay: 300 },
+};
