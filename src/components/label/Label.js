@@ -1,8 +1,9 @@
 import { IconInfoBadgedSmallFilled } from '@teamleader/ui-icons';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
-import { Icon, Tooltip } from '../..';
 import Box from '../box';
+import Tooltip from '../tooltip'
+import Icon from '../icon'
 import { TextBodyCompact, TextDisplay, TextSmall } from '../typography';
 
 const TooltippedIcon = Tooltip(Icon);
