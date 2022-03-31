@@ -10,9 +10,13 @@
 
 ### Fixed
 
-- `Label`: fixed import ([@qubis741](https://github.com/qubis741) in [#2065](https://github.com/teamleadercrm/ui/pull/2065))
-
 ### Dependency updates
+
+## [13.0.1] - 2022-03-31
+
+### Fixed
+
+- `Label`: fixed import ([@qubis741](https://github.com/qubis741) in [#2065](https://github.com/teamleadercrm/ui/pull/2065))
 
 ## [13.0.0] - 2022-03-31
 
