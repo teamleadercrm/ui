@@ -2,8 +2,8 @@ import { IconInfoBadgedSmallFilled } from '@teamleader/ui-icons';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 import Box from '../box';
-import Tooltip from '../tooltip'
-import Icon from '../icon'
+import Tooltip from '../tooltip';
+import Icon from '../icon';
 import { TextBodyCompact, TextDisplay, TextSmall } from '../typography';
 
 const TooltippedIcon = Tooltip(Icon);
@@ -32,12 +32,7 @@ export default class Label extends PureComponent {
                 {child}
               </Element>
               {required && (
-                <TextSmall
-                  color="ruby"
-                  element="span"
-                  marginLeft={1}
-                  tint="dark"
-                >
+                <TextSmall color="ruby" element="span" marginLeft={1} tint="dark">
                   *
                 </TextSmall>
               )}

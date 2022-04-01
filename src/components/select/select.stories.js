@@ -71,7 +71,7 @@ basic.args = {
   hideSelectedOptions: false,
   options,
   placeholder: 'Select your favourite(s)',
-  size: 'medium'
+  size: 'medium',
 };
 
 export const grouped = () => <Select options={groupedOptions} />;

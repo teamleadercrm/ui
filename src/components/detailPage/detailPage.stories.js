@@ -1,16 +1,16 @@
 import React from 'react';
-import {select, text} from '@storybook/addon-knobs';
-import {addStoryInGroup, COMPOSITIONS} from '../../../.storybook/utils';
+import { select, text } from '@storybook/addon-knobs';
+import { addStoryInGroup, COMPOSITIONS } from '../../../.storybook/utils';
 import Button from '../button';
 import ButtonGroup from '../buttonGroup';
 import DetailPage from './DetailPage';
 import Icon from '../icon';
 import IconButton from '../iconButton';
-import {IconTrashMediumOutline, IconWarningBadgedMediumFilled} from '@teamleader/ui-icons';
+import { IconTrashMediumOutline, IconWarningBadgedMediumFilled } from '@teamleader/ui-icons';
 import StatusLabel from '../statusLabel';
-import {Box} from '../box';
-import {Heading1, Monospaced, TextBody} from '../typography';
-import {COLOR} from '../../constants';
+import { Box } from '../box';
+import { Heading1, Monospaced, TextBody } from '../typography';
+import { COLOR } from '../../constants';
 
 const titleColors = ['neutral', 'teal'];
 
@@ -99,7 +99,7 @@ composition.parameters = {
   info: {
     propTables: [DetailPage],
   },
-}
+};
 
 export const body = () => (
   <DetailPage.Body>
@@ -112,7 +112,7 @@ body.parameters = {
   info: {
     propTables: [DetailPage.Body],
   },
-}
+};
 
 export const header = () => (
   <DetailPage.Header
@@ -128,9 +128,9 @@ export const header = () => (
 header.storyName = 'Header';
 header.parameters = {
   info: {
-    propTables: [DetailPage.Header]
+    propTables: [DetailPage.Header],
   },
-}
+};
 
 export const headerWithTitleSuffix = () => (
   <DetailPage.Header
@@ -147,9 +147,9 @@ export const headerWithTitleSuffix = () => (
 headerWithTitleSuffix.storyName = 'Header with title suffix';
 headerWithTitleSuffix.parameters = {
   info: {
-    propTables: [DetailPage.Header]
+    propTables: [DetailPage.Header],
   },
-}
+};
 
 export const headerWithActions = () => (
   <DetailPage.Header
@@ -167,9 +167,9 @@ export const headerWithActions = () => (
 headerWithActions.storyName = 'Header with actions';
 headerWithActions.parameters = {
   info: {
-    propTables: [DetailPage.Header]
+    propTables: [DetailPage.Header],
   },
-}
+};
 
 export const headerWithTotals = () => (
   <DetailPage.Header
@@ -187,9 +187,9 @@ export const headerWithTotals = () => (
 headerWithTotals.storyName = 'Header with totals';
 headerWithTotals.parameters = {
   info: {
-    propTables: [DetailPage.Header]
+    propTables: [DetailPage.Header],
   },
-}
+};
 
 export const headerWithTotalsAndActions = () => (
   <DetailPage.Header
@@ -208,9 +208,9 @@ export const headerWithTotalsAndActions = () => (
 headerWithTotalsAndActions.storyName = 'Header with totals and actions';
 headerWithTotalsAndActions.parameters = {
   info: {
-    propTables: [DetailPage.Header]
+    propTables: [DetailPage.Header],
   },
-}
+};
 
 export const headerWithEverthingTogether = () => (
   <DetailPage.Header
@@ -230,6 +230,6 @@ export const headerWithEverthingTogether = () => (
 headerWithEverthingTogether.storyName = 'Header with everything together';
 headerWithEverthingTogether.parameters = {
   info: {
-    propTables: [DetailPage.Header]
+    propTables: [DetailPage.Header],
   },
-}
+};

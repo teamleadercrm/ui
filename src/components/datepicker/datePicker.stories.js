@@ -79,8 +79,7 @@ singleDate.parameters = {
       url: 'http://react-day-picker.js.org/api/DayPicker',
     },
   ],
-}
-
+};
 
 export const inputSingleDate = () => {
   const handleOnChange = (selectedDate) => {
@@ -132,4 +131,4 @@ inputSingleDate.parameters = {
       url: 'http://react-day-picker.js.org/api/DayPickerInput',
     },
   ],
-}
+};

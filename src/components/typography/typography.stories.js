@@ -137,6 +137,6 @@ export const marker = () => (
 
 marker.parameters = {
   info: {
-    propTables: [Marker]
+    propTables: [Marker],
   },
-}
+};
