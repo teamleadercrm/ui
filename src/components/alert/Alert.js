@@ -22,10 +22,8 @@ const Alert = ({ primaryAction, secondaryAction, title, body, type, ...otherProp
         <Box marginBottom={3} marginTop={2}>
           {type === ALERT_TYPES.confirm ? <Illustration60X60Info /> : <Illustration60X60Error />}
         </Box>
-        <Heading3 color="teal" marginBottom={2}>
-          {title}
-        </Heading3>
-        {body && <TextBody>{body}</TextBody>}
+        <Heading3 color="teal">{title}</Heading3>
+        {body && <TextBody marginTop={2}>{body}</TextBody>}
         <Button
           level={type === ALERT_TYPES.destructive ? BUTTON_LEVELS.destructive : BUTTON_LEVELS.primary}
           {...primaryAction}
