@@ -18,7 +18,7 @@ const Alert = ({ primaryAction, secondaryAction, title, body, type, ...otherProp
 
   return (
     <DialogBase {...restProps} scrollable={false} size="small">
-      <Box alignItems="center" display="flex" flexDirection="column" padding={4}>
+      <Box alignItems="center" display="flex" flexDirection="column" padding={4} textAlign="center">
         <Box marginBottom={3} marginTop={2}>
           {type === ALERT_TYPES.confirm ? <Illustration60X60Info /> : <Illustration60X60Error />}
         </Box>
