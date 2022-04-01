@@ -13,7 +13,7 @@ const ALERT_TYPES = {
   error: 'error',
 };
 
-const Alert = ({ children, primaryAction, secondaryAction, title, type, ...otherProps }) => {
+const Alert = ({ primaryAction, secondaryAction, title, body, type, ...otherProps }) => {
   const restProps = omit(otherProps, ['primaryAction', 'secondaryAction']);
 
   return (
@@ -25,7 +25,7 @@ const Alert = ({ children, primaryAction, secondaryAction, title, type, ...other
         <Heading3 color="teal" marginBottom={2}>
           {title}
         </Heading3>
-        {children && <TextBody>{children}</TextBody>}
+        {body && <TextBody>{body}</TextBody>}
         <Button
           level={type === ALERT_TYPES.destructive ? BUTTON_LEVELS.destructive : BUTTON_LEVELS.primary}
           {...primaryAction}
@@ -41,14 +41,14 @@ const Alert = ({ children, primaryAction, secondaryAction, title, type, ...other
 Alert.propTypes = {
   /** If true, the alert will show on screen. */
   active: PropTypes.bool,
-  /** The content to display inside the alert. */
-  children: PropTypes.any,
   /** Object containing the props of the primary action (a Button, with level prop set to 'primary'). */
   primaryAction: PropTypes.object.isRequired,
   /** Object containing the the props of the secondary action (a Button). */
   secondaryAction: PropTypes.object,
   /** The title of the alert. */
   title: PropTypes.string,
+  /** The body of the alert. */
+  body: PropTypes.string,
   /** The type of the alert. */
   type: PropTypes.oneOf([ALERT_TYPES.confirm, ALERT_TYPES.destructive, ALERT_TYPES.error]),
 };
