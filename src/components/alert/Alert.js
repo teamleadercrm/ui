@@ -46,7 +46,7 @@ Alert.propTypes = {
   /** Object containing the the props of the secondary action (a Button). */
   secondaryAction: PropTypes.object,
   /** The title of the alert. */
-  title: PropTypes.string,
+  title: PropTypes.string.isRequired,
   /** The body of the alert. */
   body: PropTypes.string,
   /** The type of the alert. */
