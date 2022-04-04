@@ -8,7 +8,12 @@
 
 ### Removed
 
+- [BREAKING] `Alert`: removed `children` prop, use `body` instead ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#2067](https://github.com/teamleadercrm/ui/pull/2067))
+
 ### Fixed
+
+- `Alert`: Fixed double margin between title and buttons when no `body` is provided ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#2067](https://github.com/teamleadercrm/ui/pull/2067))
+- `Alert`: Center align title and body text ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#2067](https://github.com/teamleadercrm/ui/pull/2067))
 
 ### Dependency updates
 

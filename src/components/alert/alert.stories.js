@@ -3,7 +3,6 @@ import Alert from './Alert';
 import Box from '../box';
 import Button from '../button';
 import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
-import { TextBody } from '../typography';
 
 export default {
   component: Alert,
@@ -26,15 +25,8 @@ export const DefaultStory = (args) => {
 
   return (
     <Box>
-      <Button onClick={toggleAlert} label="Open an alert"/>
-      <Alert
-        {...args}
-        active={active}
-        onEscKeyDown={toggleAlert}
-        onOverlayClick={toggleAlert}
-      >
-        <TextBody>I am the alert body text</TextBody>
-      </Alert>
+      <Button onClick={toggleAlert} label="Open an alert" />
+      <Alert {...args} active={active} onEscKeyDown={toggleAlert} onOverlayClick={toggleAlert} />
     </Box>
   );
 };
@@ -49,6 +41,7 @@ DefaultStory.args = {
     onClick: () => console.log('secondaryAction.onClick'),
   },
   title: 'Alert title',
+  body: 'I am the alert body text',
 };
 
 export const ConfirmationAlert = (args) => {
@@ -60,15 +53,8 @@ export const ConfirmationAlert = (args) => {
 
   return (
     <Box>
-      <Button onClick={toggleAlert} label="Open a confirmation alert"/>
-      <Alert
-        {...args}
-        active={active}
-        onEscKeyDown={toggleAlert}
-        onOverlayClick={toggleAlert}
-      >
-        <TextBody>I am the alert body text</TextBody>
-      </Alert>
+      <Button onClick={toggleAlert} label="Open a confirmation alert" />
+      <Alert {...args} active={active} onEscKeyDown={toggleAlert} onOverlayClick={toggleAlert} />
     </Box>
   );
 };
@@ -83,6 +69,7 @@ ConfirmationAlert.args = {
     onClick: () => console.log('secondaryAction.onClick'),
   },
   title: 'Confirmation alert title',
+  body: 'I am the alert body text',
   type: 'confirm',
 };
 
@@ -95,15 +82,8 @@ export const DestructiveAlert = (args) => {
 
   return (
     <Box>
-      <Button onClick={toggleAlert} label="Open a destructive alert"/>
-      <Alert
-        {...args}
-        active={active}
-        onEscKeyDown={toggleAlert}
-        onOverlayClick={toggleAlert}
-      >
-        <TextBody>I am the alert body text</TextBody>
-      </Alert>
+      <Button onClick={toggleAlert} label="Open a destructive alert" />
+      <Alert {...args} active={active} onEscKeyDown={toggleAlert} onOverlayClick={toggleAlert} />
     </Box>
   );
 };
@@ -118,9 +98,9 @@ DestructiveAlert.args = {
     onClick: () => console.log('secondaryAction.onClick'),
   },
   title: 'Destructive alert title',
+  body: 'I am the alert body text',
   type: 'destructive',
 };
-
 
 export const ErrorAlert = (args) => {
   const [active, setActive] = useState(false);
@@ -131,15 +111,8 @@ export const ErrorAlert = (args) => {
 
   return (
     <Box>
-      <Button onClick={toggleAlert} label="Open a legacy error alert"/>
-      <Alert
-        {...args}
-        active={active}
-        onEscKeyDown={toggleAlert}
-        onOverlayClick={toggleAlert}
-      >
-        <TextBody>I am the alert body text</TextBody>
-      </Alert>
+      <Button onClick={toggleAlert} label="Open a legacy error alert" />
+      <Alert {...args} active={active} onEscKeyDown={toggleAlert} onOverlayClick={toggleAlert} />
     </Box>
   );
 };
@@ -150,5 +123,6 @@ ErrorAlert.args = {
     onClick: () => console.log('primaryAction.onClick'),
   },
   title: 'Error alert title',
+  body: 'I am the alert body text',
   type: 'error',
 };
