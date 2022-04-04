@@ -19,9 +19,8 @@ export const Main = () => (
       onClick: () => console.log('secondaryAction.onClick'),
     }}
     title="Alert title"
-  >
-    <TextBody>I am the alert body text</TextBody>
-  </Alert>
+    body="I am the alert body text"
+  />
 );
 
 Main.parameters = {
