@@ -1,6 +1,5 @@
 import React from 'react';
 import Alert from './Alert';
-import { TextBody } from '../typography';
 
 export default {
   component: Alert,
