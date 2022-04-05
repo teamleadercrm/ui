@@ -8,10 +8,7 @@ export default {
 };
 
 export const DefaultStory = (args) => (
-  <Label
-    {...args}
-    htmlFor="input1"
-  >
+  <Label {...args} htmlFor="input1">
     Input label
     <Input id="input1" placeholder="I am the placeholder" />
   </Label>
@@ -22,10 +19,4 @@ DefaultStory.args = {
 };
 DefaultStory.storyName = 'Label + Input';
 
-export const SoloLabelStory = (args) => (
-  <Label
-    {...args}    
-  >
-    Label
-  </Label>
-);
+export const SoloLabelStory = (args) => <Label {...args}>Label</Label>;

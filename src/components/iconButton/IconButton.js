@@ -77,14 +77,14 @@ const IconButton = forwardRef(
 
     if (processing) {
       return (
-      <Box {...props}>
-        <LoadingSpinner
-          className={theme['spinner']}
-          color={color}
-          size={size === 'small' ? 'small' : 'medium'}
-          tint={tint}
-        />
-      </Box>
+        <Box {...props}>
+          <LoadingSpinner
+            className={theme['spinner']}
+            color={color}
+            size={size === 'small' ? 'small' : 'medium'}
+            tint={tint}
+          />
+        </Box>
       );
     }
 

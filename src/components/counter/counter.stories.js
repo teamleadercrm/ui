@@ -21,7 +21,6 @@ export const WithMaxCount = (args) => <Counter {...args} />;
 WithMaxCount.args = { count: 99, maxCount: 98 };
 WithMaxCount.storyName = 'With maxCount';
 
-
 export const WithExtraText = (args) => <Counter {...args} />;
 WithExtraText.args = { children: 'Tasks', count: 99 };
 
