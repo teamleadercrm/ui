@@ -1,6 +1,5 @@
 import React from 'react';
 import Alert from './Alert';
-import { TextBody } from '../typography';
 
 export default {
   component: Alert,
@@ -19,9 +18,8 @@ export const Main = () => (
       onClick: () => console.log('secondaryAction.onClick'),
     }}
     title="Alert title"
-  >
-    <TextBody>I am the alert body text</TextBody>
-  </Alert>
+    body="I am the alert body text"
+  />
 );
 
 Main.parameters = {

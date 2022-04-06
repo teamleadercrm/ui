@@ -36,7 +36,7 @@ export const composition = () => (
 composition.storyName = 'Composition';
 composition.parameters = {
   info: {
-    propTables: [OverviewPage]
+    propTables: [OverviewPage],
   },
 };
 
@@ -49,8 +49,8 @@ export const body = () => (
 body.storyName = 'Body';
 body.parameters = {
   info: {
-    propTables: [OverviewPage.Body]
-  }
+    propTables: [OverviewPage.Body],
+  },
 };
 
 export const header = () => <OverviewPage.Header title={text('title', 'I am the overview page title')} />;
@@ -58,8 +58,8 @@ export const header = () => <OverviewPage.Header title={text('title', 'I am the 
 header.storyName = 'Header';
 header.parameters = {
   info: {
-    propTables: [OverviewPage.Header]
-  }
+    propTables: [OverviewPage.Header],
+  },
 };
 
 export const headerWithActions = () => (
@@ -77,6 +77,6 @@ export const headerWithActions = () => (
 headerWithActions.storyName = 'Header with actions';
 headerWithActions.parameters = {
   info: {
-    propTables: [OverviewPage.Header]
-  }
+    propTables: [OverviewPage.Header],
+  },
 };
