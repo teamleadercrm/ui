@@ -2,9 +2,9 @@
 
 ### Added
 
-### Changed
+- `Dialog, DialogBase`: Added the `form` and `onSubmit` properties to render a Dialog as a form ([@lorgan3](https://github.com/lorgan3) in [#2074](https://github.com/teamleadercrm/ui/pull/2074))
 
-- `DialogBase`: Render the dialog as a `Box` instead of a `div` and allow passing additional props. ([@lorgan3](https://github.com/lorgan3) in [#2074](https://github.com/teamleadercrm/ui/pull/2074))
+### Changed
 
 ### Deprecated
 
