@@ -24,6 +24,7 @@ export const DialogBase = ({
   size,
   initialFocusRef,
   dragHandleRef,
+  ...rest
 }) => {
   const { ref, FocusRing } = useFocusTrap({ active, initialFocusRef });
   useDraggable({ active, dragTargetRef: ref, dragHandleRef });
@@ -52,7 +53,7 @@ export const DialogBase = ({
             onEscKeyDown={onEscKeyDown}
           >
             <FocusRing>
-              <div ref={ref} data-teamleader-ui="dialog" className={dialogClassNames}>
+              <Box ref={ref} data-teamleader-ui="dialog" className={dialogClassNames} {...rest}>
                 <div className={theme['inner']}>
                   {scrollable ? (
                     <Box display="flex" flexDirection="column" overflowY="auto">
@@ -62,7 +63,7 @@ export const DialogBase = ({
                     children
                   )}
                 </div>
-              </div>
+              </Box>
             </FocusRing>
           </Overlay>
         );
