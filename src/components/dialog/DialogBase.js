@@ -24,7 +24,8 @@ export const DialogBase = ({
   size,
   initialFocusRef,
   dragHandleRef,
-  ...rest
+  form,
+  onSubmit,
 }) => {
   const { ref, FocusRing } = useFocusTrap({ active, initialFocusRef });
   useDraggable({ active, dragTargetRef: ref, dragHandleRef });
@@ -33,6 +34,7 @@ export const DialogBase = ({
     return null;
   }
 
+  const Element = form ? 'form' : 'div';
   const dialog = (
     <Transition timeout={0} in={active} appear>
       {(state) => {
@@ -53,7 +55,7 @@ export const DialogBase = ({
             onEscKeyDown={onEscKeyDown}
           >
             <FocusRing>
-              <Box ref={ref} data-teamleader-ui="dialog" className={dialogClassNames} {...rest}>
+              <Element ref={ref} data-teamleader-ui="dialog" className={dialogClassNames} {...(form && { onSubmit })}>
                 <div className={theme['inner']}>
                   {scrollable ? (
                     <Box display="flex" flexDirection="column" overflowY="auto">
@@ -63,7 +65,7 @@ export const DialogBase = ({
                     children
                   )}
                 </div>
-              </Box>
+              </Element>
             </FocusRing>
           </Overlay>
         );
@@ -95,6 +97,10 @@ DialogBase.propTypes = {
   initialFocusRef: PropTypes.any,
   /** The element used to drag a dialog, @see Dialog component header for an example */
   dragHandleRef: PropTypes.any,
+  /** If true the dialog will render as a form element. */
+  form: PropTypes.boolean,
+  /** Optional callback if the dialog is a form and is being submitted */
+  onSubmit: PropTypes.func,
 };
 
 DialogBase.defaultProps = {
