@@ -44,7 +44,7 @@ class Dialog extends PureComponent {
   };
 
   render() {
-    const { children, className, scrollable, title, ...otherProps } = this.props;
+    const { children, className, scrollable, title, form, onSubmit, ...otherProps } = this.props;
 
     const classNames = cx(theme['dialog'], className);
 
@@ -63,6 +63,8 @@ class Dialog extends PureComponent {
         scrollable={false}
         initialFocusRef={this.bodyRef}
         dragHandleRef={this.dragHandleRef}
+        form
+        onSubmit={onSubmit}
       >
         {title && this.getHeader()}
         <DialogBase.Body ref={this.bodyRef} scrollable={scrollable}>
@@ -97,6 +99,10 @@ Dialog.propTypes = {
   tertiaryAction: PropTypes.object,
   /** The title of the dialog. */
   title: PropTypes.string,
+  /** If true the dialog will render as a form element. */
+  form: PropTypes.boolean,
+  /** Optional callback if the dialog is a form and is being submitted */
+  onSubmit: PropTypes.func,
 };
 
 Dialog.defaultProps = {
