@@ -63,7 +63,7 @@ class Dialog extends PureComponent {
         scrollable={false}
         initialFocusRef={this.bodyRef}
         dragHandleRef={this.dragHandleRef}
-        form
+        form={form}
         onSubmit={onSubmit}
       >
         {title && this.getHeader()}
