@@ -86,7 +86,13 @@ class NumericInput extends PureComponent {
     this.handleDecreaseValue();
     const parent = this;
     this.timeout.current = setTimeout(() => {
-      parent.timer.current = setInterval(this.handleDecreaseValue, 75);
+      parent.timer.current = setInterval(() => {
+        if (this.isMinReached()) {
+          this.handleClearStepperTimer();
+        } else {
+          this.handleDecreaseValue();
+        }
+      }, 75);
     }, 300);
   };
 
@@ -94,7 +100,13 @@ class NumericInput extends PureComponent {
     this.handleIncreaseValue();
     const parent = this;
     this.timeout.current = setTimeout(() => {
-      parent.timer.current = setInterval(this.handleIncreaseValue, 75);
+      parent.timer.current = setInterval(() => {
+        if (this.isMaxReached()) {
+          this.handleClearStepperTimer();
+        } else {
+          this.handleIncreaseValue();
+        }
+      }, 75);
     }, 300);
   };
 

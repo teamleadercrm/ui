@@ -12,6 +12,8 @@
 
 ### Fixed
 
+- `NumericInput`: Prevent mousedown events from creating event loops ([@jelledc](https://github.com/jelledc) in [#2078](https://github.com/teamleadercrm/ui/pull/2078))
+
 ### Dependency updates
 
 ## [14.0.0] - 2022-04-05
