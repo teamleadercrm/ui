@@ -12,6 +12,16 @@
 
 ### Dependency updates
 
+## [14.1.0] - 2022-04-12
+
+### Added
+
+- `Dialog, DialogBase`: Added the `form` and `onSubmit` properties to render a Dialog as a form ([@lorgan3](https://github.com/lorgan3) in [#2074](https://github.com/teamleadercrm/ui/pull/2074))
+
+### Fixed
+
+- `NumericInput`: Prevent mousedown events from creating event loops ([@jelledc](https://github.com/jelledc) in [#2078](https://github.com/teamleadercrm/ui/pull/2078))
+
 ## [14.0.0] - 2022-04-05
 
 ### Removed
