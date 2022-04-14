@@ -72,6 +72,8 @@ basic.args = {
   options,
   placeholder: 'Select your favourite(s)',
   size: 'medium',
+  menuWidth: undefined,
+  menuVerticalOffset: undefined,
 };
 
 export const grouped = () => <Select options={groupedOptions} />;
