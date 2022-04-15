@@ -12,6 +12,12 @@
 
 ### Dependency updates
 
+## [14.2.0] - 2022-04-12
+
+### Added
+
+- `Widget, Widget.Header`: Added the `onClick` property to enable click event on Widget Header ([@farazatarodi](https://github.com/farazatarodi) in [#2089](https://github.com/teamleadercrm/ui/pull/2089))
+
 ## [14.1.0] - 2022-04-12
 
 ### Added
