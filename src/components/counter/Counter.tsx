@@ -1,12 +1,41 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { ReactNode } from 'react';
 import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
 import Monospaced from '../typography/Monospaced';
+import { COLORS, TINTS } from '../../constants';
 
-const Counter = ({ children, className, color, count, maxCount, size, borderColor, borderTint, ...others }) => {
+interface Props {
+  /** A border color to give to the counter */
+  borderColor?: typeof COLORS[number];
+  /** A border tint to give to the counter */
+  borderTint?: typeof TINTS[number];
+  /** The content to display inside the Counter */
+  children?: ReactNode;
+  /** A class name for the counter to give custom styles */
+  className?: string;
+  /** The color theme you want to style the counter in */
+  color?: typeof COLORS[number];
+  /** The value of the counter. */
+  count: number;
+  /** The max value of the counter. */
+  maxCount: number;
+  /** The size of the counter */
+  size: 'small' | 'medium';
+}
+
+const Counter = ({
+  children,
+  className,
+  color = 'neutral',
+  count,
+  maxCount,
+  size = 'medium',
+  borderColor,
+  borderTint,
+  ...others
+}: Props) => {
   const classNames = cx(
     uiUtilities['reset-font-smoothing'],
     theme['counter'],
@@ -24,30 +53,6 @@ const Counter = ({ children, className, color, count, maxCount, size, borderColo
       <Monospaced>{count > maxCount ? `${maxCount}+` : count}</Monospaced> {children}
     </Box>
   );
-};
-
-Counter.propTypes = {
-  /** A border color to give to the counter */
-  borderColor: PropTypes.oneOf(['neutral', 'mint', 'aqua', 'violet', 'teal', 'gold', 'ruby']),
-  /** A border tint to give to the counter */
-  borderTint: PropTypes.oneOf(['darkest', 'dark', 'light', 'lightest']),
-  /** The content to display inside the Counter */
-  children: PropTypes.any,
-  /** A class name for the counter to give custom styles */
-  className: PropTypes.string,
-  /** The color theme you want to style the counter in */
-  color: PropTypes.oneOf(['neutral', 'mint', 'aqua', 'violet', 'teal', 'gold', 'ruby']),
-  /** The value of the counter. */
-  count: PropTypes.number.isRequired,
-  /** The max value of the counter. */
-  maxCount: PropTypes.number,
-  /** The size of the counter */
-  size: PropTypes.oneOf(['small', 'medium']),
-};
-
-Counter.defaultProps = {
-  color: 'neutral',
-  size: 'medium',
 };
 
 export default Counter;
