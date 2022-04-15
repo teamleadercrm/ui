@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Box from '../box';
 import cx from 'classnames';
@@ -6,29 +6,25 @@ import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
 import Monospaced from '../typography/Monospaced';
 
-class Counter extends PureComponent {
-  render() {
-    const { children, className, color, count, maxCount, size, borderColor, borderTint, ...others } = this.props;
+const Counter = ({ children, className, color, count, maxCount, size, borderColor, borderTint, ...others }) => {
+  const classNames = cx(
+    uiUtilities['reset-font-smoothing'],
+    theme['counter'],
+    theme[color],
+    theme[size],
+    {
+      [theme[`border-${borderColor}-${borderTint}`]]: borderColor && borderTint,
+      [theme[`border-${borderColor}`]]: borderColor && !borderTint,
+    },
+    className,
+  );
 
-    const classNames = cx(
-      uiUtilities['reset-font-smoothing'],
-      theme['counter'],
-      theme[color],
-      theme[size],
-      {
-        [theme[`border-${borderColor}-${borderTint}`]]: borderColor && borderTint,
-        [theme[`border-${borderColor}`]]: borderColor && !borderTint,
-      },
-      className,
-    );
-
-    return (
-      <Box className={classNames} element="span" {...others} data-teamleader-ui="counter">
-        <Monospaced>{count > maxCount ? `${maxCount}+` : count}</Monospaced> {children}
-      </Box>
-    );
-  }
-}
+  return (
+    <Box className={classNames} element="span" {...others} data-teamleader-ui="counter">
+      <Monospaced>{count > maxCount ? `${maxCount}+` : count}</Monospaced> {children}
+    </Box>
+  );
+};
 
 Counter.propTypes = {
   /** A border color to give to the counter */
