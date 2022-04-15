@@ -1,12 +1,10 @@
-import React, { forwardRef } from 'react';
-import PropTypes from 'prop-types';
+import React, { CSSProperties, forwardRef, ReactNode } from 'react';
 import cx from 'classnames';
 import { COLOR, COLORS, TINTS } from '../../constants';
 import theme from './theme.css';
 
-const overflows = ['auto', 'hidden', 'scroll', 'visible'];
-const margins = [-8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8];
-const paddings = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+const margins = [-8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8] as const;
+const paddings = [0, 1, 2, 3, 4, 5, 6, 7, 8] as const;
 
 const borderRadiuses = {
   square: null,
@@ -14,65 +12,118 @@ const borderRadiuses = {
   rounded: '4px',
 };
 
-const Box = (props) => {
-  const getBorder = (value) => {
-    const { borderColor, borderTint } = props;
-    return `${value}px solid ${COLOR[borderColor.toUpperCase()][borderTint.toUpperCase()]}`;
-  };
+type Props = Partial<{
+  alignContent: 'center' | 'flex-start' | 'flex-end' | 'space-around' | 'space-between' | 'space-evenly';
+  alignItems: 'center' | 'flex-start' | 'flex-end' | 'baseline' | 'stretch';
+  alignSelf: 'center' | 'flex-start' | 'flex-end' | 'stretch';
+  backgroundColor: typeof COLORS[number];
+  backgroundTint: typeof TINTS[number];
+  borderBottomWidth: number;
+  borderColor: typeof COLORS[number];
+  borderLeftWidth: number;
+  borderRightWidth: number;
+  borderTint: typeof TINTS[number];
+  borderTopWidth: number;
+  borderWidth: number;
+  borderRadius: keyof typeof borderRadiuses;
+  borderTopLeftRadius: keyof typeof borderRadiuses;
+  borderTopRightRadius: keyof typeof borderRadiuses;
+  borderBottomLeftRadius: keyof typeof borderRadiuses;
+  borderBottomRightRadius: keyof typeof borderRadiuses;
+  boxSizing: 'border-box' | 'content-box';
+  children: ReactNode;
+  className: string;
+  display: 'inline' | 'inline-block' | 'block' | 'flex' | 'inline-flex';
+  element: React.ElementType;
+  flex: CSSProperties['flex'];
+  flexBasis: CSSProperties['flexBasis'];
+  flexDirection: 'row' | 'row-reverse' | 'column' | 'column-reverse';
+  flexGrow: CSSProperties['flexGrow'];
+  flexShrink: CSSProperties['flexShrink'];
+  flexWrap: 'nowrap' | 'wrap' | 'wrap-reverse';
+  justifyContent: 'center' | 'flex-start' | 'flex-end' | 'space-around' | 'space-between' | 'space-evenly';
+  margin: typeof margins[number];
+  marginHorizontal: typeof margins[number];
+  marginVertical: typeof margins[number];
+  marginBottom: typeof margins[number];
+  marginLeft: typeof margins[number];
+  marginRight: typeof margins[number];
+  marginTop: typeof margins[number];
+  order: CSSProperties['order'];
+  overflow: CSSProperties['overflow'];
+  overflowX: CSSProperties['overflowX'];
+  overflowY: CSSProperties['overflowY'];
+  padding: typeof paddings[number];
+  paddingHorizontal: typeof paddings[number];
+  paddingVertical: typeof paddings[number];
+  paddingBottom: typeof paddings[number];
+  paddingLeft: typeof paddings[number];
+  paddingRight: typeof paddings[number];
+  paddingTop: typeof paddings[number];
+  style: CSSProperties;
+  textAlign: 'center' | 'left' | 'right';
+}>;
 
-  const {
-    alignContent,
-    alignItems,
-    alignSelf,
-    backgroundColor,
-    backgroundTint,
-    borderBottomWidth,
-    borderColor,
-    borderLeftWidth,
-    borderRightWidth,
-    borderTint,
-    borderTopWidth,
-    borderWidth,
-    borderRadius,
-    borderTopLeftRadius = borderRadius,
-    borderTopRightRadius = borderRadius,
-    borderBottomLeftRadius = borderRadius,
-    borderBottomRightRadius = borderRadius,
-    boxSizing,
-    children,
-    className,
-    display,
-    element,
-    flex,
-    flexBasis,
-    flexDirection,
-    flexGrow,
-    flexShrink,
-    flexWrap,
-    forwardedRef,
-    justifyContent,
-    margin,
-    marginHorizontal = margin,
-    marginVertical = margin,
-    marginBottom = marginVertical,
-    marginLeft = marginHorizontal,
-    marginRight = marginHorizontal,
-    marginTop = marginVertical,
-    order,
-    overflow,
-    overflowX,
-    overflowY,
-    padding,
-    paddingHorizontal = padding,
-    paddingVertical = padding,
-    paddingBottom = paddingVertical,
-    paddingLeft = paddingHorizontal,
-    paddingRight = paddingHorizontal,
-    paddingTop = paddingVertical,
-    style,
-    textAlign,
-    ...others
-  } = props;
+const Box = ({
+  alignContent,
+  alignItems,
+  alignSelf,
+  backgroundColor,
+  backgroundTint,
+  borderBottomWidth,
+  borderColor = 'neutral',
+  borderLeftWidth,
+  borderRightWidth,
+  borderTint = 'dark',
+  borderTopWidth,
+  borderWidth,
+  borderRadius = 'square',
+  borderTopLeftRadius = borderRadius,
+  borderTopRightRadius = borderRadius,
+  borderBottomLeftRadius = borderRadius,
+  borderBottomRightRadius = borderRadius,
+  boxSizing,
+  children,
+  className,
+  display,
+  element = 'div',
+  flex,
+  flexBasis,
+  flexDirection,
+  flexGrow,
+  flexShrink,
+  flexWrap,
+  forwardedRef,
+  justifyContent,
+  margin = 0,
+  marginHorizontal = margin,
+  marginVertical = margin,
+  marginBottom = marginVertical,
+  marginLeft = marginHorizontal,
+  marginRight = marginHorizontal,
+  marginTop = marginVertical,
+  order,
+  overflow,
+  overflowX,
+  overflowY,
+  padding = 0,
+  paddingHorizontal = padding,
+  paddingVertical = padding,
+  paddingBottom = paddingVertical,
+  paddingLeft = paddingHorizontal,
+  paddingRight = paddingHorizontal,
+  paddingTop = paddingVertical,
+  style,
+  textAlign,
+  ...others
+}: Props) => {
+  const getBorder = (value: number) => {
+    return `${value}px solid ${
+      COLOR[borderColor.toUpperCase() as Uppercase<keyof typeof COLOR>][
+        borderTint.toUpperCase() as Uppercase<keyof typeof COLOR['AQUA']>
+      ]
+    }`;
+  };
 
   const classNames = cx(
     theme['box'],
@@ -118,9 +169,9 @@ const Box = (props) => {
     ...(boxSizing && { boxSizing }),
     ...(flex && { flex }),
     ...(flexBasis && { flexBasis }),
-    ...(!isNaN(flexGrow) ? { flexGrow } : {}),
-    ...(!isNaN(flexShrink) ? { flexShrink } : {}),
-    ...(!isNaN(order) ? { order } : {}),
+    ...(typeof flexGrow === 'number' && !isNaN(flexGrow) ? { flexGrow } : {}),
+    ...(typeof flexShrink === 'number' && !isNaN(flexShrink) ? { flexShrink } : {}),
+    ...(typeof order === 'number' && !isNaN(order) ? { order } : {}),
     ...(overflow && { overflow }),
     ...(overflowX && { overflowX }),
     ...(overflowY && { overflowY }),
@@ -136,75 +187,7 @@ const Box = (props) => {
   );
 };
 
-Box.propTypes = {
-  alignContent: PropTypes.oneOf(['center', 'flex-start', 'flex-end', 'space-around', 'space-between', 'space-evenly']),
-  alignItems: PropTypes.oneOf(['center', 'flex-start', 'flex-end', 'baseline', 'stretch']),
-  alignSelf: PropTypes.oneOf(['center', 'flex-start', 'flex-end', 'stretch']),
-  backgroundColor: PropTypes.oneOf(COLORS),
-  backgroundTint: PropTypes.oneOf(TINTS),
-  borderBottomWidth: PropTypes.number,
-  borderColor: PropTypes.oneOf(COLORS),
-  borderLeftWidth: PropTypes.number,
-  borderRightWidth: PropTypes.number,
-  borderTint: PropTypes.oneOf(TINTS),
-  borderTopWidth: PropTypes.number,
-  borderWidth: PropTypes.number,
-  borderRadius: PropTypes.oneOf(Object.keys(borderRadiuses)),
-  borderTopLeftRadius: PropTypes.oneOf(Object.keys(borderRadiuses)),
-  borderTopRightRadius: PropTypes.oneOf(Object.keys(borderRadiuses)),
-  borderBottomLeftRadius: PropTypes.oneOf(Object.keys(borderRadiuses)),
-  borderBottomRightRadius: PropTypes.oneOf(Object.keys(borderRadiuses)),
-  boxSizing: PropTypes.oneOf(['border-box', 'content-box']),
-  children: PropTypes.any,
-  className: PropTypes.string,
-  display: PropTypes.oneOf(['inline', 'inline-block', 'block', 'flex', 'inline-flex']),
-  element: PropTypes.node,
-  flex: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  flexBasis: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  flexDirection: PropTypes.oneOf(['row', 'row-reverse', 'column', 'column-reverse']),
-  flexGrow: PropTypes.number,
-  flexShrink: PropTypes.number,
-  flexWrap: PropTypes.oneOf(['nowrap', 'wrap', 'wrap-reverse']),
-  justifyContent: PropTypes.oneOf([
-    'center',
-    'flex-start',
-    'flex-end',
-    'space-around',
-    'space-between',
-    'space-evenly',
-  ]),
-  margin: PropTypes.oneOf(margins),
-  marginHorizontal: PropTypes.oneOf(margins),
-  marginVertical: PropTypes.oneOf(margins),
-  marginBottom: PropTypes.oneOf(margins),
-  marginLeft: PropTypes.oneOf(margins),
-  marginRight: PropTypes.oneOf(margins),
-  marginTop: PropTypes.oneOf(margins),
-  order: PropTypes.number,
-  overflow: PropTypes.oneOf(overflows),
-  overflowX: PropTypes.oneOf(overflows),
-  overflowY: PropTypes.oneOf(overflows),
-  padding: PropTypes.oneOf(paddings),
-  paddingHorizontal: PropTypes.oneOf(paddings),
-  paddingVertical: PropTypes.oneOf(paddings),
-  paddingBottom: PropTypes.oneOf(paddings),
-  paddingLeft: PropTypes.oneOf(paddings),
-  paddingRight: PropTypes.oneOf(paddings),
-  paddingTop: PropTypes.oneOf(paddings),
-  style: PropTypes.object,
-  textAlign: PropTypes.oneOf(['center', 'left', 'right']),
-};
-
-Box.defaultProps = {
-  borderColor: 'neutral',
-  borderTint: 'dark',
-  borderRadius: 'square',
-  element: 'div',
-  margin: 0,
-  padding: 0,
-};
-
-const ForwardedBox = forwardRef((props, ref) => <Box {...props} forwardedRef={ref} />);
+const ForwardedBox = forwardRef((props: Props, ref) => <Box {...props} forwardedRef={ref} />);
 
 ForwardedBox.displayName = 'Box';
 
