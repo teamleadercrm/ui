@@ -184,14 +184,14 @@ class Select extends PureComponent {
   };
 
   getMenuStyles = (base) => {
-    const { menuVerticalOffset } = this.props;
+    const { menuHorizontalOffset } = this.props;
     return {
       ...base,
       marginTop: 3,
       marginBottom: 3,
-      ...(menuVerticalOffset
+      ...(menuHorizontalOffset
         ? {
-            right: menuVerticalOffset,
+            right: menuHorizontalOffset,
             position: 'absolute',
           }
         : {}),
@@ -414,8 +414,8 @@ Select.propTypes = {
   inverse: PropTypes.bool,
   /** A custom width for the menu dropdown */
   menuWidth: PropTypes.string,
-  /** A custom vertical offset for the menu dropdown, useful when also using a custom menuWidth  */
-  menuVerticalOffset: PropTypes.string,
+  /** A custom horizontal offset for the menu dropdown, useful when also using a custom menuWidth  */
+  menuHorizontalOffset: PropTypes.string,
   /** Boolean indicating whether the select option text should render on one single line. */
   truncateOptionText: PropTypes.bool,
   /** Size of the input element. */

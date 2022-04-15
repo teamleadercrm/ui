@@ -2,7 +2,7 @@
 
 ### Added
 
-- `Select`: Added the `menuVerticalOffset` property to allow offsetting where the menu is displayed ([@lorgan3](https://github.com/lorgan3) in [#2085](https://github.com/teamleadercrm/ui/pull/2085))
+- `Select`: Added the `menuHorizontalOffset` property to allow offsetting where the menu is displayed ([@lorgan3](https://github.com/lorgan3) in [#2085](https://github.com/teamleadercrm/ui/pull/2085))
 
 ### Changed
 
