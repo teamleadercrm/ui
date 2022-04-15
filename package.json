@@ -167,6 +167,8 @@
     "prepare": "yarn build",
     "start": "PORT=${PORT:-3000}; start-storybook --port $PORT",
     "chromatic:storybook": "PORT=${PORT:-3000}; CHROMATIC=true start-storybook --port $PORT",
-    "chromatic": "CHROMATIC=true chromatic"
+    "chromatic": "CHROMATIC=true chromatic",
+    "check-types": "tsc",
+    "check-types:watch": "yarn check-types --watch"
   }
 }
