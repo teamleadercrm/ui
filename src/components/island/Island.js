@@ -11,7 +11,7 @@ const SIZES = {
 };
 
 const Island = (props) => {
-  const { children, className, color, size, ...others } = props;
+  const { children, className, color, size, onClick, ...others } = props;
 
   const classNames = cx(theme[color], className);
   const boxProps = pickBoxProps(others);
@@ -30,6 +30,7 @@ const Island = (props) => {
       borderTopWidth={1}
       className={classNames}
       padding={SIZES[size]}
+      onClick={onClick}
       {...boxProps}
     >
       {children}
