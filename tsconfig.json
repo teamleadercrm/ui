@@ -4,12 +4,14 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "noEmit": true,
     "strict": true,
     "esModuleInterop": true,
     "allowJs": true,
     "checkJs": false,
-    "jsx": "react"
+    "jsx": "react",
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "outDir": "./dist/types"
   },
   "include": ["./src"]
 }

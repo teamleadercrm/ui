@@ -23,9 +23,9 @@
     "cjs",
     "es",
     "postcss.config.js",
-    "index.d.ts"
+    "./dist/types/index.d.ts"
   ],
-  "types": "index.d.ts",
+  "types": "./dist/types/index.d.ts",
   "dependencies": {
     "@babel/runtime": "^7.16.7",
     "@teamleader/ui-animations": "^0.0.3",
@@ -173,6 +173,7 @@
     "chromatic:storybook": "PORT=${PORT:-3000}; CHROMATIC=true start-storybook --port $PORT",
     "chromatic": "CHROMATIC=true chromatic",
     "check-types": "tsc",
-    "check-types:watch": "yarn check-types --watch"
+    "check-types:watch": "yarn check-types --watch",
+    "build-types": "tsc -p ./tsconfig.build.json"
   }
 }
