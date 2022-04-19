@@ -4,6 +4,7 @@ import Box from '../box';
 import Container from '../container';
 import { Heading1 } from '../typography';
 
+/** @type {React.ComponentType<any>} */
 class OverviewPageHeader extends PureComponent {
   render() {
     const { children, title, ...others } = this.props;

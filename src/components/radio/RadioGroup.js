@@ -5,6 +5,7 @@ import Box from '../box';
 import isComponentOfType from '../utils/is-component-of-type';
 import omit from 'lodash.omit';
 
+/** @type {React.ComponentType<any>} */
 class RadioGroup extends PureComponent {
   handleChange = (value, event) => {
     if (this.props.onChange) {

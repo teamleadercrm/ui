@@ -9,6 +9,7 @@ import { IconCloseMediumOutline } from '@teamleader/ui-icons';
 import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
 
+/** @type {React.ComponentType<any>} */
 class Toast extends PureComponent {
   componentDidMount() {
     if (this.props.timeout) {

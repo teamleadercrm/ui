@@ -7,6 +7,7 @@ import buttonTheme from '../button/theme.css';
 import theme from './theme.css';
 import LoadingSpinner from '../loadingSpinner';
 
+/** @type {React.ComponentType<any>} */
 const IconButton = forwardRef(
   (
     {

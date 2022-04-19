@@ -6,6 +6,7 @@ import { TextBody } from '../typography';
 import cx from 'classnames';
 import theme from './theme.css';
 
+/** @type {React.ComponentType<any>} */
 class MenuItem extends PureComponent {
   handleClick = (event) => {
     const { disabled, onClick } = this.props;

@@ -4,6 +4,7 @@ import theme from './theme.css';
 import cx from 'classnames';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
+/** @type {React.ComponentType<any>} */
 class ToastContainer extends PureComponent {
   render() {
     const { children, className, style } = this.props;

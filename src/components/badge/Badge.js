@@ -119,6 +119,7 @@ Badge.defaultProps = {
   size: 'medium',
 };
 
+/** @type {React.ComponentType<any>} */
 const ForwardedBadge = forwardRef((props, ref) => <Badge {...props} forwardedRef={ref} />);
 
 ForwardedBadge.displayName = 'Badge';

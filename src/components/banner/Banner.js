@@ -8,6 +8,7 @@ import IconButton from '../iconButton';
 import theme from './theme.css';
 import { IconCloseMediumOutline } from '@teamleader/ui-icons';
 
+/** @type {React.ComponentType<any>} */
 class Banner extends PureComponent {
   getCloseButtonColor() {
     const { color } = this.props;

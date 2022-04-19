@@ -261,6 +261,7 @@ NumericInput.defaultProps = {
   stepper: 'suffix',
 };
 
+/** @type {React.ComponentType<any>} */
 const ForwardedNumericInput = forwardRef((props, ref) => <NumericInput {...props} forwardedRef={ref} />);
 
 ForwardedNumericInput.displayName = 'NumericInput';

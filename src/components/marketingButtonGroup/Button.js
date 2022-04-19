@@ -5,6 +5,7 @@ import { UITextBody } from '../typography';
 import cx from 'classnames';
 import theme from './theme.css';
 
+/** @type {any} */
 const Button = forwardRef(({ onMouseUp, onMouseLeave, children, className, active, label, ...others }, ref) => {
   const buttonRef = useRef();
   useImperativeHandle(ref, () => buttonRef.current);

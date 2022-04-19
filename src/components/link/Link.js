@@ -5,6 +5,7 @@ import React, { forwardRef, useImperativeHandle, useRef } from 'react';
 import Box from '../box';
 import theme from './theme.css';
 
+/** @type {React.ComponentType<any>} */
 const Link = forwardRef(
   ({ children, className, disabled, element, inherit, inverse, selected, onMouseUp, onMouseLeave, ...others }, ref) => {
     const linkRef = useRef();

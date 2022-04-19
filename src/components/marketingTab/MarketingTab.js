@@ -6,6 +6,7 @@ import Box from '../box';
 import MarketingLockBadge from '../marketingLockBadge';
 import { Heading4, Heading5 } from '../typography';
 
+/** @type {React.ComponentType<any>} */
 const MarketingTab = forwardRef(({ active, children, className, size, onClick, ...others }, ref) => {
   const tabRef = useRef();
   useImperativeHandle(ref, () => tabRef.current);

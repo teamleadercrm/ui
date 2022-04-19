@@ -5,6 +5,13 @@ import Footer from './Footer';
 import Header from './Header';
 import { IslandGroup } from '../island';
 
+/**
+ * @type {React.ComponentType<any> & {
+ *    Header: React.ComponentType<any>;
+ *    Body: React.ComponentType<any>;
+ *    Footer: React.ComponentType<any>;
+ * }}
+ */
 const Widget = forwardRef(({ children, size, ...others }, ref) => {
   return (
     <IslandGroup ref={ref} direction="vertical" {...others}>

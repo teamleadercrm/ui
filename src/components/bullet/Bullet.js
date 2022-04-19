@@ -4,6 +4,7 @@ import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
 
+/** @type {React.ComponentType<any>} */
 class Bullet extends PureComponent {
   render() {
     const { className, color, size, borderColor, borderTint, ...others } = this.props;

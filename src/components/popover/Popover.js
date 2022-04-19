@@ -14,6 +14,7 @@ import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
 import useFocusTrap from '../../utils/useFocusTrap';
 
+/** @type {React.ComponentType<any>} */
 const Popover = (props) => {
   const [state, setState] = useState({ positioning: { left: 0, top: 0, maxHeight: 'initial' } });
 

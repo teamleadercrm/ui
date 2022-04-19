@@ -8,6 +8,7 @@ import Box from '../box';
 import Label from './Label';
 import { excludeSuggestions } from './utils';
 
+/** @type {React.ComponentType<any>} */
 const EmailSelector = ({
   error,
   defaultSelection,

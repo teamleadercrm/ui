@@ -4,6 +4,7 @@ import Box from '../box';
 import { Heading4 } from '../typography';
 import theme from './theme.css';
 
+/** @type {React.ComponentType<any>} */
 const MenuTitle = ({ children, ...others }) => (
   <Box
     {...others}

@@ -5,6 +5,7 @@ import cx from 'classnames';
 import { COLORS, TINTS } from '../../constants';
 import theme from './theme.css';
 
+/** @type {React.ComponentType<any>} */
 const factory = (baseType, type, defaultElement) => {
   class Text extends PureComponent {
     render() {

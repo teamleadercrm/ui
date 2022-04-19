@@ -6,6 +6,7 @@ import HelpText from './HelpText';
 import SuccessText from './SuccessText';
 import WarningText from './WarningText';
 
+/** @type {React.ComponentType<any>} */
 class ValidationText extends PureComponent {
   render() {
     const { error, inverse, help, success, warning } = this.props;

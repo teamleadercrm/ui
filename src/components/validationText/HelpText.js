@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import { TextSmall } from '../typography';
 
+/** @type {React.ComponentType<any>} */
 export default class HelpText extends PureComponent {
   render() {
     const { children, inverse, ...others } = this.props;

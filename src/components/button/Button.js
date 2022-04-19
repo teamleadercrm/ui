@@ -22,6 +22,7 @@ const textComponentMap = {
   large: UITextDisplay,
 };
 
+/** @type {React.ComponentType<any>} */
 const Button = forwardRef(
   (
     {

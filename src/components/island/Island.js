@@ -10,6 +10,7 @@ const SIZES = {
   large: 5,
 };
 
+/** @type {React.ComponentType<any>} */
 const Island = (props) => {
   const { children, className, color, size, ...others } = props;
 

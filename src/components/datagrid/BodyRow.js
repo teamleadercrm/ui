@@ -78,6 +78,7 @@ BodyRow.propTypes = {
   sliceTo: PropTypes.number,
 };
 
+/** @type {any} */
 const ForwardedBodyRow = forwardRef((props, ref) => <BodyRow {...props} forwardedRef={ref} />);
 
 ForwardedBodyRow.displayName = 'BodyRow';
