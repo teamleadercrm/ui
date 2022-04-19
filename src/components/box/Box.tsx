@@ -1,4 +1,4 @@
-import React, { CSSProperties, forwardRef, ReactNode } from 'react';
+import React, { CSSProperties, forwardRef, HTMLProps, ReactNode } from 'react';
 import cx from 'classnames';
 import { COLOR, COLORS, TINTS } from '../../constants';
 import theme from './theme.css';
@@ -14,57 +14,59 @@ const borderRadiuses = {
   rounded: '4px',
 };
 
-type Props = Partial<{
-  alignContent: 'center' | 'flex-start' | 'flex-end' | 'space-around' | 'space-between' | 'space-evenly';
-  alignItems: 'center' | 'flex-start' | 'flex-end' | 'baseline' | 'stretch';
-  alignSelf: 'center' | 'flex-start' | 'flex-end' | 'stretch';
-  backgroundColor: typeof COLORS[number];
-  backgroundTint: typeof TINTS[number];
-  borderBottomWidth: number;
-  borderColor: typeof COLORS[number];
-  borderLeftWidth: number;
-  borderRightWidth: number;
-  borderTint: typeof TINTS[number];
-  borderTopWidth: number;
-  borderWidth: number;
-  borderRadius: keyof typeof borderRadiuses;
-  borderTopLeftRadius: keyof typeof borderRadiuses;
-  borderTopRightRadius: keyof typeof borderRadiuses;
-  borderBottomLeftRadius: keyof typeof borderRadiuses;
-  borderBottomRightRadius: keyof typeof borderRadiuses;
-  boxSizing: 'border-box' | 'content-box';
-  children: ReactNode;
-  className: string;
-  display: 'inline' | 'inline-block' | 'block' | 'flex' | 'inline-flex';
-  element: React.ElementType;
-  flex: CSSProperties['flex'];
-  flexBasis: CSSProperties['flexBasis'];
-  flexDirection: 'row' | 'row-reverse' | 'column' | 'column-reverse';
-  flexGrow: CSSProperties['flexGrow'];
-  flexShrink: CSSProperties['flexShrink'];
-  flexWrap: 'nowrap' | 'wrap' | 'wrap-reverse';
-  justifyContent: 'center' | 'flex-start' | 'flex-end' | 'space-around' | 'space-between' | 'space-evenly';
-  margin: Margin;
-  marginHorizontal: Margin;
-  marginVertical: Margin;
-  marginBottom: Margin;
-  marginLeft: Margin;
-  marginRight: Margin;
-  marginTop: Margin;
-  order: CSSProperties['order'];
-  overflow: CSSProperties['overflow'];
-  overflowX: CSSProperties['overflowX'];
-  overflowY: CSSProperties['overflowY'];
-  padding: Padding;
-  paddingHorizontal: Padding;
-  paddingVertical: Padding;
-  paddingBottom: Padding;
-  paddingLeft: Padding;
-  paddingRight: Padding;
-  paddingTop: Padding;
-  style: CSSProperties;
-  textAlign: 'center' | 'left' | 'right';
-}>;
+type Props = Partial<
+  {
+    alignContent: 'center' | 'flex-start' | 'flex-end' | 'space-around' | 'space-between' | 'space-evenly';
+    alignItems: 'center' | 'flex-start' | 'flex-end' | 'baseline' | 'stretch';
+    alignSelf: 'center' | 'flex-start' | 'flex-end' | 'stretch';
+    backgroundColor: typeof COLORS[number];
+    backgroundTint: typeof TINTS[number];
+    borderBottomWidth: number;
+    borderColor: typeof COLORS[number];
+    borderLeftWidth: number;
+    borderRightWidth: number;
+    borderTint: typeof TINTS[number];
+    borderTopWidth: number;
+    borderWidth: number;
+    borderRadius: keyof typeof borderRadiuses;
+    borderTopLeftRadius: keyof typeof borderRadiuses;
+    borderTopRightRadius: keyof typeof borderRadiuses;
+    borderBottomLeftRadius: keyof typeof borderRadiuses;
+    borderBottomRightRadius: keyof typeof borderRadiuses;
+    boxSizing: 'border-box' | 'content-box';
+    children: ReactNode;
+    className: string;
+    display: 'inline' | 'inline-block' | 'block' | 'flex' | 'inline-flex';
+    element: React.ElementType;
+    flex: CSSProperties['flex'];
+    flexBasis: CSSProperties['flexBasis'];
+    flexDirection: 'row' | 'row-reverse' | 'column' | 'column-reverse';
+    flexGrow: CSSProperties['flexGrow'];
+    flexShrink: CSSProperties['flexShrink'];
+    flexWrap: 'nowrap' | 'wrap' | 'wrap-reverse';
+    justifyContent: 'center' | 'flex-start' | 'flex-end' | 'space-around' | 'space-between' | 'space-evenly';
+    margin: Margin;
+    marginHorizontal: Margin;
+    marginVertical: Margin;
+    marginBottom: Margin;
+    marginLeft: Margin;
+    marginRight: Margin;
+    marginTop: Margin;
+    order: CSSProperties['order'];
+    overflow: CSSProperties['overflow'];
+    overflowX: CSSProperties['overflowX'];
+    overflowY: CSSProperties['overflowY'];
+    padding: Padding;
+    paddingHorizontal: Padding;
+    paddingVertical: Padding;
+    paddingBottom: Padding;
+    paddingLeft: Padding;
+    paddingRight: Padding;
+    paddingTop: Padding;
+    style: CSSProperties;
+    textAlign: 'center' | 'left' | 'right';
+  } & HTMLProps<HTMLElement>
+>;
 
 const Box = forwardRef(
   (
