@@ -49,6 +49,13 @@ addParameters({
 addParameters({
   docs: {
     theme,
+    /**
+     * @todo temporary workaround to avoid JSDOC parameters from being rendered
+     * remove once there are no longer any @type annotations in any javascript files
+     */
+    description: {
+      component: ' ',
+    },
   },
 });
 
