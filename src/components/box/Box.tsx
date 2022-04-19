@@ -4,7 +4,9 @@ import { COLOR, COLORS, TINTS } from '../../constants';
 import theme from './theme.css';
 
 const margins = [-8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8] as const;
+export type Margin = typeof margins[number];
 const paddings = [0, 1, 2, 3, 4, 5, 6, 7, 8] as const;
+export type Padding = typeof paddings[number];
 
 const borderRadiuses = {
   square: null,
@@ -42,24 +44,24 @@ type Props = Partial<{
   flexShrink: CSSProperties['flexShrink'];
   flexWrap: 'nowrap' | 'wrap' | 'wrap-reverse';
   justifyContent: 'center' | 'flex-start' | 'flex-end' | 'space-around' | 'space-between' | 'space-evenly';
-  margin: typeof margins[number];
-  marginHorizontal: typeof margins[number];
-  marginVertical: typeof margins[number];
-  marginBottom: typeof margins[number];
-  marginLeft: typeof margins[number];
-  marginRight: typeof margins[number];
-  marginTop: typeof margins[number];
+  margin: Margin;
+  marginHorizontal: Margin;
+  marginVertical: Margin;
+  marginBottom: Margin;
+  marginLeft: Margin;
+  marginRight: Margin;
+  marginTop: Margin;
   order: CSSProperties['order'];
   overflow: CSSProperties['overflow'];
   overflowX: CSSProperties['overflowX'];
   overflowY: CSSProperties['overflowY'];
-  padding: typeof paddings[number];
-  paddingHorizontal: typeof paddings[number];
-  paddingVertical: typeof paddings[number];
-  paddingBottom: typeof paddings[number];
-  paddingLeft: typeof paddings[number];
-  paddingRight: typeof paddings[number];
-  paddingTop: typeof paddings[number];
+  padding: Padding;
+  paddingHorizontal: Padding;
+  paddingVertical: Padding;
+  paddingBottom: Padding;
+  paddingLeft: Padding;
+  paddingRight: Padding;
+  paddingTop: Padding;
   style: CSSProperties;
   textAlign: 'center' | 'left' | 'right';
 }>;
