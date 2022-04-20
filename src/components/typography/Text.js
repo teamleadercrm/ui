@@ -56,6 +56,7 @@ const factory = (baseType, type, defaultElement) => {
 
   Text.defaultProps = {
     element: null,
+    color: 'teal',
     tint: 'darkest',
   };
 
