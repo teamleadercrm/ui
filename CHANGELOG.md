@@ -2,8 +2,6 @@
 
 ### Added
 
-- `Select`: Added the `menuHorizontalOffset` property to allow offsetting where the menu is displayed ([@lorgan3](https://github.com/lorgan3) in [#2085](https://github.com/teamleadercrm/ui/pull/2085))
-
 ### Changed
 
 ### Deprecated
@@ -19,6 +17,7 @@
 ### Added
 
 - `Widget, Widget.Header`: Added the `onClick` property to enable click event on Widget Header ([@farazatarodi](https://github.com/farazatarodi) in [#2089](https://github.com/teamleadercrm/ui/pull/2089))
+- `Select`: Added the `menuHorizontalOffset` property to allow offsetting where the menu is displayed ([@lorgan3](https://github.com/lorgan3) in [#2085](https://github.com/teamleadercrm/ui/pull/2085))
 
 ## [14.1.0] - 2022-04-12
 
