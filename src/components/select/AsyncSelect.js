@@ -3,6 +3,7 @@ import omit from 'lodash.omit';
 import Select from './Select';
 import PropTypes from 'prop-types';
 
+/** @type {React.ComponentType<any>} */
 class AsyncSelect extends PureComponent {
   state = {
     searchTerm: '',

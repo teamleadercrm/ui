@@ -11,6 +11,7 @@ import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
 import LocaleUtils from './localeUtils';
 
+/** @type {React.ComponentType<any>} */
 class DatePicker extends PureComponent {
   state = {
     selectedDate: null,

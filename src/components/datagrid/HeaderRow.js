@@ -60,6 +60,7 @@ HeaderRow.propTypes = {
   sliceTo: PropTypes.number,
 };
 
+/** @type {any} */
 const ForwardedHeaderRow = forwardRef((props, ref) => <HeaderRow {...props} forwardedRef={ref} />);
 
 ForwardedHeaderRow.displayName = 'HeaderRow';

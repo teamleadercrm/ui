@@ -58,9 +58,9 @@ $ PORT=3001 yarn start
 
 ## New component checklist
 
-- [component].stories.js file is present
+- component is written in Typescript
+- [component].stories.tsx file is present
 - component is exported in index.js
-- component type is exported in index.d.ts
 
 ## How to make a release
 

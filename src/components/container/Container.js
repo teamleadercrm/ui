@@ -4,6 +4,7 @@ import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
 
+/** @type {React.ComponentType<any>} */
 class Container extends PureComponent {
   render() {
     const { children, className, fixed, ...others } = this.props;

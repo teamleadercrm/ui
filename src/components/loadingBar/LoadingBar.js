@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import Box from '../box';
 import theme from './theme.css';
 
+/** @type {React.ComponentType<any>} */
 class LoadingBar extends PureComponent {
   render() {
     const { className, color, size, tint, ...others } = this.props;

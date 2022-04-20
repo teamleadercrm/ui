@@ -7,6 +7,7 @@ import { TextSmall } from '../typography';
 import Icon from '../icon/Icon';
 import theme from './theme.css';
 
+/** @type {React.ComponentType<any>} */
 const PoweredByButton = forwardRef(
   ({ children, href, tint, shape, label, onMouseUp, onMouseLeave, className, ...rest }, ref) => {
     const buttonRef = useRef();

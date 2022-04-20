@@ -8,6 +8,7 @@ import Link from '../link';
 import Popover from '../popover';
 import { Heading3, TextBody } from '../typography';
 
+/** @type {React.ComponentType<any>} */
 class EmptyPassport extends PureComponent {
   render() {
     const { avatar, link, className, description, title, ...others } = this.props;

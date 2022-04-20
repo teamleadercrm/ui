@@ -10,6 +10,7 @@ import theme from './theme.css';
 import { formatDate } from './localeUtils';
 import { IconCalendarSmallOutline } from '@teamleader/ui-icons';
 
+/** @type {React.ComponentType<any>} */
 class DatePickerInput extends PureComponent {
   state = {
     isPopoverActive: false,

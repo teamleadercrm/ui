@@ -4,6 +4,7 @@ import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
 
+/** @type {React.ComponentType<any>} */
 class MarketingHeading1 extends Component {
   render() {
     const { children, className, ...others } = this.props;

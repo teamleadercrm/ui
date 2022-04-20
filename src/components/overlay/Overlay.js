@@ -6,6 +6,7 @@ import theme from './theme.css';
 import { KEY } from '../../constants';
 import { selectOverlayNode } from '../select/Select';
 
+/** @type {React.ComponentType<any>} */
 class Overlay extends PureComponent {
   innerWrapperRef = React.createRef();
   clickOriginRef = React.createRef();

@@ -8,6 +8,7 @@ import { IconTimerMediumOutline } from '@teamleader/ui-icons';
 import cx from 'classnames';
 import theme from './theme.css';
 
+/** @type {React.ComponentType<any>} */
 class Timer extends PureComponent {
   render() {
     const { children, className, loading, running, timerRef, ...others } = this.props;

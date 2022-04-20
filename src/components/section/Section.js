@@ -10,6 +10,7 @@ const SIZES = {
   large: 5,
 };
 
+/** @type {React.ComponentType<any>} */
 class Section extends PureComponent {
   render() {
     const { children, className, color, size, ...rest } = this.props;

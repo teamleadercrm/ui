@@ -23,9 +23,9 @@
     "cjs",
     "es",
     "postcss.config.js",
-    "index.d.ts"
+    "./dist/types/index.d.ts"
   ],
-  "types": "index.d.ts",
+  "types": "./dist/types/index.d.ts",
   "dependencies": {
     "@babel/runtime": "^7.16.7",
     "@teamleader/ui-animations": "^0.0.3",
@@ -71,12 +71,12 @@
     "@babel/core": "^7.16.7",
     "@babel/eslint-parser": "^7.16.5",
     "@babel/plugin-proposal-class-properties": "^7.16.7",
-    "@babel/plugin-proposal-export-default-from": "^7.16.7",
     "@babel/plugin-proposal-private-methods": "^7.16.7",
     "@babel/plugin-proposal-private-property-in-object": "^7.16.7",
     "@babel/plugin-transform-runtime": "^7.16.7",
     "@babel/preset-env": "^7.16.7",
     "@babel/preset-react": "^7.12.5",
+    "@babel/preset-typescript": "^7.16.7",
     "@storybook/addon-backgrounds": "6.4.19",
     "@storybook/addon-controls": "^6.2.8",
     "@storybook/addon-docs": "^6.2.8",
@@ -86,6 +86,10 @@
     "@storybook/react": "6.4.19",
     "@storybook/theming": "^6.2.8",
     "@storybook/ui": "6.4.19",
+    "@types/lodash.without": "^4.4.6",
+    "@types/react": "^16.3.1",
+    "@typescript-eslint/eslint-plugin": "^5.19.0",
+    "@typescript-eslint/parser": "^5.19.0",
     "babel-loader": "^8.0.0-beta.6",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.13",
     "chromatic": "^6.3.3",
@@ -126,6 +130,7 @@
     "rimraf": "^3.0.0",
     "storybook-addon-designs": "^6.0.0",
     "style-loader": "^3.3.1",
+    "typescript": "^4.6.3",
     "webpack": "^5.65.0"
   },
   "directories": {
@@ -156,7 +161,7 @@
     "build:js": "yarn build:es; yarn build:cjs",
     "build:cjs": "NODE_ENV=cjs babel src --out-dir cjs",
     "build:es": "NODE_ENV=es babel src --out-dir es",
-    "build": "rimraf es && rimraf cjs && yarn build:css && yarn build:js",
+    "build": "rimraf es && rimraf cjs && rimraf ./dist/types && yarn build-types && yarn build:css && yarn build:js",
     "compile": "build-storybook -o dist",
     "lint:clean": "yarn lint && rimraf dist",
     "deploy:prod": "yarn lint:clean && NODE_ENV=production yarn compile",
@@ -166,6 +171,9 @@
     "prepare": "yarn build",
     "start": "PORT=${PORT:-3000}; start-storybook --port $PORT",
     "chromatic:storybook": "PORT=${PORT:-3000}; CHROMATIC=true start-storybook --port $PORT",
-    "chromatic": "CHROMATIC=true chromatic"
+    "chromatic": "CHROMATIC=true chromatic",
+    "check-types": "tsc",
+    "check-types:watch": "yarn check-types --watch",
+    "build-types": "tsc -p ./tsconfig.build.json"
   }
 }

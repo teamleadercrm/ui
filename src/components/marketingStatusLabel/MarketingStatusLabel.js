@@ -7,6 +7,7 @@ import theme from './theme.css';
 import { IconLockSmallFilled } from '@teamleader/ui-icons';
 import { UITextBody, UITextSmall } from '../typography';
 
+/** @type {React.ComponentType<any>} */
 class MarketingStatusLabel extends Component {
   render() {
     const { children, className, fullWidth, size, ...others } = this.props;

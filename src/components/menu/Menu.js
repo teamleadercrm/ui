@@ -17,6 +17,7 @@ const POSITION = {
   BOTTOM_RIGHT: 'bottom-right',
 };
 
+/** @type {React.ComponentType<any>} */
 class Menu extends PureComponent {
   state = {};
 

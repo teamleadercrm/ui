@@ -9,6 +9,7 @@ import Link from '../link';
 import Popover from '../popover';
 import { Heading3, TextBody } from '../typography';
 
+/** @type {React.ComponentType<any>} */
 class Passport extends PureComponent {
   renderDescription = () => {
     const { description } = this.props;

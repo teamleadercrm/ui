@@ -437,6 +437,7 @@ Select.defaultProps = {
   width: '100%',
 };
 
+/** @type {React.ComponentType<any>} */
 const ForwardedSelect = forwardRef((props, ref) => <Select {...props} forwardedRef={ref} />);
 
 ForwardedSelect.displayName = 'Select';

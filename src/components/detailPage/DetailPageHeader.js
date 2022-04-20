@@ -8,6 +8,7 @@ import Section from '../section';
 import { Heading1, TextBody } from '../typography';
 import theme from './theme.css';
 
+/** @type {React.ComponentType<any>} */
 class DetailPageHeader extends PureComponent {
   render() {
     const { backLinkProps, children, title, titleColor, titleSuffix, ...others } = this.props;

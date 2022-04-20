@@ -4,6 +4,7 @@ import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
 
+/** @type {React.ComponentType<any>} */
 class LoadingSpinner extends PureComponent {
   render() {
     const { className, color, size, tint, ...others } = this.props;

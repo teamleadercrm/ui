@@ -8,6 +8,7 @@ import theme from './theme.css';
 import { Button, ButtonGroup, DialogBase, Heading3 } from '../../index';
 import { IconDragMediumFilled } from '@teamleader/ui-icons';
 
+/** @type {React.ComponentType<any>} */
 class Dialog extends PureComponent {
   bodyRef = createRef();
   dragHandleRef = createRef();

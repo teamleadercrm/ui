@@ -13,6 +13,13 @@ import uiUtilities from '@teamleader/ui-utilities';
 import useFocusTrap from '../../utils/useFocusTrap';
 import useDraggable from './useDraggable';
 
+/**
+ * @type {React.ComponentType<any> & {
+ *    Header: React.ComponentType<any>;
+ *    Body: React.ComponentType<any>;
+ *    Footer: React.ComponentType<any>;
+ * }}
+ */
 export const DialogBase = ({
   active,
   backdrop,

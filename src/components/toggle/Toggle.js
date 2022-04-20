@@ -6,6 +6,7 @@ import Box, { omitBoxProps, pickBoxProps } from '../box';
 import { TextBodyCompact, TextDisplay, TextSmall } from '../typography';
 import theme from './theme.css';
 
+/** @type {React.ComponentType<any>} */
 class Toggle extends PureComponent {
   inputNode = createRef();
 

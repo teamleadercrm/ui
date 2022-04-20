@@ -7,6 +7,7 @@ import Menu from './Menu.js';
 import theme from './theme.css';
 import Box, { pickBoxProps } from '../box';
 
+/** @type {React.ComponentType<any>} */
 class IconMenu extends PureComponent {
   state = {
     active: false,

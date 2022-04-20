@@ -36,6 +36,7 @@ class TimeInput extends PureComponent {
   }
 }
 
+/** @type {React.ComponentType<any>} */
 const ForwardedTimeInput = forwardRef((props, ref) => <TimeInput {...props} forwardedRef={ref} />);
 
 ForwardedTimeInput.displayName = 'TimeInput';

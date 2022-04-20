@@ -7,6 +7,8 @@ import Icon from '../icon';
 import { TextBodyCompact, TextDisplay, TextSmall } from '../typography';
 
 const TooltippedIcon = Tooltip(Icon);
+
+/** @type {React.ComponentType<any>} */
 export default class Label extends PureComponent {
   render() {
     const { children, inverse, required, size, tooltip, ...others } = this.props;

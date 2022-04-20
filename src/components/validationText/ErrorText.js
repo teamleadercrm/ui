@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { TextSmall } from '../typography';
 
+/** @type {React.ComponentType<any>} */
 export default class ErrorText extends PureComponent {
   render() {
     const { children, inverse, ...others } = this.props;

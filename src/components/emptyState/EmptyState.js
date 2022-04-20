@@ -16,6 +16,7 @@ const illustrationMap = {
   large: <IllustrationEmptyState130X130Pointer />,
 };
 
+/** @type {React.ComponentType<any>} */
 class EmptyState extends PureComponent {
   render() {
     const { className, metaText, hidePointer, size, title, ...others } = this.props;

@@ -15,6 +15,7 @@ const OVERLAP_SPACINGS = {
 
 const SPACING = 6;
 
+/** @type {React.ComponentType<any>} */
 class AvatarStack extends PureComponent {
   render() {
     const { children, className, direction, displayMax, inverse, onOverflowClick, selectable, size, ...others } =

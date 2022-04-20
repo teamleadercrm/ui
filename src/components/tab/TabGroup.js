@@ -11,6 +11,7 @@ import theme from './theme.css';
 const SCROLL_BUTTON_WIDTH = 48;
 const SCROLL_DISTANCE = 200;
 
+/** @type {React.ComponentType<any>} */
 class TabGroup extends PureComponent {
   scrollContainerRef = createRef();
   activeTabRef = createRef();

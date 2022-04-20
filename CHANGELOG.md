@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `Box, Counter`: Converted to native Typescript instead of using loose declaration file ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#2090](https://github.com/teamleadercrm/ui/pull/2090))
+
 ### Deprecated
 
 ### Removed

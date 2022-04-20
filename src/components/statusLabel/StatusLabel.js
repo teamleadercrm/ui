@@ -52,6 +52,7 @@ StatusLabel.defaultProps = {
   size: 'medium',
 };
 
+/** @type {React.ComponentType<any>} */
 const ForwardedStatusLabel = forwardRef((props, ref) => <StatusLabel {...props} forwardedRef={ref} />);
 
 ForwardedStatusLabel.displayName = 'StatusLabel';

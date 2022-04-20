@@ -30,6 +30,7 @@ FooterRow.propTypes = {
   sliceTo: PropTypes.number,
 };
 
+/** @type {any} */
 const ForwardedFooterRow = forwardRef((props, ref) => <FooterRow {...props} forwardedRef={ref} />);
 
 ForwardedFooterRow.displayName = 'FooterRow';
