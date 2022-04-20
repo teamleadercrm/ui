@@ -6,6 +6,8 @@
 
 ### Changed
 
+- `Text`: Default value of `color` property is `teal` ([@qubis741](https://github.com/qubis741) in [#2092](https://github.com/teamleadercrm/ui/pull/2092))
+
 ### Deprecated
 
 ### Removed
