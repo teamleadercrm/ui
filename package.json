@@ -23,7 +23,7 @@
     "cjs",
     "es",
     "postcss.config.js",
-    "./dist/types/index.d.ts"
+    "dist"
   ],
   "types": "./dist/types/index.d.ts",
   "dependencies": {
