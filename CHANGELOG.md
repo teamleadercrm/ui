@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `Box, Counter`: Components not included in build ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#2098](https://github.com/teamleadercrm/ui/pull/2098))
+
 ### Dependency updates
 
 ## [14.3.1] - 2022-04-21
