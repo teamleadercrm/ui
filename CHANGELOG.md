@@ -4,8 +4,6 @@
 
 ### Changed
 
-- `Box, Counter`: Converted to native Typescript instead of using loose declaration file ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#2090](https://github.com/teamleadercrm/ui/pull/2090))
-
 ### Deprecated
 
 ### Removed
@@ -13,6 +11,12 @@
 ### Fixed
 
 ### Dependency updates
+
+## [14.3.0] - 2022-04-12
+
+### Changed
+
+- `Box, Counter`: Converted to native Typescript instead of using loose declaration file ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#2090](https://github.com/teamleadercrm/ui/pull/2090))
 
 ## [14.2.0] - 2022-04-12
 
