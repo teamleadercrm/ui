@@ -10,9 +10,13 @@
 
 ### Fixed
 
-- Type files not being included when publishing to npm ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#2096](https://github.com/teamleadercrm/ui/pull/2096))
-
 ### Dependency updates
+
+## [14.3.1] - 2022-04-21
+
+### Fixed
+
+- Type files not being included when publishing to npm ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#2096](https://github.com/teamleadercrm/ui/pull/2096))
 
 ## [14.3.0] - 2022-04-21
 
