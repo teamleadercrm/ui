@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Container from '../container';
 
+/** @type {React.ComponentType<any>} */
 class OverviewPageBody extends PureComponent {
   render() {
     const { children, ...others } = this.props;

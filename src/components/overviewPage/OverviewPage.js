@@ -4,6 +4,7 @@ import OverviewPageBody from './OverviewPageBody';
 import OverviewPageHeader from './OverviewPageHeader';
 import Box from '../box';
 
+/** @type {React.ComponentType<any>} */
 class OverviewPage extends PureComponent {
   render() {
     const { children, className, ...others } = this.props;

@@ -70,6 +70,7 @@ Input.defaultProps = {
   type: 'text',
 };
 
+/** @type {React.ComponentType<any>} */
 const ForwardedInput = forwardRef((props, ref) => <Input {...props} forwardedRef={ref} />);
 
 ForwardedInput.displayName = 'Input';

@@ -39,6 +39,7 @@ const BackgroundTintByStatus = {
   [Status.BROKEN]: 'lightest',
 };
 
+/** @type {React.ComponentType<any>} */
 const FilterSelection = forwardRef(
   ({ label, modificationText, applied, status, amountApplied, onClick, onClearClick }, ref) => {
     const showAmount = typeof amountApplied === 'number';

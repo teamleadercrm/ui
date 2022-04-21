@@ -14,6 +14,17 @@ import cx from 'classnames';
 import omit from 'lodash.omit';
 import ReactResizeDetector from 'react-resize-detector';
 import theme from './theme.css';
+
+/**
+ * @type {React.ComponentType<any> & {
+ *    HeaderRowOverlay: React.ComponentType<any>;
+ *    HeaderRow: React.ComponentType<any>;
+ *    HeaderCell: React.ComponentType<any>;
+ *    BodyRow: React.ComponentType<any>;
+ *    Cell: React.ComponentType<any>;
+ *    FooterRow: React.ComponentType<any>;
+ * }}
+ */
 class DataGrid extends PureComponent {
   state = {
     hoveredRow: null,

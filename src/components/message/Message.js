@@ -48,6 +48,7 @@ const iconTintMap = {
   warning: 'dark',
 };
 
+/** @type {React.ComponentType<any>} */
 class Message extends PureComponent {
   render() {
     const { children, inline, onClose, primaryAction, secondaryAction, showIcon, status, title, ...others } =

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import theme from './theme.css';
 
+/** @type {React.ComponentType<any>} */
 class Monospaced extends PureComponent {
   render() {
     const { children, className, element } = this.props;

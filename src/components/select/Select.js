@@ -183,11 +183,20 @@ class Select extends PureComponent {
     };
   };
 
-  getMenuStyles = (base) => ({
-    ...base,
-    marginTop: 3,
-    marginBottom: 3,
-  });
+  getMenuStyles = (base) => {
+    const { menuHorizontalOffset } = this.props;
+    return {
+      ...base,
+      marginTop: 3,
+      marginBottom: 3,
+      ...(menuHorizontalOffset
+        ? {
+            right: menuHorizontalOffset,
+            position: 'absolute',
+          }
+        : {}),
+    };
+  };
 
   getMenuPortalStyles = (base) => {
     const { inverse, menuWidth } = this.props;
@@ -405,6 +414,8 @@ Select.propTypes = {
   inverse: PropTypes.bool,
   /** A custom width for the menu dropdown */
   menuWidth: PropTypes.string,
+  /** A custom horizontal offset for the menu dropdown, useful when also using a custom menuWidth  */
+  menuHorizontalOffset: PropTypes.string,
   /** Boolean indicating whether the select option text should render on one single line. */
   truncateOptionText: PropTypes.bool,
   /** Size of the input element. */
@@ -426,6 +437,7 @@ Select.defaultProps = {
   width: '100%',
 };
 
+/** @type {React.ComponentType<any>} */
 const ForwardedSelect = forwardRef((props, ref) => <Select {...props} forwardedRef={ref} />);
 
 ForwardedSelect.displayName = 'Select';

@@ -12,6 +12,7 @@ import theme from './theme.css';
 import omit from 'lodash.omit';
 import { IconCloseMediumOutline, IconCloseSmallOutline } from '@teamleader/ui-icons';
 
+/** @type {React.ComponentType<any>} */
 class Avatar extends PureComponent {
   state = {
     failedToLoadImage: false,

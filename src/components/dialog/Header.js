@@ -8,6 +8,7 @@ import Icon from '../icon';
 
 import theme from './theme.css';
 
+/** @type {any} */
 const Header = ({ icon, onCloseClick, children, ...rest }) => {
   return (
     <Section display="flex" alignItems="center" color="neutral" {...rest}>

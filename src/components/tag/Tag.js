@@ -7,6 +7,7 @@ import cx from 'classnames';
 import theme from './theme.css';
 import { IconCloseSmallOutline } from '@teamleader/ui-icons';
 
+/** @type {React.ComponentType<any>} */
 class Tag extends PureComponent {
   render() {
     const { children, className, onRemoveClick, size, ...others } = this.props;

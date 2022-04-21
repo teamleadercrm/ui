@@ -6,6 +6,7 @@ import React, { forwardRef, useImperativeHandle, useRef } from 'react';
 import Box from '../box';
 import theme from './theme.css';
 
+/** @type {React.ComponentType<any>} */
 const BadgedLink = forwardRef(
   (
     {

@@ -13,6 +13,7 @@ const textComponentMap = {
   large: UITextDisplay,
 };
 
+/** @type {React.ComponentType<any>} */
 const MarketingButton = forwardRef(
   (
     {

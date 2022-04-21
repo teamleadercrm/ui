@@ -6,6 +6,7 @@ import theme from './theme.css';
 
 import { Heading4, Heading5 } from '../typography';
 
+/** @type {React.ComponentType<any>} */
 const TitleTab = forwardRef(
   ({ active, children, className, counter = null, forwardedRef, size, onClick, ...others }, ref) => {
     const tabRef = useRef();

@@ -2,6 +2,7 @@ import React, { forwardRef, isValidElement } from 'react';
 import PropTypes from 'prop-types';
 import Box, { pickBoxProps } from '../box';
 
+/** @type {React.ComponentType<any>} */
 const IslandGroup = forwardRef(
   ({ children: originalChildren, className, color, direction, size, ...otherProps }, ref) => {
     const boxProps = pickBoxProps(otherProps);

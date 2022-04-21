@@ -6,6 +6,7 @@ import theme from './theme.css';
 import Box from '../box';
 import ProgressStep from './ProgressStep';
 
+/** @type {React.ComponentType<any>} */
 class ProgressTracker extends PureComponent {
   render() {
     const { color, children, currentStep, done, labelPosition } = this.props;

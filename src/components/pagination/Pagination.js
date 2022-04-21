@@ -6,6 +6,7 @@ import { IconChevronLeftMediumOutline, IconChevronRightMediumOutline } from '@te
 import cx from 'classnames';
 import theme from './theme.css';
 
+/** @type {React.ComponentType<any>} */
 class Pagination extends PureComponent {
   render() {
     const { className, currentPage, maxNumPagesVisible, numPages, children, ...others } = this.props;

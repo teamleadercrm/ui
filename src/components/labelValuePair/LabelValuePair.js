@@ -5,6 +5,12 @@ import Box from '../box';
 import Label from './Label';
 import Value from './Value';
 
+/**
+ * @type {React.ComponentType<any> & {
+ *   Label: React.ComponentType<any>;
+ *   Value: React.ComponentType<any>;
+ * }}
+ */
 class LabelValuePair extends PureComponent {
   render() {
     const { alignValue, children, inline, label, ...others } = this.props;

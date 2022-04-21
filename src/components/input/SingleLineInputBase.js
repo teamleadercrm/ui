@@ -124,6 +124,7 @@ SingleLineInputBase.propTypes = {
   noInputStyling: PropTypes.bool,
 };
 
+/** @type {any} */
 const ForwardedSingleInputBase = forwardRef((props, ref) => <SingleLineInputBase {...props} forwardedRef={ref} />);
 
 ForwardedSingleInputBase.displayName = 'SingleLineInputBase';

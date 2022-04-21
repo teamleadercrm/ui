@@ -8,6 +8,7 @@ import Popover from '../popover';
 import { IconChevronDownSmallOutline } from '@teamleader/ui-icons';
 import pick from 'lodash.pick';
 
+/** @type {React.ComponentType<any>} */
 class SplitButton extends PureComponent {
   firstChild = pick(this.props.children[0].props, ['label']);
 

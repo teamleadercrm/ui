@@ -32,6 +32,7 @@ const SIZES = {
   },
 };
 
+/** @type {(component: React.ComponentType<any>) => React.ComponentType<any>} */
 const Tooltip = (ComposedComponent) => {
   class TooltippedComponent extends Component {
     tooltipRoot = this.props.documentObject.createElement('div');

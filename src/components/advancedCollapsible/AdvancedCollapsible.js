@@ -6,6 +6,7 @@ import Box, { pickBoxProps } from '../box';
 import { IconChevronDownSmallOutline, IconChevronRightSmallOutline } from '@teamleader/ui-icons';
 import theme from './theme.css';
 
+/** @type {React.ComponentType<any>} */
 class AdvancedCollapsible extends PureComponent {
   state = {
     collapsed: true,

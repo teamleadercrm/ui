@@ -55,6 +55,7 @@ Textarea.defaultProps = {
   inverse: false,
 };
 
+/** @type {React.ComponentType<any>} */
 const ForwardedTextArea = forwardRef((props, ref) => <Textarea {...props} forwardedRef={ref} />);
 
 ForwardedTextArea.displayName = 'Textarea';

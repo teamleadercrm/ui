@@ -5,6 +5,7 @@ import Box from '../box';
 import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
 
+/** @type {React.ComponentType<any>} */
 const MarketingLink = forwardRef(({ children, className, element, onMouseUp, onMouseLeave, ...others }, ref) => {
   const linkRef = useRef();
   useImperativeHandle(ref, () => linkRef.current);

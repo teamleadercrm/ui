@@ -52,6 +52,7 @@ const customStyleMap = {
 
 const availableLocales = ['en', 'es', 'it', 'nl', 'fr', 'de'];
 
+/** @type {React.ComponentType<any>} */
 const WysiwygEditor = ({
   className,
   error,

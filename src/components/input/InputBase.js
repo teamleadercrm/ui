@@ -91,6 +91,7 @@ InputBase.defaultProps = {
   size: 'medium',
 };
 
+/** @type {React.ComponentType<any>} */
 const ForwardedInputBase = forwardRef((props, ref) => <InputBase {...props} forwardedRef={ref} />);
 
 ForwardedInputBase.displayName = 'InputBase';

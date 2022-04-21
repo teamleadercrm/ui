@@ -13,6 +13,7 @@ const ALERT_TYPES = {
   error: 'error',
 };
 
+/** @type {React.ComponentType<any>} */
 const Alert = ({ primaryAction, secondaryAction, title, body, type, ...otherProps }) => {
   const restProps = omit(otherProps, ['primaryAction', 'secondaryAction']);
 

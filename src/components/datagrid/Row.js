@@ -28,6 +28,7 @@ Row.defaultProps = {
   backgroundColor: 'white',
 };
 
+/** @type {any} */
 const ForwardedRow = forwardRef((props, ref) => <Row {...props} forwardedRef={ref} />);
 
 ForwardedRow.displayName = 'Row';

@@ -7,6 +7,7 @@ import cx from 'classnames';
 import isComponentOfType from '../utils/is-component-of-type';
 import theme from './theme.css';
 
+/** @type {React.ComponentType<any>} */
 class ButtonGroup extends PureComponent {
   handleChange = (value, event) => {
     if (this.props.onChange) {

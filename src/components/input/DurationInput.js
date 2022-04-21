@@ -8,6 +8,7 @@ const transformToPaddedNumber = (number) => (number < 10 ? `0${number}` : number
 
 const MINUTES_STEP = 15;
 
+/** @type {React.ComponentType<any>} */
 const DurationInput = forwardRef(
   (
     { id, value, onChange, onBlur, onFocus, onKeyDown, autoFocus, textAlignRight, className, error, max, size },

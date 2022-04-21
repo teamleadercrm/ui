@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Box from '../box';
 import { Heading4 } from '../typography';
 
+/** @type {React.ComponentType<any>} */
 class LabelValuePairGroup extends PureComponent {
   render() {
     const { children, title, ...others } = this.props;

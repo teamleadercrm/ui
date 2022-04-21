@@ -4,6 +4,7 @@ import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
 
+/** @type {React.ComponentType<any>} */
 class Icon extends PureComponent {
   render() {
     const { children, className, color, tint, opacity, ...others } = this.props;
