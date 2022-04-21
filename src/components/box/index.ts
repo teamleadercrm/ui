@@ -1,4 +1,5 @@
-import Box, { Margin, Padding } from './Box';
+import Box from './Box';
+import type { Margin, Padding } from './Box';
 import boxProps, { omitBoxProps, pickBoxProps } from './boxProps';
 
 export default Box;
