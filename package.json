@@ -168,11 +168,11 @@
     "lint": "eslint ./src",
     "lint:fix": "yarn lint --fix",
     "prettier": "prettier --write './{src,.storybook}/**/*.{js,json,md,css}'",
-    "prepare": "yarn build",
+    "prepublishOnly": "yarn build",
     "start": "PORT=${PORT:-3000}; start-storybook --port $PORT",
     "chromatic:storybook": "PORT=${PORT:-3000}; CHROMATIC=true start-storybook --port $PORT",
     "chromatic": "CHROMATIC=true chromatic",
-    "check-types": "tsc",
+    "check-types": "tsc --noEmit",
     "check-types:watch": "yarn check-types --watch",
     "build-types": "tsc -p ./tsconfig.build.json"
   }
