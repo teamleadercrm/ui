@@ -159,8 +159,8 @@
   "scripts": {
     "build:css": "postcss ./src/**/*.css --base src --dir ./es && cp -R ./es ./cjs",
     "build:js": "yarn build:es; yarn build:cjs",
-    "build:cjs": "NODE_ENV=cjs babel src --out-dir cjs",
-    "build:es": "NODE_ENV=es babel src --out-dir es",
+    "build:cjs": "NODE_ENV=cjs babel src --extensions '.js,.ts,.tsx' --out-dir cjs",
+    "build:es": "NODE_ENV=es babel src --extensions '.js,.ts,.tsx' --out-dir es",
     "build": "rimraf es && rimraf cjs && rimraf ./dist/types && yarn build-types && yarn build:css && yarn build:js",
     "compile": "build-storybook -o dist",
     "lint:clean": "yarn lint && rimraf dist",
