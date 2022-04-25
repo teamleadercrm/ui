@@ -8,9 +8,13 @@
 
 ### Removed
 
+### Dependency updates
+
+## [14.3.2] - 2022-04-25
+
 ### Fixed
 
-### Dependency updates
+- `Box, Counter`: Components not included in build ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#2098](https://github.com/teamleadercrm/ui/pull/2098))
 
 ## [14.3.1] - 2022-04-21
 

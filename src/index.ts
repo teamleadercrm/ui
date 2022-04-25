@@ -4,7 +4,8 @@ import Avatar, { AvatarStack } from './components/avatar';
 import Badge from './components/badge';
 import BadgedLink from './components/badgedLink';
 import Banner from './components/banner';
-import Box, { Margin, Padding } from './components/box';
+import Box from './components/box';
+import type { Margin, Padding } from './components/box';
 import Button from './components/button';
 import ButtonGroup from './components/buttonGroup';
 import {
