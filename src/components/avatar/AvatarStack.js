@@ -4,6 +4,7 @@ import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
+import AvatarStackOverflow from './AvatarStackOverflow';
 
 const OVERLAP_SPACINGS = {
   tiny: -6,
@@ -81,16 +82,11 @@ class AvatarStack extends PureComponent {
           });
         })}
         {hasOverflow && (
-          <Box
-            alignItems="center"
-            className={cx(uiUtilities['reset-font-smoothing'], theme['overflow'])}
-            display="flex"
-            justifyContent="center"
-            onClick={onOverflowClick}
-          >
-            {displayMax > 0 && `+`}
-            {overflowAmount}
-          </Box>
+          <AvatarStackOverflow
+            displayMax={displayMax}
+            overflowAmount={overflowAmount}
+            onOverflowClick={onOverflowClick}
+          />
         )}
       </Box>
     );
