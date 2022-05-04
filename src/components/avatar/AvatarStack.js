@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
-import uiUtilities from '@teamleader/ui-utilities';
 import AvatarStackOverflow from './AvatarStackOverflow';
 
 const OVERLAP_SPACINGS = {
