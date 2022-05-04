@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
-import uiUtilities from '@teamleader/ui-utilities';
+import AvatarStackOverflow from './AvatarStackOverflow';
 
 const OVERLAP_SPACINGS = {
   tiny: -6,
@@ -18,8 +18,19 @@ const SPACING = 6;
 /** @type {React.ComponentType<any>} */
 class AvatarStack extends PureComponent {
   render() {
-    const { children, className, direction, displayMax, inverse, onOverflowClick, selectable, size, ...others } =
-      this.props;
+    const {
+      children,
+      className,
+      direction,
+      displayMax,
+      inverse,
+      onOverflowClick,
+      selectable,
+      size,
+      getNamesOverflowLabel,
+      tooltip,
+      ...others
+    } = this.props;
 
     const childrenToDisplay = children.length > displayMax ? children.slice(0, displayMax) : children;
     const overflowAmount = children.length - displayMax;
@@ -62,6 +73,7 @@ class AvatarStack extends PureComponent {
             ...child.props,
             selectable,
             size,
+            tooltip,
             style: {
               ...spacingStyles,
               zIndex: childrenToDisplay.length - index,
@@ -70,16 +82,14 @@ class AvatarStack extends PureComponent {
           });
         })}
         {hasOverflow && (
-          <Box
-            alignItems="center"
-            className={cx(uiUtilities['reset-font-smoothing'], theme['overflow'])}
-            display="flex"
-            justifyContent="center"
-            onClick={onOverflowClick}
-          >
-            {displayMax > 0 && `+`}
-            {overflowAmount}
-          </Box>
+          <AvatarStackOverflow
+            displayMax={displayMax}
+            overflowAmount={overflowAmount}
+            onOverflowClick={onOverflowClick}
+            overflowChildren={children.slice(displayMax)}
+            getNamesOverflowLabel={getNamesOverflowLabel}
+            tooltip={tooltip}
+          />
         )}
       </Box>
     );
@@ -97,12 +107,16 @@ AvatarStack.propTypes = {
   displayMax: PropTypes.number,
   /** If true, component will be rendered in inverse mode. */
   inverse: PropTypes.bool,
+  /** Function to get the names overflow label that is displayed in the tooltip when it overflows. It get's the overflow amount as a parameter. */
+  getNamesOverflowLabel: PropTypes.func,
   /** Callback function that is fired when the overflow circle is clicked. */
   onOverflowClick: PropTypes.func,
   /** If true, avatars will not be overlapping each other and will become interactive. */
   selectable: PropTypes.bool,
   /** The size of the avatar stack. */
   size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large', 'hero']),
+  /** If true, the names will be shown in a tooltip on hover. */
+  tooltip: PropTypes.bool,
 };
 
 AvatarStack.defaultProps = {
@@ -111,6 +125,7 @@ AvatarStack.defaultProps = {
   inverse: false,
   selectable: false,
   size: 'medium',
+  tooltip: false,
 };
 
 export default AvatarStack;
