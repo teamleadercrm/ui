@@ -80,7 +80,7 @@ class Avatar extends PureComponent {
   };
 
   render() {
-    const { className, selectable, selected, size, shape, ...others } = this.props;
+    const { className, selectable, selected, size, shape, tooltip, fullName, ...others } = this.props;
 
     const avatarClassNames = cx(
       theme['wrapper'],
@@ -143,6 +143,8 @@ Avatar.propTypes = {
   size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large', 'hero']),
   /** If true, a team icon will be shown. */
   team: PropTypes.bool,
+  /** If true, the name will be shown in a tooltip on hover. */
+  tooltip: PropTypes.bool,
 };
 
 Avatar.defaultProps = {
@@ -153,6 +155,7 @@ Avatar.defaultProps = {
   shape: 'circle',
   size: 'medium',
   team: false,
+  tooltip: false,
 };
 
 export default Avatar;
