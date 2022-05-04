@@ -86,6 +86,8 @@ class AvatarStack extends PureComponent {
             displayMax={displayMax}
             overflowAmount={overflowAmount}
             onOverflowClick={onOverflowClick}
+            overflowChildren={children.slice(displayMax)}
+            tooltip={tooltip}
           />
         )}
       </Box>
