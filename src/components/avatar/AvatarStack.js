@@ -18,8 +18,18 @@ const SPACING = 6;
 /** @type {React.ComponentType<any>} */
 class AvatarStack extends PureComponent {
   render() {
-    const { children, className, direction, displayMax, inverse, onOverflowClick, selectable, size, ...others } =
-      this.props;
+    const {
+      children,
+      className,
+      direction,
+      displayMax,
+      inverse,
+      onOverflowClick,
+      selectable,
+      size,
+      tooltip,
+      ...others
+    } = this.props;
 
     const childrenToDisplay = children.length > displayMax ? children.slice(0, displayMax) : children;
     const overflowAmount = children.length - displayMax;
@@ -103,6 +113,8 @@ AvatarStack.propTypes = {
   selectable: PropTypes.bool,
   /** The size of the avatar stack. */
   size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large', 'hero']),
+  /** If true, the names will be shown in a tooltip on hover. */
+  tooltip: PropTypes.bool,
 };
 
 AvatarStack.defaultProps = {
@@ -111,6 +123,7 @@ AvatarStack.defaultProps = {
   inverse: false,
   selectable: false,
   size: 'medium',
+  tooltip: false,
 };
 
 export default AvatarStack;
