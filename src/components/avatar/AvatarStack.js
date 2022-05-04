@@ -27,6 +27,7 @@ class AvatarStack extends PureComponent {
       onOverflowClick,
       selectable,
       size,
+      getNamesOverflowLabel,
       tooltip,
       ...others
     } = this.props;
@@ -86,6 +87,7 @@ class AvatarStack extends PureComponent {
             overflowAmount={overflowAmount}
             onOverflowClick={onOverflowClick}
             overflowChildren={children.slice(displayMax)}
+            getNamesOverflowLabel={getNamesOverflowLabel}
             tooltip={tooltip}
           />
         )}
@@ -105,6 +107,8 @@ AvatarStack.propTypes = {
   displayMax: PropTypes.number,
   /** If true, component will be rendered in inverse mode. */
   inverse: PropTypes.bool,
+  /** Function to get the names overflow label that is displayed in the tooltip when it overflows. It get's the overflow amount as a parameter. */
+  getNamesOverflowLabel: PropTypes.func,
   /** Callback function that is fired when the overflow circle is clicked. */
   onOverflowClick: PropTypes.func,
   /** If true, avatars will not be overlapping each other and will become interactive. */

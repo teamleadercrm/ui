@@ -17,9 +17,17 @@ interface Props {
   overflowChildren: React.ReactChild[];
   onOverflowClick: () => void;
   tooltip: boolean;
+  getNamesOverflowLabel?: (overflowAmount: number) => string;
 }
 
-const AvatarStackOverflow = ({ displayMax, overflowAmount, overflowChildren, onOverflowClick, tooltip }: Props) => {
+const AvatarStackOverflow = ({
+  displayMax,
+  overflowAmount,
+  overflowChildren,
+  onOverflowClick,
+  tooltip,
+  getNamesOverflowLabel,
+}: Props) => {
   const names = React.Children.map(
     overflowChildren,
     (child) => React.isValidElement(child) && child.props.fullName,
@@ -42,7 +50,9 @@ const AvatarStackOverflow = ({ displayMax, overflowAmount, overflowChildren, onO
     ? {
         tooltip: (
           <TextBodyCompact>
-            {namesToDisplay.join(', ') + (hasNamesOverflow ? `, +${namesOverflowAmount} more...` : '')}
+            {namesToDisplay.join(', ')}
+            {hasNamesOverflow &&
+              `, +${getNamesOverflowLabel ? getNamesOverflowLabel(namesOverflowAmount) : namesOverflowAmount}...`}
           </TextBodyCompact>
         ),
         tooltipColor: 'white',
