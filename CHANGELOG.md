@@ -2,8 +2,6 @@
 
 ### Added
 
-- `Avatar, AvatarStack`: Added `tooltip` property ([@lowiebenoot](https://github.com/lowiebenoot) in [#2105](https://github.com/teamleadercrm/ui/pull/2105))
-
 ### Changed
 
 ### Deprecated
@@ -11,6 +9,12 @@
 ### Removed
 
 ### Dependency updates
+
+## [14.4.0] - 2022-05-04
+
+### Added
+
+- `Avatar, AvatarStack`: Added `tooltip` property ([@lowiebenoot](https://github.com/lowiebenoot) in [#2105](https://github.com/teamleadercrm/ui/pull/2105))
 
 ## [14.3.2] - 2022-04-25
 
