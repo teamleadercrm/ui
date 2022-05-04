@@ -18,7 +18,7 @@ export default {
 export const DefaultStory = (args) => (
   <AvatarStack {...args}>
     {avatars.map(({ image }, index) => (
-      <Avatar key={index} imageUrl={image} />
+      <Avatar key={index} imageUrl={image} fullName={`John Doe ${index}`} />
     ))}
   </AvatarStack>
 );
