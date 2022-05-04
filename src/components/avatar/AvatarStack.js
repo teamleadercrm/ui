@@ -72,6 +72,7 @@ class AvatarStack extends PureComponent {
             ...child.props,
             selectable,
             size,
+            tooltip,
             style: {
               ...spacingStyles,
               zIndex: childrenToDisplay.length - index,
