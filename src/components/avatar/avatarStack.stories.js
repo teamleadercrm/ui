@@ -16,8 +16,8 @@ export default {
 };
 
 export const DefaultStory = (args) => (
-    {avatars.map(({ image }, index) => (
   <AvatarStack {...args} getNamesOverflowLabel={(amount) => `${amount} more`}>
+    {[...avatars, ...avatars, ...avatars, ...avatars].map(({ image }, index) => (
       <Avatar key={index} imageUrl={image} fullName={`John Doe ${index}`} />
     ))}
   </AvatarStack>
