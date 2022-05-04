@@ -16,8 +16,8 @@ export default {
 };
 
 export const DefaultStory = (args) => (
-  <AvatarStack {...args}>
     {avatars.map(({ image }, index) => (
+  <AvatarStack {...args} getNamesOverflowLabel={(amount) => `${amount} more`}>
       <Avatar key={index} imageUrl={image} fullName={`John Doe ${index}`} />
     ))}
   </AvatarStack>
@@ -25,4 +25,5 @@ export const DefaultStory = (args) => (
 
 DefaultStory.args = {
   displayMax: 5,
+  tooltip: true,
 };
