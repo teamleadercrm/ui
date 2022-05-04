@@ -33,17 +33,10 @@ const AvatarStackOverflow = ({
     (child) => React.isValidElement(child) && child.props.fullName,
   ).filter(Boolean);
 
-  console.log(names);
-
   const enableTooltip = tooltip && names.length > 0;
   const namesToDisplay = names.slice(0, MAX_NAMES_TO_SHOW_IN_TOOLTIP);
   const namesOverflowAmount = names.length - MAX_NAMES_TO_SHOW_IN_TOOLTIP;
   const hasNamesOverflow = namesOverflowAmount > 0;
-
-  console.log(namesToDisplay);
-  console.log(namesToDisplay.join(', '));
-  console.log(namesOverflowAmount);
-  console.log(hasNamesOverflow);
 
   const Component = enableTooltip ? TooltippedBox : Box;
   const tooltipProps = enableTooltip
