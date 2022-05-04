@@ -7,10 +7,14 @@ import AvatarInitials from './AvatarInitials';
 import AvatarTeam from './AvatarTeam';
 import Box from '../box';
 import Icon from '../icon';
+import { TextBodyCompact } from '../typography';
+import Tooltip from '../tooltip';
 import cx from 'classnames';
 import theme from './theme.css';
 import omit from 'lodash.omit';
 import { IconCloseMediumOutline, IconCloseSmallOutline } from '@teamleader/ui-icons';
+
+const TooltippedBox = Tooltip(Box);
 
 /** @type {React.ComponentType<any>} */
 class Avatar extends PureComponent {
@@ -80,7 +84,7 @@ class Avatar extends PureComponent {
   };
 
   render() {
-    const { className, selectable, selected, size, shape, ...others } = this.props;
+    const { className, selectable, selected, size, shape, tooltip, fullName, ...others } = this.props;
 
     const avatarClassNames = cx(
       theme['wrapper'],
@@ -93,25 +97,28 @@ class Avatar extends PureComponent {
       className,
     );
 
-    const restProps = omit(others, [
-      'children',
-      'creatable',
-      'editable',
-      'imageUrl',
-      'fullName',
-      'id',
-      'onImageChange',
-      'team',
-    ]);
+    const restProps = omit(others, ['children', 'creatable', 'editable', 'imageUrl', 'id', 'onImageChange', 'team']);
+
+    const enableTooltip = tooltip && typeof fullName === 'string' && fullName.length > 0;
+    const Component = enableTooltip ? TooltippedBox : Box;
+    const tooltipProps = enableTooltip
+      ? {
+          tooltip: <TextBodyCompact>{fullName}</TextBodyCompact>,
+          tooltipColor: 'white',
+          tooltipPosition: 'top',
+          tooltipSize: 'small',
+        }
+      : {};
 
     return (
-      <Box
+      <Component
         {...restProps}
         {...(selectable && { boxSizing: 'content-box', padding: size === 'hero' ? 2 : 1 })}
+        {...tooltipProps}
         className={avatarClassNames}
       >
         {this.renderComponent()}
-      </Box>
+      </Component>
     );
   }
 }
@@ -143,6 +150,8 @@ Avatar.propTypes = {
   size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large', 'hero']),
   /** If true, a team icon will be shown. */
   team: PropTypes.bool,
+  /** If true, the name will be shown in a tooltip on hover. */
+  tooltip: PropTypes.bool,
 };
 
 Avatar.defaultProps = {
@@ -153,6 +162,7 @@ Avatar.defaultProps = {
   shape: 'circle',
   size: 'medium',
   team: false,
+  tooltip: false,
 };
 
 export default Avatar;
