@@ -1,27 +1,40 @@
-import React, { forwardRef, useRef } from 'react';
-import PropTypes from 'prop-types';
+import React, { forwardRef, ReactNode, useRef } from 'react';
 import Box from '../box';
 import Icon from '../icon';
 import { UITextSmall, UITextBody, UITextDisplay } from '../typography';
 import cx from 'classnames';
 import theme from './theme.css';
 
+interface Props {
+  children: ReactNode;
+  className: string;
+  disabled: boolean;
+  element: React.ElementType;
+  icon: ReactNode;
+  iconPlacement: 'left' | 'right';
+  onClick: () => void;
+  onMouseLeave: () => void;
+  onMouseUp: () => void;
+  selected: boolean;
+  size: 'small' | 'medium' | 'large';
+}
+
 const Badge = forwardRef(
   (
     {
       children,
       className,
-      disabled,
+      disabled = false,
       element,
       icon,
-      iconPlacement,
+      iconPlacement = 'left',
       selected,
-      size,
+      size = 'medium',
       onClick,
       onMouseLeave,
       onMouseUp,
       ...others
-    },
+    }: Props,
     ref,
   ) => {
     const badgeNode = useRef();
@@ -95,37 +108,6 @@ const Badge = forwardRef(
     );
   },
 );
-
-Badge.propTypes = {
-  /** The content to display inside the badge. */
-  children: PropTypes.any,
-  /** A class name for the wrapper to give custom styles. */
-  className: PropTypes.string,
-  /** If true, component will be disabled. */
-  disabled: PropTypes.bool,
-  /** Sets a custom element to use as the badge component wrapper. */
-  element: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
-  /** The icon displayed inside the badge. */
-  icon: PropTypes.element,
-  /** The position of the icon inside the badge. */
-  iconPlacement: PropTypes.oneOf(['left', 'right']),
-  /** Callback function that is fired when clicking on the component. */
-  onClick: PropTypes.func,
-  /** Callback function that is fired when mouse leaves the component. */
-  onMouseLeave: PropTypes.func,
-  /** Callback function that is fired when the mouse button is released. */
-  onMouseUp: PropTypes.func,
-  /** If true, component will be shown in a selected state */
-  selected: PropTypes.bool,
-  /** Size of the button. */
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
-};
-
-Badge.defaultProps = {
-  disabled: false,
-  iconPlacement: 'left',
-  size: 'medium',
-};
 
 Badge.displayName = 'Badge';
 
