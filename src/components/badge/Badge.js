@@ -1,4 +1,4 @@
-import React, { createRef, forwardRef, PureComponent } from 'react';
+import React, { forwardRef, useRef } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../box';
 import Icon from '../icon';
@@ -6,48 +6,56 @@ import { UITextSmall, UITextBody, UITextDisplay } from '../typography';
 import cx from 'classnames';
 import theme from './theme.css';
 
-class Badge extends PureComponent {
-  badgeNode = createRef();
+const Badge = forwardRef(
+  (
+    {
+      children,
+      className,
+      disabled,
+      element,
+      icon,
+      iconPlacement,
+      selected,
+      size,
+      onClick,
+      onMouseLeave,
+      onMouseUp,
+      ...others
+    },
+    ref,
+  ) => {
+    const badgeNode = useRef();
 
-  handleMouseUp = (event) => {
-    this.badgeNode.current.blur();
+    const handleMouseUp = (event) => {
+      badgeNode.current.blur();
 
-    if (this.props.onMouseUp) {
-      this.props.onMouseUp(event);
-    }
-  };
+      if (onMouseUp) {
+        onMouseUp(event);
+      }
+    };
 
-  handleMouseLeave = (event) => {
-    this.badgeNode.current.blur();
+    const handleMouseLeave = (event) => {
+      badgeNode.current.blur();
 
-    if (this.props.onMouseLeave) {
-      this.props.onMouseLeave(event);
-    }
-  };
+      if (onMouseLeave) {
+        onMouseLeave(event);
+      }
+    };
 
-  setRef = (ref) => {
-    this.badgeNode.current = ref;
-    const { forwardedRef } = this.props;
-    if (typeof forwardedRef === 'function') {
-      forwardedRef(ref);
-    } else if (typeof forwardedRef === 'object' && forwardedRef !== null) {
-      forwardedRef.current = ref;
-    }
-  };
+    const setRef = (refParam) => {
+      badgeNode.current = refParam;
+      if (typeof ref === 'function') {
+        ref(refParam);
+      } else if (typeof ref === 'object' && ref !== null) {
+        ref.current = refParam;
+      }
+    };
 
-  renderIcon = () => {
-    const { icon } = this.props;
-
-    return (
+    const renderIcon = () => (
       <Icon className={theme['icon']} color="teal" tint="darkest">
         {icon}
       </Icon>
     );
-  };
-
-  render() {
-    const { children, className, disabled, element, icon, iconPlacement, selected, size, onClick, ...others } =
-      this.props;
 
     const classNames = cx(
       theme['badge'],
@@ -68,25 +76,25 @@ class Badge extends PureComponent {
         className={classNames}
         data-teamleader-ui="badge"
         element={boxElement}
-        ref={this.setRef}
+        ref={setRef}
         onClick={onClick}
-        onMouseUp={this.handleMouseUp}
-        onMouseLeave={this.handleMouseLeave}
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseLeave}
         paddingHorizontal={2}
         type={boxElement === 'button' ? 'button' : undefined}
         {...others}
       >
-        {icon && iconPlacement === 'left' && this.renderIcon()}
+        {icon && iconPlacement === 'left' && renderIcon()}
         {children && (
           <TextElement className={theme['label']} element="span">
             {children}
           </TextElement>
         )}
-        {icon && iconPlacement === 'right' && this.renderIcon()}
+        {icon && iconPlacement === 'right' && renderIcon()}
       </Box>
     );
-  }
-}
+  },
+);
 
 Badge.propTypes = {
   /** The content to display inside the badge. */
@@ -119,9 +127,6 @@ Badge.defaultProps = {
   size: 'medium',
 };
 
-/** @type {React.ComponentType<any>} */
-const ForwardedBadge = forwardRef((props, ref) => <Badge {...props} forwardedRef={ref} />);
+Badge.displayName = 'Badge';
 
-ForwardedBadge.displayName = 'Badge';
-
-export default ForwardedBadge;
+export default Badge;
