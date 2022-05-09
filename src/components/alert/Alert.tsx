@@ -1,20 +1,34 @@
 import React from 'react';
 import { DialogBase } from '../dialog';
-import PropTypes from 'prop-types';
 import { Heading3, TextBody } from '../typography';
 import { Box } from '../box';
 import { Button, BUTTON_LEVELS } from '../button';
 import omit from 'lodash.omit';
 import { Illustration60X60Error, Illustration60X60Info } from '@teamleader/ui-illustrations';
 
-const ALERT_TYPES = {
-  confirm: 'confirm',
-  destructive: 'destructive',
-  error: 'error',
-};
+interface AlertProps {
+  active?: boolean;
+  primaryAction: object;
+  secondaryAction?: object;
+  title: string;
+  body?: string;
+  type?: ALERT_TYPES;
+}
 
-/** @type {React.ComponentType<any>} */
-const Alert = ({ primaryAction, secondaryAction, title, body, type, ...otherProps }) => {
+enum ALERT_TYPES {
+  confirm = 'confirm',
+  destructive = 'destructive',
+  error = 'error',
+}
+
+const Alert = ({
+  primaryAction,
+  secondaryAction,
+  title,
+  body,
+  type = ALERT_TYPES.confirm,
+  ...otherProps
+}: AlertProps) => {
   const restProps = omit(otherProps, ['primaryAction', 'secondaryAction']);
 
   return (
@@ -39,25 +53,6 @@ const Alert = ({ primaryAction, secondaryAction, title, body, type, ...otherProp
       </Box>
     </DialogBase>
   );
-};
-
-Alert.propTypes = {
-  /** If true, the alert will show on screen. */
-  active: PropTypes.bool,
-  /** Object containing the props of the primary action (a Button, with level prop set to 'primary'). */
-  primaryAction: PropTypes.object.isRequired,
-  /** Object containing the the props of the secondary action (a Button). */
-  secondaryAction: PropTypes.object,
-  /** The title of the alert. */
-  title: PropTypes.string.isRequired,
-  /** The body of the alert. */
-  body: PropTypes.string,
-  /** The type of the alert. */
-  type: PropTypes.oneOf([ALERT_TYPES.confirm, ALERT_TYPES.destructive, ALERT_TYPES.error]),
-};
-
-Alert.defaultProps = {
-  type: ALERT_TYPES.confirm,
 };
 
 export default Alert;
