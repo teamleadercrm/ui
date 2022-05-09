@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import Alert from './Alert';
+import Alert, { ALERT_TYPES } from './Alert';
 import Box from '../box';
 import Button from '../button';
 import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 export default {
   component: Alert,
@@ -14,9 +15,9 @@ export default {
       },
     },
   },
-};
+} as ComponentMeta<typeof Alert>;
 
-export const DefaultStory = (args) => {
+export const DefaultStory: ComponentStory<typeof Alert> = (args) => {
   const [active, setActive] = useState(false);
 
   const toggleAlert = () => {
@@ -44,7 +45,7 @@ DefaultStory.args = {
   body: 'I am the alert body text',
 };
 
-export const ConfirmationAlert = (args) => {
+export const ConfirmationAlert: ComponentStory<typeof Alert> = (args) => {
   const [active, setActive] = useState(false);
 
   const toggleAlert = () => {
@@ -70,10 +71,10 @@ ConfirmationAlert.args = {
   },
   title: 'Confirmation alert title',
   body: 'I am the alert body text',
-  type: 'confirm',
+  type: ALERT_TYPES.confirm,
 };
 
-export const DestructiveAlert = (args) => {
+export const DestructiveAlert: ComponentStory<typeof Alert> = (args) => {
   const [active, setActive] = useState(false);
 
   const toggleAlert = () => {
@@ -99,10 +100,10 @@ DestructiveAlert.args = {
   },
   title: 'Destructive alert title',
   body: 'I am the alert body text',
-  type: 'destructive',
+  type: ALERT_TYPES.destructive,
 };
 
-export const ErrorAlert = (args) => {
+export const ErrorAlert: ComponentStory<typeof Alert> = (args) => {
   const [active, setActive] = useState(false);
 
   const toggleAlert = () => {
@@ -124,5 +125,5 @@ ErrorAlert.args = {
   },
   title: 'Error alert title',
   body: 'I am the alert body text',
-  type: 'error',
+  type: ALERT_TYPES.error,
 };

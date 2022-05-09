@@ -13,9 +13,10 @@ interface AlertProps {
   title: string;
   body?: string;
   type?: ALERT_TYPES;
+  [key: string]: unknown;
 }
 
-enum ALERT_TYPES {
+export enum ALERT_TYPES {
   confirm = 'confirm',
   destructive = 'destructive',
   error = 'error',
