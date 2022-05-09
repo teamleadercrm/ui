@@ -1,32 +1,42 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState, useMemo } from 'react';
 import cx from 'classnames';
 import theme from './theme.css';
 import AvatarOverlay from './AvatarOverlay';
+import { Size } from './types';
 import Box from '../box';
 import { Heading4 } from '../typography';
 import { colorsWithout } from '../../constants';
 
 const colors = colorsWithout(['neutral']);
-const hashCode = (hexString) => parseInt(hexString.substr(-5), 16);
+const hashCode = (hexString: string) => parseInt(hexString.substr(-5), 16);
 
-class AvatarInitials extends PureComponent {
-  state = {
-    displayAvatarOverlay: false,
-  };
+interface Props {
+  /** Component that will be placed top right of the avatar image. */
+  children?: React.ReactNode;
+  /** If true, an overlay will be shown with edit icon. */
+  editable?: boolean;
+  /** The uuid to determine the background color of the avatar. */
+  id?: string;
+  /** The name for in the avatar. */
+  name: string;
+  /** Callback function that is fired when user clicks the edit icon. */
+  onImageChange?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  /** The size of the avatar. */
+  size: Size;
+}
 
-  getBackgroundColor = () => {
-    const { id } = this.props;
+const AvatarInitials = ({ children, name, editable, id, onImageChange, size }: Props) => {
+  const [displayAvatarOverlay, setDisplayAvatarOverlay] = useState(false);
 
+  const backgroundColor = useMemo(() => {
     if (!id) {
       return 'neutral';
     }
 
     return colors[Math.abs(hashCode(id)) % colors.length];
-  };
+  }, [id]);
 
-  getInitials = () => {
-    const { name } = this.props;
+  const initials = useMemo(() => {
     const splitName = name.split(' ');
     const firstLetter = splitName[0].charAt(0);
     if (splitName.length > 1) {
@@ -34,55 +44,38 @@ class AvatarInitials extends PureComponent {
       return `${firstLetter}${lastLetter}`;
     }
     return firstLetter;
+  }, [name]);
+
+  const handleOnMouseEnter = () => {
+    setDisplayAvatarOverlay(true);
   };
 
-  handleOnMouseEnter = () => {
-    this.setState({ displayAvatarOverlay: true });
+  const handleOnMouseLeave = () => {
+    setDisplayAvatarOverlay(false);
   };
 
-  handleOnMouseLeave = () => {
-    this.setState({ displayAvatarOverlay: false });
-  };
+  const shouldShowAvatarOverlay =
+    editable && (size === Size.large || size === Size.hero || (size === Size.medium && displayAvatarOverlay));
 
-  render() {
-    const { children, editable, id, onImageChange, size } = this.props;
-    const { displayAvatarOverlay } = this.state;
-    const shouldShowAvatarOverlay =
-      editable && (size === 'large' || size === 'hero' || (size === 'medium' && displayAvatarOverlay));
-
-    return (
-      <Box
-        alignItems="center"
-        backgroundColor={this.getBackgroundColor()}
-        backgroundTint="normal"
-        className={cx(theme['avatar'], theme['avatar-initials'])}
-        data-teamleader-ui="avatar-initials"
-        display="flex"
-        justifyContent="center"
-        onMouseEnter={this.handleOnMouseEnter}
-        onMouseLeave={this.handleOnMouseLeave}
-      >
-        <Heading4 className={theme['initials']} color="neutral" tint={id ? 'lightest' : 'darkest'}>
-          {this.getInitials()}
-        </Heading4>
-        {shouldShowAvatarOverlay && <AvatarOverlay onClick={onImageChange} size={size} />}
-        {children && <div className={theme['children']}>{children}</div>}
-      </Box>
-    );
-  }
-}
-
-AvatarInitials.propTypes = {
-  /** Component that will be placed top right of the avatar image. */
-  children: PropTypes.any,
-  /** The uuid to determine the background color of the avatar. */
-  id: PropTypes.string,
-  /** The name for in the avatar. */
-  name: PropTypes.string,
-};
-
-AvatarInitials.defaultProps = {
-  name: 'Michael Scott',
+  return (
+    <Box
+      alignItems="center"
+      backgroundColor={backgroundColor}
+      backgroundTint="normal"
+      className={cx(theme['avatar'], theme['avatar-initials'])}
+      data-teamleader-ui="avatar-initials"
+      display="flex"
+      justifyContent="center"
+      onMouseEnter={handleOnMouseEnter}
+      onMouseLeave={handleOnMouseLeave}
+    >
+      <Heading4 className={theme['initials']} color="neutral" tint={id ? 'lightest' : 'darkest'}>
+        {initials}
+      </Heading4>
+      {shouldShowAvatarOverlay && <AvatarOverlay onClick={onImageChange} size={size} />}
+      {children && <div className={theme['children']}>{children}</div>}
+    </Box>
+  );
 };
 
 export default AvatarInitials;
