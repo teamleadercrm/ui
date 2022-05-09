@@ -8,12 +8,17 @@ import { Illustration60X60Error, Illustration60X60Info } from '@teamleader/ui-il
 
 interface AlertProps {
   active?: boolean;
-  primaryAction: object;
-  secondaryAction?: object;
+  primaryAction: Action;
+  secondaryAction?: Action;
   title: string;
   body?: string;
   type?: ALERT_TYPES;
   [key: string]: unknown;
+}
+
+interface Action {
+  label: string;
+  onClick: () => void;
 }
 
 export enum ALERT_TYPES {
