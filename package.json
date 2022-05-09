@@ -84,6 +84,7 @@
     "@storybook/react": "6.4.19",
     "@storybook/theming": "^6.2.8",
     "@storybook/ui": "6.4.22",
+    "@types/lodash.omit": "^4.5.7",
     "@types/lodash.without": "^4.4.6",
     "@types/react": "^17.0.45",
     "@typescript-eslint/eslint-plugin": "^5.19.0",
