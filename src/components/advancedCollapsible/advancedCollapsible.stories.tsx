@@ -1,13 +1,14 @@
 import React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { AdvancedCollapsible, TextBody } from '../../index';
 
 export default {
   component: AdvancedCollapsible,
   title: addStoryInGroup(MID_LEVEL_BLOCKS, 'AdvancedCollapsible'),
-};
+} as ComponentMeta<typeof AdvancedCollapsible>;
 
-export const Basic = (args) => (
+export const Basic: ComponentStory<typeof AdvancedCollapsible> = (args) => (
   <AdvancedCollapsible {...args}>
     <TextBody color="teal">
       Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
