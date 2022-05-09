@@ -6,10 +6,10 @@ import { IconChevronDownSmallOutline, IconChevronRightSmallOutline } from '@team
 import theme from './theme.css';
 
 interface Props {
-  color: 'neutral' | 'teal';
+  color?: 'neutral' | 'teal';
   children: ReactNode;
   title: string;
-  size: 'small' | 'medium' | 'large';
+  size?: 'small' | 'medium' | 'large';
 }
 
 const AdvancedCollapsible = ({ children, color = 'teal', size = 'medium', title, ...others }: Props) => {
