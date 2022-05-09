@@ -20,7 +20,7 @@ interface Props {
   /** The name for in the avatar. */
   name: string;
   /** Callback function that is fired when user clicks the edit icon. */
-  onImageChange?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onImageChange?: React.MouseEventHandler<HTMLDivElement>;
   /** The size of the avatar. */
   size: Size;
 }

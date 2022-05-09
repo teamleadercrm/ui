@@ -14,7 +14,7 @@ interface Props {
   /** An alternative text for the image element. */
   imageAlt?: string;
   /** Callback function that is fired when user clicks the edit icon. */
-  onImageChange?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onImageChange?: (event: React.MouseEventHandler<HTMLDivElement>) => void;
   /** Callback function that is fired the image fails to load. */
   onImageLoadFailure?: React.ReactEventHandler<HTMLImageElement>;
   /** The size of the avatar. */
