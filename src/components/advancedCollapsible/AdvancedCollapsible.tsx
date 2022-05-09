@@ -1,12 +1,18 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { ReactNode, useState } from 'react';
 import { TextBody, Heading3 } from '../typography';
 import Icon from '../icon';
 import Box, { pickBoxProps } from '../box';
 import { IconChevronDownSmallOutline, IconChevronRightSmallOutline } from '@teamleader/ui-icons';
 import theme from './theme.css';
 
-const AdvancedCollapsible = ({ children, color, size, title, ...others }) => {
+interface Props {
+  color: 'neutral' | 'teal';
+  children: ReactNode;
+  title: string;
+  size: 'small' | 'medium' | 'large';
+}
+
+const AdvancedCollapsible = ({ children, color = 'teal', size = 'medium', title, ...others }: Props) => {
   const [collapsed, setCollapsed] = useState(true);
 
   const boxProps = pickBoxProps(others);
@@ -33,18 +39,6 @@ const AdvancedCollapsible = ({ children, color, size, title, ...others }) => {
       )}
     </Box>
   );
-};
-
-AdvancedCollapsible.propTypes = {
-  color: PropTypes.oneOf(['neutral', 'teal']),
-  children: PropTypes.any,
-  title: PropTypes.string,
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
-};
-
-AdvancedCollapsible.defaultProps = {
-  color: 'teal',
-  size: 'medium',
 };
 
 export default AdvancedCollapsible;
