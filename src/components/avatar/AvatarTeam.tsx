@@ -1,36 +1,32 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import cx from 'classnames';
 import theme from './theme.css';
 import Box from '../box';
 import Icon from '../icon';
+import { Size } from './types';
 import { IconTeamMediumOutline, IconTeamSmallOutline } from '@teamleader/ui-icons';
 
-class AvatarTeam extends PureComponent {
-  render() {
-    const { size } = this.props;
-
-    return (
-      <Box
-        alignItems="center"
-        backgroundColor="neutral"
-        backgroundTint="darkest"
-        className={cx(theme['avatar'], theme['avatar-team'])}
-        data-teamleader-ui="avatar-team"
-        display="flex"
-        justifyContent="center"
-      >
-        <Icon color="neutral" tint="light">
-          {size === 'tiny' || size === 'small' ? <IconTeamSmallOutline /> : <IconTeamMediumOutline />}
-        </Icon>
-      </Box>
-    );
-  }
+interface Props {
+  /** The size of the avatar. */
+  size: Size;
 }
 
-AvatarTeam.propTypes = {
-  /** The size of the avatar. */
-  size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large', 'hero']),
+const AvatarTeam = ({ size }: Props) => {
+  return (
+    <Box
+      alignItems="center"
+      backgroundColor="neutral"
+      backgroundTint="darkest"
+      className={cx(theme['avatar'], theme['avatar-team'])}
+      data-teamleader-ui="avatar-team"
+      display="flex"
+      justifyContent="center"
+    >
+      <Icon color="neutral" tint="light">
+        {size === Size.tiny || size === Size.small ? <IconTeamSmallOutline /> : <IconTeamMediumOutline />}
+      </Icon>
+    </Box>
+  );
 };
 
 export default AvatarTeam;
