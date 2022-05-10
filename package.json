@@ -175,5 +175,8 @@
     "check-types": "tsc --noEmit",
     "check-types:watch": "yarn check-types --watch",
     "build-types": "tsc -p ./tsconfig.build.json"
+  },
+  "resolutions": {
+    "@types/react": "^17.0.45"
   }
 }
