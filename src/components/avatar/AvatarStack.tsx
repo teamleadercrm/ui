@@ -1,9 +1,10 @@
-import React, { cloneElement, PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import React, { cloneElement } from 'react';
 import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
 import AvatarStackOverflow from './AvatarStackOverflow';
+import Avatar from './Avatar';
+import { Direction, Shape, Size } from './types';
 
 const OVERLAP_SPACINGS = {
   tiny: -6,
@@ -15,117 +16,108 @@ const OVERLAP_SPACINGS = {
 
 const SPACING = 6;
 
-/** @type {React.ComponentType<any>} */
-class AvatarStack extends PureComponent {
-  render() {
-    const {
-      children,
-      className,
-      direction,
-      displayMax,
-      inverse,
-      onOverflowClick,
-      selectable,
-      size,
-      getNamesOverflowLabel,
-      tooltip,
-      ...others
-    } = this.props;
-
-    const childrenToDisplay = children.length > displayMax ? children.slice(0, displayMax) : children;
-    const overflowAmount = children.length - displayMax;
-    const hasOverflow = overflowAmount > 0;
-
-    const classNames = cx(
-      theme[direction],
-      theme[`is-${size}`],
-      inverse ? [theme['light']] : [theme['dark']],
-      {
-        [theme['has-overflow']]: hasOverflow,
-        [theme['has-overlapping-avatars']]: !selectable,
-      },
-      className,
-    );
-
-    const spacingStyles = {
-      ...(direction === 'horizontal' && { marginRight: selectable ? SPACING : OVERLAP_SPACINGS[size] }),
-      ...(direction === 'vertical' && { marginBottom: selectable ? SPACING : OVERLAP_SPACINGS[size] }),
-    };
-
-    const wrapperPaddingStyles = {
-      ...(direction === 'horizontal' && { paddingRight: Math.abs(OVERLAP_SPACINGS[size]) }),
-      ...(direction === 'vertical' && { paddingBottom: Math.abs(OVERLAP_SPACINGS[size]) }),
-    };
-
-    return (
-      <Box
-        {...others}
-        data-teamleader-ui="avatar-stack"
-        className={classNames}
-        alignItems="center"
-        display="flex"
-        flexDirection={direction === 'horizontal' ? 'row' : 'column'}
-        style={!selectable && !hasOverflow && wrapperPaddingStyles}
-      >
-        {childrenToDisplay.map((child, index) => {
-          return cloneElement(child, {
-            key: index,
-            ...child.props,
-            selectable,
-            size,
-            tooltip,
-            style: {
-              ...spacingStyles,
-              zIndex: childrenToDisplay.length - index,
-              ...child.props.style,
-            },
-          });
-        })}
-        {hasOverflow && (
-          <AvatarStackOverflow
-            displayMax={displayMax}
-            overflowAmount={overflowAmount}
-            onOverflowClick={onOverflowClick}
-            overflowChildren={children.slice(displayMax)}
-            getNamesOverflowLabel={getNamesOverflowLabel}
-            tooltip={tooltip}
-          />
-        )}
-      </Box>
-    );
-  }
+interface Props {
+  /** The avatars to display in a stack. */
+  children: React.ReactNode;
+  /** A class name for the wrapper to give custom styles. */
+  className?: string;
+  /** The direction in which the avatars will be rendered. */
+  direction?: Direction;
+  /** The maximum amount of avatars to render. */
+  displayMax?: number;
+  /** If true, component will be rendered in inverse mode. */
+  inverse?: boolean;
+  /** Function to get the names overflow label that is displayed in the tooltip when it overflows. It get's the overflow amount as a parameter. */
+  getNamesOverflowLabel?: (overflowAmount: number) => string;
+  /** Callback function that is fired when the overflow circle is clicked. */
+  onOverflowClick?: () => void;
+  /** If true, avatars will not be overlapping each other and will become interactive. */
+  selectable?: boolean;
+  /** The size of the avatar stack. */
+  size?: Size;
+  /** If true, the names will be shown in a tooltip on hover. */
+  tooltip?: boolean;
 }
 
-AvatarStack.propTypes = {
-  /** The avatars to display in a stack. */
-  children: PropTypes.node,
-  /** A class name for the wrapper to give custom styles. */
-  className: PropTypes.string,
-  /** The direction in which the avatars will be rendered. */
-  direction: PropTypes.oneOf(['horizontal', 'vertical']),
-  /** The maximum amount of avatars to render. */
-  displayMax: PropTypes.number,
-  /** If true, component will be rendered in inverse mode. */
-  inverse: PropTypes.bool,
-  /** Function to get the names overflow label that is displayed in the tooltip when it overflows. It get's the overflow amount as a parameter. */
-  getNamesOverflowLabel: PropTypes.func,
-  /** Callback function that is fired when the overflow circle is clicked. */
-  onOverflowClick: PropTypes.func,
-  /** If true, avatars will not be overlapping each other and will become interactive. */
-  selectable: PropTypes.bool,
-  /** The size of the avatar stack. */
-  size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large', 'hero']),
-  /** If true, the names will be shown in a tooltip on hover. */
-  tooltip: PropTypes.bool,
-};
+const AvatarStack = ({
+  children,
+  className,
+  direction = Direction.horizontal,
+  displayMax = 99,
+  inverse = false,
+  onOverflowClick,
+  selectable = false,
+  size = Size.medium,
+  getNamesOverflowLabel,
+  tooltip = false,
+  ...others
+}: Props) => {
+  const childrenArray = React.Children.toArray(children);
+  const childrenToDisplay = childrenArray.length > displayMax ? childrenArray.slice(0, displayMax) : childrenArray;
+  const overflowAmount = childrenArray.length - displayMax;
+  const hasOverflow = overflowAmount > 0;
 
-AvatarStack.defaultProps = {
-  direction: 'horizontal',
-  displayMax: 99,
-  inverse: false,
-  selectable: false,
-  size: 'medium',
-  tooltip: false,
+  const classNames = cx(
+    theme[direction],
+    theme[`is-${size}`],
+    inverse ? [theme['light']] : [theme['dark']],
+    {
+      [theme['has-overflow']]: hasOverflow,
+      [theme['has-overlapping-avatars']]: !selectable,
+    },
+    className,
+  );
+
+  const spacingStyles = {
+    ...(direction === Direction.horizontal && { marginRight: selectable ? SPACING : OVERLAP_SPACINGS[size] }),
+    ...(direction === Direction.vertical && { marginBottom: selectable ? SPACING : OVERLAP_SPACINGS[size] }),
+  };
+
+  const wrapperPaddingStyles = {
+    ...(direction === Direction.horizontal && { paddingRight: Math.abs(OVERLAP_SPACINGS[size]) }),
+    ...(direction === Direction.vertical && { paddingBottom: Math.abs(OVERLAP_SPACINGS[size]) }),
+  };
+
+  return (
+    <Box
+      {...others}
+      data-teamleader-ui="avatar-stack"
+      className={classNames}
+      alignItems="center"
+      display="flex"
+      flexDirection={direction === 'horizontal' ? 'row' : 'column'}
+      style={!selectable && !hasOverflow ? wrapperPaddingStyles : undefined}
+    >
+      {React.Children.map(childrenToDisplay, (child, index) => {
+        if (!React.isValidElement(child)) {
+          return child;
+        }
+
+        return cloneElement(child, {
+          key: index,
+          ...child.props,
+          selectable,
+          size,
+          tooltip,
+          style: {
+            ...spacingStyles,
+            zIndex: childrenArray.length - index,
+            ...child.props.style,
+          },
+        });
+      })}
+      {hasOverflow && (
+        <AvatarStackOverflow
+          displayMax={displayMax}
+          overflowAmount={overflowAmount}
+          onOverflowClick={onOverflowClick}
+          overflowChildren={childrenArray.slice(displayMax)}
+          getNamesOverflowLabel={getNamesOverflowLabel}
+          tooltip={tooltip}
+        />
+      )}
+    </Box>
+  );
 };
 
 export default AvatarStack;

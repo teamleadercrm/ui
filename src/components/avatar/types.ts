@@ -10,3 +10,8 @@ export enum Shape {
   circle = 'circle',
   rounded = 'rounded',
 }
+
+export enum Direction {
+  horizontal = 'horizontal',
+  vertical = 'vertical',
+}
