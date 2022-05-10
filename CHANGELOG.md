@@ -4,8 +4,6 @@
 
 ### Changed
 
-- `AdvancedCollapsible`: converted to TypeScript ([@driesd](https://github.com/driesd) in [#2112](https://github.com/teamleadercrm/ui/pull/2112))
-
 ### Deprecated
 
 ### Removed
