@@ -1,10 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { ReactNode } from 'react';
 import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
+import { BoxProps } from '../box/Box';
 
-const Container = ({ children, className, fixed, ...others }) => {
+interface Props extends Omit<BoxProps, 'ref'> {
+  children?: ReactNode;
+  className?: string;
+  fixed?: boolean;
+}
+
+const Container = ({ children, className, fixed, ...others }: Props) => {
   const classNames = cx(
     theme['container'],
     {
@@ -18,11 +24,6 @@ const Container = ({ children, className, fixed, ...others }) => {
       {children}
     </Box>
   );
-};
-
-Container.propTypes = {
-  children: PropTypes.node,
-  fixed: PropTypes.bool,
 };
 
 export default Container;
