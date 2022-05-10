@@ -14,8 +14,8 @@ const MAX_NAMES_TO_SHOW_IN_TOOLTIP = 15;
 interface Props {
   displayMax: number;
   overflowAmount: number;
-  overflowChildren: React.ReactChild[];
-  onOverflowClick: () => void;
+  overflowChildren: (React.ReactChild | React.ReactFragment | React.ReactPortal)[];
+  onOverflowClick?: () => void;
   tooltip: boolean;
   getNamesOverflowLabel?: (overflowAmount: number) => string;
 }
