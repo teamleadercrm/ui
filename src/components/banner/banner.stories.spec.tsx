@@ -1,4 +1,5 @@
 import React from 'react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { IconBellMediumOutline } from '@teamleader/ui-icons';
 
 import Banner from './Banner';
@@ -7,14 +8,14 @@ import { TextBody } from '../typography';
 export default {
   component: Banner,
   title: 'Banner',
-};
+} as ComponentMeta<typeof Banner>;
 
-const Wrapper = ({ children }) => <div style={{ padding: '6px' }}>{children}</div>;
+const Wrapper: ComponentStory<typeof Banner> = ({ children }) => <div style={{ padding: '6px' }}>{children}</div>;
 
-export const Main = () => (
+export const Main: ComponentStory<typeof Banner> = () => (
   <div>
-    {['white', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua'].map((color) =>
-      ['small', 'medium', 'large'].map((size) => (
+    {(['white', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua'] as const).map((color) =>
+      (['small', 'medium', 'large'] as const).map((size) => (
         <React.Fragment key={color + size}>
           <Wrapper>
             <Banner color={color} size={size}>
