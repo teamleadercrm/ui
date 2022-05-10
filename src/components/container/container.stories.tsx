@@ -1,6 +1,6 @@
 import React from 'react';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
-import Container from '../container';
+import Container from '.';
 import Box from '../box';
 
 export default {
