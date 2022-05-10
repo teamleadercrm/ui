@@ -7,23 +7,23 @@ import theme from './theme.css';
 
 interface Props {
   /** The content to display inside the badge. */
-  children: ReactNode;
+  children?: ReactNode;
   /** A class name for the wrapper to give custom styles. */
-  className: string;
+  className?: string;
   /** If true, component will be disabled. */
-  disabled: boolean;
+  disabled?: boolean;
   /** Sets a custom element to use as the badge component wrapper. */
-  element: React.ElementType;
+  element?: React.ElementType;
   /** The icon displayed inside the badge. */
-  icon: ReactNode;
+  icon?: ReactNode;
   /** The position of the icon inside the badge. */
-  iconPlacement: 'left' | 'right';
+  iconPlacement?: 'left' | 'right';
   /** Callback function that is fired when clicking on the component. */
-  onClick: () => void;
+  onClick?: () => void;
   /** If true, component will be shown in a selected state */
-  selected: boolean;
+  selected?: boolean;
   /** Size of the button. */
-  size: 'small' | 'medium' | 'large';
+  size?: 'small' | 'medium' | 'large';
 }
 
 const Badge = forwardRef(
@@ -35,7 +35,7 @@ const Badge = forwardRef(
       element,
       icon,
       iconPlacement = 'left',
-      selected,
+      selected = false,
       size = 'medium',
       onClick,
       ...others
