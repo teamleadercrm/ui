@@ -43,7 +43,7 @@
     "luxon": "^2.3.0",
     "prop-types": "^15.8.1",
     "react": "^16.3.1",
-    "react-day-picker": "^7.4.8",
+    "react-day-picker": "^7.4.10",
     "react-dom": "^16.3.1",
     "react-draft-wysiwyg": "^1.14.7",
     "react-input-mask": "^2.0.4",
