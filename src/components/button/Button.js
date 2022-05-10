@@ -1,4 +1,4 @@
-import React, { useRef, forwardRef, useImperativeHandle } from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../box';
 import LoadingSpinner from '../loadingSpinner';
@@ -28,8 +28,6 @@ const Button = forwardRef(
     {
       color,
       level,
-      onMouseUp,
-      onMouseLeave,
       children,
       className,
       disabled,
@@ -46,9 +44,6 @@ const Button = forwardRef(
     },
     ref,
   ) => {
-    const buttonRef = useRef();
-    useImperativeHandle(ref, () => buttonRef.current);
-
     const getSpinnerColor = () => {
       switch (level) {
         case BUTTON_LEVELS.secondary:
@@ -85,27 +80,6 @@ const Button = forwardRef(
       }
     };
 
-    const handleMouseUp = (event) => {
-      blur();
-      if (onMouseUp) {
-        onMouseUp(event);
-      }
-    };
-
-    const handleMouseLeave = (event) => {
-      blur();
-      if (onMouseLeave) {
-        onMouseLeave(event);
-      }
-    };
-
-    const blur = () => {
-      const currentButtonRef = buttonRef.current;
-      if (currentButtonRef) {
-        currentButtonRef.blur();
-      }
-    };
-
     const classNames = cx(
       theme['reset-box-sizing'],
       theme['reset-font-smoothing'],
@@ -126,12 +100,10 @@ const Button = forwardRef(
 
     const props = {
       ...others,
-      ref: buttonRef,
+      ref: ref,
       className: classNames,
       disabled: element === 'button' ? disabled : null,
       element: element,
-      onMouseUp: handleMouseUp,
-      onMouseLeave: handleMouseLeave,
       type: element === 'button' ? type : null,
       'data-teamleader-ui': 'button',
     };
@@ -189,10 +161,6 @@ Button.propTypes = {
   iconPlacement: PropTypes.oneOf(['left', 'right']),
   /** The textual label displayed inside the button. */
   label: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  /** Callback function that is fired when mouse leaves the component. */
-  onMouseLeave: PropTypes.func,
-  /** Callback function that is fired when the mouse button is released. */
-  onMouseUp: PropTypes.func,
   /** If true, component will show a loading spinner instead of label or children. */
   processing: PropTypes.bool,
   /** Size of the button. */
