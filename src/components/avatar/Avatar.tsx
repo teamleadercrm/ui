@@ -37,9 +37,9 @@ interface Props {
   /** If true, the avatar will have a selected state. */
   selected?: boolean;
   /** The shape of the avatar. */
-  shape: Shape;
+  shape?: Shape;
   /** The size of the avatar. */
-  size: Size;
+  size?: Size;
   /** If true, a team icon will be shown. */
   team?: boolean;
   /** If true, the name will be shown in a tooltip on hover. */
