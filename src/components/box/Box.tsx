@@ -14,7 +14,7 @@ const borderRadiuses = {
   rounded: '4px',
 };
 
-type Props = Partial<
+export type BoxProps = Partial<
   {
     alignContent: 'center' | 'flex-start' | 'flex-end' | 'space-around' | 'space-between' | 'space-evenly';
     alignItems: 'center' | 'flex-start' | 'flex-end' | 'baseline' | 'stretch';
@@ -121,7 +121,7 @@ const Box = forwardRef(
       style,
       textAlign,
       ...others
-    }: Props,
+    }: BoxProps,
     ref,
   ) => {
     const getBorder = (value: number) => {
