@@ -30,8 +30,6 @@ interface Props {
   color?: 'teal' | 'neutral' | 'mint' | 'violet' | 'ruby' | 'gold' | 'aqua' | 'white';
   /** A custom element to be rendered */
   element?: any;
-  /** Determines which kind of button to be rendered. */
-  level: BUTTON_LEVELS;
   /** If true, component will be disabled. */
   disabled?: boolean;
   /** If true, component will be shown in an active state */
@@ -44,6 +42,8 @@ interface Props {
   iconPlacement?: 'left' | 'right';
   /** The textual label displayed inside the button. */
   label?: string;
+  /** Determines which kind of button to be rendered. */
+  level?: BUTTON_LEVELS;
   /** If true, component will show a loading spinner instead of label or children. */
   processing?: boolean;
   /** Size of the button. */
