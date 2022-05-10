@@ -1,48 +1,54 @@
 import uiTypography from '@teamleader/ui-typography';
 import uiUtilities from '@teamleader/ui-utilities';
 import cx from 'classnames';
-import PropTypes from 'prop-types';
-import React, { forwardRef, useImperativeHandle, useRef } from 'react';
+import React, { ElementType, forwardRef, ReactElement, ReactNode, useImperativeHandle, useRef } from 'react';
 import Box from '../box';
 import theme from './theme.css';
 
-/** @type {React.ComponentType<any>} */
+interface BadgedLinkProps {
+  children: ReactNode;
+  className?: string;
+  icon: ReactElement;
+  iconPlacement?: 'left' | 'right';
+  inherit?: boolean;
+  element?: ElementType<any> | undefined;
+  onMouseLeave?: () => void;
+  onMouseUp?: () => void;
+}
+
 const BadgedLink = forwardRef(
   (
     {
       children,
-      className,
-      disabled,
+      className = '',
       icon,
-      iconPlacement,
-      element,
-      inherit,
-      inverse,
-      selected,
+      iconPlacement = 'left',
+      element = 'a',
+      inherit = true,
       onMouseUp,
       onMouseLeave,
       ...others
-    },
+    }: BadgedLinkProps,
     ref,
   ) => {
-    const badgedLinkRef = useRef();
+    const badgedLinkRef = useRef<HTMLButtonElement>();
     useImperativeHandle(ref, () => badgedLinkRef.current);
 
     const blur = () => {
       const currentBadgedLinkRef = badgedLinkRef.current;
-      if (currentBadgedLinkRef.blur) {
+      if (currentBadgedLinkRef) {
         currentBadgedLinkRef.blur();
       }
     };
 
-    const handleMouseUp = (event) => {
+    const handleMouseUp = () => {
       blur();
-      onMouseUp && onMouseUp(event);
+      onMouseUp && onMouseUp();
     };
 
-    const handleMouseLeave = (event) => {
+    const handleMouseLeave = () => {
       blur();
-      onMouseLeave && onMouseLeave(event);
+      onMouseLeave && onMouseLeave();
     };
 
     const classNames = cx(
@@ -74,32 +80,6 @@ const BadgedLink = forwardRef(
     );
   },
 );
-
-BadgedLink.propTypes = {
-  /** The content to display inside the badged link. */
-  children: PropTypes.any.isRequired,
-  /** A class name for the badged link to give custom styles. */
-  className: PropTypes.string,
-  /** The icon displayed inside the button. */
-  icon: PropTypes.element.isRequired,
-  /** The position of the icon inside the button. */
-  iconPlacement: PropTypes.oneOf(['left', 'right']),
-  /** If true, the badged link style inherits the parent element style. */
-  inherit: PropTypes.bool,
-  /** A custom element to be rendered */
-  element: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
-  /** Callback function that is fired when mouse leaves the component. */
-  onMouseLeave: PropTypes.func,
-  /** Callback function that is fired when the mouse button is released. */
-  onMouseUp: PropTypes.func,
-};
-
-BadgedLink.defaultProps = {
-  className: '',
-  element: 'a',
-  iconPlacement: 'left',
-  inherit: true,
-};
 
 BadgedLink.displayName = 'BadgedLink';
 
