@@ -29,7 +29,7 @@ interface Props {
   /** The color which the button should have when 'level' is set to 'outline' */
   color?: 'teal' | 'neutral' | 'mint' | 'violet' | 'ruby' | 'gold' | 'aqua' | 'white';
   /** A custom element to be rendered */
-  element?: HTMLElement | string;
+  element?: any;
   /** Determines which kind of button to be rendered. */
   level: BUTTON_LEVELS;
   /** If true, component will be disabled. */
@@ -127,20 +127,18 @@ const Button = forwardRef(
       className,
     );
 
-    const props = {
-      ...others,
-      ref: ref,
-      className: classNames,
-      disabled: element === 'button' ? disabled : null,
-      element: element,
-      type: element === 'button' ? type : null,
-      'data-teamleader-ui': 'button',
-    };
-
     const Text = textComponentMap[size];
 
     return (
-      <Box {...props}>
+      <Box
+        {...others}
+        className={classNames}
+        data-teamleader-ui="button"
+        disabled={element === 'button' ? disabled : undefined}
+        element={element}
+        ref={ref}
+        type={element === 'button' ? type : undefined}
+      >
         {icon && iconPlacement === 'left' && icon}
         {(label || children) && (
           <Text
