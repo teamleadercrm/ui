@@ -46,18 +46,9 @@ interface Props {
   tooltip?: boolean;
 }
 
-type AvatarInternalComponentProps = Pick<
+type AvatarInternalComponentProps = { size: Size } & Pick<
   Props,
-  | 'creatable'
-  | 'children'
-  | 'editable'
-  | 'imageUrl'
-  | 'fullName'
-  | 'id'
-  | 'onImageChange'
-  | 'selected'
-  | 'size'
-  | 'team'
+  'creatable' | 'children' | 'editable' | 'imageUrl' | 'fullName' | 'id' | 'onImageChange' | 'selected' | 'team'
 >;
 
 const AvatarInternalComponent = ({
