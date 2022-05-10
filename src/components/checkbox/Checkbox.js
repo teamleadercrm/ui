@@ -14,26 +14,10 @@ class Checkbox extends PureComponent {
   handleToggle = (event) => {
     const { disabled, checked, onChange } = this.props;
 
-    if (event.pageX !== 0 && event.pageY !== 0) {
-      this.blur();
-    }
-
     if (!disabled && onChange) {
       onChange(!checked, event);
     }
   };
-
-  blur() {
-    if (this.inputNode.current) {
-      this.inputNode.current.blur();
-    }
-  }
-
-  focus() {
-    if (this.inputNode.current) {
-      this.inputNode.current.focus();
-    }
-  }
 
   render() {
     const { checked, disabled, className, size, label, children, indeterminate, ...others } = this.props;
