@@ -1,4 +1,4 @@
-import React, { forwardRef, ReactNode, useRef } from 'react';
+import React, { forwardRef, ReactNode } from 'react';
 import Box from '../box';
 import Icon from '../icon';
 import { UITextSmall, UITextBody, UITextDisplay } from '../typography';
@@ -13,8 +13,6 @@ interface Props {
   icon: ReactNode;
   iconPlacement: 'left' | 'right';
   onClick: () => void;
-  onMouseLeave: () => void;
-  onMouseUp: () => void;
   selected: boolean;
   size: 'small' | 'medium' | 'large';
 }
@@ -31,39 +29,10 @@ const Badge = forwardRef(
       selected,
       size = 'medium',
       onClick,
-      onMouseLeave,
-      onMouseUp,
       ...others
     }: Props,
     ref,
   ) => {
-    const badgeNode = useRef();
-
-    const handleMouseUp = (event) => {
-      badgeNode.current.blur();
-
-      if (onMouseUp) {
-        onMouseUp(event);
-      }
-    };
-
-    const handleMouseLeave = (event) => {
-      badgeNode.current.blur();
-
-      if (onMouseLeave) {
-        onMouseLeave(event);
-      }
-    };
-
-    const setRef = (refParam) => {
-      badgeNode.current = refParam;
-      if (typeof ref === 'function') {
-        ref(refParam);
-      } else if (typeof ref === 'object' && ref !== null) {
-        ref.current = refParam;
-      }
-    };
-
     const renderIcon = () => (
       <Icon className={theme['icon']} color="teal" tint="darkest">
         {icon}
@@ -89,10 +58,8 @@ const Badge = forwardRef(
         className={classNames}
         data-teamleader-ui="badge"
         element={boxElement}
-        ref={setRef}
+        ref={ref}
         onClick={onClick}
-        onMouseUp={handleMouseUp}
-        onMouseLeave={handleMouseLeave}
         paddingHorizontal={2}
         type={boxElement === 'button' ? 'button' : undefined}
         {...others}
