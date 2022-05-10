@@ -5,10 +5,15 @@ import theme from './theme.css';
 import { BoxProps } from '../box/Box';
 
 interface BulletProps extends Omit<BoxProps, 'size' | 'ref'> {
+  /** A border color to give to the counter */
   borderColor?: 'neutral' | 'mint' | 'aqua' | 'violet' | 'teal' | 'gold' | 'ruby';
+  /** A border tint to give to the counter */
   borderTint?: 'darkest' | 'dark' | 'light' | 'lightest';
+  /** A class name for the wrapper to give custom styles. */
   className?: string;
+  /** The color of the bullet. */
   color?: 'neutral' | 'mint' | 'aqua' | 'violet' | 'teal' | 'gold' | 'ruby';
+  /** The size of the bullet. */
   size?: 'small' | 'medium' | 'large';
 }
 
