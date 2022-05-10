@@ -6,13 +6,21 @@ import Box from '../box';
 import theme from './theme.css';
 
 interface BadgedLinkProps {
+  /** The content to display inside the badged link. */
   children: ReactNode;
+  /** A class name for the badged link to give custom styles. */
   className?: string;
+  /** The icon displayed inside the button. */
   icon: ReactElement;
+  /** The position of the icon inside the button. */
   iconPlacement?: 'left' | 'right';
+  /** If true, the badged link style inherits the parent element style. */
   inherit?: boolean;
-  element?: ElementType<any> | undefined;
+  /** A custom element to be rendered */
+  element?: ElementType | undefined;
+  /** Callback function that is fired when mouse leaves the component. */
   onMouseLeave?: () => void;
+  /** Callback function that is fired when the mouse button is released. */
   onMouseUp?: () => void;
 }
 
