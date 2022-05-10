@@ -119,10 +119,6 @@ const AvatarInternalComponent = ({
   return <AvatarAnonymous size={size}>{childrenToRender}</AvatarAnonymous>;
 };
 
-// creatable: false,
-//   editable: false,
-//   team: false,
-
 const Avatar = ({
   className,
   selectable = false,
