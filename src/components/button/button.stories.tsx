@@ -1,4 +1,5 @@
 import React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { IconAddMediumOutline, IconAddSmallOutline } from '@teamleader/ui-icons';
 import Button from './Button';
@@ -13,9 +14,9 @@ export default {
       url: 'https://www.figma.com/file/LHH25GN90ljQaBEUNMsdJn/Desktop-components?node-id=225%3A2',
     },
   },
-};
+} as ComponentMeta<typeof Button>;
 
-export const withTextAndIcon = ({ size, ...args }) => (
+export const withTextAndIcon: ComponentStory<typeof Button> = ({ size, ...args }) => (
   <Button
     {...args}
     size={size}
@@ -29,14 +30,14 @@ withTextAndIcon.args = {
 
 withTextAndIcon.storyName = 'With text and icon';
 
-export const WithText = () => <Button label="Button with text" />;
+export const WithText: ComponentStory<typeof Button> = () => <Button label="Button with text" />;
 
 WithText.storyName = 'With text';
 
-export const withIcon = () => <Button icon={<IconAddMediumOutline />} />;
+export const withIcon: ComponentStory<typeof Button> = () => <Button icon={<IconAddMediumOutline />} />;
 
 withIcon.storyName = 'With icon';
 
-export const withCustomElement = () => <Button element="a" label="Button with custom element" />;
+export const withCustomElement: ComponentStory<typeof Button> = () => <Button element="a" label="Button with custom element" />;
 
 withCustomElement.storyName = 'With custom element';
