@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `React`: Add support for react 17 as a peer dependency ([@lorgan3](https://github.com/lorgan3) in [#2118](https://github.com/teamleadercrm/ui/pull/2118))
+
 ### Deprecated
 
 ### Removed
