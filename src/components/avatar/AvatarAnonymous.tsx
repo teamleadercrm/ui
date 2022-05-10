@@ -25,7 +25,7 @@ const AvatarAnonymous = ({ children, size }: Props) => {
       justifyContent="center"
     >
       <Icon color="neutral" tint="darkest">
-        {size === Size.tiny || size === Size.small ? <IconUserSmallOutline /> : <IconUserMediumOutline />}
+        {size === 'tiny' || size === 'small' ? <IconUserSmallOutline /> : <IconUserMediumOutline />}
       </Icon>
       {children && <div className={theme['children']}>{children}</div>}
     </Box>

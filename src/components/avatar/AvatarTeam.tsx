@@ -23,7 +23,7 @@ const AvatarTeam = ({ size }: Props) => {
       justifyContent="center"
     >
       <Icon color="neutral" tint="light">
-        {size === Size.tiny || size === Size.small ? <IconTeamSmallOutline /> : <IconTeamMediumOutline />}
+        {size === 'tiny' || size === 'small' ? <IconTeamSmallOutline /> : <IconTeamMediumOutline />}
       </Icon>
     </Box>
   );

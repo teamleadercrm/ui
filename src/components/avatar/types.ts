@@ -1,17 +1,5 @@
-export enum Size {
-  tiny = 'tiny',
-  small = 'small',
-  medium = 'medium',
-  large = 'large',
-  hero = 'hero',
-}
+export type Size = 'tiny' | 'small' | 'medium' | 'large' | 'hero';
 
-export enum Shape {
-  circle = 'circle',
-  rounded = 'rounded',
-}
+export type Shape = 'circle' | 'rounded';
 
-export enum Direction {
-  horizontal = 'horizontal',
-  vertical = 'vertical',
-}
+export type Direction = 'horizontal' | 'vertical';

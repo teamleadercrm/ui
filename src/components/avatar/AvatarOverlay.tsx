@@ -14,7 +14,7 @@ interface Props {
 const AvatarOverlay = ({ size, onClick }: Props) => {
   const classNames = cx(
     theme['overlay-background'],
-    size === Size.medium ? theme['full-height'] : theme['default-height'],
+    size === 'medium' ? theme['full-height'] : theme['default-height'],
   );
 
   return (

@@ -41,12 +41,12 @@ interface Props {
 const AvatarStack = ({
   children,
   className,
-  direction = Direction.horizontal,
+  direction = 'horizontal',
   displayMax = 99,
   inverse = false,
   onOverflowClick,
   selectable = false,
-  size = Size.medium,
+  size = 'medium',
   getNamesOverflowLabel,
   tooltip = false,
   ...others
@@ -68,13 +68,13 @@ const AvatarStack = ({
   );
 
   const spacingStyles = {
-    ...(direction === Direction.horizontal && { marginRight: selectable ? SPACING : OVERLAP_SPACINGS[size] }),
-    ...(direction === Direction.vertical && { marginBottom: selectable ? SPACING : OVERLAP_SPACINGS[size] }),
+    ...(direction === 'horizontal' && { marginRight: selectable ? SPACING : OVERLAP_SPACINGS[size] }),
+    ...(direction === 'vertical' && { marginBottom: selectable ? SPACING : OVERLAP_SPACINGS[size] }),
   };
 
   const wrapperPaddingStyles = {
-    ...(direction === Direction.horizontal && { paddingRight: Math.abs(OVERLAP_SPACINGS[size]) }),
-    ...(direction === Direction.vertical && { paddingBottom: Math.abs(OVERLAP_SPACINGS[size]) }),
+    ...(direction === 'horizontal' && { paddingRight: Math.abs(OVERLAP_SPACINGS[size]) }),
+    ...(direction === 'vertical' && { paddingBottom: Math.abs(OVERLAP_SPACINGS[size]) }),
   };
 
   return (

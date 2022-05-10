@@ -75,11 +75,11 @@ const AvatarInternalComponent = ({
       borderColor="aqua"
       borderTint="dark"
       borderRadius="circle"
-      borderWidth={size === Size.hero ? 6 : 2}
+      borderWidth={size === 'hero' ? 6 : 2}
       color="neutral"
       tint="lightest"
     >
-      {size === Size.hero ? <IconCloseMediumOutline /> : <IconCloseSmallOutline />}
+      {size === 'hero' ? <IconCloseMediumOutline /> : <IconCloseSmallOutline />}
     </Icon>
   ) : (
     children
@@ -123,8 +123,8 @@ const Avatar = ({
   className,
   selectable = false,
   selected = false,
-  size = Size.medium,
-  shape = Shape.circle,
+  size = 'medium',
+  shape = 'circle',
   tooltip = false,
   fullName,
   creatable,
@@ -161,7 +161,7 @@ const Avatar = ({
   return (
     <Component
       {...others}
-      {...(selectable && { boxSizing: 'content-box', padding: size === Size.hero ? 2 : 1 })}
+      {...(selectable && { boxSizing: 'content-box', padding: size === 'hero' ? 2 : 1 })}
       {...tooltipProps}
       className={avatarClassNames}
     >

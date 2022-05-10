@@ -33,7 +33,7 @@ const AvatarImage = ({ children, editable, image, imageAlt, onImageChange, size,
   };
 
   const shouldShowAvatarOverlay =
-    editable && (size === Size.large || size === Size.hero || (size === Size.medium && displayAvatarOverlay));
+    editable && (size === 'large' || size === 'hero' || (size === 'medium' && displayAvatarOverlay));
 
   return (
     <div

@@ -55,7 +55,7 @@ const AvatarInitials = ({ children, name, editable, id, onImageChange, size }: P
   };
 
   const shouldShowAvatarOverlay =
-    editable && (size === Size.large || size === Size.hero || (size === Size.medium && displayAvatarOverlay));
+    editable && (size === 'large' || size === 'hero' || (size === 'medium' && displayAvatarOverlay));
 
   return (
     <Box
