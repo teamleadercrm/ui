@@ -3,8 +3,7 @@ import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
 import AvatarStackOverflow from './AvatarStackOverflow';
-import Avatar from './Avatar';
-import { Direction, Shape, Size } from './types';
+import { Direction, Size } from './types';
 
 const OVERLAP_SPACINGS = {
   tiny: -6,
