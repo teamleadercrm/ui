@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
 
 import Box from '../box';
 import Island from '../island';
@@ -8,10 +7,19 @@ import IconButton from '../iconButton';
 import theme from './theme.css';
 import { IconCloseMediumOutline } from '@teamleader/ui-icons';
 
-/** @type {React.ComponentType<any>} */
-class Banner extends PureComponent {
+interface BannerProps {
+  children?: React.ReactNode;
+  className?: string;
+  color?: 'white' | 'neutral' | 'mint' | 'violet' | 'ruby' | 'gold' | 'aqua';
+  size?: 'small' | 'medium' | 'large';
+  icon?: React.ReactElement;
+  onClose?(...args: unknown[]): unknown;
+  fullWidth?: boolean;
+}
+
+class Banner extends PureComponent<BannerProps> {
   getCloseButtonColor() {
-    const { color } = this.props;
+    const { color = 'white' } = this.props;
     return color === 'white' ? 'neutral' : color;
   }
 
@@ -39,24 +47,5 @@ class Banner extends PureComponent {
     );
   }
 }
-
-Banner.propTypes = {
-  /** The content to display inside the banner. */
-  children: PropTypes.node,
-  /** A class name for the wrapper to give custom styles. */
-  className: PropTypes.string,
-  /** The color of the banner. */
-  color: PropTypes.oneOf(['white', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua']),
-  /** The icon displayed on the left inside the banner. */
-  icon: PropTypes.element,
-  /** Callback function that is fired when the close button of the banner is clicked. */
-  onClose: PropTypes.func,
-  /** If true, component will take the full width of it's container. */
-  fullWidth: PropTypes.bool,
-};
-
-Banner.defaultProps = {
-  color: 'white',
-};
 
 export default Banner;
