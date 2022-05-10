@@ -1,19 +1,18 @@
-import React, { forwardRef } from 'react';
-import PropTypes from 'prop-types';
+import React, { forwardRef, ReactNode } from 'react';
 import Box from '../box';
 import LoadingSpinner from '../loadingSpinner';
 import { UITextBody, UITextDisplay, UITextSmall } from '../typography';
 import cx from 'classnames';
 import theme from './theme.css';
 
-export const BUTTON_LEVELS = {
-  outline: 'outline',
-  primary: 'primary',
-  secondary: 'secondary',
-  destructive: 'destructive',
-  link: 'link',
-  timer: 'timer',
-};
+export enum BUTTON_LEVELS {
+  outline = 'outline',
+  primary = 'primary',
+  secondary = 'secondary',
+  destructive = 'destructive',
+  link = 'link',
+  timer = 'timer',
+}
 
 const textComponentMap = {
   tiny: UITextSmall,
@@ -22,26 +21,56 @@ const textComponentMap = {
   large: UITextDisplay,
 };
 
-/** @type {React.ComponentType<any>} */
+interface Props {
+  /** The content to display inside the button. */
+  children?: ReactNode;
+  /** A class name for the button to give custom styles. */
+  className?: string;
+  /** The color which the button should have when 'level' is set to 'outline' */
+  color?: 'teal' | 'neutral' | 'mint' | 'violet' | 'ruby' | 'gold' | 'aqua' | 'white';
+  /** A custom element to be rendered */
+  element?: HTMLElement | string;
+  /** Determines which kind of button to be rendered. */
+  level: BUTTON_LEVELS;
+  /** If true, component will be disabled. */
+  disabled?: boolean;
+  /** If true, component will be shown in an active state */
+  active?: boolean;
+  /** If true, component will take the full width available. */
+  fullWidth?: boolean;
+  /** The icon displayed inside the button. */
+  icon?: ReactNode;
+  /** The position of the icon inside the button. */
+  iconPlacement?: 'left' | 'right';
+  /** The textual label displayed inside the button. */
+  label?: string;
+  /** If true, component will show a loading spinner instead of label or children. */
+  processing?: boolean;
+  /** Size of the button. */
+  size?: 'tiny' | 'small' | 'medium' | 'large';
+  /** Type of the button element. */
+  type?: string;
+}
+
 const Button = forwardRef(
   (
     {
-      color,
-      level,
+      color = 'teal',
       children,
       className,
-      disabled,
-      element,
-      active,
-      fullWidth,
+      disabled = false,
+      element = 'button',
+      active = false,
+      fullWidth = false,
       icon,
-      iconPlacement,
+      iconPlacement = 'left',
       label,
-      size,
-      type,
-      processing,
+      level = BUTTON_LEVELS.secondary,
+      size = 'medium',
+      type = 'button',
+      processing = false,
       ...others
-    },
+    }: Props,
     ref,
   ) => {
     const getSpinnerColor = () => {
@@ -137,49 +166,6 @@ const Button = forwardRef(
     );
   },
 );
-
-Button.propTypes = {
-  /** The content to display inside the button. */
-  children: PropTypes.any,
-  /** A class name for the button to give custom styles. */
-  className: PropTypes.string,
-  /** The color which the button should have when 'level' is set to 'outline' */
-  color: PropTypes.oneOf(['teal', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'white']),
-  /** A custom element to be rendered */
-  element: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
-  /** Determines which kind of button to be rendered. */
-  level: PropTypes.oneOf(Object.values(BUTTON_LEVELS)),
-  /** If true, component will be disabled. */
-  disabled: PropTypes.bool,
-  /** If true, component will be shown in an active state */
-  active: PropTypes.bool,
-  /** If true, component will take the full width available. */
-  fullWidth: PropTypes.bool,
-  /** The icon displayed inside the button. */
-  icon: PropTypes.element,
-  /** The position of the icon inside the button. */
-  iconPlacement: PropTypes.oneOf(['left', 'right']),
-  /** The textual label displayed inside the button. */
-  label: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  /** If true, component will show a loading spinner instead of label or children. */
-  processing: PropTypes.bool,
-  /** Size of the button. */
-  size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large']),
-  /** Type of the button element. */
-  type: PropTypes.string,
-};
-
-Button.defaultProps = {
-  className: '',
-  color: 'teal',
-  element: 'button',
-  fullWidth: false,
-  level: 'secondary',
-  iconPlacement: 'left',
-  processing: false,
-  size: 'medium',
-  type: 'button',
-};
 
 Button.displayName = 'Button';
 
