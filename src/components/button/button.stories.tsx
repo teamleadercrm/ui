@@ -38,6 +38,8 @@ export const withIcon: ComponentStory<typeof Button> = () => <Button icon={<Icon
 
 withIcon.storyName = 'With icon';
 
-export const withCustomElement: ComponentStory<typeof Button> = () => <Button element="a" label="Button with custom element" />;
+export const withCustomElement: ComponentStory<typeof Button> = () => (
+  <Button element="a" label="Button with custom element" />
+);
 
 withCustomElement.storyName = 'With custom element';
