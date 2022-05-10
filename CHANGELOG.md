@@ -4,8 +4,6 @@
 
 ### Changed
 
-- `Badge`: converted to TypeScript ([@driesd](https://github.com/driesd) in [#2113](https://github.com/teamleadercrm/ui/pull/2113))
-
 ### Deprecated
 
 ### Removed
