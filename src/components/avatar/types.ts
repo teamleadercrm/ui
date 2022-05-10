@@ -5,3 +5,8 @@ export enum Size {
   large = 'large',
   hero = 'hero',
 }
+
+export enum Shape {
+  circle = 'circle',
+  rounded = 'rounded',
+}
