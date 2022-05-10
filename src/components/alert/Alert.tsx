@@ -7,11 +7,17 @@ import omit from 'lodash.omit';
 import { Illustration60X60Error, Illustration60X60Info } from '@teamleader/ui-illustrations';
 
 interface AlertProps {
+  /** If true, the alert will show on screen. */
   active?: boolean;
+  /** Object containing the props of the primary action (a Button, with level prop set to 'primary'). */
   primaryAction: Action;
+  /** Object containing the the props of the secondary action (a Button). */
   secondaryAction?: Action;
+  /** The title of the alert. */
   title: string;
+  /** The body of the alert. */
   body?: string;
+  /** The type of the alert. */
   type?: ALERT_TYPES;
   [key: string]: unknown;
 }
