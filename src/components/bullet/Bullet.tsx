@@ -2,8 +2,9 @@ import React, { PureComponent } from 'react';
 import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
+import { BoxProps } from '../box/Box';
 
-interface BulletProps {
+interface BulletProps extends Omit<BoxProps, 'size' | 'ref'> {
   borderColor?: 'neutral' | 'mint' | 'aqua' | 'violet' | 'teal' | 'gold' | 'ruby';
   borderTint?: 'darkest' | 'dark' | 'light' | 'lightest';
   className?: string;
