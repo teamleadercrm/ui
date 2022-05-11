@@ -1,12 +1,18 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import Box from '../box';
+import { BoxProps } from '../box/Box';
 import Avatar from '../avatar';
 import { TextBody } from '../typography';
+import { Suggestion } from './types';
 import theme from './theme.css';
 
-const EmailSuggestion = ({ suggestion, selected, ...rest }) => {
+interface EmailSuggestionProps extends Omit<BoxProps, 'ref'> {
+  suggestion: Suggestion;
+  selected: boolean;
+}
+
+const EmailSuggestion = ({ suggestion, selected, ...rest }: EmailSuggestionProps) => {
   return (
     <Box
       backgroundColor={selected ? 'neutral' : undefined}
@@ -27,15 +33,6 @@ const EmailSuggestion = ({ suggestion, selected, ...rest }) => {
       )}
     </Box>
   );
-};
-
-EmailSuggestion.propTypes = {
-  suggestion: PropTypes.shape({
-    email: PropTypes.string.isRequired,
-    label: PropTypes.string,
-    id: PropTypes.string,
-  }).isRequired,
-  selected: PropTypes.bool.isRequired,
 };
 
 export default EmailSuggestion;
