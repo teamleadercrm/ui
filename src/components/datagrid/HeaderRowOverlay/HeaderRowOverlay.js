@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import Box from '../../box';
@@ -6,31 +6,33 @@ import BulkActions from './BulkActions';
 import NumSelectedRows from './NumSelectedRows';
 import theme from './theme.css';
 
-class HeaderRowOverlay extends PureComponent {
-  render() {
-    const { children, className, headerCellCheckboxSize, numSelectedRows, numSelectedRowsLabel, ...others } =
-      this.props;
+const HeaderRowOverlay = ({
+  children,
+  className,
+  headerCellCheckboxSize,
+  numSelectedRows = 0,
+  numSelectedRowsLabel,
+  ...others
+}) => {
+  const classNames = cx(
+    theme['header-row-overlay'],
+    theme[`data-grid-checkbox-size-${headerCellCheckboxSize}`],
+    className,
+  );
 
-    const classNames = cx(
-      theme['header-row-overlay'],
-      theme[`data-grid-checkbox-size-${headerCellCheckboxSize}`],
-      className,
-    );
-
-    return (
-      <Box
-        display="flex"
-        alignItems="center"
-        className={classNames}
-        data-teamleader-ui="datagrid-header-row-overlay"
-        {...others}
-      >
-        <NumSelectedRows numSelectedRows={numSelectedRows} numSelectedRowsLabel={numSelectedRowsLabel} />
-        <BulkActions bulkActions={children} />
-      </Box>
-    );
-  }
-}
+  return (
+    <Box
+      display="flex"
+      alignItems="center"
+      className={classNames}
+      data-teamleader-ui="datagrid-header-row-overlay"
+      {...others}
+    >
+      <NumSelectedRows numSelectedRows={numSelectedRows} numSelectedRowsLabel={numSelectedRowsLabel} />
+      <BulkActions bulkActions={children} />
+    </Box>
+  );
+};
 
 HeaderRowOverlay.propTypes = {
   /** The size of the checkboxes in the grid, used to set the right spacing between this component and the checkbox in the HeaderCell */
@@ -43,10 +45,6 @@ HeaderRowOverlay.propTypes = {
   numSelectedRows: PropTypes.number,
   /** Passed down function, is used to render the label accompanying the number of selected rows */
   numSelectedRowsLabel: PropTypes.func,
-};
-
-HeaderRowOverlay.defaultProps = {
-  numSelectedRows: 0,
 };
 
 export default HeaderRowOverlay;
