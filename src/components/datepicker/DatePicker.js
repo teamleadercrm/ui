@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import DayPicker from 'react-day-picker';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
@@ -12,41 +12,43 @@ import uiUtilities from '@teamleader/ui-utilities';
 import LocaleUtils from './localeUtils';
 
 /** @type {React.ComponentType<any>} */
-class DatePicker extends PureComponent {
-  state = {
-    selectedDate: null,
-    selectedMonth: null,
-  };
+const DatePicker = ({
+  bordered,
+  className,
+  style,
+  modifiers,
+  size,
+  withMonthPicker,
+  showWeekNumbers,
+  onChange,
+  ...others
+}) => {
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedMonth, setSelectedMonth] = useState(null);
 
-  static getDerivedStateFromProps(props, state) {
-    if (props.selectedDate !== undefined && props.selectedDate !== state.selectedDate) {
-      return {
-        selectedDate: props.selectedDate,
-      };
+  useEffect(() => {
+    if (selectedDate !== undefined && others.selectedDate !== selectedDate) {
+      setSelectedDate(others.selectedDate);
+      return;
     }
 
-    return null;
-  }
+    setSelectedDate(null);
+  }, [others.selectedDate]);
 
-  handleDayClick = (day, modifiers = {}) => {
+  const handleDayClick = (day, modifiers = {}) => {
     if (modifiers[theme['disabled']]) {
       return;
     }
 
-    this.setState(
-      {
-        selectedDate: day,
-      },
-      () => this.props.onChange(day),
-    );
+    setSelectedDate(day);
+    onChange(day);
   };
 
-  handleYearMonthChange = (selectedMonth) => {
-    this.setState({ selectedMonth });
+  const handleYearMonthChange = (selectedMonth) => {
+    setSelectedMonth(selectedMonth);
   };
 
-  getMonthPickerSize = () => {
-    const { showWeekNumbers, size } = this.props;
+  const getMonthPickerSize = () => {
     const monthPickerSizeByDatePickerSize = {
       small: 'smallest',
       medium: showWeekNumbers ? 'medium' : 'small',
@@ -55,55 +57,51 @@ class DatePicker extends PureComponent {
     return monthPickerSizeByDatePickerSize[size];
   };
 
-  render() {
-    const { bordered, className, style, modifiers, size, withMonthPicker, showWeekNumbers, ...others } = this.props;
-    const { selectedDate, selectedMonth } = this.state;
-    const boxProps = pickBoxProps(others);
-    const restProps = omitBoxProps(others);
-    const classNames = cx(
-      uiUtilities['reset-font-smoothing'],
-      theme['date-picker'],
-      theme[`is-${size}`],
-      {
-        [theme['is-bordered']]: bordered,
-      },
-      className,
-    );
+  const boxProps = pickBoxProps(others);
+  const restProps = omitBoxProps(others);
+  const classNames = cx(
+    uiUtilities['reset-font-smoothing'],
+    theme['date-picker'],
+    theme[`is-${size}`],
+    {
+      [theme['is-bordered']]: bordered,
+    },
+    className,
+  );
 
-    return (
-      <Box {...boxProps}>
-        <DayPicker
-          {...restProps}
-          localeUtils={LocaleUtils}
-          initialMonth={selectedDate}
-          month={selectedMonth}
-          className={classNames}
-          style={style}
-          classNames={theme}
-          modifiers={convertModifiersToClassnames(modifiers, theme)}
-          navbarElement={<NavigationBar size={size} withMonthPicker={withMonthPicker} />}
-          onDayClick={this.handleDayClick}
-          selectedDays={selectedDate}
-          weekdayElement={<WeekDay size={size} />}
-          showWeekNumbers={showWeekNumbers}
-          captionElement={
-            withMonthPicker
-              ? ({ date, locale, localeUtils }) => (
-                  <MonthPicker
-                    date={date}
-                    locale={locale}
-                    localeUtils={localeUtils}
-                    onChange={this.handleYearMonthChange}
-                    size={this.getMonthPickerSize()}
-                  />
-                )
-              : undefined
-          }
-        />
-      </Box>
-    );
-  }
-}
+  return (
+    <Box {...boxProps}>
+      <DayPicker
+        {...restProps}
+        localeUtils={LocaleUtils}
+        initialMonth={others.selectedDate}
+        month={selectedMonth}
+        className={classNames}
+        style={style}
+        classNames={theme}
+        modifiers={convertModifiersToClassnames(modifiers, theme)}
+        navbarElement={<NavigationBar size={size} withMonthPicker={withMonthPicker} />}
+        onDayClick={handleDayClick}
+        selectedDays={selectedDate}
+        weekdayElement={<WeekDay size={size} />}
+        showWeekNumbers={showWeekNumbers}
+        captionElement={
+          withMonthPicker
+            ? ({ date, locale, localeUtils }) => (
+                <MonthPicker
+                  date={date}
+                  locale={locale}
+                  localeUtils={localeUtils}
+                  onChange={handleYearMonthChange}
+                  size={getMonthPickerSize()}
+                />
+              )
+            : undefined
+        }
+      />
+    </Box>
+  );
+};
 
 DatePicker.propTypes = {
   /** If true we give a border to our wrapper. */
