@@ -1,6 +1,7 @@
 import { IconArrowLeftSmallOutline } from '@teamleader/ui-icons';
 import React from 'react';
 import BadgedLink from '../badgedLink';
+import { BadgedLinkProps } from '../badgedLink/BadgedLink';
 import { Box } from '../box';
 import Container from '../container';
 import { ContainerProps } from '../container/Container';
@@ -9,7 +10,7 @@ import { Heading1, TextBody } from '../typography';
 import theme from './theme.css';
 
 interface DetailPageHeaderProps extends Omit<ContainerProps, 'title'> {
-  backLinkProps?: any; // @todo use BadgedLinkProps and omit icon and inherit prop
+  backLinkProps?: Omit<BadgedLinkProps, 'icon' | 'inheric'>;
   title: React.ReactNode;
   /** The color which the title should have */
   titleColor?: 'neutral' | 'teal';

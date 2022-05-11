@@ -6,7 +6,7 @@ import Box from '../box';
 import { BoxProps } from '../box/Box';
 import theme from './theme.css';
 
-interface BadgedLinkProps extends Omit<BoxProps, 'ref'> {
+export interface BadgedLinkProps extends Omit<BoxProps, 'ref'> {
   /** The content to display inside the badged link. */
   children: ReactNode;
   /** A class name for the badged link to give custom styles. */
