@@ -4,6 +4,7 @@ import LoadingSpinner from '../loadingSpinner';
 import { UITextBody, UITextDisplay, UITextSmall } from '../typography';
 import cx from 'classnames';
 import theme from './theme.css';
+import { BoxProps } from '../box/Box';
 
 export enum BUTTON_LEVELS {
   outline = 'outline',
@@ -21,7 +22,7 @@ const textComponentMap = {
   large: UITextDisplay,
 };
 
-interface ButtonProps {
+interface ButtonProps extends Omit<BoxProps, 'size'> {
   /** The content to display inside the button. */
   children?: ReactNode;
   /** A class name for the button to give custom styles. */
