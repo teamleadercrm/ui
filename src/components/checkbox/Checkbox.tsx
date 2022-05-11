@@ -1,14 +1,47 @@
 import { IconCheckmarkMediumOutline, IconCheckmarkSmallOutline, IconMinusSmallOutline } from '@teamleader/ui-icons';
 import cx from 'classnames';
 import omit from 'lodash.omit';
-import PropTypes from 'prop-types';
-import React, { forwardRef } from 'react';
+import React, { forwardRef, ReactNode } from 'react';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import { TextBodyCompact, TextDisplay, TextSmall } from '../typography';
 import theme from './theme.css';
 
+interface CheckboxProps {
+  /** If true, the checkbox will be checked. */
+  checked: boolean;
+  /** The content to display next to the checkbox. */
+  children: ReactNode;
+  /** If true, component will be disabled. */
+  disabled: boolean;
+  /** Name for form input. */
+  name: string;
+  /** A class name for the wrapper to give custom styles. */
+  className: string;
+  /** The textual label displayed next to the checkbox. */
+  label: string;
+  /** Callback function that is fired when checkbox is toggled. */
+  onChange: void;
+  /** Indicate whether the checkbox is neither checked or unchecked. */
+  indeterminate: boolean;
+  /** Size of the checkbox. */
+  size: 'small' | 'medium' | 'large';
+}
+
 const Checkbox = forwardRef(
-  ({ checked, disabled, className, size, label, children, indeterminate, onChange, ...others }, ref) => {
+  (
+    {
+      checked = false,
+      disabled = false,
+      className,
+      size = 'medium',
+      label,
+      children,
+      indeterminate = false,
+      onChange,
+      ...others
+    }: CheckboxProps,
+    ref,
+  ) => {
     const handleToggle = (event) => {
       if (!disabled && onChange) {
         onChange(!checked, event);
@@ -61,34 +94,6 @@ const Checkbox = forwardRef(
     );
   },
 );
-
-Checkbox.propTypes = {
-  /** If true, the checkbox will be checked. */
-  checked: PropTypes.bool,
-  /** The content to display next to the checkbox. */
-  children: PropTypes.node,
-  /** If true, component will be disabled. */
-  disabled: PropTypes.bool,
-  /** Name for form input. */
-  name: PropTypes.string,
-  /** A class name for the wrapper to give custom styles. */
-  className: PropTypes.string,
-  /** The textual label displayed next to the checkbox. */
-  label: PropTypes.string,
-  /** Callback function that is fired when checkbox is toggled. */
-  onChange: PropTypes.func,
-  /** Indicate whether the checkbox is neither checked or unchecked. */
-  indeterminate: PropTypes.bool,
-  /** Size of the checkbox. */
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
-};
-
-Checkbox.defaultProps = {
-  checked: false,
-  disabled: false,
-  indeterminate: false,
-  size: 'medium',
-};
 
 Checkbox.displayName = 'Checkbox';
 
