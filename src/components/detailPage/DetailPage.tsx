@@ -1,30 +1,19 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import DetailPageBody from './DetailPageBody';
 import DetailPageHeader from './DetailPageHeader';
 import Box from '../box';
+import { BoxProps } from '../box/Box';
 
-/**
- * @type {React.ComponentType<any> & {
- *   Header: React.ComponentType<any>;
- *   Body: React.ComponentType<any>;
- * }}
- */
-class DetailPage extends PureComponent {
-  render() {
-    const { children, ...others } = this.props;
-
-    return <Box {...others}>{children}</Box>;
-  }
-}
+const DetailPage = ({ children, ...others }: Omit<BoxProps, 'ref'>) => {
+  return <Box {...others}>{children}</Box>;
+};
 
 DetailPage.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
 DetailPage.Body = DetailPageBody;
-DetailPage.Body.displayName = 'DetailPage.Body';
 DetailPage.Header = DetailPageHeader;
-DetailPage.Header.displayName = 'DetailPage.Header';
 
 export default DetailPage;

@@ -10,4 +10,6 @@ const DetailPageBody = ({ children, ...others }: Omit<ContainerProps, 'fixed' | 
   );
 };
 
+DetailPageBody.displayName = 'DetailPage.Body';
+
 export default DetailPageBody;

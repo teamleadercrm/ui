@@ -55,4 +55,6 @@ const DetailPageHeader = ({
   );
 };
 
+DetailPageHeader.displayName = 'DetailPage.Header';
+
 export default DetailPageHeader;
