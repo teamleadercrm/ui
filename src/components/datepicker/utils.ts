@@ -1,6 +1,6 @@
 import { DateUtils } from 'react-day-picker';
 
-export const convertModifiersToClassnames = (modifiers, theme) => {
+export const convertModifiersToClassnames = (modifiers: Record<string, string>, theme: Record<string, string>) => {
   if (!modifiers) {
     return {};
   }
@@ -13,7 +13,7 @@ export const convertModifiersToClassnames = (modifiers, theme) => {
   }, {});
 };
 
-export const isSelectingFirstDay = (from, to, day) => {
+export const isSelectingFirstDay = (from: Date, to: Date, day: Date) => {
   const isBeforeFirstDay = from && DateUtils.isDayBefore(day, from);
   const isRangeSelected = from && to;
   return !from || isBeforeFirstDay || isRangeSelected;
