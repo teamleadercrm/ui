@@ -1,13 +1,31 @@
 import React, { useMemo, useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 
 import Box from '../box';
 import { Select } from '../select';
 import { NumericInput } from '../input';
 import theme from './theme.css';
+import { LocaleUtils } from 'react-day-picker';
+
+interface MonthPickerProps {
+  /** Current date */
+  date: Date;
+  /** Callback function that is fired when the month has changed. */
+  onChange?: (selectedOption: string | number | Date) => void;
+  /** The set locale */
+  locale: string;
+  /** The localeUtils from the DatePicker */
+  localeUtils: LocaleUtils;
+  /** Size of the MonthPicker component. */
+  size?: 'smallest' | 'small' | 'medium' | 'large';
+}
+
+interface Option {
+  value: string | number | Date;
+  label: string;
+}
 
 // We want all the months from current month to current month in next year
-const getMonthOptions = (localeUtils, locale) => {
+const getMonthOptions = (localeUtils: LocaleUtils, locale: string) => {
   let currentYear = new Date().getFullYear();
   const currentMonth = new Date().getMonth();
 
@@ -29,14 +47,14 @@ const getMonthOptions = (localeUtils, locale) => {
 };
 
 // e.g. "February 2020" => "February"
-const formatSelectedMonth = ({ label, value }) => ({
+const formatSelectedMonth = ({ label, value }: Option) => ({
   value,
   label: label.split(' ')[0],
 });
 
 // e.g. "February 2020" => "Feb 2020"
 // Exception for French language: we use 4 characters
-const formatSelectMonthAndYear = ({ label, value }, locale) => {
+const formatSelectMonthAndYear = ({ label, value }: Option, locale: string) => {
   const isFrench = locale === 'fr' || locale.startsWith('fr-');
 
   return {
@@ -45,14 +63,14 @@ const formatSelectMonthAndYear = ({ label, value }, locale) => {
   };
 };
 
-const MonthPickerUnary = ({ date, locale, localeUtils, onChange }) => {
+const MonthPickerUnary = ({ date, locale, localeUtils, onChange }: MonthPickerProps) => {
   const selectedMonth = useMemo(
-    () => ({ value: date.getMonth(), label: localeUtils.formatMonthTitle(date, locale) }),
+    () => ({ value: date.getMonth().toString(), label: localeUtils.formatMonthTitle(date, locale) }),
     [date],
   );
 
-  const handleChangeMonth = (selectedMonth) => {
-    onChange(selectedMonth.value);
+  const handleChangeMonth = (selectedMonth: Option) => {
+    onChange && onChange(selectedMonth.value);
   };
 
   return (
@@ -71,7 +89,7 @@ const MonthPickerUnary = ({ date, locale, localeUtils, onChange }) => {
   );
 };
 
-const MonthPickerSplit = ({ date, locale, localeUtils, onChange, size }) => {
+const MonthPickerSplit = ({ date, locale, localeUtils, onChange, size }: MonthPickerProps) => {
   const [yearInput, setYearInput] = useState(`${date.getFullYear()}`);
   const selectedMonth = useMemo(
     () => ({ value: date.getMonth(), label: localeUtils.formatMonthTitle(date, locale) }),
@@ -83,18 +101,18 @@ const MonthPickerSplit = ({ date, locale, localeUtils, onChange, size }) => {
     return { value: index, label: monthName };
   });
 
-  const handleChangeMonth = (selectedMonth) => {
-    onChange(new Date(selectedYear, selectedMonth.value));
+  const handleChangeMonth = (selectedMonth: Option) => {
+    onChange && onChange(new Date(selectedYear, selectedMonth.value as number));
   };
 
   useEffect(() => {
     setYearInput(`${date.getFullYear()}`);
   }, [date]);
 
-  const handleChangeYear = (_, selectedYear) => {
-    setYearInput(selectedYear);
+  const handleChangeYear = (selectedMonth: Option, selectedYear: string | number) => {
+    setYearInput(selectedYear as string);
     if (`${selectedYear}`.match(/\d{4}/)) {
-      onChange(new Date(selectedYear, selectedMonth.value));
+      onChange && onChange(new Date(selectedYear as number, selectedMonth.value as number));
     }
   };
 
@@ -127,25 +145,12 @@ const MonthPickerSplit = ({ date, locale, localeUtils, onChange, size }) => {
   );
 };
 
-const MonthPicker = ({ size, ...props }) => {
+const MonthPicker = ({ size, ...props }: MonthPickerProps) => {
   if (size === 'smallest') {
     return <MonthPickerUnary {...props} />;
   }
 
   return <MonthPickerSplit size={size} {...props} />;
-};
-
-MonthPicker.propTypes = {
-  /** Current date */
-  date: PropTypes.instanceOf(Date),
-  /** Callback function that is fired when the month has changed. */
-  onChange: PropTypes.func,
-  /** The set locale */
-  locale: PropTypes.string,
-  /** The localeUtils from the DatePicker */
-  localeUtils: PropTypes.object,
-  /** Size of the MonthPicker component. */
-  size: PropTypes.oneOf(['smallest', 'small', 'medium', 'large']),
 };
 
 export default MonthPicker;
