@@ -1,7 +1,7 @@
 import React from 'react';
 import { LocaleUtils } from 'react-day-picker';
 
-type Size = 'small' | 'medium' | 'large';
+export type Size = 'small' | 'medium' | 'large';
 
 interface WeekDayProps {
   weekday?: number;
