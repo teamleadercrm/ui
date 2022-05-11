@@ -65,7 +65,7 @@ export type BoxProps = Partial<
     paddingTop: Padding;
     style: CSSProperties;
     textAlign: 'center' | 'left' | 'right';
-    to: string;
+    [key: string]: unknown;
   } & HTMLProps<HTMLElement>
 >;
 
