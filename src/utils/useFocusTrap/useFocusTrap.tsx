@@ -36,7 +36,7 @@ const useFocusTrap = ({
   returnFocusToSource?: boolean;
   initialFocusRef?: RefObject<HTMLElement>;
 }) => {
-  const ref = useRef<Element>();
+  const ref = useRef<HTMLElement>();
   const topFocusBumperRef = useRef<HTMLDivElement>(null);
   const bottomFocusBumperRef = useRef<HTMLDivElement>(null);
 
