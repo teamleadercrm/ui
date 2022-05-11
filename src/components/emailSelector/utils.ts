@@ -1,4 +1,6 @@
-export function selectContentEditable(element) {
+import { Suggestion } from './types';
+
+export function selectContentEditable(element: HTMLElement) {
   element.focus();
 
   // Move the cursor to the end.
@@ -13,7 +15,7 @@ export function selectContentEditable(element) {
   }
 }
 
-function filterArraySuggestions(filter, suggestions) {
+function filterArraySuggestions(filter: string, suggestions: Suggestion[]) {
   const lowerFilter = filter.toLowerCase();
 
   return suggestions.filter(
@@ -23,12 +25,16 @@ function filterArraySuggestions(filter, suggestions) {
   );
 }
 
-export function filterSuggestions(filter, suggestions, maxLength = 5) {
+export function filterSuggestions(
+  filter: string,
+  suggestions: Suggestion[] | { [x: string]: Suggestion[] },
+  maxLength = 5,
+) {
   if (Array.isArray(suggestions)) {
     return filterArraySuggestions(filter, suggestions).slice(0, maxLength);
   }
 
-  const filteredSuggestions = {};
+  const filteredSuggestions: { [x: string]: Suggestion[] } = {};
   for (const key in suggestions) {
     const result = filterArraySuggestions(filter, suggestions[key]).slice(0, maxLength);
     if (result.length > 0) {
@@ -38,18 +44,18 @@ export function filterSuggestions(filter, suggestions, maxLength = 5) {
   return filteredSuggestions;
 }
 
-function excludeArraySuggestions(filter, suggestions) {
+function excludeArraySuggestions(filter: string[], suggestions: Suggestion[]) {
   return suggestions.filter((suggestion) => !filter.includes(suggestion.email));
 }
 
-export function excludeSuggestions(filter, suggestions) {
+export function excludeSuggestions(filter: Suggestion[], suggestions: Suggestion[] | { [x: string]: Suggestion[] }) {
   const emails = filter.map((option) => option.email);
 
   if (Array.isArray(suggestions)) {
     return excludeArraySuggestions(emails, suggestions);
   }
 
-  const filteredSuggestions = {};
+  const filteredSuggestions: { [x: string]: Suggestion[] } = {};
   for (const key in suggestions) {
     const result = excludeArraySuggestions(emails, suggestions[key]);
     if (result.length > 0) {
@@ -59,7 +65,7 @@ export function excludeSuggestions(filter, suggestions) {
   return filteredSuggestions;
 }
 
-export function validateSuggestion(filter, suggestion) {
+export function validateSuggestion(filter: string, suggestion: Suggestion) {
   const lowerFilter = filter.toLowerCase();
 
   return (
@@ -69,7 +75,11 @@ export function validateSuggestion(filter, suggestion) {
   );
 }
 
-export function moveSuggestion(suggestions, selectedSuggestion, moveBy) {
+export function moveSuggestion(
+  suggestions: Suggestion[] | { [x: string]: Suggestion[] },
+  selectedSuggestion: Suggestion,
+  moveBy: number,
+) {
   if (Array.isArray(suggestions)) {
     const index = suggestions.indexOf(selectedSuggestion);
 
