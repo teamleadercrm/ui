@@ -6,14 +6,14 @@ import Icon from '../icon';
 import { Size } from './types';
 import { IconUserMediumOutline, IconUserSmallOutline } from '@teamleader/ui-icons';
 
-interface Props {
+interface AvatarAnonymousProps {
   /** Component that will be placed top right of the avatar image. */
   children?: React.ReactNode;
   /** The size of the avatar. */
   size: Size;
 }
 
-const AvatarAnonymous = ({ children, size }: Props) => {
+const AvatarAnonymous = ({ children, size }: AvatarAnonymousProps) => {
   return (
     <Box
       alignItems="center"

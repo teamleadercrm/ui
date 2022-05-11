@@ -15,7 +15,7 @@ const OVERLAP_SPACINGS = {
 
 const SPACING = 6;
 
-interface Props {
+interface AvatarStackProps {
   /** The avatars to display in a stack. */
   children: React.ReactNode;
   /** A class name for the wrapper to give custom styles. */
@@ -50,7 +50,7 @@ const AvatarStack = ({
   getNamesOverflowLabel,
   tooltip = false,
   ...others
-}: Props) => {
+}: AvatarStackProps) => {
   const childrenArray = React.Children.toArray(children);
   const childrenToDisplay = childrenArray.length > displayMax ? childrenArray.slice(0, displayMax) : childrenArray;
   const overflowAmount = childrenArray.length - displayMax;

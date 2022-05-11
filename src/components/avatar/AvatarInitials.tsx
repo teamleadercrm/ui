@@ -10,7 +10,7 @@ import { colorsWithout } from '../../constants';
 const colors = colorsWithout(['neutral']);
 const hashCode = (hexString: string) => parseInt(hexString.substr(-5), 16);
 
-interface Props {
+interface AvatarInitialsProps {
   /** Component that will be placed top right of the avatar image. */
   children?: React.ReactNode;
   /** If true, an overlay will be shown with edit icon. */
@@ -25,7 +25,7 @@ interface Props {
   size: Size;
 }
 
-const AvatarInitials = ({ children, name, editable, id, onImageChange, size }: Props) => {
+const AvatarInitials = ({ children, name, editable, id, onImageChange, size }: AvatarInitialsProps) => {
   const [displayAvatarOverlay, setDisplayAvatarOverlay] = useState(false);
 
   const backgroundColor = useMemo(() => {

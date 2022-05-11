@@ -6,12 +6,12 @@ import Icon from '../icon';
 import { Size } from './types';
 import { IconTeamMediumOutline, IconTeamSmallOutline } from '@teamleader/ui-icons';
 
-interface Props {
+interface AvatarTeamProps {
   /** The size of the avatar. */
   size: Size;
 }
 
-const AvatarTeam = ({ size }: Props) => {
+const AvatarTeam = ({ size }: AvatarTeamProps) => {
   return (
     <Box
       alignItems="center"

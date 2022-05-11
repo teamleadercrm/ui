@@ -11,7 +11,7 @@ const TooltippedBox = Tooltip(Box);
 
 const MAX_NAMES_TO_SHOW_IN_TOOLTIP = 15;
 
-interface Props {
+interface AvatarStackOverflowProps {
   displayMax: number;
   overflowAmount: number;
   overflowChildren: (React.ReactChild | React.ReactFragment | React.ReactPortal)[];
@@ -27,7 +27,7 @@ const AvatarStackOverflow = ({
   onOverflowClick,
   tooltip,
   getNamesOverflowLabel,
-}: Props) => {
+}: AvatarStackOverflowProps) => {
   const names = React.Children.map(
     overflowChildren,
     (child) => React.isValidElement(child) && child.props.fullName,

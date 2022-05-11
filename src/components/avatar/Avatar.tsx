@@ -15,7 +15,7 @@ import { Size, Shape } from './types';
 
 const TooltippedBox = Tooltip(Box);
 
-interface Props {
+interface AvatarProps {
   /** Component that will be placed top right of the avatar image. */
   children?: React.ReactNode;
   /** A class name for the wrapper to give custom styles. */
@@ -47,7 +47,7 @@ interface Props {
 }
 
 type AvatarInternalComponentProps = { size: Size } & Pick<
-  Props,
+  AvatarProps,
   'creatable' | 'children' | 'editable' | 'imageUrl' | 'fullName' | 'id' | 'onImageChange' | 'selected' | 'team'
 >;
 
@@ -135,7 +135,7 @@ const Avatar = ({
   onImageChange,
   team,
   ...others
-}: Props) => {
+}: AvatarProps) => {
   const avatarClassNames = cx(
     theme['wrapper'],
     theme[`is-${size}`],

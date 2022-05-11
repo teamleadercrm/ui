@@ -6,12 +6,12 @@ import { IconEditSmallFilled } from '@teamleader/ui-icons';
 import cx from 'classnames';
 import { Size } from './types';
 
-interface Props {
+interface AvatarOverlayProps {
   size: Size;
   onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
 
-const AvatarOverlay = ({ size, onClick }: Props) => {
+const AvatarOverlay = ({ size, onClick }: AvatarOverlayProps) => {
   const classNames = cx(
     theme['overlay-background'],
     size === 'medium' ? theme['full-height'] : theme['default-height'],

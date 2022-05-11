@@ -4,7 +4,7 @@ import theme from './theme.css';
 import AvatarOverlay from './AvatarOverlay';
 import { Size } from './types';
 
-interface Props {
+interface AvatarImageProps {
   /** Component that will be placed top right of the avatar image. */
   children?: React.ReactNode;
   /** If true, an overlay will be shown with edit icon. */
@@ -21,7 +21,15 @@ interface Props {
   size: Size;
 }
 
-const AvatarImage = ({ children, editable, image, imageAlt, onImageChange, size, onImageLoadFailure }: Props) => {
+const AvatarImage = ({
+  children,
+  editable,
+  image,
+  imageAlt,
+  onImageChange,
+  size,
+  onImageLoadFailure,
+}: AvatarImageProps) => {
   const [displayAvatarOverlay, setDisplayAvatarOverlay] = useState(false);
 
   const handleOnMouseEnter = () => {
