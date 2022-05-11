@@ -63,7 +63,7 @@ const formatSelectMonthAndYear = ({ label, value }: Option, locale: string) => {
   };
 };
 
-const MonthPickerUnary = ({ date, locale, localeUtils, onChange }: MonthPickerProps) => {
+const MonthPickerUnary = ({ date, locale, localeUtils, onChange }: Omit<MonthPickerProps, 'size'>) => {
   const selectedMonth = useMemo(
     () => ({ value: date.getMonth().toString(), label: localeUtils.formatMonthTitle(date, locale) }),
     [date],
