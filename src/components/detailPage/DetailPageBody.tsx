@@ -1,22 +1,13 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import Container from '../container';
+import { ContainerProps } from '../container/Container';
 
-/** @type {React.ComponentType<any>} */
-class DetailPageBody extends PureComponent {
-  render() {
-    const { children, ...others } = this.props;
-
-    return (
-      <Container {...others} fixed paddingTop={6} paddingBottom={8}>
-        {children}
-      </Container>
-    );
-  }
-}
-
-DetailPageBody.propTypes = {
-  children: PropTypes.node.isRequired,
+const DetailPageBody = ({ children, ...others }: Omit<ContainerProps, 'fixed' | 'paddingTop' | 'paddingBottom'>) => {
+  return (
+    <Container {...others} fixed paddingTop={6} paddingBottom={8}>
+      {children}
+    </Container>
+  );
 };
 
 export default DetailPageBody;
