@@ -5,7 +5,7 @@ import { UITextSmall, UITextBody, UITextDisplay } from '../typography';
 import cx from 'classnames';
 import theme from './theme.css';
 
-interface Props {
+interface BadgeProps {
   /** The content to display inside the badge. */
   children?: ReactNode;
   /** A class name for the wrapper to give custom styles. */
@@ -39,7 +39,7 @@ const Badge = forwardRef(
       size = 'medium',
       onClick,
       ...others
-    }: Props,
+    }: BadgeProps,
     ref,
   ) => {
     const renderIcon = () => (
