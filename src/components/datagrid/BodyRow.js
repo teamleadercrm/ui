@@ -1,4 +1,4 @@
-import React, { forwardRef, PureComponent } from 'react';
+import React, { forwardRef, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import Cell from './Cell';
 import Checkbox from '../checkbox';
@@ -6,56 +6,54 @@ import Row from './Row';
 import cx from 'classnames';
 import theme from './theme.css';
 
-class BodyRow extends PureComponent {
-  handleClick = (event) => {
-    const { onClick } = this.props;
-    onClick && onClick(event);
-  };
+const BodyRow = ({
+  className,
+  children,
+  forwardedRef,
+  hovered,
+  sliceFrom,
+  sliceTo,
+  onClick,
+  onSelectionChange,
+  selected,
+  selectable,
+  ...others
+}) => {
+  const handleClick = useCallback(
+    (event) => {
+      onClick && onClick(event);
+    },
+    [onClick],
+  );
 
-  render() {
-    const {
-      className,
-      children,
-      forwardedRef,
-      hovered,
-      sliceFrom,
-      sliceTo,
-      onClick,
-      onSelectionChange,
-      selected,
-      selectable,
-      ...others
-    } = this.props;
+  const childrenArray = Array.isArray(children) ? children : [children];
+  const childrenSliced = childrenArray.slice(sliceFrom, sliceTo);
+  const classNames = cx(
+    theme['body-row'],
+    {
+      [theme['has-pointer-cursor']]: onClick,
+    },
+    className,
+  );
 
-    const childrenArray = Array.isArray(children) ? children : [children];
-    const childrenSliced = childrenArray.slice(sliceFrom, sliceTo);
-    const classNames = cx(
-      theme['body-row'],
-      {
-        [theme['has-pointer-cursor']]: onClick,
-      },
-      className,
-    );
-
-    return (
-      <Row
-        backgroundColor={hovered ? 'neutral' : 'white'}
-        className={classNames}
-        data-teamleader-ui="datagrid-body-row"
-        onClick={this.handleClick}
-        ref={forwardedRef}
-        {...others}
-      >
-        {selectable && (
-          <Cell flex="checkbox-width" onClick={(event) => event.stopPropagation()} preventOverflow={false}>
-            <Checkbox checked={selected} onChange={onSelectionChange} size="small" />
-          </Cell>
-        )}
-        {childrenSliced}
-      </Row>
-    );
-  }
-}
+  return (
+    <Row
+      backgroundColor={hovered ? 'neutral' : 'white'}
+      className={classNames}
+      data-teamleader-ui="datagrid-body-row"
+      onClick={handleClick}
+      ref={forwardedRef}
+      {...others}
+    >
+      {selectable && (
+        <Cell flex="checkbox-width" onClick={(event) => event.stopPropagation()} preventOverflow={false}>
+          <Checkbox checked={selected} onChange={onSelectionChange} size="small" />
+        </Cell>
+      )}
+      {childrenSliced}
+    </Row>
+  );
+};
 
 BodyRow.propTypes = {
   /** A class name for the row to give custom styles. */
