@@ -5,8 +5,9 @@ import React, { forwardRef, ReactNode } from 'react';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import { TextBodyCompact, TextDisplay, TextSmall } from '../typography';
 import theme from './theme.css';
+import { BoxProps } from '../box/Box';
 
-interface CheckboxProps {
+interface CheckboxProps extends Omit<BoxProps, 'onChange' | 'size'> {
   /** If true, the checkbox will be checked. */
   checked?: boolean;
   /** The content to display next to the checkbox. */
