@@ -1,31 +1,23 @@
-import React, { forwardRef, PureComponent } from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
 
-class Row extends PureComponent {
-  render() {
-    const { backgroundColor, className, children, forwardedRef, ...others } = this.props;
+const Row = ({ backgroundColor = 'white', className, children, forwardedRef, ...others }) => {
+  const classNames = cx(theme['row'], theme[`has-background-${backgroundColor}`], className);
 
-    const classNames = cx(theme['row'], theme[`has-background-${backgroundColor}`], className);
-
-    return (
-      <Box className={classNames} ref={forwardedRef} {...others}>
-        {children}
-      </Box>
-    );
-  }
-}
+  return (
+    <Box className={classNames} ref={forwardedRef} {...others}>
+      {children}
+    </Box>
+  );
+};
 
 Row.propTypes = {
   backgroundColor: PropTypes.oneOf(['white', 'neutral']),
   className: PropTypes.string,
   children: PropTypes.any,
-};
-
-Row.defaultProps = {
-  backgroundColor: 'white',
 };
 
 /** @type {any} */
