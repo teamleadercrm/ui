@@ -18,14 +18,6 @@ const useDraggable = ({ active = false, dragTargetRef, dragHandleRef }: UseDragg
     let x = 0;
     let y = 0;
 
-    const mouseDownHandler = function (event: MouseEvent) {
-      x = event.clientX;
-      y = event.clientY;
-
-      document.addEventListener('mousemove', mouseMoveHandler);
-      document.addEventListener('mouseup', mouseUpHandler);
-    };
-
     const mouseMoveHandler = function (event: MouseEvent) {
       const dx = event.clientX - x;
       const dy = event.clientY - y;
@@ -40,6 +32,14 @@ const useDraggable = ({ active = false, dragTargetRef, dragHandleRef }: UseDragg
     const mouseUpHandler = function () {
       document.removeEventListener('mousemove', mouseMoveHandler);
       document.removeEventListener('mouseup', mouseUpHandler);
+    };
+
+    const mouseDownHandler = function (event: MouseEvent) {
+      x = event.clientX;
+      y = event.clientY;
+
+      document.addEventListener('mousemove', mouseMoveHandler);
+      document.addEventListener('mouseup', mouseUpHandler);
     };
 
     currentDragHandleRef.addEventListener('mousedown', mouseDownHandler);
