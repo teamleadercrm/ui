@@ -27,27 +27,16 @@ interface Action {
   onClick: () => void;
 }
 
-export enum ALERT_TYPES {
-  confirm = 'confirm',
-  destructive = 'destructive',
-  error = 'error',
-}
+type ALERT_TYPES = 'confirm' | 'destructive' | 'error';
 
-const Alert = ({
-  primaryAction,
-  secondaryAction,
-  title,
-  body,
-  type = ALERT_TYPES.confirm,
-  ...otherProps
-}: AlertProps) => {
+const Alert = ({ primaryAction, secondaryAction, title, body, type = 'confirm', ...otherProps }: AlertProps) => {
   const restProps = omit(otherProps, ['primaryAction', 'secondaryAction']);
 
   return (
     <DialogBase {...restProps} scrollable={false} size="small">
       <Box alignItems="center" display="flex" flexDirection="column" padding={4} textAlign="center">
         <Box marginBottom={3} marginTop={2}>
-          {type === ALERT_TYPES.confirm ? <Illustration60X60Info /> : <Illustration60X60Error />}
+          {type === 'confirm' ? <Illustration60X60Info /> : <Illustration60X60Error />}
         </Box>
         <Heading3 color="teal">{title}</Heading3>
         {body && (
@@ -56,7 +45,7 @@ const Alert = ({
           </TextBody>
         )}
         <Button
-          level={type === ALERT_TYPES.destructive ? BUTTON_LEVELS.destructive : BUTTON_LEVELS.primary}
+          level={type === 'destructive' ? BUTTON_LEVELS.destructive : BUTTON_LEVELS.primary}
           {...primaryAction}
           fullWidth
           marginTop={5}

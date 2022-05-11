@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Alert, { ALERT_TYPES } from './Alert';
+import Alert from './Alert';
 import Box from '../box';
 import Button from '../button';
 import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
@@ -71,7 +71,7 @@ ConfirmationAlert.args = {
   },
   title: 'Confirmation alert title',
   body: 'I am the alert body text',
-  type: ALERT_TYPES.confirm,
+  type: 'confirm',
 };
 
 export const DestructiveAlert: ComponentStory<typeof Alert> = (args) => {
@@ -100,7 +100,7 @@ DestructiveAlert.args = {
   },
   title: 'Destructive alert title',
   body: 'I am the alert body text',
-  type: ALERT_TYPES.destructive,
+  type: 'destructive',
 };
 
 export const ErrorAlert: ComponentStory<typeof Alert> = (args) => {
@@ -125,5 +125,5 @@ ErrorAlert.args = {
   },
   title: 'Error alert title',
   body: 'I am the alert body text',
-  type: ALERT_TYPES.error,
+  type: 'error',
 };
