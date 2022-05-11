@@ -1,22 +1,24 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { LocaleUtils } from 'react-day-picker';
 
-const WeekDay = ({ weekday, className, localeUtils, locale, size }) => {
-  const weekdayName = localeUtils.formatWeekdayLong(weekday, locale);
+type Size = 'small' | 'medium' | 'large';
+
+interface WeekDayProps {
+  weekday?: number;
+  className?: string;
+  localeUtils?: LocaleUtils;
+  locale?: string;
+  size?: Size;
+}
+
+const WeekDay = ({ weekday, className, localeUtils, locale, size }: WeekDayProps) => {
+  const weekdayName = localeUtils?.formatWeekdayLong(weekday!, locale);
 
   return (
     <div className={className} title={weekdayName}>
-      {weekdayName.slice(0, size === 'large' ? 2 : 1)}
+      {weekdayName?.slice(0, size === 'large' ? 2 : 1)}
     </div>
   );
-};
-
-WeekDay.propTypes = {
-  className: PropTypes.string,
-  locale: PropTypes.string,
-  localeUtils: PropTypes.object,
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
-  weekday: PropTypes.number,
 };
 
 export default WeekDay;
