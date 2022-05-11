@@ -1,23 +1,19 @@
-import React, { PureComponent, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 
 import { Box } from '../../index';
 
-class Body extends PureComponent {
-  render() {
-    const { scrollable, children, forwardedRef, ...rest } = this.props;
-
-    if (!scrollable) {
-      return <div ref={forwardedRef}>{children}</div>;
-    }
-
-    return (
-      <Box display="flex" flexDirection="column" overflowY="auto" {...rest} ref={forwardedRef}>
-        {children}
-      </Box>
-    );
+const Body = forwardRef(({ scrollable, children, ...rest }, ref) => {
+  if (!scrollable) {
+    return <div ref={ref}>{children}</div>;
   }
-}
+
+  return (
+    <Box display="flex" flexDirection="column" overflowY="auto" {...rest} ref={ref}>
+      {children}
+    </Box>
+  );
+});
 
 Body.propTypes = {
   /** The content to display inside the dialog. */
@@ -26,9 +22,6 @@ Body.propTypes = {
   scrollable: PropTypes.bool,
 };
 
-/** @type {any} */
-const ForwardedBody = forwardRef((props, ref) => <Body {...props} forwardedRef={ref} />);
+Body.displayName = 'Body';
 
-ForwardedBody.displayName = 'Body';
-
-export default ForwardedBody;
+export default Body;
