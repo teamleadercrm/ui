@@ -4,8 +4,9 @@ import Icon from '../icon';
 import { UITextSmall, UITextBody, UITextDisplay } from '../typography';
 import cx from 'classnames';
 import theme from './theme.css';
+import { BoxProps } from '../box/Box';
 
-interface BadgeProps {
+interface BadgeProps extends Omit<BoxProps, 'ref' | 'size'> {
   /** The content to display inside the badge. */
   children?: ReactNode;
   /** A class name for the wrapper to give custom styles. */
