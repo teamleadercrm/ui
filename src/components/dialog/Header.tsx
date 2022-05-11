@@ -1,5 +1,4 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { ReactNode } from 'react';
 import { IconCloseMediumOutline } from '@teamleader/ui-icons';
 
 import Section from '../section';
@@ -8,8 +7,16 @@ import Icon from '../icon';
 
 import theme from './theme.css';
 
-/** @type {any} */
-const Header = ({ icon, onCloseClick, children, ...rest }) => {
+interface HeaderProps {
+  /** The content to display inside the dialog. */
+  children?: ReactNode;
+  /** The icon in the banner. */
+  icon?: ReactNode;
+  /** Callback function that is fired when the close icon clicked. */
+  onCloseClick?: void;
+}
+
+const Header = ({ icon, onCloseClick, children, ...rest }: HeaderProps) => {
   return (
     <Section display="flex" alignItems="center" color="neutral" {...rest}>
       {icon && (
@@ -30,13 +37,6 @@ const Header = ({ icon, onCloseClick, children, ...rest }) => {
   );
 };
 
-Header.propTypes = {
-  /** The content to display inside the dialog. */
-  children: PropTypes.any,
-  /** The icon in the banner. */
-  icon: PropTypes.element,
-  /** Callback function that is fired when the close icon clicked. */
-  onCloseClick: PropTypes.func,
-};
+Header.displayName = 'Header';
 
 export default Header;
