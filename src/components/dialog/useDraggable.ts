@@ -1,6 +1,12 @@
-import { useEffect } from 'react';
+import { RefObject, useEffect } from 'react';
 
-const useDraggable = ({ active, dragTargetRef, dragHandleRef }) => {
+interface UseDraggableProps {
+  active: boolean;
+  dragHandleRef: RefObject<HTMLElement>;
+  dragTargetRef: RefObject<HTMLElement>;
+}
+
+const useDraggable = ({ active = false, dragTargetRef, dragHandleRef }: UseDraggableProps) => {
   useEffect(() => {
     const currentDragTargetRef = dragTargetRef.current;
     const currentDragHandleRef = dragHandleRef?.current;
@@ -12,7 +18,7 @@ const useDraggable = ({ active, dragTargetRef, dragHandleRef }) => {
     let x = 0;
     let y = 0;
 
-    const mouseDownHandler = function (event) {
+    const mouseDownHandler = function (event: MouseEvent) {
       x = event.clientX;
       y = event.clientY;
 
@@ -20,7 +26,7 @@ const useDraggable = ({ active, dragTargetRef, dragHandleRef }) => {
       document.addEventListener('mouseup', mouseUpHandler);
     };
 
-    const mouseMoveHandler = function (event) {
+    const mouseMoveHandler = function (event: MouseEvent) {
       const dx = event.clientX - x;
       const dy = event.clientY - y;
 
