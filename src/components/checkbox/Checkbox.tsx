@@ -8,23 +8,23 @@ import theme from './theme.css';
 
 interface CheckboxProps {
   /** If true, the checkbox will be checked. */
-  checked: boolean;
+  checked?: boolean;
   /** The content to display next to the checkbox. */
-  children: ReactNode;
+  children?: ReactNode;
   /** If true, component will be disabled. */
-  disabled: boolean;
+  disabled?: boolean;
   /** Name for form input. */
-  name: string;
+  name?: string;
   /** A class name for the wrapper to give custom styles. */
-  className: string;
+  className?: string;
   /** The textual label displayed next to the checkbox. */
-  label: string;
+  label?: string;
   /** Callback function that is fired when checkbox is toggled. */
-  onChange: void;
+  onChange?: void;
   /** Indicate whether the checkbox is neither checked or unchecked. */
-  indeterminate: boolean;
+  indeterminate?: boolean;
   /** Size of the checkbox. */
-  size: 'small' | 'medium' | 'large';
+  size?: 'small' | 'medium' | 'large';
 }
 
 const Checkbox = forwardRef(
