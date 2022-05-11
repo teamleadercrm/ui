@@ -46,7 +46,7 @@ const DatePicker = ({
   const [selectedMonth, setSelectedMonth] = useState<Date | string | number | null>(null);
 
   useEffect(() => {
-    if (selectedDate !== undefined && others.selectedDate !== selectedDate) {
+    if (others.selectedDate !== undefined && others.selectedDate !== selectedDate) {
       setSelectedDate(others.selectedDate);
       return;
     }

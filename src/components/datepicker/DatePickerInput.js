@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Box, { pickBoxProps } from '../box';
 import DatePicker from '../datepicker';
@@ -11,27 +11,37 @@ import { formatDate } from './localeUtils';
 import { IconCalendarSmallOutline } from '@teamleader/ui-icons';
 
 /** @type {React.ComponentType<any>} */
-class DatePickerInput extends PureComponent {
-  state = {
-    isPopoverActive: false,
-    popoverAnchorEl: null,
-    selectedDate: null,
-  };
+const DatePickerInput = ({
+  className,
+  dayPickerProps = {},
+  footer,
+  inverse = false,
+  inputProps = {},
+  locale = 'en-GB',
+  popoverProps = {},
+  size = 'medium',
+  inputSize,
+  datePickerSize,
+  formatDate: customFormatDate,
+  openPickerOnFocus = true,
+  onChange,
+  onBlur,
+  ...others
+}) => {
+  const [isPopoverActive, setIsPopoverActive] = useState(false);
+  const [popoverAnchorEl, setPopoverAnchorEl] = useState(null);
+  const [selectedDate, setSelectedDate] = useState(null);
 
-  static getDerivedStateFromProps(props, state) {
-    if (props.selectedDate !== undefined && props.selectedDate !== state.selectedDate) {
-      return {
-        selectedDate: props.selectedDate,
-      };
+  useEffect(() => {
+    if (others.selectedDate !== undefined && others.selectedDate !== selectedDate) {
+      setSelectedDate(others.selectedDate);
+      return;
     }
 
-    return null;
-  }
+    setSelectedDate(null);
+  }, [others.selectedDate]);
 
-  getFormattedDate = () => {
-    const { formatDate: customFormatDate, locale } = this.props;
-    const { selectedDate } = this.state;
-
+  const getFormattedDate = () => {
     if (!selectedDate) {
       return '';
     }
@@ -43,56 +53,43 @@ class DatePickerInput extends PureComponent {
     return customFormatDate(selectedDate, locale);
   };
 
-  handleInputFocus = (event) => {
-    const { onFocus, readOnly } = this.props.inputProps;
-    const { openPickerOnFocus } = this.props;
-
-    if (readOnly) {
+  const handleInputFocus = (event) => {
+    if (inputProps.readOnly) {
       return;
     }
 
     if (openPickerOnFocus) {
-      this.setState(
-        {
-          popoverAnchorEl: event.currentTarget,
-          isPopoverActive: true,
-        },
-        () => onFocus && onFocus(event),
-      );
+      setPopoverAnchorEl(event.currentTarget);
+      setIsPopoverActive(true);
+      inputProps.onFocus && inputProps.onFocus(event);
     } else {
-      onFocus && onFocus(event);
+      inputProps.onFocus && inputProps.onFocus(event);
     }
   };
 
-  handleInputClick = (event) => {
-    const { onFocus, onClick } = this.props.inputProps;
-    const { openPickerOnFocus } = this.props;
-
+  const handleInputClick = (event) => {
     if (!openPickerOnFocus) {
-      this.setState(
-        {
-          popoverAnchorEl: event.currentTarget,
-          isPopoverActive: true,
-        },
-        () => onFocus && onFocus(),
-      );
+      setPopoverAnchorEl(event.currentTarget);
+      setIsPopoverActive(true);
+      inputProps.onFocus && inputProps.onFocus();
     }
 
-    onClick && onClick(event);
+    inputProps.onClick && inputProps.onClick(event);
   };
 
-  handlePopoverClose = () => {
-    const { onBlur } = this.props;
+  const handlePopoverClose = () => {
     onBlur && onBlur({ relatedTarget: null });
-    this.setState({ isPopoverActive: false });
+    setIsPopoverActive(false);
   };
 
-  handleDatePickerDateChange = (date) => {
-    this.setState({ isPopoverActive: false, selectedDay: date }, () => this.props.onChange(date));
+  const handleDatePickerDateChange = (date) => {
+    setIsPopoverActive(false);
+    setSelectedDate(date);
+    onChange();
   };
 
-  renderIcon = () => {
-    const inverse = this.props.inputProps && this.props.inputProps.inverse;
+  const renderIcon = () => {
+    const inverse = inputProps && inputProps.inverse;
 
     return (
       <Icon color={inverse ? 'teal' : 'neutral'} tint={inverse ? 'light' : 'darkest'} marginRight={2}>
@@ -101,81 +98,65 @@ class DatePickerInput extends PureComponent {
     );
   };
 
-  render() {
-    const {
-      className,
-      dayPickerProps,
-      footer,
-      inverse,
-      inputProps,
-      locale,
-      popoverProps,
-      size,
-      inputSize,
-      datePickerSize,
-      ...others
-    } = this.props;
-    const { isPopoverActive, popoverAnchorEl, selectedDate } = this.state;
-    const boxProps = pickBoxProps(others);
-    const datePickerClassNames = cx(theme['date-picker-input'], theme[`is-${datePickerSize || size}`]);
+  const boxProps = pickBoxProps(others);
+  const datePickerClassNames = cx(theme['date-picker-input'], theme[`is-${datePickerSize || size}`]);
 
-    return (
-      <Box className={className} {...boxProps}>
-        <Input
-          inverse={inverse}
-          prefix={this.renderIcon()}
-          size={inputSize || size}
-          value={this.getFormattedDate()}
-          width="120px"
-          noInputStyling={dayPickerProps && dayPickerProps.withMonthPicker}
-          {...inputProps}
-          onClick={this.handleInputClick}
-          onFocus={this.handleInputFocus}
-        />
-        <Popover
-          active={isPopoverActive}
-          anchorEl={popoverAnchorEl}
-          backdrop="transparent"
-          maxWidth="min-content"
-          onEscKeyDown={this.handlePopoverClose}
-          onOverlayClick={this.handlePopoverClose}
-          position="end"
-          offsetCorrection={30}
-          returnFocusToSource={false}
-          {...popoverProps}
-        >
-          <Box overflowY="auto">
-            <DatePicker
-              className={datePickerClassNames}
-              locale={locale}
-              month={selectedDate}
-              onChange={this.handleDatePickerDateChange}
-              selectedDate={selectedDate}
-              size={datePickerSize || size}
-              {...dayPickerProps}
-            />
+  return (
+    <Box className={className} {...boxProps}>
+      <Input
+        inverse={inverse}
+        prefix={renderIcon()}
+        size={inputSize || size}
+        value={getFormattedDate()}
+        width="120px"
+        noInputStyling={dayPickerProps && dayPickerProps.withMonthPicker}
+        {...inputProps}
+        onClick={handleInputClick}
+        onFocus={handleInputFocus}
+      />
+      <Popover
+        active={isPopoverActive}
+        anchorEl={popoverAnchorEl}
+        backdrop="transparent"
+        maxWidth="min-content"
+        onEscKeyDown={handlePopoverClose}
+        onOverlayClick={handlePopoverClose}
+        position="end"
+        offsetCorrection={30}
+        returnFocusToSource={false}
+        {...popoverProps}
+      >
+        <Box overflowY="auto">
+          <DatePicker
+            className={datePickerClassNames}
+            locale={locale}
+            month={selectedDate}
+            onChange={handleDatePickerDateChange}
+            selectedDate={selectedDate}
+            size={datePickerSize || size}
+            {...dayPickerProps}
+          />
+        </Box>
+        {footer && (
+          <Box
+            backgroundColor="neutral"
+            backgroundTint="light"
+            borderColor="neutral"
+            borderTint="normal"
+            borderTopWidth={1}
+            flex="1 0 auto"
+            overflowX="hidden"
+            paddingHorizontal={3}
+            paddingVertical={3}
+            tabIndex="0"
+          >
+            {footer}
           </Box>
-          {footer && (
-            <Box
-              backgroundColor="neutral"
-              backgroundTint="light"
-              borderColor="neutral"
-              borderTint="normal"
-              borderTopWidth={1}
-              flex="1 0 auto"
-              overflowX="hidden"
-              paddingHorizontal={3}
-              paddingVertical={3}
-              tabIndex="0"
-            >
-              {footer}
-            </Box>
-          )}
-        </Popover>
-      </Box>
-    );
-  }
-}
+        )}
+      </Popover>
+    </Box>
+  );
+};
 
 DatePickerInput.propTypes = {
   /** A class name for the wrapper to give custom styles. */
