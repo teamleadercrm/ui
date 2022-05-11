@@ -1,38 +1,53 @@
-import React, { useEffect, useRef, useCallback } from 'react';
+import React, { useEffect, useRef, useCallback, RefObject, ReactNode } from 'react';
 
-import { focusOnFirstDescendent, focusOnLastDescendent } from './utils';
+import { focusOnFirstDescendent, focusOnLastDescendent, isHTMLElement } from './utils';
 
-const FocusRing = ({ topFocusBumperRef, bottomFocusBumperRef, children }) => {
+const FocusRing = ({
+  topFocusBumperRef,
+  bottomFocusBumperRef,
+  children,
+}: {
+  topFocusBumperRef: RefObject<HTMLDivElement>;
+  bottomFocusBumperRef: RefObject<HTMLDivElement>;
+  children: ReactNode;
+}) => {
   return (
     <div>
-      <div ref={topFocusBumperRef} tabIndex="0" />
+      <div ref={topFocusBumperRef} tabIndex={0} />
       {children}
-      <div ref={bottomFocusBumperRef} tabIndex="0" />
+      <div ref={bottomFocusBumperRef} tabIndex={0} />
     </div>
   );
 };
 
-const openFocusTraps = new Set();
+const openFocusTraps: Set<(event: Event) => void> = new Set();
 
-const getLastItemInSet = (set) => {
+const getLastItemInSet = (set: Set<(event: Event) => void>) => {
   const array = Array.from(set);
   return array[array.length - 1];
 };
 
-const useFocusTrap = ({ active, returnFocusToSource = true, initialFocusRef }) => {
-  const ref = useRef();
-  const topFocusBumperRef = useRef();
-  const bottomFocusBumperRef = useRef();
+const useFocusTrap = ({
+  active,
+  returnFocusToSource = true,
+  initialFocusRef,
+}: {
+  active: boolean;
+  returnFocusToSource: boolean;
+  initialFocusRef: RefObject<HTMLElement>;
+}) => {
+  const ref = useRef<Element>();
+  const topFocusBumperRef = useRef<HTMLDivElement>(null);
+  const bottomFocusBumperRef = useRef<HTMLDivElement>(null);
 
   const InternalFocusRing = useCallback(
-    ({ children }) => (
+    ({ children }: { children: ReactNode }) => (
       <FocusRing topFocusBumperRef={topFocusBumperRef} bottomFocusBumperRef={bottomFocusBumperRef}>
         {children}
       </FocusRing>
     ),
     [],
   );
-  InternalFocusRing.displayName = 'FocusRing';
 
   useEffect(() => {
     if (active) {
@@ -59,8 +74,8 @@ const useFocusTrap = ({ active, returnFocusToSource = true, initialFocusRef }) =
         focusOnFirstDescendent(topFocusBumperRef.current);
       }
 
-      const trapFocus = (event) => {
-        if (!currentFocusRef.contains(event.target)) {
+      const trapFocus: EventListener = (event) => {
+        if (!currentFocusRef.contains(event.target as Element)) {
           if (document.activeElement === event.target) {
             if (event.target === topFocusBumperRef.current) {
               // Reset the focus to the last element when focusing in reverse (shift-tab)
@@ -81,7 +96,7 @@ const useFocusTrap = ({ active, returnFocusToSource = true, initialFocusRef }) =
         document.removeEventListener('focusin', trapFocus, true);
         openFocusTraps.delete(trapFocus);
 
-        if (sourceFocusElement) {
+        if (sourceFocusElement && isHTMLElement(sourceFocusElement)) {
           sourceFocusElement.focus();
         }
 

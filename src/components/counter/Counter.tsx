@@ -5,8 +5,9 @@ import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
 import Monospaced from '../typography/Monospaced';
 import { COLORS, TINTS } from '../../constants';
+import { BoxProps } from '../box/Box';
 
-interface Props {
+interface Props extends Omit<BoxProps, 'size' | 'ref'> {
   /** A border color to give to the counter */
   borderColor?: typeof COLORS[number];
   /** A border tint to give to the counter */
