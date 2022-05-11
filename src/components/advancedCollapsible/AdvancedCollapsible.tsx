@@ -5,14 +5,14 @@ import Box, { pickBoxProps } from '../box';
 import { IconChevronDownSmallOutline, IconChevronRightSmallOutline } from '@teamleader/ui-icons';
 import theme from './theme.css';
 
-interface Props {
+interface AdvancedCollapsibleProps {
   color?: 'neutral' | 'teal';
   children: ReactNode;
   title: string;
   size?: 'small' | 'medium' | 'large';
 }
 
-const AdvancedCollapsible = ({ children, color = 'teal', size = 'medium', title, ...others }: Props) => {
+const AdvancedCollapsible = ({ children, color = 'teal', size = 'medium', title, ...others }: AdvancedCollapsibleProps) => {
   const [collapsed, setCollapsed] = useState(true);
 
   const boxProps = pickBoxProps(others);
