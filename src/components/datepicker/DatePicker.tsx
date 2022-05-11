@@ -14,23 +14,22 @@ type Size = 'small' | 'medium' | 'large';
 
 interface DatePickerProps {
   /** If true we give a border to our wrapper. */
-  bordered: boolean;
+  bordered?: boolean;
   /** A class name for the DatePicker to give custom styles. */
   className: string;
   /** The modifiers of the DatePicker component. */
-  modifiers: Record<string, string>;
+  modifiers?: Record<string, string>;
   /** Callback function that is fired when the date has changed. */
-  onChange: (day: Date) => {};
+  onChange: (day: Date) => void;
   /** The current selected date. */
   selectedDate: Date;
   /** Size of the DatePicker component. */
-  size: Size;
-  style: string;
+  size?: Size;
+  style?: string;
   withMonthPicker: boolean;
   showWeekNumbers: boolean;
 }
 
-/** @type {React.ComponentType<any>} */
 const DatePicker = ({
   bordered = true,
   className,
@@ -99,7 +98,7 @@ const DatePicker = ({
         className={classNames}
         style={style}
         classNames={theme}
-        modifiers={convertModifiersToClassnames(modifiers, theme)}
+        modifiers={modifiers && convertModifiersToClassnames(modifiers, theme)}
         navbarElement={<NavigationBar size={size} withMonthPicker={withMonthPicker} />}
         onDayClick={handleDayClick}
         selectedDays={selectedDate}
