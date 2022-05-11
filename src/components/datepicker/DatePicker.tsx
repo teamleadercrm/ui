@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import DayPicker from 'react-day-picker';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import NavigationBar from './NavigationBar';
@@ -11,20 +10,40 @@ import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
 import LocaleUtils from './localeUtils';
 
+type Size = 'small' | 'medium' | 'large';
+
+interface DatePickerProps {
+  /** If true we give a border to our wrapper. */
+  bordered: boolean;
+  /** A class name for the DatePicker to give custom styles. */
+  className: string;
+  /** The modifiers of the DatePicker component. */
+  modifiers: Record<string, string>;
+  /** Callback function that is fired when the date has changed. */
+  onChange: (day: Date) => {};
+  /** The current selected date. */
+  selectedDate: Date;
+  /** Size of the DatePicker component. */
+  size: Size;
+  style: string;
+  withMonthPicker: boolean;
+  showWeekNumbers: boolean;
+}
+
 /** @type {React.ComponentType<any>} */
 const DatePicker = ({
-  bordered,
+  bordered = true,
   className,
   style,
   modifiers,
-  size,
+  size = 'medium',
   withMonthPicker,
   showWeekNumbers,
   onChange,
   ...others
-}) => {
-  const [selectedDate, setSelectedDate] = useState(null);
-  const [selectedMonth, setSelectedMonth] = useState(null);
+}: DatePickerProps) => {
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+  const [selectedMonth, setSelectedMonth] = useState<Date | string | number | null>(null);
 
   useEffect(() => {
     if (selectedDate !== undefined && others.selectedDate !== selectedDate) {
@@ -35,7 +54,7 @@ const DatePicker = ({
     setSelectedDate(null);
   }, [others.selectedDate]);
 
-  const handleDayClick = (day, modifiers = {}) => {
+  const handleDayClick = (day: Date, modifiers: Record<string, string> = {}) => {
     if (modifiers[theme['disabled']]) {
       return;
     }
@@ -44,7 +63,7 @@ const DatePicker = ({
     onChange(day);
   };
 
-  const handleYearMonthChange = (selectedMonth) => {
+  const handleYearMonthChange = (selectedMonth: string | number | Date) => {
     setSelectedMonth(selectedMonth);
   };
 
@@ -54,7 +73,8 @@ const DatePicker = ({
       medium: showWeekNumbers ? 'medium' : 'small',
       large: 'large',
     };
-    return monthPickerSizeByDatePickerSize[size];
+
+    return monthPickerSizeByDatePickerSize[size] as Size;
   };
 
   const boxProps = pickBoxProps(others);
@@ -101,26 +121,6 @@ const DatePicker = ({
       />
     </Box>
   );
-};
-
-DatePicker.propTypes = {
-  /** If true we give a border to our wrapper. */
-  bordered: PropTypes.bool,
-  /** A class name for the DatePicker to give custom styles. */
-  className: PropTypes.string,
-  /** The modifiers of the DatePicker component. */
-  modifiers: PropTypes.object,
-  /** Callback function that is fired when the date has changed. */
-  onChange: PropTypes.func,
-  /** The current selected date. */
-  selectedDate: PropTypes.instanceOf(Date),
-  /** Size of the DatePicker component. */
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
-};
-
-DatePicker.defaultProps = {
-  bordered: true,
-  size: 'medium',
 };
 
 export default DatePicker;
