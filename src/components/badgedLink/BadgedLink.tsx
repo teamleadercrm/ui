@@ -1,11 +1,12 @@
 import uiTypography from '@teamleader/ui-typography';
 import uiUtilities from '@teamleader/ui-utilities';
 import cx from 'classnames';
-import React, { ElementType, forwardRef, HTMLProps, ReactElement, ReactNode } from 'react';
-import Box, { pickBoxProps } from '../box';
+import React, { ElementType, forwardRef, ReactElement, ReactNode } from 'react';
+import Box from '../box';
+import { BoxProps } from '../box/Box';
 import theme from './theme.css';
 
-interface BadgedLinkProps extends HTMLProps<HTMLButtonElement> {
+interface BadgedLinkProps extends Omit<BoxProps, 'ref'> {
   /** The content to display inside the badged link. */
   children: ReactNode;
   /** A class name for the badged link to give custom styles. */
@@ -46,7 +47,7 @@ const BadgedLink = forwardRef(
     );
 
     return (
-      <Box element={element} ref={pickBoxProps(ref)} className={classNames} data-teamleader-ui="badgedLink" {...others}>
+      <Box element={element} ref={ref} className={classNames} data-teamleader-ui="badgedLink" {...others}>
         {iconPlacement === 'left' && icon}
         {children}
         {iconPlacement === 'right' && icon}
