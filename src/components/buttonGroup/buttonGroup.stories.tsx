@@ -3,13 +3,14 @@ import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { IconAddMediumOutline } from '@teamleader/ui-icons';
 import Button from '../button';
 import ButtonGroup from './ButtonGroup';
+import { ComponentStory } from '@storybook/react';
 
 export default {
   component: ButtonGroup,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Button group'),
 };
 
-export const Normal = (args) => (
+export const Normal: ComponentStory<typeof ButtonGroup> = (args) => (
   <ButtonGroup {...args}>
     <Button label="Button 1" />
     <Button label="Button 2" />
@@ -20,7 +21,7 @@ export const Normal = (args) => (
 export const withActive = () => {
   const [value, setValue] = useState('option2');
 
-  const handleChange = (value) => {
+  const handleChange = (value: string) => {
     setValue(value);
   };
 

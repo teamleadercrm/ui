@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import ButtonGroup from './ButtonGroup';
 import Button from '../button';
@@ -6,14 +7,14 @@ import Button from '../button';
 export default {
   component: ButtonGroup,
   title: 'ButtonGroup',
-};
+} as ComponentMeta<typeof ButtonGroup>;
 
-const Wrapper = ({ children }) => <div style={{ minHeight: '60px' }}>{children}</div>;
+const Wrapper = ({ children }: { children: ReactNode }) => <div style={{ minHeight: '60px' }}>{children}</div>;
 
-export const Main = () => (
+export const Main: ComponentStory<typeof ButtonGroup> = () => (
   <div>
-    {['primary', 'secondary', 'destructive', 'timer'].map((level) =>
-      ['small', 'medium', 'large'].map((size) => (
+    {(['primary', 'secondary', 'destructive', 'timer'] as const).map((level) =>
+      (['small', 'medium', 'large'] as const).map((size) => (
         <React.Fragment key={level + size}>
           <Wrapper>
             <ButtonGroup level={level} size={size}>
