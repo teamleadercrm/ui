@@ -104,7 +104,7 @@ body.parameters = {
 export const header = () => (
   <DetailPage.Header
     backLinkProps={{
-      element: select('Back link element', ['a', 'button'], 'button'),
+      element: select('Back link element', ['a', 'button'], 'button') as React.ElementType,
       children: text('Back link label', 'Back to overview'),
     }}
     title={text('Title', 'I am the detail page title')}
@@ -122,7 +122,7 @@ header.parameters = {
 export const headerWithTitleSuffix = () => (
   <DetailPage.Header
     backLinkProps={{
-      element: select('Back link element', ['a', 'button'], 'button'),
+      element: select('Back link element', ['a', 'button'], 'button') as React.ElementType,
       children: text('Back link label', 'Back to overview'),
     }}
     title={text('Title', 'I am the detail page title')}
@@ -141,7 +141,7 @@ headerWithTitleSuffix.parameters = {
 export const headerWithActions = () => (
   <DetailPage.Header
     backLinkProps={{
-      element: select('Back link element', ['a', 'button'], 'button'),
+      element: select('Back link element', ['a', 'button'], 'button') as React.ElementType,
       children: text('Back link label', 'Back to overview'),
     }}
     title={text('Title', 'I am the detail page title')}
@@ -161,7 +161,7 @@ headerWithActions.parameters = {
 export const headerWithTotals = () => (
   <DetailPage.Header
     backLinkProps={{
-      element: select('Back link element', ['a', 'button'], 'button'),
+      element: select('Back link element', ['a', 'button'], 'button') as React.ElementType,
       children: text('Back link label', 'Back to overview'),
     }}
     title={text('Title', 'I am the detail page title')}
@@ -181,7 +181,7 @@ headerWithTotals.parameters = {
 export const headerWithTotalsAndActions = () => (
   <DetailPage.Header
     backLinkProps={{
-      element: select('Back link element', ['a', 'button'], 'button'),
+      element: select('Back link element', ['a', 'button'], 'button') as React.ElementType,
       children: text('Back link label', 'Back to overview'),
     }}
     title={text('Title', 'I am a way too long detail page title which will overflow with an ellipsis')}
@@ -202,7 +202,7 @@ headerWithTotalsAndActions.parameters = {
 export const headerWithEverthingTogether = () => (
   <DetailPage.Header
     backLinkProps={{
-      element: select('Back link element', ['a', 'button'], 'button'),
+      element: select('Back link element', ['a', 'button'], 'button') as React.ElementType,
       children: text('Back link label', 'Back to overview'),
     }}
     title={text('Title', 'I am a way too long detail page title which will overflow with an ellipsis')}
