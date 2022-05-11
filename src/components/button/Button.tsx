@@ -44,7 +44,7 @@ interface ButtonProps extends Omit<BoxProps, 'size'> {
   /** The textual label displayed inside the button. */
   label?: string;
   /** Determines which kind of button to be rendered. */
-  level?: BUTTON_LEVELS;
+  level?: `${BUTTON_LEVELS}`;
   /** If true, component will show a loading spinner instead of label or children. */
   processing?: boolean;
   /** Size of the button. */
