@@ -6,12 +6,13 @@ import Box from '../box';
 import { TextBodyCompact } from '../typography';
 import Tooltip from '../tooltip';
 import theme from './theme.css';
+import { BoxProps } from '../box/Box';
 
 const TooltippedBox = Tooltip(Box);
 
 const MAX_NAMES_TO_SHOW_IN_TOOLTIP = 15;
 
-interface AvatarStackOverflowProps {
+interface AvatarStackOverflowProps extends Omit<BoxProps, 'ref'> {
   displayMax: number;
   overflowAmount: number;
   overflowChildren: (React.ReactChild | React.ReactFragment | React.ReactPortal)[];

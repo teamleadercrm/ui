@@ -12,10 +12,11 @@ import cx from 'classnames';
 import theme from './theme.css';
 import { IconCloseMediumOutline, IconCloseSmallOutline } from '@teamleader/ui-icons';
 import { Size, Shape } from './types';
+import { BoxProps } from '../box/Box';
 
 const TooltippedBox = Tooltip(Box);
 
-interface AvatarProps {
+interface AvatarProps extends Omit<BoxProps, 'size' | 'ref'> {
   /** Component that will be placed top right of the avatar image. */
   children?: React.ReactNode;
   /** A class name for the wrapper to give custom styles. */

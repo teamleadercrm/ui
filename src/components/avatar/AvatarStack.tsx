@@ -4,6 +4,7 @@ import cx from 'classnames';
 import theme from './theme.css';
 import AvatarStackOverflow from './AvatarStackOverflow';
 import { Direction, Size } from './types';
+import { BoxProps } from '../box/Box';
 
 const OVERLAP_SPACINGS = {
   tiny: -6,
@@ -15,7 +16,7 @@ const OVERLAP_SPACINGS = {
 
 const SPACING = 6;
 
-interface AvatarStackProps {
+interface AvatarStackProps extends Omit<BoxProps, 'size' | 'ref'> {
   /** The avatars to display in a stack. */
   children: React.ReactNode;
   /** A class name for the wrapper to give custom styles. */
