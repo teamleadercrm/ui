@@ -1,14 +1,14 @@
-import { RefObject, useEffect } from 'react';
+import { MutableRefObject, RefObject, useEffect } from 'react';
 
 interface UseDraggableProps {
-  active: boolean;
-  dragHandleRef: RefObject<HTMLElement>;
-  dragTargetRef: RefObject<HTMLElement>;
+  active?: boolean;
+  dragHandleRef?: RefObject<HTMLElement>;
+  dragTargetRef?: MutableRefObject<HTMLElement | undefined>;
 }
 
 const useDraggable = ({ active = false, dragTargetRef, dragHandleRef }: UseDraggableProps) => {
   useEffect(() => {
-    const currentDragTargetRef = dragTargetRef.current;
+    const currentDragTargetRef = dragTargetRef?.current;
     const currentDragHandleRef = dragHandleRef?.current;
 
     if (!active || !currentDragTargetRef || !currentDragHandleRef) {

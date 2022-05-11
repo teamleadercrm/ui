@@ -32,7 +32,7 @@ interface DialogBaseProps {
   /** The initial part of the dialog where the focus will be set, useful to avoid focusing on the close button */
   initialFocusRef?: RefObject<HTMLElement>;
   /** The element used to drag a dialog, @see Dialog component header for an example */
-  dragHandleRef?: any;
+  dragHandleRef?: RefObject<HTMLElement>;
   /** If true the dialog will render as a form element. */
   form?: boolean;
   /** Optional callback if the dialog is a form and is being submitted */
