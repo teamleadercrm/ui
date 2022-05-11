@@ -1,7 +1,7 @@
 import { IconCheckmarkMediumOutline, IconCheckmarkSmallOutline, IconMinusSmallOutline } from '@teamleader/ui-icons';
 import cx from 'classnames';
 import omit from 'lodash.omit';
-import React, { forwardRef, ReactNode } from 'react';
+import React, { ChangeEvent, forwardRef, ReactNode } from 'react';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import { TextBodyCompact, TextDisplay, TextSmall } from '../typography';
 import theme from './theme.css';
@@ -21,14 +21,14 @@ interface CheckboxProps extends Omit<BoxProps, 'onChange' | 'size'> {
   /** The textual label displayed next to the checkbox. */
   label?: string;
   /** Callback function that is fired when checkbox is toggled. */
-  onChange?: void;
+  onChange?: (checked: boolean, event: ChangeEvent<HTMLInputElement>) => void;
   /** Indicate whether the checkbox is neither checked or unchecked. */
   indeterminate?: boolean;
   /** Size of the checkbox. */
   size?: 'small' | 'medium' | 'large';
 }
 
-const Checkbox = forwardRef(
+const Checkbox = forwardRef<HTMLInputElement>(
   (
     {
       checked = false,
@@ -43,9 +43,9 @@ const Checkbox = forwardRef(
     }: CheckboxProps,
     ref,
   ) => {
-    const handleToggle = (event) => {
-      if (!disabled && onChange) {
-        onChange(!checked, event);
+    const handleToggle = (event: ChangeEvent<HTMLInputElement>) => {
+      if (onChange) {
+        onChange(event.target.checked, event);
       }
     };
 
@@ -73,7 +73,7 @@ const Checkbox = forwardRef(
           type="checkbox"
           checked={checked}
           disabled={disabled}
-          onClick={handleToggle}
+          onChange={handleToggle}
           ref={ref}
           readOnly
           {...inputProps}
