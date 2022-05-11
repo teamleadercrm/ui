@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Box } from '../box';
 import IconButton from '../iconButton';
@@ -11,46 +11,51 @@ import {
 import theme from './theme.css';
 import cx from 'classnames';
 
-class NavigationBar extends PureComponent {
-  handlePreviousClick = () => {
-    this.props.onPreviousClick();
+const NavigationBar = ({
+  className,
+  localeUtils,
+  nextMonth,
+  previousMonth,
+  size,
+  withMonthPicker,
+  onNextClick,
+  onPreviousClick,
+}) => {
+  const months = localeUtils.getMonths();
+  const previousMonthButtonLabel = months[previousMonth.getMonth()];
+  const nextMonthButtonLabel = months[nextMonth.getMonth()];
+
+  const handlePreviousClick = () => {
+    onPreviousClick();
   };
 
-  handleNextClick = () => {
-    this.props.onNextClick();
+  const handleNextClick = () => {
+    onNextClick();
   };
 
-  render() {
-    const { className, localeUtils, nextMonth, previousMonth, size, withMonthPicker } = this.props;
-
-    const months = localeUtils.getMonths();
-    const previousMonthButtonLabel = months[previousMonth.getMonth()];
-    const nextMonthButtonLabel = months[nextMonth.getMonth()];
-
-    return (
-      <Box
-        className={cx(className, { [theme['navBar-with-month-picker']]: withMonthPicker })}
-        display="flex"
-        justifyContent="space-between"
-      >
-        <IconButton
-          color="teal"
-          size={size === 'large' ? 'medium' : 'small'}
-          icon={size === 'large' ? <IconArrowLeftMediumOutline /> : <IconArrowLeftSmallOutline />}
-          onClick={this.handlePreviousClick}
-          title={previousMonthButtonLabel}
-        />
-        <IconButton
-          color="teal"
-          size={size === 'large' ? 'medium' : 'small'}
-          icon={size === 'large' ? <IconArrowRightMediumOutline /> : <IconArrowRightSmallOutline />}
-          onClick={this.handleNextClick}
-          title={nextMonthButtonLabel}
-        />
-      </Box>
-    );
-  }
-}
+  return (
+    <Box
+      className={cx(className, { [theme['navBar-with-month-picker']]: withMonthPicker })}
+      display="flex"
+      justifyContent="space-between"
+    >
+      <IconButton
+        color="teal"
+        size={size === 'large' ? 'medium' : 'small'}
+        icon={size === 'large' ? <IconArrowLeftMediumOutline /> : <IconArrowLeftSmallOutline />}
+        onClick={handlePreviousClick}
+        title={previousMonthButtonLabel}
+      />
+      <IconButton
+        color="teal"
+        size={size === 'large' ? 'medium' : 'small'}
+        icon={size === 'large' ? <IconArrowRightMediumOutline /> : <IconArrowRightSmallOutline />}
+        onClick={handleNextClick}
+        title={nextMonthButtonLabel}
+      />
+    </Box>
+  );
+};
 
 NavigationBar.propTypes = {
   className: PropTypes.string,
