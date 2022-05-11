@@ -21,7 +21,7 @@ const textComponentMap = {
   large: UITextDisplay,
 };
 
-interface Props {
+interface ButtonProps {
   /** The content to display inside the button. */
   children?: ReactNode;
   /** A class name for the button to give custom styles. */
@@ -70,7 +70,7 @@ const Button = forwardRef(
       type = 'button',
       processing = false,
       ...others
-    }: Props,
+    }: ButtonProps,
     ref,
   ) => {
     const getSpinnerColor = () => {
