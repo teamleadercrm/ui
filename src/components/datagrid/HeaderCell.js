@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import theme from './theme.css';
 import Cell from './Cell';
@@ -7,10 +7,8 @@ import { UITextBody } from '../typography';
 import cx from 'classnames';
 import { IconArrowDownSmallOutline, IconArrowUpSmallOutline } from '@teamleader/ui-icons';
 
-class HeaderCell extends PureComponent {
-  renderSortedIndicators = () => {
-    const { sortable, sorted } = this.props;
-
+const HeaderCell = ({ align = 'left', children, className, onClick, sortable, sorted, ...others }) => {
+  const renderSortedIndicators = () => {
     if (sorted === 'asc' || (!sorted && sortable)) {
       return <IconArrowUpSmallOutline />;
     }
@@ -22,29 +20,25 @@ class HeaderCell extends PureComponent {
     return null;
   };
 
-  render() {
-    const { align, children, className, onClick, sortable, sorted, ...others } = this.props;
+  const classNames = cx(
+    theme['header-cell'],
+    {
+      [theme['is-sortable']]: sortable,
+      [theme['is-sorted']]: sorted === 'asc' || sorted === 'desc',
+    },
+    className,
+  );
 
-    const classNames = cx(
-      theme['header-cell'],
-      {
-        [theme['is-sortable']]: sortable,
-        [theme['is-sorted']]: sorted === 'asc' || sorted === 'desc',
-      },
-      className,
-    );
-
-    return (
-      <Cell align={align} className={classNames} onClick={onClick} {...others} preventOverflow={false}>
-        {sortable && align === 'right' && <Icon marginRight={1}>{this.renderSortedIndicators()}</Icon>}
-        <UITextBody element="span" maxLines={1}>
-          {children}
-        </UITextBody>
-        {sortable && align === 'left' && <Icon marginLeft={1}>{this.renderSortedIndicators()}</Icon>}
-      </Cell>
-    );
-  }
-}
+  return (
+    <Cell align={align} className={classNames} onClick={onClick} {...others} preventOverflow={false}>
+      {sortable && align === 'right' && <Icon marginRight={1}>{renderSortedIndicators()}</Icon>}
+      <UITextBody element="span" maxLines={1}>
+        {children}
+      </UITextBody>
+      {sortable && align === 'left' && <Icon marginLeft={1}>{renderSortedIndicators()}</Icon>}
+    </Cell>
+  );
+};
 
 HeaderCell.propTypes = {
   /** The horizontal alignment of the text inside the cell. */
@@ -59,10 +53,6 @@ HeaderCell.propTypes = {
   sortable: PropTypes.bool,
   /** The order in which the grid rows will be sorted. */
   sorted: PropTypes.oneOf(['asc', 'desc']),
-};
-
-HeaderCell.defaultProps = {
-  align: 'left',
 };
 
 export default HeaderCell;
