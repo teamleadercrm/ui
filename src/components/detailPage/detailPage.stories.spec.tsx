@@ -4,11 +4,12 @@ import DetailPage from './DetailPage';
 import { TextBody } from '../typography';
 import StatusLabel from '../statusLabel';
 import Button from '../button';
+import { ComponentMeta } from '@storybook/react';
 
 export default {
   component: DetailPage,
   title: 'DetailPage',
-};
+} as ComponentMeta<typeof DetailPage>;
 
 export const Main = () => (
   <DetailPage>

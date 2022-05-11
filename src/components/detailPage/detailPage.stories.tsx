@@ -11,8 +11,9 @@ import StatusLabel from '../statusLabel';
 import { Box } from '../box';
 import { Heading1, Monospaced, TextBody } from '../typography';
 import { COLOR } from '../../constants';
+import { ComponentMeta } from '@storybook/react';
 
-const titleColors = ['neutral', 'teal'];
+const titleColors = ['neutral', 'teal'] as Array<'neutral' | 'teal'>;
 
 const actionButtons = () => (
   <ButtonGroup marginLeft={7}>
@@ -85,21 +86,7 @@ export default {
       propTables: false,
     },
   },
-};
-
-export const composition = () => (
-  <DetailPage>
-    {header()}
-    {body()}
-  </DetailPage>
-);
-
-composition.storyName = 'Composition';
-composition.parameters = {
-  info: {
-    propTables: [DetailPage],
-  },
-};
+} as ComponentMeta<typeof DetailPage>;
 
 export const body = () => (
   <DetailPage.Body>
@@ -231,5 +218,19 @@ headerWithEverthingTogether.storyName = 'Header with everything together';
 headerWithEverthingTogether.parameters = {
   info: {
     propTables: [DetailPage.Header],
+  },
+};
+
+export const composition = () => (
+  <DetailPage>
+    {header()}
+    {body()}
+  </DetailPage>
+);
+
+composition.storyName = 'Composition';
+composition.parameters = {
+  info: {
+    propTables: [DetailPage],
   },
 };
