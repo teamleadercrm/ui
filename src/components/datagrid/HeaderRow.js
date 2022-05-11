@@ -1,4 +1,4 @@
-import React, { forwardRef, PureComponent } from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import Row from './Row';
 import HeaderCell from './HeaderCell';
@@ -6,42 +6,38 @@ import Checkbox from '../checkbox';
 import cx from 'classnames';
 import theme from './theme.css';
 
-class HeaderRow extends PureComponent {
-  render() {
-    const {
-      className,
-      children,
-      forwardedRef,
-      sliceFrom,
-      sliceTo,
-      onSelectionChange,
-      selected,
-      selectable,
-      ...others
-    } = this.props;
+const HeaderRow = ({
+  className,
+  children,
+  forwardedRef,
+  sliceFrom,
+  sliceTo,
+  onSelectionChange,
+  selected,
+  selectable,
+  ...others
+}) => {
+  const childrenArray = Array.isArray(children) ? children : [children];
+  const childrenSliced = childrenArray.slice(sliceFrom, sliceTo);
+  const classNames = cx(theme['header-row'], className);
 
-    const childrenArray = Array.isArray(children) ? children : [children];
-    const childrenSliced = childrenArray.slice(sliceFrom, sliceTo);
-    const classNames = cx(theme['header-row'], className);
-
-    return (
-      <Row
-        backgroundColor="neutral"
-        className={classNames}
-        data-teamleader-ui="datagrid-header-row"
-        ref={forwardedRef}
-        {...others}
-      >
-        {selectable && (
-          <HeaderCell flex="checkbox-width" sortable={false}>
-            <Checkbox checked={selected} onChange={onSelectionChange} size="small" />
-          </HeaderCell>
-        )}
-        {childrenSliced}
-      </Row>
-    );
-  }
-}
+  return (
+    <Row
+      backgroundColor="neutral"
+      className={classNames}
+      data-teamleader-ui="datagrid-header-row"
+      ref={forwardedRef}
+      {...others}
+    >
+      {selectable && (
+        <HeaderCell flex="checkbox-width" sortable={false}>
+          <Checkbox checked={selected} onChange={onSelectionChange} size="small" />
+        </HeaderCell>
+      )}
+      {childrenSliced}
+    </Row>
+  );
+};
 
 HeaderRow.propTypes = {
   /** A class name for the row to give custom styles. */
