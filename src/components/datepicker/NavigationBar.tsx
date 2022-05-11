@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Box } from '../box';
 import IconButton from '../iconButton';
 import {
@@ -10,6 +9,19 @@ import {
 } from '@teamleader/ui-icons';
 import theme from './theme.css';
 import cx from 'classnames';
+import { LocaleUtils } from 'react-day-picker';
+import { Size } from './WeekDay';
+
+interface NavigationBarProps {
+  className?: string;
+  localeUtils?: LocaleUtils;
+  nextMonth?: Date;
+  previousMonth?: Date;
+  onNextClick?: () => void;
+  onPreviousClick?: () => void;
+  size?: Size;
+  withMonthPicker?: boolean;
+}
 
 const NavigationBar = ({
   className,
@@ -20,17 +32,17 @@ const NavigationBar = ({
   withMonthPicker,
   onNextClick,
   onPreviousClick,
-}) => {
-  const months = localeUtils.getMonths();
-  const previousMonthButtonLabel = months[previousMonth.getMonth()];
-  const nextMonthButtonLabel = months[nextMonth.getMonth()];
+}: NavigationBarProps) => {
+  const months = localeUtils?.getMonths();
+  const previousMonthButtonLabel = months![previousMonth!.getMonth()];
+  const nextMonthButtonLabel = months![nextMonth!.getMonth()];
 
   const handlePreviousClick = () => {
-    onPreviousClick();
+    onPreviousClick && onPreviousClick();
   };
 
   const handleNextClick = () => {
-    onNextClick();
+    onNextClick && onNextClick();
   };
 
   return (
@@ -55,16 +67,6 @@ const NavigationBar = ({
       />
     </Box>
   );
-};
-
-NavigationBar.propTypes = {
-  className: PropTypes.string,
-  localeUtils: PropTypes.object,
-  nextMonth: PropTypes.instanceOf(Date),
-  previousMonth: PropTypes.instanceOf(Date),
-  onNextClick: PropTypes.func,
-  onPreviousClick: PropTypes.func,
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
 };
 
 export default NavigationBar;
