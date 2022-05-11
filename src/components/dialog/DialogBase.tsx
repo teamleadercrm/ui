@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, RefObject } from 'react';
 import { createPortal } from 'react-dom';
 import cx from 'classnames';
 import Box from '../box';
@@ -30,7 +30,7 @@ interface DialogBaseProps {
   /** The size of the dialog. */
   size?: 'small' | 'medium' | 'large' | 'fullscreen';
   /** The initial part of the dialog where the focus will be set, useful to avoid focusing on the close button */
-  initialFocusRef?: any;
+  initialFocusRef?: RefObject<HTMLElement>;
   /** The element used to drag a dialog, @see Dialog component header for an example */
   dragHandleRef?: any;
   /** If true the dialog will render as a form element. */
