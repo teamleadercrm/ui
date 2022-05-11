@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { createPortal } from 'react-dom';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import Box from '../box';
 import Overlay from '../overlay/Overlay';
@@ -13,27 +12,47 @@ import uiUtilities from '@teamleader/ui-utilities';
 import useFocusTrap from '../../utils/useFocusTrap';
 import useDraggable from './useDraggable';
 
-/**
- * @type {React.ComponentType<any> & {
- *    Header: React.ComponentType<any>;
- *    Body: React.ComponentType<any>;
- *    Footer: React.ComponentType<any>;
- * }}
- */
+interface DialogBaseProps {
+  /** If true, the dialog will show on screen. */
+  active?: boolean;
+  /** Specify which backdrop the dialog should show. */
+  backdrop?: string;
+  /** The content to display inside the dialog. */
+  children?: ReactNode;
+  /** A class name for the wrapper to give custom styles. */
+  className?: string;
+  /** Callback function that is fired when the escape key is pressed. */
+  onEscKeyDown?: void;
+  /** Callback function that is fired when the mouse clicks on the overlay. */
+  onOverlayClick?: void;
+  /** If true, the content of the dialog will be scrollable when it exceeds the available height. */
+  scrollable?: boolean;
+  /** The size of the dialog. */
+  size?: 'small' | 'medium' | 'large' | 'fullscreen';
+  /** The initial part of the dialog where the focus will be set, useful to avoid focusing on the close button */
+  initialFocusRef?: any;
+  /** The element used to drag a dialog, @see Dialog component header for an example */
+  dragHandleRef?: any;
+  /** If true the dialog will render as a form element. */
+  form?: boolean;
+  /** Optional callback if the dialog is a form and is being submitted */
+  onSubmit?: void;
+}
+
 export const DialogBase = ({
-  active,
-  backdrop,
+  active = false,
+  backdrop = 'dark',
   children,
   className,
   onEscKeyDown,
   onOverlayClick,
-  scrollable,
-  size,
+  scrollable = true,
+  size = 'medium',
   initialFocusRef,
   dragHandleRef,
   form,
   onSubmit,
-}) => {
+}: DialogBaseProps) => {
   const { ref, FocusRing } = useFocusTrap({ active, initialFocusRef });
   useDraggable({ active, dragTargetRef: ref, dragHandleRef });
 
@@ -81,40 +100,6 @@ export const DialogBase = ({
   );
 
   return createPortal(dialog, document.body);
-};
-
-DialogBase.propTypes = {
-  /** If true, the dialog will show on screen. */
-  active: PropTypes.bool,
-  /** Specify which backdrop the dialog should show. */
-  backdrop: PropTypes.string,
-  /** The content to display inside the dialog. */
-  children: PropTypes.node,
-  /** A class name for the wrapper to give custom styles. */
-  className: PropTypes.string,
-  /** Callback function that is fired when the escape key is pressed. */
-  onEscKeyDown: PropTypes.func,
-  /** Callback function that is fired when the mouse clicks on the overlay. */
-  onOverlayClick: PropTypes.func,
-  /** If true, the content of the dialog will be scrollable when it exceeds the available height. */
-  scrollable: PropTypes.bool,
-  /** The size of the dialog. */
-  size: PropTypes.oneOf(['small', 'medium', 'large', 'fullscreen']),
-  /** The initial part of the dialog where the focus will be set, useful to avoid focusing on the close button */
-  initialFocusRef: PropTypes.any,
-  /** The element used to drag a dialog, @see Dialog component header for an example */
-  dragHandleRef: PropTypes.any,
-  /** If true the dialog will render as a form element. */
-  form: PropTypes.boolean,
-  /** Optional callback if the dialog is a form and is being submitted */
-  onSubmit: PropTypes.func,
-};
-
-DialogBase.defaultProps = {
-  active: false,
-  backdrop: 'dark',
-  scrollable: true,
-  size: 'medium',
 };
 
 DialogBase.Header = Header;
