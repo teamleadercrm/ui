@@ -36,7 +36,7 @@ export type BoxProps = Partial<
     boxSizing: 'border-box' | 'content-box';
     children: ReactNode;
     className: string;
-    display: 'inline' | 'inline-block' | 'block' | 'flex' | 'inline-flex';
+    display: 'inline' | 'inline-block' | 'block' | 'flex' | 'inline-flex' | 'grid';
     element: React.ElementType;
     flex: CSSProperties['flex'];
     flexBasis: CSSProperties['flexBasis'];
