@@ -2,25 +2,19 @@ import { IconCheckmarkMediumOutline, IconCheckmarkSmallOutline, IconMinusSmallOu
 import cx from 'classnames';
 import omit from 'lodash.omit';
 import PropTypes from 'prop-types';
-import React, { createRef, PureComponent } from 'react';
+import React, { forwardRef } from 'react';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import { TextBodyCompact, TextDisplay, TextSmall } from '../typography';
 import theme from './theme.css';
 
-/** @type {React.ComponentType<any>} */
-class Checkbox extends PureComponent {
-  inputNode = createRef();
+const Checkbox = forwardRef(
+  ({ checked, disabled, className, size, label, children, indeterminate, onChange, ...others }, ref) => {
+    const handleToggle = (event) => {
+      if (!disabled && onChange) {
+        onChange(!checked, event);
+      }
+    };
 
-  handleToggle = (event) => {
-    const { disabled, checked, onChange } = this.props;
-
-    if (!disabled && onChange) {
-      onChange(!checked, event);
-    }
-  };
-
-  render() {
-    const { checked, disabled, className, size, label, children, indeterminate, ...others } = this.props;
     const TextElement = size === 'small' ? TextSmall : size === 'medium' ? TextBodyCompact : TextDisplay;
     const IconCheckmark = size === 'large' ? IconCheckmarkMediumOutline : IconCheckmarkSmallOutline;
 
@@ -45,8 +39,8 @@ class Checkbox extends PureComponent {
           type="checkbox"
           checked={checked}
           disabled={disabled}
-          onClick={this.handleToggle}
-          ref={this.inputNode}
+          onClick={handleToggle}
+          ref={ref}
           readOnly
           {...inputProps}
         />
@@ -65,8 +59,8 @@ class Checkbox extends PureComponent {
         )}
       </Box>
     );
-  }
-}
+  },
+);
 
 Checkbox.propTypes = {
   /** If true, the checkbox will be checked. */
@@ -95,5 +89,7 @@ Checkbox.defaultProps = {
   indeterminate: false,
   size: 'medium',
 };
+
+Checkbox.displayName = 'Checkbox';
 
 export default Checkbox;
