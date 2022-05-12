@@ -3,6 +3,7 @@ import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { boolean, number, select, text } from '@storybook/addon-knobs';
 import { DatePicker, DatePickerInput, Toggle } from '../../index';
 import { DateTime } from 'luxon';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 const languages = [
   'da-DK',
@@ -30,7 +31,7 @@ const optionalSizes = {
   none: null,
 };
 
-const customFormatDate = (date, locale) => {
+const customFormatDate = (date: Date, locale: string) => {
   return DateTime.fromJSDate(date).setLocale(locale).toLocaleString(DateTime.DATETIME_HUGE);
 };
 
@@ -43,10 +44,10 @@ const preSelectedDate = DateTime.local().plus({ days: 3 }).toJSDate();
 export default {
   component: DatePicker,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Form elements/DatePicker'),
-};
+} as ComponentMeta<typeof DatePicker>;
 
-export const singleDate = () => {
-  const handleOnChange = (selectedDate) => {
+export const singleDate: ComponentStory<typeof DatePicker> = () => {
+  const handleOnChange = (selectedDate: Date) => {
     console.log('Selected date', selectedDate);
   };
 
@@ -59,7 +60,7 @@ export const singleDate = () => {
       selectedDate={preSelectedDate}
       showOutsideDays={boolean('Show outside days', true)}
       showWeekNumbers={boolean('Show week numbers', true)}
-      size={select('Size', sizes, 'medium')}
+      size={select('Size', sizes, 'medium') as 'small' | 'medium' | 'large'}
       withMonthPicker={boolean('Use month picker', false)}
     />
   );
@@ -81,8 +82,8 @@ singleDate.parameters = {
   ],
 };
 
-export const inputSingleDate = () => {
-  const handleOnChange = (selectedDate) => {
+export const inputSingleDate: ComponentStory<typeof DatePickerInput> = () => {
+  const handleOnChange = (selectedDate: Date) => {
     console.log('Selected date', selectedDate);
   };
 
@@ -110,9 +111,9 @@ export const inputSingleDate = () => {
       locale={select('Locale', languages, 'nl-BE')}
       onChange={handleOnChange}
       selectedDate={preSelectedDate}
-      size={select('Size', sizes, 'medium')}
-      inputSize={select('Input size', optionalSizes, null)}
-      datePickerSize={select('Date picker size', optionalSizes, null)}
+      size={select('Size', sizes, 'medium') as 'small' | 'medium' | 'large'}
+      inputSize={select('Input size', optionalSizes, null) as 'small' | 'medium' | 'large'}
+      datePickerSize={select('Date picker size', optionalSizes, null) as 'small' | 'medium' | 'large'}
     />
   );
 };

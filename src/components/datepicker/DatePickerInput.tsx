@@ -11,7 +11,7 @@ import { IconCalendarSmallOutline } from '@teamleader/ui-icons';
 import { DateTimeFormatOptions } from 'luxon';
 import { BoxProps } from '../box/Box';
 
-interface DatePickerInputProps extends Omit<BoxProps, 'size'> {
+interface DatePickerInputProps extends Omit<BoxProps, 'size' | 'onChange'> {
   /** A class name for the wrapper to give custom styles. */
   className?: string;
   /** Object with props for the DatePicker component. */
@@ -19,15 +19,15 @@ interface DatePickerInputProps extends Omit<BoxProps, 'size'> {
   /** A footer component, rendered at the bottom of the date picker */
   footer?: any;
   /** A custom function to format a date. */
-  formatDate?: (selectedDate: Date, locale: DateTimeFormatOptions | string) => void;
+  formatDate?: (selectedDate: Date, locale: string) => string;
   /** Object with props for the Input component. */
   inputProps?: TSFixMe; // TODO: change this to our input props
   /** If true, component will be rendered in inverse mode. */
   inverse?: boolean;
   /** The language ISO locale code ('en-GB', 'nl-BE', 'fr-FR',...). */
-  locale?: DateTimeFormatOptions | string;
+  locale?: string;
   /** Callback function that is fired when the date has changed. */
-  onChange?: () => void;
+  onChange?: (selectedDate: Date) => void;
   /** Callback function that is fired when the popover with the calendar gets closed (unfocused) */
   onBlur?: () => void;
   /** Object with props for the Popover component. */
@@ -125,7 +125,7 @@ const DatePickerInput = ({
   const handleDatePickerDateChange = (date: Date) => {
     setIsPopoverActive(false);
     setSelectedDate(date);
-    onChange && onChange();
+    onChange && onChange(date);
   };
 
   const renderIcon = () => {
