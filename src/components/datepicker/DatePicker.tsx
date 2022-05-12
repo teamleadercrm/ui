@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import DayPicker, { DayModifiers, DayPickerProps } from 'react-day-picker';
+import DayPicker, { DayModifiers, DayPickerProps, LocaleUtils } from 'react-day-picker';
 import Box, { pickBoxProps } from '../box';
 import NavigationBar from './NavigationBar';
 import WeekDay from './WeekDay';
@@ -88,7 +88,7 @@ const DatePicker = ({
     <Box {...pickBoxProps(others)}>
       <DayPicker
         {...others}
-        localeUtils={others.localeUtils}
+        localeUtils={LocaleUtils}
         initialMonth={others.selectedDate}
         month={selectedMonth!}
         className={classNames}
