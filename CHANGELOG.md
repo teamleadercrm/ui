@@ -8,7 +8,15 @@
 
 ### Removed
 
+### Fixed
+
 ### Dependency updates
+
+## [14.5.1] - 2022-05-12
+
+### Fixed
+
+- `Box`: Added missing props for Box Component ([@eniskrasniqi1](https://github.com/eniskraasniqi1) in [#2131](https://github.com/teamleadercrm/ui/pull/2131))
 
 ## [14.5.0] - 2022-05-10
 
