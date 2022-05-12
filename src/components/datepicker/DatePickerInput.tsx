@@ -9,7 +9,6 @@ import theme from './theme.css';
 import { formatDate } from './localeUtils';
 import { IconCalendarSmallOutline } from '@teamleader/ui-icons';
 import { DateTimeFormatOptions } from 'luxon';
-import { InputProps } from 'react-select';
 
 interface DatePickerInputProps {
   /** A class name for the wrapper to give custom styles. */
@@ -21,7 +20,7 @@ interface DatePickerInputProps {
   /** A custom function to format a date. */
   formatDate: (selectedDate: Date, locale: DateTimeFormatOptions | string) => void;
   /** Object with props for the Input component. */
-  inputProps: InputProps;
+  inputProps: TSFixMe; // TODO: change this to our input props
   /** If true, component will be rendered in inverse mode. */
   inverse: boolean;
   /** The language ISO locale code ('en-GB', 'nl-BE', 'fr-FR',...). */
