@@ -8,13 +8,13 @@ import { LocaleUtils } from 'react-day-picker';
 
 interface MonthPickerProps {
   /** Current date */
-  date: Date;
+  date?: Date;
   /** Callback function that is fired when the month has changed. */
   onChange?: (selectedOption: string | number | Date) => void;
   /** The set locale */
-  locale: string;
+  locale?: string;
   /** The localeUtils from the DatePicker */
-  localeUtils: LocaleUtils;
+  localeUtils?: LocaleUtils;
   /** Size of the MonthPicker component. */
   size?: 'smallest' | 'small' | 'medium' | 'large';
 }
@@ -65,7 +65,8 @@ const formatSelectMonthAndYear = ({ label, value }: Option, locale: string) => {
 
 const MonthPickerUnary = ({ date, locale, localeUtils, onChange }: Omit<MonthPickerProps, 'size'>) => {
   const selectedMonth = useMemo(
-    () => ({ value: date.getMonth().toString(), label: localeUtils.formatMonthTitle(date, locale) }),
+    () =>
+      date && localeUtils && { value: date.getMonth().toString(), label: localeUtils.formatMonthTitle(date, locale) },
     [date],
   );
 
@@ -77,9 +78,9 @@ const MonthPickerUnary = ({ date, locale, localeUtils, onChange }: Omit<MonthPic
     <Box className={theme['caption']}>
       <Box display="flex" justifyContent="center">
         <Select
-          value={formatSelectMonthAndYear(selectedMonth, locale)}
+          value={selectedMonth && locale && formatSelectMonthAndYear(selectedMonth, locale)}
           className={theme['month-picker-field']}
-          options={getMonthOptions(localeUtils, locale)}
+          options={localeUtils && locale && getMonthOptions(localeUtils, locale)}
           onChange={handleChangeMonth}
           width="112px"
           size="small"
@@ -90,23 +91,25 @@ const MonthPickerUnary = ({ date, locale, localeUtils, onChange }: Omit<MonthPic
 };
 
 const MonthPickerSplit = ({ date, locale, localeUtils, onChange, size }: MonthPickerProps) => {
-  const [yearInput, setYearInput] = useState(`${date.getFullYear()}`);
+  const [yearInput, setYearInput] = useState(date && `${date.getFullYear()}`);
   const selectedMonth = useMemo(
-    () => ({ value: date.getMonth(), label: localeUtils.formatMonthTitle(date, locale) }),
+    () => date && localeUtils && { value: date.getMonth(), label: localeUtils.formatMonthTitle(date, locale) },
     [date],
   );
-  const selectedYear = useMemo(() => date.getFullYear(), [date]);
+  const selectedYear = useMemo(() => date && date.getFullYear(), [date]);
 
-  const months = localeUtils.getMonths(locale).map((monthName, index) => {
-    return { value: index, label: monthName };
-  });
+  const months =
+    localeUtils &&
+    localeUtils.getMonths(locale).map((monthName, index) => {
+      return { value: index, label: monthName };
+    });
 
   const handleChangeMonth = (selectedMonth: Option) => {
-    onChange && onChange(new Date(selectedYear, selectedMonth.value as number));
+    onChange && selectedYear && onChange(new Date(selectedYear, selectedMonth.value as number));
   };
 
   useEffect(() => {
-    setYearInput(`${date.getFullYear()}`);
+    setYearInput(date && `${date.getFullYear()}`);
   }, [date]);
 
   const handleChangeYear = (selectedMonth: Option, selectedYear: string | number) => {
@@ -117,14 +120,14 @@ const MonthPickerSplit = ({ date, locale, localeUtils, onChange, size }: MonthPi
   };
 
   const handleYearBlur = () => {
-    setYearInput(`${date.getFullYear()}`);
+    setYearInput(date && `${date.getFullYear()}`);
   };
 
   return (
     <Box className={theme['caption']}>
       <Box display="flex" justifyContent="center">
         <Select
-          value={formatSelectedMonth(selectedMonth)}
+          value={selectedMonth && formatSelectedMonth(selectedMonth)}
           className={theme['month-picker-field']}
           options={months}
           onChange={handleChangeMonth}
