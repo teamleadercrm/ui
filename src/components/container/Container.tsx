@@ -1,11 +1,10 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
 import { BoxProps } from '../box/Box';
 
 export interface ContainerProps extends Omit<BoxProps, 'ref'> {
-  children?: ReactNode;
   className?: string;
   fixed?: boolean;
 }
