@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import uiUtilities from '@teamleader/ui-utilities';
 
@@ -7,8 +6,23 @@ import theme from './theme.css';
 import Box from '../box';
 import { Heading4 } from '../typography';
 import EmailSuggestion from './EmailSuggestion';
+import { Suggestion } from './types';
 
-const Autocomplete = ({ suggestions, highlightedSuggestion, onClick, onHover, renderSuggestion }) => {
+interface AutocompleteProps {
+  suggestions: Suggestion[] | { [x: string]: Suggestion[] };
+  highlightedSuggestion?: Suggestion | null;
+  onClick?: (suggestion: Suggestion, event: React.SyntheticEvent) => void;
+  onHover?: (suggestion: Suggestion, event: React.SyntheticEvent) => void;
+  renderSuggestion?: React.ComponentType<any>;
+}
+
+const Autocomplete = ({
+  suggestions,
+  highlightedSuggestion,
+  onClick,
+  onHover,
+  renderSuggestion = EmailSuggestion,
+}: AutocompleteProps) => {
   const Component = renderSuggestion;
 
   return (
@@ -43,24 +57,6 @@ const Autocomplete = ({ suggestions, highlightedSuggestion, onClick, onHover, re
       </Box>
     </Box>
   );
-};
-
-Autocomplete.defaultProps = {
-  renderSuggestion: EmailSuggestion,
-};
-
-const emailOption = PropTypes.shape({
-  email: PropTypes.string.isRequired,
-  label: PropTypes.string,
-  id: PropTypes.string,
-});
-
-Autocomplete.propTypes = {
-  suggestions: PropTypes.oneOfType([PropTypes.arrayOf(emailOption), PropTypes.object]).isRequired,
-  highlightedSuggestion: emailOption,
-  onClick: PropTypes.func.isRequired,
-  onHover: PropTypes.func.isRequired,
-  renderSuggestion: PropTypes.elementType,
 };
 
 export default Autocomplete;
