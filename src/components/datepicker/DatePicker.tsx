@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import DayPicker from 'react-day-picker';
+import DayPicker, { DayPickerProps } from 'react-day-picker';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import NavigationBar from './NavigationBar';
 import WeekDay from './WeekDay';
@@ -9,10 +9,11 @@ import cx from 'classnames';
 import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
 import LocaleUtils from './localeUtils';
+import { BoxProps } from '../box/Box';
 
 type Size = 'small' | 'medium' | 'large';
 
-interface DatePickerProps {
+interface DatePickerProps extends Omit<BoxProps & DayPickerProps, 'style' | 'size' | 'onChange' | 'modifiers'> {
   /** If true we give a border to our wrapper. */
   bordered?: boolean;
   /** A class name for the DatePicker to give custom styles. */
