@@ -77,11 +77,11 @@ export function validateSuggestion(filter: string, suggestion: Suggestion) {
 
 export function moveSuggestion(
   suggestions: Suggestion[] | { [x: string]: Suggestion[] },
-  selectedSuggestion: Suggestion,
+  selectedSuggestion: Suggestion | null,
   moveBy: number,
 ) {
   if (Array.isArray(suggestions)) {
-    const index = suggestions.indexOf(selectedSuggestion);
+    const index = selectedSuggestion ? suggestions.indexOf(selectedSuggestion) : -1;
 
     if (suggestions[index + moveBy]) {
       return suggestions[index + moveBy];
@@ -97,7 +97,7 @@ export function moveSuggestion(
 
   for (let i = 0; i < keys.length; i++) {
     const group = suggestions[keys[i]];
-    const index = group.indexOf(selectedSuggestion);
+    const index = selectedSuggestion ? group.indexOf(selectedSuggestion) : -1;
     if (index === -1) {
       continue;
     }
