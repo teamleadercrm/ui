@@ -17,13 +17,13 @@ interface DatePickerProps extends Omit<BoxProps & DayPickerProps, 'style' | 'siz
   /** If true we give a border to our wrapper. */
   bordered?: boolean;
   /** A class name for the DatePicker to give custom styles. */
-  className: string;
+  className?: string;
   /** The modifiers of the DatePicker component. */
   modifiers?: Record<string, string>;
   /** Callback function that is fired when the date has changed. */
-  onChange: (day: Date) => void;
+  onChange?: (day: Date) => void;
   /** The current selected date. */
-  selectedDate: Date;
+  selectedDate?: Date;
   /** Size of the DatePicker component. */
   size?: Size;
   style?: string;
@@ -60,7 +60,7 @@ const DatePicker = ({
     }
 
     setSelectedDate(day);
-    onChange(day);
+    onChange && onChange(day);
   };
 
   const handleYearMonthChange = (selectedMonth: string | number | Date) => {
