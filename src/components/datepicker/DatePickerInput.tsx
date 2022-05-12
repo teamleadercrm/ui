@@ -110,10 +110,10 @@ const DatePickerInput = ({
     if (!openPickerOnFocus) {
       setPopoverAnchorEl(event.currentTarget);
       setIsPopoverActive(true);
-      inputProps.onFocus && inputProps.onFocus(event as React.FocusEvent<HTMLInputElement>);
+      inputProps.onFocus && inputProps.onFocus(event);
     }
 
-    inputProps.onClick && inputProps.onClick(event as React.MouseEvent<HTMLInputElement>);
+    inputProps.onClick && inputProps.onClick(event);
   };
 
   const handlePopoverClose = () => {
