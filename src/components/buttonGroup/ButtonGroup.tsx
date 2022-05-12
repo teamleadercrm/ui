@@ -48,7 +48,7 @@ class ButtonGroup extends PureComponent<ButtonGroupProps> {
     return (
       <Box data-teamleader-ui="button-group" className={classNames} {...pickBoxProps(others)}>
         {React.Children.map(children, (child) => {
-          if (!isComponentOfType(Button, child) || !isReactElement(child)) {
+          if (!isReactElement(child) || (isReactElement(child) && !isComponentOfType(Button, child))) {
             return child;
           }
 
