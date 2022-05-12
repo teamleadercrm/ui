@@ -1,16 +1,15 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { ReactNode } from 'react';
 import Box from '../../box';
 
-const BulkActions = ({ bulkActions = [] }) => (
+interface BulkActionsProps {
+  /** Button element(s), used to display the bulk actions */
+  bulkActions?: ReactNode;
+}
+
+const BulkActions = ({ bulkActions = [] }: BulkActionsProps) => (
   <Box display="flex" flex="1" alignItems="center" data-teamleader-ui="datagrid-bulk-actions">
     {bulkActions}
   </Box>
 );
-
-BulkActions.propTypes = {
-  /** Button element(s), used to display the bulk actions */
-  bulkActions: PropTypes.any,
-};
 
 export default BulkActions;
