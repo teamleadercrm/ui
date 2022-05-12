@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import Box from '../box';
 import cx from 'classnames';
 import {
@@ -12,9 +12,9 @@ import { BoxProps } from '../box/Box';
 
 interface EmptyStateProps extends Omit<BoxProps, 'size'> {
   hidePointer?: boolean;
-  metaText?: Node | string;
+  metaText?: ReactNode | string;
   size?: 'small' | 'medium' | 'large';
-  title?: Node | string;
+  title?: ReactNode | string;
   className?: string;
 }
 

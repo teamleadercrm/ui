@@ -2,14 +2,16 @@ import React from 'react';
 
 import { EmptyState } from '../..';
 
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+
 export default {
   component: EmptyState,
   title: 'EmptyState',
-};
+} as ComponentMeta<typeof EmptyState>;
 
-export const Main = () => (
+export const Main: ComponentStory<typeof EmptyState> = () => (
   <div>
-    {['small', 'medium', 'large'].map((size) => (
+    {(['small', 'medium', 'large'] as const).map((size) => (
       <EmptyState
         key={size}
         size={size}

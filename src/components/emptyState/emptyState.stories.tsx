@@ -2,6 +2,7 @@ import React from 'react';
 import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import EmptyState from './EmptyState';
 import { Marker } from '../typography';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 const title = (
   <>
@@ -19,15 +20,15 @@ export default {
       url: 'https://www.figma.com/file/LHH25GN90ljQaBEUNMsdJn/Desktop-components?node-id=1898%3A0',
     },
   },
-};
+} as ComponentMeta<typeof EmptyState>;
 
-export const Basic = (args) => <EmptyState {...args} />;
+export const Basic: ComponentStory<typeof EmptyState> = (args) => <EmptyState {...args} />;
 
 Basic.args = {
   metaText: 'I am the meta information of the EmptyState',
 };
 
-export const WithTitle = (args) => <EmptyState {...args} />;
+export const WithTitle: ComponentStory<typeof EmptyState> = (args) => <EmptyState {...args} />;
 
 WithTitle.args = {
   metaText:
