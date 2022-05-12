@@ -27,8 +27,8 @@ interface DatePickerProps extends Omit<BoxProps & DayPickerProps, 'style' | 'siz
   /** Size of the DatePicker component. */
   size?: Size;
   style?: string;
-  withMonthPicker: boolean;
-  showWeekNumbers: boolean;
+  withMonthPicker?: boolean;
+  showWeekNumbers?: boolean;
 }
 
 const DatePicker = ({

@@ -9,38 +9,39 @@ import theme from './theme.css';
 import { formatDate } from './localeUtils';
 import { IconCalendarSmallOutline } from '@teamleader/ui-icons';
 import { DateTimeFormatOptions } from 'luxon';
+import { BoxProps } from '../box/Box';
 
-interface DatePickerInputProps {
+interface DatePickerInputProps extends Omit<BoxProps, 'size'> {
   /** A class name for the wrapper to give custom styles. */
-  className: string;
+  className?: string;
   /** Object with props for the DatePicker component. */
-  dayPickerProps: DayPickerProps;
+  dayPickerProps?: DayPickerProps;
   /** A footer component, rendered at the bottom of the date picker */
-  footer: any;
+  footer?: any;
   /** A custom function to format a date. */
-  formatDate: (selectedDate: Date, locale: DateTimeFormatOptions | string) => void;
+  formatDate?: (selectedDate: Date, locale: DateTimeFormatOptions | string) => void;
   /** Object with props for the Input component. */
-  inputProps: TSFixMe; // TODO: change this to our input props
+  inputProps?: TSFixMe; // TODO: change this to our input props
   /** If true, component will be rendered in inverse mode. */
-  inverse: boolean;
+  inverse?: boolean;
   /** The language ISO locale code ('en-GB', 'nl-BE', 'fr-FR',...). */
-  locale: DateTimeFormatOptions | string;
+  locale?: DateTimeFormatOptions | string;
   /** Callback function that is fired when the date has changed. */
-  onChange: () => void;
+  onChange?: () => void;
   /** Callback function that is fired when the popover with the calendar gets closed (unfocused) */
-  onBlur: () => void;
+  onBlur?: () => void;
   /** Object with props for the Popover component. */
-  popoverProps: object;
+  popoverProps?: object;
   /** The current selected date. */
-  selectedDate: Date;
+  selectedDate?: Date;
   /** Size of the Input & DatePicker components. */
-  size: 'small' | 'medium' | 'large';
+  size?: 'small' | 'medium' | 'large';
   /** Overridable size of the Input component. */
-  inputSize: 'small' | 'medium' | 'large';
+  inputSize?: 'small' | 'medium' | 'large';
   /** Overridable size of the DatePicker component. */
-  datePickerSize: 'small' | 'medium' | 'large';
+  datePickerSize?: 'small' | 'medium' | 'large';
   /** Whether the picker should automatically open on input focus. True by default. */
-  openPickerOnFocus: boolean;
+  openPickerOnFocus?: boolean;
 }
 
 interface DayPickerProps {
@@ -124,7 +125,7 @@ const DatePickerInput = ({
   const handleDatePickerDateChange = (date: Date) => {
     setIsPopoverActive(false);
     setSelectedDate(date);
-    onChange();
+    onChange && onChange();
   };
 
   const renderIcon = () => {
