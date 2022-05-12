@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Box from '../box';
 import cx from 'classnames';
 import {
@@ -9,6 +8,15 @@ import {
 } from '@teamleader/ui-illustrations';
 import { Heading3, TextBody } from '../typography';
 import theme from './theme.css';
+import { BoxProps } from '../box/Box';
+
+interface EmptyStateProps extends Omit<BoxProps, 'size'> {
+  hidePointer?: boolean;
+  metaText?: Node | string;
+  size?: 'small' | 'medium' | 'large';
+  title?: Node | string;
+  className?: string;
+}
 
 const illustrationMap = {
   small: <IllustrationEmptyState36X36Pointer />,
@@ -16,7 +24,14 @@ const illustrationMap = {
   large: <IllustrationEmptyState130X130Pointer />,
 };
 
-const EmptyState = ({ className, metaText, hidePointer, size, title, ...others }) => {
+const EmptyState = ({
+  className,
+  metaText,
+  hidePointer = false,
+  size = 'medium',
+  title,
+  ...others
+}: EmptyStateProps) => {
   const classNames = cx(
     theme['wrapper'],
     theme[`is-${size}`],
@@ -47,18 +62,6 @@ const EmptyState = ({ className, metaText, hidePointer, size, title, ...others }
       </div>
     </Box>
   );
-};
-
-EmptyState.propTypes = {
-  hidePointer: PropTypes.bool,
-  metaText: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
-  title: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
-};
-
-EmptyState.defaultProps = {
-  hidePointer: false,
-  size: 'medium',
 };
 
 export default EmptyState;
