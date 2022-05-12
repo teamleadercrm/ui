@@ -4,13 +4,14 @@ import DataGrid from './DataGrid';
 import Link from '../link';
 import { IconMenu, MenuItem } from '../menu';
 import { rows1 } from '../../static/data/datagrid';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 export default {
   component: DataGrid,
   title: 'DataGrid',
-};
+} as ComponentMeta<typeof DataGrid>;
 
-export const Main = () => (
+export const Main: ComponentStory<typeof DataGrid> = () => (
   <DataGrid selectable bordered>
     <DataGrid.HeaderRow>
       <DataGrid.HeaderCell sorted="asc">Invoice</DataGrid.HeaderCell>
