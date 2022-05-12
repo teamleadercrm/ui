@@ -1,4 +1,6 @@
-export const OS_TYPES = {
+type OperatingSystem = 'Mac OS' | 'iOS' | 'Windows' | 'Android' | 'Linux';
+
+export const OS_TYPES: Record<string, OperatingSystem> = {
   MAC_OS: 'Mac OS',
   IOS: 'iOS',
   WINDOWS: 'Windows',
@@ -6,7 +8,7 @@ export const OS_TYPES = {
   LINUX: 'Linux',
 };
 
-const getOS = () => {
+const getOS = (): OperatingSystem | null => {
   const userAgent = window.navigator.userAgent;
   const platform = window.navigator.platform;
   const macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'];
