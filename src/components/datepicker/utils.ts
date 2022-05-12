@@ -1,6 +1,6 @@
-import { DateUtils } from 'react-day-picker';
+import { DateUtils, DayModifiers } from 'react-day-picker';
 
-export const convertModifiersToClassnames = (modifiers: Record<string, string>, theme: Record<string, string>) => {
+export const convertModifiersToClassnames = (modifiers: DayModifiers, theme: Record<string, string>) => {
   if (!modifiers) {
     return {};
   }

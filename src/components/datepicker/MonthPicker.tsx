@@ -10,7 +10,7 @@ interface MonthPickerProps {
   /** Current date */
   date?: Date;
   /** Callback function that is fired when the month has changed. */
-  onChange?: (selectedOption: string | number | Date) => void;
+  onChange?: (selectedOption: Date) => void;
   /** The set locale */
   locale?: string;
   /** The localeUtils from the DatePicker */
@@ -71,7 +71,7 @@ const MonthPickerUnary = ({ date, locale, localeUtils, onChange }: Omit<MonthPic
   );
 
   const handleChangeMonth = (selectedMonth: Option) => {
-    onChange && onChange(selectedMonth.value);
+    onChange && onChange(selectedMonth.value as Date);
   };
 
   return (
