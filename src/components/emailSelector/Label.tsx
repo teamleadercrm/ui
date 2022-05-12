@@ -1,5 +1,4 @@
 import React, { useCallback, useState, useEffect, useRef, useMemo } from 'react';
-import PropTypes from 'prop-types';
 import uiTypography from '@teamleader/ui-typography';
 import cx from 'classnames';
 
@@ -10,6 +9,7 @@ import Link from '../link';
 import Box from '../box';
 import Autocomplete from './Autocomplete';
 import Overlay from '../overlay';
+import { Suggestion } from './types';
 
 const ENTER = 'Enter';
 const ESCAPE = 'Escape';
@@ -19,9 +19,23 @@ const DOWN_ARROW = 'ArrowDown';
 const SEMI = ';';
 const COMMA = ',';
 
+interface LabelProps {
+  option: Suggestion;
+  index: number;
+  editing?: boolean;
+  invalid?: boolean;
+  onClick?: (index: number) => void;
+  onFocus?: (index: number) => void;
+  onBlur?: (index: number, option: Suggestion | { email: string }) => void;
+  onRemove?: (index: number) => void;
+  onFinish?: (index: number, option: Suggestion | { email: string }) => void;
+  suggestions?: Suggestion[] | { [x: string]: Suggestion[] };
+  renderSuggestion?: React.ComponentType<any>;
+}
+
 const Label = ({
   option,
-  suggestions,
+  suggestions = [],
   editing,
   invalid,
   index,
@@ -31,13 +45,13 @@ const Label = ({
   onRemove,
   onFinish,
   renderSuggestion,
-}) => {
+}: LabelProps) => {
   const [content, setContent] = useState(option.email);
   const [autocompleteOpen, setAutocompleteOpen] = useState(true);
-  const ref = useRef();
+  const ref = useRef<HTMLDivElement>();
 
   const validSuggestions = useMemo(() => filterSuggestions(content, suggestions), [content, suggestions]);
-  const [selectedSuggestion, setSelectedSuggestion] = useState(null);
+  const [selectedSuggestion, setSelectedSuggestion] = useState<Suggestion | null>(null);
 
   const hasValidSuggestions =
     autocompleteOpen && (Array.isArray(validSuggestions) ? validSuggestions : Object.keys(validSuggestions)).length > 0;
@@ -45,7 +59,7 @@ const Label = ({
   useEffect(() => {
     if (editing) {
       setContent(option.email);
-      selectContentEditable(ref.current);
+      ref.current && selectContentEditable(ref.current);
     }
   }, [editing, option]);
 
@@ -226,26 +240,6 @@ const Label = ({
       </Link>
     </Tag>
   );
-};
-
-const emailOption = PropTypes.shape({
-  email: PropTypes.string.isRequired,
-  label: PropTypes.string,
-  id: PropTypes.string,
-});
-
-Label.propTypes = {
-  option: emailOption.isRequired,
-  index: PropTypes.number.isRequired,
-  editing: PropTypes.bool,
-  invalid: PropTypes.bool,
-  onClick: PropTypes.func,
-  onFocus: PropTypes.func,
-  onBlur: PropTypes.func,
-  onRemove: PropTypes.func,
-  onFinish: PropTypes.func,
-  suggestions: PropTypes.oneOfType([PropTypes.arrayOf(emailOption), PropTypes.object]),
-  renderSuggestion: PropTypes.elementType,
 };
 
 export default Label;
