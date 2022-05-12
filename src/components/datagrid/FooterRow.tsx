@@ -1,34 +1,33 @@
 import React, { forwardRef } from 'react';
-import PropTypes from 'prop-types';
 import Cell from './Cell';
-import Row from './Row';
+import Row, { RowProps } from './Row';
 import cx from 'classnames';
 import theme from './theme.css';
 
-const FooterRow = ({ className, children, forwardedRef, sliceFrom, sliceTo, preserveSelectableSpace, ...others }) => {
-  const childrenArray = Array.isArray(children) ? children : [children];
-  const childrenSliced = childrenArray.slice(sliceFrom, sliceTo);
-  const classNames = cx(theme['footer-row'], className);
+export interface FooterRowProps extends RowProps {
+  /** Will render a checkbox cell at the front of the row when true */
+  preserveSelectableSpace?: boolean;
+  /** Amount of cells that will be sliced off, starting from left. */
+  sliceFrom?: number;
+  /** Amount of cells that will be sliced off, starting from right. */
+  sliceTo?: number;
+}
 
-  return (
-    <Row className={classNames} data-teamleader-ui="datagrid-footer-row" ref={forwardedRef} {...others}>
-      {preserveSelectableSpace && <Cell flex="checkbox-width" preventOverflow={false} />}
-      {childrenSliced}
-    </Row>
-  );
-};
+const FooterRow = forwardRef<HTMLElement, FooterRowProps>(
+  ({ className, children, sliceFrom, sliceTo, preserveSelectableSpace, ...others }, ref) => {
+    const childrenArray = Array.isArray(children) ? children : [children];
+    const childrenSliced = childrenArray.slice(sliceFrom, sliceTo);
+    const classNames = cx(theme['footer-row'], className);
 
-FooterRow.propTypes = {
-  className: PropTypes.string,
-  children: PropTypes.any,
-  preserveSelectableSpace: PropTypes.bool,
-  sliceFrom: PropTypes.number,
-  sliceTo: PropTypes.number,
-};
+    return (
+      <Row className={classNames} data-teamleader-ui="datagrid-footer-row" ref={ref} {...others}>
+        {preserveSelectableSpace && <Cell flex="checkbox-width" preventOverflow={false} />}
+        {childrenSliced}
+      </Row>
+    );
+  },
+);
 
-/** @type {any} */
-const ForwardedFooterRow = forwardRef((props, ref) => <FooterRow {...props} forwardedRef={ref} />);
+FooterRow.displayName = 'FooterRow';
 
-ForwardedFooterRow.displayName = 'FooterRow';
-
-export default ForwardedFooterRow;
+export default FooterRow;
