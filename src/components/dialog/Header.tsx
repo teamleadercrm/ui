@@ -13,7 +13,7 @@ interface HeaderProps {
   /** The icon in the banner. */
   icon?: ReactNode;
   /** Callback function that is fired when the close icon clicked. */
-  onCloseClick?: void;
+  onCloseClick?: () => void;
 }
 
 const Header = ({ icon, onCloseClick, children, ...rest }: HeaderProps) => {

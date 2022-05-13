@@ -23,9 +23,9 @@ export interface DialogBaseProps extends Omit<BoxProps, 'form' | 'size'> {
   /** A class name for the wrapper to give custom styles. */
   className?: string;
   /** Callback function that is fired when the escape key is pressed. */
-  onEscKeyDown?: void;
+  onEscKeyDown?: () => void;
   /** Callback function that is fired when the mouse clicks on the overlay. */
-  onOverlayClick?: void;
+  onOverlayClick?: () => void;
   /** If true, the content of the dialog will be scrollable when it exceeds the available height. */
   scrollable?: boolean;
   /** The size of the dialog. */

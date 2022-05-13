@@ -2,12 +2,14 @@ import React from 'react';
 
 import { Dialog, Box, TextBody } from '../..';
 
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+
 export default {
   component: Dialog,
   title: 'Dialog',
-};
+} as ComponentMeta<typeof Dialog>;
 
-export const Main = () => (
+export const Main: ComponentStory<typeof Dialog> = () => (
   <Dialog
     active
     onCloseClick={() => {}}
