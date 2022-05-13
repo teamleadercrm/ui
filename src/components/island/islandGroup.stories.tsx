@@ -7,6 +7,7 @@ import {
   IllustrationContacts120X120Static,
 } from '@teamleader/ui-illustrations';
 import { Island, IslandGroup, TextBody, Heading3 } from '../../index';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 const islandData = [
   {
@@ -34,9 +35,9 @@ const islandData = [
 export default {
   component: IslandGroup,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'IslandGroup'),
-};
+} as ComponentMeta<typeof IslandGroup>;
 
-export const DefaultStory = (args) => (
+export const DefaultStory: ComponentStory<typeof IslandGroup> = (args) => (
   <IslandGroup {...args}>
     {islandData.map(({ illustration, title, text }, index) => (
       <Island key={index} alignItems="center" display="flex" flex={1} flexDirection="column" textAlign="center">
