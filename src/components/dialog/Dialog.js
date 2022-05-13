@@ -1,4 +1,4 @@
-import React, { createRef, PureComponent } from 'react';
+import React, { createRef } from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash.omit';
 import cx from 'classnames';
@@ -9,15 +9,26 @@ import { Button, ButtonGroup, DialogBase, Heading3 } from '../../index';
 import { IconDragMediumFilled } from '@teamleader/ui-icons';
 
 /** @type {React.ComponentType<any>} */
-class Dialog extends PureComponent {
-  bodyRef = createRef();
-  dragHandleRef = createRef();
+const Dialog = ({
+  children,
+  className,
+  scrollable,
+  title,
+  form,
+  onSubmit,
+  tertiaryAction,
+  secondaryAction,
+  primaryAction,
+  leftAction,
+  onCloseClick,
+  ...otherProps
+}) => {
+  const bodyRef = createRef();
+  const dragHandleRef = createRef();
 
-  getHeader = () => {
-    const { onCloseClick, title } = this.props;
-
+  const getHeader = () => {
     const dragIcon = (
-      <div className={theme['drag-icon']} ref={this.dragHandleRef}>
+      <div className={theme['drag-icon']} ref={dragHandleRef}>
         <IconDragMediumFilled />
       </div>
     );
@@ -29,9 +40,7 @@ class Dialog extends PureComponent {
     );
   };
 
-  getFooter = () => {
-    const { tertiaryAction, secondaryAction, primaryAction, leftAction } = this.props;
-
+  const getFooter = () => {
     return (
       <DialogBase.Footer display="flex" justifyContent={leftAction ? 'space-between' : 'flex-end'}>
         {leftAction && <Button {...leftAction} />}
@@ -44,38 +53,34 @@ class Dialog extends PureComponent {
     );
   };
 
-  render() {
-    const { children, className, scrollable, title, form, onSubmit, ...otherProps } = this.props;
+  const classNames = cx(theme['dialog'], className);
 
-    const classNames = cx(theme['dialog'], className);
+  const restProps = omit(otherProps, [
+    'onCloseClick',
+    'primaryAction',
+    'secondaryAction',
+    'tertiaryAction',
+    'leftAction',
+  ]);
 
-    const restProps = omit(otherProps, [
-      'onCloseClick',
-      'primaryAction',
-      'secondaryAction',
-      'tertiaryAction',
-      'leftAction',
-    ]);
-
-    return (
-      <DialogBase
-        className={classNames}
-        {...restProps}
-        scrollable={false}
-        initialFocusRef={this.bodyRef}
-        dragHandleRef={this.dragHandleRef}
-        form={form}
-        onSubmit={onSubmit}
-      >
-        {title && this.getHeader()}
-        <DialogBase.Body ref={this.bodyRef} scrollable={scrollable}>
-          {children}
-        </DialogBase.Body>
-        {this.getFooter()}
-      </DialogBase>
-    );
-  }
-}
+  return (
+    <DialogBase
+      className={classNames}
+      {...restProps}
+      scrollable={false}
+      initialFocusRef={bodyRef}
+      dragHandleRef={dragHandleRef}
+      form={form}
+      onSubmit={onSubmit}
+    >
+      {title && getHeader()}
+      <DialogBase.Body ref={bodyRef} scrollable={scrollable}>
+        {children}
+      </DialogBase.Body>
+      {getFooter()}
+    </DialogBase>
+  );
+};
 
 Dialog.propTypes = {
   /** If true, the dialog will show on screen. */
