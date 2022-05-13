@@ -1,12 +1,18 @@
-import React, { forwardRef, isValidElement } from 'react';
-import PropTypes from 'prop-types';
-import Box, { pickBoxProps } from '../box';
+import React, { forwardRef, isValidElement, ReactElement } from 'react';
 
-/** @type {React.ComponentType<any>} */
-const IslandGroup = forwardRef(
-  ({ children: originalChildren, className, color, direction, size, ...otherProps }, ref) => {
+import Box, { pickBoxProps } from '../box';
+import { BoxProps } from '../box/Box';
+
+interface IslandGroupProps extends Omit<BoxProps, 'size'> {
+  color?: 'neutral' | 'mint' | 'violet' | 'ruby' | 'gold' | 'aqua' | 'white';
+  direction?: 'horizontal' | 'vertical';
+  size?: 'small' | 'medium' | 'large';
+}
+
+const IslandGroup = forwardRef<HTMLElement, IslandGroupProps>(
+  ({ children: originalChildren, className, color, direction = 'horizontal', size, ...otherProps }, ref) => {
     const boxProps = pickBoxProps(otherProps);
-    const children = [];
+    const children: ReactElement[] = [];
 
     React.Children.forEach(originalChildren, (child) => {
       if (isValidElement(child)) {
@@ -76,17 +82,5 @@ const IslandGroup = forwardRef(
 );
 
 IslandGroup.displayName = 'IslandGroup';
-
-IslandGroup.propTypes = {
-  children: PropTypes.any,
-  className: PropTypes.string,
-  color: PropTypes.oneOf(['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'white']),
-  direction: PropTypes.oneOf(['horizontal', 'vertical']),
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
-};
-
-IslandGroup.defaultProps = {
-  direction: 'horizontal',
-};
 
 export default IslandGroup;
