@@ -10,9 +10,13 @@
 
 ### Fixed
 
-- `IconMenu`: Fix IconMenu closing right away in projects using React 17 ([@lorgan3](https://github.com/lorgan3) in [#2138](https://github.com/teamleadercrm/ui/pull/2138))
-
 ### Dependency updates
+
+## [14.5.2] - 2022-05-13
+
+### Fixed
+
+- `IconMenu`: Fix IconMenu closing right away in projects using React 17 ([@lorgan3](https://github.com/lorgan3) in [#2138](https://github.com/teamleadercrm/ui/pull/2138))
 
 ## [14.5.1] - 2022-05-12
 
