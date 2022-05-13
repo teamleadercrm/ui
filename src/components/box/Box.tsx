@@ -14,7 +14,7 @@ const borderRadiuses = {
   rounded: '4px',
 };
 
-type Props = Partial<
+export type BoxProps = Partial<
   {
     alignContent: 'center' | 'flex-start' | 'flex-end' | 'space-around' | 'space-between' | 'space-evenly';
     alignItems: 'center' | 'flex-start' | 'flex-end' | 'baseline' | 'stretch';
@@ -36,7 +36,7 @@ type Props = Partial<
     boxSizing: 'border-box' | 'content-box';
     children: ReactNode;
     className: string;
-    display: 'inline' | 'inline-block' | 'block' | 'flex' | 'inline-flex';
+    display: 'inline' | 'inline-block' | 'block' | 'flex' | 'inline-flex' | 'grid';
     element: React.ElementType;
     flex: CSSProperties['flex'];
     flexBasis: CSSProperties['flexBasis'];
@@ -65,6 +65,7 @@ type Props = Partial<
     paddingTop: Padding;
     style: CSSProperties;
     textAlign: 'center' | 'left' | 'right';
+    [key: string]: unknown;
   } & HTMLProps<HTMLElement>
 >;
 
@@ -121,7 +122,7 @@ const Box = forwardRef(
       style,
       textAlign,
       ...others
-    }: Props,
+    }: BoxProps,
     ref,
   ) => {
     const getBorder = (value: number) => {

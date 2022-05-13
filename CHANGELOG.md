@@ -4,13 +4,25 @@
 
 ### Changed
 
-- `React`: Add support for react 17 as a peer dependency ([@lorgan3](https://github.com/lorgan3) in [#2118](https://github.com/teamleadercrm/ui/pull/2118))
-
 ### Deprecated
 
 ### Removed
 
+### Fixed
+
 ### Dependency updates
+
+## [14.5.1] - 2022-05-12
+
+### Fixed
+
+- `Box`: Added missing props for Box Component ([@eniskrasniqi1](https://github.com/eniskraasniqi1) in [#2131](https://github.com/teamleadercrm/ui/pull/2131))
+
+## [14.5.0] - 2022-05-10
+
+### Dependency updates
+
+- `React`: Add support for react 17 as a peer dependency ([@lorgan3](https://github.com/lorgan3) in [#2118](https://github.com/teamleadercrm/ui/pull/2118))
 
 ## [14.4.0] - 2022-05-04
 
