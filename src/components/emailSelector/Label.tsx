@@ -9,7 +9,7 @@ import Link from '../link';
 import Box from '../box';
 import Autocomplete from './Autocomplete';
 import Overlay from '../overlay';
-import { Suggestion } from './types';
+import { Suggestion, Suggestions } from './types';
 
 const ENTER = 'Enter';
 const ESCAPE = 'Escape';
@@ -29,8 +29,8 @@ interface LabelProps {
   onBlur?: (index: number, option: Suggestion | { email: string }) => void;
   onRemove?: (index: number) => void;
   onFinish?: (index: number, option: Suggestion | { email: string }) => void;
-  suggestions?: Suggestion[] | { [x: string]: Suggestion[] };
   renderSuggestion?: React.ComponentType<any>;
+  suggestions?: Suggestions;
 }
 
 const Label = ({

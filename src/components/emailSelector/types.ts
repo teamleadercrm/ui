@@ -4,3 +4,5 @@ export interface Suggestion {
   label?: string;
   valid?: boolean;
 }
+
+export type Suggestions = Suggestion[] | Record<string, Suggestion[]>;

@@ -1,4 +1,4 @@
-import { Suggestion } from './types';
+import { Suggestion, Suggestions } from './types';
 
 export function selectContentEditable(element: HTMLElement) {
   element.focus();
@@ -25,11 +25,7 @@ function filterArraySuggestions(filter: string, suggestions: Suggestion[]) {
   );
 }
 
-export function filterSuggestions(
-  filter: string,
-  suggestions: Suggestion[] | { [x: string]: Suggestion[] },
-  maxLength = 5,
-) {
+export function filterSuggestions(filter: string, suggestions: Suggestions, maxLength = 5) {
   if (Array.isArray(suggestions)) {
     return filterArraySuggestions(filter, suggestions).slice(0, maxLength);
   }
@@ -48,7 +44,7 @@ function excludeArraySuggestions(filter: string[], suggestions: Suggestion[]) {
   return suggestions.filter((suggestion) => !filter.includes(suggestion.email));
 }
 
-export function excludeSuggestions(filter: Suggestion[], suggestions: Suggestion[] | { [x: string]: Suggestion[] }) {
+export function excludeSuggestions(filter: Suggestion[], suggestions: Suggestions) {
   const emails = filter.map((option) => option.email);
 
   if (Array.isArray(suggestions)) {
@@ -75,11 +71,7 @@ export function validateSuggestion(filter: string, suggestion: Suggestion) {
   );
 }
 
-export function moveSuggestion(
-  suggestions: Suggestion[] | { [x: string]: Suggestion[] },
-  selectedSuggestion: Suggestion | null,
-  moveBy: number,
-) {
+export function moveSuggestion(suggestions: Suggestions, selectedSuggestion: Suggestion | null, moveBy: number) {
   if (Array.isArray(suggestions)) {
     const index = selectedSuggestion ? suggestions.indexOf(selectedSuggestion) : -1;
 

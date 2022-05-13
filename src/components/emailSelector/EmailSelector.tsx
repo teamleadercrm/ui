@@ -6,13 +6,13 @@ import theme from './theme.css';
 import Box from '../box';
 import Label from './Label';
 import { excludeSuggestions } from './utils';
-import { Suggestion } from './types';
+import { Suggestion, Suggestions } from './types';
 
 interface EmailSelectorProps {
   error?: boolean | React.ReactNode;
   defaultSelection?: Suggestion[];
-  suggestions?: Suggestion[] | { [x: string]: Suggestion[] };
   validator?: (option: Suggestion) => boolean;
+  suggestions?: Suggestions;
   onChange?: (selection: Suggestion[]) => void;
   onBlur?: (event?: React.FocusEvent<HTMLElement>) => void;
   onFocus?: (event: React.FocusEvent<HTMLElement>) => void;
