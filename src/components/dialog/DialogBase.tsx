@@ -36,7 +36,7 @@ interface DialogBaseProps {
   /** If true the dialog will render as a form element. */
   form?: boolean;
   /** Optional callback if the dialog is a form and is being submitted */
-  onSubmit?: void;
+  onSubmit?: () => void;
 }
 
 export const DialogBase = ({
@@ -81,7 +81,12 @@ export const DialogBase = ({
             onEscKeyDown={onEscKeyDown}
           >
             <FocusRing>
-              <Element ref={ref} data-teamleader-ui="dialog" className={dialogClassNames} {...(form && { onSubmit })}>
+              <Element
+                ref={ref as RefObject<HTMLFormElement> & RefObject<HTMLDivElement>}
+                data-teamleader-ui="dialog"
+                className={dialogClassNames}
+                {...(form && { onSubmit })}
+              >
                 <div className={theme['inner']}>
                   {scrollable ? (
                     <Box display="flex" flexDirection="column" overflowY="auto">
