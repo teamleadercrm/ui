@@ -11,8 +11,9 @@ import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
 import useFocusTrap from '../../utils/useFocusTrap';
 import useDraggable from './useDraggable';
+import { BoxProps } from '../box/Box';
 
-interface DialogBaseProps {
+export interface DialogBaseProps extends Omit<BoxProps, 'form' | 'size'> {
   /** If true, the dialog will show on screen. */
   active?: boolean;
   /** Specify which backdrop the dialog should show. */

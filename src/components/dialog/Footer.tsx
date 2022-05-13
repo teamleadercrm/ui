@@ -1,8 +1,9 @@
 import React, { ReactNode } from 'react';
 
 import { Box } from '../../index';
+import { BoxProps } from '../box/Box';
 
-interface FooterProps {
+interface FooterProps extends Omit<BoxProps, 'ref'> {
   /** The content to display inside the dialog. */
   children: ReactNode;
 }

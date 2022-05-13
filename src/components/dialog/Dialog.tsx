@@ -1,5 +1,4 @@
 import React, { createRef } from 'react';
-import PropTypes from 'prop-types';
 import omit from 'lodash.omit';
 import cx from 'classnames';
 
@@ -7,12 +6,41 @@ import theme from './theme.css';
 
 import { Button, ButtonGroup, DialogBase, Heading3 } from '../../index';
 import { IconDragMediumFilled } from '@teamleader/ui-icons';
+import { DialogBaseProps } from './DialogBase';
 
-/** @type {React.ComponentType<any>} */
+interface DialogProps extends Omit<DialogBaseProps, 'ref'> {
+  /** If true, the dialog will show on screen. */
+  active?: boolean;
+  /** The content to display inside the dialog. */
+  children?: Array<Element>;
+  /** A class name for the wrapper to apply custom styles. */
+  className?: string;
+  /** Object containing the the props of the action on the left (a Button). */
+  leftAction?: object;
+  /** Callback function that is fired when the close icon (in the header) is clicked. */
+  onCloseClick?: void;
+  /** Object containing the props of the primary action (a Button, with level prop set to 'primary'). */
+  primaryAction: object;
+  /** The size of the dialog. */
+  size?: 'small' | 'medium' | 'large' | 'fullscreen';
+  /** If true, the content of the dialog will be scrollable when it exceeds the available height. */
+  scrollable?: boolean;
+  /** Object containing the the props of the secondary action (a Button). */
+  secondaryAction?: object;
+  /** Object containing the props of the tertiary action (a Link, with the inherit props set to false). */
+  tertiaryAction?: object;
+  /** The title of the dialog. */
+  title?: string;
+  /** If true the dialog will render as a form element. */
+  form?: boolean;
+  /** Optional callback if the dialog is a form and is being submitted */
+  onSubmit?: () => void;
+}
+
 const Dialog = ({
   children,
   className,
-  scrollable,
+  scrollable = true,
   title,
   form,
   onSubmit,
@@ -22,9 +50,9 @@ const Dialog = ({
   leftAction,
   onCloseClick,
   ...otherProps
-}) => {
-  const bodyRef = createRef();
-  const dragHandleRef = createRef();
+}: DialogProps) => {
+  const bodyRef = createRef<HTMLElement>();
+  const dragHandleRef = createRef<HTMLDivElement>();
 
   const getHeader = () => {
     const dragIcon = (
@@ -80,40 +108,6 @@ const Dialog = ({
       {getFooter()}
     </DialogBase>
   );
-};
-
-Dialog.propTypes = {
-  /** If true, the dialog will show on screen. */
-  active: PropTypes.bool,
-  /** The content to display inside the dialog. */
-  children: PropTypes.any,
-  /** A class name for the wrapper to apply custom styles. */
-  className: PropTypes.string,
-  /** Object containing the the props of the action on the left (a Button). */
-  leftAction: PropTypes.object,
-  /** Callback function that is fired when the close icon (in the header) is clicked. */
-  onCloseClick: PropTypes.func,
-  /** Object containing the props of the primary action (a Button, with level prop set to 'primary'). */
-  primaryAction: PropTypes.object.isRequired,
-  /** The size of the dialog. */
-  size: PropTypes.oneOf(['small', 'medium', 'large', 'fullscreen']),
-  /** If true, the content of the dialog will be scrollable when it exceeds the available height. */
-  scrollable: PropTypes.bool,
-  /** Object containing the the props of the secondary action (a Button). */
-  secondaryAction: PropTypes.object,
-  /** Object containing the props of the tertiary action (a Link, with the inherit props set to false). */
-  tertiaryAction: PropTypes.object,
-  /** The title of the dialog. */
-  title: PropTypes.string,
-  /** If true the dialog will render as a form element. */
-  form: PropTypes.boolean,
-  /** Optional callback if the dialog is a form and is being submitted */
-  onSubmit: PropTypes.func,
-};
-
-Dialog.defaultProps = {
-  scrollable: true,
-  size: 'medium',
 };
 
 export default Dialog;
