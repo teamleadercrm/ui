@@ -10,6 +10,7 @@ import Box from '../box';
 import Autocomplete from './Autocomplete';
 import Overlay from '../overlay';
 import { Suggestion, Suggestions } from './types';
+import EmailSuggestion from './EmailSuggestion';
 
 const ENTER = 'Enter';
 const ESCAPE = 'Escape';
@@ -26,11 +27,11 @@ interface LabelProps {
   invalid?: boolean;
   onClick?: (index: number) => void;
   onFocus?: (index: number) => void;
-  onBlur?: (index: number, option: Suggestion | { email: string }) => void;
+  onBlur?: (index: number, newLabel: Suggestion | { email: string }) => void;
   onRemove?: (index: number) => void;
-  onFinish?: (index: number, option: Suggestion | { email: string }) => void;
-  renderSuggestion?: React.ComponentType<any>;
+  onFinish?: (index: number, newLabel: Suggestion | { email: string }) => void;
   suggestions?: Suggestions;
+  renderSuggestion?: React.ComponentType<React.ComponentPropsWithoutRef<typeof EmailSuggestion>>;
 }
 
 const Label = ({

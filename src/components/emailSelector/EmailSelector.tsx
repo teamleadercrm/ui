@@ -9,10 +9,10 @@ import { excludeSuggestions } from './utils';
 import { Suggestion, Suggestions } from './types';
 
 interface EmailSelectorProps {
-  error?: boolean | React.ReactNode;
+  error?: boolean | string;
   defaultSelection?: Suggestion[];
-  validator?: (option: Suggestion) => boolean;
   suggestions?: Suggestions;
+  validator?: (option: Suggestion) => boolean | string | undefined;
   onChange?: (selection: Suggestion[]) => void;
   onBlur?: (event?: React.FocusEvent<HTMLElement>) => void;
   onFocus?: (event: React.FocusEvent<HTMLElement>) => void;
