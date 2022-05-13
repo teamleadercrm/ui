@@ -1,8 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Box, { pickBoxProps } from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
+import { BoxProps } from '../box/Box';
 
 const SIZES = {
   small: 3,
@@ -10,10 +10,12 @@ const SIZES = {
   large: 5,
 };
 
-/** @type {React.ComponentType<any>} */
-const Island = (props) => {
-  const { children, className, color, size, onClick, ...others } = props;
+interface IslandProps extends Omit<BoxProps, 'size'> {
+  color?: 'neutral' | 'mint' | 'violet' | 'ruby' | 'gold' | 'aqua' | 'white';
+  size?: keyof typeof SIZES;
+}
 
+const Island = ({ children, className, color = 'white', size = 'medium', onClick, ...others }: IslandProps) => {
   const classNames = cx(theme[color], className);
   const boxProps = pickBoxProps(others);
 
@@ -37,18 +39,6 @@ const Island = (props) => {
       {children}
     </Box>
   );
-};
-
-Island.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
-  color: PropTypes.oneOf(['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'white']),
-  size: PropTypes.oneOf(Object.keys(SIZES)),
-};
-
-Island.defaultProps = {
-  color: 'white',
-  size: 'medium',
 };
 
 export default Island;
