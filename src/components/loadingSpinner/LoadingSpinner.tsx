@@ -1,37 +1,39 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import Box from '../box';
 import cx from 'classnames';
+import React from 'react';
+import Box from '../box';
 import theme from './theme.css';
 
-/** @type {React.ComponentType<any>} */
-class LoadingSpinner extends PureComponent {
-  render() {
-    const { className, color, size, tint, ...others } = this.props;
+type Size = 'small' | 'medium';
 
-    const classNames = cx(
-      theme['loading-spinner'],
-      theme[`is-${color}`],
-      theme[`is-${size}`],
-      theme[`is-${tint}`],
-      className,
-    );
+type Color = 'aqua' | 'gold' | 'mint' | 'neutral' | 'ruby' | 'teal' | 'violet';
 
-    return <Box data-teamleader-ui="loading-spinner" className={classNames} {...others} />;
-  }
+type Tint = 'lightest' | 'light' | 'normal' | 'dark' | 'darkest';
+
+export interface LoadingSpinnerProps {
+  /** A class name for the wrapper to add custom classes */
+  className: string;
+  /** The color of the components */
+  color: Color;
+  /** Size of the component */
+  size: Size;
+  /** The tint of the components color */
+  tint: Tint;
 }
-
-LoadingSpinner.propTypes = {
-  className: PropTypes.string,
-  color: PropTypes.oneOf(['aqua', 'gold', 'mint', 'neutral', 'ruby', 'teal', 'violet']),
-  size: PropTypes.oneOf(['small', 'medium']),
-  tint: PropTypes.oneOf(['lightest', 'light', 'normal', 'dark', 'darkest']),
-};
-
-LoadingSpinner.defaultProps = {
-  color: 'teal',
-  size: 'medium',
-  tint: 'darkest',
+const LoadingSpinner = ({
+  className,
+  color = 'teal',
+  size = 'medium',
+  tint = 'darkest',
+  ...others
+}: LoadingSpinnerProps) => {
+  const classNames = cx(
+    theme['loading-spinner'],
+    theme[`is-${color}`],
+    theme[`is-${size}`],
+    theme[`is-${tint}`],
+    className,
+  );
+  return <Box data-teamleader-ui="loading-spinner" className={classNames} {...others} />;
 };
 
 export default LoadingSpinner;
