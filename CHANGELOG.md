@@ -10,7 +10,27 @@
 
 - `Badge`: removed auto-blur on mouse events ([@driesd](https://github.com/driesd) in [#2113](https://github.com/teamleadercrm/ui/pull/2113))
 
+### Fixed
+
 ### Dependency updates
+
+## [14.5.2] - 2022-05-13
+
+### Fixed
+
+- `IconMenu`: Fix IconMenu closing right away in projects using React 17 ([@lorgan3](https://github.com/lorgan3) in [#2138](https://github.com/teamleadercrm/ui/pull/2138))
+
+## [14.5.1] - 2022-05-12
+
+### Fixed
+
+- `Box`: Added missing props for Box Component ([@eniskrasniqi1](https://github.com/eniskraasniqi1) in [#2131](https://github.com/teamleadercrm/ui/pull/2131))
+
+## [14.5.0] - 2022-05-10
+
+### Dependency updates
+
+- `React`: Add support for react 17 as a peer dependency ([@lorgan3](https://github.com/lorgan3) in [#2118](https://github.com/teamleadercrm/ui/pull/2118))
 
 ## [14.4.0] - 2022-05-04
 
