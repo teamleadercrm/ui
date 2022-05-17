@@ -24,7 +24,7 @@
   align-items: flex-start;
   display: inline-flex;
   user-select: none;
-  /* Fix for whitespace bellow, caused be inline-flex */
+  /* Fix for whitespace below, caused be inline-flex */
   vertical-align: top;
 
   .input {

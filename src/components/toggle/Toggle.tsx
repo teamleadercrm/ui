@@ -1,5 +1,4 @@
 import cx from 'classnames';
-import omit from 'lodash.omit';
 import React, { ChangeEvent, ReactNode, useRef } from 'react';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import { BoxProps } from '../box/Box';
@@ -33,9 +32,8 @@ const Toggle = ({
   ...others
 }: ToggleProps) => {
   const ref = useRef<HTMLInputElement>(null);
-  const restProps = omit(others, ['onChange']);
-  const boxProps = pickBoxProps(restProps);
-  const inputProps = omitBoxProps(restProps);
+  const boxProps = pickBoxProps(others);
+  const inputProps = omitBoxProps(others);
 
   const blur = () => {
     if (ref.current) {
