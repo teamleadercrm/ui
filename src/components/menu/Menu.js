@@ -104,10 +104,14 @@ class Menu extends PureComponent {
   }
 
   addEvents() {
-    events.addEventsToDocument({
-      click: this.handleDocumentClick,
-      touchstart: this.handleDocumentClick,
-    });
+    window.setTimeout(
+      () =>
+        events.addEventsToDocument({
+          click: this.handleDocumentClick,
+          touchstart: this.handleDocumentClick,
+        }),
+      0,
+    );
   }
 
   removeEvents() {

@@ -1,4 +1,5 @@
 import React from 'react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Avatar, Bullet } from '../../index';
 import avatars from '../../static/data/avatar';
 import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
@@ -13,9 +14,9 @@ export default {
       url: 'https://www.figma.com/file/LHH25GN90ljQaBEUNMsdJn/Desktop-components?node-id=225%3A1020',
     },
   },
-};
+} as ComponentMeta<typeof Avatar>;
 
-export const DefaultStory = (args) => <Avatar {...args} />;
+export const DefaultStory: ComponentStory<typeof Avatar> = (args) => <Avatar {...args} />;
 
 DefaultStory.args = {
   fullName: 'John Doe',

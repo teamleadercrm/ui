@@ -1,16 +1,15 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
 import { BoxProps } from '../box/Box';
 
-interface Props extends Omit<BoxProps, 'ref'> {
-  children?: ReactNode;
+export interface ContainerProps extends Omit<BoxProps, 'ref'> {
   className?: string;
   fixed?: boolean;
 }
 
-const Container = ({ children, className, fixed, ...others }: Props) => {
+const Container = ({ children, className, fixed, ...others }: ContainerProps) => {
   const classNames = cx(
     theme['container'],
     {
