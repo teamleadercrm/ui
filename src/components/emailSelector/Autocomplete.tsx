@@ -13,7 +13,7 @@ interface AutocompleteProps {
   highlightedSuggestion?: Suggestion | null;
   onClick?: (suggestion: Suggestion, event: React.SyntheticEvent) => void;
   onHover?: (suggestion: Suggestion, event: React.SyntheticEvent) => void;
-  renderSuggestion?: React.ComponentType<React.ComponentPropsWithoutRef<typeof EmailSuggestion>>;
+  renderSuggestion?: React.ComponentType<React.ComponentProps<typeof EmailSuggestion>>;
 }
 
 const Autocomplete = ({
