@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `Toggle`: Changed width from full to adaptive ([@qubis741](https://github.com/qubis741) in [#2143](https://github.com/teamleadercrm/ui/pull/2143))
+
 ### Deprecated
 
 ### Removed
