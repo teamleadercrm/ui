@@ -22,8 +22,10 @@
 
 .toggle {
   align-items: flex-start;
-  display: flex;
+  display: inline-flex;
   user-select: none;
+  /* Fix for whitespace bellow, caused be inline-flex */
+  vertical-align: top;
 
   .input {
     width: 0;
