@@ -11,8 +11,9 @@ import StatusLabel from '../statusLabel';
 import { Box } from '../box';
 import { Heading1, Monospaced, TextBody } from '../typography';
 import { COLOR } from '../../constants';
+import { ComponentMeta } from '@storybook/react';
 
-const titleColors = ['neutral', 'teal'];
+const titleColors = ['neutral', 'teal'] as Array<'neutral' | 'teal'>;
 
 const actionButtons = () => (
   <ButtonGroup marginLeft={7}>
@@ -85,21 +86,7 @@ export default {
       propTables: false,
     },
   },
-};
-
-export const composition = () => (
-  <DetailPage>
-    {header()}
-    {body()}
-  </DetailPage>
-);
-
-composition.storyName = 'Composition';
-composition.parameters = {
-  info: {
-    propTables: [DetailPage],
-  },
-};
+} as ComponentMeta<typeof DetailPage>;
 
 export const body = () => (
   <DetailPage.Body>
@@ -117,7 +104,7 @@ body.parameters = {
 export const header = () => (
   <DetailPage.Header
     backLinkProps={{
-      element: select('Back link element', ['a', 'button'], 'button'),
+      element: select('Back link element', ['a', 'button'], 'button') as React.ElementType,
       children: text('Back link label', 'Back to overview'),
     }}
     title={text('Title', 'I am the detail page title')}
@@ -135,7 +122,7 @@ header.parameters = {
 export const headerWithTitleSuffix = () => (
   <DetailPage.Header
     backLinkProps={{
-      element: select('Back link element', ['a', 'button'], 'button'),
+      element: select('Back link element', ['a', 'button'], 'button') as React.ElementType,
       children: text('Back link label', 'Back to overview'),
     }}
     title={text('Title', 'I am the detail page title')}
@@ -154,7 +141,7 @@ headerWithTitleSuffix.parameters = {
 export const headerWithActions = () => (
   <DetailPage.Header
     backLinkProps={{
-      element: select('Back link element', ['a', 'button'], 'button'),
+      element: select('Back link element', ['a', 'button'], 'button') as React.ElementType,
       children: text('Back link label', 'Back to overview'),
     }}
     title={text('Title', 'I am the detail page title')}
@@ -174,7 +161,7 @@ headerWithActions.parameters = {
 export const headerWithTotals = () => (
   <DetailPage.Header
     backLinkProps={{
-      element: select('Back link element', ['a', 'button'], 'button'),
+      element: select('Back link element', ['a', 'button'], 'button') as React.ElementType,
       children: text('Back link label', 'Back to overview'),
     }}
     title={text('Title', 'I am the detail page title')}
@@ -194,7 +181,7 @@ headerWithTotals.parameters = {
 export const headerWithTotalsAndActions = () => (
   <DetailPage.Header
     backLinkProps={{
-      element: select('Back link element', ['a', 'button'], 'button'),
+      element: select('Back link element', ['a', 'button'], 'button') as React.ElementType,
       children: text('Back link label', 'Back to overview'),
     }}
     title={text('Title', 'I am a way too long detail page title which will overflow with an ellipsis')}
@@ -215,7 +202,7 @@ headerWithTotalsAndActions.parameters = {
 export const headerWithEverthingTogether = () => (
   <DetailPage.Header
     backLinkProps={{
-      element: select('Back link element', ['a', 'button'], 'button'),
+      element: select('Back link element', ['a', 'button'], 'button') as React.ElementType,
       children: text('Back link label', 'Back to overview'),
     }}
     title={text('Title', 'I am a way too long detail page title which will overflow with an ellipsis')}
@@ -231,5 +218,19 @@ headerWithEverthingTogether.storyName = 'Header with everything together';
 headerWithEverthingTogether.parameters = {
   info: {
     propTables: [DetailPage.Header],
+  },
+};
+
+export const composition = () => (
+  <DetailPage>
+    {header()}
+    {body()}
+  </DetailPage>
+);
+
+composition.storyName = 'Composition';
+composition.parameters = {
+  info: {
+    propTables: [DetailPage],
   },
 };
