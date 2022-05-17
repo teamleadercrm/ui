@@ -1,4 +1,5 @@
 import React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { IconBuildingSmallOutline } from '@teamleader/ui-icons';
 import Badge from './Badge';
@@ -13,11 +14,11 @@ export default {
       url: 'https://www.figma.com/file/LHH25GN90ljQaBEUNMsdJn/Desktop-components?node-id=3943%3A715',
     },
   },
-};
+} as ComponentMeta<typeof Badge>;
 
-export const basic = (args) => <Badge {...args}>I'm a badge</Badge>;
+export const basic: ComponentStory<typeof Badge> = (args) => <Badge {...args}>I'm a badge</Badge>;
 
-export const withIcon = (args) => <Badge {...args}>I'm a badge</Badge>;
+export const withIcon: ComponentStory<typeof Badge> = (args) => <Badge {...args}>I'm a badge</Badge>;
 
 withIcon.args = {
   icon: <IconBuildingSmallOutline />,
@@ -25,7 +26,7 @@ withIcon.args = {
 
 withIcon.storyName = 'With icon';
 
-export const withCustomElement = (args) => <Badge {...args}>I'm a badge</Badge>;
+export const withCustomElement: ComponentStory<typeof Badge> = (args) => <Badge {...args}>I'm a badge</Badge>;
 
 withCustomElement.args = {
   element: 'a',

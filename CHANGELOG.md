@@ -10,6 +10,8 @@
 
 ### Removed
 
+- `Badge`: removed auto-blur on mouse events ([@driesd](https://github.com/driesd) in [#2113](https://github.com/teamleadercrm/ui/pull/2113))
+
 ### Fixed
 
 ### Dependency updates
