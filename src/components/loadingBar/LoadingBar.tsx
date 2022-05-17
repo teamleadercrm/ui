@@ -11,13 +11,13 @@ type Tint = 'lightest' | 'light' | 'normal' | 'dark' | 'darkest';
 
 export interface LoadingBarProps {
   /** A class name for the wrapper to add custom classes */
-  className: string;
+  className?: string;
   /** The color of the components */
-  color: Color;
+  color?: Color;
   /** Size of the component */
-  size: Size;
+  size?: Size;
   /** The tint of the components color */
-  tint: Tint;
+  tint?: Tint;
 }
 
 const LoadingBar = ({ className, color = 'mint', size = 'small', tint = 'normal', ...others }: LoadingBarProps) => {
