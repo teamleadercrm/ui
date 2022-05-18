@@ -1,7 +1,26 @@
 import { DateTime, Info } from 'luxon';
 
 const defaultLocale = 'en-GB';
-const firstDayOfWeek: Record<string, number> = {
+
+type Locales =
+  | 'da-DK'
+  | 'de-DE'
+  | 'en-GB'
+  | 'en-US'
+  | 'es-ES'
+  | 'fi-FI'
+  | 'fr-BE'
+  | 'fr-FR'
+  | 'it-IT'
+  | 'nb-NO'
+  | 'nl-BE'
+  | 'nl-NL'
+  | 'pl-PL'
+  | 'pt-PT'
+  | 'sv-SE'
+  | 'tr-TR';
+
+const firstDayOfWeek = {
   'da-DK': 1,
   'de-DE': 1,
   'en-GB': 1,
@@ -26,11 +45,11 @@ export const formatDay = (day: Date, locale = defaultLocale) =>
 export const formatMonthTitle = (date: Date, locale = defaultLocale) =>
   DateTime.fromJSDate(date).setLocale(locale).toLocaleString({ month: 'long', year: 'numeric' });
 
-export const getFirstDayOfWeek = (locale = defaultLocale) => {
+export const getFirstDayOfWeek = (locale: Locales = defaultLocale) => {
   return firstDayOfWeek[locale] || firstDayOfWeek[defaultLocale];
 };
 
-export const formatWeekdayShort = (dayOfWeekNumber: number, locale = defaultLocale) => {
+export const formatWeekdayShort = (dayOfWeekNumber: number, locale: Locales = defaultLocale) => {
   const dayIndex = (7 + dayOfWeekNumber - getFirstDayOfWeek(locale)) % 7;
   return Info.weekdays('short', { locale })[dayIndex];
 };
