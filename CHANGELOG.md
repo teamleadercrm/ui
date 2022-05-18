@@ -4,17 +4,23 @@
 
 ### Changed
 
-- `Toggle`: Changed width from full to adaptive ([@qubis741](https://github.com/qubis741) in [#2143](https://github.com/teamleadercrm/ui/pull/2143))
-
 ### Deprecated
 
 ### Removed
 
-- `Badge`: removed auto-blur on mouse events ([@driesd](https://github.com/driesd) in [#2113](https://github.com/teamleadercrm/ui/pull/2113))
-
 ### Fixed
 
 ### Dependency updates
+
+## [14.5.3] - 2022-05-18
+
+### Changed
+
+- `Toggle`: Changed width from full to adaptive ([@qubis741](https://github.com/qubis741) in [#2143](https://github.com/teamleadercrm/ui/pull/2143))
+
+### Removed
+
+- `Badge`: removed auto-blur on mouse events ([@driesd](https://github.com/driesd) in [#2113](https://github.com/teamleadercrm/ui/pull/2113))
 
 ## [14.5.2] - 2022-05-13
 
