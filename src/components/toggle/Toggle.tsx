@@ -15,7 +15,7 @@ export interface ToggleProps extends Omit<BoxProps, 'className' | 'size'> {
   maxLines?: number;
   name?: string;
   className?: string;
-  label?: string;
+  label?: ReactNode;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   size?: Size;
 }
