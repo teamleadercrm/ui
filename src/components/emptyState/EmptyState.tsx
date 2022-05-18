@@ -15,7 +15,6 @@ interface EmptyStateProps extends Omit<BoxProps, 'size'> {
   metaText?: ReactNode | string;
   size?: 'small' | 'medium' | 'large';
   title?: ReactNode | string;
-  className?: string;
 }
 
 const illustrationMap = {
@@ -38,7 +37,7 @@ const EmptyState = ({
     {
       [theme['has-pointer']]: title,
     },
-    className,
+    className as string,
   );
 
   return (
