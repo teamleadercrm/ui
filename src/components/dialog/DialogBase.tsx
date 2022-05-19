@@ -61,7 +61,6 @@ export const DialogBase = ({
     return null;
   }
 
-  const Element = form ? 'form' : 'div';
   const dialog = (
     <Transition timeout={0} in={active} appear>
       {(state) => {
@@ -82,8 +81,9 @@ export const DialogBase = ({
             onEscKeyDown={onEscKeyDown}
           >
             <FocusRing>
-              <Element
-                ref={ref as RefObject<HTMLFormElement> & RefObject<HTMLDivElement>}
+              <Box
+                element={form ? 'form' : 'div'}
+                ref={ref}
                 data-teamleader-ui="dialog"
                 className={dialogClassNames}
                 {...(form && { onSubmit })}
@@ -97,7 +97,7 @@ export const DialogBase = ({
                     children
                   )}
                 </div>
-              </Element>
+              </Box>
             </FocusRing>
           </Overlay>
         );
