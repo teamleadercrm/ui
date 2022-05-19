@@ -8,6 +8,8 @@
 
 ### Removed
 
+- `Internal`: Remove cssnano option from `postcss.config.js`, end users should be responsible for the minification ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#2155](https://github.com/teamleadercrm/ui/pull/2155))
+
 ### Fixed
 
 ### Dependency updates
