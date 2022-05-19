@@ -17,10 +17,6 @@ module.exports = async ({ config }) => {
     use: ['file-loader'],
   });
 
-  if (config.optimization) {
-    config.optimization.minimize = false;
-  }
-
   // Return the altered config
   return config;
 };
