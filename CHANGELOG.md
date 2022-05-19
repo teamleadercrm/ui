@@ -12,6 +12,18 @@
 
 ### Dependency updates
 
+## [14.5.5] - 2022-05-19
+
+### Removed
+
+- `Internal`: Remove cssnano option from `postcss.config.js`, end users should be responsible for the minification ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#2155](https://github.com/teamleadercrm/ui/pull/2155))
+
+## [14.5.4] - 2022-05-18
+
+### Fixed
+
+- `Toggle`: `label` property type ([@qubis741](https://github.com/qubis741) in [#2152](https://github.com/teamleadercrm/ui/pull/2152))
+
 ## [14.5.3] - 2022-05-18
 
 ### Changed

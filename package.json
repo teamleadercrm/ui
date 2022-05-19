@@ -1,7 +1,7 @@
 {
   "name": "@teamleader/ui",
   "description": "Teamleader UI library",
-  "version": "14.5.3",
+  "version": "14.5.5",
   "author": "Teamleader <development@teamleader.eu>",
   "bugs": {
     "url": "https://github.com/teamleadercrm/ui/issues"
@@ -68,9 +68,6 @@
     "@babel/cli": "^7.16.7",
     "@babel/core": "^7.16.7",
     "@babel/eslint-parser": "^7.16.5",
-    "@babel/plugin-proposal-class-properties": "^7.16.7",
-    "@babel/plugin-proposal-private-methods": "^7.16.7",
-    "@babel/plugin-proposal-private-property-in-object": "^7.16.7",
     "@babel/plugin-transform-runtime": "^7.16.7",
     "@babel/preset-env": "^7.16.7",
     "@babel/preset-react": "^7.12.5",
@@ -93,7 +90,6 @@
     "babel-plugin-transform-react-remove-prop-types": "^0.4.13",
     "chromatic": "^6.3.3",
     "css-loader": "^6.5.1",
-    "cssnano": "^5.0.1",
     "eslint": "^8.6.0",
     "eslint-config-prettier": "^8.0.0",
     "eslint-config-standard": "^16.0.2",
