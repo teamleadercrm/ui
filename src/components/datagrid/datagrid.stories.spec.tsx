@@ -16,7 +16,7 @@ export const Main: ComponentStory<typeof DataGrid> = () => (
     <DataGrid.HeaderRow>
       <DataGrid.HeaderCell sorted="asc">Invoice</DataGrid.HeaderCell>
       <DataGrid.HeaderCell align="right">Amount</DataGrid.HeaderCell>
-      <DataGrid.HeaderCell flex="5">Customer</DataGrid.HeaderCell>
+      <DataGrid.HeaderCell flex={5}>Customer</DataGrid.HeaderCell>
       <DataGrid.HeaderCell>Due date</DataGrid.HeaderCell>
       <DataGrid.HeaderCell flex="min-width" />
     </DataGrid.HeaderRow>
@@ -31,7 +31,7 @@ export const Main: ComponentStory<typeof DataGrid> = () => (
           <DataGrid.Cell align="right" strong>
             {`€ ${row.column3}`}
           </DataGrid.Cell>
-          <DataGrid.Cell flex="5">{row.column2}</DataGrid.Cell>
+          <DataGrid.Cell flex={5}>{row.column2}</DataGrid.Cell>
           <DataGrid.Cell soft>{row.column4}</DataGrid.Cell>
           <DataGrid.Cell align="right" flex="min-width" preventOverflow={false}>
             <IconMenu position="top-right">

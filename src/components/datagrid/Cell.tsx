@@ -34,7 +34,7 @@ const Cell = ({
   border,
   children,
   className,
-  flex = '1',
+  flex = 1,
   preventOverflow = true,
   soft = false,
   strong = false,
