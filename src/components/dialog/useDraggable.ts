@@ -1,8 +1,14 @@
-import { useEffect } from 'react';
+import { MutableRefObject, RefObject, useEffect } from 'react';
 
-const useDraggable = ({ active, dragTargetRef, dragHandleRef }) => {
+interface UseDraggableProps {
+  active?: boolean;
+  dragHandleRef?: RefObject<HTMLElement>;
+  dragTargetRef?: MutableRefObject<HTMLElement | undefined>;
+}
+
+const useDraggable = ({ active = false, dragTargetRef, dragHandleRef }: UseDraggableProps) => {
   useEffect(() => {
-    const currentDragTargetRef = dragTargetRef.current;
+    const currentDragTargetRef = dragTargetRef?.current;
     const currentDragHandleRef = dragHandleRef?.current;
 
     if (!active || !currentDragTargetRef || !currentDragHandleRef) {
@@ -12,15 +18,7 @@ const useDraggable = ({ active, dragTargetRef, dragHandleRef }) => {
     let x = 0;
     let y = 0;
 
-    const mouseDownHandler = function (event) {
-      x = event.clientX;
-      y = event.clientY;
-
-      document.addEventListener('mousemove', mouseMoveHandler);
-      document.addEventListener('mouseup', mouseUpHandler);
-    };
-
-    const mouseMoveHandler = function (event) {
+    const mouseMoveHandler = function (event: MouseEvent) {
       const dx = event.clientX - x;
       const dy = event.clientY - y;
 
@@ -34,6 +32,14 @@ const useDraggable = ({ active, dragTargetRef, dragHandleRef }) => {
     const mouseUpHandler = function () {
       document.removeEventListener('mousemove', mouseMoveHandler);
       document.removeEventListener('mouseup', mouseUpHandler);
+    };
+
+    const mouseDownHandler = function (event: MouseEvent) {
+      x = event.clientX;
+      y = event.clientY;
+
+      document.addEventListener('mousemove', mouseMoveHandler);
+      document.addEventListener('mouseup', mouseUpHandler);
     };
 
     currentDragHandleRef.addEventListener('mousedown', mouseDownHandler);
