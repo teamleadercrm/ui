@@ -7,7 +7,7 @@ import Icon from '../icon';
 
 import theme from './theme.css';
 
-interface HeaderProps {
+export interface HeaderProps {
   /** The content to display inside the dialog. */
   children?: ReactNode;
   /** The icon in the banner. */

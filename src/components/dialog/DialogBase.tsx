@@ -4,9 +4,9 @@ import cx from 'classnames';
 import Box from '../box';
 import Overlay from '../overlay/Overlay';
 import Transition from 'react-transition-group/Transition';
-import Header from './Header';
-import Body from './Body';
-import Footer from './Footer';
+import * as DialogHeader from './Header';
+import * as DialogBody from './Body';
+import * as DialogFooter from './Footer';
 import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
 import useFocusTrap from '../../utils/useFocusTrap';
@@ -108,8 +108,8 @@ export const DialogBase = ({
   return createPortal(dialog, document.body);
 };
 
-DialogBase.Header = Header;
-DialogBase.Body = Body;
-DialogBase.Footer = Footer;
+DialogBase.Header = DialogHeader.default;
+DialogBase.Body = DialogBody.default;
+DialogBase.Footer = DialogFooter.default;
 
 export default DialogBase;
