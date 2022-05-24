@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Box from '../box';
 import cx from 'classnames';
@@ -11,19 +11,15 @@ const SIZES = {
 };
 
 /** @type {React.ComponentType<any>} */
-class Section extends PureComponent {
-  render() {
-    const { children, className, color, size, ...rest } = this.props;
+const Section = ({ children, className, color, size, ...rest }) => {
+  const classNames = cx(theme['section'], className, theme[color]);
 
-    const classNames = cx(theme['section'], className, theme[color]);
-
-    return (
-      <Box data-teamleader-ui="section" className={classNames} element="section" padding={SIZES[size]} {...rest}>
-        {children}
-      </Box>
-    );
-  }
-}
+  return (
+    <Box data-teamleader-ui="section" className={classNames} element="section" padding={SIZES[size]} {...rest}>
+      {children}
+    </Box>
+  );
+};
 
 Section.propTypes = {
   children: PropTypes.node,
