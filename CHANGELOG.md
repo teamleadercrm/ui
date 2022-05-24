@@ -8,7 +8,43 @@
 
 ### Removed
 
+### Fixed
+
 ### Dependency updates
+
+## [14.5.5] - 2022-05-19
+
+### Removed
+
+- `Internal`: Remove cssnano option from `postcss.config.js`, end users should be responsible for the minification ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#2155](https://github.com/teamleadercrm/ui/pull/2155))
+
+## [14.5.4] - 2022-05-18
+
+### Fixed
+
+- `Toggle`: `label` property type ([@qubis741](https://github.com/qubis741) in [#2152](https://github.com/teamleadercrm/ui/pull/2152))
+
+## [14.5.3] - 2022-05-18
+
+### Changed
+
+- `Toggle`: Changed width from full to adaptive ([@qubis741](https://github.com/qubis741) in [#2143](https://github.com/teamleadercrm/ui/pull/2143))
+
+### Removed
+
+- `Badge`: removed auto-blur on mouse events ([@driesd](https://github.com/driesd) in [#2113](https://github.com/teamleadercrm/ui/pull/2113))
+
+## [14.5.2] - 2022-05-13
+
+### Fixed
+
+- `IconMenu`: Fix IconMenu closing right away in projects using React 17 ([@lorgan3](https://github.com/lorgan3) in [#2138](https://github.com/teamleadercrm/ui/pull/2138))
+
+## [14.5.1] - 2022-05-12
+
+### Fixed
+
+- `Box`: Added missing props for Box Component ([@eniskrasniqi1](https://github.com/eniskraasniqi1) in [#2131](https://github.com/teamleadercrm/ui/pull/2131))
 
 ## [14.5.0] - 2022-05-10
 
