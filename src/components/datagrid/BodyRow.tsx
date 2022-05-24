@@ -9,7 +9,7 @@ interface BodyRowProps extends RowProps {
   /** If true, the row will show a hover state */
   hovered?: boolean;
   /** Callback function that is fired when the row is clicked */
-  onClick?: (event: Event) => void;
+  onClick?: (event: React.MouseEvent) => void;
   /** Callback function that is fired when the checkbox on the left side has changed. */
   onSelectionChange?: (checked: boolean, event: Event) => void;
   /** If true, checkboxes will be rendered on the left side of each row. */
