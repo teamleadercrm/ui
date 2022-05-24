@@ -22,7 +22,7 @@ interface BodyRowProps extends RowProps {
   sliceTo?: number;
 }
 
-const BodyRow = forwardRef<any, BodyRowProps>(
+const BodyRow = forwardRef<HTMLElement, BodyRowProps>(
   (
     { className, children, hovered, sliceFrom, sliceTo, onClick, onSelectionChange, selected, selectable, ...others },
     ref,
