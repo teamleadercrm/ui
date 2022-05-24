@@ -28,7 +28,7 @@ interface CheckboxProps extends Omit<BoxProps, 'onChange' | 'size'> {
   size?: 'small' | 'medium' | 'large';
 }
 
-const Checkbox = forwardRef<HTMLInputElement>(
+const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   (
     {
       checked = false,
@@ -40,7 +40,7 @@ const Checkbox = forwardRef<HTMLInputElement>(
       indeterminate = false,
       onChange,
       ...others
-    }: CheckboxProps,
+    },
     ref,
   ) => {
     const handleToggle = (event: ChangeEvent<HTMLInputElement>) => {
