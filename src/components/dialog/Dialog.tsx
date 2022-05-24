@@ -1,4 +1,4 @@
-import React, { createRef, ReactElement } from 'react';
+import React, { createRef, ReactNode } from 'react';
 import omit from 'lodash.omit';
 import cx from 'classnames';
 
@@ -12,7 +12,7 @@ interface DialogProps extends Omit<DialogBaseProps, 'ref'> {
   /** If true, the dialog will show on screen. */
   active?: boolean;
   /** The content to display inside the dialog. */
-  children?: ReactElement;
+  children?: ReactNode;
   /** A class name for the wrapper to apply custom styles. */
   className?: string;
   /** Object containing the the props of the action on the left (a Button). */
