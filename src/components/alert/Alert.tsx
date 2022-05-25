@@ -3,7 +3,6 @@ import { DialogBase } from '../dialog';
 import { Heading3, TextBody } from '../typography';
 import { Box } from '../box';
 import { Button, BUTTON_LEVELS } from '../button';
-import omit from 'lodash.omit';
 import { Illustration60X60Error, Illustration60X60Info } from '@teamleader/ui-illustrations';
 import { DialogBaseProps } from '../dialog/DialogBase';
 import { ButtonProps } from '../button/Button';
@@ -26,10 +25,8 @@ interface AlertProps extends Omit<DialogBaseProps, 'scrollable' | 'size'> {
 }
 
 const Alert = ({ primaryAction, secondaryAction, title, body, type = 'confirm', ...otherProps }: AlertProps) => {
-  const restProps = omit(otherProps, ['primaryAction', 'secondaryAction']);
-
   return (
-    <DialogBase {...restProps} scrollable={false} size="small">
+    <DialogBase {...otherProps} scrollable={false} size="small">
       <Box alignItems="center" display="flex" flexDirection="column" padding={4} textAlign="center">
         <Box marginBottom={3} marginTop={2}>
           {type === 'confirm' ? <Illustration60X60Info /> : <Illustration60X60Error />}
