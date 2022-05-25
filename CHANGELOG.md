@@ -2,7 +2,7 @@
 
 ### Added
 
-- `EmailSelector`: `warning` property and submit on SPACE key ([@qubis741](https://github.com/qubis741) in [#2170](https://github.com/teamleadercrm/ui/pull/2170))
+- `EmailSelector`: `warning` property ([@qubis741](https://github.com/qubis741) in [#2170](https://github.com/teamleadercrm/ui/pull/2170))
 
 ### Changed
 

@@ -19,7 +19,6 @@ const UP_ARROW = 'ArrowUp';
 const DOWN_ARROW = 'ArrowDown';
 const SEMI = ';';
 const COMMA = ',';
-const SPACE = ' ';
 
 interface LabelProps {
   option: Suggestion;
@@ -133,7 +132,6 @@ const Label = ({
 
         case COMMA:
         case SEMI:
-        case SPACE:
           onFinish && onFinish(index, trimmedContent === option.email ? option : { email: trimmedContent });
           event.preventDefault();
           break;
