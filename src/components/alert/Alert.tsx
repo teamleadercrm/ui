@@ -17,7 +17,7 @@ interface AlertProps extends Omit<DialogBaseProps, 'scrollable' | 'size'> {
   /** The body of the alert. */
   body?: string;
   /** The type of the alert. */
-  type?: ALERT_TYPES;
+  type?: Type;
 }
 
 interface Action {
@@ -25,7 +25,7 @@ interface Action {
   onClick: () => void;
 }
 
-type ALERT_TYPES = 'confirm' | 'destructive' | 'error';
+type Type = 'confirm' | 'destructive' | 'error';
 
 const Alert = ({ primaryAction, secondaryAction, title, body, type = 'confirm', ...otherProps }: AlertProps) => {
   const restProps = omit(otherProps, ['primaryAction', 'secondaryAction']);
