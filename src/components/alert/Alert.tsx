@@ -5,10 +5,9 @@ import { Box } from '../box';
 import { Button, BUTTON_LEVELS } from '../button';
 import omit from 'lodash.omit';
 import { Illustration60X60Error, Illustration60X60Info } from '@teamleader/ui-illustrations';
+import { DialogBaseProps } from '../dialog/DialogBase';
 
-interface AlertProps {
-  /** If true, the alert will show on screen. */
-  active?: boolean;
+interface AlertProps extends Omit<DialogBaseProps, 'scrollable' | 'size'> {
   /** Object containing the props of the primary action (a Button, with level prop set to 'primary'). */
   primaryAction: Action;
   /** Object containing the the props of the secondary action (a Button). */
@@ -19,7 +18,6 @@ interface AlertProps {
   body?: string;
   /** The type of the alert. */
   type?: ALERT_TYPES;
-  [key: string]: unknown;
 }
 
 interface Action {
