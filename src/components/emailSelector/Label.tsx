@@ -31,7 +31,7 @@ interface LabelProps {
   onRemove?: (index: number) => void;
   onFinish?: (index: number, newLabel: Suggestion | { email: string }) => void;
   suggestions?: Suggestions;
-  renderSuggestion?: React.ComponentType<React.ComponentPropsWithoutRef<typeof EmailSuggestion>>;
+  renderSuggestion?: React.ComponentType<React.ComponentProps<typeof EmailSuggestion>>;
 }
 
 const Label = ({

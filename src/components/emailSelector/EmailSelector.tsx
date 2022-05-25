@@ -7,6 +7,7 @@ import Box from '../box';
 import Label from './Label';
 import { excludeSuggestions } from './utils';
 import { Suggestion, Suggestions } from './types';
+import EmailSuggestion from './EmailSuggestion';
 
 interface EmailSelectorProps {
   error?: boolean | string;
@@ -17,7 +18,7 @@ interface EmailSelectorProps {
   onBlur?: (event?: React.FocusEvent<HTMLElement>) => void;
   onFocus?: (event: React.FocusEvent<HTMLElement>) => void;
   id?: string;
-  renderSuggestion?: React.ComponentType<any>;
+  renderSuggestion?: React.ComponentType<React.ComponentProps<typeof EmailSuggestion>>;
 }
 
 const EmailSelector = ({
