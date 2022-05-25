@@ -9,7 +9,7 @@ import Section from '../section';
 import { Heading1, TextBody } from '../typography';
 import theme from './theme.css';
 
-interface DetailPageHeaderProps extends Omit<ContainerProps, 'title'> {
+export interface DetailPageHeaderProps extends Omit<ContainerProps, 'title'> {
   backLinkProps?: Omit<BadgedLinkProps, 'icon' | 'inheric'>;
   title: React.ReactNode;
   /** The color which the title should have */

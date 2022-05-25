@@ -4,6 +4,7 @@ import { Box, Button, Dialog, TextBody } from '../../index';
 import Input from '../input';
 import Label from '../label';
 import { DialogBase } from '.';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 export default {
   component: Dialog,
@@ -15,9 +16,9 @@ export default {
       },
     },
   },
-};
+} as ComponentMeta<typeof Dialog>;
 
-export const DefaultStory = (args) => {
+export const DefaultStory: ComponentStory<typeof Dialog> = (args) => {
   const [active, setActive] = useState(false);
 
   const toggleDialog = () => {
@@ -128,7 +129,7 @@ const FocusStates = () => {
   );
 };
 
-export const DialogWithFocusStates = FocusStates.bind({});
+export const DialogWithFocusStates: ComponentStory<typeof Dialog> = FocusStates.bind({});
 DialogWithFocusStates.parameters = {
   docs: {
     description: {
@@ -138,9 +139,9 @@ DialogWithFocusStates.parameters = {
   },
 };
 
-export const DialogBaseStory = (args) => {
+export const DialogBaseStory: ComponentStory<typeof DialogBase> = (args) => {
   const [active, setActive] = useState(false);
-  const bodyRef = useRef();
+  const bodyRef = useRef<HTMLElement>(null);
   const closeDialog = () => {
     setActive(false);
   };
