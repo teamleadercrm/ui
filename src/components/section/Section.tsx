@@ -7,7 +7,7 @@ import { BoxProps } from '../box/Box';
 type Color = 'white' | 'neutral' | 'mint' | 'violet' | 'ruby' | 'gold' | 'aqua';
 type Size = 'small' | 'medium' | 'large';
 
-const SIZES: { [K in Size]: number } = {
+const SIZES: Record<Size, number> = {
   small: 3,
   medium: 4,
   large: 5,
