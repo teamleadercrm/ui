@@ -22,7 +22,7 @@ const textComponentMap = {
   large: UITextDisplay,
 };
 
-interface ButtonProps extends Omit<BoxProps, 'size'> {
+export interface ButtonProps extends Omit<BoxProps, 'size'> {
   /** The content to display inside the button. */
   children?: ReactNode;
   /** A class name for the button to give custom styles. */
