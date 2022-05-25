@@ -8,6 +8,10 @@ import { Illustration60X60Error, Illustration60X60Info } from '@teamleader/ui-il
 import { DialogBaseProps } from '../dialog/DialogBase';
 import { ButtonProps } from '../button/Button';
 
+type Action = Omit<ButtonProps, 'fullWidth' | 'marginTop'>;
+
+type Type = 'confirm' | 'destructive' | 'error';
+
 interface AlertProps extends Omit<DialogBaseProps, 'scrollable' | 'size'> {
   /** Object containing the props of the primary action (a Button, with level prop set to 'primary'). */
   primaryAction: Action;
@@ -20,10 +24,6 @@ interface AlertProps extends Omit<DialogBaseProps, 'scrollable' | 'size'> {
   /** The type of the alert. */
   type?: Type;
 }
-
-type Action = Omit<ButtonProps, 'fullWidth' | 'marginTop'>;
-
-type Type = 'confirm' | 'destructive' | 'error';
 
 const Alert = ({ primaryAction, secondaryAction, title, body, type = 'confirm', ...otherProps }: AlertProps) => {
   const restProps = omit(otherProps, ['primaryAction', 'secondaryAction']);
