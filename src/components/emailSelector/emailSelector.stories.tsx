@@ -1,19 +1,21 @@
 import React from 'react';
 import { text } from '@storybook/addon-knobs';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import EmailSelector from './EmailSelector';
 import { TextBody } from '../typography';
+import { Suggestion } from './types';
 
 export default {
   component: EmailSelector,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Form elements/EmailSelector'),
 
   parameters: {},
-};
+} as ComponentMeta<typeof EmailSelector>;
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-const validator = ({ email }) => EMAIL_REGEX.test(email);
+const validator = ({ email }: Suggestion) => EMAIL_REGEX.test(email);
 const suggestions = [
   { email: 'david.brent@dundermiflin.com', label: 'David Brent' },
   { email: 'david.wallace@dundermiflin.com', label: 'David Wallace' },
@@ -22,7 +24,7 @@ const suggestions = [
   { email: 'robert.dunder@dundermiflin.com', label: 'Robert Dunder' },
 ];
 
-export const basic = () => (
+export const basic: ComponentStory<typeof EmailSelector> = () => (
   <EmailSelector
     error={text('Error', '')}
     validator={validator}
@@ -31,7 +33,7 @@ export const basic = () => (
   />
 );
 
-export const groupedSuggestions = () => (
+export const groupedSuggestions: ComponentStory<typeof EmailSelector> = () => (
   <EmailSelector
     error={text('Error', '')}
     validator={validator}
@@ -48,7 +50,7 @@ export const groupedSuggestions = () => (
   />
 );
 
-export const customSuggestions = () => (
+export const customSuggestions: ComponentStory<typeof EmailSelector> = () => (
   <EmailSelector
     error={text('Error', '')}
     validator={validator}
