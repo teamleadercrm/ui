@@ -11,6 +11,7 @@ import EmailSuggestion from './EmailSuggestion';
 
 interface EmailSelectorProps {
   error?: boolean | string;
+  warning?: boolean | string;
   defaultSelection?: Suggestion[];
   suggestions?: Suggestions;
   validator?: (option: Suggestion) => boolean | string | undefined;
@@ -31,6 +32,7 @@ const EmailSelector = ({
   id,
   suggestions,
   renderSuggestion,
+  warning,
   ...rest
 }: EmailSelectorProps) => {
   const ref = useRef<HTMLElement>();
@@ -47,7 +49,7 @@ const EmailSelector = ({
     Array.isArray(defaultSelection) ? defaultSelection.map(validateLabel) : [],
   );
   const [editingLabel, setEditingLabel] = useState<number | null>(null);
-  const [warning, setWarning] = useState<boolean | string>(false);
+  const [internalWarning, setInternalWarning] = useState<boolean | string>(false);
 
   const validSuggestions = useMemo(() => {
     if (!suggestions) {
@@ -91,11 +93,11 @@ const EmailSelector = ({
       } else {
         const result = validator ? validator(newLabel) : true;
         if (result === false) {
-          setWarning(true);
+          setInternalWarning(true);
           return false;
         }
         if (typeof result === 'string') {
-          setWarning(result);
+          setInternalWarning(result);
           return false;
         }
 
@@ -103,7 +105,7 @@ const EmailSelector = ({
         createNewLabel(newSelection);
       }
 
-      setWarning(false);
+      setInternalWarning(false);
       changeHandler(newSelection);
       return true;
     },
@@ -120,7 +122,7 @@ const EmailSelector = ({
         newSelection.splice(index, 1, validateLabel(newLabel));
       }
 
-      setWarning(false);
+      setInternalWarning(false);
       setSelection(newSelection);
       setEditingLabel(null);
       onBlur && onBlur();
@@ -152,7 +154,7 @@ const EmailSelector = ({
         event.relatedTarget &&
         (!ref.current?.contains(event.relatedTarget) || event.relatedTarget === inputRef.current)
       ) {
-        setWarning(false);
+        setInternalWarning(false);
         setSelection(selection.filter((selection) => selection.email.trim() !== ''));
         setEditingLabel(null);
         onBlur && onBlur(event);
@@ -184,13 +186,13 @@ const EmailSelector = ({
     },
     [editingLabel, selection, onUpdateLabel, changeHandler],
   );
-
+  const displayedWarning = warning ?? internalWarning;
   return (
     <>
       <Box
         ref={ref}
         className={cx(theme['label-input'], {
-          [theme['label-input--warning']]: warning,
+          [theme['label-input--warning']]: displayedWarning,
           [theme['label-input--error']]: error,
           [theme['label-input--active']]: editingLabel !== null,
         })}
@@ -219,7 +221,7 @@ const EmailSelector = ({
           <Box className={theme['label-input-focuser']} element="input" id={id} ref={inputRef} onFocus={onInputFocus} />
         )}
       </Box>
-      <ValidationText warning={warning} error={!warning && error} />
+      <ValidationText warning={displayedWarning} error={!displayedWarning && error} />
     </>
   );
 };
