@@ -11,7 +11,9 @@ import theme from './theme.css';
 
 const TooltippedBox = Tooltip(Box);
 
-export const Status = {
+type StatusValues = 'active' | 'default' | 'disabled' | 'focused' | 'invalid' | 'broken';
+
+export const Status: Record<string, StatusValues> = {
   ACTIVE: 'active',
   DEFAULT: 'default',
   DISABLED: 'disabled',
@@ -46,7 +48,7 @@ interface FilterSelectionProps {
   /** Boolean for showing the number of amountApplied in Selection and a border around */
   applied?: boolean;
   /** Status of the Selection */
-  status?: 'active' | 'default' | 'disabled' | 'focused' | 'invalid' | 'broken';
+  status?: StatusValues;
   /** Amount of the applied shown on Selection */
   amountApplied?: number | null;
   /** A function being called when clicking or pressing key down */
