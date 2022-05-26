@@ -1,6 +1,5 @@
 import { IconCloseSmallOutline, IconChevronDownSmallOutline } from '@teamleader/ui-icons';
 import React, { forwardRef } from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 
 import { KEY } from '../../constants';
@@ -39,9 +38,29 @@ const BackgroundTintByStatus = {
   [Status.BROKEN]: 'lightest',
 };
 
-/** @type {React.ComponentType<any>} */
+interface FilterSelectionProps {
+  label?: string;
+  modificationText?: string | null;
+  applied?: boolean;
+  status?: 'active' | 'default' | 'disabled' | 'focused' | 'invalid' | 'broken';
+  amountApplied?: number | null;
+  onClick?: () => void;
+  onClearClick?: () => void;
+}
+
 const FilterSelection = forwardRef(
-  ({ label, modificationText, applied, status, amountApplied, onClick, onClearClick }, ref) => {
+  (
+    {
+      label = '',
+      modificationText = null,
+      applied = false,
+      status = 'default',
+      amountApplied = null,
+      onClick = () => {},
+      onClearClick = () => {},
+    }: FilterSelectionProps,
+    ref,
+  ) => {
     const showAmount = typeof amountApplied === 'number';
     const modified = typeof modificationText === 'string';
 
@@ -55,13 +74,13 @@ const FilterSelection = forwardRef(
         }
       : {};
 
-    const handleKeyDown = (event) => {
+    const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === KEY.Enter && status !== Status.DISABLED) {
         onClick();
       }
     };
 
-    const handleClearClick = (event) => {
+    const handleClearClick = (event: React.ChangeEvent<HTMLInputElement>) => {
       event.stopPropagation();
       if (status !== Status.DISABLED) {
         onClearClick();
@@ -124,7 +143,7 @@ const FilterSelection = forwardRef(
               <Box
                 alignItems="center"
                 display="flex"
-                onMouseDown={(event) => event.stopPropagation()}
+                onMouseDown={(event: React.MouseEvent<HTMLButtonElement>) => event.stopPropagation()}
                 onClick={handleClearClick}
                 paddingHorizontal={1}
                 borderTopLeftRadius={showAmount ? 'square' : 'rounded'}
@@ -154,26 +173,6 @@ const FilterSelection = forwardRef(
     );
   },
 );
-
-FilterSelection.propTypes = {
-  label: PropTypes.string,
-  modificationText: PropTypes.string,
-  applied: PropTypes.bool,
-  status: PropTypes.oneOf(Object.values(Status)),
-  amountApplied: PropTypes.number,
-  onClick: PropTypes.func,
-  onClearClick: PropTypes.func,
-};
-
-FilterSelection.defaultProps = {
-  label: '',
-  modificationText: null,
-  applied: false,
-  status: Status.DEFAULT,
-  amountApplied: null,
-  onClick: null,
-  onClearClick: null,
-};
 
 FilterSelection.displayName = 'FilterSelection';
 
