@@ -22,7 +22,7 @@ export const STATUS: Record<string, StatusValues> = {
   BROKEN: 'broken',
 };
 
-const ColorByStatus = {
+const COLOR_BY_STATUS = {
   [STATUS.DEFAULT]: 'neutral',
   [STATUS.ACTIVE]: 'aqua',
   [STATUS.FOCUSED]: 'aqua',
@@ -31,7 +31,7 @@ const ColorByStatus = {
   [STATUS.BROKEN]: 'ruby',
 };
 
-const BackgroundTintByStatus = {
+const BACKGROUND_TINT_BY_STATUS = {
   [STATUS.DEFAULT]: undefined,
   [STATUS.ACTIVE]: 'light',
   [STATUS.FOCUSED]: 'light',
@@ -105,10 +105,10 @@ const FilterSelection = forwardRef(
         display="flex"
         boxSizing="border-box"
         paddingHorizontal={3}
-        backgroundColor={ColorByStatus[status] || 'neutral'}
-        backgroundTint={BackgroundTintByStatus[status] || undefined}
+        backgroundColor={COLOR_BY_STATUS[status] || 'neutral'}
+        backgroundTint={BACKGROUND_TINT_BY_STATUS[status] || undefined}
         borderWidth={applied ? 2 : 0}
-        borderColor={ColorByStatus[status] || 'neutral'}
+        borderColor={COLOR_BY_STATUS[status] || 'neutral'}
         borderTint="dark"
         borderRadius="rounded"
         onClick={status !== STATUS.DISABLED && onClick}
@@ -123,7 +123,7 @@ const FilterSelection = forwardRef(
           {...tooltipProps}
         >
           <TextBodyCompact
-            color={status === STATUS.DEFAULT ? 'teal' : ColorByStatus[status] || 'neutral'}
+            color={status === STATUS.DEFAULT ? 'teal' : COLOR_BY_STATUS[status] || 'neutral'}
             tint={status === STATUS.DISABLED ? 'dark' : 'darkest'}
             marginRight={applied ? 2 : 0}
             className={theme['select-value-container']}
@@ -139,7 +139,7 @@ const FilterSelection = forwardRef(
                 <Heading4
                   paddingLeft={2}
                   paddingRight={1}
-                  color={ColorByStatus[status] || 'neutral'}
+                  color={COLOR_BY_STATUS[status] || 'neutral'}
                   tint="dark"
                   borderTopLeftRadius="rounded"
                   borderBottomLeftRadius="rounded"
@@ -161,7 +161,7 @@ const FilterSelection = forwardRef(
                 borderBottomRightRadius="rounded"
                 className={theme['select-clear-icon']}
               >
-                <Icon color={ColorByStatus[status] || 'neutral'} tint="dark" opacity={1}>
+                <Icon color={COLOR_BY_STATUS[status] || 'neutral'} tint="dark" opacity={1}>
                   <IconCloseSmallOutline />
                 </Icon>
               </Box>
@@ -169,7 +169,7 @@ const FilterSelection = forwardRef(
           )}
         </Container>
         <Icon
-          color={status === STATUS.DEFAULT ? 'teal' : ColorByStatus[status] || 'neutral'}
+          color={status === STATUS.DEFAULT ? 'teal' : COLOR_BY_STATUS[status] || 'neutral'}
           tint={status === STATUS.DISABLED ? 'dark' : 'darkest'}
           className={cx(
             theme['select-dropdown-indicator'],
