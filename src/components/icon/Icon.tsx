@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { ReactNode } from 'react';
 import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
@@ -8,7 +8,7 @@ export type TINTS = 'lightest' | 'light' | 'normal' | 'dark' | 'darkest';
 
 interface IconProps {
   /** Element wrapped in Icon tags or sent as children prop */
-  children?: ReactElement | ReactElement[];
+  children?: ReactNode;
   /** Classname for the Icon component */
   className?: string;
   /** Color of the icon */
@@ -29,13 +29,15 @@ const Icon = ({ children, className, color = 'teal', tint = 'normal', opacity = 
       {React.Children.map(children, (child) => {
         // Check if child is an actual React component
         // if so, pass the needed props. If not, just render it.
-        if (!child?.type) {
-          return child;
-        }
+        if (React.isValidElement(child)) {
+          if (!child?.type) {
+            return child;
+          }
 
-        return React.cloneElement(child, {
-          opacity,
-        });
+          return React.cloneElement(child, {
+            opacity,
+          });
+        }
       })}
     </Box>
   );
