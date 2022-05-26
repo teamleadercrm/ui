@@ -1,3 +1,4 @@
+import { ComponentStory } from '@storybook/react';
 import React from 'react';
 
 import { addStoryInGroup, COMPOSITIONS } from '../../../.storybook/utils';
@@ -8,14 +9,16 @@ export default {
   title: addStoryInGroup(COMPOSITIONS, 'FilterSelection'),
 };
 
-export const DefaultState = (args) => <FilterSelection {...args} />;
+export const DefaultState: ComponentStory<typeof FilterSelection> = (args) => <FilterSelection {...args} />;
 
 DefaultState.args = {
   label: 'default',
   status: Status.DEFAULT,
 };
 
-export const DefaultStateWithModifications = (args) => <FilterSelection {...args} />;
+export const DefaultStateWithModifications: ComponentStory<typeof FilterSelection> = (args) => (
+  <FilterSelection {...args} />
+);
 
 DefaultStateWithModifications.args = {
   label: 'default with modifications',
@@ -23,7 +26,7 @@ DefaultStateWithModifications.args = {
   modificationText: 'This filter was cleared',
 };
 
-export const Focused = (args) => <FilterSelection label="focused" {...args} />;
+export const Focused: ComponentStory<typeof FilterSelection> = (args) => <FilterSelection label="focused" {...args} />;
 
 Focused.args = {
   label: 'focused',
@@ -31,7 +34,7 @@ Focused.args = {
   applied: true,
 };
 
-export const Active = (args) => <FilterSelection label="active" {...args} />;
+export const Active: ComponentStory<typeof FilterSelection> = (args) => <FilterSelection label="active" {...args} />;
 
 Active.args = {
   label: 'active',
@@ -39,7 +42,7 @@ Active.args = {
   applied: true,
 };
 
-export const ActiveWithClearableSelection = (args) => (
+export const ActiveWithClearableSelection: ComponentStory<typeof FilterSelection> = (args) => (
   <FilterSelection label="active with clearable selection" {...args} />
 );
 
@@ -49,7 +52,7 @@ ActiveWithClearableSelection.args = {
   applied: true,
 };
 
-export const ActiveWithCountableSelection = (args) => (
+export const ActiveWithCountableSelection: ComponentStory<typeof FilterSelection> = (args) => (
   <FilterSelection label="active with countable selection" {...args} />
 );
 
@@ -60,7 +63,9 @@ ActiveWithCountableSelection.args = {
   amountApplied: 3,
 };
 
-export const Disabled = (args) => <FilterSelection label="disabled" {...args} />;
+export const Disabled: ComponentStory<typeof FilterSelection> = (args) => (
+  <FilterSelection label="disabled" {...args} />
+);
 
 Disabled.args = {
   label: 'disabled',
@@ -68,7 +73,7 @@ Disabled.args = {
   applied: true,
 };
 
-export const Invalid = (args) => <FilterSelection label="invalid" {...args} />;
+export const Invalid: ComponentStory<typeof FilterSelection> = (args) => <FilterSelection label="invalid" {...args} />;
 
 Invalid.args = {
   label: 'invalid',
@@ -76,7 +81,7 @@ Invalid.args = {
   applied: true,
 };
 
-export const Broken = (args) => <FilterSelection label="broken" {...args} />;
+export const Broken: ComponentStory<typeof FilterSelection> = (args) => <FilterSelection label="broken" {...args} />;
 
 Broken.args = {
   label: 'broken',
