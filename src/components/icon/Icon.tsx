@@ -1,40 +1,28 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
 
-/** @type {React.ComponentType<any>} */
-class Icon extends PureComponent {
-  render() {
-    const { children, className, color, tint, opacity, ...others } = this.props;
+const Icon = ({ children, className, color, tint, opacity, ...others }) => {
+  const classNames = cx(theme[color], theme[tint], className);
 
-    const classNames = cx(theme[color], theme[tint], className);
+  return (
+    <Box className={classNames} alignItems="center" data-teamleader-ui="icon" display="flex" element="span" {...others}>
+      {React.Children.map(children, (child) => {
+        // Check if child is an actual React component
+        // if so, pass the needed props. If not, just render it.
+        if (!child.type) {
+          return child;
+        }
 
-    return (
-      <Box
-        className={classNames}
-        alignItems="center"
-        data-teamleader-ui="icon"
-        display="flex"
-        element="span"
-        {...others}
-      >
-        {React.Children.map(children, (child) => {
-          // Check if child is an actual React component
-          // if so, pass the needed props. If not, just render it.
-          if (!child.type) {
-            return child;
-          }
-
-          return React.cloneElement(child, {
-            opacity,
-          });
-        })}
-      </Box>
-    );
-  }
-}
+        return React.cloneElement(child, {
+          opacity,
+        });
+      })}
+    </Box>
+  );
+};
 
 Icon.propTypes = {
   children: PropTypes.any,
