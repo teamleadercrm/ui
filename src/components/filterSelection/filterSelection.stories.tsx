@@ -2,7 +2,7 @@ import { ComponentStory } from '@storybook/react';
 import React from 'react';
 
 import { addStoryInGroup, COMPOSITIONS } from '../../../.storybook/utils';
-import FilterSelection, { Status } from './FilterSelection';
+import FilterSelection, { STATUS } from './FilterSelection';
 
 export default {
   component: FilterSelection,
@@ -13,7 +13,7 @@ export const DefaultState: ComponentStory<typeof FilterSelection> = (args) => <F
 
 DefaultState.args = {
   label: 'default',
-  status: Status.DEFAULT,
+  status: STATUS.DEFAULT,
 };
 
 export const DefaultStateWithModifications: ComponentStory<typeof FilterSelection> = (args) => (
@@ -22,7 +22,7 @@ export const DefaultStateWithModifications: ComponentStory<typeof FilterSelectio
 
 DefaultStateWithModifications.args = {
   label: 'default with modifications',
-  status: Status.DEFAULT,
+  status: STATUS.DEFAULT,
   modificationText: 'This filter was cleared',
 };
 
@@ -30,7 +30,7 @@ export const Focused: ComponentStory<typeof FilterSelection> = (args) => <Filter
 
 Focused.args = {
   label: 'focused',
-  status: Status.FOCUSED,
+  status: STATUS.FOCUSED,
   applied: true,
 };
 
@@ -38,7 +38,7 @@ export const Active: ComponentStory<typeof FilterSelection> = (args) => <FilterS
 
 Active.args = {
   label: 'active',
-  status: Status.ACTIVE,
+  status: STATUS.ACTIVE,
   applied: true,
 };
 
@@ -48,7 +48,7 @@ export const ActiveWithClearableSelection: ComponentStory<typeof FilterSelection
 
 ActiveWithClearableSelection.args = {
   label: 'active with clearable selection',
-  status: Status.ACTIVE,
+  status: STATUS.ACTIVE,
   applied: true,
 };
 
@@ -58,7 +58,7 @@ export const ActiveWithCountableSelection: ComponentStory<typeof FilterSelection
 
 ActiveWithCountableSelection.args = {
   label: 'active with countable selection',
-  status: Status.ACTIVE,
+  status: STATUS.ACTIVE,
   applied: true,
   amountApplied: 3,
 };
@@ -69,7 +69,7 @@ export const Disabled: ComponentStory<typeof FilterSelection> = (args) => (
 
 Disabled.args = {
   label: 'disabled',
-  status: Status.DISABLED,
+  status: STATUS.DISABLED,
   applied: true,
 };
 
@@ -77,7 +77,7 @@ export const Invalid: ComponentStory<typeof FilterSelection> = (args) => <Filter
 
 Invalid.args = {
   label: 'invalid',
-  status: Status.INVALID,
+  status: STATUS.INVALID,
   applied: true,
 };
 
@@ -85,6 +85,6 @@ export const Broken: ComponentStory<typeof FilterSelection> = (args) => <FilterS
 
 Broken.args = {
   label: 'broken',
-  status: Status.BROKEN,
+  status: STATUS.BROKEN,
   applied: true,
 };

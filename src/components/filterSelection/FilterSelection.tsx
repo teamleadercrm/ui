@@ -13,7 +13,7 @@ const TooltippedBox = Tooltip(Box);
 
 type StatusValues = 'active' | 'default' | 'disabled' | 'focused' | 'invalid' | 'broken';
 
-export const Status: Record<string, StatusValues> = {
+export const STATUS: Record<string, StatusValues> = {
   ACTIVE: 'active',
   DEFAULT: 'default',
   DISABLED: 'disabled',
@@ -23,21 +23,21 @@ export const Status: Record<string, StatusValues> = {
 };
 
 const ColorByStatus = {
-  [Status.DEFAULT]: 'neutral',
-  [Status.ACTIVE]: 'aqua',
-  [Status.FOCUSED]: 'aqua',
-  [Status.DISABLED]: 'neutral',
-  [Status.INVALID]: 'gold',
-  [Status.BROKEN]: 'ruby',
+  [STATUS.DEFAULT]: 'neutral',
+  [STATUS.ACTIVE]: 'aqua',
+  [STATUS.FOCUSED]: 'aqua',
+  [STATUS.DISABLED]: 'neutral',
+  [STATUS.INVALID]: 'gold',
+  [STATUS.BROKEN]: 'ruby',
 };
 
 const BackgroundTintByStatus = {
-  [Status.DEFAULT]: undefined,
-  [Status.ACTIVE]: 'light',
-  [Status.FOCUSED]: 'light',
-  [Status.DISABLED]: undefined,
-  [Status.INVALID]: 'lightest',
-  [Status.BROKEN]: 'lightest',
+  [STATUS.DEFAULT]: undefined,
+  [STATUS.ACTIVE]: 'light',
+  [STATUS.FOCUSED]: 'light',
+  [STATUS.DISABLED]: undefined,
+  [STATUS.INVALID]: 'lightest',
+  [STATUS.BROKEN]: 'lightest',
 };
 
 interface FilterSelectionProps {
@@ -84,14 +84,14 @@ const FilterSelection = forwardRef(
       : {};
 
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === KEY.Enter && status !== Status.DISABLED) {
+      if (event.key === KEY.Enter && status !== STATUS.DISABLED) {
         onClick();
       }
     };
 
     const handleClearClick = (event: React.ChangeEvent<HTMLInputElement>) => {
       event.stopPropagation();
-      if (status !== Status.DISABLED) {
+      if (status !== STATUS.DISABLED) {
         onClearClick();
       }
     };
@@ -99,7 +99,7 @@ const FilterSelection = forwardRef(
     return (
       <Box
         ref={ref}
-        className={cx(theme['select-control'], status === Status.DEFAULT && theme['select-control--hovered'])}
+        className={cx(theme['select-control'], status === STATUS.DEFAULT && theme['select-control--hovered'])}
         role="button"
         tabIndex={0}
         display="flex"
@@ -111,7 +111,7 @@ const FilterSelection = forwardRef(
         borderColor={ColorByStatus[status] || 'neutral'}
         borderTint="dark"
         borderRadius="rounded"
-        onClick={status !== Status.DISABLED && onClick}
+        onClick={status !== STATUS.DISABLED && onClick}
         onKeyDown={handleKeyDown}
       >
         <Container
@@ -123,8 +123,8 @@ const FilterSelection = forwardRef(
           {...tooltipProps}
         >
           <TextBodyCompact
-            color={status === Status.DEFAULT ? 'teal' : ColorByStatus[status] || 'neutral'}
-            tint={status === Status.DISABLED ? 'dark' : 'darkest'}
+            color={status === STATUS.DEFAULT ? 'teal' : ColorByStatus[status] || 'neutral'}
+            tint={status === STATUS.DISABLED ? 'dark' : 'darkest'}
             marginRight={applied ? 2 : 0}
             className={theme['select-value-container']}
           >{`${label}${modified ? ' •' : ''}`}</TextBodyCompact>
@@ -169,11 +169,11 @@ const FilterSelection = forwardRef(
           )}
         </Container>
         <Icon
-          color={status === Status.DEFAULT ? 'teal' : ColorByStatus[status] || 'neutral'}
-          tint={status === Status.DISABLED ? 'dark' : 'darkest'}
+          color={status === STATUS.DEFAULT ? 'teal' : ColorByStatus[status] || 'neutral'}
+          tint={status === STATUS.DISABLED ? 'dark' : 'darkest'}
           className={cx(
             theme['select-dropdown-indicator'],
-            status === Status.FOCUSED && theme['select-dropdown-indicator--focused'],
+            status === STATUS.FOCUSED && theme['select-dropdown-indicator--focused'],
           )}
         >
           <IconChevronDownSmallOutline />
