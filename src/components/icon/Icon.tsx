@@ -7,10 +7,15 @@ export type COLOURS = 'neutral' | 'mint' | 'violet' | 'ruby' | 'gold' | 'aqua' |
 export type TINTS = 'lightest' | 'light' | 'normal' | 'dark' | 'darkest';
 
 interface IconProps {
+  /** Element wrapped in Icon tags or sent as children prop */
   children?: ReactElement | ReactElement[];
+  /** Classname for the Icon component */
   className?: string;
+  /** Color of the icon */
   color?: COLOURS;
+  /** Tint of the icon */
   tint?: TINTS;
+  /** Opacity of the icon */
   opacity?: number;
 }
 
