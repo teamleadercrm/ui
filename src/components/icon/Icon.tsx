@@ -1,10 +1,20 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { ReactElement } from 'react';
 import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
 
-const Icon = ({ children, className, color, tint, opacity, ...others }) => {
+export type COLOURS = 'neutral' | 'mint' | 'violet' | 'ruby' | 'gold' | 'aqua' | 'teal';
+export type TINTS = 'lightest' | 'light' | 'normal' | 'dark' | 'darkest';
+
+interface IconProps {
+  children?: ReactElement | ReactElement[];
+  className?: string;
+  color?: COLOURS;
+  tint?: TINTS;
+  opacity?: number;
+}
+
+const Icon = ({ children, className, color = 'teal', tint = 'normal', opacity = 0.84, ...others }: IconProps) => {
   const classNames = cx(theme[color], theme[tint], className);
 
   return (
@@ -12,7 +22,7 @@ const Icon = ({ children, className, color, tint, opacity, ...others }) => {
       {React.Children.map(children, (child) => {
         // Check if child is an actual React component
         // if so, pass the needed props. If not, just render it.
-        if (!child.type) {
+        if (!child?.type) {
           return child;
         }
 
@@ -22,20 +32,6 @@ const Icon = ({ children, className, color, tint, opacity, ...others }) => {
       })}
     </Box>
   );
-};
-
-Icon.propTypes = {
-  children: PropTypes.any,
-  className: PropTypes.string,
-  color: PropTypes.oneOf(['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'teal']),
-  opacity: PropTypes.number,
-  tint: PropTypes.oneOf(['lightest', 'light', 'normal', 'dark', 'darkest']),
-};
-
-Icon.defaultProps = {
-  color: 'teal',
-  tint: 'normal',
-  opacity: 0.84,
 };
 
 export default Icon;
