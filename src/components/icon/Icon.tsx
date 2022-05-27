@@ -17,8 +17,6 @@ interface IconProps {
   tint?: TINTS;
   /** Opacity of the icon */
   opacity?: number;
-  /** For other props */
-  [key: string]: unknown;
 }
 
 const Icon = ({ children, className, color = 'teal', tint = 'normal', opacity = 0.84, ...others }: IconProps) => {
