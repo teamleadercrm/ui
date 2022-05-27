@@ -9,9 +9,9 @@ import { BoxProps } from '../box/Box';
 
 type SIZES = 'small' | 'medium' | 'large';
 type TINTS = 'lightest' | 'light' | 'normal' | 'dark' | 'darkest';
-type COLOURS = 'neutral' | 'white' | 'mint' | 'violet' | 'ruby' | 'gold' | 'aqua' | 'teal';
+type COLORS = 'neutral' | 'white' | 'mint' | 'violet' | 'ruby' | 'gold' | 'aqua' | 'teal';
 
-export interface IconButtonProps extends Omit<BoxProps, 'ref'> {
+export interface IconButtonProps extends Omit<BoxProps, 'ref' | 'children' | 'className' | 'element'> {
   /** The content to display inside the button. */
   children?: ReactNode;
   /** A class name for the button to give custom styles. */
@@ -25,7 +25,7 @@ export interface IconButtonProps extends Omit<BoxProps, 'ref'> {
   /** Size of the button. */
   size?: SIZES;
   /** The color which the icon should have */
-  color?: COLOURS;
+  color?: COLORS;
   /** The tint which the icon should have */
   tint?: TINTS;
   /** If true, component will be shown in a selected state */
