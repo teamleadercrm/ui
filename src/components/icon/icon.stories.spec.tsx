@@ -2,7 +2,7 @@ import React from 'react';
 import { IconGiftMediumOutline } from '@teamleader/ui-icons';
 
 import { Icon } from '../..';
-import { COLOURS, TINTS } from './Icon';
+import { COLORS, TINTS } from './Icon';
 
 export default {
   component: Icon,
@@ -15,7 +15,7 @@ const Wrapper = ({ children }: { children: React.ReactNode }) => (
 
 export const Main = () => (
   <div>
-    {(['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'teal'] as COLOURS[]).map((color) => (
+    {(['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'teal'] as COLORS[]).map((color) => (
       <Wrapper key={color}>
         {(['lightest', 'light', 'normal', 'dark', 'darkest'] as TINTS[]).map((tint) => (
           <Icon key={tint} color={color} tint={tint}>
