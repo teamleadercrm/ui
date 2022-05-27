@@ -113,7 +113,7 @@ const IconButton = forwardRef(
         <Box {...props}>
           <LoadingSpinner
             className={theme['spinner']}
-            color={color}
+            color={color === 'white' ? 'neutral' : color}
             size={size === 'small' ? 'small' : 'medium'}
             tint={tint}
           />
