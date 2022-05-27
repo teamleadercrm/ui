@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `Dialog`: used proper `ref` creator ([@qubis741](https://github.com/qubis741) in [#2175](https://github.com/teamleadercrm/ui/pull/2175))
+
 ### Dependency updates
 
 ## [14.5.6] - 2022-05-26
