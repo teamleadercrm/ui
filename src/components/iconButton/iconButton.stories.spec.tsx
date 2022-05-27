@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { IconGiftMediumOutline } from '@teamleader/ui-icons';
 
 import { IconButton } from '../..';
@@ -8,7 +8,7 @@ export default {
   title: 'IconButton',
 };
 
-const Wrapper = ({ children, inverse = false }) => (
+const Wrapper = ({ children, inverse = false }: { children: ReactNode; inverse: boolean }) => (
   <div style={{ minHeight: '50px', display: 'flex', backgroundColor: inverse ? 'grey' : 'transparent' }}>
     {children}
   </div>
