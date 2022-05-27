@@ -1,15 +1,15 @@
-import React, { useCallback, useMemo, useRef, useState } from 'react';
 import cx from 'classnames';
-
-import ValidationText from '../validationText';
-import theme from './theme.css';
+import React, { useCallback, useMemo, useRef, useState } from 'react';
 import Box from '../box';
-import Label from './Label';
-import { excludeSuggestions } from './utils';
-import { Suggestion, Suggestions } from './types';
+import { BoxProps } from '../box/Box';
+import ValidationText from '../validationText';
 import EmailSuggestion from './EmailSuggestion';
+import Label from './Label';
+import theme from './theme.css';
+import { Suggestion, Suggestions } from './types';
+import { excludeSuggestions } from './utils';
 
-interface EmailSelectorProps {
+interface EmailSelectorProps extends Omit<BoxProps, 'ref' | 'onBlur' | 'onFocus'> {
   error?: boolean | string;
   warning?: boolean | string;
   defaultSelection?: Suggestion[];
