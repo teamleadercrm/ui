@@ -3,6 +3,7 @@ import Alert from './Alert';
 import Box from '../box';
 import Button from '../button';
 import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 export default {
   component: Alert,
@@ -14,9 +15,9 @@ export default {
       },
     },
   },
-};
+} as ComponentMeta<typeof Alert>;
 
-export const DefaultStory = (args) => {
+export const DefaultStory: ComponentStory<typeof Alert> = (args) => {
   const [active, setActive] = useState(false);
 
   const toggleAlert = () => {
@@ -44,7 +45,7 @@ DefaultStory.args = {
   body: 'I am the alert body text',
 };
 
-export const ConfirmationAlert = (args) => {
+export const ConfirmationAlert: ComponentStory<typeof Alert> = (args) => {
   const [active, setActive] = useState(false);
 
   const toggleAlert = () => {
@@ -73,7 +74,7 @@ ConfirmationAlert.args = {
   type: 'confirm',
 };
 
-export const DestructiveAlert = (args) => {
+export const DestructiveAlert: ComponentStory<typeof Alert> = (args) => {
   const [active, setActive] = useState(false);
 
   const toggleAlert = () => {
@@ -102,7 +103,7 @@ DestructiveAlert.args = {
   type: 'destructive',
 };
 
-export const ErrorAlert = (args) => {
+export const ErrorAlert: ComponentStory<typeof Alert> = (args) => {
   const [active, setActive] = useState(false);
 
   const toggleAlert = () => {
