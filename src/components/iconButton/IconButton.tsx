@@ -11,7 +11,7 @@ type SIZES = 'small' | 'medium' | 'large';
 type TINTS = 'lightest' | 'light' | 'normal' | 'dark' | 'darkest';
 type COLOURS = 'neutral' | 'white' | 'mint' | 'violet' | 'ruby' | 'gold' | 'aqua' | 'teal';
 
-interface IconButtonProps extends Omit<BoxProps, 'ref'> {
+export interface IconButtonProps extends Omit<BoxProps, 'ref'> {
   /** The content to display inside the button. */
   children?: ReactNode;
   /** A class name for the button to give custom styles. */
