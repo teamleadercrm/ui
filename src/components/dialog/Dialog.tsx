@@ -1,12 +1,10 @@
-import React, { createRef, ReactNode } from 'react';
-import omit from 'lodash.omit';
-import cx from 'classnames';
-
-import theme from './theme.css';
-
-import { Button, ButtonGroup, DialogBase, Heading3 } from '../../index';
 import { IconDragMediumFilled } from '@teamleader/ui-icons';
+import cx from 'classnames';
+import omit from 'lodash.omit';
+import React, { ReactNode, useRef } from 'react';
+import { Button, ButtonGroup, DialogBase, Heading3 } from '../../index';
 import { DialogBaseProps } from './DialogBase';
+import theme from './theme.css';
 
 interface DialogProps extends Omit<DialogBaseProps, 'ref'> {
   /** If true, the dialog will show on screen. */
@@ -51,8 +49,8 @@ const Dialog = ({
   onCloseClick,
   ...otherProps
 }: DialogProps) => {
-  const bodyRef = createRef<HTMLElement>();
-  const dragHandleRef = createRef<HTMLDivElement>();
+  const bodyRef = useRef<HTMLElement>(null);
+  const dragHandleRef = useRef<HTMLDivElement>(null);
 
   const getHeader = () => {
     const dragIcon = (
