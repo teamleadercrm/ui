@@ -4,16 +4,16 @@ import cx from 'classnames';
 import theme from './theme.css';
 import { BoxProps } from '../box/Box';
 
-export type COLOURS = 'neutral' | 'mint' | 'violet' | 'ruby' | 'gold' | 'aqua' | 'teal';
+export type COLORS = 'neutral' | 'mint' | 'violet' | 'ruby' | 'gold' | 'aqua' | 'teal';
 export type TINTS = 'lightest' | 'light' | 'normal' | 'dark' | 'darkest';
 
-interface IconProps extends Omit<BoxProps, 'ref'> {
+interface IconProps extends Omit<BoxProps, 'children' | 'className'> {
   /** Element wrapped in Icon tags or sent as children prop */
   children?: ReactNode;
   /** Classname for the Icon component */
   className?: string;
   /** Color of the icon */
-  color?: COLOURS;
+  color?: COLORS;
   /** Tint of the icon */
   tint?: TINTS;
   /** Opacity of the icon */
