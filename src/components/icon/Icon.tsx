@@ -2,11 +2,12 @@ import React, { ReactNode } from 'react';
 import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
+import { BoxProps } from '../box/Box';
 
 export type COLOURS = 'neutral' | 'mint' | 'violet' | 'ruby' | 'gold' | 'aqua' | 'teal';
 export type TINTS = 'lightest' | 'light' | 'normal' | 'dark' | 'darkest';
 
-interface IconProps {
+interface IconProps extends Omit<BoxProps, 'ref'> {
   /** Element wrapped in Icon tags or sent as children prop */
   children?: ReactNode;
   /** Classname for the Icon component */
