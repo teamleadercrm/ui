@@ -1,42 +1,54 @@
 import { IconCheckmarkMediumOutline, IconCheckmarkSmallOutline, IconMinusSmallOutline } from '@teamleader/ui-icons';
 import cx from 'classnames';
 import omit from 'lodash.omit';
-import PropTypes from 'prop-types';
-import React, { createRef, PureComponent } from 'react';
+import React, { ChangeEvent, forwardRef, ReactNode } from 'react';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import { TextBodyCompact, TextDisplay, TextSmall } from '../typography';
 import theme from './theme.css';
+import { BoxProps } from '../box/Box';
 
-/** @type {React.ComponentType<any>} */
-class Checkbox extends PureComponent {
-  inputNode = createRef();
+interface CheckboxProps extends Omit<BoxProps, 'onChange' | 'size'> {
+  /** If true, the checkbox will be checked. */
+  checked?: boolean;
+  /** The content to display next to the checkbox. */
+  children?: ReactNode;
+  /** If true, component will be disabled. */
+  disabled?: boolean;
+  /** Name for form input. */
+  name?: string;
+  /** A class name for the wrapper to give custom styles. */
+  className?: string;
+  /** The textual label displayed next to the checkbox. */
+  label?: string;
+  /** Callback function that is fired when checkbox is toggled. */
+  onChange?: (checked: boolean, event: ChangeEvent<HTMLInputElement>) => void;
+  /** Indicate whether the checkbox is neither checked or unchecked. */
+  indeterminate?: boolean;
+  /** Size of the checkbox. */
+  size?: 'small' | 'medium' | 'large';
+}
 
-  handleToggle = (event) => {
-    const { disabled, checked, onChange } = this.props;
+const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
+  (
+    {
+      checked = false,
+      disabled = false,
+      className,
+      size = 'medium',
+      label,
+      children,
+      indeterminate = false,
+      onChange,
+      ...others
+    },
+    ref,
+  ) => {
+    const handleToggle = (event: ChangeEvent<HTMLInputElement>) => {
+      if (onChange) {
+        onChange(event.target.checked, event);
+      }
+    };
 
-    if (event.pageX !== 0 && event.pageY !== 0) {
-      this.blur();
-    }
-
-    if (!disabled && onChange) {
-      onChange(!checked, event);
-    }
-  };
-
-  blur() {
-    if (this.inputNode.current) {
-      this.inputNode.current.blur();
-    }
-  }
-
-  focus() {
-    if (this.inputNode.current) {
-      this.inputNode.current.focus();
-    }
-  }
-
-  render() {
-    const { checked, disabled, className, size, label, children, indeterminate, ...others } = this.props;
     const TextElement = size === 'small' ? TextSmall : size === 'medium' ? TextBodyCompact : TextDisplay;
     const IconCheckmark = size === 'large' ? IconCheckmarkMediumOutline : IconCheckmarkSmallOutline;
 
@@ -61,8 +73,8 @@ class Checkbox extends PureComponent {
           type="checkbox"
           checked={checked}
           disabled={disabled}
-          onClick={this.handleToggle}
-          ref={this.inputNode}
+          onChange={handleToggle}
+          ref={ref}
           readOnly
           {...inputProps}
         />
@@ -81,35 +93,9 @@ class Checkbox extends PureComponent {
         )}
       </Box>
     );
-  }
-}
+  },
+);
 
-Checkbox.propTypes = {
-  /** If true, the checkbox will be checked. */
-  checked: PropTypes.bool,
-  /** The content to display next to the checkbox. */
-  children: PropTypes.node,
-  /** If true, component will be disabled. */
-  disabled: PropTypes.bool,
-  /** Name for form input. */
-  name: PropTypes.string,
-  /** A class name for the wrapper to give custom styles. */
-  className: PropTypes.string,
-  /** The textual label displayed next to the checkbox. */
-  label: PropTypes.string,
-  /** Callback function that is fired when checkbox is toggled. */
-  onChange: PropTypes.func,
-  /** Indicate whether the checkbox is neither checked or unchecked. */
-  indeterminate: PropTypes.bool,
-  /** Size of the checkbox. */
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
-};
-
-Checkbox.defaultProps = {
-  checked: false,
-  disabled: false,
-  indeterminate: false,
-  size: 'medium',
-};
+Checkbox.displayName = 'Checkbox';
 
 export default Checkbox;

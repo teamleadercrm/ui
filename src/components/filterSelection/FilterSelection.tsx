@@ -1,6 +1,5 @@
 import { IconCloseSmallOutline, IconChevronDownSmallOutline } from '@teamleader/ui-icons';
 import React, { forwardRef } from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 
 import { KEY } from '../../constants';
@@ -12,7 +11,9 @@ import theme from './theme.css';
 
 const TooltippedBox = Tooltip(Box);
 
-export const Status = {
+type StatusValues = 'active' | 'default' | 'disabled' | 'focused' | 'invalid' | 'broken';
+
+export const STATUS: Record<string, StatusValues> = {
   ACTIVE: 'active',
   DEFAULT: 'default',
   DISABLED: 'disabled',
@@ -21,27 +22,54 @@ export const Status = {
   BROKEN: 'broken',
 };
 
-const ColorByStatus = {
-  [Status.DEFAULT]: 'neutral',
-  [Status.ACTIVE]: 'aqua',
-  [Status.FOCUSED]: 'aqua',
-  [Status.DISABLED]: 'neutral',
-  [Status.INVALID]: 'gold',
-  [Status.BROKEN]: 'ruby',
+const COLOR_BY_STATUS = {
+  [STATUS.DEFAULT]: 'neutral',
+  [STATUS.ACTIVE]: 'aqua',
+  [STATUS.FOCUSED]: 'aqua',
+  [STATUS.DISABLED]: 'neutral',
+  [STATUS.INVALID]: 'gold',
+  [STATUS.BROKEN]: 'ruby',
 };
 
-const BackgroundTintByStatus = {
-  [Status.DEFAULT]: undefined,
-  [Status.ACTIVE]: 'light',
-  [Status.FOCUSED]: 'light',
-  [Status.DISABLED]: undefined,
-  [Status.INVALID]: 'lightest',
-  [Status.BROKEN]: 'lightest',
+const BACKGROUND_TINT_BY_STATUS = {
+  [STATUS.DEFAULT]: undefined,
+  [STATUS.ACTIVE]: 'light',
+  [STATUS.FOCUSED]: 'light',
+  [STATUS.DISABLED]: undefined,
+  [STATUS.INVALID]: 'lightest',
+  [STATUS.BROKEN]: 'lightest',
 };
 
-/** @type {React.ComponentType<any>} */
+interface FilterSelectionProps {
+  /** The title shown on the Selection */
+  label?: string;
+  /** The tooltop shown on top of the Selection */
+  modificationText?: string | null;
+  /** Boolean for showing the number of amountApplied in Selection and a border around */
+  applied?: boolean;
+  /** Status of the Selection */
+  status?: StatusValues;
+  /** Amount of the applied shown on Selection */
+  amountApplied?: number | null;
+  /** A function being called when clicking or pressing key down */
+  onClick?: () => void;
+  /** A function being called when clicking X on the Selection */
+  onClearClick?: () => void;
+}
+
 const FilterSelection = forwardRef(
-  ({ label, modificationText, applied, status, amountApplied, onClick, onClearClick }, ref) => {
+  (
+    {
+      label = '',
+      modificationText = null,
+      applied = false,
+      status = 'default',
+      amountApplied = null,
+      onClick = () => {},
+      onClearClick = () => {},
+    }: FilterSelectionProps,
+    ref,
+  ) => {
     const showAmount = typeof amountApplied === 'number';
     const modified = typeof modificationText === 'string';
 
@@ -55,15 +83,15 @@ const FilterSelection = forwardRef(
         }
       : {};
 
-    const handleKeyDown = (event) => {
-      if (event.key === KEY.Enter && status !== Status.DISABLED) {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === KEY.Enter && status !== STATUS.DISABLED) {
         onClick();
       }
     };
 
-    const handleClearClick = (event) => {
+    const handleClearClick = (event: React.ChangeEvent<HTMLInputElement>) => {
       event.stopPropagation();
-      if (status !== Status.DISABLED) {
+      if (status !== STATUS.DISABLED) {
         onClearClick();
       }
     };
@@ -71,19 +99,19 @@ const FilterSelection = forwardRef(
     return (
       <Box
         ref={ref}
-        className={cx(theme['select-control'], status === Status.DEFAULT && theme['select-control--hovered'])}
+        className={cx(theme['select-control'], status === STATUS.DEFAULT && theme['select-control--hovered'])}
         role="button"
         tabIndex={0}
         display="flex"
         boxSizing="border-box"
         paddingHorizontal={3}
-        backgroundColor={ColorByStatus[status] || 'neutral'}
-        backgroundTint={BackgroundTintByStatus[status] || undefined}
+        backgroundColor={COLOR_BY_STATUS[status] || 'neutral'}
+        backgroundTint={BACKGROUND_TINT_BY_STATUS[status] || undefined}
         borderWidth={applied ? 2 : 0}
-        borderColor={ColorByStatus[status] || 'neutral'}
+        borderColor={COLOR_BY_STATUS[status] || 'neutral'}
         borderTint="dark"
         borderRadius="rounded"
-        onClick={status !== Status.DISABLED && onClick}
+        onClick={status !== STATUS.DISABLED && onClick}
         onKeyDown={handleKeyDown}
       >
         <Container
@@ -95,8 +123,8 @@ const FilterSelection = forwardRef(
           {...tooltipProps}
         >
           <TextBodyCompact
-            color={status === Status.DEFAULT ? 'teal' : ColorByStatus[status] || 'neutral'}
-            tint={status === Status.DISABLED ? 'dark' : 'darkest'}
+            color={status === STATUS.DEFAULT ? 'teal' : COLOR_BY_STATUS[status] || 'neutral'}
+            tint={status === STATUS.DISABLED ? 'dark' : 'darkest'}
             marginRight={applied ? 2 : 0}
             className={theme['select-value-container']}
           >{`${label}${modified ? ' •' : ''}`}</TextBodyCompact>
@@ -111,7 +139,7 @@ const FilterSelection = forwardRef(
                 <Heading4
                   paddingLeft={2}
                   paddingRight={1}
-                  color={ColorByStatus[status] || 'neutral'}
+                  color={COLOR_BY_STATUS[status] || 'neutral'}
                   tint="dark"
                   borderTopLeftRadius="rounded"
                   borderBottomLeftRadius="rounded"
@@ -124,7 +152,7 @@ const FilterSelection = forwardRef(
               <Box
                 alignItems="center"
                 display="flex"
-                onMouseDown={(event) => event.stopPropagation()}
+                onMouseDown={(event: React.MouseEvent<HTMLButtonElement>) => event.stopPropagation()}
                 onClick={handleClearClick}
                 paddingHorizontal={1}
                 borderTopLeftRadius={showAmount ? 'square' : 'rounded'}
@@ -133,7 +161,7 @@ const FilterSelection = forwardRef(
                 borderBottomRightRadius="rounded"
                 className={theme['select-clear-icon']}
               >
-                <Icon color={ColorByStatus[status] || 'neutral'} tint="dark" opacity={1}>
+                <Icon color={COLOR_BY_STATUS[status] || 'neutral'} tint="dark" opacity={1}>
                   <IconCloseSmallOutline />
                 </Icon>
               </Box>
@@ -141,11 +169,11 @@ const FilterSelection = forwardRef(
           )}
         </Container>
         <Icon
-          color={status === Status.DEFAULT ? 'teal' : ColorByStatus[status] || 'neutral'}
-          tint={status === Status.DISABLED ? 'dark' : 'darkest'}
+          color={status === STATUS.DEFAULT ? 'teal' : COLOR_BY_STATUS[status] || 'neutral'}
+          tint={status === STATUS.DISABLED ? 'dark' : 'darkest'}
           className={cx(
             theme['select-dropdown-indicator'],
-            status === Status.FOCUSED && theme['select-dropdown-indicator--focused'],
+            status === STATUS.FOCUSED && theme['select-dropdown-indicator--focused'],
           )}
         >
           <IconChevronDownSmallOutline />
@@ -154,26 +182,6 @@ const FilterSelection = forwardRef(
     );
   },
 );
-
-FilterSelection.propTypes = {
-  label: PropTypes.string,
-  modificationText: PropTypes.string,
-  applied: PropTypes.bool,
-  status: PropTypes.oneOf(Object.values(Status)),
-  amountApplied: PropTypes.number,
-  onClick: PropTypes.func,
-  onClearClick: PropTypes.func,
-};
-
-FilterSelection.defaultProps = {
-  label: '',
-  modificationText: null,
-  applied: false,
-  status: Status.DEFAULT,
-  amountApplied: null,
-  onClick: null,
-  onClearClick: null,
-};
 
 FilterSelection.displayName = 'FilterSelection';
 

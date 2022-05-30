@@ -12,6 +12,18 @@
 
 ### Dependency updates
 
+## [14.5.7] - 2022-05-26
+
+### Fixed
+
+- `Dialog`: used proper `ref` creator ([@qubis741](https://github.com/qubis741) in [#2175](https://github.com/teamleadercrm/ui/pull/2175))
+
+## [14.5.6] - 2022-05-26
+
+### Added
+
+- `EmailSelector`: `warning` property ([@qubis741](https://github.com/qubis741) in [#2170](https://github.com/teamleadercrm/ui/pull/2170))
+
 ## [14.5.5] - 2022-05-19
 
 ### Removed
