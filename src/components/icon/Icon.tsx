@@ -28,15 +28,13 @@ const Icon = ({ children, className, color = 'teal', tint = 'normal', opacity = 
       {React.Children.map(children, (child) => {
         // Check if child is an actual React component
         // if so, pass the needed props. If not, just render it.
-        if (React.isValidElement(child)) {
-          if (!child?.type) {
-            return child;
-          }
-
-          return React.cloneElement(child, {
-            opacity,
-          });
+        if (!React.isValidElement(child)) {
+          return child;
         }
+
+        return React.cloneElement(child, {
+          opacity,
+        });
       })}
     </Box>
   );
