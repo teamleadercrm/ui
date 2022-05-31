@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { CSSProperties, ReactNode } from 'react';
 import cx from 'classnames';
 import theme from './theme.css';
 
@@ -9,16 +9,17 @@ interface FlexProps {
   direction?: 'row' | 'column';
   gap?: Gap;
   alignItems?: 'center' | 'flex-start' | 'flex-end' | 'baseline' | 'stretch';
+  style?: CSSProperties;
 }
 
-const Flex = ({ children, direction = 'row', gap = 0, alignItems, ...otherProps }: FlexProps) => {
+const Flex = ({ children, direction = 'row', gap = 0, alignItems, style, ...otherProps }: FlexProps) => {
   const classNames = cx(theme['flex'], theme[`${direction}`], {
     [theme[`gap-${gap}`]]: gap > 0,
     [theme[`align-items-${alignItems}`]]: alignItems,
   });
 
   return (
-    <div className={classNames} {...otherProps}>
+    <div className={classNames} style={style} {...otherProps}>
       {children}
     </div>
   );

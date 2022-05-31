@@ -4,8 +4,6 @@
 .flex {
   box-sizing: border-box;
   display: flex;
-  background-color: black;
-  height: 200px;
 }
 
 .row {
