@@ -27,3 +27,9 @@
     align-items: $item-alignment;
   }
 }
+
+@each $justify in (center, flex-start, flex-end, space-around, space-between, space-evenly) {
+  .justify-content-$(justify) {
+    justify-content: $justify;
+  }
+}

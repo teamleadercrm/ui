@@ -9,13 +9,23 @@ interface FlexProps {
   direction?: 'row' | 'column';
   gap?: Gap;
   alignItems?: 'center' | 'flex-start' | 'flex-end' | 'baseline' | 'stretch';
+  justifyContent?: 'center' | 'flex-start' | 'flex-end' | 'space-around' | 'space-between' | 'space-evenly';
   style?: CSSProperties;
 }
 
-const Flex = ({ children, direction = 'row', gap = 0, alignItems, style, ...otherProps }: FlexProps) => {
+const Flex = ({
+  children,
+  direction = 'row',
+  gap = 0,
+  alignItems,
+  justifyContent,
+  style,
+  ...otherProps
+}: FlexProps) => {
   const classNames = cx(theme['flex'], theme[`${direction}`], {
     [theme[`gap-${gap}`]]: gap > 0,
     [theme[`align-items-${alignItems}`]]: alignItems,
+    [theme[`justify-content-${justifyContent}`]]: justifyContent,
   });
 
   return (
@@ -24,5 +34,7 @@ const Flex = ({ children, direction = 'row', gap = 0, alignItems, style, ...othe
     </div>
   );
 };
+
+Flex.displayName = 'Flex';
 
 export default Flex;

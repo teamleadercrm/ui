@@ -2,6 +2,7 @@ import { ComponentStory } from '@storybook/react';
 import React from 'react';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { Flex, Box, TextBody } from '../../index';
+import { Heading3 } from '../typography';
 
 export default {
   component: Flex,
@@ -26,15 +27,19 @@ const PreppedBox = () => (
     padding={2}
     borderRadius="rounded"
   >
-    <TextBody>Box Content</TextBody>
+    <TextBody>Content</TextBody>
   </Box>
 );
 export const basic: ComponentStory<typeof Flex> = (args) => (
-  <Box borderColor="neutral" borderWidth={1} borderRadius="rounded">
-    <Flex style={{ minHeight: '100px' }} {...args}>
-      <PreppedBox />
-      <PreppedBox />
-    </Flex>
+  <Box>
+    <Heading3>Flex Box</Heading3>
+    <Box borderColor="neutral" borderWidth={1} borderRadius="rounded" backgroundColor="neutral" backgroundTint="light">
+      <Flex style={{ minHeight: '100px' }} {...args}>
+        <PreppedBox />
+        <PreppedBox />
+        <PreppedBox />
+      </Flex>
+    </Box>
   </Box>
 );
 
