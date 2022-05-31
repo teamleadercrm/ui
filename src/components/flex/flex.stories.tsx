@@ -8,16 +8,26 @@ export default {
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Flex'),
 };
 
-const COLORS = ['teal', 'mint', 'ruby'];
-
+const PreppedBox = () => (
+  <Box
+    backgroundColor={'mint'}
+    backgroundTint="lightest"
+    borderColor={'mint'}
+    borderTint="light"
+    borderWidth={1}
+    padding={2}
+  >
+    <TextBody>Box Content</TextBody>
+  </Box>
+);
 export const basic: ComponentStory<typeof Flex> = (args) => (
   <Flex {...args}>
-    {COLORS.map((color, index) => (
-      <Box backgroundColor={color} backgroundTint="lightest" borderColor={color} borderTint="light" borderWidth={1}>
-        <TextBody>Box {index}</TextBody>
-      </Box>
-    ))}
+    <PreppedBox />
+    <PreppedBox />
   </Flex>
 );
 
-basic.args = {};
+basic.args = {
+  direction: 'row',
+  gap: 0,
+};
