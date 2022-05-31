@@ -1,2 +1,7 @@
 @import '@teamleader/ui-colors';
 @import '@teamleader/ui-utilities';
+
+.flex {
+  box-sizing: border-box;
+  display: flex;
+}
