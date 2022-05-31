@@ -8,10 +8,14 @@ interface FlexProps {
   children: ReactNode;
   direction?: 'row' | 'column';
   gap?: Gap;
+  alignItems?: 'center' | 'flex-start' | 'flex-end' | 'baseline' | 'stretch';
 }
 
-const Flex = ({ children, direction = 'row', gap = 0, ...otherProps }: FlexProps) => {
-  const classNames = cx(theme['flex'], theme[`${direction}`], { [theme[`gap-${gap}`]]: gap > 0 });
+const Flex = ({ children, direction = 'row', gap = 0, alignItems, ...otherProps }: FlexProps) => {
+  const classNames = cx(theme['flex'], theme[`${direction}`], {
+    [theme[`gap-${gap}`]]: gap > 0,
+    [theme[`align-items-${alignItems}`]]: alignItems,
+  });
 
   return (
     <div className={classNames} {...otherProps}>
