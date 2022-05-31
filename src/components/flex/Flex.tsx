@@ -4,10 +4,11 @@ import theme from './theme.css';
 
 interface FlexProps {
   children: ReactNode;
+  direction?: 'row' | 'column';
 }
 
-const Flex = ({ children, ...otherProps }: FlexProps) => {
-  const classNames = cx(theme['flex']);
+const Flex = ({ children, direction = 'row', ...otherProps }: FlexProps) => {
+  const classNames = cx(theme['flex'], theme[`${direction}`]);
 
   return (
     <div className={classNames} {...otherProps}>
