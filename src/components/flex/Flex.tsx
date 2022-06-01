@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ForwardedRef, forwardRef, ReactNode } from 'react';
 import cx from 'classnames';
 import theme from './theme.css';
 
@@ -13,9 +13,10 @@ type FlexProps = Partial<{
   // The library can be fixed with template literal types.
   alignItems: 'center' | 'flex-start' | 'flex-end' | 'baseline' | 'stretch';
   justifyContent: 'center' | 'flex-start' | 'flex-end' | 'space-around' | 'space-between' | 'space-evenly';
+  ref: ForwardedRef<HTMLDivElement>;
 }>;
 
-const Flex = ({ children, direction = 'row', gap = 0, alignItems, justifyContent }: FlexProps) => {
+const Flex = forwardRef(({ children, direction = 'row', gap = 0, alignItems, justifyContent, ref }: FlexProps) => {
   const classNames = cx(theme['flex'], theme[`${direction}`], {
     [theme[`gap-${gap}`]]: gap > 0,
   });
@@ -23,11 +24,11 @@ const Flex = ({ children, direction = 'row', gap = 0, alignItems, justifyContent
   const flexStyles = { alignItems, justifyContent };
 
   return (
-    <div className={classNames} style={flexStyles}>
+    <div className={classNames} style={flexStyles} ref={ref}>
       {children}
     </div>
   );
-};
+});
 
 Flex.displayName = 'Flex';
 
