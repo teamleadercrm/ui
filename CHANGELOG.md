@@ -12,6 +12,12 @@
 
 ### Dependency updates
 
+## [14.6.0]
+
+### Added
+
+- `Flex`: a new component used for layouts ([@farazatarodi](https://github.com/farazatarodi) in [#2185](https://github.com/teamleadercrm/ui/pull/2185))
+
 ## [14.5.7] - 2022-05-26
 
 ### Fixed
