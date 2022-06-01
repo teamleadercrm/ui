@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
-const GridItem = () => {
-  return <div>GridItem</div>;
+type GridItemProps = Partial<{ children: ReactNode }>;
+
+const GridItem = ({ children }: GridItemProps) => {
+  return <div>{children}</div>;
 };
 
 export default GridItem;
