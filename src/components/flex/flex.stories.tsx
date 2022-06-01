@@ -1,7 +1,7 @@
 import { ComponentStory } from '@storybook/react';
 import React from 'react';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
-import { Flex, Box, TextBody } from '../../index';
+import { Flex, Box } from '../../index';
 import { Heading3 } from '../typography';
 
 export default {
@@ -17,27 +17,28 @@ export default {
   },
 };
 
-const PreppedBox = () => (
+const MintBox = ({ size }: { size: number }) => (
   <Box
     backgroundColor="mint"
     backgroundTint="lightest"
     borderColor="mint"
     borderTint="light"
     borderWidth={1}
-    padding={2}
     borderRadius="rounded"
-  >
-    <TextBody>Content</TextBody>
-  </Box>
+    style={{
+      minHeight: `${size / 2}px`,
+      width: `${size}px`,
+    }}
+  />
 );
 export const basic: ComponentStory<typeof Flex> = (args) => (
   <Box>
     <Heading3>Flex Box</Heading3>
     <Box borderColor="neutral" borderWidth={1} borderRadius="rounded" backgroundColor="neutral" backgroundTint="light">
-      <Flex style={{ minHeight: '100px' }} {...args}>
-        <PreppedBox />
-        <PreppedBox />
-        <PreppedBox />
+      <Flex {...args}>
+        <MintBox size={50} />
+        <MintBox size={150} />
+        <MintBox size={100} />
       </Flex>
     </Box>
   </Box>
