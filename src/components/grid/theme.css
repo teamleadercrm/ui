@@ -1,7 +1,14 @@
-@import '@teamleader/ui-colors';
 @import '@teamleader/ui-utilities';
 
 .grid {
   box-sizing: border-box;
   display: grid;
+}
+
+/* prettier-ignore */
+@each
+  $factor, $spacer in (1, 2, 3, 4, 5, 6, 7, 8), (var(--spacer-smallest), var(--spacer-smaller), var(--spacer-small), var(--spacer-regular), var(--spacer-medium), var(--spacer-big), var(--spacer-bigger), var(--spacer-biggest)) {
+  .gap-$(factor) {
+    gap: $spacer;
+  }
 }

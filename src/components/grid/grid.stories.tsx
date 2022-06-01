@@ -21,5 +21,6 @@ export const basic: ComponentStory<typeof Grid> = (args) => (
 basic.args = {
   areas: ['header header', 'sidebar content', 'footer footer'],
   rows: ['100px', '1fr', '50px'],
-  columns: ['20%', '80%'],
+  columns: ['20%', '1fr'],
+  gap: 0,
 };
