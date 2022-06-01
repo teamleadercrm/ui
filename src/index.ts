@@ -75,6 +75,7 @@ import ProgressTracker from './components/progressTracker';
 import Widget from './components/widget';
 import WysiwygEditor from './components/wysiwygEditor';
 import EmailSelector from './components/emailSelector';
+import Grid from './components/grid';
 
 import {
   COLOR,
@@ -121,6 +122,7 @@ export {
   EmptyState,
   ErrorText,
   FilterSelection,
+  Grid,
   Heading1,
   Heading2,
   Heading3,
