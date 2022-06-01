@@ -21,15 +21,3 @@
     gap: $spacer;
   }
 }
-
-@each $item-alignment in (center, flex-start, flex-end, baseline, stretch) {
-  .align-items-$(item-alignment) {
-    align-items: $item-alignment;
-  }
-}
-
-@each $justify in (center, flex-start, flex-end, space-around, space-between, space-evenly) {
-  .justify-content-$(justify) {
-    justify-content: $justify;
-  }
-}

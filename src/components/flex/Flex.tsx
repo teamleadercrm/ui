@@ -2,13 +2,15 @@ import React, { ReactNode } from 'react';
 import cx from 'classnames';
 import theme from './theme.css';
 
-const gaps = [0, 1, 2, 3, 4, 5, 6, 7, 8] as const;
-export type Gap = typeof gaps[number];
+type Gap = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
 type FlexProps = Partial<{
   children: ReactNode;
   direction: 'row' | 'column';
   gap: Gap;
+  // Ideally CSSProperties should be used as the type.
+  // However because of the two-value sytnax of these properties the type includes (string & {}) which is not suitable for us.
+  // The library can be fixed with template literal types.
   alignItems: 'center' | 'flex-start' | 'flex-end' | 'baseline' | 'stretch';
   justifyContent: 'center' | 'flex-start' | 'flex-end' | 'space-around' | 'space-between' | 'space-evenly';
 }>;
@@ -16,11 +18,15 @@ type FlexProps = Partial<{
 const Flex = ({ children, direction = 'row', gap = 0, alignItems, justifyContent }: FlexProps) => {
   const classNames = cx(theme['flex'], theme[`${direction}`], {
     [theme[`gap-${gap}`]]: gap > 0,
-    [theme[`align-items-${alignItems}`]]: alignItems,
-    [theme[`justify-content-${justifyContent}`]]: justifyContent,
   });
 
-  return <div className={classNames}>{children}</div>;
+  const flexStyles = { alignItems, justifyContent };
+
+  return (
+    <div className={classNames} style={flexStyles}>
+      {children}
+    </div>
+  );
 };
 
 Flex.displayName = 'Flex';
