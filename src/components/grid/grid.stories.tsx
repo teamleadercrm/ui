@@ -18,4 +18,4 @@ export const basic: ComponentStory<typeof Grid> = (args) => (
   </Box>
 );
 
-basic.args = {};
+basic.args = { areas: ['header header', 'sidebar content', 'footer footer'] };
