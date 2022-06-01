@@ -7,14 +7,6 @@ import { Heading3 } from '../typography';
 export default {
   component: Flex,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Flex'),
-
-  argTypes: {
-    style: {
-      table: {
-        disable: true,
-      },
-    },
-  },
 };
 
 const MintBox = ({ size }: { size: number }) => (
