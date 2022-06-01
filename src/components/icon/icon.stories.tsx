@@ -4,6 +4,7 @@ import * as Icons from '@teamleader/ui-icons';
 import { Box, Icon, TextSmall } from '../../index';
 import { IconWarningBadgedMediumOutline } from '@teamleader/ui-icons';
 import description from './description.md';
+import { ComponentStory } from '@storybook/react';
 
 const gridStyles = {
   display: 'flex',
@@ -29,7 +30,7 @@ export default {
   },
 };
 
-export const DefaultStory = (args) => (
+export const DefaultStory: ComponentStory<typeof Icon> = (args) => (
   <Icon {...args}>
     <IconWarningBadgedMediumOutline />
   </Icon>
