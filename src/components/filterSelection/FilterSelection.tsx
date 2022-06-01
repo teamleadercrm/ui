@@ -8,6 +8,7 @@ import Icon from '../icon';
 import Box from '../box';
 import Tooltip from '../tooltip';
 import theme from './theme.css';
+import { COLORS } from '../icon/Icon';
 
 const TooltippedBox = Tooltip(Box);
 
@@ -22,7 +23,7 @@ export const STATUS: Record<string, StatusValues> = {
   BROKEN: 'broken',
 };
 
-const COLOR_BY_STATUS = {
+const COLOR_BY_STATUS: Record<string, COLORS> = {
   [STATUS.DEFAULT]: 'neutral',
   [STATUS.ACTIVE]: 'aqua',
   [STATUS.FOCUSED]: 'aqua',
