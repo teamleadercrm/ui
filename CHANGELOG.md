@@ -3,6 +3,7 @@
 ### Added
 
 - `Flex`: a new component used for layouts ([@farazatarodi](https://github.com/farazatarodi) in [#2185](https://github.com/teamleadercrm/ui/pull/2185))
+- `Grid`: a new component used for layouts ([@farazatarodi](https://github.com/farazatarodi) in [#2186](https://github.com/teamleadercrm/ui/pull/2186))
 
 ### Changed
 

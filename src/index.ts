@@ -75,6 +75,7 @@ import ProgressTracker from './components/progressTracker';
 import Widget from './components/widget';
 import WysiwygEditor from './components/wysiwygEditor';
 import EmailSelector from './components/emailSelector';
+import Grid from './components/grid';
 import Flex from './components/flex';
 
 import {
@@ -123,6 +124,7 @@ export {
   ErrorText,
   FilterSelection,
   Flex,
+  Grid,
   Heading1,
   Heading2,
   Heading3,
