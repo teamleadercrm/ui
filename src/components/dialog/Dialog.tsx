@@ -28,7 +28,7 @@ interface DialogProps extends Omit<DialogBaseProps, 'ref'> {
   /** Object containing the props of the tertiary action (a Link, with the inherit props set to false). */
   tertiaryAction?: object;
   /** The title of the dialog. */
-  title?: string;
+  title?: ReactNode;
   /** If true the dialog will render as a form element. */
   form?: boolean;
   /** Optional callback if the dialog is a form and is being submitted */
