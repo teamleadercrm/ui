@@ -1,16 +1,25 @@
+import { ComponentMeta } from '@storybook/react';
 import React from 'react';
 import { addStoryInGroup, COMPOSITIONS } from '../../../.storybook/utils';
-import { Box, ButtonGroup, Heading3, IconButton, IconMenu, MenuItem, TextBody, Widget, MenuDivider } from '../../index';
+import ButtonGroup from '../buttonGroup';
+import IconButton from '../iconButton';
+import { IconMenu, MenuDivider, MenuItem } from '../menu';
+import { Heading3, TextBody } from '../typography';
+import Widget, { WidgetProps } from './Widget';
 import { IconAddMediumOutline, IconEditMediumOutline } from '@teamleader/ui-icons';
+import WidgetHeader from './WidgetHeader';
+import WidgetBody from './WidgetBody';
+import Box from '../box';
+import WidgetFooter from './WidgetFooter';
 
 export default {
   component: Widget,
-  title: addStoryInGroup(COMPOSITIONS, 'Widget'),
-};
+  title: addStoryInGroup(COMPOSITIONS, 'WidgetTs'),
+} as ComponentMeta<typeof Widget>;
 
-export const FullWidget = (args) => (
+export const FullWidget = (args: WidgetProps) => (
   <Widget {...args}>
-    <Widget.Header display="flex" alignItems="center" justifyContent="space-between">
+    <WidgetHeader display="flex" alignItems="center" justifyContent="space-between">
       <Heading3>I am the widget header title</Heading3>
       <ButtonGroup>
         <IconButton icon={<IconEditMediumOutline />} />
@@ -22,68 +31,68 @@ export const FullWidget = (args) => (
           <MenuItem label="Disabled menu item..." disabled />
         </IconMenu>
       </ButtonGroup>
-    </Widget.Header>
-    <Widget.Body>
+    </WidgetHeader>
+    <WidgetBody>
       <TextBody>Here you can add arbitrary content.</TextBody>
-    </Widget.Body>
+    </WidgetBody>
   </Widget>
 );
 
 export const Basic = () => (
   <Widget>
-    <Widget.Body>
+    <WidgetBody>
       <TextBody>Here you can add arbitrary content.</TextBody>
-    </Widget.Body>
+    </WidgetBody>
   </Widget>
 );
 
 export const WithMultipleBody = () => (
   <Widget>
-    <Widget.Body>
+    <WidgetBody>
       <TextBody>Here you can add arbitrary content.</TextBody>
-    </Widget.Body>
-    <Widget.Body>
+    </WidgetBody>
+    <WidgetBody>
       <TextBody>Here you can add arbitrary content.</TextBody>
-    </Widget.Body>
+    </WidgetBody>
   </Widget>
 );
 
 export const WithHeader = () => (
   <Widget>
-    <Widget.Header>
+    <WidgetHeader>
       <Heading3>I am the widget header title</Heading3>
-    </Widget.Header>
-    <Widget.Body>
+    </WidgetHeader>
+    <WidgetBody>
       <TextBody>Here you can add arbitrary content.</TextBody>
-    </Widget.Body>
+    </WidgetBody>
   </Widget>
 );
 
 export const WithHeaderAndAction = () => (
   <Widget>
-    <Widget.Header display="flex" alignItems="center">
+    <WidgetHeader display="flex" alignItems="center">
       <Box flex={1}>
         <Heading3>I am the widget header title</Heading3>
       </Box>
       <Box>
         <IconButton icon={<IconAddMediumOutline />} />
       </Box>
-    </Widget.Header>
-    <Widget.Body>
+    </WidgetHeader>
+    <WidgetBody>
       <TextBody>Here you can add arbitrary content.</TextBody>
-    </Widget.Body>
+    </WidgetBody>
   </Widget>
 );
 
 export const WithFooter = () => (
   <Widget>
-    <Widget.Body>
+    <WidgetBody>
       <TextBody>Here you can add arbitrary content.</TextBody>
-    </Widget.Body>
-    <Widget.Footer>
+    </WidgetBody>
+    <WidgetFooter>
       <Box display="flex" alignItems="center" justifyContent="space-between">
         <TextBody>I am the widget footer</TextBody>
       </Box>
-    </Widget.Footer>
+    </WidgetFooter>
   </Widget>
 );
