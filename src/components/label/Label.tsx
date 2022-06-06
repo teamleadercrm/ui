@@ -10,9 +10,9 @@ const TooltippedIcon = Tooltip(Icon);
 
 interface LabelProps extends Omit<BoxProps, 'children'> {
   children: ReactNode;
-  inverse: boolean;
-  required: boolean;
-  size: 'small' | 'medium' | 'large';
+  inverse?: boolean;
+  required?: boolean;
+  size?: 'small' | 'medium' | 'large';
   tooltip?: string;
 }
 
