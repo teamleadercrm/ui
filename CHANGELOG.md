@@ -12,6 +12,13 @@
 
 ### Dependency updates
 
+## [14.6.0] - 2022-06-02
+
+### Added
+
+- `Flex`: a new component used for layouts ([@farazatarodi](https://github.com/farazatarodi) in [#2185](https://github.com/teamleadercrm/ui/pull/2185))
+- `Grid`: a new component used for layouts ([@farazatarodi](https://github.com/farazatarodi) in [#2186](https://github.com/teamleadercrm/ui/pull/2186))
+
 ## [14.5.7] - 2022-05-26
 
 ### Fixed
