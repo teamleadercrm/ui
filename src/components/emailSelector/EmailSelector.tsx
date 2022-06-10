@@ -214,7 +214,7 @@ const EmailSelector = ({
             onFinish={onUpdateLabel}
             onFocus={onTagFocus}
             onBlur={onBlurLabel}
-            {...(!(i == 0 && disableRemovalOfFirst) && { onRemove: onRemoveHandler })}
+            {...(!(i === 0 && disableRemovalOfFirst) && { onRemove: onRemoveHandler })}
             suggestions={validSuggestions}
             renderSuggestion={renderSuggestion}
           />
