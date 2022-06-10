@@ -70,7 +70,7 @@ const EmailSelector = ({
 
   const onLabelClick = useCallback(
     (index: number) => {
-      setEditingLabel(index);
+      !disableRemovalOfFirst && setEditingLabel(index);
       setSelection(selection.filter((selection, i) => i <= index || selection.email.trim() !== ''));
     },
     [setEditingLabel, setSelection, selection],
