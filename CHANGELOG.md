@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `Dialog, DialogBase`: Fix blurriness with certain text content in webkit-based browsers ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#2191](https://github.com/teamleadercrm/ui/pull/2191))
+
 ### Dependency updates
 
 ## [14.6.0] - 2022-06-02
