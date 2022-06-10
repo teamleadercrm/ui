@@ -20,6 +20,7 @@ interface EmailSelectorProps extends Omit<BoxProps, 'ref' | 'onBlur' | 'onFocus'
   onFocus?: (event: React.FocusEvent<HTMLElement>) => void;
   id?: string;
   renderSuggestion?: React.ComponentType<React.ComponentProps<typeof EmailSuggestion>>;
+  disableRemovalOfFirst?: boolean;
 }
 
 const EmailSelector = ({
@@ -33,6 +34,7 @@ const EmailSelector = ({
   suggestions,
   renderSuggestion,
   warning,
+  disableRemovalOfFirst,
   ...rest
 }: EmailSelectorProps) => {
   const ref = useRef<HTMLElement>();
@@ -168,7 +170,7 @@ const EmailSelector = ({
     setEditingLabel(null);
   }, [selection, setSelection, setEditingLabel]);
 
-  const onRemove = useCallback(
+  const onRemoveHandler = useCallback(
     (index: number) => {
       if (editingLabel !== index && selection[index].email !== '') {
         onUpdateLabel(index);
@@ -212,7 +214,7 @@ const EmailSelector = ({
             onFinish={onUpdateLabel}
             onFocus={onTagFocus}
             onBlur={onBlurLabel}
-            onRemove={onRemove}
+            {...(!(i == 0 && disableRemovalOfFirst) && { onRemove: onRemoveHandler })}
             suggestions={validSuggestions}
             renderSuggestion={renderSuggestion}
           />
