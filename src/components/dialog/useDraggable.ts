@@ -25,6 +25,10 @@ const useDraggable = ({ active = false, dragTargetRef, dragHandleRef }: UseDragg
       currentDragTargetRef.style.top = `${currentDragTargetRef.offsetTop + dy}px`;
       currentDragTargetRef.style.left = `${currentDragTargetRef.offsetLeft + dx}px`;
 
+      if (currentDragTargetRef.style.position !== 'absolute') {
+        currentDragTargetRef.style.position = 'absolute';
+      }
+
       x = event.clientX;
       y = event.clientY;
     };
