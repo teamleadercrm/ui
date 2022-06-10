@@ -1,3 +1,4 @@
+import { ComponentStory } from '@storybook/react';
 import React from 'react';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { Box, TextBody } from '../../index';
@@ -13,7 +14,7 @@ export default {
   },
 };
 
-export const basic = (args: unknown) => (
+export const basic: ComponentStory<typeof Box> = (args) => (
   <Box {...args}>
     <TextBody>I'm body text inside a Box component</TextBody>
   </Box>
