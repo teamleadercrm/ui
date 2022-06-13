@@ -32,6 +32,7 @@ interface LabelProps {
   onFinish?: (index: number, newLabel: Suggestion | { email: string }) => void;
   suggestions?: Suggestions;
   renderSuggestion?: React.ComponentType<React.ComponentProps<typeof EmailSuggestion>>;
+  disableRemovalOfFirst?: boolean;
 }
 
 const Label = ({
@@ -46,6 +47,7 @@ const Label = ({
   onRemove,
   onFinish,
   renderSuggestion,
+  disableRemovalOfFirst,
 }: LabelProps) => {
   const [content, setContent] = useState(option.email);
   const [autocompleteOpen, setAutocompleteOpen] = useState(true);
@@ -147,7 +149,7 @@ const Label = ({
           break;
 
         case BACKSPACE:
-          if (!event.repeat && content === '' && onRemove) {
+          if (!event.repeat && content === '' && onRemove && !((index === 0 || index === 1) && disableRemovalOfFirst)) {
             onRemove(index);
           }
           break;
@@ -234,7 +236,7 @@ const Label = ({
       margin={1}
       marginRight={2}
       onFocus={onTagFocus}
-      onRemoveClick={onRemove && onTagRemove}
+      onRemoveClick={!(index === 0 && disableRemovalOfFirst) && onRemove && onTagRemove}
     >
       <Link element="button" className={theme['label-text']} inherit={false} onClick={onTagClick}>
         {option.label || option.email}

@@ -214,9 +214,10 @@ const EmailSelector = ({
             onFinish={onUpdateLabel}
             onFocus={onTagFocus}
             onBlur={onBlurLabel}
-            {...(!(i === 0 && disableRemovalOfFirst) && { onRemove: onRemoveHandler })}
+            onRemove={onRemoveHandler}
             suggestions={validSuggestions}
             renderSuggestion={renderSuggestion}
+            disableRemovalOfFirst={disableRemovalOfFirst}
           />
         ))}
         {(editingLabel === null || selection[editingLabel].email !== '') && (

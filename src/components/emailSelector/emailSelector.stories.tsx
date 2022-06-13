@@ -62,3 +62,13 @@ export const customSuggestions: ComponentStory<typeof EmailSelector> = () => (
     )}
   />
 );
+
+export const disableRemovalOfFirst: ComponentStory<typeof EmailSelector> = () => (
+  <EmailSelector
+    error={text('Error', '')}
+    validator={validator}
+    defaultSelection={[suggestions[0]]}
+    suggestions={suggestions}
+    disableRemovalOfFirst
+  />
+);
