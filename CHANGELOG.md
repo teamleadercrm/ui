@@ -3,6 +3,7 @@
 ### Added
 
 - `EmailSelector`: Allow the autocomplete menu to take the same width as it's input with the `menuFullWidth` prop ([@BeirlaenAaron](https://github.com/BeirlaenAaron) in [#2205](https://github.com/teamleadercrm/ui/pull/2205))
+- `EmailSelector`: A prop to disable the removal of the initial emailaddress ([@stefaandevylder](https://github.com/stefaandevylder)) in [#2197](https://github.com/teamleadercrm/ui/pull/2197))
 
 ### Changed
 
@@ -12,11 +13,13 @@
 
 ### Fixed
 
+- `Flex, Grid`: move ref from component props to the forwardRef argument ([@farazatarodi](https://github.com/farazatarodi) in [#2203](https://github.com/teamleadercrm/ui/pull/2203)).
+
 ### Dependency updates
 
 ## [14.6.1] - 2022-06-10
 
-### Fixed
+### Fixed=======
 
 - `Dialog, DialogBase`: Fix blurriness with certain text content in webkit-based browsers ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#2191](https://github.com/teamleadercrm/ui/pull/2191))
 

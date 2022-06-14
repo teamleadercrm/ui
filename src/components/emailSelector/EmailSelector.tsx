@@ -21,6 +21,7 @@ interface EmailSelectorProps extends Omit<BoxProps, 'ref' | 'onBlur' | 'onFocus'
   id?: string;
   renderSuggestion?: React.ComponentType<React.ComponentProps<typeof EmailSuggestion>>;
   menuFullWidth?: boolean;
+  disableRemovalOfFirst?: boolean;
 }
 
 const EmailSelector = ({
@@ -35,6 +36,7 @@ const EmailSelector = ({
   renderSuggestion,
   warning,
   menuFullWidth,
+  disableRemovalOfFirst,
   ...rest
 }: EmailSelectorProps) => {
   const ref = useRef<HTMLElement>();
@@ -70,7 +72,7 @@ const EmailSelector = ({
 
   const onLabelClick = useCallback(
     (index: number) => {
-      setEditingLabel(index);
+      !disableRemovalOfFirst && setEditingLabel(index);
       setSelection(selection.filter((selection, i) => i <= index || selection.email.trim() !== ''));
     },
     [setEditingLabel, setSelection, selection],
@@ -170,7 +172,7 @@ const EmailSelector = ({
     setEditingLabel(null);
   }, [selection, setSelection, setEditingLabel]);
 
-  const onRemove = useCallback(
+  const onRemoveHandler = useCallback(
     (index: number) => {
       if (editingLabel !== index && selection[index].email !== '') {
         onUpdateLabel(index);
@@ -214,9 +216,10 @@ const EmailSelector = ({
             onFinish={onUpdateLabel}
             onFocus={onTagFocus}
             onBlur={onBlurLabel}
-            onRemove={onRemove}
+            onRemove={onRemoveHandler}
             suggestions={validSuggestions}
             renderSuggestion={renderSuggestion}
+            disableRemovalOfFirst={disableRemovalOfFirst}
             {...(menuFullWidth && {
               menuWidth: ref.current?.offsetWidth,
             })}
