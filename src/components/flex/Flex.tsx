@@ -13,22 +13,26 @@ type FlexProps = Partial<{
   // The library can be fixed with template literal types.
   alignItems: 'center' | 'flex-start' | 'flex-end' | 'baseline' | 'stretch';
   justifyContent: 'center' | 'flex-start' | 'flex-end' | 'space-around' | 'space-between' | 'space-evenly';
-  ref: ForwardedRef<HTMLDivElement>;
 }>;
 
-const Flex = forwardRef(({ children, direction = 'row', gap = 0, alignItems, justifyContent, ref }: FlexProps) => {
-  const classNames = cx(theme['flex'], theme[`${direction}`], {
-    [theme[`gap-${gap}`]]: gap > 0,
-  });
+const Flex = forwardRef(
+  (
+    { children, direction = 'row', gap = 0, alignItems, justifyContent }: FlexProps,
+    ref: ForwardedRef<HTMLDivElement>,
+  ) => {
+    const classNames = cx(theme['flex'], theme[`${direction}`], {
+      [theme[`gap-${gap}`]]: gap > 0,
+    });
 
-  const flexStyles = { alignItems, justifyContent };
+    const flexStyles = { alignItems, justifyContent };
 
-  return (
-    <div className={classNames} style={flexStyles} ref={ref}>
-      {children}
-    </div>
-  );
-});
+    return (
+      <div className={classNames} style={flexStyles} ref={ref}>
+        {children}
+      </div>
+    );
+  },
+);
 
 Flex.displayName = 'Flex';
 

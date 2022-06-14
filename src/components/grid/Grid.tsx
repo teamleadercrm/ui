@@ -14,7 +14,7 @@ export type GridProps = Partial<{
   ref: ForwardedRef<HTMLDivElement>;
 }>;
 
-const Grid = forwardRef(({ children, areas, rows, columns, gap = 0, ref }: GridProps) => {
+const Grid = forwardRef(({ children, areas, rows, columns, gap = 0 }: GridProps, ref: ForwardedRef<HTMLDivElement>) => {
   const classNames = cx(theme['grid'], {
     [theme[`gap-${gap}`]]: gap > 0,
   });
