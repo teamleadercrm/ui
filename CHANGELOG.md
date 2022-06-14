@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `Flex, Grid`: move ref from component props to the forwardRef argument ([@farazatarodi](https://github.com/farazatarodi) in [#2203](https://github.com/teamleadercrm/ui/pull/2203)).
+
 ### Dependency updates
 
 ## [14.6.1] - 2022-06-10
