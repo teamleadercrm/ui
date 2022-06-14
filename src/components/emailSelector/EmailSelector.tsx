@@ -218,7 +218,7 @@ const EmailSelector = ({
             suggestions={validSuggestions}
             renderSuggestion={renderSuggestion}
             {...(menuFullWidth && {
-              menuWidth: ref.current?.clientWidth,
+              menuWidth: ref.current?.offsetWidth,
             })}
           />
         ))}
