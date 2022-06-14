@@ -2,6 +2,8 @@
 
 ### Added
 
+- `EmailSelector`: Allow the autocomplete menu to take the same width as it's input with the `menuFullWidth` prop ([@BeirlaenAaron](https://github.com/BeirlaenAaron) in [#2205](https://github.com/teamleadercrm/ui/pull/2205))
+
 ### Changed
 
 ### Deprecated
