@@ -215,6 +215,7 @@ const EmailSelector = ({
             onRemove={onRemove}
             suggestions={validSuggestions}
             renderSuggestion={renderSuggestion}
+            menuWidth={ref.current?.clientWidth}
           />
         ))}
         {(editingLabel === null || selection[editingLabel].email !== '') && (

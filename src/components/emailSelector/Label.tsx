@@ -32,6 +32,7 @@ interface LabelProps {
   onFinish?: (index: number, newLabel: Suggestion | { email: string }) => void;
   suggestions?: Suggestions;
   renderSuggestion?: React.ComponentType<React.ComponentProps<typeof EmailSuggestion>>;
+  menuWidth?: number;
 }
 
 const Label = ({
@@ -46,6 +47,7 @@ const Label = ({
   onRemove,
   onFinish,
   renderSuggestion,
+  menuWidth,
 }: LabelProps) => {
   const [content, setContent] = useState(option.email);
   const [autocompleteOpen, setAutocompleteOpen] = useState(true);
@@ -222,6 +224,7 @@ const Label = ({
             onClick={onSuggestionClick}
             onHover={onSuggestionHover}
             renderSuggestion={renderSuggestion}
+            menuWidth={menuWidth}
           />
         )}
       </>
