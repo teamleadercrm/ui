@@ -2,6 +2,8 @@
 
 ### Added
 
+- `EmailSelector`: A prop to disable the removal of the initial emailaddress ([@stefaandevylder](https://github.com/stefaandevylder)) in [#2197](https://github.com/teamleadercrm/ui/pull/2197))
+
 ### Changed
 
 ### Deprecated
