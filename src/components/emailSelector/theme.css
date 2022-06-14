@@ -97,7 +97,7 @@
 .autocomplete {
   position: fixed;
   margin-left: calc(-1 * var(--spacer-smallest));
-  margin-top: var(--spacer-small);
+  margin-top: var(--spacer-smaller);
   min-width: 300px;
   z-index: var(--overlay-z-index);
 }
