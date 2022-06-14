@@ -20,6 +20,7 @@ interface EmailSelectorProps extends Omit<BoxProps, 'ref' | 'onBlur' | 'onFocus'
   onFocus?: (event: React.FocusEvent<HTMLElement>) => void;
   id?: string;
   renderSuggestion?: React.ComponentType<React.ComponentProps<typeof EmailSuggestion>>;
+  menuFullWidth?: boolean;
 }
 
 const EmailSelector = ({
@@ -33,6 +34,7 @@ const EmailSelector = ({
   suggestions,
   renderSuggestion,
   warning,
+  menuFullWidth,
   ...rest
 }: EmailSelectorProps) => {
   const ref = useRef<HTMLElement>();
@@ -215,7 +217,9 @@ const EmailSelector = ({
             onRemove={onRemove}
             suggestions={validSuggestions}
             renderSuggestion={renderSuggestion}
-            menuWidth={ref.current?.clientWidth}
+            {...(menuFullWidth && {
+              menuWidth: ref.current?.clientWidth,
+            })}
           />
         ))}
         {(editingLabel === null || selection[editingLabel].email !== '') && (
