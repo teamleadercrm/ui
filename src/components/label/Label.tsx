@@ -14,9 +14,18 @@ interface LabelProps extends Omit<BoxProps, 'children'> {
   required?: boolean;
   size?: 'small' | 'medium' | 'large';
   tooltip?: string;
+  tooltipProps?: Record<string, any>;
 }
 
-const Label = ({ children, inverse = false, required = false, size = 'medium', tooltip, ...others }: LabelProps) => {
+const Label = ({
+  children,
+  inverse = false,
+  required = false,
+  size = 'medium',
+  tooltip,
+  tooltipProps,
+  ...others
+}: LabelProps) => {
   const childProps = {
     inverse,
     marginTop: 1,
@@ -46,6 +55,7 @@ const Label = ({ children, inverse = false, required = false, size = 'medium', t
                 color={inverse ? 'neutral' : 'teal'}
                 tint={inverse ? 'lightest' : 'darkest'}
                 marginLeft={1}
+                {...tooltipProps}
               >
                 <IconInfoBadgedSmallFilled />
               </TooltippedIcon>
