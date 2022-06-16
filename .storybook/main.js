@@ -29,4 +29,7 @@ module.exports = {
     // Use babel config from project root .babelrc file
     babelModeV7: true,
   },
+  core: {
+    builder: 'webpack5',
+  },
 };
