@@ -11,26 +11,35 @@ export type GridProps = Partial<{
   rows: string[];
   columns: string[];
   gap: Gap;
+  columnGap: Gap;
+  rowGap: Gap;
   ref: ForwardedRef<HTMLDivElement>;
 }>;
 
-const Grid = forwardRef(({ children, areas, rows, columns, gap = 0 }: GridProps, ref: ForwardedRef<HTMLDivElement>) => {
-  const classNames = cx(theme['grid'], {
-    [theme[`gap-${gap}`]]: gap > 0,
-  });
+const Grid = forwardRef(
+  (
+    { children, areas, rows, columns, gap = 0, columnGap = 0, rowGap = 0 }: GridProps,
+    ref: ForwardedRef<HTMLDivElement>,
+  ) => {
+    const classNames = cx(theme['grid'], {
+      [theme[`gap-${gap}`]]: gap > 0,
+      [theme[`column-gap-${columnGap}`]]: columnGap > 0,
+      [theme[`row-gap-${rowGap}`]]: rowGap > 0,
+    });
 
-  const gridStyles = {
-    gridTemplateAreas: areas?.map((area) => `"${area}"`).join(' '),
-    gridTemplateRows: rows?.join(' '),
-    gridTemplateColumns: columns?.join(' '),
-  };
+    const gridStyles = {
+      gridTemplateAreas: areas?.map((area) => `"${area}"`).join(' '),
+      gridTemplateRows: rows?.join(' '),
+      gridTemplateColumns: columns?.join(' '),
+    };
 
-  return (
-    <div className={classNames} style={gridStyles} ref={ref}>
-      {children}
-    </div>
-  );
-});
+    return (
+      <div className={classNames} style={gridStyles} ref={ref}>
+        {children}
+      </div>
+    );
+  },
+);
 
 Grid.displayName = 'Grid';
 
