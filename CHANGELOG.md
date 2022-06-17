@@ -2,10 +2,6 @@
 
 ### Added
 
-- `EmailSelector`: Allow the autocomplete menu to take the same width as it's input with the `menuFullWidth` prop ([@BeirlaenAaron](https://github.com/BeirlaenAaron) in [#2205](https://github.com/teamleadercrm/ui/pull/2205))
-- `EmailSelector`: A prop to disable the removal of the initial emailaddress ([@stefaandevylder](https://github.com/stefaandevylder)) in [#2197](https://github.com/teamleadercrm/ui/pull/2197))
-- `Label`: `tooltipProps` prop to allow customisation of Label's tooltip ([@qubis741](https://github.com/qubis741)) in [#2207](https://github.com/teamleadercrm/ui/pull/2207))
-
 ### Changed
 
 ### Deprecated
@@ -14,9 +10,19 @@
 
 ### Fixed
 
-- `Flex, Grid`: move ref from component props to the forwardRef argument ([@farazatarodi](https://github.com/farazatarodi) in [#2203](https://github.com/teamleadercrm/ui/pull/2203)).
-
 ### Dependency updates
+
+## [14.7.1] - 2022-06-17
+
+### Added
+
+- `EmailSelector`: Allow the autocomplete menu to take the same width as it's input with the `menuFullWidth` prop ([@BeirlaenAaron](https://github.com/BeirlaenAaron) in [#2205](https://github.com/teamleadercrm/ui/pull/2205))
+- `EmailSelector`: A prop to disable the removal of the initial emailaddress ([@stefaandevylder](https://github.com/stefaandevylder)) in [#2197](https://github.com/teamleadercrm/ui/pull/2197))
+- `Label`: `tooltipProps` prop to allow customisation of Label's tooltip ([@qubis741](https://github.com/qubis741)) in [#2207](https://github.com/teamleadercrm/ui/pull/2207))
+
+### Fixed
+
+- `Flex, Grid`: move ref from component props to the forwardRef argument ([@farazatarodi](https://github.com/farazatarodi) in [#2203](https://github.com/teamleadercrm/ui/pull/2203)).
 
 ## [14.6.1] - 2022-06-10
 
