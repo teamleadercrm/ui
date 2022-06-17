@@ -14,6 +14,7 @@ interface AutocompleteProps {
   onClick?: (suggestion: Suggestion, event: React.SyntheticEvent) => void;
   onHover?: (suggestion: Suggestion, event: React.SyntheticEvent) => void;
   renderSuggestion?: React.ComponentType<React.ComponentProps<typeof EmailSuggestion>>;
+  menuWidth?: number;
 }
 
 const Autocomplete = ({
@@ -22,11 +23,12 @@ const Autocomplete = ({
   onClick,
   onHover,
   renderSuggestion = EmailSuggestion,
+  menuWidth,
 }: AutocompleteProps) => {
   const Component = renderSuggestion;
 
   return (
-    <Box className={cx(uiUtilities['box-shadow-200'], theme['autocomplete'])}>
+    <Box className={cx(uiUtilities['box-shadow-200'], theme['autocomplete'])} style={{ width: menuWidth }}>
       <Box backgroundColor="neutral" backgroundTint="lightest" borderWidth={1} borderRadius="rounded" overflow="hidden">
         {Array.isArray(suggestions)
           ? suggestions.map((suggestion) => (

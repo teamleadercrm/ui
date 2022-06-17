@@ -30,6 +30,7 @@ export const basic: ComponentStory<typeof EmailSelector> = () => (
     validator={validator}
     defaultSelection={[suggestions[0]]}
     suggestions={suggestions}
+    menuFullWidth
   />
 );
 
@@ -60,5 +61,15 @@ export const customSuggestions: ComponentStory<typeof EmailSelector> = () => (
         {suggestion.email}
       </TextBody>
     )}
+  />
+);
+
+export const disableRemovalOfFirst: ComponentStory<typeof EmailSelector> = () => (
+  <EmailSelector
+    error={text('Error', '')}
+    validator={validator}
+    defaultSelection={[suggestions[0]]}
+    suggestions={suggestions}
+    disableRemovalOfFirst
   />
 );
