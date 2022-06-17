@@ -4,8 +4,6 @@
 
 ### Changed
 
-- `Label`, `Alert`: improved typing of props ([@qubis741](https://github.com/qubis741)) in [#2212](https://github.com/teamleadercrm/ui/pull/2212))
-
 ### Deprecated
 
 ### Removed
