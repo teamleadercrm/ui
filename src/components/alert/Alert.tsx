@@ -17,7 +17,7 @@ interface AlertProps extends Omit<DialogBaseProps, 'scrollable' | 'size'> {
   /** Object containing the the props of the secondary action (a Button). */
   secondaryAction?: Action;
   /** The title of the alert. */
-  title: string;
+  title: string | Element;
   /** The body of the alert. */
   body?: string;
   /** The type of the alert. */
