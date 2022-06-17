@@ -32,6 +32,7 @@ interface LabelProps {
   onFinish?: (index: number, newLabel: Suggestion | { email: string }) => void;
   suggestions?: Suggestions;
   renderSuggestion?: React.ComponentType<React.ComponentProps<typeof EmailSuggestion>>;
+  menuWidth?: number;
   disableRemovalOfFirst?: boolean;
 }
 
@@ -47,6 +48,7 @@ const Label = ({
   onRemove,
   onFinish,
   renderSuggestion,
+  menuWidth,
   disableRemovalOfFirst,
 }: LabelProps) => {
   const [content, setContent] = useState(option.email);
@@ -224,6 +226,7 @@ const Label = ({
             onClick={onSuggestionClick}
             onHover={onSuggestionHover}
             renderSuggestion={renderSuggestion}
+            menuWidth={menuWidth}
           />
         )}
       </>

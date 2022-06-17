@@ -30,6 +30,7 @@ export const basic: ComponentStory<typeof EmailSelector> = () => (
     validator={validator}
     defaultSelection={[suggestions[0]]}
     suggestions={suggestions}
+    menuFullWidth
   />
 );
 
