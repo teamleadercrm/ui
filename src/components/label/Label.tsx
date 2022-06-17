@@ -13,7 +13,7 @@ interface LabelProps extends Omit<BoxProps, 'children'> {
   inverse?: boolean;
   required?: boolean;
   size?: 'small' | 'medium' | 'large';
-  tooltip?: string;
+  tooltip?: ReactNode;
   tooltipProps?: Record<string, any>;
 }
 
