@@ -2,6 +2,8 @@
 
 ### Added
 
+- `Grid`: Add two props to set column and row gap separately ([@BeirlaenAaron](https://github.com/BeirlaenAaron) in [#2214](https://github.com/teamleadercrm/ui/pull/2214))
+
 ### Changed
 
 ### Deprecated
