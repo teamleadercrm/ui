@@ -11,4 +11,12 @@
   .gap-$(factor) {
     gap: $spacer;
   }
+
+  .column-gap-$(factor) {
+    column-gap: $spacer;
+  }
+
+  .row-gap-$(factor) {
+    row-gap: $spacer;
+  }
 }
