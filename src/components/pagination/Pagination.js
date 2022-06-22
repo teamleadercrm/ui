@@ -45,16 +45,14 @@ class Pagination extends PureComponent {
     return (
       <Box data-teamleader-ui="pagination" className={classNames} element="nav" {...others}>
         <ul className={theme['list']}>
-          {currentPage > 1 && (
-            <li className={theme['list-item']}>
-              {children({
-                number: currentPage - 1,
-                isActive: false,
-                icon: <IconChevronLeftMediumOutline />,
-                iconPlacement: 'left',
-              })}
-            </li>
-          )}
+          <li className={cx(theme['list-item'], theme['list-item__arrowed'])}>
+            {children({
+              number: currentPage - 1,
+              isActive: currentPage === 1,
+              icon: <IconChevronLeftMediumOutline />,
+              iconPlacement: 'left',
+            })}
+          </li>
           {iterator.map((page) => {
             const isActive = page === currentPage;
 
@@ -75,16 +73,14 @@ class Pagination extends PureComponent {
               </li>
             );
           })}
-          {currentPage < numPages && (
-            <li className={theme['list-item']}>
-              {children({
-                number: currentPage + 1,
-                isActive: false,
-                icon: <IconChevronRightMediumOutline />,
-                iconPlacement: 'right',
-              })}
-            </li>
-          )}
+          <li className={cx(theme['list-item'], theme['list-item__arrowed'])}>
+            {children({
+              number: currentPage + 1,
+              isActive: currentPage === numPages,
+              icon: <IconChevronRightMediumOutline />,
+              iconPlacement: 'right',
+            })}
+          </li>
         </ul>
       </Box>
     );
