@@ -15,7 +15,7 @@ interface TextareaProps extends Omit<BoxProps, 'size' | 'ref'> {
   /** The text to use as help text below the input. */
   helpText: string;
   /** Boolean indicating whether the input should render as inverse. */
-  inverse: boolean;
+  inverse?: boolean;
   /** The text string/element to use as success message below the input. */
   success: boolean | ReactNode;
   /** The text to use as warning message below the input. */
@@ -23,7 +23,7 @@ interface TextareaProps extends Omit<BoxProps, 'size' | 'ref'> {
 }
 
 const Textarea = forwardRef(
-  ({ className, error, helpText, inverse, success, warning, ...others }: TextareaProps, ref) => {
+  ({ className, error, helpText, inverse = false, success, warning, ...others }: TextareaProps, ref) => {
     const classNames = cx(
       theme['wrapper'],
       {

@@ -11,11 +11,11 @@ interface InputBaseProps extends Omit<BoxProps, 'size' | 'ref'> {
   /** Sets a class name for the wrapper to give custom styles. */
   className: string;
   /** Boolean indicating whether the input should render as disabled. */
-  disabled: boolean;
+  disabled?: boolean;
   /** The element to render. */
-  element: 'input' | 'textarea';
+  element?: 'input' | 'textarea';
   /** Boolean indicating whether the input should render as inverse. */
-  inverse: boolean;
+  inverse?: boolean;
   /** Callback function that is fired when blurring the input field. */
   onBlur: (event?: React.FocusEvent<HTMLElement>) => void;
   /** Callback function that is fired when focusing the input field. */
@@ -23,9 +23,9 @@ interface InputBaseProps extends Omit<BoxProps, 'size' | 'ref'> {
   /** Callback function that is fired when the component's value changes. */
   onChange: (event?: React.ChangeEvent<HTMLElement>) => void;
   /** Boolean indicating whether the input should render as read only. */
-  readOnly: boolean;
+  readOnly?: boolean;
   /** Size of the input element. */
-  size: 'tiny' | 'small' | 'medium' | 'large';
+  size?: 'tiny' | 'small' | 'medium' | 'large';
   /** If true, the input text is aligned to the right. */
   textAlignRight: boolean;
   /** Type of the input element. It can be a valid HTML5 input type. */
@@ -57,7 +57,10 @@ interface InputBaseProps extends Omit<BoxProps, 'size' | 'ref'> {
 }
 
 const InputBase = forwardRef(
-  ({ bold, className, element = 'input', inverse, size, textAlignRight, ...others }: InputBaseProps, ref) => {
+  (
+    { bold, className, element = 'input', inverse = false, size = 'medium', textAlignRight, ...others }: InputBaseProps,
+    ref,
+  ) => {
     const classNames = cx(
       theme['input'],
       theme[`is-${size}`],
