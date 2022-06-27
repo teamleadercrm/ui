@@ -26,12 +26,11 @@ interface LinkProps extends Omit<BoxProps, 'ref'> {
   selected?: boolean;
 }
 
-/** @type {React.ComponentType<any>} */
 const Link = forwardRef(
   (
     {
-      children = '',
-      className,
+      children,
+      className = '',
       disabled = false,
       element = 'a',
       inherit = true,
