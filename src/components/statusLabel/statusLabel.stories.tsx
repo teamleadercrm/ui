@@ -1,6 +1,6 @@
 import React from 'react';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
-import StatusLabel from './StatusLabel';
+import StatusLabel, { StatusLabelProps } from './StatusLabel';
 
 export default {
   component: StatusLabel,
@@ -14,4 +14,10 @@ export default {
   },
 };
 
-export const Basic = (args) => <StatusLabel {...args}>Status label</StatusLabel>;
+export const Basic = (args: StatusLabelProps) => <StatusLabel {...args}>Status label</StatusLabel>;
+
+export const Small = () => (
+  <StatusLabel size="small" color="gold">
+    Status label small
+  </StatusLabel>
+);
