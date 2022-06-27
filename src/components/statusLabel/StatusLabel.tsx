@@ -4,7 +4,7 @@ import { BoxProps } from '../box/Box';
 import { UITextBody, UITextSmall } from '../typography';
 import theme from './theme.css';
 
-export interface StatusLabelProps extends Omit<BoxProps, 'size'> {
+interface StatusLabelProps extends Omit<BoxProps, 'size'> {
   children: ReactNode;
   className: string;
   color: 'neutral' | 'mint' | 'violet' | 'ruby' | 'gold' | 'aqua';
