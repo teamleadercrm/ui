@@ -1,13 +1,18 @@
-import React, { forwardRef, PureComponent } from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
-import theme from './theme.css';
+import React, { forwardRef, ReactNode } from 'react';
+import { BoxProps } from '../box/Box';
 import { UITextBody, UITextSmall } from '../typography';
+import theme from './theme.css';
 
-class StatusLabel extends PureComponent {
-  render() {
-    const { children, className, color, size, forwardedRef, ...others } = this.props;
+export interface StatusLabelProps extends Omit<BoxProps, 'size'> {
+  children: ReactNode;
+  className: string;
+  color: 'neutral' | 'mint' | 'violet' | 'ruby' | 'gold' | 'aqua';
+  size: 'small' | 'medium';
+}
 
+const StatusLabel = forwardRef<HTMLElement, StatusLabelProps>(
+  ({ children, className, color = 'neutral', size = 'medium', ...others }, ref) => {
     const classNames = cx(theme['label'], theme[size], className);
 
     const Element = size === 'small' ? UITextSmall : UITextBody;
@@ -28,33 +33,14 @@ class StatusLabel extends PureComponent {
         data-teamleader-ui="status-label"
         display="inline-flex"
         paddingHorizontal={2}
-        ref={forwardedRef}
+        ref={ref}
       >
         <span className={theme['inner']}>{children}</span>
       </Element>
     );
-  }
-}
+  },
+);
 
-StatusLabel.propTypes = {
-  /** The content to display inside the status label */
-  children: PropTypes.any.isRequired,
-  /** A classname to add to the status label to give custom styles */
-  className: PropTypes.string,
-  /** The name of the color them you want to give to the status label */
-  color: PropTypes.oneOf(['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua']),
-  /** Size of the button */
-  size: PropTypes.oneOf(['small', 'medium']),
-};
+StatusLabel.displayName = 'StatusLabel';
 
-StatusLabel.defaultProps = {
-  color: 'neutral',
-  size: 'medium',
-};
-
-/** @type {React.ComponentType<any>} */
-const ForwardedStatusLabel = forwardRef((props, ref) => <StatusLabel {...props} forwardedRef={ref} />);
-
-ForwardedStatusLabel.displayName = 'StatusLabel';
-
-export default ForwardedStatusLabel;
+export default StatusLabel;
