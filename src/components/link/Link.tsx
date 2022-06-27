@@ -2,9 +2,10 @@ import uiUtilities from '@teamleader/ui-utilities';
 import cx from 'classnames';
 import React, { forwardRef, ReactNode, useImperativeHandle, useRef } from 'react';
 import Box from '../box';
+import { BoxProps } from '../box/Box';
 import theme from './theme.css';
 
-interface LinkProps {
+interface LinkProps extends Omit<BoxProps, 'ref'> {
   /** The content to display inside the link. */
   children: ReactNode;
   /** A class name for the link to give custom styles. */
