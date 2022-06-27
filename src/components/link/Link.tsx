@@ -19,9 +19,9 @@ interface LinkProps extends Omit<BoxProps, 'ref'> {
   /** A custom element to be rendered */
   element?: Element | string;
   /** Callback function that is fired when mouse leaves the component. */
-  onMouseLeave?: () => void;
+  onMouseLeave?: (event: MouseEvent) => void;
   /** Callback function that is fired when the mouse button is released. */
-  onMouseUp?: () => void;
+  onMouseUp?: (event: MouseEvent) => void;
   /** If true, component will be shown in a selected state */
   selected?: boolean;
 }
@@ -52,14 +52,14 @@ const Link = forwardRef(
       }
     };
 
-    const handleMouseUp = () => {
+    const handleMouseUp = (event: MouseEvent) => {
       blur();
-      onMouseUp && onMouseUp();
+      onMouseUp && onMouseUp(event);
     };
 
-    const handleMouseLeave = () => {
+    const handleMouseLeave = (event: MouseEvent) => {
       blur();
-      onMouseLeave && onMouseLeave();
+      onMouseLeave && onMouseLeave(event);
     };
 
     const classNames = cx(
