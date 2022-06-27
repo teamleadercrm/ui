@@ -4,12 +4,13 @@ import LoadingSpinner from '../loadingSpinner';
 import { UITextBody, UITextDisplay, UITextSmall } from '../typography';
 import cx from 'classnames';
 import theme from './theme.css';
+import { BoxProps } from '../box/Box';
 
 type Level = 'primary' | 'secondary' | 'link';
 type Placement = 'left' | 'right';
 type Size = 'tiny' | 'small' | 'medium' | 'large';
 
-interface MarketingButtonProps {
+interface MarketingButtonProps extends Omit<BoxProps, 'ref'> {
   /** The content to display inside the button. */
   children?: ReactNode;
   /** A class name for the button to give custom styles. */
