@@ -1,16 +1,29 @@
-import React, { PureComponent, forwardRef } from 'react';
-import PropTypes from 'prop-types';
+import React, { forwardRef, ReactNode } from 'react';
+import Box, { BoxProps } from '../box/Box';
 import cx from 'classnames';
 
-import InputBase from './InputBase';
-import Box, { omitBoxProps, pickBoxProps } from '../box';
-import ValidationText from '../validationText';
 import theme from './theme.css';
+import { omitBoxProps, pickBoxProps } from '../box';
+import InputBase from './InputBase';
+import ValidationText from '../validationText';
 
-class Textarea extends PureComponent {
-  render() {
-    const { className, error, helpText, inverse, success, warning, forwardedRef, ...others } = this.props;
+interface TextareaProps extends Omit<BoxProps, 'size' | 'ref'> {
+  /** Sets a class name for the wrapper to give custom styles. */
+  className: string;
+  /** The text to use as error message below the input. */
+  error: boolean | ReactNode;
+  /** The text to use as help text below the input. */
+  helpText: string;
+  /** Boolean indicating whether the input should render as inverse. */
+  inverse: boolean;
+  /** The text string/element to use as success message below the input. */
+  success: boolean | ReactNode;
+  /** The text to use as warning message below the input. */
+  warning: boolean | ReactNode;
+}
 
+const Textarea = forwardRef(
+  ({ className, error, helpText, inverse, success, warning, ...others }: TextareaProps, ref) => {
     const classNames = cx(
       theme['wrapper'],
       {
@@ -29,35 +42,11 @@ class Textarea extends PureComponent {
 
     return (
       <Box className={classNames} {...boxProps}>
-        <InputBase ref={forwardedRef} className={theme['textarea']} element="textarea" {...inputProps} />
+        <InputBase ref={ref} className={theme['textarea']} element="textarea" {...inputProps} />
         <ValidationText error={error} help={helpText} inverse={inverse} success={success} warning={warning} />
       </Box>
     );
-  }
-}
+  },
+);
 
-Textarea.propTypes = {
-  /** Sets a class name for the wrapper to give custom styles. */
-  className: PropTypes.string,
-  /** The text to use as error message below the input. */
-  error: PropTypes.oneOfType([PropTypes.bool, PropTypes.node]),
-  /** The text to use as help text below the input. */
-  helpText: PropTypes.string,
-  /** Boolean indicating whether the input should render as inverse. */
-  inverse: PropTypes.bool,
-  /** The text string/element to use as success message below the input. */
-  success: PropTypes.oneOfType([PropTypes.bool, PropTypes.node]),
-  /** The text to use as warning message below the input. */
-  warning: PropTypes.oneOfType([PropTypes.bool, PropTypes.node]),
-};
-
-Textarea.defaultProps = {
-  inverse: false,
-};
-
-/** @type {React.ComponentType<any>} */
-const ForwardedTextArea = forwardRef((props, ref) => <Textarea {...props} forwardedRef={ref} />);
-
-ForwardedTextArea.displayName = 'Textarea';
-
-export default ForwardedTextArea;
+export default Textarea;
