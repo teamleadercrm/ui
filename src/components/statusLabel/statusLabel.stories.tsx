@@ -15,9 +15,3 @@ export default {
 };
 
 export const Basic = (args: StatusLabelProps) => <StatusLabel {...args}>Status label</StatusLabel>;
-
-export const Small = () => (
-  <StatusLabel size="small" color="gold">
-    Status label small
-  </StatusLabel>
-);
