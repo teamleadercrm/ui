@@ -1,30 +1,41 @@
-import React, { forwardRef, useImperativeHandle, useRef } from 'react';
-import PropTypes from 'prop-types';
-import Box from '../box';
 import cx from 'classnames';
+import React, { forwardRef, ReactNode, useImperativeHandle, useRef } from 'react';
+import Box from '../box';
 import theme from './theme.css';
 
+import { BoxProps } from '../box/Box';
 import { Heading4, Heading5 } from '../typography';
 
-/** @type {React.ComponentType<any>} */
-const TitleTab = forwardRef(
-  ({ active, children, className, counter = null, forwardedRef, size, onClick, ...others }, ref) => {
-    const tabRef = useRef();
-    useImperativeHandle(ref, () => tabRef.current);
+interface TitleTabProps extends Omit<BoxProps, 'size'> {
+  active?: boolean;
+  children: ReactNode;
+  className?: string;
+  counter?: ReactNode;
+  onClick?: React.MouseEventHandler<HTMLElement>;
+  size?: 'small' | 'medium';
+}
 
-    const handleClick = (event) => {
+const TitleTab = forwardRef<HTMLElement, TitleTabProps>(
+  (
+    { active = false, children, className, counter = null, size = 'medium', onClick, element = 'a', ...others },
+    ref,
+  ) => {
+    const tabRef = useRef<HTMLElement>(null);
+    useImperativeHandle(ref, () => tabRef.current!);
+
+    const blur = () => {
+      const currentTabRef = tabRef.current;
+      if (currentTabRef?.blur) {
+        currentTabRef.blur();
+      }
+    };
+
+    const handleClick = (event: React.MouseEvent<HTMLElement>) => {
       if (onClick) {
         onClick(event);
       }
       if (event.pageX !== 0 && event.pageY !== 0) {
         blur();
-      }
-    };
-
-    const blur = () => {
-      const currentTabRef = tabRef.current;
-      if (currentTabRef.blur) {
-        currentTabRef.blur();
       }
     };
 
@@ -50,6 +61,7 @@ const TitleTab = forwardRef(
         paddingHorizontal={getPaddingHorizontal()}
         ref={tabRef}
         onClick={handleClick}
+        element={element}
         {...others}
       >
         <TextElement element="span">{children}</TextElement>
@@ -58,22 +70,6 @@ const TitleTab = forwardRef(
     );
   },
 );
-
-TitleTab.propTypes = {
-  active: PropTypes.bool,
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string,
-  counter: PropTypes.node,
-  element: PropTypes.node,
-  onClick: PropTypes.func,
-  size: PropTypes.oneOf(['small', 'medium']),
-};
-
-TitleTab.defaultProps = {
-  element: 'a',
-  active: false,
-  size: 'medium',
-};
 
 TitleTab.displayName = 'TitleTab';
 
