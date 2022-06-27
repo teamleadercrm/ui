@@ -1,13 +1,63 @@
-import React, { PureComponent, forwardRef } from 'react';
-import PropTypes from 'prop-types';
+import React, { forwardRef } from 'react';
 import cx from 'classnames';
-import { omitBoxProps } from '../box';
+
 import theme from './theme.css';
+import { BoxProps } from '../box/Box';
+import { omitBoxProps } from '../box';
 
-class InputBase extends PureComponent {
-  render() {
-    const { bold, className, element, forwardedRef, inverse, size, textAlignRight, ...otherProps } = this.props;
+interface InputBaseProps extends Omit<BoxProps, 'size' | 'ref'> {
+  /** Boolean indicating whether the input text should render in bold. */
+  bold: boolean;
+  /** Sets a class name for the wrapper to give custom styles. */
+  className: string;
+  /** Boolean indicating whether the input should render as disabled. */
+  disabled: boolean;
+  /** The element to render. */
+  element: 'input' | 'textarea';
+  /** Boolean indicating whether the input should render as inverse. */
+  inverse: boolean;
+  /** Callback function that is fired when blurring the input field. */
+  onBlur: (event?: React.FocusEvent<HTMLElement>) => void;
+  /** Callback function that is fired when focusing the input field. */
+  onFocus: (event?: React.FocusEvent<HTMLElement>) => void;
+  /** Callback function that is fired when the component's value changes. */
+  onChange: (event?: React.ChangeEvent<HTMLElement>) => void;
+  /** Boolean indicating whether the input should render as read only. */
+  readOnly: boolean;
+  /** Size of the input element. */
+  size: 'tiny' | 'small' | 'medium' | 'large';
+  /** If true, the input text is aligned to the right. */
+  textAlignRight: boolean;
+  /** Type of the input element. It can be a valid HTML5 input type. */
+  type:
+    | 'button'
+    | 'checkbox'
+    | 'color'
+    | 'date'
+    | 'datetime-local'
+    | 'email'
+    | 'file'
+    | 'hidden'
+    | 'image'
+    | 'month'
+    | 'number'
+    | 'password'
+    | 'radio'
+    | 'range'
+    | 'reset'
+    | 'search'
+    | 'submit'
+    | 'tel'
+    | 'text'
+    | 'time'
+    | 'url'
+    | 'week';
+  /** Current value of the input element. */
+  value: string | number;
+}
 
+const InputBase = forwardRef(
+  ({ bold, className, element = 'input', inverse, size, textAlignRight, ...others }: InputBaseProps, ref) => {
     const classNames = cx(
       theme['input'],
       theme[`is-${size}`],
@@ -19,81 +69,12 @@ class InputBase extends PureComponent {
       className,
     );
 
-    const restProps = omitBoxProps(otherProps);
-
-    const props = {
+    return React.createElement(element, {
       className: classNames,
-      ref: forwardedRef,
-      ...restProps,
-    };
+      ref,
+      ...omitBoxProps(others),
+    });
+  },
+);
 
-    return React.createElement(element, props);
-  }
-}
-
-InputBase.propTypes = {
-  /** Boolean indicating whether the input text should render in bold. */
-  bold: PropTypes.bool,
-  /** Sets a class name for the wrapper to give custom styles. */
-  className: PropTypes.string,
-  /** Boolean indicating whether the input should render as disabled. */
-  disabled: PropTypes.bool,
-  /** The element to render. */
-  element: PropTypes.oneOf(['input', 'textarea']),
-  /** The reference to the inner html element */
-  forwaredRef: PropTypes.object,
-  /** Boolean indicating whether the input should render as inverse. */
-  inverse: PropTypes.bool,
-  /** Callback function that is fired when blurring the input field. */
-  onBlur: PropTypes.func,
-  /** Callback function that is fired when focusing the input field. */
-  onFocus: PropTypes.func,
-  /** Callback function that is fired when the component's value changes. */
-  onChange: PropTypes.func,
-  /** Boolean indicating whether the input should render as read only. */
-  readOnly: PropTypes.bool,
-  /** Size of the input element. */
-  size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large']),
-  /** Type of the input element. It can be a valid HTML5 input type. */
-  type: PropTypes.oneOf([
-    'button',
-    'checkbox',
-    'color',
-    'date',
-    'datetime-local',
-    'email',
-    'file',
-    'hidden',
-    'image',
-    'month',
-    'number',
-    'password',
-    'radio',
-    'range',
-    'reset',
-    'search',
-    'submit',
-    'tel',
-    'text',
-    'time',
-    'url',
-    'week',
-  ]),
-  /** Current value of the input element. */
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-};
-
-InputBase.defaultProps = {
-  inverse: false,
-  disabled: false,
-  element: 'input',
-  readOnly: false,
-  size: 'medium',
-};
-
-/** @type {React.ComponentType<any>} */
-const ForwardedInputBase = forwardRef((props, ref) => <InputBase {...props} forwardedRef={ref} />);
-
-ForwardedInputBase.displayName = 'InputBase';
-
-export default ForwardedInputBase;
+export default InputBase;
