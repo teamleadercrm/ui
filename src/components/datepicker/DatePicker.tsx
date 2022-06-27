@@ -39,8 +39,8 @@ const DatePicker = ({
   onChange,
   ...others
 }: DatePickerProps) => {
-  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
-  const [selectedMonth, setSelectedMonth] = useState<Date | null>(null);
+  const [selectedDate, setSelectedDate] = useState<Date>();
+  const [selectedMonth, setSelectedMonth] = useState<Date>();
 
   useEffect(() => {
     if (others.selectedDate !== undefined && others.selectedDate !== selectedDate) {
@@ -48,7 +48,7 @@ const DatePicker = ({
       return;
     }
 
-    setSelectedDate(null);
+    setSelectedDate(undefined);
   }, [others.selectedDate]);
 
   const handleDayClick = (day: Date, modifiers: DayModifiers) => {
@@ -90,13 +90,13 @@ const DatePicker = ({
         {...others}
         localeUtils={LocaleUtils}
         initialMonth={others.selectedDate}
-        month={selectedMonth!}
+        month={selectedMonth}
         className={classNames}
         classNames={theme as any}
         modifiers={modifiers && convertModifiersToClassnames(modifiers, theme)}
         navbarElement={<NavigationBar size={size} withMonthPicker={withMonthPicker} />}
         onDayClick={handleDayClick}
-        selectedDays={selectedDate!}
+        selectedDays={selectedDate}
         weekdayElement={<WeekDay size={size} />}
         showWeekNumbers={showWeekNumbers}
         captionElement={
