@@ -17,7 +17,6 @@ module.exports = ({ file, options, env }) => {
       },
       // @TODO deprecated, a different approach for colors should be used
       'postcss-color-function': {},
-      cssnano: env === 'production',
     },
   };
 };

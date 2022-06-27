@@ -4,11 +4,92 @@
 
 ### Changed
 
+- `Pagination`: always show arrows ([@qubis741](https://github.com/qubis741)) in [#2221](https://github.com/teamleadercrm/ui/pull/2221))
+
 ### Deprecated
 
 ### Removed
 
+### Fixed
+
 ### Dependency updates
+
+## [14.8.0] - 2022-06-21
+
+### Added
+
+- `Grid`: Add two props to set column and row gap separately ([@BeirlaenAaron](https://github.com/BeirlaenAaron) in [#2214](https://github.com/teamleadercrm/ui/pull/2214))
+
+## [14.7.1] - 2022-06-17
+
+### Added
+
+- `EmailSelector`: Allow the autocomplete menu to take the same width as it's input with the `menuFullWidth` prop ([@BeirlaenAaron](https://github.com/BeirlaenAaron) in [#2205](https://github.com/teamleadercrm/ui/pull/2205))
+- `EmailSelector`: A prop to disable the removal of the initial emailaddress ([@stefaandevylder](https://github.com/stefaandevylder)) in [#2197](https://github.com/teamleadercrm/ui/pull/2197))
+- `Label`: `tooltipProps` prop to allow customisation of Label's tooltip ([@qubis741](https://github.com/qubis741)) in [#2207](https://github.com/teamleadercrm/ui/pull/2207))
+
+### Fixed
+
+- `Flex, Grid`: move ref from component props to the forwardRef argument ([@farazatarodi](https://github.com/farazatarodi) in [#2203](https://github.com/teamleadercrm/ui/pull/2203)).
+
+## [14.6.1] - 2022-06-10
+
+### Fixed
+
+- `Dialog, DialogBase`: Fix blurriness with certain text content in webkit-based browsers ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#2191](https://github.com/teamleadercrm/ui/pull/2191))
+
+## [14.6.0] - 2022-06-02
+
+### Added
+
+- `Flex`: a new component used for layouts ([@farazatarodi](https://github.com/farazatarodi) in [#2185](https://github.com/teamleadercrm/ui/pull/2185))
+- `Grid`: a new component used for layouts ([@farazatarodi](https://github.com/farazatarodi) in [#2186](https://github.com/teamleadercrm/ui/pull/2186))
+
+## [14.5.7] - 2022-05-26
+
+### Fixed
+
+- `Dialog`: used proper `ref` creator ([@qubis741](https://github.com/qubis741) in [#2175](https://github.com/teamleadercrm/ui/pull/2175))
+
+## [14.5.6] - 2022-05-26
+
+### Added
+
+- `EmailSelector`: `warning` property ([@qubis741](https://github.com/qubis741) in [#2170](https://github.com/teamleadercrm/ui/pull/2170))
+
+## [14.5.5] - 2022-05-19
+
+### Removed
+
+- `Internal`: Remove cssnano option from `postcss.config.js`, end users should be responsible for the minification ([@ArnaudWeyts](https://github.com/ArnaudWeyts) in [#2155](https://github.com/teamleadercrm/ui/pull/2155))
+
+## [14.5.4] - 2022-05-18
+
+### Fixed
+
+- `Toggle`: `label` property type ([@qubis741](https://github.com/qubis741) in [#2152](https://github.com/teamleadercrm/ui/pull/2152))
+
+## [14.5.3] - 2022-05-18
+
+### Changed
+
+- `Toggle`: Changed width from full to adaptive ([@qubis741](https://github.com/qubis741) in [#2143](https://github.com/teamleadercrm/ui/pull/2143))
+
+### Removed
+
+- `Badge`: removed auto-blur on mouse events ([@driesd](https://github.com/driesd) in [#2113](https://github.com/teamleadercrm/ui/pull/2113))
+
+## [14.5.2] - 2022-05-13
+
+### Fixed
+
+- `IconMenu`: Fix IconMenu closing right away in projects using React 17 ([@lorgan3](https://github.com/lorgan3) in [#2138](https://github.com/teamleadercrm/ui/pull/2138))
+
+## [14.5.1] - 2022-05-12
+
+### Fixed
+
+- `Box`: Added missing props for Box Component ([@eniskrasniqi1](https://github.com/eniskraasniqi1) in [#2131](https://github.com/teamleadercrm/ui/pull/2131))
 
 ## [14.5.0] - 2022-05-10
 
