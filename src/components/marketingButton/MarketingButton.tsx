@@ -1,10 +1,44 @@
-import React, { useRef, forwardRef, useImperativeHandle } from 'react';
-import PropTypes from 'prop-types';
+import React, { useRef, forwardRef, useImperativeHandle, ReactNode } from 'react';
 import Box from '../box';
 import LoadingSpinner from '../loadingSpinner';
 import { UITextBody, UITextDisplay, UITextSmall } from '../typography';
 import cx from 'classnames';
 import theme from './theme.css';
+
+type Level = 'primary' | 'secondary' | 'link';
+type Placement = 'left' | 'right';
+type Size = 'tiny' | 'small' | 'medium' | 'large';
+
+interface MarketingButtonProps {
+  /** The content to display inside the button. */
+  children?: ReactNode;
+  /** A class name for the button to give custom styles. */
+  className?: string;
+  /** A custom element to be rendered */
+  element?: Element | string;
+  /** Determines which kind of button to be rendered. */
+  level?: Level;
+  /** If true, component will be disabled. */
+  disabled?: boolean;
+  /** If true, component will take the full width available. */
+  fullWidth?: boolean;
+  /** The icon displayed inside the button. */
+  icon?: Element;
+  /** The position of the icon inside the button. */
+  iconPlacement?: Placement;
+  /** The textual label displayed inside the button. */
+  label?: number | string;
+  /** Callback function that is fired when mouse leaves the component. */
+  onMouseLeave?: (event: MouseEvent) => void;
+  /** Callback function that is fired when the mouse button is released. */
+  onMouseUp?: (event: MouseEvent) => void;
+  /** If true, component will show a loading spinner instead of label or children. */
+  processing?: boolean;
+  /** Size of the button. */
+  size?: Size;
+  /** Type of the button element. */
+  type?: string;
+}
 
 const textComponentMap = {
   tiny: UITextSmall,
@@ -13,48 +47,47 @@ const textComponentMap = {
   large: UITextDisplay,
 };
 
-/** @type {React.ComponentType<any>} */
 const MarketingButton = forwardRef(
   (
     {
       children,
-      className,
-      level,
+      className = '',
+      level = 'secondary',
       disabled,
-      element,
-      fullWidth,
+      element = 'button',
+      fullWidth = false,
       icon,
-      iconPlacement,
-      size,
-      type,
-      processing,
+      iconPlacement = 'left',
+      size = 'medium',
+      type = 'button',
+      processing = false,
       onMouseUp,
       onMouseLeave,
       ...others
-    },
+    }: MarketingButtonProps,
     ref,
   ) => {
-    const buttonRef = useRef();
+    const buttonRef = useRef<HTMLElement>();
     useImperativeHandle(ref, () => buttonRef.current);
 
-    const handleMouseUp = (event) => {
+    const blur = () => {
+      const currentButtonRef = buttonRef.current;
+      if (currentButtonRef?.blur) {
+        currentButtonRef.blur();
+      }
+    };
+
+    const handleMouseUp = (event: MouseEvent) => {
       blur();
       if (onMouseUp) {
         onMouseUp(event);
       }
     };
 
-    const handleMouseLeave = (event) => {
+    const handleMouseLeave = (event: MouseEvent) => {
       blur();
       if (onMouseLeave) {
         onMouseLeave(event);
-      }
-    };
-
-    const blur = () => {
-      const currentButtonRef = buttonRef.current;
-      if (currentButtonRef.blur) {
-        currentButtonRef.blur();
       }
     };
 
@@ -63,8 +96,8 @@ const MarketingButton = forwardRef(
       theme['reset-font-smoothing'],
       theme['button-base'],
       theme['button'],
-      theme[level],
-      theme[size],
+      level && theme[level],
+      size && theme[size],
       {
         [theme['has-icon-only']]: !children || (Array.isArray(children) && !children[0]),
         [theme['is-disabled']]: disabled,
@@ -86,7 +119,7 @@ const MarketingButton = forwardRef(
       'data-teamleader-ui': 'button',
     };
 
-    const Text = textComponentMap[size];
+    const Text = size && textComponentMap[size];
 
     return (
       <Box {...props}>
@@ -114,48 +147,6 @@ const MarketingButton = forwardRef(
     );
   },
 );
-
-MarketingButton.propTypes = {
-  /** The content to display inside the button. */
-  children: PropTypes.any,
-  /** A class name for the button to give custom styles. */
-  className: PropTypes.string,
-  /** A custom element to be rendered */
-  element: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
-  /** Determines which kind of button to be rendered. */
-  level: PropTypes.oneOf(['primary', 'secondary', 'link']),
-  /** If true, component will be disabled. */
-  disabled: PropTypes.bool,
-  /** If true, component will take the full width available. */
-  fullWidth: PropTypes.bool,
-  /** The icon displayed inside the button. */
-  icon: PropTypes.element,
-  /** The position of the icon inside the button. */
-  iconPlacement: PropTypes.oneOf(['left', 'right']),
-  /** The textual label displayed inside the button. */
-  label: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  /** Callback function that is fired when mouse leaves the component. */
-  onMouseLeave: PropTypes.func,
-  /** Callback function that is fired when the mouse button is released. */
-  onMouseUp: PropTypes.func,
-  /** If true, component will show a loading spinner instead of label or children. */
-  processing: PropTypes.bool,
-  /** Size of the button. */
-  size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large']),
-  /** Type of the button element. */
-  type: PropTypes.string,
-};
-
-MarketingButton.defaultProps = {
-  className: '',
-  element: 'button',
-  fullWidth: false,
-  level: 'secondary',
-  iconPlacement: 'left',
-  processing: false,
-  size: 'medium',
-  type: 'button',
-};
 
 MarketingButton.displayName = 'MarketingButton';
 
