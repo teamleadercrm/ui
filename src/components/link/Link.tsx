@@ -1,31 +1,65 @@
 import uiUtilities from '@teamleader/ui-utilities';
 import cx from 'classnames';
-import PropTypes from 'prop-types';
-import React, { forwardRef, useImperativeHandle, useRef } from 'react';
+import React, { forwardRef, ReactNode, useImperativeHandle, useRef } from 'react';
 import Box from '../box';
 import theme from './theme.css';
 
+interface LinkProps {
+  /** The content to display inside the link. */
+  children: ReactNode;
+  /** A class name for the link to give custom styles. */
+  className?: string;
+  /** If true, component will be disabled. */
+  disabled?: boolean;
+  /** If true, the link style inherits the parent element style. */
+  inherit?: boolean;
+  /** If true, the underline behavior will be inverted. */
+  inverse?: boolean;
+  /** A custom element to be rendered */
+  element?: Element | string;
+  /** Callback function that is fired when mouse leaves the component. */
+  onMouseLeave?: () => void;
+  /** Callback function that is fired when the mouse button is released. */
+  onMouseUp?: () => void;
+  /** If true, component will be shown in a selected state */
+  selected?: boolean;
+}
+
 /** @type {React.ComponentType<any>} */
 const Link = forwardRef(
-  ({ children, className, disabled, element, inherit, inverse, selected, onMouseUp, onMouseLeave, ...others }, ref) => {
-    const linkRef = useRef();
+  (
+    {
+      children = '',
+      className,
+      disabled = false,
+      element = 'a',
+      inherit = true,
+      inverse = false,
+      selected,
+      onMouseUp,
+      onMouseLeave,
+      ...others
+    }: LinkProps,
+    ref,
+  ) => {
+    const linkRef = useRef<HTMLElement>();
     useImperativeHandle(ref, () => linkRef.current);
 
     const blur = () => {
       const currentLinkRef = linkRef.current;
-      if (currentLinkRef.blur) {
+      if (currentLinkRef?.blur) {
         currentLinkRef.blur();
       }
     };
 
-    const handleMouseUp = (event) => {
+    const handleMouseUp = () => {
       blur();
-      onMouseUp && onMouseUp(event);
+      onMouseUp && onMouseUp();
     };
 
-    const handleMouseLeave = (event) => {
+    const handleMouseLeave = () => {
       blur();
-      onMouseLeave && onMouseLeave(event);
+      onMouseLeave && onMouseLeave();
     };
 
     const classNames = cx(
@@ -55,35 +89,6 @@ const Link = forwardRef(
     );
   },
 );
-
-Link.propTypes = {
-  /** The content to display inside the link. */
-  children: PropTypes.any.isRequired,
-  /** A class name for the link to give custom styles. */
-  className: PropTypes.string,
-  /** If true, component will be disabled. */
-  disabled: PropTypes.bool,
-  /** If true, the link style inherits the parent element style. */
-  inherit: PropTypes.bool,
-  /** If true, the underline behavior will be inverted. */
-  inverse: PropTypes.bool,
-  /** A custom element to be rendered */
-  element: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
-  /** Callback function that is fired when mouse leaves the component. */
-  onMouseLeave: PropTypes.func,
-  /** Callback function that is fired when the mouse button is released. */
-  onMouseUp: PropTypes.func,
-  /** If true, component will be shown in a selected state */
-  selected: PropTypes.bool,
-};
-
-Link.defaultProps = {
-  className: '',
-  disabled: false,
-  element: 'a',
-  inherit: true,
-  inverse: false,
-};
 
 Link.displayName = 'Link';
 
