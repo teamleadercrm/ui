@@ -1,15 +1,25 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { ReactElement } from 'react';
 import omit from 'lodash.omit';
 import Box, { omitBoxProps } from '../box';
 import Button from './Button';
 import cx from 'classnames';
 import isComponentOfType from '../utils/is-component-of-type';
 import theme from './theme.css';
+import { BoxProps } from '../box/Box';
 
-/** @type {React.ComponentType<any> & { Button: React.ComponentType<any>; }} */
-const MarketingButtonGroup = ({ children, className, value, onChange, ...others }) => {
-  const handleChange = (value, event) => {
+interface MarketingButtonGroupProps extends Omit<BoxProps, 'ref'> {
+  /** The content to display inside the button group. */
+  children?: ReactElement;
+  /** A class name for the wrapper to give custom styles. */
+  className?: string;
+  /** The value of the currently active button. */
+  value?: string;
+  /** Callback function that is fired when the active button changes. */
+  onChange?: (value: string, event: React.ChangeEvent) => void;
+}
+
+const MarketingButtonGroup = ({ children, className, value, onChange, ...others }: MarketingButtonGroupProps) => {
+  const handleChange = (value: string, event: React.ChangeEvent) => {
     if (onChange) {
       onChange(value, event);
     }
@@ -20,6 +30,10 @@ const MarketingButtonGroup = ({ children, className, value, onChange, ...others 
   return (
     <Box data-teamleader-ui="button-group" className={classNames} {...others}>
       {React.Children.map(children, (child) => {
+        if (!child) {
+          return;
+        }
+
         if (!isComponentOfType(Button, child)) {
           return child;
         }
@@ -28,7 +42,7 @@ const MarketingButtonGroup = ({ children, className, value, onChange, ...others 
         if (value) {
           optionalChildProps = {
             active: child.props.value === value,
-            onClick: (event) => handleChange(child.props.value, event),
+            onClick: (event: React.ChangeEvent) => handleChange(child.props.value, event),
           };
         }
 
@@ -43,17 +57,6 @@ const MarketingButtonGroup = ({ children, className, value, onChange, ...others 
       })}
     </Box>
   );
-};
-
-MarketingButtonGroup.propTypes = {
-  /** The content to display inside the button group. */
-  children: PropTypes.node,
-  /** A class name for the wrapper to give custom styles. */
-  className: PropTypes.string,
-  /** The value of the currently active button. */
-  value: PropTypes.string,
-  /** Callback function that is fired when the active button changes. */
-  onChange: PropTypes.func,
 };
 
 MarketingButtonGroup.Button = Button;
