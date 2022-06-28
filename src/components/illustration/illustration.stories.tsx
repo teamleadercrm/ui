@@ -1,24 +1,24 @@
-import React, { CSSProperties } from 'react';
 import { ComponentStory } from '@storybook/react';
+import * as Illustrations from '@teamleader/ui-illustrations';
+import React from 'react';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import Box from '../box';
-import description from './description.md';
-import * as Illustrations from '@teamleader/ui-illustrations';
 import { TextSmall } from '../typography';
+import description from './description.md';
 
-const gridStyles: CSSProperties = {
+const gridStyles: Record<string, any> = {
   display: 'flex',
   flexWrap: 'wrap',
 };
 
-const itemProps = {
+const itemProps: Record<string, any> = {
   alignItems: 'center',
   display: 'inline-flex',
   marginBottom: 3,
   marginRight: 3,
 };
 
-const itemStyles: CSSProperties = {
+const itemStyles: Record<string, any> = {
   width: '480px',
   whiteSpace: 'nowrap',
 };

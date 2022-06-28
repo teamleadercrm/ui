@@ -1,11 +1,11 @@
-import React, { forwardRef, ReactElement, ReactNode } from 'react';
-import Box from '../box';
-import Icon from '../icon';
-import { UITextSmall, UITextBody, UITextDisplay } from '../typography';
 import cx from 'classnames';
-import theme from './theme.css';
-import { BoxProps } from '../box/Box';
+import React, { forwardRef, ReactNode } from 'react';
 import { GenericComponent } from '../../@types/types';
+import Box from '../box';
+import { BoxProps } from '../box/Box';
+import Icon from '../icon';
+import { UITextBody, UITextDisplay, UITextSmall } from '../typography';
+import theme from './theme.css';
 
 interface BadgeProps extends Omit<BoxProps, 'ref' | 'size'> {
   /** The content to display inside the badge. */
