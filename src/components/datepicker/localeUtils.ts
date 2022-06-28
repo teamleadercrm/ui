@@ -1,4 +1,4 @@
-import { DateTime, Info } from 'luxon';
+import { DateTime, DateTimeFormatOptions, Info } from 'luxon';
 
 const defaultLocale = 'en-GB';
 
@@ -59,10 +59,30 @@ export const formatWeekdayLong = (dayOfWeekNumber: number, locale = defaultLocal
   return Info.weekdays('long', { locale })[dayIndex];
 };
 
-export const getMonths = (locale = defaultLocale) => Info.months('long', { locale });
+export const getMonths = (locale = defaultLocale) =>
+  Info.months('long', { locale }) as [
+    string,
+    string,
+    string,
+    string,
+    string,
+    string,
+    string,
+    string,
+    string,
+    string,
+    string,
+    string,
+  ];
 
-export const formatDate = (date: Date, format = DateTime.DATE_SHORT, locale = defaultLocale) =>
-  DateTime.fromJSDate(date).setLocale(locale).toLocaleString(format);
+export const formatDate = (
+  date: Date,
+  format: string | string[] | DateTimeFormatOptions = DateTime.DATE_SHORT,
+  locale = defaultLocale,
+) =>
+  DateTime.fromJSDate(date)
+    .setLocale(locale)
+    .toLocaleString(format as DateTimeFormatOptions);
 
 export const parseDate = (string: string, format = DateTime.DATE_SHORT as string, locale = defaultLocale) =>
   DateTime.fromFormat(string, format, { locale }).toJSDate();
