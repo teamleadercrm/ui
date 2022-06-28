@@ -1,6 +1,3 @@
-import { ReactElement } from 'react';
+import { FunctionComponent } from 'react';
 
-export interface GenericComponent<P = {}> {
-  (props: P, context?: any): ReactElement<any, any> | null;
-  displayName?: string | undefined;
-}
+export type GenericComponent<P = {}> = FunctionComponent<P>;
