@@ -11,7 +11,7 @@ import uiUtilities from '@teamleader/ui-utilities';
 import { BoxProps } from '../box/Box';
 import localeUtils from './localeUtils';
 
-type Size = 'small' | 'medium' | 'large';
+type Size = 'smallest' | 'small' | 'medium' | 'large';
 
 interface DatePickerProps extends Omit<BoxProps & DayPickerProps, 'size' | 'onChange' | 'modifiers' | 'ref'> {
   /** If true we give a border to our wrapper. */
@@ -66,13 +66,13 @@ const DatePicker = ({
   };
 
   const getMonthPickerSize = () => {
-    const monthPickerSizeByDatePickerSize = {
+    const monthPickerSizeByDatePickerSize: Record<string, Size> = {
       small: 'smallest',
       medium: showWeekNumbers ? 'medium' : 'small',
       large: 'large',
     };
 
-    return monthPickerSizeByDatePickerSize[size] as Size;
+    return monthPickerSizeByDatePickerSize[size];
   };
 
   const classNames = cx(
