@@ -5,18 +5,19 @@ import { UITextBody, UITextDisplay, UITextSmall } from '../typography';
 import cx from 'classnames';
 import theme from './theme.css';
 import { BoxProps } from '../box/Box';
+import { GenericComponent } from '../../@types/types';
 
 type Level = 'primary' | 'secondary' | 'link';
 type Placement = 'left' | 'right';
 type Size = 'tiny' | 'small' | 'medium' | 'large';
 
-interface MarketingButtonProps extends Omit<BoxProps, 'ref'> {
+interface MarketingButtonProps extends Omit<BoxProps, 'ref' | 'element'> {
   /** The content to display inside the button. */
   children?: ReactNode;
   /** A class name for the button to give custom styles. */
   className?: string;
   /** A custom element to be rendered */
-  element?: Element | string;
+  element?: React.ElementType;
   /** Determines which kind of button to be rendered. */
   level?: Level;
   /** If true, component will be disabled. */
@@ -24,11 +25,9 @@ interface MarketingButtonProps extends Omit<BoxProps, 'ref'> {
   /** If true, component will take the full width available. */
   fullWidth?: boolean;
   /** The icon displayed inside the button. */
-  icon?: Element;
+  icon?: ReactNode;
   /** The position of the icon inside the button. */
   iconPlacement?: Placement;
-  /** The textual label displayed inside the button. */
-  label?: number | string;
   /** Callback function that is fired when mouse leaves the component. */
   onMouseLeave?: (event: React.MouseEvent) => void;
   /** Callback function that is fired when the mouse button is released. */
@@ -48,7 +47,7 @@ const textComponentMap = {
   large: UITextDisplay,
 };
 
-const MarketingButton = forwardRef(
+const MarketingButton: GenericComponent<MarketingButtonProps> = forwardRef<HTMLElement, MarketingButtonProps>(
   (
     {
       children,
@@ -65,11 +64,11 @@ const MarketingButton = forwardRef(
       onMouseUp,
       onMouseLeave,
       ...others
-    }: MarketingButtonProps,
+    },
     ref,
   ) => {
-    const buttonRef = useRef<HTMLElement>();
-    useImperativeHandle(ref, () => buttonRef.current);
+    const buttonRef = useRef<HTMLElement>(null);
+    useImperativeHandle<HTMLElement | null, HTMLElement | null>(ref, () => buttonRef.current);
 
     const blur = () => {
       const currentButtonRef = buttonRef.current;
@@ -108,15 +107,15 @@ const MarketingButton = forwardRef(
       className,
     );
 
-    const props = {
+    const props: BoxProps = {
       ...others,
       ref: buttonRef,
       className: classNames,
-      disabled: element === 'button' ? disabled : null,
+      disabled: element === 'button' ? disabled : undefined,
       element: element,
       onMouseUp: handleMouseUp,
       onMouseLeave: handleMouseLeave,
-      type: element === 'button' ? type : null,
+      type: element === 'button' ? type : undefined,
       'data-teamleader-ui': 'button',
     };
 
