@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash.omit';
 import Box, { omitBoxProps } from '../box';
@@ -8,46 +8,42 @@ import isComponentOfType from '../utils/is-component-of-type';
 import theme from './theme.css';
 
 /** @type {React.ComponentType<any> & { Button: React.ComponentType<any>; }} */
-class MarketingButtonGroup extends PureComponent {
-  handleChange = (value, event) => {
-    if (this.props.onChange) {
-      this.props.onChange(value, event);
+const MarketingButtonGroup = ({ children, className, value, onChange, ...others }) => {
+  const handleChange = (value, event) => {
+    if (onChange) {
+      onChange(value, event);
     }
   };
 
-  render() {
-    const { children, className, value, ...others } = this.props;
+  const classNames = cx(theme['group'], theme['segmented'], className);
 
-    const classNames = cx(theme['group'], theme['segmented'], className);
+  return (
+    <Box data-teamleader-ui="button-group" className={classNames} {...others}>
+      {React.Children.map(children, (child) => {
+        if (!isComponentOfType(Button, child)) {
+          return child;
+        }
 
-    return (
-      <Box data-teamleader-ui="button-group" className={classNames} {...others}>
-        {React.Children.map(children, (child) => {
-          if (!isComponentOfType(Button, child)) {
-            return child;
-          }
+        let optionalChildProps = {};
+        if (value) {
+          optionalChildProps = {
+            active: child.props.value === value,
+            onClick: (event) => handleChange(child.props.value, event),
+          };
+        }
 
-          let optionalChildProps = {};
-          if (value) {
-            optionalChildProps = {
-              active: child.props.value === value,
-              onClick: (event) => this.handleChange(child.props.value, event),
-            };
-          }
+        const childProps = omit(child.props, ['value']);
+        const groupProps = omit(others, ['onChange']);
 
-          const childProps = omit(child.props, ['value']);
-          const groupProps = omit(others, ['onChange']);
-
-          return React.createElement(child.type, {
-            ...childProps,
-            ...optionalChildProps,
-            ...omitBoxProps(groupProps),
-          });
-        })}
-      </Box>
-    );
-  }
-}
+        return React.createElement(child.type, {
+          ...childProps,
+          ...optionalChildProps,
+          ...omitBoxProps(groupProps),
+        });
+      })}
+    </Box>
+  );
+};
 
 MarketingButtonGroup.propTypes = {
   /** The content to display inside the button group. */
