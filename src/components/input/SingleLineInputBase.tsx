@@ -4,37 +4,39 @@ import cx from 'classnames';
 import theme from './theme.css';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import InputBase from './InputBase';
-import ValidationText, { HelpText } from '../validationText';
+import ValidationText from '../validationText';
 
 interface SingleLineInputBaseProps {
+  /** Whether to enable or disable the autocompletion on the input. */
+  autoComplete?: 'off' | 'on';
   /** Sets a class name for the wrapper to give custom styles. */
-  className: string;
+  className?: string;
   /** Element stuck to the left hand side of the component. */
-  connectedLeft: ReactElement;
+  connectedLeft?: ReactElement;
   /** Element stuck to the right hand side of the component. */
-  connectedRight: ReactElement;
+  connectedRight?: ReactElement;
   /** Boolean indicating whether the input should render as disabled. */
   disabled?: boolean;
   /** The text string/element to use as error message below the input. */
-  error: boolean | ReactNode;
+  error?: boolean | ReactNode;
   /** The text string to use as help text below the input. */
-  helpText: string;
+  helpText?: string;
   /** Boolean indicating whether the input should render as inverse. */
   inverse?: boolean;
   /** The text string/element to use as a prefix inside the input field */
-  prefix: ReactElement[] | ReactElement;
+  prefix?: ReactElement[] | ReactElement;
   /** Boolean indicating whether the input should render as read only. */
   readOnly?: boolean;
   /** The text string/element to use as success message below the input. */
-  success: boolean | ReactNode;
+  success?: boolean | ReactNode;
   /** The text string/element to use as a suffix inside the input field */
-  suffix: ReactElement[] | ReactElement;
+  suffix?: ReactElement[] | ReactElement;
   /** The text to use as warning message below the input. */
-  warning: boolean | ReactNode;
+  warning?: boolean | ReactNode;
   /** A custom width for the input field */
-  width: string;
+  width?: string;
   /** Whether to disable styling that hints being able to type in the input field */
-  noInputStyling: boolean;
+  noInputStyling?: boolean;
 }
 
 const SingleLineInputBase = forwardRef(
