@@ -5,13 +5,14 @@ import Box from '../box';
 import Icon from '../icon';
 import { Size } from './types';
 import { IconTeamMediumOutline, IconTeamSmallOutline } from '@teamleader/ui-icons';
+import { GenericComponent } from '../../@types/types';
 
 interface AvatarTeamProps {
   /** The size of the avatar. */
   size: Size;
 }
 
-const AvatarTeam = ({ size }: AvatarTeamProps) => {
+const AvatarTeam: GenericComponent<AvatarTeamProps> = ({ size }) => {
   return (
     <Box
       alignItems="center"

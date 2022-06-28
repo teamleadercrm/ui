@@ -5,6 +5,7 @@ import Box, { pickBoxProps } from '../box';
 import { IconChevronDownSmallOutline, IconChevronRightSmallOutline } from '@teamleader/ui-icons';
 import theme from './theme.css';
 import { BoxProps } from '../box/Box';
+import { GenericComponent } from '../../@types/types';
 
 interface AdvancedCollapsibleProps extends Omit<BoxProps, 'size'> {
   color?: 'neutral' | 'teal';
@@ -13,13 +14,13 @@ interface AdvancedCollapsibleProps extends Omit<BoxProps, 'size'> {
   size?: 'small' | 'medium' | 'large';
 }
 
-const AdvancedCollapsible = ({
+const AdvancedCollapsible: GenericComponent<AdvancedCollapsibleProps> = ({
   children,
   color = 'teal',
   size = 'medium',
   title,
   ...others
-}: AdvancedCollapsibleProps) => {
+}) => {
   const [collapsed, setCollapsed] = useState(true);
 
   const boxProps = pickBoxProps(others);

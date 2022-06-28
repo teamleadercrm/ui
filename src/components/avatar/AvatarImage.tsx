@@ -3,6 +3,7 @@ import cx from 'classnames';
 import theme from './theme.css';
 import AvatarOverlay from './AvatarOverlay';
 import { Size } from './types';
+import { GenericComponent } from '../../@types/types';
 
 interface AvatarImageProps {
   /** Component that will be placed top right of the avatar image. */
@@ -21,7 +22,7 @@ interface AvatarImageProps {
   size: Size;
 }
 
-const AvatarImage = ({
+const AvatarImage: GenericComponent<AvatarImageProps> = ({
   children,
   editable,
   image,
@@ -29,7 +30,7 @@ const AvatarImage = ({
   onImageChange,
   size,
   onImageLoadFailure,
-}: AvatarImageProps) => {
+}) => {
   const [displayAvatarOverlay, setDisplayAvatarOverlay] = useState(false);
 
   const handleOnMouseEnter = () => {

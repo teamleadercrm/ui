@@ -5,6 +5,7 @@ import Box from '../box';
 import Icon from '../icon';
 import { Size } from './types';
 import { IconUserMediumOutline, IconUserSmallOutline } from '@teamleader/ui-icons';
+import { GenericComponent } from '../../@types/types';
 
 interface AvatarAnonymousProps {
   /** Component that will be placed top right of the avatar image. */
@@ -13,7 +14,7 @@ interface AvatarAnonymousProps {
   size: Size;
 }
 
-const AvatarAnonymous = ({ children, size }: AvatarAnonymousProps) => {
+const AvatarAnonymous: GenericComponent<AvatarAnonymousProps> = ({ children, size }) => {
   return (
     <Box
       alignItems="center"
