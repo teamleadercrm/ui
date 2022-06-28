@@ -14,9 +14,9 @@ import { Size } from './WeekDay';
 
 interface NavigationBarProps {
   className?: string;
-  localeUtils?: LocaleUtils;
-  nextMonth?: Date;
-  previousMonth?: Date;
+  localeUtils: LocaleUtils;
+  nextMonth: Date;
+  previousMonth: Date;
   onNextClick?: () => void;
   onPreviousClick?: () => void;
   size?: Size;
@@ -33,9 +33,9 @@ const NavigationBar = ({
   onNextClick,
   onPreviousClick,
 }: NavigationBarProps) => {
-  const months = localeUtils?.getMonths();
-  const previousMonthButtonLabel = months![previousMonth!.getMonth()];
-  const nextMonthButtonLabel = months![nextMonth!.getMonth()];
+  const months = localeUtils.getMonths();
+  const previousMonthButtonLabel = months[previousMonth.getMonth()];
+  const nextMonthButtonLabel = months[nextMonth.getMonth()];
 
   const handlePreviousClick = () => {
     onPreviousClick && onPreviousClick();
