@@ -7,6 +7,7 @@ import Box from '../box';
 import { Heading4 } from '../typography';
 import EmailSuggestion from './EmailSuggestion';
 import { Suggestion } from './types';
+import { GenericComponent } from '../../@types/types';
 
 interface AutocompleteProps {
   suggestions: Suggestion[] | { [x: string]: Suggestion[] };
@@ -17,14 +18,14 @@ interface AutocompleteProps {
   menuWidth?: number;
 }
 
-const Autocomplete = ({
+const Autocomplete: GenericComponent<AutocompleteProps> = ({
   suggestions,
   highlightedSuggestion,
   onClick,
   onHover,
   renderSuggestion = EmailSuggestion,
   menuWidth,
-}: AutocompleteProps) => {
+}) => {
   const Component = renderSuggestion;
 
   return (

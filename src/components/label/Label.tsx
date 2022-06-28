@@ -1,10 +1,11 @@
 import { IconInfoBadgedSmallFilled } from '@teamleader/ui-icons';
 import React, { ReactNode } from 'react';
+import { GenericComponent } from '../../@types/types';
 import Box from '../box';
-import Tooltip from '../tooltip';
-import Icon from '../icon';
-import { TextBodyCompact, TextDisplay, TextSmall } from '../typography';
 import { BoxProps } from '../box/Box';
+import Icon from '../icon';
+import Tooltip from '../tooltip';
+import { TextBodyCompact, TextDisplay, TextSmall } from '../typography';
 
 const TooltippedIcon = Tooltip(Icon);
 
@@ -17,7 +18,7 @@ interface LabelProps extends Omit<BoxProps, 'children'> {
   tooltipProps?: Record<string, any>;
 }
 
-const Label = ({
+const Label: GenericComponent<LabelProps> = ({
   children,
   inverse = false,
   required = false,
@@ -25,7 +26,7 @@ const Label = ({
   tooltip,
   tooltipProps,
   ...others
-}: LabelProps) => {
+}) => {
   const childProps = {
     inverse,
     marginTop: 1,

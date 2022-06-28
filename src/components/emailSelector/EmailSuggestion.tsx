@@ -6,13 +6,14 @@ import Avatar from '../avatar';
 import { TextBody } from '../typography';
 import { Suggestion } from './types';
 import theme from './theme.css';
+import { GenericComponent } from '../../@types/types';
 
 interface EmailSuggestionProps extends Omit<BoxProps, 'ref'> {
   suggestion: Suggestion;
   selected: boolean;
 }
 
-const EmailSuggestion = ({ suggestion, selected, ...rest }: EmailSuggestionProps) => {
+const EmailSuggestion: GenericComponent<EmailSuggestionProps> = ({ suggestion, selected, ...rest }) => {
   return (
     <Box
       backgroundColor={selected ? 'neutral' : undefined}
