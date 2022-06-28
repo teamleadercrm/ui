@@ -95,7 +95,7 @@ const DatePicker = ({
         className={classNames}
         classNames={theme as any}
         modifiers={modifiers && convertModifiersToClassnames(modifiers, theme)}
-        navbarElement={<NavigationBar size={size} withMonthPicker={withMonthPicker} />}
+        navbarElement={({ ...props }) => <NavigationBar {...props} size={size} withMonthPicker={withMonthPicker} />}
         onDayClick={handleDayClick}
         selectedDays={selectedDate}
         weekdayElement={<WeekDay size={size} />}
