@@ -1,87 +1,83 @@
-import React, { useRef, forwardRef, useImperativeHandle } from 'react';
-import PropTypes from 'prop-types';
+import React, { useRef, forwardRef, useImperativeHandle, ReactNode } from 'react';
 import Box from '../box';
 import { UITextBody } from '../typography';
 import cx from 'classnames';
 import theme from './theme.css';
 
-/** @type {any} */
-const Button = forwardRef(({ onMouseUp, onMouseLeave, children, className, active, label, ...others }, ref) => {
-  const buttonRef = useRef();
-  useImperativeHandle(ref, () => buttonRef.current);
-
-  const handleMouseUp = (event) => {
-    blur();
-    if (onMouseUp) {
-      onMouseUp(event);
-    }
-  };
-
-  const handleMouseLeave = (event) => {
-    blur();
-    if (onMouseLeave) {
-      onMouseLeave(event);
-    }
-  };
-
-  const blur = () => {
-    const currentButtonRef = buttonRef.current;
-    if (currentButtonRef) {
-      currentButtonRef.blur();
-    }
-  };
-
-  const classNames = cx(
-    theme['reset-box-sizing'],
-    theme['reset-font-smoothing'],
-    theme['button-base'],
-    theme['button'],
-    {
-      [theme['is-active']]: active,
-    },
-    className,
-  );
-
-  const props = {
-    ...others,
-    ref: buttonRef,
-    className: classNames,
-    element: 'button',
-    onMouseUp: handleMouseUp,
-    onMouseLeave: handleMouseLeave,
-    'data-teamleader-ui': 'button',
-  };
-
-  return (
-    <Box {...props}>
-      {(label || children) && (
-        <UITextBody element="span" maxLines={1}>
-          {label}
-          {children}
-        </UITextBody>
-      )}
-    </Box>
-  );
-});
-
-Button.propTypes = {
+interface ButtonProps {
   /** The content to display inside the button. */
-  children: PropTypes.any,
+  children?: ReactNode;
   /** A class name for the button to give custom styles. */
-  className: PropTypes.string,
+  className?: string;
   /** If true, component will be shown in an active state */
-  active: PropTypes.bool,
+  active?: boolean;
   /** The textual label displayed inside the button. */
-  label: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  label?: number | string;
   /** Callback function that is fired when mouse leaves the component. */
-  onMouseLeave: PropTypes.func,
+  onMouseLeave?: (event: React.MouseEvent) => void;
   /** Callback function that is fired when the mouse button is released. */
-  onMouseUp: PropTypes.func,
-};
+  onMouseUp?: (event: React.MouseEvent) => void;
+}
 
-Button.defaultProps = {
-  className: '',
-};
+const Button = forwardRef(
+  ({ onMouseUp, onMouseLeave, children, className = '', active, label, ...others }: ButtonProps, ref) => {
+    const buttonRef = useRef<HTMLElement>();
+    useImperativeHandle(ref, () => buttonRef.current);
+
+    const blur = () => {
+      const currentButtonRef = buttonRef.current;
+      if (currentButtonRef) {
+        currentButtonRef.blur();
+      }
+    };
+
+    const handleMouseUp = (event: React.MouseEvent) => {
+      blur();
+      if (onMouseUp) {
+        onMouseUp(event);
+      }
+    };
+
+    const handleMouseLeave = (event: React.MouseEvent) => {
+      blur();
+      if (onMouseLeave) {
+        onMouseLeave(event);
+      }
+    };
+
+    const classNames = cx(
+      theme['reset-box-sizing'],
+      theme['reset-font-smoothing'],
+      theme['button-base'],
+      theme['button'],
+      {
+        [theme['is-active']]: active,
+      },
+      className,
+    );
+
+    const props = {
+      ...others,
+      ref: buttonRef,
+      className: classNames,
+      element: 'button',
+      onMouseUp: handleMouseUp,
+      onMouseLeave: handleMouseLeave,
+      'data-teamleader-ui': 'button',
+    };
+
+    return (
+      <Box {...props}>
+        {(label || children) && (
+          <UITextBody element="span" maxLines={1}>
+            {label}
+            {children}
+          </UITextBody>
+        )}
+      </Box>
+    );
+  },
+);
 
 Button.displayName = 'MarketingButtonGroup.Button';
 
