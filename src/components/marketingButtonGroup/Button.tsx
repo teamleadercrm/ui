@@ -3,8 +3,9 @@ import Box from '../box';
 import { UITextBody } from '../typography';
 import cx from 'classnames';
 import theme from './theme.css';
+import { BoxProps } from '../box/Box';
 
-interface ButtonProps {
+interface ButtonProps extends Omit<BoxProps, 'ref'> {
   /** The content to display inside the button. */
   children?: ReactNode;
   /** A class name for the button to give custom styles. */

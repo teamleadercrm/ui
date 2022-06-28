@@ -9,7 +9,7 @@ import { BoxProps } from '../box/Box';
 
 interface MarketingButtonGroupProps extends Omit<BoxProps, 'ref'> {
   /** The content to display inside the button group. */
-  children?: ReactElement;
+  children?: ReactElement[];
   /** A class name for the wrapper to give custom styles. */
   className?: string;
   /** The value of the currently active button. */
