@@ -1,7 +1,8 @@
-import React, { CSSProperties, forwardRef, HTMLProps, ReactNode } from 'react';
+import React, { CSSProperties, forwardRef, HTMLProps, ReactNode, Ref } from 'react';
 import cx from 'classnames';
 import { COLOR, COLORS, TINTS } from '../../constants';
 import theme from './theme.css';
+import { GenericComponent } from '../../@types/types';
 
 const margins = [-8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8] as const;
 export type Margin = typeof margins[number];
@@ -65,11 +66,12 @@ export type BoxProps = Partial<
     paddingTop: Padding;
     style: CSSProperties;
     textAlign: 'center' | 'left' | 'right';
+    ref?: Ref<HTMLElement>;
     [key: string]: unknown;
   } & HTMLProps<HTMLElement>
 >;
 
-const Box = forwardRef(
+const Box: GenericComponent<BoxProps> = forwardRef(
   (
     {
       alignContent,
