@@ -6,11 +6,11 @@ import { TabGroup, TitleTab, Box, Counter as UICounter } from '../../index';
 import { tabItems } from '../../static/data/tab';
 
 // Real-life tabs should not have a clickHandler but rather listen to state updates
-const handleClick = (event, title) => {
+const handleClick = (event: React.MouseEvent<HTMLElement>) => {
   event.preventDefault();
 };
 
-const TitleCounter = (props) => <UICounter color="ruby" marginLeft={3} {...props} />;
+const TitleCounter = (props: any) => <UICounter color="ruby" marginLeft={3} {...props} />;
 
 export default {
   component: TitleTab,
@@ -43,8 +43,8 @@ export const titleTab = () => (
         <TitleTab
           active={item.active}
           href={item.href}
-          onClick={(event) => {
-            handleClick(event, item.title);
+          onClick={(event: React.MouseEvent<HTMLElement>) => {
+            handleClick(event);
           }}
           {...optionalProps}
           key={key}
