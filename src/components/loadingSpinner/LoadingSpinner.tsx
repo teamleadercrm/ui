@@ -1,5 +1,6 @@
 import cx from 'classnames';
 import React from 'react';
+import { GenericComponent } from '../../@types/types';
 import Box from '../box';
 import { BoxProps } from '../box/Box';
 import theme from './theme.css';
@@ -20,13 +21,13 @@ export interface LoadingSpinnerProps extends Omit<BoxProps, 'className' | 'size'
   /** The tint of the components color */
   tint?: Tint;
 }
-const LoadingSpinner = ({
+const LoadingSpinner: GenericComponent<LoadingSpinnerProps> = ({
   className,
   color = 'teal',
   size = 'medium',
   tint = 'darkest',
   ...others
-}: LoadingSpinnerProps) => {
+}) => {
   const classNames = cx(
     theme['loading-spinner'],
     theme[`is-${color}`],
