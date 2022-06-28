@@ -1,6 +1,7 @@
 import uiUtilities from '@teamleader/ui-utilities';
 import cx from 'classnames';
 import React, { forwardRef, ReactNode, useImperativeHandle, useRef } from 'react';
+import { GenericComponent } from '../../@types/types';
 import Box from '../box';
 import { BoxProps } from '../box/Box';
 import theme from './theme.css';
@@ -17,7 +18,7 @@ interface LinkProps extends Omit<BoxProps, 'ref'> {
   /** If true, the underline behavior will be inverted. */
   inverse?: boolean;
   /** A custom element to be rendered */
-  element?: Element | string;
+  element?: React.ElementType;
   /** Callback function that is fired when mouse leaves the component. */
   onMouseLeave?: (event: React.MouseEvent) => void;
   /** Callback function that is fired when the mouse button is released. */
@@ -26,7 +27,7 @@ interface LinkProps extends Omit<BoxProps, 'ref'> {
   selected?: boolean;
 }
 
-const Link = forwardRef(
+const Link: GenericComponent<LinkProps> = forwardRef<HTMLElement, LinkProps>(
   (
     {
       children,
@@ -39,11 +40,11 @@ const Link = forwardRef(
       onMouseUp,
       onMouseLeave,
       ...others
-    }: LinkProps,
+    },
     ref,
   ) => {
-    const linkRef = useRef<HTMLElement>();
-    useImperativeHandle(ref, () => linkRef.current);
+    const linkRef = useRef<HTMLElement>(null);
+    useImperativeHandle<HTMLElement | null, HTMLElement | null>(ref, () => linkRef.current);
 
     const blur = () => {
       const currentLinkRef = linkRef.current;
