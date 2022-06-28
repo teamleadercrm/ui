@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import { IconGiftMediumOutline } from '@teamleader/ui-icons';
 
 import { IconButton } from '../..';
-import { SIZES, COLORS, TINTS } from './IconButton';
+import { Sizes, Colors, Tints } from './IconButton';
 
 export default {
   component: IconButton,
@@ -14,9 +14,9 @@ const Wrapper = ({ children, inverse = false }: { children: ReactNode; inverse: 
     {children}
   </div>
 );
-const sizes: SIZES[] = ['small', 'medium', 'large'];
-const colors: COLORS[] = ['neutral', 'white', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'teal'];
-const tints: TINTS[] = ['lightest', 'light', 'normal', 'dark', 'darkest'];
+const sizes: Sizes[] = ['small', 'medium', 'large'];
+const colors: Colors[] = ['neutral', 'white', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'teal'];
+const tints: Tints[] = ['lightest', 'light', 'normal', 'dark', 'darkest'];
 export const Main = () => (
   <div>
     {sizes.map((size) =>

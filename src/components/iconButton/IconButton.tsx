@@ -8,9 +8,9 @@ import Icon from '../icon';
 import LoadingSpinner from '../loadingSpinner';
 import theme from './theme.css';
 
-export type SIZES = 'small' | 'medium' | 'large';
-export type TINTS = 'lightest' | 'light' | 'normal' | 'dark' | 'darkest';
-export type COLORS = 'neutral' | 'white' | 'mint' | 'violet' | 'ruby' | 'gold' | 'aqua' | 'teal';
+export type Sizes = 'small' | 'medium' | 'large';
+export type Tints = 'lightest' | 'light' | 'normal' | 'dark' | 'darkest';
+export type Colors = 'neutral' | 'white' | 'mint' | 'violet' | 'ruby' | 'gold' | 'aqua' | 'teal';
 
 export interface IconButtonProps extends Omit<BoxProps, 'ref' | 'children' | 'className' | 'element'> {
   /** The content to display inside the button. */
@@ -24,11 +24,11 @@ export interface IconButtonProps extends Omit<BoxProps, 'ref' | 'children' | 'cl
   /** The icon displayed inside the button. */
   icon?: ReactNode;
   /** Size of the button. */
-  size?: SIZES;
+  size?: Sizes;
   /** The color which the icon should have */
-  color?: COLORS;
+  color?: Colors;
   /** The tint which the icon should have */
-  tint?: TINTS;
+  tint?: Tints;
   /** If true, component will be shown in a selected state */
   selected?: boolean;
   /** Type of the button element. */
