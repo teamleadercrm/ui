@@ -11,7 +11,7 @@ import { Heading1, TextBody } from '../typography';
 import theme from './theme.css';
 
 export interface DetailPageHeaderProps extends Omit<ContainerProps, 'title'> {
-  children: ReactNode;
+  children?: ReactNode;
   backLinkProps?: Omit<BadgedLinkProps, 'icon' | 'inheric'> & { children: ReactNode };
   title: React.ReactNode;
   /** The color which the title should have */

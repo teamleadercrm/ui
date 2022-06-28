@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import * as Icons from '@teamleader/ui-icons';
 import { Box, Icon, TextSmall } from '../../index';
@@ -6,16 +6,16 @@ import { IconWarningBadgedMediumOutline } from '@teamleader/ui-icons';
 import description from './description.md';
 import { ComponentStory } from '@storybook/react';
 
-const gridStyles = {
+const gridStyles: CSSProperties = {
   display: 'flex',
   flexWrap: 'wrap',
 };
 
-const itemStyles = {
+const itemStyles: CSSProperties = {
   alignItems: 'center',
   display: 'flex',
   width: '320px',
-  whitespace: 'nowrap',
+  whiteSpace: 'nowrap',
 };
 
 export default {
