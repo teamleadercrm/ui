@@ -1,17 +1,18 @@
+import uiUtilities from '@teamleader/ui-utilities';
+import cx from 'classnames';
 import React, { ReactNode, RefObject } from 'react';
 import { createPortal } from 'react-dom';
-import cx from 'classnames';
-import Box from '../box';
-import Overlay from '../overlay/Overlay';
 import Transition from 'react-transition-group/Transition';
-import * as DialogHeader from './Header';
+import { GenericComponent } from '../../@types/types';
+import useFocusTrap from '../../utils/useFocusTrap';
+import Box from '../box';
+import { BoxProps } from '../box/Box';
+import Overlay from '../overlay/Overlay';
 import * as DialogBody from './Body';
 import * as DialogFooter from './Footer';
+import * as DialogHeader from './Header';
 import theme from './theme.css';
-import uiUtilities from '@teamleader/ui-utilities';
-import useFocusTrap from '../../utils/useFocusTrap';
 import useDraggable from './useDraggable';
-import { BoxProps } from '../box/Box';
 
 export interface DialogBaseProps extends Omit<BoxProps, 'form' | 'size'> {
   /** If true, the dialog will show on screen. */
@@ -39,8 +40,13 @@ export interface DialogBaseProps extends Omit<BoxProps, 'form' | 'size'> {
   /** Optional callback if the dialog is a form and is being submitted */
   onSubmit?: () => void;
 }
+interface DialogBaseComponent extends GenericComponent<DialogBaseProps> {
+  Header: GenericComponent<DialogHeader.HeaderProps>;
+  Body: GenericComponent<DialogBody.BodyProps>;
+  Footer: GenericComponent<DialogFooter.FooterProps>;
+}
 
-export const DialogBase = ({
+export const DialogBase: DialogBaseComponent = ({
   active = false,
   backdrop = 'dark',
   children,
@@ -53,7 +59,7 @@ export const DialogBase = ({
   dragHandleRef,
   form,
   onSubmit,
-}: DialogBaseProps) => {
+}) => {
   const { ref, FocusRing } = useFocusTrap({ active, initialFocusRef });
   useDraggable({ active, dragTargetRef: ref, dragHandleRef });
 

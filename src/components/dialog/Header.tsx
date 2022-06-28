@@ -6,6 +6,7 @@ import IconButton from '../iconButton';
 import Icon from '../icon';
 
 import theme from './theme.css';
+import { GenericComponent } from '../../@types/types';
 
 export interface HeaderProps {
   /** The content to display inside the dialog. */
@@ -16,7 +17,7 @@ export interface HeaderProps {
   onCloseClick?: () => void;
 }
 
-const Header = ({ icon, onCloseClick, children, ...rest }: HeaderProps) => {
+const Header: GenericComponent<HeaderProps> = ({ icon, onCloseClick, children, ...rest }) => {
   return (
     <Section display="flex" alignItems="center" color="neutral" {...rest}>
       {icon && (
