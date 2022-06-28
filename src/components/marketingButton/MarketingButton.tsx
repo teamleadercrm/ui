@@ -30,9 +30,9 @@ interface MarketingButtonProps extends Omit<BoxProps, 'ref'> {
   /** The textual label displayed inside the button. */
   label?: number | string;
   /** Callback function that is fired when mouse leaves the component. */
-  onMouseLeave?: (event: MouseEvent) => void;
+  onMouseLeave?: (event: React.MouseEvent) => void;
   /** Callback function that is fired when the mouse button is released. */
-  onMouseUp?: (event: MouseEvent) => void;
+  onMouseUp?: (event: React.MouseEvent) => void;
   /** If true, component will show a loading spinner instead of label or children. */
   processing?: boolean;
   /** Size of the button. */
@@ -78,14 +78,14 @@ const MarketingButton = forwardRef(
       }
     };
 
-    const handleMouseUp = (event: MouseEvent) => {
+    const handleMouseUp = (event: React.MouseEvent) => {
       blur();
       if (onMouseUp) {
         onMouseUp(event);
       }
     };
 
-    const handleMouseLeave = (event: MouseEvent) => {
+    const handleMouseLeave = (event: React.MouseEvent) => {
       blur();
       if (onMouseLeave) {
         onMouseLeave(event);
