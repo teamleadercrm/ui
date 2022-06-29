@@ -11,10 +11,10 @@ interface IconMenuProps extends Omit<BoxProps, 'children'> {
   children?: ReactNode;
   className?: string;
   icon?: ReactElement;
-  onHide?: () => {};
-  onSelect?: (e: SyntheticEvent) => {};
-  onShow?: () => {};
-  onClick?: (e: SyntheticEvent) => {};
+  onHide?: () => void;
+  onSelect?: (e: SyntheticEvent) => void;
+  onShow?: () => void;
+  onClick?: (e: SyntheticEvent) => void;
   position?: POSITIONS;
   selectable?: boolean;
   selected?: any;
