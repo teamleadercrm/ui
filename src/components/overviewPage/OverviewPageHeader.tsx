@@ -4,7 +4,7 @@ import Container from '../container';
 import { Heading1 } from '../typography';
 
 interface OverviewPageHeaderProps {
-  children: ReactNode;
+  children?: ReactNode;
   title: string | ReactNode;
 }
 

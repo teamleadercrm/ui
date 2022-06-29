@@ -26,33 +26,6 @@ export default {
   },
 };
 
-export const composition = () => (
-  <OverviewPage>
-    {header()}
-    {body()}
-  </OverviewPage>
-);
-
-composition.storyName = 'Composition';
-composition.parameters = {
-  info: {
-    propTables: [OverviewPage],
-  },
-};
-
-export const body = () => (
-  <OverviewPage.Body>
-    <TextBody>Here you can add arbitrary content.</TextBody>
-  </OverviewPage.Body>
-);
-
-body.storyName = 'Body';
-body.parameters = {
-  info: {
-    propTables: [OverviewPage.Body],
-  },
-};
-
 export const header = () => <OverviewPage.Header title={text('title', 'I am the overview page title')} />;
 
 header.storyName = 'Header';
@@ -78,5 +51,32 @@ headerWithActions.storyName = 'Header with actions';
 headerWithActions.parameters = {
   info: {
     propTables: [OverviewPage.Header],
+  },
+};
+
+export const body = () => (
+  <OverviewPage.Body>
+    <TextBody>Here you can add arbitrary content.</TextBody>
+  </OverviewPage.Body>
+);
+
+body.storyName = 'Body';
+body.parameters = {
+  info: {
+    propTables: [OverviewPage.Body],
+  },
+};
+
+export const composition = () => (
+  <OverviewPage>
+    {header()}
+    {body()}
+  </OverviewPage>
+);
+
+composition.storyName = 'Composition';
+composition.parameters = {
+  info: {
+    propTables: [OverviewPage],
   },
 };
