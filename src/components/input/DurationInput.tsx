@@ -1,23 +1,52 @@
-import React, { useRef, forwardRef, useImperativeHandle } from 'react';
-import PropTypes from 'prop-types';
-import { Box, NumericInput } from '../../';
-import theme from './theme.css';
+import React, { FocusEvent, FormEvent, forwardRef, KeyboardEvent, useImperativeHandle, useRef } from 'react';
+import Box from '../box';
 import cx from 'classnames';
 
-const transformToPaddedNumber = (number) => (number < 10 ? `0${number}` : number.toString());
+import theme from './theme.css';
+import NumericInput from './NumericInput';
 
 const MINUTES_STEP = 15;
 
-/** @type {React.ComponentType<any>} */
+interface DurationInputProps {
+  autoFocus?: boolean;
+  className?: string;
+  error?: boolean;
+  id?: string;
+  max?: number;
+  onBlur?: (event: FocusEvent<HTMLElement>) => void;
+  onChange?: (value?: { hours?: number; minutes?: number }) => void;
+  onFocus?: (event: FocusEvent<HTMLElement>) => void;
+  onKeyDown?: (event: KeyboardEvent<HTMLElement>) => void;
+  size?: 'small' | 'medium' | 'large';
+  textAlignRight?: boolean;
+  value?: {
+    hours?: number;
+    minutes?: number;
+  };
+}
+
 const DurationInput = forwardRef(
   (
-    { id, value, onChange, onBlur, onFocus, onKeyDown, autoFocus, textAlignRight, className, error, max, size },
-    ref,
+    {
+      autoFocus,
+      className,
+      error,
+      id,
+      max,
+      onBlur,
+      onChange,
+      onFocus,
+      onKeyDown,
+      size = 'medium',
+      textAlignRight = false,
+      value,
+    }: DurationInputProps,
+    forwardedRef,
   ) => {
-    const containerRef = useRef();
-    useImperativeHandle(ref, () => containerRef.current);
+    const containerRef = useRef<HTMLElement>();
+    useImperativeHandle(forwardedRef, () => containerRef.current);
 
-    const handleHoursChanged = (_, hours) => {
+    const handleHoursChanged = (_: FormEvent<HTMLElement>, hours: string) => {
       if (!onChange) {
         return;
       }
@@ -45,7 +74,7 @@ const DurationInput = forwardRef(
       });
     };
 
-    const handleMinutesChange = (_, minutes) => {
+    const handleMinutesChange = (_: FormEvent<HTMLElement>, minutes: string) => {
       if (!onChange) {
         return;
       }
@@ -99,7 +128,7 @@ const DurationInput = forwardRef(
      * we filter out the blur events caused by changing focus between these, so the onBlur event only
      * gets triggered when really blurring outside of the entire component
      */
-    const handleBlur = (event) => {
+    const handleBlur = (event: FocusEvent<HTMLElement>) => {
       if (!event.relatedTarget) {
         onBlur && onBlur(event);
         return;
@@ -118,36 +147,79 @@ const DurationInput = forwardRef(
       onBlur && onBlur(event);
     };
 
-    let minutes = value?.minutes;
-    if (Number.isInteger(minutes)) {
-      minutes = transformToPaddedNumber(minutes);
-    }
-    // if it starts with 0, allow one more so we don't block typing (because we autopad the minutes)
-    const maxMinuteLength = minutes && minutes.length >= 2 && minutes[0] !== '0' ? 2 : 3;
+    const getHoursString = () => {
+      const hours = value?.hours;
 
-    let hours = value?.hours;
-    if (Number.isInteger(hours)) {
-      hours = transformToPaddedNumber(hours);
-    }
-
-    let maxHours;
-    let maxMinutes;
-    if (max) {
-      maxHours = Math.floor(max / 60);
-      maxMinutes = max % 60;
-    }
-    let maxHourLength;
-    if (hours && maxHours) {
-      maxHourLength = maxHours.toString().length;
-
-      // if it starts with 0, allow one more so we don't block typing (because we autopad the hours)
-      if (hours && hours.length >= maxHourLength && hours[0] === '0') {
-        maxHourLength += 1;
+      if (Number.isInteger(hours)) {
+        return transformToPaddedNumber(hours as number);
+      } else if (hours) {
+        return hours.toString();
       }
-    }
 
-    // Minutes are relative to the already filled in hours, so the max needs to be set on the fly
-    const isMaximumMinutesLimited = (max && value?.hours && value.hours >= maxHours) || maxHours === 0;
+      return undefined;
+    };
+
+    const getMinutesString = () => {
+      const minutes = value?.minutes;
+
+      if (Number.isInteger(minutes)) {
+        return transformToPaddedNumber(minutes as number);
+      } else if (minutes) {
+        return minutes.toString();
+      }
+
+      return undefined;
+    };
+
+    const getMaxHoursAndMinutes = (): { maxHours: number | undefined; maxMinutes: number | undefined } => {
+      if (max) {
+        return {
+          maxHours: Math.floor(max / 60),
+          maxMinutes: max % 60,
+        };
+      }
+
+      return {
+        maxHours: undefined,
+        maxMinutes: undefined,
+      };
+    };
+
+    const getMaxHourLength = () => {
+      const { maxHours } = getMaxHoursAndMinutes();
+      const hoursString = getHoursString();
+
+      if (hoursString && maxHours) {
+        let maxHourLength = maxHours.toString().length;
+
+        // if it starts with 0, allow one more so we don't block typing (because we autopad the hours)
+        if (hoursString.length >= maxHourLength && hoursString[0] === '0') {
+          maxHourLength += 1;
+        }
+
+        return maxHourLength;
+      }
+
+      return undefined;
+    };
+
+    const getMaxMinuteLength = () => {
+      const minutesString = getMinutesString();
+
+      // if it starts with 0, allow one more so we don't block typing (because we autopad the minutes)
+      return minutesString && minutesString.length >= 2 && minutesString[0] !== '0' ? 2 : 3;
+    };
+
+    const isMaximumMinutesLimited = () => {
+      const { maxHours } = getMaxHoursAndMinutes();
+
+      // Minutes are relative to the already filled in hours, so the max needs to be set on the fly
+      return (max && value?.hours && maxHours && value.hours >= maxHours) || maxHours === 0;
+    };
+
+    const transformToPaddedNumber = (number: number) => {
+      return number < 10 ? `0${number}` : number.toString();
+    };
 
     return (
       <Box
@@ -160,9 +232,9 @@ const DurationInput = forwardRef(
         <NumericInput
           placeholder="00"
           min={0}
-          {...(max ? { max: maxHours } : {})}
-          maxLength={maxHourLength}
-          value={hours ?? ''}
+          {...(max ? { max: getMaxHoursAndMinutes().maxHours } : {})}
+          maxLength={getMaxHourLength()}
+          value={getHoursString() ?? ''}
           onChange={handleHoursChanged}
           onBlur={handleBlur}
           onFocus={onFocus}
@@ -178,9 +250,9 @@ const DurationInput = forwardRef(
           placeholder="00"
           step={MINUTES_STEP}
           {...(!value?.hours ? { min: 0 } : {})}
-          {...(isMaximumMinutesLimited ? { max: maxMinutes } : {})}
-          maxLength={maxMinuteLength}
-          value={minutes ?? ''}
+          {...(isMaximumMinutesLimited() ? { max: getMaxHoursAndMinutes().maxMinutes } : {})}
+          maxLength={getMaxMinuteLength()}
+          value={getMinutesString() ?? ''}
           onChange={handleMinutesChange}
           onBlur={handleBlur}
           onFocus={onFocus}
@@ -195,27 +267,6 @@ const DurationInput = forwardRef(
     );
   },
 );
-
-DurationInput.propTypes = {
-  id: PropTypes.string,
-  value: PropTypes.object,
-  onChange: PropTypes.func,
-  onBlur: PropTypes.func,
-  onFocus: PropTypes.func,
-  onKeyDown: PropTypes.func,
-  autoFocus: PropTypes.func,
-  textAlignRight: PropTypes.bool,
-  className: PropTypes.string,
-  error: PropTypes.bool,
-  /** In minutes **/
-  max: PropTypes.number,
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
-};
-
-DurationInput.defaultProps = {
-  textAlignRight: false,
-  size: 'medium',
-};
 
 DurationInput.displayName = 'DurationInput';
 
