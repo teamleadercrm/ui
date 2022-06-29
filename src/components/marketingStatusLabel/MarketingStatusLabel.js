@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Box from '../box';
 import Icon from '../icon';
@@ -8,33 +8,29 @@ import { IconLockSmallFilled } from '@teamleader/ui-icons';
 import { UITextBody, UITextSmall } from '../typography';
 
 /** @type {React.ComponentType<any>} */
-class MarketingStatusLabel extends Component {
-  render() {
-    const { children, className, fullWidth, size, ...others } = this.props;
+const MarketingStatusLabel = ({ children, className, fullWidth, size, ...others }) => {
+  const classNames = cx(theme['wrapper'], theme[`is-${size}`], className);
 
-    const classNames = cx(theme['wrapper'], theme[`is-${size}`], className);
+  const TextElement = size === 'small' ? UITextSmall : UITextBody;
 
-    const TextElement = size === 'small' ? UITextSmall : UITextBody;
-
-    return (
-      <Box
-        {...others}
-        alignItems="center"
-        display={fullWidth ? 'flex' : 'inline-flex'}
-        justifyContent="center"
-        className={classNames}
-        paddingHorizontal={2}
-      >
-        <TextElement className={theme['text']} marginRight={2}>
-          {children}
-        </TextElement>
-        <Icon className={theme['icon']}>
-          <IconLockSmallFilled />
-        </Icon>
-      </Box>
-    );
-  }
-}
+  return (
+    <Box
+      {...others}
+      alignItems="center"
+      display={fullWidth ? 'flex' : 'inline-flex'}
+      justifyContent="center"
+      className={classNames}
+      paddingHorizontal={2}
+    >
+      <TextElement className={theme['text']} marginRight={2}>
+        {children}
+      </TextElement>
+      <Icon className={theme['icon']}>
+        <IconLockSmallFilled />
+      </Icon>
+    </Box>
+  );
+};
 
 MarketingStatusLabel.propTypes = {
   children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
