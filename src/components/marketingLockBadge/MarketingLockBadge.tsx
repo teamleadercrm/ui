@@ -1,13 +1,19 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import Box from '../box';
 import Icon from '../icon';
 import cx from 'classnames';
 import theme from './theme.css';
 import { IconLockSmallFilled } from '@teamleader/ui-icons';
+import { GenericComponent } from '../../@types/types';
 
-/** @type {React.ComponentType<any>} */
-const MarketingLockBadge = ({ className, size, ...others }) => {
+type Size = 'small' | 'medium';
+
+interface MarketingLockBadgeProps {
+  className?: string;
+  size?: Size;
+}
+
+const MarketingLockBadge: GenericComponent<MarketingLockBadgeProps> = ({ className, size = 'medium', ...others }) => {
   const classNames = cx(theme['wrapper'], theme[`is-${size}`], className);
 
   return (
@@ -24,14 +30,6 @@ const MarketingLockBadge = ({ className, size, ...others }) => {
       </Icon>
     </Box>
   );
-};
-
-MarketingLockBadge.propTypes = {
-  size: PropTypes.oneOf(['small', 'medium']),
-};
-
-MarketingLockBadge.defaultProps = {
-  size: 'medium',
 };
 
 export default MarketingLockBadge;
