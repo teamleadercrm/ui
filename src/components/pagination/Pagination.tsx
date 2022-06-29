@@ -7,8 +7,8 @@ import theme from './theme.css';
 import { BoxProps } from '../box/Box';
 
 type ChildrenFunctionArgument = {
-  number?: number | undefined;
-  isActive?: boolean;
+  number: number;
+  isActive: boolean;
   icon?: ReactNode;
   iconPlacement?: string;
   text?: string | number;
