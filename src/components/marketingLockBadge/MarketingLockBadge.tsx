@@ -5,10 +5,11 @@ import cx from 'classnames';
 import theme from './theme.css';
 import { IconLockSmallFilled } from '@teamleader/ui-icons';
 import { GenericComponent } from '../../@types/types';
+import { BoxProps } from '../box/Box';
 
 type Size = 'small' | 'medium';
 
-interface MarketingLockBadgeProps {
+interface MarketingLockBadgeProps extends Omit<BoxProps, 'ref'> {
   className?: string;
   size?: Size;
 }
