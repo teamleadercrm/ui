@@ -1,66 +1,62 @@
-import React, { forwardRef, useRef, useImperativeHandle } from 'react';
-import PropTypes from 'prop-types';
+import React, { forwardRef, useRef, useImperativeHandle, ReactNode } from 'react';
 import cx from 'classnames';
 import Box from '../box';
 import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
+import { GenericComponent } from '../../@types/types';
 
-/** @type {React.ComponentType<any>} */
-const MarketingLink = forwardRef(({ children, className, element, onMouseUp, onMouseLeave, ...others }, ref) => {
-  const linkRef = useRef();
-  useImperativeHandle(ref, () => linkRef.current);
-
-  const blur = () => {
-    const currentLinkRef = linkRef.current;
-    if (currentLinkRef.blur) {
-      currentLinkRef.blur();
-    }
-  };
-
-  const handleMouseUp = (event) => {
-    blur();
-    onMouseUp && onMouseUp(event);
-  };
-
-  const handleMouseLeave = (event) => {
-    blur();
-    onMouseLeave && onMouseLeave(event);
-  };
-
-  const classNames = cx(uiUtilities['reset-font-smoothing'], theme['link'], className);
-
-  return (
-    <Box
-      element={element}
-      ref={linkRef}
-      className={classNames}
-      data-teamleader-ui="marketing-link"
-      onMouseUp={handleMouseUp}
-      onMouseLeave={handleMouseLeave}
-      {...others}
-    >
-      {children}
-    </Box>
-  );
-});
-
-MarketingLink.propTypes = {
+interface MarketingLinkProps {
   /** The content to display inside the link. */
-  children: PropTypes.any.isRequired,
+  children: ReactNode;
   /** A class name for the link to give custom styles. */
-  className: PropTypes.string,
+  className?: string;
   /** A custom element to be rendered */
-  element: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
+  element?: Element | string;
   /** Callback function that is fired when mouse leaves the component. */
-  onMouseLeave: PropTypes.func,
+  onMouseLeave?: (event: React.MouseEvent) => void;
   /** Callback function that is fired when the mouse button is released. */
-  onMouseUp: PropTypes.func,
-};
+  onMouseUp?: (event: React.MouseEvent) => void;
+}
 
-MarketingLink.defaultProps = {
-  className: '',
-  element: 'a',
-};
+const MarketingLink: GenericComponent<MarketingLinkProps> = forwardRef(
+  ({ children, className = '', element = 'a', onMouseUp, onMouseLeave, ...others }, ref) => {
+    const linkRef = useRef<HTMLElement>();
+    useImperativeHandle(ref, () => linkRef.current);
+
+    const blur = () => {
+      const currentLinkRef = linkRef.current;
+      if (currentLinkRef?.blur) {
+        currentLinkRef.blur();
+      }
+    };
+
+    const handleMouseUp = (event: React.MouseEvent) => {
+      blur();
+      onMouseUp && onMouseUp(event);
+    };
+
+    const handleMouseLeave = (event: React.MouseEvent) => {
+      blur();
+      onMouseLeave && onMouseLeave(event);
+    };
+
+    const classNames = cx(uiUtilities['reset-font-smoothing'], theme['link'], className);
+
+    return (
+      <Box
+        element={element}
+        ref={linkRef}
+        className={classNames}
+        data-teamleader-ui="marketing-link"
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseLeave}
+        {...others}
+      >
+        {children}
+      </Box>
+    );
+  },
+);
 
 MarketingLink.displayName = 'MarketingLink';
 
