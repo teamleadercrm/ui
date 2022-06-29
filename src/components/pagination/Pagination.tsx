@@ -55,11 +55,14 @@ const Pagination = ({
   iterator[iterator.length - 1] = numPages;
 
   // should we replace the 2nd and 2nd last by ellipsis?
+  let firstEllipsisIndex: number | null = null;
+  let secondEllipsisIndex: number | null = null;
+
   if (iterator.length > 1 && iterator[1] !== 2) {
-    iterator[1] = 'ellipsis-left';
+    firstEllipsisIndex = 1;
   }
   if (iterator.length > 1 && iterator[iterator.length - 2] !== numPages - 1) {
-    iterator[iterator.length - 2] = 'ellipsis-right';
+    secondEllipsisIndex = iterator.length - 2;
   }
 
   return (
@@ -73,12 +76,13 @@ const Pagination = ({
             iconPlacement: 'left',
           })}
         </li>
-        {iterator.map((page) => {
+        {iterator.map((page, index) => {
           const isActive = page === currentPage;
+          const isEllipsis = firstEllipsisIndex === index || secondEllipsisIndex === index;
 
           return (
             <li key={page} className={theme['list-item']}>
-              {String(page).startsWith('ellipsis') ? (
+              {isEllipsis ? (
                 <TextBody className={theme['ellipsis']} element="span">
                   ...
                 </TextBody>
