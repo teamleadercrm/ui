@@ -1,8 +1,9 @@
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 import { addStoryInGroup, MARKETING } from '../../../.storybook/utils';
 import MarketingTab from './MarketingTab';
 
-const handleClick = (event) => {
+const handleClick = (event: React.MouseEvent) => {
   event.preventDefault();
 };
 
@@ -16,13 +17,13 @@ export default {
       url: 'https://www.figma.com/file/6nbw3mXc6VpIOYrbmUxn8C/Marketing-components?node-id=57%3A0',
     },
   },
-};
+} as ComponentMeta<typeof MarketingTab>;
 
-export const Basic = (args) => (
+export const Basic: ComponentStory<typeof MarketingTab> = (args) => (
   <MarketingTab
     {...args}
     onClick={(event) => {
-      handleClick(event, 'Marketing tab');
+      handleClick(event);
     }}
   />
 );
