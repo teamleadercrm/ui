@@ -1,66 +1,63 @@
-import React, { forwardRef, useRef, useImperativeHandle } from 'react';
-import PropTypes from 'prop-types';
+import React, { forwardRef, useRef, useImperativeHandle, ReactNode } from 'react';
 import cx from 'classnames';
 import theme from './theme.css';
 import Box from '../box';
 import MarketingLockBadge from '../marketingLockBadge';
 import { Heading4, Heading5 } from '../typography';
+import { GenericComponent } from '../../@types/types';
+import { BoxProps } from '../box/Box';
 
-/** @type {React.ComponentType<any>} */
-const MarketingTab = forwardRef(({ active, children, className, size, onClick, ...others }, ref) => {
-  const tabRef = useRef();
-  useImperativeHandle(ref, () => tabRef.current);
+type Size = 'small' | 'medium';
 
-  const handleClick = (event) => {
-    if (onClick) {
-      onClick(event);
-    }
-    if (event.pageX !== 0 && event.pageY !== 0) {
-      blur();
-    }
-  };
+interface MarketingTabProps extends Omit<BoxProps, 'ref'> {
+  active?: boolean;
+  children: ReactNode;
+  className?: string;
+  onClick?: (event: React.MouseEvent) => void;
+  size?: Size;
+}
 
-  const blur = () => {
-    const currentTabRef = tabRef.current;
-    if (currentTabRef.blur) {
-      currentTabRef.blur();
-    }
-  };
+const MarketingTab: GenericComponent<MarketingTabProps> = forwardRef(
+  ({ active = false, children, className, size = 'medium', onClick, ...others }, ref) => {
+    const tabRef = useRef<HTMLElement>();
+    useImperativeHandle(ref, () => tabRef.current);
 
-  const classNames = cx(theme['wrapper'], { [theme['is-active']]: active }, className);
+    const blur = () => {
+      const currentTabRef = tabRef.current;
+      if (currentTabRef?.blur) {
+        currentTabRef.blur();
+      }
+    };
 
-  const TextElement = size === 'small' ? Heading5 : Heading4;
+    const handleClick = (event: React.MouseEvent) => {
+      if (onClick) {
+        onClick(event);
+      }
+      if (event.pageX !== 0 && event.pageY !== 0) {
+        blur();
+      }
+    };
 
-  return (
-    <Box
-      data-teamleader-ui="marketing-tab"
-      className={classNames}
-      marginHorizontal={size === 'small' ? 1 : 2}
-      paddingHorizontal={size === 'small' ? 2 : 3}
-      ref={tabRef}
-      onClick={handleClick}
-      {...others}
-    >
-      <TextElement element="span">{children}</TextElement>
-      <MarketingLockBadge marginLeft={3} size={size} />
-    </Box>
-  );
-});
+    const classNames = cx(theme['wrapper'], { [theme['is-active']]: active }, className);
 
-MarketingTab.propTypes = {
-  active: PropTypes.bool,
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string,
-  element: PropTypes.node,
-  onClick: PropTypes.func,
-  size: PropTypes.oneOf(['small', 'medium']),
-};
+    const TextElement = size === 'small' ? Heading5 : Heading4;
 
-MarketingTab.defaultProps = {
-  element: 'a',
-  active: false,
-  size: 'medium',
-};
+    return (
+      <Box
+        data-teamleader-ui="marketing-tab"
+        className={classNames}
+        marginHorizontal={size === 'small' ? 1 : 2}
+        paddingHorizontal={size === 'small' ? 2 : 3}
+        ref={tabRef}
+        onClick={handleClick}
+        {...others}
+      >
+        <TextElement element="span">{children}</TextElement>
+        <MarketingLockBadge marginLeft={3} size={size} />
+      </Box>
+    );
+  },
+);
 
 MarketingTab.displayName = 'MarketingTab';
 
