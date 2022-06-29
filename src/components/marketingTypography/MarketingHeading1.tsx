@@ -5,7 +5,7 @@ import theme from './theme.css';
 import { GenericComponent } from '../../@types/types';
 import { BoxProps } from '../box/Box';
 
-interface MarketingHeadingProps extends Omit<BoxProps, 'ref'> {
+export interface MarketingHeadingProps extends Omit<BoxProps, 'ref'> {
   children?: ReactNode | string;
   className?: string;
 }
