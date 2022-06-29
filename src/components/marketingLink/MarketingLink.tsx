@@ -4,8 +4,9 @@ import Box from '../box';
 import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
 import { GenericComponent } from '../../@types/types';
+import { BoxProps } from '../box/Box';
 
-interface MarketingLinkProps {
+interface MarketingLinkProps extends Omit<BoxProps, 'ref'> {
   /** The content to display inside the link. */
   children: ReactNode;
   /** A class name for the link to give custom styles. */
