@@ -69,6 +69,7 @@ const InputBase = forwardRef(
       readOnly = false,
       size = 'medium',
       textAlignRight,
+      type = 'text',
       ...others
     }: InputBaseProps,
     forwardedRef,
@@ -89,6 +90,7 @@ const InputBase = forwardRef(
       ref: forwardedRef,
       disabled,
       readOnly,
+      type,
       ...omitBoxProps(others),
     });
   },
