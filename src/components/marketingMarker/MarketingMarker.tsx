@@ -5,19 +5,15 @@ import cx from 'classnames';
 import theme from './theme.css';
 
 /** @type {React.ComponentType<any>} */
-class MarketingMarker extends Component {
-  render() {
-    const { children, className, ...others } = this.props;
+const MarketingMarker = ({ children, className, ...others }) => {
+  const classNames = cx(theme['marker'], className);
 
-    const classNames = cx(theme['marker'], className);
-
-    return (
-      <Box {...others} className={classNames} element="mark" paddingHorizontal={1} marginHorizontal={-1}>
-        {children}
-      </Box>
-    );
-  }
-}
+  return (
+    <Box {...others} className={classNames} element="mark" paddingHorizontal={1} marginHorizontal={-1}>
+      {children}
+    </Box>
+  );
+};
 
 MarketingMarker.propTypes = {
   children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
