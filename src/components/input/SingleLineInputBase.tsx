@@ -88,6 +88,14 @@ const SingleLineInputBase = forwardRef(
       onFocus && onFocus(event);
     };
 
+    const renderOneOrMultipleElements = (prop: ReactElement[] | ReactElement) => {
+      if (Array.isArray(prop)) {
+        return prop.map((element, index) => React.cloneElement(element, { key: index }));
+      }
+
+      return prop;
+    };
+
     const classNames = cx(
       theme['wrapper'],
       {
@@ -106,7 +114,7 @@ const SingleLineInputBase = forwardRef(
 
     const boxProps = pickBoxProps(others);
     const inputProps = {
-      forwardedRef,
+      ref: forwardedRef,
       disabled,
       inverse,
       onBlur: handleBlur,
@@ -121,9 +129,9 @@ const SingleLineInputBase = forwardRef(
         <div className={cx(theme['input-wrapper'], noInputStyling && theme['is-input-disabled'])}>
           {connectedLeft}
           <div className={theme['input-inner-wrapper']} style={{ width, flex: width && '0 1 auto' }}>
-            {prefix && <div className={theme['prefix-wrapper']}>{prefix}</div>}
+            {prefix && <div className={theme['prefix-wrapper']}>{renderOneOrMultipleElements(prefix)}</div>}
             <InputBase {...inputProps} />
-            {suffix && <div className={theme['suffix-wrapper']}>{suffix}</div>}
+            {suffix && <div className={theme['suffix-wrapper']}>{renderOneOrMultipleElements(suffix)}</div>}
           </div>
           {connectedRight}
         </div>

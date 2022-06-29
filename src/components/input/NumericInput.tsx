@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FocusEvent, forwardRef, KeyboardEvent, useEffect, useRef } from 'react';
+import React, { ChangeEvent, FocusEvent, forwardRef, KeyboardEvent, ReactElement, useEffect, useRef } from 'react';
 import Icon from '../icon';
 import {
   IconAddSmallOutline,
@@ -246,7 +246,7 @@ const NumericInput = forwardRef(
     const getSuffix = () => {
       if (stepper === 'suffix') {
         return [
-          { suffix },
+          ...(Array.isArray(suffix) ? suffix : [suffix]),
           /* eslint-disable-next-line react/jsx-key */
           <StepperControls
             inverse={inverse}
