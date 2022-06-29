@@ -3,8 +3,9 @@ import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
 import { GenericComponent } from '../../@types/types';
+import { BoxProps } from '../box/Box';
 
-interface MarketingMarkerProps {
+interface MarketingMarkerProps extends Omit<BoxProps, 'ref'> {
   children?: ReactNode | string;
   className?: string;
 }
