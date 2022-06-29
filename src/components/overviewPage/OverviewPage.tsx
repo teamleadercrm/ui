@@ -1,20 +1,15 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import React, { ReactNode } from 'react';
 import OverviewPageBody from './OverviewPageBody';
 import OverviewPageHeader from './OverviewPageHeader';
 import Box from '../box';
+import { BoxProps } from '../box/Box';
 
-/** @type {React.ComponentType<any>} */
-class OverviewPage extends PureComponent {
-  render() {
-    const { children, className, ...others } = this.props;
-
-    return <Box {...others}>{children}</Box>;
-  }
+interface OverviewPageProps extends Omit<BoxProps, 'children' | 'className'> {
+  children: ReactNode;
 }
 
-OverviewPage.propTypes = {
-  children: PropTypes.node.isRequired,
+const OverviewPage = ({ children, ...others }: OverviewPageProps) => {
+  return <Box {...others}>{children}</Box>;
 };
 
 OverviewPage.Body = OverviewPageBody;
