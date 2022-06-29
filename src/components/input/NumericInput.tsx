@@ -1,4 +1,4 @@
-import React, { FormEvent, forwardRef, KeyboardEvent, ReactElement, useEffect, useRef } from 'react';
+import React, { ChangeEvent, FocusEvent, forwardRef, KeyboardEvent, useEffect, useRef } from 'react';
 import Icon from '../icon';
 import {
   IconAddSmallOutline,
@@ -9,14 +9,14 @@ import {
 
 import theme from './theme.css';
 import { COLORS as ICONCOLORS, TINTS as ICONTINTS } from '../icon/Icon';
-import SingleLineInputBase from './SingleLineInputBase';
+import SingleLineInputBase, { SingleLineInputBaseProps } from './SingleLineInputBase';
 import { KEY } from '../../constants';
 import { parseValue, toNumber } from './utils';
 import Button from '../button';
 
 interface StepperProps {
   disabled: boolean;
-  onBlur: () => void;
+  onBlur: (event: FocusEvent<HTMLElement>) => void;
   onMouseDown: () => void;
   onMouseUp: () => void;
   onMouseLeave: () => void;
@@ -48,20 +48,38 @@ const StepperControls = ({ inverse, stepperUpProps, stepperDownProps }: StepperC
   );
 };
 
-interface NumericInputProps {
-  connectedLeft: ReactElement;
-  connectedRight: ReactElement;
-  inverse: boolean;
-  max: number;
-  min: number;
-  onBlur: (...parameters: any[]) => void;
-  onChange: (event: FormEvent<HTMLInputElement>, value: string) => void;
-  onKeyDown: (event: KeyboardEvent<HTMLInputElement>) => void;
-  size: 'tiny' | 'small' | 'medium' | 'large';
-  step: number;
-  stepper: 'none' | 'connected' | 'suffix';
-  suffix: ReactElement[];
-  value: string;
+interface NumericInputProps
+  extends Pick<
+    SingleLineInputBaseProps,
+    | 'autoFocus'
+    | 'className'
+    | 'connectedLeft'
+    | 'connectedRight'
+    | 'inputMode'
+    | 'inverse'
+    | 'onBlur'
+    | 'onFocus'
+    | 'placeholder'
+    | 'size'
+    | 'suffix'
+    | 'textAlignRight'
+    | 'type'
+    | 'value'
+  > {
+  /** The maximum value that can be inputted. */
+  max?: number;
+  /** The maximum number of digits that can be inputted. */
+  maxLength?: number;
+  /** The minimum value that can be inputted. */
+  min?: number;
+  /** Callback function that is fired when the component's value changes. */
+  onChange?: (event: ChangeEvent<HTMLElement>, value: string) => void;
+  /** Callback function that is fired when the keyboard is touched. */
+  onKeyDown?: (event: KeyboardEvent<HTMLElement>) => void;
+  /** Limit increment value for numeric inputs. */
+  step?: number;
+  /** Specifiy where the stepper controls should be rendered. */
+  stepper?: 'none' | 'connected' | 'suffix';
 }
 
 const NumericInput = forwardRef(
@@ -69,7 +87,7 @@ const NumericInput = forwardRef(
     {
       connectedLeft,
       connectedRight,
-      inverse,
+      inverse = false,
       max = Number.MAX_SAFE_INTEGER,
       min = Number.MIN_SAFE_INTEGER,
       onBlur,
@@ -87,13 +105,13 @@ const NumericInput = forwardRef(
     const inputElementRef = useRef<HTMLElement | null>(null);
     const timerRef = useRef<any>(null);
     const timeoutRef = useRef<any>(null);
-    const valueRef = useRef<string>(value);
+    const valueRef = useRef<string | number | undefined>(value);
 
     useEffect(() => {
       valueRef.current = value;
     }, [value]);
 
-    const handleChange = (event: FormEvent<HTMLInputElement>) => {
+    const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
       onChange && onChange(event, event.currentTarget.value);
     };
 
@@ -169,7 +187,7 @@ const NumericInput = forwardRef(
     // Unlike mouse down events, key down events are "auto-repeated" while holding down the key
     // This means we don't need to use an interval and can directly rely on the handler
     // https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent#auto-repeat_handling
-    const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+    const handleKeyDown = (event: KeyboardEvent<HTMLElement>) => {
       if (event.key === KEY.ArrowUp) {
         event.preventDefault();
         handleIncreaseValue();
@@ -181,8 +199,8 @@ const NumericInput = forwardRef(
       onKeyDown && onKeyDown(event);
     };
 
-    const handleBlur = (...parameters: any[]) => {
-      onBlur && onBlur(...parameters);
+    const handleBlur = (event: FocusEvent<HTMLElement>) => {
+      onBlur && onBlur(event);
     };
 
     const isMinReached = () => toNumber(value || 0) <= min;
@@ -228,7 +246,7 @@ const NumericInput = forwardRef(
     const getSuffix = () => {
       if (stepper === 'suffix') {
         return [
-          ...suffix,
+          { suffix },
           /* eslint-disable-next-line react/jsx-key */
           <StepperControls
             inverse={inverse}

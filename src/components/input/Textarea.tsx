@@ -9,21 +9,21 @@ import ValidationText from '../validationText';
 
 interface TextareaProps extends Omit<BoxProps, 'size' | 'ref'> {
   /** Sets a class name for the wrapper to give custom styles. */
-  className: string;
+  className?: string;
   /** The text to use as error message below the input. */
-  error: boolean | ReactNode;
+  error?: boolean | ReactNode;
   /** The text to use as help text below the input. */
-  helpText: string;
+  helpText?: string;
   /** Boolean indicating whether the input should render as inverse. */
   inverse?: boolean;
   /** The text string/element to use as success message below the input. */
-  success: boolean | ReactNode;
+  success?: boolean | ReactNode;
   /** The text to use as warning message below the input. */
-  warning: boolean | ReactNode;
+  warning?: boolean | ReactNode;
 }
 
 const Textarea = forwardRef(
-  ({ className, error, helpText, inverse = false, success, warning, ...others }: TextareaProps, ref) => {
+  ({ className, error, helpText, inverse = false, success, warning, ...others }: TextareaProps, forwardedRef) => {
     const classNames = cx(
       theme['wrapper'],
       {
@@ -42,7 +42,7 @@ const Textarea = forwardRef(
 
     return (
       <Box className={classNames} {...boxProps}>
-        <InputBase ref={ref} className={theme['textarea']} element="textarea" {...inputProps} />
+        <InputBase ref={forwardedRef} className={theme['textarea']} element="textarea" {...inputProps} />
         <ValidationText error={error} help={helpText} inverse={inverse} success={success} warning={warning} />
       </Box>
     );

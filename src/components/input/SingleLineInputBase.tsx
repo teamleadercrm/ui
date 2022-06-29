@@ -1,39 +1,54 @@
-import React, { forwardRef, HTMLProps, ReactElement, ReactNode, useState } from 'react';
+import React, { FocusEvent, forwardRef, HTMLProps, ReactElement, ReactNode, useState } from 'react';
 import cx from 'classnames';
-
 import theme from './theme.css';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
-import InputBase from './InputBase';
+import InputBase, { InputBaseProps } from './InputBase';
 import ValidationText from '../validationText';
+import { BoxProps } from '../box/Box';
 
-export type SingleLineInputBaseProps = Partial<
-  {
-    /** Sets a class name for the wrapper to give custom styles. */
-    className?: string;
-    /** Element stuck to the left hand side of the component. */
-    connectedLeft?: ReactElement;
-    /** Element stuck to the right hand side of the component. */
-    connectedRight?: ReactElement;
-    /** The text string/element to use as error message below the input. */
-    error?: boolean | ReactNode;
-    /** The text string to use as help text below the input. */
-    helpText?: string;
-    /** Boolean indicating whether the input should render as inverse. */
-    inverse?: boolean;
-    /** Whether to disable styling that hints being able to type in the input field */
-    noInputStyling?: boolean;
-    /** The text string/element to use as a prefix inside the input field */
-    prefix?: ReactElement[] | ReactElement;
-    /** The text string/element to use as success message below the input. */
-    success?: boolean | ReactNode;
-    /** The text string/element to use as a suffix inside the input field */
-    suffix?: ReactElement[] | ReactElement;
-    /** The text to use as warning message below the input. */
-    warning?: boolean | ReactNode;
-    /** A custom width for the input field */
-    width?: string;
-  } & Pick<HTMLProps<HTMLInputElement>, 'disabled' | 'onChange' | 'onKeyDown' | 'readOnly' | 'type' | 'value'>
->;
+export interface SingleLineInputBaseProps
+  extends Pick<
+      InputBaseProps,
+      | 'autoFocus'
+      | 'disabled'
+      | 'inputMode'
+      | 'onBlur'
+      | 'onChange'
+      | 'onFocus'
+      | 'onKeyDown'
+      | 'placeholder'
+      | 'readOnly'
+      | 'size'
+      | 'textAlignRight'
+      | 'type'
+      | 'value'
+    >,
+    Omit<BoxProps, 'size' | 'ref'> {
+  /** Sets a class name for the wrapper to give custom styles. */
+  className?: string;
+  /** Element stuck to the left hand side of the component. */
+  connectedLeft?: ReactElement;
+  /** Element stuck to the right hand side of the component. */
+  connectedRight?: ReactElement;
+  /** The text string/element to use as error message below the input. */
+  error?: boolean | ReactNode;
+  /** The text string to use as help text below the input. */
+  helpText?: string;
+  /** Boolean indicating whether the input should render as inverse. */
+  inverse?: boolean;
+  /** Whether to disable styling that hints being able to type in the input field */
+  noInputStyling?: boolean;
+  /** The text string/element to use as a prefix inside the input field */
+  prefix?: ReactElement[] | ReactElement;
+  /** The text string/element to use as success message below the input. */
+  success?: boolean | ReactNode;
+  /** The text string/element to use as a suffix inside the input field */
+  suffix?: ReactElement[] | ReactElement;
+  /** The text to use as warning message below the input. */
+  warning?: boolean | ReactNode;
+  /** A custom width for the input field */
+  width?: string;
+}
 
 const SingleLineInputBase = forwardRef(
   (
@@ -45,22 +60,33 @@ const SingleLineInputBase = forwardRef(
       error,
       helpText,
       inverse,
+      onBlur,
+      onFocus,
       prefix,
       readOnly,
       success,
       suffix,
+      value,
       warning,
       width,
       noInputStyling,
       ...others
     }: SingleLineInputBaseProps,
-    ref,
+    forwardedRef,
   ) => {
     const [inputHasFocus, setInputHasFocus] = useState(false);
 
-    const handleBlur = () => {};
+    const handleBlur = (event: FocusEvent<HTMLElement>) => {
+      setInputHasFocus(false);
 
-    const handleFocus = () => {};
+      onBlur && onBlur(event);
+    };
+
+    const handleFocus = (event: FocusEvent<HTMLElement>) => {
+      setInputHasFocus(true);
+
+      onFocus && onFocus(event);
+    };
 
     const classNames = cx(
       theme['wrapper'],
@@ -80,12 +106,13 @@ const SingleLineInputBase = forwardRef(
 
     const boxProps = pickBoxProps(others);
     const inputProps = {
-      ref,
+      forwardedRef,
       disabled,
       inverse,
       onBlur: handleBlur,
       onFocus: handleFocus,
       readOnly,
+      value,
       ...omitBoxProps(others),
     };
 

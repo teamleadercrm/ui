@@ -1,19 +1,14 @@
 import React, { forwardRef } from 'react';
 import ReactInputMask, { InputState } from 'react-input-mask';
 import Icon from '../icon';
-import SingleLineInputBase from './SingleLineInputBase';
+import SingleLineInputBase, { SingleLineInputBaseProps } from './SingleLineInputBase';
 import { IconTimerSmallOutline } from '@teamleader/ui-icons';
 
 const isValidTime = (input: string) => /([0-1][0-9]|[2][0-3]):([0-5][0-9])/.test(input);
 
-interface TimeInputProps {
-  /** Boolean indicating whether the input should render as disabled. */
-  disabled?: boolean;
-  /** Boolean indicating whether the input should render as read only. */
-  readOnly?: boolean;
-}
+interface TimeInputProps extends Pick<SingleLineInputBaseProps, 'disabled' | 'readOnly'> {}
 
-const TimeInput = forwardRef((props: TimeInputProps, ref) => {
+const TimeInput = forwardRef((props: TimeInputProps, forwardedRef) => {
   const { readOnly, disabled } = props;
 
   const beforeMaskedValueChange = (
@@ -32,7 +27,7 @@ const TimeInput = forwardRef((props: TimeInputProps, ref) => {
       {(inputProps: TimeInputProps) => (
         <SingleLineInputBase
           {...inputProps}
-          ref={ref}
+          ref={forwardedRef}
           autoComplete="off"
           readOnly={readOnly}
           disabled={disabled}
