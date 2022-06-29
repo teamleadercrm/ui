@@ -1,11 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { ReactNode } from 'react';
 import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
+import { GenericComponent } from '../../@types/types';
+import { BoxProps } from '../box/Box';
 
-/** @type {React.ComponentType<any>} */
-const MarketingHeading1 = ({ children, className, ...others }) => {
+interface MarketingHeadingProps extends Omit<BoxProps, 'ref'> {
+  children?: ReactNode | string;
+  className?: string;
+}
+
+const MarketingHeading1: GenericComponent<MarketingHeadingProps> = ({ children, className, ...others }) => {
   const classNames = cx(theme['heading-1'], className);
 
   return (
@@ -13,10 +18,6 @@ const MarketingHeading1 = ({ children, className, ...others }) => {
       {children}
     </Box>
   );
-};
-
-MarketingHeading1.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
 };
 
 export default MarketingHeading1;
