@@ -1,11 +1,15 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { ReactNode } from 'react';
 import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
+import { GenericComponent } from '../../@types/types';
 
-/** @type {React.ComponentType<any>} */
-const MarketingMarker = ({ children, className, ...others }) => {
+interface MarketingMarkerProps {
+  children?: ReactNode | string;
+  className?: string;
+}
+
+const MarketingMarker: GenericComponent<MarketingMarkerProps> = ({ children, className, ...others }) => {
   const classNames = cx(theme['marker'], className);
 
   return (
@@ -13,10 +17,6 @@ const MarketingMarker = ({ children, className, ...others }) => {
       {children}
     </Box>
   );
-};
-
-MarketingMarker.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
 };
 
 export default MarketingMarker;
