@@ -1,14 +1,29 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { ReactNode } from 'react';
 import Box from '../box';
 import Icon from '../icon';
 import cx from 'classnames';
 import theme from './theme.css';
 import { IconLockSmallFilled } from '@teamleader/ui-icons';
 import { UITextBody, UITextSmall } from '../typography';
+import { GenericComponent } from '../../@types/types';
+import { BoxProps } from '../box/Box';
 
-/** @type {React.ComponentType<any>} */
-const MarketingStatusLabel = ({ children, className, fullWidth, size, ...others }) => {
+type Size = 'small' | 'medium';
+
+interface MarketingStatusLabelProps extends Omit<BoxProps, 'ref'> {
+  children?: ReactNode | string;
+  fullWidth?: boolean;
+  size?: Size;
+  className?: string;
+}
+
+const MarketingStatusLabel: GenericComponent<MarketingStatusLabelProps> = ({
+  children,
+  className,
+  fullWidth = false,
+  size = 'medium',
+  ...others
+}) => {
   const classNames = cx(theme['wrapper'], theme[`is-${size}`], className);
 
   const TextElement = size === 'small' ? UITextSmall : UITextBody;
@@ -30,17 +45,6 @@ const MarketingStatusLabel = ({ children, className, fullWidth, size, ...others 
       </Icon>
     </Box>
   );
-};
-
-MarketingStatusLabel.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
-  fullWidth: PropTypes.bool,
-  size: PropTypes.oneOf(['small', 'medium']),
-};
-
-MarketingStatusLabel.defaultProps = {
-  fullWidth: false,
-  size: 'medium',
 };
 
 export default MarketingStatusLabel;
