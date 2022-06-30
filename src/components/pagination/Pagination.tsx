@@ -5,13 +5,14 @@ import { IconChevronLeftMediumOutline, IconChevronRightMediumOutline } from '@te
 import cx from 'classnames';
 import theme from './theme.css';
 import { BoxProps } from '../box/Box';
+import { GenericComponent } from '../../@types/types';
 
 type ChildrenFunctionArgument = {
   number: number;
   isActive: boolean;
   icon?: ReactNode;
-  iconPlacement?: string;
-  text?: string | number;
+  iconPlacement?: 'left' | 'right';
+  text?: string;
   className?: string;
 };
 
@@ -23,14 +24,14 @@ interface PaginationProps extends Omit<BoxProps, 'className' | 'children'> {
   children: (args: ChildrenFunctionArgument) => ReactNode;
 }
 
-const Pagination = ({
+const Pagination: GenericComponent<PaginationProps> = ({
   className,
   currentPage = 1,
   maxNumPagesVisible = 7,
   numPages,
   children,
   ...others
-}: PaginationProps) => {
+}) => {
   if (numPages < 2) {
     return null;
   }
@@ -89,7 +90,7 @@ const Pagination = ({
               ) : (
                 children({
                   number: page,
-                  text: page,
+                  text: String(page),
                   isActive,
                   className: isActive ? theme['is-current'] : '',
                 })
