@@ -1,3 +1,4 @@
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React, { useState } from 'react';
 import { addStoryInGroup, MARKETING } from '../../../.storybook/utils';
 import MarketingButtonGroup from './MarketingButtonGroup';
@@ -5,12 +6,12 @@ import MarketingButtonGroup from './MarketingButtonGroup';
 export default {
   component: MarketingButtonGroup,
   title: addStoryInGroup(MARKETING, 'MarketingButtonGroup'),
-};
+} as ComponentMeta<typeof MarketingButtonGroup>;
 
-export const Basic = (args) => {
+export const Basic: ComponentStory<typeof MarketingButtonGroup> = () => {
   const [value, setValue] = useState('option2');
 
-  const handleChange = (value) => {
+  const handleChange = (value: string) => {
     setValue(value);
   };
 
