@@ -7,7 +7,7 @@ import { Heading1 } from '../typography';
 
 export interface OverviewPageHeaderProps extends Omit<BoxProps, 'children'> {
   children?: ReactNode;
-  title: string | ReactNode;
+  title: ReactNode;
 }
 
 const OverviewPageHeader: GenericComponent<OverviewPageHeaderProps> = ({ children, title, ...others }) => {
