@@ -1,3 +1,4 @@
+import { ComponentStory } from '@storybook/react';
 import React from 'react';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import StatusLabel from './StatusLabel';
@@ -14,4 +15,4 @@ export default {
   },
 };
 
-export const Basic = (args) => <StatusLabel {...args}>Status label</StatusLabel>;
+export const Basic: ComponentStory<typeof StatusLabel> = (args) => <StatusLabel {...args}>Status label</StatusLabel>;
