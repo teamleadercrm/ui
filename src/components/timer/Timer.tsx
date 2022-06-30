@@ -1,18 +1,22 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import { IconTimerMediumOutline } from '@teamleader/ui-icons';
+import cx from 'classnames';
+import React, { forwardRef, FunctionComponent, ReactNode } from 'react';
 import Box from '../box';
+import { BoxProps } from '../box/Box';
 import Icon from '../icon';
 import LoadingSpinner from '../loadingSpinner';
 import { Monospaced, UITextBody } from '../typography';
-import { IconTimerMediumOutline } from '@teamleader/ui-icons';
-import cx from 'classnames';
 import theme from './theme.css';
 
-/** @type {React.ComponentType<any>} */
-class Timer extends PureComponent {
-  render() {
-    const { children, className, loading, running, timerRef, ...others } = this.props;
+interface TimerProps extends Omit<BoxProps, 'children' | 'className'> {
+  className?: string;
+  children: ReactNode;
+  loading?: boolean;
+  running?: boolean;
+}
 
+const Timer: FunctionComponent<TimerProps> = forwardRef<HTMLElement, TimerProps>(
+  ({ children, className, loading = false, running = false, ...others }, ref) => {
     const classNames = cx(
       theme['timer'],
       {
@@ -21,7 +25,6 @@ class Timer extends PureComponent {
       },
       className,
     );
-
     return (
       <Box
         {...others}
@@ -31,7 +34,7 @@ class Timer extends PureComponent {
         element="button"
         alignItems="center"
         display="flex"
-        ref={timerRef}
+        ref={ref}
         paddingHorizontal={2}
       >
         <Icon color={running ? 'violet' : 'teal'} tint="darkest">
@@ -48,19 +51,8 @@ class Timer extends PureComponent {
         )}
       </Box>
     );
-  }
-}
+  },
+);
 
-Timer.propTypes = {
-  className: PropTypes.string,
-  children: PropTypes.string,
-  loading: PropTypes.bool,
-  running: PropTypes.bool,
-};
-
-Timer.defaultProps = {
-  loading: false,
-  running: false,
-};
-
+Timer.displayName = 'Timer';
 export default Timer;
