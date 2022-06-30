@@ -1,8 +1,9 @@
-import React, { CSSProperties, forwardRef, HTMLProps, ReactNode, Ref } from 'react';
+import React, { CSSProperties, forwardRef, ReactNode } from 'react';
 import cx from 'classnames';
 import { COLOR, COLORS, TINTS } from '../../constants';
 import theme from './theme.css';
-import { GenericComponent } from '../../@types/types';
+import { PolymorphicComponentPropWithRef } from '../../@types/PolymorphicComponentPropWithRef';
+import { PolymorphicRef } from '../../@types/PolymorphicRef';
 
 const margins = [-8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8] as const;
 export type Margin = typeof margins[number];
@@ -15,8 +16,9 @@ const borderRadiuses = {
   rounded: '4px',
 };
 
-export type BoxProps = Partial<
-  {
+export type BoxProps<C extends React.ElementType> = PolymorphicComponentPropWithRef<
+  C,
+  Partial<{
     alignContent: 'center' | 'flex-start' | 'flex-end' | 'space-around' | 'space-between' | 'space-evenly';
     alignItems: 'center' | 'flex-start' | 'flex-end' | 'baseline' | 'stretch';
     alignSelf: 'center' | 'flex-start' | 'flex-end' | 'stretch';
@@ -38,7 +40,6 @@ export type BoxProps = Partial<
     children: ReactNode;
     className: string;
     display: 'inline' | 'inline-block' | 'block' | 'flex' | 'inline-flex' | 'grid';
-    element: React.ElementType;
     flex: CSSProperties['flex'];
     flexBasis: CSSProperties['flexBasis'];
     flexDirection: 'row' | 'row-reverse' | 'column' | 'column-reverse';
@@ -66,13 +67,11 @@ export type BoxProps = Partial<
     paddingTop: Padding;
     style: CSSProperties;
     textAlign: 'center' | 'left' | 'right';
-    ref?: Ref<HTMLElement>;
-    [key: string]: unknown;
-  } & HTMLProps<HTMLElement>
+  }>
 >;
 
-const Box: GenericComponent<BoxProps> = forwardRef(
-  (
+const Box = forwardRef(
+  <C extends React.ElementType = 'div'>(
     {
       alignContent,
       alignItems,
@@ -95,7 +94,7 @@ const Box: GenericComponent<BoxProps> = forwardRef(
       children,
       className,
       display,
-      element = 'div',
+      element,
       flex,
       flexBasis,
       flexDirection,
@@ -124,8 +123,8 @@ const Box: GenericComponent<BoxProps> = forwardRef(
       style,
       textAlign,
       ...others
-    }: BoxProps,
-    ref,
+    }: BoxProps<C>,
+    ref?: PolymorphicRef<C>,
   ) => {
     const getBorder = (value: number) => {
       return `${value}px solid ${
@@ -188,9 +187,10 @@ const Box: GenericComponent<BoxProps> = forwardRef(
       ...style,
     };
 
-    const Element = element;
+    const Element = element || 'div';
 
     return (
+      // @ts-ignore (Still struggling with the borderRadiuses)
       <Element className={classNames} ref={ref} style={elementStyles} {...others}>
         {children}
       </Element>
