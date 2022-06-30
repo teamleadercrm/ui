@@ -1,15 +1,17 @@
-import React, { PureComponent, createContext } from 'react';
+import React, { PureComponent, createContext, ComponentType } from 'react';
 
-export const Context = createContext();
+export const Context = createContext({});
 
-const DocumentObjectProvider = (WrappedComponent) => {
+const DocumentObjectProvider = (WrappedComponent: ComponentType, documentRef: Document) => {
   const Provider = class extends PureComponent {
+    static displayName = 'Provider';
+
     componentDidMount() {
       this.forceUpdate(); // force a re-render because we have the document ref now
     }
 
     render() {
-      if (!this.documentRef) {
+      if (!documentRef) {
         return (
           <span
             style={{ display: 'none' }}
@@ -18,21 +20,19 @@ const DocumentObjectProvider = (WrappedComponent) => {
                 return;
               }
 
-              this.documentRef = node.ownerDocument;
+              documentRef = node.ownerDocument;
             }}
           />
         );
       }
 
       return (
-        <Context.Provider value={this.documentRef}>
+        <Context.Provider value={documentRef}>
           <WrappedComponent {...this.props} />
         </Context.Provider>
       );
     }
   };
-
-  Provider.displayName = 'Provider';
 
   return Provider;
 };
