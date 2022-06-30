@@ -11,7 +11,7 @@ import { BoxProps } from '../box/Box';
 type Size = 'small' | 'medium';
 
 interface MarketingStatusLabelProps extends Omit<BoxProps, 'ref'> {
-  children?: ReactNode | string;
+  children?: ReactNode;
   fullWidth?: boolean;
   size?: Size;
   className?: string;
