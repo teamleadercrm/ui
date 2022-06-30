@@ -1,6 +1,6 @@
 import { IconCloseSmallOutline } from '@teamleader/ui-icons';
 import cx from 'classnames';
-import React, { PropsWithChildren, ReactElement, ReactNode, ValidationMap, WeakValidationMap } from 'react';
+import React, { ReactNode } from 'react';
 import { GenericComponent } from '../../@types/types';
 import Box from '../box';
 import { BoxProps } from '../box/Box';
@@ -8,13 +8,6 @@ import IconButton from '../iconButton';
 import { UITextBody, UITextDisplay, UITextSmall } from '../typography';
 import theme from './theme.css';
 
-export interface FunctionComponent2<P = {}> {
-  (props: PropsWithChildren<P>, context?: any): ReactElement<any, any> | null;
-  propTypes?: WeakValidationMap<P> | undefined;
-  contextTypes?: ValidationMap<any> | undefined;
-  defaultProps?: Partial<P> | undefined;
-  displayName?: string | undefined;
-}
 export interface TagProps extends Omit<BoxProps, 'className' | 'size'> {
   /** The tint of the components color */
   children: ReactNode;
