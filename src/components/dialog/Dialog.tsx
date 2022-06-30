@@ -2,6 +2,7 @@ import { IconDragMediumFilled } from '@teamleader/ui-icons';
 import cx from 'classnames';
 import omit from 'lodash.omit';
 import React, { ReactNode, useRef } from 'react';
+import { GenericComponent } from '../../@types/types';
 import { Button, ButtonGroup, DialogBase, Heading3 } from '../../index';
 import { DialogBaseProps } from './DialogBase';
 import theme from './theme.css';
@@ -35,7 +36,7 @@ interface DialogProps extends Omit<DialogBaseProps, 'ref'> {
   onSubmit?: () => void;
 }
 
-const Dialog = ({
+const Dialog: GenericComponent<DialogProps> = ({
   children,
   className,
   scrollable = true,
@@ -48,7 +49,7 @@ const Dialog = ({
   leftAction,
   onCloseClick,
   ...otherProps
-}: DialogProps) => {
+}) => {
   const bodyRef = useRef<HTMLElement>(null);
   const dragHandleRef = useRef<HTMLDivElement>(null);
 

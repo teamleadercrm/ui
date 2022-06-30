@@ -1,10 +1,20 @@
-import React from 'react';
-import DetailPageBody from './DetailPageBody';
-import DetailPageHeader from './DetailPageHeader';
+import React, { ReactNode } from 'react';
+import DetailPageBody, { DetailPageBodyProps } from './DetailPageBody';
+import DetailPageHeader, { DetailPageHeaderProps } from './DetailPageHeader';
 import Box from '../box';
 import { BoxProps } from '../box/Box';
+import { GenericComponent } from '../../@types/types';
 
-const DetailPage = ({ children, ...others }: Omit<BoxProps, 'ref'>) => {
+interface DetailPageProps extends Omit<BoxProps, 'ref'> {
+  children: ReactNode;
+}
+
+interface DetailPageComponent extends GenericComponent<DetailPageProps> {
+  Body: GenericComponent<DetailPageBodyProps>;
+  Header: GenericComponent<DetailPageHeaderProps>;
+}
+
+const DetailPage: DetailPageComponent = ({ children, ...others }) => {
   return <Box {...others}>{children}</Box>;
 };
 

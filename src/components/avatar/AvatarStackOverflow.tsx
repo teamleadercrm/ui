@@ -7,6 +7,7 @@ import { TextBodyCompact } from '../typography';
 import Tooltip from '../tooltip';
 import theme from './theme.css';
 import { BoxProps } from '../box/Box';
+import { GenericComponent } from '../../@types/types';
 
 const TooltippedBox = Tooltip(Box);
 
@@ -21,14 +22,14 @@ interface AvatarStackOverflowProps extends Omit<BoxProps, 'ref'> {
   getNamesOverflowLabel?: (overflowAmount: number) => string;
 }
 
-const AvatarStackOverflow = ({
+const AvatarStackOverflow: GenericComponent<AvatarStackOverflowProps> = ({
   displayMax,
   overflowAmount,
   overflowChildren,
   onOverflowClick,
   tooltip,
   getNamesOverflowLabel,
-}: AvatarStackOverflowProps) => {
+}) => {
   const names = React.Children.map(
     overflowChildren,
     (child) => React.isValidElement(child) && child.props.fullName,

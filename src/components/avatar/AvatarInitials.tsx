@@ -6,6 +6,7 @@ import { Size } from './types';
 import Box from '../box';
 import { Heading4 } from '../typography';
 import { colorsWithout } from '../../constants';
+import { GenericComponent } from '../../@types/types';
 
 const colors = colorsWithout(['neutral']);
 const hashCode = (hexString: string) => parseInt(hexString.substr(-5), 16);
@@ -25,7 +26,14 @@ interface AvatarInitialsProps {
   size: Size;
 }
 
-const AvatarInitials = ({ children, name, editable, id, onImageChange, size }: AvatarInitialsProps) => {
+const AvatarInitials: GenericComponent<AvatarInitialsProps> = ({
+  children,
+  name,
+  editable,
+  id,
+  onImageChange,
+  size,
+}) => {
   const [displayAvatarOverlay, setDisplayAvatarOverlay] = useState(false);
 
   const backgroundColor = useMemo(() => {

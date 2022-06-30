@@ -1,4 +1,5 @@
 import React, { ReactNode, forwardRef, RefObject } from 'react';
+import { GenericComponent } from '../../@types/types';
 
 import { Box } from '../../index';
 import { BoxProps } from '../box/Box';
@@ -10,17 +11,19 @@ export interface BodyProps extends Omit<BoxProps, 'ref'> {
   scrollable?: boolean;
 }
 
-const Body = forwardRef(({ scrollable, children, ...rest }: BodyProps, ref) => {
-  if (!scrollable) {
-    return <div ref={ref as RefObject<HTMLDivElement>}>{children}</div>;
-  }
+const Body: GenericComponent<BodyProps> = forwardRef<HTMLElement, BodyProps>(
+  ({ scrollable, children, ...rest }, ref) => {
+    if (!scrollable) {
+      return <div ref={ref as RefObject<HTMLDivElement>}>{children}</div>;
+    }
 
-  return (
-    <Box display="flex" flexDirection="column" overflowY="auto" {...rest} ref={ref}>
-      {children}
-    </Box>
-  );
-});
+    return (
+      <Box display="flex" flexDirection="column" overflowY="auto" {...rest} ref={ref}>
+        {children}
+      </Box>
+    );
+  },
+);
 
 Body.displayName = 'Body';
 

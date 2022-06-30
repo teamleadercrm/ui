@@ -9,6 +9,7 @@ import {
 import { Heading3, TextBody } from '../typography';
 import theme from './theme.css';
 import { BoxProps } from '../box/Box';
+import { GenericComponent } from '../../@types/types';
 
 interface EmptyStateProps extends Omit<BoxProps, 'size'> {
   hidePointer?: boolean;
@@ -23,14 +24,14 @@ const illustrationMap = {
   large: <IllustrationEmptyState130X130Pointer />,
 };
 
-const EmptyState = ({
+const EmptyState: GenericComponent<EmptyStateProps> = ({
   className,
   metaText,
   hidePointer = false,
   size = 'medium',
   title,
   ...others
-}: EmptyStateProps) => {
+}) => {
   const classNames = cx(
     theme['wrapper'],
     theme[`is-${size}`],

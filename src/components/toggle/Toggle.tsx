@@ -1,5 +1,6 @@
 import cx from 'classnames';
 import React, { ChangeEvent, ReactNode, useRef } from 'react';
+import { GenericComponent } from '../../@types/types';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import { BoxProps } from '../box/Box';
 import { TextBodyCompact, TextDisplay, TextSmall } from '../typography';
@@ -20,7 +21,7 @@ export interface ToggleProps extends Omit<BoxProps, 'className' | 'size'> {
   size?: Size;
 }
 
-const Toggle = ({
+const Toggle: GenericComponent<ToggleProps> = ({
   checked = false,
   children,
   disabled = false,
@@ -30,7 +31,7 @@ const Toggle = ({
   onChange,
   size = 'medium',
   ...others
-}: ToggleProps) => {
+}) => {
   const ref = useRef<HTMLInputElement>(null);
   const boxProps = pickBoxProps(others);
   const inputProps = omitBoxProps(others);

@@ -3,6 +3,7 @@ import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
 import { BoxProps } from '../box/Box';
+import { GenericComponent } from '../../@types/types';
 
 export type COLORS = 'neutral' | 'mint' | 'violet' | 'ruby' | 'gold' | 'aqua' | 'teal';
 export type TINTS = 'lightest' | 'light' | 'normal' | 'dark' | 'darkest';
@@ -20,7 +21,14 @@ interface IconProps extends Omit<BoxProps, 'children' | 'className'> {
   opacity?: number;
 }
 
-const Icon = ({ children, className, color = 'teal', tint = 'normal', opacity = 0.84, ...others }: IconProps) => {
+const Icon: GenericComponent<IconProps> = ({
+  children,
+  className,
+  color = 'teal',
+  tint = 'normal',
+  opacity = 0.84,
+  ...others
+}) => {
   const classNames = cx(theme[color], theme[tint], className);
 
   return (

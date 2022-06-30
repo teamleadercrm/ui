@@ -6,6 +6,7 @@ import uiUtilities from '@teamleader/ui-utilities';
 import Monospaced from '../typography/Monospaced';
 import { COLORS, TINTS } from '../../constants';
 import { BoxProps } from '../box/Box';
+import { GenericComponent } from '../../@types/types';
 
 interface Props extends Omit<BoxProps, 'size' | 'ref'> {
   /** A border color to give to the counter */
@@ -26,7 +27,7 @@ interface Props extends Omit<BoxProps, 'size' | 'ref'> {
   size: 'small' | 'medium';
 }
 
-const Counter = ({
+const Counter: GenericComponent<Props> = ({
   children,
   className,
   color = 'neutral',
@@ -36,7 +37,7 @@ const Counter = ({
   borderColor,
   borderTint,
   ...others
-}: Props) => {
+}) => {
   const classNames = cx(
     uiUtilities['reset-font-smoothing'],
     theme['counter'],

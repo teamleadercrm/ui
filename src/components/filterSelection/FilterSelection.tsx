@@ -1,14 +1,15 @@
-import { IconCloseSmallOutline, IconChevronDownSmallOutline } from '@teamleader/ui-icons';
-import React, { forwardRef } from 'react';
+import { IconChevronDownSmallOutline, IconCloseSmallOutline } from '@teamleader/ui-icons';
 import cx from 'classnames';
+import React, { forwardRef, KeyboardEventHandler, MouseEventHandler } from 'react';
 
+import { GenericComponent } from '../../@types/types';
 import { KEY } from '../../constants';
-import { Heading4, Monospaced, TextBodyCompact } from '../typography';
-import Icon from '../icon';
 import Box from '../box';
+import Icon from '../icon';
+import { COLORS, TINTS } from '../icon/Icon';
 import Tooltip from '../tooltip';
+import { Heading4, Monospaced, TextBodyCompact } from '../typography';
 import theme from './theme.css';
-import { COLORS } from '../icon/Icon';
 
 const TooltippedBox = Tooltip(Box);
 
@@ -32,7 +33,7 @@ const COLOR_BY_STATUS: Record<string, COLORS> = {
   [STATUS.BROKEN]: 'ruby',
 };
 
-const BACKGROUND_TINT_BY_STATUS = {
+const BACKGROUND_TINT_BY_STATUS: Record<string, TINTS | undefined> = {
   [STATUS.DEFAULT]: undefined,
   [STATUS.ACTIVE]: 'light',
   [STATUS.FOCUSED]: 'light',
@@ -58,7 +59,7 @@ interface FilterSelectionProps {
   onClearClick?: () => void;
 }
 
-const FilterSelection = forwardRef(
+const FilterSelection: GenericComponent<FilterSelectionProps> = forwardRef<HTMLElement, FilterSelectionProps>(
   (
     {
       label = '',
@@ -68,7 +69,7 @@ const FilterSelection = forwardRef(
       amountApplied = null,
       onClick = () => {},
       onClearClick = () => {},
-    }: FilterSelectionProps,
+    },
     ref,
   ) => {
     const showAmount = typeof amountApplied === 'number';
@@ -84,13 +85,13 @@ const FilterSelection = forwardRef(
         }
       : {};
 
-    const handleKeyDown = (event: KeyboardEvent) => {
+    const handleKeyDown: KeyboardEventHandler = (event) => {
       if (event.key === KEY.Enter && status !== STATUS.DISABLED) {
         onClick();
       }
     };
 
-    const handleClearClick = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleClearClick: MouseEventHandler = (event) => {
       event.stopPropagation();
       if (status !== STATUS.DISABLED) {
         onClearClick();
@@ -112,7 +113,7 @@ const FilterSelection = forwardRef(
         borderColor={COLOR_BY_STATUS[status] || 'neutral'}
         borderTint="dark"
         borderRadius="rounded"
-        onClick={status !== STATUS.DISABLED && onClick}
+        onClick={status !== STATUS.DISABLED ? onClick : undefined}
         onKeyDown={handleKeyDown}
       >
         <Container
