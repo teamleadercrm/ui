@@ -11,6 +11,7 @@ import theme from './theme.css';
 import cx from 'classnames';
 import { LocaleUtils } from 'react-day-picker';
 import { Size } from './WeekDay';
+import { GenericComponent } from '../../@types/types';
 
 interface NavigationBarProps {
   className?: string;
@@ -23,7 +24,7 @@ interface NavigationBarProps {
   withMonthPicker?: boolean;
 }
 
-const NavigationBar = ({
+const NavigationBar: GenericComponent<NavigationBarProps> = ({
   className,
   localeUtils,
   nextMonth,
@@ -32,7 +33,7 @@ const NavigationBar = ({
   withMonthPicker,
   onNextClick,
   onPreviousClick,
-}: NavigationBarProps) => {
+}) => {
   const months = localeUtils.getMonths();
   const previousMonthButtonLabel = months[previousMonth.getMonth()];
   const nextMonthButtonLabel = months[nextMonth.getMonth()];

@@ -10,6 +10,7 @@ import { formatDate } from './localeUtils';
 import { IconCalendarSmallOutline } from '@teamleader/ui-icons';
 import { DateTimeFormatOptions } from 'luxon';
 import { BoxProps } from '../box/Box';
+import { GenericComponent } from '../../@types/types';
 
 interface DatePickerInputProps extends Omit<BoxProps, 'size' | 'onChange'> {
   /** A class name for the wrapper to give custom styles. */
@@ -51,7 +52,7 @@ interface DayPickerProps {
   withMonthPicker: boolean;
 }
 
-const DatePickerInput = ({
+const DatePickerInput: GenericComponent<DatePickerInputProps> = ({
   className,
   dayPickerProps,
   footer,
@@ -67,7 +68,7 @@ const DatePickerInput = ({
   onChange,
   onBlur,
   ...others
-}: DatePickerInputProps) => {
+}) => {
   const [isPopoverActive, setIsPopoverActive] = useState(false);
   const [popoverAnchorEl, setPopoverAnchorEl] = useState<EventTarget | null>(null);
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);

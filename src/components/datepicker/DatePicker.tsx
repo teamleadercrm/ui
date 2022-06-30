@@ -10,6 +10,7 @@ import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
 import { BoxProps } from '../box/Box';
 import localeUtils from './localeUtils';
+import { GenericComponent } from '../../@types/types';
 
 type Size = 'smallest' | 'small' | 'medium' | 'large';
 
@@ -30,7 +31,7 @@ interface DatePickerProps extends Omit<BoxProps & DayPickerProps, 'size' | 'onCh
   showWeekNumbers?: boolean;
 }
 
-const DatePicker = ({
+const DatePicker: GenericComponent<DatePickerProps> = ({
   bordered = true,
   className,
   modifiers,
@@ -39,7 +40,7 @@ const DatePicker = ({
   showWeekNumbers,
   onChange,
   ...others
-}: DatePickerProps) => {
+}) => {
   const [selectedDate, setSelectedDate] = useState<Date>();
   const [selectedMonth, setSelectedMonth] = useState<Date>();
 

@@ -5,6 +5,7 @@ import { Select } from '../select';
 import { NumericInput } from '../input';
 import theme from './theme.css';
 import { LocaleUtils } from 'react-day-picker';
+import { GenericComponent } from '../../@types/types';
 
 interface MonthPickerProps {
   /** Current date */
@@ -63,7 +64,7 @@ const formatSelectMonthAndYear = ({ label, value }: Option, locale: string) => {
   };
 };
 
-const MonthPickerUnary = ({ date, locale, localeUtils, onChange }: Omit<MonthPickerProps, 'size'>) => {
+const MonthPickerUnary: GenericComponent<MonthPickerProps> = ({ date, locale, localeUtils, onChange }) => {
   const selectedMonth = useMemo(
     () =>
       date && localeUtils && { value: date.getMonth().toString(), label: localeUtils.formatMonthTitle(date, locale) },
@@ -90,7 +91,7 @@ const MonthPickerUnary = ({ date, locale, localeUtils, onChange }: Omit<MonthPic
   );
 };
 
-const MonthPickerSplit = ({ date, locale, localeUtils, onChange, size }: MonthPickerProps) => {
+const MonthPickerSplit: GenericComponent<MonthPickerProps> = ({ date, locale, localeUtils, onChange, size }) => {
   const [yearInput, setYearInput] = useState(date && `${date.getFullYear()}`);
   const selectedMonth = useMemo(
     () => date && localeUtils && { value: date.getMonth(), label: localeUtils.formatMonthTitle(date, locale) },
@@ -148,7 +149,7 @@ const MonthPickerSplit = ({ date, locale, localeUtils, onChange, size }: MonthPi
   );
 };
 
-const MonthPicker = ({ size, ...props }: MonthPickerProps) => {
+const MonthPicker: GenericComponent<MonthPickerProps> = ({ size, ...props }) => {
   if (size === 'smallest') {
     return <MonthPickerUnary {...props} />;
   }
