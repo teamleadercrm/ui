@@ -2,6 +2,7 @@ import React, { ChangeEvent, FocusEvent, forwardRef, HTMLProps } from 'react';
 import cx from 'classnames';
 import theme from './theme.css';
 import { omitBoxProps } from '../box';
+import { GenericComponent } from '../../@types/types';
 
 export interface InputBaseProps
   extends Pick<
@@ -58,7 +59,7 @@ export interface InputBaseProps
   value?: string | number;
 }
 
-const InputBase = forwardRef(
+const InputBase: GenericComponent<InputBaseProps> = forwardRef<HTMLElement, InputBaseProps>(
   (
     {
       bold,

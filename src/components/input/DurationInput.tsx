@@ -1,9 +1,9 @@
 import React, { FocusEvent, FormEvent, forwardRef, KeyboardEvent, useImperativeHandle, useRef } from 'react';
 import Box from '../box';
 import cx from 'classnames';
-
 import theme from './theme.css';
 import NumericInput from './NumericInput';
+import { GenericComponent } from '../../@types/types';
 
 const MINUTES_STEP = 15;
 
@@ -25,7 +25,7 @@ interface DurationInputProps {
   };
 }
 
-const DurationInput = forwardRef(
+const DurationInput: GenericComponent<DurationInputProps> = forwardRef<HTMLElement, DurationInputProps>(
   (
     {
       autoFocus,

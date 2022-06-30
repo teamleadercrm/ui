@@ -1,4 +1,5 @@
 import React, { ChangeEvent, forwardRef, useState } from 'react';
+import { GenericComponent } from '../../@types/types';
 import SingleLineInputBase, { SingleLineInputBaseProps } from './SingleLineInputBase';
 
 interface InputProps extends Pick<SingleLineInputBaseProps, 'value'> {
@@ -6,16 +7,18 @@ interface InputProps extends Pick<SingleLineInputBaseProps, 'value'> {
   onChange?: (event: ChangeEvent<HTMLElement>, value: string) => void;
 }
 
-const Input = forwardRef(({ value, onChange, ...others }: InputProps, forwardedRef) => {
-  const [stateValue, setStateValue] = useState(value);
+const Input: GenericComponent<InputProps> = forwardRef<HTMLElement, InputProps>(
+  ({ value, onChange, ...others }: InputProps, forwardedRef) => {
+    const [stateValue, setStateValue] = useState(value);
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setStateValue(event.currentTarget.value);
-    onChange && onChange(event, event.currentTarget.value);
-  };
+    const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      setStateValue(event.currentTarget.value);
+      onChange && onChange(event, event.currentTarget.value);
+    };
 
-  return <SingleLineInputBase ref={forwardedRef} value={stateValue} onChange={handleChange} {...others} />;
-});
+    return <SingleLineInputBase ref={forwardedRef} value={stateValue} onChange={handleChange} {...others} />;
+  },
+);
 
 Input.displayName = 'Input';
 

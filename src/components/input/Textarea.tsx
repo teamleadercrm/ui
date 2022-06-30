@@ -1,11 +1,11 @@
 import React, { forwardRef, ReactNode } from 'react';
 import Box, { BoxProps } from '../box/Box';
 import cx from 'classnames';
-
 import theme from './theme.css';
 import { omitBoxProps, pickBoxProps } from '../box';
 import InputBase from './InputBase';
 import ValidationText from '../validationText';
+import { GenericComponent } from '../../@types/types';
 
 interface TextareaProps extends Omit<BoxProps, 'size' | 'ref'> {
   /** Sets a class name for the wrapper to give custom styles. */
@@ -22,7 +22,7 @@ interface TextareaProps extends Omit<BoxProps, 'size' | 'ref'> {
   warning?: boolean | ReactNode;
 }
 
-const Textarea = forwardRef(
+const Textarea: GenericComponent<TextareaProps> = forwardRef<HTMLElement, TextareaProps>(
   ({ className, error, helpText, inverse = false, success, warning, ...others }: TextareaProps, forwardedRef) => {
     const classNames = cx(
       theme['wrapper'],

@@ -5,6 +5,7 @@ import Box, { omitBoxProps, pickBoxProps } from '../box';
 import InputBase, { InputBaseProps } from './InputBase';
 import ValidationText from '../validationText';
 import { BoxProps } from '../box/Box';
+import { GenericComponent } from '../../@types/types';
 
 export interface SingleLineInputBaseProps
   extends Pick<
@@ -50,7 +51,10 @@ export interface SingleLineInputBaseProps
   width?: string;
 }
 
-const SingleLineInputBase = forwardRef(
+const SingleLineInputBase: GenericComponent<SingleLineInputBaseProps> = forwardRef<
+  HTMLElement,
+  SingleLineInputBaseProps
+>(
   (
     {
       className,

@@ -6,13 +6,13 @@ import {
   IconChevronDownSmallOutline,
   IconMinusSmallOutline,
 } from '@teamleader/ui-icons';
-
 import theme from './theme.css';
 import { COLORS as ICONCOLORS, TINTS as ICONTINTS } from '../icon/Icon';
 import SingleLineInputBase, { SingleLineInputBaseProps } from './SingleLineInputBase';
 import { KEY } from '../../constants';
 import { parseValue, toNumber } from './utils';
 import Button from '../button';
+import { GenericComponent } from '../../@types/types';
 
 interface StepperProps {
   disabled: boolean;
@@ -27,7 +27,11 @@ interface StepperControlsProps {
   stepperDownProps: StepperProps;
 }
 
-const StepperControls = ({ inverse, stepperUpProps, stepperDownProps }: StepperControlsProps) => {
+const StepperControls: GenericComponent<StepperControlsProps> = ({
+  inverse,
+  stepperUpProps,
+  stepperDownProps,
+}: StepperControlsProps) => {
   const iconProps: { color: ICONCOLORS; element: string; tabIndex: string; tint: ICONTINTS; type: string } = {
     color: inverse ? 'teal' : 'neutral',
     element: 'button',
@@ -82,7 +86,7 @@ interface NumericInputProps
   stepper?: 'none' | 'connected' | 'suffix';
 }
 
-const NumericInput = forwardRef(
+const NumericInput: GenericComponent<NumericInputProps> = forwardRef<HTMLElement, NumericInputProps>(
   (
     {
       connectedLeft,
