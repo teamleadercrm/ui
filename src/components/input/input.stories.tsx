@@ -71,7 +71,15 @@ export default {
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Form elements/Input'),
 } as ComponentMeta<typeof Input>;
 
-export const input: ComponentStory<typeof Input> = (args) => <Input {...args} />;
+export const input: ComponentStory<typeof Input> = (args) => {
+  const [value, setValue] = useState('');
+
+  const handleChange = (event: ChangeEvent<HTMLElement>, value: string) => {
+    setValue(value);
+  };
+
+  return <Input value={value} onChange={handleChange} {...args} />;
+};
 
 input.storyName = 'Input';
 input.args = {
@@ -90,7 +98,15 @@ input.args = {
   width: text('Width', ''),
 };
 
-export const inputConnected: ComponentStory<typeof Input> = (args) => <Input {...args} />;
+export const inputConnected: ComponentStory<typeof Input> = (args) => {
+  const [value, setValue] = useState('');
+
+  const handleChange = (event: ChangeEvent<HTMLElement>, value: string) => {
+    setValue(value);
+  };
+
+  return <Input value={value} onChange={handleChange} {...args} />;
+};
 
 inputConnected.storyName = 'Input with connected';
 inputConnected.args = {
@@ -99,7 +115,15 @@ inputConnected.args = {
   connectedRight,
 };
 
-export const inputPrefixSuffix: ComponentStory<typeof Input> = (args) => <Input {...args} />;
+export const inputPrefixSuffix: ComponentStory<typeof Input> = (args) => {
+  const [value, setValue] = useState('');
+
+  const handleChange = (event: ChangeEvent<HTMLElement>, value: string) => {
+    setValue(value);
+  };
+
+  return <Input value={value} onChange={handleChange} {...args} />;
+};
 
 inputPrefixSuffix.storyName = 'Input with prefix and suffix';
 inputPrefixSuffix.args = {
@@ -176,7 +200,15 @@ export const durationInput: ComponentStory<typeof DurationInput> = (args) => {
 
 durationInput.storyName = 'DurationInput';
 
-export const textarea: ComponentStory<typeof Textarea> = (args) => <Textarea {...args} />;
+export const textarea: ComponentStory<typeof Textarea> = (args) => {
+  const [value, setValue] = useState('');
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setValue(event.currentTarget.value);
+  };
+
+  return <Textarea value={value} onChange={handleChange} {...args} />;
+};
 
 textarea.storyName = 'Textarea';
 textarea.args = {
@@ -191,5 +223,4 @@ textarea.args = {
   readOnly: boolean('Read only', false),
   size: select('Size', sizes, 'medium') as 'small' | 'medium' | 'large',
   textAlignRight: boolean('Text align right', false),
-  value: text('Value', ''),
 };
