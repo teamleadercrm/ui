@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FocusEvent, forwardRef, HTMLProps } from 'react';
+import React, { ChangeEvent, FocusEvent, ForwardedRef, forwardRef, HTMLProps } from 'react';
 import cx from 'classnames';
 import theme from './theme.css';
 import { omitBoxProps } from '../box';
@@ -27,6 +27,8 @@ export interface InputBaseProps
   onFocus?: (event: FocusEvent<HTMLElement>) => void;
   /** Boolean indicating whether the input should render as read only. */
   readOnly?: boolean;
+  /** Forwarded ref element. */
+  ref?: ForwardedRef<HTMLElement>;
   /** Size of the input element. */
   size?: 'tiny' | 'small' | 'medium' | 'large';
   /** If true, the input text is aligned to the right. */

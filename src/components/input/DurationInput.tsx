@@ -43,8 +43,8 @@ const DurationInput: GenericComponent<DurationInputProps> = forwardRef<HTMLEleme
     }: DurationInputProps,
     forwardedRef,
   ) => {
-    const containerRef = useRef<HTMLElement>();
-    useImperativeHandle(forwardedRef, () => containerRef.current);
+    const containerRef = useRef<HTMLElement>(null);
+    useImperativeHandle<HTMLElement | null, HTMLElement | null>(forwardedRef, () => containerRef.current);
 
     const handleHoursChanged = (_: FormEvent<HTMLElement>, hours: string) => {
       if (!onChange) {
