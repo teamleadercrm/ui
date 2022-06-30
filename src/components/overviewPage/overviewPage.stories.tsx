@@ -7,6 +7,7 @@ import ButtonGroup from '../buttonGroup';
 import OverviewPage from './OverviewPage';
 import { COLOR } from '../../constants';
 import { TextBody } from '../typography';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 export default {
   component: OverviewPage,
@@ -23,19 +24,35 @@ export default {
     info: {
       propTables: false,
     },
+    docs: {
+      source: {
+        type: 'code',
+      },
+    },
   },
-};
+} as ComponentMeta<typeof OverviewPage>;
 
-export const header = () => <OverviewPage.Header title={text('title', 'I am the overview page title')} />;
+export const DefaultStory: ComponentStory<typeof OverviewPage> = () => (
+  <OverviewPage>
+    <OverviewPage.Header title={text('title', 'I am the overview page title')} />
+    <OverviewPage.Body>
+      <TextBody>Here you can add arbitrary content.</TextBody>
+    </OverviewPage.Body>
+  </OverviewPage>
+);
 
-header.storyName = 'Header';
-header.parameters = {
+export const Header: ComponentStory<typeof OverviewPage.Header> = () => (
+  <OverviewPage.Header title={text('title', 'I am the overview page title')} />
+);
+
+Header.storyName = 'Header';
+Header.parameters = {
   info: {
     propTables: [OverviewPage.Header],
   },
 };
 
-export const headerWithActions = () => (
+export const headerWithActions: ComponentStory<typeof OverviewPage.Header> = () => (
   <OverviewPage.Header title={text('title', 'I am the overview page title')}>
     <ButtonGroup>
       <Button>Export</Button>
@@ -54,29 +71,15 @@ headerWithActions.parameters = {
   },
 };
 
-export const body = () => (
+export const Body: ComponentStory<typeof OverviewPage.Body> = () => (
   <OverviewPage.Body>
     <TextBody>Here you can add arbitrary content.</TextBody>
   </OverviewPage.Body>
 );
 
-body.storyName = 'Body';
-body.parameters = {
+Body.storyName = 'Body';
+Body.parameters = {
   info: {
     propTables: [OverviewPage.Body],
-  },
-};
-
-export const composition = () => (
-  <OverviewPage>
-    {header()}
-    {body()}
-  </OverviewPage>
-);
-
-composition.storyName = 'Composition';
-composition.parameters = {
-  info: {
-    propTables: [OverviewPage],
   },
 };
