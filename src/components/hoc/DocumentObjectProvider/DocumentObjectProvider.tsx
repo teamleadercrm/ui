@@ -1,8 +1,8 @@
-import React, { PureComponent, createContext, ReactNode, ComponentType } from 'react';
+import React, { PureComponent, createContext, ComponentType } from 'react';
 
 export const Context = createContext({});
 
-const DocumentObjectProvider = (WrappedComponent: ComponentType, documentRef: ReactNode) => {
+const DocumentObjectProvider = (WrappedComponent: ComponentType, documentRef: Document) => {
   const Provider = class extends PureComponent {
     static displayName = 'Provider';
 
