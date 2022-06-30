@@ -1,7 +1,5 @@
 import cx from 'classnames';
-import React, {
-  CSSProperties, ReactChild, ReactElement, ReactFragment, ReactNode, ReactPortal
-} from 'react';
+import React, { CSSProperties, ReactChild, ReactElement, ReactFragment, ReactNode, ReactPortal } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { GenericComponent } from '../../@types/types';
 import theme from './theme.css';
