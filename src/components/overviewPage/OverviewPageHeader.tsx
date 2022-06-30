@@ -1,14 +1,16 @@
 import React, { ReactNode } from 'react';
+import { GenericComponent } from '../../@types/types';
 import Box from '../box';
+import { BoxProps } from '../box/Box';
 import Container from '../container';
 import { Heading1 } from '../typography';
 
-interface OverviewPageHeaderProps {
+export interface OverviewPageHeaderProps extends Omit<BoxProps, 'children'> {
   children?: ReactNode;
   title: string | ReactNode;
 }
 
-const OverviewPageHeader = ({ children, title, ...others }: OverviewPageHeaderProps) => {
+const OverviewPageHeader: GenericComponent<OverviewPageHeaderProps> = ({ children, title, ...others }) => {
   return (
     <Container {...others} display="flex" marginBottom={5} paddingTop={7} justifyContent="space-between">
       <Heading1 color="teal">{title}</Heading1>
