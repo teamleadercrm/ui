@@ -6,6 +6,7 @@ import Badge from '../badge';
 import Link from '../link';
 import { IconBuildingSmallOutline } from '@teamleader/ui-icons';
 import { TextBodyCompact } from '../typography';
+import { ComponentStory } from '@storybook/react';
 
 export default {
   component: LabelValuePair,
@@ -19,7 +20,7 @@ export default {
   },
 };
 
-export const DefaultStory = (args) => (
+export const DefaultStory = (args: ComponentStory<typeof LabelValuePair>) => (
   <LabelValuePair {...args}>
     <LabelValuePair.Label>I am a label</LabelValuePair.Label>
     <LabelValuePair.Value>
