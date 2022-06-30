@@ -4,8 +4,9 @@ import { UITextBody } from '../typography';
 import cx from 'classnames';
 import theme from './theme.css';
 import { BoxProps } from '../box/Box';
+import { GenericComponent } from '../../@types/types';
 
-interface ButtonProps extends Omit<BoxProps, 'ref'> {
+export interface ButtonProps extends Omit<BoxProps, 'ref'> {
   /** The content to display inside the button. */
   children?: ReactNode;
   /** A class name for the button to give custom styles. */
@@ -20,10 +21,10 @@ interface ButtonProps extends Omit<BoxProps, 'ref'> {
   onMouseUp?: (event: React.MouseEvent) => void;
 }
 
-const Button = forwardRef(
-  ({ onMouseUp, onMouseLeave, children, className = '', active, label, ...others }: ButtonProps, ref) => {
-    const buttonRef = useRef<HTMLElement>();
-    useImperativeHandle(ref, () => buttonRef.current);
+const Button: GenericComponent<ButtonProps> = forwardRef<HTMLElement, ButtonProps>(
+  ({ onMouseUp, onMouseLeave, children, className = '', active, label, ...others }, ref) => {
+    const buttonRef = useRef<HTMLElement>(null);
+    useImperativeHandle<HTMLElement | null, HTMLElement | null>(ref, () => buttonRef.current);
 
     const blur = () => {
       const currentButtonRef = buttonRef.current;
@@ -61,7 +62,7 @@ const Button = forwardRef(
       ...others,
       ref: buttonRef,
       className: classNames,
-      element: 'button',
+      element: 'button' as React.ElementType,
       onMouseUp: handleMouseUp,
       onMouseLeave: handleMouseLeave,
       'data-teamleader-ui': 'button',

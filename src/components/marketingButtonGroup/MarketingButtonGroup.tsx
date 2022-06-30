@@ -1,15 +1,16 @@
-import React, { ReactElement } from 'react';
+import React, { ReactNode } from 'react';
 import omit from 'lodash.omit';
 import Box, { omitBoxProps } from '../box';
-import Button from './Button';
+import Button, { ButtonProps } from './Button';
 import cx from 'classnames';
 import isComponentOfType from '../utils/is-component-of-type';
 import theme from './theme.css';
 import { BoxProps } from '../box/Box';
+import { GenericComponent } from '../../@types/types';
 
 interface MarketingButtonGroupProps extends Omit<BoxProps, 'ref'> {
   /** The content to display inside the button group. */
-  children?: ReactElement[];
+  children?: ReactNode;
   /** A class name for the wrapper to give custom styles. */
   className?: string;
   /** The value of the currently active button. */
@@ -18,7 +19,11 @@ interface MarketingButtonGroupProps extends Omit<BoxProps, 'ref'> {
   onChange?: (value: string, event: React.ChangeEvent) => void;
 }
 
-const MarketingButtonGroup = ({ children, className, value, onChange, ...others }: MarketingButtonGroupProps) => {
+interface MarketingButtonGroupComponent extends GenericComponent<MarketingButtonGroupProps> {
+  Button: GenericComponent<ButtonProps>;
+}
+
+const MarketingButtonGroup: MarketingButtonGroupComponent = ({ children, className, value, onChange, ...others }) => {
   const handleChange = (value: string, event: React.ChangeEvent) => {
     if (onChange) {
       onChange(value, event);
@@ -30,7 +35,7 @@ const MarketingButtonGroup = ({ children, className, value, onChange, ...others 
   return (
     <Box data-teamleader-ui="button-group" className={classNames} {...others}>
       {React.Children.map(children, (child) => {
-        if (!child) {
+        if (!React.isValidElement(child)) {
           return;
         }
 
