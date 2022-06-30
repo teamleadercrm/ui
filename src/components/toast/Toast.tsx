@@ -1,44 +1,82 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import { IconCloseMediumOutline } from '@teamleader/ui-icons';
+import uiUtilities from '@teamleader/ui-utilities';
 import cx from 'classnames';
+import React, { ReactElement, ReactNode, useEffect, useState } from 'react';
+import { GenericComponent } from '../../@types/types';
 import IconButton from '../iconButton';
 import Link from '../link';
-import { TextBody } from '../typography';
 import LoadingSpinner from '../loadingSpinner';
-import { IconCloseMediumOutline } from '@teamleader/ui-icons';
+import { TextBody } from '../typography';
 import theme from './theme.css';
-import uiUtilities from '@teamleader/ui-utilities';
 
-/** @type {React.ComponentType<any>} */
-class Toast extends PureComponent {
-  componentDidMount() {
-    if (this.props.timeout) {
-      this.scheduleTimeout(this.props);
+export interface ToastProps {
+  /** A custom action you want to attach to the toast link */
+  action?: () => void;
+  /** The label for the custom action you want to show */
+  actionLabel?: string;
+  /** The content to display inside the Toast */
+  children?: ReactNode;
+  /** A class name for the Toast to give custom styles. */
+  className?: string;
+  /** The textual label displayed inside the button. */
+  label?: ReactNode;
+  /** A custom link element to point to */
+  link?: ReactElement;
+  /** Action to close the Toast */
+  onClose?: () => void;
+  /** Action to be executed when the timeout limit has been reached */
+  onTimeout?: () => void, // eslint-disable-line
+  /** Show or hide the processing icon */
+  processing?: boolean;
+  /** Timeout duration in milliseconds */
+  timeout?: number;
+}
+
+const Toast: GenericComponent<ToastProps> = ({
+  children,
+  className,
+  label,
+  processing,
+  timeout,
+  onTimeout,
+  link,
+  action,
+  actionLabel,
+  onClose,
+}) => {
+  const [currentTimeout, setCurrentTimeout] = useState<number | undefined>(undefined);
+  const clearCurrentTimeout = () => {
+    clearTimeout(currentTimeout);
+    setCurrentTimeout(undefined);
+  };
+  const scheduleTimeout = () => {
+    if (currentTimeout) {
+      clearCurrentTimeout();
     }
-  }
 
-  componentWillUnmount() {
-    clearTimeout(this.currentTimeout);
-  }
+    setCurrentTimeout(
+      setTimeout(() => {
+        if (onTimeout) {
+          onTimeout();
+        }
 
-  scheduleTimeout = (props) => {
-    const { onTimeout, timeout } = props;
-
-    if (this.currentTimeout) {
-      clearTimeout(this.currentTimeout);
+        clearCurrentTimeout();
+      }, timeout),
+    );
+  };
+  const handleMouseEnter = () => {
+    if (timeout) {
+      clearCurrentTimeout();
     }
-
-    this.currentTimeout = setTimeout(() => {
-      if (onTimeout) {
-        onTimeout();
-      }
-
-      this.currentTimeout = null;
-    }, timeout);
   };
 
-  renderCustomAction = () => {
-    const { action, actionLabel } = this.props;
+  const handleMouseLeave = () => {
+    if (timeout) {
+      scheduleTimeout();
+    }
+  };
+
+  const renderCustomAction = () => {
     return (
       action && (
         <Link className={theme['action-link']} onClick={action}>
@@ -48,8 +86,7 @@ class Toast extends PureComponent {
     );
   };
 
-  renderCustomLink = () => {
-    const { link } = this.props;
+  const renderCustomLink = () => {
     return (
       link && (
         <TextBody>{React.cloneElement(link, { className: cx(link.props.className, theme['action-link']) })}</TextBody>
@@ -57,8 +94,7 @@ class Toast extends PureComponent {
     );
   };
 
-  renderCloseButton = () => {
-    const { onClose } = this.props;
+  const renderCloseButton = () => {
     return (
       onClose && (
         <IconButton
@@ -71,63 +107,31 @@ class Toast extends PureComponent {
     );
   };
 
-  handleMouseEnter = () => {
-    if (this.props.timeout) {
-      clearTimeout(this.currentTimeout);
-      this.currentTimeout = null;
+  useEffect(() => {
+    if (timeout) {
+      scheduleTimeout();
     }
-  };
+    return () => {
+      clearCurrentTimeout();
+    };
+  }, [timeout]);
+  const classNames = cx(uiUtilities['reset-box-sizing'], uiUtilities['box-shadow-400'], theme['toast'], className);
 
-  handleMouseLeave = () => {
-    if (this.props.timeout) {
-      this.scheduleTimeout(this.props);
-    }
-  };
-
-  render() {
-    const { children, className, label, processing } = this.props;
-
-    const classNames = cx(uiUtilities['reset-box-sizing'], uiUtilities['box-shadow-400'], theme['toast'], className);
-
-    return (
-      <div
-        data-teamleader-ui="toast"
-        onMouseEnter={this.handleMouseEnter}
-        onMouseLeave={this.handleMouseLeave}
-        className={classNames}
-      >
-        {processing && <LoadingSpinner className={theme['spinner']} color="neutral" tint="lightest" />}
-        <TextBody className={theme['label']} color="neutral" tint="lightest" element="div">
-          {label}
-          {children}
-        </TextBody>
-        {this.renderCustomAction() || this.renderCustomLink() || this.renderCloseButton()}
-      </div>
-    );
-  }
-}
-
-Toast.propTypes = {
-  /** A custom action you want to attach to the toast link */
-  action: PropTypes.func,
-  /** The label for the custom action you want to show */
-  actionLabel: PropTypes.string,
-  /** The content to display inside the Toast */
-  children: PropTypes.node,
-  /** A class name for the Toast to give custom styles. */
-  className: PropTypes.string,
-  /** The textual label displayed inside the button. */
-  label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  /** A custom link element to point to */
-  link: PropTypes.element,
-  /** Action to close the Toast */
-  onClose: PropTypes.func,
-  /** Action to be executed when the timeout limit has been reached */
-  onTimeout: PropTypes.func, // eslint-disable-line
-  /** Show or hide the processing icon */
-  processing: PropTypes.bool,
-  /** Timeout duration in milliseconds */
-  timeout: PropTypes.number,
+  return (
+    <div
+      data-teamleader-ui="toast"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className={classNames}
+    >
+      {processing && <LoadingSpinner className={theme['spinner']} color="neutral" tint="lightest" />}
+      <TextBody className={theme['label']} color="neutral" tint="lightest" element="div">
+        {label}
+        {children}
+      </TextBody>
+      {renderCustomAction() || renderCustomLink() || renderCloseButton()}
+    </div>
+  );
 };
 
 export default Toast;
