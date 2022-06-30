@@ -14,7 +14,7 @@ interface DurationInputProps
   /** Sets a class name for the wrapper to give custom styles. */
   className?: string;
   /** The id of the container containing the input field. */
-  id: string | undefined;
+  id?: string | undefined;
   /** The maximum value that can be inputted. */
   max?: number;
   /** Callback function that is fired when blurring the input field. */

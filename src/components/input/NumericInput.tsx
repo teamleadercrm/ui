@@ -122,7 +122,6 @@ const NumericInput: GenericComponent<NumericInputProps> = forwardRef<HTMLElement
 
     const updateStep = (n: number) => {
       const currentValue = toNumber(valueRef.current || 0);
-      // const currentValue = toNumber(value || 0);
       const stepN = step * n;
 
       let newValue = currentValue + stepN;
