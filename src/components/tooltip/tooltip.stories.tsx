@@ -1,7 +1,7 @@
+import { select, withKnobs } from '@storybook/addon-knobs';
+import { IconHelpBadgedMediumOutline } from '@teamleader/ui-icons';
 import React from 'react';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
-import { select } from '@storybook/addon-knobs';
-import { IconHelpBadgedMediumOutline } from '@teamleader/ui-icons';
 import { Badge, Button, Link, StatusLabel, TextBody, TextDisplay, TextSmall, Tooltip } from '../../index';
 
 const colors = ['white', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'inverse'];
@@ -28,7 +28,7 @@ const textSmallTooltipContent = (
 export default {
   component: Tooltip,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Tooltip'),
-
+  decorators: [withKnobs],
   parameters: {
     info: {
       propTablesExclude: [TextSmall, TextDisplay, TextBody],
@@ -36,19 +36,19 @@ export default {
   },
 };
 
-export const basic = () => (
+export const Basic = () => (
   <TooltippedButton
     tooltip={textBodyTooltipContent}
     tooltipColor={select('Color', colors, 'white')}
     tooltipPosition={select('Position', positions, 'horizontal')}
     tooltipSize={select('Size', sizes, 'medium')}
-    tooltipActive={select('Active', [null, true, false])}
+    tooltipActive={select('Active', [null, true, false], null)}
   >
     Hover me to see a tooltip
   </TooltippedButton>
 );
 
-export const withIcon = () => (
+export const WithIcon = () => (
   <TextDisplay>
     <TooltippedStrong
       tooltip={textSmallTooltipContent}
@@ -56,14 +56,14 @@ export const withIcon = () => (
       tooltipIcon={<IconHelpBadgedMediumOutline />}
       tooltipPosition={select('Position', positions, 'horizontal')}
       tooltipSize={select('Size', sizes, 'medium')}
-      tooltipActive={select('Active', [null, true, false])}
+      tooltipActive={select('Active', [null, true, false], null)}
     >
       Hover me
     </TooltippedStrong>
   </TextDisplay>
 );
 
-export const fromBadge = () => (
+export const FromBadge = () => (
   <TextDisplay>
     I'm display text with a{' '}
     <TooltippedBadge
@@ -71,7 +71,7 @@ export const fromBadge = () => (
       tooltipColor={select('Color', colors, 'white')}
       tooltipPosition={select('Position', positions, 'horizontal')}
       tooltipSize={select('Size', sizes, 'medium')}
-      tooltipActive={select('Active', [null, true, false])}
+      tooltipActive={select('Active', [null, true, false], null)}
     >
       hover me
     </TooltippedBadge>{' '}
@@ -79,25 +79,25 @@ export const fromBadge = () => (
   </TextDisplay>
 );
 
-export const fromButton = () => (
+export const FromButton = () => (
   <TooltippedButton
     tooltip={textBodyTooltipContent}
     tooltipColor={select('Color', colors, 'white')}
     tooltipPosition={select('Position', positions, 'horizontal')}
     tooltipSize={select('Size', sizes, 'medium')}
-    tooltipActive={select('Active', [null, true, false])}
+    tooltipActive={select('Active', [null, true, false], null)}
   >
     Hover me
   </TooltippedButton>
 );
 
-export const fromLink = () => (
+export const FromLink = () => (
   <TooltippedLink
     tooltip={textBodyTooltipContent}
     tooltipColor={select('Color', colors, 'white')}
     tooltipPosition={select('Position', positions, 'horizontal')}
     tooltipSize={select('Size', sizes, 'medium')}
-    tooltipActive={select('Active', [null, true, false])}
+    tooltipActive={select('Active', [null, true, false], null)}
     href="#"
     inherit={false}
   >
@@ -105,21 +105,21 @@ export const fromLink = () => (
   </TooltippedLink>
 );
 
-export const fromStatusLabel = () => (
+export const FromStatusLabel = () => (
   <TooltippedStatusLabel
     tooltip={textSmallTooltipContent}
     tooltipColor={select('Color', colors, 'white')}
     tooltipPosition={select('Position', positions, 'horizontal')}
     tooltipSize={select('Size', sizes, 'medium')}
-    tooltipActive={select('Active', [null, true, false])}
+    tooltipActive={select('Active', [null, true, false], null)}
   >
     Hover me
   </TooltippedStatusLabel>
 );
 
-fromStatusLabel.storyName = 'From StatusLabel';
+FromStatusLabel.storyName = 'From StatusLabel';
 
-export const fromInlineElements = () => (
+export const FromInlineElements = () => (
   <TextBody>
     I'm body text with a{' '}
     <TooltippedStrong
@@ -127,7 +127,7 @@ export const fromInlineElements = () => (
       tooltipColor={select('Color', colors, 'white')}
       tooltipPosition={select('Position', positions, 'horizontal')}
       tooltipSize={select('Size', sizes, 'medium')}
-      tooltipActive={select('Active', [null, true, false])}
+      tooltipActive={select('Active', [null, true, false], null)}
     >
       hover me
     </TooltippedStrong>{' '}
@@ -135,4 +135,4 @@ export const fromInlineElements = () => (
   </TextBody>
 );
 
-fromInlineElements.storyName = 'From inline elements';
+FromInlineElements.storyName = 'From inline elements';
