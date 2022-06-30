@@ -7,6 +7,7 @@ import MenuItem from './MenuItem';
 import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
 import { BoxProps } from '../box/Box';
+import { GenericComponent } from '../../@types/types';
 
 export type POSITIONS = 'auto' | 'static' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
 const POSITION: Record<string, POSITIONS> = {
@@ -41,7 +42,7 @@ interface MenuProps extends Omit<BoxProps, 'children' | 'className'> {
   selected?: any;
 }
 
-const Menu = ({
+const Menu: GenericComponent<MenuProps> = ({
   active = false,
   children,
   className,
@@ -53,7 +54,7 @@ const Menu = ({
   selectable = true,
   selected,
   ...others
-}: MenuProps) => {
+}) => {
   const [stateWidth, setWidth] = useState<number | undefined>(0);
   const [stateHeight, setHeight] = useState<number | undefined>(0);
   const [stateActive, setActive] = useState<boolean>(active);

@@ -1,12 +1,13 @@
-import React, { ReactNode, SyntheticEvent } from 'react';
+import React, { ReactNode, SyntheticEvent, CSSProperties } from 'react';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import Icon from '../icon';
 import { TextBody } from '../typography';
 import cx from 'classnames';
 import theme from './theme.css';
 import { BoxProps } from '../box/Box';
+import { GenericComponent } from '../../@types/types';
 
-interface MenuItemProps extends Omit<BoxProps, 'children' | 'className' | 'element'> {
+interface MenuItemProps extends Omit<BoxProps, 'children' | 'className' | 'element' | 'style'> {
   /** A caption displayed underneath the label. */
   caption?: string;
   /** The content to display inside the menu item. */
@@ -27,9 +28,11 @@ interface MenuItemProps extends Omit<BoxProps, 'children' | 'className' | 'eleme
   onClick?: (e: SyntheticEvent) => void;
   /** If true, component will look active. */
   selected?: boolean;
+  /** Inline style passed to element */
+  style?: CSSProperties;
 }
 
-const MenuItem = ({
+const MenuItem: GenericComponent<MenuItemProps> = ({
   onClick,
   disabled = false,
   icon,
@@ -42,7 +45,7 @@ const MenuItem = ({
   label,
   selected = false,
   ...others
-}: MenuItemProps) => {
+}) => {
   const handleClick = (event: SyntheticEvent) => {
     if (onClick && !disabled) {
       onClick(event);
@@ -78,7 +81,7 @@ const MenuItem = ({
         paddingHorizontal={3}
         paddingVertical={2}
         textAlign="left"
-        {...(element === 'a' && disabled && { tabIndex: '-1' })}
+        {...(element === 'a' && disabled && { tabIndex: -1 })}
         {...restProps}
       >
         {icon && (

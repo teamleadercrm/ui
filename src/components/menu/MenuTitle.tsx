@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import { GenericComponent } from '../../@types/types';
 import Box from '../box';
 import { BoxProps } from '../box/Box';
 import { Heading4 } from '../typography';
@@ -8,7 +9,7 @@ interface MenuTitleProps extends Omit<BoxProps, 'children'> {
   children: ReactNode;
 }
 
-const MenuTitle = ({ children, ...others }: MenuTitleProps) => (
+const MenuTitle: GenericComponent<MenuTitleProps> = ({ children, ...others }) => (
   <Box
     {...others}
     alignItems="center"

@@ -6,8 +6,9 @@ import Menu, { POSITIONS } from './Menu';
 import theme from './theme.css';
 import Box, { pickBoxProps } from '../box';
 import { BoxProps } from '../box/Box';
+import { GenericComponent } from '../../@types/types';
 
-interface IconMenuProps extends Omit<BoxProps, 'children'> {
+interface IconMenuProps extends Omit<BoxProps, 'children' | 'className'> {
   children?: ReactNode;
   className?: string;
   icon?: ReactElement;
@@ -20,7 +21,7 @@ interface IconMenuProps extends Omit<BoxProps, 'children'> {
   selected?: any;
 }
 
-const IconMenu = ({
+const IconMenu: GenericComponent<IconMenuProps> = ({
   children,
   className = '',
   icon,
@@ -32,7 +33,7 @@ const IconMenu = ({
   selected,
   onClick,
   ...others
-}: IconMenuProps) => {
+}) => {
   const [active, setActive] = useState(false);
   const buttonIcon = icon || <IconMoreMediumOutline />;
   const boxProps = pickBoxProps(others);
