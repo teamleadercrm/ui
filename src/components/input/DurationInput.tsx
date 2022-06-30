@@ -2,23 +2,30 @@ import React, { FocusEvent, FormEvent, forwardRef, KeyboardEvent, useImperativeH
 import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
-import NumericInput from './NumericInput';
+import NumericInput, { NumericInputProps } from './NumericInput';
 import { GenericComponent } from '../../@types/types';
+import { BoxProps } from '../box/Box';
 
 const MINUTES_STEP = 15;
 
-interface DurationInputProps {
-  autoFocus?: boolean;
+interface DurationInputProps
+  extends Omit<NumericInputProps, 'className' | 'id' | 'max' | 'onBlur' | 'onChange' | 'onKeyDown' | 'size' | 'value'>,
+    Omit<BoxProps, 'size' | 'ref'> {
+  /** Sets a class name for the wrapper to give custom styles. */
   className?: string;
-  error?: boolean;
-  id?: string;
+  /** The id of the container containing the input field. */
+  id: string | undefined;
+  /** The maximum value that can be inputted. */
   max?: number;
+  /** Callback function that is fired when blurring the input field. */
   onBlur?: (event: FocusEvent<HTMLElement>) => void;
+  /** Callback function that is fired when the component's value changes. */
   onChange?: (value?: { hours?: number; minutes?: number }) => void;
-  onFocus?: (event: FocusEvent<HTMLElement>) => void;
+  /** Callback function that is fired when the keyboard is touched. */
   onKeyDown?: (event: KeyboardEvent<HTMLElement>) => void;
+  /** Size of the input element. */
   size?: 'small' | 'medium' | 'large';
-  textAlignRight?: boolean;
+  /** Current value of the input element. */
   value?: {
     hours?: number;
     minutes?: number;

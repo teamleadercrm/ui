@@ -7,26 +7,7 @@ import ValidationText from '../validationText';
 import { BoxProps } from '../box/Box';
 import { GenericComponent } from '../../@types/types';
 
-export interface SingleLineInputBaseProps
-  extends Pick<
-      InputBaseProps,
-      | 'autoFocus'
-      | 'disabled'
-      | 'inputMode'
-      | 'onBlur'
-      | 'onChange'
-      | 'onFocus'
-      | 'onKeyDown'
-      | 'placeholder'
-      | 'readOnly'
-      | 'size'
-      | 'textAlignRight'
-      | 'type'
-      | 'value'
-    >,
-    Omit<BoxProps, 'size' | 'ref'> {
-  /** Sets a class name for the wrapper to give custom styles. */
-  className?: string;
+export interface SingleLineInputBaseProps extends Omit<InputBaseProps, 'ref'>, Omit<BoxProps, 'size' | 'ref'> {
   /** Element stuck to the left hand side of the component. */
   connectedLeft?: ReactElement;
   /** Element stuck to the right hand side of the component. */
@@ -35,8 +16,6 @@ export interface SingleLineInputBaseProps
   error?: boolean | ReactNode;
   /** The text string to use as help text below the input. */
   helpText?: string;
-  /** Boolean indicating whether the input should render as inverse. */
-  inverse?: boolean;
   /** Whether to disable styling that hints being able to type in the input field */
   noInputStyling?: boolean;
   /** The text string/element to use as a prefix inside the input field */

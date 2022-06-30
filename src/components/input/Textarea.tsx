@@ -3,19 +3,15 @@ import Box, { BoxProps } from '../box/Box';
 import cx from 'classnames';
 import theme from './theme.css';
 import { omitBoxProps, pickBoxProps } from '../box';
-import InputBase from './InputBase';
+import InputBase, { InputBaseProps } from './InputBase';
 import ValidationText from '../validationText';
 import { GenericComponent } from '../../@types/types';
 
-interface TextareaProps extends Omit<BoxProps, 'size' | 'ref'> {
-  /** Sets a class name for the wrapper to give custom styles. */
-  className?: string;
+interface TextareaProps extends Omit<InputBaseProps, 'ref'>, Omit<BoxProps, 'size' | 'ref'> {
   /** The text to use as error message below the input. */
   error?: boolean | ReactNode;
   /** The text to use as help text below the input. */
   helpText?: string;
-  /** Boolean indicating whether the input should render as inverse. */
-  inverse?: boolean;
   /** The text string/element to use as success message below the input. */
   success?: boolean | ReactNode;
   /** The text to use as warning message below the input. */

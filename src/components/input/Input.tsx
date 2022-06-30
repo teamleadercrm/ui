@@ -2,9 +2,11 @@ import React, { ChangeEvent, forwardRef, useState } from 'react';
 import { GenericComponent } from '../../@types/types';
 import SingleLineInputBase, { SingleLineInputBaseProps } from './SingleLineInputBase';
 
-interface InputProps extends Pick<SingleLineInputBaseProps, 'value'> {
+interface InputProps extends Omit<SingleLineInputBaseProps, 'onChange' | 'value'> {
   /** Callback function that is fired when the component's value changes. */
   onChange?: (event: ChangeEvent<HTMLElement>, value: string) => void;
+  /** Current value of the input element. */
+  value?: string | number;
 }
 
 const Input: GenericComponent<InputProps> = forwardRef<HTMLElement, InputProps>(

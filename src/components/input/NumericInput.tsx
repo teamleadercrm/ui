@@ -52,38 +52,39 @@ const StepperControls: GenericComponent<StepperControlsProps> = ({
   );
 };
 
-interface NumericInputProps
-  extends Pick<
+export interface NumericInputProps
+  extends Omit<
     SingleLineInputBaseProps,
-    | 'autoFocus'
-    | 'className'
-    | 'connectedLeft'
-    | 'connectedRight'
-    | 'inputMode'
-    | 'inverse'
-    | 'onBlur'
-    | 'onFocus'
-    | 'placeholder'
-    | 'size'
-    | 'suffix'
-    | 'textAlignRight'
-    | 'type'
-    | 'value'
+    'connectedLeft' | 'connectedRight' | 'inverse' | 'onBlur' | 'onChange ' | 'onKeyDown' | 'size' | 'suffix' | 'value'
   > {
+  /** Element stuck to the left hand side of the component. */
+  connectedLeft?: ReactElement;
+  /** Element stuck to the right hand side of the component. */
+  connectedRight?: ReactElement;
+  /** Boolean indicating whether the input should render as inverse. */
+  inverse?: boolean;
   /** The maximum value that can be inputted. */
   max?: number;
   /** The maximum number of digits that can be inputted. */
   maxLength?: number;
   /** The minimum value that can be inputted. */
   min?: number;
+  /** Callback function that is fired when blurring the input field. */
+  onBlur?: (event: FocusEvent<HTMLElement>) => void;
   /** Callback function that is fired when the component's value changes. */
   onChange?: (event: ChangeEvent<HTMLElement>, value: string) => void;
   /** Callback function that is fired when the keyboard is touched. */
   onKeyDown?: (event: KeyboardEvent<HTMLElement>) => void;
+  /** Size of the input element. */
+  size?: 'tiny' | 'small' | 'medium' | 'large';
   /** Limit increment value for numeric inputs. */
   step?: number;
   /** Specifiy where the stepper controls should be rendered. */
   stepper?: 'none' | 'connected' | 'suffix';
+  /** The text string/element to use as a suffix inside the input field */
+  suffix?: ReactElement[] | ReactElement;
+  /** Current value of the input element. */
+  value?: string | number;
 }
 
 const NumericInput: GenericComponent<NumericInputProps> = forwardRef<HTMLElement, NumericInputProps>(
