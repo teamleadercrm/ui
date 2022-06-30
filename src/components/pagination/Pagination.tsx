@@ -7,18 +7,18 @@ import theme from './theme.css';
 import { BoxProps } from '../box/Box';
 import { GenericComponent } from '../../@types/types';
 
-type ChildrenFunctionArgument = {
+interface ChildrenFunctionArgument {
   number: number;
   isActive: boolean;
   icon?: ReactNode;
   iconPlacement?: 'left' | 'right';
   text?: string;
   className?: string;
-};
+}
 
 interface PaginationProps extends Omit<BoxProps, 'className' | 'children'> {
   className?: string;
-  currentPage: number | undefined;
+  currentPage?: number;
   maxNumPagesVisible?: number;
   numPages: number;
   children: (args: ChildrenFunctionArgument) => ReactNode;
