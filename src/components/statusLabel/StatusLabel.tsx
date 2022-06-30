@@ -1,5 +1,6 @@
 import cx from 'classnames';
 import React, { forwardRef, ReactNode } from 'react';
+import { GenericComponent } from '../../@types/types';
 import { BoxProps } from '../box/Box';
 import { UITextBody, UITextSmall } from '../typography';
 import theme from './theme.css';
@@ -11,7 +12,7 @@ interface StatusLabelProps extends Omit<BoxProps, 'size'> {
   size: 'small' | 'medium';
 }
 
-const StatusLabel = forwardRef<HTMLElement, StatusLabelProps>(
+const StatusLabel: GenericComponent<StatusLabelProps> = forwardRef<HTMLElement, StatusLabelProps>(
   ({ children, className, color = 'neutral', size = 'medium', ...others }, ref) => {
     const classNames = cx(theme['label'], theme[size], className);
 
