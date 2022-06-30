@@ -240,7 +240,7 @@ const Label: GenericComponent<LabelProps> = ({
       margin={1}
       marginRight={2}
       onFocus={onTagFocus}
-      onRemoveClick={!(index === 0 && disableRemovalOfFirst) && onRemove && onTagRemove}
+      onRemoveClick={!(index === 0 && disableRemovalOfFirst) && onRemove ? onTagRemove : undefined}
     >
       <Link element="button" className={theme['label-text']} inherit={false} onClick={onTagClick}>
         {option.label || option.email}
