@@ -11,6 +11,8 @@ export interface ButtonProps extends Omit<BoxProps, 'ref'> {
   children?: ReactNode;
   /** A class name for the button to give custom styles. */
   className?: string;
+  /** A custom element to be rendered */
+  element?: React.ElementType;
   /** If true, component will be shown in an active state */
   active?: boolean;
   /** The textual label displayed inside the button. */
@@ -22,7 +24,7 @@ export interface ButtonProps extends Omit<BoxProps, 'ref'> {
 }
 
 const Button: GenericComponent<ButtonProps> = forwardRef<HTMLElement, ButtonProps>(
-  ({ onMouseUp, onMouseLeave, children, className = '', active, label, ...others }, ref) => {
+  ({ onMouseUp, onMouseLeave, children, className = '', element = 'button', active, label, ...others }, ref) => {
     const buttonRef = useRef<HTMLElement>(null);
     useImperativeHandle<HTMLElement | null, HTMLElement | null>(ref, () => buttonRef.current);
 
@@ -62,7 +64,7 @@ const Button: GenericComponent<ButtonProps> = forwardRef<HTMLElement, ButtonProp
       ...others,
       ref: buttonRef,
       className: classNames,
-      element: 'button' as React.ElementType,
+      element: element,
       onMouseUp: handleMouseUp,
       onMouseLeave: handleMouseLeave,
       'data-teamleader-ui': 'button',
