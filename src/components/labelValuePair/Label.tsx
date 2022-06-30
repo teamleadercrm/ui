@@ -1,12 +1,14 @@
 import React, { ReactNode } from 'react';
+import { GenericComponent } from '../../@types/types';
+import { BoxProps } from '../box/Box';
 import { Heading5 } from '../typography';
 
-interface LabelProps {
-  inline: boolean;
-  children: ReactNode;
+export interface LabelProps extends Omit<BoxProps, 'children'> {
+  inline?: boolean;
+  children?: ReactNode;
 }
 
-const Label = ({ children, inline, ...others }: LabelProps) => (
+const Label: GenericComponent<LabelProps> = ({ children, inline, ...others }) => (
   <Heading5
     color="teal"
     flex={inline ? '0 0 40%' : 1}

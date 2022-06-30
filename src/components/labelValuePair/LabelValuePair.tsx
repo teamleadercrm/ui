@@ -1,18 +1,23 @@
 import React, { ReactNode } from 'react';
-import PropTypes from 'prop-types';
 import isComponentOfType from '../utils/is-component-of-type';
 import Box from '../box';
-import Label from './Label';
-import Value from './Value';
+import Label, { LabelProps } from './Label';
+import Value, { ValueProps } from './Value';
+import { GenericComponent } from '../../@types/types';
+import { BoxProps } from '../box/Box';
 
-interface LabelValuePairProps {
-  alignValue: 'left' | 'right';
+interface LabelValuePairProps extends Omit<BoxProps, 'children'> {
+  alignValue?: 'left' | 'right';
   children: ReactNode;
-  inline: boolean;
-  label: string | ReactNode;
+  inline?: boolean;
 }
 
-const LabelValuePair = ({ alignValue = 'left', children, inline = true, label, ...others }: LabelValuePairProps) => (
+interface LabelValuePairComponent extends GenericComponent<LabelValuePairProps> {
+  Label: GenericComponent<LabelProps>;
+  Value: GenericComponent<ValueProps>;
+}
+
+const LabelValuePair: LabelValuePairComponent = ({ alignValue = 'left', children, inline = true, ...others }) => (
   <Box {...others} display="flex" flexDirection={inline ? 'row' : 'column'} marginBottom={inline ? 2 : 3}>
     {React.Children.map(children, (child) => {
       if (isComponentOfType(Label, child) && React.isValidElement(child)) {
@@ -35,17 +40,5 @@ LabelValuePair.Label = Label;
 LabelValuePair.Label.displayName = 'LabelValuePair.Label';
 LabelValuePair.Value = Value;
 LabelValuePair.Value.displayName = 'LabelValuePair.Value';
-
-LabelValuePair.propTypes = {
-  alignValue: PropTypes.oneOf(['left', 'right']),
-  children: PropTypes.node.isRequired,
-  inline: PropTypes.bool,
-  label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-};
-
-LabelValuePair.defaultProps = {
-  alignValue: 'left',
-  inline: true,
-};
 
 export default LabelValuePair;
