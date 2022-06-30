@@ -12,17 +12,17 @@ interface MarketingLinkProps extends Omit<BoxProps, 'ref'> {
   /** A class name for the link to give custom styles. */
   className?: string;
   /** A custom element to be rendered */
-  element?: Element | string;
+  element?: React.ElementType;
   /** Callback function that is fired when mouse leaves the component. */
   onMouseLeave?: (event: React.MouseEvent) => void;
   /** Callback function that is fired when the mouse button is released. */
   onMouseUp?: (event: React.MouseEvent) => void;
 }
 
-const MarketingLink: GenericComponent<MarketingLinkProps> = forwardRef(
+const MarketingLink: GenericComponent<MarketingLinkProps> = forwardRef<HTMLElement, MarketingLinkProps>(
   ({ children, className = '', element = 'a', onMouseUp, onMouseLeave, ...others }, ref) => {
-    const linkRef = useRef<HTMLElement>();
-    useImperativeHandle(ref, () => linkRef.current);
+    const linkRef = useRef<HTMLElement>(null);
+    useImperativeHandle<HTMLElement | null, HTMLElement | null>(ref, () => linkRef.current);
 
     const blur = () => {
       const currentLinkRef = linkRef.current;
