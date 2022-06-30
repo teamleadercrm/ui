@@ -1,5 +1,6 @@
 import cx from 'classnames';
-import React from 'react';
+import React, { forwardRef } from 'react';
+import { GenericComponent } from '../../@types/types';
 import Box from '../box';
 import { BoxProps } from '../box/Box';
 import theme from './theme.css';
@@ -20,21 +21,18 @@ export interface LoadingSpinnerProps extends Omit<BoxProps, 'className' | 'size'
   /** The tint of the components color */
   tint?: Tint;
 }
-const LoadingSpinner = ({
-  className,
-  color = 'teal',
-  size = 'medium',
-  tint = 'darkest',
-  ...others
-}: LoadingSpinnerProps) => {
-  const classNames = cx(
-    theme['loading-spinner'],
-    theme[`is-${color}`],
-    theme[`is-${size}`],
-    theme[`is-${tint}`],
-    className,
-  );
-  return <Box data-teamleader-ui="loading-spinner" className={classNames} {...others} />;
-};
+const LoadingSpinner: GenericComponent<LoadingSpinnerProps> = forwardRef<HTMLElement, LoadingSpinnerProps>(
+  ({ className, color = 'teal', size = 'medium', tint = 'darkest', ...others }, ref) => {
+    const classNames = cx(
+      theme['loading-spinner'],
+      theme[`is-${color}`],
+      theme[`is-${size}`],
+      theme[`is-${tint}`],
+      className,
+    );
+    return <Box data-teamleader-ui="loading-spinner" className={classNames} {...others} ref={ref} />;
+  },
+);
 
+LoadingSpinner.displayName = 'LoadingSpinner';
 export default LoadingSpinner;

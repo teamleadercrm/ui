@@ -1,5 +1,6 @@
 import { IconArrowLeftSmallOutline } from '@teamleader/ui-icons';
-import React from 'react';
+import React, { ReactNode } from 'react';
+import { GenericComponent } from '../../@types/types';
 import BadgedLink from '../badgedLink';
 import { BadgedLinkProps } from '../badgedLink/BadgedLink';
 import { Box } from '../box';
@@ -10,21 +11,22 @@ import { Heading1, TextBody } from '../typography';
 import theme from './theme.css';
 
 export interface DetailPageHeaderProps extends Omit<ContainerProps, 'title'> {
-  backLinkProps?: Omit<BadgedLinkProps, 'icon' | 'inheric'>;
+  children?: ReactNode;
+  backLinkProps?: Omit<BadgedLinkProps, 'icon' | 'inheric'> & { children: ReactNode };
   title: React.ReactNode;
   /** The color which the title should have */
   titleColor?: 'neutral' | 'teal';
   titleSuffix?: React.ReactNode;
 }
 
-const DetailPageHeader = ({
+const DetailPageHeader: GenericComponent<DetailPageHeaderProps> = ({
   backLinkProps,
   children,
   title,
   titleColor = 'teal',
   titleSuffix,
   ...others
-}: DetailPageHeaderProps) => {
+}) => {
   return (
     <Container {...others} element={Section}>
       <Box className={theme['header-inner']} display="flex">

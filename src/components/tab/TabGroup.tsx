@@ -3,6 +3,7 @@ import cx from 'classnames';
 import React, { ReactNode, useEffect, useRef, useState } from 'react';
 import ReactResizeDetector from 'react-resize-detector';
 import smoothScroll from 'smoothscroll-polyfill';
+import { GenericComponent } from '../../@types/types';
 import Box from '../box';
 import { BoxProps } from '../box/Box';
 import IconButton from '../iconButton';
@@ -17,7 +18,7 @@ interface TabGroupProps extends Omit<BoxProps, 'children'> {
   size?: 'small' | 'medium';
 }
 
-const TabGroup = ({ children, className, size, ...others }: TabGroupProps) => {
+const TabGroup: GenericComponent<TabGroupProps> = ({ children, className, size, ...others }) => {
   const scrollContainerRef = useRef<HTMLElement>(null);
   const activeTabRef = useRef<HTMLElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);

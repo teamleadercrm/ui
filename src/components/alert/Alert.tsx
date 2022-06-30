@@ -6,6 +6,7 @@ import { Button, BUTTON_LEVELS } from '../button';
 import { Illustration60X60Error, Illustration60X60Info } from '@teamleader/ui-illustrations';
 import { DialogBaseProps } from '../dialog/DialogBase';
 import { ButtonProps } from '../button/Button';
+import { GenericComponent } from '../../@types/types';
 
 type Action = Omit<ButtonProps, 'fullWidth' | 'marginTop'>;
 
@@ -24,7 +25,14 @@ interface AlertProps extends Omit<DialogBaseProps, 'scrollable' | 'size'> {
   type?: Type;
 }
 
-const Alert = ({ primaryAction, secondaryAction, title, body, type = 'confirm', ...otherProps }: AlertProps) => {
+const Alert: GenericComponent<AlertProps> = ({
+  primaryAction,
+  secondaryAction,
+  title,
+  body,
+  type = 'confirm',
+  ...otherProps
+}) => {
   return (
     <DialogBase {...otherProps} scrollable={false} size="small">
       <Box alignItems="center" display="flex" flexDirection="column" padding={4} textAlign="center">

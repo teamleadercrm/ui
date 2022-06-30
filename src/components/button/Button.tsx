@@ -1,10 +1,11 @@
+import cx from 'classnames';
 import React, { forwardRef, ReactNode } from 'react';
+import { GenericComponent } from '../../@types/types';
 import Box from '../box';
+import { BoxProps } from '../box/Box';
 import LoadingSpinner from '../loadingSpinner';
 import { UITextBody, UITextDisplay, UITextSmall } from '../typography';
-import cx from 'classnames';
 import theme from './theme.css';
-import { BoxProps } from '../box/Box';
 
 export enum BUTTON_LEVELS {
   outline = 'outline',
@@ -53,7 +54,7 @@ export interface ButtonProps extends Omit<BoxProps, 'size'> {
   type?: string;
 }
 
-const Button = forwardRef(
+const Button: GenericComponent<ButtonProps> = forwardRef<HTMLElement, ButtonProps>(
   (
     {
       color = 'teal',
@@ -71,7 +72,7 @@ const Button = forwardRef(
       type = 'button',
       processing = false,
       ...others
-    }: ButtonProps,
+    },
     ref,
   ) => {
     const getSpinnerColor = () => {

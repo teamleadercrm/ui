@@ -5,6 +5,7 @@ import theme from './theme.css';
 import AvatarStackOverflow from './AvatarStackOverflow';
 import { Direction, Size } from './types';
 import { BoxProps } from '../box/Box';
+import { GenericComponent } from '../../@types/types';
 
 const OVERLAP_SPACINGS = {
   tiny: -6,
@@ -39,7 +40,7 @@ interface AvatarStackProps extends Omit<BoxProps, 'size' | 'ref'> {
   tooltip?: boolean;
 }
 
-const AvatarStack = ({
+const AvatarStack: GenericComponent<AvatarStackProps> = ({
   children,
   className,
   direction = 'horizontal',
@@ -51,7 +52,7 @@ const AvatarStack = ({
   getNamesOverflowLabel,
   tooltip = false,
   ...others
-}: AvatarStackProps) => {
+}) => {
   const childrenArray = React.Children.toArray(children);
   const childrenToDisplay = childrenArray.length > displayMax ? childrenArray.slice(0, displayMax) : childrenArray;
   const overflowAmount = childrenArray.length - displayMax;

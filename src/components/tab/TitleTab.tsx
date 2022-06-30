@@ -5,17 +5,19 @@ import theme from './theme.css';
 
 import { BoxProps } from '../box/Box';
 import { Heading4, Heading5 } from '../typography';
+import { GenericComponent } from '../../@types/types';
 
-interface TitleTabProps extends Omit<BoxProps, 'size'> {
+interface TitleTabProps extends Omit<BoxProps, 'size' | 'element'> {
   active?: boolean;
   children: ReactNode;
+  element?: React.ElementType;
   className?: string;
   counter?: ReactNode;
   onClick?: React.MouseEventHandler<HTMLElement>;
   size?: 'small' | 'medium';
 }
 
-const TitleTab = forwardRef<HTMLElement, TitleTabProps>(
+const TitleTab: GenericComponent<TitleTabProps> = forwardRef<HTMLElement, TitleTabProps>(
   (
     { active = false, children, className, counter = null, size = 'medium', onClick, element = 'a', ...others },
     ref,
