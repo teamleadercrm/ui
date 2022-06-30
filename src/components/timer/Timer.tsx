@@ -1,6 +1,7 @@
 import { IconTimerMediumOutline } from '@teamleader/ui-icons';
 import cx from 'classnames';
-import React, { forwardRef, FunctionComponent, ReactNode } from 'react';
+import React, { forwardRef, ReactNode } from 'react';
+import { GenericComponent } from '../../@types/types';
 import Box from '../box';
 import { BoxProps } from '../box/Box';
 import Icon from '../icon';
@@ -15,7 +16,7 @@ interface TimerProps extends Omit<BoxProps, 'children' | 'className'> {
   running?: boolean;
 }
 
-const Timer: FunctionComponent<TimerProps> = forwardRef<HTMLElement, TimerProps>(
+const Timer: GenericComponent<TimerProps> = forwardRef<HTMLElement, TimerProps>(
   ({ children, className, loading = false, running = false, ...others }, ref) => {
     const classNames = cx(
       theme['timer'],
