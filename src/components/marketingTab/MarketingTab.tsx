@@ -17,10 +17,10 @@ interface MarketingTabProps extends Omit<BoxProps, 'ref'> {
   size?: Size;
 }
 
-const MarketingTab: GenericComponent<MarketingTabProps> = forwardRef(
+const MarketingTab: GenericComponent<MarketingTabProps> = forwardRef<HTMLElement, MarketingTabProps>(
   ({ active = false, children, className, size = 'medium', onClick, ...others }, ref) => {
     const tabRef = useRef<HTMLElement>(null);
-    useImperativeHandle(ref, () => tabRef.current);
+    useImperativeHandle<HTMLElement | null, HTMLElement | null>(ref, () => tabRef.current);
 
     const blur = () => {
       const currentTabRef = tabRef.current;
