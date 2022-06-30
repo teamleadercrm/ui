@@ -154,6 +154,10 @@ const DurationInput: GenericComponent<DurationInputProps> = forwardRef<HTMLEleme
       onBlur && onBlur(event);
     };
 
+    const transformToPaddedNumber = (number: number) => {
+      return number < 10 ? `0${number}` : number.toString();
+    };
+
     const getHoursString = () => {
       const hours = value?.hours;
 
@@ -222,10 +226,6 @@ const DurationInput: GenericComponent<DurationInputProps> = forwardRef<HTMLEleme
 
       // Minutes are relative to the already filled in hours, so the max needs to be set on the fly
       return (max && value?.hours && maxHours && value.hours >= maxHours) || maxHours === 0;
-    };
-
-    const transformToPaddedNumber = (number: number) => {
-      return number < 10 ? `0${number}` : number.toString();
     };
 
     return (

@@ -27,9 +27,11 @@ const prefix = [
 ];
 /* eslint-disable-next-line react/jsx-key */
 const suffix = [
-  <TextSmall color="neutral">incl. BTW</TextSmall>,
-  <Counter count={99} maxCount={100} size={'medium'} />,
-  <LoadingSpinner />,
+  <TextSmall key="suffix1" color="neutral">
+    incl. BTW
+  </TextSmall>,
+  <Counter key="suffix2" count={99} maxCount={100} size="medium" />,
+  <LoadingSpinner key="suffix3" />,
 ];
 
 const connectedLeft = <Button size="medium" label="€" />;

@@ -116,6 +116,10 @@ const NumericInput: GenericComponent<NumericInputProps> = forwardRef<HTMLElement
       valueRef.current = value;
     }, [value]);
 
+    const isMinReached = () => toNumber(value || 0) <= min;
+
+    const isMaxReached = () => toNumber(value || 0) >= max;
+
     const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
       onChange && onChange(event, event.currentTarget.value);
     };
@@ -155,6 +159,11 @@ const NumericInput: GenericComponent<NumericInputProps> = forwardRef<HTMLElement
       updateStep(-1);
     };
 
+    const handleClearStepperTimer = () => {
+      clearTimeout(timeoutRef.current);
+      clearInterval(timerRef.current);
+    };
+
     const handleDecreaseMouseDown = () => {
       handleDecreaseValue();
 
@@ -183,11 +192,6 @@ const NumericInput: GenericComponent<NumericInputProps> = forwardRef<HTMLElement
       }, 300);
     };
 
-    const handleClearStepperTimer = () => {
-      clearTimeout(timeoutRef.current);
-      clearInterval(timerRef.current);
-    };
-
     // Unlike mouse down events, key down events are "auto-repeated" while holding down the key
     // This means we don't need to use an interval and can directly rely on the handler
     // https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent#auto-repeat_handling
@@ -206,10 +210,6 @@ const NumericInput: GenericComponent<NumericInputProps> = forwardRef<HTMLElement
     const handleBlur = (event: FocusEvent<HTMLElement>) => {
       onBlur && onBlur(event);
     };
-
-    const isMinReached = () => toNumber(value || 0) <= min;
-
-    const isMaxReached = () => toNumber(value || 0) >= max;
 
     const getConnectedRight = () => {
       if (stepper === 'connected') {

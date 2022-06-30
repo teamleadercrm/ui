@@ -1,4 +1,4 @@
-import React, { FocusEvent, forwardRef, HTMLProps, ReactElement, ReactNode, useState } from 'react';
+import React, { FocusEvent, forwardRef, ReactElement, ReactNode, useState } from 'react';
 import cx from 'classnames';
 import theme from './theme.css';
 import Box, { omitBoxProps, pickBoxProps } from '../box';

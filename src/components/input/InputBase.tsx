@@ -99,4 +99,6 @@ const InputBase: GenericComponent<InputBaseProps> = forwardRef<HTMLElement, Inpu
   },
 );
 
+InputBase.displayName = 'InputBase';
+
 export default InputBase;

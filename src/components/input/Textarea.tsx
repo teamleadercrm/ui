@@ -45,4 +45,6 @@ const Textarea: GenericComponent<TextareaProps> = forwardRef<HTMLElement, Textar
   },
 );
 
+Textarea.displayName = 'TextArea';
+
 export default Textarea;
