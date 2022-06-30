@@ -7,6 +7,7 @@ import ButtonGroup from '../buttonGroup';
 import OverviewPage from './OverviewPage';
 import { COLOR } from '../../constants';
 import { TextBody } from '../typography';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 export default {
   component: OverviewPage,
@@ -23,46 +24,35 @@ export default {
     info: {
       propTables: false,
     },
+    docs: {
+      source: {
+        type: 'code',
+      },
+    },
   },
-};
+} as ComponentMeta<typeof OverviewPage>;
 
-export const composition = () => (
+export const DefaultStory: ComponentStory<typeof OverviewPage> = () => (
   <OverviewPage>
-    {header()}
-    {body()}
+    <OverviewPage.Header title={text('title', 'I am the overview page title')} />
+    <OverviewPage.Body>
+      <TextBody>Here you can add arbitrary content.</TextBody>
+    </OverviewPage.Body>
   </OverviewPage>
 );
 
-composition.storyName = 'Composition';
-composition.parameters = {
-  info: {
-    propTables: [OverviewPage],
-  },
-};
-
-export const body = () => (
-  <OverviewPage.Body>
-    <TextBody>Here you can add arbitrary content.</TextBody>
-  </OverviewPage.Body>
+export const Header: ComponentStory<typeof OverviewPage.Header> = () => (
+  <OverviewPage.Header title={text('title', 'I am the overview page title')} />
 );
 
-body.storyName = 'Body';
-body.parameters = {
-  info: {
-    propTables: [OverviewPage.Body],
-  },
-};
-
-export const header = () => <OverviewPage.Header title={text('title', 'I am the overview page title')} />;
-
-header.storyName = 'Header';
-header.parameters = {
+Header.storyName = 'Header';
+Header.parameters = {
   info: {
     propTables: [OverviewPage.Header],
   },
 };
 
-export const headerWithActions = () => (
+export const headerWithActions: ComponentStory<typeof OverviewPage.Header> = () => (
   <OverviewPage.Header title={text('title', 'I am the overview page title')}>
     <ButtonGroup>
       <Button>Export</Button>
@@ -78,5 +68,18 @@ headerWithActions.storyName = 'Header with actions';
 headerWithActions.parameters = {
   info: {
     propTables: [OverviewPage.Header],
+  },
+};
+
+export const Body: ComponentStory<typeof OverviewPage.Body> = () => (
+  <OverviewPage.Body>
+    <TextBody>Here you can add arbitrary content.</TextBody>
+  </OverviewPage.Body>
+);
+
+Body.storyName = 'Body';
+Body.parameters = {
+  info: {
+    propTables: [OverviewPage.Body],
   },
 };
