@@ -1,30 +1,41 @@
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React, { useReducer } from 'react';
-import { Button, Toast, Link, ToastContainer } from '../../index';
 import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
+import { Button, Link, Toast, ToastContainer } from '../../index';
+import { ToastProps } from './Toast';
 
 export default {
   component: Toast,
   title: addStoryInGroup(MID_LEVEL_BLOCKS, 'Toast'),
 
   parameters: {
-    info: {
-      propTablesExclude: [Button],
+    docs: {
+      source: {
+        type: 'code',
+      },
     },
   },
-};
+} as ComponentMeta<typeof Toast>;
 
-const toastReducer = ({ toasts, key }, action) => {
+interface ToastPropsWithKey extends ToastProps {
+  key?: number;
+}
+
+const toastReducer = (
+  { toasts, key }: { toasts: ToastPropsWithKey[]; key: number },
+  action: { type: string; payload: ToastPropsWithKey | number },
+) => {
   if (action.type === 'REMOVE_TOAST') {
     return {
       key,
-      toasts: toasts.filter((t) => t.key !== action.payload),
+      toasts: toasts.filter((t) => t.key !== (action.payload as number)),
     };
   }
 
   if (action.type === 'ADD_TOAST') {
     return {
       key: key + 1,
-      toasts: toasts.concat([action.payload]),
+      toasts: toasts.concat([action.payload as ToastPropsWithKey]),
     };
   }
 
@@ -34,11 +45,11 @@ const toastReducer = ({ toasts, key }, action) => {
   };
 };
 
-const toastSpawner = (toastProps) => {
+const toastSpawner = (toastProps: ToastPropsWithKey) => {
   const Wrapper = () => {
     const [{ toasts, key }, dispatch] = useReducer(toastReducer, { key: 0, toasts: [] });
 
-    const addToast = (toastProps) => {
+    const addToast = (toastProps: ToastPropsWithKey) => {
       const props = {
         ...toastProps,
         key,
@@ -67,14 +78,16 @@ const toastSpawner = (toastProps) => {
   return Wrapper;
 };
 
-export const withCloseButton = toastSpawner({
+export const DefaultStory: ComponentStory<typeof Toast> = (args) => toastSpawner(args)();
+
+export const withCloseButton: ComponentStory<typeof Toast> = toastSpawner({
   label: 'Toast label',
   timeout: 3000,
 });
 
 withCloseButton.storyName = 'With close button';
 
-export const withCustomAction = toastSpawner({
+export const withCustomAction: ComponentStory<typeof Toast> = toastSpawner({
   label: 'Toast label',
   timeout: 3000,
   actionLabel: 'confirm',
@@ -83,7 +96,7 @@ export const withCustomAction = toastSpawner({
 
 withCustomAction.storyName = 'With custom action';
 
-export const withCustomLink = toastSpawner({
+export const withCustomLink: ComponentStory<typeof Toast> = toastSpawner({
   label: 'Toast label',
   link: <Link href="https://www.teamleader.be">link</Link>,
   timeout: 3000,
@@ -91,7 +104,7 @@ export const withCustomLink = toastSpawner({
 
 withCustomLink.storyName = 'With custom link';
 
-export const withMultilineLabel = toastSpawner({
+export const withMultilineLabel: ComponentStory<typeof Toast> = toastSpawner({
   label: 'Connection timed out. Showing limited amount of messages.',
   timeout: 3000,
   actionLabel: 'Try again',
@@ -100,7 +113,7 @@ export const withMultilineLabel = toastSpawner({
 
 withMultilineLabel.storyName = 'With multiline label';
 
-export const withLoadingSpinner = toastSpawner({
+export const withLoadingSpinner: ComponentStory<typeof Toast> = toastSpawner({
   label: 'Working...',
   timeout: 3000,
   processing: true,
