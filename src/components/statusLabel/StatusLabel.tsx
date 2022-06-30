@@ -7,9 +7,9 @@ import theme from './theme.css';
 
 interface StatusLabelProps extends Omit<BoxProps, 'size'> {
   children: ReactNode;
-  className: string;
-  color: 'neutral' | 'mint' | 'violet' | 'ruby' | 'gold' | 'aqua';
-  size: 'small' | 'medium';
+  className?: string;
+  color?: 'neutral' | 'mint' | 'violet' | 'ruby' | 'gold' | 'aqua';
+  size?: 'small' | 'medium';
 }
 
 const StatusLabel: GenericComponent<StatusLabelProps> = forwardRef<HTMLElement, StatusLabelProps>(
