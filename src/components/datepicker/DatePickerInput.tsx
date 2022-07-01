@@ -8,7 +8,6 @@ import cx from 'classnames';
 import theme from './theme.css';
 import { formatDate } from './localeUtils';
 import { IconCalendarSmallOutline } from '@teamleader/ui-icons';
-import { DateTimeFormatOptions } from 'luxon';
 import { BoxProps } from '../box/Box';
 import { GenericComponent } from '../../@types/types';
 
@@ -81,7 +80,7 @@ const DatePickerInput: GenericComponent<DatePickerInputProps> = ({
     }
 
     if (!customFormatDate) {
-      return formatDate(selectedDate, locale as DateTimeFormatOptions);
+      return formatDate(selectedDate, locale);
     }
 
     return customFormatDate(selectedDate, locale);
