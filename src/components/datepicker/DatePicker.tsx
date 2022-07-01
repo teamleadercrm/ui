@@ -90,7 +90,7 @@ const DatePicker: GenericComponent<DatePickerProps> = ({
         navbarElement={({ ...props }) => <NavigationBar {...props} size={size} withMonthPicker={withMonthPicker} />}
         onDayClick={handleDayClick}
         selectedDays={selectedDate}
-        weekdayElement={<WeekDay size={size} />}
+        weekdayElement={({ ...props }) => <WeekDay {...props} size={size} />}
         showWeekNumbers={showWeekNumbers}
         captionElement={
           withMonthPicker

@@ -5,7 +5,7 @@ import { GenericComponent } from '../../@types/types';
 export type Size = 'smallest' | 'small' | 'medium' | 'large';
 
 interface WeekDayProps {
-  weekday?: number;
+  weekday: number;
   className?: string;
   localeUtils?: LocaleUtils;
   locale?: string;
@@ -13,7 +13,7 @@ interface WeekDayProps {
 }
 
 const WeekDay: GenericComponent<WeekDayProps> = ({ weekday, className, localeUtils, locale, size }) => {
-  const weekdayName = localeUtils?.formatWeekdayLong(weekday!, locale);
+  const weekdayName = localeUtils?.formatWeekdayLong(weekday, locale);
 
   return (
     <div className={className} title={weekdayName}>
