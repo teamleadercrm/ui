@@ -6,7 +6,7 @@ import Box from '../box';
 import ProgressStep, { ProgressStepProps } from './ProgressStep';
 import { GenericComponent } from '../../@types/types';
 
-interface ProgressTrackerProps {
+export interface ProgressTrackerProps {
   /** Whether or not all steps are completed */
   done?: boolean;
   /** The number of the step which is currently active */
@@ -29,7 +29,6 @@ const ProgressTracker: ProgressTrackerComponent = ({
   currentStep = 0,
   done,
   labelPosition = 'top',
-  ...rest
 }: ProgressTrackerProps) => {
   const classNames = cx(theme['tracker'], theme[color], theme[`tracker-${labelPosition}`]);
 
@@ -37,9 +36,14 @@ const ProgressTracker: ProgressTrackerComponent = ({
     <Box className={classNames}>
       {React.Children.map(children, (child, index) => {
         const activeStep = Math.max(0, currentStep);
+        const childProps = React.isValidElement(child) ? child.props : child;
 
         return (
-          <ProgressStep active={done ? false : index === activeStep} completed={done || index < activeStep} {...rest} />
+          <ProgressStep
+            active={done ? false : index === activeStep}
+            completed={done || index < activeStep}
+            {...childProps}
+          />
         );
       })}
     </Box>

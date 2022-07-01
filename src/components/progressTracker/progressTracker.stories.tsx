@@ -1,8 +1,9 @@
 import React from 'react';
 import { boolean, number, select } from '@storybook/addon-knobs';
 import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
-import ProgressTracker from './ProgressTracker';
+import ProgressTracker, { ProgressTrackerProps } from './ProgressTracker';
 import { COLORS } from '../../index';
+import { ComponentMeta } from '@storybook/react';
 
 const steps = ['Draft', 'Book', 'Send invoices', 'Get paid'];
 
@@ -16,10 +17,11 @@ export default {
       url: 'https://www.figma.com/file/LHH25GN90ljQaBEUNMsdJn/Desktop-components?node-id=865%3A0',
     },
   },
-};
+} as ComponentMeta<typeof ProgressTracker>;
 
-export const DefaultStory = () => (
+export const DefaultStory = (args: ProgressTrackerProps) => (
   <ProgressTracker
+    {...args}
     done={boolean('Done', false)}
     currentStep={number('Current step', 1, {
       range: true,
