@@ -3,6 +3,8 @@ import { addStoryInGroup, COMPOSITIONS } from '../../../.storybook/utils';
 import { IconBuildingSmallOutline, IconPhoneSmallOutline, IconMailSmallOutline } from '@teamleader/ui-icons';
 import { Badge, Box, EmptyPassport, Passport } from '../../index';
 import avatars from '../../static/data/avatar';
+import { ComponentMeta } from '@storybook/react';
+import { PassportProps } from './Passport';
 
 const contactAvatar = avatars[1].image;
 const companyAvatar = avatars[2].image;
@@ -51,7 +53,7 @@ export default {
       propTablesExclude: [Badge, Box],
     },
   },
-};
+} as ComponentMeta<typeof Passport>;
 
 const usePassportState = () => {
   const [active, setActive] = useState<boolean>(false);
@@ -69,7 +71,7 @@ const usePassportState = () => {
   return { active, anchorEl, handleButtonClick: handleSetActiveClick, handleCloseClick: handleSetInactiveClick };
 };
 
-export const contact = () => {
+export const contact = (args: PassportProps) => {
   const { active, anchorEl, handleButtonClick, handleCloseClick } = usePassportState();
 
   return (
@@ -78,6 +80,7 @@ export const contact = () => {
         David Brent
       </Badge>
       <Passport
+        {...args}
         active={active}
         anchorEl={anchorEl}
         description="Regional manager"
@@ -91,7 +94,7 @@ export const contact = () => {
   );
 };
 
-export const company = () => {
+export const company = (args: PassportProps) => {
   const { active, anchorEl, handleButtonClick, handleCloseClick } = usePassportState();
 
   return (
@@ -100,6 +103,7 @@ export const company = () => {
         Dunder Miflin
       </Badge>
       <Passport
+        {...args}
         active={active}
         anchorEl={anchorEl}
         description={['1725 Slough Avenue', 'Sranton, PA 18540', 'United Kingdom']}
@@ -113,7 +117,7 @@ export const company = () => {
   );
 };
 
-export const empty = () => {
+export const empty = (args: PassportProps) => {
   const { active, anchorEl, handleButtonClick, handleCloseClick } = usePassportState();
 
   return (
@@ -122,6 +126,7 @@ export const empty = () => {
         No information
       </Badge>
       <EmptyPassport
+        {...args}
         active={active}
         anchorEl={anchorEl}
         link={{ children: 'Start now', href: 'https://www.teamleader.eu' }}

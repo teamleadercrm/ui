@@ -15,7 +15,7 @@ import { BoxProps } from '../box/Box';
 interface LinkPropsAndIcon extends LinkProps {
   icon?: ReactNode;
 }
-interface PassportProps extends Omit<BoxProps, 'className'> {
+export interface PassportProps extends Omit<BoxProps, 'className'> {
   /** Object containing the props of an Avatar. */
   avatar: AvatarProps;
   /** The class names for the wrapper to apply custom styling. */
