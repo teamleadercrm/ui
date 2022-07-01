@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import throttle from 'lodash.throttle';
 import Overlay from '../overlay';
@@ -13,40 +12,91 @@ import Box from '../box';
 import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
 import useFocusTrap from '../../utils/useFocusTrap';
+import { GenericComponent } from '../../@types/types';
+import { BoxProps } from '../box/Box';
 
-/** @type {React.ComponentType<any>} */
-const Popover = (props) => {
-  const [state, setState] = useState({ positioning: { left: 0, top: 0, maxHeight: 'initial' } });
+type Color = 'aqua' | 'gold' | 'mint' | 'neutral' | 'ruby' | 'teal' | 'violet';
+type Direction = 'north' | 'south' | 'east' | 'west';
+type Position = 'start' | 'center' | 'end';
+type Tint = 'lightest' | 'light' | 'normal' | 'dark' | 'darkest';
+
+interface PopoverProps extends Omit<BoxProps, 'ref'> {
+  /** The state of the Popover, when true the Popover is rendered otherwise it is not. */
+  active?: boolean;
+  /** The Popovers anchor element. */
+  anchorEl: Element;
+  /** The background colour of the Overlay. */
+  backdrop?: string;
+  /** The component wrapped by the Popover. */
+  children?: ReactNode;
+  /** The class names for the wrapper to apply custom styling. */
+  className?: string;
+  /** The background colour of the Popover. */
+  color?: Color;
+  /** The preferred direction in which the Popover is rendered, is overridden with the opposite or adjacent direction if the Popover cannot be entirely displayed in the current direction. */
+  direction?: Direction;
+  /** If true, the Popover stretches to fit its content vertically */
+  fullHeight?: boolean;
+  /** If true, the Popover stretches to fit its content horizontally */
+  fullWidth?: boolean;
+  /** The scroll state of the body, if true it will not be scrollable. */
+  lockScroll?: boolean;
+  /** The maximum width for the popover. */
+  maxWidth?: string;
+  /** The minimum width for the popover. */
+  minWidth?: string;
+  /** The amount of extra translation on the Popover (has no effect if position is "middle" or "center"). */
+  offsetCorrection?: number;
+  /** The function executed, when the "ESC" key is down. */
+  onEscKeyDown?: () => void;
+  /** The function executed, when the Overlay is clicked. */
+  onOverlayClick?: () => void;
+  /** The position in which the Popover is rendered, is overridden with the another position if the Popover cannot be entirely displayed in the current position. */
+  position?: Position;
+  /** The tint of the background colour of the Popover. */
+  tint?: Tint;
+  /** The z-index of the Popover */
+  zIndex?: number;
+  /** Determines wether the focus should be returned to the source element, enabled by default in useFocusTrap */
+  returnFocusToSource?: boolean;
+}
+
+interface Positioning {
+  left?: number;
+  top?: number;
+  maxHeight?: number;
+}
+
+const Popover: GenericComponent<PopoverProps> = (props) => {
+  const [positioning, setPositioning] = useState<Positioning>({ left: 0, top: 0 });
 
   const {
-    active,
-    backdrop,
+    active = true,
+    backdrop = 'dark',
     children,
     className,
-    color,
-    fullHeight,
-    fullWidth,
-    lockScroll,
-    maxWidth,
-    minWidth,
+    color = 'neutral',
+    fullHeight = true,
+    fullWidth = false,
+    lockScroll = true,
+    maxWidth = '50vw',
+    minWidth = '180px',
     onOverlayClick,
     onEscKeyDown,
-    tint,
-    zIndex,
+    tint = 'lightest',
+    zIndex = 300,
     anchorEl,
-    direction,
-    position,
-    offsetCorrection,
-    returnFocusToSource,
+    direction = 'south',
+    position = 'center',
+    offsetCorrection = 0,
+    returnFocusToSource = true,
   } = props;
 
-  const { ref, FocusRing } = useFocusTrap({ active, returnFocusToSource, initialFocusRef: false });
+  const { ref, FocusRing } = useFocusTrap({ active, returnFocusToSource, initialFocusRef: undefined });
 
   const handleResize = () => {
     if (ref.current) {
-      setState({
-        positioning: calculatePositions(anchorEl, ref.current, direction, position, offsetCorrection),
-      });
+      setPositioning(calculatePositions(anchorEl, ref.current, direction, position, offsetCorrection));
     }
   };
 
@@ -73,7 +123,7 @@ const Popover = (props) => {
     }
   }, [props]);
 
-  const { left, top, maxHeight } = state.positioning;
+  const { left, top, maxHeight } = positioning;
 
   if (!active) {
     return null;
@@ -99,7 +149,7 @@ const Popover = (props) => {
               onEscKeyDown={onEscKeyDown}
             >
               <FocusRing>
-                <div
+                <Box
                   data-teamleader-ui="popover"
                   className={cx(uiUtilities['box-shadow-200'], theme['popover'], className)}
                   style={{ left: `${left}px`, top: `${top}px`, maxWidth: fullWidth ? '100vw' : maxWidth, minWidth }}
@@ -114,7 +164,7 @@ const Popover = (props) => {
                   >
                     {children}
                   </Box>
-                </div>
+                </Box>
               </FocusRing>
             </Overlay>
           </div>
@@ -124,64 +174,6 @@ const Popover = (props) => {
   );
 
   return createPortal(popover, document.body);
-};
-
-Popover.propTypes = {
-  /** The state of the Popover, when true the Popover is rendered otherwise it is not. */
-  active: PropTypes.bool,
-  /** The Popovers anchor element. */
-  anchorEl: PropTypes.object,
-  /** The background colour of the Overlay. */
-  backdrop: PropTypes.string,
-  /** The component wrapped by the Popover. */
-  children: PropTypes.node,
-  /** The class names for the wrapper to apply custom styling. */
-  className: PropTypes.string,
-  /** The background colour of the Popover. */
-  color: PropTypes.oneOf(['aqua', 'gold', 'mint', 'neutral', 'ruby', 'teal', 'violet']),
-  /** The preferred direction in which the Popover is rendered, is overridden with the opposite or adjacent direction if the Popover cannot be entirely displayed in the current direction. */
-  direction: PropTypes.oneOf(['north', 'south', 'east', 'west']),
-  /** If true, the Popover stretches to fit its content vertically */
-  fullHeight: PropTypes.bool,
-  /** If true, the Popover stretches to fit its content horizontally */
-  fullWidth: PropTypes.bool,
-  /** The scroll state of the body, if true it will not be scrollable. */
-  lockScroll: PropTypes.bool,
-  /** The maximum width for the popover. */
-  maxWidth: PropTypes.string,
-  /** The minimum width for the popover. */
-  minWidth: PropTypes.string,
-  /** The amount of extra translation on the Popover (has no effect if position is "middle" or "center"). */
-  offsetCorrection: PropTypes.number,
-  /** The function executed, when the "ESC" key is down. */
-  onEscKeyDown: PropTypes.func,
-  /** The function executed, when the Overlay is clicked. */
-  onOverlayClick: PropTypes.func,
-  /** The position in which the Popover is rendered, is overridden with the another position if the Popover cannot be entirely displayed in the current position. */
-  position: PropTypes.oneOf(['start', 'center', 'end']),
-  /** The tint of the background colour of the Popover. */
-  tint: PropTypes.oneOf(['lightest', 'light', 'normal', 'dark', 'darkest']),
-  /** The z-index of the Popover */
-  zIndex: PropTypes.number,
-  /** Determines wether the focus should be returned to the source element, enabled by default in useFocusTrap */
-  returnFocusToSource: PropTypes.bool,
-};
-
-Popover.defaultProps = {
-  active: true,
-  backdrop: 'dark',
-  zIndex: 300,
-  direction: 'south',
-  fullHeight: true,
-  fullWidth: false,
-  color: 'neutral',
-  lockScroll: true,
-  maxWidth: '50vw',
-  minWidth: '180px',
-  offsetCorrection: 0,
-  position: 'center',
-  tint: 'lightest',
-  returnFocusToSource: true,
 };
 
 export default Popover;
