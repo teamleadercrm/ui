@@ -22,8 +22,8 @@ interface ProgressStepProps {
 const ProgressStep: GenericComponent<ProgressStepProps> = ({
   label,
   meta,
-  active,
-  completed,
+  active = false,
+  completed = false,
   onClick,
 }: ProgressStepProps) => {
   const classNames = cx(theme['step'], {
@@ -42,11 +42,6 @@ const ProgressStep: GenericComponent<ProgressStepProps> = ({
       <span className={theme['status-bullet']} onClick={onClick} />
     </Box>
   );
-};
-
-ProgressStep.defaultProps = {
-  active: false,
-  completed: false,
 };
 
 export default ProgressStep;
