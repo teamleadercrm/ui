@@ -13,7 +13,7 @@ import { GenericComponent } from '../../@types/types';
 import { BoxProps } from '../box/Box';
 
 interface LinkPropsAndIcon extends LinkProps {
-  icon: ReactNode;
+  icon?: ReactNode;
 }
 interface PassportProps extends Omit<BoxProps, 'className'> {
   /** Object containing the props of an Avatar. */

@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { SyntheticEvent, useState } from 'react';
 import { addStoryInGroup, COMPOSITIONS } from '../../../.storybook/utils';
 import { IconBuildingSmallOutline, IconPhoneSmallOutline, IconMailSmallOutline } from '@teamleader/ui-icons';
 import { Badge, Box, EmptyPassport, Passport } from '../../index';
-import contactAvatar from '../../static/avatars/2.png';
-import companyAvatar from '../../static/avatars/3.png';
-import emptyAvatar from '../../static/avatars/4.png';
+import avatars from '../../static/data/avatar';
+
+const contactAvatar = avatars[1].image;
+const companyAvatar = avatars[2].image;
+const emptyAvatar = avatars[3].image;
 
 const contactLineItems = [
   {
@@ -52,10 +54,10 @@ export default {
 };
 
 const usePassportState = () => {
-  const [active, setActive] = useState(false);
-  const [anchorEl, setAnchorEl] = useState(undefined);
+  const [active, setActive] = useState<boolean>(false);
+  const [anchorEl, setAnchorEl] = useState<Node | undefined>(undefined);
 
-  const handleSetActiveClick = (event) => {
+  const handleSetActiveClick = (event: SyntheticEvent) => {
     setAnchorEl(event.currentTarget);
     setActive(true);
   };
@@ -64,11 +66,11 @@ const usePassportState = () => {
     setActive(false);
   };
 
-  return [{ active, anchorEl }, handleSetActiveClick, handleSetInactiveClick];
+  return { active, anchorEl, handleButtonClick: handleSetActiveClick, handleCloseClick: handleSetInactiveClick };
 };
 
 export const contact = () => {
-  const [{ active, anchorEl }, handleButtonClick, handleCloseClick] = usePassportState();
+  const { active, anchorEl, handleButtonClick, handleCloseClick } = usePassportState();
 
   return (
     <Box display="flex" justifyContent="center">
@@ -90,7 +92,7 @@ export const contact = () => {
 };
 
 export const company = () => {
-  const [{ active, anchorEl }, handleButtonClick, handleCloseClick] = usePassportState();
+  const { active, anchorEl, handleButtonClick, handleCloseClick } = usePassportState();
 
   return (
     <Box display="flex" justifyContent="center">
@@ -112,7 +114,7 @@ export const company = () => {
 };
 
 export const empty = () => {
-  const [{ active, anchorEl }, handleButtonClick, handleCloseClick] = usePassportState();
+  const { active, anchorEl, handleButtonClick, handleCloseClick } = usePassportState();
 
   return (
     <Box display="flex" justifyContent="center">
