@@ -5,28 +5,32 @@ import { TextSmall } from '../typography';
 import Icon, { COLORS as IconColors, TINTS as IconTints } from '../icon/Icon';
 import theme from './theme.css';
 import { BoxProps } from '../box/Box';
+import { GenericComponent } from '../../@types/types';
 
 export type Label = 'text-and-logo' | 'text-only' | 'logo-only';
 export type Shape = 'pill' | 'box';
 export type Tint = 'dark' | 'light';
 
-interface PoweredByButtonProps extends Omit<BoxProps, 'ref'> {
-  className: string;
+interface PoweredByButtonProps extends Omit<BoxProps, 'className' | 'ref'> {
+  /** A class name for the wrapper to give custom styles. */
+  className?: string;
   /** Overwrite the default label. */
-  children: ReactNode;
+  children?: ReactNode;
   /** Href when clicking the button, default is the regular commercial website. */
-  href: string;
+  href?: string;
   /** Style for the default label. */
-  label: Label;
+  label?: Label;
   /** Shape of the button. */
-  shape: Shape;
+  shape?: Shape;
   /** Button tint. Light for dark backgrounds and dark for light backgrounds. */
-  tint: Tint;
-  onMouseUp: (event: MouseEvent<HTMLElement>) => void;
-  onMouseLeave: (event: MouseEvent<HTMLElement>) => void;
+  tint?: Tint;
+  /** Callback function that is fired when mouse leaves the component. */
+  onMouseLeave?: (event: MouseEvent<HTMLElement>) => void;
+  /** Callback function that is fired when the mouse button is released. */
+  onMouseUp?: (event: MouseEvent<HTMLElement>) => void;
 }
 
-const PoweredByButton = forwardRef<HTMLElement, PoweredByButtonProps>(
+const PoweredByButton: GenericComponent<PoweredByButtonProps> = forwardRef<HTMLElement, PoweredByButtonProps>(
   (
     {
       children,
@@ -38,7 +42,7 @@ const PoweredByButton = forwardRef<HTMLElement, PoweredByButtonProps>(
       onMouseLeave,
       className,
       ...rest
-    }: PoweredByButtonProps,
+    },
     ref,
   ) => {
     const buttonRef = useRef<HTMLElement>(null);
