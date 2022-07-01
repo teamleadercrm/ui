@@ -11,7 +11,7 @@ export type Label = 'text-and-logo' | 'text-only' | 'logo-only';
 export type Shape = 'pill' | 'box';
 export type Tint = 'dark' | 'light';
 
-interface PoweredByButtonProps extends Omit<BoxProps, 'className' | 'ref'> {
+interface PoweredByButtonProps extends Omit<BoxProps, 'className' | 'children' | 'ref'> {
   /** A class name for the wrapper to give custom styles. */
   className?: string;
   /** Overwrite the default label. */
