@@ -15,16 +15,16 @@ import useFocusTrap from '../../utils/useFocusTrap';
 import { GenericComponent } from '../../@types/types';
 import { BoxProps } from '../box/Box';
 
-type Color = 'aqua' | 'gold' | 'mint' | 'neutral' | 'ruby' | 'teal' | 'violet';
-type Direction = 'north' | 'south' | 'east' | 'west';
-type Position = 'start' | 'center' | 'end';
-type Tint = 'lightest' | 'light' | 'normal' | 'dark' | 'darkest';
+export type Color = 'aqua' | 'gold' | 'mint' | 'neutral' | 'ruby' | 'teal' | 'violet';
+export type Direction = 'north' | 'south' | 'east' | 'west';
+export type Position = 'start' | 'center' | 'end';
+export type Tint = 'lightest' | 'light' | 'normal' | 'dark' | 'darkest';
 
 interface PopoverProps extends Omit<BoxProps, 'ref'> {
   /** The state of the Popover, when true the Popover is rendered otherwise it is not. */
   active?: boolean;
   /** The Popovers anchor element. */
-  anchorEl: Element;
+  anchorEl?: Element | null;
   /** The background colour of the Overlay. */
   backdrop?: string;
   /** The component wrapped by the Popover. */
@@ -95,7 +95,7 @@ const Popover: GenericComponent<PopoverProps> = (props) => {
   const { ref, FocusRing } = useFocusTrap({ active, returnFocusToSource, initialFocusRef: undefined });
 
   const handleResize = () => {
-    if (ref.current) {
+    if (ref.current && anchorEl) {
       setPositioning(calculatePositions(anchorEl, ref.current, direction, position, offsetCorrection));
     }
   };
