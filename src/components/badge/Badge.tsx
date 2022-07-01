@@ -1,5 +1,5 @@
 import cx from 'classnames';
-import React, { forwardRef, ReactNode } from 'react';
+import React, { forwardRef, ReactNode, SyntheticEvent } from 'react';
 import { GenericComponent } from '../../@types/types';
 import Box from '../box';
 import { BoxProps } from '../box/Box';
@@ -21,7 +21,7 @@ interface BadgeProps extends Omit<BoxProps, 'ref' | 'size'> {
   /** The position of the icon inside the badge. */
   iconPlacement?: 'left' | 'right';
   /** Callback function that is fired when clicking on the component. */
-  onClick?: () => void;
+  onClick?: (e: SyntheticEvent) => void;
   /** If true, component will be shown in a selected state */
   selected?: boolean;
   /** Size of the button. */
