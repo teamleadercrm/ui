@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 import Box, { pickBoxProps } from '../box';
 import DatePicker from '.';
 import Icon from '../icon';
@@ -18,7 +18,7 @@ interface DatePickerInputProps extends Omit<BoxProps, 'size' | 'onChange'> {
   /** Object with props for the DatePicker component. */
   dayPickerProps?: DayPickerProps;
   /** A footer component, rendered at the bottom of the date picker */
-  footer?: any;
+  footer?: ReactNode;
   /** A custom function to format a date. */
   formatDate?: (selectedDate: Date, locale: string) => string;
   /** Object with props for the Input component. */
@@ -32,7 +32,7 @@ interface DatePickerInputProps extends Omit<BoxProps, 'size' | 'onChange'> {
   /** Callback function that is fired when the popover with the calendar gets closed (unfocused) */
   onBlur?: () => void;
   /** Object with props for the Popover component. */
-  popoverProps?: object;
+  popoverProps?: TSFixMe; // TODO: change this to our popover props
   /** The current selected date. */
   selectedDate?: Date;
   /** Size of the Input & DatePicker components. */
@@ -71,16 +71,7 @@ const DatePickerInput: GenericComponent<DatePickerInputProps> = ({
 }) => {
   const [isPopoverActive, setIsPopoverActive] = useState(false);
   const [popoverAnchorEl, setPopoverAnchorEl] = useState<EventTarget | null>(null);
-  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
-
-  useEffect(() => {
-    if (others.selectedDate !== undefined && others.selectedDate !== selectedDate) {
-      setSelectedDate(others.selectedDate);
-      return;
-    }
-
-    setSelectedDate(null);
-  }, [others.selectedDate]);
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>(others.selectedDate);
 
   const getFormattedDate = () => {
     if (!selectedDate) {

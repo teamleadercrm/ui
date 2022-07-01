@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import DayPicker, { DayModifiers, DayPickerProps } from 'react-day-picker';
 import Box, { pickBoxProps } from '../box';
 import NavigationBar from './NavigationBar';
@@ -41,17 +41,8 @@ const DatePicker: GenericComponent<DatePickerProps> = ({
   onChange,
   ...others
 }) => {
-  const [selectedDate, setSelectedDate] = useState<Date>();
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>(others.selectedDate);
   const [selectedMonth, setSelectedMonth] = useState<Date>();
-
-  useEffect(() => {
-    if (others.selectedDate !== undefined && others.selectedDate !== selectedDate) {
-      setSelectedDate(others.selectedDate);
-      return;
-    }
-
-    setSelectedDate(undefined);
-  }, [others.selectedDate]);
 
   const handleDayClick = (day: Date, modifiers: DayModifiers) => {
     if (modifiers[theme['disabled']]) {
