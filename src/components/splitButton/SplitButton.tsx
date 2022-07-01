@@ -1,111 +1,117 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import React, { MouseEvent, ReactElement, ReactNode, useEffect, useRef, useState } from 'react';
 import Box, { pickBoxProps } from '../box';
 import Button from '../button';
 import ButtonGroup from '../buttonGroup';
 import { Menu } from '../menu';
 import Popover from '../popover';
 import { IconChevronDownSmallOutline } from '@teamleader/ui-icons';
-import pick from 'lodash.pick';
+import { BoxProps } from '../box/Box';
+import { GenericComponent } from '../../@types/types';
+import isReactElement from '../utils/isReactElement';
 
-/** @type {React.ComponentType<any>} */
-class SplitButton extends PureComponent {
-  firstChild = pick(this.props.children[0].props, ['label']);
+export type Level = 'primary' | 'secondary' | 'destructive';
+export type Size = 'small' | 'medium' | 'large';
+interface SplitButtonProps extends Omit<BoxProps, 'children' | 'size'> {
+  /** The MenuItems we pass to our component. */
+  children: ReactNode;
+  /** Determines which kind of button to be rendered. */
+  level?: Level;
+  /** Size of the button. */
+  size?: Size;
+  /** The function executed, when we click on the main button. */
+  onButtonClick: (event: MouseEvent<HTMLElement>) => void;
+  /** The function executed, when we click on the secondary button. */
+  onSecondaryButtonClick?: (event: MouseEvent<HTMLElement>) => void;
+  /** If true, component will be disabled. */
+  disabled?: boolean;
+}
 
-  state = {
-    buttonLabel: this.firstChild.label,
-    popoverActive: false,
-    popoverAnchorEl: null,
-  };
+const SplitButton: GenericComponent<SplitButtonProps> = ({
+  children,
+  level = 'primary',
+  size = 'medium',
+  onButtonClick,
+  onSecondaryButtonClick,
+  disabled,
+  ...others
+}) => {
+  const [buttonLabel, setButtonLabel] = useState<string>();
+  const [popoverActive, setPopoverActive] = useState<boolean>(false);
 
-  handleMainButtonClick = (event) => {
-    this.props.onButtonClick(event);
-  };
+  const popoverAnchorEl = useRef<HTMLElement | null>(null);
 
-  handleSecondaryButtonClick = (event) => {
-    const { onSecondaryButtonClick } = this.props;
-    this.setState({ popoverActive: true, popoverAnchorEl: event.currentTarget });
-    if (onSecondaryButtonClick) {
-      onSecondaryButtonClick(event);
+  useEffect(() => {
+    if (!Array.isArray(children)) {
+      return;
     }
+
+    const childrenArray: Array<any> = children;
+    if (!(childrenArray.length || isReactElement(childrenArray[0]))) {
+      return;
+    }
+
+    setButtonLabel(childrenArray[0].props.label);
+  }, [children]);
+
+  const handleMainButtonClick = (event: MouseEvent<HTMLElement>) => {
+    onButtonClick(event);
   };
 
-  handleMenuItemClick = (child, event) => {
+  const handleSecondaryButtonClick = (event: MouseEvent<HTMLElement>) => {
+    setPopoverActive(true);
+    popoverAnchorEl.current = event.currentTarget;
+    onSecondaryButtonClick && onSecondaryButtonClick(event);
+  };
+
+  const handleMenuItemClick = (child: ReactElement, event: MouseEvent<HTMLElement>) => {
     const childProps = child.props;
-    this.setState({
-      popoverActive: false,
-    });
+    setPopoverActive(false);
     childProps.onClick(event);
   };
 
-  handleCloseClick = () => {
-    this.setState({ popoverActive: false });
+  const handleCloseClick = () => {
+    setPopoverActive(false);
   };
 
-  render() {
-    const { children, level, size, disabled, ...others } = this.props;
-    const { buttonLabel, popoverActive, popoverAnchorEl } = this.state;
-    const boxProps = pickBoxProps(others);
-    return (
-      <Box display="flex" justifyContent="center" {...boxProps} data-teamleader-ui="split-menu">
-        <ButtonGroup segmented>
-          <Button
-            label={buttonLabel}
-            level={level}
-            size={size}
-            disabled={disabled}
-            onClick={this.handleMainButtonClick}
-          />
-          <Button
-            icon={<IconChevronDownSmallOutline />}
-            level={level}
-            size={size}
-            disabled={disabled}
-            onClick={this.handleSecondaryButtonClick}
-          />
-        </ButtonGroup>
-        <Popover
-          active={popoverActive}
-          anchorEl={popoverAnchorEl}
-          backdrop="transparent"
-          lockScroll={false}
-          onEscKeyDown={this.handleCloseClick}
-          onOverlayClick={this.handleCloseClick}
-          position="start"
-        >
-          <Menu>
-            {React.Children.map(children, (child) => {
-              if (child.props.label !== buttonLabel) {
-                return React.cloneElement(child, {
-                  onClick: (event) => this.handleMenuItemClick(child, event),
-                });
-              }
-            })}
-          </Menu>
-        </Popover>
-      </Box>
-    );
-  }
-}
+  const boxProps = {
+    ...pickBoxProps(others),
+  };
 
-SplitButton.defaultProps = {
-  level: 'primary',
-  size: 'medium',
+  return (
+    <Box display="flex" justifyContent="center" {...boxProps} data-teamleader-ui="split-menu">
+      <ButtonGroup segmented>
+        <Button label={buttonLabel} level={level} size={size} disabled={disabled} onClick={handleMainButtonClick} />
+        <Button
+          icon={<IconChevronDownSmallOutline />}
+          level={level}
+          size={size}
+          disabled={disabled}
+          onClick={handleSecondaryButtonClick}
+        />
+      </ButtonGroup>
+      <Popover
+        active={popoverActive}
+        anchorEl={popoverAnchorEl?.current}
+        backdrop="transparent"
+        lockScroll={false}
+        onEscKeyDown={handleCloseClick}
+        onOverlayClick={handleCloseClick}
+        position="start"
+      >
+        <Menu>
+          {React.Children.map(children, (child) => {
+            if (isReactElement(child) && child.props.label !== buttonLabel) {
+              return React.cloneElement(child, {
+                onClick: (event: MouseEvent<HTMLElement>) => handleMenuItemClick(child, event),
+              });
+            }
+          })}
+        </Menu>
+      </Popover>
+    </Box>
+  );
 };
 
-SplitButton.propTypes = {
-  /** The MenuItems we pass to our component. */
-  children: PropTypes.node.isRequired,
-  /** Determines which kind of button to be rendered. */
-  level: PropTypes.oneOf(['primary', 'secondary', 'destructive']),
-  /** Size of the button. */
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
-  /** The function executed, when we click on the main button. */
-  onButtonClick: PropTypes.func.isRequired,
-  /** The function executed, when we click on the secondary button. */
-  onSecondaryButtonClick: PropTypes.func,
-  /** If true, component will be disabled. */
-  disabled: PropTypes.bool,
-};
+SplitButton.displayName = 'SplitButton';
 
 export default SplitButton;
