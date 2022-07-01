@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect } from 'react';
+import React, { useMemo, useState, useEffect, ChangeEvent } from 'react';
 
 import Box from '../box';
 import { Select } from '../select';
@@ -113,10 +113,10 @@ const MonthPickerSplit: GenericComponent<MonthPickerProps> = ({ date, locale, lo
     setYearInput(date && `${date.getFullYear()}`);
   }, [date]);
 
-  const handleChangeYear = (selectedMonth: Option, selectedYear: string | number) => {
+  const handleChangeYear = (_: ChangeEvent<HTMLElement>, selectedYear: string | number) => {
     setYearInput(selectedYear as string);
     if (`${selectedYear}`.match(/\d{4}/)) {
-      onChange && onChange(new Date(selectedYear as number, selectedMonth.value as number));
+      onChange && selectedMonth && onChange(new Date(selectedYear as number, selectedMonth.value as number));
     }
   };
 
