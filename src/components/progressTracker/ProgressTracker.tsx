@@ -1,12 +1,32 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import theme from './theme.css';
 
 import Box from '../box';
 import ProgressStep from './ProgressStep';
+import { GenericComponent } from '../../@types/types';
 
-const ProgressTracker = ({ color, children, currentStep, done, labelPosition }) => {
+interface ProgressTrackerProps {
+  /** Whether or not all steps are completed */
+  done?: boolean;
+  /** The number of the step which is currently active */
+  currentStep: number;
+  /** The steps to display inside the progress tracker */
+  children?: ReactNode;
+  /** Color theme of the progress tracker. */
+  color?: 'neutral' | 'mint' | 'aqua' | 'violet' | 'gold' | 'ruby';
+  /** Where to position the labels. Alternating allows for wider labels. */
+  labelPosition?: 'top' | 'alternating' | 'bottom';
+}
+
+const ProgressTracker: GenericComponent<ProgressTrackerProps> = ({
+  color,
+  children,
+  currentStep,
+  done,
+  labelPosition,
+}: ProgressTrackerProps) => {
   const classNames = cx(theme['tracker'], theme[color], theme[`tracker-${labelPosition}`]);
 
   return (
@@ -24,19 +44,6 @@ const ProgressTracker = ({ color, children, currentStep, done, labelPosition }) 
       })}
     </Box>
   );
-};
-
-ProgressTracker.propTypes = {
-  /** Whether or not all steps are completed */
-  done: PropTypes.bool,
-  /** The number of the step which is currently active */
-  currentStep: PropTypes.number.isRequired,
-  /** The steps to display inside the progress tracker */
-  children: PropTypes.node,
-  /** Color theme of the progress tracker. */
-  color: PropTypes.oneOf(['neutral', 'mint', 'aqua', 'violet', 'gold', 'ruby']),
-  /** Where to position the labels. Alternating allows for wider labels. */
-  labelPosition: PropTypes.oneOf(['top', 'alternating', 'bottom']),
 };
 
 ProgressTracker.defaultProps = {
