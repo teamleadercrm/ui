@@ -3,6 +3,9 @@ import React from 'react';
 import DatePicker from './DatePicker';
 import DatePickerInput from './DatePickerInput';
 
+type Size = 'small' | 'medium' | 'large';
+const SIZE = ['small', 'medium', 'large'];
+
 export default {
   component: DatePicker,
   title: 'DatePicker',
@@ -10,18 +13,24 @@ export default {
 
 export const DatePickerStory = () => (
   <div>
-    {(['small', 'medium', 'large'] as const).map((size) => (
-      <DatePicker key={size} size={size} marginBottom={4} selectedDate={new Date('1990-07-30')} onChange={() => {}} />
+    {SIZE.map((size) => (
+      <DatePicker
+        key={size}
+        size={size as Size}
+        marginBottom={4}
+        selectedDate={new Date('1990-07-30')}
+        onChange={() => {}}
+      />
     ))}
   </div>
 );
 
 export const DatePickerInputStory = () => (
   <div>
-    {(['small', 'medium', 'large'] as const).map((size) => (
+    {SIZE.map((size) => (
       <DatePickerInput
         key={size}
-        size={size}
+        size={size as Size}
         marginBottom={4}
         selectedDate={new Date('1990-07-30')}
         onChange={() => {}}
