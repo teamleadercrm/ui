@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import theme from './theme.css';
@@ -6,30 +6,25 @@ import theme from './theme.css';
 import Box from '../box';
 import ProgressStep from './ProgressStep';
 
-/** @type {React.ComponentType<any>} */
-class ProgressTracker extends PureComponent {
-  render() {
-    const { color, children, currentStep, done, labelPosition } = this.props;
+const ProgressTracker = ({ color, children, currentStep, done, labelPosition }) => {
+  const classNames = cx(theme['tracker'], theme[color], theme[`tracker-${labelPosition}`]);
 
-    const classNames = cx(theme['tracker'], theme[color], theme[`tracker-${labelPosition}`]);
+  return (
+    <Box className={classNames}>
+      {React.Children.map(children, (child, index) => {
+        const activeStep = Math.max(0, currentStep);
 
-    return (
-      <Box className={classNames}>
-        {React.Children.map(children, (child, index) => {
-          const activeStep = Math.max(0, currentStep);
-
-          return (
-            <ProgressStep
-              {...child.props}
-              active={done ? false : index === activeStep}
-              completed={done || index < activeStep}
-            />
-          );
-        })}
-      </Box>
-    );
-  }
-}
+        return (
+          <ProgressStep
+            {...child.props}
+            active={done ? false : index === activeStep}
+            completed={done || index < activeStep}
+          />
+        );
+      })}
+    </Box>
+  );
+};
 
 ProgressTracker.propTypes = {
   /** Whether or not all steps are completed */
