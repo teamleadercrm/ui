@@ -1,5 +1,4 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import {
   IconBellMediumOutline,
   IconCheckmarkBadgedMediumFilled,
@@ -12,6 +11,22 @@ import ButtonGroup from '../buttonGroup';
 import Icon from '../icon';
 import { IconButton } from '../iconButton';
 import { Heading3 } from '../typography';
+import { ButtonProps } from '../button/Button';
+import { COLORS, TINTS } from '../icon/Icon';
+
+const iconColorMap = {
+  error: 'neutral' as COLORS,
+  info: 'neutral' as COLORS,
+  success: 'neutral' as COLORS,
+  warning: 'gold' as COLORS,
+};
+
+const iconTintMap = {
+  error: 'lightest' as TINTS,
+  info: 'darkest' as TINTS,
+  success: 'lightest' as TINTS,
+  warning: 'dark' as TINTS,
+};
 
 const backgroundColorMap = {
   error: 'ruby',
@@ -34,22 +49,36 @@ const iconMap = {
   warning: IconWarningBadgedMediumFilled,
 };
 
-const iconColorMap = {
-  error: 'neutral',
-  info: 'neutral',
-  success: 'neutral',
-  warning: 'gold',
-};
+export interface MessageProps {
+  /** The content to display inside the message. */
+  children: React.ReactNode;
+  /** If true, the message will be rendered inline instead of taking full width. */
+  inline?: boolean;
+  /** Callback function that is fired when the close button of the message is clicked. */
+  onClose?: () => void;
+  /** Object containing the props of the primary action (a Button). */
+  primaryAction?: ButtonProps;
+  /** Object containing the props of the secondary action (a Button, with level prop set to 'link'). */
+  secondaryAction?: ButtonProps;
+  /** If true, an icon will show up depending on the status type */
+  showIcon?: boolean;
+  /** A status type to determine color and icon */
+  status?: 'error' | 'info' | 'success' | 'warning';
+  /** The message title */
+  title: React.ReactNode;
+}
 
-const iconTintMap = {
-  error: 'lightest',
-  info: 'darkest',
-  success: 'lightest',
-  warning: 'dark',
-};
-
-/** @type {React.ComponentType<any>} */
-const Message = ({ children, inline, onClose, primaryAction, secondaryAction, showIcon, status, title, ...others }) => {
+const Message = ({
+  children,
+  inline,
+  onClose,
+  primaryAction,
+  secondaryAction,
+  showIcon,
+  status = 'info',
+  title,
+  ...others
+}: MessageProps) => {
   const hasActions = Boolean(primaryAction || secondaryAction);
   const IconToRender = iconMap[status];
 
@@ -109,25 +138,6 @@ const Message = ({ children, inline, onClose, primaryAction, secondaryAction, sh
       </Box>
     </Box>
   );
-};
-
-Message.propTypes = {
-  /** The content to display inside the message. */
-  children: PropTypes.node,
-  /** If true, the message will be rendered inline instead of taking full width. */
-  inline: PropTypes.bool,
-  /** Callback function that is fired when the close button of the message is clicked. */
-  onClose: PropTypes.func,
-  /** Object containing the props of the primary action (a Button). */
-  primaryAction: PropTypes.object,
-  /** Object containing the props of the secondary action (a Button, with level prop set to 'link'). */
-  secondaryAction: PropTypes.object,
-  /** If true, an icon will show up depending on the status type */
-  showIcon: PropTypes.bool,
-  /** A status type to determine color and icon */
-  status: PropTypes.oneOf(['info', 'error', 'success', 'warning']),
-  /** The message title */
-  title: PropTypes.node,
 };
 
 export default Message;
