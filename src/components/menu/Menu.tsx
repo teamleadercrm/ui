@@ -9,8 +9,8 @@ import uiUtilities from '@teamleader/ui-utilities';
 import { BoxProps } from '../box/Box';
 import { GenericComponent } from '../../@types/types';
 
-export type POSITIONS = 'auto' | 'static' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
-const POSITION: Record<string, POSITIONS> = {
+export type Positions = 'auto' | 'static' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
+const POSITION: Record<string, Positions> = {
   AUTO: 'auto',
   STATIC: 'static',
   TOP_LEFT: 'top-left',
@@ -35,7 +35,7 @@ interface MenuProps extends Omit<BoxProps, 'children' | 'className'> {
   /** If true, a border is rendered around the menu. */
   outline?: boolean;
   /** The position in which the menu is rendered. */
-  position?: POSITIONS;
+  position?: Positions;
   /** If true, the menu will highlight the selected value. */
   selectable?: boolean;
   /** The value of the menu item that will be highlighted. */
