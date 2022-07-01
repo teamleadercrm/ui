@@ -6,15 +6,15 @@ import Box from '../box';
 import { TextSmall } from '../typography';
 import { GenericComponent } from '../../@types/types';
 
-interface ProgressStepProps {
+export interface ProgressStepProps {
   /** The label for the progress step */
   label?: string;
   /** The meta text below the label */
   meta?: ReactNode | string;
   /** Whether or not the step is active */
-  active: boolean;
+  active?: boolean;
   /** Whether or not the step has been completed */
-  completed: boolean;
+  completed?: boolean;
   /** Callback function that is fired when the progress step is clicked */
   onClick?: () => void;
 }

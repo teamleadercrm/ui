@@ -3,7 +3,7 @@ import cx from 'classnames';
 import theme from './theme.css';
 
 import Box from '../box';
-import ProgressStep from './ProgressStep';
+import ProgressStep, { ProgressStepProps } from './ProgressStep';
 import { GenericComponent } from '../../@types/types';
 
 interface ProgressTrackerProps {
@@ -14,12 +14,16 @@ interface ProgressTrackerProps {
   /** The steps to display inside the progress tracker */
   children?: ReactNode;
   /** Color theme of the progress tracker. */
-  color: 'neutral' | 'mint' | 'aqua' | 'violet' | 'gold' | 'ruby';
+  color: 'neutral' | 'mint' | 'aqua' | 'violet' | 'gold' | 'ruby' | 'teal';
   /** Where to position the labels. Alternating allows for wider labels. */
   labelPosition: 'top' | 'alternating' | 'bottom';
 }
 
-const ProgressTracker: GenericComponent<ProgressTrackerProps> = ({
+interface ProgressTrackerComponent extends GenericComponent<ProgressTrackerProps> {
+  ProgressStep: GenericComponent<ProgressStepProps>;
+}
+
+const ProgressTracker: ProgressTrackerComponent = ({
   color = 'mint',
   children,
   currentStep = 0,
@@ -41,5 +45,8 @@ const ProgressTracker: GenericComponent<ProgressTrackerProps> = ({
     </Box>
   );
 };
+
+ProgressTracker.ProgressStep = ProgressStep;
+ProgressTracker.ProgressStep.displayName = 'ProgressTracker.ProgressStep';
 
 export default ProgressTracker;
