@@ -1,12 +1,31 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { ReactNode } from 'react';
 import cx from 'classnames';
 import theme from './theme.css';
 
 import Box from '../box';
 import { TextSmall } from '../typography';
+import { GenericComponent } from '../../@types/types';
 
-const ProgressStep = ({ label, meta, active, completed, onClick }) => {
+interface ProgressStepProps {
+  /** The label for the progress step */
+  label: string;
+  /** The meta text below the label */
+  meta?: ReactNode | string;
+  /** Whether or not the step is active */
+  active: boolean;
+  /** Whether or not the step has been completed */
+  completed: boolean;
+  /** Callback function that is fired when the progress step is clicked */
+  onClick?: () => void;
+}
+
+const ProgressStep: GenericComponent<ProgressStepProps> = ({
+  label,
+  meta,
+  active,
+  completed,
+  onClick,
+}: ProgressStepProps) => {
   const classNames = cx(theme['step'], {
     [theme['is-active']]: active,
     [theme['is-completed']]: completed,
@@ -23,19 +42,6 @@ const ProgressStep = ({ label, meta, active, completed, onClick }) => {
       <span className={theme['status-bullet']} onClick={onClick} />
     </Box>
   );
-};
-
-ProgressStep.propTypes = {
-  /** The label for the progress step */
-  label: PropTypes.string.isRequired,
-  /** The meta text below the label */
-  meta: PropTypes.PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
-  /** Whether or not the step is active */
-  active: PropTypes.bool.isRequired,
-  /** Whether or not the step has been completed */
-  completed: PropTypes.bool.isRequired,
-  /** Callback function that is fired when the progress step is clicked */
-  onClick: PropTypes.func,
 };
 
 ProgressStep.defaultProps = {
