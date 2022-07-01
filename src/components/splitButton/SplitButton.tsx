@@ -1,4 +1,4 @@
-import React, { MouseEvent, ReactElement, ReactNode, useEffect, useRef, useState } from 'react';
+import React, { MouseEvent, ReactElement, ReactNode, useRef, useState } from 'react';
 import Box, { pickBoxProps } from '../box';
 import Button from '../button';
 import ButtonGroup from '../buttonGroup';
@@ -7,7 +7,6 @@ import Popover from '../popover';
 import { IconChevronDownSmallOutline } from '@teamleader/ui-icons';
 import { BoxProps } from '../box/Box';
 import { GenericComponent } from '../../@types/types';
-import isReactElement from '../utils/isReactElement';
 
 export type Level = 'primary' | 'secondary' | 'destructive';
 export type Size = 'small' | 'medium' | 'large';
@@ -35,23 +34,8 @@ const SplitButton: GenericComponent<SplitButtonProps> = ({
   disabled,
   ...others
 }) => {
-  const [buttonLabel, setButtonLabel] = useState<string>();
   const [popoverActive, setPopoverActive] = useState<boolean>(false);
-
   const popoverAnchorEl = useRef<HTMLElement | null>(null);
-
-  useEffect(() => {
-    if (!Array.isArray(children)) {
-      return;
-    }
-
-    const childrenArray: Array<any> = children;
-    if (!(childrenArray.length || isReactElement(childrenArray[0]))) {
-      return;
-    }
-
-    setButtonLabel(childrenArray[0].props.label);
-  }, [children]);
 
   const handleMainButtonClick = (event: MouseEvent<HTMLElement>) => {
     onButtonClick(event);
@@ -77,6 +61,15 @@ const SplitButton: GenericComponent<SplitButtonProps> = ({
     ...pickBoxProps(others),
   };
 
+  let buttonLabel: string | undefined;
+  if (Array.isArray(children)) {
+    const childrenArray: Array<any> = children;
+
+    if (childrenArray.length && React.isValidElement(childrenArray[0])) {
+      buttonLabel = (childrenArray[0] as React.ReactElement).props.label;
+    }
+  }
+
   return (
     <Box display="flex" justifyContent="center" {...boxProps} data-teamleader-ui="split-menu">
       <ButtonGroup segmented>
@@ -100,7 +93,7 @@ const SplitButton: GenericComponent<SplitButtonProps> = ({
       >
         <Menu>
           {React.Children.map(children, (child) => {
-            if (isReactElement(child) && child.props.label !== buttonLabel) {
+            if (React.isValidElement(child) && child.props.label !== buttonLabel) {
               return React.cloneElement(child, {
                 onClick: (event: MouseEvent<HTMLElement>) => handleMenuItemClick(child, event),
               });
