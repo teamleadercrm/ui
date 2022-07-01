@@ -160,7 +160,7 @@ const Popover: GenericComponent<PopoverProps> = (props) => {
                     display="flex"
                     flex="1 1 auto"
                     flexDirection="column"
-                    style={{ maxHeight: getMaxHeight(fullHeight, maxHeight) }}
+                    style={{ maxHeight: maxHeight && getMaxHeight(fullHeight, maxHeight) }}
                   >
                     {children}
                   </Box>
