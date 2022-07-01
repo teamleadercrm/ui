@@ -1,7 +1,7 @@
 import React from 'react';
 import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { TextBody } from '../typography';
-import Message from './Message';
+import Message, { MessageProps } from './Message';
 import Link from '../link';
 
 export default {
@@ -16,7 +16,7 @@ export default {
   },
 };
 
-export const FullOption = (args) => (
+export const FullOption = (args: MessageProps) => (
   <Message {...args}>
     <TextBody color="teal">
       Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam <Link inherit={false}>nonumy eirmod</Link>{' '}
