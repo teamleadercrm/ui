@@ -71,6 +71,13 @@ const types = [
 export default {
   component: Input,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Form elements/Input'),
+  argTypes: {
+    value: {
+      control: {
+        type: 'text',
+      },
+    },
+  },
 } as ComponentMeta<typeof Input>;
 
 export const input: ComponentStory<typeof Input> = (args) => {
