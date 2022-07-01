@@ -1,4 +1,4 @@
-import React, { PureComponent, ReactElement } from 'react';
+import React, { PureComponent } from 'react';
 import omit from 'lodash.omit';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import Button from '../button';
@@ -7,6 +7,7 @@ import isComponentOfType from '../utils/is-component-of-type';
 import theme from './theme.css';
 import { BoxProps } from '../box/Box';
 import { BUTTON_LEVELS } from '../button/Button';
+import isReactElement from '../utils/isReactElement';
 
 interface ButtonGroupProps extends Omit<BoxProps, 'size' | 'onChange' | 'ref'> {
   /** The content to display inside the button group. */
@@ -23,11 +24,6 @@ interface ButtonGroupProps extends Omit<BoxProps, 'size' | 'onChange' | 'ref'> {
   value?: string;
   /** Callback function that is fired when the active button changes. */
   onChange?: (value: string, event: Event) => void;
-}
-
-function isReactElement(node: unknown): node is ReactElement {
-  const element = node as ReactElement;
-  return element.type !== undefined && element.props !== undefined;
 }
 
 class ButtonGroup extends PureComponent<ButtonGroupProps> {
