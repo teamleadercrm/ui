@@ -4,6 +4,7 @@ import { boolean, number, select, text } from '@storybook/addon-knobs';
 import { DatePicker, DatePickerInput, Toggle } from '../../index';
 import { DateTime } from 'luxon';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Size } from './DatePickerInput';
 
 const languages = [
   'da-DK',
@@ -60,7 +61,7 @@ export const singleDate: ComponentStory<typeof DatePicker> = () => {
       selectedDate={preSelectedDate}
       showOutsideDays={boolean('Show outside days', true)}
       showWeekNumbers={boolean('Show week numbers', true)}
-      size={select('Size', sizes, 'medium') as 'small' | 'medium' | 'large'}
+      size={select('Size', sizes, 'medium') as Size}
       withMonthPicker={boolean('Use month picker', false)}
     />
   );
@@ -111,9 +112,9 @@ export const inputSingleDate: ComponentStory<typeof DatePickerInput> = () => {
       locale={select('Locale', languages, 'nl-BE')}
       onChange={handleOnChange}
       selectedDate={preSelectedDate}
-      size={select('Size', sizes, 'medium') as 'small' | 'medium' | 'large'}
-      inputSize={select('Input size', optionalSizes, null) as 'small' | 'medium' | 'large'}
-      datePickerSize={select('Date picker size', optionalSizes, null) as 'small' | 'medium' | 'large'}
+      size={select('Size', sizes, 'medium') as Size}
+      inputSize={select('Input size', optionalSizes, null) as Size}
+      datePickerSize={select('Date picker size', optionalSizes, null) as Size}
     />
   );
 };

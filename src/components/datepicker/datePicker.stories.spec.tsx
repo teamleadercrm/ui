@@ -1,9 +1,8 @@
 import React from 'react';
 
 import DatePicker from './DatePicker';
-import DatePickerInput from './DatePickerInput';
+import DatePickerInput, { Size } from './DatePickerInput';
 
-type Size = 'small' | 'medium' | 'large';
 const SIZE = ['small', 'medium', 'large'];
 
 export default {

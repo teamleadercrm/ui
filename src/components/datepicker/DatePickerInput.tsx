@@ -12,6 +12,8 @@ import { DateTimeFormatOptions } from 'luxon';
 import { BoxProps } from '../box/Box';
 import { GenericComponent } from '../../@types/types';
 
+export type Size = 'small' | 'medium' | 'large';
+
 interface DatePickerInputProps extends Omit<BoxProps, 'size' | 'onChange'> {
   /** A class name for the wrapper to give custom styles. */
   className?: string;
@@ -36,11 +38,11 @@ interface DatePickerInputProps extends Omit<BoxProps, 'size' | 'onChange'> {
   /** The current selected date. */
   selectedDate?: Date;
   /** Size of the Input & DatePicker components. */
-  size?: 'small' | 'medium' | 'large';
+  size?: Size;
   /** Overridable size of the Input component. */
-  inputSize?: 'small' | 'medium' | 'large';
+  inputSize?: Size;
   /** Overridable size of the DatePicker component. */
-  datePickerSize?: 'small' | 'medium' | 'large';
+  datePickerSize?: Size;
   /** Whether the picker should automatically open on input focus. True by default. */
   openPickerOnFocus?: boolean;
 }
