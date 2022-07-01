@@ -1,36 +1,71 @@
-import React, { useRef, forwardRef, useImperativeHandle } from 'react';
-import PropTypes from 'prop-types';
+import React, { useRef, forwardRef, useImperativeHandle, ReactNode, MouseEvent } from 'react';
 import cx from 'classnames';
-
 import Box from '../box';
 import { TextSmall } from '../typography';
-import Icon from '../icon/Icon';
+import Icon, { COLORS as IconColors, TINTS as IconTints } from '../icon/Icon';
 import theme from './theme.css';
+import { BoxProps } from '../box/Box';
+import { GenericComponent } from '../../@types/types';
 
-/** @type {React.ComponentType<any>} */
-const PoweredByButton = forwardRef(
-  ({ children, href, tint, shape, label, onMouseUp, onMouseLeave, className, ...rest }, ref) => {
-    const buttonRef = useRef();
-    useImperativeHandle(ref, () => buttonRef.current);
+export type Label = 'text-and-logo' | 'text-only' | 'logo-only';
+export type Shape = 'pill' | 'box';
+export type Tint = 'dark' | 'light';
 
-    const handleMouseUp = (event) => {
+interface PoweredByButtonProps extends Omit<BoxProps, 'className' | 'children' | 'ref'> {
+  /** A class name for the wrapper to give custom styles. */
+  className?: string;
+  /** Overwrite the default label. */
+  children?: ReactNode;
+  /** Href when clicking the button, default is the regular commercial website. */
+  href?: string;
+  /** Style for the default label. */
+  label?: Label;
+  /** Shape of the button. */
+  shape?: Shape;
+  /** Button tint. Light for dark backgrounds and dark for light backgrounds. */
+  tint?: Tint;
+  /** Callback function that is fired when mouse leaves the component. */
+  onMouseLeave?: (event: MouseEvent<HTMLElement>) => void;
+  /** Callback function that is fired when the mouse button is released. */
+  onMouseUp?: (event: MouseEvent<HTMLElement>) => void;
+}
+
+const PoweredByButton: GenericComponent<PoweredByButtonProps> = forwardRef<HTMLElement, PoweredByButtonProps>(
+  (
+    {
+      children,
+      href = 'https://www.teamleader.eu',
+      tint = 'dark',
+      shape = 'pill',
+      label = 'text-and-logo',
+      onMouseUp,
+      onMouseLeave,
+      className,
+      ...rest
+    },
+    ref,
+  ) => {
+    const buttonRef = useRef<HTMLElement>(null);
+    useImperativeHandle<HTMLElement | null, HTMLElement | null>(ref, () => buttonRef.current);
+
+    const blur = () => {
+      const currentButtonRef = buttonRef.current;
+      if (currentButtonRef?.blur) {
+        currentButtonRef.blur();
+      }
+    };
+
+    const handleMouseUp = (event: MouseEvent<HTMLElement>) => {
       blur();
       if (onMouseUp) {
         onMouseUp(event);
       }
     };
 
-    const handleMouseLeave = (event) => {
+    const handleMouseLeave = (event: MouseEvent<HTMLElement>) => {
       blur();
       if (onMouseLeave) {
         onMouseLeave(event);
-      }
-    };
-
-    const blur = () => {
-      const currentButtonRef = buttonRef.current;
-      if (currentButtonRef.blur) {
-        currentButtonRef.blur();
       }
     };
 
@@ -43,7 +78,8 @@ const PoweredByButton = forwardRef(
       className,
     );
 
-    const iconProps = tint === 'light' ? { color: 'neutral', tint: 'lightest' } : { tint: 'darkest' };
+    const iconProps: { color?: IconColors; tint: IconTints } =
+      tint === 'light' ? { color: 'neutral', tint: 'lightest' } : { tint: 'darkest' };
 
     return (
       <Box
@@ -146,26 +182,6 @@ const PoweredByButton = forwardRef(
     );
   },
 );
-
-PoweredByButton.propTypes = {
-  /** Href when clicking the button, default is the regular commercial website. */
-  href: PropTypes.string,
-  /** Button tint. Light for dark backgrounds and dark for light backgrounds. */
-  tint: PropTypes.oneOf(['dark', 'light']),
-  /** Shape of the button. */
-  shape: PropTypes.oneOf(['pill', 'box']),
-  /** Style for the default label. */
-  label: PropTypes.oneOf(['text-and-logo', 'text-only', 'logo-only']),
-  /** Overwrite the default label. */
-  children: PropTypes.any,
-};
-
-PoweredByButton.defaultProps = {
-  href: 'https://www.teamleader.eu/',
-  tint: 'dark',
-  shape: 'pill',
-  label: 'text-and-logo',
-};
 
 PoweredByButton.displayName = 'PoweredByButton';
 
