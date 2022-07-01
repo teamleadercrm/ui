@@ -8,7 +8,7 @@ import { GenericComponent } from '../../@types/types';
 
 interface ProgressStepProps {
   /** The label for the progress step */
-  label: string;
+  label?: string;
   /** The meta text below the label */
   meta?: ReactNode | string;
   /** Whether or not the step is active */

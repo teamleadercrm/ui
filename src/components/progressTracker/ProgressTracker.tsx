@@ -1,5 +1,4 @@
 import React, { ReactNode } from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import theme from './theme.css';
 
@@ -15,17 +14,18 @@ interface ProgressTrackerProps {
   /** The steps to display inside the progress tracker */
   children?: ReactNode;
   /** Color theme of the progress tracker. */
-  color?: 'neutral' | 'mint' | 'aqua' | 'violet' | 'gold' | 'ruby';
+  color: 'neutral' | 'mint' | 'aqua' | 'violet' | 'gold' | 'ruby';
   /** Where to position the labels. Alternating allows for wider labels. */
-  labelPosition?: 'top' | 'alternating' | 'bottom';
+  labelPosition: 'top' | 'alternating' | 'bottom';
 }
 
 const ProgressTracker: GenericComponent<ProgressTrackerProps> = ({
-  color,
+  color = 'mint',
   children,
-  currentStep,
+  currentStep = 0,
   done,
-  labelPosition,
+  labelPosition = 'top',
+  ...rest
 }: ProgressTrackerProps) => {
   const classNames = cx(theme['tracker'], theme[color], theme[`tracker-${labelPosition}`]);
 
@@ -35,24 +35,11 @@ const ProgressTracker: GenericComponent<ProgressTrackerProps> = ({
         const activeStep = Math.max(0, currentStep);
 
         return (
-          <ProgressStep
-            {...child.props}
-            active={done ? false : index === activeStep}
-            completed={done || index < activeStep}
-          />
+          <ProgressStep active={done ? false : index === activeStep} completed={done || index < activeStep} {...rest} />
         );
       })}
     </Box>
   );
 };
-
-ProgressTracker.defaultProps = {
-  currentStep: 0,
-  color: 'mint',
-  labelPosition: 'top',
-};
-
-ProgressTracker.ProgressStep = ProgressStep;
-ProgressTracker.ProgressStep.displayName = 'ProgressTracker.ProgressStep';
 
 export default ProgressTracker;
