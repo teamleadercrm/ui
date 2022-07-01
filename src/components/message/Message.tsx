@@ -13,29 +13,32 @@ import { IconButton } from '../iconButton';
 import { Heading3 } from '../typography';
 import { ButtonProps } from '../button/Button';
 import { COLORS, TINTS } from '../icon/Icon';
+import { GenericComponent } from '../../@types/types';
 
-const iconColorMap = {
-  error: 'neutral' as COLORS,
-  info: 'neutral' as COLORS,
-  success: 'neutral' as COLORS,
-  warning: 'gold' as COLORS,
+export type Status = 'error' | 'info' | 'success' | 'warning';
+
+const iconColorMap: Record<Status, COLORS> = {
+  error: 'neutral',
+  info: 'neutral',
+  success: 'neutral',
+  warning: 'gold',
 };
 
-const iconTintMap = {
-  error: 'lightest' as TINTS,
-  info: 'darkest' as TINTS,
-  success: 'lightest' as TINTS,
-  warning: 'dark' as TINTS,
+const iconTintMap: Record<Status, TINTS> = {
+  error: 'lightest',
+  info: 'darkest',
+  success: 'lightest',
+  warning: 'dark',
 };
 
-const backgroundColorMap = {
+const backgroundColorMap: Record<Status, COLORS> = {
   error: 'ruby',
   info: 'neutral',
   success: 'mint',
   warning: 'gold',
 };
 
-const backgroundTintMap = {
+const backgroundTintMap: Record<Status, TINTS> = {
   error: 'normal',
   info: 'normal',
   success: 'light',
@@ -63,12 +66,12 @@ export interface MessageProps {
   /** If true, an icon will show up depending on the status type */
   showIcon?: boolean;
   /** A status type to determine color and icon */
-  status?: 'error' | 'info' | 'success' | 'warning';
+  status?: Status;
   /** The message title */
   title: React.ReactNode;
 }
 
-const Message = ({
+const Message: GenericComponent<MessageProps> = ({
   children,
   inline,
   onClose,
@@ -78,7 +81,7 @@ const Message = ({
   status = 'info',
   title,
   ...others
-}: MessageProps) => {
+}) => {
   const hasActions = Boolean(primaryAction || secondaryAction);
   const IconToRender = iconMap[status];
 
