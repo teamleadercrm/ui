@@ -5,6 +5,7 @@
 ### Changed
 
 - `Pagination`: always show arrows ([@qubis741](https://github.com/qubis741)) in [#2221](https://github.com/teamleadercrm/ui/pull/2221))
+- [BREAKING] `Timer`: `timerRef` prop to `ref` ([@qubis741](https://github.com/qubis741)) in [#2221](https://github.com/teamleadercrm/ui/pull/2221))
 
 ### Deprecated
 
