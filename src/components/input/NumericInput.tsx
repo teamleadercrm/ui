@@ -16,7 +16,7 @@ import { GenericComponent } from '../../@types/types';
 
 interface StepperProps {
   disabled: boolean;
-  onBlur: (event: FocusEvent<HTMLElement>) => void;
+  onBlur: (event: FocusEvent<HTMLInputElement>) => void;
   onMouseDown: () => void;
   onMouseUp: () => void;
   onMouseLeave: () => void;
@@ -70,7 +70,7 @@ export interface NumericInputProps
   /** The minimum value that can be inputted. */
   min?: number;
   /** Callback function that is fired when blurring the input field. */
-  onBlur?: (event: FocusEvent<HTMLElement>) => void;
+  onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
   /** Callback function that is fired when the component's value changes. */
   onChange?: (event: ChangeEvent<HTMLElement>, value: string) => void;
   /** Callback function that is fired when the keyboard is touched. */
@@ -207,7 +207,7 @@ const NumericInput: GenericComponent<NumericInputProps> = forwardRef<HTMLElement
       onKeyDown && onKeyDown(event);
     };
 
-    const handleBlur = (event: FocusEvent<HTMLElement>) => {
+    const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
       onBlur && onBlur(event);
     };
 

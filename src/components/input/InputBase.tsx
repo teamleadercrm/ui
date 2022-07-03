@@ -20,7 +20,7 @@ export interface InputBaseProps
   /** Boolean indicating whether the input should render as inverse. */
   inverse?: boolean;
   /** Callback function that is fired when blurring the input field. */
-  onBlur?: (event: FocusEvent<HTMLElement>) => void;
+  onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
   /** Callback function that is fired when the component's value changes. */
   onChange?: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   /** Callback function that is fired when focusing the input field. */
