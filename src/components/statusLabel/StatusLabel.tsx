@@ -5,11 +5,13 @@ import { BoxProps } from '../box/Box';
 import { UITextBody, UITextSmall } from '../typography';
 import theme from './theme.css';
 
+export type Color = 'neutral' | 'mint' | 'violet' | 'ruby' | 'gold' | 'aqua';
+export type Size = 'small' | 'medium';
 interface StatusLabelProps extends Omit<BoxProps, 'size'> {
   children: ReactNode;
   className?: string;
-  color?: 'neutral' | 'mint' | 'violet' | 'ruby' | 'gold' | 'aqua';
-  size?: 'small' | 'medium';
+  color?: Color;
+  size?: Size;
 }
 
 const StatusLabel: GenericComponent<StatusLabelProps> = forwardRef<HTMLElement, StatusLabelProps>(
