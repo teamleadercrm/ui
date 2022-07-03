@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactNode, SyntheticEvent, useState } from 'react';
+import React, { ReactElement, ReactNode, SyntheticEvent, MouseEvent, useState } from 'react';
 import cx from 'classnames';
 import { IconMoreMediumOutline } from '@teamleader/ui-icons';
 import IconButton from '../iconButton';
@@ -15,7 +15,7 @@ interface IconMenuProps extends Omit<BoxProps, 'children' | 'className'> {
   onHide?: () => void;
   onSelect?: (e: SyntheticEvent) => void;
   onShow?: () => void;
-  onClick?: (e: SyntheticEvent) => void;
+  onClick?: (e: MouseEvent) => void;
   position?: Positions;
   selectable?: boolean;
   selected?: any;
@@ -38,7 +38,7 @@ const IconMenu: GenericComponent<IconMenuProps> = ({
   const buttonIcon = icon || <IconMoreMediumOutline />;
   const boxProps = pickBoxProps(others);
 
-  const handleButtonClick = (event: SyntheticEvent) => {
+  const handleButtonClick = (event: MouseEvent) => {
     setActive(!active);
     onClick && onClick(event);
   };
