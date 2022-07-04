@@ -2,6 +2,8 @@
 
 ### Added
 
+- `Dialog`: scroll shadow at the bottom of dialog if scroll bar is displayed ([@qubis741](https://github.com/qubis741)) in [#2222](https://github.com/teamleadercrm/ui/pull/2222))
+
 ### Changed
 
 - `Pagination`: always show arrows ([@qubis741](https://github.com/qubis741)) in [#2221](https://github.com/teamleadercrm/ui/pull/2221))

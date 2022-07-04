@@ -1,7 +1,8 @@
 import { IconDragMediumFilled } from '@teamleader/ui-icons';
 import cx from 'classnames';
 import omit from 'lodash.omit';
-import React, { ReactNode, useRef } from 'react';
+import React, { ReactNode, useCallback, useEffect, useRef, useState } from 'react';
+import { useResizeDetector } from 'react-resize-detector';
 import { GenericComponent } from '../../@types/types';
 import { Button, ButtonGroup, DialogBase, Heading3 } from '../../index';
 import { DialogBaseProps } from './DialogBase';
@@ -52,6 +53,25 @@ const Dialog: GenericComponent<DialogProps> = ({
 }) => {
   const bodyRef = useRef<HTMLElement>(null);
   const dragHandleRef = useRef<HTMLDivElement>(null);
+  const [showScrollShadow, setShowScrollShadow] = useState(true);
+  const [reachedScrollEnd, setReachedScrollEnd] = useState(false);
+
+  const handleScrollShadow = useCallback(() => {
+    const currentRef = bodyRef.current;
+    if (currentRef) {
+      setShowScrollShadow(currentRef.scrollHeight > currentRef.clientHeight);
+    }
+  }, [bodyRef]);
+  useEffect(() => {
+    handleScrollShadow();
+  }, [bodyRef, otherProps.active]);
+
+  useResizeDetector({
+    refreshMode: 'throttle',
+    refreshRate: 250,
+    onResize: handleScrollShadow,
+    targetRef: bodyRef,
+  });
 
   const getHeader = () => {
     const dragIcon = (
@@ -69,7 +89,11 @@ const Dialog: GenericComponent<DialogProps> = ({
 
   const getFooter = () => {
     return (
-      <DialogBase.Footer display="flex" justifyContent={leftAction ? 'space-between' : 'flex-end'}>
+      <DialogBase.Footer
+        display="flex"
+        justifyContent={leftAction ? 'space-between' : 'flex-end'}
+        className={cx({ [theme['scroll-shadow']]: !reachedScrollEnd && showScrollShadow })}
+      >
         {leftAction && <Button {...leftAction} />}
         <ButtonGroup justifyContent="flex-end">
           {tertiaryAction && <Button {...tertiaryAction} level="link" />}
@@ -101,7 +125,7 @@ const Dialog: GenericComponent<DialogProps> = ({
       onSubmit={onSubmit}
     >
       {title && getHeader()}
-      <DialogBase.Body ref={bodyRef} scrollable={scrollable}>
+      <DialogBase.Body ref={bodyRef} scrollable={scrollable} handleShowScrollShadow={setReachedScrollEnd}>
         {children}
       </DialogBase.Body>
       {getFooter()}
