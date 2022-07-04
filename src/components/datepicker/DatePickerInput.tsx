@@ -47,10 +47,10 @@ interface DatePickerInputProps extends Omit<BoxProps, 'size' | 'onChange'> {
 }
 
 interface DayPickerProps {
-  numberOfMonths: number;
-  showOutsideDays: boolean;
-  showWeekNumbers: boolean;
-  withMonthPicker: boolean;
+  numberOfMonths?: number;
+  showOutsideDays?: boolean;
+  showWeekNumbers?: boolean;
+  withMonthPicker?: boolean;
 }
 
 const DatePickerInput: GenericComponent<DatePickerInputProps> = ({
