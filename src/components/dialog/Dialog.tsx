@@ -61,7 +61,7 @@ const Dialog: GenericComponent<DialogProps> = ({
     if (currentRef) {
       setShowScrollShadow(currentRef.scrollHeight > currentRef.clientHeight);
     }
-  }, []);
+  }, [bodyRef]);
   useEffect(() => {
     handleScrollShadow();
   }, [bodyRef, otherProps.active]);
