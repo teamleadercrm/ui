@@ -7,6 +7,7 @@ import Popover from '../popover';
 import { IconChevronDownSmallOutline } from '@teamleader/ui-icons';
 import { BoxProps } from '../box/Box';
 import { GenericComponent } from '../../@types/types';
+import isReactElement from '../utils/isReactElement';
 
 export type Level = 'primary' | 'secondary' | 'destructive';
 export type Size = 'small' | 'medium' | 'large';
@@ -65,8 +66,8 @@ const SplitButton: GenericComponent<SplitButtonProps> = ({
   if (Array.isArray(children)) {
     const childrenArray: Array<any> = children;
 
-    if (childrenArray.length && React.isValidElement(childrenArray[0])) {
-      buttonLabel = (childrenArray[0] as React.ReactElement).props.label;
+    if (childrenArray.length && isReactElement(childrenArray[0])) {
+      buttonLabel = childrenArray[0].props.label;
     }
   }
 
