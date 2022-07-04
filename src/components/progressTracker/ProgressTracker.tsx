@@ -3,7 +3,7 @@ import cx from 'classnames';
 import theme from './theme.css';
 
 import Box from '../box';
-import ProgressStep, { ProgressStepProps } from './ProgressStep';
+import ProgressStep from './ProgressStep';
 import { GenericComponent } from '../../@types/types';
 
 export interface ProgressTrackerProps {
@@ -19,11 +19,7 @@ export interface ProgressTrackerProps {
   labelPosition: 'top' | 'alternating' | 'bottom';
 }
 
-interface ProgressTrackerComponent extends GenericComponent<ProgressTrackerProps> {
-  ProgressStep: GenericComponent<ProgressStepProps>;
-}
-
-const ProgressTracker: ProgressTrackerComponent = ({
+const ProgressTracker: GenericComponent<ProgressTrackerProps> & { ProgressStep: typeof ProgressStep } = ({
   color = 'mint',
   children,
   currentStep = 0,
@@ -36,7 +32,7 @@ const ProgressTracker: ProgressTrackerComponent = ({
     <Box className={classNames}>
       {React.Children.map(children, (child, index) => {
         const activeStep = Math.max(0, currentStep);
-        const childProps = React.isValidElement(child) ? child.props : child;
+        const childProps = React.isValidElement(child) && child.props;
 
         return (
           <ProgressStep
