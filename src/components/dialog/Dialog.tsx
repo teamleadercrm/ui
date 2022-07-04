@@ -67,8 +67,8 @@ const Dialog: GenericComponent<DialogProps> = ({
   }, [bodyRef, otherProps.active]);
 
   useResizeDetector({
-    refreshMode: 'debounce',
-    refreshRate: 500,
+    refreshMode: 'throttle',
+    refreshRate: 250,
     onResize: handleScrollShadow,
     targetRef: bodyRef,
   });
