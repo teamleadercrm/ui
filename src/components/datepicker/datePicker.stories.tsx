@@ -52,20 +52,7 @@ export const singleDate: ComponentStory<typeof DatePicker> = (args) => {
     console.log('Selected date', selectedDate);
   };
 
-  return (
-    <DatePicker
-      bordered={boolean('bordered', true)}
-      locale={select('Locale', languages, 'nl-BE')}
-      numberOfMonths={number('Number of months', 1)}
-      onChange={handleOnChange}
-      selectedDate={preSelectedDate}
-      showOutsideDays={boolean('Show outside days', true)}
-      showWeekNumbers={boolean('Show week numbers', true)}
-      size={select('Size', sizes, 'medium') as Size}
-      withMonthPicker={boolean('Use month picker', false)}
-      {...args}
-    />
-  );
+  return <DatePicker onChange={handleOnChange} selectedDate={preSelectedDate} {...args} />;
 };
 
 singleDate.storyName = 'Single date';
