@@ -7,6 +7,7 @@ import isComponentOfType from '../utils/is-component-of-type';
 import theme from './theme.css';
 import { BoxProps } from '../box/Box';
 import { BUTTON_LEVELS } from '../button/Button';
+import isReactElement from '../utils/isReactElement';
 
 interface ButtonGroupProps extends Omit<BoxProps, 'size' | 'onChange' | 'ref'> {
   /** The content to display inside the button group. */
@@ -46,7 +47,7 @@ class ButtonGroup extends PureComponent<ButtonGroupProps> {
     return (
       <Box data-teamleader-ui="button-group" className={classNames} {...pickBoxProps(others)}>
         {React.Children.map(children, (child) => {
-          if (!isComponentOfType(Button, child) || !React.isValidElement(child)) {
+          if (!isComponentOfType(Button, child) || !isReactElement(child)) {
             return child;
           }
 
