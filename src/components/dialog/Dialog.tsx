@@ -1,7 +1,8 @@
 import { IconDragMediumFilled } from '@teamleader/ui-icons';
 import cx from 'classnames';
 import omit from 'lodash.omit';
-import React, { ReactNode, useEffect, useRef, useState } from 'react';
+import React, { ReactNode, useCallback, useEffect, useRef, useState } from 'react';
+import { useResizeDetector } from 'react-resize-detector';
 import { GenericComponent } from '../../@types/types';
 import { Button, ButtonGroup, DialogBase, Heading3 } from '../../index';
 import { DialogBaseProps } from './DialogBase';
@@ -54,12 +55,23 @@ const Dialog: GenericComponent<DialogProps> = ({
   const dragHandleRef = useRef<HTMLDivElement>(null);
   const [showScrollShadow, setShowScrollShadow] = useState(true);
   const [reachedScrollEnd, setReachedScrollEnd] = useState(false);
-  useEffect(() => {
+
+  const handleScrollShadow = useCallback(() => {
     const currentRef = bodyRef.current;
     if (currentRef) {
       setShowScrollShadow(currentRef.scrollHeight > currentRef.clientHeight);
     }
+  }, []);
+  useEffect(() => {
+    handleScrollShadow();
   }, [bodyRef, otherProps.active]);
+
+  useResizeDetector({
+    refreshMode: 'debounce',
+    refreshRate: 500,
+    onResize: handleScrollShadow,
+    targetRef: bodyRef,
+  });
 
   const getHeader = () => {
     const dragIcon = (
