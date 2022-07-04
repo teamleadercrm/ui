@@ -22,6 +22,9 @@ import {
   TextBody,
   TextSmall,
 } from '../../index';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Color, Direction, Position, Tint } from './Popover';
+import { BUTTON_LEVELS } from '../button';
 
 const colors = ['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'teal'];
 const tints = ['lightest', 'light', 'normal', 'dark', 'darkest'];
@@ -50,13 +53,13 @@ export default {
       propTablesExclude: [Link, TextBody, TextSmall, Button, Banner, Heading3, ButtonGroup, Box],
     },
   },
-};
+} as ComponentMeta<typeof Popover>;
 
 const usePopoverTrigger = () => {
-  const [popoverActive, setPopoverActive] = useState(false);
-  const [anchorEl, setAnchorEl] = useState(undefined);
+  const [popoverActive, setPopoverActive] = useState<boolean>(false);
+  const [anchorEl, setAnchorEl] = useState<Element | undefined>(undefined);
 
-  const triggerPopover = (event) => {
+  const triggerPopover = (event: React.MouseEvent) => {
     setAnchorEl(event.currentTarget);
     setPopoverActive(true);
   };
@@ -65,10 +68,10 @@ const usePopoverTrigger = () => {
     setPopoverActive(false);
   };
 
-  return [{ popoverActive, anchorEl }, triggerPopover, closePopover];
+  return [{ popoverActive, anchorEl }, triggerPopover, closePopover] as const;
 };
 
-export const basic = () => {
+export const basic: ComponentStory<typeof Popover> = () => {
   const [{ popoverActive, anchorEl }, handleButtonClick, handleCloseClick] = usePopoverTrigger();
 
   return (
@@ -78,16 +81,16 @@ export const basic = () => {
         active={popoverActive}
         anchorEl={anchorEl}
         backdrop={select('Backdrop', backdrops, 'transparent')}
-        color={select('Color', colors, 'neutral')}
-        direction={select('Direction', directions, 'south')}
+        color={select('Color', colors, 'neutral') as Color}
+        direction={select('Direction', directions, 'south') as Direction}
         fullHeight={boolean('Full height', true)}
-        position={select('Position', positions, 'center')}
+        position={select('Position', positions, 'center') as Position}
         onEscKeyDown={handleCloseClick}
         onOverlayClick={handleCloseClick}
-        tint={select('Tint', tints, 'lightest')}
+        tint={select('Tint', tints, 'lightest') as Tint}
         lockScroll={boolean('Lock scroll', true)}
         maxWidth={text('Max width', '50vw')}
-        minWidth={text('Min width', undefined)}
+        minWidth={text('Min width', '')}
         offsetCorrection={number('Offset correction', 0)}
       >
         {contentBoxWithSingleTextLine}
@@ -106,16 +109,16 @@ export const withTitle = () => {
         active={popoverActive}
         anchorEl={anchorEl}
         backdrop={select('Backdrop', backdrops, 'transparent')}
-        color={select('Color', colors, 'neutral')}
-        direction={select('Direction', directions, 'south')}
+        color={select('Color', colors, 'neutral') as Color}
+        direction={select('Direction', directions, 'south') as Direction}
         fullHeight={boolean('Full height', true)}
-        position={select('Position', positions, 'center')}
+        position={select('Position', positions, 'center') as Position}
         onEscKeyDown={handleCloseClick}
         onOverlayClick={handleCloseClick}
-        tint={select('Tint', tints, 'lightest')}
+        tint={select('Tint', tints, 'lightest') as Tint}
         lockScroll={boolean('Lock scroll', true)}
         maxWidth={text('Max width', '50vw')}
-        minWidth={text('Min width', undefined)}
+        minWidth={text('Min width', '')}
         offsetCorrection={number('Offset correction', 0)}
       >
         <Banner fullWidth>
@@ -139,16 +142,16 @@ export const withTitleSubtitle = () => {
         active={popoverActive}
         anchorEl={anchorEl}
         backdrop={select('Backdrop', backdrops, 'transparent')}
-        color={select('Color', colors, 'neutral')}
-        direction={select('Direction', directions, 'south')}
+        color={select('Color', colors, 'neutral') as Color}
+        direction={select('Direction', directions, 'south') as Direction}
         fullHeight={boolean('Full height', true)}
-        position={select('Position', positions, 'center')}
+        position={select('Position', positions, 'center') as Position}
         onEscKeyDown={handleCloseClick}
         onOverlayClick={handleCloseClick}
-        tint={select('Tint', tints, 'lightest')}
+        tint={select('Tint', tints, 'lightest') as Tint}
         lockScroll={boolean('Lock scroll', true)}
         maxWidth={text('Max width', '50vw')}
-        minWidth={text('Min width', undefined)}
+        minWidth={text('Min width', '')}
         offsetCorrection={number('Offset correction', 0)}
       >
         <Banner color="neutral" fullWidth>
@@ -173,16 +176,16 @@ export const withCloseButton = () => {
         active={popoverActive}
         anchorEl={anchorEl}
         backdrop={select('Backdrop', backdrops, 'transparent')}
-        color={select('Color', colors, 'neutral')}
+        color={select('Color', colors, 'neutral') as Color}
         direction="south"
         fullHeight={boolean('Full height', true)}
-        position={select('Position', positions, 'center')}
+        position={select('Position', positions, 'center') as Position}
         onEscKeyDown={handleCloseClick}
         onOverlayClick={handleCloseClick}
-        tint={select('Tint', tints, 'lightest')}
+        tint={select('Tint', tints, 'lightest') as Tint}
         lockScroll={boolean('Lock scroll', true)}
         maxWidth={text('Max width', '50vw')}
-        minWidth={text('Min width', undefined)}
+        minWidth={text('Min width', '')}
         offsetCorrection={number('Offset correction', 0)}
       >
         <Banner onClose={handleCloseClick} fullWidth>
@@ -206,16 +209,16 @@ export const withActions = () => {
         active={popoverActive}
         anchorEl={anchorEl}
         backdrop={select('Backdrop', backdrops, 'transparent')}
-        color={select('Color', colors, 'neutral')}
-        direction={select('Direction', directions, 'south')}
+        color={select('Color', colors, 'neutral') as Color}
+        direction={select('Direction', directions, 'south') as Direction}
         fullHeight={boolean('Full height', true)}
-        position={select('Position', positions, 'center')}
+        position={select('Position', positions, 'center') as Position}
         onEscKeyDown={handleCloseClick}
         onOverlayClick={handleCloseClick}
-        tint={select('Tint', tints, 'lightest')}
+        tint={select('Tint', tints, 'lightest') as Tint}
         lockScroll={boolean('Lock scroll', true)}
         maxWidth={text('Max width', '50vw')}
-        minWidth={text('Min width', undefined)}
+        minWidth={text('Min width', '')}
         offsetCorrection={number('Offset correction', 0)}
       >
         {contentBoxWithSingleTextLine}
@@ -240,16 +243,16 @@ export const withMenu = () => {
         active={popoverActive}
         anchorEl={anchorEl}
         backdrop={select('Backdrop', backdrops, 'transparent')}
-        color={select('Color', colors, 'neutral')}
-        direction={select('Direction', directions, 'south')}
+        color={select('Color', colors, 'neutral') as Color}
+        direction={select('Direction', directions, 'south') as Direction}
         fullHeight={boolean('Full height', true)}
-        position={select('Position', positions, 'end')}
+        position={select('Position', positions, 'end') as Position}
         onEscKeyDown={handleCloseClick}
         onOverlayClick={handleCloseClick}
-        tint={select('Tint', tints, 'lightest')}
+        tint={select('Tint', tints, 'lightest') as Tint}
         lockScroll={boolean('Lock scroll', true)}
         maxWidth={text('Max width', '50vw')}
-        minWidth={text('Min width', undefined)}
+        minWidth={text('Min width', '')}
         offsetCorrection={number('Offset correction', 0)}
       >
         <Box overflowY="auto">
@@ -274,7 +277,7 @@ withMenu.storyName = 'With menu';
 export const withSplitButtonMenu = () => {
   const [buttonLevel, setButtonLevel] = useState('primary');
   const [buttonLabel, setButtonLabel] = useState('Primary action');
-  const [anchorEl, setAnchorEl] = useState(null);
+  const [anchorEl, setAnchorEl] = useState<Element | null>(null);
   const [popoverActive, setPopoverActive] = useState(false);
   const [splitButtonSelected, setSplitButtonSelected] = useState('foo');
 
@@ -292,7 +295,7 @@ export const withSplitButtonMenu = () => {
     setSplitButtonSelected('bar');
   };
 
-  const handleButtonClick = (event) => {
+  const handleButtonClick = (event: React.MouseEvent) => {
     setAnchorEl(event.currentTarget);
     setPopoverActive(true);
   };
@@ -304,8 +307,12 @@ export const withSplitButtonMenu = () => {
   return (
     <Box display="flex" justifyContent="center">
       <ButtonGroup segmented>
-        <Button label={buttonLabel} level={buttonLevel} />
-        <Button level={buttonLevel} onClick={handleButtonClick} icon={<IconChevronDownSmallOutline />} />
+        <Button label={buttonLabel} level={buttonLevel as BUTTON_LEVELS} />
+        <Button
+          level={buttonLevel as BUTTON_LEVELS}
+          onClick={handleButtonClick}
+          icon={<IconChevronDownSmallOutline />}
+        />
       </ButtonGroup>
       <Popover
         active={popoverActive}
@@ -348,16 +355,16 @@ export const experiment1 = () => {
         active={popoverActive}
         anchorEl={anchorEl}
         backdrop={select('Backdrop', backdrops, 'transparent')}
-        color={select('Color', colors, 'neutral')}
-        direction={select('Direction', directions, 'south')}
+        color={select('Color', colors, 'neutral') as Color}
+        direction={select('Direction', directions, 'south') as Direction}
         fullHeight={boolean('Full height', true)}
-        position={select('Position', positions, 'center')}
+        position={select('Position', positions, 'center') as Position}
         onEscKeyDown={handleCloseClick}
         onOverlayClick={handleCloseClick}
-        tint={select('Tint', tints, 'lightest')}
+        tint={select('Tint', tints, 'lightest') as Tint}
         lockScroll={boolean('Lock scroll', true)}
         maxWidth={text('Max width', '50vw')}
-        minWidth={text('Min width', undefined)}
+        minWidth={text('Min width', '')}
         offsetCorrection={number('Offset correction', 0)}
       >
         <Banner color="neutral" fullWidth>
@@ -388,16 +395,16 @@ export const experiment2 = () => {
         active={popoverActive}
         anchorEl={anchorEl}
         backdrop={select('Backdrop', backdrops, 'transparent')}
-        color={select('Color', colors, 'neutral')}
-        direction={select('Direction', directions, 'south')}
+        color={select('Color', colors, 'neutral') as Color}
+        direction={select('Direction', directions, 'south') as Direction}
         fullHeight={boolean('Full height', true)}
-        position={select('Position', positions, 'center')}
+        position={select('Position', positions, 'center') as Position}
         onEscKeyDown={handleCloseClick}
         onOverlayClick={handleCloseClick}
-        tint={select('Tint', tints, 'lightest')}
+        tint={select('Tint', tints, 'lightest') as Tint}
         lockScroll={boolean('Lock scroll', true)}
         maxWidth={text('Max width', '50vw')}
-        minWidth={text('Min width', undefined)}
+        minWidth={text('Min width', '')}
         offsetCorrection={number('Offset correction', 0)}
       >
         <Banner color="neutral" fullWidth>
