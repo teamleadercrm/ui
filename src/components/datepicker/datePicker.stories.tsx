@@ -47,7 +47,7 @@ export default {
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Form elements/DatePicker'),
 } as ComponentMeta<typeof DatePicker>;
 
-export const singleDate: ComponentStory<typeof DatePicker> = () => {
+export const singleDate: ComponentStory<typeof DatePicker> = (args) => {
   const handleOnChange = (selectedDate: Date) => {
     console.log('Selected date', selectedDate);
   };
@@ -63,6 +63,7 @@ export const singleDate: ComponentStory<typeof DatePicker> = () => {
       showWeekNumbers={boolean('Show week numbers', true)}
       size={select('Size', sizes, 'medium') as Size}
       withMonthPicker={boolean('Use month picker', false)}
+      {...args}
     />
   );
 };
