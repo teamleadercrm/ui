@@ -62,7 +62,7 @@ const Badge: GenericComponent<BadgeProps> = forwardRef<HTMLElement, BadgeProps>(
     );
 
     const TextElement = size === 'small' ? UITextSmall : size === 'large' ? UITextDisplay : UITextBody;
-    const boxElement = element || onClick ? 'button' : 'div';
+    const boxElement = element || (onClick ? 'button' : 'div');
 
     return (
       <Box
