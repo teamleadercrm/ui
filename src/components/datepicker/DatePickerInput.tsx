@@ -135,13 +135,13 @@ const DatePickerInput: GenericComponent<DatePickerInputProps> = ({
   return (
     <Box className={className} {...boxProps}>
       <Input
+        {...inputProps}
         inverse={inverse}
         prefix={renderIcon()}
         size={inputSize || size}
         value={getFormattedDate()}
         width="120px"
         noInputStyling={dayPickerProps && dayPickerProps.withMonthPicker}
-        {...inputProps}
         onClick={handleInputClick}
         onFocus={handleInputFocus}
       />
