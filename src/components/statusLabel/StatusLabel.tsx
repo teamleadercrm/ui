@@ -1,7 +1,7 @@
 import cx from 'classnames';
 import React, { forwardRef, ReactNode } from 'react';
 import { GenericComponent } from '../../@types/types';
-import { COLORS } from '../../constants';
+import { COLORS, SIZES } from '../../constants';
 import { BoxProps } from '../box/Box';
 import { UITextBody, UITextSmall } from '../typography';
 import theme from './theme.css';
@@ -10,7 +10,7 @@ interface StatusLabelProps extends Omit<BoxProps, 'size'> {
   children: ReactNode;
   className?: string;
   color?: Exclude<typeof COLORS[number], 'teal'>;
-  size?: 'small' | 'medium';
+  size?: Exclude<typeof SIZES[number], 'tiny' | 'large' | 'fullscreen'>;
 }
 
 const StatusLabel: GenericComponent<StatusLabelProps> = forwardRef<HTMLElement, StatusLabelProps>(

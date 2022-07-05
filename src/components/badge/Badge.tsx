@@ -1,6 +1,7 @@
 import cx from 'classnames';
 import React, { forwardRef, ReactNode, SyntheticEvent } from 'react';
 import { GenericComponent } from '../../@types/types';
+import { SIZES } from '../../constants';
 import Box from '../box';
 import { BoxProps } from '../box/Box';
 import Icon from '../icon';
@@ -25,7 +26,7 @@ interface BadgeProps extends Omit<BoxProps, 'ref' | 'size'> {
   /** If true, component will be shown in a selected state */
   selected?: boolean;
   /** Size of the button. */
-  size?: 'small' | 'medium' | 'large';
+  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen'>;
 }
 
 const Badge: GenericComponent<BadgeProps> = forwardRef<HTMLElement, BadgeProps>(

@@ -1,7 +1,7 @@
 import cx from 'classnames';
 import React, { forwardRef, ReactNode, useImperativeHandle, useRef } from 'react';
 import { GenericComponent } from '../../@types/types';
-import { TINTS, COLORS } from '../../constants';
+import { TINTS, COLORS, SIZES } from '../../constants';
 import Box from '../box';
 import { BoxProps } from '../box/Box';
 import buttonTheme from '../button/theme.css';
@@ -21,7 +21,7 @@ export interface IconButtonProps extends Omit<BoxProps, 'ref' | 'children' | 'cl
   /** The icon displayed inside the button. */
   icon?: ReactNode;
   /** Size of the button. */
-  size?: 'small' | 'medium' | 'large';
+  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen'>;
   /** The color which the icon should have */
   color?: typeof COLORS[number] | 'white';
   /** The tint which the icon should have */

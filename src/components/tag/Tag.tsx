@@ -2,6 +2,7 @@ import { IconCloseSmallOutline } from '@teamleader/ui-icons';
 import cx from 'classnames';
 import React, { ReactNode } from 'react';
 import { GenericComponent } from '../../@types/types';
+import { SIZES } from '../../constants';
 import Box from '../box';
 import { BoxProps } from '../box/Box';
 import IconButton from '../iconButton';
@@ -16,7 +17,7 @@ export interface TagProps extends Omit<BoxProps, 'className' | 'size'> {
   /** The tint of the components color */
   onRemoveClick?: React.MouseEventHandler;
   /** The tint of the components color */
-  size?: 'small' | 'medium' | 'large';
+  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen'>;
 }
 
 const Tag: GenericComponent<TagProps> = ({ children, className, onRemoveClick, size = 'medium', ...others }) => {

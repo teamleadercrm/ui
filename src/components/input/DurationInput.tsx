@@ -5,6 +5,7 @@ import theme from './theme.css';
 import NumericInput, { NumericInputProps } from './NumericInput';
 import { GenericComponent } from '../../@types/types';
 import { BoxProps } from '../box/Box';
+import { SIZES } from '../../constants';
 
 const MINUTES_STEP = 15;
 
@@ -24,7 +25,7 @@ interface DurationInputProps
   /** Callback function that is fired when the keyboard is touched. */
   onKeyDown?: (event: KeyboardEvent<HTMLElement>) => void;
   /** Size of the input element. */
-  size?: 'small' | 'medium' | 'large';
+  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen'>;
   /** Current value of the input element. */
   value?: {
     hours?: number;

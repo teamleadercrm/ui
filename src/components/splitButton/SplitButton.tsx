@@ -8,6 +8,7 @@ import { IconChevronDownSmallOutline } from '@teamleader/ui-icons';
 import { BoxProps } from '../box/Box';
 import { GenericComponent } from '../../@types/types';
 import isReactElement from '../utils/isReactElement';
+import { SIZES } from '../../constants';
 
 interface SplitButtonProps extends Omit<BoxProps, 'children' | 'size'> {
   /** The MenuItems we pass to our component. */
@@ -15,7 +16,7 @@ interface SplitButtonProps extends Omit<BoxProps, 'children' | 'size'> {
   /** Determines which kind of button to be rendered. */
   level?: 'primary' | 'secondary' | 'destructive';
   /** Size of the button. */
-  size?: 'small' | 'medium' | 'large';
+  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen'>;
   /** The function executed, when we click on the main button. */
   onButtonClick: (event: MouseEvent<HTMLElement>) => void;
   /** The function executed, when we click on the secondary button. */

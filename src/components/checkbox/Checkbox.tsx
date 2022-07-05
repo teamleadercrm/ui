@@ -7,6 +7,7 @@ import { TextBodyCompact, TextDisplay, TextSmall } from '../typography';
 import theme from './theme.css';
 import { BoxProps } from '../box/Box';
 import { GenericComponent } from '../../@types/types';
+import { SIZES } from '../../constants';
 
 interface CheckboxProps extends Omit<BoxProps, 'onChange' | 'size'> {
   /** If true, the checkbox will be checked. */
@@ -26,7 +27,7 @@ interface CheckboxProps extends Omit<BoxProps, 'onChange' | 'size'> {
   /** Indicate whether the checkbox is neither checked or unchecked. */
   indeterminate?: boolean;
   /** Size of the checkbox. */
-  size?: 'small' | 'medium' | 'large';
+  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen'>;
 }
 
 const Checkbox: GenericComponent<CheckboxProps> = forwardRef<HTMLInputElement, CheckboxProps>(

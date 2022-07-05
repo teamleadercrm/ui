@@ -5,6 +5,7 @@ import { UITextBody, UITextDisplay, UITextSmall } from '../typography';
 import cx from 'classnames';
 import theme from './theme.css';
 import { BoxProps } from '../box/Box';
+import { SIZES } from '../../constants/sizes';
 import { GenericComponent } from '../../@types/types';
 
 interface MarketingButtonProps extends Omit<BoxProps, 'ref' | 'element'> {
@@ -31,7 +32,7 @@ interface MarketingButtonProps extends Omit<BoxProps, 'ref' | 'element'> {
   /** If true, component will show a loading spinner instead of label or children. */
   processing?: boolean;
   /** Size of the button. */
-  size?: 'tiny' | 'small' | 'medium' | 'large';
+  size?: Exclude<typeof SIZES[number], 'fullscreen'>;
   /** Type of the button element. */
   type?: string;
 }

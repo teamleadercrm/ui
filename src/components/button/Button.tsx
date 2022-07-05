@@ -1,7 +1,7 @@
 import cx from 'classnames';
 import React, { forwardRef, ReactNode } from 'react';
 import { GenericComponent } from '../../@types/types';
-import { COLORS } from '../../constants';
+import { COLORS, SIZES } from '../../constants';
 import Box from '../box';
 import { BoxProps } from '../box/Box';
 import LoadingSpinner from '../loadingSpinner';
@@ -50,7 +50,7 @@ export interface ButtonProps extends Omit<BoxProps, 'size'> {
   /** If true, component will show a loading spinner instead of label or children. */
   processing?: boolean;
   /** Size of the button. */
-  size?: 'tiny' | 'small' | 'medium' | 'large';
+  size?: Exclude<typeof SIZES[number], 'fullscreen'>;
   /** Type of the button element. */
   type?: string;
 }

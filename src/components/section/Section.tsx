@@ -1,7 +1,7 @@
 import cx from 'classnames';
 import React, { ReactNode } from 'react';
 import { GenericComponent } from '../../@types/types';
-import { COLORS } from '../../constants';
+import { COLORS, SIZES } from '../../constants';
 import Box from '../box';
 import { BoxProps, Padding } from '../box/Box';
 import theme from './theme.css';
@@ -15,7 +15,7 @@ const PADDINGS: Record<'small' | 'medium' | 'large', Padding> = {
 interface SectionProps extends Omit<BoxProps, 'ref'> {
   children?: ReactNode;
   color?: Exclude<typeof COLORS[number], 'teal'> | 'white';
-  size?: 'small' | 'medium' | 'large';
+  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen'>;
 }
 
 const Section: GenericComponent<SectionProps> = ({

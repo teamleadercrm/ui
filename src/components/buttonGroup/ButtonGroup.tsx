@@ -8,6 +8,7 @@ import theme from './theme.css';
 import { BoxProps } from '../box/Box';
 import { BUTTON_LEVELS } from '../button/Button';
 import isReactElement from '../utils/isReactElement';
+import { SIZES } from '../../constants';
 
 interface ButtonGroupProps extends Omit<BoxProps, 'size' | 'onChange' | 'ref'> {
   /** The content to display inside the button group. */
@@ -17,7 +18,7 @@ interface ButtonGroupProps extends Omit<BoxProps, 'size' | 'onChange' | 'ref'> {
   /** If true, child components will be displayed segmented. */
   segmented?: boolean;
   /** The level of the buttons */
-  size?: 'tiny' | 'small' | 'medium' | 'large';
+  size?: Exclude<typeof SIZES[number], 'fullscreen'>;
   /** The level of the buttons */
   level?: keyof typeof BUTTON_LEVELS;
   /** The value of the currently active button. */

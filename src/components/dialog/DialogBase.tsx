@@ -4,6 +4,7 @@ import React, { ReactNode, RefObject } from 'react';
 import { createPortal } from 'react-dom';
 import Transition from 'react-transition-group/Transition';
 import { GenericComponent } from '../../@types/types';
+import { SIZES } from '../../constants';
 import useFocusTrap from '../../utils/useFocusTrap';
 import Box from '../box';
 import { BoxProps } from '../box/Box';
@@ -30,7 +31,7 @@ export interface DialogBaseProps extends Omit<BoxProps, 'form' | 'size'> {
   /** If true, the content of the dialog will be scrollable when it exceeds the available height. */
   scrollable?: boolean;
   /** The size of the dialog. */
-  size?: 'small' | 'medium' | 'large' | 'fullscreen';
+  size?: Exclude<typeof SIZES[number], 'tiny'>;
   /** The initial part of the dialog where the focus will be set, useful to avoid focusing on the close button */
   initialFocusRef?: RefObject<HTMLElement>;
   /** The element used to drag a dialog, @see Dialog component header for an example */

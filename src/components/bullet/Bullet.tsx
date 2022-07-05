@@ -3,7 +3,7 @@ import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
 import { BoxProps } from '../box/Box';
-import { COLORS, TINTS } from '../../constants';
+import { COLORS, SIZES, TINTS } from '../../constants';
 
 interface BulletProps extends Omit<BoxProps, 'size' | 'ref'> {
   /** A border color to give to the counter */
@@ -15,7 +15,7 @@ interface BulletProps extends Omit<BoxProps, 'size' | 'ref'> {
   /** The color of the bullet. */
   color?: typeof COLORS[number];
   /** The size of the bullet. */
-  size?: 'small' | 'medium' | 'large';
+  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen'>;
 }
 
 class Bullet extends PureComponent<BulletProps> {

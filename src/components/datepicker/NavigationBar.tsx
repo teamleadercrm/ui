@@ -10,7 +10,6 @@ import {
 import theme from './theme.css';
 import cx from 'classnames';
 import { LocaleUtils } from 'react-day-picker';
-import { Size } from './WeekDay';
 import { GenericComponent } from '../../@types/types';
 
 interface NavigationBarProps {
@@ -20,7 +19,7 @@ interface NavigationBarProps {
   previousMonth: Date;
   onNextClick?: () => void;
   onPreviousClick?: () => void;
-  size?: Size;
+  size?: 'smallest' | 'small' | 'medium' | 'large';
   withMonthPicker?: boolean;
 }
 

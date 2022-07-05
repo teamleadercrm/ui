@@ -3,6 +3,7 @@ import cx from 'classnames';
 import theme from './theme.css';
 import { omitBoxProps } from '../box';
 import { GenericComponent } from '../../@types/types';
+import { SIZES } from '../../constants';
 
 export interface InputBaseProps
   extends Pick<
@@ -30,7 +31,7 @@ export interface InputBaseProps
   /** Forwarded ref element. */
   ref?: ForwardedRef<HTMLElement>;
   /** Size of the input element. */
-  size?: 'tiny' | 'small' | 'medium' | 'large';
+  size?: Exclude<typeof SIZES[number], 'fullscreen'>;
   /** If true, the input text is aligned to the right. */
   textAlignRight?: boolean;
   /** Type of the input element. It can be a valid HTML5 input type. */

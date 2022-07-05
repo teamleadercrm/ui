@@ -6,12 +6,13 @@ import { IconChevronDownSmallOutline, IconChevronRightSmallOutline } from '@team
 import theme from './theme.css';
 import { BoxProps } from '../box/Box';
 import { GenericComponent } from '../../@types/types';
+import { SIZES } from '../../constants';
 
 interface AdvancedCollapsibleProps extends Omit<BoxProps, 'size'> {
   color?: 'neutral' | 'teal';
   children: ReactNode;
   title: string;
-  size?: 'small' | 'medium' | 'large';
+  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen'>;
 }
 
 const AdvancedCollapsible: GenericComponent<AdvancedCollapsibleProps> = ({

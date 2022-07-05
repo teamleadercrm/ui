@@ -6,10 +6,11 @@ import theme from './theme.css';
 import { IconLockSmallFilled } from '@teamleader/ui-icons';
 import { GenericComponent } from '../../@types/types';
 import { BoxProps } from '../box/Box';
+import { SIZES } from '../../constants';
 
 interface MarketingLockBadgeProps extends Omit<BoxProps, 'ref'> {
   className?: string;
-  size?: 'small' | 'medium';
+  size?: Exclude<typeof SIZES[number], 'tiny' | 'large' | 'fullscreen'>;
 }
 
 const MarketingLockBadge: GenericComponent<MarketingLockBadgeProps> = ({ className, size = 'medium', ...others }) => {

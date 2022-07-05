@@ -8,7 +8,7 @@ import {
 } from '@teamleader/ui-icons';
 import theme from './theme.css';
 import SingleLineInputBase, { SingleLineInputBaseProps } from './SingleLineInputBase';
-import { KEY, COLORS, TINTS } from '../../constants';
+import { KEY, COLORS, TINTS, SIZES } from '../../constants';
 import { parseValue, toNumber } from './utils';
 import Button from '../button';
 import { GenericComponent } from '../../@types/types';
@@ -81,7 +81,7 @@ export interface NumericInputProps
   /** Callback function that is fired when the keyboard is touched. */
   onKeyDown?: (event: KeyboardEvent<HTMLElement>) => void;
   /** Size of the input element. */
-  size?: 'tiny' | 'small' | 'medium' | 'large';
+  size?: Exclude<typeof SIZES[number], 'fullscreen'>;
   /** Limit increment value for numeric inputs. */
   step?: number;
   /** Specifiy where the stepper controls should be rendered. */
