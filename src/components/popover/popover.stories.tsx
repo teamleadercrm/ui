@@ -7,6 +7,7 @@ import {
   IconTrashSmallOutline,
   IconClockSmallOutline,
 } from '@teamleader/ui-icons';
+import { COLORS, TINTS } from '../../constants/colors';
 import {
   Banner,
   Box,
@@ -31,10 +32,8 @@ const backdrops = ['transparent', 'dark'];
 const directions = ['north', 'south', 'east', 'west'];
 const positions = ['start', 'center', 'end'];
 
-type Color = 'aqua' | 'gold' | 'mint' | 'neutral' | 'ruby' | 'teal' | 'violet';
 type Direction = 'north' | 'south' | 'east' | 'west';
 type Position = 'start' | 'center' | 'end';
-type Tint = 'lightest' | 'light' | 'normal' | 'dark' | 'darkest';
 
 const contentBoxWithSingleTextLine = (
   <Box padding={4}>
@@ -85,13 +84,13 @@ export const basic: ComponentStory<typeof Popover> = () => {
         active={popoverActive}
         anchorEl={anchorEl}
         backdrop={select('Backdrop', backdrops, 'transparent')}
-        color={select('Color', colors, 'neutral') as Color}
+        color={select('Color', colors, 'neutral') as typeof COLORS[number]}
         direction={select('Direction', directions, 'south') as Direction}
         fullHeight={boolean('Full height', true)}
         position={select('Position', positions, 'center') as Position}
         onEscKeyDown={handleCloseClick}
         onOverlayClick={handleCloseClick}
-        tint={select('Tint', tints, 'lightest') as Tint}
+        tint={select('Tint', tints, 'lightest') as typeof TINTS[number]}
         lockScroll={boolean('Lock scroll', true)}
         maxWidth={text('Max width', '50vw')}
         minWidth={text('Min width', '')}
@@ -113,13 +112,13 @@ export const withTitle = () => {
         active={popoverActive}
         anchorEl={anchorEl}
         backdrop={select('Backdrop', backdrops, 'transparent')}
-        color={select('Color', colors, 'neutral') as Color}
+        color={select('Color', colors, 'neutral') as typeof COLORS[number]}
         direction={select('Direction', directions, 'south') as Direction}
         fullHeight={boolean('Full height', true)}
         position={select('Position', positions, 'center') as Position}
         onEscKeyDown={handleCloseClick}
         onOverlayClick={handleCloseClick}
-        tint={select('Tint', tints, 'lightest') as Tint}
+        tint={select('Tint', tints, 'lightest') as typeof TINTS[number]}
         lockScroll={boolean('Lock scroll', true)}
         maxWidth={text('Max width', '50vw')}
         minWidth={text('Min width', '')}
@@ -146,13 +145,13 @@ export const withTitleSubtitle = () => {
         active={popoverActive}
         anchorEl={anchorEl}
         backdrop={select('Backdrop', backdrops, 'transparent')}
-        color={select('Color', colors, 'neutral') as Color}
+        color={select('Color', colors, 'neutral') as typeof COLORS[number]}
         direction={select('Direction', directions, 'south') as Direction}
         fullHeight={boolean('Full height', true)}
         position={select('Position', positions, 'center') as Position}
         onEscKeyDown={handleCloseClick}
         onOverlayClick={handleCloseClick}
-        tint={select('Tint', tints, 'lightest') as Tint}
+        tint={select('Tint', tints, 'lightest') as typeof TINTS[number]}
         lockScroll={boolean('Lock scroll', true)}
         maxWidth={text('Max width', '50vw')}
         minWidth={text('Min width', '')}
@@ -180,13 +179,13 @@ export const withCloseButton = () => {
         active={popoverActive}
         anchorEl={anchorEl}
         backdrop={select('Backdrop', backdrops, 'transparent')}
-        color={select('Color', colors, 'neutral') as Color}
+        color={select('Color', colors, 'neutral') as typeof COLORS[number]}
         direction="south"
         fullHeight={boolean('Full height', true)}
         position={select('Position', positions, 'center') as Position}
         onEscKeyDown={handleCloseClick}
         onOverlayClick={handleCloseClick}
-        tint={select('Tint', tints, 'lightest') as Tint}
+        tint={select('Tint', tints, 'lightest') as typeof TINTS[number]}
         lockScroll={boolean('Lock scroll', true)}
         maxWidth={text('Max width', '50vw')}
         minWidth={text('Min width', '')}
@@ -213,13 +212,13 @@ export const withActions = () => {
         active={popoverActive}
         anchorEl={anchorEl}
         backdrop={select('Backdrop', backdrops, 'transparent')}
-        color={select('Color', colors, 'neutral') as Color}
+        color={select('Color', colors, 'neutral') as typeof COLORS[number]}
         direction={select('Direction', directions, 'south') as Direction}
         fullHeight={boolean('Full height', true)}
         position={select('Position', positions, 'center') as Position}
         onEscKeyDown={handleCloseClick}
         onOverlayClick={handleCloseClick}
-        tint={select('Tint', tints, 'lightest') as Tint}
+        tint={select('Tint', tints, 'lightest') as typeof TINTS[number]}
         lockScroll={boolean('Lock scroll', true)}
         maxWidth={text('Max width', '50vw')}
         minWidth={text('Min width', '')}
@@ -247,13 +246,13 @@ export const withMenu = () => {
         active={popoverActive}
         anchorEl={anchorEl}
         backdrop={select('Backdrop', backdrops, 'transparent')}
-        color={select('Color', colors, 'neutral') as Color}
+        color={select('Color', colors, 'neutral') as typeof COLORS[number]}
         direction={select('Direction', directions, 'south') as Direction}
         fullHeight={boolean('Full height', true)}
         position={select('Position', positions, 'end') as Position}
         onEscKeyDown={handleCloseClick}
         onOverlayClick={handleCloseClick}
-        tint={select('Tint', tints, 'lightest') as Tint}
+        tint={select('Tint', tints, 'lightest') as typeof TINTS[number]}
         lockScroll={boolean('Lock scroll', true)}
         maxWidth={text('Max width', '50vw')}
         minWidth={text('Min width', '')}
@@ -359,13 +358,13 @@ export const experiment1 = () => {
         active={popoverActive}
         anchorEl={anchorEl}
         backdrop={select('Backdrop', backdrops, 'transparent')}
-        color={select('Color', colors, 'neutral') as Color}
+        color={select('Color', colors, 'neutral') as typeof COLORS[number]}
         direction={select('Direction', directions, 'south') as Direction}
         fullHeight={boolean('Full height', true)}
         position={select('Position', positions, 'center') as Position}
         onEscKeyDown={handleCloseClick}
         onOverlayClick={handleCloseClick}
-        tint={select('Tint', tints, 'lightest') as Tint}
+        tint={select('Tint', tints, 'lightest') as typeof TINTS[number]}
         lockScroll={boolean('Lock scroll', true)}
         maxWidth={text('Max width', '50vw')}
         minWidth={text('Min width', '')}
@@ -399,13 +398,13 @@ export const experiment2 = () => {
         active={popoverActive}
         anchorEl={anchorEl}
         backdrop={select('Backdrop', backdrops, 'transparent')}
-        color={select('Color', colors, 'neutral') as Color}
+        color={select('Color', colors, 'neutral') as typeof COLORS[number]}
         direction={select('Direction', directions, 'south') as Direction}
         fullHeight={boolean('Full height', true)}
         position={select('Position', positions, 'center') as Position}
         onEscKeyDown={handleCloseClick}
         onOverlayClick={handleCloseClick}
-        tint={select('Tint', tints, 'lightest') as Tint}
+        tint={select('Tint', tints, 'lightest') as typeof TINTS[number]}
         lockScroll={boolean('Lock scroll', true)}
         maxWidth={text('Max width', '50vw')}
         minWidth={text('Min width', '')}
