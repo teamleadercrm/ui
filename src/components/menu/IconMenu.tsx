@@ -2,7 +2,7 @@ import React, { ReactElement, ReactNode, SyntheticEvent, MouseEvent, useState } 
 import cx from 'classnames';
 import { IconMoreMediumOutline } from '@teamleader/ui-icons';
 import IconButton from '../iconButton';
-import Menu, { Positions } from './Menu';
+import Menu from './Menu';
 import theme from './theme.css';
 import Box, { pickBoxProps } from '../box';
 import { BoxProps } from '../box/Box';
@@ -16,7 +16,7 @@ interface IconMenuProps extends Omit<BoxProps, 'children' | 'className'> {
   onSelect?: (e: SyntheticEvent) => void;
   onShow?: () => void;
   onClick?: (e: MouseEvent) => void;
-  position?: Positions;
+  position?: 'auto' | 'static' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
   selectable?: boolean;
   selected?: any;
 }

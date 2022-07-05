@@ -15,11 +15,6 @@ import useFocusTrap from '../../utils/useFocusTrap';
 import { GenericComponent } from '../../@types/types';
 import { BoxProps } from '../box/Box';
 
-export type Color = 'aqua' | 'gold' | 'mint' | 'neutral' | 'ruby' | 'teal' | 'violet';
-export type Direction = 'north' | 'south' | 'east' | 'west';
-export type Position = 'start' | 'center' | 'end';
-export type Tint = 'lightest' | 'light' | 'normal' | 'dark' | 'darkest';
-
 interface PopoverProps extends Omit<BoxProps, 'ref'> {
   /** The state of the Popover, when true the Popover is rendered otherwise it is not. */
   active?: boolean;
@@ -32,9 +27,9 @@ interface PopoverProps extends Omit<BoxProps, 'ref'> {
   /** The class names for the wrapper to apply custom styling. */
   className?: string;
   /** The background colour of the Popover. */
-  color?: Color;
+  color?: 'aqua' | 'gold' | 'mint' | 'neutral' | 'ruby' | 'teal' | 'violet';
   /** The preferred direction in which the Popover is rendered, is overridden with the opposite or adjacent direction if the Popover cannot be entirely displayed in the current direction. */
-  direction?: Direction;
+  direction?: 'north' | 'south' | 'east' | 'west';
   /** If true, the Popover stretches to fit its content vertically */
   fullHeight?: boolean;
   /** If true, the Popover stretches to fit its content horizontally */
@@ -52,9 +47,9 @@ interface PopoverProps extends Omit<BoxProps, 'ref'> {
   /** The function executed, when the Overlay is clicked. */
   onOverlayClick?: () => void;
   /** The position in which the Popover is rendered, is overridden with the another position if the Popover cannot be entirely displayed in the current position. */
-  position?: Position;
+  position?: 'start' | 'center' | 'end';
   /** The tint of the background colour of the Popover. */
-  tint?: Tint;
+  tint?: 'lightest' | 'light' | 'normal' | 'dark' | 'darkest';
   /** The z-index of the Popover */
   zIndex?: number;
   /** Determines wether the focus should be returned to the source element, enabled by default in useFocusTrap */

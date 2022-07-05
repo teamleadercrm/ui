@@ -7,10 +7,6 @@ import theme from './theme.css';
 import { BoxProps } from '../box/Box';
 import { GenericComponent } from '../../@types/types';
 
-export type Label = 'text-and-logo' | 'text-only' | 'logo-only';
-export type Shape = 'pill' | 'box';
-export type Tint = 'dark' | 'light';
-
 interface PoweredByButtonProps extends Omit<BoxProps, 'className' | 'children' | 'ref'> {
   /** A class name for the wrapper to give custom styles. */
   className?: string;
@@ -19,11 +15,11 @@ interface PoweredByButtonProps extends Omit<BoxProps, 'className' | 'children' |
   /** Href when clicking the button, default is the regular commercial website. */
   href?: string;
   /** Style for the default label. */
-  label?: Label;
+  label?: 'text-and-logo' | 'text-only' | 'logo-only';
   /** Shape of the button. */
-  shape?: Shape;
+  shape?: 'pill' | 'box';
   /** Button tint. Light for dark backgrounds and dark for light backgrounds. */
-  tint?: Tint;
+  tint?: 'dark' | 'light';
   /** Callback function that is fired when mouse leaves the component. */
   onMouseLeave?: (event: MouseEvent<HTMLElement>) => void;
   /** Callback function that is fired when the mouse button is released. */

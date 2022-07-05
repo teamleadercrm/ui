@@ -9,15 +9,13 @@ import { BoxProps } from '../box/Box';
 import { GenericComponent } from '../../@types/types';
 import isReactElement from '../utils/isReactElement';
 
-export type Level = 'primary' | 'secondary' | 'destructive';
-export type Size = 'small' | 'medium' | 'large';
 interface SplitButtonProps extends Omit<BoxProps, 'children' | 'size'> {
   /** The MenuItems we pass to our component. */
   children: ReactNode;
   /** Determines which kind of button to be rendered. */
-  level?: Level;
+  level?: 'primary' | 'secondary' | 'destructive';
   /** Size of the button. */
-  size?: Size;
+  size?: 'small' | 'medium' | 'large';
   /** The function executed, when we click on the main button. */
   onButtonClick: (event: MouseEvent<HTMLElement>) => void;
   /** The function executed, when we click on the secondary button. */

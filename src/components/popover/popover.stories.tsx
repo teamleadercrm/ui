@@ -23,7 +23,6 @@ import {
   TextSmall,
 } from '../../index';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Color, Direction, Position, Tint } from './Popover';
 import { BUTTON_LEVELS } from '../button';
 
 const colors = ['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'teal'];
@@ -31,6 +30,11 @@ const tints = ['lightest', 'light', 'normal', 'dark', 'darkest'];
 const backdrops = ['transparent', 'dark'];
 const directions = ['north', 'south', 'east', 'west'];
 const positions = ['start', 'center', 'end'];
+
+type Color = 'aqua' | 'gold' | 'mint' | 'neutral' | 'ruby' | 'teal' | 'violet';
+type Direction = 'north' | 'south' | 'east' | 'west';
+type Position = 'start' | 'center' | 'end';
+type Tint = 'lightest' | 'light' | 'normal' | 'dark' | 'darkest';
 
 const contentBoxWithSingleTextLine = (
   <Box padding={4}>
