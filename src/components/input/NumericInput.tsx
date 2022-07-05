@@ -7,9 +7,8 @@ import {
   IconMinusSmallOutline,
 } from '@teamleader/ui-icons';
 import theme from './theme.css';
-import { COLORS as ICONCOLORS, TINTS as ICONTINTS } from '../icon/Icon';
 import SingleLineInputBase, { SingleLineInputBaseProps } from './SingleLineInputBase';
-import { KEY } from '../../constants';
+import { KEY, COLORS, TINTS } from '../../constants';
 import { parseValue, toNumber } from './utils';
 import Button from '../button';
 import { GenericComponent } from '../../@types/types';
@@ -32,7 +31,13 @@ const StepperControls: GenericComponent<StepperControlsProps> = ({
   stepperUpProps,
   stepperDownProps,
 }: StepperControlsProps) => {
-  const iconProps: { color: ICONCOLORS; element: string; tabIndex: string; tint: ICONTINTS; type: string } = {
+  const iconProps: {
+    color: typeof COLORS[number];
+    element: string;
+    tabIndex: string;
+    tint: typeof TINTS[number];
+    type: string;
+  } = {
     color: inverse ? 'teal' : 'neutral',
     element: 'button',
     tabIndex: '-1',

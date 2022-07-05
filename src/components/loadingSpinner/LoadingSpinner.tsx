@@ -1,7 +1,7 @@
 import cx from 'classnames';
 import React, { forwardRef } from 'react';
 import { GenericComponent } from '../../@types/types';
-import { COLORS } from '../../constants';
+import { COLORS, TINTS } from '../../constants';
 import Box from '../box';
 import { BoxProps } from '../box/Box';
 import theme from './theme.css';
@@ -14,7 +14,7 @@ export interface LoadingSpinnerProps extends Omit<BoxProps, 'className' | 'size'
   /** Size of the component */
   size?: 'small' | 'medium';
   /** The tint of the components color */
-  tint?: 'lightest' | 'light' | 'normal' | 'dark' | 'darkest';
+  tint?: typeof TINTS[number];
 }
 const LoadingSpinner: GenericComponent<LoadingSpinnerProps> = forwardRef<HTMLElement, LoadingSpinnerProps>(
   ({ className, color = 'teal', size = 'medium', tint = 'darkest', ...others }, ref) => {

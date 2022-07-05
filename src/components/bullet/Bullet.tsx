@@ -3,13 +3,13 @@ import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
 import { BoxProps } from '../box/Box';
-import { COLORS } from '../../constants';
+import { COLORS, TINTS } from '../../constants';
 
 interface BulletProps extends Omit<BoxProps, 'size' | 'ref'> {
   /** A border color to give to the counter */
   borderColor?: typeof COLORS[number];
   /** A border tint to give to the counter */
-  borderTint?: 'darkest' | 'dark' | 'light' | 'lightest';
+  borderTint?: Exclude<typeof TINTS[number], 'normal'>;
   /** A class name for the wrapper to give custom styles. */
   className?: string;
   /** The color of the bullet. */

@@ -25,7 +25,7 @@ export interface IconButtonProps extends Omit<BoxProps, 'ref' | 'children' | 'cl
   /** The color which the icon should have */
   color?: typeof COLORS[number] | 'white';
   /** The tint which the icon should have */
-  tint?: Tints;
+  tint?: typeof TINTS[number];
   /** If true, component will be shown in a selected state */
   selected?: boolean;
   /** Type of the button element. */

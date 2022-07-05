@@ -14,7 +14,7 @@ interface IconProps extends Omit<BoxProps, 'children' | 'className'> {
   /** Color of the icon */
   color?: typeof COLORS[number];
   /** Tint of the icon */
-  tint?: TINTS;
+  tint?: typeof TINTS[number];
   /** Opacity of the icon */
   opacity?: number;
 }

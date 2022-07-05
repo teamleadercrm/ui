@@ -1,7 +1,7 @@
 import cx from 'classnames';
 import React from 'react';
 import { GenericComponent } from '../../@types/types';
-import { COLORS } from '../../constants';
+import { COLORS, TINTS } from '../../constants';
 import Box from '../box';
 import { BoxProps } from '../box/Box';
 import theme from './theme.css';
@@ -14,7 +14,7 @@ export interface LoadingBarProps extends Omit<BoxProps, 'className' | 'size'> {
   /** Size of the component */
   size?: 'small' | 'medium' | 'large';
   /** The tint of the components color */
-  tint?: 'lightest' | 'light' | 'normal' | 'dark' | 'darkest';
+  tint?: typeof TINTS[number];
 }
 
 const LoadingBar: GenericComponent<LoadingBarProps> = ({
