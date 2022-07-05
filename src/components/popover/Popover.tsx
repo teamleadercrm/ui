@@ -14,6 +14,7 @@ import uiUtilities from '@teamleader/ui-utilities';
 import useFocusTrap from '../../utils/useFocusTrap';
 import { GenericComponent } from '../../@types/types';
 import { BoxProps } from '../box/Box';
+import { COLORS } from '../../constants';
 
 interface PopoverProps extends Omit<BoxProps, 'ref'> {
   /** The state of the Popover, when true the Popover is rendered otherwise it is not. */
@@ -27,7 +28,7 @@ interface PopoverProps extends Omit<BoxProps, 'ref'> {
   /** The class names for the wrapper to apply custom styling. */
   className?: string;
   /** The background colour of the Popover. */
-  color?: 'aqua' | 'gold' | 'mint' | 'neutral' | 'ruby' | 'teal' | 'violet';
+  color?: typeof COLORS[number];
   /** The preferred direction in which the Popover is rendered, is overridden with the opposite or adjacent direction if the Popover cannot be entirely displayed in the current direction. */
   direction?: 'north' | 'south' | 'east' | 'west';
   /** If true, the Popover stretches to fit its content vertically */

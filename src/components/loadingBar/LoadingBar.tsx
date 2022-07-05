@@ -1,6 +1,7 @@
 import cx from 'classnames';
 import React from 'react';
 import { GenericComponent } from '../../@types/types';
+import { COLORS } from '../../constants';
 import Box from '../box';
 import { BoxProps } from '../box/Box';
 import theme from './theme.css';
@@ -9,7 +10,7 @@ export interface LoadingBarProps extends Omit<BoxProps, 'className' | 'size'> {
   /** A class name for the wrapper to add custom classes */
   className?: string;
   /** The color of the components */
-  color?: 'aqua' | 'gold' | 'mint' | 'neutral' | 'ruby' | 'teal' | 'violet';
+  color?: typeof COLORS[number];
   /** Size of the component */
   size?: 'small' | 'medium' | 'large';
   /** The tint of the components color */
