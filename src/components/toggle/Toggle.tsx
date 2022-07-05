@@ -17,7 +17,7 @@ export interface ToggleProps extends Omit<BoxProps, 'className' | 'size'> {
   className?: string;
   label?: ReactNode;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
-  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen'>;
+  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
 }
 
 const Toggle: GenericComponent<ToggleProps> = ({

@@ -25,7 +25,7 @@ interface DurationInputProps
   /** Callback function that is fired when the keyboard is touched. */
   onKeyDown?: (event: KeyboardEvent<HTMLElement>) => void;
   /** Size of the input element. */
-  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen'>;
+  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
   /** Current value of the input element. */
   value?: {
     hours?: number;

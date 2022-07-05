@@ -26,7 +26,7 @@ interface BadgeProps extends Omit<BoxProps, 'ref' | 'size'> {
   /** If true, component will be shown in a selected state */
   selected?: boolean;
   /** Size of the button. */
-  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen'>;
+  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
 }
 
 const Badge: GenericComponent<BadgeProps> = forwardRef<HTMLElement, BadgeProps>(

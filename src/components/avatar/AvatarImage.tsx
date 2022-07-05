@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import cx from 'classnames';
 import theme from './theme.css';
 import AvatarOverlay from './AvatarOverlay';
-import { Size } from './types';
 import { GenericComponent } from '../../@types/types';
+import { SIZES } from '../../constants';
 
 interface AvatarImageProps {
   /** Component that will be placed top right of the avatar image. */
@@ -19,7 +19,7 @@ interface AvatarImageProps {
   /** Callback function that is fired the image fails to load. */
   onImageLoadFailure?: React.ReactEventHandler<HTMLImageElement>;
   /** The size of the avatar. */
-  size: Size;
+  size: Exclude<typeof SIZES[number], 'fullscreen' | 'smallest'>;
 }
 
 const AvatarImage: GenericComponent<AvatarImageProps> = ({

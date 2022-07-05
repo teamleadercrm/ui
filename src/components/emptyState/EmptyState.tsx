@@ -15,7 +15,7 @@ import { SIZES } from '../../constants';
 interface EmptyStateProps extends Omit<BoxProps, 'size'> {
   hidePointer?: boolean;
   metaText?: ReactNode | string;
-  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen'>;
+  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
   title?: ReactNode | string;
 }
 

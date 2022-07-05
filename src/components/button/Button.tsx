@@ -50,7 +50,7 @@ export interface ButtonProps extends Omit<BoxProps, 'size'> {
   /** If true, component will show a loading spinner instead of label or children. */
   processing?: boolean;
   /** Size of the button. */
-  size?: Exclude<typeof SIZES[number], 'fullscreen'>;
+  size?: Exclude<typeof SIZES[number], 'fullscreen' | 'smallest' | 'hero'>;
   /** Type of the button element. */
   type?: string;
 }

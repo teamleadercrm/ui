@@ -12,7 +12,7 @@ import { SIZES } from '../../constants';
 interface MarketingStatusLabelProps extends Omit<BoxProps, 'ref'> {
   children?: ReactNode;
   fullWidth?: boolean;
-  size?: Exclude<typeof SIZES[number], 'tiny' | 'large' | 'fullscreen'>;
+  size?: Exclude<typeof SIZES[number], 'tiny' | 'large' | 'fullscreen' | 'smallest' | 'hero'>;
   className?: string;
 }
 

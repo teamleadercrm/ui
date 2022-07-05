@@ -10,7 +10,7 @@ interface StatusLabelProps extends Omit<BoxProps, 'size'> {
   children: ReactNode;
   className?: string;
   color?: Exclude<typeof COLORS[number], 'teal'>;
-  size?: Exclude<typeof SIZES[number], 'tiny' | 'large' | 'fullscreen'>;
+  size?: Exclude<typeof SIZES[number], 'tiny' | 'large' | 'fullscreen' | 'smallest' | 'hero'>;
 }
 
 const StatusLabel: GenericComponent<StatusLabelProps> = forwardRef<HTMLElement, StatusLabelProps>(

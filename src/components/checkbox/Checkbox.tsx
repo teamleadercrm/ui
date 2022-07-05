@@ -27,7 +27,7 @@ interface CheckboxProps extends Omit<BoxProps, 'onChange' | 'size'> {
   /** Indicate whether the checkbox is neither checked or unchecked. */
   indeterminate?: boolean;
   /** Size of the checkbox. */
-  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen'>;
+  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
 }
 
 const Checkbox: GenericComponent<CheckboxProps> = forwardRef<HTMLInputElement, CheckboxProps>(

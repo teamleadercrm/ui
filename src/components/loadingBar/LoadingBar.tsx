@@ -12,7 +12,7 @@ export interface LoadingBarProps extends Omit<BoxProps, 'className' | 'size'> {
   /** The color of the components */
   color?: typeof COLORS[number];
   /** Size of the component */
-  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen'>;
+  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
   /** The tint of the components color */
   tint?: typeof TINTS[number];
 }

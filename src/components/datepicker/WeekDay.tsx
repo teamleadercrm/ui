@@ -1,13 +1,14 @@
 import React from 'react';
 import { LocaleUtils } from 'react-day-picker';
 import { GenericComponent } from '../../@types/types';
+import { SIZES } from '../../constants';
 
 interface WeekDayProps {
   weekday: number;
   className?: string;
   localeUtils?: LocaleUtils;
   locale?: string;
-  size?: 'smallest' | 'small' | 'medium' | 'large';
+  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'hero'>;
 }
 
 const WeekDay: GenericComponent<WeekDayProps> = ({ weekday, className, localeUtils, locale, size }) => {

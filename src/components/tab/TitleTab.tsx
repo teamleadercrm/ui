@@ -15,7 +15,7 @@ interface TitleTabProps extends Omit<BoxProps, 'size' | 'element'> {
   className?: string;
   counter?: ReactNode;
   onClick?: React.MouseEventHandler<HTMLElement>;
-  size?: Exclude<typeof SIZES[number], 'tiny' | 'large' | 'fullscreen'>;
+  size?: Exclude<typeof SIZES[number], 'tiny' | 'large' | 'fullscreen' | 'smallest' | 'hero'>;
 }
 
 const TitleTab: GenericComponent<TitleTabProps> = forwardRef<HTMLElement, TitleTabProps>(

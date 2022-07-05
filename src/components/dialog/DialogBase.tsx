@@ -31,7 +31,7 @@ export interface DialogBaseProps extends Omit<BoxProps, 'form' | 'size'> {
   /** If true, the content of the dialog will be scrollable when it exceeds the available height. */
   scrollable?: boolean;
   /** The size of the dialog. */
-  size?: Exclude<typeof SIZES[number], 'tiny'>;
+  size?: Exclude<typeof SIZES[number], 'tiny' | 'smallest' | 'hero'>;
   /** The initial part of the dialog where the focus will be set, useful to avoid focusing on the close button */
   initialFocusRef?: RefObject<HTMLElement>;
   /** The element used to drag a dialog, @see Dialog component header for an example */

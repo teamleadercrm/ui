@@ -15,7 +15,7 @@ interface BulletProps extends Omit<BoxProps, 'size' | 'ref'> {
   /** The color of the bullet. */
   color?: typeof COLORS[number];
   /** The size of the bullet. */
-  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen'>;
+  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
 }
 
 class Bullet extends PureComponent<BulletProps> {

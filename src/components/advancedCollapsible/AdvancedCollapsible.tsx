@@ -12,7 +12,7 @@ interface AdvancedCollapsibleProps extends Omit<BoxProps, 'size'> {
   color?: 'neutral' | 'teal';
   children: ReactNode;
   title: string;
-  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen'>;
+  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
 }
 
 const AdvancedCollapsible: GenericComponent<AdvancedCollapsibleProps> = ({

@@ -15,7 +15,7 @@ const PADDINGS: Record<'small' | 'medium' | 'large', Padding> = {
 interface SectionProps extends Omit<BoxProps, 'ref'> {
   children?: ReactNode;
   color?: Exclude<typeof COLORS[number], 'teal'> | 'white';
-  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen'>;
+  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
 }
 
 const Section: GenericComponent<SectionProps> = ({
