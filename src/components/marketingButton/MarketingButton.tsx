@@ -7,10 +7,6 @@ import theme from './theme.css';
 import { BoxProps } from '../box/Box';
 import { GenericComponent } from '../../@types/types';
 
-type Level = 'primary' | 'secondary' | 'link';
-type Placement = 'left' | 'right';
-type Size = 'tiny' | 'small' | 'medium' | 'large';
-
 interface MarketingButtonProps extends Omit<BoxProps, 'ref' | 'element'> {
   /** The content to display inside the button. */
   children?: ReactNode;
@@ -19,7 +15,7 @@ interface MarketingButtonProps extends Omit<BoxProps, 'ref' | 'element'> {
   /** A custom element to be rendered */
   element?: React.ElementType;
   /** Determines which kind of button to be rendered. */
-  level?: Level;
+  level?: 'primary' | 'secondary' | 'link';
   /** If true, component will be disabled. */
   disabled?: boolean;
   /** If true, component will take the full width available. */
@@ -27,7 +23,7 @@ interface MarketingButtonProps extends Omit<BoxProps, 'ref' | 'element'> {
   /** The icon displayed inside the button. */
   icon?: ReactNode;
   /** The position of the icon inside the button. */
-  iconPlacement?: Placement;
+  iconPlacement?: 'left' | 'right';
   /** Callback function that is fired when mouse leaves the component. */
   onMouseLeave?: (event: React.MouseEvent) => void;
   /** Callback function that is fired when the mouse button is released. */
@@ -35,7 +31,7 @@ interface MarketingButtonProps extends Omit<BoxProps, 'ref' | 'element'> {
   /** If true, component will show a loading spinner instead of label or children. */
   processing?: boolean;
   /** Size of the button. */
-  size?: Size;
+  size?: 'tiny' | 'small' | 'medium' | 'large';
   /** Type of the button element. */
   type?: string;
 }

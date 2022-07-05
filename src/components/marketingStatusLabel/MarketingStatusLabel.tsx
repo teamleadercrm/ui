@@ -8,12 +8,10 @@ import { UITextBody, UITextSmall } from '../typography';
 import { GenericComponent } from '../../@types/types';
 import { BoxProps } from '../box/Box';
 
-type Size = 'small' | 'medium';
-
 interface MarketingStatusLabelProps extends Omit<BoxProps, 'ref'> {
   children?: ReactNode;
   fullWidth?: boolean;
-  size?: Size;
+  size?: 'small' | 'medium';
   className?: string;
 }
 

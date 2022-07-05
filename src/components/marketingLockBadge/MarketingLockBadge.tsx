@@ -7,11 +7,9 @@ import { IconLockSmallFilled } from '@teamleader/ui-icons';
 import { GenericComponent } from '../../@types/types';
 import { BoxProps } from '../box/Box';
 
-type Size = 'small' | 'medium';
-
 interface MarketingLockBadgeProps extends Omit<BoxProps, 'ref'> {
   className?: string;
-  size?: Size;
+  size?: 'small' | 'medium';
 }
 
 const MarketingLockBadge: GenericComponent<MarketingLockBadgeProps> = ({ className, size = 'medium', ...others }) => {
