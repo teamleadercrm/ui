@@ -54,9 +54,8 @@ const Menu: GenericComponent<MenuProps> = ({
   selected,
   ...others
 }) => {
-  const [stateWidth, setWidth] = useState<number | undefined>(0);
-  const [stateHeight, setHeight] = useState<number | undefined>(0);
-  const [stateActive, setActive] = useState<boolean>(active);
+  const [stateWidth, setWidth] = useState<number | undefined>();
+  const [stateHeight, setHeight] = useState<number | undefined>();
   const [statePosition, setPosition] = useState<string | undefined>(position);
 
   const menuNode = useRef<HTMLUListElement>(null);
@@ -76,7 +75,7 @@ const Menu: GenericComponent<MenuProps> = ({
   });
 
   const handleDocumentClick = (event: SyntheticEvent) => {
-    if (stateActive && !events.targetIsDescendant(event, menuWrapper.current)) {
+    if (active && !events.targetIsDescendant(event, menuWrapper.current)) {
       // eslint-disable-next-line @typescript-eslint/no-use-before-define
       hide();
     }
@@ -158,7 +157,7 @@ const Menu: GenericComponent<MenuProps> = ({
   };
 
   const getMenuStyle = () => {
-    return stateActive ? getActiveMenuStyle() : getMenuStyleByPosition();
+    return active ? getActiveMenuStyle() : getMenuStyleByPosition();
   };
 
   const getItems = () => {
@@ -187,36 +186,31 @@ const Menu: GenericComponent<MenuProps> = ({
 
   const show = () => {
     onShow && onShow();
-
-    setActive(true);
     addEvents();
   };
 
   const hide = () => {
     onHide && onHide();
-
-    setActive(false);
     removeEvents();
   };
 
   useEffect(() => {
     const { width, height } = menuNode?.current?.getBoundingClientRect() || {};
 
+    active ? show() : hide();
     width && setWidth(width);
     height && setHeight(height);
-  }, [menuNode]);
-
-  useEffect(() => {
-    stateActive ? show() : hide();
-
-    if (statePosition === POSITION.AUTO) {
-      setPosition(calculatePosition());
-    }
 
     return () => {
-      stateActive && removeEvents();
+      active && removeEvents();
     };
-  }, [stateActive, statePosition]);
+  }, [active, menuNode]);
+
+  useEffect(() => {
+    if (position === POSITION.AUTO) {
+      setPosition(calculatePosition());
+    }
+  }, [position]);
 
   return (
     <Box data-teamleader-ui="menu" className={classNames} ref={menuWrapper} style={getRootStyle()} {...boxProps}>
