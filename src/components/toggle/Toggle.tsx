@@ -1,11 +1,11 @@
 import cx from 'classnames';
 import React, { ChangeEvent, ReactNode, useRef } from 'react';
+import { GenericComponent } from '../../@types/types';
+import { SIZES } from '../../constants';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import { BoxProps } from '../box/Box';
 import { TextBodyCompact, TextDisplay, TextSmall } from '../typography';
 import theme from './theme.css';
-
-type Size = 'small' | 'medium' | 'large';
 
 export interface ToggleProps extends Omit<BoxProps, 'className' | 'size'> {
   checked?: boolean;
@@ -17,10 +17,10 @@ export interface ToggleProps extends Omit<BoxProps, 'className' | 'size'> {
   className?: string;
   label?: ReactNode;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
-  size?: Size;
+  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
 }
 
-const Toggle = ({
+const Toggle: GenericComponent<ToggleProps> = ({
   checked = false,
   children,
   disabled = false,
@@ -30,7 +30,7 @@ const Toggle = ({
   onChange,
   size = 'medium',
   ...others
-}: ToggleProps) => {
+}) => {
   const ref = useRef<HTMLInputElement>(null);
   const boxProps = pickBoxProps(others);
   const inputProps = omitBoxProps(others);

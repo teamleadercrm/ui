@@ -11,6 +11,7 @@ import Autocomplete from './Autocomplete';
 import Overlay from '../overlay';
 import { Suggestion, Suggestions } from './types';
 import EmailSuggestion from './EmailSuggestion';
+import { GenericComponent } from '../../@types/types';
 
 const ENTER = 'Enter';
 const ESCAPE = 'Escape';
@@ -36,7 +37,7 @@ interface LabelProps {
   disableRemovalOfFirst?: boolean;
 }
 
-const Label = ({
+const Label: GenericComponent<LabelProps> = ({
   option,
   suggestions = [],
   editing,
@@ -50,10 +51,10 @@ const Label = ({
   renderSuggestion,
   menuWidth,
   disableRemovalOfFirst,
-}: LabelProps) => {
+}) => {
   const [content, setContent] = useState(option.email);
   const [autocompleteOpen, setAutocompleteOpen] = useState(true);
-  const ref = useRef<HTMLDivElement>();
+  const ref = useRef<HTMLDivElement>(null);
 
   const validSuggestions = useMemo(() => filterSuggestions(content, suggestions), [content, suggestions]);
   const [selectedSuggestion, setSelectedSuggestion] = useState<Suggestion | null>(null);
@@ -239,7 +240,7 @@ const Label = ({
       margin={1}
       marginRight={2}
       onFocus={onTagFocus}
-      onRemoveClick={!(index === 0 && disableRemovalOfFirst) && onRemove && onTagRemove}
+      onRemoveClick={!(index === 0 && disableRemovalOfFirst) && onRemove ? onTagRemove : undefined}
     >
       <Link element="button" className={theme['label-text']} inherit={false} onClick={onTagClick}>
         {option.label || option.email}

@@ -1,13 +1,12 @@
-import React, { ReactNode } from 'react';
-import Box from '../box';
 import cx from 'classnames';
+import React, { ReactNode } from 'react';
+import { GenericComponent } from '../../@types/types';
+import { COLORS, SIZES } from '../../constants';
+import Box from '../box';
+import { BoxProps, Padding } from '../box/Box';
 import theme from './theme.css';
-import { BoxProps } from '../box/Box';
 
-type Color = 'white' | 'neutral' | 'mint' | 'violet' | 'ruby' | 'gold' | 'aqua';
-type Size = 'small' | 'medium' | 'large';
-
-const SIZES: Record<Size, number> = {
+const PADDINGS: Record<'small' | 'medium' | 'large', Padding> = {
   small: 3,
   medium: 4,
   large: 5,
@@ -15,15 +14,21 @@ const SIZES: Record<Size, number> = {
 
 interface SectionProps extends Omit<BoxProps, 'ref'> {
   children?: ReactNode;
-  color?: Color;
-  size?: Size;
+  color?: Exclude<typeof COLORS[number], 'teal'> | 'white';
+  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
 }
 
-const Section = ({ children, className, color = 'white', size = 'medium', ...rest }: SectionProps) => {
+const Section: GenericComponent<SectionProps> = ({
+  children,
+  className,
+  color = 'white',
+  size = 'medium',
+  ...rest
+}) => {
   const classNames = cx(theme['section'], className as string, theme[color]);
 
   return (
-    <Box data-teamleader-ui="section" className={classNames} element="section" padding={SIZES[size]} {...rest}>
+    <Box data-teamleader-ui="section" className={classNames} element="section" padding={PADDINGS[size]} {...rest}>
       {children}
     </Box>
   );

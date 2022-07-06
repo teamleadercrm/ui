@@ -3,6 +3,8 @@ import { IconGiftMediumOutline } from '@teamleader/ui-icons';
 
 import { IconButton } from '../..';
 
+import { TINTS, COLORS } from '../../constants/colors';
+
 export default {
   component: IconButton,
   title: 'IconButton',
@@ -13,13 +15,25 @@ const Wrapper = ({ children, inverse = false }: { children: ReactNode; inverse: 
     {children}
   </div>
 );
-
+type Sizes = 'small' | 'medium' | 'large';
+const sizes: Sizes[] = ['small', 'medium', 'large'];
+const colors: (typeof COLORS[number] | 'white')[] = [
+  'neutral',
+  'white',
+  'mint',
+  'violet',
+  'ruby',
+  'gold',
+  'aqua',
+  'teal',
+];
+const tints: typeof TINTS[number][] = ['lightest', 'light', 'normal', 'dark', 'darkest'];
 export const Main = () => (
   <div>
-    {['small', 'medium', 'large'].map((size) =>
-      ['neutral', 'white', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'teal'].map((color) => (
+    {sizes.map((size) =>
+      colors.map((color) => (
         <Wrapper key={color} inverse={color === 'white'}>
-          {['lightest', 'light', 'normal', 'dark', 'darkest'].map((tint) => (
+          {tints.map((tint) => (
             <React.Fragment key={tint}>
               <IconButton size={size} color={color} tint={tint} icon={<IconGiftMediumOutline />} marginRight={2} />
               <IconButton

@@ -3,17 +3,18 @@ import cx from 'classnames';
 import theme from './theme.css';
 import Box from '../box';
 import Icon from '../icon';
-import { Size } from './types';
 import { IconUserAddMediumOutline, IconUserAddSmallOutline } from '@teamleader/ui-icons';
+import { GenericComponent } from '../../@types/types';
+import { SIZES } from '../../constants';
 
 interface AvatarAddProps {
   /** Component that will be placed top right of the avatar image. */
   children?: React.ReactNode;
   /** The size of the avatar. */
-  size: Size;
+  size: Exclude<typeof SIZES[number], 'fullscreen' | 'smallest'>;
 }
 
-const AvatarAdd = ({ children, size }: AvatarAddProps) => {
+const AvatarAdd: GenericComponent<AvatarAddProps> = ({ children, size }) => {
   return (
     <Box
       alignItems="center"

@@ -1,5 +1,6 @@
 import cx from 'classnames';
 import React, { useCallback, useMemo, useRef, useState } from 'react';
+import { GenericComponent } from '../../@types/types';
 import Box from '../box';
 import { BoxProps } from '../box/Box';
 import ValidationText from '../validationText';
@@ -24,7 +25,7 @@ interface EmailSelectorProps extends Omit<BoxProps, 'ref' | 'onBlur' | 'onFocus'
   disableRemovalOfFirst?: boolean;
 }
 
-const EmailSelector = ({
+const EmailSelector: GenericComponent<EmailSelectorProps> = ({
   error,
   defaultSelection,
   validator,
@@ -38,9 +39,9 @@ const EmailSelector = ({
   menuFullWidth,
   disableRemovalOfFirst,
   ...rest
-}: EmailSelectorProps) => {
-  const ref = useRef<HTMLElement>();
-  const inputRef = useRef();
+}) => {
+  const ref = useRef<HTMLElement>(null);
+  const inputRef = useRef(null);
 
   const validateLabel = useCallback(
     (option: Suggestion) => ({

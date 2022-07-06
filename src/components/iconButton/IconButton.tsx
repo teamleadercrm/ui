@@ -1,15 +1,13 @@
-import React, { useRef, useImperativeHandle, forwardRef, ReactNode } from 'react';
-import Box from '../box';
-import Icon from '../icon';
 import cx from 'classnames';
-import buttonTheme from '../button/theme.css';
-import theme from './theme.css';
-import LoadingSpinner from '../loadingSpinner';
+import React, { forwardRef, ReactNode, useImperativeHandle, useRef } from 'react';
+import { GenericComponent } from '../../@types/types';
+import { TINTS, COLORS, SIZES } from '../../constants';
+import Box from '../box';
 import { BoxProps } from '../box/Box';
-
-type SIZES = 'small' | 'medium' | 'large';
-type TINTS = 'lightest' | 'light' | 'normal' | 'dark' | 'darkest';
-type COLORS = 'neutral' | 'white' | 'mint' | 'violet' | 'ruby' | 'gold' | 'aqua' | 'teal';
+import buttonTheme from '../button/theme.css';
+import Icon from '../icon';
+import LoadingSpinner from '../loadingSpinner';
+import theme from './theme.css';
 
 export interface IconButtonProps extends Omit<BoxProps, 'ref' | 'children' | 'className' | 'element'> {
   /** The content to display inside the button. */
@@ -19,15 +17,15 @@ export interface IconButtonProps extends Omit<BoxProps, 'ref' | 'children' | 'cl
   /** If true, component will be disabled. */
   disabled?: boolean;
   /** A custom element to be rendered */
-  element?: HTMLElement | string;
+  element?: React.ElementType;
   /** The icon displayed inside the button. */
-  icon?: HTMLElement;
+  icon?: ReactNode;
   /** Size of the button. */
-  size?: SIZES;
+  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
   /** The color which the icon should have */
-  color?: COLORS;
+  color?: typeof COLORS[number] | 'white';
   /** The tint which the icon should have */
-  tint?: TINTS;
+  tint?: typeof TINTS[number];
   /** If true, component will be shown in a selected state */
   selected?: boolean;
   /** Type of the button element. */
@@ -40,7 +38,7 @@ export interface IconButtonProps extends Omit<BoxProps, 'ref' | 'children' | 'cl
   processing?: boolean;
 }
 
-const IconButton = forwardRef(
+const IconButton: GenericComponent<IconButtonProps> = forwardRef<HTMLElement, IconButtonProps>(
   (
     {
       children,
@@ -61,7 +59,7 @@ const IconButton = forwardRef(
     ref,
   ) => {
     const buttonRef = useRef<HTMLElement>(null);
-    useImperativeHandle(ref, () => buttonRef.current);
+    useImperativeHandle<HTMLElement | null, HTMLElement | null>(ref, () => buttonRef.current);
 
     const blur = () => {
       const currentButtonRef = buttonRef.current;
@@ -96,15 +94,15 @@ const IconButton = forwardRef(
       className,
     );
 
-    const props = {
+    const props: BoxProps = {
       ...others,
       ref: buttonRef,
       className: classNames,
-      disabled: element === 'button' ? disabled : null,
+      disabled: element === 'button' ? disabled : undefined,
       element: element,
       onMouseUp: handleMouseUp,
       onMouseLeave: handleMouseLeave,
-      type: element === 'button' ? type : null,
+      type: element === 'button' ? type : undefined,
       'data-teamleader-ui': 'icon-button',
     };
 

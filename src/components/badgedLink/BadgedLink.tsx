@@ -1,7 +1,8 @@
 import uiTypography from '@teamleader/ui-typography';
 import uiUtilities from '@teamleader/ui-utilities';
 import cx from 'classnames';
-import React, { ElementType, forwardRef, ReactElement, ReactNode } from 'react';
+import React, { ElementType, forwardRef, ReactNode } from 'react';
+import { GenericComponent } from '../../@types/types';
 import Box from '../box';
 import { BoxProps } from '../box/Box';
 import theme from './theme.css';
@@ -12,7 +13,7 @@ export interface BadgedLinkProps extends Omit<BoxProps, 'ref'> {
   /** A class name for the badged link to give custom styles. */
   className?: string;
   /** The icon displayed inside the button. */
-  icon: ReactElement;
+  icon?: ReactNode;
   /** The position of the icon inside the button. */
   iconPlacement?: 'left' | 'right';
   /** If true, the badged link style inherits the parent element style. */
@@ -21,19 +22,8 @@ export interface BadgedLinkProps extends Omit<BoxProps, 'ref'> {
   element?: ElementType | undefined;
 }
 
-const BadgedLink = forwardRef(
-  (
-    {
-      children,
-      className = '',
-      icon,
-      iconPlacement = 'left',
-      element = 'a',
-      inherit = true,
-      ...others
-    }: BadgedLinkProps,
-    ref,
-  ) => {
+const BadgedLink: GenericComponent<BadgedLinkProps> = forwardRef<HTMLElement, BadgedLinkProps>(
+  ({ children, className = '', icon, iconPlacement = 'left', element = 'a', inherit = true, ...others }, ref) => {
     const classNames = cx(
       uiUtilities['reset-font-smoothing'],
       uiTypography['ui-text-body'],

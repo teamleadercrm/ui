@@ -12,6 +12,17 @@
 
 ### Dependency updates
 
+## [15.0.0] - 2022-07-06
+
+### Added
+
+- `Dialog`: scroll shadow at the bottom of dialog if scroll bar is displayed ([@qubis741](https://github.com/qubis741)) in [#2222](https://github.com/teamleadercrm/ui/pull/2222))
+
+### Changed
+
+- `Pagination`: always show arrows ([@qubis741](https://github.com/qubis741)) in [#2221](https://github.com/teamleadercrm/ui/pull/2221))
+- [BREAKING] `Timer`: `timerRef` prop to `ref` ([@qubis741](https://github.com/qubis741)) in [#2221](https://github.com/teamleadercrm/ui/pull/2221))
+
 ## [14.8.0] - 2022-06-21
 
 ### Added

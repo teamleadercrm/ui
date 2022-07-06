@@ -1,5 +1,6 @@
-import React, { ForwardedRef, forwardRef, ReactNode } from 'react';
 import cx from 'classnames';
+import React, { forwardRef, ReactNode } from 'react';
+import { GenericComponent } from '../../@types/types';
 import theme from './theme.css';
 
 type Gap = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
@@ -15,11 +16,8 @@ type FlexProps = Partial<{
   justifyContent: 'center' | 'flex-start' | 'flex-end' | 'space-around' | 'space-between' | 'space-evenly';
 }>;
 
-const Flex = forwardRef(
-  (
-    { children, direction = 'row', gap = 0, alignItems, justifyContent }: FlexProps,
-    ref: ForwardedRef<HTMLDivElement>,
-  ) => {
+const Flex: GenericComponent<FlexProps> = forwardRef<HTMLDivElement, FlexProps>(
+  ({ children, direction = 'row', gap = 0, alignItems, justifyContent }, ref) => {
     const classNames = cx(theme['flex'], theme[`${direction}`], {
       [theme[`gap-${gap}`]]: gap > 0,
     });

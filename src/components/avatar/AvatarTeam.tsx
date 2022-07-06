@@ -3,15 +3,16 @@ import cx from 'classnames';
 import theme from './theme.css';
 import Box from '../box';
 import Icon from '../icon';
-import { Size } from './types';
 import { IconTeamMediumOutline, IconTeamSmallOutline } from '@teamleader/ui-icons';
+import { GenericComponent } from '../../@types/types';
+import { SIZES } from '../../constants';
 
 interface AvatarTeamProps {
   /** The size of the avatar. */
-  size: Size;
+  size?: Exclude<typeof SIZES[number], 'fullscreen' | 'smallest'>;
 }
 
-const AvatarTeam = ({ size }: AvatarTeamProps) => {
+const AvatarTeam: GenericComponent<AvatarTeamProps> = ({ size }) => {
   return (
     <Box
       alignItems="center"

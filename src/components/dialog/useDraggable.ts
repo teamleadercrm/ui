@@ -1,9 +1,9 @@
-import { MutableRefObject, RefObject, useEffect } from 'react';
+import { RefObject, useEffect } from 'react';
 
 interface UseDraggableProps {
   active?: boolean;
-  dragHandleRef?: RefObject<HTMLElement>;
-  dragTargetRef?: MutableRefObject<HTMLElement | undefined>;
+  dragHandleRef?: RefObject<HTMLElement | undefined>;
+  dragTargetRef?: RefObject<HTMLElement | undefined>;
 }
 
 const useDraggable = ({ active = false, dragTargetRef, dragHandleRef }: UseDraggableProps) => {

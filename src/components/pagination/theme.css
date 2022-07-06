@@ -27,10 +27,18 @@
 
 .list-item {
   margin: 0 var(--spacer-smallest);
-
+  min-width: 36px;
+  display: flex;
   > * {
     transition: none;
     text-decoration: none;
+    flex: 1;
+    padding: 0!important;
+  }
+
+  &__arrowed {
+    width: 30px;
+    min-width: 0;
   }
 }
 

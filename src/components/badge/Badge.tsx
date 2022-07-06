@@ -1,10 +1,12 @@
-import React, { forwardRef, ReactNode } from 'react';
-import Box from '../box';
-import Icon from '../icon';
-import { UITextSmall, UITextBody, UITextDisplay } from '../typography';
 import cx from 'classnames';
-import theme from './theme.css';
+import React, { forwardRef, ReactNode, SyntheticEvent } from 'react';
+import { GenericComponent } from '../../@types/types';
+import { SIZES } from '../../constants';
+import Box from '../box';
 import { BoxProps } from '../box/Box';
+import Icon from '../icon';
+import { UITextBody, UITextDisplay, UITextSmall } from '../typography';
+import theme from './theme.css';
 
 interface BadgeProps extends Omit<BoxProps, 'ref' | 'size'> {
   /** The content to display inside the badge. */
@@ -20,14 +22,14 @@ interface BadgeProps extends Omit<BoxProps, 'ref' | 'size'> {
   /** The position of the icon inside the badge. */
   iconPlacement?: 'left' | 'right';
   /** Callback function that is fired when clicking on the component. */
-  onClick?: () => void;
+  onClick?: (e: SyntheticEvent) => void;
   /** If true, component will be shown in a selected state */
   selected?: boolean;
   /** Size of the button. */
-  size?: 'small' | 'medium' | 'large';
+  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
 }
 
-const Badge = forwardRef(
+const Badge: GenericComponent<BadgeProps> = forwardRef<HTMLElement, BadgeProps>(
   (
     {
       children,
@@ -40,7 +42,7 @@ const Badge = forwardRef(
       size = 'medium',
       onClick,
       ...others
-    }: BadgeProps,
+    },
     ref,
   ) => {
     const renderIcon = () => (
@@ -61,7 +63,7 @@ const Badge = forwardRef(
     );
 
     const TextElement = size === 'small' ? UITextSmall : size === 'large' ? UITextDisplay : UITextBody;
-    const boxElement = element || onClick ? 'button' : 'div';
+    const boxElement = element || (onClick ? 'button' : 'div');
 
     return (
       <Box

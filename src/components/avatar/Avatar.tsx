@@ -1,22 +1,24 @@
+import { IconCloseMediumOutline, IconCloseSmallOutline } from '@teamleader/ui-icons';
+import cx from 'classnames';
 import React, { useState } from 'react';
+import { GenericComponent } from '../../@types/types';
+import { SIZES } from '../../constants';
+import Box from '../box';
+import { BoxProps } from '../box/Box';
+import Icon from '../icon';
+import Tooltip from '../tooltip';
+import { TextBodyCompact } from '../typography';
 import AvatarAdd from './AvatarAdd';
 import AvatarAnonymous from './AvatarAnonymous';
 import AvatarImage from './AvatarImage';
 import AvatarInitials from './AvatarInitials';
 import AvatarTeam from './AvatarTeam';
-import Box from '../box';
-import Icon from '../icon';
-import { TextBodyCompact } from '../typography';
-import Tooltip from '../tooltip';
-import cx from 'classnames';
 import theme from './theme.css';
-import { IconCloseMediumOutline, IconCloseSmallOutline } from '@teamleader/ui-icons';
-import { Size, Shape } from './types';
-import { BoxProps } from '../box/Box';
+import { Shape } from './types';
 
 const TooltippedBox = Tooltip(Box);
 
-interface AvatarProps extends Omit<BoxProps, 'size' | 'ref'> {
+export interface AvatarProps extends Omit<BoxProps, 'size' | 'ref'> {
   /** Component that will be placed top right of the avatar image. */
   children?: React.ReactNode;
   /** A class name for the wrapper to give custom styles. */
@@ -40,19 +42,19 @@ interface AvatarProps extends Omit<BoxProps, 'size' | 'ref'> {
   /** The shape of the avatar. */
   shape?: Shape;
   /** The size of the avatar. */
-  size?: Size;
+  size?: Exclude<typeof SIZES[number], 'fullscreen' | 'smallest'>;
   /** If true, a team icon will be shown. */
   team?: boolean;
   /** If true, the name will be shown in a tooltip on hover. */
   tooltip?: boolean;
 }
 
-type AvatarInternalComponentProps = { size: Size } & Pick<
+type AvatarInternalComponentProps = { size: Exclude<typeof SIZES[number], 'fullscreen' | 'smallest'> } & Pick<
   AvatarProps,
   'creatable' | 'children' | 'editable' | 'imageUrl' | 'fullName' | 'id' | 'onImageChange' | 'selected' | 'team'
 >;
 
-const AvatarInternalComponent = ({
+const AvatarInternalComponent: GenericComponent<AvatarInternalComponentProps> = ({
   creatable,
   children,
   editable,
@@ -63,7 +65,7 @@ const AvatarInternalComponent = ({
   selected,
   size,
   team,
-}: AvatarInternalComponentProps) => {
+}) => {
   const [failedToLoadImage, setFailedToLoadImage] = useState(false);
   const handleImageLoadFailure = () => {
     setFailedToLoadImage(false);
