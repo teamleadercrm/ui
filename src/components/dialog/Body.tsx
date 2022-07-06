@@ -9,7 +9,7 @@ export interface BodyProps extends Omit<BoxProps, 'ref'> {
   children?: ReactNode;
   /** If true, the content will be scrollable when it exceeds the available height. */
   scrollable?: boolean;
-  handleShowScrollShadow: (show: boolean) => void;
+  handleShowScrollShadow?: (show: boolean) => void;
 }
 
 const Body: GenericComponent<BodyProps> = forwardRef<HTMLElement, BodyProps>(
@@ -23,7 +23,8 @@ const Body: GenericComponent<BodyProps> = forwardRef<HTMLElement, BodyProps>(
         return;
       }
       const element = event.target as HTMLDivElement;
-      handleShowScrollShadow(element.scrollHeight - element.scrollTop === element.clientHeight);
+      handleShowScrollShadow &&
+        handleShowScrollShadow(element.scrollHeight - element.scrollTop === element.clientHeight);
     };
     return (
       <Box display="flex" flexDirection="column" overflowY="auto" {...rest} ref={ref} onScroll={handleWrapperScroll}>
