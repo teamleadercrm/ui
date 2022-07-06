@@ -11,6 +11,8 @@ import { IconCalendarSmallOutline } from '@teamleader/ui-icons';
 import { BoxProps } from '../box/Box';
 import { GenericComponent } from '../../@types/types';
 import { SIZES } from '../../constants';
+import { InputProps } from '../input/Input';
+import { PopoverProps } from '../popover/Popover';
 
 interface DatePickerInputProps extends Omit<BoxProps, 'size' | 'onChange'> {
   /** A class name for the wrapper to give custom styles. */
@@ -22,7 +24,7 @@ interface DatePickerInputProps extends Omit<BoxProps, 'size' | 'onChange'> {
   /** A custom function to format a date. */
   formatDate?: (selectedDate: Date, locale: string) => string;
   /** Object with props for the Input component. */
-  inputProps?: TSFixMe; // TODO: change this to our input props
+  inputProps?: InputProps;
   /** If true, component will be rendered in inverse mode. */
   inverse?: boolean;
   /** The language ISO locale code ('en-GB', 'nl-BE', 'fr-FR',...). */
@@ -32,7 +34,7 @@ interface DatePickerInputProps extends Omit<BoxProps, 'size' | 'onChange'> {
   /** Callback function that is fired when the popover with the calendar gets closed (unfocused) */
   onBlur?: () => void;
   /** Object with props for the Popover component. */
-  popoverProps?: TSFixMe; // TODO: change this to our popover props
+  popoverProps?: PopoverProps;
   /** The current selected date. */
   selectedDate?: Date;
   /** Size of the Input & DatePicker components. */
@@ -70,7 +72,7 @@ const DatePickerInput: GenericComponent<DatePickerInputProps> = ({
   ...others
 }) => {
   const [isPopoverActive, setIsPopoverActive] = useState(false);
-  const [popoverAnchorEl, setPopoverAnchorEl] = useState<EventTarget | null>(null);
+  const [popoverAnchorEl, setPopoverAnchorEl] = useState<Element | null>(null);
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(others.selectedDate);
 
   const getFormattedDate = () => {
@@ -85,28 +87,28 @@ const DatePickerInput: GenericComponent<DatePickerInputProps> = ({
     return customFormatDate(selectedDate, locale);
   };
 
-  const handleInputFocus = (event: React.FocusEvent<HTMLInputElement>) => {
-    if (inputProps.readOnly) {
+  const handleInputFocus = (event: React.SyntheticEvent<HTMLElement>) => {
+    if (inputProps?.readOnly) {
       return;
     }
 
     if (openPickerOnFocus) {
       setPopoverAnchorEl(event.currentTarget);
       setIsPopoverActive(true);
-      inputProps.onFocus && inputProps.onFocus(event);
+      inputProps?.onFocus && inputProps.onFocus(event);
     } else {
-      inputProps.onFocus && inputProps.onFocus(event);
+      inputProps?.onFocus && inputProps.onFocus(event);
     }
   };
 
-  const handleInputClick = (event: React.MouseEvent<HTMLInputElement>) => {
+  const handleInputClick = (event: React.MouseEvent<HTMLElement>) => {
     if (!openPickerOnFocus) {
       setPopoverAnchorEl(event.currentTarget);
       setIsPopoverActive(true);
-      inputProps.onFocus && inputProps.onFocus(event);
+      inputProps?.onFocus && inputProps.onFocus(event);
     }
 
-    inputProps.onClick && inputProps.onClick(event);
+    inputProps?.onClick && inputProps.onClick(event);
   };
 
   const handlePopoverClose = () => {
