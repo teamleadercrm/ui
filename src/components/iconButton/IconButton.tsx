@@ -1,16 +1,13 @@
 import cx from 'classnames';
 import React, { forwardRef, ReactNode, useImperativeHandle, useRef } from 'react';
 import { GenericComponent } from '../../@types/types';
+import { TINTS, COLORS, SIZES } from '../../constants';
 import Box from '../box';
 import { BoxProps } from '../box/Box';
 import buttonTheme from '../button/theme.css';
 import Icon from '../icon';
 import LoadingSpinner from '../loadingSpinner';
 import theme from './theme.css';
-
-export type Sizes = 'small' | 'medium' | 'large';
-export type Tints = 'lightest' | 'light' | 'normal' | 'dark' | 'darkest';
-export type Colors = 'neutral' | 'white' | 'mint' | 'violet' | 'ruby' | 'gold' | 'aqua' | 'teal';
 
 export interface IconButtonProps extends Omit<BoxProps, 'ref' | 'children' | 'className' | 'element'> {
   /** The content to display inside the button. */
@@ -24,11 +21,11 @@ export interface IconButtonProps extends Omit<BoxProps, 'ref' | 'children' | 'cl
   /** The icon displayed inside the button. */
   icon?: ReactNode;
   /** Size of the button. */
-  size?: Sizes;
+  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
   /** The color which the icon should have */
-  color?: Colors;
+  color?: typeof COLORS[number] | 'white';
   /** The tint which the icon should have */
-  tint?: Tints;
+  tint?: typeof TINTS[number];
   /** If true, component will be shown in a selected state */
   selected?: boolean;
   /** Type of the button element. */

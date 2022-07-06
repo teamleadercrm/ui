@@ -59,7 +59,7 @@ const SingleLineInputBase: GenericComponent<SingleLineInputBaseProps> = forwardR
   ) => {
     const [inputHasFocus, setInputHasFocus] = useState(false);
 
-    const handleBlur = (event: FocusEvent<HTMLElement>) => {
+    const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
       setInputHasFocus(false);
 
       onBlur && onBlur(event);

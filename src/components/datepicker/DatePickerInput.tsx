@@ -10,8 +10,7 @@ import { formatDate } from './localeUtils';
 import { IconCalendarSmallOutline } from '@teamleader/ui-icons';
 import { BoxProps } from '../box/Box';
 import { GenericComponent } from '../../@types/types';
-
-export type Size = 'small' | 'medium' | 'large';
+import { SIZES } from '../../constants';
 
 interface DatePickerInputProps extends Omit<BoxProps, 'size' | 'onChange'> {
   /** A class name for the wrapper to give custom styles. */
@@ -37,20 +36,20 @@ interface DatePickerInputProps extends Omit<BoxProps, 'size' | 'onChange'> {
   /** The current selected date. */
   selectedDate?: Date;
   /** Size of the Input & DatePicker components. */
-  size?: Size;
+  size?: Exclude<typeof SIZES[number], 'tiny' | 'smallest' | 'hero' | 'fullscreen'>;
   /** Overridable size of the Input component. */
-  inputSize?: Size;
+  inputSize?: Exclude<typeof SIZES[number], 'tiny' | 'smallest' | 'hero' | 'fullscreen'>;
   /** Overridable size of the DatePicker component. */
-  datePickerSize?: Size;
+  datePickerSize?: Exclude<typeof SIZES[number], 'tiny' | 'smallest' | 'hero' | 'fullscreen'>;
   /** Whether the picker should automatically open on input focus. True by default. */
   openPickerOnFocus?: boolean;
 }
 
 interface DayPickerProps {
-  numberOfMonths: number;
-  showOutsideDays: boolean;
-  showWeekNumbers: boolean;
-  withMonthPicker: boolean;
+  numberOfMonths?: number;
+  showOutsideDays?: boolean;
+  showWeekNumbers?: boolean;
+  withMonthPicker?: boolean;
 }
 
 const DatePickerInput: GenericComponent<DatePickerInputProps> = ({

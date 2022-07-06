@@ -4,9 +4,7 @@ import cx from 'classnames';
 import theme from './theme.css';
 import { BoxProps } from '../box/Box';
 import { GenericComponent } from '../../@types/types';
-
-export type COLORS = 'neutral' | 'mint' | 'violet' | 'ruby' | 'gold' | 'aqua' | 'teal';
-export type TINTS = 'lightest' | 'light' | 'normal' | 'dark' | 'darkest';
+import { COLORS, TINTS } from '../../constants';
 
 interface IconProps extends Omit<BoxProps, 'children' | 'className'> {
   /** Element wrapped in Icon tags or sent as children prop */
@@ -14,9 +12,9 @@ interface IconProps extends Omit<BoxProps, 'children' | 'className'> {
   /** Classname for the Icon component */
   className?: string;
   /** Color of the icon */
-  color?: COLORS;
+  color?: typeof COLORS[number];
   /** Tint of the icon */
-  tint?: TINTS;
+  tint?: typeof TINTS[number];
   /** Opacity of the icon */
   opacity?: number;
 }

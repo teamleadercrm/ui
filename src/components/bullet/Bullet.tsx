@@ -3,18 +3,19 @@ import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
 import { BoxProps } from '../box/Box';
+import { COLORS, SIZES, TINTS } from '../../constants';
 
 interface BulletProps extends Omit<BoxProps, 'size' | 'ref'> {
   /** A border color to give to the counter */
-  borderColor?: 'neutral' | 'mint' | 'aqua' | 'violet' | 'teal' | 'gold' | 'ruby';
+  borderColor?: typeof COLORS[number];
   /** A border tint to give to the counter */
-  borderTint?: 'darkest' | 'dark' | 'light' | 'lightest';
+  borderTint?: Exclude<typeof TINTS[number], 'normal'>;
   /** A class name for the wrapper to give custom styles. */
   className?: string;
   /** The color of the bullet. */
-  color?: 'neutral' | 'mint' | 'aqua' | 'violet' | 'teal' | 'gold' | 'ruby';
+  color?: typeof COLORS[number];
   /** The size of the bullet. */
-  size?: 'small' | 'medium' | 'large';
+  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
 }
 
 class Bullet extends PureComponent<BulletProps> {

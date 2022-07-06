@@ -6,6 +6,7 @@ import theme from './theme.css';
 import { BoxProps } from '../box/Box';
 import { Heading4, Heading5 } from '../typography';
 import { GenericComponent } from '../../@types/types';
+import { SIZES } from '../../constants';
 
 interface TitleTabProps extends Omit<BoxProps, 'size' | 'element'> {
   active?: boolean;
@@ -14,7 +15,7 @@ interface TitleTabProps extends Omit<BoxProps, 'size' | 'element'> {
   className?: string;
   counter?: ReactNode;
   onClick?: React.MouseEventHandler<HTMLElement>;
-  size?: 'small' | 'medium';
+  size?: Exclude<typeof SIZES[number], 'tiny' | 'large' | 'fullscreen' | 'smallest' | 'hero'>;
 }
 
 const TitleTab: GenericComponent<TitleTabProps> = forwardRef<HTMLElement, TitleTabProps>(

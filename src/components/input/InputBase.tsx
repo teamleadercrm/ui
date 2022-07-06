@@ -3,6 +3,7 @@ import cx from 'classnames';
 import theme from './theme.css';
 import { omitBoxProps } from '../box';
 import { GenericComponent } from '../../@types/types';
+import { SIZES } from '../../constants';
 
 export interface InputBaseProps
   extends Pick<
@@ -20,7 +21,7 @@ export interface InputBaseProps
   /** Boolean indicating whether the input should render as inverse. */
   inverse?: boolean;
   /** Callback function that is fired when blurring the input field. */
-  onBlur?: (event: FocusEvent<HTMLElement>) => void;
+  onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
   /** Callback function that is fired when the component's value changes. */
   onChange?: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   /** Callback function that is fired when focusing the input field. */
@@ -30,7 +31,7 @@ export interface InputBaseProps
   /** Forwarded ref element. */
   ref?: ForwardedRef<HTMLElement>;
   /** Size of the input element. */
-  size?: 'tiny' | 'small' | 'medium' | 'large';
+  size?: Exclude<typeof SIZES[number], 'fullscreen' | 'smallest' | 'hero'>;
   /** If true, the input text is aligned to the right. */
   textAlignRight?: boolean;
   /** Type of the input element. It can be a valid HTML5 input type. */

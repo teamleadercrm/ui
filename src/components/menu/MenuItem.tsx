@@ -1,4 +1,4 @@
-import React, { ReactNode, SyntheticEvent, CSSProperties } from 'react';
+import React, { ReactNode, MouseEvent, CSSProperties } from 'react';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import Icon from '../icon';
 import { TextBody } from '../typography';
@@ -25,7 +25,7 @@ interface MenuItemProps extends Omit<BoxProps, 'children' | 'className' | 'eleme
   /** The text used as the label for the component. */
   label?: string;
   /** Callback function that is fired when clicking the component. */
-  onClick?: (e: SyntheticEvent) => void;
+  onClick?: (e: MouseEvent) => void;
   /** If true, component will look active. */
   selected?: boolean;
   /** Inline style passed to element */
@@ -46,7 +46,7 @@ const MenuItem: GenericComponent<MenuItemProps> = ({
   selected = false,
   ...others
 }) => {
-  const handleClick = (event: SyntheticEvent) => {
+  const handleClick = (event: MouseEvent) => {
     if (onClick && !disabled) {
       onClick(event);
     }

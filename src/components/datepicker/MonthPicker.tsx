@@ -6,6 +6,7 @@ import { NumericInput } from '../input';
 import theme from './theme.css';
 import { LocaleUtils } from 'react-day-picker';
 import { GenericComponent } from '../../@types/types';
+import { SIZES } from '../../constants';
 
 interface MonthPickerProps {
   /** Current date */
@@ -17,7 +18,7 @@ interface MonthPickerProps {
   /** The localeUtils from the DatePicker */
   localeUtils?: LocaleUtils;
   /** Size of the MonthPicker component. */
-  size?: 'smallest' | 'small' | 'medium' | 'large';
+  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'hero'>;
 }
 
 interface Option {

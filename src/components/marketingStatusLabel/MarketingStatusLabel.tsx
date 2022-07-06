@@ -7,13 +7,12 @@ import { IconLockSmallFilled } from '@teamleader/ui-icons';
 import { UITextBody, UITextSmall } from '../typography';
 import { GenericComponent } from '../../@types/types';
 import { BoxProps } from '../box/Box';
-
-type Size = 'small' | 'medium';
+import { SIZES } from '../../constants';
 
 interface MarketingStatusLabelProps extends Omit<BoxProps, 'ref'> {
   children?: ReactNode;
   fullWidth?: boolean;
-  size?: Size;
+  size?: Exclude<typeof SIZES[number], 'tiny' | 'large' | 'fullscreen' | 'smallest' | 'hero'>;
   className?: string;
 }
 

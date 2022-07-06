@@ -7,16 +7,15 @@ import {
   IconMinusSmallOutline,
 } from '@teamleader/ui-icons';
 import theme from './theme.css';
-import { COLORS as ICONCOLORS, TINTS as ICONTINTS } from '../icon/Icon';
 import SingleLineInputBase, { SingleLineInputBaseProps } from './SingleLineInputBase';
-import { KEY } from '../../constants';
+import { KEY, COLORS, TINTS, SIZES } from '../../constants';
 import { parseValue, toNumber } from './utils';
 import Button from '../button';
 import { GenericComponent } from '../../@types/types';
 
 interface StepperProps {
   disabled: boolean;
-  onBlur: (event: FocusEvent<HTMLElement>) => void;
+  onBlur: (event: FocusEvent<HTMLInputElement>) => void;
   onMouseDown: () => void;
   onMouseUp: () => void;
   onMouseLeave: () => void;
@@ -32,7 +31,13 @@ const StepperControls: GenericComponent<StepperControlsProps> = ({
   stepperUpProps,
   stepperDownProps,
 }: StepperControlsProps) => {
-  const iconProps: { color: ICONCOLORS; element: string; tabIndex: string; tint: ICONTINTS; type: string } = {
+  const iconProps: {
+    color: typeof COLORS[number];
+    element: string;
+    tabIndex: string;
+    tint: typeof TINTS[number];
+    type: string;
+  } = {
     color: inverse ? 'teal' : 'neutral',
     element: 'button',
     tabIndex: '-1',
@@ -70,13 +75,13 @@ export interface NumericInputProps
   /** The minimum value that can be inputted. */
   min?: number;
   /** Callback function that is fired when blurring the input field. */
-  onBlur?: (event: FocusEvent<HTMLElement>) => void;
+  onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
   /** Callback function that is fired when the component's value changes. */
   onChange?: (event: ChangeEvent<HTMLElement>, value: string) => void;
   /** Callback function that is fired when the keyboard is touched. */
   onKeyDown?: (event: KeyboardEvent<HTMLElement>) => void;
   /** Size of the input element. */
-  size?: 'tiny' | 'small' | 'medium' | 'large';
+  size?: Exclude<typeof SIZES[number], 'fullscreen' | 'smallest' | 'hero'>;
   /** Limit increment value for numeric inputs. */
   step?: number;
   /** Specifiy where the stepper controls should be rendered. */
@@ -207,7 +212,7 @@ const NumericInput: GenericComponent<NumericInputProps> = forwardRef<HTMLElement
       onKeyDown && onKeyDown(event);
     };
 
-    const handleBlur = (event: FocusEvent<HTMLElement>) => {
+    const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
       onBlur && onBlur(event);
     };
 

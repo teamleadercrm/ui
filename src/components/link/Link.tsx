@@ -8,7 +8,7 @@ import theme from './theme.css';
 
 export interface LinkProps extends Omit<BoxProps, 'ref'> {
   /** The content to display inside the link. */
-  children: ReactNode;
+  children?: ReactNode;
   /** A class name for the link to give custom styles. */
   className?: string;
   /** If true, component will be disabled. */

@@ -11,8 +11,7 @@ import uiUtilities from '@teamleader/ui-utilities';
 import { BoxProps } from '../box/Box';
 import localeUtils from './localeUtils';
 import { GenericComponent } from '../../@types/types';
-
-type Size = 'smallest' | 'small' | 'medium' | 'large';
+import { SIZES } from '../../constants';
 
 interface DatePickerProps extends Omit<BoxProps & DayPickerProps, 'size' | 'onChange' | 'modifiers' | 'ref'> {
   /** If true we give a border to our wrapper. */
@@ -26,7 +25,7 @@ interface DatePickerProps extends Omit<BoxProps & DayPickerProps, 'size' | 'onCh
   /** The current selected date. */
   selectedDate?: Date;
   /** Size of the DatePicker component. */
-  size?: Size;
+  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'hero'>;
   withMonthPicker?: boolean;
   showWeekNumbers?: boolean;
 }
@@ -58,7 +57,10 @@ const DatePicker: GenericComponent<DatePickerProps> = ({
   };
 
   const getMonthPickerSize = () => {
-    const monthPickerSizeByDatePickerSize: Record<string, Size> = {
+    const monthPickerSizeByDatePickerSize: Record<
+      string,
+      Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'hero'>
+    > = {
       small: 'smallest',
       medium: showWeekNumbers ? 'medium' : 'small',
       large: 'large',

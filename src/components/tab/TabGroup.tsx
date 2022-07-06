@@ -4,6 +4,7 @@ import React, { ReactNode, useEffect, useRef, useState } from 'react';
 import ReactResizeDetector from 'react-resize-detector';
 import smoothScroll from 'smoothscroll-polyfill';
 import { GenericComponent } from '../../@types/types';
+import { SIZES } from '../../constants';
 import Box from '../box';
 import { BoxProps } from '../box/Box';
 import IconButton from '../iconButton';
@@ -15,7 +16,7 @@ const SCROLL_DISTANCE = 200;
 interface TabGroupProps extends Omit<BoxProps, 'children'> {
   children: ReactNode;
   className?: string;
-  size?: 'small' | 'medium';
+  size?: Exclude<typeof SIZES[number], 'tiny' | 'large' | 'fullscreen' | 'smallest' | 'hero'>;
 }
 
 const TabGroup: GenericComponent<TabGroupProps> = ({ children, className, size, ...others }) => {

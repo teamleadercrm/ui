@@ -6,15 +6,14 @@ import MarketingLockBadge from '../marketingLockBadge';
 import { Heading4, Heading5 } from '../typography';
 import { GenericComponent } from '../../@types/types';
 import { BoxProps } from '../box/Box';
-
-type Size = 'small' | 'medium';
+import { SIZES } from '../../constants';
 
 interface MarketingTabProps extends Omit<BoxProps, 'ref'> {
   active?: boolean;
   children: ReactNode;
   className?: string;
   onClick?: (event: React.MouseEvent) => void;
-  size?: Size;
+  size?: Exclude<typeof SIZES[number], 'tiny' | 'large' | 'fullscreen' | 'smallest' | 'hero'>;
 }
 
 const MarketingTab: GenericComponent<MarketingTabProps> = forwardRef<HTMLElement, MarketingTabProps>(

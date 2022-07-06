@@ -2,14 +2,11 @@ import React, { useRef, forwardRef, useImperativeHandle, ReactNode, MouseEvent }
 import cx from 'classnames';
 import Box from '../box';
 import { TextSmall } from '../typography';
-import Icon, { COLORS as IconColors, TINTS as IconTints } from '../icon/Icon';
+import Icon from '../icon/Icon';
 import theme from './theme.css';
 import { BoxProps } from '../box/Box';
 import { GenericComponent } from '../../@types/types';
-
-export type Label = 'text-and-logo' | 'text-only' | 'logo-only';
-export type Shape = 'pill' | 'box';
-export type Tint = 'dark' | 'light';
+import { COLORS, TINTS } from '../../constants';
 
 interface PoweredByButtonProps extends Omit<BoxProps, 'className' | 'children' | 'ref'> {
   /** A class name for the wrapper to give custom styles. */
@@ -19,11 +16,11 @@ interface PoweredByButtonProps extends Omit<BoxProps, 'className' | 'children' |
   /** Href when clicking the button, default is the regular commercial website. */
   href?: string;
   /** Style for the default label. */
-  label?: Label;
+  label?: 'text-and-logo' | 'text-only' | 'logo-only';
   /** Shape of the button. */
-  shape?: Shape;
+  shape?: 'pill' | 'box';
   /** Button tint. Light for dark backgrounds and dark for light backgrounds. */
-  tint?: Tint;
+  tint?: 'dark' | 'light';
   /** Callback function that is fired when mouse leaves the component. */
   onMouseLeave?: (event: MouseEvent<HTMLElement>) => void;
   /** Callback function that is fired when the mouse button is released. */
@@ -78,7 +75,7 @@ const PoweredByButton: GenericComponent<PoweredByButtonProps> = forwardRef<HTMLE
       className,
     );
 
-    const iconProps: { color?: IconColors; tint: IconTints } =
+    const iconProps: { color?: typeof COLORS[number]; tint: typeof TINTS[number] } =
       tint === 'light' ? { color: 'neutral', tint: 'lightest' } : { tint: 'darkest' };
 
     return (

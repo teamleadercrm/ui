@@ -2,10 +2,9 @@ import React, { useState, useMemo } from 'react';
 import cx from 'classnames';
 import theme from './theme.css';
 import AvatarOverlay from './AvatarOverlay';
-import { Size } from './types';
 import Box from '../box';
 import { Heading4 } from '../typography';
-import { colorsWithout } from '../../constants';
+import { colorsWithout, SIZES } from '../../constants';
 import { GenericComponent } from '../../@types/types';
 
 const colors = colorsWithout(['neutral']);
@@ -23,7 +22,7 @@ interface AvatarInitialsProps {
   /** Callback function that is fired when user clicks the edit icon. */
   onImageChange?: React.MouseEventHandler<HTMLDivElement>;
   /** The size of the avatar. */
-  size: Size;
+  size: Exclude<typeof SIZES[number], 'fullscreen' | 'smallest'>;
 }
 
 const AvatarInitials: GenericComponent<AvatarInitialsProps> = ({

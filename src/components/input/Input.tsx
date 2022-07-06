@@ -4,12 +4,14 @@ import SingleLineInputBase, { SingleLineInputBaseProps } from './SingleLineInput
 
 interface InputProps extends Omit<SingleLineInputBaseProps, 'onChange'> {
   /** Callback function that is fired when the component's value changes. */
-  onChange?: (event: ChangeEvent<HTMLElement>, value: string) => void;
+  onChange?: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, value: string) => void;
+  /** Current value of the input element. */
+  value?: string | number;
 }
 
-const Input: GenericComponent<InputProps> = forwardRef<HTMLElement, InputProps>(
-  ({ onChange, ...others }: InputProps, forwardedRef) => {
-    const [stateValue, setStateValue] = useState('');
+const Input: GenericComponent<InputProps> = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(
+  ({ value, onChange, ...others }: InputProps, forwardedRef) => {
+    const [stateValue, setStateValue] = useState(value);
 
     const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
       setStateValue(event.currentTarget.value);

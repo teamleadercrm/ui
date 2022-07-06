@@ -10,11 +10,12 @@ import { Heading3, TextBody } from '../typography';
 import theme from './theme.css';
 import { BoxProps } from '../box/Box';
 import { GenericComponent } from '../../@types/types';
+import { SIZES } from '../../constants';
 
 interface EmptyStateProps extends Omit<BoxProps, 'size'> {
   hidePointer?: boolean;
   metaText?: ReactNode | string;
-  size?: 'small' | 'medium' | 'large';
+  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
   title?: ReactNode | string;
 }
 

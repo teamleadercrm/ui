@@ -3,9 +3,10 @@ import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
 import AvatarStackOverflow from './AvatarStackOverflow';
-import { Direction, Size } from './types';
+import { Direction } from './types';
 import { BoxProps } from '../box/Box';
 import { GenericComponent } from '../../@types/types';
+import { SIZES } from '../../constants';
 
 const OVERLAP_SPACINGS = {
   tiny: -6,
@@ -35,7 +36,7 @@ interface AvatarStackProps extends Omit<BoxProps, 'size' | 'ref'> {
   /** If true, avatars will not be overlapping each other and will become interactive. */
   selectable?: boolean;
   /** The size of the avatar stack. */
-  size?: Size;
+  size?: Exclude<typeof SIZES[number], 'fullscreen' | 'smallest'>;
   /** If true, the names will be shown in a tooltip on hover. */
   tooltip?: boolean;
 }

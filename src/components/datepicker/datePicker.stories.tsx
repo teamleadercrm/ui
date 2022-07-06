@@ -4,7 +4,7 @@ import { boolean, number, select, text } from '@storybook/addon-knobs';
 import { DatePicker, DatePickerInput, Toggle } from '../../index';
 import { DateTime } from 'luxon';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Size } from './DatePickerInput';
+import { SIZES } from '../../constants';
 
 const languages = [
   'da-DK',
@@ -25,6 +25,8 @@ const languages = [
   'tr-TR',
 ];
 const sizes = ['small', 'medium', 'large'];
+type Size = Exclude<typeof SIZES[number], 'tiny' | 'smallest' | 'hero' | 'fullscreen'>;
+
 const optionalSizes = {
   small: 'small',
   medium: 'medium',

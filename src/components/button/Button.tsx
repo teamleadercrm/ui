@@ -1,6 +1,7 @@
 import cx from 'classnames';
 import React, { forwardRef, ReactNode } from 'react';
 import { GenericComponent } from '../../@types/types';
+import { COLORS, SIZES } from '../../constants';
 import Box from '../box';
 import { BoxProps } from '../box/Box';
 import LoadingSpinner from '../loadingSpinner';
@@ -29,7 +30,7 @@ export interface ButtonProps extends Omit<BoxProps, 'size'> {
   /** A class name for the button to give custom styles. */
   className?: string;
   /** The color which the button should have when 'level' is set to 'outline' */
-  color?: 'teal' | 'neutral' | 'mint' | 'violet' | 'ruby' | 'gold' | 'aqua' | 'white';
+  color?: typeof COLORS[number] | 'white';
   /** A custom element to be rendered */
   element?: any;
   /** If true, component will be disabled. */
@@ -49,7 +50,7 @@ export interface ButtonProps extends Omit<BoxProps, 'size'> {
   /** If true, component will show a loading spinner instead of label or children. */
   processing?: boolean;
   /** Size of the button. */
-  size?: 'tiny' | 'small' | 'medium' | 'large';
+  size?: Exclude<typeof SIZES[number], 'fullscreen' | 'smallest' | 'hero'>;
   /** Type of the button element. */
   type?: string;
 }
