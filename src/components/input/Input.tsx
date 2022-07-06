@@ -5,9 +5,9 @@ import SingleLineInputBase, { SingleLineInputBaseProps } from './SingleLineInput
 export interface InputProps extends Omit<SingleLineInputBaseProps, 'onChange'> {
   /** Callback function that is fired when the component's value changes. */
   onChange?: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, value: string) => void;
-  /** Callback function that is fired when the component is focussed */
+  /** Callback function that is fired when the component is focussed. */
   onFocus?: (event: React.SyntheticEvent<HTMLElement>) => void;
-  /** Callback function that is fired when the component is clicked */
+  /** Callback function that is fired when the component is clicked. */
   onClick?: (event: React.MouseEvent<HTMLElement>) => void;
   /** Current value of the input element. */
   value?: string | number;
