@@ -54,8 +54,8 @@ const Menu: GenericComponent<MenuProps> = ({
   selected,
   ...others
 }) => {
-  const [stateWidth, setWidth] = useState<number | undefined>();
-  const [stateHeight, setHeight] = useState<number | undefined>();
+  const [stateWidth, setStateWidth] = useState<number | undefined>();
+  const [stateHeight, setStateHeight] = useState<number | undefined>();
   const [statePosition, setPosition] = useState<string | undefined>(position);
 
   const menuNode = useRef<HTMLUListElement>(null);
@@ -198,8 +198,8 @@ const Menu: GenericComponent<MenuProps> = ({
     const { width, height } = menuNode?.current?.getBoundingClientRect() || {};
 
     active ? show() : hide();
-    width && setWidth(width);
-    height && setHeight(height);
+    width && setStateWidth(width);
+    height && setStateHeight(height);
 
     return () => {
       active && removeEvents();
