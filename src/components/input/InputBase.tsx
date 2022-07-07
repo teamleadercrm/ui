@@ -25,7 +25,7 @@ export interface InputBaseProps
   /** Callback function that is fired when the component's value changes. */
   onChange?: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   /** Callback function that is fired when focusing the input field. */
-  onFocus?: (event: FocusEvent<HTMLElement>) => void;
+  onFocus?: (event: React.FocusEvent<HTMLElement>) => void;
   /** Boolean indicating whether the input should render as read only. */
   readOnly?: boolean;
   /** Forwarded ref element. */

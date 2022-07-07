@@ -87,7 +87,7 @@ const DatePickerInput: GenericComponent<DatePickerInputProps> = ({
     return customFormatDate(selectedDate, locale);
   };
 
-  const handleInputFocus = (event: React.SyntheticEvent<HTMLElement>) => {
+  const handleInputFocus = (event: React.FocusEvent<HTMLElement>) => {
     if (inputProps?.readOnly) {
       return;
     }
@@ -105,7 +105,7 @@ const DatePickerInput: GenericComponent<DatePickerInputProps> = ({
     if (!openPickerOnFocus) {
       setPopoverAnchorEl(event.currentTarget);
       setIsPopoverActive(true);
-      inputProps?.onFocus && inputProps.onFocus(event);
+      inputProps?.onFocus && inputProps.onFocus(event as unknown as React.FocusEvent<HTMLElement>);
     }
 
     inputProps?.onClick && inputProps.onClick(event);
