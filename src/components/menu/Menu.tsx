@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactNode, SyntheticEvent, useEffect, useRef, useState } from 'react';
+import React, { ReactElement, ReactNode, SyntheticEvent, useCallback, useEffect, useRef, useState } from 'react';
 import cx from 'classnames';
 import { events } from '../utils';
 import { getViewport } from '../utils/utils';
@@ -160,7 +160,7 @@ const Menu: GenericComponent<MenuProps> = ({
     return active ? getActiveMenuStyle() : getMenuStyleByPosition();
   };
 
-  const getItems = () => {
+  const getItems = useCallback(() => {
     // Because React Hot Loader creates proxied versions of your components,
     // comparing reference types of elements won't work
     // https://github.com/gaearon/react-hot-loader/blob/master/docs/Known%20Limitations.md#checking-element-types
@@ -182,7 +182,7 @@ const Menu: GenericComponent<MenuProps> = ({
         }
       }
     });
-  };
+  }, [children]);
 
   const show = () => {
     onShow && onShow();
