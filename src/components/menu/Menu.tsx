@@ -1,4 +1,13 @@
-import React, { ReactElement, ReactNode, SyntheticEvent, useCallback, useEffect, useRef, useState } from 'react';
+import React, {
+  createRef,
+  ReactElement,
+  ReactNode,
+  SyntheticEvent,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import cx from 'classnames';
 import { events } from '../utils';
 import { getViewport } from '../utils/utils';
@@ -58,7 +67,7 @@ const Menu: GenericComponent<MenuProps> = ({
   const [stateHeight, setStateHeight] = useState<number | undefined>();
   const [statePosition, setPosition] = useState<string | undefined>(position);
 
-  const menuNode = useRef<HTMLUListElement>(null);
+  const menuNode = createRef<HTMLUListElement>();
   const menuWrapper = useRef<HTMLElement>(null);
 
   const boxProps = pickBoxProps(others);
@@ -195,16 +204,19 @@ const Menu: GenericComponent<MenuProps> = ({
   };
 
   useEffect(() => {
-    const { width, height } = menuNode?.current?.getBoundingClientRect() || {};
-
     active ? show() : hide();
-    width && setStateWidth(width);
-    height && setStateHeight(height);
 
     return () => {
       active && removeEvents();
     };
   }, [active, menuNode]);
+
+  useEffect(() => {
+    const { width, height } = menuNode?.current?.getBoundingClientRect() || {};
+
+    width && setStateWidth(width);
+    height && setStateHeight(height);
+  }, [menuNode]);
 
   useEffect(() => {
     if (position === POSITION.AUTO) {
@@ -217,7 +229,7 @@ const Menu: GenericComponent<MenuProps> = ({
       {outline ? (
         <div
           className={outlineClassNames}
-          style={{ ...(stateWidth ? { width: Math.ceil(stateWidth) } : {}), height: stateHeight }}
+          style={{ ...(stateWidth && { width: Math.ceil(stateWidth) }), height: stateHeight }}
         />
       ) : null}
       <ul ref={menuNode} className={theme['menu-inner']} style={getMenuStyle()}>
