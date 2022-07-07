@@ -209,7 +209,7 @@ const Menu: GenericComponent<MenuProps> = ({
     return () => {
       active && removeEvents();
     };
-  }, [active, menuNode]);
+  }, [active]);
 
   useEffect(() => {
     const { width, height } = menuNode?.current?.getBoundingClientRect() || {};
