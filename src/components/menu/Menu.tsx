@@ -214,8 +214,8 @@ const Menu: GenericComponent<MenuProps> = ({
   useEffect(() => {
     const { width, height } = menuNode?.current?.getBoundingClientRect() || {};
 
-    width && setStateWidth(width);
-    height && setStateHeight(height);
+    setStateWidth(width);
+    setStateHeight(height);
   }, [menuNode]);
 
   useEffect(() => {
