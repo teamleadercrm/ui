@@ -1,10 +1,10 @@
 import React, {
-  createRef,
   ReactElement,
   ReactNode,
   SyntheticEvent,
   useCallback,
   useEffect,
+  useLayoutEffect,
   useRef,
   useState,
 } from 'react';
@@ -63,11 +63,11 @@ const Menu: GenericComponent<MenuProps> = ({
   selected,
   ...others
 }) => {
-  const [stateWidth, setStateWidth] = useState<number | undefined>();
-  const [stateHeight, setStateHeight] = useState<number | undefined>();
+  const [stateWidth, setStateWidth] = useState<number | undefined>(0);
+  const [stateHeight, setStateHeight] = useState<number | undefined>(0);
   const [statePosition, setPosition] = useState<string | undefined>(position);
 
-  const menuNode = createRef<HTMLUListElement>();
+  const menuNode = useRef<HTMLUListElement>(null);
   const menuWrapper = useRef<HTMLElement>(null);
 
   const boxProps = pickBoxProps(others);
@@ -153,7 +153,7 @@ const Menu: GenericComponent<MenuProps> = ({
   const getMenuStyleByPosition = () => {
     switch (statePosition) {
       case POSITION.TOP_RIGHT:
-        return { clip: `rect(0 ${stateWidth}px 0 ${stateWidth}px)` };
+        return { clip: `rect(0 165.75px 0 165.75px)` };
       case POSITION.BOTTOM_RIGHT:
         return { clip: `rect(${stateHeight}px ${stateWidth}px ${stateHeight}px ${stateWidth}px)` };
       case POSITION.BOTTOM_LEFT:
@@ -203,6 +203,13 @@ const Menu: GenericComponent<MenuProps> = ({
     removeEvents();
   };
 
+  useLayoutEffect(() => {
+    const { width, height } = menuNode.current?.getBoundingClientRect() || {};
+
+    setStateWidth(width);
+    setStateHeight(height);
+  }, [menuNode.current?.getBoundingClientRect()]);
+
   useEffect(() => {
     active ? show() : hide();
 
@@ -212,13 +219,6 @@ const Menu: GenericComponent<MenuProps> = ({
   }, [active]);
 
   useEffect(() => {
-    const { width, height } = menuNode?.current?.getBoundingClientRect() || {};
-
-    setStateWidth(width);
-    setStateHeight(height);
-  }, [menuNode]);
-
-  useEffect(() => {
     if (position === POSITION.AUTO) {
       setPosition(calculatePosition());
     }
@@ -226,12 +226,12 @@ const Menu: GenericComponent<MenuProps> = ({
 
   return (
     <Box data-teamleader-ui="menu" className={classNames} ref={menuWrapper} style={getRootStyle()} {...boxProps}>
-      {outline ? (
+      {outline && (
         <div
           className={outlineClassNames}
           style={{ ...(stateWidth && { width: Math.ceil(stateWidth) }), height: stateHeight }}
         />
-      ) : null}
+      )}
       <ul ref={menuNode} className={theme['menu-inner']} style={getMenuStyle()}>
         {getItems()}
       </ul>
