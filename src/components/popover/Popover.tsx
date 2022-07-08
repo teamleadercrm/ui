@@ -16,7 +16,7 @@ import { GenericComponent } from '../../@types/types';
 import { BoxProps } from '../box/Box';
 import { COLORS, TINTS } from '../../constants';
 
-interface PopoverProps extends Omit<BoxProps, 'ref'> {
+export interface PopoverProps extends Omit<BoxProps, 'ref'> {
   /** The state of the Popover, when true the Popover is rendered otherwise it is not. */
   active?: boolean;
   /** The Popovers anchor element. */

@@ -1,4 +1,13 @@
-import React, { ReactElement, ReactNode, SyntheticEvent, useEffect, useRef, useState } from 'react';
+import React, {
+  ReactElement,
+  ReactNode,
+  SyntheticEvent,
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from 'react';
 import cx from 'classnames';
 import { events } from '../utils';
 import { getViewport } from '../utils/utils';
@@ -54,9 +63,8 @@ const Menu: GenericComponent<MenuProps> = ({
   selected,
   ...others
 }) => {
-  const [stateWidth, setWidth] = useState<number | undefined>(0);
-  const [stateHeight, setHeight] = useState<number | undefined>(0);
-  const [stateActive, setActive] = useState<boolean>(active);
+  const [stateWidth, setStateWidth] = useState<number | undefined>(0);
+  const [stateHeight, setStateHeight] = useState<number | undefined>(0);
   const [statePosition, setPosition] = useState<string | undefined>(position);
 
   const menuNode = useRef<HTMLUListElement>(null);
@@ -76,7 +84,7 @@ const Menu: GenericComponent<MenuProps> = ({
   });
 
   const handleDocumentClick = (event: SyntheticEvent) => {
-    if (stateActive && !events.targetIsDescendant(event, menuWrapper.current)) {
+    if (active && !events.targetIsDescendant(event, menuWrapper.current)) {
       // eslint-disable-next-line @typescript-eslint/no-use-before-define
       hide();
     }
@@ -158,10 +166,10 @@ const Menu: GenericComponent<MenuProps> = ({
   };
 
   const getMenuStyle = () => {
-    return stateActive ? getActiveMenuStyle() : getMenuStyleByPosition();
+    return active ? getActiveMenuStyle() : getMenuStyleByPosition();
   };
 
-  const getItems = () => {
+  const getItems = useCallback(() => {
     // Because React Hot Loader creates proxied versions of your components,
     // comparing reference types of elements won't work
     // https://github.com/gaearon/react-hot-loader/blob/master/docs/Known%20Limitations.md#checking-element-types
@@ -183,49 +191,47 @@ const Menu: GenericComponent<MenuProps> = ({
         }
       }
     });
-  };
+  }, [children]);
 
   const show = () => {
     onShow && onShow();
-
-    setActive(true);
     addEvents();
   };
 
   const hide = () => {
     onHide && onHide();
-
-    setActive(false);
     removeEvents();
   };
 
+  useLayoutEffect(() => {
+    const { width, height } = menuNode.current?.getBoundingClientRect() || {};
+
+    setStateWidth(width);
+    setStateHeight(height);
+  }, [menuNode.current?.getBoundingClientRect()]);
+
   useEffect(() => {
-    const { width, height } = menuNode?.current?.getBoundingClientRect() || {};
-
-    width && setWidth(width);
-    height && setHeight(height);
-  }, [menuNode]);
-
-  useEffect(() => {
-    stateActive ? show() : hide();
-
-    if (statePosition === POSITION.AUTO) {
-      setPosition(calculatePosition());
-    }
+    active ? show() : hide();
 
     return () => {
-      stateActive && removeEvents();
+      active && removeEvents();
     };
-  }, [stateActive, statePosition]);
+  }, [active]);
+
+  useEffect(() => {
+    if (position === POSITION.AUTO) {
+      setPosition(calculatePosition());
+    }
+  }, [position]);
 
   return (
     <Box data-teamleader-ui="menu" className={classNames} ref={menuWrapper} style={getRootStyle()} {...boxProps}>
-      {outline ? (
+      {outline && (
         <div
           className={outlineClassNames}
-          style={{ ...(stateWidth ? { width: Math.ceil(stateWidth) } : {}), height: stateHeight }}
+          style={{ ...(stateWidth && { width: Math.ceil(stateWidth) }), height: stateHeight }}
         />
-      ) : null}
+      )}
       <ul ref={menuNode} className={theme['menu-inner']} style={getMenuStyle()}>
         {getItems()}
       </ul>

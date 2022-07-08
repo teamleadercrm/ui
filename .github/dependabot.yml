@@ -11,12 +11,15 @@ updates:
     target-branch: next-release
     reviewers:
       - driesd
-      - ArnaudWeyts
       - lowiebenoot
       - JorenSaeyTL
       - lorgan3
       - jelledc
       - farazatarodi
       - qubis741
+      - stefaandevylder
+      - eniskraasniqi1
+      - KristofColpaert
+      - BeirlaenAaron
     labels:
       - dependencies

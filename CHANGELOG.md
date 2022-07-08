@@ -12,6 +12,12 @@
 
 ### Dependency updates
 
+## [15.0.1] - 2022-07-08
+
+### Changed
+
+- `Dialog.Body`: made `handleShowScrollShadow` optional ([@qubis741](https://github.com/qubis741)) in [#2263](https://github.com/teamleadercrm/ui/pull/2263))
+
 ## [15.0.0] - 2022-07-06
 
 ### Added
