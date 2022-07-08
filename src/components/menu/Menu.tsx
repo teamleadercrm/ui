@@ -153,7 +153,7 @@ const Menu: GenericComponent<MenuProps> = ({
   const getMenuStyleByPosition = () => {
     switch (statePosition) {
       case POSITION.TOP_RIGHT:
-        return { clip: `rect(0 165.75px 0 165.75px)` };
+        return { clip: `rect(0 ${stateWidth}px 0 ${stateWidth}px)` };
       case POSITION.BOTTOM_RIGHT:
         return { clip: `rect(${stateHeight}px ${stateWidth}px ${stateHeight}px ${stateWidth}px)` };
       case POSITION.BOTTOM_LEFT:
