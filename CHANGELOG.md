@@ -14,6 +14,8 @@
 
 ## [15.0.2] - 2022-07-11
 
+### Fixed
+
 - `Input`: controlled Inputs could get ouf sync when the controlled value was changed outside of the component (thus not via the onChange handler) ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2271](https://github.com/teamleadercrm/ui/pull/2271))
 
 ## [15.0.1] - 2022-07-08
