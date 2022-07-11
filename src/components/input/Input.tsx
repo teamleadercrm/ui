@@ -22,7 +22,14 @@ const Input: GenericComponent<InputProps> = forwardRef<HTMLInputElement | HTMLTe
       onChange && onChange(event, event.currentTarget.value);
     };
 
-    return <SingleLineInputBase ref={forwardedRef} value={stateValue} onChange={handleChange} {...others} />;
+    return (
+      <SingleLineInputBase
+        ref={forwardedRef}
+        value={typeof value !== 'undefined' ? value : stateValue}
+        onChange={handleChange}
+        {...others}
+      />
+    );
   },
 );
 
