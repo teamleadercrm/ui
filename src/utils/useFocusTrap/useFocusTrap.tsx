@@ -75,7 +75,10 @@ const useFocusTrap = ({
       }
 
       const trapFocus: EventListener = (event) => {
-        if (!currentFocusRef.contains(event.target as Element)) {
+        const eventTarget = event.target as Element;
+        // If focus is called on CkeEditor Element (for example Link dialog), we want to keep focus there, not back in our dialog
+        const isCkEditorElement = eventTarget.className.includes('cke');
+        if (!isCkEditorElement && !currentFocusRef.contains(eventTarget)) {
           if (document.activeElement === event.target) {
             if (event.target === topFocusBumperRef.current) {
               // Reset the focus to the last element when focusing in reverse (shift-tab)
