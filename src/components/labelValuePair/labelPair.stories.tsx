@@ -6,7 +6,7 @@ import Badge from '../badge';
 import Link from '../link';
 import { IconBuildingSmallOutline } from '@teamleader/ui-icons';
 import { TextBodyCompact } from '../typography';
-import { ComponentStory } from '@storybook/react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 export default {
   component: LabelValuePair,
@@ -18,7 +18,7 @@ export default {
       url: 'https://www.figma.com/file/LHH25GN90ljQaBEUNMsdJn/Desktop-components?node-id=3469%3A366',
     },
   },
-};
+} as ComponentMeta<typeof LabelValuePair>;
 
 export const DefaultStory = (args: ComponentStory<typeof LabelValuePair>) => (
   <LabelValuePair {...args}>
@@ -30,9 +30,12 @@ export const DefaultStory = (args: ComponentStory<typeof LabelValuePair>) => (
 );
 
 DefaultStory.storyName = 'LabelValuePair';
+DefaultStory.args = {
+  inline: true,
+};
 
-export const labelValuePairGroup = () => (
-  <LabelValuePairGroup title="I'm a label pair group">
+export const labelValuePairGroup: ComponentStory<typeof LabelValuePairGroup> = (args) => (
+  <LabelValuePairGroup {...args}>
     <LabelValuePair>
       <LabelValuePair.Label>I am a label</LabelValuePair.Label>
       <LabelValuePair.Value>
@@ -86,3 +89,6 @@ export const labelValuePairGroup = () => (
 );
 
 labelValuePairGroup.storyName = 'LabelValuePairGroup';
+labelValuePairGroup.args = {
+  title: "I'm a label pair group",
+};
