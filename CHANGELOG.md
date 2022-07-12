@@ -4,8 +4,6 @@
 
 ### Changed
 
-- `useFocusTrap`: added exception for `ckEditor` elements to allow focusing ([@qubis741](https://github.com/qubis741)) in [#2273](https://github.com/teamleadercrm/ui/pull/2273))
-
 ### Deprecated
 
 ### Removed
@@ -13,6 +11,12 @@
 ### Fixed
 
 ### Dependency updates
+
+## [15.0.3] - 2022-07-12
+
+### Changed
+
+- `useFocusTrap`: added exception for `ckEditor` elements to allow focusing ([@qubis741](https://github.com/qubis741)) in [#2273](https://github.com/teamleadercrm/ui/pull/2273))
 
 ## [15.0.2] - 2022-07-11
 
