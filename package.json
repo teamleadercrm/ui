@@ -120,7 +120,7 @@
     "postcss-custom-media": "^8.0.0",
     "postcss-each": "0.10.0",
     "postcss-import": "^14.0.0",
-    "postcss-loader": "^6.2.1",
+    "postcss-loader": "^7.0.1",
     "postcss-nested": "^5.0.3",
     "postcss-preset-env": "6.7.0",
     "postcss-pseudoelements": "^5.0.0",
