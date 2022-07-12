@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `LabelValuePair`: decreased the margin-bottom for inline `LabelValuePair`'s ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2280](https://github.com/teamleadercrm/ui/pull/2280))
+
 ### Deprecated
 
 ### Removed
