@@ -7,7 +7,7 @@ import InputBase, { InputBaseProps } from './InputBase';
 import ValidationText from '../validationText';
 import { GenericComponent } from '../../@types/types';
 
-interface TextareaProps extends Omit<InputBaseProps, 'ref'>, Omit<BoxProps, 'size' | 'ref'> {
+interface TextareaProps extends Omit<InputBaseProps, 'ref' | 'type'>, Omit<BoxProps, 'size' | 'ref'> {
   /** The text to use as error message below the input. */
   error?: boolean | ReactNode;
   /** The text to use as help text below the input. */
