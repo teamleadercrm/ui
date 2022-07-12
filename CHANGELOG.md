@@ -2,6 +2,8 @@
 
 ### Added
 
+- `Icon`: added optional `ref` prop ([@qubis741](https://github.com/qubis741)) in [#2279](https://github.com/teamleadercrm/ui/pull/2279))
+
 ### Changed
 
 ### Deprecated
