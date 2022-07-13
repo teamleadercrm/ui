@@ -245,9 +245,9 @@ const isHorizontalDirectionPositionPossible = (
         anchorPosition.centerX + popoverDimensions.width / 2 < window.innerWidth &&
         anchorPosition.centerX - popoverDimensions.width / 2 > 0
       );
-    case POSITION_START:
-      return anchorPosition.left + popoverDimensions.width < window.innerWidth;
     case POSITION_END:
+      return anchorPosition.left + popoverDimensions.width < window.innerWidth;
+    case POSITION_START:
       return anchorPosition.right - popoverDimensions.width > 0;
   }
 };
@@ -266,15 +266,18 @@ const getOppositePosition = (position: Position) => {
 
 const getPosition = (position: Position, anchorPosition: PositionValues, popoverDimensions: DimensionValues) => {
   if (isPositionPossible(position, anchorPosition, popoverDimensions)) {
-    return position;
+    if (position === POSITION_CENTER) {
+      return position;
+    }
+    return getOppositePosition(position);
   }
 
   switch (position) {
     case POSITION_CENTER:
       return isPositionPossible(POSITION_START, anchorPosition, popoverDimensions)
-        ? POSITION_START
-        : isPositionPossible(POSITION_END, anchorPosition, popoverDimensions)
         ? POSITION_END
+        : isPositionPossible(POSITION_END, anchorPosition, popoverDimensions)
+        ? POSITION_START
         : position;
     default:
       return isPositionPossible(POSITION_CENTER, anchorPosition, popoverDimensions)
