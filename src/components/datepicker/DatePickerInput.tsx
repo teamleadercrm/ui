@@ -136,7 +136,6 @@ const DatePickerInput: GenericComponent<DatePickerInputProps> = ({
   return (
     <Box className={className} {...boxProps}>
       <Input
-        {...inputProps}
         inverse={inverse}
         prefix={renderIcon()}
         size={inputSize || size}
@@ -145,6 +144,7 @@ const DatePickerInput: GenericComponent<DatePickerInputProps> = ({
         noInputStyling={dayPickerProps && dayPickerProps.withMonthPicker}
         onClick={handleInputClick}
         onFocus={handleInputFocus}
+        {...inputProps}
       />
       <Popover
         active={isPopoverActive}
