@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { forwardRef, ReactNode } from 'react';
 import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
@@ -19,31 +19,36 @@ interface IconProps extends Omit<BoxProps, 'children' | 'className'> {
   opacity?: number;
 }
 
-const Icon: GenericComponent<IconProps> = ({
-  children,
-  className,
-  color = 'teal',
-  tint = 'normal',
-  opacity = 0.84,
-  ...others
-}) => {
-  const classNames = cx(theme[color], theme[tint], className);
+const Icon: GenericComponent<IconProps> = forwardRef<HTMLElement, IconProps>(
+  ({ children, className, color = 'teal', tint = 'normal', opacity = 0.84, ...others }, ref) => {
+    const classNames = cx(theme[color], theme[tint], className);
 
-  return (
-    <Box className={classNames} alignItems="center" data-teamleader-ui="icon" display="flex" element="span" {...others}>
-      {React.Children.map(children, (child) => {
-        // Check if child is an actual React component
-        // if so, pass the needed props. If not, just render it.
-        if (!React.isValidElement(child)) {
-          return child;
-        }
+    return (
+      <Box
+        className={classNames}
+        alignItems="center"
+        data-teamleader-ui="icon"
+        display="flex"
+        element="span"
+        ref={ref}
+        {...others}
+      >
+        {React.Children.map(children, (child) => {
+          // Check if child is an actual React component
+          // if so, pass the needed props. If not, just render it.
+          if (!React.isValidElement(child)) {
+            return child;
+          }
 
-        return React.cloneElement(child, {
-          opacity,
-        });
-      })}
-    </Box>
-  );
-};
+          return React.cloneElement(child, {
+            opacity,
+          });
+        })}
+      </Box>
+    );
+  },
+);
+
+Icon.displayName = 'Icon';
 
 export default Icon;
