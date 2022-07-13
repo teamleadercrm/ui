@@ -12,6 +12,16 @@
 
 ### Dependency updates
 
+## [15.0.4] - 2022-07-13
+
+### Added
+
+- `Icon`: added ref forwarding ([@qubis741](https://github.com/qubis741)) in [#2279](https://github.com/teamleadercrm/ui/pull/2279))
+
+### Changed
+
+- `LabelValuePair`: decreased the margin-bottom for inline `LabelValuePair`'s ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2280](https://github.com/teamleadercrm/ui/pull/2280))
+
 ## [15.0.3] - 2022-07-12
 
 ### Changed

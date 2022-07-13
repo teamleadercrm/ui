@@ -18,7 +18,7 @@ interface LabelValuePairComponent extends GenericComponent<LabelValuePairProps> 
 }
 
 const LabelValuePair: LabelValuePairComponent = ({ alignValue = 'left', children, inline = true, ...others }) => (
-  <Box {...others} display="flex" flexDirection={inline ? 'row' : 'column'} marginBottom={inline ? 2 : 3}>
+  <Box {...others} display="flex" flexDirection={inline ? 'row' : 'column'} marginBottom={inline ? 1 : 3}>
     {React.Children.map(children, (child) => {
       if (isComponentOfType(Label, child) && React.isValidElement(child)) {
         return React.cloneElement(child, { inline, ...child.props });
