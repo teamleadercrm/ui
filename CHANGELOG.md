@@ -12,6 +12,13 @@
 
 ### Dependency updates
 
+## [15.0.5] - 2022-07-14
+
+### Fixed
+
+- `Popover`: remove unused `direction` prop from `getPosition` ([@eniskraasniqi1](https://github.com/eniskraasniqi1)) in [#2281](https://github.com/teamleadercrm/ui/pull/2281))
+- `DatePickerInput`: moved inputProps to the bottom so it is not overwritten ([@BeirlaenAaron](https://github.com/BeirlaenAaron)) in [#2283](https://github.com/teamleadercrm/ui/pull/2283))
+
 ## [15.0.4] - 2022-07-13
 
 ### Added
