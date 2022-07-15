@@ -363,8 +363,19 @@ class Select extends PureComponent {
   });
 
   render() {
-    const { components, creatable, error, inverse, helpText, size, success, warning, forwardedRef, ...otherProps } =
-      this.props;
+    const {
+      components,
+      noOptionsMessage = 'No options',
+      creatable,
+      error,
+      inverse,
+      helpText,
+      size,
+      success,
+      warning,
+      forwardedRef,
+      ...otherProps
+    } = this.props;
 
     const boxProps = pickBoxProps(otherProps);
     const restProps = omitBoxProps(otherProps);
@@ -393,6 +404,7 @@ class Select extends PureComponent {
           menuShouldBlockScroll
           styles={this.getStyles()}
           size={size}
+          noOptionsMessage={() => noOptionsMessage}
           {...restProps}
         />
         <ValidationText error={error} help={helpText} inverse={inverse} success={success} warning={warning} />
@@ -428,6 +440,8 @@ Select.propTypes = {
   warning: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   /** A custom width for the input field */
   width: PropTypes.string,
+  /** Message shown where are no options */
+  noOptionsMessage: PropTypes.string,
 };
 
 Select.defaultProps = {
