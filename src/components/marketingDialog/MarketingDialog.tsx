@@ -8,15 +8,25 @@ import { MarketingButtonProps } from '../marketingButton/MarketingButton';
 import Flex from '../flex';
 
 interface MarketingDialogProps {
+  /** If true, the dialog will show on screen. */
   active: boolean;
+  /** Callback function that is fired when the close icon clicked. */
   onCloseClick?: () => void;
+  /** Callback function that is fired when the escape key is pressed. */
   onEscKeyDown?: () => void;
+  /** Callback function that is fired when the mouse clicks on the overlay. */
   onOverlayClick?: () => void;
+  /** The title of the dialog. */
   title: string;
-  graphic: ReactElement;
+  /** React component for a graphic on the left of the dialog. It should be able to receive a width, height and className like an img or iframe. */
+  graphic: ReactElement<{ width: string; height: string; className: string }>;
+  /** The subtitle of the dialog. */
   subtitle: string;
+  /** The body of the dialog. */
   body: ReactNode;
+  /** Object containing the props of the primary action / call to action. */
   primaryAction: Omit<MarketingButtonProps, 'level' | 'fullWidth'>;
+  /** Object containing the props of the secondary action / call to action. */
   secondaryAction?: Omit<MarketingButtonProps, 'level'>;
 }
 
