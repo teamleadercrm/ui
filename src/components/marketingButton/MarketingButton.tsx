@@ -8,7 +8,7 @@ import { BoxProps } from '../box/Box';
 import { SIZES } from '../../constants/sizes';
 import { GenericComponent } from '../../@types/types';
 
-interface MarketingButtonProps extends Omit<BoxProps, 'ref' | 'element'> {
+export interface MarketingButtonProps extends Omit<BoxProps, 'ref' | 'element'> {
   /** The content to display inside the button. */
   children?: ReactNode;
   /** A class name for the button to give custom styles. */
