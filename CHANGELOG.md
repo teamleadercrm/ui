@@ -2,6 +2,8 @@
 
 ### Added
 
+- `MarketingDialog`: Added new component ([@lorgan3](https://github.com/lorgan3) in [#2287](https://github.com/teamleadercrm/ui/pull/2287))
+
 ### Changed
 
 ### Deprecated
