@@ -2,6 +2,8 @@
 
 ### Added
 
+- `Select`: add `noOptionsMessage` prop for replacing no option label ([@eniskraasniqi1](https://github.com/eniskraasniqi1)) in [#2286](https://github.com/teamleadercrm/ui/pull/2286))
+
 ### Changed
 
 ### Deprecated
