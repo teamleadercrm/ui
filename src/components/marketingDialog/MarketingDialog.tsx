@@ -1,4 +1,4 @@
-import React, { cloneElement, ReactElement, ReactNode } from 'react';
+import React, { cloneElement, ReactElement, ReactNode, useRef } from 'react';
 import { DialogBase } from '../dialog';
 import theme from './theme.css';
 import { Heading1, Heading3, TextBody } from '../typography';
@@ -32,6 +32,8 @@ const MarketingDialog = ({
   primaryAction,
   secondaryAction,
 }: MarketingDialogProps) => {
+  const ctaRef = useRef<HTMLButtonElement>(null);
+
   return (
     <DialogBase
       active={active}
@@ -39,6 +41,7 @@ const MarketingDialog = ({
       onEscKeyDown={onEscKeyDown}
       onOverlayClick={onOverlayClick}
       className={theme['marketing-dialog']}
+      initialFocusRef={ctaRef}
     >
       <DialogBase.Header onCloseClick={onCloseClick}>
         <Heading3>{title}</Heading3>
@@ -63,7 +66,7 @@ const MarketingDialog = ({
           </TextBody>
 
           <Flex direction="column" alignItems="center" gap={3}>
-            <MarketingButton {...primaryAction} level="primary" fullWidth />
+            <MarketingButton ref={ctaRef} {...primaryAction} level="primary" fullWidth />
             {secondaryAction && <MarketingButton {...secondaryAction} level="link" />}
           </Flex>
         </Box>
