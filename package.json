@@ -115,7 +115,7 @@
     "json-loader": "^0.5.4",
     "moment": "^2.22.2",
     "postcss": "^8.4.5",
-    "postcss-cli": "^9.1.0",
+    "postcss-cli": "^10.0.0",
     "postcss-color-function": "^4.1.0",
     "postcss-custom-media": "^8.0.0",
     "postcss-each": "0.10.0",
