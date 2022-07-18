@@ -2,6 +2,8 @@
 
 ### Added
 
+- `Dialog`: `hero` option as size ([@qubis741](https://github.com/qubis741)) in [#2290](https://github.com/teamleadercrm/ui/pull/2290))
+
 ### Changed
 
 ### Deprecated
