@@ -14,6 +14,8 @@
 
 ### Dependency updates
 
+- [BREAKING] `node`: set minimum `node` version to `14.15.0` to bump `postcss-loader` ([@farazatarodi](https://github.com/farazatarodi) in [#2288](https://github.com/teamleadercrm/ui/pull/2288)).
+
 ## [15.0.5] - 2022-07-14
 
 ### Fixed
