@@ -2,6 +2,7 @@
 
 ### Added
 
+- `MarketingDialog`: Added new component ([@lorgan3](https://github.com/lorgan3) in [#2287](https://github.com/teamleadercrm/ui/pull/2287))
 - `Dialog`: `hero` option as size ([@qubis741](https://github.com/qubis741)) in [#2290](https://github.com/teamleadercrm/ui/pull/2290))
 
 ### Changed
