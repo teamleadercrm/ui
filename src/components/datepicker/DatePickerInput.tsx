@@ -142,9 +142,9 @@ const DatePickerInput: GenericComponent<DatePickerInputProps> = ({
         value={getFormattedDate()}
         width="120px"
         noInputStyling={dayPickerProps && dayPickerProps.withMonthPicker}
+        {...inputProps}
         onClick={handleInputClick}
         onFocus={handleInputFocus}
-        {...inputProps}
       />
       <Popover
         active={isPopoverActive}
