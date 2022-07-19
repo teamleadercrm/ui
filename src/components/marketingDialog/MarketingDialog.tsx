@@ -27,7 +27,7 @@ interface MarketingDialogProps {
   /** Object containing the props of the primary action / call to action. */
   primaryAction: Omit<MarketingButtonProps, 'level' | 'fullWidth'>;
   /** Object containing the props of the secondary action / call to action. */
-  secondaryAction?: Omit<MarketingButtonProps, 'level'>;
+  secondaryAction?: Omit<MarketingButtonProps, 'level' | 'fullWidth'>;
 }
 
 const MarketingDialog = ({
@@ -77,7 +77,7 @@ const MarketingDialog = ({
 
           <Flex direction="column" alignItems="center" gap={3}>
             <MarketingButton ref={ctaRef} {...primaryAction} level="primary" fullWidth />
-            {secondaryAction && <MarketingButton {...secondaryAction} level="link" />}
+            {secondaryAction && <MarketingButton {...secondaryAction} level="link" fullWidth />}
           </Flex>
         </Box>
       </DialogBase.Body>
