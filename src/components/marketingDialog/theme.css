@@ -1,0 +1,16 @@
+.marketing-dialog {
+  width: 900px;
+
+  &-text {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-graphic {
+    width: 480px;
+    height: 270px;
+    display: block;
+    border: none;
+  }
+}

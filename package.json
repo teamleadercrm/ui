@@ -1,7 +1,7 @@
 {
   "name": "@teamleader/ui",
   "description": "Teamleader UI library",
-  "version": "15.0.5",
+  "version": "16.0.0",
   "author": "Teamleader <development@teamleader.eu>",
   "bugs": {
     "url": "https://github.com/teamleadercrm/ui/issues"
@@ -115,12 +115,12 @@
     "json-loader": "^0.5.4",
     "moment": "^2.22.2",
     "postcss": "^8.4.5",
-    "postcss-cli": "^9.1.0",
+    "postcss-cli": "^10.0.0",
     "postcss-color-function": "^4.1.0",
     "postcss-custom-media": "^8.0.0",
     "postcss-each": "0.10.0",
     "postcss-import": "^14.0.0",
-    "postcss-loader": "^6.2.1",
+    "postcss-loader": "^7.0.1",
     "postcss-nested": "^5.0.3",
     "postcss-preset-env": "6.7.0",
     "postcss-pseudoelements": "^5.0.0",
@@ -148,7 +148,7 @@
   "main": "cjs/index.js",
   "module": "es/index.js",
   "engines": {
-    "node": "^12 || ^14 || >=16"
+    "node": "^14.15.0 || >=16"
   },
   "repository": {
     "type": "git",
