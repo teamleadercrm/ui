@@ -2,6 +2,20 @@
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Dependency updates
+
+## [15.1.0] - 2022-07-20
+
+### Added
+
 - `MarketingDialog`: Added new component ([@lorgan3](https://github.com/lorgan3) in [#2287](https://github.com/teamleadercrm/ui/pull/2287))
 - `Dialog`: `hero` option as size ([@qubis741](https://github.com/qubis741)) in [#2290](https://github.com/teamleadercrm/ui/pull/2290))
 
@@ -12,6 +26,8 @@
 ### Removed
 
 ### Fixed
+
+- `DatePickerInput`: moved inputProps on top of `onClick` and `onFocus`, to make sure the component handlers will be called ([@eniskraasniqi1](https://github.com/eniskraasniqi1) in [#2285](https://github.com/teamleadercrm/ui/pull/2285)).
 
 ### Dependency updates
 
