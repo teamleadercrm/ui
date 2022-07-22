@@ -33,5 +33,5 @@ export const WithTitle: ComponentStory<typeof EmptyState> = (args) => <EmptyStat
 WithTitle.args = {
   metaText:
     'I am the meta information and I basically explain that you can start adding content via the add button above.',
-  title: title,
+  title,
 };
