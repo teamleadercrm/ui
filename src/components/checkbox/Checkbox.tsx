@@ -55,7 +55,7 @@ const Checkbox: GenericComponent<CheckboxProps> = forwardRef<HTMLInputElement, C
     const IconCheckmark = size === 'large' ? IconCheckmarkMediumOutline : IconCheckmarkSmallOutline;
 
     const restProps = omit(others, ['onChange']);
-    const boxProps = pickBoxProps(restProps);
+    const boxProps = { ...pickBoxProps(restProps), onClick: restProps.onClick };
     const inputProps = omitBoxProps(restProps);
 
     const classNames = cx(

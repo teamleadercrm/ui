@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `Checkbox`: pass `onClick` prop to the parent container ([@eniskraasniqi1](https://github.com/eniskraasniqi1)) in [#2314](https://github.com/teamleadercrm/ui/pull/2314))
+
 ### Dependency updates
 
 ## [16.0.0] - 2022-07-20
