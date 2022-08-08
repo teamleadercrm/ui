@@ -109,7 +109,7 @@ const MarketingButton: GenericComponent<MarketingButtonProps> = forwardRef<HTMLE
       ref: buttonRef,
       className: classNames,
       disabled: element === 'button' ? disabled : undefined,
-      element: element,
+      element,
       onMouseUp: handleMouseUp,
       onMouseLeave: handleMouseLeave,
       type: element === 'button' ? type : undefined,

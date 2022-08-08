@@ -99,7 +99,7 @@ const IconButton: GenericComponent<IconButtonProps> = forwardRef<HTMLElement, Ic
       ref: buttonRef,
       className: classNames,
       disabled: element === 'button' ? disabled : undefined,
-      element: element,
+      element,
       onMouseUp: handleMouseUp,
       onMouseLeave: handleMouseLeave,
       type: element === 'button' ? type : undefined,
