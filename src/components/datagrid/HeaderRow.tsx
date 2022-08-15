@@ -4,8 +4,9 @@ import HeaderCell from './HeaderCell';
 import Checkbox from '../checkbox';
 import cx from 'classnames';
 import theme from './theme.css';
+import { GenericComponent } from '../../@types/types';
 
-interface HeaderRowProps extends RowProps {
+export interface HeaderRowProps extends RowProps {
   /** Callback function that is fired when the checkbox on the left side has changed. */
   onSelectionChange?: (checked: boolean, event: ChangeEvent<HTMLInputElement>) => void;
   /** If true, checkboxes will be rendered on the left side of each row. */
@@ -18,7 +19,7 @@ interface HeaderRowProps extends RowProps {
   sliceTo?: number;
 }
 
-const HeaderRow = forwardRef<HTMLElement, HeaderRowProps>(
+const HeaderRow: GenericComponent<HeaderRowProps> = forwardRef<HTMLElement, HeaderRowProps>(
   ({ className, children, sliceFrom, sliceTo, onSelectionChange, selected, selectable, ...others }, ref) => {
     const childrenArray = Array.isArray(children) ? children : [children];
     const childrenSliced = childrenArray.slice(sliceFrom, sliceTo);

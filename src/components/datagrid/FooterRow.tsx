@@ -3,6 +3,7 @@ import Cell from './Cell';
 import Row, { RowProps } from './Row';
 import cx from 'classnames';
 import theme from './theme.css';
+import { GenericComponent } from '../../@types/types';
 
 export interface FooterRowProps extends RowProps {
   /** Will render a checkbox cell at the front of the row when true */
@@ -13,7 +14,7 @@ export interface FooterRowProps extends RowProps {
   sliceTo?: number;
 }
 
-const FooterRow = forwardRef<HTMLElement, FooterRowProps>(
+const FooterRow: GenericComponent<FooterRowProps> = forwardRef<HTMLElement, FooterRowProps>(
   ({ className, children, sliceFrom, sliceTo, preserveSelectableSpace, ...others }, ref) => {
     const childrenArray = Array.isArray(children) ? children : [children];
     const childrenSliced = childrenArray.slice(sliceFrom, sliceTo);

@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import { GenericComponent } from '../../../@types/types';
 import Box from '../../box';
 
 interface BulkActionsProps {
@@ -6,7 +7,7 @@ interface BulkActionsProps {
   bulkActions?: ReactNode;
 }
 
-const BulkActions = ({ bulkActions = [] }: BulkActionsProps) => (
+const BulkActions: GenericComponent<BulkActionsProps> = ({ bulkActions = [] }) => (
   <Box display="flex" flex="1" alignItems="center" data-teamleader-ui="datagrid-bulk-actions">
     {bulkActions}
   </Box>

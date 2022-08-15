@@ -1,4 +1,5 @@
 import React from 'react';
+import { GenericComponent } from '../../../@types/types';
 import Box from '../../box';
 import { TextBody, Monospaced } from '../../typography';
 
@@ -9,7 +10,10 @@ interface NumSelectedRowsProps {
   numSelectedRowsLabel?: (numSelectedRows: number) => string;
 }
 
-const NumSelectedRows = ({ numSelectedRows = 0, numSelectedRowsLabel = () => 'selected' }: NumSelectedRowsProps) => (
+const NumSelectedRows: GenericComponent<NumSelectedRowsProps> = ({
+  numSelectedRows = 0,
+  numSelectedRowsLabel = () => 'selected',
+}: NumSelectedRowsProps) => (
   <Box marginRight={3} data-teamleader-ui="datagrid-num-selected-rows">
     <TextBody element="span" marginRight={1}>
       <Monospaced>

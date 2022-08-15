@@ -4,6 +4,7 @@ import Box from '../../box';
 import BulkActions from './BulkActions';
 import NumSelectedRows from './NumSelectedRows';
 import theme from './theme.css';
+import { GenericComponent } from '../../../@types/types';
 
 export interface HeaderRowOverlayProps {
   /** The size of the checkboxes in the grid, used to set the right spacing between this component and the checkbox in the HeaderCell */
@@ -18,14 +19,14 @@ export interface HeaderRowOverlayProps {
   numSelectedRowsLabel?: (numSelectedRows?: number) => string;
 }
 
-const HeaderRowOverlay = ({
+const HeaderRowOverlay: GenericComponent<HeaderRowOverlayProps> = ({
   children,
   className,
   headerCellCheckboxSize,
   numSelectedRows = 0,
   numSelectedRowsLabel,
   ...others
-}: HeaderRowOverlayProps) => {
+}) => {
   const classNames = cx(
     theme['header-row-overlay'],
     theme[`data-grid-checkbox-size-${headerCellCheckboxSize}`],

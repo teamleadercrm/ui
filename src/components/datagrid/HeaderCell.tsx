@@ -5,6 +5,7 @@ import Icon from '../icon';
 import { UITextBody } from '../typography';
 import cx from 'classnames';
 import { IconArrowDownSmallOutline, IconArrowUpSmallOutline } from '@teamleader/ui-icons';
+import { GenericComponent } from '../../@types/types';
 
 export interface HeaderCellProps extends CellProps {
   /** If true, sorting arrows will appear next to the text */
@@ -13,7 +14,15 @@ export interface HeaderCellProps extends CellProps {
   sorted?: 'asc' | 'desc';
 }
 
-const HeaderCell = ({ align = 'left', children, className, onClick, sortable, sorted, ...others }: HeaderCellProps) => {
+const HeaderCell: GenericComponent<HeaderCellProps> = ({
+  align = 'left',
+  children,
+  className,
+  onClick,
+  sortable,
+  sorted,
+  ...others
+}) => {
   const renderSortedIndicators = () => {
     if (sorted === 'asc' || (!sorted && sortable)) {
       return <IconArrowUpSmallOutline />;

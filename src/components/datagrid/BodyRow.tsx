@@ -4,14 +4,15 @@ import Checkbox from '../checkbox';
 import Row, { RowProps } from './Row';
 import cx from 'classnames';
 import theme from './theme.css';
+import { GenericComponent } from '../../@types/types';
 
-interface BodyRowProps extends RowProps {
+export interface BodyRowProps extends RowProps {
   /** If true, the row will show a hover state */
   hovered?: boolean;
   /** Callback function that is fired when the row is clicked */
   onClick?: (event: React.MouseEvent) => void;
   /** Callback function that is fired when the checkbox on the left side has changed. */
-  onSelectionChange?: (checked: boolean, event: Event) => void;
+  onSelectionChange?: (checked: boolean, event: React.ChangeEvent<HTMLInputElement>) => void;
   /** If true, checkboxes will be rendered on the left side of each row. */
   selectable?: boolean;
   /** If true, the checkbox on the left side of the row will be checked. */
@@ -22,7 +23,7 @@ interface BodyRowProps extends RowProps {
   sliceTo?: number;
 }
 
-const BodyRow = forwardRef<HTMLElement, BodyRowProps>(
+const BodyRow: GenericComponent<BodyRowProps> = forwardRef<HTMLElement, BodyRowProps>(
   (
     { className, children, hovered, sliceFrom, sliceTo, onClick, onSelectionChange, selected, selectable, ...others },
     ref,

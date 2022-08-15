@@ -4,6 +4,7 @@ import cx from 'classnames';
 import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
 import { BoxProps } from '../box/Box';
+import { GenericComponent } from '../../@types/types';
 
 export interface CellProps extends Omit<BoxProps, 'backgroundColor'> {
   /** The horizontal alignment of the text inside the cell. */
@@ -28,7 +29,7 @@ export interface CellProps extends Omit<BoxProps, 'backgroundColor'> {
   onClick?: MouseEventHandler<HTMLElement>;
 }
 
-const Cell = ({
+const Cell: GenericComponent<CellProps> = ({
   align = 'left',
   backgroundColor,
   border,
@@ -39,7 +40,7 @@ const Cell = ({
   soft = false,
   strong = false,
   ...others
-}: CellProps) => {
+}) => {
   const classNames = cx(
     uiUtilities['reset-font-smoothing'],
     theme['cell'],
