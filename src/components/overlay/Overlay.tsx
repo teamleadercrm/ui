@@ -26,8 +26,8 @@ export const Overlay: GenericComponent<OverlayProps> = ({
   onOverlayClick,
   ...other
 }) => {
-  const innerWrapperRef = useRef(null);
-  const clickOriginRef = useRef(null);
+  const innerWrapperRef = useRef<HTMLDivElement | null>(null);
+  const clickOriginRef = useRef<Node | null>(null);
 
   const handleEscKey = (event: KeyboardEvent) => {
     if (active && event.key === KEY.Escape) {
@@ -40,7 +40,7 @@ export const Overlay: GenericComponent<OverlayProps> = ({
   };
 
   const handleMouseDown = (event: MouseEvent) => {
-    clickOriginRef.current = event.target;
+    clickOriginRef.current = event.target as Node;
   };
 
   const handleMouseUp = (event: MouseEvent) => {
@@ -54,7 +54,7 @@ export const Overlay: GenericComponent<OverlayProps> = ({
       // so clicks on the select overlay shouldn't be registered either
       !selectOverlayNode.contains(clickOriginRef.current) &&
       // make sure only clicks within the current portal's DOM tree are handled
-      event.currentTarget.contains(event.target)
+      event.currentTarget.contains(event.target as Node)
     ) {
       onOverlayClick(event);
     }
