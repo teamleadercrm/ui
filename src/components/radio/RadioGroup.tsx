@@ -5,12 +5,13 @@ import isComponentOfType from '../utils/is-component-of-type';
 import omit from 'lodash.omit';
 import { GenericComponent } from '../../@types/types';
 import isReactElement from '../utils/isReactElement';
+import { BoxProps } from '../box/Box';
 
-export interface RadioGroupProps {
+export interface RadioGroupProps extends Omit<BoxProps, 'children' | 'className'> {
   children?: ReactNode;
   className?: string;
   disabled?: boolean;
-  onChange?: (value: unknown, event: React.SyntheticEvent<Element, Event>) => void;
+  onChange?: (value: string | boolean, event?: React.SyntheticEvent<Element, Event>) => void;
   value?: string | boolean;
 }
 
@@ -24,7 +25,7 @@ const RadioGroup: GenericComponent<RadioGroupProps> = ({
 }) => {
   const rest = omit(others, ['onChange']);
 
-  const handleChange = (value: unknown, event: React.SyntheticEvent<Element, Event>) => {
+  const handleChange = (value: string | boolean, event: React.SyntheticEvent<Element, Event>) => {
     if (onChange) {
       onChange(value, event);
     }
