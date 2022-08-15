@@ -1,14 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { ReactNode } from 'react';
+import { GenericComponent } from '../../@types/types';
 import Island from '../island';
 
-const Body = ({ children, ...others }) => {
-  return <Island {...others}>{children}</Island>;
-};
-
-Body.propTypes = {
+export interface BodyProps {
   /** The content to display inside the widget body. */
-  children: PropTypes.any,
+  children?: ReactNode;
+}
+
+const Body: GenericComponent<BodyProps> = ({ children, ...others }) => {
+  return <Island {...others}>{children}</Island>;
 };
 
 export default Body;
