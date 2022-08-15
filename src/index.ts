@@ -28,7 +28,7 @@ import Bullet from './components/bullet';
 import Checkbox from './components/checkbox';
 import Container from './components/container';
 import Counter from './components/counter';
-import DataGrid from './components/datagrid';
+import DataGrid, { DataGridProps } from './components/datagrid';
 import { DatePicker, DatePickerInput } from './components/datepicker';
 import DetailPage, { DetailPageBody, DetailPageHeader } from './components/detailPage';
 import Dialog, { DialogBase } from './components/dialog';
@@ -226,4 +226,4 @@ export {
   MarketingDialog,
 };
 
-export type { ErrorTextProps, HelpTextProps, SuccessTextProps, ValidationTextProps, WarningTextProps };
+export type { DataGridProps, ErrorTextProps, HelpTextProps, SuccessTextProps, ValidationTextProps, WarningTextProps };
