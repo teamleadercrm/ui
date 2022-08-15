@@ -1,42 +1,61 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import React, { ReactNode } from 'react';
 
+import { GenericComponent } from '../../@types/types';
+import { BoxProps } from '../box/Box';
 import ErrorText from './ErrorText';
 import HelpText from './HelpText';
 import SuccessText from './SuccessText';
 import WarningText from './WarningText';
 
-/** @type {React.ComponentType<any>} */
-class ValidationText extends PureComponent {
-  render() {
-    const { error, inverse, help, success, warning } = this.props;
-
-    if (error && typeof error !== 'boolean') {
-      return <ErrorText inverse={inverse}>{error}</ErrorText>;
-    }
-
-    if (warning && typeof warning !== 'boolean') {
-      return <WarningText inverse={inverse}>{warning}</WarningText>;
-    }
-
-    if (success && typeof success !== 'boolean') {
-      return <SuccessText inverse={inverse}>{success}</SuccessText>;
-    }
-
-    if (help) {
-      return <HelpText inverse={inverse}>{help}</HelpText>;
-    }
-
-    return null;
-  }
+export interface ValidationTextProps extends Omit<BoxProps, 'children'> {
+  error?: ReactNode;
+  help?: ReactNode;
+  inverse?: boolean;
+  success?: ReactNode;
+  warning?: ReactNode;
 }
 
-ValidationText.propTypes = {
-  error: PropTypes.oneOfType([PropTypes.bool, PropTypes.node]),
-  help: PropTypes.node,
-  inverse: PropTypes.bool,
-  success: PropTypes.oneOfType([PropTypes.bool, PropTypes.node]),
-  warning: PropTypes.oneOfType([PropTypes.bool, PropTypes.node]),
+const ValidationText: GenericComponent<ValidationTextProps> = ({
+  error,
+  inverse,
+  help,
+  success,
+  warning,
+  ...others
+}) => {
+  if (error && typeof error !== 'boolean') {
+    return (
+      <ErrorText inverse={inverse} {...others}>
+        {error}
+      </ErrorText>
+    );
+  }
+
+  if (warning && typeof warning !== 'boolean') {
+    return (
+      <WarningText inverse={inverse} {...others}>
+        {warning}
+      </WarningText>
+    );
+  }
+
+  if (success && typeof success !== 'boolean') {
+    return (
+      <SuccessText inverse={inverse} {...others}>
+        {success}
+      </SuccessText>
+    );
+  }
+
+  if (help) {
+    return (
+      <HelpText inverse={inverse} {...others}>
+        {help}
+      </HelpText>
+    );
+  }
+
+  return null;
 };
 
 export default ValidationText;
