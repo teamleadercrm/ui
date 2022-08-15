@@ -15,11 +15,14 @@ import {
   Heading4,
   Heading5,
   Marker,
+  MarkerProps,
   Monospaced,
+  MonospacedProps,
   TextBody,
   TextBodyCompact,
   TextDisplay,
   TextSmall,
+  TextProps,
   UITextDisplay,
   UITextBody,
   UITextSmall,
@@ -213,3 +216,4 @@ export {
   Padding,
   MarketingDialog,
 };
+export type { MarkerProps, MonospacedProps, TextProps };
