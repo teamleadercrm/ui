@@ -1,35 +1,28 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import React, { ReactNode } from 'react';
 
+import { GenericComponent } from '../../@types/types';
+import { BoxProps } from '../box/Box';
 import { TextSmall } from '../typography';
 
-/** @type {React.ComponentType<any>} */
-export default class HelpText extends PureComponent {
-  render() {
-    const { children, inverse, ...others } = this.props;
-
-    return (
-      <TextSmall
-        color={inverse ? 'teal' : 'neutral'}
-        data-teamleader-ui="help-text"
-        marginTop={1}
-        tint={inverse ? 'light' : 'darkest'}
-        {...others}
-      >
-        {children}
-      </TextSmall>
-    );
-  }
+export interface HelpTextProps extends BoxProps {
+  children?: ReactNode;
+  inverse?: boolean;
 }
 
-HelpText.propTypes = {
-  /** The displayed text */
-  children: PropTypes.node,
-  /** Determines if the component will be rendered in inverse mode */
-  inverse: PropTypes.bool,
-};
+const HelpText: GenericComponent<HelpTextProps> = ({
+  children = 'This is the help text',
+  inverse = false,
+  ...others
+}) => (
+  <TextSmall
+    color={inverse ? 'teal' : 'neutral'}
+    data-teamleader-ui="help-text"
+    marginTop={1}
+    tint={inverse ? 'light' : 'darkest'}
+    {...others}
+  >
+    {children}
+  </TextSmall>
+);
 
-HelpText.defaultProps = {
-  children: 'This is the help text',
-  inverse: false,
-};
+export default HelpText;
