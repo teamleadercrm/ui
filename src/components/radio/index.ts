@@ -1,5 +1,6 @@
-import RadioButton from './RadioButton';
-import RadioGroup from './RadioGroup';
+import RadioButton, { RadioButtonProps } from './RadioButton';
+import RadioGroup, { RadioGroupProps } from './RadioGroup';
 
 export default RadioButton;
 export { RadioButton, RadioGroup };
+export type { RadioButtonProps, RadioGroupProps };
