@@ -1,122 +1,102 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import React, { ReactNode, useRef, KeyboardEvent, MouseEvent, useEffect } from 'react';
 import Transition from 'react-transition-group/Transition';
 import cx from 'classnames';
 import theme from './theme.css';
 import { KEY } from '../../constants';
 import { selectOverlayNode } from '../select/Select';
+import { GenericComponent } from '../../@types/types';
 
-/** @type {React.ComponentType<any>} */
-class Overlay extends PureComponent {
-  innerWrapperRef = React.createRef();
-  clickOriginRef = React.createRef();
+export interface OverlayProps {
+  active?: boolean;
+  backdrop?: string;
+  children?: ReactNode;
+  className?: string;
+  lockScroll?: boolean;
+  onEscKeyDown?: (event: KeyboardEvent) => void;
+  onOverlayClick?: (event: MouseEvent) => void;
+}
 
-  componentDidMount() {
-    const { active, lockScroll } = this.props;
+export const Overlay: GenericComponent<OverlayProps> = ({
+  active,
+  backdrop = 'dark',
+  children,
+  className,
+  lockScroll = true,
+  onEscKeyDown,
+  onOverlayClick,
+  ...other
+}) => {
+  const innerWrapperRef = useRef(null);
+  const clickOriginRef = useRef(null);
 
-    if (active && lockScroll) {
-      document.body.style.overflow = 'hidden';
-    }
-  }
-
-  componentDidUpdate(prevProps) {
-    if (this.props.lockScroll) {
-      const becomingActive = this.props.active && !prevProps.active;
-      const becomingUnactive = !this.props.active && prevProps.active;
-
-      if (becomingActive) {
-        document.body.style.overflow = 'hidden';
-      }
-
-      if (becomingUnactive && !document.querySelectorAll('[data-teamleader-ui="overlay"]')[1]) {
-        document.body.style.overflow = '';
-      }
-    }
-  }
-
-  componentWillUnmount() {
-    if (this.props.active && this.props.lockScroll) {
-      if (!document.querySelectorAll('[data-teamleader-ui="overlay"]')[1]) {
-        document.body.style.overflow = '';
-      }
-    }
-  }
-
-  handleEscKey = (event) => {
-    if (this.props.active && event.key === KEY.Escape) {
+  const handleEscKey = (event: KeyboardEvent) => {
+    if (active && event.key === KEY.Escape) {
       event.stopPropagation();
       // react-select has its own implementation of an overlay, conflicting with our custom implementation
       // so escape events fired while the select menu is open should be ignored
       const selectMenuOpen = selectOverlayNode.hasChildNodes();
-      !selectMenuOpen && this.props.onEscKeyDown && this.props.onEscKeyDown(event);
+      !selectMenuOpen && onEscKeyDown && onEscKeyDown(event);
     }
   };
 
-  handleMouseDown = (event) => {
-    this.clickOriginRef.current = event.target;
+  const handleMouseDown = (event: MouseEvent) => {
+    clickOriginRef.current = event.target;
   };
 
-  handleMouseUp = (event) => {
+  const handleMouseUp = (event: MouseEvent) => {
     // Only register clicks outside of the children
     if (
-      this.props.onOverlayClick &&
+      onOverlayClick &&
       // if the clickOrigin is no longer part of the DOM tree, (f.e. due to internal React re-renders)
-      document.body.contains(this.clickOriginRef.current) &&
-      !this.innerWrapperRef.current?.contains(this.clickOriginRef.current) &&
+      document.body.contains(clickOriginRef.current) &&
+      !innerWrapperRef.current?.contains(clickOriginRef.current) &&
       // react-select has its own implementation of an overlay, conflicting with our custom implementation
       // so clicks on the select overlay shouldn't be registered either
-      !selectOverlayNode.contains(this.clickOriginRef.current) &&
+      !selectOverlayNode.contains(clickOriginRef.current) &&
       // make sure only clicks within the current portal's DOM tree are handled
       event.currentTarget.contains(event.target)
     ) {
-      this.props.onOverlayClick(event);
+      onOverlayClick(event);
     }
   };
 
-  render() {
-    const { active, className, backdrop, lockScroll, onEscKeyDown, onOverlayClick, ...other } = this.props;
+  useEffect(() => {
+    if (lockScroll) {
+      if (active) {
+        document.body.style.overflow = 'hidden';
+      }
 
-    return (
-      <Transition timeout={0} in={active} appear>
-        {(state) => {
-          return (
-            <div
-              data-teamleader-ui="overlay"
-              {...other}
-              onKeyDown={this.handleEscKey}
-              onMouseDown={this.handleMouseDown}
-              onMouseUp={this.handleMouseUp}
-              className={cx(
-                theme['overlay'],
-                theme[backdrop],
-                {
-                  [theme['is-entered']]: state === 'entered',
-                },
-                className,
-              )}
-            >
-              <div ref={this.innerWrapperRef}>{this.props.children}</div>
-            </div>
-          );
-        }}
-      </Transition>
-    );
-  }
-}
+      if (!active && !document.querySelectorAll('[data-teamleader-ui="overlay"]')[1]) {
+        document.body.style.overflow = '';
+      }
+    }
+  }, [active, lockScroll]);
 
-Overlay.propTypes = {
-  active: PropTypes.bool,
-  backdrop: PropTypes.string,
-  children: PropTypes.node,
-  className: PropTypes.string,
-  lockScroll: PropTypes.bool,
-  onOverlayClick: PropTypes.func,
-  onEscKeyDown: PropTypes.func,
-};
-
-Overlay.defaultProps = {
-  backdrop: 'dark',
-  lockScroll: true,
+  return (
+    <Transition timeout={0} in={active} appear>
+      {(state) => {
+        return (
+          <div
+            data-teamleader-ui="overlay"
+            {...other}
+            onKeyDown={handleEscKey}
+            onMouseDown={handleMouseDown}
+            onMouseUp={handleMouseUp}
+            className={cx(
+              theme['overlay'],
+              theme[backdrop],
+              {
+                [theme['is-entered']]: state === 'entered',
+              },
+              className,
+            )}
+          >
+            <div ref={innerWrapperRef}>{children}</div>
+          </div>
+        );
+      }}
+    </Transition>
+  );
 };
 
 export default Overlay;
