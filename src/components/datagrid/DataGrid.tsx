@@ -1,32 +1,22 @@
-import React, {
-  ChangeEvent,
-  NamedExoticComponent,
-  ReactElement,
-  ReactNode,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
-import Box from '../box';
-import LoadingBar from '../loadingBar';
-import HeaderRowOverlay from './HeaderRowOverlay';
-import Cell, { CellProps } from './Cell';
-import HeaderCell, { HeaderCellProps } from './HeaderCell';
-import isComponentOfType from '../utils/is-component-of-type';
-import { isElementOverflowingX } from '../utils/utils';
-import FooterRow, { FooterRowProps } from './FooterRow';
-import HeaderRow from './HeaderRow';
-import BodyRow from './BodyRow';
 import cx from 'classnames';
 import omit from 'lodash.omit';
+import React, { ChangeEvent, ReactElement, ReactNode, useEffect, useMemo, useRef, useState } from 'react';
 import ReactResizeDetector from 'react-resize-detector';
-import theme from './theme.css';
+import { GenericComponent } from '../../@types/types';
+import Box from '../box';
 import { BoxProps } from '../box/Box';
+import LoadingBar from '../loadingBar';
+import isComponentOfType from '../utils/is-component-of-type';
 import isReactElement from '../utils/is-react-element';
-import { HeaderRowOverlayProps } from './HeaderRowOverlay/HeaderRowOverlay';
-
-interface DataGridProps extends BoxProps {
+import { isElementOverflowingX } from '../utils/utils';
+import BodyRow, { BodyRowProps } from './BodyRow';
+import Cell, { CellProps } from './Cell';
+import FooterRow, { FooterRowProps } from './FooterRow';
+import HeaderCell, { HeaderCellProps } from './HeaderCell';
+import HeaderRow, { HeaderRowProps } from './HeaderRow';
+import HeaderRowOverlay, { HeaderRowOverlayProps } from './HeaderRowOverlay/HeaderRowOverlay';
+import theme from './theme.css';
+export interface DataGridProps extends BoxProps {
   /** If true, datagrid will have a border and rounded corners. */
   bordered?: boolean;
   /** The content to display inside the data grid. */
@@ -47,7 +37,16 @@ interface DataGridProps extends BoxProps {
   processing?: boolean;
 }
 
-const DataGrid = ({
+interface DatagridComponent extends GenericComponent<DataGridProps> {
+  HeaderRow: GenericComponent<HeaderRowProps>;
+  HeaderRowOverlay: GenericComponent<HeaderRowOverlayProps>;
+  HeaderCell: GenericComponent<HeaderCellProps>;
+  BodyRow: GenericComponent<BodyRowProps>;
+  Cell: GenericComponent<CellProps>;
+  FooterRow: GenericComponent<FooterRowProps>;
+}
+
+const DataGrid: DatagridComponent = ({
   bordered = false,
   children,
   className,
@@ -58,7 +57,7 @@ const DataGrid = ({
   stickyFromRight = 0,
   onSelectionChange,
   ...others
-}: DataGridProps) => {
+}) => {
   const [hoveredRow, setHoveredRow] = useState<React.Key | null>(null);
   const [isOverflowing, setOverflowing] = useState(false);
   const [selectedRows, setSelectedRows] = useState<React.Key[]>([]);
@@ -266,15 +265,15 @@ const DataGrid = ({
 
 DataGrid.HeaderRow = HeaderRow;
 DataGrid.HeaderRow.displayName = 'DataGrid.HeaderRow';
-DataGrid.HeaderRowOverlay = HeaderRowOverlay as NamedExoticComponent<HeaderRowOverlayProps>;
+DataGrid.HeaderRowOverlay = HeaderRowOverlay;
 DataGrid.HeaderRowOverlay.displayName = 'DataGrid.HeaderRowOverlay';
-DataGrid.HeaderCell = HeaderCell as NamedExoticComponent<HeaderCellProps>;
+DataGrid.HeaderCell = HeaderCell;
 DataGrid.HeaderCell.displayName = 'DataGrid.HeaderCell';
 DataGrid.BodyRow = BodyRow;
 DataGrid.BodyRow.displayName = 'DataGrid.BodyRow';
-DataGrid.Cell = Cell as NamedExoticComponent<CellProps>;
+DataGrid.Cell = Cell;
 DataGrid.Cell.displayName = 'DataGrid.Cell';
-DataGrid.FooterRow = FooterRow as NamedExoticComponent<FooterRowProps>;
+DataGrid.FooterRow = FooterRow;
 DataGrid.FooterRow.displayName = 'DataGrid.FooterRow';
 
 export default DataGrid;
