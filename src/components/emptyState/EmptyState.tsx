@@ -56,7 +56,7 @@ const EmptyState: GenericComponent<EmptyStateProps> = ({
       <div className={theme['content']}>
         {title && <Heading3 color="teal">{title}</Heading3>}
         {metaText && (
-          <TextBody marginTop={title && 2} color="neutral">
+          <TextBody marginTop={title ? 2 : undefined} color="neutral">
             {metaText}
           </TextBody>
         )}
