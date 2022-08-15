@@ -7,7 +7,7 @@ import isComponentOfType from '../utils/is-component-of-type';
 import theme from './theme.css';
 import { BoxProps } from '../box/Box';
 import { BUTTON_LEVELS } from '../button/Button';
-import isReactElement from '../utils/isReactElement';
+import isReactElement from '../utils/is-react-element';
 import { SIZES } from '../../constants';
 
 interface ButtonGroupProps extends Omit<BoxProps, 'size' | 'onChange' | 'ref'> {
