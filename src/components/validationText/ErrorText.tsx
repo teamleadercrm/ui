@@ -1,34 +1,21 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import React, { ReactNode } from 'react';
+import { GenericComponent } from '../../@types/types';
+import { BoxProps } from '../box/Box';
 import { TextSmall } from '../typography';
 
-/** @type {React.ComponentType<any>} */
-export default class ErrorText extends PureComponent {
-  render() {
-    const { children, inverse, ...others } = this.props;
-
-    return (
-      <TextSmall
-        color="ruby"
-        data-teamleader-ui="error-text"
-        marginTop={1}
-        tint={inverse ? 'light' : 'dark'}
-        {...others}
-      >
-        {children}
-      </TextSmall>
-    );
-  }
+export interface ErrorTextProps extends BoxProps {
+  children?: ReactNode;
+  inverse?: boolean;
 }
 
-ErrorText.propTypes = {
-  /** The displayed text */
-  children: PropTypes.node,
-  /** Determines if the component will be rendered in inverse mode */
-  inverse: PropTypes.bool,
-};
+const ErrorText: GenericComponent<ErrorTextProps> = ({
+  children = 'This is the error text',
+  inverse = false,
+  ...others
+}) => (
+  <TextSmall color="ruby" data-teamleader-ui="error-text" marginTop={1} tint={inverse ? 'light' : 'dark'} {...others}>
+    {children}
+  </TextSmall>
+);
 
-ErrorText.defaultProps = {
-  children: 'This is the error text',
-  inverse: false,
-};
+export default ErrorText;
