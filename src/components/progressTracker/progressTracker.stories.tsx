@@ -2,7 +2,6 @@ import React from 'react';
 import { boolean, number, select } from '@storybook/addon-knobs';
 import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import ProgressTracker from './ProgressTracker';
-import ProgressStep from './ProgressStep';
 import { COLORS } from '../../index';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
@@ -11,7 +10,6 @@ const steps = ['Draft', 'Book', 'Send invoices', 'Get paid'];
 export default {
   title: addStoryInGroup(MID_LEVEL_BLOCKS, 'ProgressTracker'),
   component: ProgressTracker,
-  subcomponents: { ProgressStep },
 
   parameters: {
     design: {

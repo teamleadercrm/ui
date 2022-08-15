@@ -44,4 +44,6 @@ const ProgressStep: GenericComponent<ProgressStepProps> = ({
   );
 };
 
+ProgressStep.displayName = 'ProgressTracker.ProgressStep';
+
 export default ProgressStep;
