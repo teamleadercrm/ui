@@ -29,6 +29,5 @@ const FooterRow: GenericComponent<FooterRowProps> = forwardRef<HTMLElement, Foot
   },
 );
 
-FooterRow.displayName = 'FooterRow';
-
+FooterRow.displayName = 'DataGrid.FooterRow';
 export default FooterRow;

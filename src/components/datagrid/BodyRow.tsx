@@ -65,6 +65,6 @@ const BodyRow: GenericComponent<BodyRowProps> = forwardRef<HTMLElement, BodyRowP
   },
 );
 
-BodyRow.displayName = 'BodyRow';
+BodyRow.displayName = 'DataGrid.BodyRow';
 
 export default BodyRow;

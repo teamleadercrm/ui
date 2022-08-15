@@ -61,5 +61,6 @@ const Cell: GenericComponent<CellProps> = ({
     </Box>
   );
 };
+Cell.displayName = 'DataGrid.Cell';
 
 export default Cell;

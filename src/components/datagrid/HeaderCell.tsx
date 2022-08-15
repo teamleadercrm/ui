@@ -54,5 +54,6 @@ const HeaderCell: GenericComponent<HeaderCellProps> = ({
     </Cell>
   );
 };
+HeaderCell.displayName = 'DataGrid.HeaderCell';
 
 export default HeaderCell;

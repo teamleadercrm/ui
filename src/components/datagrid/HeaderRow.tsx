@@ -44,6 +44,6 @@ const HeaderRow: GenericComponent<HeaderRowProps> = forwardRef<HTMLElement, Head
   },
 );
 
-HeaderRow.displayName = 'HeaderRow';
+HeaderRow.displayName = 'DataGrid.HeaderRow';
 
 export default HeaderRow;

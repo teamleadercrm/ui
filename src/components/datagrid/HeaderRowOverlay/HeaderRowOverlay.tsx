@@ -48,3 +48,4 @@ const HeaderRowOverlay: GenericComponent<HeaderRowOverlayProps> = ({
 };
 
 export default HeaderRowOverlay;
+HeaderRowOverlay.displayName = 'DataGrid.HeaderRowOverlay';

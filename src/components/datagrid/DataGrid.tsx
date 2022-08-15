@@ -16,7 +16,7 @@ import HeaderCell, { HeaderCellProps } from './HeaderCell';
 import HeaderRow, { HeaderRowProps } from './HeaderRow';
 import HeaderRowOverlay, { HeaderRowOverlayProps } from './HeaderRowOverlay/HeaderRowOverlay';
 import theme from './theme.css';
-export interface DataGridProps extends BoxProps {
+export interface DataGridProps extends Omit<BoxProps, 'children' | 'className'> {
   /** If true, datagrid will have a border and rounded corners. */
   bordered?: boolean;
   /** The content to display inside the data grid. */
@@ -46,7 +46,7 @@ interface DatagridComponent extends GenericComponent<DataGridProps> {
   FooterRow: GenericComponent<FooterRowProps>;
 }
 
-const DataGrid: DatagridComponent = ({
+export const DataGrid: DatagridComponent = ({
   bordered = false,
   children,
   className,
@@ -264,16 +264,12 @@ const DataGrid: DatagridComponent = ({
 };
 
 DataGrid.HeaderRow = HeaderRow;
-DataGrid.HeaderRow.displayName = 'DataGrid.HeaderRow';
 DataGrid.HeaderRowOverlay = HeaderRowOverlay;
-DataGrid.HeaderRowOverlay.displayName = 'DataGrid.HeaderRowOverlay';
 DataGrid.HeaderCell = HeaderCell;
-DataGrid.HeaderCell.displayName = 'DataGrid.HeaderCell';
 DataGrid.BodyRow = BodyRow;
-DataGrid.BodyRow.displayName = 'DataGrid.BodyRow';
 DataGrid.Cell = Cell;
-DataGrid.Cell.displayName = 'DataGrid.Cell';
 DataGrid.FooterRow = FooterRow;
-DataGrid.FooterRow.displayName = 'DataGrid.FooterRow';
+
+DataGrid.displayName = 'DataGrid';
 
 export default DataGrid;
