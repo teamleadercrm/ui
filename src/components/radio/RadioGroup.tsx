@@ -1,49 +1,53 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import React, { ReactNode } from 'react';
 import RadioButton from './index';
 import Box from '../box';
 import isComponentOfType from '../utils/is-component-of-type';
 import omit from 'lodash.omit';
+import { GenericComponent } from '../../@types/types';
+import isReactElement from '../utils/isReactElement';
 
-/** @type {React.ComponentType<any>} */
-class RadioGroup extends PureComponent {
-  handleChange = (value, event) => {
-    if (this.props.onChange) {
-      this.props.onChange(value, event);
+export interface RadioGroupProps {
+  children?: ReactNode;
+  className?: string;
+  disabled?: boolean;
+  onChange?: (value: unknown, event: React.SyntheticEvent<Element, Event>) => void;
+  value?: string | boolean;
+}
+
+const RadioGroup: GenericComponent<RadioGroupProps> = ({
+  children,
+  className = '',
+  disabled = false,
+  onChange,
+  value,
+  ...others
+}) => {
+  const rest = omit(others, ['onChange']);
+
+  const handleChange = (value: unknown, event: React.SyntheticEvent<Element, Event>) => {
+    if (onChange) {
+      onChange(value, event);
     }
   };
 
-  render() {
-    const { children, className, disabled, value, ...others } = this.props;
-    const rest = omit(others, ['onChange']);
+  return (
+    <Box data-teamleader-ui="radio-group" className={className} {...rest}>
+      {React.Children.map(children, (child) => {
+        const isRadioButtonComponent = isComponentOfType(RadioButton, child);
 
-    return (
-      <Box data-teamleader-ui="radio-group" className={className} {...rest}>
-        {React.Children.map(children, (child) =>
-          !isComponentOfType(RadioButton, child)
-            ? child
-            : React.cloneElement(child, {
-                checked: child.props.value === value,
-                disabled: disabled || child.props.disabled,
-                onChange: (event) => this.handleChange(child.props.value, event),
-              }),
-        )}
-      </Box>
-    );
-  }
-}
-
-RadioGroup.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
-  disabled: PropTypes.bool,
-  onChange: PropTypes.func,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-};
-
-RadioGroup.defaultProps = {
-  className: '',
-  disabled: false,
+        if (!isRadioButtonComponent) {
+          return child;
+        }
+        if (isRadioButtonComponent && isReactElement(child)) {
+          React.cloneElement(child, {
+            checked: child.props.value === value,
+            disabled: disabled || child.props.disabled,
+            onChange: (event: React.SyntheticEvent<Element, Event>) => handleChange(child.props.value, event),
+          });
+        }
+      })}
+    </Box>
+  );
 };
 
 export default RadioGroup;
