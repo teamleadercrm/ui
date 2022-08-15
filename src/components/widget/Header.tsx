@@ -1,8 +1,9 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import React, { ReactNode } from 'react';
 import cx from 'classnames';
 import Island from '../island';
 import theme from './theme.css';
+import { GenericComponent } from '../../@types/types';
+import { SIZES } from '../../constants';
 
 const PADDING_VERTICAL = {
   small: 1,
@@ -10,32 +11,29 @@ const PADDING_VERTICAL = {
   large: 3,
 };
 
-class Header extends PureComponent {
-  render() {
-    const { children, className, size, ...others } = this.props;
-
-    const classNames = cx(theme[`is-${size}`], className);
-
-    return (
-      <Island
-        {...others}
-        alignItems="center"
-        className={classNames}
-        display="flex"
-        size={size}
-        paddingVertical={PADDING_VERTICAL[size]}
-      >
-        {children}
-      </Island>
-    );
-  }
+export interface HeaderProps {
+  className?: string;
+  children?: ReactNode;
+  size?: Exclude<typeof SIZES[number], 'fullscreen' | 'smallest' | 'tiny' | 'hero'>;
 }
 
-Header.propTypes = {
-  /** The content to display inside the widget header. */
-  children: PropTypes.any,
-  /** The size which controls the horizontal padding of the Island. */
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
+const Header: GenericComponent<HeaderProps> = ({ children, className, size, ...others }) => {
+  const classNames = cx(theme[`is-${size}`], className);
+
+  return (
+    <Island
+      {...others}
+      alignItems="center"
+      className={classNames}
+      display="flex"
+      size={size}
+      paddingVertical={
+        PADDING_VERTICAL[size as Exclude<typeof SIZES[number], 'fullscreen' | 'smallest' | 'tiny' | 'hero'>]
+      }
+    >
+      {children}
+    </Island>
+  );
 };
 
 export default Header;
