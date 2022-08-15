@@ -1,33 +1,23 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
+import React, { ElementType, ReactNode } from 'react';
+import { GenericComponent } from '../../@types/types';
 import theme from './theme.css';
 
-/** @type {React.ComponentType<any>} */
-class Monospaced extends PureComponent {
-  render() {
-    const { children, className, element } = this.props;
-
-    const classNames = cx(theme['monospaced'], className);
-
-    const Element = element;
-
-    return (
-      <Element data-teamleader-ui="monospaced" className={classNames}>
-        {children}
-      </Element>
-    );
-  }
+export interface MonospacedProps {
+  children?: ReactNode;
+  className?: string;
+  element?: ElementType;
 }
+const Monospaced: GenericComponent<MonospacedProps> = ({ children, className, element = 'span' }) => {
+  const classNames = cx(theme['monospaced'], className);
 
-Monospaced.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
-  element: PropTypes.node,
-};
+  const Element = element;
 
-Monospaced.defaultProps = {
-  element: 'span',
+  return (
+    <Element data-teamleader-ui="monospaced" className={classNames}>
+      {children}
+    </Element>
+  );
 };
 
 export default Monospaced;
