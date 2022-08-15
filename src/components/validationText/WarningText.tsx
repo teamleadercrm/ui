@@ -1,33 +1,21 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import React, { ReactNode } from 'react';
+import { GenericComponent } from '../../@types/types';
+import { BoxProps } from '../box/Box';
 import { TextSmall } from '../typography';
 
-export default class WarningText extends PureComponent {
-  render() {
-    const { children, inverse, ...others } = this.props;
-
-    return (
-      <TextSmall
-        color="gold"
-        data-teamleader-ui="warning-text"
-        marginTop={1}
-        tint={inverse ? 'light' : 'dark'}
-        {...others}
-      >
-        {children}
-      </TextSmall>
-    );
-  }
+export interface WarningTextProps extends BoxProps {
+  children?: ReactNode;
+  inverse?: boolean;
 }
 
-WarningText.propTypes = {
-  /** The displayed text */
-  children: PropTypes.node,
-  /** Determines if the component will be rendered in inverse mode */
-  inverse: PropTypes.bool,
-};
+const WarningText: GenericComponent<WarningTextProps> = ({
+  children = 'This is the warning text',
+  inverse = false,
+  ...others
+}) => (
+  <TextSmall color="gold" data-teamleader-ui="warning-text" marginTop={1} tint={inverse ? 'light' : 'dark'} {...others}>
+    {children}
+  </TextSmall>
+);
 
-WarningText.defaultProps = {
-  children: 'This is the warning text',
-  inverse: false,
-};
+export default WarningText;
