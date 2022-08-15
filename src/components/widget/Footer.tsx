@@ -1,18 +1,14 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import React, { ReactNode } from 'react';
+import { GenericComponent } from '../../@types/types';
 import Island from '../island';
 
-class Footer extends PureComponent {
-  render() {
-    const { children, ...others } = this.props;
-
-    return <Island {...others}>{children}</Island>;
-  }
+export interface FooterProps {
+  /** The content to display inside the widget footer. */
+  children?: ReactNode;
 }
 
-Footer.propTypes = {
-  /** The content to display inside the widget footer. */
-  children: PropTypes.any,
+const Footer: GenericComponent<FooterProps> = ({ children, ...others }) => {
+  return <Island {...others}>{children}</Island>;
 };
 
 export default Footer;
