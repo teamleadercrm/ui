@@ -1,30 +1,40 @@
-import React, { forwardRef, PureComponent } from 'react';
-import Box from '../box';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
+import React, { CSSProperties, ElementType, forwardRef, ReactNode } from 'react';
+import { GenericComponent } from '../../@types/types';
 import { COLORS, TINTS } from '../../constants';
+import Box from '../box';
+import { BoxProps } from '../box/Box';
 import theme from './theme.css';
 
-/** @type {React.ComponentType<any>} */
-const factory = (baseType, type, defaultElement) => {
-  class Text extends PureComponent {
-    render() {
-      const { children, className, color, element, maxLines, style, tint, forwardedRef, ...others } = this.props;
+export interface TextProps extends BoxProps {
+  children?: ReactNode;
+  className?: string;
+  color?: typeof COLORS[number];
+  element?: ElementType;
+  maxLines?: number;
+  style?: CSSProperties;
+  tint?: typeof TINTS[number];
+}
 
+/** @type {React.ComponentType<any>} */
+const factory = (baseType: string, type: string, defaultElement: ElementType) => {
+  const Text: GenericComponent<TextProps> = forwardRef<HTMLElement, TextProps>(
+    ({ children, className, color, element = null, maxLines, style, tint = 'darkest', ...others }, ref) => {
       const classNames = cx(
         theme[baseType],
         theme[type],
-        theme[color],
+
         theme[tint],
         {
-          [theme['overflow-multiline']]: maxLines > 1,
-          [theme['overflow-singleline']]: maxLines === 1,
+          ...(color && { [theme[color]]: true }),
+          [theme['overflow-multiline']]: maxLines && maxLines > 1,
+          [theme['overflow-singleline']]: maxLines && maxLines === 1,
         },
         className,
       );
 
       const styles = {
-        ...(maxLines > 1 && { MozLineClamp: maxLines, WebkitLineClamp: maxLines }),
+        ...(maxLines && maxLines > 1 && { MozLineClamp: maxLines, WebkitLineClamp: maxLines }),
         ...style,
       };
 
@@ -37,34 +47,17 @@ const factory = (baseType, type, defaultElement) => {
           element={Element}
           {...others}
           style={styles}
-          ref={forwardedRef}
+          ref={ref}
         >
           {children}
         </Box>
       );
-    }
-  }
+    },
+  );
 
-  Text.propTypes = {
-    children: PropTypes.any,
-    className: PropTypes.string,
-    color: PropTypes.oneOf(COLORS),
-    element: PropTypes.node,
-    maxLines: PropTypes.number,
-    style: PropTypes.object,
-    tint: PropTypes.oneOf(TINTS),
-  };
+  Text.displayName = 'Text';
 
-  Text.defaultProps = {
-    element: null,
-    tint: 'darkest',
-  };
-
-  const ForwardedText = forwardRef((props, ref) => <Text {...props} forwardedRef={ref} />);
-
-  ForwardedText.displayName = 'Text';
-
-  return ForwardedText;
+  return Text;
 };
 
 export { factory as textFactory };
