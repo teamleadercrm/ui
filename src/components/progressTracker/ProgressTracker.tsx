@@ -10,13 +10,13 @@ export interface ProgressTrackerProps {
   /** Whether or not all steps are completed */
   done?: boolean;
   /** The number of the step which is currently active */
-  currentStep: number;
+  currentStep?: number;
   /** The steps to display inside the progress tracker */
   children?: ReactNode;
   /** Color theme of the progress tracker. */
-  color: 'neutral' | 'mint' | 'aqua' | 'violet' | 'gold' | 'ruby' | 'teal';
+  color?: 'neutral' | 'mint' | 'aqua' | 'violet' | 'gold' | 'ruby' | 'teal';
   /** Where to position the labels. Alternating allows for wider labels. */
-  labelPosition: 'top' | 'alternating' | 'bottom';
+  labelPosition?: 'top' | 'alternating' | 'bottom';
 }
 
 const ProgressTracker: GenericComponent<ProgressTrackerProps> & { ProgressStep: typeof ProgressStep } = ({
