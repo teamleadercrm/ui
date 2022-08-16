@@ -64,7 +64,6 @@ export const DataGrid: DatagridComponent = ({
   const [selectedRows, setSelectedRows] = useState<React.Key[]>([]);
   const scrollableNode = useRef<HTMLDivElement>(null);
   const [rowNodes, setRowNodes] = useState<Map<number, HTMLElement>>(new Map());
-
   const totalRowChildrenWidth = useMemo(
     () =>
       Array.from(rowNodes.values())
@@ -77,10 +76,8 @@ export const DataGrid: DatagridComponent = ({
         .reduce((maxRowWidth, currentRowWidth) => (currentRowWidth > maxRowWidth ? currentRowWidth : maxRowWidth), 0),
     [rowNodes, rowNodes.size],
   );
-
-  const bodyRowCount = (
-    (children as (ReactElement | ReactElement[])[]).find((child) => Array.isArray(child)) as ReactElement[] | undefined
-  )?.length;
+  const childrenArray: (ReactElement | ReactElement[])[] = !Array.isArray(children) ? [children] : children;
+  const bodyRowCount = (childrenArray.find((child) => Array.isArray(child)) as ReactElement[] | undefined)?.length;
 
   const handleSelectionChange = (selection: React.Key[], event: ChangeEvent | null = null) => {
     if (onSelectionChange) {
