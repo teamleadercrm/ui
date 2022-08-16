@@ -1,6 +1,6 @@
 import cx from 'classnames';
 import React, { ReactNode } from 'react';
-import { GenericComponent } from '../../@types/types';
+import { PolymorphicComponentProps } from '../../@types/utils';
 import { COLORS, SIZES } from '../../constants';
 import Box from '../box';
 import { BoxProps, Padding } from '../box/Box';
@@ -12,19 +12,19 @@ const PADDINGS: Record<'small' | 'medium' | 'large', Padding> = {
   large: 5,
 };
 
-interface SectionProps extends Omit<BoxProps, 'ref'> {
+interface SectionProps extends BoxProps {
   children?: ReactNode;
   color?: Exclude<typeof COLORS[number], 'teal'> | 'white';
   size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
 }
 
-const Section: GenericComponent<SectionProps> = ({
+const Section = ({
   children,
   className,
   color = 'white',
   size = 'medium',
   ...rest
-}) => {
+}: PolymorphicComponentProps<'section', SectionProps>) => {
   const classNames = cx(theme['section'], className as string, theme[color]);
 
   return (
