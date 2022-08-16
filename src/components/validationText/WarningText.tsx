@@ -13,7 +13,7 @@ const WarningText: GenericComponent<WarningTextProps> = ({
   inverse = false,
   ...others
 }) => (
-  <TextSmall color="gold" data-teamleader-ui="warning-text" marginTop={1} tint={inverse ? 'light' : 'dark'} {...others}>
+  <TextSmall {...others} color="gold" data-teamleader-ui="warning-text" marginTop={1} tint={inverse ? 'light' : 'dark'}>
     {children}
   </TextSmall>
 );

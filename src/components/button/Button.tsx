@@ -147,8 +147,8 @@ const Button: GenericComponent<ButtonProps> = forwardRef<HTMLElement, ButtonProp
           <Text
             element="span"
             maxLines={1}
-            marginLeft={icon && iconPlacement === 'left' && 2}
-            marginRight={icon && iconPlacement === 'right' && 2}
+            marginLeft={icon && iconPlacement === 'left' ? 2 : undefined}
+            marginRight={icon && iconPlacement === 'right' ? 2 : undefined}
           >
             {label}
             {children}

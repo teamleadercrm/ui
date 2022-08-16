@@ -15,11 +15,14 @@ import {
   Heading4,
   Heading5,
   Marker,
+  MarkerProps,
   Monospaced,
+  MonospacedProps,
   TextBody,
   TextBodyCompact,
   TextDisplay,
   TextSmall,
+  TextProps,
   UITextDisplay,
   UITextBody,
   UITextSmall,
@@ -226,4 +229,13 @@ export {
   MarketingDialog,
 };
 
-export type { ErrorTextProps, HelpTextProps, SuccessTextProps, ValidationTextProps, WarningTextProps };
+export type {
+  ErrorTextProps,
+  HelpTextProps,
+  SuccessTextProps,
+  ValidationTextProps,
+  WarningTextProps,
+  MarkerProps,
+  MonospacedProps,
+  TextProps,
+};

@@ -1,6 +1,6 @@
-import Marker from './Marker';
-import Monospaced from './Monospaced';
-import { textFactory } from './Text';
+import Marker, { MarkerProps } from './Marker';
+import Monospaced, { MonospacedProps } from './Monospaced';
+import { textFactory, TextProps } from './Text';
 
 const Heading1 = textFactory('heading', 'heading-1', 'h1');
 const Heading2 = textFactory('heading', 'heading-2', 'h2');
@@ -47,3 +47,5 @@ export {
   UITextBody,
   UITextSmall,
 };
+
+export type { MarkerProps, MonospacedProps, TextProps };
