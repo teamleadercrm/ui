@@ -1,6 +1,5 @@
 import React, { ReactNode } from 'react';
 import { GenericComponent } from '../../@types/types';
-import { COLORS } from '../../constants';
 import { BoxProps } from '../box/Box';
 import { TextSmall } from '../typography';
 
@@ -14,7 +13,7 @@ const ErrorText: GenericComponent<ErrorTextProps> = ({
   inverse = false,
   ...others
 }) => (
-  <TextSmall {...others} color="teal" data-teamleader-ui="error-text" marginTop={1} tint={inverse ? 'light' : 'dark'}>
+  <TextSmall {...others} color="ruby" data-teamleader-ui="error-text" marginTop={1} tint={inverse ? 'light' : 'dark'}>
     {children}
   </TextSmall>
 );
