@@ -15,11 +15,11 @@ const HelpText: GenericComponent<HelpTextProps> = ({
   ...others
 }) => (
   <TextSmall
+    {...others}
     color={inverse ? 'teal' : 'neutral'}
     data-teamleader-ui="help-text"
     marginTop={1}
     tint={inverse ? 'light' : 'darkest'}
-    {...others}
   >
     {children}
   </TextSmall>

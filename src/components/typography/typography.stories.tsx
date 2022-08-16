@@ -1,9 +1,7 @@
 import React from 'react';
 import { addStoryInGroup, FOUNDATION } from '../../../.storybook/utils';
-import { number, select } from '@storybook/addon-knobs';
 import {
   COLORS,
-  TINTS,
   Heading1,
   Heading2,
   Heading3,
@@ -15,8 +13,9 @@ import {
   TextBodyCompact,
   TextDisplay,
   TextSmall,
-  UITextDisplay,
+  TINTS,
   UITextBody,
+  UITextDisplay,
   UITextSmall,
 } from '../../index';
 
@@ -25,11 +24,10 @@ export default {
   title: addStoryInGroup(FOUNDATION, 'Typography'),
 };
 
+const color: typeof COLORS[number] = 'teal';
+const maxLines = undefined;
+const tint: typeof TINTS[number] = 'darkest';
 export const headings = () => {
-  const color = select('Color', COLORS, 'teal');
-  const maxLines = number('Max lines', undefined);
-  const tint = select('Tint', TINTS, 'darkest');
-
   return (
     <>
       <Heading1 color={color} maxLines={maxLines} tint={tint}>
@@ -52,22 +50,18 @@ export const headings = () => {
 };
 
 export const text = () => {
-  const color = select('Color', COLORS, 'teal');
-  const maxLines = number('Max lines', undefined);
-  const tint = select('Tint', TINTS, 'darkest');
-
   return (
     <>
       <TextDisplay color={color} maxLines={maxLines} tint={tint}>
         <strong>Text display</strong> / font-size: 16px / line-height: 24px / weight: regular (400) / tracking: 0
       </TextDisplay>
-      <TextBody color={select('Color', COLORS, 'teal')} maxLines={maxLines} tint={tint} marginTop={4}>
+      <TextBody color={color} maxLines={maxLines} tint={tint} marginTop={4}>
         <strong>Text body</strong> / font-size: 14px / line-height: 21px / weight: regular (400) / tracking: 0
       </TextBody>
-      <TextBodyCompact color={select('Color', COLORS, 'teal')} maxLines={maxLines} tint={tint} marginTop={4}>
+      <TextBodyCompact color={color} maxLines={maxLines} tint={tint} marginTop={4}>
         <strong>Text body compact</strong> / font-size: 14px / line-height: 18px / weight: regular (400) / tracking: 0
       </TextBodyCompact>
-      <TextSmall color={select('Color', COLORS, 'teal')} maxLines={maxLines} tint={tint} marginTop={4}>
+      <TextSmall color={color} maxLines={maxLines} tint={tint} marginTop={4}>
         <strong>Text small</strong> / font-size: 12px / line-height: 18px / weight: regular (400) / tracking: 0
       </TextSmall>
     </>
@@ -75,10 +69,6 @@ export const text = () => {
 };
 
 export const UIText = () => {
-  const color = select('Color', COLORS, 'teal');
-  const maxLines = number('Max lines', undefined);
-  const tint = select('Tint', TINTS, 'darkest');
-
   return (
     <>
       <UITextDisplay color={color} maxLines={maxLines} tint={tint}>
@@ -95,10 +85,6 @@ export const UIText = () => {
 };
 
 export const monospaced = () => {
-  const color = select('Color', COLORS, 'teal');
-  const maxLines = number('Max lines', undefined);
-  const tint = select('Tint', TINTS, 'darkest');
-
   return (
     <>
       <Heading1 color={color} maxLines={maxLines} tint={tint}>
@@ -122,7 +108,7 @@ export const monospaced = () => {
       <TextBody color={color} maxLines={maxLines} tint={tint} marginTop={2}>
         <Monospaced>1234567890</Monospaced>
       </TextBody>
-      <TextSmall color={select('Color', COLORS, 'teal')} maxLines={maxLines} tint={tint} marginTop={2}>
+      <TextSmall color={color} maxLines={maxLines} tint={tint} marginTop={2}>
         <Monospaced>1234567890</Monospaced>
       </TextSmall>
     </>
@@ -130,7 +116,7 @@ export const monospaced = () => {
 };
 
 export const marker = () => (
-  <Heading3 color={select('Color', COLORS, 'teal')} tint={select('Tint', TINTS, 'darkest')}>
+  <Heading3 color={color} tint={tint}>
     We can use our <Marker>Marker component</Marker> to highlight some keywords
   </Heading3>
 );

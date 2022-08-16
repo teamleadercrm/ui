@@ -13,7 +13,7 @@ const ErrorText: GenericComponent<ErrorTextProps> = ({
   inverse = false,
   ...others
 }) => (
-  <TextSmall color="ruby" data-teamleader-ui="error-text" marginTop={1} tint={inverse ? 'light' : 'dark'} {...others}>
+  <TextSmall {...others} color="ruby" data-teamleader-ui="error-text" marginTop={1} tint={inverse ? 'light' : 'dark'}>
     {children}
   </TextSmall>
 );
