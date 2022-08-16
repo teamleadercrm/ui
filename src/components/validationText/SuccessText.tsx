@@ -13,7 +13,7 @@ const SuccessText: GenericComponent<SuccessTextProps> = ({
   inverse = false,
   ...others
 }) => (
-  <TextSmall color="mint" data-teamleader-ui="success-text" marginTop={1} tint={inverse ? 'light' : 'dark'} {...others}>
+  <TextSmall {...others} color="mint" data-teamleader-ui="success-text" marginTop={1} tint={inverse ? 'light' : 'dark'}>
     {children}
   </TextSmall>
 );
