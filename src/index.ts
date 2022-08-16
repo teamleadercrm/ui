@@ -52,7 +52,7 @@ import MarketingStatusLabel from './components/marketingStatusLabel';
 import MarketingTab from './components/marketingTab';
 import { MarketingHeading1, MarketingHeading2 } from './components/marketingTypography';
 import Message from './components/message';
-import Overlay from './components/overlay';
+import Overlay, { OverlayProps } from './components/overlay';
 import OverviewPage, { OverviewPageBody, OverviewPageHeader } from './components/overviewPage';
 import { LabelValuePair, LabelValuePairGroup } from './components/labelValuePair';
 import LoadingBar from './components/loadingBar';
@@ -238,4 +238,5 @@ export type {
   MarkerProps,
   MonospacedProps,
   TextProps,
+  OverlayProps,
 };
