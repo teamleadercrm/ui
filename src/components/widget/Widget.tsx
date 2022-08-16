@@ -1,46 +1,48 @@
-import React, { forwardRef } from 'react';
-import PropTypes from 'prop-types';
-import Body from './Body';
-import Footer from './Footer';
-import Header from './Header';
+import React, { forwardRef, isValidElement, ReactNode } from 'react';
+import Body, { BodyProps } from './Body';
+import Footer, { FooterProps } from './Footer';
+import Header, { HeaderProps } from './Header';
 import { IslandGroup } from '../island';
+import { SIZES } from '../../constants';
+import { BoxProps } from '../box/Box';
+import { GenericComponent } from '../../@types/types';
 
-/**
- * @type {React.ComponentType<any> & {
- *    Header: React.ComponentType<any>;
- *    Body: React.ComponentType<any>;
- *    Footer: React.ComponentType<any>;
- * }}
- */
-const Widget = forwardRef(({ children, size, ...others }, ref) => {
-  return (
-    <IslandGroup ref={ref} direction="vertical" {...others}>
-      {React.Children.map(children, (child) => {
-        if (!child) {
-          return child;
-        }
+interface WidgetProps extends Omit<BoxProps, 'children' | 'ref'> {
+  /** The content to display inside the widget. */
+  children?: ReactNode;
+  /** The size which controls the padding of the children. */
+  size?: Exclude<typeof SIZES[number], 'fullscreen' | 'smallest' | 'tiny' | 'hero'>;
+}
 
-        return React.cloneElement(child, {
-          ...child.props,
-          size,
-        });
-      })}
-    </IslandGroup>
-  );
-});
+interface WidgetComponent extends GenericComponent<WidgetProps> {
+  Body: GenericComponent<BodyProps>;
+  Header: GenericComponent<HeaderProps>;
+  Footer: GenericComponent<FooterProps>;
+}
+
+const Widget: WidgetComponent = forwardRef<HTMLElement, WidgetProps>(
+  ({ children, size = 'medium', ...others }, ref) => {
+    return (
+      <IslandGroup ref={ref} direction="vertical" {...others}>
+        {React.Children.map(children, (child) => {
+          if (!child) {
+            return child;
+          }
+
+          return (
+            isValidElement(child) &&
+            React.cloneElement(child, {
+              ...child.props,
+              size,
+            })
+          );
+        })}
+      </IslandGroup>
+    );
+  },
+);
 
 Widget.displayName = 'Widget';
-
-Widget.propTypes = {
-  /** The content to display inside the widget. */
-  children: PropTypes.node,
-  /** The size which controls the padding of the children. */
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
-};
-
-Widget.defaultProps = {
-  size: 'medium',
-};
 
 Widget.Body = Body;
 Widget.Footer = Footer;
