@@ -4,6 +4,7 @@ import Island from '../island';
 import theme from './theme.css';
 import { GenericComponent } from '../../@types/types';
 import { SIZES } from '../../constants';
+import { BoxProps } from '../box/Box';
 
 const PADDING_VERTICAL = {
   small: 1,
@@ -11,7 +12,7 @@ const PADDING_VERTICAL = {
   large: 3,
 };
 
-export interface HeaderProps {
+export interface HeaderProps extends Omit<BoxProps, 'className' | 'children'> {
   className?: string;
   children?: ReactNode;
   size?: Exclude<typeof SIZES[number], 'fullscreen' | 'smallest' | 'tiny' | 'hero'>;
