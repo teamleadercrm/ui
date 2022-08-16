@@ -11,7 +11,7 @@ export interface RadioGroupProps extends Omit<BoxProps, 'children' | 'className'
   children?: ReactNode;
   className?: string;
   disabled?: boolean;
-  onChange?: (value: string | boolean, event?: React.SyntheticEvent<Element, Event>) => void;
+  onChange?: (value: string | boolean, event?: React.ChangeEvent<Element>) => void;
   value?: string | boolean;
 }
 
@@ -25,7 +25,7 @@ const RadioGroup: GenericComponent<RadioGroupProps> = ({
 }) => {
   const rest = omit(others, ['onChange']);
 
-  const handleChange = (value: string | boolean, event: React.SyntheticEvent<Element, Event>) => {
+  const handleChange = (value: string | boolean, event: React.ChangeEvent<Element>) => {
     if (onChange) {
       onChange(value, event);
     }
@@ -43,7 +43,7 @@ const RadioGroup: GenericComponent<RadioGroupProps> = ({
           return React.cloneElement(child, {
             checked: child.props.value === value,
             disabled: disabled || child.props.disabled,
-            onChange: (event: React.SyntheticEvent<Element, Event>) => handleChange(child.props.value, event),
+            onChange: (event: React.ChangeEvent<Element>) => handleChange(child.props.value, event),
           });
         }
       })}
