@@ -72,7 +72,17 @@ import Tag from './components/tag';
 import Timer from './components/timer';
 import { Toast, ToastContainer } from './components/toast';
 import Toggle from './components/toggle';
-import ValidationText, { ErrorText, HelpText } from './components/validationText';
+import ValidationText, {
+  ErrorText,
+  ErrorTextProps,
+  HelpText,
+  HelpTextProps,
+  SuccessText,
+  SuccessTextProps,
+  WarningText,
+  WarningTextProps,
+  ValidationTextProps,
+} from './components/validationText';
 import Label from './components/label';
 import Tooltip from './components/tooltip';
 import ProgressTracker from './components/progressTracker';
@@ -180,6 +190,7 @@ export {
   Select,
   SplitButton,
   StatusLabel,
+  SuccessText,
   TabGroup,
   Tag,
   Textarea,
@@ -198,6 +209,7 @@ export {
   UITextBody,
   UITextSmall,
   ValidationText,
+  WarningText,
   Widget,
   WysiwygEditor,
   COLOR,
@@ -216,4 +228,14 @@ export {
   Padding,
   MarketingDialog,
 };
-export type { MarkerProps, MonospacedProps, TextProps };
+
+export type {
+  ErrorTextProps,
+  HelpTextProps,
+  SuccessTextProps,
+  ValidationTextProps,
+  WarningTextProps,
+  MarkerProps,
+  MonospacedProps,
+  TextProps,
+};
