@@ -9,10 +9,10 @@ import {
 import { Heading3, TextBody } from '../typography';
 import theme from './theme.css';
 import { BoxProps } from '../box/Box';
-import { GenericComponent } from '../../@types/types';
+import { PolymorphicComponentProps } from '../../@types/utils';
 import { SIZES } from '../../constants';
 
-interface EmptyStateProps extends Omit<BoxProps, 'size'> {
+interface EmptyStateProps extends BoxProps {
   hidePointer?: boolean;
   metaText?: ReactNode | string;
   size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
@@ -25,14 +25,14 @@ const illustrationMap = {
   large: <IllustrationEmptyState130X130Pointer />,
 };
 
-const EmptyState: GenericComponent<EmptyStateProps> = ({
+const EmptyState = <T extends React.ElementType = 'div'>({
   className,
   metaText,
   hidePointer = false,
   size = 'medium',
   title,
   ...others
-}) => {
+}: PolymorphicComponentProps<T, EmptyStateProps>) => {
   const classNames = cx(
     theme['wrapper'],
     theme[`is-${size}`],
