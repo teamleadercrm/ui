@@ -16,7 +16,6 @@ export interface TextProps extends BoxProps {
   tint?: typeof TINTS[number];
 }
 
-/** @type {React.ComponentType<any>} */
 const factory = (baseType: string, type: string, defaultElement: ElementType) => {
   const Text: GenericComponent<TextProps> = forwardRef<HTMLElement, TextProps>(
     ({ children, className, color, element = null, maxLines, style, tint = 'darkest', ...others }, ref) => {
