@@ -40,7 +40,7 @@ const RadioGroup: GenericComponent<RadioGroupProps> = ({
           return child;
         }
         if (isRadioButtonComponent && isReactElement(child)) {
-          React.cloneElement(child, {
+          return React.cloneElement(child, {
             checked: child.props.value === value,
             disabled: disabled || child.props.disabled,
             onChange: (event: React.SyntheticEvent<Element, Event>) => handleChange(child.props.value, event),
