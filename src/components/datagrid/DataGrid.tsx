@@ -16,6 +16,7 @@ import HeaderCell, { HeaderCellProps } from './HeaderCell';
 import HeaderRow, { HeaderRowProps } from './HeaderRow';
 import HeaderRowOverlay, { HeaderRowOverlayProps } from './HeaderRowOverlay/HeaderRowOverlay';
 import theme from './theme.css';
+
 export interface DataGridProps extends Omit<BoxProps, 'children' | 'className'> {
   /** If true, datagrid will have a border and rounded corners. */
   bordered?: boolean;
