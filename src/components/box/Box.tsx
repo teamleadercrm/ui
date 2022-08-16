@@ -1,8 +1,8 @@
-import React, { CSSProperties, forwardRef, HTMLProps, ReactNode, Ref } from 'react';
+import React, { CSSProperties, forwardRef, ReactNode } from 'react';
 import cx from 'classnames';
 import { COLOR, COLORS, TINTS } from '../../constants';
 import theme from './theme.css';
-import { GenericComponent } from '../../@types/types';
+import { PolymorphicComponentPropsWithRef, PolymorphicRef } from '../../@types/utils';
 
 const margins = [-8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8] as const;
 export type Margin = typeof margins[number];
@@ -15,64 +15,59 @@ const borderRadiuses = {
   rounded: '4px',
 };
 
-export type BoxProps = Partial<
-  {
-    alignContent: 'center' | 'flex-start' | 'flex-end' | 'space-around' | 'space-between' | 'space-evenly';
-    alignItems: 'center' | 'flex-start' | 'flex-end' | 'baseline' | 'stretch';
-    alignSelf: 'center' | 'flex-start' | 'flex-end' | 'stretch';
-    backgroundColor: typeof COLORS[number];
-    backgroundTint: typeof TINTS[number];
-    borderBottomWidth: number;
-    borderColor: typeof COLORS[number];
-    borderLeftWidth: number;
-    borderRightWidth: number;
-    borderTint: typeof TINTS[number];
-    borderTopWidth: number;
-    borderWidth: number;
-    borderRadius: keyof typeof borderRadiuses;
-    borderTopLeftRadius: keyof typeof borderRadiuses;
-    borderTopRightRadius: keyof typeof borderRadiuses;
-    borderBottomLeftRadius: keyof typeof borderRadiuses;
-    borderBottomRightRadius: keyof typeof borderRadiuses;
-    boxSizing: 'border-box' | 'content-box';
-    children: ReactNode;
-    className: string;
-    display: 'inline' | 'inline-block' | 'block' | 'flex' | 'inline-flex' | 'grid';
-    element: React.ElementType;
-    flex: CSSProperties['flex'];
-    flexBasis: CSSProperties['flexBasis'];
-    flexDirection: 'row' | 'row-reverse' | 'column' | 'column-reverse';
-    flexGrow: CSSProperties['flexGrow'];
-    flexShrink: CSSProperties['flexShrink'];
-    flexWrap: 'nowrap' | 'wrap' | 'wrap-reverse';
-    justifyContent: 'center' | 'flex-start' | 'flex-end' | 'space-around' | 'space-between' | 'space-evenly';
-    margin: Margin;
-    marginHorizontal: Margin;
-    marginVertical: Margin;
-    marginBottom: Margin;
-    marginLeft: Margin;
-    marginRight: Margin;
-    marginTop: Margin;
-    order: CSSProperties['order'];
-    overflow: CSSProperties['overflow'];
-    overflowX: CSSProperties['overflowX'];
-    overflowY: CSSProperties['overflowY'];
-    padding: Padding;
-    paddingHorizontal: Padding;
-    paddingVertical: Padding;
-    paddingBottom: Padding;
-    paddingLeft: Padding;
-    paddingRight: Padding;
-    paddingTop: Padding;
-    style: CSSProperties;
-    textAlign: 'center' | 'left' | 'right';
-    ref?: Ref<HTMLElement>;
-    [key: string]: unknown;
-  } & HTMLProps<HTMLElement>
->;
+export interface BoxProps {
+  alignContent?: 'center' | 'flex-start' | 'flex-end' | 'space-around' | 'space-between' | 'space-evenly';
+  alignItems?: 'center' | 'flex-start' | 'flex-end' | 'baseline' | 'stretch';
+  alignSelf?: 'center' | 'flex-start' | 'flex-end' | 'stretch';
+  backgroundColor?: typeof COLORS[number];
+  backgroundTint?: typeof TINTS[number];
+  borderBottomWidth?: number;
+  borderColor?: typeof COLORS[number];
+  borderLeftWidth?: number;
+  borderRightWidth?: number;
+  borderTint?: typeof TINTS[number];
+  borderTopWidth?: number;
+  borderWidth?: number;
+  borderRadius?: keyof typeof borderRadiuses;
+  borderTopLeftRadius?: keyof typeof borderRadiuses;
+  borderTopRightRadius?: keyof typeof borderRadiuses;
+  borderBottomLeftRadius?: keyof typeof borderRadiuses;
+  borderBottomRightRadius?: keyof typeof borderRadiuses;
+  boxSizing?: 'border-box' | 'content-box';
+  children?: ReactNode;
+  className?: string;
+  display?: 'inline' | 'inline-block' | 'block' | 'flex' | 'inline-flex' | 'grid';
+  flex?: CSSProperties['flex'];
+  flexBasis?: CSSProperties['flexBasis'];
+  flexDirection?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
+  flexGrow?: CSSProperties['flexGrow'];
+  flexShrink?: CSSProperties['flexShrink'];
+  flexWrap?: 'nowrap' | 'wrap' | 'wrap-reverse';
+  justifyContent?: 'center' | 'flex-start' | 'flex-end' | 'space-around' | 'space-between' | 'space-evenly';
+  margin?: Margin;
+  marginHorizontal?: Margin;
+  marginVertical?: Margin;
+  marginBottom?: Margin;
+  marginLeft?: Margin;
+  marginRight?: Margin;
+  marginTop?: Margin;
+  order?: CSSProperties['order'];
+  overflow?: CSSProperties['overflow'];
+  overflowX?: CSSProperties['overflowX'];
+  overflowY?: CSSProperties['overflowY'];
+  padding?: Padding;
+  paddingHorizontal?: Padding;
+  paddingVertical?: Padding;
+  paddingBottom?: Padding;
+  paddingLeft?: Padding;
+  paddingRight?: Padding;
+  paddingTop?: Padding;
+  style?: CSSProperties;
+  textAlign?: 'center' | 'left' | 'right';
+}
 
-const Box: GenericComponent<BoxProps> = forwardRef(
-  (
+const Box = forwardRef(
+  <T extends React.ElementType = 'div'>(
     {
       alignContent,
       alignItems,
@@ -95,7 +90,7 @@ const Box: GenericComponent<BoxProps> = forwardRef(
       children,
       className,
       display,
-      element = 'div',
+      element,
       flex,
       flexBasis,
       flexDirection,
@@ -124,8 +119,8 @@ const Box: GenericComponent<BoxProps> = forwardRef(
       style,
       textAlign,
       ...others
-    }: BoxProps,
-    ref,
+    }: PolymorphicComponentPropsWithRef<T, BoxProps>,
+    ref?: PolymorphicRef<T>,
   ) => {
     const getBorder = (value: number) => {
       return `${value}px solid ${
@@ -171,11 +166,11 @@ const Box: GenericComponent<BoxProps> = forwardRef(
       ...(borderLeftWidth && { borderLeft: getBorder(borderLeftWidth) }),
       ...(borderRightWidth && { borderRight: getBorder(borderRightWidth) }),
       ...(borderTopWidth && { borderTop: getBorder(borderTopWidth) }),
-      ...(borderRadius && { borderRadius: borderRadiuses[borderRadius] }),
-      ...(borderTopLeftRadius && { borderTopLeftRadius: borderRadiuses[borderTopLeftRadius] }),
-      ...(borderTopRightRadius && { borderTopRightRadius: borderRadiuses[borderTopRightRadius] }),
-      ...(borderBottomLeftRadius && { borderBottomLeftRadius: borderRadiuses[borderBottomLeftRadius] }),
-      ...(borderBottomRightRadius && { borderBottomRightRadius: borderRadiuses[borderBottomRightRadius] }),
+      ...(borderRadius && { borderRadius: borderRadiuses[borderRadius] ?? undefined }),
+      ...(borderTopLeftRadius && { borderTopLeftRadius: borderRadiuses[borderTopLeftRadius] ?? undefined }),
+      ...(borderTopRightRadius && { borderTopRightRadius: borderRadiuses[borderTopRightRadius] ?? undefined }),
+      ...(borderBottomLeftRadius && { borderBottomLeftRadius: borderRadiuses[borderBottomLeftRadius] ?? undefined }),
+      ...(borderBottomRightRadius && { borderBottomRightRadius: borderRadiuses[borderBottomRightRadius] ?? undefined }),
       ...(boxSizing && { boxSizing }),
       ...(flex && { flex }),
       ...(flexBasis && { flexBasis }),
@@ -188,7 +183,7 @@ const Box: GenericComponent<BoxProps> = forwardRef(
       ...style,
     };
 
-    const Element = element;
+    const Element = element || 'div';
 
     return (
       <Element className={classNames} ref={ref} style={elementStyles} {...others}>
