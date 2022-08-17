@@ -30,21 +30,14 @@ const suggestions = [
 ];
 
 export const basic: ComponentStory<typeof EmailSelector> = (args) => (
-  <EmailSelector
-    error={args.error}
-    validator={validator}
-    defaultSelection={[suggestions[0]]}
-    suggestions={suggestions}
-    menuFullWidth={args.menuFullWidth}
-    disableRemovalOfFirst={args.disableRemovalOfFirst}
-  />
+  <EmailSelector {...args} validator={validator} defaultSelection={[suggestions[0]]} suggestions={suggestions} />
 );
 
 basic.args = defaultEmailSelectorProps;
 
 export const groupedSuggestions: ComponentStory<typeof EmailSelector> = (args) => (
   <EmailSelector
-    error={args.error}
+    {...args}
     validator={validator}
     suggestions={{
       davids: [
@@ -56,8 +49,6 @@ export const groupedSuggestions: ComponentStory<typeof EmailSelector> = (args) =
         { email: 'robert.dunder@dundermiflin.com', label: 'Robert Dunder' },
       ],
     }}
-    menuFullWidth={args.menuFullWidth}
-    disableRemovalOfFirst={args.disableRemovalOfFirst}
   />
 );
 
@@ -65,7 +56,7 @@ groupedSuggestions.args = defaultEmailSelectorProps;
 
 export const customSuggestions: ComponentStory<typeof EmailSelector> = (args) => (
   <EmailSelector
-    error={args.error}
+    {...args}
     validator={validator}
     suggestions={suggestions}
     renderSuggestion={({ suggestion, selected }) => (
@@ -73,22 +64,13 @@ export const customSuggestions: ComponentStory<typeof EmailSelector> = (args) =>
         {suggestion.email}
       </TextBody>
     )}
-    menuFullWidth={args.menuFullWidth}
-    disableRemovalOfFirst={args.disableRemovalOfFirst}
   />
 );
 
 customSuggestions.args = defaultEmailSelectorProps;
 
 export const disableRemovalOfFirst: ComponentStory<typeof EmailSelector> = (args) => (
-  <EmailSelector
-    error={args.error}
-    validator={validator}
-    defaultSelection={[suggestions[0]]}
-    suggestions={suggestions}
-    menuFullWidth={args.menuFullWidth}
-    disableRemovalOfFirst={args.disableRemovalOfFirst}
-  />
+  <EmailSelector {...args} validator={validator} defaultSelection={[suggestions[0]]} suggestions={suggestions} />
 );
 
 disableRemovalOfFirst.args = { ...defaultEmailSelectorProps, disableRemovalOfFirst: true };
