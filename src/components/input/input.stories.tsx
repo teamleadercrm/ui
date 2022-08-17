@@ -2,7 +2,6 @@ import React, { ChangeEvent, useState } from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import Input from './Input';
-import { boolean, number, select, text } from '@storybook/addon-knobs';
 import Button from '../button';
 import Checkbox from '../checkbox';
 import Icon from '../icon';
@@ -68,6 +67,13 @@ const types = [
   'week',
 ];
 
+const inputArgTypes = {
+  size: {
+    control: 'select',
+    options: ['tiny', ...sizes],
+  },
+};
+
 export default {
   component: Input,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Form elements/Input'),
@@ -92,19 +98,26 @@ export const input: ComponentStory<typeof Input> = (args) => {
 
 input.storyName = 'Input';
 input.args = {
-  bold: boolean('Bold', false),
-  disabled: boolean('Disabled', false),
-  error: text('Error', ''),
-  helpText: text('Help text', ''),
-  success: text('Success', ''),
-  warning: text('Warning', ''),
-  inverse: boolean('Inverse', false),
-  placeholder: text('Placeholder', placeholder),
-  readOnly: boolean('Read only', false),
-  size: select('Size', ['tiny', ...sizes], 'medium'),
-  type: select('Type', types, 'text'),
-  textAlignRight: boolean('Text align right', false),
-  width: text('Width', ''),
+  bold: false,
+  disabled: false,
+  error: '',
+  helpText: '',
+  success: '',
+  warning: '',
+  inverse: false,
+  placeholder,
+  readOnly: false,
+  size: 'medium',
+  type: 'text',
+  textAlignRight: false,
+  width: '',
+};
+input.argTypes = {
+  ...inputArgTypes,
+  type: {
+    control: 'select',
+    options: types,
+  },
 };
 
 export const inputConnected: ComponentStory<typeof Input> = (args) => {
@@ -123,6 +136,13 @@ inputConnected.args = {
   connectedLeft,
   connectedRight,
 };
+inputConnected.argTypes = {
+  ...inputArgTypes,
+  type: {
+    control: 'select',
+    options: types,
+  },
+};
 
 export const inputPrefixSuffix: ComponentStory<typeof Input> = (args) => {
   const [value, setValue] = useState('');
@@ -140,6 +160,13 @@ inputPrefixSuffix.args = {
   prefix,
   suffix,
 };
+inputPrefixSuffix.argTypes = {
+  ...inputArgTypes,
+  type: {
+    control: 'select',
+    options: types,
+  },
+};
 
 export const numericInput: ComponentStory<typeof NumericInput> = (args) => {
   const [value, setValue] = useState<string | number>(6);
@@ -153,23 +180,24 @@ export const numericInput: ComponentStory<typeof NumericInput> = (args) => {
 
 numericInput.storyName = 'NumericInput';
 numericInput.args = {
-  bold: boolean('Bold', false),
-  disabled: boolean('Disabled', false),
-  error: text('Error', ''),
-  helpText: text('Help text', ''),
-  success: text('Success', ''),
-  warning: text('Warning', ''),
-  inverse: boolean('Inverse', false),
-  max: number('Max', 10),
-  min: number('Min', 0),
-  placeholder: text('Placeholder', placeholder),
-  readOnly: boolean('Read only', false),
-  size: select('Size', sizes, 'medium') as 'small' | 'medium' | 'large',
-  stepper: select('Stepper', stepperOptions, 'suffix') as 'none' | 'suffix' | 'connected',
-  step: number('Step', 1),
+  bold: false,
+  disabled: false,
+  error: '',
+  helpText: '',
+  success: '',
+  warning: '',
+  inverse: false,
+  max: 10,
+  min: 0,
+  placeholder,
+  readOnly: false,
+  size: 'medium',
+  stepper: 'suffix',
+  step: 1,
   textAlignRight: false,
-  width: text('Width', ''),
+  width: '',
 };
+numericInput.argTypes = { ...inputArgTypes, stepper: { control: 'select', options: stepperOptions } };
 
 export const timeInput: ComponentStory<typeof TimeInput> = (args) => {
   const [value, setValue] = useState('');
@@ -183,19 +211,20 @@ export const timeInput: ComponentStory<typeof TimeInput> = (args) => {
 
 timeInput.storyName = 'TimeInput';
 timeInput.args = {
-  bold: boolean('Bold', false),
-  disabled: boolean('Disabled', false),
-  error: text('Error', ''),
-  helpText: text('Help text', ''),
-  success: text('Success', ''),
-  warning: text('Warning', ''),
-  inverse: boolean('Inverse', false),
-  placeholder: text('Placeholder', 'hh:mm'),
-  readOnly: boolean('Read only', false),
-  size: select('Size', sizes, 'medium') as 'small' | 'medium' | 'large',
-  textAlignRight: boolean('Text align right', false),
-  width: text('Width', '90px'),
+  bold: false,
+  disabled: false,
+  error: '',
+  helpText: '',
+  success: '',
+  warning: '',
+  inverse: false,
+  placeholder,
+  readOnly: false,
+  size: 'medium',
+  textAlighRight: false,
+  width: '90px',
 };
+timeInput.argTypes = inputArgTypes;
 
 export const durationInput: ComponentStory<typeof DurationInput> = (args) => {
   const [value, setValue] = useState<{ hours?: number | undefined; minutes?: number | undefined } | undefined>();
@@ -221,15 +250,16 @@ export const textarea: ComponentStory<typeof Textarea> = (args) => {
 
 textarea.storyName = 'Textarea';
 textarea.args = {
-  bold: boolean('Bold', false),
-  disabled: boolean('Disabled', false),
-  error: text('Error', ''),
-  helpText: text('Help text', ''),
-  success: text('Success', ''),
-  warning: text('Warning', ''),
-  inverse: boolean('Inverse', false),
-  placeholder: text('Placeholder', placeholder),
-  readOnly: boolean('Read only', false),
-  size: select('Size', sizes, 'medium') as 'small' | 'medium' | 'large',
-  textAlignRight: boolean('Text align right', false),
+  bold: false,
+  disabled: false,
+  error: '',
+  helpText: '',
+  success: '',
+  warning: '',
+  inverse: false,
+  placeholder,
+  readOnly: false,
+  size: 'medium',
+  textAlignRight: false,
 };
+textarea.argTypes = inputArgTypes;
