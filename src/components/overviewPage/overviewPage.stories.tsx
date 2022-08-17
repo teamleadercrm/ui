@@ -37,7 +37,7 @@ export default {
 
 export const defaultStory = (args: { title: string }) => (
   <OverviewPage>
-    <OverviewPage.Header title={args.title} />
+    <OverviewPage.Header {...args} />
     <OverviewPage.Body>
       <TextBody>Here you can add arbitrary content.</TextBody>
     </OverviewPage.Body>
@@ -46,7 +46,7 @@ export const defaultStory = (args: { title: string }) => (
 
 defaultStory.args = defaultOverviewPageHeaderProps;
 
-export const header: ComponentStory<typeof OverviewPage.Header> = (args) => <OverviewPage.Header title={args.title} />;
+export const header: ComponentStory<typeof OverviewPage.Header> = (args) => <OverviewPage.Header {...args} />;
 
 header.storyName = 'Header';
 header.args = defaultOverviewPageHeaderProps;
@@ -57,7 +57,7 @@ header.parameters = {
 };
 
 export const headerWithActions: ComponentStory<typeof OverviewPage.Header> = (args) => (
-  <OverviewPage.Header title={args.title}>
+  <OverviewPage.Header {...args}>
     <ButtonGroup>
       <Button>Export</Button>
       <Button icon={<IconChevronDownSmallOutline />} iconPlacement="right">
