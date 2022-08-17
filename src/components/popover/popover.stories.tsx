@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
-import { select, boolean, number, text } from '@storybook/addon-knobs';
 import {
   IconChevronDownSmallOutline,
   IconCloseSmallOutline,
@@ -23,17 +22,30 @@ import {
   TextBody,
   TextSmall,
 } from '../../index';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { ArgTypes, ComponentMeta, ComponentStory } from '@storybook/react';
 import { BUTTON_LEVELS } from '../button';
+import { PopoverProps } from '../popover/Popover';
 
-const colors = ['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'teal'];
-const tints = ['lightest', 'light', 'normal', 'dark', 'darkest'];
 const backdrops = ['transparent', 'dark'];
-const directions = ['north', 'south', 'east', 'west'];
-const positions = ['start', 'center', 'end'];
 
-type Direction = 'north' | 'south' | 'east' | 'west';
-type Position = 'start' | 'center' | 'end';
+const defaultPopoverProps: PopoverProps = {
+  backdrop: 'transparent',
+  color: 'neutral',
+  direction: 'south',
+  fullHeight: true,
+  position: 'center',
+  tint: 'lightest',
+  lockScroll: true,
+  maxWidth: '50vw',
+  minWidth: '',
+  offsetCorrection: 0,
+};
+const popoverArgTypes: Partial<ArgTypes<PopoverProps>> = {
+  backdrop: {
+    control: 'select',
+    options: backdrops,
+  },
+};
 
 const contentBoxWithSingleTextLine = (
   <Box padding={4}>
@@ -74,7 +86,7 @@ const usePopoverTrigger = () => {
   return [{ popoverActive, anchorEl }, triggerPopover, closePopover] as const;
 };
 
-export const basic: ComponentStory<typeof Popover> = () => {
+export const basic: ComponentStory<typeof Popover> = (args) => {
   const [{ popoverActive, anchorEl }, handleButtonClick, handleCloseClick] = usePopoverTrigger();
 
   return (
@@ -83,18 +95,18 @@ export const basic: ComponentStory<typeof Popover> = () => {
       <Popover
         active={popoverActive}
         anchorEl={anchorEl}
-        backdrop={select('Backdrop', backdrops, 'transparent')}
-        color={select('Color', colors, 'neutral') as typeof COLORS[number]}
-        direction={select('Direction', directions, 'south') as Direction}
-        fullHeight={boolean('Full height', true)}
-        position={select('Position', positions, 'center') as Position}
+        backdrop={args.backdrop}
+        color={args.color}
+        direction={args.direction}
+        fullHeight={args.fullHeight}
+        position={args.position}
         onEscKeyDown={handleCloseClick}
         onOverlayClick={handleCloseClick}
-        tint={select('Tint', tints, 'lightest') as typeof TINTS[number]}
-        lockScroll={boolean('Lock scroll', true)}
-        maxWidth={text('Max width', '50vw')}
-        minWidth={text('Min width', '')}
-        offsetCorrection={number('Offset correction', 0)}
+        tint={args.tint}
+        lockScroll={args.lockScroll}
+        maxWidth={args.maxWidth}
+        minWidth={args.minWidth}
+        offsetCorrection={args.offsetCorrection}
       >
         {contentBoxWithSingleTextLine}
       </Popover>
@@ -102,7 +114,10 @@ export const basic: ComponentStory<typeof Popover> = () => {
   );
 };
 
-export const withTitle = () => {
+basic.args = defaultPopoverProps;
+basic.argTypes = popoverArgTypes;
+
+export const withTitle: ComponentStory<typeof Popover> = (args) => {
   const [{ popoverActive, anchorEl }, handleButtonClick, handleCloseClick] = usePopoverTrigger();
 
   return (
@@ -111,18 +126,18 @@ export const withTitle = () => {
       <Popover
         active={popoverActive}
         anchorEl={anchorEl}
-        backdrop={select('Backdrop', backdrops, 'transparent')}
-        color={select('Color', colors, 'neutral') as typeof COLORS[number]}
-        direction={select('Direction', directions, 'south') as Direction}
-        fullHeight={boolean('Full height', true)}
-        position={select('Position', positions, 'center') as Position}
+        backdrop={args.backdrop}
+        color={args.color}
+        direction={args.direction}
+        fullHeight={args.fullHeight}
+        position={args.position}
         onEscKeyDown={handleCloseClick}
         onOverlayClick={handleCloseClick}
-        tint={select('Tint', tints, 'lightest') as typeof TINTS[number]}
-        lockScroll={boolean('Lock scroll', true)}
-        maxWidth={text('Max width', '50vw')}
-        minWidth={text('Min width', '')}
-        offsetCorrection={number('Offset correction', 0)}
+        tint={args.tint}
+        lockScroll={args.lockScroll}
+        maxWidth={args.maxWidth}
+        minWidth={args.minWidth}
+        offsetCorrection={args.offsetCorrection}
       >
         <Banner fullWidth>
           <Heading3>Popover Title</Heading3>
@@ -134,8 +149,10 @@ export const withTitle = () => {
 };
 
 withTitle.storyName = 'With title';
+withTitle.args = defaultPopoverProps;
+withTitle.argTypes = popoverArgTypes;
 
-export const withTitleSubtitle = () => {
+export const withTitleSubtitle: ComponentStory<typeof Popover> = (args) => {
   const [{ popoverActive, anchorEl }, handleButtonClick, handleCloseClick] = usePopoverTrigger();
 
   return (
@@ -144,18 +161,18 @@ export const withTitleSubtitle = () => {
       <Popover
         active={popoverActive}
         anchorEl={anchorEl}
-        backdrop={select('Backdrop', backdrops, 'transparent')}
-        color={select('Color', colors, 'neutral') as typeof COLORS[number]}
-        direction={select('Direction', directions, 'south') as Direction}
-        fullHeight={boolean('Full height', true)}
-        position={select('Position', positions, 'center') as Position}
+        backdrop={args.backdrop}
+        color={args.color}
+        direction={args.direction}
+        fullHeight={args.fullHeight}
+        position={args.position}
         onEscKeyDown={handleCloseClick}
         onOverlayClick={handleCloseClick}
-        tint={select('Tint', tints, 'lightest') as typeof TINTS[number]}
-        lockScroll={boolean('Lock scroll', true)}
-        maxWidth={text('Max width', '50vw')}
-        minWidth={text('Min width', '')}
-        offsetCorrection={number('Offset correction', 0)}
+        tint={args.tint}
+        lockScroll={args.lockScroll}
+        maxWidth={args.maxWidth}
+        minWidth={args.minWidth}
+        offsetCorrection={args.offsetCorrection}
       >
         <Banner color="neutral" fullWidth>
           <Heading3>Popover Title</Heading3>
@@ -168,8 +185,10 @@ export const withTitleSubtitle = () => {
 };
 
 withTitleSubtitle.storyName = 'With title & subtitle';
+withTitleSubtitle.args = defaultPopoverProps;
+withTitleSubtitle.argTypes = popoverArgTypes;
 
-export const withCloseButton = () => {
+export const withCloseButton: ComponentStory<typeof Popover> = (args) => {
   const [{ popoverActive, anchorEl }, handleButtonClick, handleCloseClick] = usePopoverTrigger();
 
   return (
@@ -178,18 +197,18 @@ export const withCloseButton = () => {
       <Popover
         active={popoverActive}
         anchorEl={anchorEl}
-        backdrop={select('Backdrop', backdrops, 'transparent')}
-        color={select('Color', colors, 'neutral') as typeof COLORS[number]}
-        direction="south"
-        fullHeight={boolean('Full height', true)}
-        position={select('Position', positions, 'center') as Position}
+        backdrop={args.backdrop}
+        color={args.color}
+        direction={args.direction}
+        fullHeight={args.fullHeight}
+        position={args.position}
         onEscKeyDown={handleCloseClick}
         onOverlayClick={handleCloseClick}
-        tint={select('Tint', tints, 'lightest') as typeof TINTS[number]}
-        lockScroll={boolean('Lock scroll', true)}
-        maxWidth={text('Max width', '50vw')}
-        minWidth={text('Min width', '')}
-        offsetCorrection={number('Offset correction', 0)}
+        tint={args.tint}
+        lockScroll={args.lockScroll}
+        maxWidth={args.maxWidth}
+        minWidth={args.minWidth}
+        offsetCorrection={args.offsetCorrection}
       >
         <Banner onClose={handleCloseClick} fullWidth>
           <Heading3>I am a heading 3</Heading3>
@@ -201,8 +220,10 @@ export const withCloseButton = () => {
 };
 
 withCloseButton.storyName = 'With close button';
+withCloseButton.args = defaultPopoverProps;
+withCloseButton.argTypes = popoverArgTypes;
 
-export const withActions = () => {
+export const withActions: ComponentStory<typeof Popover> = (args) => {
   const [{ popoverActive, anchorEl }, handleButtonClick, handleCloseClick] = usePopoverTrigger();
 
   return (
@@ -211,18 +232,18 @@ export const withActions = () => {
       <Popover
         active={popoverActive}
         anchorEl={anchorEl}
-        backdrop={select('Backdrop', backdrops, 'transparent')}
-        color={select('Color', colors, 'neutral') as typeof COLORS[number]}
-        direction={select('Direction', directions, 'south') as Direction}
-        fullHeight={boolean('Full height', true)}
-        position={select('Position', positions, 'center') as Position}
+        backdrop={args.backdrop}
+        color={args.color}
+        direction={args.direction}
+        fullHeight={args.fullHeight}
+        position={args.position}
         onEscKeyDown={handleCloseClick}
         onOverlayClick={handleCloseClick}
-        tint={select('Tint', tints, 'lightest') as typeof TINTS[number]}
-        lockScroll={boolean('Lock scroll', true)}
-        maxWidth={text('Max width', '50vw')}
-        minWidth={text('Min width', '')}
-        offsetCorrection={number('Offset correction', 0)}
+        tint={args.tint}
+        lockScroll={args.lockScroll}
+        maxWidth={args.maxWidth}
+        minWidth={args.minWidth}
+        offsetCorrection={args.offsetCorrection}
       >
         {contentBoxWithSingleTextLine}
         <ButtonGroup justifyContent="flex-end" padding={4}>
@@ -235,8 +256,10 @@ export const withActions = () => {
 };
 
 withActions.storyName = 'With actions';
+withActions.args = defaultPopoverProps;
+withActions.argTypes = popoverArgTypes;
 
-export const withMenu = () => {
+export const withMenu: ComponentStory<typeof Popover> = (args) => {
   const [{ popoverActive, anchorEl }, handleButtonClick, handleCloseClick] = usePopoverTrigger();
 
   return (
@@ -245,18 +268,18 @@ export const withMenu = () => {
       <Popover
         active={popoverActive}
         anchorEl={anchorEl}
-        backdrop={select('Backdrop', backdrops, 'transparent')}
-        color={select('Color', colors, 'neutral') as typeof COLORS[number]}
-        direction={select('Direction', directions, 'south') as Direction}
-        fullHeight={boolean('Full height', true)}
-        position={select('Position', positions, 'end') as Position}
+        backdrop={args.backdrop}
+        color={args.color}
+        direction={args.direction}
+        fullHeight={args.fullHeight}
+        position={args.position}
         onEscKeyDown={handleCloseClick}
         onOverlayClick={handleCloseClick}
-        tint={select('Tint', tints, 'lightest') as typeof TINTS[number]}
-        lockScroll={boolean('Lock scroll', true)}
-        maxWidth={text('Max width', '50vw')}
-        minWidth={text('Min width', '')}
-        offsetCorrection={number('Offset correction', 0)}
+        tint={args.tint}
+        lockScroll={args.lockScroll}
+        maxWidth={args.maxWidth}
+        minWidth={args.minWidth}
+        offsetCorrection={args.offsetCorrection}
       >
         <Box overflowY="auto">
           <Menu outline={false} selected="bar">
@@ -276,8 +299,10 @@ export const withMenu = () => {
 };
 
 withMenu.storyName = 'With menu';
+withMenu.args = defaultPopoverProps;
+withMenu.argTypes = popoverArgTypes;
 
-export const withSplitButtonMenu = () => {
+export const withSplitButtonMenu: ComponentStory<typeof Popover> = (args) => {
   const [buttonLevel, setButtonLevel] = useState('primary');
   const [buttonLabel, setButtonLabel] = useState('Primary action');
   const [anchorEl, setAnchorEl] = useState<Element | null>(null);
@@ -324,7 +349,7 @@ export const withSplitButtonMenu = () => {
         position="start"
         onEscKeyDown={handleCloseClick}
         onOverlayClick={handleCloseClick}
-        lockScroll={boolean('Lock scroll', true)}
+        lockScroll={args.lockScroll}
       >
         <Menu outline={false} selected={splitButtonSelected}>
           <MenuItem
@@ -347,8 +372,10 @@ export const withSplitButtonMenu = () => {
 };
 
 withSplitButtonMenu.storyName = 'With split button menu';
+withSplitButtonMenu.args = defaultPopoverProps;
+withSplitButtonMenu.argTypes = popoverArgTypes;
 
-export const experiment1 = () => {
+export const experiment1: ComponentStory<typeof Popover> = (args) => {
   const [{ popoverActive, anchorEl }, handleButtonClick, handleCloseClick] = usePopoverTrigger();
 
   return (
@@ -357,18 +384,18 @@ export const experiment1 = () => {
       <Popover
         active={popoverActive}
         anchorEl={anchorEl}
-        backdrop={select('Backdrop', backdrops, 'transparent')}
-        color={select('Color', colors, 'neutral') as typeof COLORS[number]}
-        direction={select('Direction', directions, 'south') as Direction}
-        fullHeight={boolean('Full height', true)}
-        position={select('Position', positions, 'center') as Position}
+        backdrop={args.backdrop}
+        color={args.color}
+        direction={args.direction}
+        fullHeight={args.fullHeight}
+        position={args.position}
         onEscKeyDown={handleCloseClick}
         onOverlayClick={handleCloseClick}
-        tint={select('Tint', tints, 'lightest') as typeof TINTS[number]}
-        lockScroll={boolean('Lock scroll', true)}
-        maxWidth={text('Max width', '50vw')}
-        minWidth={text('Min width', '')}
-        offsetCorrection={number('Offset correction', 0)}
+        tint={args.tint}
+        lockScroll={args.lockScroll}
+        maxWidth={args.maxWidth}
+        minWidth={args.minWidth}
+        offsetCorrection={args.offsetCorrection}
       >
         <Banner color="neutral" fullWidth>
           <Heading3>Popover Title</Heading3>
@@ -388,7 +415,10 @@ export const experiment1 = () => {
   );
 };
 
-export const experiment2 = () => {
+experiment1.args = defaultPopoverProps;
+experiment1.argTypes = popoverArgTypes;
+
+export const experiment2: ComponentStory<typeof Popover> = (args) => {
   const [{ popoverActive, anchorEl }, handleButtonClick, handleCloseClick] = usePopoverTrigger();
 
   return (
@@ -397,18 +427,18 @@ export const experiment2 = () => {
       <Popover
         active={popoverActive}
         anchorEl={anchorEl}
-        backdrop={select('Backdrop', backdrops, 'transparent')}
-        color={select('Color', colors, 'neutral') as typeof COLORS[number]}
-        direction={select('Direction', directions, 'south') as Direction}
-        fullHeight={boolean('Full height', true)}
-        position={select('Position', positions, 'center') as Position}
+        backdrop={args.backdrop}
+        color={args.color}
+        direction={args.direction}
+        fullHeight={args.fullHeight}
+        position={args.position}
         onEscKeyDown={handleCloseClick}
         onOverlayClick={handleCloseClick}
-        tint={select('Tint', tints, 'lightest') as typeof TINTS[number]}
-        lockScroll={boolean('Lock scroll', true)}
-        maxWidth={text('Max width', '50vw')}
-        minWidth={text('Min width', '')}
-        offsetCorrection={number('Offset correction', 0)}
+        tint={args.tint}
+        lockScroll={args.lockScroll}
+        maxWidth={args.maxWidth}
+        minWidth={args.minWidth}
+        offsetCorrection={args.offsetCorrection}
       >
         <Banner color="neutral" fullWidth>
           <Heading3>Popover Title</Heading3>
@@ -431,3 +461,6 @@ export const experiment2 = () => {
     </Box>
   );
 };
+
+experiment2.args = defaultPopoverProps;
+experiment2.argTypes = popoverArgTypes;
