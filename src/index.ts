@@ -31,7 +31,7 @@ import Bullet from './components/bullet';
 import Checkbox from './components/checkbox';
 import Container from './components/container';
 import Counter from './components/counter';
-import DataGrid from './components/datagrid';
+import DataGrid, { DataGridProps } from './components/datagrid';
 import { DatePicker, DatePickerInput } from './components/datepicker';
 import DetailPage, { DetailPageBody, DetailPageHeader } from './components/detailPage';
 import Dialog, { DialogBase } from './components/dialog';
@@ -61,7 +61,7 @@ import Pagination from './components/pagination';
 import Passport, { EmptyPassport } from './components/passport';
 import Popover from './components/popover';
 import PoweredByButton from './components/poweredByButton';
-import { RadioButton, RadioGroup } from './components/radio';
+import { RadioButton, RadioButtonProps, RadioGroup, RadioGroupProps } from './components/radio';
 import Section from './components/section';
 import Select, { AsyncSelect } from './components/select';
 import { Island, IslandGroup } from './components/island';
@@ -85,7 +85,7 @@ import ValidationText, {
 } from './components/validationText';
 import Label from './components/label';
 import Tooltip from './components/tooltip';
-import ProgressTracker from './components/progressTracker';
+import ProgressTracker, { ProgressTrackerProps } from './components/progressTracker';
 import Widget from './components/widget';
 import WysiwygEditor from './components/wysiwygEditor';
 import EmailSelector from './components/emailSelector';
@@ -230,6 +230,7 @@ export {
 };
 
 export type {
+  DataGridProps,
   ErrorTextProps,
   HelpTextProps,
   SuccessTextProps,
@@ -239,4 +240,7 @@ export type {
   MonospacedProps,
   TextProps,
   OverlayProps,
+  ProgressTrackerProps,
+  RadioButtonProps,
+  RadioGroupProps,
 };
