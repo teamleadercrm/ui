@@ -1,10 +1,10 @@
 import React from 'react';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
-import { boolean, number, select, text } from '@storybook/addon-knobs';
 import { DatePicker, DatePickerInput, Toggle } from '../../index';
 import { DateTime } from 'luxon';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { SIZES } from '../../constants';
+import { DatePickerInputProps } from './DatePickerInput';
+import { DatePickerProps } from './DatePicker';
 
 const languages = [
   'da-DK',
@@ -25,7 +25,6 @@ const languages = [
   'tr-TR',
 ];
 const sizes = ['small', 'medium', 'large'];
-type Size = Exclude<typeof SIZES[number], 'tiny' | 'smallest' | 'hero' | 'fullscreen'>;
 
 const optionalSizes = {
   small: 'small',
@@ -38,9 +37,9 @@ const customFormatDate = (date: Date, locale: string) => {
   return DateTime.fromJSDate(date).setLocale(locale).toLocaleString(DateTime.DATETIME_HUGE);
 };
 
-const inputPlaceholderToday = DateTime.fromJSDate(new Date())
-  .setLocale(select('Locale', languages, 'nl-BE'))
-  .toLocaleString(DateTime.DATE_SHORT);
+const inputPlaceholderToday = (locale: string = 'nl-BE') => {
+  return DateTime.fromJSDate(new Date()).setLocale(locale).toLocaleString(DateTime.DATE_SHORT);
+};
 
 const preSelectedDate = DateTime.local().plus({ days: 3 }).toJSDate();
 
@@ -49,7 +48,7 @@ export default {
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Form elements/DatePicker'),
 } as ComponentMeta<typeof DatePicker>;
 
-export const singleDate: ComponentStory<typeof DatePicker> = (args) => {
+export const singleDate: ComponentStory<typeof DatePicker> = (args: DatePickerProps) => {
   const handleOnChange = (selectedDate: Date) => {
     console.log('Selected date', selectedDate);
   };
@@ -58,6 +57,18 @@ export const singleDate: ComponentStory<typeof DatePicker> = (args) => {
 };
 
 singleDate.storyName = 'Single date';
+singleDate.args = {
+  bordered: true,
+  className: '',
+  modifiers: {
+    today: true,
+    outside: true,
+  },
+  selectedDate: new Date(),
+  size: 'medium',
+  withMonthPicker: true,
+  showWeekNumbers: true,
+};
 singleDate.parameters = {
   design: [
     {
@@ -73,7 +84,7 @@ singleDate.parameters = {
   ],
 };
 
-export const inputSingleDate: ComponentStory<typeof DatePickerInput> = () => {
+export const inputSingleDate: ComponentStory<typeof DatePickerInput> = (args: DatePickerInputProps) => {
   const handleOnChange = (selectedDate: Date) => {
     console.log('Selected date', selectedDate);
   };
@@ -81,35 +92,75 @@ export const inputSingleDate: ComponentStory<typeof DatePickerInput> = () => {
   return (
     <DatePickerInput
       dayPickerProps={{
-        numberOfMonths: number('Number of months', 1),
-        showOutsideDays: boolean('Show outside days', true),
-        showWeekNumbers: boolean('Show week numbers', true),
-        withMonthPicker: boolean('Use month picker', false),
+        numberOfMonths: args.dayPickerProps?.numberOfMonths,
+        showOutsideDays: args.dayPickerProps?.showOutsideDays,
+        showWeekNumbers: args.dayPickerProps?.showWeekNumbers,
+        withMonthPicker: args.dayPickerProps?.withMonthPicker,
       }}
       footer={<Toggle label="Lorem ipsum dolor sit amet, suspendisse faucibus nunc et pellentesque" size="small" />}
       formatDate={customFormatDate}
       inputProps={{
-        bold: boolean('Bold', false),
-        disabled: boolean('Disabled', false),
-        error: text('Error', ''),
-        helpText: text('Help text', 'Pick a date'),
-        inverse: boolean('Inverse', false),
-        warning: text('Warning', ''),
-        placeholder: inputPlaceholderToday,
-        readOnly: boolean('Read only', false),
-        width: text('Width', '120px'),
+        bold: args.inputProps?.bold,
+        disabled: args.inputProps?.disabled,
+        error: args.inputProps?.error,
+        helpText: args.inputProps?.helpText,
+        inverse: args.inputProps?.inverse,
+        warning: args.inputProps?.warning,
+        placeholder: inputPlaceholderToday(args.locale),
+        readOnly: args.inputProps?.readOnly,
+        width: args.inputProps?.width,
       }}
-      locale={select('Locale', languages, 'nl-BE')}
+      locale={args.locale}
       onChange={handleOnChange}
       selectedDate={preSelectedDate}
-      size={select('Size', sizes, 'medium') as Size}
-      inputSize={select('Input size', optionalSizes, null) as Size}
-      datePickerSize={select('Date picker size', optionalSizes, null) as Size}
+      size={args.size}
+      inputSize={args.inputSize}
+      datePickerSize={args.datePickerSize}
     />
   );
 };
 
 inputSingleDate.storyName = 'Input single date';
+inputSingleDate.args = {
+  dayPickerProps: {
+    numberOfMonths: 1,
+    showOutsideDays: true,
+    showWeekNumbers: true,
+    withMonthPicker: false,
+  },
+  inputProps: {
+    bold: false,
+    disable: false,
+    error: '',
+    helpText: 'Pick a date',
+    inverse: false,
+    warning: '',
+    readonly: false,
+    width: '120px',
+  },
+  locale: 'nl-BE',
+  size: 'medium',
+  inputSize: undefined,
+  datePickerSize: undefined,
+};
+inputSingleDate.argTypes = {
+  locale: {
+    control: 'select',
+    options: languages,
+  },
+  size: {
+    control: 'select',
+    options: sizes,
+  },
+  inputSize: {
+    control: 'select',
+    options: optionalSizes,
+  },
+  datePickerSize: {
+    control: 'select',
+    options: optionalSizes,
+  },
+};
 inputSingleDate.parameters = {
   design: [
     {

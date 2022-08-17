@@ -14,7 +14,7 @@ import { SIZES } from '../../constants';
 import { InputProps } from '../input/Input';
 import { PopoverProps } from '../popover/Popover';
 
-interface DatePickerInputProps extends Omit<BoxProps, 'size' | 'onChange'> {
+export interface DatePickerInputProps extends Omit<BoxProps, 'size' | 'onChange'> {
   /** A class name for the wrapper to give custom styles. */
   className?: string;
   /** Object with props for the DatePicker component. */
