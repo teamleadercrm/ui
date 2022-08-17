@@ -13,7 +13,7 @@ import localeUtils from './localeUtils';
 import { GenericComponent } from '../../@types/types';
 import { SIZES } from '../../constants';
 
-export interface DatePickerProps extends Omit<BoxProps & DayPickerProps, 'size' | 'onChange' | 'modifiers' | 'ref'> {
+interface DatePickerProps extends Omit<BoxProps & DayPickerProps, 'size' | 'onChange' | 'modifiers' | 'ref'> {
   /** If true we give a border to our wrapper. */
   bordered?: boolean;
   /** A class name for the DatePicker to give custom styles. */

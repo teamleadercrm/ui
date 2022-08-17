@@ -1,9 +1,9 @@
+import { ComponentStory } from '@storybook/react';
 import React from 'react';
 import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { TabGroup, TitleTab, Box, Counter as UICounter } from '../../index';
 
 import { tabItems } from '../../static/data/tab';
-import { TabGroupProps } from './TabGroup';
 
 // Real-life tabs should not have a clickHandler but rather listen to state updates
 const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -27,7 +27,7 @@ export default {
   },
 };
 
-export const titleTab = (args: TabGroupProps) => (
+export const titleTab: ComponentStory<typeof TabGroup> = (args) => (
   <TabGroup size={args.size}>
     {tabItems.map((item, key) => {
       const optionalProps = item.count

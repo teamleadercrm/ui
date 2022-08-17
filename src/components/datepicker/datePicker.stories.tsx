@@ -3,8 +3,6 @@ import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { DatePicker, DatePickerInput, Toggle } from '../../index';
 import { DateTime } from 'luxon';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { DatePickerInputProps } from './DatePickerInput';
-import { DatePickerProps } from './DatePicker';
 
 const languages = [
   'da-DK',
@@ -48,7 +46,7 @@ export default {
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Form elements/DatePicker'),
 } as ComponentMeta<typeof DatePicker>;
 
-export const singleDate: ComponentStory<typeof DatePicker> = (args: DatePickerProps) => {
+export const singleDate: ComponentStory<typeof DatePicker> = (args) => {
   const handleOnChange = (selectedDate: Date) => {
     console.log('Selected date', selectedDate);
   };
@@ -84,7 +82,7 @@ singleDate.parameters = {
   ],
 };
 
-export const inputSingleDate: ComponentStory<typeof DatePickerInput> = (args: DatePickerInputProps) => {
+export const inputSingleDate: ComponentStory<typeof DatePickerInput> = (args) => {
   const handleOnChange = (selectedDate: Date) => {
     console.log('Selected date', selectedDate);
   };

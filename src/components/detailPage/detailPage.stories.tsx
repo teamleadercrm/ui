@@ -10,18 +10,18 @@ import StatusLabel from '../statusLabel';
 import { Box } from '../box';
 import { Heading1, Monospaced, TextBody } from '../typography';
 import { COLOR } from '../../constants';
-import { ArgTypes, ComponentMeta, ComponentStory } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { DetailPageHeaderProps } from './DetailPageHeader';
 
-const defaultDetailPageHeaderProps: DetailPageHeaderProps = {
+const defaultDetailPageHeaderProps = {
   backLinkProps: {
     element: 'button',
     children: 'Back to overview',
   },
   title: 'I am the detail page title',
-  titleColor: 'teal',
+  titleColor: 'teal' as 'neutral' | 'teal' | undefined,
 };
-const detailPageHeaderArgTypes: Partial<ArgTypes<DetailPageHeaderProps>> = {
+const detailPageHeaderArgTypes = {
   backLinkProps: {
     element: {
       control: 'select',
