@@ -89,31 +89,13 @@ export const inputSingleDate: ComponentStory<typeof DatePickerInput> = (args) =>
 
   return (
     <DatePickerInput
-      dayPickerProps={{
-        numberOfMonths: args.dayPickerProps?.numberOfMonths,
-        showOutsideDays: args.dayPickerProps?.showOutsideDays,
-        showWeekNumbers: args.dayPickerProps?.showWeekNumbers,
-        withMonthPicker: args.dayPickerProps?.withMonthPicker,
-      }}
+      {...args}
+      dayPickerProps={{ ...args.dayPickerProps }}
+      inputProps={{ ...args.inputProps, placeholder: inputPlaceholderToday(args.locale) }}
       footer={<Toggle label="Lorem ipsum dolor sit amet, suspendisse faucibus nunc et pellentesque" size="small" />}
       formatDate={customFormatDate}
-      inputProps={{
-        bold: args.inputProps?.bold,
-        disabled: args.inputProps?.disabled,
-        error: args.inputProps?.error,
-        helpText: args.inputProps?.helpText,
-        inverse: args.inputProps?.inverse,
-        warning: args.inputProps?.warning,
-        placeholder: inputPlaceholderToday(args.locale),
-        readOnly: args.inputProps?.readOnly,
-        width: args.inputProps?.width,
-      }}
-      locale={args.locale}
       onChange={handleOnChange}
       selectedDate={preSelectedDate}
-      size={args.size}
-      inputSize={args.inputSize}
-      datePickerSize={args.datePickerSize}
     />
   );
 };
@@ -134,7 +116,7 @@ inputSingleDate.args = {
     inverse: false,
     warning: '',
     readonly: false,
-    width: '120px',
+    width: '',
   },
   locale: 'nl-BE',
   size: 'medium',
