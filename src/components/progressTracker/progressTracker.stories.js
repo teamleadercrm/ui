@@ -1,5 +1,4 @@
 import React from 'react';
-import { boolean, number, select } from '@storybook/addon-knobs';
 import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import ProgressTracker from './ProgressTracker';
 import { COLORS } from '../../index';
@@ -18,25 +17,55 @@ export default {
   },
 };
 
-export const DefaultStory = () => (
+export const defaultStory = (args) => (
   <ProgressTracker
-    done={boolean('Done', false)}
-    currentStep={number('Current step', 1, {
-      range: true,
-      min: 0,
-      max: steps.length - 1,
-      step: 1,
-    })}
-    color={select('Color', COLORS, 'mint')}
-    labelPosition={select('Label position', ['top', 'alternating', 'bottom'], 'top')}
+    done={args.done}
+    currentStep={args.currentStep}
+    color={args.color}
+    labelPosition={args.labelPosition}
   >
     {steps.map((step, index) => (
       <ProgressTracker.ProgressStep
         label={step}
-        meta={boolean('Meta labels', true) ? `${10 + index * 3}/12/2020` : undefined}
+        meta={args.meta ? `${10 + index * 3}/12/2020` : undefined}
         key={index}
         onClick={() => console.log('step clicked')}
       />
     ))}
   </ProgressTracker>
 );
+
+defaultStory.args = {
+  done: false,
+  currentStep: 1,
+  color: 'mint',
+  labelPosition: 'top',
+  meta: true,
+};
+defaultStory.argTypes = {
+  done: {
+    name: 'Done',
+  },
+  currentStep: {
+    name: 'Current step',
+    control: {
+      type: 'number',
+      min: 0,
+      max: steps.length - 1,
+      step: 1,
+    },
+  },
+  color: {
+    name: 'Color',
+    control: 'select',
+    options: COLORS,
+  },
+  labelPosition: {
+    name: 'Label position',
+    control: 'select',
+    options: ['top', 'alternating', 'bottom'],
+  },
+  meta: {
+    name: 'Meta labels',
+  },
+};
