@@ -20,7 +20,7 @@ interface WidgetComponent extends GenericComponent<WidgetProps> {
   Footer: GenericComponent<FooterProps>;
 }
 
-const Widget: WidgetComponent = forwardRef<HTMLElement, WidgetProps>(
+export const Widget: GenericComponent<WidgetProps> = forwardRef<HTMLElement, WidgetProps>(
   ({ children, size = 'medium', ...others }, ref) => {
     return (
       <IslandGroup ref={ref} direction="vertical" {...others}>
@@ -44,8 +44,11 @@ const Widget: WidgetComponent = forwardRef<HTMLElement, WidgetProps>(
 
 Widget.displayName = 'Widget';
 
-Widget.Body = Body;
-Widget.Footer = Footer;
-Widget.Header = Header;
+// It has to be written like this, since `forwardRef` return component without sub-components and that doesn't match with our typing
+const WidgetWithSubComponents = Widget as WidgetComponent;
 
-export default Widget;
+WidgetWithSubComponents.Body = Body;
+WidgetWithSubComponents.Footer = Footer;
+WidgetWithSubComponents.Header = Header;
+
+export default WidgetWithSubComponents;
