@@ -85,7 +85,7 @@ import ValidationText, {
 } from './components/validationText';
 import Label from './components/label';
 import Tooltip from './components/tooltip';
-import ProgressTracker from './components/progressTracker';
+import ProgressTracker, { ProgressTrackerProps } from './components/progressTracker';
 import Widget from './components/widget';
 import WysiwygEditor from './components/wysiwygEditor';
 import EmailSelector from './components/emailSelector';
@@ -240,6 +240,7 @@ export type {
   MonospacedProps,
   TextProps,
   OverlayProps,
+  ProgressTrackerProps,
   RadioButtonProps,
   RadioGroupProps,
 };
