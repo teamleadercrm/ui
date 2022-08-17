@@ -93,20 +93,11 @@ export const basic: ComponentStory<typeof Popover> = (args) => {
     <Box display="flex" justifyContent="center">
       <Button onClick={handleButtonClick} label="Open a basic Popover" />
       <Popover
+        {...args}
         active={popoverActive}
         anchorEl={anchorEl}
-        backdrop={args.backdrop}
-        color={args.color}
-        direction={args.direction}
-        fullHeight={args.fullHeight}
-        position={args.position}
         onEscKeyDown={handleCloseClick}
         onOverlayClick={handleCloseClick}
-        tint={args.tint}
-        lockScroll={args.lockScroll}
-        maxWidth={args.maxWidth}
-        minWidth={args.minWidth}
-        offsetCorrection={args.offsetCorrection}
       >
         {contentBoxWithSingleTextLine}
       </Popover>
@@ -124,20 +115,11 @@ export const withTitle: ComponentStory<typeof Popover> = (args) => {
     <Box display="flex" justifyContent="center">
       <Button onClick={handleButtonClick} label="Open titled Popover" />
       <Popover
+        {...args}
         active={popoverActive}
         anchorEl={anchorEl}
-        backdrop={args.backdrop}
-        color={args.color}
-        direction={args.direction}
-        fullHeight={args.fullHeight}
-        position={args.position}
         onEscKeyDown={handleCloseClick}
         onOverlayClick={handleCloseClick}
-        tint={args.tint}
-        lockScroll={args.lockScroll}
-        maxWidth={args.maxWidth}
-        minWidth={args.minWidth}
-        offsetCorrection={args.offsetCorrection}
       >
         <Banner fullWidth>
           <Heading3>Popover Title</Heading3>
@@ -159,20 +141,11 @@ export const withTitleSubtitle: ComponentStory<typeof Popover> = (args) => {
     <Box display="flex" justifyContent="center">
       <Button onClick={handleButtonClick} label="Open titled & subtitled Popover" />
       <Popover
+        {...args}
         active={popoverActive}
         anchorEl={anchorEl}
-        backdrop={args.backdrop}
-        color={args.color}
-        direction={args.direction}
-        fullHeight={args.fullHeight}
-        position={args.position}
         onEscKeyDown={handleCloseClick}
         onOverlayClick={handleCloseClick}
-        tint={args.tint}
-        lockScroll={args.lockScroll}
-        maxWidth={args.maxWidth}
-        minWidth={args.minWidth}
-        offsetCorrection={args.offsetCorrection}
       >
         <Banner color="neutral" fullWidth>
           <Heading3>Popover Title</Heading3>
@@ -195,20 +168,11 @@ export const withCloseButton: ComponentStory<typeof Popover> = (args) => {
     <Box display="flex" justifyContent="center">
       <Button onClick={handleButtonClick} label="Open Popover with close button" />
       <Popover
+        {...args}
         active={popoverActive}
         anchorEl={anchorEl}
-        backdrop={args.backdrop}
-        color={args.color}
-        direction={args.direction}
-        fullHeight={args.fullHeight}
-        position={args.position}
         onEscKeyDown={handleCloseClick}
         onOverlayClick={handleCloseClick}
-        tint={args.tint}
-        lockScroll={args.lockScroll}
-        maxWidth={args.maxWidth}
-        minWidth={args.minWidth}
-        offsetCorrection={args.offsetCorrection}
       >
         <Banner onClose={handleCloseClick} fullWidth>
           <Heading3>I am a heading 3</Heading3>
@@ -230,20 +194,11 @@ export const withActions: ComponentStory<typeof Popover> = (args) => {
     <Box display="flex" justifyContent="center">
       <Button onClick={handleButtonClick} label="Open Popover with actions" />
       <Popover
+        {...args}
         active={popoverActive}
         anchorEl={anchorEl}
-        backdrop={args.backdrop}
-        color={args.color}
-        direction={args.direction}
-        fullHeight={args.fullHeight}
-        position={args.position}
         onEscKeyDown={handleCloseClick}
         onOverlayClick={handleCloseClick}
-        tint={args.tint}
-        lockScroll={args.lockScroll}
-        maxWidth={args.maxWidth}
-        minWidth={args.minWidth}
-        offsetCorrection={args.offsetCorrection}
       >
         {contentBoxWithSingleTextLine}
         <ButtonGroup justifyContent="flex-end" padding={4}>
@@ -266,20 +221,11 @@ export const withMenu: ComponentStory<typeof Popover> = (args) => {
     <Box display="flex" justifyContent="center">
       <Button onClick={handleButtonClick} label="Open Popover with menu" />
       <Popover
+        {...args}
         active={popoverActive}
         anchorEl={anchorEl}
-        backdrop={args.backdrop}
-        color={args.color}
-        direction={args.direction}
-        fullHeight={args.fullHeight}
-        position={args.position}
         onEscKeyDown={handleCloseClick}
         onOverlayClick={handleCloseClick}
-        tint={args.tint}
-        lockScroll={args.lockScroll}
-        maxWidth={args.maxWidth}
-        minWidth={args.minWidth}
-        offsetCorrection={args.offsetCorrection}
       >
         <Box overflowY="auto">
           <Menu outline={false} selected="bar">
@@ -343,13 +289,13 @@ export const withSplitButtonMenu: ComponentStory<typeof Popover> = (args) => {
         />
       </ButtonGroup>
       <Popover
+        {...args}
         active={popoverActive}
         anchorEl={anchorEl}
         backdrop="transparent"
         position="start"
         onEscKeyDown={handleCloseClick}
         onOverlayClick={handleCloseClick}
-        lockScroll={args.lockScroll}
       >
         <Menu outline={false} selected={splitButtonSelected}>
           <MenuItem
@@ -382,20 +328,11 @@ export const experiment1: ComponentStory<typeof Popover> = (args) => {
     <Box display="flex" justifyContent="center">
       <Button onClick={handleButtonClick} label="Open a experimental Popover" />
       <Popover
+        {...args}
         active={popoverActive}
         anchorEl={anchorEl}
-        backdrop={args.backdrop}
-        color={args.color}
-        direction={args.direction}
-        fullHeight={args.fullHeight}
-        position={args.position}
         onEscKeyDown={handleCloseClick}
         onOverlayClick={handleCloseClick}
-        tint={args.tint}
-        lockScroll={args.lockScroll}
-        maxWidth={args.maxWidth}
-        minWidth={args.minWidth}
-        offsetCorrection={args.offsetCorrection}
       >
         <Banner color="neutral" fullWidth>
           <Heading3>Popover Title</Heading3>
@@ -425,20 +362,11 @@ export const experiment2: ComponentStory<typeof Popover> = (args) => {
     <Box display="flex" justifyContent="center">
       <Button onClick={handleButtonClick} label="Open a experimental Popover" />
       <Popover
+        {...args}
         active={popoverActive}
         anchorEl={anchorEl}
-        backdrop={args.backdrop}
-        color={args.color}
-        direction={args.direction}
-        fullHeight={args.fullHeight}
-        position={args.position}
         onEscKeyDown={handleCloseClick}
         onOverlayClick={handleCloseClick}
-        tint={args.tint}
-        lockScroll={args.lockScroll}
-        maxWidth={args.maxWidth}
-        minWidth={args.minWidth}
-        offsetCorrection={args.offsetCorrection}
       >
         <Banner color="neutral" fullWidth>
           <Heading3>Popover Title</Heading3>
