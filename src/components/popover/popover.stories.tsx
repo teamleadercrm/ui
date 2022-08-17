@@ -6,7 +6,6 @@ import {
   IconTrashSmallOutline,
   IconClockSmallOutline,
 } from '@teamleader/ui-icons';
-import { COLORS, TINTS } from '../../constants/colors';
 import {
   Banner,
   Box,
