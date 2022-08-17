@@ -13,6 +13,7 @@ export interface RadioButtonProps extends Omit<BoxProps, 'className' | 'children
   children?: ReactNode;
   className?: string;
   disabled?: boolean;
+  name?: string;
   onChange?: (checked: boolean, event: MouseEvent) => void;
   onMouseEnter?: (event: MouseEvent) => void;
   onMouseLeave?: (event: MouseEvent) => void;
@@ -25,6 +26,7 @@ const RadioButton: GenericComponent<RadioButtonProps> = ({
   children,
   className,
   disabled = false,
+  name,
   onChange,
   onMouseEnter,
   onMouseLeave,
@@ -82,6 +84,7 @@ const RadioButton: GenericComponent<RadioButtonProps> = ({
         onClick={handleToggle}
         readOnly
         ref={inputNode}
+        name={name}
         {...inputProps}
       />
       <span className={theme['shape']} />
