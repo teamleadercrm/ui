@@ -61,13 +61,7 @@ export default {
 };
 
 export const basic = (args) => (
-  <TooltippedButton
-    tooltip={textBodyTooltipContent}
-    tooltipColor={args.tooltipColor}
-    tooltipPosition={args.tooltipPosition}
-    tooltipSize={args.tooltipSize}
-    tooltipActive={args.tooltipActive}
-  >
+  <TooltippedButton {...args} tooltip={textBodyTooltipContent}>
     Hover me to see a tooltip
   </TooltippedButton>
 );
@@ -77,14 +71,7 @@ basic.argTypes = tooltipArgTypes;
 
 export const withIcon = (args) => (
   <TextDisplay>
-    <TooltippedStrong
-      tooltip={textSmallTooltipContent}
-      tooltipColor={args.tooltipColor}
-      tooltipIcon={<IconHelpBadgedMediumOutline />}
-      tooltipPosition={args.tooltipPosition}
-      tooltipSize={args.tooltipSize}
-      tooltipActive={args.tooltipActive}
-    >
+    <TooltippedStrong {...args} tooltip={textSmallTooltipContent} tooltipIcon={<IconHelpBadgedMediumOutline />}>
       Hover me
     </TooltippedStrong>
   </TextDisplay>
@@ -96,13 +83,7 @@ withIcon.argTypes = tooltipArgTypes;
 export const fromBadge = (args) => (
   <TextDisplay>
     I'm display text with a{' '}
-    <TooltippedBadge
-      tooltip={textSmallTooltipContent}
-      tooltipColor={args.tooltipColor}
-      tooltipPosition={args.tooltipPosition}
-      tooltipSize={args.tooltipSize}
-      tooltipActive={args.tooltipActive}
-    >
+    <TooltippedBadge {...args} tooltip={textSmallTooltipContent}>
       Hover me
     </TooltippedBadge>{' '}
     tooltip action
@@ -113,13 +94,7 @@ fromBadge.args = defaultTooltipProps;
 fromBadge.argTypes = tooltipArgTypes;
 
 export const fromButton = (args) => (
-  <TooltippedButton
-    tooltip={textBodyTooltipContent}
-    tooltipColor={args.tooltipColor}
-    tooltipPosition={args.tooltipPosition}
-    tooltipSize={args.tooltipSize}
-    tooltipActive={args.tooltipActive}
-  >
+  <TooltippedButton {...args} tooltip={textBodyTooltipContent}>
     Hover me
   </TooltippedButton>
 );
@@ -128,15 +103,7 @@ fromButton.args = defaultTooltipProps;
 fromButton.argTypes = tooltipArgTypes;
 
 export const fromLink = (args) => (
-  <TooltippedLink
-    tooltip={textBodyTooltipContent}
-    tooltipColor={args.tooltipColor}
-    tooltipPosition={args.tooltipPosition}
-    tooltipSize={args.tooltipSize}
-    tooltipActive={args.tooltipActive}
-    href="#"
-    inherit={false}
-  >
+  <TooltippedLink {...args} tooltip={textBodyTooltipContent} href="#" inherit={false}>
     Hover me
   </TooltippedLink>
 );
@@ -145,13 +112,7 @@ fromLink.args = defaultTooltipProps;
 fromLink.argTypes = tooltipArgTypes;
 
 export const fromStatusLabel = (args) => (
-  <TooltippedStatusLabel
-    tooltip={textSmallTooltipContent}
-    tooltipColor={args.tooltipColor}
-    tooltipPosition={args.tooltipPosition}
-    tooltipSize={args.tooltipSize}
-    tooltipActive={args.tooltipActive}
-  >
+  <TooltippedStatusLabel {...args} tooltip={textSmallTooltipContent}>
     Hover me
   </TooltippedStatusLabel>
 );
@@ -163,13 +124,7 @@ fromStatusLabel.argTypes = tooltipArgTypes;
 export const fromInlineElements = (args) => (
   <TextBody>
     I'm body text with a{' '}
-    <TooltippedStrong
-      tooltip={textBodyTooltipContent}
-      tooltipColor={args.tooltipColor}
-      tooltipPosition={args.tooltipPosition}
-      tooltipSize={args.tooltipSize}
-      tooltipActive={args.tooltipActive}
-    >
+    <TooltippedStrong {...args} tooltip={textBodyTooltipContent}>
       Hover me
     </TooltippedStrong>{' '}
     tooltip action
