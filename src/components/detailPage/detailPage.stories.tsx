@@ -116,16 +116,7 @@ body.parameters = {
   },
 };
 
-export const header: ComponentStory<typeof DetailPage.Header> = (args: DetailPageHeaderProps) => (
-  <DetailPage.Header
-    backLinkProps={{
-      element: args.backLinkProps?.element,
-      children: args.backLinkProps?.children,
-    }}
-    title={args.title}
-    titleColor={args.titleColor}
-  />
-);
+export const header: ComponentStory<typeof DetailPage.Header> = (args) => <DetailPage.Header {...args} />;
 
 header.storyName = 'Header';
 header.args = defaultDetailPageHeaderProps;
@@ -136,16 +127,8 @@ header.parameters = {
   },
 };
 
-export const headerWithTitleSuffix: ComponentStory<typeof DetailPage.Header> = (args: DetailPageHeaderProps) => (
-  <DetailPage.Header
-    backLinkProps={{
-      element: args.backLinkProps?.element,
-      children: args.backLinkProps?.children,
-    }}
-    title={args.title}
-    titleColor={args.titleColor}
-    titleSuffix={<StatusLabel color="violet">Draft</StatusLabel>}
-  />
+export const headerWithTitleSuffix: ComponentStory<typeof DetailPage.Header> = (args) => (
+  <DetailPage.Header {...args} titleSuffix={<StatusLabel color="violet">Draft</StatusLabel>} />
 );
 
 headerWithTitleSuffix.storyName = 'Header with title suffix';
@@ -157,17 +140,8 @@ headerWithTitleSuffix.parameters = {
   },
 };
 
-export const headerWithActions: ComponentStory<typeof DetailPage.Header> = (args: DetailPageHeaderProps) => (
-  <DetailPage.Header
-    backLinkProps={{
-      element: args.backLinkProps?.element,
-      children: args.backLinkProps?.children,
-    }}
-    title={args.title}
-    titleColor={args.titleColor}
-  >
-    {actionButtons()}
-  </DetailPage.Header>
+export const headerWithActions: ComponentStory<typeof DetailPage.Header> = (args) => (
+  <DetailPage.Header {...args}>{actionButtons()}</DetailPage.Header>
 );
 
 headerWithActions.storyName = 'Header with actions';
@@ -179,17 +153,8 @@ headerWithActions.parameters = {
   },
 };
 
-export const headerWithTotals: ComponentStory<typeof DetailPage.Header> = (args: DetailPageHeaderProps) => (
-  <DetailPage.Header
-    backLinkProps={{
-      element: args.backLinkProps?.element,
-      children: args.backLinkProps?.children,
-    }}
-    title={args.title}
-    titleColor={args.titleColor}
-  >
-    {totals()}
-  </DetailPage.Header>
+export const headerWithTotals: ComponentStory<typeof DetailPage.Header> = (args) => (
+  <DetailPage.Header {...args}>{totals()}</DetailPage.Header>
 );
 
 headerWithTotals.storyName = 'Header with totals';
@@ -201,15 +166,8 @@ headerWithTotals.parameters = {
   },
 };
 
-export const headerWithTotalsAndActions: ComponentStory<typeof DetailPage.Header> = (args: DetailPageHeaderProps) => (
-  <DetailPage.Header
-    backLinkProps={{
-      element: args.backLinkProps?.element,
-      children: args.backLinkProps?.children,
-    }}
-    title={args.title}
-    titleColor={args.titleColor}
-  >
+export const headerWithTotalsAndActions: ComponentStory<typeof DetailPage.Header> = (args) => (
+  <DetailPage.Header {...args}>
     {totals()}
     {actionButtons()}
   </DetailPage.Header>
@@ -224,16 +182,8 @@ headerWithTotalsAndActions.parameters = {
   },
 };
 
-export const headerWithEverthingTogether: ComponentStory<typeof DetailPage.Header> = (args: DetailPageHeaderProps) => (
-  <DetailPage.Header
-    backLinkProps={{
-      element: args.backLinkProps?.element,
-      children: args.backLinkProps?.children,
-    }}
-    title={args.title}
-    titleColor={args.titleColor}
-    titleSuffix={<StatusLabel color="violet">Draft</StatusLabel>}
-  >
+export const headerWithEverthingTogether: ComponentStory<typeof DetailPage.Header> = (args) => (
+  <DetailPage.Header {...args} titleSuffix={<StatusLabel color="violet">Draft</StatusLabel>}>
     {totals()}
     {actionButtons()}
   </DetailPage.Header>
