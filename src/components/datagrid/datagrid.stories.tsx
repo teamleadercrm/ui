@@ -1,10 +1,11 @@
-import React from 'react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import React, { MouseEvent } from 'react';
 import { addStoryInGroup, COMPOSITIONS } from '../../../.storybook/utils';
 import { DataGrid, IconMenu, MenuItem, Link, Button, ButtonGroup } from '../../index';
 
 import { rows1 } from '../../static/data/datagrid';
 
-const handleRowSelectionChange = (selectedRows) => {
+const handleRowSelectionChange = (selectedRows: (number | string)[]) => {
   console.log(`onSelectionChange - selected row indexes: ${selectedRows}`);
 };
 
@@ -18,9 +19,9 @@ export default {
       url: 'https://www.figma.com/file/LHH25GN90ljQaBEUNMsdJn/Desktop-components?node-id=503%3A4737',
     },
   },
-};
+} as ComponentMeta<typeof DataGrid>;
 
-export const DefaultStory = (args) => (
+export const DefaultStory: ComponentStory<typeof DataGrid> = (args) => (
   <DataGrid {...args}>
     <DataGrid.HeaderRowOverlay
       numSelectedRowsLabel={(numSelectedRows) => (numSelectedRows === 1 ? 'sélectionné' : 'sélectionnés')}
@@ -40,7 +41,7 @@ export const DefaultStory = (args) => (
       <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} align="right">
         Amount
       </DataGrid.HeaderCell>
-      <DataGrid.HeaderCell flex="5" onClick={() => console.log('onClick: column sort')}>
+      <DataGrid.HeaderCell flex={5} onClick={() => console.log('onClick: column sort')}>
         Customer
       </DataGrid.HeaderCell>
       <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')}>Due date</DataGrid.HeaderCell>
@@ -48,9 +49,9 @@ export const DefaultStory = (args) => (
     </DataGrid.HeaderRow>
     {rows1.map((row, index) => {
       return (
-        <DataGrid.BodyRow key={index} onClick={(event) => console.log('onClick:', row.column5, event)}>
+        <DataGrid.BodyRow key={index} onClick={(event: MouseEvent) => console.log('onClick:', row.column5, event)}>
           <DataGrid.Cell>
-            <Link href="#" onClick={(event) => event.stopPropagation()} inherit={false}>
+            <Link href="#" onClick={(event: MouseEvent) => event.stopPropagation()} inherit={false}>
               {row.column5}
             </Link>{' '}
           </DataGrid.Cell>
@@ -58,32 +59,32 @@ export const DefaultStory = (args) => (
             {' '}
             {`€ ${row.column3}`}
           </DataGrid.Cell>
-          <DataGrid.Cell flex="5">{row.column2}</DataGrid.Cell>
+          <DataGrid.Cell flex={5}>{row.column2}</DataGrid.Cell>
           <DataGrid.Cell soft>{row.column4}</DataGrid.Cell>
           <DataGrid.Cell align="right" flex="min-width" preventOverflow={false}>
             <IconMenu
               position="top-right"
-              onClick={(event) => {
+              onClick={(event: MouseEvent) => {
                 event.stopPropagation();
               }}
             >
               <MenuItem
                 label="Duplicate row"
-                onClick={(event) => {
+                onClick={(event: MouseEvent) => {
                   console.log('onClick: duplicate row');
                   event.stopPropagation();
                 }}
               />
               <MenuItem
                 label="Inactive row"
-                onClick={(event) => {
+                onClick={(event: MouseEvent) => {
                   console.log('onClick: inactivate row');
                   event.stopPropagation();
                 }}
               />
               <MenuItem
                 label="Remove row"
-                onClick={(event) => {
+                onClick={(event: MouseEvent) => {
                   console.log('onClick: remove row');
                   event.stopPropagation();
                 }}

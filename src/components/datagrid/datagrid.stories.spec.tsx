@@ -4,18 +4,19 @@ import DataGrid from './DataGrid';
 import Link from '../link';
 import { IconMenu, MenuItem } from '../menu';
 import { rows1 } from '../../static/data/datagrid';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 export default {
   component: DataGrid,
   title: 'DataGrid',
-};
+} as ComponentMeta<typeof DataGrid>;
 
-export const Main = () => (
+export const Main: ComponentStory<typeof DataGrid> = () => (
   <DataGrid selectable bordered>
     <DataGrid.HeaderRow>
       <DataGrid.HeaderCell sorted="asc">Invoice</DataGrid.HeaderCell>
       <DataGrid.HeaderCell align="right">Amount</DataGrid.HeaderCell>
-      <DataGrid.HeaderCell flex="5">Customer</DataGrid.HeaderCell>
+      <DataGrid.HeaderCell flex={5}>Customer</DataGrid.HeaderCell>
       <DataGrid.HeaderCell>Due date</DataGrid.HeaderCell>
       <DataGrid.HeaderCell flex="min-width" />
     </DataGrid.HeaderRow>
@@ -30,7 +31,7 @@ export const Main = () => (
           <DataGrid.Cell align="right" strong>
             {`€ ${row.column3}`}
           </DataGrid.Cell>
-          <DataGrid.Cell flex="5">{row.column2}</DataGrid.Cell>
+          <DataGrid.Cell flex={5}>{row.column2}</DataGrid.Cell>
           <DataGrid.Cell soft>{row.column4}</DataGrid.Cell>
           <DataGrid.Cell align="right" flex="min-width" preventOverflow={false}>
             <IconMenu position="top-right">
