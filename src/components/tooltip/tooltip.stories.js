@@ -1,6 +1,5 @@
 import React from 'react';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
-import { select } from '@storybook/addon-knobs';
 import { IconHelpBadgedMediumOutline } from '@teamleader/ui-icons';
 import { Badge, Button, Link, StatusLabel, TextBody, TextDisplay, TextSmall, Tooltip } from '../../index';
 
@@ -25,6 +24,31 @@ const textSmallTooltipContent = (
   <TextSmall>I am small sized tooltip text with lorem ipsum text and so many more!</TextSmall>
 );
 
+const defaultTooltipProps = {
+  tooltipColor: 'white',
+  tooltipPosition: 'horizontal',
+  tooltipSize: 'medium',
+  tooltipActive: null,
+};
+const tooltipArgTypes = {
+  tooltipColor: {
+    control: 'select',
+    options: colors,
+  },
+  tooltipPosition: {
+    control: 'select',
+    options: positions,
+  },
+  tooltipSize: {
+    control: 'select',
+    options: sizes,
+  },
+  tooltipActive: {
+    control: 'select',
+    options: [null, true, false],
+  },
+};
+
 export default {
   component: Tooltip,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Tooltip'),
@@ -36,103 +60,77 @@ export default {
   },
 };
 
-export const basic = () => (
-  <TooltippedButton
-    tooltip={textBodyTooltipContent}
-    tooltipColor={select('Color', colors, 'white')}
-    tooltipPosition={select('Position', positions, 'horizontal')}
-    tooltipSize={select('Size', sizes, 'medium')}
-    tooltipActive={select('Active', [null, true, false])}
-  >
+export const basic = (args) => (
+  <TooltippedButton {...args} tooltip={textBodyTooltipContent}>
     Hover me to see a tooltip
   </TooltippedButton>
 );
 
-export const withIcon = () => (
+basic.args = defaultTooltipProps;
+basic.argTypes = tooltipArgTypes;
+
+export const withIcon = (args) => (
   <TextDisplay>
-    <TooltippedStrong
-      tooltip={textSmallTooltipContent}
-      tooltipColor={select('Color', colors, 'white')}
-      tooltipIcon={<IconHelpBadgedMediumOutline />}
-      tooltipPosition={select('Position', positions, 'horizontal')}
-      tooltipSize={select('Size', sizes, 'medium')}
-      tooltipActive={select('Active', [null, true, false])}
-    >
+    <TooltippedStrong {...args} tooltip={textSmallTooltipContent} tooltipIcon={<IconHelpBadgedMediumOutline />}>
       Hover me
     </TooltippedStrong>
   </TextDisplay>
 );
 
-export const fromBadge = () => (
+withIcon.args = defaultTooltipProps;
+withIcon.argTypes = tooltipArgTypes;
+
+export const fromBadge = (args) => (
   <TextDisplay>
     I'm display text with a{' '}
-    <TooltippedBadge
-      tooltip={textSmallTooltipContent}
-      tooltipColor={select('Color', colors, 'white')}
-      tooltipPosition={select('Position', positions, 'horizontal')}
-      tooltipSize={select('Size', sizes, 'medium')}
-      tooltipActive={select('Active', [null, true, false])}
-    >
-      hover me
+    <TooltippedBadge {...args} tooltip={textSmallTooltipContent}>
+      Hover me
     </TooltippedBadge>{' '}
     tooltip action
   </TextDisplay>
 );
 
-export const fromButton = () => (
-  <TooltippedButton
-    tooltip={textBodyTooltipContent}
-    tooltipColor={select('Color', colors, 'white')}
-    tooltipPosition={select('Position', positions, 'horizontal')}
-    tooltipSize={select('Size', sizes, 'medium')}
-    tooltipActive={select('Active', [null, true, false])}
-  >
+fromBadge.args = defaultTooltipProps;
+fromBadge.argTypes = tooltipArgTypes;
+
+export const fromButton = (args) => (
+  <TooltippedButton {...args} tooltip={textBodyTooltipContent}>
     Hover me
   </TooltippedButton>
 );
 
-export const fromLink = () => (
-  <TooltippedLink
-    tooltip={textBodyTooltipContent}
-    tooltipColor={select('Color', colors, 'white')}
-    tooltipPosition={select('Position', positions, 'horizontal')}
-    tooltipSize={select('Size', sizes, 'medium')}
-    tooltipActive={select('Active', [null, true, false])}
-    href="#"
-    inherit={false}
-  >
+fromButton.args = defaultTooltipProps;
+fromButton.argTypes = tooltipArgTypes;
+
+export const fromLink = (args) => (
+  <TooltippedLink {...args} tooltip={textBodyTooltipContent} href="#" inherit={false}>
     Hover me
   </TooltippedLink>
 );
 
-export const fromStatusLabel = () => (
-  <TooltippedStatusLabel
-    tooltip={textSmallTooltipContent}
-    tooltipColor={select('Color', colors, 'white')}
-    tooltipPosition={select('Position', positions, 'horizontal')}
-    tooltipSize={select('Size', sizes, 'medium')}
-    tooltipActive={select('Active', [null, true, false])}
-  >
+fromLink.args = defaultTooltipProps;
+fromLink.argTypes = tooltipArgTypes;
+
+export const fromStatusLabel = (args) => (
+  <TooltippedStatusLabel {...args} tooltip={textSmallTooltipContent}>
     Hover me
   </TooltippedStatusLabel>
 );
 
 fromStatusLabel.storyName = 'From StatusLabel';
+fromStatusLabel.args = defaultTooltipProps;
+fromStatusLabel.argTypes = tooltipArgTypes;
 
-export const fromInlineElements = () => (
+export const fromInlineElements = (args) => (
   <TextBody>
     I'm body text with a{' '}
-    <TooltippedStrong
-      tooltip={textBodyTooltipContent}
-      tooltipColor={select('Color', colors, 'white')}
-      tooltipPosition={select('Position', positions, 'horizontal')}
-      tooltipSize={select('Size', sizes, 'medium')}
-      tooltipActive={select('Active', [null, true, false])}
-    >
-      hover me
+    <TooltippedStrong {...args} tooltip={textBodyTooltipContent}>
+      Hover me
     </TooltippedStrong>{' '}
     tooltip action
   </TextBody>
 );
 
 fromInlineElements.storyName = 'From inline elements';
+fromInlineElements.args = defaultTooltipProps;
+fromInlineElements.argTypes = tooltipArgTypes;
