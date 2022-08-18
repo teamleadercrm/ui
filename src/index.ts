@@ -63,7 +63,7 @@ import Popover from './components/popover';
 import PoweredByButton from './components/poweredByButton';
 import { RadioButton, RadioButtonProps, RadioGroup, RadioGroupProps } from './components/radio';
 import Section from './components/section';
-import Select, { AsyncSelect } from './components/select';
+import Select, { SelectProps, AsyncSelectProps, AsyncSelect } from './components/select';
 import { Island, IslandGroup } from './components/island';
 import SplitButton from './components/splitButton';
 import StatusLabel from './components/statusLabel';
@@ -230,6 +230,7 @@ export {
 };
 
 export type {
+  AsyncSelectProps,
   DataGridProps,
   ErrorTextProps,
   HelpTextProps,
@@ -243,4 +244,5 @@ export type {
   ProgressTrackerProps,
   RadioButtonProps,
   RadioGroupProps,
+  SelectProps,
 };
