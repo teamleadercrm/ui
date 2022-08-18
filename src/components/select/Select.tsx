@@ -17,9 +17,11 @@ import SelectType from 'react-select/dist/declarations/src/Select';
 import { GenericComponent } from '../../@types/types';
 import { COLOR, SIZES } from '../../constants';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
+import { BoxProps } from '../box/Box';
 import Icon from '../icon';
 import ValidationText from '../validationText';
 import theme from './theme.css';
+import { Option, Value } from './types';
 
 const minHeightBySizeMap = {
   tiny: 24,
@@ -28,12 +30,7 @@ const minHeightBySizeMap = {
   large: 48,
 };
 
-type Value = string | number | Record<string, any>;
-interface Option {
-  label?: string;
-  value: Value;
-}
-export interface SelectProps extends Props {
+export interface SelectProps extends Props, Omit<BoxProps, 'className'> {
   /** Override default components with your own. Pass an object with correct the key and its replacing component */
   components?: Props['components'];
   /** If true, it's possible to create a new option that is not in the list. */
