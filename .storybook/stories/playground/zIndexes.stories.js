@@ -1,4 +1,3 @@
-import { boolean, select } from '@storybook/addon-knobs';
 import { DateTime } from 'luxon';
 import React, { useState } from 'react';
 import {
@@ -17,9 +16,10 @@ import {
   MenuItem,
   Popover,
   Select,
-  TextBody, Toast,
+  TextBody,
+  Toast,
   ToastContainer,
-  Tooltip
+  Tooltip,
 } from '../../../src';
 import { rows1 } from '../../../src/static/data/datagrid';
 import { LANGUAGES } from '../../../src/static/data/languages';
@@ -136,7 +136,7 @@ const MyDatagrid = ({ ...props }) => (
   </DataGrid>
 );
 
-export const zIndexes = () => {
+export const zIndexes = (args) => {
   const [popoverActive, setPopoverActive] = useState(false);
   const [popoverAnchorEl, setPopoverAnchorEl] = useState(undefined);
   const [dialogActive, setDialogActive] = useState(false);
@@ -182,16 +182,16 @@ export const zIndexes = () => {
               placeholder: inputPlaceholderToday,
               width: '100%',
             }}
-            locale={select('Locale', LANGUAGES, 'nl')}
+            locale={args.locale}
             onChange={handleDatePickerDateChanged}
           />
         </Label>
       </Box>
       <MyDatagrid
-        selectable={boolean('DataGrid selectable', true)}
+        selectable={args.dataGridSelectable}
         stickyFromLeft={3}
         stickyFromRight={1}
-        processing={boolean('DataGrid processing', false)}
+        processing={args.dataGridProcessing}
         marginTop={4}
       />
       <Popover
@@ -205,11 +205,7 @@ export const zIndexes = () => {
       >
         <Box padding={4}>
           <Heading3 color="teal">I am a Popover</Heading3>
-          <Label
-            marginTop={3}
-            marginBottom={0}
-            required
-          >
+          <Label marginTop={3} marginBottom={0} required>
             Select your flavourite
             <Select helpText="Please select your favorite flavour" options={options} />
           </Label>
@@ -237,7 +233,7 @@ export const zIndexes = () => {
                 helpText: 'Please pick a preferred date',
                 placeholder: inputPlaceholderToday,
               }}
-              locale={select('Locale', LANGUAGES, 'nl')}
+              locale={args.locale}
               onChange={handleDatePickerDateChanged}
             />
           </Label>
@@ -251,3 +247,21 @@ export const zIndexes = () => {
 };
 
 zIndexes.storyName = 'Z-Indexes';
+zIndexes.args = {
+  dataGridSelectable: false,
+  dataGridProcessing: false,
+  locale: 'nl',
+};
+zIndexes.argTypes = {
+  dataGridSelectable: {
+    name: 'DataGrid selectable',
+  },
+  dataGridProcessing: {
+    name: 'DataGrid processing',
+  },
+  locale: {
+    name: 'Locale',
+    control: 'select',
+    options: LANGUAGES,
+  },
+};

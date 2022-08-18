@@ -17,7 +17,7 @@ export default {
   },
 } as ComponentMeta<typeof ProgressTracker>;
 
-export const DefaultStory: ComponentStory<typeof ProgressTracker> = (args) => (
+export const defaultStory: ComponentStory<typeof ProgressTracker> = (args) => (
   <ProgressTracker {...args}>
     {steps.map((step, index) => (
       <ProgressTracker.ProgressStep
@@ -29,3 +29,10 @@ export const DefaultStory: ComponentStory<typeof ProgressTracker> = (args) => (
     ))}
   </ProgressTracker>
 );
+
+defaultStory.args = {
+  done: false,
+  currentStep: 1,
+  color: 'mint',
+  labelPosition: 'top',
+};

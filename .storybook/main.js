@@ -7,7 +7,6 @@ module.exports = {
     '@storybook/addon-backgrounds',
     'storybook-addon-designs',
     '@storybook/addon-docs',
-    '@storybook/addon-knobs',
     '@storybook/addon-controls',
     {
       name: '@storybook/addon-postcss',

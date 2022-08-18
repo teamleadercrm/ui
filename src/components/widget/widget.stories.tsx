@@ -2,13 +2,14 @@ import React from 'react';
 import { addStoryInGroup, COMPOSITIONS } from '../../../.storybook/utils';
 import { Box, ButtonGroup, Heading3, IconButton, IconMenu, MenuItem, TextBody, Widget, MenuDivider } from '../../index';
 import { IconAddMediumOutline, IconEditMediumOutline } from '@teamleader/ui-icons';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 export default {
   component: Widget,
   title: addStoryInGroup(COMPOSITIONS, 'Widget'),
-};
+} as ComponentMeta<typeof Widget>;
 
-export const FullWidget = (args) => (
+export const FullWidget: ComponentStory<typeof Widget> = (args) => (
   <Widget {...args}>
     <Widget.Header display="flex" alignItems="center" justifyContent="space-between">
       <Heading3>I am the widget header title</Heading3>
@@ -29,7 +30,7 @@ export const FullWidget = (args) => (
   </Widget>
 );
 
-export const Basic = () => (
+export const Basic: ComponentStory<typeof Widget> = () => (
   <Widget>
     <Widget.Body>
       <TextBody>Here you can add arbitrary content.</TextBody>
@@ -37,7 +38,7 @@ export const Basic = () => (
   </Widget>
 );
 
-export const WithMultipleBody = () => (
+export const WithMultipleBody: ComponentStory<typeof Widget> = () => (
   <Widget>
     <Widget.Body>
       <TextBody>Here you can add arbitrary content.</TextBody>
@@ -48,7 +49,7 @@ export const WithMultipleBody = () => (
   </Widget>
 );
 
-export const WithHeader = () => (
+export const WithHeader: ComponentStory<typeof Widget> = () => (
   <Widget>
     <Widget.Header>
       <Heading3>I am the widget header title</Heading3>
@@ -59,7 +60,7 @@ export const WithHeader = () => (
   </Widget>
 );
 
-export const WithHeaderAndAction = () => (
+export const WithHeaderAndAction: ComponentStory<typeof Widget> = () => (
   <Widget>
     <Widget.Header display="flex" alignItems="center">
       <Box flex={1}>
@@ -75,7 +76,7 @@ export const WithHeaderAndAction = () => (
   </Widget>
 );
 
-export const WithFooter = () => (
+export const WithFooter: ComponentStory<typeof Widget> = () => (
   <Widget>
     <Widget.Body>
       <TextBody>Here you can add arbitrary content.</TextBody>
