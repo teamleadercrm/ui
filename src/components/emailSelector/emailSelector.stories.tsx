@@ -1,11 +1,16 @@
 import React from 'react';
-import { text } from '@storybook/addon-knobs';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import EmailSelector from './EmailSelector';
 import { TextBody } from '../typography';
 import { Suggestion } from './types';
+
+const defaultEmailSelectorProps = {
+  error: '',
+  menuFullWidth: true,
+  disableRemovalOfFirst: false,
+};
 
 export default {
   component: EmailSelector,
@@ -24,19 +29,15 @@ const suggestions = [
   { email: 'robert.dunder@dundermiflin.com', label: 'Robert Dunder' },
 ];
 
-export const basic: ComponentStory<typeof EmailSelector> = () => (
-  <EmailSelector
-    error={text('Error', '')}
-    validator={validator}
-    defaultSelection={[suggestions[0]]}
-    suggestions={suggestions}
-    menuFullWidth
-  />
+export const basic: ComponentStory<typeof EmailSelector> = (args) => (
+  <EmailSelector {...args} validator={validator} defaultSelection={[suggestions[0]]} suggestions={suggestions} />
 );
 
-export const groupedSuggestions: ComponentStory<typeof EmailSelector> = () => (
+basic.args = defaultEmailSelectorProps;
+
+export const groupedSuggestions: ComponentStory<typeof EmailSelector> = (args) => (
   <EmailSelector
-    error={text('Error', '')}
+    {...args}
     validator={validator}
     suggestions={{
       davids: [
@@ -51,9 +52,11 @@ export const groupedSuggestions: ComponentStory<typeof EmailSelector> = () => (
   />
 );
 
-export const customSuggestions: ComponentStory<typeof EmailSelector> = () => (
+groupedSuggestions.args = defaultEmailSelectorProps;
+
+export const customSuggestions: ComponentStory<typeof EmailSelector> = (args) => (
   <EmailSelector
-    error={text('Error', '')}
+    {...args}
     validator={validator}
     suggestions={suggestions}
     renderSuggestion={({ suggestion, selected }) => (
@@ -64,12 +67,10 @@ export const customSuggestions: ComponentStory<typeof EmailSelector> = () => (
   />
 );
 
-export const disableRemovalOfFirst: ComponentStory<typeof EmailSelector> = () => (
-  <EmailSelector
-    error={text('Error', '')}
-    validator={validator}
-    defaultSelection={[suggestions[0]]}
-    suggestions={suggestions}
-    disableRemovalOfFirst
-  />
+customSuggestions.args = defaultEmailSelectorProps;
+
+export const disableRemovalOfFirst: ComponentStory<typeof EmailSelector> = (args) => (
+  <EmailSelector {...args} validator={validator} defaultSelection={[suggestions[0]]} suggestions={suggestions} />
 );
+
+disableRemovalOfFirst.args = { ...defaultEmailSelectorProps, disableRemovalOfFirst: true };

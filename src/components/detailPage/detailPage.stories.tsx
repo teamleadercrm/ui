@@ -1,5 +1,4 @@
 import React from 'react';
-import { select, text } from '@storybook/addon-knobs';
 import { addStoryInGroup, COMPOSITIONS } from '../../../.storybook/utils';
 import Button from '../button';
 import ButtonGroup from '../buttonGroup';
@@ -11,9 +10,25 @@ import StatusLabel from '../statusLabel';
 import { Box } from '../box';
 import { Heading1, Monospaced, TextBody } from '../typography';
 import { COLOR } from '../../constants';
-import { ComponentMeta } from '@storybook/react';
+import { ArgTypes, ComponentMeta, ComponentStory } from '@storybook/react';
+import { DetailPageHeaderProps } from './DetailPageHeader';
 
-const titleColors = ['neutral', 'teal'] as Array<'neutral' | 'teal'>;
+const defaultDetailPageHeaderProps: DetailPageHeaderProps = {
+  backLinkProps: {
+    element: 'button',
+    children: 'Back to overview',
+  },
+  title: 'I am the detail page title',
+  titleColor: 'teal',
+};
+const detailPageHeaderArgTypes: Partial<ArgTypes<DetailPageHeaderProps>> = {
+  backLinkProps: {
+    element: {
+      control: 'select',
+      options: ['a', 'button'],
+    },
+  },
+};
 
 const actionButtons = () => (
   <ButtonGroup marginLeft={7}>
@@ -88,7 +103,7 @@ export default {
   },
 } as ComponentMeta<typeof DetailPage>;
 
-export const body = () => (
+export const body: ComponentStory<typeof DetailPage.Body> = () => (
   <DetailPage.Body>
     <TextBody>Here you can add arbitrary content.</TextBody>
   </DetailPage.Body>
@@ -101,130 +116,94 @@ body.parameters = {
   },
 };
 
-export const header = () => (
-  <DetailPage.Header
-    backLinkProps={{
-      element: select('Back link element', ['a', 'button'], 'button') as React.ElementType,
-      children: text('Back link label', 'Back to overview'),
-    }}
-    title={text('Title', 'I am the detail page title')}
-    titleColor={select('Title color', titleColors, 'teal')}
-  />
-);
+export const header: ComponentStory<typeof DetailPage.Header> = (args) => <DetailPage.Header {...args} />;
 
 header.storyName = 'Header';
+header.args = defaultDetailPageHeaderProps;
+header.argTypes = detailPageHeaderArgTypes;
 header.parameters = {
   info: {
     propTables: [DetailPage.Header],
   },
 };
 
-export const headerWithTitleSuffix = () => (
-  <DetailPage.Header
-    backLinkProps={{
-      element: select('Back link element', ['a', 'button'], 'button') as React.ElementType,
-      children: text('Back link label', 'Back to overview'),
-    }}
-    title={text('Title', 'I am the detail page title')}
-    titleColor={select('Title color', titleColors, 'teal')}
-    titleSuffix={<StatusLabel color="violet">Draft</StatusLabel>}
-  />
+export const headerWithTitleSuffix: ComponentStory<typeof DetailPage.Header> = (args) => (
+  <DetailPage.Header {...args} titleSuffix={<StatusLabel color="violet">Draft</StatusLabel>} />
 );
 
 headerWithTitleSuffix.storyName = 'Header with title suffix';
+headerWithTitleSuffix.args = defaultDetailPageHeaderProps;
+headerWithTitleSuffix.argTypes = detailPageHeaderArgTypes;
 headerWithTitleSuffix.parameters = {
   info: {
     propTables: [DetailPage.Header],
   },
 };
 
-export const headerWithActions = () => (
-  <DetailPage.Header
-    backLinkProps={{
-      element: select('Back link element', ['a', 'button'], 'button') as React.ElementType,
-      children: text('Back link label', 'Back to overview'),
-    }}
-    title={text('Title', 'I am the detail page title')}
-    titleColor={select('Title color', titleColors, 'teal')}
-  >
-    {actionButtons()}
-  </DetailPage.Header>
+export const headerWithActions: ComponentStory<typeof DetailPage.Header> = (args) => (
+  <DetailPage.Header {...args}>{actionButtons()}</DetailPage.Header>
 );
 
 headerWithActions.storyName = 'Header with actions';
+headerWithActions.args = defaultDetailPageHeaderProps;
+headerWithActions.argTypes = detailPageHeaderArgTypes;
 headerWithActions.parameters = {
   info: {
     propTables: [DetailPage.Header],
   },
 };
 
-export const headerWithTotals = () => (
-  <DetailPage.Header
-    backLinkProps={{
-      element: select('Back link element', ['a', 'button'], 'button') as React.ElementType,
-      children: text('Back link label', 'Back to overview'),
-    }}
-    title={text('Title', 'I am the detail page title')}
-    titleColor={select('Title color', titleColors, 'teal')}
-  >
-    {totals()}
-  </DetailPage.Header>
+export const headerWithTotals: ComponentStory<typeof DetailPage.Header> = (args) => (
+  <DetailPage.Header {...args}>{totals()}</DetailPage.Header>
 );
 
 headerWithTotals.storyName = 'Header with totals';
+headerWithTotals.args = defaultDetailPageHeaderProps;
+headerWithTotals.argTypes = detailPageHeaderArgTypes;
 headerWithTotals.parameters = {
   info: {
     propTables: [DetailPage.Header],
   },
 };
 
-export const headerWithTotalsAndActions = () => (
-  <DetailPage.Header
-    backLinkProps={{
-      element: select('Back link element', ['a', 'button'], 'button') as React.ElementType,
-      children: text('Back link label', 'Back to overview'),
-    }}
-    title={text('Title', 'I am a way too long detail page title which will overflow with an ellipsis')}
-    titleColor={select('Title color', titleColors, 'teal')}
-  >
+export const headerWithTotalsAndActions: ComponentStory<typeof DetailPage.Header> = (args) => (
+  <DetailPage.Header {...args}>
     {totals()}
     {actionButtons()}
   </DetailPage.Header>
 );
 
 headerWithTotalsAndActions.storyName = 'Header with totals and actions';
+headerWithTotalsAndActions.args = defaultDetailPageHeaderProps;
+headerWithTotalsAndActions.argTypes = detailPageHeaderArgTypes;
 headerWithTotalsAndActions.parameters = {
   info: {
     propTables: [DetailPage.Header],
   },
 };
 
-export const headerWithEverthingTogether = () => (
-  <DetailPage.Header
-    backLinkProps={{
-      element: select('Back link element', ['a', 'button'], 'button') as React.ElementType,
-      children: text('Back link label', 'Back to overview'),
-    }}
-    title={text('Title', 'I am a way too long detail page title which will overflow with an ellipsis')}
-    titleColor={select('Title color', titleColors, 'teal')}
-    titleSuffix={<StatusLabel color="violet">Draft</StatusLabel>}
-  >
+export const headerWithEverthingTogether: ComponentStory<typeof DetailPage.Header> = (args) => (
+  <DetailPage.Header {...args} titleSuffix={<StatusLabel color="violet">Draft</StatusLabel>}>
     {totals()}
     {actionButtons()}
   </DetailPage.Header>
 );
 
 headerWithEverthingTogether.storyName = 'Header with everything together';
+headerWithEverthingTogether.args = defaultDetailPageHeaderProps;
+headerWithEverthingTogether.argTypes = detailPageHeaderArgTypes;
 headerWithEverthingTogether.parameters = {
   info: {
     propTables: [DetailPage.Header],
   },
 };
 
-export const composition = () => (
+export const composition: ComponentStory<typeof DetailPage> = () => (
   <DetailPage>
-    {header()}
-    {body()}
+    <DetailPage.Header {...defaultDetailPageHeaderProps} />
+    <DetailPage.Body>
+      <TextBody>Here you can add arbitrary content.</TextBody>
+    </DetailPage.Body>
   </DetailPage>
 );
 
