@@ -1,170 +1,150 @@
-import React, { PureComponent } from 'react';
 import omit from 'lodash.omit';
-import Select from './Select';
-import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
+import { InputActionMeta } from 'react-select';
+import { GenericComponent } from '../../@types/types';
+import Select, { SelectProps } from './Select';
+import { Option } from './types';
 
-/** @type {React.ComponentType<any>} */
-class AsyncSelect extends PureComponent {
-  state = {
-    searchTerm: '',
-    pageNumber: 1,
-    options: [],
-    isLastPage: false,
-    loading: false,
-    cache: {},
-  };
+const DEFAULT_PAGE_NUMBER = 1;
+const DEFAULT_SEARCH_TERM = '';
+const DEFAULT_OPTIONS: Option[] = [];
+const DEFAULT_CACHE = {};
 
-  componentDidMount() {
-    this.loadOptions();
-  }
-
-  componentDidUpdate(prevProps) {
-    if (this.props.pageSize !== prevProps.pageSize || this.props.loadOptions !== prevProps.loadOptions) {
-      /* eslint-disable react/no-did-update-set-state */
-      this.setState(
-        (state) => ({
-          ...state,
-          options: [],
-          cache: {},
-          pageNumber: 1,
-        }),
-        this.loadOptions,
-      );
-    }
-  }
-
-  handleInputChange = (searchTerm, inputActionMeta) => {
-    if (this.props.onInputChange) {
-      this.props.onInputChange(searchTerm, inputActionMeta);
-    }
-    if (searchTerm === this.state.searchTerm) {
-      return;
-    }
-    if (this.props.cacheOptions === true && this.state.cache[searchTerm]) {
-      return this.setState({
-        ...this.state.cache[searchTerm],
-        searchTerm,
-        loading: false,
-      });
-    }
-
-    this.setState(
-      {
-        options: [],
-        pageNumber: 1,
-        isLastPage: false,
-        searchTerm,
-      },
-      this.loadOptions,
-    );
-  };
-
-  invalidateCache() {
-    this.setState({
-      cache: {},
-    });
-  }
-
-  handleBlur = () => {
-    this.invalidateCache();
-  };
-
-  handleOptionsLoaded(options, cache) {
-    this.setState((state) => {
-      const newOptions = state.options.concat(options);
-      const isLastPage = options.length < this.props.pageSize;
-
-      return {
-        options: newOptions,
-        isLastPage,
-        loading: false,
-        cache:
-          cache !== true
-            ? {}
-            : {
-                ...state.cache,
-                [state.searchTerm]: {
-                  options: newOptions,
-                  isLastPage,
-                },
-              },
-      };
-    });
-  }
-
-  loadOptions = () => {
-    const { loadOptions, cacheOptions } = this.props;
-    const { pageNumber, searchTerm } = this.state;
-    const pageSize = this.props.pageSize;
-
-    this.setState(
-      {
-        loading: true,
-      },
-      () => {
-        loadOptions(searchTerm, ...(this.props.paginate ? [pageSize, pageNumber] : [])).then(
-          (options) => {
-            if (
-              searchTerm !== this.state.searchTerm ||
-              pageSize !== this.props.pageSize ||
-              pageNumber !== this.state.pageNumber
-            ) {
-              return;
-            }
-            this.handleOptionsLoaded(options, cacheOptions);
-          },
-          () => {},
-        );
-      },
-    );
-  };
-
-  handleMenuScrollToBottom = () => {
-    if (this.props.onMenuScrollToBottom) {
-      this.props.onMenuScrollToBottom();
-    }
-    if (this.state.isLastPage || !this.props.paginate) {
-      return;
-    }
-
-    this.setState(
-      {
-        pageNumber: this.state.pageNumber + 1,
-      },
-      () => {
-        this.loadOptions();
-      },
-    );
-  };
-
-  render() {
-    const { loadOptions, ...restProps } = this.props;
-    const { options, loading } = this.state;
-    return (
-      <Select
-        {...omit(restProps, ['loadOptions', 'options'])}
-        isSearchable
-        isLoading={loading}
-        onMenuScrollToBottom={this.handleMenuScrollToBottom}
-        options={options}
-        onInputChange={this.handleInputChange}
-        onBlur={this.handleBlur}
-      />
-    );
-  }
+export interface AsyncSelectProps extends SelectProps {
+  loadOptions: (searchTerm: string, ...props: any) => Promise<any>;
+  paginate?: boolean;
+  pageSize?: number;
+  cacheOptions?: boolean;
 }
+type AsyncSelectCache = Record<string, { options: Option[]; isLastPage: boolean }>;
+interface AsyncSelectState {
+  pageNumber: number;
+  searchTerm: string;
+  isLoading: boolean;
+  options: Option[];
+  cache: AsyncSelectCache;
+  isLastPage: boolean;
+}
+const AsyncSelect: GenericComponent<AsyncSelectProps> = ({
+  loadOptions,
+  pageSize = 10,
+  paginate,
+  cacheOptions,
+  onInputChange,
+  onMenuScrollToBottom,
+  ...restProps
+}) => {
+  const [state, setState] = useState<AsyncSelectState>({
+    pageNumber: DEFAULT_PAGE_NUMBER,
+    searchTerm: DEFAULT_SEARCH_TERM,
+    isLoading: false,
+    options: DEFAULT_OPTIONS,
+    cache: DEFAULT_CACHE,
+    isLastPage: false,
+  });
 
-AsyncSelect.propTypes = {
-  loadOptions: PropTypes.func.isRequired,
-  onMenuScrollToBottom: PropTypes.func,
-  onInputChange: PropTypes.func,
-  paginate: PropTypes.bool,
-  pageSize: PropTypes.number,
-  cacheOptions: PropTypes.bool,
-};
+  const handleOptionsLoaded = (loadedOptions: Option[], searchTerm: string, clearOptions: boolean) => {
+    const newOptions = clearOptions ? DEFAULT_OPTIONS.concat(loadedOptions) : state.options.concat(loadedOptions);
+    const isLastPage = loadedOptions.length < pageSize;
+    setState((previousState) => ({
+      ...previousState,
+      options: newOptions,
+      isLastPage,
+      isLoading: false,
+      cache: !cacheOptions
+        ? {}
+        : {
+            ...previousState.cache,
+            [searchTerm]: {
+              options: newOptions,
+              isLastPage,
+            },
+          },
+    }));
+  };
 
-AsyncSelect.defaultProps = {
-  pageSize: 10,
+  const fetchOptions = (searchTerm: string, pageNumber: number, clearOptions: boolean) => {
+    setState((previousState) => ({ ...previousState, isLoading: true }));
+    loadOptions(searchTerm, ...(paginate ? [pageSize, pageNumber] : [])).then((options) => {
+      handleOptionsLoaded(options, searchTerm, clearOptions);
+    });
+  };
+
+  const handleInputChange = (newSearchTerm: string, inputActionMeta: InputActionMeta) => {
+    const { searchTerm, cache } = state;
+    if (onInputChange) {
+      onInputChange(newSearchTerm, inputActionMeta);
+    }
+    if (newSearchTerm === searchTerm) {
+      return;
+    }
+
+    const cachedUsableData = cacheOptions && cache[newSearchTerm];
+    if (cachedUsableData) {
+      setState((previousState) => ({
+        ...previousState,
+        options: cachedUsableData.options,
+        isLastPage: cachedUsableData.isLastPage,
+        isLoading: false,
+        searchTerm: newSearchTerm,
+      }));
+      return;
+    }
+    setState((previousState) => ({
+      ...previousState,
+      options: DEFAULT_OPTIONS,
+      isLastPage: false,
+      pageNumber: DEFAULT_PAGE_NUMBER,
+      searchTerm: newSearchTerm,
+    }));
+    fetchOptions(newSearchTerm, DEFAULT_PAGE_NUMBER, true);
+  };
+
+  const handleBlur = () => {
+    setState((previousState) => ({
+      ...previousState,
+      cache: DEFAULT_CACHE,
+    }));
+  };
+
+  const handleMenuScrollToBottom = (event: WheelEvent | TouchEvent) => {
+    const { isLastPage, pageNumber } = state;
+    if (onMenuScrollToBottom) {
+      onMenuScrollToBottom(event);
+    }
+    if (isLastPage || !paginate) {
+      return;
+    }
+    const newPageNumber = pageNumber + 1;
+    setState((previousState) => ({
+      ...previousState,
+      pageNumber: newPageNumber,
+    }));
+    fetchOptions(state.searchTerm, newPageNumber, false);
+  };
+
+  useEffect(() => {
+    setState((previousState) => ({
+      ...previousState,
+      options: DEFAULT_OPTIONS,
+      cache: DEFAULT_CACHE,
+      pageNumber: DEFAULT_PAGE_NUMBER,
+    }));
+    fetchOptions(state.searchTerm, DEFAULT_PAGE_NUMBER, true);
+  }, [pageSize, loadOptions]);
+
+  const { isLoading, options } = state;
+  return (
+    <Select
+      {...omit(restProps, ['loadOptions', 'options'])}
+      isSearchable
+      isLoading={isLoading}
+      onMenuScrollToBottom={handleMenuScrollToBottom}
+      options={options}
+      onInputChange={handleInputChange}
+      onBlur={handleBlur}
+    />
+  );
 };
 
 export default AsyncSelect;
