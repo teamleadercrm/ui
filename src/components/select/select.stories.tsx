@@ -1,46 +1,9 @@
+import { ComponentStory, Meta } from '@storybook/react';
 import React from 'react';
+import { OptionProps } from 'react-select';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
-import { Avatar, Box, Label, Select, AsyncSelect, TextBody } from '../../index';
+import { AsyncSelect, Avatar, Box, Label, Select, TextBody } from '../../index';
 import { customOptions, groupedOptions, options } from '../../static/data/select';
-
-/* eslint react/prop-types: 0 */
-const CustomOption = ({ children, data, innerProps, isFocused, isSelected, isDisabled, selectProps }) => {
-  const boxStyles = {
-    backgroundColor: isFocused ? '#e4e4e6' : isSelected ? '#82828c' : '#fff',
-    '&:active': {
-      backgroundColor: isDisabled ? '#fff' : '#e4e4e6',
-    },
-  };
-
-  const textStyles = {
-    color: isDisabled ? '#c0c0c4' : isSelected && !isFocused ? '#fff' : '#344b63',
-  };
-
-  return (
-    <Box paddingVertical={2} paddingHorizontal={2} display="flex" alignItems="center" {...innerProps} style={boxStyles}>
-      <Avatar imageUrl={data.avatar} size="tiny" marginRight={2} />
-      <TextBody style={textStyles} maxLines={selectProps.truncateOptionText ? 1 : undefined}>
-        {children}
-      </TextBody>
-    </Box>
-  );
-};
-
-const loadOptions = (searchTerm, pageSize = 10, pageNumber = 1) => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      const options = [];
-      for (let i = 0; i < pageSize; i++) {
-        const optionNr = (pageNumber - 1) * pageSize + i + 1;
-        options.push({
-          value: `${searchTerm}${optionNr}`,
-          label: `${searchTerm} ${optionNr}`,
-        });
-      }
-      resolve(options);
-    }, 500);
-  });
-};
 
 export default {
   component: Select,
@@ -59,9 +22,53 @@ export default {
       },
     },
   },
+} as Meta<typeof Select>;
+
+const CustomOption = ({ children, data, innerProps, isFocused, isSelected, isDisabled }: OptionProps) => {
+  const boxStyles = {
+    backgroundColor: isFocused ? '#e4e4e6' : isSelected ? '#82828c' : '#fff',
+    '&:active': {
+      backgroundColor: isDisabled ? '#fff' : '#e4e4e6',
+    },
+  };
+
+  const textStyles = {
+    color: isDisabled ? '#c0c0c4' : isSelected && !isFocused ? '#fff' : '#344b63',
+  };
+  // @ts-ignore
+  const avatar = data.avatar;
+  return (
+    <Box
+      paddingVertical={2}
+      paddingHorizontal={2}
+      display="flex"
+      alignItems="center"
+      {...(innerProps as any)}
+      style={boxStyles}
+    >
+      <Avatar imageUrl={avatar} size="tiny" marginRight={2} />
+      <TextBody style={textStyles}>{children}</TextBody>
+    </Box>
+  );
 };
 
-export const basic = (args) => <Select {...args} />;
+const loadOptions = (searchTerm: string, pageSize = 10, pageNumber = 1) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const options = [];
+      for (let i = 0; i < pageSize; i++) {
+        const optionNr = (pageNumber - 1) * pageSize + i + 1;
+        options.push({
+          value: `${searchTerm}${optionNr}`,
+          label: `${searchTerm} ${optionNr}`,
+        });
+      }
+      resolve(options);
+    }, 500);
+  });
+};
+
+export const basic: ComponentStory<typeof Select> = (args) => <Select {...args} />;
 
 basic.args = {
   isClearable: false,
