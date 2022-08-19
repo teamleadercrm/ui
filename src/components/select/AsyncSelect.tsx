@@ -1,7 +1,6 @@
 import omit from 'lodash.omit';
 import React, { useEffect, useState } from 'react';
 import { InputActionMeta } from 'react-select';
-import { GenericComponent } from '../../@types/types';
 import Select, { SelectProps } from './Select';
 import { Option } from './types';
 
@@ -10,7 +9,7 @@ const DEFAULT_SEARCH_TERM = '';
 const DEFAULT_OPTIONS: Option[] = [];
 const DEFAULT_CACHE = {};
 
-export interface AsyncSelectProps extends SelectProps {
+export interface AsyncSelectProps<IsMulti extends boolean = false> extends SelectProps<IsMulti> {
   loadOptions: (searchTerm: string, ...props: any) => Promise<any>;
   paginate?: boolean;
   pageSize?: number;
@@ -25,7 +24,7 @@ interface AsyncSelectState {
   cache: AsyncSelectCache;
   isLastPage: boolean;
 }
-const AsyncSelect: GenericComponent<AsyncSelectProps> = ({
+const AsyncSelect = <IsMulti extends boolean>({
   loadOptions,
   pageSize = 10,
   paginate,
@@ -33,7 +32,7 @@ const AsyncSelect: GenericComponent<AsyncSelectProps> = ({
   onInputChange,
   onMenuScrollToBottom,
   ...restProps
-}) => {
+}: AsyncSelectProps<IsMulti>) => {
   const [state, setState] = useState<AsyncSelectState>({
     pageNumber: DEFAULT_PAGE_NUMBER,
     searchTerm: DEFAULT_SEARCH_TERM,
