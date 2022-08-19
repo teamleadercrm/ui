@@ -1,4 +1,4 @@
-import React, { CSSProperties, forwardRef, ReactNode } from 'react';
+import React, { CSSProperties, forwardRef } from 'react';
 import cx from 'classnames';
 import { COLOR, COLORS, TINTS } from '../../constants';
 import theme from './theme.css';
@@ -34,8 +34,6 @@ export interface BoxProps {
   borderBottomLeftRadius?: keyof typeof borderRadiuses;
   borderBottomRightRadius?: keyof typeof borderRadiuses;
   boxSizing?: 'border-box' | 'content-box';
-  children?: ReactNode;
-  className?: string;
   display?: 'inline' | 'inline-block' | 'block' | 'flex' | 'inline-flex' | 'grid';
   flex?: CSSProperties['flex'];
   flexBasis?: CSSProperties['flexBasis'];
@@ -62,7 +60,6 @@ export interface BoxProps {
   paddingLeft?: Padding;
   paddingRight?: Padding;
   paddingTop?: Padding;
-  style?: CSSProperties;
   textAlign?: 'center' | 'left' | 'right';
 }
 
