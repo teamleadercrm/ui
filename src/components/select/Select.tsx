@@ -66,7 +66,6 @@ const DropdownIndicator = (dropdownIndicatorProps: DropdownIndicatorProps) => {
   const inverse = dropdownIndicatorProps.selectProps.inverse;
   return (
     <Icon
-      {...dropdownIndicatorProps}
       alignItems="center"
       className={theme['dropdown-indicator']}
       color={inverse ? 'teal' : 'neutral'}
@@ -84,10 +83,10 @@ const ClearIndicator = (clearIndicatorProps: ClearIndicatorProps) => {
   const inverse = clearIndicatorProps.selectProps.inverse;
   return (
     <Icon
+      {...clearIndicatorProps.innerProps}
       color={inverse ? 'teal' : 'neutral'}
       display="flex"
       tint={inverse ? 'lightest' : 'darkest'}
-      {...clearIndicatorProps}
     >
       <IconCloseBadgedSmallFilled />
     </Icon>
