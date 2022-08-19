@@ -4,6 +4,7 @@ import { OptionProps } from 'react-select';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { AsyncSelect, Avatar, Box, Label, Select, TextBody } from '../../index';
 import { customOptions, groupedOptions, options } from '../../static/data/select';
+import { Option } from './types';
 
 export default {
   component: Select,
@@ -24,7 +25,7 @@ export default {
   },
 } as Meta<typeof Select>;
 
-const CustomOption = ({ children, data, innerProps, isFocused, isSelected, isDisabled }: OptionProps) => {
+const CustomOption = ({ children, data, innerProps, isFocused, isSelected, isDisabled }: OptionProps<Option>) => {
   const boxStyles = {
     backgroundColor: isFocused ? '#e4e4e6' : isSelected ? '#82828c' : '#fff',
     '&:active': {
@@ -87,6 +88,4 @@ export const grouped = () => <Select options={groupedOptions} />;
 
 export const customOption = () => <Select components={{ Option: CustomOption }} options={customOptions} />;
 
-export const async = () => (
-  <AsyncSelect loadOptions={loadOptions} cacheOptions paginate pageSize={10} options={options} />
-);
+export const async = () => <AsyncSelect loadOptions={loadOptions} cacheOptions paginate pageSize={10} />;
