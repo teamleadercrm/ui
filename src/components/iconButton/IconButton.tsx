@@ -1,15 +1,14 @@
 import cx from 'classnames';
 import React, { forwardRef, ReactNode, useImperativeHandle, useRef } from 'react';
-import { GenericComponent } from '../../@types/types';
+import { PolymorphicComponentPropsWithRef, PolymorphicRef } from '../../@types/utils';
 import { TINTS, COLORS, SIZES } from '../../constants';
 import Box from '../box';
-import { BoxProps } from '../box/Box';
 import buttonTheme from '../button/theme.css';
 import Icon from '../icon';
 import LoadingSpinner from '../loadingSpinner';
 import theme from './theme.css';
 
-export interface IconButtonProps extends Omit<BoxProps, 'ref' | 'children' | 'className' | 'element'> {
+export interface IconButtonProps {
   /** The content to display inside the button. */
   children?: ReactNode;
   /** A class name for the button to give custom styles. */
@@ -38,8 +37,8 @@ export interface IconButtonProps extends Omit<BoxProps, 'ref' | 'children' | 'cl
   processing?: boolean;
 }
 
-const IconButton: GenericComponent<IconButtonProps> = forwardRef<HTMLElement, IconButtonProps>(
-  (
+const IconButton = forwardRef(
+  <T extends React.ElementType = 'button'>(
     {
       children,
       className = '',
@@ -55,8 +54,8 @@ const IconButton: GenericComponent<IconButtonProps> = forwardRef<HTMLElement, Ic
       onMouseLeave,
       processing = false,
       ...others
-    }: IconButtonProps,
-    ref,
+    }: PolymorphicComponentPropsWithRef<T, IconButtonProps>,
+    ref: PolymorphicRef<T>,
   ) => {
     const buttonRef = useRef<HTMLElement>(null);
     useImperativeHandle<HTMLElement | null, HTMLElement | null>(ref, () => buttonRef.current);
@@ -94,7 +93,7 @@ const IconButton: GenericComponent<IconButtonProps> = forwardRef<HTMLElement, Ic
       className,
     );
 
-    const props: BoxProps = {
+    const props = {
       ...others,
       ref: buttonRef,
       className: classNames,
