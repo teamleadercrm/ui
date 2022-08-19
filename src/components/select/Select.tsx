@@ -7,21 +7,24 @@ import ReactSelect, {
   ControlProps,
   CSSObjectWithLabel,
   DropdownIndicatorProps,
+  GroupBase,
   OptionProps,
   PlaceholderProps,
   Props,
+  PropsValue,
+  StylesConfig,
   ValueContainerProps,
 } from 'react-select';
 import ReactCreatableSelect from 'react-select/creatable';
 import SelectType from 'react-select/dist/declarations/src/Select';
-import { GenericComponent } from '../../@types/types';
+import { OptionsOrGroups } from '../../../node_modules/react-select/dist/declarations/src/types';
 import { COLOR, SIZES } from '../../constants';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import { BoxProps } from '../box/Box';
 import Icon from '../icon';
 import ValidationText from '../validationText';
 import theme from './theme.css';
-import { Option, Value } from './types';
+import { Option } from './types';
 
 const minHeightBySizeMap = {
   tiny: 24,
@@ -30,9 +33,11 @@ const minHeightBySizeMap = {
   large: 48,
 };
 
-export interface SelectProps extends Props, Omit<BoxProps, 'className'> {
+export interface SelectProps<IsMulti extends boolean = false>
+  extends Props<Option, IsMulti>,
+    Omit<BoxProps, 'className'> {
   /** Override default components with your own. Pass an object with correct the key and its replacing component */
-  components?: Props['components'];
+  components?: Props<Option, IsMulti>['components'];
   /** If true, it's possible to create a new option that is not in the list. */
   creatable?: boolean;
   /** The text string/element to use as error message below the input. */
@@ -51,17 +56,19 @@ export interface SelectProps extends Props, Omit<BoxProps, 'className'> {
   size?: Exclude<typeof SIZES[number], 'smallest' | 'hero' | 'fullscreen'>;
   /** The text string/element to use as success message below the input. */
   success?: ReactNode;
-  // /** Selected option value(s) */
-  value?: Value;
-  // /** Selected option value(s) */
-  options?: Option[];
+  /** Selected option value(s) */
+  value?: PropsValue<Option>;
+  /** Selected option value(s) */
+  options?: OptionsOrGroups<Option, GroupBase<Option>>;
   /** The text to use as warning message below the input. */
   warning?: ReactNode;
   /** A custom width for the input field */
   width?: string;
 }
 
-const DropdownIndicator = (dropdownIndicatorProps: DropdownIndicatorProps) => {
+const DropdownIndicator = <IsMulti extends boolean>(
+  dropdownIndicatorProps: DropdownIndicatorProps<Option, IsMulti>,
+) => {
   // @ts-ignore
   const inverse = dropdownIndicatorProps.selectProps.inverse;
   return (
@@ -78,7 +85,7 @@ const DropdownIndicator = (dropdownIndicatorProps: DropdownIndicatorProps) => {
   );
 };
 //
-const ClearIndicator = (clearIndicatorProps: ClearIndicatorProps) => {
+const ClearIndicator = <IsMulti extends boolean>(clearIndicatorProps: ClearIndicatorProps<Option, IsMulti>) => {
   // @ts-ignore
   const inverse = clearIndicatorProps.selectProps.inverse;
   return (
