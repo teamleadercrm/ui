@@ -1,6 +1,6 @@
 import cx from 'classnames';
 import React, { forwardRef, ReactNode } from 'react';
-import { GenericComponent } from '../../@types/types';
+import { PolymorphicComponentPropsWithRef, PolymorphicRef } from '../../@types/utils';
 import { COLORS, SIZES } from '../../constants';
 import Box from '../box';
 import { BoxProps } from '../box/Box';
@@ -24,7 +24,7 @@ const textComponentMap = {
   large: UITextDisplay,
 };
 
-export interface ButtonProps extends Omit<BoxProps, 'size'> {
+export interface ButtonProps extends BoxProps {
   /** The content to display inside the button. */
   children?: ReactNode;
   /** A class name for the button to give custom styles. */
@@ -55,8 +55,8 @@ export interface ButtonProps extends Omit<BoxProps, 'size'> {
   type?: string;
 }
 
-const Button: GenericComponent<ButtonProps> = forwardRef<HTMLElement, ButtonProps>(
-  (
+const Button = forwardRef(
+  <T extends React.ElementType = 'button'>(
     {
       color = 'teal',
       children,
@@ -73,8 +73,8 @@ const Button: GenericComponent<ButtonProps> = forwardRef<HTMLElement, ButtonProp
       type = 'button',
       processing = false,
       ...others
-    },
-    ref,
+    }: PolymorphicComponentPropsWithRef<T, ButtonProps>,
+    ref: PolymorphicRef<T>,
   ) => {
     const getSpinnerColor = () => {
       switch (level) {
