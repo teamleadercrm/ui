@@ -1,12 +1,7 @@
-export type Value = string | number | Record<string, any>;
+export type Value = any;
 
-interface SimpleOption {
-  label?: string;
+export type Option = {
+  label: string;
   value: Value;
   [key: string]: any;
-}
-interface GroupedOption {
-  label?: string;
-  options: SimpleOption[];
-}
-export type Option = SimpleOption | GroupedOption;
+};
