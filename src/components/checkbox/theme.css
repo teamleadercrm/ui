@@ -8,8 +8,6 @@
   --checkbox-shape-size-small: 18px;
   --checkbox-shape-size-medium: 24px;
   --checkbox-shape-size-large: 30px;
-
-  --checkbox-shape-padding: 2px;
 }
 
 .checkbox {
@@ -41,7 +39,6 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    padding: var(--checkbox-shape-padding);
     cursor: pointer;
     transition: background-color, border-color;
     transition-duration: var(--animation-duration);
