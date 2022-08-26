@@ -60,6 +60,7 @@ export const DialogBase: DialogBaseComponent = ({
   dragHandleRef,
   form,
   onSubmit,
+  ...others
 }) => {
   const { ref, FocusRing } = useFocusTrap({ active, initialFocusRef });
   useDraggable({ active, dragTargetRef: ref, dragHandleRef });
@@ -86,6 +87,7 @@ export const DialogBase: DialogBaseComponent = ({
             className={theme['overlay']}
             onOverlayClick={onOverlayClick}
             onEscKeyDown={onEscKeyDown}
+            {...others}
           >
             <FocusRing>
               <Box

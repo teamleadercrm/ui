@@ -5,8 +5,9 @@ import theme from './theme.css';
 import { KEY } from '../../constants';
 import { selectOverlayNode } from '../select/Select';
 import { GenericComponent } from '../../@types/types';
+import { BoxProps } from '../box/Box';
 
-export interface OverlayProps {
+export interface OverlayProps extends Omit<BoxProps, 'className' | 'children'> {
   active?: boolean;
   backdrop?: string;
   children?: ReactNode;
