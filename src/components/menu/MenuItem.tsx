@@ -68,7 +68,7 @@ const MenuItem: GenericComponent<MenuItemProps> = ({
   const restProps = omitBoxProps(others);
 
   return (
-    <Box {...boxProps} data-teamleader-ui="menu-item" display="flex" element="li">
+    <Box {...boxProps} data-teamleader-ui="menu-item" display="flex" element="li" tabIndex={-1}>
       <Box
         onClick={handleClick}
         alignItems="center"
