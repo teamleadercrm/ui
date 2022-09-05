@@ -110,6 +110,11 @@
   }
 }
 
+.invisible-menu-item {
+  opacity: 0;
+  height: 0;
+}
+
 .outline {
   background-color: var(--menu-background-color);
   border-radius: var(--menu-outline-border-radius);
