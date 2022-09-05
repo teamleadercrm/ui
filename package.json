@@ -1,7 +1,7 @@
 {
   "name": "@teamleader/ui",
   "description": "Teamleader UI library",
-  "version": "16.0.2",
+  "version": "16.0.3",
   "author": "Teamleader <development@teamleader.eu>",
   "bugs": {
     "url": "https://github.com/teamleadercrm/ui/issues"
@@ -30,7 +30,7 @@
     "@babel/runtime": "^7.18.3",
     "@teamleader/ui-animations": "^0.0.3",
     "@teamleader/ui-colors": "^0.3.0",
-    "@teamleader/ui-icons": "^1.5.0",
+    "@teamleader/ui-icons": "^2.1.0",
     "@teamleader/ui-illustrations": "^1.10.0",
     "@teamleader/ui-typography": "^2.0.2",
     "@teamleader/ui-utilities": "^0.2.0",
@@ -55,7 +55,7 @@
     "postcss-color-function": "^4.1.0",
     "postcss-custom-media": "^8.0.0",
     "postcss-each": "^0.10.0",
-    "postcss-import": "^14.0.0",
+    "postcss-import": "^15.0.0",
     "postcss-nested": "^5.0.3",
     "postcss-preset-env": "^6.7.0",
     "postcss-pseudoelements": "^5.0.0",
@@ -119,7 +119,7 @@
     "postcss-color-function": "^4.1.0",
     "postcss-custom-media": "^8.0.0",
     "postcss-each": "0.10.0",
-    "postcss-import": "^14.0.0",
+    "postcss-import": "^15.0.0",
     "postcss-loader": "^7.0.1",
     "postcss-nested": "^5.0.3",
     "postcss-preset-env": "6.7.0",
