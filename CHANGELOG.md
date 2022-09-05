@@ -10,7 +10,7 @@
 
 ### Fixed
 
-- `MenuItem`: Pass `tabIndex` attribute to the li element so the first item doesn't get focused by default. ([@eniskraasniqi1](https://github.com/eniskraasniqi1)) in [#2344](https://github.com/teamleadercrm/ui/pull/2344))
+- `MenuItem`: Append invisible element before rendering menu items, so the first item doesn't get focused by default. ([@eniskraasniqi1](https://github.com/eniskraasniqi1)) in [#2344](https://github.com/teamleadercrm/ui/pull/2344))
 
 ### Dependency updates
 
