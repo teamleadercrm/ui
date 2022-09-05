@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `MenuItem`: Append invisible element before rendering menu items, so the first item doesn't get focused by default. ([@eniskraasniqi1](https://github.com/eniskraasniqi1)) in [#2344](https://github.com/teamleadercrm/ui/pull/2344))
+
 ### Dependency updates
 
 ## [16.0.2] - 2022-08-18
