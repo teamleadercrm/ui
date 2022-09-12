@@ -29,6 +29,10 @@
   transition-delay: var(--animation-delay);
   width: 100vw;
   z-index: 2;
+
+  .close-icon {
+    margin-left: auto;
+  }
 }
 
 .inner {
@@ -88,10 +92,6 @@
   cursor: move;
   margin: calc(-1 * var(--spacer-regular));
   padding: var(--spacer-regular);
-}
-
-.close-icon {
-  margin-left: auto;
 }
 
 .scroll-shadow {

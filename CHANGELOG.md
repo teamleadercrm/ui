@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `Dialog`: Fix close button alignment in cases where css order changes during build. ([@lorgan3](https://github.com/lorgan3)) in [#2351](https://github.com/teamleadercrm/ui/pull/2351))
+
 ### Dependency updates
 
 ## [16.0.3] - 2022-09-05
@@ -22,7 +24,7 @@
 
 ### Dependency updates
 
-- `storybook`: Bump storybook from 6.5.9 to 6.5.10 ([@KristofColpaert](https://github.com/KristofColpaert)) in  [#2327](https://github.com/teamleadercrm/ui/pull/2327)
+- `storybook`: Bump storybook from 6.5.9 to 6.5.10 ([@KristofColpaert](https://github.com/KristofColpaert)) in [#2327](https://github.com/teamleadercrm/ui/pull/2327)
 
 ## [16.0.1] - 2022-08-08
 
