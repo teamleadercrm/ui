@@ -28,5 +28,5 @@ export const DefaultStory = (args: ToggleProps) => {
 DefaultStory.args = {
   checked: true,
   label: 'I am a label',
-  tooltip: 'This is the label tooltip text',
+  labelTooltip: 'This is the label tooltip text',
 };
