@@ -41,7 +41,7 @@ const SIZES = {
   },
 } as const;
 
-export interface TooltippedComponentProps {
+interface TooltippedComponentProps {
   children: ReactNode;
   className?: string;
   onClick?: MouseEventHandler;
@@ -61,9 +61,11 @@ export interface TooltippedComponentProps {
   zIndex?: number;
   tooltipActive?: boolean;
   ComposedComponent: React.ElementType;
+  // Because its HOC, it needs to pass props of child component
+  [key: string]: any;
 }
 
-interface TooltipProps extends Omit<TooltippedComponentProps, 'ComposedComponent'> {}
+export interface TooltipProps extends Omit<TooltippedComponentProps, 'ComposedComponent'> {}
 
 const TooltippedComponent: GenericComponent<TooltippedComponentProps> = ({
   children,
@@ -224,7 +226,7 @@ const TooltippedComponent: GenericComponent<TooltippedComponentProps> = ({
     onClick,
     onMouseEnter,
     onMouseLeave,
-    ref: ref,
+    ref,
   };
 
   if (tooltipActive === null) {
@@ -281,11 +283,18 @@ const TooltippedComponent: GenericComponent<TooltippedComponentProps> = ({
 };
 
 const Tooltip = (ComposedComponent: TooltippedComponentProps['ComposedComponent']) => {
-  return DocumentObjectProvider((props: TooltipProps) => {
+  return DocumentObjectProvider<TooltipProps>((props) => {
     return (
       <DocumentObjectContext.Consumer>
         {(documentObject) => (
-          <TooltippedComponent {...props} documentObject={documentObject} ComposedComponent={ComposedComponent} />
+          <TooltippedComponent
+            {...props}
+            tooltip={props.tooltip}
+            documentObject={documentObject as Document}
+            ComposedComponent={ComposedComponent}
+          >
+            {props.children}
+          </TooltippedComponent>
         )}
       </DocumentObjectContext.Consumer>
     );
