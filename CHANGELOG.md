@@ -4,8 +4,6 @@
 
 ### Changed
 
-- `Pagination`: always show arrows ([@qubis741](https://github.com/qubis741)) in [#2221](https://github.com/teamleadercrm/ui/pull/2221))
-
 ### Deprecated
 
 ### Removed
@@ -13,6 +11,91 @@
 ### Fixed
 
 ### Dependency updates
+
+## [16.0.4] - 2022-09-12
+
+### Fixed
+
+- `Dialog`: Fix close button alignment in cases where css order changes during build. ([@lorgan3](https://github.com/lorgan3)) in [#2351](https://github.com/teamleadercrm/ui/pull/2351))
+
+## [16.0.3] - 2022-09-05
+
+### Fixed
+
+- `MenuItem`: Append invisible element before rendering menu items, so the first item doesn't get focused by default. ([@eniskraasniqi1](https://github.com/eniskraasniqi1)) in [#2344](https://github.com/teamleadercrm/ui/pull/2344))
+
+## [16.0.2] - 2022-08-18
+
+### Dependency updates
+
+- `storybook`: Bump storybook from 6.5.9 to 6.5.10 ([@KristofColpaert](https://github.com/KristofColpaert)) in [#2327](https://github.com/teamleadercrm/ui/pull/2327)
+
+## [16.0.1] - 2022-08-08
+
+### Fixed
+
+- `Checkbox`: pass `onClick` prop to the parent container ([@eniskraasniqi1](https://github.com/eniskraasniqi1)) in [#2314](https://github.com/teamleadercrm/ui/pull/2314))
+
+## [16.0.0] - 2022-07-20
+
+### Added
+
+- `MarketingDialog`: Added new component ([@lorgan3](https://github.com/lorgan3) in [#2287](https://github.com/teamleadercrm/ui/pull/2287))
+- `Dialog`: `hero` option as size ([@qubis741](https://github.com/qubis741)) in [#2290](https://github.com/teamleadercrm/ui/pull/2290))
+
+### Fixed
+
+- `DatePickerInput`: moved inputProps on top of `onClick` and `onFocus`, to make sure the component handlers will be called ([@eniskraasniqi1](https://github.com/eniskraasniqi1) in [#2285](https://github.com/teamleadercrm/ui/pull/2285)).
+
+### Dependency updates
+
+- [BREAKING] `node`: set minimum `node` version to `14.15.0` to bump `postcss-loader` ([@farazatarodi](https://github.com/farazatarodi) in [#2288](https://github.com/teamleadercrm/ui/pull/2288)).
+
+## [15.0.5] - 2022-07-14
+
+### Fixed
+
+- `Popover`: remove unused `direction` prop from `getPosition` ([@eniskraasniqi1](https://github.com/eniskraasniqi1)) in [#2281](https://github.com/teamleadercrm/ui/pull/2281))
+- `DatePickerInput`: moved inputProps to the bottom so it is not overwritten ([@BeirlaenAaron](https://github.com/BeirlaenAaron)) in [#2283](https://github.com/teamleadercrm/ui/pull/2283))
+
+## [15.0.4] - 2022-07-13
+
+### Added
+
+- `Icon`: added ref forwarding ([@qubis741](https://github.com/qubis741)) in [#2279](https://github.com/teamleadercrm/ui/pull/2279))
+
+### Changed
+
+- `LabelValuePair`: decreased the margin-bottom for inline `LabelValuePair`'s ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2280](https://github.com/teamleadercrm/ui/pull/2280))
+
+## [15.0.3] - 2022-07-12
+
+### Changed
+
+- `useFocusTrap`: added exception for `ckEditor` elements to allow focusing ([@qubis741](https://github.com/qubis741)) in [#2273](https://github.com/teamleadercrm/ui/pull/2273))
+
+## [15.0.2] - 2022-07-11
+
+### Fixed
+
+- `Input`: controlled Inputs could get ouf sync when the controlled value was changed outside of the component (thus not via the onChange handler) ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2271](https://github.com/teamleadercrm/ui/pull/2271))
+
+## [15.0.1] - 2022-07-08
+
+### Changed
+
+- `Dialog.Body`: made `handleShowScrollShadow` optional ([@qubis741](https://github.com/qubis741)) in [#2263](https://github.com/teamleadercrm/ui/pull/2263))
+
+## [15.0.0] - 2022-07-06
+
+### Added
+
+- `Dialog`: scroll shadow at the bottom of dialog if scroll bar is displayed ([@qubis741](https://github.com/qubis741)) in [#2222](https://github.com/teamleadercrm/ui/pull/2222))
+
+### Changed
+
+- `Pagination`: always show arrows ([@qubis741](https://github.com/qubis741)) in [#2221](https://github.com/teamleadercrm/ui/pull/2221))
+- [BREAKING] `Timer`: `timerRef` prop to `ref` ([@qubis741](https://github.com/qubis741)) in [#2221](https://github.com/teamleadercrm/ui/pull/2221))
 
 ## [14.8.0] - 2022-06-21
 

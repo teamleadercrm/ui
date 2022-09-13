@@ -15,11 +15,14 @@ import {
   Heading4,
   Heading5,
   Marker,
+  MarkerProps,
   Monospaced,
+  MonospacedProps,
   TextBody,
   TextBodyCompact,
   TextDisplay,
   TextSmall,
+  TextProps,
   UITextDisplay,
   UITextBody,
   UITextSmall,
@@ -28,7 +31,7 @@ import Bullet from './components/bullet';
 import Checkbox from './components/checkbox';
 import Container from './components/container';
 import Counter from './components/counter';
-import DataGrid from './components/datagrid';
+import DataGrid, { DataGridProps } from './components/datagrid';
 import { DatePicker, DatePickerInput } from './components/datepicker';
 import DetailPage, { DetailPageBody, DetailPageHeader } from './components/detailPage';
 import Dialog, { DialogBase } from './components/dialog';
@@ -40,6 +43,7 @@ import Input, { InputBase, NumericInput, Textarea, TimeInput, DurationInput } fr
 import Menu, { IconMenu, MenuItem, MenuDivider, MenuTitle } from './components/menu';
 import Link from './components/link';
 import MarketingButton from './components/marketingButton';
+import MarketingDialog from './components/marketingDialog';
 import MarketingButtonGroup from './components/marketingButtonGroup';
 import MarketingLink from './components/marketingLink';
 import MarketingLockBadge from './components/marketingLockBadge';
@@ -48,7 +52,7 @@ import MarketingStatusLabel from './components/marketingStatusLabel';
 import MarketingTab from './components/marketingTab';
 import { MarketingHeading1, MarketingHeading2 } from './components/marketingTypography';
 import Message from './components/message';
-import Overlay from './components/overlay';
+import Overlay, { OverlayProps } from './components/overlay';
 import OverviewPage, { OverviewPageBody, OverviewPageHeader } from './components/overviewPage';
 import { LabelValuePair, LabelValuePairGroup } from './components/labelValuePair';
 import LoadingBar from './components/loadingBar';
@@ -57,7 +61,7 @@ import Pagination from './components/pagination';
 import Passport, { EmptyPassport } from './components/passport';
 import Popover from './components/popover';
 import PoweredByButton from './components/poweredByButton';
-import { RadioButton, RadioGroup } from './components/radio';
+import { RadioButton, RadioButtonProps, RadioGroup, RadioGroupProps } from './components/radio';
 import Section from './components/section';
 import Select, { AsyncSelect } from './components/select';
 import { Island, IslandGroup } from './components/island';
@@ -68,10 +72,20 @@ import Tag from './components/tag';
 import Timer from './components/timer';
 import { Toast, ToastContainer } from './components/toast';
 import Toggle from './components/toggle';
-import ValidationText, { ErrorText, HelpText } from './components/validationText';
+import ValidationText, {
+  ErrorText,
+  ErrorTextProps,
+  HelpText,
+  HelpTextProps,
+  SuccessText,
+  SuccessTextProps,
+  WarningText,
+  WarningTextProps,
+  ValidationTextProps,
+} from './components/validationText';
 import Label from './components/label';
 import Tooltip from './components/tooltip';
-import ProgressTracker from './components/progressTracker';
+import ProgressTracker, { ProgressTrackerProps } from './components/progressTracker';
 import Widget from './components/widget';
 import WysiwygEditor from './components/wysiwygEditor';
 import EmailSelector from './components/emailSelector';
@@ -176,6 +190,7 @@ export {
   Select,
   SplitButton,
   StatusLabel,
+  SuccessText,
   TabGroup,
   Tag,
   Textarea,
@@ -194,6 +209,7 @@ export {
   UITextBody,
   UITextSmall,
   ValidationText,
+  WarningText,
   Widget,
   WysiwygEditor,
   COLOR,
@@ -210,4 +226,21 @@ export {
   FULLSCREEN,
   Margin,
   Padding,
+  MarketingDialog,
+};
+
+export type {
+  DataGridProps,
+  ErrorTextProps,
+  HelpTextProps,
+  SuccessTextProps,
+  ValidationTextProps,
+  WarningTextProps,
+  MarkerProps,
+  MonospacedProps,
+  TextProps,
+  OverlayProps,
+  ProgressTrackerProps,
+  RadioButtonProps,
+  RadioGroupProps,
 };

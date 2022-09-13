@@ -1,14 +1,12 @@
 import cx from 'classnames';
 import React, { ReactNode } from 'react';
 import { GenericComponent } from '../../@types/types';
+import { COLORS, SIZES } from '../../constants';
 import Box from '../box';
 import { BoxProps, Padding } from '../box/Box';
 import theme from './theme.css';
 
-type Color = 'white' | 'neutral' | 'mint' | 'violet' | 'ruby' | 'gold' | 'aqua';
-type Size = 'small' | 'medium' | 'large';
-
-const PADDINGS: Record<Size, Padding> = {
+const PADDINGS: Record<'small' | 'medium' | 'large', Padding> = {
   small: 3,
   medium: 4,
   large: 5,
@@ -16,8 +14,8 @@ const PADDINGS: Record<Size, Padding> = {
 
 interface SectionProps extends Omit<BoxProps, 'ref'> {
   children?: ReactNode;
-  color?: Color;
-  size?: Size;
+  color?: Exclude<typeof COLORS[number], 'teal'> | 'white';
+  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
 }
 
 const Section: GenericComponent<SectionProps> = ({

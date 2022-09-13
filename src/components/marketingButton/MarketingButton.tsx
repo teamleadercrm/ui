@@ -5,13 +5,10 @@ import { UITextBody, UITextDisplay, UITextSmall } from '../typography';
 import cx from 'classnames';
 import theme from './theme.css';
 import { BoxProps } from '../box/Box';
+import { SIZES } from '../../constants/sizes';
 import { GenericComponent } from '../../@types/types';
 
-type Level = 'primary' | 'secondary' | 'link';
-type Placement = 'left' | 'right';
-type Size = 'tiny' | 'small' | 'medium' | 'large';
-
-interface MarketingButtonProps extends Omit<BoxProps, 'ref' | 'element'> {
+export interface MarketingButtonProps extends Omit<BoxProps, 'ref' | 'element'> {
   /** The content to display inside the button. */
   children?: ReactNode;
   /** A class name for the button to give custom styles. */
@@ -19,7 +16,7 @@ interface MarketingButtonProps extends Omit<BoxProps, 'ref' | 'element'> {
   /** A custom element to be rendered */
   element?: React.ElementType;
   /** Determines which kind of button to be rendered. */
-  level?: Level;
+  level?: 'primary' | 'secondary' | 'link';
   /** If true, component will be disabled. */
   disabled?: boolean;
   /** If true, component will take the full width available. */
@@ -27,7 +24,7 @@ interface MarketingButtonProps extends Omit<BoxProps, 'ref' | 'element'> {
   /** The icon displayed inside the button. */
   icon?: ReactNode;
   /** The position of the icon inside the button. */
-  iconPlacement?: Placement;
+  iconPlacement?: 'left' | 'right';
   /** Callback function that is fired when mouse leaves the component. */
   onMouseLeave?: (event: React.MouseEvent) => void;
   /** Callback function that is fired when the mouse button is released. */
@@ -35,7 +32,7 @@ interface MarketingButtonProps extends Omit<BoxProps, 'ref' | 'element'> {
   /** If true, component will show a loading spinner instead of label or children. */
   processing?: boolean;
   /** Size of the button. */
-  size?: Size;
+  size?: Exclude<typeof SIZES[number], 'fullscreen' | 'smallest' | 'hero'>;
   /** Type of the button element. */
   type?: string;
 }
@@ -112,7 +109,7 @@ const MarketingButton: GenericComponent<MarketingButtonProps> = forwardRef<HTMLE
       ref: buttonRef,
       className: classNames,
       disabled: element === 'button' ? disabled : undefined,
-      element: element,
+      element,
       onMouseUp: handleMouseUp,
       onMouseLeave: handleMouseLeave,
       type: element === 'button' ? type : undefined,

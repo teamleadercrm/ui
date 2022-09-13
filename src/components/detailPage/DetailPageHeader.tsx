@@ -41,7 +41,7 @@ const DetailPageHeader: GenericComponent<DetailPageHeaderProps> = ({
               color={titleColor}
               maxLines={1}
               tint={titleColor === 'neutral' ? 'dark' : 'darkest'}
-              title={title}
+              title={typeof title === 'string' ? title : undefined}
             >
               {title}
             </Heading1>

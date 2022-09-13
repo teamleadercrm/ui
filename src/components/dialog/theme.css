@@ -29,6 +29,10 @@
   transition-delay: var(--animation-delay);
   width: 100vw;
   z-index: 2;
+
+  .close-icon {
+    margin-left: auto;
+  }
 }
 
 .inner {
@@ -63,6 +67,10 @@
   width: 700px;
 }
 
+.is-hero {
+  width: 985px;
+}
+
 .is-fullscreen {
   width: 1300px;
 
@@ -86,6 +94,7 @@
   padding: var(--spacer-regular);
 }
 
-.close-icon {
-  margin-left: auto;
+.scroll-shadow {
+  box-shadow: 0px 0px 1px rgba(130, 130, 140, 0.09), 0px 0px 0px rgba(130, 130, 140, 0.09),
+    0px -4px 8px rgba(130, 130, 140, 0.09);
 }

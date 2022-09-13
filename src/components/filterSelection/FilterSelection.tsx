@@ -3,10 +3,9 @@ import cx from 'classnames';
 import React, { forwardRef, KeyboardEventHandler, MouseEventHandler } from 'react';
 
 import { GenericComponent } from '../../@types/types';
-import { KEY } from '../../constants';
+import { COLORS, KEY, TINTS } from '../../constants';
 import Box from '../box';
 import Icon from '../icon';
-import { COLORS, TINTS } from '../icon/Icon';
 import Tooltip from '../tooltip';
 import { Heading4, Monospaced, TextBodyCompact } from '../typography';
 import theme from './theme.css';
@@ -24,7 +23,7 @@ export const STATUS: Record<string, StatusValues> = {
   BROKEN: 'broken',
 };
 
-const COLOR_BY_STATUS: Record<string, COLORS> = {
+const COLOR_BY_STATUS: Record<string, typeof COLORS[number]> = {
   [STATUS.DEFAULT]: 'neutral',
   [STATUS.ACTIVE]: 'aqua',
   [STATUS.FOCUSED]: 'aqua',
@@ -33,7 +32,7 @@ const COLOR_BY_STATUS: Record<string, COLORS> = {
   [STATUS.BROKEN]: 'ruby',
 };
 
-const BACKGROUND_TINT_BY_STATUS: Record<string, TINTS | undefined> = {
+const BACKGROUND_TINT_BY_STATUS: Record<string, typeof TINTS[number] | undefined> = {
   [STATUS.DEFAULT]: undefined,
   [STATUS.ACTIVE]: 'light',
   [STATUS.FOCUSED]: 'light',

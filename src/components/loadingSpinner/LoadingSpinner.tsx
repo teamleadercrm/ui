@@ -1,25 +1,20 @@
 import cx from 'classnames';
 import React, { forwardRef } from 'react';
 import { GenericComponent } from '../../@types/types';
+import { COLORS, SIZES, TINTS } from '../../constants';
 import Box from '../box';
 import { BoxProps } from '../box/Box';
 import theme from './theme.css';
-
-type Size = 'small' | 'medium';
-
-type Color = 'aqua' | 'gold' | 'mint' | 'neutral' | 'ruby' | 'teal' | 'violet';
-
-type Tint = 'lightest' | 'light' | 'normal' | 'dark' | 'darkest';
 
 export interface LoadingSpinnerProps extends Omit<BoxProps, 'className' | 'size'> {
   /** A class name for the wrapper to add custom classes */
   className?: string;
   /** The color of the components */
-  color?: Color;
+  color?: typeof COLORS[number];
   /** Size of the component */
-  size?: Size;
+  size?: Exclude<typeof SIZES[number], 'tiny' | 'large' | 'fullscreen' | 'smallest' | 'hero'>;
   /** The tint of the components color */
-  tint?: Tint;
+  tint?: typeof TINTS[number];
 }
 const LoadingSpinner: GenericComponent<LoadingSpinnerProps> = forwardRef<HTMLElement, LoadingSpinnerProps>(
   ({ className, color = 'teal', size = 'medium', tint = 'darkest', ...others }, ref) => {

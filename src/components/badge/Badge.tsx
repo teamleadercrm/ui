@@ -1,6 +1,7 @@
 import cx from 'classnames';
-import React, { forwardRef, ReactNode } from 'react';
+import React, { forwardRef, ReactNode, SyntheticEvent } from 'react';
 import { GenericComponent } from '../../@types/types';
+import { SIZES } from '../../constants';
 import Box from '../box';
 import { BoxProps } from '../box/Box';
 import Icon from '../icon';
@@ -21,11 +22,11 @@ interface BadgeProps extends Omit<BoxProps, 'ref' | 'size'> {
   /** The position of the icon inside the badge. */
   iconPlacement?: 'left' | 'right';
   /** Callback function that is fired when clicking on the component. */
-  onClick?: () => void;
+  onClick?: (e: SyntheticEvent) => void;
   /** If true, component will be shown in a selected state */
   selected?: boolean;
   /** Size of the button. */
-  size?: 'small' | 'medium' | 'large';
+  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
 }
 
 const Badge: GenericComponent<BadgeProps> = forwardRef<HTMLElement, BadgeProps>(
@@ -62,7 +63,7 @@ const Badge: GenericComponent<BadgeProps> = forwardRef<HTMLElement, BadgeProps>(
     );
 
     const TextElement = size === 'small' ? UITextSmall : size === 'large' ? UITextDisplay : UITextBody;
-    const boxElement = element || onClick ? 'button' : 'div';
+    const boxElement = element || (onClick ? 'button' : 'div');
 
     return (
       <Box
