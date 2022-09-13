@@ -1,9 +1,12 @@
 import React, { PureComponent, createContext, ComponentType } from 'react';
 
-export const Context = createContext({});
+export const Context = createContext<Document | Record<string, any>>({});
 
-const DocumentObjectProvider = (WrappedComponent: ComponentType, documentRef: Document) => {
-  const Provider = class extends PureComponent {
+const DocumentObjectProvider = <T extends Record<string, any>>(
+  WrappedComponent: ComponentType<T>,
+  documentRef?: Document,
+) => {
+  const Provider = class extends PureComponent<T> {
     static displayName = 'Provider';
 
     componentDidMount() {
