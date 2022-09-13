@@ -37,6 +37,7 @@
 
   .label {
     margin-left: var(--spacer-small);
+    display: flex;
   }
 
   .track {
