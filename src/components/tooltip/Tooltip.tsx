@@ -5,15 +5,16 @@ import React, { MouseEventHandler, ReactNode, useEffect, useMemo, useRef, useSta
 import { createPortal } from 'react-dom';
 import Transition from 'react-transition-group/Transition';
 import { GenericComponent } from '../../@types/types';
+import { COLORS, SIZES } from '../../constants';
 import Box from '../box';
+import { BoxProps } from '../box/Box';
 import DocumentObjectProvider, { Context as DocumentObjectContext } from '../hoc/DocumentObjectProvider';
 import { getViewport } from '../utils/utils';
 import theme from './theme.css';
 
-type Color = 'white' | 'neutral' | 'mint' | 'violet' | 'ruby' | 'gold' | 'aqua' | 'inverse';
 type Position = 'bottom' | 'horizontal' | 'left' | 'right' | 'top' | 'vertical';
 
-const POSITIONS: Record<string, Position> = {
+export const POSITIONS: Record<string, Position> = {
   BOTTOM: 'bottom',
   HORIZONTAL: 'horizontal',
   LEFT: 'left',
@@ -27,8 +28,9 @@ interface PositionState {
   top: number | string;
   left: number | string;
 }
-
-const SIZES = {
+export type AllowedColor = Exclude<typeof COLORS[number], 'teal'> | 'white' | 'inverse';
+export type AllowedSize = Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
+const SIZE_MAP: Record<AllowedSize, BoxProps> = {
   large: {
     padding: 4,
   },
@@ -39,7 +41,7 @@ const SIZES = {
     paddingHorizontal: 3,
     paddingVertical: 2,
   },
-} as const;
+};
 
 interface TooltippedComponentProps {
   children: ReactNode;
@@ -49,12 +51,12 @@ interface TooltippedComponentProps {
   onMouseLeave?: MouseEventHandler;
   onTooltipEntered?: () => void;
   tooltip: ReactNode;
-  tooltipColor?: Color;
+  tooltipColor?: AllowedColor;
   tooltipHideOnClick?: boolean;
   tooltipIcon?: ReactNode;
   tooltipPosition?: Position;
   tooltipShowOnClick?: boolean;
-  tooltipSize?: keyof typeof SIZES;
+  tooltipSize?: AllowedSize;
   documentObject: Document;
   tooltipShowDelay?: number;
   /** The z-index of the Tooltip */
@@ -269,7 +271,7 @@ const TooltippedComponent: GenericComponent<TooltippedComponentProps> = ({
               data-teamleader-ui="tooltip"
               style={{ top: position.top, left: position.left, zIndex }}
             >
-              <Box className={theme['inner']} {...SIZES[tooltipSize]}>
+              <Box className={theme['inner']} {...SIZE_MAP[tooltipSize]}>
                 {tooltipIcon && <div className={theme['icon']}>{tooltipIcon}</div>}
                 <div className={theme['text']}>{tooltip}</div>
               </Box>
