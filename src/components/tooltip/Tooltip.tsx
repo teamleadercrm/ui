@@ -64,7 +64,7 @@ interface TooltippedComponentProps {
   tooltipActive?: boolean;
   ComposedComponent: React.ElementType;
 }
-export interface TooltipProps extends Omit<TooltippedComponentProps, 'ComposedComponent'> {}
+export interface TooltipProps extends Omit<TooltippedComponentProps, 'ComposedComponent' | 'documentObject'> {}
 
 const TooltippedComponent: GenericComponent<TooltippedComponentProps> = ({
   children,
