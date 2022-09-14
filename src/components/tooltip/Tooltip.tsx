@@ -92,7 +92,7 @@ const TooltippedComponent: GenericComponent<TooltippedComponentProps> = ({
   const [active, setActive] = useState(false);
   const [position, setPosition] = useState<PositionState>({ position: tooltipPosition, top: 'auto', left: 'auto' });
 
-  const activate = (position: PositionState | undefined) => {
+  const activate = (position: PositionState) => {
     if (!position) {
       return false;
     }
@@ -154,6 +154,7 @@ const TooltippedComponent: GenericComponent<TooltippedComponentProps> = ({
         position,
       };
     }
+    return { top: 0, left: 0, position: tooltipPosition };
   };
 
   const handleMouseEnter: MouseEventHandler = (event) => {
