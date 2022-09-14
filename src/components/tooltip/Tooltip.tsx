@@ -63,10 +63,7 @@ interface TooltippedComponentProps {
   zIndex?: number;
   tooltipActive?: boolean;
   ComposedComponent: React.ElementType;
-  // Because its HOC, it needs to pass props of child component
-  [key: string]: any;
 }
-
 export interface TooltipProps extends Omit<TooltippedComponentProps, 'ComposedComponent'> {}
 
 const TooltippedComponent: GenericComponent<TooltippedComponentProps> = ({
@@ -284,7 +281,11 @@ const TooltippedComponent: GenericComponent<TooltippedComponentProps> = ({
   );
 };
 
-const Tooltip = (ComposedComponent: TooltippedComponentProps['ComposedComponent']) => {
+function Tooltip<E extends keyof JSX.IntrinsicElements>(
+  ComposedComponent: E,
+): React.ComponentType<JSX.IntrinsicElements[E] & TooltipProps>;
+function Tooltip<P>(ComposedComponent: React.ElementType<P>): React.ComponentType<P & TooltipProps>;
+function Tooltip(ComposedComponent: TooltippedComponentProps['ComposedComponent']) {
   return DocumentObjectProvider<TooltipProps>((props) => {
     return (
       <DocumentObjectContext.Consumer>
@@ -301,6 +302,6 @@ const Tooltip = (ComposedComponent: TooltippedComponentProps['ComposedComponent'
       </DocumentObjectContext.Consumer>
     );
   });
-};
+}
 
 export default Tooltip;
