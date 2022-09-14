@@ -5,8 +5,9 @@ import React, { forwardRef, KeyboardEventHandler, MouseEventHandler } from 'reac
 import { GenericComponent } from '../../@types/types';
 import { COLORS, KEY, TINTS } from '../../constants';
 import Box from '../box';
+import { BoxProps } from '../box/Box';
 import Icon from '../icon';
-import Tooltip from '../tooltip';
+import Tooltip, { TooltipProps } from '../tooltip';
 import { Heading4, Monospaced, TextBodyCompact } from '../typography';
 import theme from './theme.css';
 
@@ -74,7 +75,8 @@ const FilterSelection: GenericComponent<FilterSelectionProps> = forwardRef<HTMLE
     const showAmount = typeof amountApplied === 'number';
     const modified = typeof modificationText === 'string';
 
-    const Container = modified ? TooltippedBox : Box;
+    // @ts-ignore TS complains about non-overlapping props
+    const Container: GenericComponent<TooltipProps | BoxProps> = modified ? TooltippedBox : Box;
     const tooltipProps = modified
       ? {
           tooltip: modificationText,

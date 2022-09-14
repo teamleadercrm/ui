@@ -7,6 +7,7 @@ import Box from '../box';
 import { BoxProps } from '../box/Box';
 import Icon from '../icon';
 import Tooltip from '../tooltip';
+import { TooltipProps } from '../tooltip/Tooltip';
 import { TextBodyCompact } from '../typography';
 import AvatarAdd from './AvatarAdd';
 import AvatarAnonymous from './AvatarAnonymous';
@@ -151,7 +152,8 @@ const Avatar = ({
   );
 
   const enableTooltip = tooltip && typeof fullName === 'string' && fullName.length > 0;
-  const Component = enableTooltip ? TooltippedBox : Box;
+  // @ts-ignore TS complains about non-overlapping props
+  const Component: GenericComponent<BoxProps | TooltipProps> = enableTooltip ? TooltippedBox : Box;
   const tooltipProps = enableTooltip
     ? {
         tooltip: <TextBodyCompact>{fullName}</TextBodyCompact>,

@@ -4,7 +4,7 @@ import uiUtilities from '@teamleader/ui-utilities';
 
 import Box from '../box';
 import { TextBodyCompact } from '../typography';
-import Tooltip from '../tooltip';
+import Tooltip, { TooltipProps } from '../tooltip';
 import theme from './theme.css';
 import { BoxProps } from '../box/Box';
 import { GenericComponent } from '../../@types/types';
@@ -40,7 +40,8 @@ const AvatarStackOverflow: GenericComponent<AvatarStackOverflowProps> = ({
   const namesOverflowAmount = names.length - MAX_NAMES_TO_SHOW_IN_TOOLTIP;
   const hasNamesOverflow = namesOverflowAmount > 0;
 
-  const Component = enableTooltip ? TooltippedBox : Box;
+  // @ts-ignore TS complains about non-overlapping props
+  const Component: GenericComponent<TooltipProps | BoxProps> = enableTooltip ? TooltippedBox : Box;
   const tooltipProps = enableTooltip
     ? {
         tooltip: (
