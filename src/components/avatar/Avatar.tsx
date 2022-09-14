@@ -152,8 +152,8 @@ const Avatar = ({
   );
 
   const enableTooltip = tooltip && typeof fullName === 'string' && fullName.length > 0;
-  // @ts-ignore TS complains about non-overlapping props
-  const Component: GenericComponent<BoxProps | TooltipProps> = enableTooltip ? TooltippedBox : Box;
+
+  const Component = enableTooltip ? TooltippedBox : Box;
   const tooltipProps = enableTooltip
     ? {
         tooltip: <TextBodyCompact>{fullName}</TextBodyCompact>,
@@ -167,7 +167,7 @@ const Avatar = ({
     <Component
       {...others}
       {...(selectable && { boxSizing: 'content-box', padding: size === 'hero' ? 2 : 1 })}
-      {...tooltipProps}
+      {...(tooltipProps as TooltipProps)}
       className={avatarClassNames}
     >
       <AvatarInternalComponent
