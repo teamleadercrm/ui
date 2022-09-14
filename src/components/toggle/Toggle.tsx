@@ -23,7 +23,7 @@ export interface ToggleProps extends Omit<BoxProps, 'className' | 'size'> {
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
   labelTooltip?: ReactNode;
-  labelTooltipProps?: Record<string, any>;
+  labelTooltipPosition?: string;
 }
 
 const Toggle: GenericComponent<ToggleProps> = ({
@@ -36,7 +36,7 @@ const Toggle: GenericComponent<ToggleProps> = ({
   onChange,
   size = 'medium',
   labelTooltip,
-  labelTooltipProps,
+  labelTooltipPosition,
   ...others
 }) => {
   const ref = useRef<HTMLInputElement>(null);
@@ -94,10 +94,10 @@ const Toggle: GenericComponent<ToggleProps> = ({
             <TooltippedIcon
               tooltip={<TextSmall>{labelTooltip}</TextSmall>}
               tooltipSize="small"
+              tooltipPosition={labelTooltipPosition}
               color="teal"
               tint="darkest"
               marginLeft={1}
-              {...labelTooltipProps}
             >
               <IconInfoBadgedSmallFilled />
             </TooltippedIcon>
