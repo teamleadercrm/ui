@@ -1,6 +1,6 @@
 import React, { PureComponent, createContext, ComponentType } from 'react';
 
-export const Context = createContext<Document | Record<string, any>>({});
+export const Context = createContext<Document | null>(null);
 
 const DocumentObjectProvider = <T extends Record<string, any>>(
   WrappedComponent: ComponentType<T>,
