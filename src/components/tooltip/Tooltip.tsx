@@ -93,9 +93,6 @@ const TooltippedComponent: GenericComponent<TooltippedComponentProps> = ({
   const [position, setPosition] = useState<PositionState>({ position: tooltipPosition, top: 'auto', left: 'auto' });
 
   const activate = (position: PositionState) => {
-    if (!position) {
-      return false;
-    }
     documentObject.body.appendChild(tooltipRoot);
     setActive(true);
     setPosition({ position: position.position, top: position.top, left: position.left });
