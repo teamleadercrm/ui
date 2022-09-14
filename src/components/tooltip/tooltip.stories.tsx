@@ -112,7 +112,7 @@ fromLink.args = defaultTooltipProps;
 fromLink.argTypes = tooltipArgTypes;
 
 export const fromStatusLabel = (args: TooltipProps) => (
-  <TooltippedStatusLabel {...args} tooltip={textSmallTooltipContent} tool>
+  <TooltippedStatusLabel {...args} tooltip={textSmallTooltipContent}>
     Hover me
   </TooltippedStatusLabel>
 );
