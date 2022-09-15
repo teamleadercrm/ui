@@ -13,9 +13,9 @@ import theme from './theme.css';
 const TooltippedIcon = Tooltip(Icon);
 
 export interface ToggleProps
-  extends Pick<TooltipProps, 'tooltip' | 'tooltipPosition'>,
+  extends Pick<Partial<TooltipProps>, 'tooltip' | 'tooltipPosition'>,
     Omit<BoxProps, 'className' | 'size'> {
-  children: ReactNode;
+  children?: ReactNode;
   checked?: boolean;
   disabled?: boolean;
   /** The maximum number of lines the label can take */

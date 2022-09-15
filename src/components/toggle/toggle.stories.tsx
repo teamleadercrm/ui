@@ -45,7 +45,7 @@ export const withTooltip = () => {
     setChecked(event.currentTarget.checked);
   };
 
-  return <Toggle label={LABEL} labelTooltip={LABEL_TOOLTIP} checked={checked} onChange={handleChange} />;
+  return <Toggle label={LABEL} tooltip={LABEL_TOOLTIP} checked={checked} onChange={handleChange} />;
 };
 
 export const withTooltipRight = () => {
@@ -56,13 +56,7 @@ export const withTooltipRight = () => {
   };
 
   return (
-    <Toggle
-      label={LABEL}
-      labelTooltip={LABEL_TOOLTIP}
-      labelTooltipPosition="right"
-      checked={checked}
-      onChange={handleChange}
-    />
+    <Toggle label={LABEL} tooltip={LABEL_TOOLTIP} tooltipPosition="right" checked={checked} onChange={handleChange} />
   );
 };
 
