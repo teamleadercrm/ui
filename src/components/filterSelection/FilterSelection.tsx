@@ -6,7 +6,7 @@ import { GenericComponent } from '../../@types/types';
 import { COLORS, KEY, TINTS } from '../../constants';
 import Box from '../box';
 import Icon from '../icon';
-import Tooltip from '../tooltip';
+import Tooltip, { TooltipProps } from '../tooltip';
 import { Heading4, Monospaced, TextBodyCompact } from '../typography';
 import theme from './theme.css';
 
@@ -121,7 +121,7 @@ const FilterSelection: GenericComponent<FilterSelectionProps> = forwardRef<HTMLE
           alignItems="center"
           justifyContent="space-between"
           marginRight={2}
-          {...tooltipProps}
+          {...(tooltipProps as TooltipProps)}
         >
           <TextBodyCompact
             color={status === STATUS.DEFAULT ? 'teal' : COLOR_BY_STATUS[status] || 'neutral'}

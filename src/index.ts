@@ -84,7 +84,7 @@ import ValidationText, {
   ValidationTextProps,
 } from './components/validationText';
 import Label from './components/label';
-import Tooltip from './components/tooltip';
+import Tooltip, { TooltipProps } from './components/tooltip';
 import ProgressTracker, { ProgressTrackerProps } from './components/progressTracker';
 import Widget from './components/widget';
 import WysiwygEditor from './components/wysiwygEditor';
@@ -243,4 +243,5 @@ export type {
   ProgressTrackerProps,
   RadioButtonProps,
   RadioGroupProps,
+  TooltipProps,
 };

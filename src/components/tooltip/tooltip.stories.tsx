@@ -1,11 +1,12 @@
+import { IconHelpBadgedMediumOutline } from '@teamleader/ui-icons';
 import React from 'react';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
-import { IconHelpBadgedMediumOutline } from '@teamleader/ui-icons';
+import { LARGE, MEDIUM, SMALL } from '../../constants/sizes';
 import { Badge, Button, Link, StatusLabel, TextBody, TextDisplay, TextSmall, Tooltip } from '../../index';
+import { AllowedColor, AllowedSize, POSITIONS, TooltipProps } from './Tooltip';
 
-const colors = ['white', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'inverse'];
-const sizes = ['small', 'medium', 'large'];
-const positions = ['horizontal', 'vertical', 'top', 'bottom', 'left', 'right'];
+const sizes: AllowedSize[] = [SMALL, MEDIUM, LARGE];
+const colors: AllowedColor[] = ['white', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'inverse'];
 
 const TooltippedButton = Tooltip(Button);
 const TooltippedBadge = Tooltip(Badge);
@@ -37,7 +38,7 @@ const tooltipArgTypes = {
   },
   tooltipPosition: {
     control: 'select',
-    options: positions,
+    options: POSITIONS,
   },
   tooltipSize: {
     control: 'select',
@@ -52,7 +53,6 @@ const tooltipArgTypes = {
 export default {
   component: Tooltip,
   title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Tooltip'),
-
   parameters: {
     info: {
       propTablesExclude: [TextSmall, TextDisplay, TextBody],
@@ -60,7 +60,7 @@ export default {
   },
 };
 
-export const basic = (args) => (
+export const basic = (args: TooltipProps) => (
   <TooltippedButton {...args} tooltip={textBodyTooltipContent}>
     Hover me to see a tooltip
   </TooltippedButton>
@@ -69,7 +69,7 @@ export const basic = (args) => (
 basic.args = defaultTooltipProps;
 basic.argTypes = tooltipArgTypes;
 
-export const withIcon = (args) => (
+export const withIcon = (args: TooltipProps) => (
   <TextDisplay>
     <TooltippedStrong {...args} tooltip={textSmallTooltipContent} tooltipIcon={<IconHelpBadgedMediumOutline />}>
       Hover me
@@ -80,7 +80,7 @@ export const withIcon = (args) => (
 withIcon.args = defaultTooltipProps;
 withIcon.argTypes = tooltipArgTypes;
 
-export const fromBadge = (args) => (
+export const fromBadge = (args: TooltipProps) => (
   <TextDisplay>
     I'm display text with a{' '}
     <TooltippedBadge {...args} tooltip={textSmallTooltipContent}>
@@ -93,7 +93,7 @@ export const fromBadge = (args) => (
 fromBadge.args = defaultTooltipProps;
 fromBadge.argTypes = tooltipArgTypes;
 
-export const fromButton = (args) => (
+export const fromButton = (args: TooltipProps) => (
   <TooltippedButton {...args} tooltip={textBodyTooltipContent}>
     Hover me
   </TooltippedButton>
@@ -102,7 +102,7 @@ export const fromButton = (args) => (
 fromButton.args = defaultTooltipProps;
 fromButton.argTypes = tooltipArgTypes;
 
-export const fromLink = (args) => (
+export const fromLink = (args: TooltipProps) => (
   <TooltippedLink {...args} tooltip={textBodyTooltipContent} href="#" inherit={false}>
     Hover me
   </TooltippedLink>
@@ -111,7 +111,7 @@ export const fromLink = (args) => (
 fromLink.args = defaultTooltipProps;
 fromLink.argTypes = tooltipArgTypes;
 
-export const fromStatusLabel = (args) => (
+export const fromStatusLabel = (args: TooltipProps) => (
   <TooltippedStatusLabel {...args} tooltip={textSmallTooltipContent}>
     Hover me
   </TooltippedStatusLabel>
@@ -121,7 +121,7 @@ fromStatusLabel.storyName = 'From StatusLabel';
 fromStatusLabel.args = defaultTooltipProps;
 fromStatusLabel.argTypes = tooltipArgTypes;
 
-export const fromInlineElements = (args) => (
+export const fromInlineElements = (args: TooltipProps) => (
   <TextBody>
     I'm body text with a{' '}
     <TooltippedStrong {...args} tooltip={textBodyTooltipContent}>
