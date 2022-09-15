@@ -6,14 +6,17 @@ import { SIZES } from '../../constants';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import { BoxProps } from '../box/Box';
 import Icon from '../icon';
-import Tooltip from '../tooltip';
+import Tooltip, { TooltipProps } from '../tooltip';
 import { TextBodyCompact, TextDisplay, TextSmall } from '../typography';
 import theme from './theme.css';
 
 const TooltippedIcon = Tooltip(Icon);
-export interface ToggleProps extends Omit<BoxProps, 'className' | 'size'> {
+
+export interface ToggleProps
+  extends Pick<TooltipProps, 'tooltip' | 'tooltipPosition'>,
+    Omit<BoxProps, 'className' | 'size'> {
+  children: ReactNode;
   checked?: boolean;
-  children?: ReactNode;
   disabled?: boolean;
   /** The maximum number of lines the label can take */
   maxLines?: number;
@@ -22,8 +25,6 @@ export interface ToggleProps extends Omit<BoxProps, 'className' | 'size'> {
   label?: ReactNode;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
-  labelTooltip?: ReactNode;
-  labelTooltipPosition?: string;
 }
 
 const Toggle: GenericComponent<ToggleProps> = ({
@@ -35,8 +36,8 @@ const Toggle: GenericComponent<ToggleProps> = ({
   label,
   onChange,
   size = 'medium',
-  labelTooltip,
-  labelTooltipPosition,
+  tooltip,
+  tooltipPosition,
   ...others
 }) => {
   const ref = useRef<HTMLInputElement>(null);
@@ -90,11 +91,11 @@ const Toggle: GenericComponent<ToggleProps> = ({
             </TextElement>
           )}
           {children}
-          {labelTooltip && (
+          {tooltip && (
             <TooltippedIcon
-              tooltip={<TextSmall>{labelTooltip}</TextSmall>}
+              tooltip={<TextSmall>{tooltip}</TextSmall>}
               tooltipSize="small"
-              tooltipPosition={labelTooltipPosition}
+              tooltipPosition={tooltipPosition}
               color="teal"
               tint="darkest"
               marginLeft={1}
