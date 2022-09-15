@@ -2,6 +2,8 @@
 
 ### Added
 
+- `Toggle`: `tooltip` and `tooltipPosition` props. ([@qubis741](https://github.com/qubis741)) in [#2355](https://github.com/teamleadercrm/ui/pull/2355))
+
 ### Changed
 
 ### Deprecated
