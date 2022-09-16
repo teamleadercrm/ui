@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `Tooltip`: `children` prop is optional ([@qubis741](https://github.com/qubis741)) in [#2364](https://github.com/teamleadercrm/ui/pull/2364))
+
 ### Deprecated
 
 ### Removed
