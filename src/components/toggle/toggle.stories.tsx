@@ -1,12 +1,10 @@
-import React, { ChangeEvent, useState } from 'react';
-import { IconInfoBadgedSmallFilled } from '@teamleader/ui-icons';
-import Toggle, { ToggleProps } from './Toggle';
-import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { ComponentMeta } from '@storybook/react';
-import Box from '../box';
-import Tooltip from '../tooltip';
-import Icon from '../icon';
-import { TextSmall } from '../typography';
+import React, { ChangeEvent, useState } from 'react';
+import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
+import Toggle, { ToggleProps } from './Toggle';
+
+const LABEL = 'I am a label';
+const LABEL_TOOLTIP = 'I am label tooltip';
 
 export default {
   component: Toggle,
@@ -32,27 +30,63 @@ export const DefaultStory = (args: ToggleProps) => {
 
 DefaultStory.args = {
   checked: true,
-  label: 'I am a label',
+  label: LABEL,
 };
 
-const TooltippedIcon = Tooltip(Icon);
+DefaultStory.argTypes = {
+  label: { control: 'text' },
+  labelTooltip: { control: 'text' },
+};
+
 export const withTooltip = () => {
   const [checked, setChecked] = useState(false);
+
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setChecked(event.currentTarget.checked);
   };
+
+  return <Toggle label={LABEL} tooltip={LABEL_TOOLTIP} checked={checked} onChange={handleChange} />;
+};
+
+export const withTooltipRight = () => {
+  const [checked, setChecked] = useState(false);
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setChecked(event.currentTarget.checked);
+  };
+
   return (
-    <Toggle
-      checked={checked}
-      onChange={handleChange}
-      label={
-        <Box display="flex">
-          Label
-          <TooltippedIcon tooltip={<TextSmall>Tooltip</TextSmall>} marginLeft={2}>
-            <IconInfoBadgedSmallFilled />
-          </TooltippedIcon>
-        </Box>
-      }
-    />
+    <Toggle label={LABEL} tooltip={LABEL_TOOLTIP} tooltipPosition="right" checked={checked} onChange={handleChange} />
   );
+};
+
+export const disabled = () => {
+  return <Toggle label={LABEL} disabled checked={false} />;
+};
+
+export const small = () => {
+  const [checked, setChecked] = useState(false);
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setChecked(event.currentTarget.checked);
+  };
+  return <Toggle label={LABEL} maxLines={1} checked={checked} onChange={handleChange} size="small" />;
+};
+
+export const medium = () => {
+  const [checked, setChecked] = useState(false);
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setChecked(event.currentTarget.checked);
+  };
+  return <Toggle label={LABEL} maxLines={1} checked={checked} onChange={handleChange} size="medium" />;
+};
+
+export const large = () => {
+  const [checked, setChecked] = useState(false);
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setChecked(event.currentTarget.checked);
+  };
+  return <Toggle label={LABEL} maxLines={1} checked={checked} onChange={handleChange} size="large" />;
 };

@@ -1,13 +1,13 @@
-import React from 'react';
-import cx from 'classnames';
 import uiUtilities from '@teamleader/ui-utilities';
+import cx from 'classnames';
+import React from 'react';
 
-import Box from '../box';
-import { TextBodyCompact } from '../typography';
-import Tooltip from '../tooltip';
-import theme from './theme.css';
-import { BoxProps } from '../box/Box';
 import { GenericComponent } from '../../@types/types';
+import Box from '../box';
+import { BoxProps } from '../box/Box';
+import Tooltip, { TooltipProps } from '../tooltip';
+import { TextBodyCompact } from '../typography';
+import theme from './theme.css';
 
 const TooltippedBox = Tooltip(Box);
 
@@ -63,7 +63,7 @@ const AvatarStackOverflow: GenericComponent<AvatarStackOverflowProps> = ({
       display="flex"
       justifyContent="center"
       onClick={onOverflowClick}
-      {...tooltipProps}
+      {...(tooltipProps as TooltipProps)}
     >
       {displayMax > 0 && `+`}
       {overflowAmount}

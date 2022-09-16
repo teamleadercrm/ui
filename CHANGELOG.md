@@ -12,11 +12,29 @@
 
 ### Dependency updates
 
+## [16.1.0] - 2022-09-16
+
+### Added
+
+- `Toggle`: `tooltip` and `tooltipPosition` props. ([@qubis741](https://github.com/qubis741)) in [#2355](https://github.com/teamleadercrm/ui/pull/2355))
+
+## [16.0.4] - 2022-09-12
+
+### Fixed
+
+- `Dialog`: Fix close button alignment in cases where css order changes during build. ([@lorgan3](https://github.com/lorgan3)) in [#2351](https://github.com/teamleadercrm/ui/pull/2351))
+
+## [16.0.3] - 2022-09-05
+
+### Fixed
+
+- `MenuItem`: Append invisible element before rendering menu items, so the first item doesn't get focused by default. ([@eniskraasniqi1](https://github.com/eniskraasniqi1)) in [#2344](https://github.com/teamleadercrm/ui/pull/2344))
+
 ## [16.0.2] - 2022-08-18
 
 ### Dependency updates
 
-- `storybook`: Bump storybook from 6.5.9 to 6.5.10 ([@KristofColpaert](https://github.com/KristofColpaert)) in  [#2327](https://github.com/teamleadercrm/ui/pull/2327)
+- `storybook`: Bump storybook from 6.5.9 to 6.5.10 ([@KristofColpaert](https://github.com/KristofColpaert)) in [#2327](https://github.com/teamleadercrm/ui/pull/2327)
 
 ## [16.0.1] - 2022-08-08
 
