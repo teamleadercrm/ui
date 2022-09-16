@@ -12,12 +12,6 @@
 
 ### Dependency updates
 
-## [16.0.4] - 2022-09-12
-
-### Fixed
-
-- `Dialog`: Fix close button alignment in cases where css order changes during build. ([@lorgan3](https://github.com/lorgan3)) in [#2351](https://github.com/teamleadercrm/ui/pull/2351))
-
 ## [16.0.5] - 2022-09-16
 
 ### Added
