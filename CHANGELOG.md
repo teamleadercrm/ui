@@ -2,8 +2,6 @@
 
 ### Added
 
-- `Toggle`: `tooltip` and `tooltipPosition` props. ([@qubis741](https://github.com/qubis741)) in [#2355](https://github.com/teamleadercrm/ui/pull/2355))
-
 ### Changed
 
 ### Deprecated
@@ -19,6 +17,12 @@
 ### Fixed
 
 - `Dialog`: Fix close button alignment in cases where css order changes during build. ([@lorgan3](https://github.com/lorgan3)) in [#2351](https://github.com/teamleadercrm/ui/pull/2351))
+
+## [16.0.5] - 2022-09-16
+
+### Added
+
+- `Toggle`: `tooltip` and `tooltipPosition` props. ([@qubis741](https://github.com/qubis741)) in [#2355](https://github.com/teamleadercrm/ui/pull/2355))
 
 ## [16.0.3] - 2022-09-05
 
