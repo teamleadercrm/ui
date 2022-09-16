@@ -44,7 +44,7 @@ const SIZE_MAP: Record<AllowedSize, BoxProps> = {
 };
 
 interface TooltippedComponentProps {
-  children: ReactNode;
+  children?: ReactNode;
   className?: string;
   onClick?: MouseEventHandler;
   onMouseEnter?: MouseEventHandler;
