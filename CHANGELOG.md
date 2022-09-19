@@ -17,6 +17,8 @@
 ### Changed
 
 - `Tooltip`: `children` prop is optional ([@qubis741](https://github.com/qubis741)) in [#2364](https://github.com/teamleadercrm/ui/pull/2364))
+- `Dialog`: make `primaryAction` optional and show no footer if there are no action props ([@BeirlaenAaron](https://github.com/BeirlaenAaron)) in [#2371](https://github.com/teamleadercrm/ui/pull/2371))
+- `MarketingDialog`: convert from `DialogBase` to `Dialog` to make it draggable ([@BeirlaenAaron](https://github.com/BeirlaenAaron)) in [#2371](https://github.com/teamleadercrm/ui/pull/2371))
 
 ## [16.1.0] - 2022-09-16
 
