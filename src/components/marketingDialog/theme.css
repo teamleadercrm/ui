@@ -1,8 +1,6 @@
 .marketing-dialog {
-  width: 1000px;
-
   &-text {
-    width: 400px;
+    width: 385px;
     display: flex;
     flex-direction: column;
   }

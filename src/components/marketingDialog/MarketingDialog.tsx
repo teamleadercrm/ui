@@ -52,6 +52,7 @@ const MarketingDialog = ({
       onOverlayClick={onOverlayClick}
       className={theme['marketing-dialog']}
       initialFocusRef={ctaRef}
+      size="hero"
     >
       <DialogBase.Header onCloseClick={onCloseClick}>
         <Heading3>{title}</Heading3>
