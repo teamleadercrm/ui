@@ -23,6 +23,15 @@ interface SplitButtonProps extends Omit<BoxProps, 'children' | 'size'> {
   onSecondaryButtonClick?: (event: MouseEvent<HTMLElement>) => void;
   /** If true, component will be disabled. */
   disabled?: boolean;
+  /** Overwrites for the popover */
+  popoverProps?: {
+    /** The preferred direction in which the Popover is rendered, is overridden with the opposite or adjacent direction if the Popover cannot be entirely displayed in the current direction. */
+    direction?: 'north' | 'south';
+    /** If true, the Popover stretches to fit its content vertically */
+    fullHeight?: boolean;
+    /** The z-index of the Popover */
+    zIndex?: number;
+  };
 }
 
 const SplitButton: GenericComponent<SplitButtonProps> = ({
@@ -32,6 +41,7 @@ const SplitButton: GenericComponent<SplitButtonProps> = ({
   onButtonClick,
   onSecondaryButtonClick,
   disabled,
+  popoverProps,
   ...others
 }) => {
   const [popoverActive, setPopoverActive] = useState<boolean>(false);
@@ -90,6 +100,7 @@ const SplitButton: GenericComponent<SplitButtonProps> = ({
         onEscKeyDown={handleCloseClick}
         onOverlayClick={handleCloseClick}
         position="start"
+        {...popoverProps}
       >
         <Menu>
           {React.Children.map(children, (child) => {
