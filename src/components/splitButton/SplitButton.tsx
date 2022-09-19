@@ -88,11 +88,9 @@ const SplitButton: GenericComponent<SplitButtonProps> = ({
     <Box display="flex" justifyContent="center" {...boxProps} data-teamleader-ui="split-menu">
       {processing ? (
         <Button
-          padding={6}
           label={buttonLabel}
           level={level}
           size={size}
-          onClick={handleMainButtonClick}
           processing
           className={theme[`split-button-${size}--processing`]}
         />
