@@ -21,7 +21,7 @@ interface DialogProps extends Omit<DialogBaseProps, 'ref'> {
   /** Callback function that is fired when the close icon (in the header) is clicked. */
   onCloseClick?: () => void;
   /** Object containing the props of the primary action (a Button, with level prop set to 'primary'). */
-  primaryAction: object;
+  primaryAction?: object;
   /** The size of the dialog. */
   size?: Exclude<typeof SIZES[number], 'tiny' | 'smallest'>;
   /** If true, the content of the dialog will be scrollable when it exceeds the available height. */
@@ -89,6 +89,10 @@ const Dialog: GenericComponent<DialogProps> = ({
   };
 
   const getFooter = () => {
+    if (!primaryAction && !secondaryAction && !tertiaryAction && !leftAction) {
+      return null;
+    }
+
     return (
       <DialogBase.Footer
         display="flex"
