@@ -26,3 +26,10 @@ export const DefaultStory: ComponentStory<typeof SplitButton> = (args) => (
     <MenuItem onClick={handleMenuItemClick} label="Via Marketplace integrations" />
   </SplitButton>
 );
+
+export const WithPopoverOverrides: ComponentStory<typeof SplitButton> = (args) => (
+  <SplitButton {...args} popoverProps={{ direction: 'north' }} onButtonClick={handleButtonClick}>
+    <MenuItem onClick={handleMenuItemClick} label="Main action" />
+    <MenuItem onClick={handleMenuItemClick} label="I appear above the button" />
+  </SplitButton>
+);
