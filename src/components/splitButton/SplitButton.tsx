@@ -9,6 +9,7 @@ import { BoxProps } from '../box/Box';
 import { GenericComponent } from '../../@types/types';
 import isReactElement from '../utils/is-react-element';
 import { SIZES } from '../../constants';
+import theme from './theme.css';
 
 interface SplitButtonProps extends Omit<BoxProps, 'children' | 'size'> {
   /** The MenuItems we pass to our component. */
@@ -23,6 +24,8 @@ interface SplitButtonProps extends Omit<BoxProps, 'children' | 'size'> {
   onSecondaryButtonClick?: (event: MouseEvent<HTMLElement>) => void;
   /** If true, component will be disabled. */
   disabled?: boolean;
+  /** If true, component will show a loading spinner instead of label. */
+  processing?: boolean;
   /** Overwrites for the popover */
   popoverProps?: {
     /** The preferred direction in which the Popover is rendered, is overridden with the opposite or adjacent direction if the Popover cannot be entirely displayed in the current direction. */
@@ -41,6 +44,7 @@ const SplitButton: GenericComponent<SplitButtonProps> = ({
   onButtonClick,
   onSecondaryButtonClick,
   disabled,
+  processing,
   popoverProps,
   ...others
 }) => {
@@ -82,16 +86,26 @@ const SplitButton: GenericComponent<SplitButtonProps> = ({
 
   return (
     <Box display="flex" justifyContent="center" {...boxProps} data-teamleader-ui="split-menu">
-      <ButtonGroup segmented>
-        <Button label={buttonLabel} level={level} size={size} disabled={disabled} onClick={handleMainButtonClick} />
+      {processing ? (
         <Button
-          icon={<IconChevronDownSmallOutline />}
+          label={buttonLabel}
           level={level}
           size={size}
-          disabled={disabled}
-          onClick={handleSecondaryButtonClick}
+          processing
+          className={theme[`split-button-${size}--processing`]}
         />
-      </ButtonGroup>
+      ) : (
+        <ButtonGroup segmented>
+          <Button label={buttonLabel} level={level} size={size} disabled={disabled} onClick={handleMainButtonClick} />
+          <Button
+            icon={<IconChevronDownSmallOutline />}
+            level={level}
+            size={size}
+            disabled={disabled}
+            onClick={handleSecondaryButtonClick}
+          />
+        </ButtonGroup>
+      )}
       <Popover
         active={popoverActive}
         anchorEl={popoverAnchorEl?.current}
