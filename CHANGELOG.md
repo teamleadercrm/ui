@@ -2,9 +2,6 @@
 
 ### Added
 
-- `SplitButton`: `popoverProps` prop which allows overwriting the z-index, direction and height of the popover. ([@lorgan3](https://github.com/lorgan3)) in [#2369](https://github.com/teamleadercrm/ui/pull/2369))
-- `SplitButton`: `processing` prop equivalent to processing on the regular button. ([@lorgan3](https://github.com/lorgan3)) in [#2370](https://github.com/teamleadercrm/ui/pull/2370))
-
 ### Changed
 
 ### Deprecated
@@ -14,6 +11,13 @@
 ### Fixed
 
 ### Dependency updates
+
+## [16.2.0] - 2022-09-20
+
+### Added
+
+- `SplitButton`: `popoverProps` prop which allows overwriting the z-index, direction and height of the popover. ([@lorgan3](https://github.com/lorgan3)) in [#2369](https://github.com/teamleadercrm/ui/pull/2369))
+- `SplitButton`: `processing` prop equivalent to processing on the regular button. ([@lorgan3](https://github.com/lorgan3)) in [#2370](https://github.com/teamleadercrm/ui/pull/2370))
 
 ## [16.1.1] - 2022-09-16
 
