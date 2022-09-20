@@ -1,0 +1,19 @@
+.split-button {
+  &-small {
+    &--processing {
+      padding-right: 42px;
+    }
+  }
+
+  &-medium {
+    &--processing {
+      padding-right: 47px;
+    }
+  }
+
+  &-large {
+    &--processing {
+      padding-right: 65px;
+    }
+  }
+}
