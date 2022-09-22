@@ -193,20 +193,14 @@ const TooltippedComponent: GenericComponent<TooltippedComponentProps> = ({
   };
 
   useEffect(() => {
-    if (tooltipActive) {
+    if (tooltipActive && !active) {
       activate(calculatePosition(ref.current));
     }
 
-    if (tooltipActive) {
-      if (tooltipActive && !active) {
-        activate(calculatePosition(ref.current));
-      }
-
-      if (!tooltipActive && active) {
-        setActive(false);
-      }
+    if (!tooltipActive && active) {
+      setActive(false);
     }
-  }, [tooltipActive, active]);
+  }, [tooltipActive]);
 
   const rest = omit(other, [
     'onTooltipEntered',
