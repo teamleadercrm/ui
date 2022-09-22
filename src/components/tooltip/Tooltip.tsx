@@ -83,7 +83,7 @@ const TooltippedComponent: GenericComponent<TooltippedComponentProps> = ({
   onClick,
   onMouseEnter,
   onMouseLeave,
-  tooltipActive = null,
+  tooltipActive,
   ComposedComponent,
   ...other
 }) => {
@@ -220,7 +220,7 @@ const TooltippedComponent: GenericComponent<TooltippedComponentProps> = ({
     ref,
   };
 
-  if (tooltipActive === null) {
+  if (tooltipActive === undefined) {
     childProps = {
       ...childProps,
       onClick: handleClick,
