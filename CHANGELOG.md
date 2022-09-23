@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `Tooltip`: `tooltipActive` correctly close tooltip when prop is removed to restore behavior before 16.1.0 ([@lorgan3](https://github.com/lorgan3)) in [#2374](https://github.com/teamleadercrm/ui/pull/2374))
+
 ### Dependency updates
 
 ## [16.2.0] - 2022-09-20
