@@ -29,7 +29,6 @@ const defaultTooltipProps = {
   tooltipColor: 'white',
   tooltipPosition: 'horizontal',
   tooltipSize: 'medium',
-  tooltipActive: null,
 };
 const tooltipArgTypes = {
   tooltipColor: {
@@ -46,7 +45,7 @@ const tooltipArgTypes = {
   },
   tooltipActive: {
     control: 'select',
-    options: [null, true, false],
+    options: [undefined, true, false],
   },
 };
 

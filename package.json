@@ -1,7 +1,7 @@
 {
   "name": "@teamleader/ui",
   "description": "Teamleader UI library",
-  "version": "16.2.0",
+  "version": "16.2.2",
   "author": "Teamleader <development@teamleader.eu>",
   "bugs": {
     "url": "https://github.com/teamleadercrm/ui/issues"
@@ -40,7 +40,7 @@
     "lodash.pick": "^4.4.0",
     "lodash.throttle": "^4.1.1",
     "lodash.without": "^4.4.0",
-    "luxon": "^2.3.0",
+    "luxon": "^3.0.3",
     "prop-types": "^15.8.1",
     "react-day-picker": "^7.4.10",
     "react-draft-wysiwyg": "^1.14.7",
@@ -84,7 +84,7 @@
     "@types/lodash.omit": "^4.5.7",
     "@types/lodash.throttle": "^4.1.7",
     "@types/lodash.without": "^4.4.6",
-    "@types/luxon": "^2.3.2",
+    "@types/luxon": "^3.0.1",
     "@types/react": "^17",
     "@types/react-dom": "^17",
     "@types/react-input-mask": "^2.0.4",
