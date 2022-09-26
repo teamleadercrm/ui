@@ -66,6 +66,10 @@ export interface NumericInputProps
   connectedLeft?: ReactElement;
   /** Element stuck to the right hand side of the component. */
   connectedRight?: ReactElement;
+  /** Boolean indicating whether the decrease button should be disabled. If not set, this will be derived from the min value. */
+  decreaseDisabled?: boolean;
+  /** Boolean indicating whether the increase button should be disabled. If not set, this will be derived from the max value */
+  increaseDisabled?: boolean;
   /** Boolean indicating whether the input should render as inverse. */
   inverse?: boolean;
   /** The maximum value that can be inputted. */
@@ -97,6 +101,8 @@ const NumericInput: GenericComponent<NumericInputProps> = forwardRef<HTMLElement
     {
       connectedLeft,
       connectedRight,
+      decreaseDisabled,
+      increaseDisabled,
       inverse = false,
       max = Number.MAX_SAFE_INTEGER,
       min = Number.MIN_SAFE_INTEGER,
@@ -220,7 +226,7 @@ const NumericInput: GenericComponent<NumericInputProps> = forwardRef<HTMLElement
       if (stepper === 'connected') {
         return (
           <Button
-            disabled={isMaxReached()}
+            disabled={typeof increaseDisabled !== 'undefined' ? increaseDisabled : isMaxReached()}
             icon={<IconAddSmallOutline />}
             onBlur={handleBlur}
             onMouseDown={handleIncreaseMouseDown}
@@ -238,7 +244,7 @@ const NumericInput: GenericComponent<NumericInputProps> = forwardRef<HTMLElement
       if (stepper === 'connected') {
         return (
           <Button
-            disabled={isMinReached()}
+            disabled={typeof decreaseDisabled !== 'undefined' ? decreaseDisabled : isMinReached()}
             icon={<IconMinusSmallOutline />}
             onMouseDown={handleDecreaseMouseDown}
             onMouseUp={handleClearStepperTimer}
@@ -260,14 +266,14 @@ const NumericInput: GenericComponent<NumericInputProps> = forwardRef<HTMLElement
           <StepperControls
             inverse={inverse}
             stepperUpProps={{
-              disabled: isMaxReached(),
+              disabled: typeof increaseDisabled !== 'undefined' ? increaseDisabled : isMaxReached(),
               onBlur: handleBlur,
               onMouseDown: handleIncreaseMouseDown,
               onMouseUp: handleClearStepperTimer,
               onMouseLeave: handleClearStepperTimer,
             }}
             stepperDownProps={{
-              disabled: isMinReached(),
+              disabled: typeof decreaseDisabled !== 'undefined' ? decreaseDisabled : isMinReached(),
               onBlur: handleBlur,
               onMouseDown: handleDecreaseMouseDown,
               onMouseUp: handleClearStepperTimer,
