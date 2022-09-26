@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `DatePickerInput`: fix the DatePicker input value not changing if the selectedDate prop changes and extend `DayPickerProps` with React's DayPickerProps ([@BeirlaenAaron](https://github.com/BeirlaenAaron)) in [#2376](https://github.com/teamleadercrm/ui/pull/2376))
+
 ### Dependency updates
 
 ## [16.2.1] - 2022-09-23
