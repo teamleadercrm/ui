@@ -82,6 +82,10 @@ export interface NumericInputProps
   onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
   /** Callback function that is fired when the component's value changes. */
   onChange?: (event: ChangeEvent<HTMLElement>, value: string) => void;
+  /** Callback function that is fired on mouse down on the decrease button */
+  onDecreaseMouseDown?: () => void;
+  /** Callback function that is fired on mouse down on the increase button */
+  onIncreaseMouseDown?: () => void;
   /** Callback function that is fired when the keyboard is touched. */
   onKeyDown?: (event: KeyboardEvent<HTMLElement>) => void;
   /** Size of the input element. */
@@ -108,6 +112,8 @@ const NumericInput: GenericComponent<NumericInputProps> = forwardRef<HTMLElement
       min = Number.MIN_SAFE_INTEGER,
       onBlur,
       onChange,
+      onDecreaseMouseDown,
+      onIncreaseMouseDown,
       onKeyDown,
       size,
       step = 1,
@@ -176,6 +182,14 @@ const NumericInput: GenericComponent<NumericInputProps> = forwardRef<HTMLElement
     };
 
     const handleDecreaseMouseDown = () => {
+      if (onDecreaseMouseDown) {
+        onDecreaseMouseDown();
+
+        if (isMinReached()) {
+          return;
+        }
+      }
+
       handleDecreaseValue();
 
       timeoutRef.current = setTimeout(() => {
@@ -190,6 +204,14 @@ const NumericInput: GenericComponent<NumericInputProps> = forwardRef<HTMLElement
     };
 
     const handleIncreaseMouseDown = () => {
+      if (onIncreaseMouseDown) {
+        onIncreaseMouseDown();
+
+        if (isMaxReached()) {
+          return;
+        }
+      }
+
       handleIncreaseValue();
 
       timeoutRef.current = setTimeout(() => {
