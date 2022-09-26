@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 import Box, { pickBoxProps } from '../box';
 import DatePicker from '.';
 import Icon from '../icon';
@@ -129,6 +129,10 @@ const DatePickerInput: GenericComponent<DatePickerInputProps> = ({
       </Icon>
     );
   };
+
+  useEffect(() => {
+    setSelectedDate(others.selectedDate);
+  }, [others.selectedDate]);
 
   const boxProps = pickBoxProps(others);
   const datePickerClassNames = cx(theme['date-picker-input'], theme[`is-${datePickerSize || size}`]);
