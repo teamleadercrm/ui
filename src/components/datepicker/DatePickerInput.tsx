@@ -13,6 +13,7 @@ import { GenericComponent } from '../../@types/types';
 import { SIZES } from '../../constants';
 import { InputProps } from '../input/Input';
 import { PopoverProps } from '../popover/Popover';
+import { DayPickerProps as ReactDayPickerProps } from 'react-day-picker';
 
 interface DatePickerInputProps extends Omit<BoxProps, 'size' | 'onChange'> {
   /** A class name for the wrapper to give custom styles. */
@@ -47,7 +48,7 @@ interface DatePickerInputProps extends Omit<BoxProps, 'size' | 'onChange'> {
   openPickerOnFocus?: boolean;
 }
 
-interface DayPickerProps {
+interface DayPickerProps extends Omit<ReactDayPickerProps, 'modifiers'> {
   numberOfMonths?: number;
   showOutsideDays?: boolean;
   showWeekNumbers?: boolean;
