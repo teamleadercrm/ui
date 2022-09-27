@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `DatePicker`: use a fixed amount of weeks to avoid it from jumping up and down when navigating between months ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2384](https://github.com/teamleadercrm/ui/pull/2384))
+
 ### Deprecated
 
 ### Removed
