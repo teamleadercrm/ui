@@ -65,7 +65,7 @@ singleDate.args = {
   selectedDate: new Date(),
   size: 'medium',
   withMonthPicker: true,
-  showWeekNumbers: true,
+  showWeekNumbers: false,
 };
 singleDate.parameters = {
   design: [
