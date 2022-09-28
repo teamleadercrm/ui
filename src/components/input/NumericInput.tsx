@@ -263,7 +263,7 @@ const NumericInput: GenericComponent<NumericInputProps> = forwardRef<HTMLElement
       if (stepper === 'connected') {
         return (
           <Button
-            disabled={typeof increaseDisabled !== 'undefined' ? increaseDisabled : isMaxReached()}
+            disabled={increaseDisabled ?? isMaxReached()}
             icon={<IconAddSmallOutline />}
             onBlur={handleBlur}
             onMouseDown={handleIncreaseMouseDown}
@@ -281,7 +281,7 @@ const NumericInput: GenericComponent<NumericInputProps> = forwardRef<HTMLElement
       if (stepper === 'connected') {
         return (
           <Button
-            disabled={typeof decreaseDisabled !== 'undefined' ? decreaseDisabled : isMinReached()}
+            disabled={decreaseDisabled ?? isMinReached()}
             icon={<IconMinusSmallOutline />}
             onMouseDown={handleDecreaseMouseDown}
             onMouseUp={handleClearStepperDecreaseTimer}
@@ -303,14 +303,14 @@ const NumericInput: GenericComponent<NumericInputProps> = forwardRef<HTMLElement
           <StepperControls
             inverse={inverse}
             stepperUpProps={{
-              disabled: typeof increaseDisabled !== 'undefined' ? increaseDisabled : isMaxReached(),
+              disabled: increaseDisabled ?? isMaxReached(),
               onBlur: handleBlur,
               onMouseDown: handleIncreaseMouseDown,
               onMouseUp: handleClearStepperIncreaseTimer,
               onMouseLeave: handleClearStepperIncreaseTimer,
             }}
             stepperDownProps={{
-              disabled: typeof decreaseDisabled !== 'undefined' ? decreaseDisabled : isMinReached(),
+              disabled: decreaseDisabled ?? isMinReached(),
               onBlur: handleBlur,
               onMouseDown: handleDecreaseMouseDown,
               onMouseUp: handleClearStepperDecreaseTimer,
