@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { DateTime } from 'luxon';
-import React, { useState } from 'react';
+import React from 'react';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { DatePicker, DatePickerInput, Toggle } from '../../index';
 
@@ -157,8 +157,9 @@ inputSingleDate.parameters = {
 };
 
 export const clearableInputSingleDate: ComponentStory<typeof DatePickerInput> = (args) => {
-  const [value, setValue] = useState<Date | undefined>(preSelectedDate);
-  console.log('Value:', value);
+  const handleOnChange = (selectedDate: Date | undefined) => {
+    console.log('Selected date', selectedDate);
+  };
   return (
     <DatePickerInput
       {...args}
@@ -166,7 +167,7 @@ export const clearableInputSingleDate: ComponentStory<typeof DatePickerInput> = 
       inputProps={{ ...args.inputProps, placeholder: inputPlaceholderToday(args.locale) }}
       footer={<Toggle label="Lorem ipsum dolor sit amet, suspendisse faucibus nunc et pellentesque" size="small" />}
       formatDate={customFormatDate}
-      onChange={setValue}
+      onChange={handleOnChange}
       selectedDate={preSelectedDate}
       clearable
     />
