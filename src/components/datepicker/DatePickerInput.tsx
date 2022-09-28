@@ -134,7 +134,9 @@ const DatePickerInput: GenericComponent<DatePickerInputProps> = ({
     );
   };
 
-  const handleClear = () => {
+  const handleClear = (event: MouseEvent) => {
+    // Prevents opening datepicker on clicking of this
+    event.preventDefault();
     setIsPopoverActive(false);
     setSelectedDate(undefined);
     onChange && onChange(undefined);
