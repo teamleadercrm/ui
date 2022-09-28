@@ -12,6 +12,8 @@
 
 ### Fixed
 
+- `Toast`: Update css to ensure toast action has the right color regardless of css order ([@lorgan3](https://github.com/lorgan3)) in [#2388](https://github.com/teamleadercrm/ui/pull/2388))
+
 ### Dependency updates
 
 ## [16.2.2] - 2022-09-26
