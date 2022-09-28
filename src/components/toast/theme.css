@@ -38,6 +38,21 @@
   align-items: center;
   position: relative;
 
+  .action-link {
+    font-family: var(--font-family-inter);
+    font-size: 14px;
+    font-weight: 500;
+    flex-shrink: 0;
+    white-space: nowrap;
+    padding: 0;
+    margin-left: var(--toast-spacing);
+  }
+
+  .spinner {
+    flex-shrink: 0;
+    margin-right: var(--toast-spacing);
+  }
+
   .action-link,
   .action-link:hover {
     color: var(--color-teal-light);
@@ -51,21 +66,6 @@
     color: var(--color-teal);
     margin-left: var(--toast-spacing);
   }
-}
-
-.action-link {
-  font-family: var(--font-family-inter);
-  font-size: 14px;
-  font-weight: 500;
-  flex-shrink: 0;
-  white-space: nowrap;
-  padding: 0;
-  margin-left: var(--toast-spacing);
-}
-
-.spinner {
-  flex-shrink: 0;
-  margin-right: var(--toast-spacing);
 }
 
 .enter {
