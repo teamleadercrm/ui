@@ -2,12 +2,7 @@
 
 ### Added
 
-- `DatePickerInput`: `clearable` prop ([@qubis741](https://github.com/qubis741)) in [#2387](https://github.com/teamleadercrm/ui/pull/2387))
-- `NumericInput`: Added `decreaseDisabled`, `increaseDisabled`, `onDecreaseMouseDown` and `onIncreaseMouseDown` props which allow fine-grained control over disabling decrease and increase stepper buttons. ([@jelledc](https://github.com/jelledc) in [#2380](https://github.com/teamleadercrm/ui/pull/2380))
-
 ### Changed
-
-- `DatePicker`: use a fixed amount of weeks to avoid it from jumping up and down when navigating between months ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2384](https://github.com/teamleadercrm/ui/pull/2384))
 
 ### Deprecated
 
@@ -15,9 +10,22 @@
 
 ### Fixed
 
-- `Toast`: Update css to ensure toast action has the right color regardless of css order ([@lorgan3](https://github.com/lorgan3)) in [#2388](https://github.com/teamleadercrm/ui/pull/2388))
-
 ### Dependency updates
+
+## [16.3.0] - 2022-09-28
+
+### Added
+
+- `DatePickerInput`: `clearable` prop ([@qubis741](https://github.com/qubis741)) in [#2387](https://github.com/teamleadercrm/ui/pull/2387))
+- `NumericInput`: Added `decreaseDisabled`, `increaseDisabled`, `onDecreaseMouseDown` and `onIncreaseMouseDown` props which allow fine-grained control over disabling decrease and increase stepper buttons. ([@jelledc](https://github.com/jelledc) in [#2380](https://github.com/teamleadercrm/ui/pull/2380))
+
+### Changed
+
+- `DatePicker`: use a fixed amount of weeks to avoid it from jumping up and down when navigating between months ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2384](https://github.com/teamleadercrm/ui/pull/2384))
+
+### Fixed
+
+- `Toast`: Update css to ensure toast action has the right color regardless of css order ([@lorgan3](https://github.com/lorgan3)) in [#2388](https://github.com/teamleadercrm/ui/pull/2388))
 
 ## [16.2.2] - 2022-09-26
 
