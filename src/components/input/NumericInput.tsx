@@ -66,6 +66,10 @@ export interface NumericInputProps
   connectedLeft?: ReactElement;
   /** Element stuck to the right hand side of the component. */
   connectedRight?: ReactElement;
+  /** Boolean indicating whether the decrease button should be disabled. If not set, this will be derived from the min value. */
+  decreaseDisabled?: boolean;
+  /** Boolean indicating whether the increase button should be disabled. If not set, this will be derived from the max value */
+  increaseDisabled?: boolean;
   /** Boolean indicating whether the input should render as inverse. */
   inverse?: boolean;
   /** The maximum value that can be inputted. */
@@ -78,6 +82,10 @@ export interface NumericInputProps
   onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
   /** Callback function that is fired when the component's value changes. */
   onChange?: (event: ChangeEvent<HTMLElement>, value: string) => void;
+  /** Callback function that is fired on mouse down on the decrease button */
+  onDecreaseMouseDown?: () => void;
+  /** Callback function that is fired on mouse down on the increase button */
+  onIncreaseMouseDown?: () => void;
   /** Callback function that is fired when the keyboard is touched. */
   onKeyDown?: (event: KeyboardEvent<HTMLElement>) => void;
   /** Size of the input element. */
@@ -97,11 +105,15 @@ const NumericInput: GenericComponent<NumericInputProps> = forwardRef<HTMLElement
     {
       connectedLeft,
       connectedRight,
+      decreaseDisabled,
+      increaseDisabled,
       inverse = false,
       max = Number.MAX_SAFE_INTEGER,
       min = Number.MIN_SAFE_INTEGER,
       onBlur,
       onChange,
+      onDecreaseMouseDown,
+      onIncreaseMouseDown,
       onKeyDown,
       size,
       step = 1,
@@ -113,8 +125,10 @@ const NumericInput: GenericComponent<NumericInputProps> = forwardRef<HTMLElement
     forwardedRef,
   ) => {
     const inputElementRef = useRef<HTMLElement | null>(null);
-    const timerRef = useRef<any>(null);
-    const timeoutRef = useRef<any>(null);
+    const decreaseTimerRef = useRef<any>(null);
+    const decreaseTimeoutRef = useRef<any>(null);
+    const increaseTimerRef = useRef<any>(null);
+    const increaseTimeoutRef = useRef<any>(null);
     const valueRef = useRef<string | number | undefined>(value);
 
     useEffect(() => {
@@ -164,18 +178,39 @@ const NumericInput: GenericComponent<NumericInputProps> = forwardRef<HTMLElement
       updateStep(-1);
     };
 
-    const handleClearStepperTimer = () => {
-      clearTimeout(timeoutRef.current);
-      clearInterval(timerRef.current);
+    const handleClearStepperIncreaseTimer = () => {
+      clearTimeout(increaseTimeoutRef.current);
+      clearInterval(increaseTimerRef.current);
     };
 
+    useEffect(() => {
+      handleClearStepperIncreaseTimer();
+    }, [increaseDisabled]);
+
+    const handleClearStepperDecreaseTimer = () => {
+      clearTimeout(decreaseTimeoutRef.current);
+      clearInterval(decreaseTimerRef.current);
+    };
+
+    useEffect(() => {
+      handleClearStepperDecreaseTimer();
+    }, [decreaseDisabled]);
+
     const handleDecreaseMouseDown = () => {
+      if (onDecreaseMouseDown) {
+        onDecreaseMouseDown();
+
+        if (isMinReached()) {
+          return;
+        }
+      }
+
       handleDecreaseValue();
 
-      timeoutRef.current = setTimeout(() => {
-        timerRef.current = setInterval(() => {
+      decreaseTimeoutRef.current = setTimeout(() => {
+        decreaseTimerRef.current = setInterval(() => {
           if (isMinReached()) {
-            handleClearStepperTimer();
+            handleClearStepperDecreaseTimer();
           } else {
             handleDecreaseValue();
           }
@@ -184,12 +219,20 @@ const NumericInput: GenericComponent<NumericInputProps> = forwardRef<HTMLElement
     };
 
     const handleIncreaseMouseDown = () => {
+      if (onIncreaseMouseDown) {
+        onIncreaseMouseDown();
+
+        if (isMaxReached()) {
+          return;
+        }
+      }
+
       handleIncreaseValue();
 
-      timeoutRef.current = setTimeout(() => {
-        timerRef.current = setInterval(() => {
+      increaseTimeoutRef.current = setTimeout(() => {
+        increaseTimerRef.current = setInterval(() => {
           if (isMaxReached()) {
-            handleClearStepperTimer();
+            handleClearStepperIncreaseTimer();
           } else {
             handleIncreaseValue();
           }
@@ -220,12 +263,12 @@ const NumericInput: GenericComponent<NumericInputProps> = forwardRef<HTMLElement
       if (stepper === 'connected') {
         return (
           <Button
-            disabled={isMaxReached()}
+            disabled={increaseDisabled ?? isMaxReached()}
             icon={<IconAddSmallOutline />}
             onBlur={handleBlur}
             onMouseDown={handleIncreaseMouseDown}
-            onMouseUp={handleClearStepperTimer}
-            onMouseLeave={handleClearStepperTimer}
+            onMouseUp={handleClearStepperIncreaseTimer}
+            onMouseLeave={handleClearStepperIncreaseTimer}
             size={size}
           />
         );
@@ -238,11 +281,11 @@ const NumericInput: GenericComponent<NumericInputProps> = forwardRef<HTMLElement
       if (stepper === 'connected') {
         return (
           <Button
-            disabled={isMinReached()}
+            disabled={decreaseDisabled ?? isMinReached()}
             icon={<IconMinusSmallOutline />}
             onMouseDown={handleDecreaseMouseDown}
-            onMouseUp={handleClearStepperTimer}
-            onMouseLeave={handleClearStepperTimer}
+            onMouseUp={handleClearStepperDecreaseTimer}
+            onMouseLeave={handleClearStepperDecreaseTimer}
             onBlur={handleBlur}
             size={size}
           />
@@ -260,18 +303,18 @@ const NumericInput: GenericComponent<NumericInputProps> = forwardRef<HTMLElement
           <StepperControls
             inverse={inverse}
             stepperUpProps={{
-              disabled: isMaxReached(),
+              disabled: increaseDisabled ?? isMaxReached(),
               onBlur: handleBlur,
               onMouseDown: handleIncreaseMouseDown,
-              onMouseUp: handleClearStepperTimer,
-              onMouseLeave: handleClearStepperTimer,
+              onMouseUp: handleClearStepperIncreaseTimer,
+              onMouseLeave: handleClearStepperIncreaseTimer,
             }}
             stepperDownProps={{
-              disabled: isMinReached(),
+              disabled: decreaseDisabled ?? isMinReached(),
               onBlur: handleBlur,
               onMouseDown: handleDecreaseMouseDown,
-              onMouseUp: handleClearStepperTimer,
-              onMouseLeave: handleClearStepperTimer,
+              onMouseUp: handleClearStepperDecreaseTimer,
+              onMouseLeave: handleClearStepperDecreaseTimer,
             }}
           />,
         ];

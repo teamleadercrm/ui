@@ -3,6 +3,7 @@
 ### Added
 
 - `DatePickerInput`: `clearable` prop ([@qubis741](https://github.com/qubis741)) in [#2387](https://github.com/teamleadercrm/ui/pull/2387))
+- `NumericInput`: Added `decreaseDisabled`, `increaseDisabled`, `onDecreaseMouseDown` and `onIncreaseMouseDown` props which allow fine-grained control over disabling decrease and increase stepper buttons. ([@jelledc](https://github.com/jelledc) in [#2380](https://github.com/teamleadercrm/ui/pull/2380))
 
 ### Changed
 
