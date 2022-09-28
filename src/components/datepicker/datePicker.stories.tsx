@@ -1,8 +1,8 @@
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { DateTime } from 'luxon';
 import React from 'react';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { DatePicker, DatePickerInput, Toggle } from '../../index';
-import { DateTime } from 'luxon';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 const languages = [
   'da-DK',
@@ -83,7 +83,7 @@ singleDate.parameters = {
 };
 
 export const inputSingleDate: ComponentStory<typeof DatePickerInput> = (args) => {
-  const handleOnChange = (selectedDate: Date) => {
+  const handleOnChange = (selectedDate: Date | undefined) => {
     console.log('Selected date', selectedDate);
   };
 
@@ -115,7 +115,7 @@ inputSingleDate.args = {
     helpText: 'Pick a date',
     inverse: false,
     warning: '',
-    readonly: false,
+    readOnly: false,
     width: '',
   },
   locale: 'nl-BE',
@@ -154,4 +154,44 @@ inputSingleDate.parameters = {
       url: 'http://react-day-picker.js.org/api/DayPickerInput',
     },
   ],
+};
+
+export const clearableInputSingleDate: ComponentStory<typeof DatePickerInput> = (args) => {
+  const handleOnChange = (selectedDate: Date | undefined) => {
+    console.log('Selected date', selectedDate);
+  };
+  return (
+    <DatePickerInput
+      {...args}
+      dayPickerProps={{ ...args.dayPickerProps }}
+      inputProps={{ ...args.inputProps, placeholder: inputPlaceholderToday(args.locale) }}
+      footer={<Toggle label="Lorem ipsum dolor sit amet, suspendisse faucibus nunc et pellentesque" size="small" />}
+      formatDate={customFormatDate}
+      onChange={handleOnChange}
+      selectedDate={preSelectedDate}
+      clearable
+    />
+  );
+};
+clearableInputSingleDate.args = {
+  dayPickerProps: {
+    numberOfMonths: 1,
+    showOutsideDays: true,
+    showWeekNumbers: true,
+    withMonthPicker: false,
+  },
+  inputProps: {
+    bold: false,
+    disable: false,
+    error: '',
+    helpText: 'Pick a date',
+    inverse: false,
+    warning: '',
+    readOnly: false,
+    width: '',
+  },
+  locale: 'nl-BE',
+  size: 'medium',
+  inputSize: undefined,
+  datePickerSize: undefined,
 };
