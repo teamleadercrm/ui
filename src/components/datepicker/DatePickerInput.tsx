@@ -1,19 +1,19 @@
-import React, { ReactNode, useEffect, useState } from 'react';
-import Box, { pickBoxProps } from '../box';
-import DatePicker from '.';
-import Icon from '../icon';
-import Input from '../input';
-import Popover from '../popover';
+import { IconCalendarSmallOutline, IconCloseBadgedSmallFilled } from '@teamleader/ui-icons';
 import cx from 'classnames';
-import theme from './theme.css';
-import { formatDate } from './localeUtils';
-import { IconCalendarSmallOutline } from '@teamleader/ui-icons';
-import { BoxProps } from '../box/Box';
+import React, { ReactNode, useEffect, useState } from 'react';
+import { DayPickerProps as ReactDayPickerProps } from 'react-day-picker';
+import DatePicker from '.';
 import { GenericComponent } from '../../@types/types';
 import { SIZES } from '../../constants';
+import Box, { pickBoxProps } from '../box';
+import { BoxProps } from '../box/Box';
+import Icon from '../icon';
+import Input from '../input';
 import { InputProps } from '../input/Input';
+import Popover from '../popover';
 import { PopoverProps } from '../popover/Popover';
-import { DayPickerProps as ReactDayPickerProps } from 'react-day-picker';
+import { formatDate } from './localeUtils';
+import theme from './theme.css';
 
 interface DatePickerInputProps extends Omit<BoxProps, 'size' | 'onChange'> {
   /** A class name for the wrapper to give custom styles. */
@@ -31,7 +31,7 @@ interface DatePickerInputProps extends Omit<BoxProps, 'size' | 'onChange'> {
   /** The language ISO locale code ('en-GB', 'nl-BE', 'fr-FR',...). */
   locale?: string;
   /** Callback function that is fired when the date has changed. */
-  onChange?: (selectedDate: Date) => void;
+  onChange?: (selectedDate: Date | undefined) => void;
   /** Callback function that is fired when the popover with the calendar gets closed (unfocused) */
   onBlur?: () => void;
   /** Object with props for the Popover component. */
@@ -46,6 +46,8 @@ interface DatePickerInputProps extends Omit<BoxProps, 'size' | 'onChange'> {
   datePickerSize?: Exclude<typeof SIZES[number], 'tiny' | 'smallest' | 'hero' | 'fullscreen'>;
   /** Whether the picker should automatically open on input focus. True by default. */
   openPickerOnFocus?: boolean;
+  /** Whether the input should have button for value clearing. False by default. */
+  clearable?: boolean;
 }
 
 interface DayPickerProps extends Omit<ReactDayPickerProps, 'modifiers'> {
@@ -68,6 +70,7 @@ const DatePickerInput: GenericComponent<DatePickerInputProps> = ({
   datePickerSize,
   formatDate: customFormatDate,
   openPickerOnFocus = true,
+  clearable = false,
   onChange,
   onBlur,
   ...others
@@ -131,6 +134,25 @@ const DatePickerInput: GenericComponent<DatePickerInputProps> = ({
     );
   };
 
+  const handleClear = () => {
+    setIsPopoverActive(false);
+    setSelectedDate(undefined);
+    onChange && onChange(undefined);
+  };
+
+  const renderClearIcon = () => {
+    return clearable && selectedDate ? (
+      <Icon
+        color={inverse ? 'teal' : 'neutral'}
+        tint={inverse ? 'light' : 'darkest'}
+        marginRight={2}
+        onClick={handleClear}
+      >
+        <IconCloseBadgedSmallFilled />
+      </Icon>
+    ) : null;
+  };
+
   useEffect(() => {
     setSelectedDate(others.selectedDate);
   }, [others.selectedDate]);
@@ -143,6 +165,7 @@ const DatePickerInput: GenericComponent<DatePickerInputProps> = ({
       <Input
         inverse={inverse}
         prefix={renderIcon()}
+        suffix={renderClearIcon()}
         size={inputSize || size}
         value={getFormattedDate()}
         width="120px"
