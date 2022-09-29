@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `DatePickerInput`: Remove 'text' cursor when hovering over input ([@lorgan3](https://github.com/lorgan3)) in [#2390](https://github.com/teamleadercrm/ui/pull/2390))
+
 ### Deprecated
 
 ### Removed

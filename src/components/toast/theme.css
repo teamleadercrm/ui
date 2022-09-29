@@ -46,7 +46,7 @@
 
   .action-link,
   .action-link:hover {
-    color: var(--color-teal-light);
+    color: var(--color-teal-light) !important;
   }
 
   .label {
