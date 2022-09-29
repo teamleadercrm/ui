@@ -17,6 +17,12 @@
 
 .date-picker {
   display: inline-block;
+
+  &-input {
+    input {
+      cursor: default;
+    }
+  }
 }
 
 .is-bordered {

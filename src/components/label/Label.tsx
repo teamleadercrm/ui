@@ -7,6 +7,7 @@ import { BoxProps } from '../box/Box';
 import Icon from '../icon';
 import Tooltip from '../tooltip';
 import { TextBodyCompact, TextDisplay, TextSmall } from '../typography';
+import theme from './theme.css';
 
 const TooltippedIcon = Tooltip(Icon);
 
@@ -36,7 +37,7 @@ const Label: GenericComponent<LabelProps> = ({
   const Element = size === 'large' ? TextDisplay : TextBodyCompact;
 
   return (
-    <Box display="block" element="label" marginBottom={3} {...others}>
+    <Box display="block" element="label" className={theme[`is-${size}`]} {...others}>
       {React.Children.map(children, (child) =>
         typeof child !== 'string' && React.isValidElement(child) ? (
           React.cloneElement(child, { ...childProps, ...child.props })
