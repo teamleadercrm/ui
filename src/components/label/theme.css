@@ -1,0 +1,13 @@
+@import '@teamleader/ui-utilities';
+
+.is-small {
+  margin-bottom: calc(3 * var(--spacer-unit))
+}
+
+.is-medium {
+  margin-bottom: var(--spacer-small)
+}
+
+.is-large {
+  margin-bottom: var(--spacer-small)
+}
