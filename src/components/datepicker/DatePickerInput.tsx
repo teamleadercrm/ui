@@ -173,6 +173,7 @@ const DatePickerInput: GenericComponent<DatePickerInputProps> = ({
         {...inputProps}
         onClick={handleInputClick}
         onFocus={handleInputFocus}
+        className={theme['date-picker-input']}
       />
       <Popover
         active={isPopoverActive}
