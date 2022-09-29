@@ -5,6 +5,7 @@
 ### Changed
 
 - `DatePickerInput`: Remove 'text' cursor when hovering over input ([@lorgan3](https://github.com/lorgan3)) in [#2390](https://github.com/teamleadercrm/ui/pull/2390))
+- `DatePicker`: Make MonthPicker dropdowns wider for medium and large sizes to fit month names better ([@lorgan3](https://github.com/lorgan3)) in [#2391](https://github.com/teamleadercrm/ui/pull/2391))
 
 ### Deprecated
 
