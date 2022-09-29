@@ -1,5 +1,4 @@
 import { IconCalendarSmallOutline, IconCloseBadgedSmallFilled } from '@teamleader/ui-icons';
-import cx from 'classnames';
 import React, { ReactNode, useEffect, useState } from 'react';
 import { DayPickerProps as ReactDayPickerProps } from 'react-day-picker';
 import DatePicker from '.';
@@ -160,7 +159,6 @@ const DatePickerInput: GenericComponent<DatePickerInputProps> = ({
   }, [others.selectedDate]);
 
   const boxProps = pickBoxProps(others);
-  const datePickerClassNames = cx(theme['date-picker-input'], theme[`is-${datePickerSize || size}`]);
 
   return (
     <Box className={className} {...boxProps}>
@@ -190,7 +188,7 @@ const DatePickerInput: GenericComponent<DatePickerInputProps> = ({
       >
         <Box overflowY="auto">
           <DatePicker
-            className={datePickerClassNames}
+            className={theme[`is-${datePickerSize || size}`]}
             onChange={handleDatePickerDateChange}
             selectedDate={selectedDate as Date}
             size={datePickerSize || size}
