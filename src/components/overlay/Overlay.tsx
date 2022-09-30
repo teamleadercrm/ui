@@ -82,6 +82,7 @@ export const Overlay: GenericComponent<OverlayProps> = ({
             onKeyDown={handleEscKey}
             onMouseDown={handleMouseDown}
             onMouseUp={handleMouseUp}
+            tabIndex={0}
             className={cx(
               theme['overlay'],
               theme[backdrop],
