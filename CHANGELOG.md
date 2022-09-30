@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `Overlay`: set tabIndex to fix onKeyDown events no longer registering after clicking inside the overlay ([@BeirlaenAaron](https://github.com/BeirlaenAaron)) in [#2394](https://github.com/teamleadercrm/ui/pull/2394))
+
 ### Dependency updates
 
 ## [16.4.0] - 2022-09-29
