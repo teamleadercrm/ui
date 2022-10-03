@@ -64,7 +64,7 @@ import PoweredByButton from './components/poweredByButton';
 import { RadioButton, RadioButtonProps, RadioGroup, RadioGroupProps } from './components/radio';
 import Section from './components/section';
 import Select, { AsyncSelect } from './components/select';
-import { Island, IslandGroup } from './components/island';
+import { Island, IslandGroup, IslandProps, IslandGroupProps } from './components/island';
 import SplitButton from './components/splitButton';
 import StatusLabel from './components/statusLabel';
 import { TitleTab, TabGroup } from './components/tab';
@@ -244,4 +244,6 @@ export type {
   RadioButtonProps,
   RadioGroupProps,
   TooltipProps,
+  IslandProps,
+  IslandGroupProps,
 };
