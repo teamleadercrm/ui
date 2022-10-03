@@ -11,7 +11,11 @@ const SIZES = {
 };
 
 interface IslandProps extends Omit<BoxProps, 'size'> {
+  /** A class name for the button to give custom styles. */
+  className?: string;
+  /** The color for the Island background and border */
   color?: 'neutral' | 'mint' | 'violet' | 'ruby' | 'gold' | 'aqua' | 'white';
+  /** Te size of the Island component */
   size?: keyof typeof SIZES;
 }
 

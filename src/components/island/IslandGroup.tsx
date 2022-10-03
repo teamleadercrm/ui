@@ -4,8 +4,11 @@ import Box, { pickBoxProps } from '../box';
 import { BoxProps } from '../box/Box';
 
 interface IslandGroupProps extends Omit<BoxProps, 'size'> {
+  /** The color of the child Islands */
   color?: 'neutral' | 'mint' | 'violet' | 'ruby' | 'gold' | 'aqua' | 'white';
+  /** The orientation in which the Islands are layed out */
   direction?: 'horizontal' | 'vertical';
+  /** The size of the child Islands */
   size?: 'small' | 'medium' | 'large';
 }
 
