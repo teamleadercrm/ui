@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 
 import Box from '../box';
 import Island from '../island';
@@ -24,35 +24,27 @@ interface BannerProps {
   fullWidth?: boolean;
 }
 
-class Banner extends PureComponent<BannerProps> {
-  getCloseButtonColor() {
-    const { color = 'white' } = this.props;
-    return color === 'white' ? 'neutral' : color;
-  }
+const Banner = ({ children, className, color = 'white', icon, onClose, fullWidth, ...others }: BannerProps) => {
+  const Element = fullWidth ? Section : Island;
 
-  render() {
-    const { children, className, icon, onClose, fullWidth, ...others } = this.props;
-    const Element = fullWidth ? Section : Island;
-
-    return (
-      <Element data-teamleader-ui="banner" className={className} {...others}>
-        <div className={theme['inner']}>
-          {icon && <span className={theme['icon']}>{icon}</span>}
-          <Box flex={1} element="span" paddingRight={onClose && 7}>
-            {children}
-          </Box>
-          {onClose && (
-            <IconButton
-              className={theme['close-button']}
-              icon={<IconCloseMediumOutline />}
-              color={this.getCloseButtonColor()}
-              onClick={onClose}
-            />
-          )}
-        </div>
-      </Element>
-    );
-  }
-}
+  return (
+    <Element data-teamleader-ui="banner" className={className} {...others}>
+      <div className={theme['inner']}>
+        {icon && <span className={theme['icon']}>{icon}</span>}
+        <Box flex={1} element="span" paddingRight={onClose && 7}>
+          {children}
+        </Box>
+        {onClose && (
+          <IconButton
+            className={theme['close-button']}
+            icon={<IconCloseMediumOutline />}
+            color={color === 'white' ? 'neutral' : color}
+            onClick={onClose}
+          />
+        )}
+      </div>
+    </Element>
+  );
+};
 
 export default Banner;
