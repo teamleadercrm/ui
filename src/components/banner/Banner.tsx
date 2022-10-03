@@ -7,7 +7,7 @@ import IconButton from '../iconButton';
 import theme from './theme.css';
 import { IconCloseMediumOutline } from '@teamleader/ui-icons';
 
-interface BannerProps {
+export interface BannerProps {
   /** The content to display inside the banner. */
   children?: React.ReactNode;
   /** A class name for the wrapper to give custom styles. */
