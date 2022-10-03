@@ -94,6 +94,7 @@ const DatePicker: GenericComponent<DatePickerProps> = ({
         selectedDays={selectedDate}
         weekdayElement={({ ...props }) => <WeekDay {...props} size={size} />}
         showWeekNumbers={showWeekNumbers}
+        fixedWeeks
         captionElement={
           withMonthPicker
             ? ({ date, locale, localeUtils }) => (

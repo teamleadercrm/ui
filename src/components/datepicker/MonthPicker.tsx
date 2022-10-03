@@ -136,6 +136,7 @@ const MonthPickerSplit: GenericComponent<MonthPickerProps> = ({ date, locale, lo
           width={size === 'small' ? '88px' : '112px'}
           truncateOptionText
           size="small"
+          menuWidth="168px"
         />
         <NumericInput
           value={`${yearInput}`}

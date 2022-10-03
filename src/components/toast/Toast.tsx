@@ -25,7 +25,7 @@ export interface ToastProps {
   /** Action to close the Toast */
   onClose?: () => void;
   /** Action to be executed when the timeout limit has been reached */
-  onTimeout?: () => void, // eslint-disable-line
+  onTimeout?: () => void;
   /** Show or hide the processing icon */
   processing?: boolean;
   /** Timeout duration in milliseconds */

@@ -1,15 +1,22 @@
+import { IconInfoBadgedSmallFilled } from '@teamleader/ui-icons';
 import cx from 'classnames';
 import React, { ChangeEvent, ReactNode, useRef } from 'react';
 import { GenericComponent } from '../../@types/types';
 import { SIZES } from '../../constants';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import { BoxProps } from '../box/Box';
+import Icon from '../icon';
+import Tooltip, { TooltipProps } from '../tooltip';
 import { TextBodyCompact, TextDisplay, TextSmall } from '../typography';
 import theme from './theme.css';
 
-export interface ToggleProps extends Omit<BoxProps, 'className' | 'size'> {
-  checked?: boolean;
+const TooltippedIcon = Tooltip(Icon);
+
+export interface ToggleProps
+  extends Pick<Partial<TooltipProps>, 'tooltip' | 'tooltipPosition'>,
+    Omit<BoxProps, 'className' | 'size'> {
   children?: ReactNode;
+  checked?: boolean;
   disabled?: boolean;
   /** The maximum number of lines the label can take */
   maxLines?: number;
@@ -29,6 +36,8 @@ const Toggle: GenericComponent<ToggleProps> = ({
   label,
   onChange,
   size = 'medium',
+  tooltip,
+  tooltipPosition,
   ...others
 }) => {
   const ref = useRef<HTMLInputElement>(null);
@@ -82,6 +91,18 @@ const Toggle: GenericComponent<ToggleProps> = ({
             </TextElement>
           )}
           {children}
+          {tooltip && (
+            <TooltippedIcon
+              tooltip={<TextSmall>{tooltip}</TextSmall>}
+              tooltipSize="small"
+              tooltipPosition={tooltipPosition}
+              color="teal"
+              tint="darkest"
+              marginLeft={1}
+            >
+              <IconInfoBadgedSmallFilled />
+            </TooltippedIcon>
+          )}
         </span>
       )}
     </Box>

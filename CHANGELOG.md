@@ -10,13 +10,81 @@
 
 ### Fixed
 
+- `Overlay`: set tabIndex to fix onKeyDown events no longer registering after clicking inside the overlay ([@BeirlaenAaron](https://github.com/BeirlaenAaron)) in [#2394](https://github.com/teamleadercrm/ui/pull/2394))
+
 ### Dependency updates
+
+## [16.4.0] - 2022-09-29
+
+### Changed
+
+- `DatePickerInput`: Remove 'text' cursor when hovering over input ([@lorgan3](https://github.com/lorgan3)) in [#2390](https://github.com/teamleadercrm/ui/pull/2390))
+- `Label`: reduced bottom margin for small sized ([@qubis741](https://github.com/qubis741)) in [#2392](https://github.com/teamleadercrm/ui/pull/2392))
+- `DatePicker`: Make MonthPicker dropdowns wider for medium and large sizes to fit month names better ([@lorgan3](https://github.com/lorgan3)) in [#2391](https://github.com/teamleadercrm/ui/pull/2391))
+
+## [16.3.0] - 2022-09-28
+
+### Added
+
+- `DatePickerInput`: `clearable` prop ([@qubis741](https://github.com/qubis741)) in [#2387](https://github.com/teamleadercrm/ui/pull/2387))
+- `NumericInput`: Added `decreaseDisabled`, `increaseDisabled`, `onDecreaseMouseDown` and `onIncreaseMouseDown` props which allow fine-grained control over disabling decrease and increase stepper buttons. ([@jelledc](https://github.com/jelledc) in [#2380](https://github.com/teamleadercrm/ui/pull/2380))
+
+### Changed
+
+- `DatePicker`: use a fixed amount of weeks to avoid it from jumping up and down when navigating between months ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2384](https://github.com/teamleadercrm/ui/pull/2384))
+
+### Fixed
+
+- `Toast`: Update css to ensure toast action has the right color regardless of css order ([@lorgan3](https://github.com/lorgan3)) in [#2388](https://github.com/teamleadercrm/ui/pull/2388))
+
+## [16.2.2] - 2022-09-26
+
+### Fixed
+
+- `DatePickerInput`: fix the DatePicker input value not changing if the selectedDate prop changes and extend `DayPickerProps` with React's DayPickerProps ([@BeirlaenAaron](https://github.com/BeirlaenAaron)) in [#2376](https://github.com/teamleadercrm/ui/pull/2376))
+
+## [16.2.1] - 2022-09-23
+
+### Fixed
+
+- `Tooltip`: `tooltipActive` correctly close tooltip when prop is removed to restore behavior before 16.1.0 ([@lorgan3](https://github.com/lorgan3)) in [#2374](https://github.com/teamleadercrm/ui/pull/2374))
+
+## [16.2.0] - 2022-09-20
+
+### Added
+
+- `SplitButton`: `popoverProps` prop which allows overwriting the z-index, direction and height of the popover. ([@lorgan3](https://github.com/lorgan3)) in [#2369](https://github.com/teamleadercrm/ui/pull/2369))
+- `SplitButton`: `processing` prop equivalent to processing on the regular button. ([@lorgan3](https://github.com/lorgan3)) in [#2370](https://github.com/teamleadercrm/ui/pull/2370))
+
+## [16.1.1] - 2022-09-16
+
+### Changed
+
+- `Tooltip`: `children` prop is optional ([@qubis741](https://github.com/qubis741)) in [#2364](https://github.com/teamleadercrm/ui/pull/2364))
+
+## [16.1.0] - 2022-09-16
+
+### Added
+
+- `Toggle`: `tooltip` and `tooltipPosition` props. ([@qubis741](https://github.com/qubis741)) in [#2355](https://github.com/teamleadercrm/ui/pull/2355))
+
+## [16.0.4] - 2022-09-12
+
+### Fixed
+
+- `Dialog`: Fix close button alignment in cases where css order changes during build. ([@lorgan3](https://github.com/lorgan3)) in [#2351](https://github.com/teamleadercrm/ui/pull/2351))
+
+## [16.0.3] - 2022-09-05
+
+### Fixed
+
+- `MenuItem`: Append invisible element before rendering menu items, so the first item doesn't get focused by default. ([@eniskraasniqi1](https://github.com/eniskraasniqi1)) in [#2344](https://github.com/teamleadercrm/ui/pull/2344))
 
 ## [16.0.2] - 2022-08-18
 
 ### Dependency updates
 
-- `storybook`: Bump storybook from 6.5.9 to 6.5.10 ([@KristofColpaert](https://github.com/KristofColpaert)) in  [#2327](https://github.com/teamleadercrm/ui/pull/2327)
+- `storybook`: Bump storybook from 6.5.9 to 6.5.10 ([@KristofColpaert](https://github.com/KristofColpaert)) in [#2327](https://github.com/teamleadercrm/ui/pull/2327)
 
 ## [16.0.1] - 2022-08-08
 

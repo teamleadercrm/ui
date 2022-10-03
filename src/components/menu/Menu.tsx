@@ -233,6 +233,10 @@ const Menu: GenericComponent<MenuProps> = ({
         />
       )}
       <ul ref={menuNode} className={theme['menu-inner']} style={getMenuStyle()}>
+        {/* An invisible element so the first element doesn't look like its selected or focused */}
+        <Box className={theme['invisible-menu-item']} data-teamleader-ui="menu-item" element="li">
+          <Box element="button" />
+        </Box>
         {getItems()}
       </ul>
     </Box>
