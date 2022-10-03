@@ -5,7 +5,7 @@ import { COLORS, SIZES } from '../../constants';
 import Box, { pickBoxProps } from '../box';
 import { BoxProps } from '../box/Box';
 
-interface IslandGroupProps extends Omit<BoxProps, 'size'> {
+export interface IslandGroupProps extends Omit<BoxProps, 'size'> {
   /** The color of the child Islands */
   color?: typeof COLORS[number] | 'white';
   /** The orientation in which the Islands are layed out */

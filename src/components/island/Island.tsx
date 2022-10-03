@@ -12,7 +12,7 @@ const SIZES = {
   large: 5,
 };
 
-interface IslandProps extends Omit<BoxProps, 'size'> {
+export interface IslandProps extends Omit<BoxProps, 'size'> {
   /** A class name for the button to give custom styles. */
   className?: string;
   /** The color for the Island background and border */
