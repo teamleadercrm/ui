@@ -24,7 +24,7 @@ const Banner = ({ children, className, color = 'white', icon, onClose, fullWidth
   const Element = fullWidth ? Section : Island;
 
   return (
-    <Element data-teamleader-ui="banner" className={className} {...others}>
+    <Element data-teamleader-ui="banner" className={className} color={color} {...others}>
       <div className={theme['inner']}>
         {icon && <span className={theme['icon']}>{icon}</span>}
         <Box flex={1} element="span" paddingRight={onClose && 7}>
