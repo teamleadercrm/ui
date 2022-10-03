@@ -3,6 +3,7 @@ import Box, { pickBoxProps } from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
 import { BoxProps } from '../box/Box';
+import { GenericComponent } from '../../@types/types';
 
 const SIZES = {
   small: 3,
@@ -19,7 +20,14 @@ interface IslandProps extends Omit<BoxProps, 'size'> {
   size?: keyof typeof SIZES;
 }
 
-const Island = ({ children, className, color = 'white', size = 'medium', onClick, ...others }: IslandProps) => {
+const Island: GenericComponent<IslandProps> = ({
+  children,
+  className,
+  color = 'white',
+  size = 'medium',
+  onClick,
+  ...others
+}: IslandProps) => {
   const classNames = cx(theme[color], className);
   const boxProps = pickBoxProps(others);
 

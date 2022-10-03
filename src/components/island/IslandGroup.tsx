@@ -1,4 +1,5 @@
 import React, { forwardRef, isValidElement, ReactElement } from 'react';
+import { GenericComponent } from '../../@types/types';
 
 import Box, { pickBoxProps } from '../box';
 import { BoxProps } from '../box/Box';
@@ -12,7 +13,7 @@ interface IslandGroupProps extends Omit<BoxProps, 'size'> {
   size?: 'small' | 'medium' | 'large';
 }
 
-const IslandGroup = forwardRef<HTMLElement, IslandGroupProps>(
+const IslandGroup: GenericComponent<IslandGroupProps> = forwardRef<HTMLElement, IslandGroupProps>(
   ({ children: originalChildren, className, color, direction = 'horizontal', size, ...otherProps }, ref) => {
     const boxProps = pickBoxProps(otherProps);
     const children: ReactElement[] = [];
