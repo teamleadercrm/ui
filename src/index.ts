@@ -3,7 +3,7 @@ import Alert from './components/alert';
 import Avatar, { AvatarStack } from './components/avatar';
 import Badge from './components/badge';
 import BadgedLink from './components/badgedLink';
-import Banner from './components/banner';
+import Banner, { BannerProps } from './components/banner';
 import Box from './components/box';
 import type { Margin, Padding } from './components/box';
 import Button from './components/button';
@@ -62,7 +62,7 @@ import Passport, { EmptyPassport } from './components/passport';
 import Popover from './components/popover';
 import PoweredByButton from './components/poweredByButton';
 import { RadioButton, RadioButtonProps, RadioGroup, RadioGroupProps } from './components/radio';
-import Section from './components/section';
+import Section, { SectionProps } from './components/section';
 import Select, { AsyncSelect } from './components/select';
 import { Island, IslandGroup, IslandProps, IslandGroupProps } from './components/island';
 import SplitButton from './components/splitButton';
@@ -246,4 +246,6 @@ export type {
   TooltipProps,
   IslandProps,
   IslandGroupProps,
+  SectionProps,
+  BannerProps,
 };
