@@ -4,9 +4,9 @@ import cx from 'classnames';
 import theme from './theme.css';
 import { BoxProps } from '../box/Box';
 import { GenericComponent } from '../../@types/types';
-import { COLORS } from '../../constants';
+import { COLORS, SIZES } from '../../constants';
 
-const SIZES = {
+const PADDING = {
   small: 3,
   medium: 4,
   large: 5,
@@ -16,9 +16,9 @@ export interface IslandProps extends Omit<BoxProps, 'size'> {
   /** A class name for the button to give custom styles. */
   className?: string;
   /** The color for the Island background and border */
-  color?: typeof COLORS[number] | 'white';
+  color?: Exclude<typeof COLORS[number], 'teal'> | 'white';
   /** Te size of the Island component */
-  size?: keyof typeof SIZES;
+  size?: Exclude<typeof SIZES[number], 'tiny' | 'smallest' | 'hero' | 'fullscreen'>;
 }
 
 const Island: GenericComponent<IslandProps> = ({
@@ -45,7 +45,7 @@ const Island: GenericComponent<IslandProps> = ({
       borderRightWidth={1}
       borderTopWidth={1}
       className={classNames}
-      padding={SIZES[size]}
+      padding={PADDING[size]}
       onClick={onClick}
       {...boxProps}
     >
