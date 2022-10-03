@@ -1,16 +1,17 @@
 import React, { forwardRef, isValidElement, ReactElement } from 'react';
 import { GenericComponent } from '../../@types/types';
+import { COLORS, SIZES } from '../../constants';
 
 import Box, { pickBoxProps } from '../box';
 import { BoxProps } from '../box/Box';
 
 interface IslandGroupProps extends Omit<BoxProps, 'size'> {
   /** The color of the child Islands */
-  color?: 'neutral' | 'mint' | 'violet' | 'ruby' | 'gold' | 'aqua' | 'white';
+  color?: typeof COLORS[number] | 'white';
   /** The orientation in which the Islands are layed out */
   direction?: 'horizontal' | 'vertical';
   /** The size of the child Islands */
-  size?: 'small' | 'medium' | 'large';
+  size?: keyof typeof SIZES;
 }
 
 const IslandGroup: GenericComponent<IslandGroupProps> = forwardRef<HTMLElement, IslandGroupProps>(

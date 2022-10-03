@@ -4,6 +4,7 @@ import cx from 'classnames';
 import theme from './theme.css';
 import { BoxProps } from '../box/Box';
 import { GenericComponent } from '../../@types/types';
+import { COLORS } from '../../constants';
 
 const SIZES = {
   small: 3,
@@ -15,7 +16,7 @@ interface IslandProps extends Omit<BoxProps, 'size'> {
   /** A class name for the button to give custom styles. */
   className?: string;
   /** The color for the Island background and border */
-  color?: 'neutral' | 'mint' | 'violet' | 'ruby' | 'gold' | 'aqua' | 'white';
+  color?: typeof COLORS[number] | 'white';
   /** Te size of the Island component */
   size?: keyof typeof SIZES;
 }
