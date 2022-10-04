@@ -15,7 +15,7 @@ export interface BannerProps extends SectionProps, IslandProps {
   /** The icon displayed on the left inside the banner. */
   icon?: React.ReactElement;
   /** Callback function that is fired when the close button of the banner is clicked. */
-  onClose?(...args: unknown[]): unknown;
+  onClose?: React.MouseEventHandler<HTMLButtonElement>;
   /** If true, component will take the full width of it's container. */
   fullWidth?: boolean;
 }
