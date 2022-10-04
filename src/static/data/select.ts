@@ -1,9 +1,11 @@
+import { GroupBase } from 'react-select';
+import { Option } from '../../components/select';
 import userAvatar1 from '../avatars/1.png';
 import userAvatar2 from '../avatars/2.png';
 import userAvatar3 from '../avatars/3.png';
 import userAvatar4 from '../avatars/4.png';
 
-const options = [
+const options: Option[] = [
   { label: 'Chocolate', value: 'chocolate' },
   { label: 'Vanilla', value: 'vanilla' },
   { label: 'Strawberry', value: 'strawberry' },
@@ -12,14 +14,14 @@ const options = [
   { label: 'Peppermint', value: 'peppermint' },
 ];
 
-const customOptions = [
+const customOptions: Option[] = [
   { label: 'Jane Smith', value: 'jane_smith', avatar: userAvatar1 },
   { label: 'Jenny', value: 'jenny', avatar: userAvatar4, isDisabled: true },
   { label: 'John Doe', value: 'john_doe', avatar: userAvatar2 },
   { label: 'Molly', value: 'molly', avatar: userAvatar3 },
 ];
 
-const groupedOptions = [
+const groupedOptions: GroupBase<Option>[] = [
   {
     label: 'Flavors',
     options: [
