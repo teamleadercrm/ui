@@ -50,7 +50,7 @@ import PoweredByButton from './components/poweredByButton';
 import ProgressTracker, { ProgressTrackerProps } from './components/progressTracker';
 import { RadioButton, RadioButtonProps, RadioGroup, RadioGroupProps } from './components/radio';
 import Section from './components/section';
-import Select, { AsyncSelect, AsyncSelectProps, SelectProps } from './components/select';
+import Select, { AsyncSelect, AsyncSelectProps, Option, SelectProps } from './components/select';
 import SplitButton from './components/splitButton';
 import StatusLabel from './components/statusLabel';
 import { TabGroup, TitleTab } from './components/tab';
@@ -245,4 +245,5 @@ export type {
   RadioGroupProps,
   SelectProps,
   TooltipProps,
+  Option,
 };
