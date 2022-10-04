@@ -1,6 +1,7 @@
 import { IconChevronDownSmallOutline, IconCloseBadgedSmallFilled } from '@teamleader/ui-icons';
 import uiUtilities from '@teamleader/ui-utilities';
 import cx from 'classnames';
+import omit from 'lodash.omit';
 import React, { ForwardedRef, forwardRef, ReactNode, useEffect } from 'react';
 import ReactSelect, {
   ClearIndicatorProps,
@@ -11,13 +12,12 @@ import ReactSelect, {
   OptionProps,
   PlaceholderProps,
   Props,
-  PropsValue,
   StylesConfig,
   ValueContainerProps,
 } from 'react-select';
 import ReactCreatableSelect from 'react-select/creatable';
 import SelectType from 'react-select/dist/declarations/src/Select';
-import { OptionsOrGroups } from '../../../node_modules/react-select/dist/declarations/src/types';
+import { ActionMeta, OptionsOrGroups } from '../../../node_modules/react-select/dist/declarations/src/types';
 import { COLOR, SIZES } from '../../constants';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import { BoxProps } from '../box/Box';
@@ -33,8 +33,8 @@ const minHeightBySizeMap = {
   large: 48,
 };
 
-export interface SelectProps<IsMulti extends boolean = false>
-  extends Props<Option, IsMulti>,
+export interface SelectProps<IsMulti extends boolean = false, IsClearable extends boolean = false>
+  extends Omit<Props<Option, IsMulti>, 'onChange' | 'isClearable' | 'value'>,
     Omit<BoxProps, 'className'> {
   /** Override default components with your own. Pass an object with correct the key and its replacing component */
   components?: Props<Option, IsMulti>['components'];
@@ -57,13 +57,17 @@ export interface SelectProps<IsMulti extends boolean = false>
   /** The text string/element to use as success message below the input. */
   success?: ReactNode;
   /** Selected option value(s) */
-  value?: PropsValue<Option>;
-  /** Selected option value(s) */
-  options?: OptionsOrGroups<Option, GroupBase<Option>>;
+  value: IsMulti extends true ? Option[] : Option | null;
+  onChange: (
+    newValue: IsMulti extends true ? Option[] : IsClearable extends true ? Option | null : Option,
+    actionMeta?: ActionMeta<Option>,
+  ) => void;
+  options: OptionsOrGroups<Option, GroupBase<Option>>;
   /** The text to use as warning message below the input. */
   warning?: ReactNode;
   /** A custom width for the input field */
   width?: string;
+  clearable?: IsClearable;
 }
 
 const DropdownIndicator = <IsMulti extends boolean>(
@@ -105,7 +109,7 @@ selectOverlayNode.setAttribute('data-teamleader-ui', 'select-overlay');
 
 const activeSelects = new Set();
 
-function Select<IsMulti extends boolean>(
+function Select<IsMulti extends boolean, IsClearable extends boolean>(
   {
     components,
     creatable = false,
@@ -121,7 +125,7 @@ function Select<IsMulti extends boolean>(
     truncateOptionText,
     options,
     ...otherProps
-  }: SelectProps<IsMulti>,
+  }: SelectProps<IsMulti, IsClearable>,
   ref: ForwardedRef<SelectType<Option, IsMulti>>,
 ) {
   useEffect(() => {
@@ -422,7 +426,7 @@ function Select<IsMulti extends boolean>(
   });
 
   const boxProps = pickBoxProps(otherProps);
-  const restProps = omitBoxProps(otherProps);
+  const restProps = omit(omitBoxProps(otherProps), 'isClearable');
 
   const wrapperClassnames = cx(theme[`is-${size}`], {
     [theme['has-error']]: error,
@@ -457,8 +461,8 @@ function Select<IsMulti extends boolean>(
   );
 }
 
-const ForwardedSelect = forwardRef(Select) as <IsMulti extends boolean = false>(
-  props: SelectProps<IsMulti> & { ref?: React.ForwardedRef<SelectType<Option, IsMulti>> },
+const ForwardedSelect = forwardRef(Select) as <IsMulti extends boolean = false, IsClearable extends boolean = false>(
+  props: SelectProps<IsMulti, IsClearable> & { ref?: React.ForwardedRef<SelectType<Option, IsMulti>> },
 ) => ReturnType<typeof Select>;
 
 export default ForwardedSelect;

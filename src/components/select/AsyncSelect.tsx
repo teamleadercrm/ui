@@ -9,7 +9,8 @@ const DEFAULT_SEARCH_TERM = '';
 const DEFAULT_OPTIONS: Option[] = [];
 const DEFAULT_CACHE = {};
 
-export interface AsyncSelectProps<IsMulti extends boolean = false> extends SelectProps<IsMulti> {
+export interface AsyncSelectProps<IsMulti extends boolean = false, IsClearable extends boolean = false>
+  extends SelectProps<IsMulti, IsClearable> {
   loadOptions: (searchTerm: string, ...props: any) => Promise<any>;
   paginate?: boolean;
   pageSize?: number;
@@ -24,7 +25,7 @@ interface AsyncSelectState {
   cache: AsyncSelectCache;
   isLastPage: boolean;
 }
-const AsyncSelect = <IsMulti extends boolean>({
+const AsyncSelect = <IsMulti extends boolean, IsClearable extends boolean>({
   loadOptions,
   pageSize = 10,
   paginate,
@@ -32,7 +33,7 @@ const AsyncSelect = <IsMulti extends boolean>({
   onInputChange,
   onMenuScrollToBottom,
   ...restProps
-}: AsyncSelectProps<IsMulti>) => {
+}: AsyncSelectProps<IsMulti, IsClearable>) => {
   const [state, setState] = useState<AsyncSelectState>({
     pageNumber: DEFAULT_PAGE_NUMBER,
     searchTerm: DEFAULT_SEARCH_TERM,
@@ -135,7 +136,7 @@ const AsyncSelect = <IsMulti extends boolean>({
   const { isLoading, options } = state;
   return (
     <Select
-      {...omit(restProps, ['loadOptions', 'options'])}
+      {...(omit(restProps, ['loadOptions', 'options']) as SelectProps)}
       isSearchable
       isLoading={isLoading}
       onMenuScrollToBottom={handleMenuScrollToBottom}
