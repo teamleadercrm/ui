@@ -33,7 +33,11 @@ const minHeightBySizeMap = {
   large: 48,
 };
 
-export interface SelectProps<
+/* *
+ * We have to define BaseSelectProps with optional options, so we can then set them required in Select and never in AsyncSelect.
+ * Unfortunately because of BoxProps having index of unknown, Omiting of these props causes all props to become unknown, we cannot Omit options in AsyncSelect.
+ * */
+export interface BaseSelectProps<
   Option extends OptionType = OptionType,
   IsMulti extends boolean = false,
   IsClearable extends boolean = false,
@@ -65,12 +69,20 @@ export interface SelectProps<
     newValue: IsMulti extends true ? Option[] : IsClearable extends true ? Option | null : Option,
     actionMeta?: ActionMeta<Option>,
   ) => void;
-  options: OptionsOrGroups<Option, GroupBase<Option>>;
+  options?: OptionsOrGroups<Option, GroupBase<Option>>;
   /** The text to use as warning message below the input. */
   warning?: ReactNode;
   /** A custom width for the input field */
   width?: string;
   clearable?: IsClearable;
+}
+
+export interface SelectProps<
+  Option extends OptionType = OptionType,
+  IsMulti extends boolean = false,
+  IsClearable extends boolean = false,
+> extends BaseSelectProps<Option, IsMulti, IsClearable> {
+  options: OptionsOrGroups<Option, GroupBase<Option>>;
 }
 
 const DropdownIndicator = <IsMulti extends boolean>(
