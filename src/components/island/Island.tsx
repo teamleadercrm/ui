@@ -1,19 +1,34 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Box, { pickBoxProps } from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
+import { BoxProps } from '../box/Box';
+import { GenericComponent } from '../../@types/types';
+import { COLORS, SIZES } from '../../constants';
 
-const SIZES = {
+const PADDING = {
   small: 3,
   medium: 4,
   large: 5,
 };
 
-/** @type {React.ComponentType<any>} */
-const Island = (props) => {
-  const { children, className, color, size, onClick, ...others } = props;
+export interface IslandProps extends Omit<BoxProps, 'size'> {
+  /** A class name for the button to give custom styles. */
+  className?: string;
+  /** The color for the Island background and border */
+  color?: Exclude<typeof COLORS[number], 'teal'> | 'white';
+  /** Te size of the Island component */
+  size?: Exclude<typeof SIZES[number], 'tiny' | 'smallest' | 'hero' | 'fullscreen'>;
+}
 
+const Island: GenericComponent<IslandProps> = ({
+  children,
+  className,
+  color = 'white',
+  size = 'medium',
+  onClick,
+  ...others
+}: IslandProps) => {
   const classNames = cx(theme[color], className);
   const boxProps = pickBoxProps(others);
 
@@ -30,25 +45,13 @@ const Island = (props) => {
       borderRightWidth={1}
       borderTopWidth={1}
       className={classNames}
-      padding={SIZES[size]}
+      padding={PADDING[size]}
       onClick={onClick}
       {...boxProps}
     >
       {children}
     </Box>
   );
-};
-
-Island.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
-  color: PropTypes.oneOf(['neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'white']),
-  size: PropTypes.oneOf(Object.keys(SIZES)),
-};
-
-Island.defaultProps = {
-  color: 'white',
-  size: 'medium',
 };
 
 export default Island;

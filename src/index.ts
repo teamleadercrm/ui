@@ -3,7 +3,7 @@ import Alert from './components/alert';
 import Avatar, { AvatarStack } from './components/avatar';
 import Badge from './components/badge';
 import BadgedLink from './components/badgedLink';
-import Banner from './components/banner';
+import Banner, { BannerProps } from './components/banner';
 import type { Margin, Padding } from './components/box';
 import Box from './components/box';
 import Bullet from './components/bullet';
@@ -24,7 +24,7 @@ import Grid from './components/grid';
 import Icon from './components/icon';
 import IconButton from './components/iconButton';
 import Input, { DurationInput, InputBase, NumericInput, Textarea, TimeInput } from './components/input';
-import { Island, IslandGroup } from './components/island';
+import { Island, IslandGroup, IslandGroupProps, IslandProps } from './components/island';
 import Label from './components/label';
 import { LabelValuePair, LabelValuePairGroup } from './components/labelValuePair';
 import Link from './components/link';
@@ -49,7 +49,7 @@ import Popover from './components/popover';
 import PoweredByButton from './components/poweredByButton';
 import ProgressTracker, { ProgressTrackerProps } from './components/progressTracker';
 import { RadioButton, RadioButtonProps, RadioGroup, RadioGroupProps } from './components/radio';
-import Section from './components/section';
+import Section, { SectionProps } from './components/section';
 import Select, { AsyncSelect, AsyncSelectProps, Option, SelectProps } from './components/select';
 import SplitButton from './components/splitButton';
 import StatusLabel from './components/statusLabel';
@@ -246,4 +246,8 @@ export type {
   SelectProps,
   TooltipProps,
   Option,
+  IslandProps,
+  IslandGroupProps,
+  SectionProps,
+  BannerProps,
 };
