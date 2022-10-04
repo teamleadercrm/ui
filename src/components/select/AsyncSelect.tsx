@@ -2,30 +2,33 @@ import omit from 'lodash.omit';
 import React, { useEffect, useState } from 'react';
 import { InputActionMeta } from 'react-select';
 import Select, { SelectProps } from './Select';
-import { Option } from './types';
+import { Option as OptionType } from './types';
 
 const DEFAULT_PAGE_NUMBER = 1;
 const DEFAULT_SEARCH_TERM = '';
-const DEFAULT_OPTIONS: Option[] = [];
+const DEFAULT_OPTIONS: OptionType[] = [];
 const DEFAULT_CACHE = {};
 
-export interface AsyncSelectProps<IsMulti extends boolean = false, IsClearable extends boolean = false>
-  extends SelectProps<IsMulti, IsClearable> {
+export interface AsyncSelectProps<
+  Option extends OptionType = OptionType,
+  IsMulti extends boolean = false,
+  IsClearable extends boolean = false,
+> extends SelectProps<Option, IsMulti, IsClearable> {
   loadOptions: (searchTerm: string, ...props: any) => Promise<any>;
   paginate?: boolean;
   pageSize?: number;
   cacheOptions?: boolean;
 }
-type AsyncSelectCache = Record<string, { options: Option[]; isLastPage: boolean }>;
+type AsyncSelectCache = Record<string, { options: OptionType[]; isLastPage: boolean }>;
 interface AsyncSelectState {
   pageNumber: number;
   searchTerm: string;
   isLoading: boolean;
-  options: Option[];
+  options: OptionType[];
   cache: AsyncSelectCache;
   isLastPage: boolean;
 }
-const AsyncSelect = <IsMulti extends boolean, IsClearable extends boolean>({
+const AsyncSelect = <Option extends OptionType, IsMulti extends boolean, IsClearable extends boolean>({
   loadOptions,
   pageSize = 10,
   paginate,
@@ -33,7 +36,7 @@ const AsyncSelect = <IsMulti extends boolean, IsClearable extends boolean>({
   onInputChange,
   onMenuScrollToBottom,
   ...restProps
-}: AsyncSelectProps<IsMulti, IsClearable>) => {
+}: AsyncSelectProps<Option, IsMulti, IsClearable>) => {
   const [state, setState] = useState<AsyncSelectState>({
     pageNumber: DEFAULT_PAGE_NUMBER,
     searchTerm: DEFAULT_SEARCH_TERM,

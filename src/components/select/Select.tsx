@@ -24,7 +24,7 @@ import { BoxProps } from '../box/Box';
 import Icon from '../icon';
 import ValidationText from '../validationText';
 import theme from './theme.css';
-import { Option } from './types';
+import { Option as OptionType } from './types';
 
 const minHeightBySizeMap = {
   tiny: 24,
@@ -33,8 +33,11 @@ const minHeightBySizeMap = {
   large: 48,
 };
 
-export interface SelectProps<IsMulti extends boolean = false, IsClearable extends boolean = false>
-  extends Omit<Props<Option, IsMulti>, 'onChange' | 'isClearable' | 'value'>,
+export interface SelectProps<
+  Option extends OptionType = OptionType,
+  IsMulti extends boolean = false,
+  IsClearable extends boolean = false,
+> extends Omit<Props<Option, IsMulti>, 'onChange' | 'isClearable' | 'value'>,
     Omit<BoxProps, 'className'> {
   /** Override default components with your own. Pass an object with correct the key and its replacing component */
   components?: Props<Option, IsMulti>['components'];
@@ -71,7 +74,7 @@ export interface SelectProps<IsMulti extends boolean = false, IsClearable extend
 }
 
 const DropdownIndicator = <IsMulti extends boolean>(
-  dropdownIndicatorProps: DropdownIndicatorProps<Option, IsMulti>,
+  dropdownIndicatorProps: DropdownIndicatorProps<OptionType, IsMulti>,
 ) => {
   // @ts-ignore
   const inverse = dropdownIndicatorProps.selectProps.inverse;
@@ -89,7 +92,7 @@ const DropdownIndicator = <IsMulti extends boolean>(
   );
 };
 //
-const ClearIndicator = <IsMulti extends boolean>(clearIndicatorProps: ClearIndicatorProps<Option, IsMulti>) => {
+const ClearIndicator = <IsMulti extends boolean>(clearIndicatorProps: ClearIndicatorProps<OptionType, IsMulti>) => {
   // @ts-ignore
   const inverse = clearIndicatorProps.selectProps.inverse;
   return (
@@ -109,7 +112,7 @@ selectOverlayNode.setAttribute('data-teamleader-ui', 'select-overlay');
 
 const activeSelects = new Set();
 
-function Select<IsMulti extends boolean, IsClearable extends boolean>(
+function Select<Option extends OptionType, IsMulti extends boolean, IsClearable extends boolean>(
   {
     components,
     creatable = false,
@@ -125,7 +128,7 @@ function Select<IsMulti extends boolean, IsClearable extends boolean>(
     truncateOptionText,
     options,
     ...otherProps
-  }: SelectProps<IsMulti, IsClearable>,
+  }: SelectProps<Option, IsMulti, IsClearable>,
   ref: ForwardedRef<SelectType<Option, IsMulti>>,
 ) {
   useEffect(() => {
@@ -443,7 +446,9 @@ function Select<IsMulti extends boolean, IsClearable extends boolean>(
         ref={ref}
         className={cx(uiUtilities['reset-font-smoothing'], theme['select'])}
         components={{
+          // @ts-ignore just some type generic magic
           ClearIndicator,
+          // @ts-ignore just some type generic magic
           DropdownIndicator,
           IndicatorSeparator: null,
           ...components,
@@ -461,8 +466,12 @@ function Select<IsMulti extends boolean, IsClearable extends boolean>(
   );
 }
 
-const ForwardedSelect = forwardRef(Select) as <IsMulti extends boolean = false, IsClearable extends boolean = false>(
-  props: SelectProps<IsMulti, IsClearable> & { ref?: React.ForwardedRef<SelectType<Option, IsMulti>> },
+const ForwardedSelect = forwardRef(Select) as <
+  Option extends OptionType = OptionType,
+  IsMulti extends boolean = false,
+  IsClearable extends boolean = false,
+>(
+  props: SelectProps<Option, IsMulti, IsClearable> & { ref?: React.ForwardedRef<SelectType<Option, IsMulti>> },
 ) => ReturnType<typeof Select>;
 
 export default ForwardedSelect;

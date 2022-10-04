@@ -1,7 +1,7 @@
 export type Value = any;
 
-export type Option = {
+export type Option<V = Value> = {
   label: string;
-  value: Value;
+  value: V;
   [key: string]: any;
 };
