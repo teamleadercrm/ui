@@ -12,7 +12,7 @@ const PADDINGS: Record<'small' | 'medium' | 'large', Padding> = {
   large: 5,
 };
 
-interface SectionProps extends Omit<BoxProps, 'ref'> {
+export interface SectionProps extends Omit<BoxProps, 'ref'> {
   children?: ReactNode;
   color?: Exclude<typeof COLORS[number], 'teal'> | 'white';
   size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
