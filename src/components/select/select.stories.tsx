@@ -1,5 +1,5 @@
 import { ComponentStory, Meta } from '@storybook/react';
-import React from 'react';
+import React, { useState } from 'react';
 import { OptionProps } from 'react-select';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { AsyncSelect, Avatar, Box, Label, Select, TextBody } from '../../index';
@@ -72,7 +72,7 @@ const loadOptions = (searchTerm: string, pageSize = 10, pageNumber = 1) => {
 export const basic: ComponentStory<typeof Select> = (args) => <Select {...args} />;
 
 basic.args = {
-  isClearable: false,
+  clearable: false,
   isDisabled: false,
   isMulti: false,
   isSearchable: false,
@@ -84,8 +84,18 @@ basic.args = {
   menuHorizontalOffset: undefined,
 };
 
-export const grouped = () => <Select options={groupedOptions} />;
+export const grouped = () => <Select value={null} options={groupedOptions} onChange={() => null} />;
 
-export const customOption = () => <Select components={{ Option: CustomOption }} options={customOptions} />;
+export const customOption = () => (
+  <Select value={null} components={{ Option: CustomOption }} options={customOptions} onChange={() => null} />
+);
 
-export const async = () => <AsyncSelect loadOptions={loadOptions} cacheOptions paginate pageSize={10} />;
+export const async = () => (
+  <AsyncSelect value={null} loadOptions={loadOptions} cacheOptions paginate pageSize={10} onChange={() => null} />
+);
+
+export const test: ComponentStory<typeof Select> = () => {
+  const [value, setValue] = useState<Option | null>(null);
+  const handleChange = (opt: Option) => setValue(opt);
+  return <Select options={options as Option[]} onChange={handleChange} value={value} />;
+};
