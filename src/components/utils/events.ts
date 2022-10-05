@@ -1,49 +1,77 @@
+import { MouseEvent, TouchEvent } from 'react';
+
+interface OurDocumentEventMap extends Partial<Record<keyof DocumentEventMap, (event: Event) => void>> {}
+interface OurWindowEventMap extends Partial<Record<keyof WindowEventMap, (event: Event) => void>> {}
+const TRANSITIONS: Record<string, string> = {
+  transition: 'transitionend',
+  OTransition: 'oTransitionEnd',
+  MozTransition: 'transitionend',
+  WebkitTransition: 'webkitTransitionEnd',
+};
+
+const transitionEventNamesFor = (element: HTMLElement | null) => {
+  for (const transition in TRANSITIONS) {
+    // @ts-ignore element style is not indexed
+    if (element && element.style[transition] !== undefined) {
+      return TRANSITIONS[transition];
+    }
+  }
+};
+
 export default {
-  getMousePosition(event) {
+  getMousePosition(event: MouseEvent) {
     return {
       x: event.pageX - (window.scrollX || window.pageXOffset),
       y: event.pageY - (window.scrollY || window.pageYOffset),
     };
   },
 
-  getTouchPosition(event) {
+  getTouchPosition(event: TouchEvent) {
     return {
       x: event.touches[0].pageX - (window.scrollX || window.pageXOffset),
       y: event.touches[0].pageY - (window.scrollY || window.pageYOffset),
     };
   },
 
-  pauseEvent(event) {
+  pauseEvent(event: Event) {
     event.stopPropagation();
     event.preventDefault();
   },
 
-  addEventsToDocument(eventMap) {
+  addEventsToDocument(eventMap: OurDocumentEventMap) {
     for (const key in eventMap) {
-      document.addEventListener(key, eventMap[key], false);
+      // @ts-ignore cannot index it properly
+      const eventHandler = eventMap[key] as (event: Event) => void;
+      document.addEventListener(key, eventHandler, false);
     }
   },
 
-  removeEventsFromDocument(eventMap) {
+  removeEventsFromDocument(eventMap: OurDocumentEventMap) {
     for (const key in eventMap) {
-      document.removeEventListener(key, eventMap[key], false);
+      // @ts-ignore cannot index it properly
+      const eventHandler = eventMap[key] as (event: Event) => void;
+      document.removeEventListener(key, eventHandler, false);
     }
   },
 
-  addEventsToWindow(eventMap) {
+  addEventsToWindow(eventMap: OurWindowEventMap) {
     for (const key in eventMap) {
-      window.addEventListener(key, eventMap[key], false);
+      // @ts-ignore cannot index it properly
+      const eventHandler = eventMap[key] as (event: Event) => void;
+      window.addEventListener(key, eventHandler, false);
     }
   },
 
-  removeEventsFromWindow(eventMap) {
+  removeEventsFromWindow(eventMap: OurWindowEventMap) {
     for (const key in eventMap) {
-      window.removeEventListener(key, eventMap[key], false);
+      // @ts-ignore cannot index it properly
+      const eventHandler = eventMap[key] as (event: Event) => void;
+      window.removeEventListener(key, eventHandler, false);
     }
   },
 
-  targetIsDescendant(event, parent) {
-    let node = event.target;
+  targetIsDescendant(event: Event, parent: Element | null) {
+    let node: Node | null = event.target as Node;
     while (node !== null) {
       if (node === parent) {
         return true;
@@ -53,7 +81,7 @@ export default {
     return false;
   },
 
-  addEventListenerOnTransitionEnded(element, fn) {
+  addEventListenerOnTransitionEnded(element: HTMLElement, fn: () => void) {
     const eventName = transitionEventNamesFor(element);
     if (!eventName) {
       return false;
@@ -62,7 +90,7 @@ export default {
     return true;
   },
 
-  removeEventListenerOnTransitionEnded(element, fn) {
+  removeEventListenerOnTransitionEnded(element: HTMLElement, fn: () => void) {
     const eventName = transitionEventNamesFor(element);
     if (!eventName) {
       return false;
@@ -71,18 +99,3 @@ export default {
     return true;
   },
 };
-
-const TRANSITIONS = {
-  transition: 'transitionend',
-  OTransition: 'oTransitionEnd',
-  MozTransition: 'transitionend',
-  WebkitTransition: 'webkitTransitionEnd',
-};
-
-function transitionEventNamesFor(element) {
-  for (const transition in TRANSITIONS) {
-    if (element && element.style[transition] !== undefined) {
-      return TRANSITIONS[transition];
-    }
-  }
-}
