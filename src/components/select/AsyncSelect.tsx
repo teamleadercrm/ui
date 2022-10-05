@@ -28,7 +28,7 @@ interface AsyncSelectState {
   cache: AsyncSelectCache;
   isLastPage: boolean;
 }
-const AsyncSelect = <Option extends OptionType, IsMulti extends boolean, IsClearable extends boolean>({
+const AsyncSelect = <Option extends OptionType, IsMulti extends boolean = false, IsClearable extends boolean = false>({
   loadOptions,
   pageSize = 10,
   paginate,
