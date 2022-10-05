@@ -82,6 +82,7 @@
     "@storybook/theming": "^6.5.10",
     "@storybook/ui": "6.5.10",
     "@types/lodash.omit": "^4.5.7",
+    "@types/lodash.pick": "^4.4.7",
     "@types/lodash.throttle": "^4.1.7",
     "@types/lodash.without": "^4.4.6",
     "@types/luxon": "^3.0.1",

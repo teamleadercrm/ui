@@ -2630,6 +2630,13 @@
   dependencies:
     "@types/lodash" "*"
 
+"@types/lodash.pick@^4.4.7":
+  version "4.4.7"
+  resolved "https://registry.yarnpkg.com/@types/lodash.pick/-/lodash.pick-4.4.7.tgz#4a700075758692ce6ee48bee08e6fd4004d5da53"
+  integrity sha512-HgdyKz7/1+oeoVzbpu1XiX/Bti9AUksHtOILH38T07aKvqoirzcdOsrO2+Yg3L51Hv/8m1MetvHZEUGeABiTiQ==
+  dependencies:
+    "@types/lodash" "*"
+
 "@types/lodash.throttle@^4.1.7":
   version "4.1.7"
   resolved "https://registry.yarnpkg.com/@types/lodash.throttle/-/lodash.throttle-4.1.7.tgz#4ef379eb4f778068022310ef166625f420b6ba58"
