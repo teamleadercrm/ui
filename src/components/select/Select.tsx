@@ -85,8 +85,8 @@ export interface SelectProps<
   options: OptionsOrGroups<Option, GroupBase<Option>>;
 }
 
-const DropdownIndicator = <IsMulti extends boolean>(
-  dropdownIndicatorProps: DropdownIndicatorProps<OptionType, IsMulti>,
+const DropdownIndicator = <Option extends OptionType, IsMulti extends boolean>(
+  dropdownIndicatorProps: DropdownIndicatorProps<Option, IsMulti>,
 ) => {
   // @ts-ignore
   const inverse = dropdownIndicatorProps.selectProps.inverse;
@@ -104,7 +104,9 @@ const DropdownIndicator = <IsMulti extends boolean>(
   );
 };
 //
-const ClearIndicator = <IsMulti extends boolean>(clearIndicatorProps: ClearIndicatorProps<OptionType, IsMulti>) => {
+const ClearIndicator = <Option extends OptionType, IsMulti extends boolean>(
+  clearIndicatorProps: ClearIndicatorProps<Option, IsMulti>,
+) => {
   // @ts-ignore
   const inverse = clearIndicatorProps.selectProps.inverse;
   return (
@@ -458,9 +460,7 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
         ref={ref}
         className={cx(uiUtilities['reset-font-smoothing'], theme['select'])}
         components={{
-          // @ts-ignore just some type generic magic
           ClearIndicator,
-          // @ts-ignore just some type generic magic
           DropdownIndicator,
           IndicatorSeparator: null,
           ...components,
