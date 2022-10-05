@@ -36,18 +36,6 @@ export const ButtonLevels = () => (
         </Button>
       </Wrapper>
     ))}
-    <Wrapper>
-      <Button level="link">link</Button>
-      <Spacer />
-      <Button level="link" disabled>
-        link disabled
-      </Button>
-      <Spacer />
-      <Spacer />
-      <Button level="link" active>
-        link active
-      </Button>
-    </Wrapper>
     {colorList.map((color) => (
       <Wrapper key={color} inverse={color === 'white'}>
         <Button level="outline" color={color}>

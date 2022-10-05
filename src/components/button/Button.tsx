@@ -9,12 +9,12 @@ import { UITextBody, UITextDisplay, UITextSmall } from '../typography';
 import theme from './theme.css';
 
 export enum BUTTON_LEVELS {
-  outline = 'outline',
   primary = 'primary',
   secondary = 'secondary',
   destructive = 'destructive',
   link = 'link',
   timer = 'timer',
+  outline = 'outline',
 }
 
 const textComponentMap = {
