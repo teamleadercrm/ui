@@ -442,7 +442,7 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
   });
 
   const boxProps = pickBoxProps(otherProps);
-  const restProps = omitBoxProps(otherProps);
+  const restProps = { ...omitBoxProps(otherProps), ...{ inverse } };
 
   const wrapperClassnames = cx(theme[`is-${size}`], {
     [theme['has-error']]: error,

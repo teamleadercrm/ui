@@ -81,7 +81,7 @@ basic.args = {
   size: 'medium',
   menuWidth: undefined,
   menuHorizontalOffset: undefined,
-  inverse: true,
+  inverse: false,
 };
 
 export const grouped = () => <Select value={null} options={groupedOptions} onChange={() => null} />;
