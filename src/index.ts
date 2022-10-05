@@ -4,10 +4,61 @@ import Avatar, { AvatarStack } from './components/avatar';
 import Badge from './components/badge';
 import BadgedLink from './components/badgedLink';
 import Banner, { BannerProps } from './components/banner';
-import Box from './components/box';
 import type { Margin, Padding } from './components/box';
+import Box from './components/box';
+import Bullet from './components/bullet';
 import Button from './components/button';
 import ButtonGroup from './components/buttonGroup';
+import Checkbox from './components/checkbox';
+import Container from './components/container';
+import Counter from './components/counter';
+import DataGrid, { DataGridProps } from './components/datagrid';
+import { DatePicker, DatePickerInput } from './components/datepicker';
+import DetailPage, { DetailPageBody, DetailPageHeader } from './components/detailPage';
+import Dialog, { DialogBase } from './components/dialog';
+import EmailSelector from './components/emailSelector';
+import EmptyState from './components/emptyState';
+import FilterSelection from './components/filterSelection';
+import Flex from './components/flex';
+import Grid from './components/grid';
+import Icon from './components/icon';
+import IconButton from './components/iconButton';
+import Input, { DurationInput, InputBase, NumericInput, Textarea, TimeInput } from './components/input';
+import { Island, IslandGroup, IslandGroupProps, IslandProps } from './components/island';
+import Label from './components/label';
+import { LabelValuePair, LabelValuePairGroup } from './components/labelValuePair';
+import Link from './components/link';
+import LoadingBar from './components/loadingBar';
+import LoadingSpinner from './components/loadingSpinner';
+import MarketingButton from './components/marketingButton';
+import MarketingButtonGroup from './components/marketingButtonGroup';
+import MarketingDialog from './components/marketingDialog';
+import MarketingLink from './components/marketingLink';
+import MarketingLockBadge from './components/marketingLockBadge';
+import MarketingMarker from './components/marketingMarker';
+import MarketingStatusLabel from './components/marketingStatusLabel';
+import MarketingTab from './components/marketingTab';
+import { MarketingHeading1, MarketingHeading2 } from './components/marketingTypography';
+import Menu, { IconMenu, MenuDivider, MenuItem, MenuTitle } from './components/menu';
+import Message from './components/message';
+import Overlay, { OverlayProps } from './components/overlay';
+import OverviewPage, { OverviewPageBody, OverviewPageHeader } from './components/overviewPage';
+import Pagination from './components/pagination';
+import Passport, { EmptyPassport } from './components/passport';
+import Popover from './components/popover';
+import PoweredByButton from './components/poweredByButton';
+import ProgressTracker, { ProgressTrackerProps } from './components/progressTracker';
+import { RadioButton, RadioButtonProps, RadioGroup, RadioGroupProps } from './components/radio';
+import Section, { SectionProps } from './components/section';
+import Select, { AsyncSelect, AsyncSelectProps, Option, SelectProps } from './components/select';
+import SplitButton from './components/splitButton';
+import StatusLabel from './components/statusLabel';
+import { TabGroup, TitleTab } from './components/tab';
+import Tag from './components/tag';
+import Timer from './components/timer';
+import { Toast, ToastContainer } from './components/toast';
+import Toggle from './components/toggle';
+import Tooltip, { TooltipProps } from './components/tooltip';
 import {
   Heading1,
   Heading2,
@@ -21,57 +72,12 @@ import {
   TextBody,
   TextBodyCompact,
   TextDisplay,
-  TextSmall,
   TextProps,
-  UITextDisplay,
+  TextSmall,
   UITextBody,
+  UITextDisplay,
   UITextSmall,
 } from './components/typography';
-import Bullet from './components/bullet';
-import Checkbox from './components/checkbox';
-import Container from './components/container';
-import Counter from './components/counter';
-import DataGrid, { DataGridProps } from './components/datagrid';
-import { DatePicker, DatePickerInput } from './components/datepicker';
-import DetailPage, { DetailPageBody, DetailPageHeader } from './components/detailPage';
-import Dialog, { DialogBase } from './components/dialog';
-import EmptyState from './components/emptyState';
-import FilterSelection from './components/filterSelection';
-import Icon from './components/icon';
-import IconButton from './components/iconButton';
-import Input, { InputBase, NumericInput, Textarea, TimeInput, DurationInput } from './components/input';
-import Menu, { IconMenu, MenuItem, MenuDivider, MenuTitle } from './components/menu';
-import Link from './components/link';
-import MarketingButton from './components/marketingButton';
-import MarketingDialog from './components/marketingDialog';
-import MarketingButtonGroup from './components/marketingButtonGroup';
-import MarketingLink from './components/marketingLink';
-import MarketingLockBadge from './components/marketingLockBadge';
-import MarketingMarker from './components/marketingMarker';
-import MarketingStatusLabel from './components/marketingStatusLabel';
-import MarketingTab from './components/marketingTab';
-import { MarketingHeading1, MarketingHeading2 } from './components/marketingTypography';
-import Message from './components/message';
-import Overlay, { OverlayProps } from './components/overlay';
-import OverviewPage, { OverviewPageBody, OverviewPageHeader } from './components/overviewPage';
-import { LabelValuePair, LabelValuePairGroup } from './components/labelValuePair';
-import LoadingBar from './components/loadingBar';
-import LoadingSpinner from './components/loadingSpinner';
-import Pagination from './components/pagination';
-import Passport, { EmptyPassport } from './components/passport';
-import Popover from './components/popover';
-import PoweredByButton from './components/poweredByButton';
-import { RadioButton, RadioButtonProps, RadioGroup, RadioGroupProps } from './components/radio';
-import Section, { SectionProps } from './components/section';
-import Select, { AsyncSelect } from './components/select';
-import { Island, IslandGroup, IslandProps, IslandGroupProps } from './components/island';
-import SplitButton from './components/splitButton';
-import StatusLabel from './components/statusLabel';
-import { TitleTab, TabGroup } from './components/tab';
-import Tag from './components/tag';
-import Timer from './components/timer';
-import { Toast, ToastContainer } from './components/toast';
-import Toggle from './components/toggle';
 import ValidationText, {
   ErrorText,
   ErrorTextProps,
@@ -79,32 +85,26 @@ import ValidationText, {
   HelpTextProps,
   SuccessText,
   SuccessTextProps,
+  ValidationTextProps,
   WarningText,
   WarningTextProps,
-  ValidationTextProps,
 } from './components/validationText';
-import Label from './components/label';
-import Tooltip, { TooltipProps } from './components/tooltip';
-import ProgressTracker, { ProgressTrackerProps } from './components/progressTracker';
 import Widget from './components/widget';
 import WysiwygEditor, { WysiwygEditorProps } from './components/wysiwygEditor';
-import EmailSelector from './components/emailSelector';
-import Grid from './components/grid';
-import Flex from './components/flex';
 
 import {
   COLOR,
   COLORS,
-  TINTS,
   colorsWithout,
-  tintsWithout,
+  FULLSCREEN,
+  LARGE,
+  MEDIUM,
   SIZES,
   sizesWithout,
-  TINY,
   SMALL,
-  MEDIUM,
-  LARGE,
-  FULLSCREEN,
+  TINTS,
+  tintsWithout,
+  TINY,
 } from './constants';
 
 export {
@@ -228,8 +228,8 @@ export {
   Padding,
   MarketingDialog,
 };
-
 export type {
+  AsyncSelectProps,
   DataGridProps,
   ErrorTextProps,
   HelpTextProps,
@@ -243,7 +243,9 @@ export type {
   ProgressTrackerProps,
   RadioButtonProps,
   RadioGroupProps,
+  SelectProps,
   TooltipProps,
+  Option,
   IslandProps,
   IslandGroupProps,
   SectionProps,
