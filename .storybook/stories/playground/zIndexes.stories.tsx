@@ -14,6 +14,7 @@ import {
   Label,
   Link,
   MenuItem,
+  Option,
   Popover,
   Select,
   TextBody,
@@ -47,7 +48,9 @@ const customFormatDate = (date, locale) => {
   return DateTime.fromJSDate(date).setLocale(locale).toLocaleString(DateTime.DATETIME_HUGE);
 };
 
-const MyDatagrid = ({ ...props }) => (
+const MyDatagrid = ({ ...props }) => {
+  const [selectValue, setSelectValue] = useState<Option | null>(null);
+  return (
   <DataGrid selectable={false} comparableId={1} onSelectionChange={() => console.log('onSelectionChange')} {...props}>
     <DataGrid.HeaderRowOverlay>
       <Button size="small" level="primary" label="Marks as paid" />
@@ -56,7 +59,7 @@ const MyDatagrid = ({ ...props }) => (
         <Button size="small" label="Merge" />
       </ButtonGroup>
       <Button size="small" level="destructive" label="Delete" />
-      <Select options={options} marginHorizontal={3} size="small" flex="1" menuIsOpen />
+      <Select value={selectValue} onChange={setSelectValue} options={options} marginHorizontal={3} size="small" flex="1" menuIsOpen />
     </DataGrid.HeaderRowOverlay>
 
     <DataGrid.HeaderRow>
@@ -66,7 +69,7 @@ const MyDatagrid = ({ ...props }) => (
       <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} align="right">
         Amount
       </DataGrid.HeaderCell>
-      <DataGrid.HeaderCell flex="2" onClick={() => console.log('onClick: column sort')}>
+      <DataGrid.HeaderCell flex={2} onClick={() => console.log('onClick: column sort')}>
         Customer
       </DataGrid.HeaderCell>
       <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')}>Due date</DataGrid.HeaderCell>
@@ -84,7 +87,7 @@ const MyDatagrid = ({ ...props }) => (
             {' '}
             {`€ ${row.column3}`}
           </DataGrid.Cell>
-          <DataGrid.Cell flex="2">{row.column2}</DataGrid.Cell>
+          <DataGrid.Cell flex={2}>{row.column2}</DataGrid.Cell>
           <DataGrid.Cell soft>{row.column4}</DataGrid.Cell>
           <DataGrid.Cell align="right" flex="min-width" preventOverflow={false}>
             <IconMenu position="top-right">
@@ -103,7 +106,7 @@ const MyDatagrid = ({ ...props }) => (
       <DataGrid.Cell align="right" strong>
         € 13460.52
       </DataGrid.Cell>
-      <DataGrid.Cell flex="2" />
+      <DataGrid.Cell flex={2} />
       <DataGrid.Cell />
       <DataGrid.Cell flex="min-width" />
     </DataGrid.FooterRow>
@@ -116,7 +119,7 @@ const MyDatagrid = ({ ...props }) => (
       <DataGrid.Cell align="right" strong>
         € 2826.71
       </DataGrid.Cell>
-      <DataGrid.Cell flex="2" />
+      <DataGrid.Cell flex={2} />
       <DataGrid.Cell />
       <DataGrid.Cell flex="min-width" />
     </DataGrid.FooterRow>
@@ -129,18 +132,22 @@ const MyDatagrid = ({ ...props }) => (
       <DataGrid.Cell align="right" strong backgroundColor="white" border="around">
         € 16287.23
       </DataGrid.Cell>
-      <DataGrid.Cell flex="2" />
+      <DataGrid.Cell flex={2} />
       <DataGrid.Cell />
       <DataGrid.Cell flex="min-width" />
     </DataGrid.FooterRow>
   </DataGrid>
-);
+)
+};
 
 export const zIndexes = (args) => {
   const [popoverActive, setPopoverActive] = useState(false);
   const [popoverAnchorEl, setPopoverAnchorEl] = useState(undefined);
   const [dialogActive, setDialogActive] = useState(false);
   const [selectedDate, setSelectedDate] = useState(preSelectedDate);
+  const [selectValue1, setSelectValue1] = useState<Option | null>(null);
+  const [selectValue2, setSelectValue2] = useState<Option | null>(null);
+  const [selectValue3, setSelectValue3] = useState<Option | null>(null);
 
   const hidePopover = () => {
     setPopoverActive(false);
@@ -168,7 +175,7 @@ export const zIndexes = (args) => {
       <Box display="flex">
         <Label flex="1" marginRight={3}>
           Select your flavourite
-          <Select helpText="Please select your favorite flavour" options={options} marginBottom={3} />
+          <Select value={selectValue1} onChange={setSelectValue1} helpText="Please select your favorite flavour" options={options} marginBottom={3} />
         </Label>
       </Box>
       <Box display="flex">
@@ -207,7 +214,7 @@ export const zIndexes = (args) => {
           <Heading3 color="teal">I am a Popover</Heading3>
           <Label marginTop={3} marginBottom={0} required>
             Select your flavourite
-            <Select helpText="Please select your favorite flavour" options={options} />
+            <Select value={selectValue2} onChange={setSelectValue2} helpText="Please select your favorite flavour" options={options} />
           </Label>
         </Box>
       </Popover>
@@ -223,7 +230,7 @@ export const zIndexes = (args) => {
         <Box display="flex" marginTop={3}>
           <Label flex="1" marginBottom={0} marginRight={2} required>
             Select your flavourite
-            <Select helpText="Please select your favorite flavour" options={groupedOptions} />
+            <Select value={selectValue3} onChange={setSelectValue3} helpText="Please select your favorite flavour" options={groupedOptions} />
           </Label>
           <Label required flex="1" marginLeft={2}>
             Pick a date
