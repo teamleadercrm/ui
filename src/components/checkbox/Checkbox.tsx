@@ -1,7 +1,7 @@
 import { IconCheckmarkMediumOutline, IconCheckmarkSmallOutline, IconMinusSmallOutline } from '@teamleader/ui-icons';
 import cx from 'classnames';
 import omit from 'lodash.omit';
-import React, { ChangeEvent, forwardRef, ReactNode } from 'react';
+import React, { ChangeEvent, forwardRef, MouseEvent, ReactNode } from 'react';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import { TextBodyCompact, TextDisplay, TextSmall } from '../typography';
 import theme from './theme.css';
@@ -24,6 +24,8 @@ interface CheckboxProps extends Omit<BoxProps, 'onChange' | 'size'> {
   label?: string;
   /** Callback function that is fired when checkbox is toggled. */
   onChange?: (checked: boolean, event: ChangeEvent<HTMLInputElement>) => void;
+  /** Callback function that is fired when checkbox is clicked. */
+  onClick?: (event: MouseEvent) => void;
   /** Indicate whether the checkbox is neither checked or unchecked. */
   indeterminate?: boolean;
   /** Size of the checkbox. */
@@ -41,6 +43,7 @@ const Checkbox: GenericComponent<CheckboxProps> = forwardRef<HTMLInputElement, C
       children,
       indeterminate = false,
       onChange,
+      onClick,
       ...others
     },
     ref,
@@ -55,7 +58,7 @@ const Checkbox: GenericComponent<CheckboxProps> = forwardRef<HTMLInputElement, C
     const IconCheckmark = size === 'large' ? IconCheckmarkMediumOutline : IconCheckmarkSmallOutline;
 
     const restProps = omit(others, ['onChange']);
-    const boxProps = { ...pickBoxProps(restProps), onClick: restProps.onClick };
+    const boxProps = pickBoxProps(restProps);
     const inputProps = omitBoxProps(restProps);
 
     const classNames = cx(
@@ -69,7 +72,7 @@ const Checkbox: GenericComponent<CheckboxProps> = forwardRef<HTMLInputElement, C
     );
 
     return (
-      <Box element="label" data-teamleader-ui="checkbox" className={classNames} {...boxProps}>
+      <Box element="label" data-teamleader-ui="checkbox" className={classNames} onClick={onClick} {...boxProps}>
         <input
           className={theme['input']}
           type="checkbox"
