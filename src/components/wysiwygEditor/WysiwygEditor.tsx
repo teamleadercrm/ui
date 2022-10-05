@@ -1,24 +1,30 @@
-import React, { useState, useRef, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { Editor } from 'react-draft-wysiwyg';
-import cx from 'classnames';
 import {
+  IconLinkMediumOutline,
+  IconListMediumOutline,
+  IconListNumeredMediumOutline,
   IconTextBoldMediumOutline,
   IconTextItalicMediumOutline,
-  IconListNumeredMediumOutline,
-  IconListMediumOutline,
-  IconLinkMediumOutline,
 } from '@teamleader/ui-icons';
+import cx from 'classnames';
+import React, { ReactNode, useEffect, useRef, useState } from 'react';
+import { Editor, RawDraftContentState } from 'react-draft-wysiwyg';
 
 import Box, { pickBoxProps } from '../box';
 import ValidationText from '../validationText';
 
-import InlineStylingOptions from './InlineStylingOptions';
-import ListStylingOptions from './ListStylingOptions';
-import LinkOptions from './LinkOptions';
+import { GenericComponent } from '../../@types/types';
+import { BoxProps } from '../box/Box';
 import { linkDecorator } from './decorators';
+import InlineStylingOptions from './InlineStylingOptions';
+import LinkOptions from './LinkOptions';
+import ListStylingOptions from './ListStylingOptions';
 import theme from './theme.css';
 import translations from './translations';
+
+// Editor interface is poorly typed from dependency right now, so we try to extend it
+interface EditorType extends Editor {
+  wrapper?: any;
+}
 
 const toolbar = {
   options: ['inline', 'list', 'link'],
@@ -51,9 +57,37 @@ const customStyleMap = {
 };
 
 const availableLocales = ['en', 'es', 'it', 'nl', 'fr', 'de'];
+export interface WysiwygEditorProps extends Omit<BoxProps, 'className'> {
+  className?: string;
+  /** The text string/element to use as error message below the input. */
+  error?: ReactNode;
+  /** The text string to use as help text below the input. */
+  helpText?: string;
+  /** The text string/element to use as a prefix inside the input field */
+  success?: ReactNode;
+  /** The text string/element to use as a suffix inside the input field */
+  warning?: ReactNode;
+  /** A custom width for the editor field */
+  width?: string;
+  /** Locale key for the language you want the editor to be displayed in. */
+  locale?: string;
+  /** Classname for the WysiwygEditor's input element */
+  inputClassName?: string;
+  /** Determines if the editor should be autofocussed on render */
+  autoFocus?: boolean;
+  /** Callback function for focussing on anything in the editor */
+  onFocus?: React.FocusEventHandler<EditorType>;
+  /** Callback function for blurring anything in the editor */
+  onBlur?: React.FocusEventHandler;
+  /** Callback function for focussing on the input field of the editor */
+  onInputFocus?: React.FocusEventHandler;
+  /** Callback function for blurring the input field of the editor */
+  onInputBlur?: React.FocusEventHandler;
+  /** Callback function for keydown in the input field of the editor */
+  onKeyDown?: React.KeyboardEventHandler;
+}
 
-/** @type {React.ComponentType<any>} */
-const WysiwygEditor = ({
+const WysiwygEditor: GenericComponent<WysiwygEditorProps> = ({
   className,
   error,
   onInputFocus,
@@ -72,11 +106,10 @@ const WysiwygEditor = ({
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [isPlaceholderShown, setIsPlaceholderShown] = useState(true);
-  const editorRef = useRef();
+  const editorRef = useRef<EditorType>(null);
 
   useEffect(() => {
     if (autoFocus) {
-      // eslint-disable-next-line no-unused-expressions
       editorRef?.current?.focusEditor();
     }
   }, [autoFocus]);
@@ -86,19 +119,19 @@ const WysiwygEditor = ({
       return;
     }
 
-    const handleKeyDown = (event) => onKeyDown(event);
+    const handleKeyDown = (event: React.KeyboardEvent) => onKeyDown(event);
 
     editorRef.current.wrapper.addEventListener('keydown', handleKeyDown);
 
     return () => {
-      if (!onKeyDown && !editorRef?.current?.wrapper) {
+      if (!onKeyDown || !editorRef?.current?.wrapper) {
         return;
       }
       editorRef.current.wrapper.removeEventListener('keydown', handleKeyDown);
     };
   }, []);
 
-  const handleBlur = (event) => {
+  const handleBlur = (event: React.FocusEvent<any, any>) => {
     const editorInput = document.querySelector("[aria-label='rdw-editor']");
     // Only blur when editorInput is blurred and the newly focussed target is not part of the wysiwyg
     if (event.target === editorInput && !event.relatedTarget?.dataset?.wysiwyg) {
@@ -111,11 +144,11 @@ const WysiwygEditor = ({
     }
   };
 
-  const handleFocus = (event) => {
+  const handleFocus = (event: React.FocusEvent<any, any>) => {
     const editorInput = document.querySelector("[aria-label='rdw-editor']");
 
     // Only focus when focussed target is part of the wysiwyg and the editor isn't focussed yet
-    if ((event.target.dataset.wysiwyg || event.target === editorInput) && !isFocused) {
+    if ((event.target.dataset?.wysiwyg || event.target === editorInput) && !isFocused) {
       setIsFocused(true);
       onFocus && onFocus(event);
     }
@@ -125,7 +158,7 @@ const WysiwygEditor = ({
     }
   };
 
-  const handleContentStateChange = ({ blocks: [{ type }] }) => {
+  const handleContentStateChange = ({ blocks: [{ type }] }: RawDraftContentState) => {
     if (type === 'unstyled') {
       setIsPlaceholderShown(true);
       return;
@@ -178,35 +211,6 @@ const WysiwygEditor = ({
       <ValidationText error={error} help={helpText} success={success} warning={warning} />
     </Box>
   );
-};
-
-WysiwygEditor.propTypes = {
-  /** The text string/element to use as error message below the input. */
-  error: PropTypes.oneOfType([PropTypes.bool, PropTypes.node]),
-  /** The text string to use as help text below the input. */
-  helpText: PropTypes.string,
-  /** The text string/element to use as a prefix inside the input field */
-  success: PropTypes.oneOfType([PropTypes.bool, PropTypes.node]),
-  /** The text string/element to use as a suffix inside the input field */
-  warning: PropTypes.oneOfType([PropTypes.bool, PropTypes.node]),
-  /** A custom width for the editor field */
-  width: PropTypes.string,
-  /** Locale key for the language you want the editor to be displayed in. */
-  locale: PropTypes.string,
-  /** Classname for the WysiwygEditor's input element */
-  inputClassName: PropTypes.string,
-  /** Determines if the editor should be autofocussed on render */
-  autoFocus: PropTypes.bool,
-  /** Callback function for focussing on anything in the editor */
-  onFocus: PropTypes.func,
-  /** Callback function for blurring anything in the editor */
-  onBlur: PropTypes.func,
-  /** Callback function for focussing on the input field of the editor */
-  onEditorFocus: PropTypes.func,
-  /** Callback function for blurring the input field of the editor */
-  onEditorBlur: PropTypes.func,
-  /** Callback function for keydown in the input field of the editor */
-  onKeyDown: PropTypes.func,
 };
 
 export default WysiwygEditor;
