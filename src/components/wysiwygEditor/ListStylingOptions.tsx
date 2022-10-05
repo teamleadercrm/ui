@@ -1,13 +1,30 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
+import { GenericComponent } from '../../@types/types';
 import Box from '../box';
 import IconButton from '../iconButton';
 import Tooltip from '../tooltip';
 import { TextSmall } from '../typography';
 
 const TooltippedIconButton = Tooltip(IconButton);
-
-const ListStylingOptions = ({
+interface ListStylingOptionsProps {
+  config: {
+    options: string[];
+    unordered: {
+      icon: ReactNode;
+    };
+    ordered: {
+      icon: ReactNode;
+    };
+    defaultTargetOption: string;
+  };
+  currentState: {
+    listType: string;
+  };
+  onChange: (value: string) => void;
+  translations: Record<string, string>;
+}
+const ListStylingOptions: GenericComponent<ListStylingOptionsProps> = ({
   config: {
     options,
     unordered: { icon: unorderedIcon },
@@ -17,7 +34,7 @@ const ListStylingOptions = ({
   onChange,
   translations,
 }) => {
-  const iconsByOptionType = {
+  const iconsByOptionType: Record<string, ReactNode> = {
     unordered: unorderedIcon,
     ordered: orderedIcon,
   };
@@ -31,7 +48,7 @@ const ListStylingOptions = ({
           tooltipSize="small"
           tooltipShowDelay={1000}
           icon={iconsByOptionType[optionType]}
-          color="black"
+          color="teal"
           key={optionType}
           onClick={() => onChange(optionType)}
           selected={currentState.listType === optionType}
