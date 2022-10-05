@@ -87,7 +87,7 @@ import Label from './components/label';
 import Tooltip, { TooltipProps } from './components/tooltip';
 import ProgressTracker, { ProgressTrackerProps } from './components/progressTracker';
 import Widget from './components/widget';
-import WysiwygEditor from './components/wysiwygEditor';
+import WysiwygEditor, { WysiwygEditorProps } from './components/wysiwygEditor';
 import EmailSelector from './components/emailSelector';
 import Grid from './components/grid';
 import Flex from './components/flex';
@@ -248,4 +248,5 @@ export type {
   IslandGroupProps,
   SectionProps,
   BannerProps,
+  WysiwygEditorProps,
 };
