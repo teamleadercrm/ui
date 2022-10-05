@@ -50,8 +50,8 @@ const boxProps = [
   'textAlign',
 ];
 
-const omitBoxProps = (props) => omit(props, boxProps);
-const pickBoxProps = (props) => pick(props, boxProps);
+const omitBoxProps = (props: Record<string, any>) => omit(props, boxProps);
+const pickBoxProps = (props: Record<string, any>) => pick(props, boxProps);
 
 export default boxProps;
 export { omitBoxProps, pickBoxProps };
