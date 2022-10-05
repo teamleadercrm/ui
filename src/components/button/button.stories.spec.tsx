@@ -1,14 +1,14 @@
-import React from 'react';
 import { IconAddMediumOutline, IconAddSmallOutline } from '@teamleader/ui-icons';
+import React, { ReactNode } from 'react';
 
-import Button from './Button';
+import Button, { AllowedButtonColor, BUTTON_LEVELS } from './Button';
 
 export default {
   component: Button,
   title: Button.displayName,
 };
 
-const Wrapper = ({ children, inverse = false }) => (
+const Wrapper = ({ children, inverse = false }: { children: ReactNode; inverse?: boolean }) => (
   <div
     style={{ minHeight: '50px', padding: '6px', display: 'flex', backgroundColor: inverse ? 'black' : 'transparent' }}
   >
@@ -17,9 +17,18 @@ const Wrapper = ({ children, inverse = false }) => (
 );
 const Spacer = () => <div style={{ width: '12px' }} />;
 
+const levelList: BUTTON_LEVELS[] = [
+  BUTTON_LEVELS.primary,
+  BUTTON_LEVELS.secondary,
+  BUTTON_LEVELS.destructive,
+  BUTTON_LEVELS.timer,
+];
+
+const colorList: AllowedButtonColor[] = ['teal', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'white'];
+
 export const ButtonLevels = () => (
   <div>
-    {['primary', 'secondary', 'destructive', 'timer'].map((level) => (
+    {levelList.map((level) => (
       <Wrapper key={level}>
         <Button level={level}>{level}</Button>
         <Spacer />
@@ -44,7 +53,7 @@ export const ButtonLevels = () => (
         link active
       </Button>
     </Wrapper>
-    {['teal', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'white'].map((color) => (
+    {colorList.map((color) => (
       <Wrapper key={color} inverse={color === 'white'}>
         <Button level="outline" color={color}>
           outline {color}
@@ -64,7 +73,7 @@ export const ButtonLevels = () => (
 
 export const ButtonSizes = () => (
   <div>
-    {['primary', 'secondary', 'destructive', 'link', 'timer'].map((level) => (
+    {levelList.map((level) => (
       <React.Fragment key={level}>
         <Wrapper>
           <Button level={level} size="tiny">
@@ -110,7 +119,7 @@ export const ButtonSizes = () => (
 
 export const ButtonWithIcons = () => (
   <div>
-    {['primary', 'secondary', 'destructive', 'link', 'timer'].map((level) => (
+    {levelList.map((level) => (
       <React.Fragment key={level}>
         <Wrapper>
           <Button level={level} size="tiny" icon={<IconAddSmallOutline />}>

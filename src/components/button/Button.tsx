@@ -23,6 +23,7 @@ const textComponentMap = {
   medium: UITextBody,
   large: UITextDisplay,
 };
+export type AllowedButtonColor = typeof COLORS[number] | 'white';
 
 export interface ButtonProps extends Omit<BoxProps, 'size'> {
   /** The content to display inside the button. */
@@ -30,7 +31,7 @@ export interface ButtonProps extends Omit<BoxProps, 'size'> {
   /** A class name for the button to give custom styles. */
   className?: string;
   /** The color which the button should have when 'level' is set to 'outline' */
-  color?: typeof COLORS[number] | 'white';
+  color?: AllowedButtonColor;
   /** A custom element to be rendered */
   element?: any;
   /** If true, component will be disabled. */
