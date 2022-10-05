@@ -1,6 +1,6 @@
 import React from 'react';
+import { Box, Button, ButtonGroup, Input, Label, NumericInput, Textarea } from '../../../src';
 import { addStoryInGroup, PLAYGROUND } from '../../utils';
-import { Box, Button, ButtonGroup, Input, NumericInput, Label, Textarea } from '../../../src';
 
 export default {
   title: addStoryInGroup(PLAYGROUND, 'Forms'),
@@ -14,20 +14,20 @@ export default {
 };
 
 export const forms = () => {
-  const inputRef = React.createRef();
-  const numericInputRef = React.createRef();
-  const textareaRef = React.createRef();
+  const inputRef = React.createRef<HTMLElement>();
+  const numericInputRef = React.createRef<HTMLElement>();
+  const textareaRef = React.createRef<HTMLElement>();
 
   const focusOnInput = () => {
-    inputRef.current.focus();
+    inputRef.current?.focus();
   };
 
   const focusOnNumericInput = () => {
-    numericInputRef.current.focus();
+    numericInputRef.current?.focus();
   };
 
   const focusOnTextarea = () => {
-    textareaRef.current.focus();
+    textareaRef.current?.focus();
   };
 
   return (
