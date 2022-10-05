@@ -17,12 +17,7 @@ const Wrapper = ({ children, inverse = false }: { children: ReactNode; inverse?:
 );
 const Spacer = () => <div style={{ width: '12px' }} />;
 
-const levelList: BUTTON_LEVELS[] = [
-  BUTTON_LEVELS.primary,
-  BUTTON_LEVELS.secondary,
-  BUTTON_LEVELS.destructive,
-  BUTTON_LEVELS.timer,
-];
+const levelList = Object.values(BUTTON_LEVELS);
 
 const colorList: AllowedButtonColor[] = ['teal', 'neutral', 'mint', 'violet', 'ruby', 'gold', 'aqua', 'white'];
 
