@@ -1,3 +1,5 @@
+import uiUtilities from '@teamleader/ui-utilities';
+import cx from 'classnames';
 import React, {
   ReactElement,
   ReactNode,
@@ -8,15 +10,13 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import cx from 'classnames';
+import { GenericComponent } from '../../@types/types';
+import Box, { pickBoxProps } from '../box';
+import { BoxProps } from '../box/Box';
 import { events } from '../utils';
 import { getViewport } from '../utils/utils';
-import Box, { pickBoxProps } from '../box';
 import MenuItem from './MenuItem';
 import theme from './theme.css';
-import uiUtilities from '@teamleader/ui-utilities';
-import { BoxProps } from '../box/Box';
-import { GenericComponent } from '../../@types/types';
 
 const POSITION: Record<string, 'auto' | 'static' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right'> = {
   AUTO: 'auto',
@@ -83,7 +83,7 @@ const Menu: GenericComponent<MenuProps> = ({
     [uiUtilities['box-shadow-200']]: position !== POSITION.STATIC,
   });
 
-  const handleDocumentClick = (event: SyntheticEvent) => {
+  const handleDocumentClick = (event: Event) => {
     if (active && !events.targetIsDescendant(event, menuWrapper.current)) {
       // eslint-disable-next-line @typescript-eslint/no-use-before-define
       hide();
