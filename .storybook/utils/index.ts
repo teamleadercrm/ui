@@ -7,4 +7,4 @@ export const COMPOSITIONS = 'Compositions';
 export const MARKETING = 'Marketing';
 export const PLAYGROUND = 'Playground';
 
-export const addStoryInGroup = (groupTitle, storyTitle) => `${groupTitle} / ${storyTitle}`;
+export const addStoryInGroup = (groupTitle: string, storyTitle: string) => `${groupTitle} / ${storyTitle}`;
