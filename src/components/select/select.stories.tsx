@@ -36,7 +36,6 @@ const CustomOption = ({ children, data, innerProps, isFocused, isSelected, isDis
   const textStyles = {
     color: isDisabled ? '#c0c0c4' : isSelected && !isFocused ? '#fff' : '#344b63',
   };
-  // @ts-ignore
   const avatar = data.avatar;
   return (
     <Box
@@ -82,6 +81,7 @@ basic.args = {
   size: 'medium',
   menuWidth: undefined,
   menuHorizontalOffset: undefined,
+  inverse: true,
 };
 
 export const grouped = () => <Select value={null} options={groupedOptions} onChange={() => null} />;
