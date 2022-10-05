@@ -1,19 +1,34 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { AnchorHTMLAttributes, ChangeEventHandler, ReactNode, useEffect, useRef, useState } from 'react';
 
+import { GenericComponent } from '../../@types/types';
 import Box from '../box';
-import IconButton from '../iconButton';
-import Popover from '../popover';
-import Label from '../label';
-import Input from '../input';
 import Button from '../button';
+import IconButton from '../iconButton';
+import Input from '../input';
+import Label from '../label';
+import Popover from '../popover';
 import Tooltip from '../tooltip';
 import { TextSmall } from '../typography';
 
 const TooltippedIconButton = Tooltip(IconButton);
 
-const LinkOptions = ({
+interface LinkOptionsProps {
   config: {
-    options,
+    link: {
+      icon: ReactNode;
+    };
+    defaultTargetOption: string;
+  };
+  currentState: {
+    selectionText: string;
+    link: AnchorHTMLAttributes<HTMLElement>;
+  };
+  onChange: (type: string, text: string, link: string | undefined, target: string) => void;
+  translations: Record<string, string>;
+}
+
+const LinkOptions: GenericComponent<LinkOptionsProps> = ({
+  config: {
     link: { icon: linkIcon },
     defaultTargetOption,
   },
@@ -22,7 +37,7 @@ const LinkOptions = ({
   translations,
 }) => {
   const [isPopoverShown, setIsPopoverShown] = useState(false);
-  const iconButtonRef = useRef();
+  const iconButtonRef = useRef<HTMLElement>(null);
   const [textValue, setTextValue] = useState(link?.title || selectionText);
   const [linkValue, setLinkValue] = useState(link?.target);
 
@@ -32,7 +47,8 @@ const LinkOptions = ({
   }, [link?.target, selectionText]);
 
   const focusEditor = () => {
-    document.querySelector("[aria-label='rdw-editor']").focus();
+    const editorElement: HTMLElement | null = document.querySelector("[aria-label='rdw-editor']");
+    editorElement?.focus && editorElement.focus();
   };
 
   const handleOpenPopoverClick = () => {
@@ -44,18 +60,22 @@ const LinkOptions = ({
     focusEditor();
   };
 
-  const onTextChange = ({ currentTarget: { value: newText } }) => {
+  const onTextChange: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement> = ({
+    currentTarget: { value: newText },
+  }) => {
     setTextValue(newText);
   };
 
-  const onLinkChange = ({ currentTarget: { value: newLink } }) => {
+  const onLinkChange: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement> = ({
+    currentTarget: { value: newLink },
+  }) => {
     setLinkValue(newLink);
   };
 
   const handleAddLinkClick = async () => {
-    await onChange('link', textValue, linkValue, defaultTargetOption);
-    await setIsPopoverShown(false);
-    await focusEditor();
+    onChange('link', textValue, linkValue, defaultTargetOption);
+    setIsPopoverShown(false);
+    focusEditor();
   };
 
   return (
@@ -67,7 +87,7 @@ const LinkOptions = ({
           tooltipSize="small"
           tooltipShowDelay={1000}
           icon={linkIcon}
-          color="black"
+          color="teal"
           key="link"
           onClick={handleOpenPopoverClick}
           selected={!!link || isPopoverShown}
@@ -80,7 +100,7 @@ const LinkOptions = ({
         backdrop="transparent"
         onEscKeyDown={handleClosePopoverClick}
         onOverlayClick={handleClosePopoverClick}
-        minWidth={276}
+        minWidth="276px"
         maxWidth="100%"
         zIndex={404}
       >
