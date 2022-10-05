@@ -17,6 +17,7 @@ import ReactSelect, {
 import ReactCreatableSelect from 'react-select/creatable';
 import SelectType from 'react-select/dist/declarations/src/Select';
 import { ActionMeta, OptionsOrGroups } from '../../../node_modules/react-select/dist/declarations/src/types';
+import { GenericComponent } from '../../@types/types';
 import { COLOR, SIZES } from '../../constants';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import { BoxProps } from '../box/Box';
@@ -126,6 +127,7 @@ selectOverlayNode.setAttribute('data-teamleader-ui', 'select-overlay');
 const activeSelects = new Set();
 
 function Select<Option extends OptionType, IsMulti extends boolean, IsClearable extends boolean>(
+  this: GenericComponent<SelectProps>,
   {
     components,
     creatable = false,
@@ -145,7 +147,6 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
   ref: ForwardedRef<SelectType<Option, IsMulti>>,
 ) {
   useEffect(() => {
-    // @ts-ignore implicit type of any, nothing to do here about it
     activeSelects.add(this);
     const isOverlayMounted = document.contains(selectOverlayNode);
     if (!isOverlayMounted) {
@@ -156,7 +157,6 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
       if (isLastSelect) {
         document.body.removeChild(selectOverlayNode);
       }
-      // @ts-ignore implicit type of any, nothing to do here about it
       activeSelects.delete(this);
     };
   }, []);
