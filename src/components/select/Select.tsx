@@ -41,7 +41,7 @@ export interface BaseSelectProps<
   Option extends OptionType = OptionType,
   IsMulti extends boolean = false,
   IsClearable extends boolean = false,
-> extends Omit<Props<Option, IsMulti>, 'onChange' | 'isClearable' | 'value'>,
+> extends Omit<Props<Option, IsMulti>, 'onChange' | 'isClearable' | 'value' | 'isMulti'>,
     Omit<BoxProps, 'className'> {
   /** Override default components with your own. Pass an object with correct the key and its replacing component */
   components?: Props<Option, IsMulti>['components'];
@@ -65,16 +65,21 @@ export interface BaseSelectProps<
   success?: ReactNode;
   /** Selected option value(s) */
   value: IsMulti extends true ? Option[] : Option | null;
+  /** Callback function that is fired when the option is selected or cleared. */
   onChange: (
     newValue: IsMulti extends true ? Option[] : IsClearable extends true ? Option | null : Option,
     actionMeta?: ActionMeta<Option>,
   ) => void;
+  /** List of  options */
   options?: OptionsOrGroups<Option, GroupBase<Option>>;
   /** The text to use as warning message below the input. */
   warning?: ReactNode;
   /** A custom width for the input field */
   width?: string;
+  /** If true, it's possible to clear selected option. */
   isClearable?: IsClearable;
+  /** If true, it's possible to have multiple selected options. */
+  isMulti?: IsMulti;
 }
 
 export interface SelectProps<
