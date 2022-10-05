@@ -71,7 +71,7 @@ const loadOptions = (searchTerm: string, pageSize = 10, pageNumber = 1) => {
 export const basic: ComponentStory<typeof Select> = (args) => <Select {...args} />;
 
 basic.args = {
-  clearable: false,
+  isClearable: false,
   isDisabled: false,
   isMulti: false,
   isSearchable: false,

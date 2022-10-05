@@ -1,7 +1,6 @@
 import { IconChevronDownSmallOutline, IconCloseBadgedSmallFilled } from '@teamleader/ui-icons';
 import uiUtilities from '@teamleader/ui-utilities';
 import cx from 'classnames';
-import omit from 'lodash.omit';
 import React, { ForwardedRef, forwardRef, ReactNode, useEffect } from 'react';
 import ReactSelect, {
   ClearIndicatorProps,
@@ -74,7 +73,7 @@ export interface BaseSelectProps<
   warning?: ReactNode;
   /** A custom width for the input field */
   width?: string;
-  clearable?: IsClearable;
+  isClearable?: IsClearable;
 }
 
 export interface SelectProps<
@@ -443,7 +442,7 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
   });
 
   const boxProps = pickBoxProps(otherProps);
-  const restProps = omit(omitBoxProps(otherProps), 'isClearable');
+  const restProps = omitBoxProps(otherProps);
 
   const wrapperClassnames = cx(theme[`is-${size}`], {
     [theme['has-error']]: error,
