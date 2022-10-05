@@ -25,7 +25,14 @@ export default {
   },
 } as Meta<typeof Select>;
 
-const CustomOption = ({ children, data, innerProps, isFocused, isSelected, isDisabled }: OptionProps<Option>) => {
+const CustomOption = ({
+  children,
+  data,
+  innerProps,
+  isFocused,
+  isSelected,
+  isDisabled,
+}: OptionProps<Option, false>) => {
   const boxStyles = {
     backgroundColor: isFocused ? '#e4e4e6' : isSelected ? '#82828c' : '#fff',
     '&:active': {
@@ -84,18 +91,22 @@ basic.args = {
   inverse: false,
 };
 
-export const grouped = () => <Select value={null} options={groupedOptions} onChange={() => null} />;
-
-export const customOption = () => (
-  <Select value={null} components={{ Option: CustomOption }} options={customOptions} onChange={() => null} />
-);
-
-export const async = () => (
-  <AsyncSelect value={null} loadOptions={loadOptions} cacheOptions paginate pageSize={10} onChange={() => null} />
-);
-
-export const test: ComponentStory<typeof Select> = () => {
+export const grouped: ComponentStory<typeof Select> = () => {
   const [value, setValue] = useState<Option | null>(null);
-  const handleChange = (opt: Option) => setValue(opt);
-  return <Select options={options as Option[]} onChange={handleChange} value={value} />;
+  const handleChange = (option: Option) => setValue(option);
+  return <Select value={value} options={groupedOptions} onChange={handleChange} />;
+};
+
+export const customOption: ComponentStory<typeof Select> = () => {
+  const [value, setValue] = useState<Option | null>(null);
+  const handleChange = (option: Option) => setValue(option);
+  return <Select value={value} components={{ Option: CustomOption }} options={customOptions} onChange={handleChange} />;
+};
+
+export const async: ComponentStory<typeof AsyncSelect> = () => {
+  const [value, setValue] = useState<Option | null>(null);
+  const handleChange = (option: Option) => setValue(option);
+  return (
+    <AsyncSelect value={value} loadOptions={loadOptions} cacheOptions paginate pageSize={10} onChange={handleChange} />
+  );
 };
