@@ -2,13 +2,14 @@ import { IconCheckmarkMediumOutline, IconCheckmarkSmallOutline, IconMinusSmallOu
 import cx from 'classnames';
 import omit from 'lodash.omit';
 import React, { ChangeEvent, forwardRef, MouseEvent, ReactNode } from 'react';
-import Box, { omitBoxProps, pickBoxProps } from '../box';
-import { TextBodyCompact, TextDisplay, TextSmall } from '../typography';
-import theme from './theme.css';
-import { BoxProps } from '../box/Box';
 import { GenericComponent } from '../../@types/types';
 import { SIZES } from '../../constants';
+import Box, { omitBoxProps, pickBoxProps } from '../box';
+import { BoxProps } from '../box/Box';
+import { TextBodyCompact, TextDisplay, TextSmall } from '../typography';
+import theme from './theme.css';
 
+export type AllowedCheckboxSize = Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
 interface CheckboxProps extends Omit<BoxProps, 'onChange' | 'size'> {
   /** If true, the checkbox will be checked. */
   checked?: boolean;
@@ -29,7 +30,7 @@ interface CheckboxProps extends Omit<BoxProps, 'onChange' | 'size'> {
   /** Indicate whether the checkbox is neither checked or unchecked. */
   indeterminate?: boolean;
   /** Size of the checkbox. */
-  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
+  size?: AllowedCheckboxSize;
 }
 
 const Checkbox: GenericComponent<CheckboxProps> = forwardRef<HTMLInputElement, CheckboxProps>(

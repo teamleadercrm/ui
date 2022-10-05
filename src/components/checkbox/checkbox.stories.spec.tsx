@@ -1,17 +1,20 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
-import Checkbox from './Checkbox';
+import Checkbox, { AllowedCheckboxSize } from './Checkbox';
 
 export default {
   component: Checkbox,
   title: 'Checkbox',
 };
 
-const Wrapper = ({ children }) => <div style={{ minHeight: '60px', display: 'flex' }}>{children}</div>;
+const Wrapper = ({ children }: { children: ReactNode }) => (
+  <div style={{ minHeight: '60px', display: 'flex' }}>{children}</div>
+);
 
+const sizeList: AllowedCheckboxSize[] = ['small', 'medium', 'large'];
 export const Main = () => (
   <div>
-    {['small', 'medium', 'large'].map((size) => (
+    {sizeList.map((size) => (
       <Wrapper key={size}>
         <Checkbox size={size} marginRight={2} />
         <Checkbox size={size} marginRight={2} checked />
