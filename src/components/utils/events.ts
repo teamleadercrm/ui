@@ -1,7 +1,7 @@
 import { MouseEvent, TouchEvent } from 'react';
 
-interface OurDocumentEventMap extends Partial<Record<keyof DocumentEventMap, (event: Event) => void>> {}
-interface OurWindowEventMap extends Partial<Record<keyof WindowEventMap, (event: Event) => void>> {}
+export interface OurDocumentEventMap extends Partial<Record<keyof DocumentEventMap, (event: Event) => void>> {}
+export interface OurWindowEventMap extends Partial<Record<keyof WindowEventMap, (event: Event) => void>> {}
 const TRANSITIONS: Record<string, string> = {
   transition: 'transitionend',
   OTransition: 'oTransitionEnd',
