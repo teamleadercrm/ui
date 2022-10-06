@@ -64,7 +64,7 @@ export interface BaseSelectProps<
   /** The text string/element to use as success message below the input. */
   success?: ReactNode;
   /** Selected option value(s) */
-  value: IsMulti extends true ? Option[] : Option | null;
+  value?: IsMulti extends true ? Option[] : Option | null;
   /** Callback function that is fired when the option is selected or cleared. */
   onChange: (
     newValue: IsMulti extends true ? Option[] : IsClearable extends true ? Option | null : Option,

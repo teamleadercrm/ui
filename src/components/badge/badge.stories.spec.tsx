@@ -1,19 +1,23 @@
-import React from 'react';
-import { IconBuildingSmallOutline, IconBuildingMediumOutline } from '@teamleader/ui-icons';
+import { IconBuildingMediumOutline, IconBuildingSmallOutline } from '@teamleader/ui-icons';
+import React, { ReactNode } from 'react';
 
-import Badge from './Badge';
+import Badge, { AllowedBadgeSize } from './Badge';
 
 export default {
   component: Badge,
   title: 'Badge',
 };
 
-const Wrapper = ({ children }) => <div style={{ minHeight: '50px', padding: '6px', display: 'flex' }}>{children}</div>;
+const Wrapper = ({ children }: { children: ReactNode }) => (
+  <div style={{ minHeight: '50px', padding: '6px', display: 'flex' }}>{children}</div>
+);
 const Spacer = () => <div style={{ width: '12px' }} />;
+
+const sizeList: AllowedBadgeSize[] = ['small', 'medium', 'large'];
 
 export const Main = () => (
   <div>
-    {['small', 'medium', 'large'].map((size) => (
+    {sizeList.map((size) => (
       <Wrapper key={size}>
         <Badge size={size}>{size}</Badge>
         <Spacer />

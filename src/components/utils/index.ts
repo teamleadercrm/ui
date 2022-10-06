@@ -1,4 +1,4 @@
-import events from './events.js';
+import events from './events';
 // import prefixer from './prefixer.js';
 // import time from './time.js';
 

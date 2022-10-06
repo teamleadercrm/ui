@@ -60,7 +60,7 @@ $ PORT=3001 yarn start
 
 - component is written in Typescript
 - [component].stories.tsx file is present
-- component is exported in index.js
+- component is exported in index.ts
 
 ## How to make a release
 

@@ -1,4 +1,4 @@
-const KEY = {
+const KEY: Record<string, string> = {
   ArrowUp: 'ArrowUp',
   ArrowDown: 'ArrowDown',
   Enter: 'Enter',

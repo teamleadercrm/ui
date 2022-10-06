@@ -1,18 +1,22 @@
-import React from 'react';
+import React, { MouseEvent, ReactNode } from 'react';
 import Box, { pickBoxProps } from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
-import { BoxProps } from '../box/Box';
+import { BoxProps, Padding } from '../box/Box';
 import { GenericComponent } from '../../@types/types';
 import { COLORS, SIZES } from '../../constants';
 
-const PADDING = {
+const PADDING: Record<string, Padding> = {
   small: 3,
   medium: 4,
   large: 5,
 };
 
 export interface IslandProps extends Omit<BoxProps, 'size'> {
+  /** Callback function that is fired when Island is clicked. */
+  onClick?: (event: MouseEvent) => void;
+  /** The content to display in Island. */
+  children?: ReactNode;
   /** A class name for the button to give custom styles. */
   className?: string;
   /** The color for the Island background and border */

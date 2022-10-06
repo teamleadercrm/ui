@@ -1,5 +1,5 @@
-const chromaticTestStories = ['../src/**/*.stories.spec.@(js|tsx|mdx)'];
-const storybookStories = ['./**/*.stories.@(js|tsx|mdx)', '../src/**/*.stories.@(js|tsx|mdx)'];
+const chromaticTestStories = ['../src/**/*.stories.spec.@(tsx|mdx)'];
+const storybookStories = ['./**/*.stories.@(tsx|mdx)', '../src/**/*.stories.@(tsx|mdx)'];
 
 module.exports = {
   stories: process.env.CHROMATIC ? chromaticTestStories : storybookStories,

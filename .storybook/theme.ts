@@ -1,6 +1,6 @@
 import { create } from '@storybook/theming';
 import { COLOR } from '../src/constants';
-import pkg from '../package';
+import pkg from '../package.json';
 
 const theme = create({
   base: 'light',
