@@ -73,9 +73,10 @@ const LinkOptions: GenericComponent<LinkOptionsProps> = ({
   };
 
   const handleAddLinkClick = async () => {
-    onChange('link', textValue, linkValue, defaultTargetOption);
-    setIsPopoverShown(false);
-    focusEditor();
+    // awaits need to be here, otherwise saving doesn't work
+    await onChange('link', textValue, linkValue, defaultTargetOption);
+    await setIsPopoverShown(false);
+    await focusEditor();
   };
 
   return (
