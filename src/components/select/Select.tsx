@@ -3,12 +3,14 @@ import uiUtilities from '@teamleader/ui-utilities';
 import cx from 'classnames';
 import React, { ForwardedRef, forwardRef, ReactNode, useEffect } from 'react';
 import ReactSelect, {
+  ActionMeta,
   ClearIndicatorProps,
   ControlProps,
   CSSObjectWithLabel,
   DropdownIndicatorProps,
   GroupBase,
   OptionProps,
+  OptionsOrGroups,
   PlaceholderProps,
   Props,
   StylesConfig,
@@ -16,7 +18,6 @@ import ReactSelect, {
 } from 'react-select';
 import ReactCreatableSelect from 'react-select/creatable';
 import SelectType from 'react-select/dist/declarations/src/Select';
-import { ActionMeta, OptionsOrGroups } from '../../../node_modules/react-select/dist/declarations/src/types';
 import { GenericComponent } from '../../@types/types';
 import { COLOR, SIZES } from '../../constants';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
