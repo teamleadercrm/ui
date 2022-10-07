@@ -90,7 +90,7 @@ import ValidationText, {
   WarningTextProps,
 } from './components/validationText';
 import Widget from './components/widget';
-import WysiwygEditor from './components/wysiwygEditor';
+import WysiwygEditor, { WysiwygEditorProps } from './components/wysiwygEditor';
 
 import {
   COLOR,
@@ -250,4 +250,5 @@ export type {
   IslandGroupProps,
   SectionProps,
   BannerProps,
+  WysiwygEditorProps,
 };

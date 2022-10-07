@@ -1,4 +1,7 @@
-export default {
+interface Translations {
+  [key: string]: any;
+}
+const translations: Translations = {
   en: {
     // List
     'components.controls.list.unordered': 'Bulleted list',
@@ -72,3 +75,5 @@ export default {
     'components.controls.link.popover.addLink': 'Ajouter un lien',
   },
 };
+
+export default translations;
