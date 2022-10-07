@@ -32,6 +32,7 @@ export interface Option<V = Value> {
   [key: string]: any;
 }
 
+export interface GroupOption<O = Option> extends GroupBase<O> {}
 export interface SelectComponentsProps<
   OptionType extends Option = Option,
   IsMulti extends boolean = false,
