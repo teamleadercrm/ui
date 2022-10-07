@@ -8,7 +8,7 @@ import Box, { pickBoxProps } from '../box';
 import { BoxProps } from '../box/Box';
 import { GenericComponent } from '../../@types/types';
 
-interface IconMenuProps extends Omit<BoxProps, 'children' | 'className'> {
+export interface IconMenuProps extends Omit<BoxProps, 'children' | 'className'> {
   children?: ReactNode;
   className?: string;
   icon?: ReactElement;

@@ -7,7 +7,7 @@ import { SIZES } from '../../constants';
 import { BoxProps } from '../box/Box';
 import { GenericComponent } from '../../@types/types';
 
-interface WidgetProps extends Omit<BoxProps, 'children' | 'ref'> {
+export interface WidgetProps extends Omit<BoxProps, 'children' | 'ref'> {
   /** The content to display inside the widget. */
   children?: ReactNode;
   /** The size which controls the padding of the children. */

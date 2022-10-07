@@ -41,7 +41,7 @@ const BACKGROUND_TINT_BY_STATUS: Record<string, typeof TINTS[number] | undefined
   [STATUS.BROKEN]: 'lightest',
 };
 
-interface FilterSelectionProps {
+export interface FilterSelectionProps {
   /** The title shown on the Selection */
   label?: string;
   /** The tooltop shown on top of the Selection */

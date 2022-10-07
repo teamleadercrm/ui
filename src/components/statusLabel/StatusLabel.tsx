@@ -6,7 +6,7 @@ import { BoxProps } from '../box/Box';
 import { UITextBody, UITextSmall } from '../typography';
 import theme from './theme.css';
 
-interface StatusLabelProps extends Omit<BoxProps, 'size'> {
+export interface StatusLabelProps extends Omit<BoxProps, 'size'> {
   children: ReactNode;
   className?: string;
   color?: Exclude<typeof COLORS[number], 'teal'>;

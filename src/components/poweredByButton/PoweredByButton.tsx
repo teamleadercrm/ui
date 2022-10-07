@@ -8,7 +8,7 @@ import { BoxProps } from '../box/Box';
 import { GenericComponent } from '../../@types/types';
 import { COLORS, TINTS } from '../../constants';
 
-interface PoweredByButtonProps extends Omit<BoxProps, 'className' | 'children' | 'ref'> {
+export interface PoweredByButtonProps extends Omit<BoxProps, 'className' | 'children' | 'ref'> {
   /** A class name for the wrapper to give custom styles. */
   className?: string;
   /** Overwrite the default label. */

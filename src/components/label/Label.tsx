@@ -11,7 +11,7 @@ import theme from './theme.css';
 
 const TooltippedIcon = Tooltip(Icon);
 
-interface LabelProps extends Omit<BoxProps, 'children'> {
+export interface LabelProps extends Omit<BoxProps, 'children'> {
   children: ReactNode;
   inverse?: boolean;
   required?: boolean;

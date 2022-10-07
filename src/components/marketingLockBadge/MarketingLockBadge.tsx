@@ -8,7 +8,7 @@ import { GenericComponent } from '../../@types/types';
 import { BoxProps } from '../box/Box';
 import { SIZES } from '../../constants';
 
-interface MarketingLockBadgeProps extends Omit<BoxProps, 'ref'> {
+export interface MarketingLockBadgeProps extends Omit<BoxProps, 'ref'> {
   className?: string;
   size?: Exclude<typeof SIZES[number], 'tiny' | 'large' | 'fullscreen' | 'smallest' | 'hero'>;
 }

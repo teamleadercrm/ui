@@ -4,7 +4,7 @@ import Box from '../box';
 import { BoxProps } from '../box/Box';
 import { Heading4 } from '../typography';
 
-interface LabelValuePairGroupProps extends Omit<BoxProps, 'children'> {
+export interface LabelValuePairGroupProps extends Omit<BoxProps, 'children'> {
   children: ReactNode;
   title?: string | ReactNode;
 }

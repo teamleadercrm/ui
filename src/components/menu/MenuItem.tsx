@@ -7,7 +7,7 @@ import theme from './theme.css';
 import { BoxProps } from '../box/Box';
 import { GenericComponent } from '../../@types/types';
 
-interface MenuItemProps extends Omit<BoxProps, 'children' | 'className' | 'element' | 'style'> {
+export interface MenuItemProps extends Omit<BoxProps, 'children' | 'className' | 'element' | 'style'> {
   /** A caption displayed underneath the label. */
   caption?: string;
   /** The content to display inside the menu item. */

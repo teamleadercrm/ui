@@ -14,7 +14,7 @@ import { PopoverProps } from '../popover/Popover';
 import { formatDate } from './localeUtils';
 import theme from './theme.css';
 
-interface DatePickerInputProps extends Omit<BoxProps, 'size' | 'onChange'> {
+export interface DatePickerInputProps extends Omit<BoxProps, 'size' | 'onChange'> {
   /** A class name for the wrapper to give custom styles. */
   className?: string;
   /** Object with props for the DatePicker component. */

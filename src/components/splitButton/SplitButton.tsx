@@ -11,7 +11,7 @@ import isReactElement from '../utils/is-react-element';
 import { SIZES } from '../../constants';
 import theme from './theme.css';
 
-interface SplitButtonProps extends Omit<BoxProps, 'children' | 'size'> {
+export interface SplitButtonProps extends Omit<BoxProps, 'children' | 'size'> {
   /** The MenuItems we pass to our component. */
   children: ReactNode;
   /** Determines which kind of button to be rendered. */

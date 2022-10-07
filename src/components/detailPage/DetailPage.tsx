@@ -5,7 +5,7 @@ import Box from '../box';
 import { BoxProps } from '../box/Box';
 import { GenericComponent } from '../../@types/types';
 
-interface DetailPageProps extends Omit<BoxProps, 'ref'> {
+export interface DetailPageProps extends Omit<BoxProps, 'ref'> {
   children: ReactNode;
 }
 
