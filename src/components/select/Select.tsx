@@ -27,18 +27,13 @@ import ValidationText from '../validationText';
 import theme from './theme.css';
 import { Option as OptionType } from './types';
 
-const minHeightBySizeMap = {
+const minHeightBySizeMap: Record<string, number> = {
   tiny: 24,
   small: 30,
   medium: 36,
   large: 48,
 };
-
-/* *
- * We have to define BaseSelectProps with optional options, so we can then set them required in Select and never in AsyncSelect.
- * Unfortunately because of BoxProps having index of unknown, Omiting of these props causes all props to become unknown, we cannot Omit options in AsyncSelect.
- * */
-export interface BaseSelectProps<
+export interface SelectProps<
   Option extends OptionType = OptionType,
   IsMulti extends boolean = false,
   IsClearable extends boolean = false,
@@ -83,14 +78,6 @@ export interface BaseSelectProps<
   isMulti?: IsMulti;
 }
 
-export interface SelectProps<
-  Option extends OptionType = OptionType,
-  IsMulti extends boolean = false,
-  IsClearable extends boolean = false,
-> extends BaseSelectProps<Option, IsMulti, IsClearable> {
-  options: OptionsOrGroups<Option, GroupBase<Option>>;
-}
-
 const DropdownIndicator = <Option extends OptionType, IsMulti extends boolean>(
   dropdownIndicatorProps: DropdownIndicatorProps<Option, IsMulti>,
 ) => {
@@ -109,7 +96,7 @@ const DropdownIndicator = <Option extends OptionType, IsMulti extends boolean>(
     </Icon>
   );
 };
-//
+
 const ClearIndicator = <Option extends OptionType, IsMulti extends boolean>(
   clearIndicatorProps: ClearIndicatorProps<Option, IsMulti>,
 ) => {
@@ -475,7 +462,7 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
         menuPortalTarget={selectOverlayNode}
         menuShouldBlockScroll
         styles={getStyles()}
-        options={options}
+        options={options || []}
         {...restProps}
       />
       <ValidationText error={error} help={helpText} inverse={inverse} success={success} warning={warning} />
