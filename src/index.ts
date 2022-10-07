@@ -4,7 +4,7 @@ import Avatar, { AvatarStack } from './components/avatar';
 import Badge from './components/badge';
 import BadgedLink from './components/badgedLink';
 import Banner, { BannerProps } from './components/banner';
-import type { Margin, Padding } from './components/box';
+import type { Margin, Padding, BoxProps } from './components/box';
 import Box from './components/box';
 import Bullet from './components/bullet';
 import Button from './components/button';
@@ -260,4 +260,5 @@ export type {
   WysiwygEditorProps,
   SelectComponentsProps,
   GroupOption,
+  BoxProps,
 };
