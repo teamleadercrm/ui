@@ -11,7 +11,7 @@ import { AvatarProps } from '../avatar/Avatar';
 import { BoxProps } from '../box/Box';
 import { LinkProps } from '../link/Link';
 
-interface EmptyPassportProps extends Omit<BoxProps, 'className'> {
+export interface EmptyPassportProps extends Omit<BoxProps, 'className'> {
   /** Object containing the props of an avatar. */
   avatar?: AvatarProps;
   /** The class names for the wrapper to apply custom styling. */

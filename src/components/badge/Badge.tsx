@@ -9,7 +9,7 @@ import { UITextBody, UITextDisplay, UITextSmall } from '../typography';
 import theme from './theme.css';
 
 export type AllowedBadgeSize = Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
-interface BadgeProps extends Omit<BoxProps, 'ref' | 'size'> {
+export interface BadgeProps extends Omit<BoxProps, 'ref' | 'size'> {
   /** The content to display inside the badge. */
   children?: ReactNode;
   /** A class name for the wrapper to give custom styles. */

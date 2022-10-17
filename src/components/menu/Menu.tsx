@@ -27,7 +27,7 @@ const POSITION: Record<string, 'auto' | 'static' | 'top-left' | 'top-right' | 'b
   BOTTOM_RIGHT: 'bottom-right',
 };
 
-interface MenuProps extends Omit<BoxProps, 'children' | 'className'> {
+export interface MenuProps extends Omit<BoxProps, 'children' | 'className'> {
   /** If true, the menu will be active. */
   active?: boolean;
   /** The content to display inside the menu. */

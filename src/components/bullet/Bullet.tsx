@@ -5,7 +5,7 @@ import theme from './theme.css';
 import { BoxProps } from '../box/Box';
 import { COLORS, SIZES, TINTS } from '../../constants';
 
-interface BulletProps extends Omit<BoxProps, 'size' | 'ref'> {
+export interface BulletProps extends Omit<BoxProps, 'size' | 'ref'> {
   /** A border color to give to the counter */
   borderColor?: typeof COLORS[number];
   /** A border tint to give to the counter */

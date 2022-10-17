@@ -18,7 +18,7 @@ const OVERLAP_SPACINGS = {
 
 const SPACING = 6;
 
-interface AvatarStackProps extends Omit<BoxProps, 'size' | 'ref'> {
+export interface AvatarStackProps extends Omit<BoxProps, 'size' | 'ref'> {
   /** The avatars to display in a stack. */
   children: React.ReactNode;
   /** A class name for the wrapper to give custom styles. */

@@ -8,7 +8,7 @@ import theme from './theme.css';
 import { BoxProps } from '../box/Box';
 import { GenericComponent } from '../../@types/types';
 
-interface MarketingButtonGroupProps extends Omit<BoxProps, 'ref'> {
+export interface MarketingButtonGroupProps extends Omit<BoxProps, 'ref'> {
   /** The content to display inside the button group. */
   children?: ReactNode;
   /** A class name for the wrapper to give custom styles. */

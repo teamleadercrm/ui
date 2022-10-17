@@ -9,7 +9,7 @@ import { DialogBaseProps } from './DialogBase';
 import theme from './theme.css';
 import { SIZES } from '../../constants';
 
-interface DialogProps extends Omit<DialogBaseProps, 'ref'> {
+export interface DialogProps extends Omit<DialogBaseProps, 'ref'> {
   /** If true, the dialog will show on screen. */
   active?: boolean;
   /** The content to display inside the dialog. */

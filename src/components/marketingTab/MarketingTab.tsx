@@ -8,7 +8,7 @@ import { GenericComponent } from '../../@types/types';
 import { BoxProps } from '../box/Box';
 import { SIZES } from '../../constants';
 
-interface MarketingTabProps extends Omit<BoxProps, 'ref'> {
+export interface MarketingTabProps extends Omit<BoxProps, 'ref'> {
   active?: boolean;
   children: ReactNode;
   className?: string;

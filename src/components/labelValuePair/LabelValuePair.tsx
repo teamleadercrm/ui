@@ -7,7 +7,7 @@ import isReactElement from '../utils/is-react-element';
 import Label, { LabelProps } from './Label';
 import Value, { ValueProps } from './Value';
 
-interface LabelValuePairProps extends Omit<BoxProps, 'children'> {
+export interface LabelValuePairProps extends Omit<BoxProps, 'children'> {
   alignValue?: 'left' | 'right';
   children: ReactNode;
   inline?: boolean;

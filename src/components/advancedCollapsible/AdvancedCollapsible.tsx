@@ -13,7 +13,7 @@ export type AllowedAdvancedCollapsibleColor = Exclude<
   typeof COLORS[number],
   'aqua' | 'gold' | 'mint' | 'ruby' | 'violet'
 >;
-interface AdvancedCollapsibleProps extends Omit<BoxProps, 'size'> {
+export interface AdvancedCollapsibleProps extends Omit<BoxProps, 'size'> {
   color?: AllowedAdvancedCollapsibleColor;
   children: ReactNode;
   title: string;

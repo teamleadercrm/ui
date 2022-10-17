@@ -1,2 +1,3 @@
-import MarketingLink from './MarketingLink';
+import MarketingLink, { MarketingLinkProps } from './MarketingLink';
 export default MarketingLink;
+export type { MarketingLinkProps };

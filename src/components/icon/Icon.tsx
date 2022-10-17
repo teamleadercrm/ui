@@ -6,7 +6,7 @@ import { BoxProps } from '../box/Box';
 import { GenericComponent } from '../../@types/types';
 import { COLORS, TINTS } from '../../constants';
 
-interface IconProps extends Omit<BoxProps, 'children' | 'className'> {
+export interface IconProps extends Omit<BoxProps, 'children' | 'className'> {
   /** Element wrapped in Icon tags or sent as children prop */
   children?: ReactNode;
   /** Classname for the Icon component */

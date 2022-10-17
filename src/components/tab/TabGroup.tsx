@@ -13,7 +13,7 @@ import theme from './theme.css';
 const SCROLL_BUTTON_WIDTH = 48;
 const SCROLL_DISTANCE = 200;
 
-interface TabGroupProps extends Omit<BoxProps, 'children'> {
+export interface TabGroupProps extends Omit<BoxProps, 'children'> {
   children: ReactNode;
   className?: string;
   size?: Exclude<typeof SIZES[number], 'tiny' | 'large' | 'fullscreen' | 'smallest' | 'hero'>;

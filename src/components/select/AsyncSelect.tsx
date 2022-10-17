@@ -1,7 +1,7 @@
 import omit from 'lodash.omit';
 import React, { useEffect, useState } from 'react';
 import { InputActionMeta } from 'react-select';
-import Select, { BaseSelectProps, SelectProps } from './Select';
+import Select, { SelectProps } from './Select';
 import { Option as OptionType } from './types';
 
 const DEFAULT_PAGE_NUMBER = 1;
@@ -12,7 +12,7 @@ export interface AsyncSelectProps<
   Option extends OptionType = OptionType,
   IsMulti extends boolean = false,
   IsClearable extends boolean = false,
-> extends BaseSelectProps<Option, IsMulti, IsClearable> {
+> extends SelectProps<Option, IsMulti, IsClearable> {
   loadOptions: (searchTerm: string, ...props: any) => Promise<any>;
   paginate?: boolean;
   pageSize?: number;

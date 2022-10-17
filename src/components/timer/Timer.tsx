@@ -9,7 +9,7 @@ import LoadingSpinner from '../loadingSpinner';
 import { Monospaced, UITextBody } from '../typography';
 import theme from './theme.css';
 
-interface TimerProps extends Omit<BoxProps, 'children' | 'className'> {
+export interface TimerProps extends Omit<BoxProps, 'children' | 'className'> {
   className?: string;
   children: ReactNode;
   loading?: boolean;

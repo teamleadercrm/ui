@@ -9,7 +9,7 @@ import { GenericComponent } from '../../@types/types';
 import { BoxProps } from '../box/Box';
 import { SIZES } from '../../constants';
 
-interface MarketingStatusLabelProps extends Omit<BoxProps, 'ref'> {
+export interface MarketingStatusLabelProps extends Omit<BoxProps, 'ref'> {
   children?: ReactNode;
   fullWidth?: boolean;
   size?: Exclude<typeof SIZES[number], 'tiny' | 'large' | 'fullscreen' | 'smallest' | 'hero'>;

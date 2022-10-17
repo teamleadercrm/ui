@@ -16,7 +16,7 @@ interface ChildrenFunctionArgument {
   className?: string;
 }
 
-interface PaginationProps extends Omit<BoxProps, 'className' | 'children'> {
+export interface PaginationProps extends Omit<BoxProps, 'className' | 'children'> {
   className?: string;
   currentPage?: number;
   maxNumPagesVisible?: number;

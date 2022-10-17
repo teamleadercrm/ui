@@ -10,7 +10,7 @@ import { BUTTON_LEVELS } from '../button/Button';
 import isReactElement from '../utils/is-react-element';
 import { SIZES } from '../../constants';
 
-interface ButtonGroupProps extends Omit<BoxProps, 'size' | 'onChange' | 'ref'> {
+export interface ButtonGroupProps extends Omit<BoxProps, 'size' | 'onChange' | 'ref'> {
   /** The content to display inside the button group. */
   children?: React.ReactNode;
   /** A class name for the wrapper to give custom styles. */

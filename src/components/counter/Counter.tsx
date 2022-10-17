@@ -8,7 +8,7 @@ import { COLORS, TINTS } from '../../constants';
 import { BoxProps } from '../box/Box';
 import { GenericComponent } from '../../@types/types';
 
-interface Props extends Omit<BoxProps, 'size' | 'ref'> {
+export interface CounterProps extends Omit<BoxProps, 'size' | 'ref'> {
   /** A border color to give to the counter */
   borderColor?: typeof COLORS[number];
   /** A border tint to give to the counter */
@@ -27,7 +27,7 @@ interface Props extends Omit<BoxProps, 'size' | 'ref'> {
   size: 'small' | 'medium';
 }
 
-const Counter: GenericComponent<Props> = ({
+const Counter: GenericComponent<CounterProps> = ({
   children,
   className,
   color = 'neutral',
