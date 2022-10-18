@@ -2,6 +2,8 @@
 
 ### Added
 
+- `Dialog`: added `isToggle` prop to leftAction to allow it to be a toggle ([@BeirlaenAaron](https://github.com/BeirlaenAaron)) in [#2409](https://github.com/teamleadercrm/ui/pull/2409))
+
 ### Changed
 
 ### Deprecated
