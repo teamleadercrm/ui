@@ -4,10 +4,14 @@ import omit from 'lodash.omit';
 import React, { ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import { useResizeDetector } from 'react-resize-detector';
 import { GenericComponent } from '../../@types/types';
-import { Button, ButtonGroup, DialogBase, Heading3 } from '../../index';
+import { Button, ButtonGroup, ButtonProps, DialogBase, Heading3, Toggle, ToggleProps } from '../../index';
 import { DialogBaseProps } from './DialogBase';
 import theme from './theme.css';
 import { SIZES } from '../../constants';
+
+interface LeftAction extends Omit<ButtonProps | ToggleProps, 'fullWidth' | 'marginTop'> {
+  isToggle?: boolean;
+}
 
 export interface DialogProps extends Omit<DialogBaseProps, 'ref'> {
   /** If true, the dialog will show on screen. */
@@ -17,7 +21,7 @@ export interface DialogProps extends Omit<DialogBaseProps, 'ref'> {
   /** A class name for the wrapper to apply custom styles. */
   className?: string;
   /** Object containing the the props of the action on the left (a Button). */
-  leftAction?: object;
+  leftAction?: LeftAction;
   /** Callback function that is fired when the close icon (in the header) is clicked. */
   onCloseClick?: () => void;
   /** Object containing the props of the primary action (a Button, with level prop set to 'primary'). */
@@ -93,9 +97,10 @@ const Dialog: GenericComponent<DialogProps> = ({
       <DialogBase.Footer
         display="flex"
         justifyContent={leftAction ? 'space-between' : 'flex-end'}
+        alignItems="center"
         className={cx({ [theme['scroll-shadow']]: !reachedScrollEnd && showScrollShadow })}
       >
-        {leftAction && <Button {...leftAction} />}
+        {leftAction && (leftAction.isToggle ? <Toggle {...leftAction} /> : <Button {...leftAction} />)}
         <ButtonGroup justifyContent="flex-end">
           {tertiaryAction && <Button {...tertiaryAction} level="link" />}
           {secondaryAction && <Button {...secondaryAction} />}

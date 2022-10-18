@@ -45,8 +45,9 @@ export const DefaultStory: ComponentStory<typeof Dialog> = (args) => {
 
 DefaultStory.args = {
   leftAction: {
-    label: 'Remove',
-    level: 'destructive',
+    label: 'Toggle me',
+    isToggle: true,
+    checked: true,
     onClick: () => console.log('leftAction.onClick'),
   },
   primaryAction: {
