@@ -45,9 +45,8 @@ export const DefaultStory: ComponentStory<typeof Dialog> = (args) => {
 
 DefaultStory.args = {
   leftAction: {
-    label: 'Toggle me',
-    isToggle: true,
-    checked: true,
+    label: 'Remove',
+    level: 'destructive',
     onClick: () => console.log('leftAction.onClick'),
   },
   primaryAction: {
@@ -175,6 +174,39 @@ export const DialogBaseStory: ComponentStory<typeof DialogBase> = (args) => {
           </TextBody>
         </Box>
       </DialogBase>
+    </Box>
+  );
+};
+
+export const DialogWithFooterToggle: ComponentStory<typeof DialogBase> = () => {
+  const [active, setActive] = useState(false);
+  const [checked, setChecked] = useState(false);
+  const closeDialog = () => {
+    setActive(false);
+  };
+
+  const openDialog = () => {
+    setActive(true);
+  };
+
+  return (
+    <Box>
+      <Button onClick={openDialog} label="Open a dialog" />
+      <Dialog
+        title="Dialog title"
+        active={active}
+        onCloseClick={closeDialog}
+        onEscKeyDown={closeDialog}
+        onOverlayClick={closeDialog}
+        primaryAction={{
+          label: 'Confirm',
+          onClick: () => console.log('primaryAction.onClick'),
+        }}
+        secondaryAction={{ label: 'Cancel', onClick: closeDialog }}
+        leftAction={{ label: 'Toggle me', isToggle: true, checked, onClick: () => setChecked(!checked) }}
+      >
+        <Box padding={4} />
+      </Dialog>
     </Box>
   );
 };
