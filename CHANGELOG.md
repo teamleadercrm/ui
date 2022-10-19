@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `Label`: `marginBottom` size is same for all sizes and further customisable ([@qubis741](https://github.com/qubis741)) in [#2408](https://github.com/teamleadercrm/ui/pull/2408))
+
 ### Deprecated
 
 ### Removed
