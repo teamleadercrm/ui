@@ -1,7 +1,7 @@
 import AsyncSelect, { AsyncSelectProps } from './AsyncSelect';
-import Select, { SelectProps } from './Select';
+import Select, { SelectProps, SelectRef } from './Select';
 import { GroupOption, Option, SelectComponentsProps } from './types';
 
 export { Select, AsyncSelect };
-export type { SelectProps, AsyncSelectProps, Option, SelectComponentsProps, GroupOption };
+export type { SelectProps, AsyncSelectProps, Option, SelectComponentsProps, GroupOption, SelectRef };
 export default Select;

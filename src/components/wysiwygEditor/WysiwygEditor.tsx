@@ -76,13 +76,13 @@ export interface WysiwygEditorProps extends Omit<BoxProps, 'className'> {
   /** Determines if the editor should be autofocussed on render */
   autoFocus?: boolean;
   /** Callback function for focussing on anything in the editor */
-  onFocus?: React.FocusEventHandler<EditorType>;
+  onFocus?: React.FocusEventHandler<any>;
   /** Callback function for blurring anything in the editor */
-  onBlur?: React.FocusEventHandler;
+  onBlur?: React.FocusEventHandler<any>;
   /** Callback function for focussing on the input field of the editor */
-  onInputFocus?: React.FocusEventHandler;
+  onInputFocus?: React.FocusEventHandler<HTMLTextAreaElement>;
   /** Callback function for blurring the input field of the editor */
-  onInputBlur?: React.FocusEventHandler;
+  onInputBlur?: React.FocusEventHandler<HTMLTextAreaElement>;
   /** Callback function for keydown in the input field of the editor */
   onKeyDown?: React.KeyboardEventHandler;
 }

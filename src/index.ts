@@ -95,6 +95,7 @@ import Select, {
   Option,
   SelectComponentsProps,
   SelectProps,
+  SelectRef,
 } from './components/select';
 import SplitButton, { SplitButtonProps } from './components/splitButton';
 import StatusLabel, { StatusLabelProps } from './components/statusLabel';
@@ -369,4 +370,5 @@ export type {
   SelectComponentsProps,
   GroupOption,
   BoxProps,
+  SelectRef,
 };
