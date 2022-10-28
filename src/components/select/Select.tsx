@@ -34,6 +34,8 @@ const minHeightBySizeMap: Record<string, number> = {
   large: 48,
 };
 
+export interface SelectRef<Option extends OptionType = OptionType, IsMulti extends boolean = false>
+  extends SelectType<Option, IsMulti> {}
 export interface SelectProps<
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   Option extends OptionType = OptionType,
@@ -148,7 +150,7 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
     options,
     ...otherProps
   }: SelectProps<Option, IsMulti, IsClearable>,
-  ref: ForwardedRef<SelectType<Option, IsMulti>>,
+  ref: ForwardedRef<SelectRef<Option, IsMulti>>,
 ) {
   useEffect(() => {
     activeSelects.add(this);
@@ -486,7 +488,7 @@ const ForwardedSelect = forwardRef(Select) as <
   IsMulti extends boolean = false,
   IsClearable extends boolean = false,
 >(
-  props: SelectProps<Option, IsMulti, IsClearable> & { ref?: React.ForwardedRef<SelectType<Option, IsMulti>> },
+  props: SelectProps<Option, IsMulti, IsClearable> & { ref?: React.ForwardedRef<SelectRef<Option, IsMulti>> },
 ) => ReturnType<typeof Select>;
 
 export default ForwardedSelect;
