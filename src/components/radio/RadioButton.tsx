@@ -19,6 +19,7 @@ export interface RadioButtonProps extends Omit<BoxProps, 'className' | 'children
   onMouseLeave?: (event: MouseEvent) => void;
   label?: string;
   size?: Exclude<typeof SIZES[number], 'fullscreen' | 'smallest' | 'tiny' | 'hero'>;
+  value: string | boolean;
 }
 
 const RadioButton: GenericComponent<RadioButtonProps> = ({
