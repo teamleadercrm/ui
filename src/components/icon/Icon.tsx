@@ -5,6 +5,7 @@ import theme from './theme.css';
 import { BoxProps } from '../box/Box';
 import { GenericComponent } from '../../@types/types';
 import { COLORS, TINTS } from '../../constants';
+import isComponentOfType from '../utils/is-component-of-type';
 
 export interface IconProps extends Omit<BoxProps, 'children' | 'className'> {
   /** Element wrapped in Icon tags or sent as children prop */
@@ -36,7 +37,7 @@ const Icon: GenericComponent<IconProps> = forwardRef<HTMLElement, IconProps>(
         {React.Children.map(children, (child) => {
           // Check if child is an actual React component
           // if so, pass the needed props. If not, just render it.
-          if (!React.isValidElement(child)) {
+          if (!React.isValidElement(child) || !isComponentOfType(Icon, child)) {
             return child;
           }
 
