@@ -47,7 +47,7 @@ const MarketingButtonGroup: MarketingButtonGroupComponent = ({ children, classNa
         if (value) {
           optionalChildProps = {
             active: child.props.value === value,
-            onClick: (event: React.ChangeEvent) => handleChange(child.props.value, event),
+            onClick: (event: React.ChangeEvent) => handleChange(child.props.value || '', event),
           };
         }
 
