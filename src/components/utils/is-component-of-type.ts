@@ -34,9 +34,13 @@ export function defaultChecker(reactElementType: string | JSXElementConstructor<
  * @param reactElementType {string | JSXElementConstructor<any>} - the type of a React Element
  * @param reactElement {ReactElement} - any React Element (not a real DOM node)
  */
-export default function isComponentOfType(
-  reactElementType: string | JSXElementConstructor<any>,
+function isComponentOfType(reactElementType: string, reactElement: ReactElement): boolean;
+function isComponentOfType<P>(
+  reactElementType: JSXElementConstructor<P>,
   reactElement: ReactElement,
-) {
+): reactElement is ReactElement<P>;
+function isComponentOfType(reactElementType: string | JSXElementConstructor<any>, reactElement: ReactElement) {
   return customChecker ? customChecker(reactElementType, reactElement) : defaultChecker(reactElementType, reactElement);
 }
+
+export default isComponentOfType;
