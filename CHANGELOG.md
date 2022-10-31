@@ -10,9 +10,13 @@
 
 ### Fixed
 
-- `Select`: Allow multiple selects being rendered at once ([@stefaandevylder](https://github.com/stefaandevylder)) in [#2422](https://github.com/teamleadercrm/ui/pull/2422)
-
 ### Dependency updates
+
+## [16.4.3] - 22-10-31
+
+### Fixed
+
+- `Select`: Allow multiple selects being rendered at once ([@stefaandevylder](https://github.com/stefaandevylder)) in [#2422](https://github.com/teamleadercrm/ui/pull/2422)
 
 ## [16.4.2] - 22-10-28
 
