@@ -18,7 +18,6 @@ import ReactSelect, {
 } from 'react-select';
 import ReactCreatableSelect from 'react-select/creatable';
 import SelectType from 'react-select/dist/declarations/src/Select';
-import { GenericComponent } from '../../@types/types';
 import { COLOR, SIZES } from '../../constants';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import { BoxProps } from '../box/Box';
@@ -130,10 +129,9 @@ const ClearIndicator = <Option extends OptionType, IsMulti extends boolean>(
 export const selectOverlayNode = document.createElement('div');
 selectOverlayNode.setAttribute('data-teamleader-ui', 'select-overlay');
 
-const activeSelects = new Set();
+let activeSelects = 0;
 
 function Select<Option extends OptionType, IsMulti extends boolean, IsClearable extends boolean>(
-  this: GenericComponent<SelectProps>,
   {
     components,
     creatable = false,
@@ -153,17 +151,17 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
   ref: ForwardedRef<SelectRef<Option, IsMulti>>,
 ) {
   useEffect(() => {
-    activeSelects.add(this);
+    activeSelects += 1;
     const isOverlayMounted = document.contains(selectOverlayNode);
     if (!isOverlayMounted) {
       document.body.appendChild(selectOverlayNode);
     }
     return () => {
-      const isLastSelect = activeSelects.size <= 1;
-      if (isLastSelect) {
+      const isLastSelect = activeSelects <= 1;
+      if (isLastSelect && selectOverlayNode && document.body.contains(selectOverlayNode)) {
         document.body.removeChild(selectOverlayNode);
       }
-      activeSelects.delete(this);
+      activeSelects -= 1;
     };
   }, []);
 
