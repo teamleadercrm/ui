@@ -2,8 +2,6 @@
 
 ### Added
 
-- `Select`: exported `SelectRef` ([@qubis741](https://github.com/qubis741)) in [#2418](https://github.com/teamleadercrm/ui/pull/2418))
-
 ### Changed
 
 ### Deprecated
@@ -11,6 +9,8 @@
 ### Removed
 
 ### Fixed
+
+- `Select`: Allow multiple selects being rendered at once ([@stefaandevylder](https://github.com/stefaandevylder)) in [#2422](https://github.com/teamleadercrm/ui/pull/2422)
 
 ### Dependency updates
 
