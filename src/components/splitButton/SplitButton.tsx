@@ -122,7 +122,7 @@ const SplitButton: GenericComponent<SplitButtonProps> = ({
             if (
               !React.isValidElement(child) ||
               !isComponentOfType(MenuItem, child) ||
-              child.props.label !== buttonLabel
+              child.props.label === buttonLabel
             ) {
               return null;
             }
