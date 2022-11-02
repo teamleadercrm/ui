@@ -191,7 +191,7 @@ export const DataGrid: DatagridComponent = ({
                     onMouseLeave: (event: MouseEvent) => handleBodyRowMouseLeave(child, event),
                     onSelectionChange: (checked: boolean, event: ChangeEvent) =>
                       handleBodyRowSelectionChange(child.key, event),
-                    selected: child.key && selectedRows.indexOf(child.key) !== -1,
+                    selected: child.key ? selectedRows.indexOf(child.key) !== -1 : false,
                     selectable,
                     sliceTo: stickyFromLeft > 0 ? stickyFromLeft : 0,
                   });

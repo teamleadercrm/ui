@@ -1,4 +1,4 @@
-import React, { forwardRef, ReactNode } from 'react';
+import React, { forwardRef, ReactNode, ReactSVGElement } from 'react';
 import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
@@ -40,7 +40,7 @@ const Icon: GenericComponent<IconProps> = forwardRef<HTMLElement, IconProps>(
             return child;
           }
 
-          return React.cloneElement(child, {
+          return React.cloneElement(child as ReactSVGElement, {
             opacity,
           });
         })}

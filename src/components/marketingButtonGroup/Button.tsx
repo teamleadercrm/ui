@@ -19,6 +19,8 @@ export interface ButtonProps extends Omit<BoxProps, 'ref'> {
   onMouseLeave?: (event: React.MouseEvent) => void;
   /** Callback function that is fired when the mouse button is released. */
   onMouseUp?: (event: React.MouseEvent) => void;
+  /** Button value in case it's being in a button group. */
+  value?: string;
 }
 
 const Button: GenericComponent<ButtonProps> = forwardRef<HTMLElement, ButtonProps>(

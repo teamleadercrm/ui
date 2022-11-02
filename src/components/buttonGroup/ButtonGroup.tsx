@@ -56,7 +56,7 @@ class ButtonGroup extends PureComponent<ButtonGroupProps> {
           if (value) {
             optionalChildProps = {
               active: child.props.value === value,
-              onClick: (event: Event) => this.handleChange(child.props.value, event),
+              onClick: (event: Event) => this.handleChange(child.props.value || '', event),
             };
           }
 

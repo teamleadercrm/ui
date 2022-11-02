@@ -54,6 +54,8 @@ export interface ButtonProps extends Omit<BoxProps, 'size'> {
   size?: Exclude<typeof SIZES[number], 'fullscreen' | 'smallest' | 'hero'>;
   /** Type of the button element. */
   type?: string;
+  /** Button value in case it's being in a button group. */
+  value?: string;
 }
 
 const Button: GenericComponent<ButtonProps> = forwardRef<HTMLElement, ButtonProps>(
