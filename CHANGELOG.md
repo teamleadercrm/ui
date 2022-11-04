@@ -2,6 +2,9 @@
 
 ### Added
 
+- `Popover`: `withFocusTrap` prop to allow control over focus ([@qubis741](https://github.com/qubis741)) in [#2430](https://github.com/teamleadercrm/ui/pull/2430))
+- `DatePickerInput`: `typeable` and `errorText` props to allow typing date ([@qubis741](https://github.com/qubis741)) in [#2430](https://github.com/teamleadercrm/ui/pull/2430))
+
 ### Changed
 
 ### Deprecated
