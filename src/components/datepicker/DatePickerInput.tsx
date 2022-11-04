@@ -52,6 +52,8 @@ export interface DatePickerInputProps extends Omit<BoxProps, 'size' | 'onChange'
   clearable?: boolean;
   /** Whether user is able to type into the input. True by default. */
   typeable?: boolean;
+  /** Error text that is displayed when typed date is invalid. */
+  errorText?: string;
 }
 
 interface DayPickerProps extends Omit<ReactDayPickerProps, 'modifiers'> {
@@ -78,6 +80,7 @@ const DatePickerInput: GenericComponent<DatePickerInputProps> = ({
   onChange,
   onBlur,
   typeable = true,
+  errorText,
   ...others
 }) => {
   const getFormattedDateString = (date: Date) => {
@@ -95,12 +98,12 @@ const DatePickerInput: GenericComponent<DatePickerInputProps> = ({
   const [popoverAnchorEl, setPopoverAnchorEl] = useState<Element | null>(null);
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(others.selectedDate);
   const [inputValue, setInputValue] = useState(others.selectedDate ? getFormattedDateString(others.selectedDate) : '');
+  const [displayError, setDisplayError] = useState(false);
 
   const handleInputFocus = (event: React.FocusEvent<HTMLElement>) => {
     if (inputProps?.readOnly) {
       return;
     }
-
     if (openPickerOnFocus) {
       setPopoverAnchorEl(event.currentTarget);
       setIsPopoverActive(true);
@@ -130,6 +133,15 @@ const DatePickerInput: GenericComponent<DatePickerInputProps> = ({
       setInputValue(value);
     }
   };
+
+  const handleInputBlur = (event: React.FocusEvent<HTMLElement>) => {
+    inputProps?.onBlur && inputProps.onBlur(event);
+    if (typeable && !customFormatDate && inputValue) {
+      const isValidDate = !!parseMultiFormatsDate(inputValue, ALLOWED_DATE_FORMATS, locale);
+      if (!isValidDate) {
+        setDisplayError(true);
+      }
+    }
   };
 
   const handlePopoverClose = () => {
@@ -179,7 +191,7 @@ const DatePickerInput: GenericComponent<DatePickerInputProps> = ({
   }, [others.selectedDate]);
 
   const boxProps = pickBoxProps(others);
-
+  const inputError = displayError ? errorText || true : false;
   return (
     <Box className={className} {...boxProps}>
       <Input
@@ -189,9 +201,11 @@ const DatePickerInput: GenericComponent<DatePickerInputProps> = ({
         size={inputSize || size}
         width="120px"
         noInputStyling={!typeable}
+        error={inputError}
         {...inputProps}
         onClick={handleInputClick}
         onFocus={handleInputFocus}
+        onBlur={handleInputBlur}
         className={theme['date-picker-input']}
         value={inputValue}
         onChange={handleInputChange}
