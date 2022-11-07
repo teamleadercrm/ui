@@ -123,22 +123,19 @@ const DatePickerInput: GenericComponent<DatePickerInputProps> = ({
   };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const value = event.target.value;
-    const date = parseMultiFormatsDate(value, ALLOWED_DATE_FORMATS, locale);
     setDisplayError(false);
-    if (date) {
-      setSelectedDate(date);
-      setInputValue(getFormattedDateString(date));
-    } else {
-      setInputValue(value);
-    }
+    const value = event.target.value;
+    setInputValue(value);
   };
 
   const handleInputBlur = (event: React.FocusEvent<HTMLElement>) => {
     inputProps?.onBlur && inputProps.onBlur(event);
     if (typeable && !customFormatDate && inputValue) {
-      const isValidDate = !!parseMultiFormatsDate(inputValue, ALLOWED_DATE_FORMATS, locale);
-      if (!isValidDate) {
+      const date = parseMultiFormatsDate(inputValue, ALLOWED_DATE_FORMATS, locale);
+      if (date) {
+        setSelectedDate(date);
+        setInputValue(getFormattedDateString(date));
+      } else {
         setDisplayError(true);
       }
     }
