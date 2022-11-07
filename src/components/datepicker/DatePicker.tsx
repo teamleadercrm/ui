@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import DayPicker, { DayModifiers, DayPickerProps } from 'react-day-picker';
-import Box, { pickBoxProps } from '../box';
-import NavigationBar from './NavigationBar';
-import WeekDay from './WeekDay';
-import MonthPicker from './MonthPicker';
-import { convertModifiersToClassnames } from './utils';
-import cx from 'classnames';
-import theme from './theme.css';
 import uiUtilities from '@teamleader/ui-utilities';
-import { BoxProps } from '../box/Box';
-import localeUtils from './localeUtils';
+import cx from 'classnames';
+import React, { useState } from 'react';
+import DayPicker, { DayModifiers, DayPickerProps } from 'react-day-picker';
 import { GenericComponent } from '../../@types/types';
 import { SIZES } from '../../constants';
+import Box, { pickBoxProps } from '../box';
+import { BoxProps } from '../box/Box';
+import localeUtils from './localeUtils';
+import MonthPicker from './MonthPicker';
+import NavigationBar from './NavigationBar';
+import theme from './theme.css';
+import { convertModifiersToClassnames } from './utils';
+import WeekDay from './WeekDay';
 
 export interface DatePickerProps extends Omit<BoxProps & DayPickerProps, 'size' | 'onChange' | 'modifiers' | 'ref'> {
   /** If true we give a border to our wrapper. */
@@ -42,11 +42,6 @@ const DatePicker: GenericComponent<DatePickerProps> = ({
 }) => {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(others.selectedDate);
   const [selectedMonth, setSelectedMonth] = useState<Date>();
-
-  useEffect(() => {
-    setSelectedDate(others.selectedDate);
-    setSelectedMonth(others.selectedDate);
-  }, [others.selectedDate]);
 
   const handleDayClick = (day: Date, modifiers: DayModifiers) => {
     if (modifiers[theme['disabled']]) {
