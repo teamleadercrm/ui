@@ -87,14 +87,18 @@ export const formatDate = (
 export const parseDate = (string: string, format = DateTime.DATE_SHORT as string, locale = defaultLocale) =>
   DateTime.fromFormat(string, format, { locale }).toJSDate();
 
-export const parseMultiFormatsDate = (value: string, formats: string[], locale: string) =>
-  formats.reduce((previous: Date | null, current) => {
-    if (!previous) {
-      const parsedDate = DateTime.fromFormat(value, current, { locale });
-      return parsedDate.isValid ? parsedDate.toJSDate() : null;
+export const parseMultiFormatsDate = (value: string, formats: string[], locale: string) => {
+  let output = null;
+  formats.some((format) => {
+    const parsedDate = DateTime.fromFormat(value, format, { locale });
+    if (parsedDate.isValid) {
+      output = parsedDate.toJSDate();
+      return true;
     }
-    return previous;
-  }, null);
+    return false;
+  });
+  return output;
+};
 
 export default {
   getFirstDayOfWeek,
