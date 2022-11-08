@@ -94,15 +94,14 @@ $ PORT=3001 yarn start
       - `Select`: Allow multiple selects being rendered at once ([@stefaandevylder](https://github.com/stefaandevylder)) in [#2422](https://github.com/teamleadercrm/ui/pull/2422)
       ```
 
-4.  Make a `draft release` on Github and fill in the following fields:
+4.  Once the pull request has the needed amount of approvals, merge it into the `next-release` branch.
+5.  Publish a `release` on Github and fill in the following fields:
     - **Tag version:** `new.version.number` @ `target: next-release`
     - **Release title:** `new.version.number`
     - **Description:** add the `changelog items`
-5.  Once the pull request has the needed amount of approvals, merge it into the `next-release` branch.
-6.  `Publish` the earlier created `draft release` on Github.
-7.  In your `console`, pull the `next-release` branch.
-8.  `Publish` to `npm` using the `npm publish --access=public` command.
-9.  `Merge` the `next-release` branch into `master` and push to Github
+6.  In your `console`, pull the `next-release` branch.
+7.  `Publish` to `npm` using the `npm publish --access=public` command.
+8.  `Merge` the `next-release` branch into `master` and push to Github
 
 ## License
 
