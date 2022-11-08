@@ -125,6 +125,10 @@ const DatePickerInput: GenericComponent<DatePickerInputProps> = ({
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setDisplayError(false);
     const value = event.target.value;
+    const date = parseMultiFormatsDate(value, ALLOWED_DATE_FORMATS, locale);
+    if (date) {
+      setSelectedDate(date);
+    }
     setInputValue(value);
   };
 
@@ -133,7 +137,6 @@ const DatePickerInput: GenericComponent<DatePickerInputProps> = ({
     if (typeable && !customFormatDate && inputValue) {
       const date = parseMultiFormatsDate(inputValue, ALLOWED_DATE_FORMATS, locale);
       if (date) {
-        setSelectedDate(date);
         setInputValue(getFormattedDateString(date));
       } else {
         setDisplayError(true);
