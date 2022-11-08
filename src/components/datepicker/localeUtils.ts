@@ -88,16 +88,13 @@ export const parseDate = (string: string, format = DateTime.DATE_SHORT as string
   DateTime.fromFormat(string, format, { locale }).toJSDate();
 
 export const parseMultiFormatsDate = (value: string, formats: string[], locale: string) => {
-  let output = null;
-  formats.some((format) => {
-    const parsedDate = DateTime.fromFormat(value, format, { locale });
+  for (let i = 0; i < formats.length; i++) {
+    const parsedDate = DateTime.fromFormat(value, formats[i], { locale });
     if (parsedDate.isValid) {
-      output = parsedDate.toJSDate();
-      return true;
+      return parsedDate.toJSDate();
     }
-    return false;
-  });
-  return output;
+  }
+  return null;
 };
 
 export default {
