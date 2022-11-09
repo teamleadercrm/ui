@@ -53,8 +53,10 @@ export interface PopoverProps extends Omit<BoxProps, 'ref'> {
   tint?: typeof TINTS[number];
   /** The z-index of the Popover */
   zIndex?: number;
-  /** Determines wether the focus should be returned to the source element, enabled by default in useFocusTrap */
+  /** Determines whether the focus should be returned to the source element, enabled by default in useFocusTrap */
   returnFocusToSource?: boolean;
+  /** Determines whether the focus should stay on Popover */
+  withFocusTrap?: boolean;
 }
 
 interface Positioning {
@@ -86,9 +88,14 @@ const Popover: GenericComponent<PopoverProps> = (props) => {
     position = 'center',
     offsetCorrection = 0,
     returnFocusToSource = true,
+    withFocusTrap = true,
   } = props;
 
-  const { ref, FocusRing } = useFocusTrap({ active, returnFocusToSource, initialFocusRef: undefined });
+  const { ref, FocusRing } = useFocusTrap({
+    active: withFocusTrap && active,
+    returnFocusToSource,
+    initialFocusRef: undefined,
+  });
 
   const handleResize = () => {
     if (ref.current && anchorEl) {
