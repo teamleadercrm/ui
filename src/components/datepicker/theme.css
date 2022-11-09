@@ -16,7 +16,7 @@
 }
 
 .date-picker {
-  display: inline-block;
+  display: flex;
 
   &-input {
     input {
