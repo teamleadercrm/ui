@@ -12,6 +12,12 @@
 
 ### Dependency updates
 
+## [16.4.4] - 2022-11-07
+
+### Fixed
+
+- `Overlay`: Revert back "set tabIndex to fix onKeyDown events no longer registering after clicking inside the overlay" ([@eniskraasniqi1](https://github.com/eniskraasniqi1)) in [#2431](https://github.com/teamleadercrm/ui/pull/2431)
+
 ## [16.4.3] - 22-10-31
 
 ### Fixed
