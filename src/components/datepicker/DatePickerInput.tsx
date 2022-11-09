@@ -97,8 +97,12 @@ const DatePickerInput: GenericComponent<DatePickerInputProps> = ({
   const [isPopoverActive, setIsPopoverActive] = useState(false);
   const [popoverAnchorEl, setPopoverAnchorEl] = useState<Element | null>(null);
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(others.selectedDate);
-  const [inputValue, setInputValue] = useState(others.selectedDate ? getFormattedDateString(others.selectedDate) : '');
   const [displayError, setDisplayError] = useState(false);
+  const [inputValue, setInputValue] = useState(others.selectedDate ? getFormattedDateString(others.selectedDate) : '');
+  const handleInputValueChange = (value: string) => {
+    setDisplayError(false);
+    setInputValue(value);
+  };
 
   const handleInputFocus = (event: React.FocusEvent<HTMLElement>) => {
     if (inputProps?.readOnly) {
@@ -123,13 +127,12 @@ const DatePickerInput: GenericComponent<DatePickerInputProps> = ({
   };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setDisplayError(false);
     const value = event.target.value;
     const date = parseMultiFormatsDate(value, ALLOWED_DATE_FORMATS, locale);
     if (date) {
       setSelectedDate(date);
     }
-    setInputValue(value);
+    handleInputValueChange(value);
   };
 
   const handleInputBlur = (event: React.FocusEvent<HTMLElement>) => {
@@ -137,7 +140,7 @@ const DatePickerInput: GenericComponent<DatePickerInputProps> = ({
     if (typeable && !customFormatDate && inputValue) {
       const date = parseMultiFormatsDate(inputValue, ALLOWED_DATE_FORMATS, locale);
       if (date) {
-        setInputValue(getFormattedDateString(date));
+        handleInputValueChange(getFormattedDateString(date));
       } else {
         setDisplayError(true);
       }
@@ -152,7 +155,7 @@ const DatePickerInput: GenericComponent<DatePickerInputProps> = ({
   const handleDatePickerDateChange = (date: Date) => {
     setIsPopoverActive(false);
     setSelectedDate(date);
-    setInputValue(getFormattedDateString(date));
+    handleInputValueChange(getFormattedDateString(date));
     onChange && onChange(date);
   };
 
@@ -169,7 +172,7 @@ const DatePickerInput: GenericComponent<DatePickerInputProps> = ({
     event.preventDefault();
     setIsPopoverActive(false);
     setSelectedDate(undefined);
-    setInputValue('');
+    handleInputValueChange('');
     onChange && onChange(undefined);
   };
 
