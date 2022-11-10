@@ -2,9 +2,6 @@
 
 ### Added
 
-- `Popover`: `withFocusTrap` prop to allow control over focus ([@qubis741](https://github.com/qubis741)) in [#2430](https://github.com/teamleadercrm/ui/pull/2430))
-- `DatePickerInput`: `typeable` and `errorText` props to allow typing date ([@qubis741](https://github.com/qubis741)) in [#2430](https://github.com/teamleadercrm/ui/pull/2430))
-
 ### Changed
 
 ### Deprecated
@@ -14,6 +11,13 @@
 ### Fixed
 
 ### Dependency updates
+
+## [16.4.4] - 2022-11-07
+
+### Added
+
+- `Popover`: `withFocusTrap` prop to allow control over focus ([@qubis741](https://github.com/qubis741)) in [#2430](https://github.com/teamleadercrm/ui/pull/2430))
+- `DatePickerInput`: `typeable` and `errorText` props to allow typing date ([@qubis741](https://github.com/qubis741)) in [#2430](https://github.com/teamleadercrm/ui/pull/2430))
 
 ## [16.4.4] - 2022-11-07
 
