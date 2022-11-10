@@ -9,6 +9,9 @@ import ReactSelect, {
   CSSObjectWithLabel,
   DropdownIndicatorProps,
   GroupBase,
+  GroupHeadingProps,
+  GroupProps,
+  MenuListProps,
   OptionProps,
   OptionsOrGroups,
   PlaceholderProps,
@@ -246,9 +249,14 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
     };
   };
 
-  const getGroupStyles = (base: CSSObjectWithLabel): CSSObjectWithLabel => {
+  const getGroupStyles = (
+    base: CSSObjectWithLabel,
+    props: GroupProps<Option, boolean, GroupBase<Option>>,
+  ): CSSObjectWithLabel => {
     return {
       ...base,
+      paddingTop: props.data.label ? 3 : 0,
+      paddingBottom: 3,
       borderBottomColor: inverse ? COLOR.TEAL.LIGHT : COLOR.NEUTRAL.NORMAL,
       borderBottomStyle: 'solid',
       borderBottomWidth: '1px',
@@ -258,13 +266,25 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
     };
   };
 
-  const getGroupHeadingStyles = (base: CSSObjectWithLabel) => {
+  const getGroupHeadingStyles = (
+    base: CSSObjectWithLabel,
+    props: GroupHeadingProps<Option, boolean, GroupBase<Option>>,
+  ) => {
     return {
       ...base,
       color: inverse ? COLOR.NEUTRAL.LIGHTEST : COLOR.TEAL.DARKEST,
       fontSize: '12px',
       fontWeight: 700,
       letterSpacing: '0.6px',
+      ...(props.data.label
+        ? {
+            marginBottom: 9,
+            marginTop: 9,
+          }
+        : {
+            marginBottom: 3,
+            marginTop: 3,
+          }),
     };
   };
 
@@ -288,6 +308,16 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
             position: 'absolute',
           }
         : {}),
+    };
+  };
+
+  const getMenuListStyles = (
+    base: CSSObjectWithLabel,
+    props: MenuListProps<Option, boolean, GroupBase<Option>>,
+  ): CSSObjectWithLabel => {
+    return {
+      ...base,
+      ...(props.options[0]?.options ? { paddingTop: 1, paddingBottom: 1 } : {}),
     };
   };
 
@@ -435,6 +465,7 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
     groupHeading: getGroupHeadingStyles,
     input: getInput,
     menu: getMenuStyles,
+    menuList: getMenuListStyles,
     menuPortal: getMenuPortalStyles,
     multiValue: getMultiValueStyles,
     multiValueLabel: getMultiValueLabelStyles,
