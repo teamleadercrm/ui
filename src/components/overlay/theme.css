@@ -3,12 +3,12 @@
 
 .overlay {
   bottom: 0;
-  height: 100vh;
+  height: 100%;
   left: 0;
   position: fixed;
   top: 0;
   transition: background var(--animation-duration) var(--animation-curve-default);
-  width: 100vw;
+  width: 100%;
 }
 
 .is-entered {

@@ -7,7 +7,7 @@ import MarketingButton from '../marketingButton';
 import { MarketingButtonProps } from '../marketingButton/MarketingButton';
 import Flex from '../flex';
 
-interface MarketingDialogProps {
+export interface MarketingDialogProps {
   /** If true, the dialog will show on screen. */
   active: boolean;
   /** Callback function that is fired when the close icon clicked. */

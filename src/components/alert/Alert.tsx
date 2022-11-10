@@ -12,7 +12,7 @@ type Action = Omit<ButtonProps, 'fullWidth' | 'marginTop'>;
 
 type Type = 'confirm' | 'destructive' | 'error';
 
-interface AlertProps extends Omit<DialogBaseProps, 'scrollable' | 'size'> {
+export interface AlertProps extends Omit<DialogBaseProps, 'scrollable' | 'size'> {
   /** Object containing the props of the primary action (a Button, with level prop set to 'primary'). */
   primaryAction: Action;
   /** Object containing the the props of the secondary action (a Button). */

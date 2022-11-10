@@ -7,6 +7,8 @@ export interface InputProps extends Omit<SingleLineInputBaseProps, 'onChange'> {
   onChange?: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, value: string) => void;
   /** Callback function that is fired when the component is focussed. */
   onFocus?: (event: React.FocusEvent<HTMLElement>) => void;
+  /** Callback function that is fired when the component is focussed. */
+  onBlur?: (event: React.FocusEvent<any>) => void; // any until fixed in FRONT-255
   /** Callback function that is fired when the component is clicked. */
   onClick?: (event: React.MouseEvent<HTMLElement>) => void;
   /** Current value of the input element. */

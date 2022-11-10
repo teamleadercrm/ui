@@ -8,7 +8,7 @@ import theme from './theme.css';
 import { BoxProps } from '../box/Box';
 import { GenericComponent } from '../../@types/types';
 
-interface MarketingButtonGroupProps extends Omit<BoxProps, 'ref'> {
+export interface MarketingButtonGroupProps extends Omit<BoxProps, 'ref'> {
   /** The content to display inside the button group. */
   children?: ReactNode;
   /** A class name for the wrapper to give custom styles. */
@@ -47,7 +47,7 @@ const MarketingButtonGroup: MarketingButtonGroupComponent = ({ children, classNa
         if (value) {
           optionalChildProps = {
             active: child.props.value === value,
-            onClick: (event: React.ChangeEvent) => handleChange(child.props.value, event),
+            onClick: (event: React.ChangeEvent) => handleChange(child.props.value || '', event),
           };
         }
 

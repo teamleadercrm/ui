@@ -1,3 +1,4 @@
-import Bullet from './Bullet';
+import Bullet, { BulletProps } from './Bullet';
 
 export default Bullet;
+export type { BulletProps };

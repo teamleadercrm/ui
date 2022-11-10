@@ -1,4 +1,4 @@
-import React, { forwardRef, ReactNode } from 'react';
+import React, { forwardRef, ReactNode, ReactSVGElement } from 'react';
 import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
@@ -6,7 +6,7 @@ import { BoxProps } from '../box/Box';
 import { GenericComponent } from '../../@types/types';
 import { COLORS, TINTS } from '../../constants';
 
-interface IconProps extends Omit<BoxProps, 'children' | 'className'> {
+export interface IconProps extends Omit<BoxProps, 'children' | 'className'> {
   /** Element wrapped in Icon tags or sent as children prop */
   children?: ReactNode;
   /** Classname for the Icon component */
@@ -40,7 +40,7 @@ const Icon: GenericComponent<IconProps> = forwardRef<HTMLElement, IconProps>(
             return child;
           }
 
-          return React.cloneElement(child, {
+          return React.cloneElement(child as ReactSVGElement, {
             opacity,
           });
         })}

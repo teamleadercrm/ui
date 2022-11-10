@@ -1,6 +1,7 @@
-import OverviewPage from './OverviewPage';
-import OverviewPageBody from './OverviewPageBody';
-import OverviewPageHeader from './OverviewPageHeader';
+import OverviewPage, { OverviewPageProps } from './OverviewPage';
+import OverviewPageBody, { OverviewPageBodyProps } from './OverviewPageBody';
+import OverviewPageHeader, { OverviewPageHeaderProps } from './OverviewPageHeader';
 
 export default OverviewPage;
 export { OverviewPageBody, OverviewPageHeader };
+export type { OverviewPageProps, OverviewPageBodyProps, OverviewPageHeaderProps };

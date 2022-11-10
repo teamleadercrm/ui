@@ -8,7 +8,8 @@ import Icon from '../icon';
 import { UITextBody, UITextDisplay, UITextSmall } from '../typography';
 import theme from './theme.css';
 
-interface BadgeProps extends Omit<BoxProps, 'ref' | 'size'> {
+export type AllowedBadgeSize = Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
+export interface BadgeProps extends Omit<BoxProps, 'ref' | 'size'> {
   /** The content to display inside the badge. */
   children?: ReactNode;
   /** A class name for the wrapper to give custom styles. */
@@ -26,7 +27,7 @@ interface BadgeProps extends Omit<BoxProps, 'ref' | 'size'> {
   /** If true, component will be shown in a selected state */
   selected?: boolean;
   /** Size of the button. */
-  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
+  size?: AllowedBadgeSize;
 }
 
 const Badge: GenericComponent<BadgeProps> = forwardRef<HTMLElement, BadgeProps>(

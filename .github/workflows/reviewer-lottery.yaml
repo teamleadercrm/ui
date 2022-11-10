@@ -1,0 +1,13 @@
+name: 'Reviewer lottery'
+on:
+  pull_request_target:
+
+jobs:
+  dependabot:
+    runs-on: ubuntu-latest
+    if: ${{ github.actor == 'dependabot[bot]' }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: uesteibar/reviewer-lottery@v2
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}

@@ -11,17 +11,20 @@ import Input from '../input';
 import { InputProps } from '../input/Input';
 import Popover from '../popover';
 import { PopoverProps } from '../popover/Popover';
-import { formatDate } from './localeUtils';
+import { formatDate, parseMultiFormatsDate } from './localeUtils';
 import theme from './theme.css';
 
-interface DatePickerInputProps extends Omit<BoxProps, 'size' | 'onChange'> {
+const DEFAULT_FORMAT = 'dd/MM/yyyy';
+const ALLOWED_DATE_FORMATS = [DEFAULT_FORMAT, 'd/M/yyyy', 'dd.MM.yyyy', 'd.M.yyyy', 'dd-MM-yyyy', 'd-M-yyyy'];
+
+export interface DatePickerInputProps extends Omit<BoxProps, 'size' | 'onChange'> {
   /** A class name for the wrapper to give custom styles. */
   className?: string;
   /** Object with props for the DatePicker component. */
   dayPickerProps?: DayPickerProps;
   /** A footer component, rendered at the bottom of the date picker */
   footer?: ReactNode;
-  /** A custom function to format a date. */
+  /** A custom function to format a date if input is not typeable */
   formatDate?: (selectedDate: Date, locale: string) => string;
   /** Object with props for the Input component. */
   inputProps?: InputProps;
@@ -47,6 +50,10 @@ interface DatePickerInputProps extends Omit<BoxProps, 'size' | 'onChange'> {
   openPickerOnFocus?: boolean;
   /** Whether the input should have button for value clearing. False by default. */
   clearable?: boolean;
+  /** Whether user is able to type into the input. True by default. */
+  typeable?: boolean;
+  /** Error text that is displayed when typed date is invalid. */
+  errorText?: string;
 }
 
 interface DayPickerProps extends Omit<ReactDayPickerProps, 'modifiers'> {
@@ -72,29 +79,35 @@ const DatePickerInput: GenericComponent<DatePickerInputProps> = ({
   clearable = false,
   onChange,
   onBlur,
+  typeable = true,
+  errorText,
   ...others
 }) => {
-  const [isPopoverActive, setIsPopoverActive] = useState(false);
-  const [popoverAnchorEl, setPopoverAnchorEl] = useState<Element | null>(null);
-  const [selectedDate, setSelectedDate] = useState<Date | undefined>(others.selectedDate);
-
-  const getFormattedDate = () => {
-    if (!selectedDate) {
+  const getFormattedDateString = (date: Date) => {
+    if (!date) {
       return '';
     }
 
-    if (!customFormatDate) {
-      return formatDate(selectedDate, locale);
+    if (typeable || !customFormatDate) {
+      return formatDate(date, DEFAULT_FORMAT, locale);
     }
 
-    return customFormatDate(selectedDate, locale);
+    return customFormatDate(date, locale);
+  };
+  const [isPopoverActive, setIsPopoverActive] = useState(false);
+  const [popoverAnchorEl, setPopoverAnchorEl] = useState<Element | null>(null);
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>(others.selectedDate);
+  const [displayError, setDisplayError] = useState(false);
+  const [inputValue, setInputValue] = useState(others.selectedDate ? getFormattedDateString(others.selectedDate) : '');
+  const handleInputValueChange = (value: string) => {
+    setDisplayError(false);
+    setInputValue(value);
   };
 
   const handleInputFocus = (event: React.FocusEvent<HTMLElement>) => {
     if (inputProps?.readOnly) {
       return;
     }
-
     if (openPickerOnFocus) {
       setPopoverAnchorEl(event.currentTarget);
       setIsPopoverActive(true);
@@ -110,8 +123,28 @@ const DatePickerInput: GenericComponent<DatePickerInputProps> = ({
       setIsPopoverActive(true);
       inputProps?.onFocus && inputProps.onFocus(event as unknown as React.FocusEvent<HTMLElement>);
     }
-
     inputProps?.onClick && inputProps.onClick(event);
+  };
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const value = event.target.value;
+    const date = parseMultiFormatsDate(value, ALLOWED_DATE_FORMATS, locale);
+    if (date) {
+      setSelectedDate(date);
+    }
+    handleInputValueChange(value);
+  };
+
+  const handleInputBlur = (event: React.FocusEvent<HTMLElement>) => {
+    inputProps?.onBlur && inputProps.onBlur(event);
+    if (typeable && !customFormatDate && inputValue) {
+      const date = parseMultiFormatsDate(inputValue, ALLOWED_DATE_FORMATS, locale);
+      if (date) {
+        handleInputValueChange(getFormattedDateString(date));
+      } else {
+        setDisplayError(true);
+      }
+    }
   };
 
   const handlePopoverClose = () => {
@@ -122,6 +155,7 @@ const DatePickerInput: GenericComponent<DatePickerInputProps> = ({
   const handleDatePickerDateChange = (date: Date) => {
     setIsPopoverActive(false);
     setSelectedDate(date);
+    handleInputValueChange(getFormattedDateString(date));
     onChange && onChange(date);
   };
 
@@ -138,6 +172,7 @@ const DatePickerInput: GenericComponent<DatePickerInputProps> = ({
     event.preventDefault();
     setIsPopoverActive(false);
     setSelectedDate(undefined);
+    handleInputValueChange('');
     onChange && onChange(undefined);
   };
 
@@ -159,7 +194,7 @@ const DatePickerInput: GenericComponent<DatePickerInputProps> = ({
   }, [others.selectedDate]);
 
   const boxProps = pickBoxProps(others);
-
+  const inputError = displayError ? errorText || true : false;
   return (
     <Box className={className} {...boxProps}>
       <Input
@@ -167,13 +202,16 @@ const DatePickerInput: GenericComponent<DatePickerInputProps> = ({
         prefix={renderIcon()}
         suffix={renderClearIcon()}
         size={inputSize || size}
-        value={getFormattedDate()}
         width="120px"
-        noInputStyling={dayPickerProps && dayPickerProps.withMonthPicker}
+        noInputStyling={!typeable}
+        error={inputError}
         {...inputProps}
         onClick={handleInputClick}
         onFocus={handleInputFocus}
+        onBlur={handleInputBlur}
         className={theme['date-picker-input']}
+        value={inputValue}
+        onChange={handleInputChange}
       />
       <Popover
         active={isPopoverActive}
@@ -185,6 +223,7 @@ const DatePickerInput: GenericComponent<DatePickerInputProps> = ({
         position="end"
         offsetCorrection={30}
         returnFocusToSource={false}
+        withFocusTrap={!typeable}
         {...popoverProps}
       >
         <Box overflowY="auto">

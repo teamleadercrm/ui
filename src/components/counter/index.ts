@@ -1,3 +1,4 @@
-import Counter from './Counter';
+import Counter, { CounterProps } from './Counter';
 
 export default Counter;
+export type { CounterProps };

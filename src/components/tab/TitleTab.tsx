@@ -8,7 +8,7 @@ import { Heading4, Heading5 } from '../typography';
 import { GenericComponent } from '../../@types/types';
 import { SIZES } from '../../constants';
 
-interface TitleTabProps extends Omit<BoxProps, 'size' | 'element'> {
+export interface TitleTabProps extends Omit<BoxProps, 'size' | 'element'> {
   active?: boolean;
   children: ReactNode;
   element?: React.ElementType;

@@ -12,6 +12,42 @@
 
 ### Dependency updates
 
+## [16.5.0] - 2022-11-10
+
+### Added
+
+- `Popover`: `withFocusTrap` prop to allow control over focus ([@qubis741](https://github.com/qubis741)) in [#2430](https://github.com/teamleadercrm/ui/pull/2430))
+- `DatePickerInput`: `typeable` and `errorText` props to allow typing date ([@qubis741](https://github.com/qubis741)) in [#2430](https://github.com/teamleadercrm/ui/pull/2430))
+
+## [16.4.4] - 2022-11-07
+
+### Fixed
+
+- `Overlay`: Revert back "set tabIndex to fix onKeyDown events no longer registering after clicking inside the overlay" ([@eniskraasniqi1](https://github.com/eniskraasniqi1)) in [#2431](https://github.com/teamleadercrm/ui/pull/2431)
+
+## [16.4.3] - 22-10-31
+
+### Fixed
+
+- `Select`: Allow multiple selects being rendered at once ([@stefaandevylder](https://github.com/stefaandevylder)) in [#2422](https://github.com/teamleadercrm/ui/pull/2422)
+
+## [16.4.2] - 22-10-28
+
+### Added
+
+- `Select`: exported `SelectRef` ([@qubis741](https://github.com/qubis741)) in [#2418](https://github.com/teamleadercrm/ui/pull/2418))
+
+## [16.4.1] - 2022-10-27
+
+### Changed
+
+- `Label`: `marginBottom` size is same for all sizes and further customisable ([@qubis741](https://github.com/qubis741)) in [#2408](https://github.com/teamleadercrm/ui/pull/2408))
+
+### Fixed
+
+- `Overlay`: set tabIndex to fix onKeyDown events no longer registering after clicking inside the overlay ([@BeirlaenAaron](https://github.com/BeirlaenAaron)) in [#2394](https://github.com/teamleadercrm/ui/pull/2394))
+- `Dialog`: Dialog size update on Safari ([@stefaandevylder](https://github.com/stefaandevylder)) in [#2412](https://github.com/teamleadercrm/ui/pull/2412)
+
 ## [16.4.0] - 2022-09-29
 
 ### Changed

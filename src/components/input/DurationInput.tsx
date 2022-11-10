@@ -9,7 +9,7 @@ import { SIZES } from '../../constants';
 
 const MINUTES_STEP = 15;
 
-interface DurationInputProps
+export interface DurationInputProps
   extends Omit<NumericInputProps, 'className' | 'id' | 'max' | 'onBlur' | 'onChange' | 'onKeyDown' | 'size' | 'value'>,
     Omit<BoxProps, 'size' | 'ref'> {
   /** Sets a class name for the wrapper to give custom styles. */

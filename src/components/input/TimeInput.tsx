@@ -7,7 +7,7 @@ import { GenericComponent } from '../../@types/types';
 
 const isValidTime = (input: string) => /([0-1][0-9]|[2][0-3]):([0-5][0-9])/.test(input);
 
-interface TimeInputProps extends Omit<SingleLineInputBaseProps, 'disabled' | 'readOnly'> {
+export interface TimeInputProps extends Omit<SingleLineInputBaseProps, 'disabled' | 'readOnly'> {
   /** Boolean indicating whether the input should render as disabled. */
   disabled?: boolean;
   /** Boolean indicating whether the input should render as read only. */

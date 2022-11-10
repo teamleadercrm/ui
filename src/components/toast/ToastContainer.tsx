@@ -4,7 +4,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { GenericComponent } from '../../@types/types';
 import theme from './theme.css';
 
-interface ToastContainerProps {
+export interface ToastContainerProps {
   /** The content to display inside the ToastContainer */
   children: ReactNode;
   /** A custom class name for custom styling */

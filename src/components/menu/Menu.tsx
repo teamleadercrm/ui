@@ -1,3 +1,5 @@
+import uiUtilities from '@teamleader/ui-utilities';
+import cx from 'classnames';
 import React, {
   ReactElement,
   ReactNode,
@@ -8,15 +10,14 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import cx from 'classnames';
-import { events } from '../utils';
-import { getViewport } from '../utils/utils';
+import { GenericComponent } from '../../@types/types';
 import Box, { pickBoxProps } from '../box';
+import { BoxProps } from '../box/Box';
+import { events } from '../utils';
+import isComponentOfType from '../utils/is-component-of-type';
+import { getViewport } from '../utils/utils';
 import MenuItem from './MenuItem';
 import theme from './theme.css';
-import uiUtilities from '@teamleader/ui-utilities';
-import { BoxProps } from '../box/Box';
-import { GenericComponent } from '../../@types/types';
 
 const POSITION: Record<string, 'auto' | 'static' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right'> = {
   AUTO: 'auto',
@@ -27,7 +28,7 @@ const POSITION: Record<string, 'auto' | 'static' | 'top-left' | 'top-right' | 'b
   BOTTOM_RIGHT: 'bottom-right',
 };
 
-interface MenuProps extends Omit<BoxProps, 'children' | 'className'> {
+export interface MenuProps extends Omit<BoxProps, 'children' | 'className'> {
   /** If true, the menu will be active. */
   active?: boolean;
   /** The content to display inside the menu. */
@@ -83,7 +84,7 @@ const Menu: GenericComponent<MenuProps> = ({
     [uiUtilities['box-shadow-200']]: position !== POSITION.STATIC,
   });
 
-  const handleDocumentClick = (event: SyntheticEvent) => {
+  const handleDocumentClick = (event: Event) => {
     if (active && !events.targetIsDescendant(event, menuWrapper.current)) {
       // eslint-disable-next-line @typescript-eslint/no-use-before-define
       hide();
@@ -170,25 +171,20 @@ const Menu: GenericComponent<MenuProps> = ({
   };
 
   const getItems = useCallback(() => {
-    // Because React Hot Loader creates proxied versions of your components,
-    // comparing reference types of elements won't work
-    // https://github.com/gaearon/react-hot-loader/blob/master/docs/Known%20Limitations.md#checking-element-types
-    const MenuItemType = (<MenuItem />).type;
-
     return React.Children.map(children, (item: ReactNode) => {
       if (!item) {
         return item;
       }
 
       if (React.isValidElement(item)) {
-        if (item.type === MenuItemType) {
+        if (isComponentOfType(MenuItem, item)) {
           return React.cloneElement(item, {
             selected: typeof item.props.value !== 'undefined' && selectable && item.props.value === selected,
             onClick: (event: SyntheticEvent) => handleSelect(item, event),
           });
-        } else {
-          return React.cloneElement(item);
         }
+
+        return React.cloneElement(item);
       }
     });
   }, [children]);

@@ -10,7 +10,7 @@ import theme from './theme.css';
 import { Suggestion, Suggestions } from './types';
 import { excludeSuggestions } from './utils';
 
-interface EmailSelectorProps extends Omit<BoxProps, 'ref' | 'onBlur' | 'onFocus'> {
+export interface EmailSelectorProps extends Omit<BoxProps, 'ref' | 'onBlur' | 'onFocus'> {
   error?: boolean | string;
   warning?: boolean | string;
   defaultSelection?: Suggestion[];

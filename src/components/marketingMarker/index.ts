@@ -1,2 +1,3 @@
-import MarketingMarker from './MarketingMarker';
+import MarketingMarker, { MarketingMarkerProps } from './MarketingMarker';
 export default MarketingMarker;
+export type { MarketingMarkerProps };

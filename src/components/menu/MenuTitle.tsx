@@ -5,7 +5,7 @@ import { BoxProps } from '../box/Box';
 import { Heading4 } from '../typography';
 import theme from './theme.css';
 
-interface MenuTitleProps extends Omit<BoxProps, 'children'> {
+export interface MenuTitleProps extends Omit<BoxProps, 'children'> {
   children: ReactNode;
 }
 

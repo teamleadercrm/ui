@@ -1,2 +1,3 @@
-import MarketingLockBadge from './MarketingLockBadge';
+import MarketingLockBadge, { MarketingLockBadgeProps } from './MarketingLockBadge';
 export default MarketingLockBadge;
+export type { MarketingLockBadgeProps };

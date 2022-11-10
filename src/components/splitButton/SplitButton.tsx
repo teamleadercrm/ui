@@ -2,7 +2,7 @@ import React, { MouseEvent, ReactElement, ReactNode, useRef, useState } from 're
 import Box, { pickBoxProps } from '../box';
 import Button from '../button';
 import ButtonGroup from '../buttonGroup';
-import { Menu } from '../menu';
+import { Menu, MenuItem } from '../menu';
 import Popover from '../popover';
 import { IconChevronDownSmallOutline } from '@teamleader/ui-icons';
 import { BoxProps } from '../box/Box';
@@ -10,8 +10,9 @@ import { GenericComponent } from '../../@types/types';
 import isReactElement from '../utils/is-react-element';
 import { SIZES } from '../../constants';
 import theme from './theme.css';
+import isComponentOfType from '../utils/is-component-of-type';
 
-interface SplitButtonProps extends Omit<BoxProps, 'children' | 'size'> {
+export interface SplitButtonProps extends Omit<BoxProps, 'children' | 'size'> {
   /** The MenuItems we pass to our component. */
   children: ReactNode;
   /** Determines which kind of button to be rendered. */
@@ -61,7 +62,7 @@ const SplitButton: GenericComponent<SplitButtonProps> = ({
     onSecondaryButtonClick && onSecondaryButtonClick(event);
   };
 
-  const handleMenuItemClick = (child: ReactElement, event: MouseEvent<HTMLElement>) => {
+  const handleMenuItemClick = (child: ReactElement, event: MouseEvent) => {
     const childProps = child.props;
     setPopoverActive(false);
     childProps.onClick(event);
@@ -118,11 +119,17 @@ const SplitButton: GenericComponent<SplitButtonProps> = ({
       >
         <Menu>
           {React.Children.map(children, (child) => {
-            if (React.isValidElement(child) && child.props.label !== buttonLabel) {
-              return React.cloneElement(child, {
-                onClick: (event: MouseEvent<HTMLElement>) => handleMenuItemClick(child, event),
-              });
+            if (
+              !React.isValidElement(child) ||
+              !isComponentOfType(MenuItem, child) ||
+              child.props.label === buttonLabel
+            ) {
+              return null;
             }
+
+            return React.cloneElement(child, {
+              onClick: (event: MouseEvent) => handleMenuItemClick(child, event),
+            });
           })}
         </Menu>
       </Popover>
