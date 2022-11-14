@@ -15,6 +15,7 @@ import ReactSelect, {
   Props,
   StylesConfig,
   ValueContainerProps,
+  components as ReactSelectComponents,
 } from 'react-select';
 import ReactCreatableSelect from 'react-select/creatable';
 import SelectType from 'react-select/dist/declarations/src/Select';
@@ -466,6 +467,7 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
           ClearIndicator,
           DropdownIndicator,
           IndicatorSeparator: null,
+          Input: (inputProps) => <ReactSelectComponents.Input data-is-select="true" {...inputProps} />,
           ...components,
         }}
         hideSelectedOptions={false}
