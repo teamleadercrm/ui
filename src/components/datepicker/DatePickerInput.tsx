@@ -2,7 +2,6 @@ import { IconCalendarSmallOutline, IconCloseBadgedSmallFilled } from '@teamleade
 import React, { ReactNode, useEffect, useState } from 'react';
 import { DayPickerProps as ReactDayPickerProps } from 'react-day-picker';
 import DatePicker from '.';
-import { GenericComponent } from '../../@types/types';
 import { SIZES } from '../../constants';
 import Box, { pickBoxProps } from '../box';
 import { BoxProps } from '../box/Box';
@@ -17,7 +16,7 @@ import theme from './theme.css';
 const DEFAULT_FORMAT = 'dd/MM/yyyy';
 const ALLOWED_DATE_FORMATS = [DEFAULT_FORMAT, 'd/M/yyyy', 'dd.MM.yyyy', 'd.M.yyyy', 'dd-MM-yyyy', 'd-M-yyyy'];
 
-export interface DatePickerInputProps extends Omit<BoxProps, 'size' | 'onChange'> {
+export interface DatePickerInputProps<IsTypeable extends boolean = true> extends Omit<BoxProps, 'size' | 'onChange'> {
   /** A class name for the wrapper to give custom styles. */
   className?: string;
   /** Object with props for the DatePicker component. */
@@ -25,7 +24,7 @@ export interface DatePickerInputProps extends Omit<BoxProps, 'size' | 'onChange'
   /** A footer component, rendered at the bottom of the date picker */
   footer?: ReactNode;
   /** A custom function to format a date if input is not typeable */
-  formatDate?: (selectedDate: Date, locale: string) => string;
+  formatDate?: IsTypeable extends true ? never : (selectedDate: Date, locale: string) => string;
   /** Object with props for the Input component. */
   inputProps?: InputProps;
   /** If true, component will be rendered in inverse mode. */
@@ -51,7 +50,7 @@ export interface DatePickerInputProps extends Omit<BoxProps, 'size' | 'onChange'
   /** Whether the input should have button for value clearing. False by default. */
   clearable?: boolean;
   /** Whether user is able to type into the input. True by default. */
-  typeable?: boolean;
+  typeable?: IsTypeable;
   /** Error text that is displayed when typed date is invalid. */
   errorText?: string;
 }
@@ -63,7 +62,7 @@ interface DayPickerProps extends Omit<ReactDayPickerProps, 'modifiers'> {
   withMonthPicker?: boolean;
 }
 
-const DatePickerInput: GenericComponent<DatePickerInputProps> = ({
+function DatePickerInput<IsTypeable extends boolean = true>({
   className,
   dayPickerProps,
   footer,
@@ -79,10 +78,10 @@ const DatePickerInput: GenericComponent<DatePickerInputProps> = ({
   clearable = false,
   onChange,
   onBlur,
-  typeable = true,
+  typeable = true as IsTypeable,
   errorText,
   ...others
-}) => {
+}: DatePickerInputProps<IsTypeable>) {
   const getFormattedDateString = (date: Date) => {
     if (!date) {
       return '';
@@ -254,6 +253,6 @@ const DatePickerInput: GenericComponent<DatePickerInputProps> = ({
       </Popover>
     </Box>
   );
-};
+}
 
 export default DatePickerInput;
