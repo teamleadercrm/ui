@@ -16,6 +16,7 @@ import ReactSelect, {
   StylesConfig,
   ValueContainerProps,
   components as ReactSelectComponents,
+  InputProps,
 } from 'react-select';
 import ReactCreatableSelect from 'react-select/creatable';
 import SelectType from 'react-select/dist/declarations/src/Select';
@@ -126,7 +127,10 @@ const ClearIndicator = <Option extends OptionType, IsMulti extends boolean>(
     </Icon>
   );
 };
-
+// For setting data attribute that is detected in `useFocusTrap`
+const Input = <Option extends OptionType, IsMulti extends boolean>(inputProps: InputProps<Option, IsMulti>) => {
+  return <ReactSelectComponents.Input data-is-select="true" {...inputProps} />;
+};
 export const selectOverlayNode = document.createElement('div');
 selectOverlayNode.setAttribute('data-teamleader-ui', 'select-overlay');
 
@@ -467,7 +471,7 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
           ClearIndicator,
           DropdownIndicator,
           IndicatorSeparator: null,
-          Input: (inputProps) => <ReactSelectComponents.Input data-is-select="true" {...inputProps} />,
+          Input,
           ...components,
         }}
         hideSelectedOptions={false}
