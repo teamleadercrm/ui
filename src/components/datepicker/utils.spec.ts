@@ -22,7 +22,7 @@ describe('DatePicker utils', () => {
       { disabledDays: { daysOfWeek: [1, 2, 3, 4] }, output: false },
       { disabledDays: (_date: Date) => false, output: true },
       { disabledDays: (_date: Date) => true, output: false },
-    ])('works with disabled days: `$disabledDays', ({ disabledDays, output }) => {
+    ])('works with disabled days: `$disabledDays`', ({ disabledDays, output }) => {
       expect(isAllowedDate(testDate, disabledDays)).toEqual(output);
     });
   });
