@@ -12,6 +12,7 @@ import Popover from '../popover';
 import { PopoverProps } from '../popover/Popover';
 import { formatDate, parseMultiFormatsDate } from './localeUtils';
 import theme from './theme.css';
+import { isAllowedDate } from './utils';
 
 const DEFAULT_FORMAT = 'dd/MM/yyyy';
 const ALLOWED_DATE_FORMATS = [DEFAULT_FORMAT, 'd/M/yyyy', 'dd.MM.yyyy', 'd.M.yyyy', 'dd-MM-yyyy', 'd-M-yyyy'];
@@ -130,7 +131,7 @@ function DatePickerInput<IsTypeable extends boolean = true>({
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const value = event.target.value;
     const date = parseMultiFormatsDate(value, ALLOWED_DATE_FORMATS, locale);
-    if (date) {
+    if (date && isAllowedDate(date, dayPickerProps?.disabledDays)) {
       setSelectedDate(date);
     }
     handleInputValueChange(value);
@@ -140,7 +141,7 @@ function DatePickerInput<IsTypeable extends boolean = true>({
     inputProps?.onBlur && inputProps.onBlur(event);
     if (typeable && !customFormatDate && inputValue) {
       const date = parseMultiFormatsDate(inputValue, ALLOWED_DATE_FORMATS, locale);
-      if (date) {
+      if (date && isAllowedDate(date, dayPickerProps?.disabledDays)) {
         handleInputValueChange(getFormattedDateString(date));
       } else {
         setDisplayError(true);
