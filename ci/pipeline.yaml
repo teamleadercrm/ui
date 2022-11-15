@@ -260,6 +260,48 @@ jobs:
         status: failure
         context: check-types
 
+  - name: pr-test
+    plan:
+      - in_parallel:
+          - get: git-pull-request
+            trigger: true
+            version: every
+          - get: docker-node
+            params: {save: true}
+      - put: git-pull-request
+        params:
+          path: git-pull-request
+          status: pending
+          context: test
+      - task: test
+        image: docker-node
+        config:
+          platform: linux
+          caches:
+            - path: git-pull-request/node_modules
+          inputs:
+            - name: git-pull-request
+          run:
+            path: sh
+            args:
+              - -exec
+              - |
+                cd git-pull-request
+                yarn
+                yarn test
+    on_success:
+      put: git-pull-request
+      params:
+        path: git-pull-request
+        status: success
+        context: test
+    on_failure:
+      put: git-pull-request
+      params:
+        path: git-pull-request
+        status: failure
+        context: test
+
   # OPS jobs
 
   - name: pr-yamllint
