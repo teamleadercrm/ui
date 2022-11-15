@@ -12,7 +12,11 @@
 
 ### Dependency updates
 
-## [16.5.1] - 2022-11-15
+## [17.0.0] - 2022-11-15
+
+### Added
+
+- `DatePickerInput`: restriction to use `formatDate` if `typeable=true` ([@qubis741](https://github.com/qubis741)) in [#2441](https://github.com/teamleadercrm/ui/pull/2441))
 
 ### Fixed
 
