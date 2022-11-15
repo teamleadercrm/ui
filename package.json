@@ -83,7 +83,6 @@
     "@storybook/react": "6.5.10",
     "@storybook/theming": "^6.5.10",
     "@storybook/ui": "6.5.10",
-    "@types/jest": "^29.2.3",
     "@types/lodash.omit": "^4.5.7",
     "@types/lodash.pick": "^4.4.7",
     "@types/lodash.throttle": "^4.1.7",
@@ -116,9 +115,7 @@
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^6.0.0",
     "husky": "^8.0.1",
-    "identity-obj-proxy": "^3.0.0",
     "image-webpack-loader": "^8.0.1",
-    "jest": "^29.3.1",
     "json-loader": "^0.5.4",
     "moment": "^2.22.2",
     "postcss": "^8.4.5",
@@ -184,9 +181,7 @@
     "chromatic": "CHROMATIC=true chromatic",
     "check-types": "tsc --noEmit",
     "check-types:watch": "yarn check-types --watch",
-    "build-types": "tsc -p ./tsconfig.build.json",
-    "test": "TZ=Europe/Brussels jest --config ./jest.config.json",
-    "test:watch": "yarn run test --watch"
+    "build-types": "tsc -p ./tsconfig.build.json"
   },
   "resolutions": {
     "@types/react": "^17.0.45"
