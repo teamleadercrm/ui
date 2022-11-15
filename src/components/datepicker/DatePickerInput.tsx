@@ -1,6 +1,6 @@
 import { IconCalendarSmallOutline, IconCloseBadgedSmallFilled } from '@teamleader/ui-icons';
 import React, { ReactNode, useEffect, useState } from 'react';
-import { DayPickerProps as ReactDayPickerProps } from 'react-day-picker';
+import { DayPickerProps as ReactDayPickerProps, Modifier } from 'react-day-picker';
 import DatePicker from '.';
 import { SIZES } from '../../constants';
 import Box, { pickBoxProps } from '../box';
@@ -55,11 +55,13 @@ export interface DatePickerInputProps<IsTypeable extends boolean = true> extends
   errorText?: string;
 }
 
-interface DayPickerProps extends Omit<ReactDayPickerProps, 'modifiers'> {
+export type AllowedDisabledDays = Modifier | Date[];
+interface DayPickerProps extends Omit<ReactDayPickerProps, 'modifiers' | 'disabledDays'> {
   numberOfMonths?: number;
   showOutsideDays?: boolean;
   showWeekNumbers?: boolean;
   withMonthPicker?: boolean;
+  disabledDays?: AllowedDisabledDays;
 }
 
 function DatePickerInput<IsTypeable extends boolean = true>({
