@@ -1,5 +1,3 @@
-import { isAllowedDate } from '../utils';
-
 // @todo uncomment when jest is added
 // const testDate = new Date(2022, 10, 15);
 // describe('DatePicker utils', () => {
