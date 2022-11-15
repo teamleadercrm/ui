@@ -32,9 +32,9 @@ export const isAllowedDate = (date: Date, disabledDays?: AllowedDisabledDays) =>
   if (disabledDays instanceof Date) {
     return dateTime !== getDateTimeAtStartOfDay(disabledDays);
   }
-  if (Array.isArray(disabledDays) && disabledDays.length > 0) {
+  if (Array.isArray(disabledDays) && disabledDays.length > 0 && disabledDays[0] instanceof Date) {
     return !disabledDays.some((disabledDay) => {
-      return dateTime === getDateTimeAtStartOfDay(disabledDay);
+      return disabledDay instanceof Date ? dateTime === getDateTimeAtStartOfDay(disabledDay) : false;
     });
   }
   if ('from' in disabledDays && disabledDays.from && 'to' in disabledDays && disabledDays.to) {
