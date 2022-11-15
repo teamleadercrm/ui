@@ -20,32 +20,31 @@ export const isSelectingFirstDay = (from: Date, to: Date, day: Date) => {
   return !from || isBeforeFirstDay || isRangeSelected;
 };
 
+const getDateTimeAtStartOfDay = (date: Date) => {
+  date.setHours(0, 0, 0, 0);
+  return date.getTime();
+};
 export const isAllowedDate = (date: Date, disabledDays?: AllowedDisabledDays) => {
   if (disabledDays) {
-    date.setHours(0, 0, 0, 0);
-    const dateTime = date.getTime();
+    const dateTime = getDateTimeAtStartOfDay(date);
     if (disabledDays instanceof Date) {
-      disabledDays.setHours(0, 0, 0, 0);
-      return dateTime !== disabledDays.getTime();
+      return dateTime !== getDateTimeAtStartOfDay(disabledDays);
     }
     if (Array.isArray(disabledDays) && disabledDays.length > 0) {
       return !disabledDays.some((disabledDay) => {
-        disabledDay.setHours(0, 0, 0, 0);
-        return dateTime === disabledDay.getTime();
+        return dateTime === getDateTimeAtStartOfDay(disabledDay);
       });
     }
     if ('from' in disabledDays && disabledDays.from && 'to' in disabledDays && disabledDays.to) {
-      disabledDays.from.setHours(0, 0, 0, 0);
-      disabledDays.to.setHours(0, 0, 0, 0);
-      return !(disabledDays.from.getTime() <= dateTime && dateTime <= disabledDays.to.getTime());
+      return !(
+        getDateTimeAtStartOfDay(disabledDays.from) <= dateTime && dateTime <= getDateTimeAtStartOfDay(disabledDays.to)
+      );
     }
     if ('before' in disabledDays && disabledDays.before && !('after' in disabledDays)) {
-      disabledDays.before.setHours(0, 0, 0, 0);
-      return disabledDays.before.getTime() <= dateTime;
+      return getDateTimeAtStartOfDay(disabledDays.before) <= dateTime;
     }
     if ('after' in disabledDays && disabledDays.after && !('before' in disabledDays)) {
-      disabledDays.after.setHours(0, 0, 0, 0);
-      return disabledDays.after.getTime() >= dateTime;
+      return getDateTimeAtStartOfDay(disabledDays.after) >= dateTime;
     }
     const disabledDaysBeforeAfter = disabledDays as BeforeAfterModifier;
     if (
@@ -54,10 +53,9 @@ export const isAllowedDate = (date: Date, disabledDays?: AllowedDisabledDays) =>
       disabledDaysBeforeAfter.before &&
       disabledDaysBeforeAfter.after
     ) {
-      disabledDaysBeforeAfter.before.setHours(0, 0, 0, 0);
-      disabledDaysBeforeAfter.after.setHours(0, 0, 0, 0);
       return (
-        disabledDaysBeforeAfter.before.getTime() <= dateTime && dateTime <= disabledDaysBeforeAfter.after.getTime()
+        getDateTimeAtStartOfDay(disabledDaysBeforeAfter.before) <= dateTime &&
+        dateTime <= getDateTimeAtStartOfDay(disabledDaysBeforeAfter.after)
       );
     }
     if ('daysOfWeek' in disabledDays && Array.isArray(disabledDays.daysOfWeek)) {
