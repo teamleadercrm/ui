@@ -106,6 +106,11 @@ function DatePickerInput<IsTypeable extends boolean = true>({
     setInputValue(value);
   };
 
+  useEffect(() => {
+    setSelectedDate(others.selectedDate);
+    handleInputValueChange(others.selectedDate ? getFormattedDateString(others.selectedDate) : '');
+  }, [others.selectedDate]);
+
   const handleInputFocus = (event: React.FocusEvent<HTMLElement>) => {
     if (inputProps?.readOnly) {
       return;
@@ -191,11 +196,6 @@ function DatePickerInput<IsTypeable extends boolean = true>({
       </Icon>
     ) : null;
   };
-
-  useEffect(() => {
-    setSelectedDate(others.selectedDate);
-    handleInputValueChange(others.selectedDate ? getFormattedDateString(others.selectedDate) : '');
-  }, [others.selectedDate]);
 
   const boxProps = pickBoxProps(others);
   const inputError = displayError ? errorText || true : false;
