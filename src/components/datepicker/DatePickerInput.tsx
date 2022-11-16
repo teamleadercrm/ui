@@ -194,6 +194,7 @@ function DatePickerInput<IsTypeable extends boolean = true>({
 
   useEffect(() => {
     setSelectedDate(others.selectedDate);
+    handleInputValueChange(others.selectedDate ? getFormattedDateString(others.selectedDate) : '');
   }, [others.selectedDate]);
 
   const boxProps = pickBoxProps(others);
