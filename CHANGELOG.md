@@ -12,6 +12,12 @@
 
 ### Dependency updates
 
+## [17.0.2] - 2022-11-16
+
+### Fixed
+
+- `DatePickerInput`: call `onChange` prop in input blur ([@qubis741](https://github.com/qubis741)) in [#2447](https://github.com/teamleadercrm/ui/pull/2447))
+
 ## [17.0.1] - 2022-11-16
 
 ### Changed
