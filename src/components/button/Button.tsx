@@ -1,5 +1,5 @@
 import cx from 'classnames';
-import React, { forwardRef, ReactNode } from 'react';
+import React, { forwardRef, ReactNode, useImperativeHandle, useRef } from 'react';
 import { GenericComponent } from '../../@types/types';
 import { COLORS, SIZES } from '../../constants';
 import Box from '../box';
@@ -48,6 +48,10 @@ export interface ButtonProps extends Omit<BoxProps, 'size'> {
   label?: string;
   /** Determines which kind of button to be rendered. */
   level?: `${BUTTON_LEVELS}`;
+  /** Callback function that is fired when mouse leaves the component. */
+  onMouseLeave?: (event: React.MouseEvent) => void;
+  /** Callback function that is fired when the mouse button is released. */
+  onMouseUp?: (event: React.MouseEvent) => void;
   /** If true, component will show a loading spinner instead of label or children. */
   processing?: boolean;
   /** Size of the button. */
@@ -74,11 +78,37 @@ const Button: GenericComponent<ButtonProps> = forwardRef<HTMLElement, ButtonProp
       level = BUTTON_LEVELS.secondary,
       size = 'medium',
       type = 'button',
+      onMouseUp,
+      onMouseLeave,
       processing = false,
       ...others
     },
     ref,
   ) => {
+    const buttonRef = useRef<HTMLElement>(null);
+    useImperativeHandle<HTMLElement | null, HTMLElement | null>(ref, () => buttonRef.current);
+
+    const blur = () => {
+      const currentButtonRef = buttonRef.current;
+      if (currentButtonRef?.blur) {
+        currentButtonRef.blur();
+      }
+    };
+
+    const handleMouseUp = (event: React.MouseEvent) => {
+      blur();
+      if (onMouseUp) {
+        onMouseUp(event);
+      }
+    };
+
+    const handleMouseLeave = (event: React.MouseEvent) => {
+      blur();
+      if (onMouseLeave) {
+        onMouseLeave(event);
+      }
+    };
+
     const getSpinnerColor = () => {
       switch (level) {
         case BUTTON_LEVELS.secondary:
@@ -142,8 +172,10 @@ const Button: GenericComponent<ButtonProps> = forwardRef<HTMLElement, ButtonProp
         data-teamleader-ui="button"
         disabled={element === 'button' ? disabled : undefined}
         element={element}
-        ref={ref}
+        ref={buttonRef}
         type={element === 'button' ? type : undefined}
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseLeave}
       >
         {icon && iconPlacement === 'left' && icon}
         {(label || children) && (
