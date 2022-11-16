@@ -7,6 +7,8 @@
 //       { disabledDays: new Date(2022, 10, 15), output: false },
 //       { disabledDays: [new Date(2022, 10, 16), new Date(2022, 10, 14)], output: true },
 //       { disabledDays: [new Date(2022, 10, 16), new Date(2022, 10, 15)], output: false },
+//       { disabledDays: [{incorrect: 'value'}], output: true },
+//       { disabledDays: [new Date(2022, 10, 16), {incorrect: 'value'}], output: true },
 //       { disabledDays: { from: new Date(2022, 10, 15), to: null }, output: true },
 //       { disabledDays: { from: null, to: new Date(2022, 10, 15) }, output: true },
 //       { disabledDays: { from: new Date(2022, 10, 16), to: new Date(2022, 10, 20) }, output: true },
