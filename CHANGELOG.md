@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `Select`: Adjust margins in dropdown when option groups are used ([@lorgan3](https://github.com/lorgan3)) in [#2440](https://github.com/teamleadercrm/ui/pull/2440))
+
 ### Deprecated
 
 ### Removed

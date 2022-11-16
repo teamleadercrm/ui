@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { OptionProps } from 'react-select';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { AsyncSelect, Avatar, Box, Label, Select, TextBody } from '../../index';
-import { customOptions, groupedOptions, options } from '../../static/data/select';
+import { customOptions, groupedOptions, groupedOptionsWithoutLabels, options } from '../../static/data/select';
 import { Option } from './types';
 
 export default {
@@ -95,6 +95,12 @@ export const grouped: ComponentStory<typeof Select> = () => {
   const [value, setValue] = useState<Option | null>(null);
   const handleChange = (option: Option) => setValue(option);
   return <Select value={value} options={groupedOptions} onChange={handleChange} />;
+};
+
+export const groupedWithoutLabels: ComponentStory<typeof Select> = () => {
+  const [value, setValue] = useState<Option | null>(null);
+  const handleChange = (option: Option) => setValue(option);
+  return <Select value={value} options={groupedOptionsWithoutLabels} onChange={handleChange} />;
 };
 
 export const customOption: ComponentStory<typeof Select> = () => {

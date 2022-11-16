@@ -40,5 +40,22 @@ const groupedOptions: GroupBase<Option>[] = [
   },
 ];
 
+const groupedOptionsWithoutLabels: GroupBase<Option>[] = [
+  {
+    options: [
+      { label: 'Chocolate', value: 'chocolate' },
+      { label: 'Vanilla', value: 'vanilla', isDisabled: true },
+      { label: 'Strawberry', value: 'strawberry' },
+    ],
+  },
+  {
+    options: [
+      { label: 'Red', value: 'red' },
+      { label: 'Green', value: 'green' },
+      { label: 'Blue', value: 'blue' },
+    ],
+  },
+];
+
 export default options;
-export { customOptions, groupedOptions, options };
+export { customOptions, groupedOptions, groupedOptionsWithoutLabels, options };
