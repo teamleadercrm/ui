@@ -12,6 +12,16 @@
 
 ### Dependency updates
 
+## [17.0.0] - 2022-11-15
+
+### Added
+
+- `DatePickerInput`: restriction to use `formatDate` if `typeable=true` ([@qubis741](https://github.com/qubis741)) in [#2441](https://github.com/teamleadercrm/ui/pull/2441))
+
+### Fixed
+
+- `DatePickerInput`: inability to click on `MonthPicker` while inside `Dialog` ([@qubis741](https://github.com/qubis741)) in [#2441](https://github.com/teamleadercrm/ui/pull/2441))
+
 ## [16.5.0] - 2022-11-10
 
 ### Added
