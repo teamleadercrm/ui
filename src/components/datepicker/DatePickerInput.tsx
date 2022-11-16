@@ -198,7 +198,7 @@ function DatePickerInput<IsTypeable extends boolean = true>({
   };
 
   const boxProps = pickBoxProps(others);
-  const inputError = displayError ? errorText || true : false;
+  const internalError = displayError ? errorText || true : false;
   return (
     <Box className={className} {...boxProps}>
       <Input
@@ -208,8 +208,8 @@ function DatePickerInput<IsTypeable extends boolean = true>({
         size={inputSize || size}
         width="120px"
         noInputStyling={!typeable}
-        error={inputError}
         {...inputProps}
+        error={inputProps?.error || internalError}
         onClick={handleInputClick}
         onFocus={handleInputFocus}
         onBlur={handleInputBlur}
