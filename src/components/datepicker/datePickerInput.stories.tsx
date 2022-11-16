@@ -20,7 +20,7 @@ export default {
 } as ComponentMeta<typeof DatePickerInput>;
 
 export const defaultStory: ComponentStory<typeof DatePickerInput> = (args) => {
-  const handleOnChange = (selectedDate: Date | undefined) => {
+  const handleOnChange = (selectedDate: Date | undefined | string) => {
     console.log('Selected date', selectedDate);
   };
 
@@ -28,7 +28,7 @@ export const defaultStory: ComponentStory<typeof DatePickerInput> = (args) => {
 };
 
 export const clearableInputSingleDate: ComponentStory<typeof DatePickerInput> = () => {
-  const handleOnChange = (selectedDate: Date | undefined) => {
+  const handleOnChange = (selectedDate: Date | undefined | string) => {
     console.log('Selected date', selectedDate);
   };
 
@@ -55,7 +55,7 @@ export const clearableInputSingleDate: ComponentStory<typeof DatePickerInput> = 
 };
 
 export const inputSingleDateWithCustomFormat: ComponentStory<typeof DatePickerInput> = () => {
-  const handleOnChange = (selectedDate: Date | undefined) => {
+  const handleOnChange = (selectedDate: Date | undefined | string) => {
     console.log('Selected date', selectedDate);
   };
 
@@ -83,7 +83,7 @@ export const inputSingleDateWithCustomFormat: ComponentStory<typeof DatePickerIn
 };
 
 export const inputSingleDateWithoutTyping: ComponentStory<typeof DatePickerInput> = () => {
-  const handleOnChange = (selectedDate: Date | undefined) => {
+  const handleOnChange = (selectedDate: Date | undefined | string) => {
     console.log('Selected date', selectedDate);
   };
 
