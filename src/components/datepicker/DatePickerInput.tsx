@@ -143,6 +143,7 @@ function DatePickerInput<IsTypeable extends boolean = true>({
       const date = parseMultiFormatsDate(inputValue, ALLOWED_DATE_FORMATS, locale);
       if (date && isAllowedDate(date, dayPickerProps?.disabledDays)) {
         handleInputValueChange(getFormattedDateString(date));
+        onChange && onChange(date);
       } else {
         setDisplayError(true);
       }
