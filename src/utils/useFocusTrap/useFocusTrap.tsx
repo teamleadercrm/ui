@@ -75,10 +75,15 @@ const useFocusTrap = ({
       }
 
       const trapFocus: EventListener = (event) => {
-        const eventTarget = event.target as Element;
+        const eventTarget = event.target as HTMLElement;
         // If focus is called on CkeEditor Element (for example Link dialog), we want to keep focus there, not back in our dialog
         const isCkEditorElement = eventTarget.className.includes('cke');
-        if (!isCkEditorElement && !currentFocusRef.contains(eventTarget)) {
+        /**
+         ** If focus is called on Select input inside focus trap but not directly (for example DatePickerInput(typeable) Monthly picker),
+         ** we want to keep focus there, not back in our dialog
+         */
+        const isSelect = eventTarget.dataset.isSelect;
+        if (!isCkEditorElement && !isSelect && !currentFocusRef.contains(eventTarget)) {
           if (document.activeElement === event.target) {
             if (event.target === topFocusBumperRef.current) {
               // Reset the focus to the last element when focusing in reverse (shift-tab)

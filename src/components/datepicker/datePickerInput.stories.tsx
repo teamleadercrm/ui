@@ -38,7 +38,7 @@ export const clearableInputSingleDate: ComponentStory<typeof DatePickerInput> = 
         numberOfMonths: 1,
         showOutsideDays: true,
         showWeekNumbers: true,
-        withMonthPicker: false,
+        withMonthPicker: true,
       }}
       inputProps={{
         helpText: 'Pick a date',
@@ -75,9 +75,9 @@ export const inputSingleDateWithCustomFormat: ComponentStory<typeof DatePickerIn
       locale="nl-BE"
       size="medium"
       formatDate={customFormatDate}
-      typeable={false}
       onChange={handleOnChange}
       selectedDate={preSelectedDate}
+      typeable={false}
     />
   );
 };
@@ -103,7 +103,6 @@ export const inputSingleDateWithoutTyping: ComponentStory<typeof DatePickerInput
       size="medium"
       onChange={handleOnChange}
       selectedDate={preSelectedDate}
-      typeable={false}
     />
   );
 };
