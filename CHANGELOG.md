@@ -4,8 +4,6 @@
 
 ### Changed
 
-- `Select`: Adjust margins in dropdown when option groups are used ([@lorgan3](https://github.com/lorgan3)) in [#2440](https://github.com/teamleadercrm/ui/pull/2440))
-
 ### Deprecated
 
 ### Removed
@@ -13,6 +11,13 @@
 ### Fixed
 
 ### Dependency updates
+
+## [17.0.1] - 2022-11-16
+
+### Changed
+
+- `Select`: Adjust margins in dropdown when option groups are used ([@lorgan3](https://github.com/lorgan3)) in [#2440](https://github.com/teamleadercrm/ui/pull/2440))
+- `Button`: Blur the button again after clicking on it ([@lorgan3](https://github.com/lorgan3)) in [#2445](https://github.com/teamleadercrm/ui/pull/2445))
 
 ## [17.0.0] - 2022-11-15
 
