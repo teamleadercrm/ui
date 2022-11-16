@@ -1,5 +1,5 @@
 import { IconCalendarSmallOutline, IconCloseBadgedSmallFilled } from '@teamleader/ui-icons';
-import React, { ReactNode, useEffect, useState } from 'react';
+import React, { ReactNode, useCallback, useEffect, useState } from 'react';
 import { DayPickerProps as ReactDayPickerProps, Modifier } from 'react-day-picker';
 import DatePicker from '.';
 import { SIZES } from '../../constants';
@@ -105,7 +105,36 @@ function DatePickerInput<IsTypeable extends boolean = true>({
     setDisplayError(false);
     setInputValue(value);
   };
-
+  // Special handling of closing popover, where we also call onChange prop to ensure proper value is in argument
+  const closePopover = useCallback(
+    (value: Date | undefined | false) => {
+      setIsPopoverActive(false);
+      // Date - on day click
+      if (value) {
+        onChange && onChange(value);
+        return;
+      }
+      // Clear click
+      if (value === undefined) {
+        onChange && onChange(undefined);
+        return;
+      }
+      // Blurred from input, not focused on datepicker
+      if (value === false) {
+        if (typeable && !customFormatDate && inputValue) {
+          const date = parseMultiFormatsDate(inputValue, ALLOWED_DATE_FORMATS, locale);
+          if (date && isAllowedDate(date, dayPickerProps?.disabledDays)) {
+            onChange && onChange(date);
+          } else {
+            onChange && onChange(inputValue);
+          }
+        } else {
+          onChange && onChange(selectedDate);
+        }
+      }
+    },
+    [inputValue],
+  );
   useEffect(() => {
     setSelectedDate(others.selectedDate);
     handleInputValueChange(others.selectedDate ? getFormattedDateString(others.selectedDate) : '');
@@ -148,7 +177,6 @@ function DatePickerInput<IsTypeable extends boolean = true>({
       const date = parseMultiFormatsDate(inputValue, ALLOWED_DATE_FORMATS, locale);
       if (date && isAllowedDate(date, dayPickerProps?.disabledDays)) {
         handleInputValueChange(getFormattedDateString(date));
-        onChange && onChange(date);
       } else {
         setDisplayError(true);
       }
@@ -157,14 +185,13 @@ function DatePickerInput<IsTypeable extends boolean = true>({
 
   const handlePopoverClose = () => {
     onBlur && onBlur();
-    setIsPopoverActive(false);
+    closePopover(false);
   };
 
   const handleDatePickerDateChange = (date: Date) => {
-    setIsPopoverActive(false);
+    closePopover(date);
     setSelectedDate(date);
     handleInputValueChange(getFormattedDateString(date));
-    onChange && onChange(date);
   };
 
   const renderIcon = () => {
@@ -178,10 +205,8 @@ function DatePickerInput<IsTypeable extends boolean = true>({
   const handleClear = (event: MouseEvent) => {
     // Prevents opening datepicker on clicking of this
     event.preventDefault();
-    setIsPopoverActive(false);
-    setSelectedDate(undefined);
+    closePopover(undefined);
     handleInputValueChange('');
-    onChange && onChange(undefined);
   };
 
   const renderClearIcon = () => {
