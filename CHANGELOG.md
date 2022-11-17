@@ -16,7 +16,7 @@
 
 ### Fixed
 
-- `NumericInput`: Make sure the stepper `onMouseDown` loops stop when the minimum or maximum value is reached ([@kristofcolpaert](https://github.com/kristofcolpaert)) in )[#2451](https://github.com/teamleadercrm/ui/pull/2451))
+- `NumericInput`: Make sure the stepper `onMouseDown` loops stop when the minimum or maximum value is reached ([@kristofcolpaert](https://github.com/kristofcolpaert)) in ([#2451](https://github.com/teamleadercrm/ui/pull/2451))
 
 ## [17.0.2] - 2022-11-16
 
