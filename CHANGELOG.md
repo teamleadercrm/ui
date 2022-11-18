@@ -2,6 +2,8 @@
 
 ### Added
 
+- `MarketingMenuItem`: Added new component ([@lorgan3](https://github.com/lorgan3)) in ([#2452](https://github.com/teamleadercrm/ui/pull/2452))
+
 ### Changed
 
 ### Deprecated
@@ -9,6 +11,8 @@
 ### Removed
 
 ### Fixed
+
+- `NumericInput`: Make sure the stepper `onMouseDown` loops stop when the minimum or maximum value is reached ([@kristofcolpaert](https://github.com/kristofcolpaert)) in ([#2451](https://github.com/teamleadercrm/ui/pull/2451))
 
 ### Dependency updates
 
