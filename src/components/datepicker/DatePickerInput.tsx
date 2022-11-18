@@ -141,7 +141,7 @@ function DatePickerInput<IsTypeable extends boolean = true>({
   useEffect(() => {
     if (!preselectedDate) {
       handleInputValueChange('');
-      setSelectedDate(preselectedDate);
+      setSelectedDate(undefined);
       // If preseleced invalid date happens when typed date is invalid and value is passed from form in codebase
     } else if (isValidDate(preselectedDate)) {
       handleInputValueChange(getFormattedDateString(preselectedDate));
