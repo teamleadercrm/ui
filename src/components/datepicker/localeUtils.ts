@@ -107,3 +107,5 @@ export default {
   getMonths,
   parseDate,
 };
+
+export const isValidDate = (date: Date) => DateTime.fromJSDate(date).isValid;
