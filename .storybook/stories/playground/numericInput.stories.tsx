@@ -14,7 +14,28 @@ export default {
   },
 };
 
-export const numericInput = () => {
+export const numericInputWithStepper = () => {
+  const [value, setValue] = useState(1);
+
+  const min = 1;
+  const max = 10;
+
+  const handleChange = (event) => {
+    const newValue = (event as ChangeEvent<HTMLInputElement>).currentTarget.valueAsNumber;
+
+    setValue(newValue);
+  };
+
+  return (
+    <Box style={{ maxWidth: '300px', gap: '12px' }} display="flex" flexDirection="column">
+      <NumericInput stepper="connected" min={min} max={max} value={value} onChange={handleChange} />
+    </Box>
+  );
+};
+
+numericInputWithStepper.storyName = 'Numeric Input stepper control';
+
+export const numericInputWithStepperAndCustomStepperStates = () => {
   const [value, setValue] = useState<number>(3);
   const [hasMinErrorVisible, setMinErrorVisible] = useState<boolean>(false);
   const [hasMaxErrorVisible, setMaxErrorVisible] = useState<boolean>(false);
@@ -68,4 +89,4 @@ export const numericInput = () => {
   );
 };
 
-numericInput.storyName = 'Numeric input stepper control';
+numericInputWithStepperAndCustomStepperStates.storyName = 'Numeric Input stepper control with custom stepper states';
