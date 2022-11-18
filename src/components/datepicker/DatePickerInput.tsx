@@ -33,7 +33,7 @@ export interface DatePickerInputProps<IsTypeable extends boolean = true> extends
   /** The language ISO locale code ('en-GB', 'nl-BE', 'fr-FR',...). */
   locale?: string;
   /** Callback function that is fired when the date has changed. */
-  onChange?: (selectedDate: Date | undefined | string) => void;
+  onChange?: (selectedDate: IsTypeable extends true ? Date | string | undefined : Date | undefined) => void;
   /** Callback function that is fired when the popover with the calendar gets closed (unfocused) */
   onBlur?: () => void;
   /** Object with props for the Popover component. */
@@ -128,6 +128,7 @@ function DatePickerInput<IsTypeable extends boolean = true>({
           if (date && isAllowedDate(date, dayPickerProps?.disabledDays)) {
             onChange && onChange(date);
           } else {
+            // @ts-ignore
             onChange && onChange(inputValue);
           }
         } else {

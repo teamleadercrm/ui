@@ -55,7 +55,7 @@ export const clearableInputSingleDate: ComponentStory<typeof DatePickerInput> = 
 };
 
 export const inputSingleDateWithCustomFormat: ComponentStory<typeof DatePickerInput> = () => {
-  const handleOnChange = (selectedDate: Date | undefined | string) => {
+  const handleOnChange = (selectedDate: Date | undefined) => {
     console.log('Selected date', selectedDate);
   };
 
