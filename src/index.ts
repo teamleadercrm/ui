@@ -61,6 +61,7 @@ import MarketingLockBadge, { MarketingLockBadgeProps } from './components/market
 import MarketingMarker, { MarketingMarkerProps } from './components/marketingMarker';
 import MarketingStatusLabel, { MarketingStatusLabelProps } from './components/marketingStatusLabel';
 import MarketingTab, { MarketingTabProps } from './components/marketingTab';
+import MarketingMenuItem, { MarketingMenuItemProps } from './components/marketingMenuItem';
 import { MarketingHeading1, MarketingHeading2, MarketingHeadingProps } from './components/marketingTypography';
 import Menu, {
   IconMenu,
@@ -212,6 +213,7 @@ export {
   MarketingLink,
   MarketingLockBadge,
   MarketingMarker,
+  MarketingMenuItem,
   MarketingStatusLabel,
   MarketingTab,
   Menu,
@@ -274,6 +276,7 @@ export {
   Padding,
   MarketingDialog,
 };
+
 export type {
   AdvancedCollapsibleProps,
   AlertProps,
@@ -371,4 +374,5 @@ export type {
   GroupOption,
   BoxProps,
   SelectRef,
+  MarketingMenuItemProps,
 };
