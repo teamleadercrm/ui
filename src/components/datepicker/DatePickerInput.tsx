@@ -133,6 +133,7 @@ function DatePickerInput<IsTypeable extends boolean = true>({
           if (date && isAllowedDate(date, dayPickerProps?.disabledDays)) {
             onChange && onChange(date);
           } else {
+            // Conditional typing of arguments somehow doesn't work inside of component
             // @ts-ignore
             onChange && onChange(inputValue);
           }
