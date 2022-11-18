@@ -10,7 +10,7 @@ import Input from '../input';
 import { InputProps } from '../input/Input';
 import Popover from '../popover';
 import { PopoverProps } from '../popover/Popover';
-import { formatDate, parseMultiFormatsDate } from './localeUtils';
+import { formatDate, isValidDate, parseMultiFormatsDate } from './localeUtils';
 import theme from './theme.css';
 import { isAllowedDate } from './utils';
 
@@ -138,9 +138,17 @@ function DatePickerInput<IsTypeable extends boolean = true>({
     [inputValue],
   );
   useEffect(() => {
-    setSelectedDate(others.selectedDate);
-    handleInputValueChange(others.selectedDate ? getFormattedDateString(others.selectedDate) : '');
-  }, [others.selectedDate]);
+    if (!preselectedDate) {
+      handleInputValueChange('');
+      setSelectedDate(preselectedDate);
+      // If preseleced invalid date happens when typed date is invalid and value is passed from form in codebase
+    } else if (isValidDate(preselectedDate)) {
+      handleInputValueChange(getFormattedDateString(preselectedDate));
+      setSelectedDate(preselectedDate);
+    } else {
+      setSelectedDate(undefined);
+    }
+  }, [preselectedDate]);
 
   const handleInputFocus = (event: React.FocusEvent<HTMLElement>) => {
     if (inputProps?.readOnly) {
