@@ -38,8 +38,8 @@ export interface DatePickerInputProps<IsTypeable extends boolean = true> extends
   onBlur?: () => void;
   /** Object with props for the Popover component. */
   popoverProps?: PopoverProps;
-  /** The current selected date. */
-  selectedDate?: Date;
+  /** The current selected value. */
+  selectedDate?: IsTypeable extends true ? Date | string : Date;
   /** Size of the Input & DatePicker components. */
   size?: Exclude<typeof SIZES[number], 'tiny' | 'smallest' | 'hero' | 'fullscreen'>;
   /** Overridable size of the Input component. */
@@ -100,9 +100,14 @@ function DatePickerInput<IsTypeable extends boolean = true>({
 
   const [isPopoverActive, setIsPopoverActive] = useState(false);
   const [popoverAnchorEl, setPopoverAnchorEl] = useState<Element | null>(null);
-  const [selectedDate, setSelectedDate] = useState<Date | undefined>(preselectedDate);
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>(
+    preselectedDate ? new Date(preselectedDate) : undefined,
+  );
   const [displayError, setDisplayError] = useState(false);
-  const [inputValue, setInputValue] = useState(preselectedDate ? getFormattedDateString(preselectedDate) : '');
+  const [inputValue, setInputValue] = useState<string>(
+    preselectedDate ? (isValidDate(preselectedDate) ? getFormattedDateString(preselectedDate) : preselectedDate) : '',
+  );
+
   const handleInputValueChange = (value: string) => {
     setDisplayError(false);
     setInputValue(value);
