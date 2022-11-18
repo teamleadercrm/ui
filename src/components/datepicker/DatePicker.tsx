@@ -85,7 +85,7 @@ const DatePicker: GenericComponent<DatePickerProps> = ({
   );
 
   return (
-    <Box {...pickBoxProps(others)}>
+    <Box {...pickBoxProps(others)} data-teamleader-ui="date-picker">
       <DayPicker
         {...others}
         localeUtils={localeUtils}
