@@ -108,4 +108,4 @@ export default {
   parseDate,
 };
 
-export const isValidDate = (date: Date) => DateTime.fromJSDate(date).isValid;
+export const isValidDate = (date: any): date is Date => DateTime.fromJSDate(date).isValid;
