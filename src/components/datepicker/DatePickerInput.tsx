@@ -83,6 +83,7 @@ function DatePickerInput<IsTypeable extends boolean = true>({
   onBlur,
   typeable = true as IsTypeable,
   errorText,
+  selectedDate: preselectedDate,
   ...others
 }: DatePickerInputProps<IsTypeable>) {
   const getFormattedDateString = (date: Date) => {
@@ -96,11 +97,12 @@ function DatePickerInput<IsTypeable extends boolean = true>({
 
     return customFormatDate(date, locale);
   };
+
   const [isPopoverActive, setIsPopoverActive] = useState(false);
   const [popoverAnchorEl, setPopoverAnchorEl] = useState<Element | null>(null);
-  const [selectedDate, setSelectedDate] = useState<Date | undefined>(others.selectedDate);
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>(preselectedDate);
   const [displayError, setDisplayError] = useState(false);
-  const [inputValue, setInputValue] = useState(others.selectedDate ? getFormattedDateString(others.selectedDate) : '');
+  const [inputValue, setInputValue] = useState(preselectedDate ? getFormattedDateString(preselectedDate) : '');
   const handleInputValueChange = (value: string) => {
     setDisplayError(false);
     setInputValue(value);
@@ -259,7 +261,7 @@ function DatePickerInput<IsTypeable extends boolean = true>({
           <DatePicker
             className={theme[`is-${datePickerSize || size}`]}
             onChange={handleDatePickerDateChange}
-            selectedDate={selectedDate as Date}
+            selectedDate={selectedDate}
             size={datePickerSize || size}
             {...dayPickerProps}
           />
