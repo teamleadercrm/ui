@@ -2,6 +2,8 @@
 
 ### Added
 
+- `MarketingMenuItem`: Added new component ([@lorgan3](https://github.com/lorgan3)) in ([#2452](https://github.com/teamleadercrm/ui/pull/2452))
+
 ### Changed
 
 ### Deprecated
