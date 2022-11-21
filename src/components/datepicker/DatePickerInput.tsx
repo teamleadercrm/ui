@@ -148,7 +148,10 @@ function DatePickerInput<IsTypeable extends boolean = true>({
     if (!preselectedDate) {
       handleInputValueChange('');
       setSelectedDate(undefined);
-      // If preseleced invalid date happens when typed date is invalid and value is passed from form in codebase
+      /*
+       ** Preselected date can be invalid (or string), when typed date is invalid and it's value is passed in prop. For that case
+       ** we need to check it here and set selectedDate and inputValue accordingly
+       */
     } else if (isValidDate(preselectedDate)) {
       handleInputValueChange(getFormattedDateString(preselectedDate));
       setSelectedDate(preselectedDate);
