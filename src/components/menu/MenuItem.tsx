@@ -23,7 +23,7 @@ export interface MenuItemProps extends Omit<BoxProps, 'children' | 'className' |
   /** The icon to display on the left side of the label. */
   icon?: ReactNode;
   /** The text used as the label for the component. */
-  label?: string;
+  label?: React.ReactNode;
   /** Callback function that is fired when clicking the component. */
   onClick?: (e: MouseEvent) => void;
   /** If true, component will look active. */

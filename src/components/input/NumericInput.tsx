@@ -135,15 +135,19 @@ const NumericInput: GenericComponent<NumericInputProps> = forwardRef<HTMLElement
       valueRef.current = value;
     }, [value]);
 
-    const isMinReached = () => toNumber(value || 0) <= min;
+    const isMinValue = (value: number) => value <= min;
 
-    const isMaxReached = () => toNumber(value || 0) >= max;
+    const isMinReached = () => isMinValue(toNumber(value || 0));
+
+    const isMaxValue = (value: number) => value >= max;
+
+    const isMaxReached = () => isMaxValue(toNumber(value || 0));
 
     const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
       onChange && onChange(event, event.currentTarget.value);
     };
 
-    const updateStep = (n: number) => {
+    const updateStep = (n: number): number | undefined => {
       const currentValue = toNumber(valueRef.current || 0);
       const stepN = step * n;
 
@@ -168,14 +172,16 @@ const NumericInput: GenericComponent<NumericInputProps> = forwardRef<HTMLElement
 
       prototypeValueSetter.call(currentInputElement, newValueBoundToMinMax);
       currentInputElement.dispatchEvent(new Event('change', { bubbles: true }));
+
+      return newValueBoundToMinMax;
     };
 
-    const handleIncreaseValue = () => {
-      updateStep(1);
+    const handleIncreaseValue = (): number | undefined => {
+      return updateStep(1);
     };
 
-    const handleDecreaseValue = () => {
-      updateStep(-1);
+    const handleDecreaseValue = (): number | undefined => {
+      return updateStep(-1);
     };
 
     const handleClearStepperIncreaseTimer = () => {
@@ -205,14 +211,18 @@ const NumericInput: GenericComponent<NumericInputProps> = forwardRef<HTMLElement
         }
       }
 
-      handleDecreaseValue();
+      let newValue = handleDecreaseValue();
 
       decreaseTimeoutRef.current = setTimeout(() => {
         decreaseTimerRef.current = setInterval(() => {
-          if (isMinReached()) {
+          if (!newValue) {
+            return;
+          }
+
+          if (isMinValue(newValue)) {
             handleClearStepperDecreaseTimer();
           } else {
-            handleDecreaseValue();
+            newValue = handleDecreaseValue();
           }
         }, 75);
       }, 300);
@@ -227,14 +237,18 @@ const NumericInput: GenericComponent<NumericInputProps> = forwardRef<HTMLElement
         }
       }
 
-      handleIncreaseValue();
+      let newValue = handleIncreaseValue();
 
       increaseTimeoutRef.current = setTimeout(() => {
         increaseTimerRef.current = setInterval(() => {
-          if (isMaxReached()) {
+          if (!newValue) {
+            return;
+          }
+
+          if (isMaxValue(newValue)) {
             handleClearStepperIncreaseTimer();
           } else {
-            handleIncreaseValue();
+            newValue = handleIncreaseValue();
           }
         }, 75);
       }, 300);

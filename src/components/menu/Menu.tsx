@@ -13,6 +13,7 @@ import React, {
 import { GenericComponent } from '../../@types/types';
 import Box, { pickBoxProps } from '../box';
 import { BoxProps } from '../box/Box';
+import MarketingMenuItem from '../marketingMenuItem';
 import { events } from '../utils';
 import isComponentOfType from '../utils/is-component-of-type';
 import { getViewport } from '../utils/utils';
@@ -177,7 +178,7 @@ const Menu: GenericComponent<MenuProps> = ({
       }
 
       if (React.isValidElement(item)) {
-        if (isComponentOfType(MenuItem, item)) {
+        if (isComponentOfType(MenuItem, item) || isComponentOfType(MarketingMenuItem, item)) {
           return React.cloneElement(item, {
             selected: typeof item.props.value !== 'undefined' && selectable && item.props.value === selected,
             onClick: (event: SyntheticEvent) => handleSelect(item, event),
