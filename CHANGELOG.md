@@ -12,11 +12,18 @@
 
 ### Dependency updates
 
+## [17.0.4] - 2022-11-22
+
+### Fixed
+
+- `MarketingMenuItem`: Ensure color is correct for both links and buttons ([@lorgan3](https://github.com/lorgan3)) in ([#2456](https://github.com/teamleadercrm/ui/pull/2456))
+
 ## [17.0.3] - 2022-11-21
 
 ### Added
 
 - `MarketingMenuItem`: Added new component ([@lorgan3](https://github.com/lorgan3)) in ([#2452](https://github.com/teamleadercrm/ui/pull/2452))
+
 ### Fixed
 
 - `NumericInput`: Make sure the stepper `onMouseDown` loops stop when the minimum or maximum value is reached ([@kristofcolpaert](https://github.com/kristofcolpaert)) in ([#2451](https://github.com/teamleadercrm/ui/pull/2451))
