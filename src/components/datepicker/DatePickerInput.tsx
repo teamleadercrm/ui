@@ -142,7 +142,7 @@ function DatePickerInput<IsTypeable extends boolean = true>({
         }
       }
     },
-    [inputValue],
+    [inputValue, selectedDate],
   );
   useEffect(() => {
     if (!preselectedDate) {
