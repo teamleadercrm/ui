@@ -1298,6 +1298,21 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
+"@csstools/css-parser-algorithms@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@csstools/css-parser-algorithms/-/css-parser-algorithms-1.0.0.tgz#63f0ecbb926abf92d6cd8d076663650ad340db8c"
+  integrity sha512-lPphY34yfV15tEXiz/SYaU8hwqAhbAwqiTExv5tOfc7QZxT70VVYrsiPBaX1osdWZFowrDEAhHe4H3JnyzbjhA==
+
+"@csstools/css-tokenizer@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@csstools/css-tokenizer/-/css-tokenizer-1.0.0.tgz#161c0c9b632952ee8c2f0a62eb479d736a5627ff"
+  integrity sha512-xdFjdQ+zqqkOsmee+kYRieZD9Cqh4hr01YBQ2/8NtTkMMxbtRX18MC50LX6cMrtaLryqmIdZHN9e16/l0QqnQw==
+
+"@csstools/media-query-list-parser@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@csstools/media-query-list-parser/-/media-query-list-parser-1.0.0.tgz#17d08bfbcca677fc018e3dc3f54172a38c2fdca5"
+  integrity sha512-HsTj5ejI8NKKZ4IEd6kK2kQZA/JmIVlUV8+XvO/YS9ntrlYPnbmFT3rkqtbxOVfEafblYCNOpeNw1c+fKGkAqw==
+
 "@discoveryjs/json-ext@^0.5.3", "@discoveryjs/json-ext@^0.5.7":
   version "0.5.7"
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz#1d572bfbbe14b7704e0ba0f39b74815b84870d70"
@@ -9321,7 +9336,7 @@ nan@^2.12.1:
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.14.0.tgz#7818f722027b2459a86f0295d434d1fc2336c52c"
   integrity sha512-INOFj37C7k3AfaNTtX8RhsTw7qRy7eLET14cROi9+5HAVbbHuIWUHEauBv5qT4Av2tWasiTY1Jw6puUNqRJXQg==
 
-nanoid@^3.3.1, nanoid@^3.3.3, nanoid@^3.3.4:
+nanoid@^3.3.1, nanoid@^3.3.4:
   version "3.3.4"
   resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.4.tgz#730b67e3cd09e2deacf03c027c81c9d9dbc5e8ab"
   integrity sha512-MqBkQh/OHTS2egovRtLk45wEyNXwF+cokD+1YPf9u5VfJiRdAiRwB2froX5Co9Rh20xs4siNPm8naNotSD6RBw==
@@ -10392,10 +10407,14 @@ postcss-custom-media@^7.0.8:
   dependencies:
     postcss "^7.0.14"
 
-postcss-custom-media@^8.0.0:
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/postcss-custom-media/-/postcss-custom-media-8.0.0.tgz#1be6aff8be7dc9bf1fe014bde3b71b92bb4552f1"
-  integrity sha512-FvO2GzMUaTN0t1fBULDeIvxr5IvbDXcIatt6pnJghc736nqNgsGao5NT+5+WVLAQiTt6Cb3YUms0jiPaXhL//g==
+postcss-custom-media@^9.0.1:
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/postcss-custom-media/-/postcss-custom-media-9.0.1.tgz#b59ecc762cf5ba4b540434e0043f5b3ce8c80bce"
+  integrity sha512-CimS72gZZ0V4WPFg7t7EqFVLxJ0mqwAJSsuk+LNHSo9ApC7d/SuOr65sKrUY/D8locOh+3s4yO7IdqQ9cRSR7Q==
+  dependencies:
+    "@csstools/css-parser-algorithms" "^1.0.0"
+    "@csstools/css-tokenizer" "^1.0.0"
+    "@csstools/media-query-list-parser" "^1.0.0"
 
 postcss-custom-properties@^8.0.11:
   version "8.0.11"
@@ -10818,21 +10837,12 @@ postcss@^7.0.14, postcss@^7.0.17, postcss@^7.0.2, postcss@^7.0.26, postcss@^7.0.
     picocolors "^0.2.1"
     source-map "^0.6.1"
 
-postcss@^8.2.15:
+postcss@^8.2.15, postcss@^8.4.5, postcss@^8.4.7:
   version "8.4.14"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.14.tgz#ee9274d5622b4858c1007a74d76e42e56fd21caf"
   integrity sha512-E398TUmfAYFPBSdzgeieK2Y1+1cpdxJx8yXbK/m57nRhKSmk1GB2tO4lbLBtlkfPQTDKfe4Xqv1ASWPpayPEig==
   dependencies:
     nanoid "^3.3.4"
-    picocolors "^1.0.0"
-    source-map-js "^1.0.2"
-
-postcss@^8.4.5, postcss@^8.4.7:
-  version "8.4.13"
-  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.13.tgz#7c87bc268e79f7f86524235821dfdf9f73e5d575"
-  integrity sha512-jtL6eTBrza5MPzy8oJLFuUscHDXTV5KcLlqAWHl5q5WYRfnNRGSmOZmOZ1T6Gy7A99mOZfqungmZMpMmCVJ8ZA==
-  dependencies:
-    nanoid "^3.3.3"
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
