@@ -1,4 +1,5 @@
 import { IconCalendarSmallOutline, IconCloseBadgedSmallFilled } from '@teamleader/ui-icons';
+import cx from 'classnames';
 import React, { ReactNode, useCallback, useEffect, useState } from 'react';
 import { DayPickerProps as ReactDayPickerProps, Modifier } from 'react-day-picker';
 import DatePicker from '.';
@@ -258,7 +259,7 @@ function DatePickerInput<IsTypeable extends boolean = true>({
         onClick={handleInputClick}
         onFocus={handleInputFocus}
         onBlur={handleInputBlur}
-        className={theme['date-picker-input']}
+        className={cx({ [theme['date-picker-input__non-typeable']]: !typeable })}
         value={inputValue}
         onChange={handleInputChange}
       />
