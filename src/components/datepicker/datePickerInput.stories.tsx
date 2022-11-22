@@ -103,6 +103,7 @@ export const inputSingleDateWithoutTyping: ComponentStory<typeof DatePickerInput
       size="medium"
       onChange={handleOnChange}
       selectedDate={preSelectedDate}
+      typeable={false}
     />
   );
 };
