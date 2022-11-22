@@ -12,6 +12,12 @@
 
 ### Dependency updates
 
+## [17.0.5] - 2022-11-22
+
+### Changed
+
+- `DatePickerInput`: Used proper cursor and added ability to close DatePicker on ESC and ENTER key ([@qubis741](https://github.com/qubis741)) in ([#2460](https://github.com/teamleadercrm/ui/pull/2460))
+
 ## [17.0.4] - 2022-11-22
 
 ### Fixed
