@@ -1,8 +1,9 @@
 import { IconCalendarSmallOutline, IconCloseBadgedSmallFilled } from '@teamleader/ui-icons';
-import React, { ReactNode, useCallback, useEffect, useState } from 'react';
+import cx from 'classnames';
+import React, { KeyboardEvent, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import { DayPickerProps as ReactDayPickerProps, Modifier } from 'react-day-picker';
 import DatePicker from '.';
-import { SIZES } from '../../constants';
+import { KEY, SIZES } from '../../constants';
 import Box, { pickBoxProps } from '../box';
 import { BoxProps } from '../box/Box';
 import Icon from '../icon';
@@ -97,7 +98,7 @@ function DatePickerInput<IsTypeable extends boolean = true>({
 
     return customFormatDate(date, locale);
   };
-
+  const inputRef = useRef<HTMLInputElement>(null);
   const [isPopoverActive, setIsPopoverActive] = useState(false);
   const [popoverAnchorEl, setPopoverAnchorEl] = useState<Element | null>(null);
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(
@@ -242,11 +243,20 @@ function DatePickerInput<IsTypeable extends boolean = true>({
     ) : null;
   };
 
+  const handleKeyDown = (event: KeyboardEvent) => {
+    if (event.key === KEY.Escape || event.key === KEY.Enter) {
+      event.stopPropagation();
+      inputRef.current?.blur();
+      handlePopoverClose();
+    }
+  };
+
   const boxProps = pickBoxProps(others);
   const internalError = displayError ? errorText || true : false;
   return (
     <Box className={className} {...boxProps}>
       <Input
+        ref={inputRef}
         inverse={inverse}
         prefix={renderIcon()}
         suffix={renderClearIcon()}
@@ -258,9 +268,10 @@ function DatePickerInput<IsTypeable extends boolean = true>({
         onClick={handleInputClick}
         onFocus={handleInputFocus}
         onBlur={handleInputBlur}
-        className={theme['date-picker-input']}
+        className={cx({ [theme['date-picker-input__non-typeable']]: !typeable })}
         value={inputValue}
         onChange={handleInputChange}
+        onKeyDown={handleKeyDown}
       />
       <Popover
         active={isPopoverActive}
