@@ -1,7 +1,7 @@
 {
   "name": "@teamleader/ui",
   "description": "Teamleader UI library",
-  "version": "17.0.3",
+  "version": "17.0.4",
   "author": "Teamleader <development@teamleader.eu>",
   "bugs": {
     "url": "https://github.com/teamleadercrm/ui/issues"
@@ -48,7 +48,7 @@
     "react-draft-wysiwyg": "^1.14.7",
     "react-input-mask": "^2.0.4",
     "react-resize-detector": "^7.0.0",
-    "react-select": "5.5.8",
+    "react-select": "5.6.1",
     "react-transition-group": "^4.2.1",
     "smoothscroll-polyfill": "^0.4.4"
   },

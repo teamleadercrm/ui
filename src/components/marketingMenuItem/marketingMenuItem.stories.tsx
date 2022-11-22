@@ -21,16 +21,12 @@ export const MenuWithMenuUpsell: ComponentStory<typeof MarketingMenuItem> = (arg
   <Menu>
     <MenuItem label="Foo label" caption="This is foo's caption" />
     <MenuItem label="Bar label" caption="Caption of bar" />
-    <MarketingMenuItem {...args} />
+    <MarketingMenuItem {...args} onClick={() => console.log('onClick: upsell')} />
   </Menu>
 );
 
 MenuWithMenuUpsell.args = {
   label: 'Unlock baz',
-  icon: <IconExternalLinkSmallOutline />,
-  element: 'a',
-  href: 'https://www.teamleader.be',
-  target: '_blank',
 };
 
 const options = [

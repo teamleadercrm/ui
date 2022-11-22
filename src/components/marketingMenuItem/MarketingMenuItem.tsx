@@ -65,8 +65,8 @@ const MarketingMenuItem: GenericComponent<MarketingMenuItemProps> = ({
         <Box
           marginHorizontal={3}
           flex="1 1 auto"
-          className={cx({
-            [theme['marketing-menu-item-text-container']]: element === 'a',
+          className={cx(theme['marketing-menu-item-text-container'], {
+            [theme['marketing-menu-item-link-container']]: element === 'a',
           })}
         >
           <TextBodyCompact>{label}</TextBodyCompact>
