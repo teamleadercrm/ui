@@ -47,8 +47,11 @@
     background-color: var(--menu-item-selected-background);
   }
 
-  &-text-container {
+  &-link-container {
     pointer-events: none;
+  }
+
+  &-text-container {
     color: var(--color-marketing-violet);
   }
 
