@@ -129,7 +129,7 @@ function DatePickerInput<IsTypeable extends boolean = true>({
       }
       // Blurred from input, not focused on datepicker
       if (value === false) {
-        if (typeable && !customFormatDate && inputValue) {
+        if (typeable && !customFormatDate) {
           const date = parseMultiFormatsDate(inputValue, ALLOWED_DATE_FORMATS, locale);
           if (date && isAllowedDate(date, dayPickerProps?.disabledDays)) {
             onChange && onChange(date);
