@@ -5,7 +5,7 @@ import {
   IconCloseMediumOutline,
   IconWarningBadgedMediumFilled,
 } from '@teamleader/ui-icons';
-import Box from '../box';
+import Box, { BoxProps } from '../box';
 import Button from '../button';
 import ButtonGroup from '../buttonGroup';
 import Icon from '../icon';
@@ -52,7 +52,7 @@ const iconMap = {
   warning: IconWarningBadgedMediumFilled,
 };
 
-export interface MessageProps {
+export interface MessageProps extends Omit<BoxProps, 'children'> {
   /** The content to display inside the message. */
   children: React.ReactNode;
   /** If true, the message will be rendered inline instead of taking full width. */
