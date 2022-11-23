@@ -97,4 +97,5 @@
 .scroll-shadow {
   box-shadow: 0px 0px 1px rgba(130, 130, 140, 0.09), 0px 0px 0px rgba(130, 130, 140, 0.09),
     0px -4px 8px rgba(130, 130, 140, 0.09);
+  z-index: 2;
 }
