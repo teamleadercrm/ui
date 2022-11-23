@@ -68,7 +68,7 @@ export interface MessageProps extends Omit<BoxProps, 'children'> {
   /** A status type to determine color and icon */
   status?: Status;
   /** The message title */
-  title: React.ReactNode;
+  title?: React.ReactNode;
 }
 
 const Message: GenericComponent<MessageProps> = ({
