@@ -85,3 +85,12 @@ export const WithStatus = () => (
     </TextBody>
   </Message>
 );
+
+export const WithoutTitle = () => (
+  <Message status="info">
+    <TextBody color="teal">
+      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam <Link inherit={false}>nonumy eirmod</Link>{' '}
+      tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+    </TextBody>
+  </Message>
+);
