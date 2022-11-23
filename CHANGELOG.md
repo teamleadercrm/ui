@@ -4,9 +4,6 @@
 
 ### Changed
 
-- `Message`: Make `MessageProps` extend the `BoxProps` and make `title` property optional ([@kristofcolpaert](https://github.com/kristofcolpaert)) in [#2465](https://github.com/teamleadercrm/ui/pull/2465))
-- `Dialog`: Added z-index to scroll shadow to make sure it appears above inner elements ([@BeirlaenAaron](https://github.com/BeirlaenAaron)) in ([#2463](https://github.com/teamleadercrm/ui/pull/2463))
-
 ### Deprecated
 
 ### Removed
@@ -14,6 +11,17 @@
 ### Fixed
 
 ### Dependency updates
+
+## [17.1.1] - 2022-11-23
+
+### Changed
+
+- `Message`: Make `MessageProps` extend the `BoxProps` and make `title` property optional ([@kristofcolpaert](https://github.com/kristofcolpaert)) in [#2465](https://github.com/teamleadercrm/ui/pull/2465))
+- `Dialog`: Added z-index to scroll shadow to make sure it appears above inner elements ([@BeirlaenAaron](https://github.com/BeirlaenAaron)) in ([#2463](https://github.com/teamleadercrm/ui/pull/2463))
+
+### Fixed
+
+- `DatePickerInput`: clearing logic ([@qubis741](https://github.com/qubis741)) in ([#2464](https://github.com/teamleadercrm/ui/pull/2464))
 
 ## [17.1.0] - 2022-11-22
 
