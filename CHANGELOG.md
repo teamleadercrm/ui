@@ -4,6 +4,9 @@
 
 ### Changed
 
+- `Message`: Make `MessageProps` extend the `BoxProps` and make `title` property optional ([@kristofcolpaert](https://github.com/kristofcolpaert)) in [#2465](https://github.com/teamleadercrm/ui/pull/2465))
+- `Dialog`: Added z-index to scroll shadow to make sure it appears above inner elements ([@BeirlaenAaron](https://github.com/BeirlaenAaron)) in ([#2463](https://github.com/teamleadercrm/ui/pull/2463))
+
 ### Deprecated
 
 ### Removed
