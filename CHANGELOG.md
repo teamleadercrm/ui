@@ -12,6 +12,12 @@
 
 ### Dependency updates
 
+## [17.1.1] - 2022-11-23
+
+### Fixed
+
+- `DatePickerInput`: clearing logic ([@qubis741](https://github.com/qubis741)) in ([#2464](https://github.com/teamleadercrm/ui/pull/2464))
+
 ## [17.1.0] - 2022-11-22
 
 ### Changed
