@@ -228,10 +228,11 @@ function DatePickerInput<IsTypeable extends boolean = true>({
     event.preventDefault();
     closePopover(undefined);
     handleInputValueChange('');
+    setSelectedDate(undefined);
   };
 
   const renderClearIcon = () => {
-    return clearable && selectedDate ? (
+    return clearable && inputValue.length > 0 ? (
       <Icon
         color={inverse ? 'teal' : 'neutral'}
         tint={inverse ? 'light' : 'darkest'}
