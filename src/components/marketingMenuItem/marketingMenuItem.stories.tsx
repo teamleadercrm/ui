@@ -6,8 +6,7 @@ import MarketingMenuItem from './MarketingMenuItem';
 import { IconExternalLinkSmallOutline } from '@teamleader/ui-icons';
 import Menu, { MenuDivider, MenuItem } from '../menu';
 import Box, { BoxProps } from '../box';
-import { MenuListProps } from 'react-select';
-import Select from '../select';
+import Select, { Option, SelectComponentsProps } from '../select';
 import { useCallback } from '@storybook/addons';
 
 export default {
@@ -36,7 +35,7 @@ const options = [
 
 export const DropdownWithUpsell: ComponentStory<typeof MarketingMenuItem> = (args) => {
   const MenuList = useCallback(
-    (props: MenuListProps) => {
+    (props: SelectComponentsProps['MenuList']) => {
       const { children, getStyles, innerRef, innerProps } = props;
 
       return (
@@ -57,8 +56,9 @@ export const DropdownWithUpsell: ComponentStory<typeof MarketingMenuItem> = (arg
     },
     [args],
   );
+  const handleChange = (option: Option) => console.log(option);
 
-  return <Select options={options} components={{ MenuList }} />;
+  return <Select options={options} onChange={handleChange} components={{ MenuList }} />;
 };
 
 DropdownWithUpsell.args = {
