@@ -38,17 +38,8 @@ const minHeightBySizeMap: Record<string, number> = {
 
 export interface SelectRef<Option extends OptionType = OptionType, IsMulti extends boolean = false>
   extends SelectType<Option, IsMulti> {}
+
 export interface SelectProps<
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  Option extends OptionType = OptionType,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  IsMulti extends boolean = false,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  IsClearable extends boolean = false,
-> {
-  [key: string]: any;
-}
-export interface SelectPropsFull<
   Option extends OptionType = OptionType,
   IsMulti extends boolean = false,
   IsClearable extends boolean = false,
