@@ -16,7 +16,7 @@
 
 ### Changed
 
-- `Typescript`: All components and their props are typescript ([@qubis741](https://github.com/kristofcolpaert)) in [#qubis741](https://github.com/teamleadercrm/ui/pull/2465))
+- `Typescript`: All components and their props are typescript ([@qubis741](https://github.com/qubis741)) in [#2467](https://github.com/teamleadercrm/ui/pull/2467))
 
 ## [17.1.1] - 2022-11-23
 
