@@ -1,7 +1,7 @@
 {
   "name": "@teamleader/ui",
   "description": "Teamleader UI library",
-  "version": "17.1.1",
+  "version": "18.0.0",
   "author": "Teamleader <development@teamleader.eu>",
   "bugs": {
     "url": "https://github.com/teamleadercrm/ui/issues"
@@ -129,7 +129,7 @@
     "postcss-preset-env": "6.7.0",
     "postcss-pseudoelements": "^5.0.0",
     "postcss-reporter": "^7.0.5",
-    "prettier": "2.7.1",
+    "prettier": "2.8.0",
     "pretty-quick": "3.1.3",
     "proptypes": "^1.1.0",
     "react": "^17.0.2",
