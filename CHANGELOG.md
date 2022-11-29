@@ -12,11 +12,11 @@
 
 ### Dependency updates
 
-## [17.2.0] - 2022-11-29
+## [18.0.0] - 2022-11-29
 
 ### Changed
 
-- `Typescript`: All components and their props are typescript ([@qubis741](https://github.com/qubis741)) in [#2467](https://github.com/teamleadercrm/ui/pull/2467))
+- [BREAKING] `Typescript`: All components and their props are typescript ([@qubis741](https://github.com/qubis741)) in [#2467](https://github.com/teamleadercrm/ui/pull/2467))
 
 ## [17.1.1] - 2022-11-23
 
