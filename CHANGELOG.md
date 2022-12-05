@@ -12,7 +12,13 @@
 
 ### Dependency updates
 
-## [18.1.0] - 2022-12-05
+## [18.1.1] - 2022-12-06
+
+### Fixed
+
+- `Menu`: Fix possibility to have an infinite loop ([@stefaandevylder](http://github.com/stefaandevylder)) in [#2474](https://github.com/teamleadercrm/ui/pull/2474)
+
+## [18.1.0] - 2022-12-0
 
 ### Added
 
