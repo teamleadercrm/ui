@@ -12,6 +12,12 @@
 
 ### Dependency updates
 
+## [18.1.0] - 2022-12-05
+
+### Added
+
+- `EmptyState`: Add an action prop that renders a `BadgedLink` ([@BeirlaenAaron](https://github.com/BeirlaenAaron)) in ([#2475](https://github.com/teamleadercrm/ui/pull/2475))
+
 ## [18.0.0] - 2022-11-29
 
 ### Changed
