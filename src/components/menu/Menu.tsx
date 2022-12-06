@@ -1,15 +1,6 @@
 import uiUtilities from '@teamleader/ui-utilities';
 import cx from 'classnames';
-import React, {
-  ReactElement,
-  ReactNode,
-  SyntheticEvent,
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from 'react';
+import React, { ReactElement, ReactNode, SyntheticEvent, useCallback, useEffect, useRef, useState } from 'react';
 import { GenericComponent } from '../../@types/types';
 import Box, { pickBoxProps } from '../box';
 import { BoxProps } from '../box/Box';
@@ -69,7 +60,6 @@ const Menu: GenericComponent<MenuProps> = ({
   const [stateHeight, setStateHeight] = useState<number | undefined>(0);
   const [statePosition, setPosition] = useState<string | undefined>(position);
 
-  const menuNode = useRef<HTMLUListElement>(null);
   const menuWrapper = useRef<HTMLElement>(null);
 
   const boxProps = pickBoxProps(others);
@@ -91,6 +81,15 @@ const Menu: GenericComponent<MenuProps> = ({
       hide();
     }
   };
+
+  const onMenuNodeRefChange = useCallback((menuNode) => {
+    if (menuNode) {
+      const { width, height } = menuNode.getBoundingClientRect() || {};
+
+      setStateWidth(width);
+      setStateHeight(height);
+    }
+  }, []);
 
   const handleSelect = (item: ReactElement, event: SyntheticEvent) => {
     const { value, onClick } = item.props;
@@ -200,13 +199,6 @@ const Menu: GenericComponent<MenuProps> = ({
     removeEvents();
   };
 
-  useLayoutEffect(() => {
-    const { width, height } = menuNode.current?.getBoundingClientRect() || {};
-
-    setStateWidth(width);
-    setStateHeight(height);
-  }, []);
-
   useEffect(() => {
     active ? show() : hide();
 
@@ -229,7 +221,7 @@ const Menu: GenericComponent<MenuProps> = ({
           style={{ ...(stateWidth && { width: Math.ceil(stateWidth) }), height: stateHeight }}
         />
       )}
-      <ul ref={menuNode} className={theme['menu-inner']} style={getMenuStyle()}>
+      <ul ref={onMenuNodeRefChange} className={theme['menu-inner']} style={getMenuStyle()}>
         {/* An invisible element so the first element doesn't look like its selected or focused */}
         <Box className={theme['invisible-menu-item']} data-teamleader-ui="menu-item" element="li">
           <Box element="button" />
