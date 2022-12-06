@@ -19,7 +19,7 @@ export interface EmptyStateProps extends Omit<BoxProps, 'size'> {
   metaText?: ReactNode | string;
   size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
   title?: ReactNode | string;
-  action?: Omit<BadgedLinkProps, 'icon' | 'inheric'> & { children: ReactNode };
+  action?: Omit<BadgedLinkProps, 'icon' | 'inherit'> & { children: ReactNode };
 }
 
 const illustrationMap = {
