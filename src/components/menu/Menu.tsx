@@ -205,7 +205,7 @@ const Menu: GenericComponent<MenuProps> = ({
 
     setStateWidth(width);
     setStateHeight(height);
-  }, [menuNode.current?.getBoundingClientRect()]);
+  }, []);
 
   useEffect(() => {
     active ? show() : hide();
