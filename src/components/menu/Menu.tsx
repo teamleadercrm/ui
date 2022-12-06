@@ -1,15 +1,6 @@
 import uiUtilities from '@teamleader/ui-utilities';
 import cx from 'classnames';
-import React, {
-  ReactElement,
-  ReactNode,
-  SyntheticEvent,
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from 'react';
+import React, { ReactElement, ReactNode, SyntheticEvent, useCallback, useEffect, useRef, useState } from 'react';
 import { GenericComponent } from '../../@types/types';
 import Box, { pickBoxProps } from '../box';
 import { BoxProps } from '../box/Box';
@@ -65,12 +56,11 @@ const Menu: GenericComponent<MenuProps> = ({
   selected,
   ...others
 }) => {
-  const [stateWidth, setStateWidth] = useState<number | undefined>(0);
-  const [stateHeight, setStateHeight] = useState<number | undefined>(0);
-  const [statePosition, setPosition] = useState<string | undefined>(position);
-
   const menuNode = useRef<HTMLUListElement>(null);
   const menuWrapper = useRef<HTMLElement>(null);
+  const { width, height } = menuNode.current?.getBoundingClientRect() || {};
+
+  const [statePosition, setPosition] = useState<string | undefined>(position);
 
   const boxProps = pickBoxProps(others);
   const classNames = cx(
@@ -144,22 +134,22 @@ const Menu: GenericComponent<MenuProps> = ({
 
   const getRootStyle = () => {
     if (statePosition !== POSITION.STATIC) {
-      return { width: stateWidth, height: stateHeight };
+      return { width, height };
     }
   };
 
   const getActiveMenuStyle = () => {
-    return { clip: `rect(0 ${stateWidth}px ${stateHeight}px 0)` };
+    return { clip: `rect(0 ${width}px ${height}px 0)` };
   };
 
   const getMenuStyleByPosition = () => {
     switch (statePosition) {
       case POSITION.TOP_RIGHT:
-        return { clip: `rect(0 ${stateWidth}px 0 ${stateWidth}px)` };
+        return { clip: `rect(0 ${width}px 0 ${width}px)` };
       case POSITION.BOTTOM_RIGHT:
-        return { clip: `rect(${stateHeight}px ${stateWidth}px ${stateHeight}px ${stateWidth}px)` };
+        return { clip: `rect(${height}px ${width}px ${height}px ${width}px)` };
       case POSITION.BOTTOM_LEFT:
-        return { clip: `rect(${stateHeight}px 0 ${stateHeight}px 0)` };
+        return { clip: `rect(${height}px 0 ${height}px 0)` };
       case POSITION.TOP_LEFT:
         return { clip: 'rect(0 0 0 0)' };
       default:
@@ -200,13 +190,6 @@ const Menu: GenericComponent<MenuProps> = ({
     removeEvents();
   };
 
-  useLayoutEffect(() => {
-    const { width, height } = menuNode.current?.getBoundingClientRect() || {};
-
-    setStateWidth(width);
-    setStateHeight(height);
-  }, []);
-
   useEffect(() => {
     active ? show() : hide();
 
@@ -223,12 +206,7 @@ const Menu: GenericComponent<MenuProps> = ({
 
   return (
     <Box data-teamleader-ui="menu" className={classNames} ref={menuWrapper} style={getRootStyle()} {...boxProps}>
-      {outline && (
-        <div
-          className={outlineClassNames}
-          style={{ ...(stateWidth && { width: Math.ceil(stateWidth) }), height: stateHeight }}
-        />
-      )}
+      {outline && <div className={outlineClassNames} style={{ ...(width && { width: Math.ceil(width) }), height }} />}
       <ul ref={menuNode} className={theme['menu-inner']} style={getMenuStyle()}>
         {/* An invisible element so the first element doesn't look like its selected or focused */}
         <Box className={theme['invisible-menu-item']} data-teamleader-ui="menu-item" element="li">
