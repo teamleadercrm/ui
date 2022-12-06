@@ -12,6 +12,14 @@
 
 ### Dependency updates
 
+## [18.1.2] - 2022-12-06
+
+### Fixed
+
+- `Menu`: Fix ref initialization in Menu component ([@JorenSaeyTL](http://github.com/JorenSaeyTL)) in [#2478](https://github.com/teamleadercrm/ui/pull/2478)
+
+### Dependency updates
+
 ## [18.1.1] - 2022-12-06
 
 ### Fixed
