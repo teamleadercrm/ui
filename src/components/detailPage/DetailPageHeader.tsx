@@ -12,7 +12,7 @@ import theme from './theme.css';
 
 export interface DetailPageHeaderProps extends Omit<ContainerProps, 'title'> {
   children?: ReactNode;
-  backLinkProps?: Omit<BadgedLinkProps, 'icon' | 'inheric'> & { children: ReactNode };
+  backLinkProps?: Omit<BadgedLinkProps, 'icon' | 'inherit'> & { children: ReactNode };
   title: React.ReactNode;
   /** The color which the title should have */
   titleColor?: 'neutral' | 'teal';

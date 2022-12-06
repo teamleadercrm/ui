@@ -11,12 +11,15 @@ import theme from './theme.css';
 import { BoxProps } from '../box/Box';
 import { GenericComponent } from '../../@types/types';
 import { SIZES } from '../../constants';
+import BadgedLink, { BadgedLinkProps } from '../badgedLink';
+import { IconAddSmallOutline } from '@teamleader/ui-icons';
 
 export interface EmptyStateProps extends Omit<BoxProps, 'size'> {
   hidePointer?: boolean;
   metaText?: ReactNode | string;
   size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
   title?: ReactNode | string;
+  action?: Omit<BadgedLinkProps, 'icon' | 'inherit'> & { children: ReactNode };
 }
 
 const illustrationMap = {
@@ -31,6 +34,7 @@ const EmptyState: GenericComponent<EmptyStateProps> = ({
   hidePointer = false,
   size = 'medium',
   title,
+  action,
   ...others
 }) => {
   const classNames = cx(
@@ -59,6 +63,11 @@ const EmptyState: GenericComponent<EmptyStateProps> = ({
           <TextBody marginTop={title ? 2 : undefined} color="neutral">
             {metaText}
           </TextBody>
+        )}
+        {action && (
+          <Box marginTop={3}>
+            <BadgedLink {...action} icon={<IconAddSmallOutline />} inherit={false} />
+          </Box>
         )}
       </div>
     </Box>
