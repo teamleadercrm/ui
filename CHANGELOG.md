@@ -12,6 +12,12 @@
 
 ### Dependency updates
 
+## [18.1.2] - 2022-12-07
+
+### Fixed
+
+- `Menu`: REVERT BACK - Fix possibility to have an infinite loop ([@stefaandevylder](http://github.com/stefaandevylder)) in [#2474](https://github.com/teamleadercrm/ui/pull/2474)
+
 ## [18.1.1] - 2022-12-06
 
 ### Fixed
