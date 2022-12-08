@@ -48,6 +48,8 @@ export interface AvatarProps extends Omit<BoxProps, 'size' | 'ref'> {
   team?: boolean;
   /** If true, the name will be shown in a tooltip on hover. */
   tooltip?: boolean;
+  /** The tooltip props for the avatar */
+  tooltipProps?: TooltipProps;
 }
 
 type AvatarInternalComponentProps = { size: Exclude<typeof SIZES[number], 'fullscreen' | 'smallest'> } & Pick<
@@ -138,6 +140,7 @@ const Avatar = ({
   id,
   onImageChange,
   team,
+  tooltipProps,
   ...others
 }: AvatarProps) => {
   const avatarClassNames = cx(
@@ -151,10 +154,10 @@ const Avatar = ({
     className,
   );
 
-  const enableTooltip = tooltip && typeof fullName === 'string' && fullName.length > 0;
+  const enableTooltip = tooltip && ((typeof fullName === 'string' && fullName.length > 0) || tooltipProps);
 
   const Component = enableTooltip ? TooltippedBox : Box;
-  const tooltipProps = enableTooltip
+  const defaultToolTipProps = enableTooltip
     ? {
         tooltip: <TextBodyCompact>{fullName}</TextBodyCompact>,
         tooltipColor: 'white',
@@ -167,7 +170,7 @@ const Avatar = ({
     <Component
       {...others}
       {...(selectable && { boxSizing: 'content-box', padding: size === 'hero' ? 2 : 1 })}
-      {...(tooltipProps as TooltipProps)}
+      {...((tooltipProps ?? defaultToolTipProps) as TooltipProps)}
       className={avatarClassNames}
     >
       <AvatarInternalComponent
