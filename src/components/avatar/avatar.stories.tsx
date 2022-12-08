@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Avatar, Bullet } from '../../index';
+import { Avatar, Bullet, TextBodyCompact } from '../../index';
 import avatars from '../../static/data/avatar';
 import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
 
@@ -29,3 +29,13 @@ export const WithBullet = () => (
     <Bullet borderColor="neutral" borderTint="lightest" color="ruby" />
   </Avatar>
 );
+
+export const WithCustomTooltip: ComponentStory<typeof Avatar> = (args) => <Avatar {...args} />;
+
+WithCustomTooltip.args = {
+  tooltip: true,
+  tooltipProps: {
+    tooltip: <TextBodyCompact>Unassigned</TextBodyCompact>,
+    tooltipSize: 'small',
+  },
+};
