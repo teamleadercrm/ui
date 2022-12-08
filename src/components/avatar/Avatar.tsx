@@ -163,6 +163,7 @@ const Avatar = ({
         tooltipColor: 'white',
         tooltipPosition: 'top',
         tooltipSize: 'small',
+        ...tooltipProps,
       }
     : {};
 
@@ -170,7 +171,7 @@ const Avatar = ({
     <Component
       {...others}
       {...(selectable && { boxSizing: 'content-box', padding: size === 'hero' ? 2 : 1 })}
-      {...((tooltipProps ?? defaultToolTipProps) as TooltipProps)}
+      {...(defaultToolTipProps as TooltipProps)}
       className={avatarClassNames}
     >
       <AvatarInternalComponent
