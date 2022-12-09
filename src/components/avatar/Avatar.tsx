@@ -154,7 +154,7 @@ const Avatar = ({
     className,
   );
 
-  const enableTooltip = tooltip && ((typeof fullName === 'string' && fullName.length > 0) || tooltipProps);
+  const enableTooltip = tooltip && ((typeof fullName === 'string' && fullName.length > 0) || tooltipProps?.tooltip);
 
   const Component = enableTooltip ? TooltippedBox : Box;
   const defaultToolTipProps = enableTooltip
