@@ -12,6 +12,12 @@
 
 ### Dependency updates
 
+## [18.2.0] - 2022-12-08
+
+### Added
+
+- `Avatar`: Add a prop `tooltipProps` to allow a custom tooltip ([@BeirlaenAaron](https://github.com/BeirlaenAaron)) in ([#2483](https://github.com/teamleadercrm/ui/pull/2483))
+
 ## [18.1.2] - 2022-12-07
 
 ### Fixed
