@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - AdvancedCollapsible it renders 1`] = `
+<DocumentFragment>
+  <div
+    class="box"
+  >
+    <div
+      class="box align-items-center display-flex title"
+    >
+      <span
+        class="box align-items-center display-flex teal darkest"
+        data-teamleader-ui="icon"
+      >
+        <svg
+          fill="currentColor"
+          height="14"
+          preserveAspectRatio="xMidYMid meet"
+          style="opacity: 0.84; vertical-align: middle;"
+          viewBox="0 0 14 14"
+          width="14"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M6.086 10.537L9.62 7 6.086 3.466A1 1 0 104.672 4.88l2.12 2.121-2.12 2.122a1 1 0 101.414 1.414z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </span>
+      <p
+        class="box margin-left-2 text text-body darkest teal"
+        data-teamleader-ui="text"
+      >
+        <strong>
+          Foo
+        </strong>
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;
