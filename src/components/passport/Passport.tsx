@@ -59,7 +59,7 @@ const Passport: GenericComponent<PassportProps> = ({ avatar, className, descript
 
   return (
     <Popover {...others} backdrop="transparent" className={cx(theme['passport'], className)}>
-      <Box padding={3}>
+      <Box data-teamleader-ui="passport" padding={3}>
         <Box display="flex">
           <Box flex="48px 0 0" paddingRight={3}>
             <Avatar {...avatar} size="small" />

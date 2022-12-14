@@ -12,6 +12,12 @@
 
 ### Dependency updates
 
+## [18.2.1] - 2022-12-14
+
+### Added
+
+- Add missing `data-teamleader-ui` attribute to some components ([@lowiebenoot](https://github.com/lowiebenoot)) in ([#2490](https://github.com/teamleadercrm/ui/pull/2490))
+
 ## [18.2.0] - 2022-12-08
 
 ### Added

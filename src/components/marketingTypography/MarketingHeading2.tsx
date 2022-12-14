@@ -9,7 +9,7 @@ const MarketingHeading2: GenericComponent<MarketingHeadingProps> = ({ children, 
   const classNames = cx(theme['heading-2'], className);
 
   return (
-    <Box {...others} className={classNames} element="h2">
+    <Box data-teamleader-ui="marketing-heading-2" {...others} className={classNames} element="h2">
       {children}
     </Box>
   );

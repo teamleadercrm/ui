@@ -19,7 +19,13 @@ interface LabelValuePairComponent extends GenericComponent<LabelValuePairProps> 
 }
 
 const LabelValuePair: LabelValuePairComponent = ({ alignValue = 'left', children, inline = true, ...others }) => (
-  <Box {...others} display="flex" flexDirection={inline ? 'row' : 'column'} marginBottom={inline ? 1 : 3}>
+  <Box
+    data-teamleader-ui="label-value-pair"
+    {...others}
+    display="flex"
+    flexDirection={inline ? 'row' : 'column'}
+    marginBottom={inline ? 1 : 3}
+  >
     {React.Children.map(children, (child) => {
       if (!isReactElement(child)) {
         return null;

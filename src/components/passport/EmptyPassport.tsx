@@ -34,7 +34,7 @@ const EmptyPassport: GenericComponent<EmptyPassportProps> = ({
 }) => {
   return (
     <Popover {...others} backdrop="transparent" className={cx(theme['passport-empty'], className)}>
-      <Box paddingHorizontal={4} paddingVertical={5}>
+      <Box data-teamleader-ui="empty-passport" paddingHorizontal={4} paddingVertical={5}>
         <Box display="flex" flexDirection="column" alignItems="center">
           {avatar && <Avatar {...avatar} size="small" marginBottom={4} />}
           <Heading3 color="teal">{title}</Heading3>

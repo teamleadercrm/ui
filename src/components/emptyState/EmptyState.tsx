@@ -48,6 +48,7 @@ const EmptyState: GenericComponent<EmptyStateProps> = ({
 
   return (
     <Box
+      data-teamleader-ui="empty-state"
       {...others}
       alignItems="center"
       className={classNames}

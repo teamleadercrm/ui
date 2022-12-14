@@ -231,6 +231,7 @@ const DurationInput: GenericComponent<DurationInputProps> = forwardRef<HTMLEleme
 
     return (
       <Box
+        data-teamleader-ui="duration-input"
         id={id}
         display="flex"
         alignItems="center"

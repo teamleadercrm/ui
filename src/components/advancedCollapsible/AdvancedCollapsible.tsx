@@ -37,7 +37,7 @@ const AdvancedCollapsible: GenericComponent<AdvancedCollapsibleProps> = ({
   };
 
   return (
-    <Box>
+    <Box data-teamleader-ui="advanced-collapsible">
       <Box className={theme['title']} display="flex" alignItems="center" onClick={handleTitleClick} {...boxProps}>
         <Icon color={color} tint="darkest">
           {collapsed ? <IconChevronRightSmallOutline /> : <IconChevronDownSmallOutline />}

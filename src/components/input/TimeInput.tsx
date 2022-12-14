@@ -33,6 +33,7 @@ const TimeInput: GenericComponent<TimeInputProps> = forwardRef<HTMLElement, Time
       <ReactInputMask {...props} mask="99:99" maskChar="0" beforeMaskedValueChange={beforeMaskedValueChange}>
         {(inputProps: TimeInputProps) => (
           <SingleLineInputBase
+            data-teamleader-ui="time-input"
             {...inputProps}
             ref={forwardedRef}
             autoComplete="off"
