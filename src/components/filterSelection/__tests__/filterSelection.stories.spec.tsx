@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { FilterSelection, Box } from '../..';
-import { STATUS } from './FilterSelection';
+import { FilterSelection, Box } from '../../..';
+import { STATUS } from '../FilterSelection';
 
 export default {
   component: FilterSelection,

@@ -1,7 +1,7 @@
 import { IconAddMediumOutline, IconAddSmallOutline } from '@teamleader/ui-icons';
 import React, { ReactNode } from 'react';
 
-import Button, { AllowedButtonColor, BUTTON_LEVELS } from './Button';
+import Button, { AllowedButtonColor, BUTTON_LEVELS } from '../Button';
 
 export default {
   component: Button,

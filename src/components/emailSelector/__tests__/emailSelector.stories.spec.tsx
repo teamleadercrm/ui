@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
-import EmailSelector from './EmailSelector';
+import EmailSelector from '../EmailSelector';
 
 export default {
   component: EmailSelector,

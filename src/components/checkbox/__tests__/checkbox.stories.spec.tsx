@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 
-import Checkbox, { AllowedCheckboxSize } from './Checkbox';
+import Checkbox, { AllowedCheckboxSize } from '../Checkbox';
 
 export default {
   component: Checkbox,

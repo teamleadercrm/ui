@@ -1,6 +1,6 @@
 import { IconAddSmallOutline } from '@teamleader/ui-icons';
 import React from 'react';
-import BadgedLink from '../badgedLink';
+import BadgedLink from '../BadgedLink';
 
 export default {
   component: BadgedLink,

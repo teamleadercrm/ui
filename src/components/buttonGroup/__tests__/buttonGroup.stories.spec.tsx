@@ -1,8 +1,8 @@
 import React, { ReactNode } from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import ButtonGroup from './ButtonGroup';
-import Button from '../button';
+import ButtonGroup from '../ButtonGroup';
+import Button from '../../button';
 
 export default {
   component: ButtonGroup,

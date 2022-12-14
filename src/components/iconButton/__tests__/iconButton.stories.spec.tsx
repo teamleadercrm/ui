@@ -1,9 +1,9 @@
 import React, { ReactNode } from 'react';
 import { IconGiftMediumOutline } from '@teamleader/ui-icons';
 
-import { IconButton } from '../..';
+import { IconButton } from '../../..';
 
-import { TINTS, COLORS } from '../../constants/colors';
+import { TINTS, COLORS } from '../../../constants/colors';
 
 export default {
   component: IconButton,

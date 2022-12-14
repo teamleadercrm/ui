@@ -2,8 +2,8 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { IconBellMediumOutline } from '@teamleader/ui-icons';
 
-import Banner from './Banner';
-import { TextBody } from '../typography';
+import Banner from '../Banner';
+import { TextBody } from '../../typography';
 
 export default {
   component: Banner,

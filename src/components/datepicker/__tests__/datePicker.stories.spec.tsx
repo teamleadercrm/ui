@@ -1,8 +1,8 @@
 import React from 'react';
 
-import DatePicker from './DatePicker';
-import DatePickerInput from './DatePickerInput';
-import { SIZES } from '../../constants';
+import DatePicker from '../DatePicker';
+import DatePickerInput from '../DatePickerInput';
+import { SIZES } from '../../../constants';
 
 const SIZE = ['small', 'medium', 'large'];
 type Size = Exclude<typeof SIZES[number], 'tiny' | 'smallest' | 'hero' | 'fullscreen'>;

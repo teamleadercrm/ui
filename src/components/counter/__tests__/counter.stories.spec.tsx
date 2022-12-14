@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import Counter from './Counter';
+import Counter from '../Counter';
 
 export default {
   component: Counter,

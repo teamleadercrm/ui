@@ -1,9 +1,9 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import Avatar from './Avatar';
-import AvatarStack from './AvatarStack';
-import avatars from '../../static/data/avatar';
+import Avatar from '../Avatar';
+import AvatarStack from '../AvatarStack';
+import avatars from '../../../static/data/avatar';
 
 export default {
   component: AvatarStack,

@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import Bullet from './Bullet';
+import Bullet from '../Bullet';
 
 export default {
   component: Bullet,

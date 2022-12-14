@@ -3,7 +3,7 @@ import React from 'react';
 import AdvancedCollapsible, {
   AllowedAdvancedCollapsibleColor,
   AllowedAdvancedCollapsibleSize,
-} from './AdvancedCollapsible';
+} from '../AdvancedCollapsible';
 
 export default {
   component: AdvancedCollapsible,

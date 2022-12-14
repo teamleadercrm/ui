@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Avatar from './Avatar';
-import avatars from '../../static/data/avatar';
+import Avatar from '../Avatar';
+import avatars from '../../../static/data/avatar';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 export default {

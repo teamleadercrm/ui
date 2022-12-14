@@ -1,7 +1,7 @@
 import { IconBuildingMediumOutline, IconBuildingSmallOutline } from '@teamleader/ui-icons';
 import React, { ReactNode } from 'react';
 
-import Badge, { AllowedBadgeSize } from './Badge';
+import Badge, { AllowedBadgeSize } from '../Badge';
 
 export default {
   component: Badge,

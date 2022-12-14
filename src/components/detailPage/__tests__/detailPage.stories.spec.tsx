@@ -1,9 +1,9 @@
 import React from 'react';
 
-import DetailPage from './DetailPage';
-import { TextBody } from '../typography';
-import StatusLabel from '../statusLabel';
-import Button from '../button';
+import DetailPage from '../DetailPage';
+import { TextBody } from '../../typography';
+import StatusLabel from '../../statusLabel';
+import Button from '../../button';
 import { ComponentMeta } from '@storybook/react';
 
 export default {

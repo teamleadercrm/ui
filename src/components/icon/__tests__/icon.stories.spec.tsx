@@ -1,8 +1,8 @@
 import React from 'react';
 import { IconGiftMediumOutline } from '@teamleader/ui-icons';
 
-import { Icon } from '../..';
-import { COLORS, TINTS } from '../../constants/colors';
+import { Icon } from '../../..';
+import { COLORS, TINTS } from '../../../constants/colors';
 
 export default {
   component: Icon,

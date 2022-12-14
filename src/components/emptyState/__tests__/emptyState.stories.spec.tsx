@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { EmptyState } from '../..';
+import { EmptyState } from '../../..';
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Dialog, Box, TextBody } from '../..';
+import { Dialog, Box, TextBody } from '../../..';
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
