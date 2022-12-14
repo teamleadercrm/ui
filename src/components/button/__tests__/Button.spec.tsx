@@ -1,5 +1,6 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import Button from '../Button';
 
 describe('Component - Button', () => {
@@ -10,10 +11,11 @@ describe('Component - Button', () => {
 
   it('calls the onClick handler when clicking', async () => {
     const handleOnClick = jest.fn();
+    const user = userEvent.setup();
 
     const screen = render(<Button onClick={handleOnClick}>Foobar</Button>);
     const button = screen.getByRole('button');
-    fireEvent.click(button);
+    await user.click(button);
 
     expect(handleOnClick).toBeCalledTimes(1);
   });
@@ -25,6 +27,7 @@ describe('Component - Button', () => {
 
   it('should not call the onClick handler when clickig on a disabled button', async () => {
     const handleOnClick = jest.fn();
+    const user = userEvent.setup();
 
     const screen = render(
       <Button onClick={handleOnClick} disabled>
@@ -33,7 +36,7 @@ describe('Component - Button', () => {
     );
 
     const button = screen.getByRole('button');
-    fireEvent.click(button);
+    user.click(button);
 
     expect(handleOnClick).not.toBeCalled();
   });
