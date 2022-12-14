@@ -183,7 +183,7 @@ const WysiwygEditor: GenericComponent<WysiwygEditorProps> = ({
   const boxProps = pickBoxProps(others);
 
   return (
-    <Box style={{ width, flex: width && '0 0 auto' }} {...boxProps}>
+    <Box data-teamleader-ui="wysiwyg-editor" style={{ width, flex: width && '0 0 auto' }} {...boxProps}>
       <Editor
         toolbar={toolbar}
         wrapperClassName={wrapperClassNames}

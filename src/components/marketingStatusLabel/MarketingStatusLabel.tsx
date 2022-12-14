@@ -29,6 +29,7 @@ const MarketingStatusLabel: GenericComponent<MarketingStatusLabelProps> = ({
 
   return (
     <Box
+      data-teamleader-ui="marketing-status-label"
       {...others}
       alignItems="center"
       display={fullWidth ? 'flex' : 'inline-flex'}

@@ -15,7 +15,11 @@ interface DetailPageComponent extends GenericComponent<DetailPageProps> {
 }
 
 const DetailPage: DetailPageComponent = ({ children, ...others }) => {
-  return <Box {...others}>{children}</Box>;
+  return (
+    <Box data-teamleader-ui="detail-page" {...others}>
+      {children}
+    </Box>
+  );
 };
 
 DetailPage.Body = DetailPageBody;

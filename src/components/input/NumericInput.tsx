@@ -363,6 +363,7 @@ const NumericInput: GenericComponent<NumericInputProps> = forwardRef<HTMLElement
     return (
       <SingleLineInputBase
         ref={setRef}
+        data-teamleader-ui="numeric-input"
         type="number"
         value={value}
         onChange={handleChange}

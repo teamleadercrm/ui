@@ -28,7 +28,7 @@ const DetailPageHeader: GenericComponent<DetailPageHeaderProps> = ({
   ...others
 }) => {
   return (
-    <Container {...others} element={Section}>
+    <Container data-teamleader-ui="detail-page-header" {...others} element={Section}>
       <Box className={theme['header-inner']} display="flex">
         {backLinkProps && (
           <TextBody className={theme['back-link']}>

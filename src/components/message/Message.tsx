@@ -86,7 +86,7 @@ const Message: GenericComponent<MessageProps> = ({
   const IconToRender = iconMap[status];
 
   return (
-    <Box {...others} display={inline ? 'inline-flex' : 'flex'}>
+    <Box data-teamleader-ui="message" {...others} display={inline ? 'inline-flex' : 'flex'}>
       {status && (
         <Box
           backgroundColor={backgroundColorMap[status]}

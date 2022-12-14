@@ -100,6 +100,7 @@ const FilterSelection: GenericComponent<FilterSelectionProps> = forwardRef<HTMLE
     return (
       <Box
         ref={ref}
+        data-teamleader-ui="filter-selection"
         className={cx(theme['select-control'], status === STATUS.DEFAULT && theme['select-control--hovered'])}
         role="button"
         tabIndex={0}

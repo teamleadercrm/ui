@@ -14,7 +14,14 @@ const MarketingMarker: GenericComponent<MarketingMarkerProps> = ({ children, cla
   const classNames = cx(theme['marker'], className);
 
   return (
-    <Box {...others} className={classNames} element="mark" paddingHorizontal={1} marginHorizontal={-1}>
+    <Box
+      data-teamleader-ui="marketing-marker"
+      {...others}
+      className={classNames}
+      element="mark"
+      paddingHorizontal={1}
+      marginHorizontal={-1}
+    >
       {children}
     </Box>
   );

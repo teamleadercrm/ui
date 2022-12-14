@@ -9,7 +9,7 @@ export interface OverviewPageBodyProps extends Omit<BoxProps, 'children'> {
 
 const OverviewPageBody: GenericComponent<OverviewPageBodyProps> = ({ children, ...others }) => {
   return (
-    <Container paddingBottom={8} {...others}>
+    <Container data-teamleader-ui="overview-page-body" paddingBottom={8} {...others}>
       {children}
     </Container>
   );

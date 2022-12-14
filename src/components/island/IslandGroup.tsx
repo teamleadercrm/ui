@@ -25,6 +25,7 @@ const IslandGroup: GenericComponent<IslandGroupProps> = forwardRef<HTMLElement, 
     return (
       <Box
         ref={ref}
+        data-teamleader-ui={otherProps['data-teamleader-ui'] ?? 'island-group'}
         {...boxProps}
         className={className}
         display="flex"
