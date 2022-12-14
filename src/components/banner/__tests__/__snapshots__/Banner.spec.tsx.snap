@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Component - Banner it renders 1`] = `
+exports[`Component - Banner renders 1`] = `
 <DocumentFragment>
   <div
     class="box background-color-neutral-lightest padding-bottom-4 padding-left-4 padding-right-4 padding-top-4 white"

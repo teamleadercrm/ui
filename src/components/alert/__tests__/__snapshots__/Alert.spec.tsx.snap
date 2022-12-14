@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Component - Alert it renders 1`] = `
+exports[`Component - Alert renders 1`] = `
 <body
   style="overflow: hidden;"
 >

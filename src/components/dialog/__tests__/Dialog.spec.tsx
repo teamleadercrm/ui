@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 import Dialog from '../Dialog';
 
 describe('Component - Dialog', () => {
-  test('it renders', async () => {
+  it('renders', async () => {
     const screen = render(
       <Dialog
         active
@@ -28,7 +28,7 @@ describe('Component - Dialog', () => {
     expect(screen.baseElement).toMatchSnapshot();
   });
 
-  test('it does not render anything when the dialog is not active', async () => {
+  it('does not render anything when the dialog is not active', async () => {
     const screen = render(
       <Dialog
         active={false}
@@ -43,7 +43,7 @@ describe('Component - Dialog', () => {
     expect(screen.baseElement).toMatchSnapshot();
   });
 
-  test('it calls the onClose handler when clicking the close button', async () => {
+  it('calls the onClose handler when clicking the close button', async () => {
     const handleOnClose = jest.fn();
     const user = userEvent.setup();
 
@@ -67,7 +67,7 @@ describe('Component - Dialog', () => {
     expect(handleOnClose).toBeCalledTimes(1);
   });
 
-  test('it calls the onClose handler when clicking the overlay', async () => {
+  it('calls the onClose handler when clicking the overlay', async () => {
     const handleOnClose = jest.fn();
     const user = userEvent.setup();
 
@@ -91,7 +91,7 @@ describe('Component - Dialog', () => {
     expect(handleOnClose).toBeCalledTimes(1);
   });
 
-  test('renders a form', async () => {
+  it('renders a form', async () => {
     const screen = render(
       <Dialog
         active
@@ -108,7 +108,7 @@ describe('Component - Dialog', () => {
     expect(screen.baseElement.querySelector('form')).toBeVisible();
   });
 
-  test('calls the form onSubmit when pressing the submit button', async () => {
+  it('calls the form onSubmit when pressing the submit button', async () => {
     const handleSubmit = jest.fn((event) => event.preventDefault()); // need to add this preventDefault, otherwise it errors
     const user = userEvent.setup();
 

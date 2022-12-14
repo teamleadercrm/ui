@@ -3,12 +3,12 @@ import { render, fireEvent } from '@testing-library/react';
 import Button from '../Button';
 
 describe('Component - Button', () => {
-  test('it renders', async () => {
+  it('renders', async () => {
     const { asFragment } = render(<Button>Foobar</Button>);
     expect(asFragment()).toMatchSnapshot();
   });
 
-  test('it calls the onClick handler when clicking', async () => {
+  it('calls the onClick handler when clicking', async () => {
     const handleOnClick = jest.fn();
 
     const screen = render(<Button onClick={handleOnClick}>Foobar</Button>);
@@ -18,12 +18,12 @@ describe('Component - Button', () => {
     expect(handleOnClick).toBeCalledTimes(1);
   });
 
-  test('a disabled button should be disabled', async () => {
+  it('renders a disabled button as disabled', async () => {
     const screen = render(<Button disabled>Foobar</Button>);
     expect(screen.getByRole('button')).toBeDisabled();
   });
 
-  test('it should not call the onClick handler when clickig on a disabled button', async () => {
+  it('should not call the onClick handler when clickig on a disabled button', async () => {
     const handleOnClick = jest.fn();
 
     const screen = render(
@@ -38,7 +38,7 @@ describe('Component - Button', () => {
     expect(handleOnClick).not.toBeCalled();
   });
 
-  test('it renders a button as a link', async () => {
+  it('renders a button as a link', async () => {
     const href = 'https://foobar.com';
     const screen = render(
       <Button element="a" href={href}>
@@ -48,12 +48,12 @@ describe('Component - Button', () => {
     expect(screen.getByRole('link')).toHaveAttribute('href', href);
   });
 
-  test('it renders a loading spinner when processing', async () => {
+  it('renders a loading spinner when processing', async () => {
     const screen = render(<Button processing>Foobar</Button>);
     expect(screen.container.querySelector('[data-teamleader-ui="loading-spinner"]')).toBeVisible();
   });
 
-  test('it renders an icon on the left', async () => {
+  it('renders an icon on the left', async () => {
     const Icon = <span>Fake icon</span>;
     const screen = render(<Button icon={Icon}>Foobar</Button>);
 
@@ -61,7 +61,7 @@ describe('Component - Button', () => {
     expect(screen.asFragment()).toMatchSnapshot();
   });
 
-  test('it renders an icon on the right', async () => {
+  it('renders an icon on the right', async () => {
     const Icon = <span>Fake icon</span>;
     const screen = render(
       <Button icon={Icon} iconPlacement="right">

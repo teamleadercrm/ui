@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Component - Button it renders 1`] = `
+exports[`Component - Button renders 1`] = `
 <DocumentFragment>
   <button
     class="box reset-box-sizing reset-font-smoothing button-base button secondary medium"
@@ -17,7 +17,7 @@ exports[`Component - Button it renders 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Component - Button it renders an icon on the left 1`] = `
+exports[`Component - Button renders an icon on the left 1`] = `
 <DocumentFragment>
   <button
     class="box reset-box-sizing reset-font-smoothing button-base button secondary medium"
@@ -37,7 +37,7 @@ exports[`Component - Button it renders an icon on the left 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Component - Button it renders an icon on the right 1`] = `
+exports[`Component - Button renders an icon on the right 1`] = `
 <DocumentFragment>
   <button
     class="box reset-box-sizing reset-font-smoothing button-base button secondary medium"

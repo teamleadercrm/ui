@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Component - AdvancedCollapsible it renders 1`] = `
+exports[`Component - AdvancedCollapsible renders 1`] = `
 <DocumentFragment>
   <div
     class="box"

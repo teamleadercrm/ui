@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Component - Dialog it does not render anything when the dialog is not active 1`] = `
+exports[`Component - Dialog does not render anything when the dialog is not active 1`] = `
 <body
   style="overflow: hidden;"
 >
@@ -8,7 +8,7 @@ exports[`Component - Dialog it does not render anything when the dialog is not a
 </body>
 `;
 
-exports[`Component - Dialog it renders 1`] = `
+exports[`Component - Dialog renders 1`] = `
 <body
   style="overflow: hidden;"
 >

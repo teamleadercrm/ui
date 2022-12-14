@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 import Alert from '../Alert';
 
 describe('Component - Alert', () => {
-  test('it renders', async () => {
+  it('renders', async () => {
     const screen = render(
       <Alert
         active
