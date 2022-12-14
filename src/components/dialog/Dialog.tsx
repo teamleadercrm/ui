@@ -35,7 +35,7 @@ export interface DialogProps extends Omit<DialogBaseProps, 'ref'> {
   /** If true the dialog will render as a form element. */
   form?: boolean;
   /** Optional callback if the dialog is a form and is being submitted */
-  onSubmit?: () => void;
+  onSubmit?: (event: React.FormEvent<HTMLFormElement>) => void;
 }
 
 const Dialog: GenericComponent<DialogProps> = ({
