@@ -7,6 +7,7 @@ module.exports = {
     '^@teamleader/ui-utilities': '<rootDir>/tests/__mocks__/filemock.js',
     '^@teamleader/ui-typography': '<rootDir>/tests/__mocks__/filemock.js',
   },
-  testPathIgnorePatterns: ['stories'],
+  testMatch: ['<rootDir>/src/**/__tests__/**/*.spec.(ts|tsx)'],
+  testPathIgnorePatterns: ['stories.spec.tsx'],
   testEnvironment: 'jsdom',
 };
