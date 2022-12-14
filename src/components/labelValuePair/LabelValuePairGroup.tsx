@@ -11,7 +11,7 @@ export interface LabelValuePairGroupProps extends Omit<BoxProps, 'children'> {
 
 const LabelValuePairGroup: GenericComponent<LabelValuePairGroupProps> = ({ children, title, ...others }) => {
   return (
-    <Box {...others}>
+    <Box data-teamleader-ui="label-value-pair-group" {...others}>
       <Heading4 color="neutral" marginBottom={2}>
         {title}
       </Heading4>

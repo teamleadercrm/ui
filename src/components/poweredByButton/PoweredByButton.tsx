@@ -80,6 +80,7 @@ const PoweredByButton: GenericComponent<PoweredByButtonProps> = forwardRef<HTMLE
 
     return (
       <Box
+        data-teamleader-ui="powered-by-button"
         element="a"
         href={href}
         target="_blank"

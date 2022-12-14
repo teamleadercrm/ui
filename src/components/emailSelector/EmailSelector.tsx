@@ -196,6 +196,7 @@ const EmailSelector: GenericComponent<EmailSelectorProps> = ({
     <>
       <Box
         ref={ref}
+        data-teamleader-ui="email-selector"
         className={cx(theme['label-input'], {
           [theme['label-input--warning']]: displayedWarning,
           [theme['label-input--error']]: error,

@@ -255,7 +255,7 @@ function DatePickerInput<IsTypeable extends boolean = true>({
   const boxProps = pickBoxProps(others);
   const internalError = displayError ? errorText || true : false;
   return (
-    <Box className={className} {...boxProps}>
+    <Box data-teamleader-ui="date-picker-input" className={className} {...boxProps}>
       <Input
         ref={inputRef}
         inverse={inverse}

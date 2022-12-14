@@ -15,7 +15,11 @@ interface OverviewPageComponent extends GenericComponent<OverviewPageProps> {
 }
 
 const OverviewPage: OverviewPageComponent = ({ children, ...others }) => {
-  return <Box {...others}>{children}</Box>;
+  return (
+    <Box data-teamleader-ui="overview-page" {...others}>
+      {children}
+    </Box>
+  );
 };
 
 OverviewPage.Body = OverviewPageBody;

@@ -480,7 +480,7 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
     : ReactSelect<Option, IsMulti, GroupBase<Option>>;
 
   return (
-    <Box className={wrapperClassnames} {...boxProps}>
+    <Box data-teamleader-ui="select" className={wrapperClassnames} {...boxProps}>
       <Element
         ref={ref}
         className={cx(uiUtilities['reset-font-smoothing'], theme['select'])}

@@ -23,7 +23,7 @@ interface WidgetComponent extends GenericComponent<WidgetProps> {
 export const Widget: GenericComponent<WidgetProps> = forwardRef<HTMLElement, WidgetProps>(
   ({ children, size = 'medium', ...others }, ref) => {
     return (
-      <IslandGroup ref={ref} direction="vertical" {...others}>
+      <IslandGroup data-teamleader-ui="widget" ref={ref} direction="vertical" {...others}>
         {React.Children.map(children, (child) => {
           if (!child) {
             return child;

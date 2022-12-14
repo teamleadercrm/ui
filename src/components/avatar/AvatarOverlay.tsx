@@ -19,7 +19,7 @@ const AvatarOverlay: GenericComponent<AvatarOverlayProps> = ({ size, onClick }) 
   );
 
   return (
-    <div onClick={onClick} className={theme['overlay']}>
+    <div onClick={onClick} className={theme['overlay']} data-teamleader-ui="avatar-overlay">
       <Box className={classNames} display="flex" justifyContent="center">
         <Icon color="neutral" tint="lightest">
           <IconEditSmallFilled />

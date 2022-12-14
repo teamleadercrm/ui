@@ -9,7 +9,7 @@ export interface DetailPageBodyProps extends Omit<ContainerProps, 'fixed' | 'pad
 
 const DetailPageBody: GenericComponent<DetailPageBodyProps> = ({ children, ...others }) => {
   return (
-    <Container {...others} fixed paddingTop={6} paddingBottom={8}>
+    <Container data-teamleader-ui="detail-page-body" {...others} fixed paddingTop={6} paddingBottom={8}>
       {children}
     </Container>
   );

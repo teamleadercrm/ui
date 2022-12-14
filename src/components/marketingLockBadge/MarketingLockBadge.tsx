@@ -18,6 +18,7 @@ const MarketingLockBadge: GenericComponent<MarketingLockBadgeProps> = ({ classNa
 
   return (
     <Box
+      data-teamleader-ui="marketing-lock-badge"
       {...others}
       alignItems="center"
       borderRadius="rounded"
