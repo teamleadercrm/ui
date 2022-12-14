@@ -4,6 +4,7 @@ exports[`Component - AdvancedCollapsible renders 1`] = `
 <DocumentFragment>
   <div
     class="box"
+    data-teamleader-ui="advanced-collapsible"
   >
     <div
       class="box align-items-center display-flex title"
