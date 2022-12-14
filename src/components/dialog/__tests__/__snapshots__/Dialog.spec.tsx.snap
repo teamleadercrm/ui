@@ -1,5 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Component - Dialog it does not render anything when the dialog is not active 1`] = `
+<body
+  style="overflow: hidden;"
+>
+  <div />
+</body>
+`;
+
 exports[`Component - Dialog it renders 1`] = `
 <body
   style="overflow: hidden;"
