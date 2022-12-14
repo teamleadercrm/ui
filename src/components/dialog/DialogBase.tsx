@@ -39,7 +39,7 @@ export interface DialogBaseProps extends Omit<BoxProps, 'form' | 'size'> {
   /** If true the dialog will render as a form element. */
   form?: boolean;
   /** Optional callback if the dialog is a form and is being submitted */
-  onSubmit?: () => void;
+  onSubmit?: (event: React.FormEvent<HTMLFormElement>) => void;
 }
 interface DialogBaseComponent extends GenericComponent<DialogBaseProps> {
   Header: GenericComponent<DialogHeader.HeaderProps>;
