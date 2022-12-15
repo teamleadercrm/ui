@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - Counter renders 1`] = `
+<DocumentFragment>
+  <span
+    class="box counter neutral medium"
+    data-teamleader-ui="counter"
+  >
+    <span
+      class="monospaced"
+      data-teamleader-ui="monospaced"
+    >
+      4
+    </span>
+     
+  </span>
+</DocumentFragment>
+`;
