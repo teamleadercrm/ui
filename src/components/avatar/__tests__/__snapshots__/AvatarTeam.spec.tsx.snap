@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - AvatarTeam renders 1`] = `
+<DocumentFragment>
+  <div
+    class="box align-items-center background-color-neutral-darkest display-flex justify-content-center avatar avatar-team"
+    data-teamleader-ui="avatar-team"
+  >
+    <span
+      class="box align-items-center display-flex neutral light"
+      data-teamleader-ui="icon"
+    >
+      <svg
+        fill="currentColor"
+        height="24"
+        preserveAspectRatio="xMidYMid meet"
+        style="opacity: 0.84; vertical-align: middle;"
+        viewBox="0 0 24 24"
+        width="24"
+      >
+        <path
+          d="M13 9.803A6 6 0 0122 15a1 1 0 11-2 0 4 4 0 00-7-2.646V9.803zM16 8a3 3 0 110-6 3 3 0 010 6zm0-2a1 1 0 100-2 1 1 0 000 2zM4 21a1 1 0 11-2 0 6 6 0 0112 0 1 1 0 11-2 0 4 4 0 00-8 0zm4-7a3 3 0 110-6 3 3 0 010 6zm0-2a1 1 0 100-2 1 1 0 000 2z"
+          fill="currentColor"
+        />
+      </svg>
+    </span>
+  </div>
+</DocumentFragment>
+`;

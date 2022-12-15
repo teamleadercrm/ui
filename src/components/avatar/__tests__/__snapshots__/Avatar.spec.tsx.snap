@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - Avatar renders 1`] = `
+<DocumentFragment>
+  <div
+    class="box wrapper is-medium is-circle"
+  >
+    <div
+      class="avatar avatar-image"
+      data-teamleader-ui="avatar-image"
+    >
+      <img
+        alt="John Doe"
+        class="image"
+        src="test-file-stub"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
