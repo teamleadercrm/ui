@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - DetailPage renders 1`] = `
+<DocumentFragment>
+  <div
+    class="box"
+    data-teamleader-ui="detail-page"
+  >
+    <section
+      class="box padding-bottom-4 padding-left-4 padding-right-4 padding-top-4 section box container white"
+      data-teamleader-ui="detail-page-header"
+      style="box-sizing: content-box;"
+    >
+      <div
+        class="box display-flex header-inner"
+      >
+        <div
+          class="box padding-top-5"
+          style="flex: 1 0 200px; overflow: hidden;"
+        >
+          <div
+            class="box align-items-center display-flex"
+          >
+            <h1
+              class="box heading heading-1 darkest teal overflow-singleline"
+              data-teamleader-ui="heading"
+              title="Companies"
+            >
+              Companies
+            </h1>
+          </div>
+        </div>
+        <div
+          class="box display-flex padding-left-7"
+          style="flex: 0 0 auto;"
+        >
+          <button
+            class="box reset-box-sizing reset-font-smoothing button-base button secondary medium"
+            data-teamleader-ui="button"
+            type="button"
+          >
+            <span
+              class="box ui-text ui-text-body darkest overflow-singleline"
+              data-teamleader-ui="ui-text"
+            >
+              Add company
+            </span>
+          </button>
+        </div>
+      </div>
+    </section>
+    <div
+      class="box padding-bottom-8 padding-top-6 container is-fixed"
+      data-teamleader-ui="detail-page-body"
+      style="box-sizing: content-box;"
+    >
+      The body
+    </div>
+  </div>
+</DocumentFragment>
+`;
