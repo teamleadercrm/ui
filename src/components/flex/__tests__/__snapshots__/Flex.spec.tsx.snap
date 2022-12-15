@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - Flex renders 1`] = `
+<DocumentFragment>
+  <div
+    class="flex row gap-2"
+    style="align-items: flex-end; justify-content: center;"
+  >
+    <div>
+      Foo
+    </div>
+    <div>
+      bar
+    </div>
+  </div>
+</DocumentFragment>
+`;
