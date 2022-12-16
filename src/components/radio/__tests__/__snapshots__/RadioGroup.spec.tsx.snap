@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - RadioButton renders 1`] = `
+<DocumentFragment>
+  <div
+    class="box"
+    data-teamleader-ui="radio-group"
+  >
+    <label
+      class="box radiobutton is-medium"
+      data-teamleader-ui="radiobutton"
+    >
+      <input
+        class="input"
+        readonly=""
+        type="radio"
+        value="foo"
+      />
+      <span
+        class="shape"
+      />
+      <span
+        class="label"
+      >
+        <span
+          class="box text text-body-compact darkest teal"
+          data-teamleader-ui="text"
+        >
+          Foo
+        </span>
+      </span>
+    </label>
+    <label
+      class="box radiobutton is-medium is-checked"
+      data-teamleader-ui="radiobutton"
+    >
+      <input
+        checked=""
+        class="input"
+        readonly=""
+        type="radio"
+        value="bar"
+      />
+      <span
+        class="shape"
+      />
+      <span
+        class="label"
+      >
+        <span
+          class="box text text-body-compact darkest teal"
+          data-teamleader-ui="text"
+        >
+          Bar
+        </span>
+      </span>
+    </label>
+  </div>
+</DocumentFragment>
+`;
