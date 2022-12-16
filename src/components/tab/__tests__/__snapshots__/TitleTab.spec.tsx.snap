@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - TitleTab renders 1`] = `
+<DocumentFragment>
+  <a
+    class="box margin-left-2 margin-right-2 padding-left-3 padding-right-3 title-tab"
+    data-teamleader-ui="title-tab"
+  >
+    <span
+      class="box heading heading-4 darkest"
+      data-teamleader-ui="heading"
+    >
+      Overview
+    </span>
+  </a>
+</DocumentFragment>
+`;
