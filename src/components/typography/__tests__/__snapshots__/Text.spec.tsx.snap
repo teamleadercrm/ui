@@ -1,0 +1,144 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - Typography renders 1`] = `
+<DocumentFragment>
+  <h1
+    class="box heading heading-1 darkest"
+    data-teamleader-ui="heading"
+  >
+    Michael Scott
+  </h1>
+</DocumentFragment>
+`;
+
+exports[`Component - Typography renders 2`] = `
+<DocumentFragment>
+  <h2
+    class="box heading heading-2 darkest"
+    data-teamleader-ui="heading"
+  >
+    Michael Scott
+  </h2>
+</DocumentFragment>
+`;
+
+exports[`Component - Typography renders 3`] = `
+<DocumentFragment>
+  <h3
+    class="box heading heading-3 darkest"
+    data-teamleader-ui="heading"
+  >
+    Michael Scott
+  </h3>
+</DocumentFragment>
+`;
+
+exports[`Component - Typography renders 4`] = `
+<DocumentFragment>
+  <h4
+    class="box heading heading-4 darkest"
+    data-teamleader-ui="heading"
+  >
+    Michael Scott
+  </h4>
+</DocumentFragment>
+`;
+
+exports[`Component - Typography renders 5`] = `
+<DocumentFragment>
+  <h5
+    class="box heading heading-5 darkest"
+    data-teamleader-ui="heading"
+  >
+    Michael Scott
+  </h5>
+</DocumentFragment>
+`;
+
+exports[`Component - Typography renders 6`] = `
+<DocumentFragment>
+  <span
+    class="monospaced"
+    data-teamleader-ui="monospaced"
+  >
+    Michael Scott
+  </span>
+</DocumentFragment>
+`;
+
+exports[`Component - Typography renders 7`] = `
+<DocumentFragment>
+  <p
+    class="box text text-body darkest"
+    data-teamleader-ui="text"
+  >
+    Michael Scott
+  </p>
+</DocumentFragment>
+`;
+
+exports[`Component - Typography renders 8`] = `
+<DocumentFragment>
+  <p
+    class="box text text-body-compact darkest"
+    data-teamleader-ui="text"
+  >
+    Michael Scott
+  </p>
+</DocumentFragment>
+`;
+
+exports[`Component - Typography renders 9`] = `
+<DocumentFragment>
+  <p
+    class="box text text-display darkest"
+    data-teamleader-ui="text"
+  >
+    Michael Scott
+  </p>
+</DocumentFragment>
+`;
+
+exports[`Component - Typography renders 10`] = `
+<DocumentFragment>
+  <p
+    class="box text text-small darkest"
+    data-teamleader-ui="text"
+  >
+    Michael Scott
+  </p>
+</DocumentFragment>
+`;
+
+exports[`Component - Typography renders 11`] = `
+<DocumentFragment>
+  <p
+    class="box ui-text ui-text-display darkest"
+    data-teamleader-ui="ui-text"
+  >
+    Michael Scott
+  </p>
+</DocumentFragment>
+`;
+
+exports[`Component - Typography renders 12`] = `
+<DocumentFragment>
+  <p
+    class="box ui-text ui-text-body darkest"
+    data-teamleader-ui="ui-text"
+  >
+    Michael Scott
+  </p>
+</DocumentFragment>
+`;
+
+exports[`Component - Typography renders 13`] = `
+<DocumentFragment>
+  <p
+    class="box ui-text ui-text-small darkest"
+    data-teamleader-ui="ui-text"
+  >
+    Michael Scott
+  </p>
+</DocumentFragment>
+`;
