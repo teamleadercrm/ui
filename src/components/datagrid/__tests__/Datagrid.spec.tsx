@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import DataGrid from '../Datagrid';
+import DataGrid from '../';
 
 describe('Component - Datagrid', () => {
   it('renders', async () => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import MarketingButtonGroup from '../';
-import MarketingButton from '../../MarketingButton';
+import MarketingButton from '../../marketingButton';
 
 describe('Component - ButtonGroup', () => {
   it('renders', async () => {

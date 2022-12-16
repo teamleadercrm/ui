@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import Pagination from '../Pagination';
-import Button from '../../Button';
+import Button from '../../button';
 
 describe('Component - Pagination', () => {
   it('renders', async () => {

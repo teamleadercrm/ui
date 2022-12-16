@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import SplitButton from '../SplitButton';
-import { MenuItem } from '../../Menu';
+import { MenuItem } from '../../menu';
 
 describe('Component - SplitButton', () => {
   it('renders', async () => {
