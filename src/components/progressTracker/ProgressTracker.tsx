@@ -30,7 +30,7 @@ const ProgressTracker: GenericComponent<ProgressTrackerProps> & { ProgressStep: 
   const classNames = cx(theme['tracker'], theme[color], theme[`tracker-${labelPosition}`]);
 
   return (
-    <Box className={classNames}>
+    <Box data-teamleader-ui="progress-tracker" className={classNames}>
       {React.Children.map(children, (child, index) => {
         const activeStep = Math.max(0, currentStep);
         const childProps = React.isValidElement(child) && child.props;

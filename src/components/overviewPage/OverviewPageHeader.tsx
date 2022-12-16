@@ -12,7 +12,14 @@ export interface OverviewPageHeaderProps extends Omit<BoxProps, 'children'> {
 
 const OverviewPageHeader: GenericComponent<OverviewPageHeaderProps> = ({ children, title, ...others }) => {
   return (
-    <Container {...others} display="flex" marginBottom={5} paddingTop={7} justifyContent="space-between">
+    <Container
+      data-teamleader-ui="overview-page-header"
+      {...others}
+      display="flex"
+      marginBottom={5}
+      paddingTop={7}
+      justifyContent="space-between"
+    >
       <Heading1 color="teal">{title}</Heading1>
       {children && <Box>{children}</Box>}
     </Container>

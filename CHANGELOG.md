@@ -12,6 +12,42 @@
 
 ### Dependency updates
 
+## [18.2.2] - 2022-12-16
+
+### Fixed
+
+- `Toast`: Break long words to prevent text overflow ([@JorenSaeyTL](https://github.com/JorenSaeyTL)) in ([#2492](https://github.com/teamleadercrm/ui/pull/2492))
+
+## [18.2.1] - 2022-12-14
+
+### Added
+
+- Add missing `data-teamleader-ui` attribute to some components ([@lowiebenoot](https://github.com/lowiebenoot)) in ([#2490](https://github.com/teamleadercrm/ui/pull/2490))
+
+## [18.2.0] - 2022-12-08
+
+### Added
+
+- `Avatar`: Add a prop `tooltipProps` to allow a custom tooltip ([@BeirlaenAaron](https://github.com/BeirlaenAaron)) in ([#2483](https://github.com/teamleadercrm/ui/pull/2483))
+
+## [18.1.2] - 2022-12-07
+
+### Fixed
+
+- `Menu`: REVERT BACK - Fix possibility to have an infinite loop ([@stefaandevylder](http://github.com/stefaandevylder)) in [#2474](https://github.com/teamleadercrm/ui/pull/2474)
+
+## [18.1.1] - 2022-12-06
+
+### Fixed
+
+- `Menu`: Fix possibility to have an infinite loop ([@stefaandevylder](http://github.com/stefaandevylder)) in [#2474](https://github.com/teamleadercrm/ui/pull/2474)
+
+## [18.1.0] - 2022-12-0
+
+### Added
+
+- `EmptyState`: Add an action prop that renders a `BadgedLink` ([@BeirlaenAaron](https://github.com/BeirlaenAaron)) in ([#2475](https://github.com/teamleadercrm/ui/pull/2475))
+
 ## [18.0.0] - 2022-11-29
 
 ### Changed

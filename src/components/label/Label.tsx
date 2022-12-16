@@ -36,7 +36,7 @@ const Label: GenericComponent<LabelProps> = ({
   const Element = size === 'large' ? TextDisplay : TextBodyCompact;
 
   return (
-    <Box display="block" element="label" marginBottom={3} {...others}>
+    <Box data-teamleader-ui="label" display="block" element="label" marginBottom={3} {...others}>
       {React.Children.map(children, (child) =>
         typeof child !== 'string' && React.isValidElement(child) ? (
           React.cloneElement(child, { ...childProps, ...child.props })

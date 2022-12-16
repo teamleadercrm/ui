@@ -12,7 +12,7 @@ import theme from './theme.css';
 
 export interface DetailPageHeaderProps extends Omit<ContainerProps, 'title'> {
   children?: ReactNode;
-  backLinkProps?: Omit<BadgedLinkProps, 'icon' | 'inheric'> & { children: ReactNode };
+  backLinkProps?: Omit<BadgedLinkProps, 'icon' | 'inherit'> & { children: ReactNode };
   title: React.ReactNode;
   /** The color which the title should have */
   titleColor?: 'neutral' | 'teal';
@@ -28,7 +28,7 @@ const DetailPageHeader: GenericComponent<DetailPageHeaderProps> = ({
   ...others
 }) => {
   return (
-    <Container {...others} element={Section}>
+    <Container data-teamleader-ui="detail-page-header" {...others} element={Section}>
       <Box className={theme['header-inner']} display="flex">
         {backLinkProps && (
           <TextBody className={theme['back-link']}>

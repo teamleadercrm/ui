@@ -21,7 +21,7 @@ const Container: GenericComponent<ContainerProps> = ({ children, className, fixe
   );
 
   return (
-    <Box {...others} boxSizing="content-box" className={classNames}>
+    <Box data-teamleader-ui="container" {...others} boxSizing="content-box" className={classNames}>
       {children}
     </Box>
   );

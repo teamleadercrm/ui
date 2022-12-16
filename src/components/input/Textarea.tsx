@@ -37,7 +37,7 @@ const Textarea: GenericComponent<TextareaProps> = forwardRef<HTMLElement, Textar
     };
 
     return (
-      <Box className={classNames} {...boxProps}>
+      <Box data-teamleader-ui="textarea" className={classNames} {...boxProps}>
         <InputBase ref={forwardedRef} className={theme['textarea']} element="textarea" {...inputProps} />
         <ValidationText error={error} help={helpText} inverse={inverse} success={success} warning={warning} />
       </Box>
