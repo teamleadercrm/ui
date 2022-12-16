@@ -16,7 +16,7 @@
 
 ### Fixed
 
-- `Toast.tsx`: Break long words to prevent text overflow ([@JorenSaeyTL](https://github.com/JorenSaeyTL)) in ([#2492](https://github.com/teamleadercrm/ui/pull/2492))
+- `Toast`: Break long words to prevent text overflow ([@JorenSaeyTL](https://github.com/JorenSaeyTL)) in ([#2492](https://github.com/teamleadercrm/ui/pull/2492))
 
 ## [18.2.1] - 2022-12-14
 
