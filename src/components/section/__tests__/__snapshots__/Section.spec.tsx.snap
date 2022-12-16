@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - Section renders 1`] = `
+<DocumentFragment>
+  <section
+    class="box padding-bottom-4 padding-left-4 padding-right-4 padding-top-4 section white"
+    data-teamleader-ui="section"
+  >
+    This is a Section
+  </section>
+</DocumentFragment>
+`;
