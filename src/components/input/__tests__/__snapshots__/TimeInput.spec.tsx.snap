@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - TimeInput renders 1`] = `
+<DocumentFragment>
+  <div
+    class="box wrapper"
+  >
+    <div
+      class="input-wrapper"
+    >
+      <div
+        class="input-inner-wrapper"
+      >
+        <div
+          class="prefix-wrapper"
+        >
+          <span
+            class="box align-items-center display-flex neutral darkest"
+            data-teamleader-ui="icon"
+          >
+            <svg
+              fill="currentColor"
+              height="14"
+              preserveAspectRatio="xMidYMid meet"
+              style="opacity: 0.84; vertical-align: middle;"
+              viewBox="0 0 14 14"
+              width="14"
+            >
+              <path
+                d="M7 3a4 4 0 10.001 8.001A4 4 0 007 3zm2-1.659A6.002 6.002 0 017 13 6 6 0 015 1.342V1a1 1 0 011-1h2a1 1 0 011 1v.341zM7 4a1 1 0 011 1v2a1 1 0 01-2 0V5a1 1 0 011-1z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+        </div>
+        <input
+          autocomplete="off"
+          class="input is-medium"
+          data-teamleader-ui="time-input"
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -1,0 +1,164 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - DurationInput renders 1`] = `
+<DocumentFragment>
+  <div
+    class="box align-items-center display-flex duration-input-numeric-container"
+    data-teamleader-ui="duration-input"
+  >
+    <div
+      class="box wrapper duration-input-numeric-input"
+    >
+      <div
+        class="input-wrapper"
+      >
+        <div
+          class="input-inner-wrapper"
+        >
+          <input
+            class="input is-medium"
+            data-teamleader-ui="numeric-input"
+            inputmode="numeric"
+            max="9007199254740991"
+            min="0"
+            placeholder="00"
+            step="1"
+            stepper="suffix"
+            type="text"
+            value="03"
+          />
+          <div
+            class="suffix-wrapper"
+          >
+            <div
+              class="stepper"
+            >
+              <button
+                class="box align-items-center display-flex neutral darkest stepper-up"
+                data-teamleader-ui="icon"
+                tabindex="-1"
+                type="button"
+              >
+                <svg
+                  fill="currentColor"
+                  height="14"
+                  preserveAspectRatio="xMidYMid meet"
+                  style="opacity: 0.84; vertical-align: middle;"
+                  viewBox="0 0 14 14"
+                  width="14"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M10.536 7.916L7 4.38 3.465 7.916A1 1 0 004.879 9.33L7 7.208 9.121 9.33a1 1 0 101.415-1.414z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </button>
+              <button
+                class="box align-items-center display-flex neutral darkest stepper-down"
+                data-teamleader-ui="icon"
+                tabindex="-1"
+                type="button"
+              >
+                <svg
+                  fill="currentColor"
+                  height="14"
+                  preserveAspectRatio="xMidYMid meet"
+                  style="opacity: 0.84; vertical-align: middle;"
+                  viewBox="0 0 14 14"
+                  width="14"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M3.465 6.087L7 9.623l3.536-3.536A1 1 0 009.12 4.673L7 6.794 4.878 4.673a1 1 0 10-1.414 1.414z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="box wrapper duration-input-numeric-input"
+    >
+      <div
+        class="input-wrapper"
+      >
+        <div
+          class="input-inner-wrapper"
+        >
+          <input
+            class="input is-medium"
+            data-teamleader-ui="numeric-input"
+            inputmode="numeric"
+            max="9007199254740991"
+            maxlength="2"
+            min="-9007199254740991"
+            placeholder="00"
+            step="15"
+            stepper="suffix"
+            type="text"
+            value="45"
+          />
+          <div
+            class="suffix-wrapper"
+          >
+            <div
+              class="stepper"
+            >
+              <button
+                class="box align-items-center display-flex neutral darkest stepper-up"
+                data-teamleader-ui="icon"
+                tabindex="-1"
+                type="button"
+              >
+                <svg
+                  fill="currentColor"
+                  height="14"
+                  preserveAspectRatio="xMidYMid meet"
+                  style="opacity: 0.84; vertical-align: middle;"
+                  viewBox="0 0 14 14"
+                  width="14"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M10.536 7.916L7 4.38 3.465 7.916A1 1 0 004.879 9.33L7 7.208 9.121 9.33a1 1 0 101.415-1.414z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </button>
+              <button
+                class="box align-items-center display-flex neutral darkest stepper-down"
+                data-teamleader-ui="icon"
+                tabindex="-1"
+                type="button"
+              >
+                <svg
+                  fill="currentColor"
+                  height="14"
+                  preserveAspectRatio="xMidYMid meet"
+                  style="opacity: 0.84; vertical-align: middle;"
+                  viewBox="0 0 14 14"
+                  width="14"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M3.465 6.087L7 9.623l3.536-3.536A1 1 0 009.12 4.673L7 6.794 4.878 4.673a1 1 0 10-1.414 1.414z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
