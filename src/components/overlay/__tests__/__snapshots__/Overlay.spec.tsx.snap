@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - Overlay renders 1`] = `
+<DocumentFragment>
+  <div
+    class="overlay dark"
+    data-teamleader-ui="overlay"
+  >
+    <div>
+      The children
+    </div>
+  </div>
+</DocumentFragment>
+`;
