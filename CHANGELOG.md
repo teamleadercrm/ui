@@ -16,7 +16,7 @@
 
 ### Fixed
 
-- `Alert`: Break long words to prevent text overflow ([@JorenSaeyTL](https://github.com/JorenSaeyTL)) in ([#2494](https://github.com/teamleadercrm/ui/pull/2494))
+- `Alert`: Break long words to prevent text overflow ([@JorenSaeyTL](https://github.com/JorenSaeyTL)) in ([#2496](https://github.com/teamleadercrm/ui/pull/2496))
 
 ## [18.2.2] - 2022-12-16
 
