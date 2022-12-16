@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - LoadingSpinner renders 1`] = `
+<DocumentFragment>
+  <div
+    class="box loading-spinner is-teal is-medium is-darkest"
+    data-teamleader-ui="loading-spinner"
+  />
+</DocumentFragment>
+`;
