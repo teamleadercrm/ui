@@ -7,6 +7,7 @@ import { Illustration60X60Error, Illustration60X60Info } from '@teamleader/ui-il
 import { DialogBaseProps } from '../dialog/DialogBase';
 import { ButtonProps } from '../button/Button';
 import { GenericComponent } from '../../@types/types';
+import theme from './theme.css';
 
 type Action = Omit<ButtonProps, 'fullWidth' | 'marginTop'>;
 
@@ -39,9 +40,11 @@ const Alert: GenericComponent<AlertProps> = ({
         <Box marginBottom={3} marginTop={2}>
           {type === 'confirm' ? <Illustration60X60Info /> : <Illustration60X60Error />}
         </Box>
-        <Heading3 color="teal">{title}</Heading3>
+        <Heading3 className={theme['break-word']} color="teal">
+          {title}
+        </Heading3>
         {body && (
-          <TextBody color="teal" marginTop={2}>
+          <TextBody className={theme['break-word']} color="teal" marginTop={2}>
             {body}
           </TextBody>
         )}
