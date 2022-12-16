@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - Toggle renders 1`] = `
+<DocumentFragment>
+  <label
+    class="box toggle is-medium"
+    data-teamleader-ui="toggle"
+  >
+    <input
+      class="input"
+      hidden=""
+      type="checkbox"
+    />
+    <span
+      class="track"
+    >
+      <span
+        class="thumb"
+      />
+    </span>
+  </label>
+</DocumentFragment>
+`;
