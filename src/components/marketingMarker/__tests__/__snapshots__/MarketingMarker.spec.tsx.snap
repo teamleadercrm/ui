@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - MarketingMarker renders 1`] = `
+<DocumentFragment>
+  <mark
+    class="box margin-left-negative-1 margin-right-negative-1 padding-left-1 padding-right-1 marker"
+    data-teamleader-ui="marketing-marker"
+  >
+    marker
+  </mark>
+</DocumentFragment>
+`;
