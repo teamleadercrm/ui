@@ -1,0 +1,153 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - Dialog does not render anything when the dialog is not active 1`] = `
+<body
+  style="overflow: hidden;"
+>
+  <div />
+</body>
+`;
+
+exports[`Component - Dialog renders 1`] = `
+<body
+  style="overflow: hidden;"
+>
+  <div />
+  <div
+    class="overlay dark overlay"
+    data-teamleader-ui="overlay"
+  >
+    <div>
+      <div>
+        <div
+          tabindex="0"
+        />
+        <div
+          class="box dialog-base is-medium is-entering dialog"
+          data-teamleader-ui="dialog"
+        >
+          <div
+            class="inner"
+          >
+            <section
+              class="box align-items-center display-flex padding-bottom-4 padding-left-4 padding-right-4 padding-top-4 section neutral"
+              data-teamleader-ui="section"
+            >
+              <span
+                class="box align-items-center display-flex margin-right-3 teal darkest"
+                data-teamleader-ui="icon"
+              >
+                <div
+                  class="drag-icon"
+                  opacity="0.84"
+                >
+                  <svg
+                    fill="currentColor"
+                    height="24"
+                    preserveAspectRatio="xMidYMid meet"
+                    style="opacity: 0.84; vertical-align: middle;"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      d="M8.5 6a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm0 15a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm1.5-9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm5.5 1.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm1.5-9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15.5 21a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+              </span>
+              <h3
+                class="box heading heading-3 darkest overflow-singleline"
+                data-teamleader-ui="heading"
+              >
+                Foobar
+              </h3>
+              <button
+                class="box margin-bottom-negative-1 margin-top-negative-1 button-base icon-button is-medium close-icon"
+                data-teamleader-ui="icon-button"
+                type="button"
+              >
+                <span
+                  class="box align-items-center display-flex neutral darkest"
+                  data-teamleader-ui="icon"
+                >
+                  <svg
+                    fill="currentColor"
+                    height="24"
+                    preserveAspectRatio="xMidYMid meet"
+                    style="opacity: 0.84; vertical-align: middle;"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M13.414 12l4.95-4.95a1 1 0 00-1.414-1.414L12 10.586l-4.95-4.95A1 1 0 005.636 7.05l4.95 4.95-4.95 4.95a1 1 0 001.414 1.414l4.95-4.95 4.95 4.95a1 1 0 001.414-1.414L13.414 12z"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </section>
+            <div
+              class="box display-flex flex-direction-column"
+              style="overflow-y: auto;"
+            >
+              Foobar
+            </div>
+            <div
+              class="box display-flex justify-content-flex-end padding-bottom-4 padding-left-4 padding-right-4 padding-top-4"
+              style="border-top: 1px solid #e4e4e6;"
+            >
+              <div
+                class="box justify-content-flex-end group"
+                data-teamleader-ui="button-group"
+              >
+                <button
+                  class="box reset-box-sizing reset-font-smoothing button-base button link medium"
+                  data-teamleader-ui="button"
+                  type="button"
+                >
+                  <span
+                    class="box ui-text ui-text-body darkest overflow-singleline"
+                    data-teamleader-ui="ui-text"
+                  >
+                    Delete
+                  </span>
+                </button>
+                <button
+                  class="box reset-box-sizing reset-font-smoothing button-base button secondary medium"
+                  data-teamleader-ui="button"
+                  type="button"
+                >
+                  <span
+                    class="box ui-text ui-text-body darkest overflow-singleline"
+                    data-teamleader-ui="ui-text"
+                  >
+                    Cancel
+                  </span>
+                </button>
+                <button
+                  class="box reset-box-sizing reset-font-smoothing button-base button primary medium"
+                  data-teamleader-ui="button"
+                  type="button"
+                >
+                  <span
+                    class="box ui-text ui-text-body darkest overflow-singleline"
+                    data-teamleader-ui="ui-text"
+                  >
+                    Confirm
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          tabindex="0"
+        />
+      </div>
+    </div>
+  </div>
+</body>
+`;

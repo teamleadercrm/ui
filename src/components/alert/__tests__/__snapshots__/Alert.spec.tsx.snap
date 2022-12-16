@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - Alert renders 1`] = `
+<body
+  style="overflow: hidden;"
+>
+  <div />
+  <div
+    class="overlay dark overlay"
+    data-teamleader-ui="overlay"
+  >
+    <div>
+      <div>
+        <div
+          tabindex="0"
+        />
+        <div
+          class="box dialog-base is-small is-entering"
+          data-teamleader-ui="dialog"
+        >
+          <div
+            class="inner"
+          >
+            <div
+              class="box align-items-center display-flex flex-direction-column padding-bottom-4 padding-left-4 padding-right-4 padding-top-4 text-align-center"
+            >
+              <div
+                class="box margin-bottom-3 margin-top-2"
+              >
+                <svg
+                  fill="currentColor"
+                  height="60"
+                  preserveAspectRatio="xMidYMid meet"
+                  style="vertical-align: middle;"
+                  viewBox="undefined"
+                  width="60"
+                >
+                  <path
+                    d="M50 30c0 11.046-8.954 20-20 20s-20-8.954-20-20 8.954-20 20-20 20 8.954 20 20z"
+                    fill="#0071F2"
+                  />
+                  <path
+                    clip-rule="evenodd"
+                    d="M30 26a2 2 0 012 2v11a2 2 0 11-4 0V28a2 2 0 012-2zm0-7a2 2 0 110 4 2 2 0 010-4z"
+                    fill="#fff"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </div>
+              <h3
+                class="box heading heading-3 darkest teal"
+                data-teamleader-ui="heading"
+              >
+                Alert title
+              </h3>
+              <p
+                class="box margin-top-2 text text-body darkest teal"
+                data-teamleader-ui="text"
+              >
+                I am the alert body text
+              </p>
+              <button
+                class="box margin-top-5 reset-box-sizing reset-font-smoothing button-base button primary medium is-full-width"
+                data-teamleader-ui="button"
+                type="button"
+              >
+                <span
+                  class="box ui-text ui-text-body darkest overflow-singleline"
+                  data-teamleader-ui="ui-text"
+                >
+                  Confirm
+                </span>
+              </button>
+              <button
+                class="box margin-top-2 reset-box-sizing reset-font-smoothing button-base button secondary medium is-full-width"
+                data-teamleader-ui="button"
+                type="button"
+              >
+                <span
+                  class="box ui-text ui-text-body darkest overflow-singleline"
+                  data-teamleader-ui="ui-text"
+                >
+                  Cancel
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          tabindex="0"
+        />
+      </div>
+    </div>
+  </div>
+</body>
+`;

@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - Button renders 1`] = `
+<DocumentFragment>
+  <button
+    class="box reset-box-sizing reset-font-smoothing button-base button secondary medium"
+    data-teamleader-ui="button"
+    type="button"
+  >
+    <span
+      class="box ui-text ui-text-body darkest overflow-singleline"
+      data-teamleader-ui="ui-text"
+    >
+      Foobar
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Component - Button renders an icon on the left 1`] = `
+<DocumentFragment>
+  <button
+    class="box reset-box-sizing reset-font-smoothing button-base button secondary medium"
+    data-teamleader-ui="button"
+    type="button"
+  >
+    <span>
+      Fake icon
+    </span>
+    <span
+      class="box margin-left-2 ui-text ui-text-body darkest overflow-singleline"
+      data-teamleader-ui="ui-text"
+    >
+      Foobar
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Component - Button renders an icon on the right 1`] = `
+<DocumentFragment>
+  <button
+    class="box reset-box-sizing reset-font-smoothing button-base button secondary medium"
+    data-teamleader-ui="button"
+    type="button"
+  >
+    <span
+      class="box margin-right-2 ui-text ui-text-body darkest overflow-singleline"
+      data-teamleader-ui="ui-text"
+    >
+      Foobar
+    </span>
+    <span>
+      Fake icon
+    </span>
+  </button>
+</DocumentFragment>
+`;
