@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - EmailSelector renders 1`] = `
+<DocumentFragment>
+  <div
+    class="box label-input"
+    data-teamleader-ui="email-selector"
+  >
+    <div
+      class="box display-inline-flex margin-bottom-1 margin-left-1 margin-right-2 margin-top-1 is-medium wrapper"
+      data-teamleader-ui="tag"
+    >
+      <p
+        class="box margin-bottom-1 margin-left-3 margin-right-1 margin-top-1 ui-text ui-text-body darkest teal overflow-singleline"
+        data-teamleader-ui="ui-text"
+      >
+        <button
+          class="box link label-text"
+          data-teamleader-ui="link"
+        >
+          David Brent
+        </button>
+      </p>
+      <button
+        class="box button-base icon-button is-medium remove-button"
+        data-teamleader-ui="icon-button"
+        style="flex-shrink: 0;"
+        type="button"
+      >
+        <span
+          class="box align-items-center display-flex neutral darkest"
+          data-teamleader-ui="icon"
+        >
+          <svg
+            fill="currentColor"
+            height="14"
+            preserveAspectRatio="xMidYMid meet"
+            style="opacity: 0.84; vertical-align: middle;"
+            viewBox="0 0 14 14"
+            width="14"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M8.414 7l2.122-2.121A1 1 0 009.12 3.464L7 5.586 4.878 3.464A1 1 0 003.465 4.88L5.585 7l-2.12 2.121a1 1 0 101.414 1.415L7 8.414l2.121 2.122a1 1 0 101.415-1.415L8.414 7z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+    <input
+      class="box label-input-focuser"
+    />
+  </div>
+</DocumentFragment>
+`;

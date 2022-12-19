@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - Link renders 1`] = `
+<DocumentFragment>
+  <a
+    class="box link is-inherit"
+    data-teamleader-ui="link"
+    href="https://foobar.com"
+  >
+    Foobar
+  </a>
+</DocumentFragment>
+`;

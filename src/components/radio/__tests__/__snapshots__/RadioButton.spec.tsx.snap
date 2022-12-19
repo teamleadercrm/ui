@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - RadioButton renders 1`] = `
+<DocumentFragment>
+  <label
+    class="box radiobutton is-medium"
+    data-teamleader-ui="radiobutton"
+  >
+    <input
+      class="input"
+      readonly=""
+      type="radio"
+      value="foobar"
+    />
+    <span
+      class="shape"
+    />
+  </label>
+</DocumentFragment>
+`;

@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - Checkbox renders a checked checkbox 1`] = `
+<DocumentFragment>
+  <label
+    class="box checkbox is-medium is-checked"
+    data-teamleader-ui="checkbox"
+  >
+    <input
+      checked=""
+      class="input"
+      readonly=""
+      type="checkbox"
+    />
+    <span
+      class="shape"
+    >
+      <svg
+        class="icon"
+        fill="currentColor"
+        height="14"
+        preserveAspectRatio="xMidYMid meet"
+        style="opacity: 0.84; vertical-align: middle;"
+        viewBox="0 0 14 14"
+        width="14"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M5.857 10.556L2.293 6.993a.999.999 0 111.414-1.415l2.15 2.15 4.436-4.435a1 1 0 011.414 1.413l-5.85 5.85z"
+          fill="currentColor"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </span>
+    <span
+      class="label"
+    >
+      Foobar
+    </span>
+  </label>
+</DocumentFragment>
+`;
+
+exports[`Component - Checkbox renders an unchecked checkbox 1`] = `
+<DocumentFragment>
+  <label
+    class="box checkbox is-medium"
+    data-teamleader-ui="checkbox"
+  >
+    <input
+      class="input"
+      readonly=""
+      type="checkbox"
+    />
+    <span
+      class="shape"
+    >
+      <svg
+        class="icon"
+        fill="currentColor"
+        height="14"
+        preserveAspectRatio="xMidYMid meet"
+        style="opacity: 0.84; vertical-align: middle;"
+        viewBox="0 0 14 14"
+        width="14"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M12 7a1 1 0 01-1 1H3a1 1 0 010-2h8a1 1 0 011 1z"
+          fill="currentColor"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </span>
+    <span
+      class="label"
+    >
+      Foobar
+    </span>
+  </label>
+</DocumentFragment>
+`;

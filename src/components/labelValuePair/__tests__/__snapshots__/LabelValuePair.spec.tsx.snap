@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - LabelValuePair renders 1`] = `
+<DocumentFragment>
+  <div
+    class="box"
+    data-teamleader-ui="label-value-pair-group"
+  >
+    <h4
+      class="box margin-bottom-2 heading heading-4 darkest neutral"
+      data-teamleader-ui="heading"
+    />
+    <div
+      class="box display-flex flex-direction-row margin-bottom-1"
+      data-teamleader-ui="label-value-pair"
+    >
+      <h5
+        class="box margin-right-2 padding-bottom-1 padding-top-1 heading heading-5 darkest teal overflow-multiline"
+        data-teamleader-ui="heading"
+        style="flex: 0 0 40%;"
+      >
+        Label
+      </h5>
+      <div
+        class="box display-flex justify-content-flex-start padding-bottom-1 padding-top-1 text-align-left"
+        style="flex: 1; overflow: hidden;"
+      >
+        Value
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

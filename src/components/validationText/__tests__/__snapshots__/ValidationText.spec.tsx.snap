@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - ValidationText renders a help text 1`] = `
+<DocumentFragment>
+  <p
+    class="box margin-top-1 text text-small dark gold"
+    data-teamleader-ui="warning-text"
+  >
+    Help text
+  </p>
+</DocumentFragment>
+`;
+
+exports[`Component - ValidationText renders a success text 1`] = `
+<DocumentFragment>
+  <p
+    class="box margin-top-1 text text-small dark mint"
+    data-teamleader-ui="success-text"
+  >
+    Success text
+  </p>
+</DocumentFragment>
+`;
+
+exports[`Component - ValidationText renders a warning text 1`] = `
+<DocumentFragment>
+  <p
+    class="box margin-top-1 text text-small dark gold"
+    data-teamleader-ui="warning-text"
+  >
+    Warning text
+  </p>
+</DocumentFragment>
+`;
+
+exports[`Component - ValidationText renders an error text 1`] = `
+<DocumentFragment>
+  <p
+    class="box margin-top-1 text text-small dark ruby"
+    data-teamleader-ui="error-text"
+  >
+    Error text
+  </p>
+</DocumentFragment>
+`;
+
+exports[`Component - ValidationText renders nothing when no text is passed 1`] = `<DocumentFragment />`;

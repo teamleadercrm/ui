@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - BadgedLink renders 1`] = `
+<DocumentFragment>
+  <a
+    class="box badged-link is-inherit is-left-icon-placed"
+    data-teamleader-ui="badgedLink"
+    href="https://foobar.com"
+    target="_blank"
+  >
+    Foobar
+  </a>
+</DocumentFragment>
+`;

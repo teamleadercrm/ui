@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - Badge renders 1`] = `
+<DocumentFragment>
+  <div
+    class="box padding-left-2 padding-right-2 badge is-medium"
+    data-teamleader-ui="badge"
+  >
+    <span
+      class="box ui-text ui-text-body darkest label"
+      data-teamleader-ui="ui-text"
+    >
+      Foobar
+    </span>
+  </div>
+</DocumentFragment>
+`;

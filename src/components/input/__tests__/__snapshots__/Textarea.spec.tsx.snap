@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - Textarea renders 1`] = `
+<DocumentFragment>
+  <div
+    class="box wrapper"
+    data-teamleader-ui="textarea"
+  >
+    <textarea
+      class="input is-medium textarea"
+      placeholder="This is a placeholder"
+      type="text"
+    >
+      foobar
+    </textarea>
+  </div>
+</DocumentFragment>
+`;

@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - AvatarOverlay renders 1`] = `
+<DocumentFragment>
+  <div
+    class="overlay"
+    data-teamleader-ui="avatar-overlay"
+  >
+    <div
+      class="box display-flex justify-content-center overlay-background full-height"
+    >
+      <span
+        class="box align-items-center display-flex neutral lightest"
+        data-teamleader-ui="icon"
+      >
+        <svg
+          fill="currentColor"
+          height="14"
+          preserveAspectRatio="xMidYMid meet"
+          style="opacity: 0.84; vertical-align: middle;"
+          viewBox="0 0 14 14"
+          width="14"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M11.73 5.022L8.876 2.17l.63-.63c.393-.394.91-.59 1.426-.59a2.012 2.012 0 012.017 2.016 2.01 2.01 0 01-.59 1.426l-.63.63zm-.708.707l-5.794 5.795-3.33 1.11A.5.5 0 011.267 12l1.11-3.33L8.17 2.877l2.852 2.852z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;

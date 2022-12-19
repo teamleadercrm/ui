@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - ProgressTracker renders 1`] = `
+<DocumentFragment>
+  <div
+    class="box tracker mint tracker-top"
+    data-teamleader-ui="progress-tracker"
+  >
+    <div
+      class="box step is-active"
+    >
+      <div
+        class="step-label-holder"
+      >
+        <p
+          class="box text text-small darkest step-label"
+          data-teamleader-ui="text"
+        >
+          New
+        </p>
+      </div>
+      <span
+        class="status-bullet-halo"
+      />
+      <span
+        class="status-bullet"
+      />
+    </div>
+    <div
+      class="box step"
+    >
+      <div
+        class="step-label-holder"
+      >
+        <p
+          class="box text text-small darkest step-label"
+          data-teamleader-ui="text"
+        >
+          In progress
+        </p>
+      </div>
+      <span
+        class="status-bullet-halo"
+      />
+      <span
+        class="status-bullet"
+      />
+    </div>
+    <div
+      class="box step"
+    >
+      <div
+        class="step-label-holder"
+      >
+        <p
+          class="box text text-small darkest step-label"
+          data-teamleader-ui="text"
+        >
+          Done
+        </p>
+      </div>
+      <span
+        class="status-bullet-halo"
+      />
+      <span
+        class="status-bullet"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;

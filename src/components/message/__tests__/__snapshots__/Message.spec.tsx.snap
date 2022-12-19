@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - Message renders 1`] = `
+<DocumentFragment>
+  <div
+    class="box display-flex"
+    data-teamleader-ui="message"
+  >
+    <div
+      class="box background-color-neutral-normal background-color-neutral padding-bottom-4 padding-left-1 padding-right-1 padding-top-4"
+      style="border-top-left-radius: 4px; border-bottom-left-radius: 4px;"
+    />
+    <div
+      class="box background-color-neutral-lightest display-flex"
+      style="border-bottom: 1px solid #e4e4e6; border-right: 1px solid #e4e4e6; border-top: 1px solid #e4e4e6; border-top-right-radius: 4px; border-bottom-right-radius: 4px; flex: 1;"
+    >
+      <div
+        class="box padding-bottom-4 padding-left-3 padding-right-4 padding-top-4"
+        style="flex: 1;"
+      >
+        This is a message
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
