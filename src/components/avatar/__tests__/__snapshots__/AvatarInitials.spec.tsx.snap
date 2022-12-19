@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - AvatarInitials renders 1`] = `
+<DocumentFragment>
+  <div
+    class="box align-items-center background-color-aqua-normal background-color-aqua display-flex justify-content-center avatar avatar-initials"
+    data-teamleader-ui="avatar-initials"
+  >
+    <h4
+      class="box heading heading-4 lightest neutral initials"
+      data-teamleader-ui="heading"
+    >
+      MS
+    </h4>
+  </div>
+</DocumentFragment>
+`;

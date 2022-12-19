@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - AvatarAdd renders 1`] = `
+<DocumentFragment>
+  <div
+    class="box align-items-center background-color-neutral-normal background-color-neutral display-flex justify-content-center avatar avatar-add"
+    data-teamleader-ui="avatar-add"
+  >
+    <span
+      class="box align-items-center display-flex neutral darkest"
+      data-teamleader-ui="icon"
+    >
+      <svg
+        fill="currentColor"
+        height="24"
+        preserveAspectRatio="xMidYMid meet"
+        style="opacity: 0.84; vertical-align: middle;"
+        viewBox="0 0 24 24"
+        width="24"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M15.998 15.53A5.976 5.976 0 0012 14c-3.309 0-6 2.691-6 6H4c0-4.411 3.589-8 8-8 2.252 0 4.29.935 5.745 2.438a6 6 0 00-1.747 1.091zM4 20h2v1a1 1 0 11-2 0v-1zm8-10a4 4 0 110-8 4 4 0 010 8zm0-2a2 2 0 100-4 2 2 0 000 4zm9 11h2a1 1 0 110 2h-2v2a1 1 0 11-2 0v-2h-2a1 1 0 110-2h2v-2a1 1 0 112 0v2z"
+          fill="currentColor"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </span>
+  </div>
+</DocumentFragment>
+`;

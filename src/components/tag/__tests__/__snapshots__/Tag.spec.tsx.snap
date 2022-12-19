@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - Tag renders 1`] = `
+<DocumentFragment>
+  <div
+    class="box display-inline-flex is-medium wrapper"
+    data-teamleader-ui="tag"
+  >
+    <p
+      class="box margin-bottom-1 margin-left-3 margin-right-3 margin-top-1 ui-text ui-text-body darkest teal overflow-singleline"
+      data-teamleader-ui="ui-text"
+    >
+      This is a Tag
+    </p>
+  </div>
+</DocumentFragment>
+`;

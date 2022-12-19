@@ -1,0 +1,604 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - DatePicker renders 1`] = `
+<DocumentFragment>
+  <div
+    class="box"
+    data-teamleader-ui="date-picker"
+  >
+    <div
+      class="container date-picker is-medium is-bordered"
+      lang="en"
+    >
+      <div
+        class="wrapper"
+        tabindex="0"
+      >
+        <div
+          class="box display-flex justify-content-space-between navBar"
+        >
+          <button
+            class="box button-base icon-button is-small"
+            data-teamleader-ui="icon-button"
+            title="February"
+            type="button"
+          >
+            <span
+              class="box align-items-center display-flex teal darkest"
+              data-teamleader-ui="icon"
+            >
+              <svg
+                fill="currentColor"
+                height="14"
+                preserveAspectRatio="xMidYMid meet"
+                style="opacity: 0.84; vertical-align: middle;"
+                viewBox="0 0 14 14"
+                width="14"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M4.575 5.955l1.158-1.171a1.054 1.054 0 000-1.478 1.024 1.024 0 00-1.46 0L.623 7l3.65 3.694a1.024 1.024 0 001.46 0 1.054 1.054 0 000-1.478L4.575 8.045h7.015c.57 0 1.033-.468 1.033-1.045s-.463-1.045-1.033-1.045H4.575z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </span>
+          </button>
+          <button
+            class="box button-base icon-button is-small"
+            data-teamleader-ui="icon-button"
+            title="April"
+            type="button"
+          >
+            <span
+              class="box align-items-center display-flex teal darkest"
+              data-teamleader-ui="icon"
+            >
+              <svg
+                fill="currentColor"
+                height="14"
+                preserveAspectRatio="xMidYMid meet"
+                style="opacity: 0.84; vertical-align: middle;"
+                viewBox="0 0 14 14"
+                width="14"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M9.047 5.955L7.89 4.784a1.054 1.054 0 010-1.478 1.024 1.024 0 011.46 0L13 7l-3.65 3.694a1.024 1.024 0 01-1.46 0 1.054 1.054 0 010-1.478l1.157-1.171H2.032C1.462 8.045 1 7.577 1 7s.462-1.045 1.032-1.045h7.015z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+        <div
+          class="months"
+        >
+          <div
+            class="month"
+            role="grid"
+          >
+            <div
+              aria-live="polite"
+              class="caption"
+              role="heading"
+            >
+              <div>
+                March 1965
+              </div>
+            </div>
+            <div
+              class="weekdays"
+              role="rowgroup"
+            >
+              <div
+                class="weekdaysRow"
+                role="row"
+              >
+                <div
+                  class="weekday"
+                  title="Monday"
+                >
+                  M
+                </div>
+                <div
+                  class="weekday"
+                  title="Tuesday"
+                >
+                  T
+                </div>
+                <div
+                  class="weekday"
+                  title="Wednesday"
+                >
+                  W
+                </div>
+                <div
+                  class="weekday"
+                  title="Thursday"
+                >
+                  T
+                </div>
+                <div
+                  class="weekday"
+                  title="Friday"
+                >
+                  F
+                </div>
+                <div
+                  class="weekday"
+                  title="Saturday"
+                >
+                  S
+                </div>
+                <div
+                  class="weekday"
+                  title="Sunday"
+                >
+                  S
+                </div>
+              </div>
+            </div>
+            <div
+              class="body"
+              role="rowgroup"
+            >
+              <div
+                class="week"
+                role="row"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-label="Monday, March 1, 1965"
+                  aria-selected="false"
+                  class="day "
+                  role="gridcell"
+                  tabindex="0"
+                >
+                  1
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Tuesday, March 2, 1965"
+                  aria-selected="false"
+                  class="day "
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  2
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Wednesday, March 3, 1965"
+                  aria-selected="false"
+                  class="day "
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  3
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Thursday, March 4, 1965"
+                  aria-selected="false"
+                  class="day "
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  4
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Friday, March 5, 1965"
+                  aria-selected="false"
+                  class="day "
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  5
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Saturday, March 6, 1965"
+                  aria-selected="false"
+                  class="day "
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  6
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Sunday, March 7, 1965"
+                  aria-selected="false"
+                  class="day "
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  7
+                </div>
+              </div>
+              <div
+                class="week"
+                role="row"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-label="Monday, March 8, 1965"
+                  aria-selected="false"
+                  class="day "
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  8
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Tuesday, March 9, 1965"
+                  aria-selected="false"
+                  class="day "
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  9
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Wednesday, March 10, 1965"
+                  aria-selected="false"
+                  class="day "
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  10
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Thursday, March 11, 1965"
+                  aria-selected="false"
+                  class="day "
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  11
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Friday, March 12, 1965"
+                  aria-selected="false"
+                  class="day "
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  12
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Saturday, March 13, 1965"
+                  aria-selected="false"
+                  class="day "
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  13
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Sunday, March 14, 1965"
+                  aria-selected="false"
+                  class="day "
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  14
+                </div>
+              </div>
+              <div
+                class="week"
+                role="row"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-label="Monday, March 15, 1965"
+                  aria-selected="true"
+                  class="day selected"
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  15
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Tuesday, March 16, 1965"
+                  aria-selected="false"
+                  class="day "
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  16
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Wednesday, March 17, 1965"
+                  aria-selected="false"
+                  class="day "
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  17
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Thursday, March 18, 1965"
+                  aria-selected="false"
+                  class="day "
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  18
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Friday, March 19, 1965"
+                  aria-selected="false"
+                  class="day "
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  19
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Saturday, March 20, 1965"
+                  aria-selected="false"
+                  class="day "
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  20
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Sunday, March 21, 1965"
+                  aria-selected="false"
+                  class="day "
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  21
+                </div>
+              </div>
+              <div
+                class="week"
+                role="row"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-label="Monday, March 22, 1965"
+                  aria-selected="false"
+                  class="day "
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  22
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Tuesday, March 23, 1965"
+                  aria-selected="false"
+                  class="day "
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  23
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Wednesday, March 24, 1965"
+                  aria-selected="false"
+                  class="day "
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  24
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Thursday, March 25, 1965"
+                  aria-selected="false"
+                  class="day "
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  25
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Friday, March 26, 1965"
+                  aria-selected="false"
+                  class="day "
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  26
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Saturday, March 27, 1965"
+                  aria-selected="false"
+                  class="day "
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  27
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Sunday, March 28, 1965"
+                  aria-selected="false"
+                  class="day "
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  28
+                </div>
+              </div>
+              <div
+                class="week"
+                role="row"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-label="Monday, March 29, 1965"
+                  aria-selected="false"
+                  class="day "
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  29
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Tuesday, March 30, 1965"
+                  aria-selected="false"
+                  class="day "
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  30
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-label="Wednesday, March 31, 1965"
+                  aria-selected="false"
+                  class="day "
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  31
+                </div>
+                <div
+                  aria-disabled="true"
+                  aria-label="Thursday, April 1, 1965"
+                  aria-selected="false"
+                  class="day outside"
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  1
+                </div>
+                <div
+                  aria-disabled="true"
+                  aria-label="Friday, April 2, 1965"
+                  aria-selected="false"
+                  class="day outside"
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  2
+                </div>
+                <div
+                  aria-disabled="true"
+                  aria-label="Saturday, April 3, 1965"
+                  aria-selected="false"
+                  class="day outside"
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  3
+                </div>
+                <div
+                  aria-disabled="true"
+                  aria-label="Sunday, April 4, 1965"
+                  aria-selected="false"
+                  class="day outside"
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  4
+                </div>
+              </div>
+              <div
+                class="week"
+                role="row"
+              >
+                <div
+                  aria-disabled="true"
+                  aria-label="Monday, April 5, 1965"
+                  aria-selected="false"
+                  class="day outside"
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  5
+                </div>
+                <div
+                  aria-disabled="true"
+                  aria-label="Tuesday, April 6, 1965"
+                  aria-selected="false"
+                  class="day outside"
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  6
+                </div>
+                <div
+                  aria-disabled="true"
+                  aria-label="Wednesday, April 7, 1965"
+                  aria-selected="false"
+                  class="day outside"
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  7
+                </div>
+                <div
+                  aria-disabled="true"
+                  aria-label="Thursday, April 8, 1965"
+                  aria-selected="false"
+                  class="day outside"
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  8
+                </div>
+                <div
+                  aria-disabled="true"
+                  aria-label="Friday, April 9, 1965"
+                  aria-selected="false"
+                  class="day outside"
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  9
+                </div>
+                <div
+                  aria-disabled="true"
+                  aria-label="Saturday, April 10, 1965"
+                  aria-selected="false"
+                  class="day outside"
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  10
+                </div>
+                <div
+                  aria-disabled="true"
+                  aria-label="Sunday, April 11, 1965"
+                  aria-selected="false"
+                  class="day outside"
+                  role="gridcell"
+                  tabindex="-1"
+                >
+                  11
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

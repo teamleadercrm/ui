@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - Bullet renders 1`] = `
+<DocumentFragment>
+  <span
+    class="box bullet neutral medium"
+    data-teamleader-ui="bullet"
+  />
+</DocumentFragment>
+`;

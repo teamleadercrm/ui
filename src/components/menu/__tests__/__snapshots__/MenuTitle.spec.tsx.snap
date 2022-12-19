@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - MenuTitle renders 1`] = `
+<DocumentFragment>
+  <div
+    class="box align-items-center display-flex padding-left-3 padding-right-3 title"
+    data-teamleader-ui="menu-title"
+  >
+    <h4
+      class="box heading heading-4 darkest teal"
+      data-teamleader-ui="heading"
+    >
+      Assitants
+    </h4>
+  </div>
+</DocumentFragment>
+`;

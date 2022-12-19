@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - Label renders 1`] = `
+<DocumentFragment>
+  <label
+    class="box display-block margin-bottom-3"
+    data-teamleader-ui="label"
+  >
+    <div
+      class="box align-items-center display-flex"
+    >
+      <span
+        class="box text text-body-compact darkest teal"
+        data-teamleader-ui="text"
+      >
+        Foobar
+      </span>
+      <span
+        class="box margin-left-1 text text-small dark ruby"
+        data-teamleader-ui="text"
+      >
+        *
+      </span>
+    </div>
+  </label>
+</DocumentFragment>
+`;

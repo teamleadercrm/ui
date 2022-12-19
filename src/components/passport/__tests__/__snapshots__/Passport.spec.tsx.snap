@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - Passport renders 1`] = `
+<body
+  style="overflow: hidden;"
+>
+  <div />
+  <div
+    class="wrapper neutral lightest is-entering"
+    style="z-index: 300;"
+  >
+    <div
+      class="overlay transparent overlay"
+      data-teamleader-ui="overlay"
+    >
+      <div>
+        <div>
+          <div
+            tabindex="0"
+          />
+          <div
+            class="box popover passport"
+            data-teamleader-ui="popover"
+            style="left: 0px; top: 0px; max-width: 50vw; min-width: 180px;"
+          >
+            <div
+              class="box display-flex flex-direction-column inner"
+              style="flex: 1 1 auto;"
+            >
+              <div
+                class="box padding-bottom-3 padding-left-3 padding-right-3 padding-top-3"
+                data-teamleader-ui="passport"
+              >
+                <div
+                  class="box display-flex"
+                >
+                  <div
+                    class="box padding-right-3"
+                    style="flex: 0 0px;"
+                  >
+                    <div
+                      class="box wrapper is-small is-circle"
+                    >
+                      <div
+                        class="avatar avatar-image"
+                        data-teamleader-ui="avatar-image"
+                      >
+                        <img
+                          alt="Dwight Schrute"
+                          class="image"
+                          src="https://foobar.com/dwight.png"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="box prevent-overflow"
+                  >
+                    <h3
+                      class="box heading heading-3 darkest teal prevent-overflow prevent-wrap show-ellipsis"
+                      data-teamleader-ui="heading"
+                    >
+                      Dwight Schrute
+                    </h3>
+                    <p
+                      class="box text text-body darkest teal"
+                      data-teamleader-ui="text"
+                    >
+                      Assistant to the regional manager
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            tabindex="0"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;

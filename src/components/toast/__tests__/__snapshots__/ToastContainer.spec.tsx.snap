@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - Toast renders 1`] = `
+<DocumentFragment>
+  <ul
+    class="container"
+    data-teamleader-ui="toast-container"
+  >
+    <li>
+      <div
+        class="toast"
+        data-teamleader-ui="toast"
+      >
+        <div
+          class="box text text-body lightest neutral label"
+          data-teamleader-ui="text"
+        >
+          This is a Toast
+        </div>
+      </div>
+      <div
+        class="toast"
+        data-teamleader-ui="toast"
+      >
+        <div
+          class="box text text-body lightest neutral label"
+          data-teamleader-ui="text"
+        >
+          This is another Toast
+        </div>
+      </div>
+    </li>
+  </ul>
+</DocumentFragment>
+`;

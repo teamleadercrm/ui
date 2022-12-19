@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - MarketingLockBadge renders 1`] = `
+<DocumentFragment>
+  <div
+    class="box align-items-center display-flex justify-content-center wrapper is-medium"
+    data-teamleader-ui="marketing-lock-badge"
+    style="border-radius: 4px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;"
+  >
+    <span
+      class="box align-items-center display-flex teal normal icon"
+      data-teamleader-ui="icon"
+    >
+      <svg
+        fill="currentColor"
+        height="14"
+        preserveAspectRatio="xMidYMid meet"
+        style="opacity: 0.84; vertical-align: middle;"
+        viewBox="0 0 14 14"
+        width="14"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M4 6V5a3 3 0 116 0v1a1 1 0 011 1v4a1 1 0 01-1 1H4a1 1 0 01-1-1V7a1 1 0 011-1zm3-2a1 1 0 011 1v1H6V5a1 1 0 011-1z"
+          fill="currentColor"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </span>
+  </div>
+</DocumentFragment>
+`;

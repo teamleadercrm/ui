@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - Grid renders 1`] = `
+<DocumentFragment>
+  <div
+    class="grid gap-2"
+    style="grid-template-areas: "header header" "sidebar content" "footer footer"; grid-template-rows: 100px 1fr 50px; grid-template-columns: 20% 1fr;"
+  >
+    <div
+      style="grid-area: header;"
+    >
+      Header
+    </div>
+    <div
+      style="grid-area: sidebar;"
+    >
+      Sidebar
+    </div>
+    <div
+      style="grid-area: content;"
+    >
+      Content
+    </div>
+    <div
+      style="grid-area: footer;"
+    >
+      Footer
+    </div>
+  </div>
+</DocumentFragment>
+`;

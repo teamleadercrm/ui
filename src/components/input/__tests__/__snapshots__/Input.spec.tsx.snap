@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - Input renders 1`] = `
+<DocumentFragment>
+  <div
+    class="box wrapper"
+  >
+    <div
+      class="input-wrapper"
+    >
+      <div
+        class="input-inner-wrapper"
+      >
+        <input
+          class="input is-medium"
+          name="name"
+          placeholder="Dwight Schrute"
+          type="text"
+          value="Michael Scott"
+        />
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

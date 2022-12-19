@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - AvatarStack renders 1`] = `
+<DocumentFragment>
+  <div
+    class="box align-items-center display-flex flex-direction-row horizontal is-medium dark has-overflow has-overlapping-avatars"
+    data-teamleader-ui="avatar-stack"
+  >
+    <div
+      class="box wrapper is-medium is-circle"
+      style="margin-right: -18px; z-index: 5;"
+    >
+      <div
+        class="avatar avatar-image"
+        data-teamleader-ui="avatar-image"
+      >
+        <img
+          alt="Michael Scott"
+          class="image"
+          src="test-file-stub"
+        />
+      </div>
+    </div>
+    <div
+      class="box wrapper is-medium is-circle"
+      style="margin-right: -18px; z-index: 4;"
+    >
+      <div
+        class="avatar avatar-image"
+        data-teamleader-ui="avatar-image"
+      >
+        <img
+          alt="Dwight Schrute"
+          class="image"
+          src="test-file-stub"
+        />
+      </div>
+    </div>
+    <div
+      class="box wrapper is-medium is-circle"
+      style="margin-right: -18px; z-index: 3;"
+    >
+      <div
+        class="avatar avatar-image"
+        data-teamleader-ui="avatar-image"
+      >
+        <img
+          alt="Jim Halpert"
+          class="image"
+          src="test-file-stub"
+        />
+      </div>
+    </div>
+    <div
+      class="box align-items-center display-flex justify-content-center overflow"
+    >
+      +2
+    </div>
+  </div>
+</DocumentFragment>
+`;
