@@ -12,7 +12,11 @@
 
 ### Dependency updates
 
-## [18.2.3] - 2022-12-16
+## [18.3.0] - 2022-12-19
+
+### Added
+
+- `DatePicker`: Allow changing the initialMonth if no date is selected ([@lorgan3](https://github.com/lorgan3)) in ([#2498](https://github.com/teamleadercrm/ui/pull/2498))
 
 ### Fixed
 

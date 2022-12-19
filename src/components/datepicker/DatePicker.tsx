@@ -26,8 +26,12 @@ export interface DatePickerProps extends Omit<BoxProps & DayPickerProps, 'size' 
   selectedDate?: Date;
   /** Size of the DatePicker component. */
   size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'hero'>;
+  /** Show a dropdown for the month? */
   withMonthPicker?: boolean;
+  /** Show week numbers? */
   showWeekNumbers?: boolean;
+  /** The initial month to display if no date is selected. */
+  initialMonth?: Date;
 }
 
 const DatePicker: GenericComponent<DatePickerProps> = ({
@@ -37,6 +41,7 @@ const DatePicker: GenericComponent<DatePickerProps> = ({
   size = 'medium',
   withMonthPicker,
   showWeekNumbers,
+  initialMonth,
   onChange,
   ...others
 }) => {
@@ -89,7 +94,7 @@ const DatePicker: GenericComponent<DatePickerProps> = ({
       <DayPicker
         {...others}
         localeUtils={localeUtils}
-        initialMonth={others.selectedDate}
+        initialMonth={others.selectedDate ?? initialMonth}
         month={selectedMonth}
         className={classNames}
         classNames={theme as any}
