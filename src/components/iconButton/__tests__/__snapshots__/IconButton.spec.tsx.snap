@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - IconButton renders 1`] = `
+<DocumentFragment>
+  <button
+    class="box button-base icon-button is-medium"
+    data-teamleader-ui="icon-button"
+    title="Add invoice"
+    type="button"
+  >
+    <span
+      class="box align-items-center display-flex neutral darkest"
+      data-teamleader-ui="icon"
+    >
+      <svg
+        fill="currentColor"
+        height="24"
+        preserveAspectRatio="xMidYMid meet"
+        style="opacity: 0.84; vertical-align: middle;"
+        viewBox="0 0 24 24"
+        width="24"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M13 11V6a1 1 0 10-2 0v5H6a1 1 0 100 2h5v5a1 1 0 102 0v-5h5a1 1 0 100-2h-5z"
+          fill="currentColor"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </span>
+  </button>
+</DocumentFragment>
+`;

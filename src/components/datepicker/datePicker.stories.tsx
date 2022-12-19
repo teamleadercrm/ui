@@ -31,6 +31,7 @@ singleDate.args = {
   size: 'medium',
   withMonthPicker: true,
   showWeekNumbers: false,
+  initialMonth: new Date(),
 };
 singleDate.parameters = {
   design: [

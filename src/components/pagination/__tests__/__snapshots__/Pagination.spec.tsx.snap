@@ -1,0 +1,173 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - Pagination renders 1`] = `
+<DocumentFragment>
+  <nav
+    class="box pagination"
+    data-teamleader-ui="pagination"
+  >
+    <ul
+      class="list"
+    >
+      <li
+        class="list-item list-item__arrowed"
+      >
+        <button
+          class="box reset-box-sizing reset-font-smoothing button-base button link medium has-icon-only is-disabled"
+          data-teamleader-ui="button"
+          disabled=""
+          type="button"
+        >
+          <svg
+            fill="currentColor"
+            height="24"
+            preserveAspectRatio="xMidYMid meet"
+            style="opacity: 0.84; vertical-align: middle;"
+            viewBox="0 0 24 24"
+            width="24"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M11.148 12.002l4.243-4.243a1 1 0 00-1.414-1.414L8.32 12.002l5.657 5.657a1 1 0 001.414-1.414l-4.243-4.243z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </button>
+      </li>
+      <li
+        class="list-item"
+      >
+        <button
+          class="box reset-box-sizing reset-font-smoothing button-base button link medium is-disabled is-current"
+          data-teamleader-ui="button"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="box ui-text ui-text-body darkest overflow-singleline"
+            data-teamleader-ui="ui-text"
+          >
+            1
+          </span>
+        </button>
+      </li>
+      <li
+        class="list-item"
+      >
+        <button
+          class="box reset-box-sizing reset-font-smoothing button-base button link medium"
+          data-teamleader-ui="button"
+          type="button"
+        >
+          <span
+            class="box ui-text ui-text-body darkest overflow-singleline"
+            data-teamleader-ui="ui-text"
+          >
+            2
+          </span>
+        </button>
+      </li>
+      <li
+        class="list-item"
+      >
+        <button
+          class="box reset-box-sizing reset-font-smoothing button-base button link medium"
+          data-teamleader-ui="button"
+          type="button"
+        >
+          <span
+            class="box ui-text ui-text-body darkest overflow-singleline"
+            data-teamleader-ui="ui-text"
+          >
+            3
+          </span>
+        </button>
+      </li>
+      <li
+        class="list-item"
+      >
+        <button
+          class="box reset-box-sizing reset-font-smoothing button-base button link medium"
+          data-teamleader-ui="button"
+          type="button"
+        >
+          <span
+            class="box ui-text ui-text-body darkest overflow-singleline"
+            data-teamleader-ui="ui-text"
+          >
+            4
+          </span>
+        </button>
+      </li>
+      <li
+        class="list-item"
+      >
+        <button
+          class="box reset-box-sizing reset-font-smoothing button-base button link medium"
+          data-teamleader-ui="button"
+          type="button"
+        >
+          <span
+            class="box ui-text ui-text-body darkest overflow-singleline"
+            data-teamleader-ui="ui-text"
+          >
+            5
+          </span>
+        </button>
+      </li>
+      <li
+        class="list-item"
+      >
+        <span
+          class="box text text-body darkest ellipsis"
+          data-teamleader-ui="text"
+        >
+          ...
+        </span>
+      </li>
+      <li
+        class="list-item"
+      >
+        <button
+          class="box reset-box-sizing reset-font-smoothing button-base button link medium"
+          data-teamleader-ui="button"
+          type="button"
+        >
+          <span
+            class="box ui-text ui-text-body darkest overflow-singleline"
+            data-teamleader-ui="ui-text"
+          >
+            1337
+          </span>
+        </button>
+      </li>
+      <li
+        class="list-item list-item__arrowed"
+      >
+        <button
+          class="box reset-box-sizing reset-font-smoothing button-base button link medium has-icon-only"
+          data-teamleader-ui="button"
+          type="button"
+        >
+          <svg
+            fill="currentColor"
+            height="24"
+            preserveAspectRatio="xMidYMid meet"
+            style="opacity: 0.84; vertical-align: middle;"
+            viewBox="0 0 24 24"
+            width="24"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M12.855 12.002l-4.242 4.243a1 1 0 001.414 1.414l5.657-5.657-5.657-5.657a1 1 0 10-1.414 1.414l4.242 4.243z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </button>
+      </li>
+    </ul>
+  </nav>
+</DocumentFragment>
+`;

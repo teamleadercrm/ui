@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - MenuDivider renders 1`] = `
+<DocumentFragment>
+  <hr
+    class="divider"
+    data-teamleader-ui="menu-divider"
+  />
+</DocumentFragment>
+`;

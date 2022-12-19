@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - Popover renders 1`] = `
+<body
+  style="overflow: hidden;"
+>
+  <div />
+  <div
+    class="wrapper neutral lightest is-entering"
+    style="z-index: 300;"
+  >
+    <div
+      class="overlay dark overlay"
+      data-teamleader-ui="overlay"
+    >
+      <div>
+        <div>
+          <div
+            tabindex="0"
+          />
+          <div
+            class="box popover"
+            data-teamleader-ui="popover"
+            style="left: 0px; top: 0px; max-width: 50vw; min-width: 180px;"
+          >
+            <div
+              class="box display-flex flex-direction-column inner"
+              style="flex: 1 1 auto;"
+            >
+              This is a Popover
+            </div>
+          </div>
+          <div
+            tabindex="0"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;

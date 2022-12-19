@@ -48,13 +48,13 @@ exports[`Component - Alert renders 1`] = `
                 </svg>
               </div>
               <h3
-                class="box heading heading-3 darkest teal"
+                class="box heading heading-3 darkest teal break-word"
                 data-teamleader-ui="heading"
               >
                 Alert title
               </h3>
               <p
-                class="box margin-top-2 text text-body darkest teal"
+                class="box margin-top-2 text text-body darkest teal break-word"
                 data-teamleader-ui="text"
               >
                 I am the alert body text

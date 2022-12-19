@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - Datagrid renders 1`] = `
+<DocumentFragment>
+  <div
+    class="box data-grid"
+    data-teamleader-ui="data-grid"
+  >
+    <div
+      class="box display-flex section-wrapper"
+    >
+      <div
+        class="section is-scrollable"
+      >
+        <div
+          class="box row has-background-neutral header-row"
+          data-teamleader-ui="datagrid-header-row"
+        >
+          <div
+            class="box cell align-left flex-1 has-background-undefined has-border-undefined header-cell"
+            data-teamleader-ui="datagrid-cell"
+            style="box-sizing: content-box;"
+          >
+            <span
+              class="box ui-text ui-text-body darkest overflow-singleline"
+              data-teamleader-ui="ui-text"
+            >
+              ID
+            </span>
+          </div>
+          <div
+            class="box cell align-left flex-1 has-background-undefined has-border-undefined header-cell"
+            data-teamleader-ui="datagrid-cell"
+            style="box-sizing: content-box;"
+          >
+            <span
+              class="box ui-text ui-text-body darkest overflow-singleline"
+              data-teamleader-ui="ui-text"
+            >
+              Name
+            </span>
+          </div>
+        </div>
+        <div
+          class="box row has-background-neutral body-row"
+          data-teamleader-ui="datagrid-body-row"
+        >
+          <div
+            class="box cell align-left flex-1 has-background-undefined has-border-undefined"
+            data-teamleader-ui="datagrid-cell"
+            style="box-sizing: content-box;"
+          >
+            <div
+              class="has-overflow-prevention"
+            >
+              1
+            </div>
+          </div>
+          <div
+            class="box cell align-left flex-1 has-background-undefined has-border-undefined"
+            data-teamleader-ui="datagrid-cell"
+            style="box-sizing: content-box;"
+          >
+            <div
+              class="has-overflow-prevention"
+            >
+              Michael Scott
+            </div>
+          </div>
+        </div>
+        <div
+          class="box row has-background-neutral body-row"
+          data-teamleader-ui="datagrid-body-row"
+        >
+          <div
+            class="box cell align-left flex-1 has-background-undefined has-border-undefined"
+            data-teamleader-ui="datagrid-cell"
+            style="box-sizing: content-box;"
+          >
+            <div
+              class="has-overflow-prevention"
+            >
+              1
+            </div>
+          </div>
+          <div
+            class="box cell align-left flex-1 has-background-undefined has-border-undefined"
+            data-teamleader-ui="datagrid-cell"
+            style="box-sizing: content-box;"
+          >
+            <div
+              class="has-overflow-prevention"
+            >
+              Dwight Schrute
+            </div>
+          </div>
+        </div>
+        <div
+          class="box row has-background-white footer-row"
+          data-teamleader-ui="datagrid-footer-row"
+        >
+          <div
+            class="box cell align-left flex-1 has-background-undefined has-border-undefined"
+            data-teamleader-ui="datagrid-cell"
+            style="box-sizing: content-box;"
+          >
+            <div
+              class="has-overflow-prevention"
+            >
+              2 rows in total
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div />
+  </div>
+</DocumentFragment>
+`;

@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - FilterSelection renders 1`] = `
+<DocumentFragment>
+  <div
+    class="box background-color-neutral display-flex padding-left-3 padding-right-3 select-control select-control--hovered"
+    data-teamleader-ui="filter-selection"
+    role="button"
+    style="border-radius: 4px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-left-radius: 4px; border-bottom-right-radius: 4px; box-sizing: border-box;"
+    tabindex="0"
+  >
+    <div
+      class="box align-items-center display-flex justify-content-space-between margin-right-2"
+      style="flex: 1;"
+    >
+      <p
+        class="box text text-body-compact darkest teal select-value-container"
+        data-teamleader-ui="text"
+      >
+        user
+      </p>
+    </div>
+    <span
+      class="box align-items-center display-flex teal darkest select-dropdown-indicator"
+      data-teamleader-ui="icon"
+    >
+      <svg
+        fill="currentColor"
+        height="14"
+        preserveAspectRatio="xMidYMid meet"
+        style="opacity: 0.84; vertical-align: middle;"
+        viewBox="0 0 14 14"
+        width="14"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M3.465 6.087L7 9.623l3.536-3.536A1 1 0 009.12 4.673L7 6.794 4.878 4.673a1 1 0 10-1.414 1.414z"
+          fill="currentColor"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </span>
+  </div>
+</DocumentFragment>
+`;

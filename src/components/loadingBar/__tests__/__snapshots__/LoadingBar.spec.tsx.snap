@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - LoadingBar renders 1`] = `
+<DocumentFragment>
+  <div
+    class="box loading-bar is-mint is-small is-normal"
+    data-teamleader-ui="loading-bar"
+  >
+    <div
+      class="loading-bar-indicator"
+    />
+  </div>
+</DocumentFragment>
+`;

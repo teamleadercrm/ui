@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - StatusLabel renders 1`] = `
+<DocumentFragment>
+  <span
+    class="box align-items-center background-color-neutral-light display-inline-flex padding-left-2 padding-right-2 ui-text ui-text-body dark teal label medium"
+    data-teamleader-ui="status-label"
+    style="border: 1px solid #c0c0c4;"
+  >
+    <span
+      class="inner"
+    >
+      Done
+    </span>
+  </span>
+</DocumentFragment>
+`;

@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - MarketingTab renders 1`] = `
+<DocumentFragment>
+  <h2
+    class="box heading-2"
+    data-teamleader-ui="marketing-heading-2"
+  >
+    Foobar
+  </h2>
+</DocumentFragment>
+`;

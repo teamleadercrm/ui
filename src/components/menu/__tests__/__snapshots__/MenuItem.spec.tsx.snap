@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - MenuItem renders 1`] = `
+<DocumentFragment>
+  <li
+    class="box display-flex"
+    data-teamleader-ui="menu-item"
+  >
+    <button
+      class="box align-items-center display-flex padding-bottom-2 padding-left-3 padding-right-3 padding-top-2 text-align-left menu-item"
+      style="flex: 1 1 auto;"
+    >
+      <div
+        class="box"
+        style="flex: 1 1 auto;"
+      >
+        <p
+          class="box text text-body darkest teal"
+          data-teamleader-ui="text"
+        >
+          Michael Scott
+        </p>
+      </div>
+    </button>
+  </li>
+</DocumentFragment>
+`;

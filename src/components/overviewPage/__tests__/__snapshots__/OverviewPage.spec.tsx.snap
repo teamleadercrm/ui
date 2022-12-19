@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - OverviewPage renders 1`] = `
+<DocumentFragment>
+  <div
+    class="box"
+    data-teamleader-ui="overview-page"
+  >
+    <div
+      class="box display-flex justify-content-space-between margin-bottom-5 padding-top-7 container"
+      data-teamleader-ui="overview-page-header"
+      style="box-sizing: content-box;"
+    >
+      <h1
+        class="box heading heading-1 darkest teal"
+        data-teamleader-ui="heading"
+      >
+        Dundler Mifflin
+      </h1>
+    </div>
+    <div
+      class="box padding-bottom-8 container"
+      data-teamleader-ui="overview-page-body"
+      style="box-sizing: content-box;"
+    >
+      The body
+    </div>
+  </div>
+</DocumentFragment>
+`;

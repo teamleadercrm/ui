@@ -12,6 +12,16 @@
 
 ### Dependency updates
 
+## [18.3.0] - 2022-12-19
+
+### Added
+
+- `DatePicker`: Allow changing the initialMonth if no date is selected ([@lorgan3](https://github.com/lorgan3)) in ([#2498](https://github.com/teamleadercrm/ui/pull/2498))
+
+### Fixed
+
+- `Alert`: Break long words to prevent text overflow ([@JorenSaeyTL](https://github.com/JorenSaeyTL)) in ([#2496](https://github.com/teamleadercrm/ui/pull/2496))
+
 ## [18.2.2] - 2022-12-16
 
 ### Fixed

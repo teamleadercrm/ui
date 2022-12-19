@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - EmptyState renders 1`] = `
+<DocumentFragment>
+  <div
+    class="box align-items-center display-flex flex-direction-column justify-content-center text-align-center wrapper is-medium has-pointer"
+    data-teamleader-ui="empty-state"
+  >
+    <div
+      class="pointer"
+    >
+      <svg
+        fill="currentColor"
+        height="48"
+        preserveAspectRatio="xMidYMid meet"
+        style="vertical-align: middle;"
+        viewBox="0 0 48 48"
+        width="48"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M47.972 1.985C47.99 1.333 48 .671 48 0h-2c0 .653-.01 1.295-.027 1.928l1.999.057zm-.878 8.747c.224-1.247.41-2.539.553-3.876l-1.99-.213a52.96 52.96 0 01-.531 3.735l1.968.354zm-2.356 8.516a43.61 43.61 0 001.252-3.741l-1.922-.55a41.617 41.617 0 01-1.196 3.57l1.866.72zm-4.103 7.859a37.496 37.496 0 002.053-3.387l-1.763-.945a35.505 35.505 0 01-1.943 3.206l1.653 1.126zm-5.852 6.678a36.82 36.82 0 002.804-2.794l-1.486-1.339a34.84 34.84 0 01-2.652 2.643l1.334 1.49zm-7.239 5.118a41.148 41.148 0 003.355-2.07l-1.132-1.65a39.158 39.158 0 01-3.192 1.97l.97 1.75zM19.43 42.41a48.812 48.812 0 003.683-1.365l-.771-1.846a46.839 46.839 0 01-3.532 1.31l.62 1.9zm-8.573 2.024a55.05 55.05 0 003.842-.724l-.44-1.951a53.016 53.016 0 01-3.702.698l.3 1.977zm-6.34.565c.339-.005.832-.018 1.455-.052l-.109-1.997a34.091 34.091 0 01-1.73.05h-.11l-.022 1-.022 1h.146c.09.001.221.001.391-.001z"
+          fill="#C0C0C4"
+          fill-rule="evenodd"
+        />
+        <circle
+          cx="4.5"
+          cy="43.5"
+          fill="#fff"
+          r="3.5"
+          stroke="#C0C0C4"
+          stroke-width="2"
+        />
+      </svg>
+    </div>
+    <div
+      class="content"
+    >
+      <h3
+        class="box heading heading-3 darkest teal"
+        data-teamleader-ui="heading"
+      >
+        This is the title
+      </h3>
+      <p
+        class="box margin-top-2 text text-body darkest neutral"
+        data-teamleader-ui="text"
+      >
+        I am the meta information and I basically explain that you can start adding content via the add button above.
+      </p>
+      <div
+        class="box margin-top-3"
+      >
+        <a
+          class="box badged-link is-left-icon-placed"
+          data-teamleader-ui="badgedLink"
+        >
+          <svg
+            fill="currentColor"
+            height="14"
+            preserveAspectRatio="xMidYMid meet"
+            style="opacity: 0.84; vertical-align: middle;"
+            viewBox="0 0 14 14"
+            width="14"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M8 6V3a1 1 0 00-2 0v3H3a1 1 0 000 2h3v3a1 1 0 102 0V8h3a1 1 0 100-2H8z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+          Add
+        </a>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

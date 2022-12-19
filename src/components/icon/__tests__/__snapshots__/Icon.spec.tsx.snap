@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - Icon renders 1`] = `
+<DocumentFragment>
+  <span
+    class="box align-items-center display-flex teal normal"
+    data-teamleader-ui="icon"
+  >
+    <svg
+      fill="currentColor"
+      height="24"
+      preserveAspectRatio="xMidYMid meet"
+      style="opacity: 0.84; vertical-align: middle;"
+      viewBox="0 0 24 24"
+      width="24"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 100-16 8 8 0 000 16zm0-1.975a1.5 1.5 0 11.001-3 1.5 1.5 0 01-.001 3zM12 6a1 1 0 011 1v6a1 1 0 11-2 0V7a1 1 0 011-1z"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+    </svg>
+  </span>
+</DocumentFragment>
+`;

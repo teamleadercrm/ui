@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - SplitButton renders 1`] = `
+<DocumentFragment>
+  <div
+    class="box display-flex justify-content-center"
+    data-teamleader-ui="split-menu"
+  >
+    <div
+      class="box group segmented"
+      data-teamleader-ui="button-group"
+    >
+      <button
+        class="box reset-box-sizing reset-font-smoothing button-base button primary medium"
+        data-teamleader-ui="button"
+        type="button"
+      >
+        <span
+          class="box ui-text ui-text-body darkest overflow-singleline"
+          data-teamleader-ui="ui-text"
+        >
+          Main action
+        </span>
+      </button>
+      <button
+        class="box reset-box-sizing reset-font-smoothing button-base button primary medium has-icon-only"
+        data-teamleader-ui="button"
+        type="button"
+      >
+        <svg
+          fill="currentColor"
+          height="14"
+          preserveAspectRatio="xMidYMid meet"
+          style="opacity: 0.84; vertical-align: middle;"
+          viewBox="0 0 14 14"
+          width="14"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M3.465 6.087L7 9.623l3.536-3.536A1 1 0 009.12 4.673L7 6.794 4.878 4.673a1 1 0 10-1.414 1.414z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;
