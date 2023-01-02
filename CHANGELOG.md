@@ -2,6 +2,9 @@
 
 ### Added
 
+- `Flex`: Allow class names
+- `Grid`: Allow class names
+
 ### Changed
 
 ### Deprecated
@@ -9,6 +12,8 @@
 ### Removed
 
 ### Fixed
+
+- `Grid`: Export `GridItem` through the `Grid` component
 
 ### Dependency updates
 
