@@ -15,6 +15,7 @@ export type GridProps = Partial<{
   gap: Gap;
   columnGap: Gap;
   rowGap: Gap;
+  className: string;
 }>;
 
 export interface GridWithSubcomponentProps extends GenericComponent<GridProps> {
@@ -22,12 +23,16 @@ export interface GridWithSubcomponentProps extends GenericComponent<GridProps> {
 }
 
 const Grid: GenericComponent<GridProps> = forwardRef<HTMLDivElement, GridProps>(
-  ({ children, areas, rows, columns, gap = 0, columnGap = 0, rowGap = 0 }, ref) => {
-    const classNames = cx(theme['grid'], {
-      [theme[`gap-${gap}`]]: gap > 0,
-      [theme[`column-gap-${columnGap}`]]: columnGap > 0,
-      [theme[`row-gap-${rowGap}`]]: rowGap > 0,
-    });
+  ({ children, areas, rows, columns, gap = 0, columnGap = 0, rowGap = 0, className }, ref) => {
+    const classNames = cx(
+      theme['grid'],
+      {
+        [theme[`gap-${gap}`]]: gap > 0,
+        [theme[`column-gap-${columnGap}`]]: columnGap > 0,
+        [theme[`row-gap-${rowGap}`]]: rowGap > 0,
+      },
+      className,
+    );
 
     const gridStyles = {
       gridTemplateAreas: areas?.map((area) => `"${area}"`).join(' '),
