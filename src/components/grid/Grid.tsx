@@ -1,7 +1,8 @@
 import cx from 'classnames';
-import React, { ForwardedRef, forwardRef, ReactNode } from 'react';
+import React, { forwardRef, ReactNode } from 'react';
 
 import { GenericComponent } from '../../@types/types';
+import GridItem, { GridItemProps } from './GridItem';
 import theme from './theme.css';
 
 type Gap = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
@@ -14,16 +15,24 @@ export type GridProps = Partial<{
   gap: Gap;
   columnGap: Gap;
   rowGap: Gap;
-  ref: ForwardedRef<HTMLDivElement>;
+  className: string;
 }>;
 
+export interface GridWithSubcomponentProps extends GenericComponent<GridProps> {
+  Item: GenericComponent<GridItemProps>;
+}
+
 const Grid: GenericComponent<GridProps> = forwardRef<HTMLDivElement, GridProps>(
-  ({ children, areas, rows, columns, gap = 0, columnGap = 0, rowGap = 0 }, ref) => {
-    const classNames = cx(theme['grid'], {
-      [theme[`gap-${gap}`]]: gap > 0,
-      [theme[`column-gap-${columnGap}`]]: columnGap > 0,
-      [theme[`row-gap-${rowGap}`]]: rowGap > 0,
-    });
+  ({ children, areas, rows, columns, gap = 0, columnGap = 0, rowGap = 0, className }, ref) => {
+    const classNames = cx(
+      theme['grid'],
+      {
+        [theme[`gap-${gap}`]]: gap > 0,
+        [theme[`column-gap-${columnGap}`]]: columnGap > 0,
+        [theme[`row-gap-${rowGap}`]]: rowGap > 0,
+      },
+      className,
+    );
 
     const gridStyles = {
       gridTemplateAreas: areas?.map((area) => `"${area}"`).join(' '),
@@ -41,4 +50,7 @@ const Grid: GenericComponent<GridProps> = forwardRef<HTMLDivElement, GridProps>(
 
 Grid.displayName = 'Grid';
 
-export default Grid;
+const GridWithSubComponents = Grid as GridWithSubcomponentProps;
+GridWithSubComponents.Item = GridItem;
+
+export default GridWithSubComponents;
