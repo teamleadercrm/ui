@@ -2876,9 +2876,9 @@
   integrity sha512-PoEOO6kOISDeUP/w5PI258dQGa9LVQY/e5BpHonPIHeU9caYLFNCcSUiV/5N/AL2JVU08Wl9j8QKXuOMyn7W+w==
 
 "@teamleader/ui-illustrations@^1.10.0":
-  version "1.12.0"
-  resolved "https://registry.yarnpkg.com/@teamleader/ui-illustrations/-/ui-illustrations-1.12.0.tgz#a6295092bb5b73349e09d50ae671417df53a966d"
-  integrity sha512-R4+d/WPNFqDjqfEUtyBi/bxYdb0g8gxF9jtiHiJGeawJb4/MQ9LrixbOSszHG2p41elh3fOikJsqwiiOx9icbw==
+  version "1.13.0"
+  resolved "https://registry.yarnpkg.com/@teamleader/ui-illustrations/-/ui-illustrations-1.13.0.tgz#e02c9e9aa248c4c459e281cb097d6ab7c2965bad"
+  integrity sha512-HFObhzhL/De08AsyYX4eWqWpo0wI8H9yAj1eiQF1oxMTwluQg2SXJqPaVMJ6zZo0MRFJj56AEz8QWZQeHdVN8Q==
 
 "@teamleader/ui-typography@^2.0.2":
   version "2.0.3"
