@@ -2,9 +2,6 @@
 
 ### Added
 
-- `Flex`: Allow class names
-- `Grid`: Allow class names
-
 ### Changed
 
 ### Deprecated
@@ -13,9 +10,18 @@
 
 ### Fixed
 
-- `Grid`: Export `GridItem` through the `Grid` component
-
 ### Dependency updates
+
+## [18.4.0] - 2023-01-02
+
+### Added
+
+- `Flex`: Allow class names ([@farazatarodi](https://github.com/farazatarodi) in [#2506](https://github.com/teamleadercrm/ui/pull/2506))
+- `Grid`: Allow class names ([@farazatarodi](https://github.com/farazatarodi) in [#2506](https://github.com/teamleadercrm/ui/pull/2506))
+
+### Fixed
+
+- `Grid`: Export `GridItem` through the `Grid` component ([@farazatarodi](https://github.com/farazatarodi) in [#2506](https://github.com/teamleadercrm/ui/pull/2506))
 
 ## [18.3.0] - 2022-12-19
 
