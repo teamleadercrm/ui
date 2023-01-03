@@ -18,6 +18,7 @@ export interface AdvancedCollapsibleProps extends Omit<BoxProps, 'size'> {
   children: ReactNode;
   title: string;
   size?: AllowedAdvancedCollapsibleSize;
+  isCollapsed?: boolean;
 }
 
 const AdvancedCollapsible: GenericComponent<AdvancedCollapsibleProps> = ({
@@ -25,9 +26,10 @@ const AdvancedCollapsible: GenericComponent<AdvancedCollapsibleProps> = ({
   color = 'teal',
   size = 'medium',
   title,
+  isCollapsed = true,
   ...others
 }) => {
-  const [collapsed, setCollapsed] = useState(true);
+  const [collapsed, setCollapsed] = useState(isCollapsed);
 
   const boxProps = pickBoxProps(others);
   const TitleElement = size === 'large' ? Heading3 : TextBody;
