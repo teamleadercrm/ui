@@ -12,6 +12,12 @@
 
 ### Dependency updates
 
+## [18.5.0] - 2023-01-03
+
+### Added
+
+- `AdvancedCollapsible`: Added `isCollapsed` prop to be able to set it's state ([@BeirlaenAaron](https://github.com/BeirlaenAaron) in [#2511](https://github.com/teamleadercrm/ui/pull/2511))
+
 ## [18.4.0] - 2023-01-02
 
 ### Added
