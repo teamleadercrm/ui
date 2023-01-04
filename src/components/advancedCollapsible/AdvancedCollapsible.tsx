@@ -51,7 +51,7 @@ const AdvancedCollapsible: GenericComponent<AdvancedCollapsibleProps> = ({
         </TitleElement>
       </Box>
       {!collapsed && (
-        <Box {...(indent && { className: theme['children'] })} marginTop={2}>
+        <Box {...(indent && { className: theme['children-indent'] })} marginTop={2}>
           {children}
         </Box>
       )}
