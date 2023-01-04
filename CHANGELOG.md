@@ -12,11 +12,13 @@
 
 ### Dependency updates
 
-## [18.5.0] - 2023-01-03
+## [18.5.0] - 2023-01-04
 
 ### Added
 
 - `AdvancedCollapsible`: Added `defaultIsCollapsed` prop to be able to set it's state ([@BeirlaenAaron](https://github.com/BeirlaenAaron) in [#2511](https://github.com/teamleadercrm/ui/pull/2511))
+
+- `AdvancedCollapsible`: Added `indent` boolean prop ([@BeirlaenAaron](https://github.com/driesd) in [#2515](https://github.com/teamleadercrm/ui/pull/2515))
 
 ## [18.4.0] - 2023-01-02
 

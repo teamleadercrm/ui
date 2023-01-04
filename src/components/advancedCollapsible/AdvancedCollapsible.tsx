@@ -16,6 +16,7 @@ export type AllowedAdvancedCollapsibleColor = Exclude<
 export interface AdvancedCollapsibleProps extends Omit<BoxProps, 'size'> {
   color?: AllowedAdvancedCollapsibleColor;
   children: ReactNode;
+  indent?: boolean;
   title: string;
   size?: AllowedAdvancedCollapsibleSize;
   defaultIsCollapsed?: boolean;
@@ -24,6 +25,7 @@ export interface AdvancedCollapsibleProps extends Omit<BoxProps, 'size'> {
 const AdvancedCollapsible: GenericComponent<AdvancedCollapsibleProps> = ({
   children,
   color = 'teal',
+  indent = true,
   size = 'medium',
   title,
   defaultIsCollapsed = true,
@@ -49,7 +51,7 @@ const AdvancedCollapsible: GenericComponent<AdvancedCollapsibleProps> = ({
         </TitleElement>
       </Box>
       {!collapsed && (
-        <Box className={theme['children']} marginTop={2}>
+        <Box {...(indent && { className: theme['children-indent'] })} marginTop={2}>
           {children}
         </Box>
       )}
