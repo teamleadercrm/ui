@@ -3,7 +3,6 @@ import React from 'react';
 import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { Grid, Box } from '../../index';
 import { Heading3 } from '../typography';
-import GridItem from './GridItem';
 
 export default {
   component: Grid,
@@ -15,7 +14,7 @@ export const basic: ComponentStory<typeof Grid> = (args) => (
     <Heading3>Grid Box</Heading3>
     <Box borderColor="neutral" borderWidth={1} borderRadius="rounded" backgroundColor="neutral" backgroundTint="light">
       <Grid {...args}>
-        <GridItem area="header">
+        <Grid.Item area="header">
           <Box
             backgroundColor="mint"
             backgroundTint="lightest"
@@ -27,8 +26,8 @@ export const basic: ComponentStory<typeof Grid> = (args) => (
               height: '100%',
             }}
           />
-        </GridItem>
-        <GridItem area="sidebar">
+        </Grid.Item>
+        <Grid.Item area="sidebar">
           <Box
             backgroundColor="teal"
             backgroundTint="lightest"
@@ -40,8 +39,8 @@ export const basic: ComponentStory<typeof Grid> = (args) => (
               height: '200px',
             }}
           />
-        </GridItem>
-        <GridItem area="content">
+        </Grid.Item>
+        <Grid.Item area="content">
           <Box
             backgroundColor="gold"
             backgroundTint="lightest"
@@ -53,8 +52,8 @@ export const basic: ComponentStory<typeof Grid> = (args) => (
               height: '100%',
             }}
           />
-        </GridItem>
-        <GridItem area="footer">
+        </Grid.Item>
+        <Grid.Item area="footer">
           <Box
             backgroundColor="ruby"
             backgroundTint="lightest"
@@ -66,7 +65,7 @@ export const basic: ComponentStory<typeof Grid> = (args) => (
               height: '100%',
             }}
           />
-        </GridItem>
+        </Grid.Item>
       </Grid>
     </Box>
   </Box>
