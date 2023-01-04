@@ -12,6 +12,12 @@
 
 ### Dependency updates
 
+## [18.5.1] - 2023-01-04
+
+### Added
+
+- `AdvancedCollapsible`: Added `onChange` prop ([@BeirlaenAaron](https://github.com/BeirlaenAaron) in [#2516](https://github.com/teamleadercrm/ui/pull/2516))
+
 ## [18.5.0] - 2023-01-04
 
 ### Added
