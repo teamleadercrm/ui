@@ -3,7 +3,7 @@ import { IconGiftMediumOutline } from '@teamleader/ui-icons';
 
 import { IconButton } from '../../..';
 
-import { TINTS, COLORS } from '../../../constants/colors';
+import { TINTS, COLORS } from '../../../constants';
 
 export default {
   component: IconButton,
