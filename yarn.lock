@@ -2852,10 +2852,10 @@
   resolved "https://registry.yarnpkg.com/@teamleader/ui-animations/-/ui-animations-0.0.3.tgz#e80d91bff37cdf96e928c008cfca0add5c86d375"
   integrity sha512-gM+8TvZekcNcKWV3iZNXOXbLqpJytg33nYXcx7WgVQINbheeiPIv8Cj8XQZhHjwKP/TQJcNgiCTBjjo/dUu/EA==
 
-"@teamleader/ui-colors@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@teamleader/ui-colors/-/ui-colors-1.0.0.tgz#f1bde908c459eb24a412419671d4ff5e38168159"
-  integrity sha512-/K236zjdXNOt8iecMc8nsCmCl+Acmr2q3VnEXDc7soECEeqMTLD2GagFUiXRlXY2Is2KJzguoa8TBPBV/gp8/Q==
+"@teamleader/ui-colors@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@teamleader/ui-colors/-/ui-colors-1.1.0.tgz#20565a527c16941b3cf1ed4dc7ef9e2bb625a8a1"
+  integrity sha512-0dxrzR3coPd5wXjqTAJZWMyR9VAj7VyXPcWHr+l1eD2kgj07bPq42piZLEKcAYFFrTlPFi9F7c+f8mqT/x9ZPw==
   dependencies:
     lodash.without "^4.4.0"
 
