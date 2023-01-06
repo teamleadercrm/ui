@@ -31,7 +31,7 @@
   "dependencies": {
     "@babel/runtime": "^7.18.3",
     "@teamleader/ui-animations": "^0.0.3",
-    "@teamleader/ui-colors": "^0.3.0",
+    "@teamleader/ui-colors": "^1.1.0",
     "@teamleader/ui-icons": "^2.1.0",
     "@teamleader/ui-illustrations": "^1.10.0",
     "@teamleader/ui-typography": "^2.0.2",
