@@ -119,7 +119,7 @@
 .wrapper.is-inverse:active .input-inner-wrapper,
 .input.is-inverse:active {
   border-color: var(--color-teal-light);
-  box-shadow: inset 0 1px 3px 0 color(var(--color-teal-darkest) a(0.48));
+  box-shadow: inset 0 1px 3px 0 hsl(var(--color-teal-darkest-hsl), 0.48);
 }
 
 /* Disabled and Read-only state */
