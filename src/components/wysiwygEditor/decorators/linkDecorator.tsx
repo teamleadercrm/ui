@@ -7,6 +7,7 @@ import Link from '../../link';
 
 import { GenericComponent } from '../../../@types/types';
 import theme from './theme.css';
+import Icon from '../../icon';
 
 const findLinkEntities = (contentBlock: ContentBlock, callback: () => void, contentState: ContentState) => {
   contentBlock.findEntityRanges((character) => {
@@ -42,7 +43,18 @@ const LinkEntity: GenericComponent<LinkEntityProps> = ({ entityKey, contentState
       <Link className={theme['link']} inherit={false} onClick={(event: MouseEvent) => event.preventDefault()}>
         {children}
       </Link>
-      {showOpenLinkIcon && <IconExternalLinkSmallOutline onClick={openLink} className={theme['icon']} />}
+      {showOpenLinkIcon && (
+        <Icon
+          display="inline-block"
+          onClick={openLink}
+          className={theme['icon']}
+          color="aqua"
+          tint="dark"
+          marginLeft={1}
+        >
+          <IconExternalLinkSmallOutline />
+        </Icon>
+      )}
     </Box>
   );
 };

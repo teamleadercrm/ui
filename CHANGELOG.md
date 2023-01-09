@@ -14,6 +14,12 @@
 
 ### Dependency updates
 
+## [18.5.2] - 2023-01-09
+
+### Changed
+
+- `WysiwygEditor`: Change link icon color ([@BeirlaenAaron](https://github.com/BeirlaenAaron)) in [#2519](https://github.com/teamleadercrm/ui/pull/2519))
+
 ## [18.5.1] - 2023-01-04
 
 ### Added
