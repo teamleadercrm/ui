@@ -83,17 +83,17 @@
       color: var(--color-$(color)-darkest);
 
       &.is-disabled {
-        background-color: color(var(--color-$(color)-darkest) a(12%));
-        border: 1px solid color(var(--color-$(color)-darkest) a(12%));
-        color: color(var(--color-$(color)-darkest) a(36%));
+        background-color: hsl(var(--color-$(color)-darkest-hsl), 12%);
+        border: 1px solid hsl(var(--color-$(color)-darkest-hsl), 12%);
+        color: hsl(var(--color-$(color)-darkest-hsl), 36%);
       }
 
       &:not(.is-disabled) {
         background-color: transparent;
-        border: 1px solid color(var(--color-$(color)-darkest) a(72%));
+        border: 1px solid hsl(var(--color-$(color)-darkest-hsl), 72%);
 
         &:hover {
-          background-color: color(var(--color-$(color)-darkest) a(6%));
+          background-color: hsl(var(--color-$(color)-darkest-hsl), 6%);
           border: 1px solid var(--color-$(color)-darkest);
         }
 
@@ -109,17 +109,17 @@
     color: var(--color-neutral-lightest);
 
     &.is-disabled {
-      border: 1px solid color(var(--color-neutral-lightest) a(12%));
-      background-color: color(var(--color-neutral-lightest) a(12%));
-      color: color(var(--color-neutral-lightest) a(36%));
+      border: 1px solid hsl(var(--color-neutral-lightest-hsl), 12%);
+      background-color: hsl(var(--color-neutral-lightest-hsl), 12%);
+      color: hsl(var(--color-neutral-lightest-hsl), 36%);
     }
 
     &:not(.is-disabled) {
       background-color: transparent;
-      border: 1px solid color(var(--color-neutral-lightest) a(72%));
+      border: 1px solid hsl(var(--color-neutral-lightest-hsl), 72%);
 
       &:hover {
-        background-color: color(var(--color-neutral-lightest) a(12%));
+        background-color: hsl(var(--color-neutral-lightest-hsl), 12%);
         border: 1px solid var(--color-neutral-lightest);
       }
 
@@ -284,7 +284,7 @@
 
     &:hover,
     &:active {
-      background-color: color(var(--color-neutral) a(0.48));
+      background-color: hsl(var(--color-neutral-hsl), 0.48);
     }
   }
 
@@ -293,7 +293,7 @@
   }
 
   &.has-icon-only:hover {
-    background-color: color(var(--color-neutral-darkest) a(0.24));
+    background-color: hsl(var(--color-neutral-darkest-hsl), 0.24);
   }
 
   &.is-processing {

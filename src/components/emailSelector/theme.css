@@ -56,8 +56,8 @@
   }
 
   &--error {
-    background-color: color(var(--color-ruby-dark) a(12%)) !important;
-    box-shadow: inset 0 0 0 1px color(var(--color-ruby-dark) a(12%)) !important;
+    background-color: hsl(var(--color-ruby-dark-hsl), 12%) !important;
+    box-shadow: inset 0 0 0 1px hsl(var(--color-ruby-dark-hsl), 12%) !important;
 
     button {
       color: var(--color-ruby-dark) !important;
@@ -66,16 +66,16 @@
     & > button {
       &:not(.is-disabled) {
         &:hover {
-          background-color: color(var(--color-ruby-dark) a(18%));
+          background-color: hsl(var(--color-ruby-dark-hsl), 18%);
         }
 
         &:focus {
-          box-shadow: 0 0 0 2px color(var(--color-ruby-dark) a(24%));
+          box-shadow: 0 0 0 2px hsl(var(--color-ruby-dark-hsl), 24%);
         }
 
         &:active {
-          box-shadow: inset 0 2px 3px color(var(--color-ruby-dark) a(24%));
-          background-color: color(var(--color-ruby-dark) a(12%));
+          box-shadow: inset 0 2px 3px hsl(var(--color-ruby-dark-hsl), 24%);
+          background-color: hsl(var(--color-ruby-dark-hsl), 12%);
         }
       }
 

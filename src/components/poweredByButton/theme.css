@@ -25,20 +25,20 @@
   }
 
   &-dark {
-    background: color(var(--color-black) a(10%));
+    background: hsl(var(--color-black-hsl), 10%);
     color: var(--color-black);
 
     &:hover {
-      background: color(var(--color-black) a(20%));
+      background: hsl(var(--color-black-hsl), 20%);
     }
   }
 
   &-light {
-    background: color(var(--color-white) a(20%));
+    background: hsl(var(--color-white-hsl), 20%);
     color: var(--color-white);
 
     &:hover {
-      background: color(var(--color-white) a(40%));
+      background: hsl(var(--color-white-hsl), 40%);
     }
   }
 
@@ -55,7 +55,7 @@
 
   &:active,
   &:focus {
-    box-shadow: inset 0px 2px 3px color(var(--color-black) a(24%));
+    box-shadow: inset 0px 2px 3px hsl(var(--color-black-hsl), 24%);
   }
 
   &::-moz-focus-inner {

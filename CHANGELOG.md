@@ -4,6 +4,8 @@
 
 ### Changed
 
+- Changed some color calculations from using the color function (from the postcss-color plugin) to native color calculations with hsl. ([@lowiebenoot](https://github.com/lowiebenoot)) in ([#2518](https://github.com/teamleadercrm/ui/pull/2518))
+
 ### Deprecated
 
 ### Removed

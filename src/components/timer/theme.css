@@ -12,42 +12,42 @@
     border-color var(--animation-duration) var(--animation-curve-fast-out-slow-in);
 
   &:not(.is-running) {
-    background-color: color(var(--color-neutral-darkest) a(12%));
-    border: 1px solid color(var(--color-neutral-darkest) a(12%));
+    background-color: hsl(var(--color-neutral-darkest-hsl), 12%);
+    border: 1px solid hsl(var(--color-neutral-darkest-hsl), 12%);
 
     &:focus {
-      background-color: color(var(--color-neutral-darkest) a(12%));
-      border-color: color(var(--color-neutral-darkest) a(24%));
-      box-shadow: 0 0 0 1px color(var(--color-neutral-darkest) a(24%));
+      background-color: hsl(var(--color-neutral-darkest-hsl), 12%);
+      border-color: hsl(var(--color-neutral-darkest-hsl), 24%);
+      box-shadow: 0 0 0 1px hsl(var(--color-neutral-darkest-hsl), 24%);
     }
 
     &:hover {
-      background-color: color(var(--color-neutral-darkest) a(18%));
+      background-color: hsl(var(--color-neutral-darkest-hsl), 18%);
     }
 
     &:active {
-      box-shadow: inset 0 2px 3px color(var(--color-neutral-darkest) a(12%));
-      background-color: color(var(--color-neutral-darkest) a(18%));
+      box-shadow: inset 0 2px 3px hsl(var(--color-neutral-darkest-hsl), 12%);
+      background-color: hsl(var(--color-neutral-darkest-hsl), 18%);
     }
   }
 
   &.is-running {
-    background-color: color(var(--color-violet-darkest) a(12%));
-    border: 1px solid color(var(--color-violet-darkest) a(12%));
+    background-color: hsl(var(--color-violet-darkest-hsl), 12%);
+    border: 1px solid hsl(var(--color-violet-darkest-hsl), 12%);
 
     &:focus {
-      background-color: color(var(--color-violet-darkest) a(12%));
-      border-color: color(var(--color-violet-darkest) a(24%));
-      box-shadow: 0 0 0 1px color(var(--color-violet-darkest) a(24%));
+      background-color: hsl(var(--color-violet-darkest-hsl), 12%);
+      border-color: hsl(var(--color-violet-darkest-hsl), 24%);
+      box-shadow: 0 0 0 1px hsl(var(--color-violet-darkest-hsl), 24%);
     }
 
     &:hover {
-      background-color: color(var(--color-violet-darkest) a(18%));
+      background-color: hsl(var(--color-violet-darkest-hsl), 18%);
     }
 
     &:active {
-      box-shadow: inset 0 2px 3px color(var(--color-neutral-darkest) a(12%));
-      background-color: color(var(--color-violet-darkest) a(18%));
+      box-shadow: inset 0 2px 3px hsl(var(--color-neutral-darkest-hsl), 12%);
+      background-color: hsl(var(--color-violet-darkest-hsl), 18%);
     }
   }
 }

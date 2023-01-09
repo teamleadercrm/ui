@@ -8,7 +8,7 @@
   --menu-background-color: var(--color-white);
   --menu-padding: calc(0.6 * var(--unit)) 0;
   --menu-outline-border-radius: var(--border-radius-medium);
-  --menu-outline-box-shadow: 0 0 0 1px color(var(--color-teal-darkest) a(24%));
+  --menu-outline-box-shadow: 0 0 0 1px hsl(var(--color-teal-darkest-hsl), 24%);
   --menu-position-spacing: 4px; /* Spacing of 3px + 1px outline border */
   --menu-icon-button-height: 30px;
   --menu-item-background: var(--color-neutral-lightest);
