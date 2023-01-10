@@ -10,7 +10,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { GenericComponent } from '../../@types/types';
+
 import Box, { pickBoxProps } from '../box';
 import { BoxProps } from '../box/Box';
 import MarketingMenuItem from '../marketingMenuItem';
@@ -52,7 +52,7 @@ export interface MenuProps<S = any> extends Omit<BoxProps, 'children' | 'classNa
   selected?: S;
 }
 
-const Menu: GenericComponent<MenuProps> = ({
+const Menu = <S,>({
   active = false,
   children,
   className,
@@ -64,7 +64,7 @@ const Menu: GenericComponent<MenuProps> = ({
   selectable = true,
   selected,
   ...others
-}) => {
+}: MenuProps<S>): ReactElement<any, any> | null => {
   const [stateWidth, setStateWidth] = useState<number | undefined>(0);
   const [stateHeight, setStateHeight] = useState<number | undefined>(0);
   const [statePosition, setPosition] = useState<string | undefined>(position);
