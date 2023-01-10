@@ -346,7 +346,7 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
       color: inverse ? COLOR.NEUTRAL.LIGHTEST : COLOR.TEAL.DARKEST,
       fontFamily: 'Inter',
       fontWeight: 500,
-      fontSize: size === 'tiny' || size === 'small' ? '12px' : '14px',
+      fontSize: size === 'tiny' || size === 'small' ? '12px' : size === 'large' ? '16px' : '14px',
       lineHeight: size === 'tiny' || size === 'small' ? '1' : '18px',
       padding: size === 'tiny' ? '3px' : size === 'large' ? '9px' : '6px',
     };
@@ -444,7 +444,7 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
     return {
       ...base,
       minHeight: minHeightBySizeMap[size] - 2,
-      lineHeight: '18px',
+      lineHeight: 'normal',
       padding: isMulti && hasValue && size !== 'large' ? 0 : '0 4px',
     };
   };
