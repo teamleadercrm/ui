@@ -14,21 +14,9 @@
 
 ## [18.6.1] - 2023-01-11
 
-### Added
-
-### Changed
-
-- Changed some color calculations from using the color function (from the postcss-color plugin) to native color calculations with hsl. ([@lowiebenoot](https://github.com/lowiebenoot)) in ([#2518](https://github.com/teamleadercrm/ui/pull/2518))
-
-### Deprecated
-
-### Removed
-
 ### Fixed
 
 - `Select`: Adjusted the font sizes of value and multivalues to match the font sizes of the `Input` component. ([@KristofColpaert](https://github.com/KristofColpaert)) in ([#2522](https://github.com/teamleadercrm/ui/pull/2522))
-
-### Dependency updates
 
 ## [18.6.0] - 2023-01-09
 
