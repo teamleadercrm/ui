@@ -156,7 +156,7 @@
 }
 
 .marker {
-  background-color: color(var(--color-mint-light) a(0.3));
+  background-color: hsl(var(--color-mint-light-hsl), 0.3);
   color: inherit;
 }
 

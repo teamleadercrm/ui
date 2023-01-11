@@ -17,6 +17,10 @@
   width: 36px;
 }
 
+.is-large .select {
+  font-size: calc(1.6 * var(--unit));
+}
+
 .is-tiny .select {
   font-size: calc(1.2 * var(--unit));
 }

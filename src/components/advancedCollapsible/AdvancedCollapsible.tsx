@@ -20,6 +20,7 @@ export interface AdvancedCollapsibleProps extends Omit<BoxProps, 'size'> {
   title: string;
   size?: AllowedAdvancedCollapsibleSize;
   defaultIsCollapsed?: boolean;
+  onChange?: (collapsed: boolean, event: React.MouseEvent) => void;
 }
 
 const AdvancedCollapsible: GenericComponent<AdvancedCollapsibleProps> = ({
@@ -29,6 +30,7 @@ const AdvancedCollapsible: GenericComponent<AdvancedCollapsibleProps> = ({
   size = 'medium',
   title,
   defaultIsCollapsed = true,
+  onChange,
   ...others
 }) => {
   const [collapsed, setCollapsed] = useState(defaultIsCollapsed);
@@ -36,7 +38,11 @@ const AdvancedCollapsible: GenericComponent<AdvancedCollapsibleProps> = ({
   const boxProps = pickBoxProps(others);
   const TitleElement = size === 'large' ? Heading3 : TextBody;
 
-  const handleTitleClick = () => {
+  const handleTitleClick = (event: React.MouseEvent) => {
+    if (onChange) {
+      onChange(!collapsed, event);
+    }
+
     setCollapsed(!collapsed);
   };
 

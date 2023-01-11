@@ -9,8 +9,8 @@
 }
 
 .badge {
-  background-color: color(var(--color-neutral-darkest) a(12%));
-  border: var(--badge-border-width) solid color(var(--color-neutral-darkest) a(12%));
+  background-color: hsl(var(--color-neutral-darkest-hsl), 12%);
+  border: var(--badge-border-width) solid hsl(var(--color-neutral-darkest-hsl), 12%);
   border-radius: var(--badge-border-radius);
   color: var(--color-teal-darkest);
   display: inline-flex;
@@ -38,19 +38,19 @@
 
   &.is-clickable:not(.is-disabled) {
     &:hover {
-      background-color: color(var(--color-neutral-darkest) a(18%));
+      background-color: hsl(var(--color-neutral-darkest-hsl), 18%);
       cursor: pointer;
     }
 
     &:focus {
-      background-color: color(var(--color-neutral-darkest) a(12%));
-      border-color: color(var(--color-neutral-darkest) a(24%));
-      box-shadow: 0 0 0 var(--badge-border-width) color(var(--color-neutral-darkest) a(24%));
+      background-color: hsl(var(--color-neutral-darkest-hsl), 12%);
+      border-color: hsl(var(--color-neutral-darkest-hsl), 24%);
+      box-shadow: 0 0 0 var(--badge-border-width) hsl(var(--color-neutral-darkest-hsl), 24%);
     }
 
     &:active {
-      box-shadow: inset 0 2px 3px color(var(--color-neutral-darkest) a(12%));
-      background-color: color(var(--color-neutral-darkest) a(18%));
+      box-shadow: inset 0 2px 3px hsl(var(--color-neutral-darkest-hsl), 12%);
+      background-color: hsl(var(--color-neutral-darkest-hsl), 18%);
     }
   }
 
@@ -60,7 +60,7 @@
   }
 
   &.is-selected {
-    background-color: color(var(--color-neutral-darkest) a(24%)) !important;
+    background-color: hsl(var(--color-neutral-darkest-hsl), 24%) !important;
   }
 }
 

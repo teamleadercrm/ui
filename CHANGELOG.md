@@ -12,6 +12,29 @@
 
 ### Dependency updates
 
+## [18.6.1] - 2023-01-11
+
+### Fixed
+
+- `Select`: Adjusted the font sizes of value and multivalues to match the font sizes of the `Input` component. ([@KristofColpaert](https://github.com/KristofColpaert)) in ([#2522](https://github.com/teamleadercrm/ui/pull/2522))
+
+## [18.6.0] - 2023-01-09
+
+### Changed
+
+- `WysiwygEditor`: Change link icon color ([@BeirlaenAaron](https://github.com/BeirlaenAaron)) in [#2519](https://github.com/teamleadercrm/ui/pull/2519))
+- Changed some color calculations from using the color function (from the postcss-color plugin) to native color calculations with hsl. ([@lowiebenoot](https://github.com/lowiebenoot)) in ([#2518](https://github.com/teamleadercrm/ui/pull/2518))
+
+### Dependency updates
+
+- `@teamleader/ui-colors`: Bump @teamleader/ui-colors from 0.3.0 to 1.1.0 ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2518](https://github.com/teamleadercrm/ui/pull/2518)
+
+## [18.5.1] - 2023-01-04
+
+### Added
+
+- `AdvancedCollapsible`: Added `onChange` prop ([@BeirlaenAaron](https://github.com/BeirlaenAaron) in [#2516](https://github.com/teamleadercrm/ui/pull/2516))
+
 ## [18.5.0] - 2023-01-04
 
 ### Added

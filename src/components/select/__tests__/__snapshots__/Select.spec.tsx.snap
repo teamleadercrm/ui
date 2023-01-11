@@ -1,5 +1,89 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Component - Select does not render a clear button when no value is provided 1`] = `
+<DocumentFragment>
+  <div
+    class="box is-medium"
+    data-teamleader-ui="select"
+  >
+    <div
+      class="select css-b62m3t-container"
+    >
+      <span
+        class="css-1f43avz-a11yText-A11yText"
+        id="react-select-12-live-region"
+      />
+      <span
+        aria-atomic="false"
+        aria-live="polite"
+        aria-relevant="additions text"
+        class="css-1f43avz-a11yText-A11yText"
+      />
+      <div
+        class=" css-1bpkfno-control"
+      >
+        <div
+          class=" css-1q5y8er-ValueContainer"
+        >
+          <div
+            class=" css-1xe4xsx-placeholder"
+            id="react-select-12-placeholder"
+          >
+            Select...
+          </div>
+          <div
+            class=" css-1r62df1-Input"
+            data-value=""
+          >
+            <input
+              aria-autocomplete="list"
+              aria-describedby="react-select-12-placeholder"
+              aria-expanded="false"
+              aria-haspopup="true"
+              autocapitalize="none"
+              autocomplete="off"
+              autocorrect="off"
+              class=""
+              id="react-select-12-input"
+              role="combobox"
+              spellcheck="false"
+              style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+              tabindex="0"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          class=" css-1hb7zxy-IndicatorsContainer"
+        >
+          <span
+            class="box align-items-center display-flex justify-content-center neutral darkest dropdown-indicator"
+            data-teamleader-ui="icon"
+          >
+            <svg
+              fill="currentColor"
+              height="14"
+              preserveAspectRatio="xMidYMid meet"
+              style="opacity: 0.84; vertical-align: middle;"
+              viewBox="0 0 14 14"
+              width="14"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M3.465 6.087L7 9.623l3.536-3.536A1 1 0 009.12 4.673L7 6.794 4.878 4.673a1 1 0 10-1.414 1.414z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`Component - Select renders 1`] = `
 <DocumentFragment>
   <div
@@ -23,7 +107,7 @@ exports[`Component - Select renders 1`] = `
         class=" css-1bpkfno-control"
       >
         <div
-          class=" css-f29pv2-ValueContainer"
+          class=" css-1q5y8er-ValueContainer"
         >
           <div
             class=" css-1xe4xsx-placeholder"
@@ -80,6 +164,475 @@ exports[`Component - Select renders 1`] = `
         </div>
       </div>
     </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Component - Select renders a clear button when a value is provided 1`] = `
+<DocumentFragment>
+  <div
+    class="box is-medium"
+    data-teamleader-ui="select"
+  >
+    <div
+      class="select css-b62m3t-container"
+    >
+      <span
+        class="css-1f43avz-a11yText-A11yText"
+        id="react-select-11-live-region"
+      />
+      <span
+        aria-atomic="false"
+        aria-live="polite"
+        aria-relevant="additions text"
+        class="css-1f43avz-a11yText-A11yText"
+      />
+      <div
+        class=" css-1bpkfno-control"
+      >
+        <div
+          class=" css-1q5y8er-ValueContainer"
+        >
+          <div
+            class=" css-pnqk86-singleValue"
+          >
+            Michael Scoott
+          </div>
+          <div
+            class=" css-1r62df1-Input"
+            data-value=""
+          >
+            <input
+              aria-autocomplete="list"
+              aria-expanded="false"
+              aria-haspopup="true"
+              autocapitalize="none"
+              autocomplete="off"
+              autocorrect="off"
+              class=""
+              id="react-select-11-input"
+              role="combobox"
+              spellcheck="false"
+              style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+              tabindex="0"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          class=" css-1hb7zxy-IndicatorsContainer"
+        >
+          <span
+            aria-hidden="true"
+            class="box align-items-center display-flex neutral darkest"
+            data-teamleader-ui="icon"
+          >
+            <svg
+              fill="currentColor"
+              height="14"
+              preserveAspectRatio="xMidYMid meet"
+              style="opacity: 0.84; vertical-align: middle;"
+              viewBox="0 0 14 14"
+              width="14"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M7 13A6 6 0 117 1a6 6 0 010 12zm0-4.586l1.414 1.414a1 1 0 101.414-1.414L8.414 7l1.414-1.414a1 1 0 10-1.414-1.414L7 5.586 5.586 4.172a1 1 0 00-1.414 1.414L5.586 7 4.172 8.414a1 1 0 001.414 1.414L7 8.414z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </span>
+          <span
+            class="box align-items-center display-flex justify-content-center neutral darkest dropdown-indicator"
+            data-teamleader-ui="icon"
+          >
+            <svg
+              fill="currentColor"
+              height="14"
+              preserveAspectRatio="xMidYMid meet"
+              style="opacity: 0.84; vertical-align: middle;"
+              viewBox="0 0 14 14"
+              width="14"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M3.465 6.087L7 9.623l3.536-3.536A1 1 0 009.12 4.673L7 6.794 4.878 4.673a1 1 0 10-1.414 1.414z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Component - Select renders a help text 1`] = `
+<DocumentFragment>
+  <div
+    class="box is-medium"
+    data-teamleader-ui="select"
+  >
+    <div
+      class="select css-b62m3t-container"
+    >
+      <span
+        class="css-1f43avz-a11yText-A11yText"
+        id="react-select-10-live-region"
+      />
+      <span
+        aria-atomic="false"
+        aria-live="polite"
+        aria-relevant="additions text"
+        class="css-1f43avz-a11yText-A11yText"
+      />
+      <div
+        class=" css-1bpkfno-control"
+      >
+        <div
+          class=" css-1q5y8er-ValueContainer"
+        >
+          <div
+            class=" css-1xe4xsx-placeholder"
+            id="react-select-10-placeholder"
+          >
+            Select...
+          </div>
+          <div
+            class=" css-1r62df1-Input"
+            data-value=""
+          >
+            <input
+              aria-autocomplete="list"
+              aria-describedby="react-select-10-placeholder"
+              aria-expanded="false"
+              aria-haspopup="true"
+              autocapitalize="none"
+              autocomplete="off"
+              autocorrect="off"
+              class=""
+              id="react-select-10-input"
+              role="combobox"
+              spellcheck="false"
+              style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+              tabindex="0"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          class=" css-1hb7zxy-IndicatorsContainer"
+        >
+          <span
+            class="box align-items-center display-flex justify-content-center neutral darkest dropdown-indicator"
+            data-teamleader-ui="icon"
+          >
+            <svg
+              fill="currentColor"
+              height="14"
+              preserveAspectRatio="xMidYMid meet"
+              style="opacity: 0.84; vertical-align: middle;"
+              viewBox="0 0 14 14"
+              width="14"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M3.465 6.087L7 9.623l3.536-3.536A1 1 0 009.12 4.673L7 6.794 4.878 4.673a1 1 0 10-1.414 1.414z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+    <p
+      class="box margin-top-1 text text-small darkest neutral"
+      data-teamleader-ui="help-text"
+    >
+      Fake help text!
+    </p>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Component - Select renders a success message 1`] = `
+<DocumentFragment>
+  <div
+    class="box is-medium"
+    data-teamleader-ui="select"
+  >
+    <div
+      class="select css-b62m3t-container"
+    >
+      <span
+        class="css-1f43avz-a11yText-A11yText"
+        id="react-select-8-live-region"
+      />
+      <span
+        aria-atomic="false"
+        aria-live="polite"
+        aria-relevant="additions text"
+        class="css-1f43avz-a11yText-A11yText"
+      />
+      <div
+        class=" css-q7p22b-control"
+      >
+        <div
+          class=" css-1q5y8er-ValueContainer"
+        >
+          <div
+            class=" css-1xe4xsx-placeholder"
+            id="react-select-8-placeholder"
+          >
+            Select...
+          </div>
+          <div
+            class=" css-1r62df1-Input"
+            data-value=""
+          >
+            <input
+              aria-autocomplete="list"
+              aria-describedby="react-select-8-placeholder"
+              aria-expanded="false"
+              aria-haspopup="true"
+              autocapitalize="none"
+              autocomplete="off"
+              autocorrect="off"
+              class=""
+              id="react-select-8-input"
+              role="combobox"
+              spellcheck="false"
+              style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+              tabindex="0"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          class=" css-1hb7zxy-IndicatorsContainer"
+        >
+          <span
+            class="box align-items-center display-flex justify-content-center neutral darkest dropdown-indicator"
+            data-teamleader-ui="icon"
+          >
+            <svg
+              fill="currentColor"
+              height="14"
+              preserveAspectRatio="xMidYMid meet"
+              style="opacity: 0.84; vertical-align: middle;"
+              viewBox="0 0 14 14"
+              width="14"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M3.465 6.087L7 9.623l3.536-3.536A1 1 0 009.12 4.673L7 6.794 4.878 4.673a1 1 0 10-1.414 1.414z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+    <p
+      class="box margin-top-1 text text-small dark mint"
+      data-teamleader-ui="success-text"
+    >
+      <span>
+        Fake success message!
+      </span>
+    </p>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Component - Select renders a warning message 1`] = `
+<DocumentFragment>
+  <div
+    class="box is-medium"
+    data-teamleader-ui="select"
+  >
+    <div
+      class="select css-b62m3t-container"
+    >
+      <span
+        class="css-1f43avz-a11yText-A11yText"
+        id="react-select-9-live-region"
+      />
+      <span
+        aria-atomic="false"
+        aria-live="polite"
+        aria-relevant="additions text"
+        class="css-1f43avz-a11yText-A11yText"
+      />
+      <div
+        class=" css-17nui1b-control"
+      >
+        <div
+          class=" css-1q5y8er-ValueContainer"
+        >
+          <div
+            class=" css-1xe4xsx-placeholder"
+            id="react-select-9-placeholder"
+          >
+            Select...
+          </div>
+          <div
+            class=" css-1r62df1-Input"
+            data-value=""
+          >
+            <input
+              aria-autocomplete="list"
+              aria-describedby="react-select-9-placeholder"
+              aria-expanded="false"
+              aria-haspopup="true"
+              autocapitalize="none"
+              autocomplete="off"
+              autocorrect="off"
+              class=""
+              id="react-select-9-input"
+              role="combobox"
+              spellcheck="false"
+              style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+              tabindex="0"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          class=" css-1hb7zxy-IndicatorsContainer"
+        >
+          <span
+            class="box align-items-center display-flex justify-content-center neutral darkest dropdown-indicator"
+            data-teamleader-ui="icon"
+          >
+            <svg
+              fill="currentColor"
+              height="14"
+              preserveAspectRatio="xMidYMid meet"
+              style="opacity: 0.84; vertical-align: middle;"
+              viewBox="0 0 14 14"
+              width="14"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M3.465 6.087L7 9.623l3.536-3.536A1 1 0 009.12 4.673L7 6.794 4.878 4.673a1 1 0 10-1.414 1.414z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+    <p
+      class="box margin-top-1 text text-small dark gold"
+      data-teamleader-ui="warning-text"
+    >
+      <span>
+        Fake warning message!
+      </span>
+    </p>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Component - Select renders an error message 1`] = `
+<DocumentFragment>
+  <div
+    class="box is-medium has-error"
+    data-teamleader-ui="select"
+  >
+    <div
+      class="select css-b62m3t-container"
+    >
+      <span
+        class="css-1f43avz-a11yText-A11yText"
+        id="react-select-7-live-region"
+      />
+      <span
+        aria-atomic="false"
+        aria-live="polite"
+        aria-relevant="additions text"
+        class="css-1f43avz-a11yText-A11yText"
+      />
+      <div
+        class=" css-1jczzw-control"
+      >
+        <div
+          class=" css-1q5y8er-ValueContainer"
+        >
+          <div
+            class=" css-1xe4xsx-placeholder"
+            id="react-select-7-placeholder"
+          >
+            Select...
+          </div>
+          <div
+            class=" css-1r62df1-Input"
+            data-value=""
+          >
+            <input
+              aria-autocomplete="list"
+              aria-describedby="react-select-7-placeholder"
+              aria-expanded="false"
+              aria-haspopup="true"
+              autocapitalize="none"
+              autocomplete="off"
+              autocorrect="off"
+              class=""
+              id="react-select-7-input"
+              role="combobox"
+              spellcheck="false"
+              style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+              tabindex="0"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          class=" css-1hb7zxy-IndicatorsContainer"
+        >
+          <span
+            class="box align-items-center display-flex justify-content-center neutral darkest dropdown-indicator"
+            data-teamleader-ui="icon"
+          >
+            <svg
+              fill="currentColor"
+              height="14"
+              preserveAspectRatio="xMidYMid meet"
+              style="opacity: 0.84; vertical-align: middle;"
+              viewBox="0 0 14 14"
+              width="14"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M3.465 6.087L7 9.623l3.536-3.536A1 1 0 009.12 4.673L7 6.794 4.878 4.673a1 1 0 10-1.414 1.414z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+    <p
+      class="box margin-top-1 text text-small dark ruby"
+      data-teamleader-ui="error-text"
+    >
+      <span>
+        Fake error message!
+      </span>
+    </p>
   </div>
 </DocumentFragment>
 `;
