@@ -7,7 +7,6 @@ import Popover from '../popover';
 import { IconChevronDownSmallOutline } from '@teamleader/ui-icons';
 import { BoxProps } from '../box/Box';
 import { GenericComponent } from '../../@types/types';
-import isReactElement from '../utils/is-react-element';
 import { SIZES } from '../../constants';
 import theme from './theme.css';
 import isComponentOfType from '../utils/is-component-of-type';
