@@ -34,7 +34,7 @@ export const WithPopoverOverrides: ComponentStory<typeof SplitButton> = (args) =
   </SplitButton>
 );
 
-export const WithoutExtraMenuItems: ComponentStory<typeof SplitButton> = (args) => (
+export const WithSingleMenuItem: ComponentStory<typeof SplitButton> = (args) => (
   <SplitButton {...args} popoverProps={{ direction: 'north' }} onButtonClick={handleButtonClick}>
     <MenuItem onClick={handleMenuItemClick} label="Main action" />
   </SplitButton>
