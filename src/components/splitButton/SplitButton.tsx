@@ -82,7 +82,11 @@ const SplitButton: GenericComponent<SplitButtonProps> = ({
     | undefined;
   const buttonLabel = firstItem?.props.label;
 
-  return (
+  return childrenArray.length === 1 ? (
+    <Box display="flex" justifyContent="center" {...boxProps} data-teamleader-ui="split-menu">
+      <Button label={buttonLabel} level={level} size={size} disabled={disabled} onClick={handleMainButtonClick} />
+    </Box>
+  ) : (
     <Box display="flex" justifyContent="center" {...boxProps} data-teamleader-ui="split-menu">
       {processing ? (
         <Button
