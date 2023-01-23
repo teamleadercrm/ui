@@ -76,14 +76,11 @@ const SplitButton: GenericComponent<SplitButtonProps> = ({
     ...pickBoxProps(others),
   };
 
-  let buttonLabel: string | undefined;
-  if (Array.isArray(children)) {
-    const childrenArray: Array<any> = children;
-
-    if (childrenArray.length && isReactElement(childrenArray[0])) {
-      buttonLabel = childrenArray[0].props.label;
-    }
-  }
+  const childrenArray = React.Children.toArray(children);
+  const firstItem = childrenArray.find((item) => React.isValidElement(item) && isComponentOfType(MenuItem, item)) as
+    | ReactElement
+    | undefined;
+  const buttonLabel = firstItem?.props.label;
 
   return (
     <Box display="flex" justifyContent="center" {...boxProps} data-teamleader-ui="split-menu">
