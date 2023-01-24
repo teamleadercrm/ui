@@ -12,6 +12,16 @@
 
 ### Dependency updates
 
+## [18.6.2]
+
+### Changed
+
+- Exported `useFocusTrap` ([@BeirlaenAaron](https://github.com/BeirlaenAaron)) in ([#2536](https://github.com/teamleadercrm/ui/pull/2536))
+
+### Fixed
+
+- Fix menu onSelect type ([@lorgan3](https://github.com/lorgan3)) in ([#2521](https://github.com/teamleadercrm/ui/pull/2521))
+
 ## [18.6.1] - 2023-01-11
 
 ### Fixed

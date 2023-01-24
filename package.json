@@ -1,7 +1,7 @@
 {
   "name": "@teamleader/ui",
   "description": "Teamleader UI library",
-  "version": "18.6.1",
+  "version": "18.6.2",
   "author": "Teamleader <development@teamleader.eu>",
   "bugs": {
     "url": "https://github.com/teamleadercrm/ui/issues"
@@ -141,7 +141,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "resize-observer-polyfill": "^1.5.1",
-    "rimraf": "^3.0.0",
+    "rimraf": "^4.1.1",
     "storybook-addon-designs": "^6.3.1",
     "style-loader": "^3.3.1",
     "typescript": "^4.6.3",

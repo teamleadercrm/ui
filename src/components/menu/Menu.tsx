@@ -10,7 +10,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { GenericComponent } from '../../@types/types';
+
 import Box, { pickBoxProps } from '../box';
 import { BoxProps } from '../box/Box';
 import MarketingMenuItem from '../marketingMenuItem';
@@ -29,7 +29,7 @@ const POSITION: Record<string, 'auto' | 'static' | 'top-left' | 'top-right' | 'b
   BOTTOM_RIGHT: 'bottom-right',
 };
 
-export interface MenuProps extends Omit<BoxProps, 'children' | 'className'> {
+export interface MenuProps<S = any> extends Omit<BoxProps, 'children' | 'className'> {
   /** If true, the menu will be active. */
   active?: boolean;
   /** The content to display inside the menu. */
@@ -39,7 +39,7 @@ export interface MenuProps extends Omit<BoxProps, 'children' | 'className'> {
   /** Callback function that is fired when the menu hides. */
   onHide?: () => void;
   /** Callback function that is fired when a menu item is clicked. */
-  onSelect?: (e: SyntheticEvent) => void;
+  onSelect?: (selected: S) => void;
   /** Callback function that is fired when the menu shows. */
   onShow?: () => void;
   /** If true, a border is rendered around the menu. */
@@ -49,10 +49,10 @@ export interface MenuProps extends Omit<BoxProps, 'children' | 'className'> {
   /** If true, the menu will highlight the selected value. */
   selectable?: boolean;
   /** The value of the menu item that will be highlighted. */
-  selected?: any;
+  selected?: S;
 }
 
-const Menu: GenericComponent<MenuProps> = ({
+const Menu = <S,>({
   active = false,
   children,
   className,
@@ -64,7 +64,7 @@ const Menu: GenericComponent<MenuProps> = ({
   selectable = true,
   selected,
   ...others
-}) => {
+}: MenuProps<S>): ReactElement<any, any> | null => {
   const [stateWidth, setStateWidth] = useState<number | undefined>(0);
   const [stateHeight, setStateHeight] = useState<number | undefined>(0);
   const [statePosition, setPosition] = useState<string | undefined>(position);

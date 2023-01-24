@@ -33,4 +33,5 @@ export const DefaultStory = (args: ComponentStory<typeof Menu>) => (
 DefaultStory.args = {
   selectable: true,
   selected: 'bar',
+  onSelect: (selected: string) => console.log('Selected option', selected),
 };
