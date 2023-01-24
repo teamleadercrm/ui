@@ -44,6 +44,7 @@ import Input, {
 } from './components/input';
 import { Island, IslandGroup, IslandGroupProps, IslandProps } from './components/island';
 import Label, { LabelProps } from './components/label';
+import useFocusTrap from './utils/useFocusTrap/useFocusTrap';
 import {
   LabelValuePair,
   LabelValuePairGroup,
@@ -266,6 +267,7 @@ export {
   colorsWithout,
   sizesWithout,
   tintsWithout,
+  useFocusTrap,
   COLOR,
   COLORS,
   FULLSCREEN,
