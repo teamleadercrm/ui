@@ -2,6 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 import { addStoryInGroup, MARKETING } from '../../../.storybook/utils';
 import MarketingStatusLabel from './MarketingStatusLabel';
+import { IconLockSmallFilled } from '@teamleader/ui-icons';
 
 export default {
   component: MarketingStatusLabel,
@@ -23,4 +24,12 @@ Basic.args = {
       <strong>&lt;PACKAGE&gt;</strong> feature
     </>
   ),
+};
+
+export const withIcon: ComponentStory<typeof MarketingStatusLabel> = () => {
+  return (
+    <MarketingStatusLabel icon={<IconLockSmallFilled />}>
+      <strong>&lt;PACKAGE&gt;</strong> feature
+    </MarketingStatusLabel>
+  );
 };
