@@ -12,6 +12,12 @@
 
 ### Dependency updates
 
+## [18.6.3] - 2023-01-27
+
+### Changed
+
+- [BREAKING] `MarketingStatusLabel`: Make Icon optional and configurable in ([#2544](https://github.com/teamleadercrm/ui/pull/2544))
+
 ## [18.6.2]
 
 ### Changed
