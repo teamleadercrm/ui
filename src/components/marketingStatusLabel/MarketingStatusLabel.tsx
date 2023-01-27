@@ -38,10 +38,12 @@ const MarketingStatusLabel: GenericComponent<MarketingStatusLabelProps> = ({
       className={classNames}
       paddingHorizontal={2}
     >
-      <TextElement className={theme['text']} marginRight={2}>
-        {children}
-      </TextElement>
-      {icon && <Icon className={theme['icon']}>{icon}</Icon>}
+      <TextElement className={theme['text']}>{children}</TextElement>
+      {icon && (
+        <Icon className={theme['icon']} marginLeft={2}>
+          {icon}
+        </Icon>
+      )}
     </Box>
   );
 };

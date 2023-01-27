@@ -7,7 +7,7 @@ exports[`Component - MarketingStatusLabel renders 1`] = `
     data-teamleader-ui="marketing-status-label"
   >
     <p
-      class="box margin-right-2 ui-text ui-text-body darkest text"
+      class="box ui-text ui-text-body darkest text"
       data-teamleader-ui="ui-text"
     >
       Upgrade now
@@ -23,13 +23,13 @@ exports[`Component - MarketingStatusLabel renders with an icon 1`] = `
     data-teamleader-ui="marketing-status-label"
   >
     <p
-      class="box margin-right-2 ui-text ui-text-body darkest text"
+      class="box ui-text ui-text-body darkest text"
       data-teamleader-ui="ui-text"
     >
       Upgrade now
     </p>
     <span
-      class="box align-items-center display-flex teal normal icon"
+      class="box align-items-center display-flex margin-left-2 teal normal icon"
       data-teamleader-ui="icon"
     >
       <span
