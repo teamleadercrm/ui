@@ -41,7 +41,7 @@ const MarketingStatusLabel: GenericComponent<MarketingStatusLabelProps> = ({
       <TextElement className={theme['text']} marginRight={2}>
         {children}
       </TextElement>
-      <Icon className={theme['icon']}>{icon}</Icon>
+      {icon && <Icon className={theme['icon']}>{icon}</Icon>}
     </Box>
   );
 };

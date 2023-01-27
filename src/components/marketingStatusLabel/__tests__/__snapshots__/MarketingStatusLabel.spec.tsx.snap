@@ -12,10 +12,6 @@ exports[`Component - MarketingStatusLabel renders 1`] = `
     >
       Upgrade now
     </p>
-    <span
-      class="box align-items-center display-flex teal normal icon"
-      data-teamleader-ui="icon"
-    />
   </div>
 </DocumentFragment>
 `;
