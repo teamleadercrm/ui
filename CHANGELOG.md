@@ -12,6 +12,12 @@
 
 ### Dependency updates
 
+## [19.0.1] - 2023-01-27
+
+### Fixed
+
+- `MarketingStatusLabel`: TextElement should not have a margin when no icon is provided ([@kristofcolpaert](https://github.com/KristofColpaert)) in ([#2545](https://github.com/teamleadercrm/ui/pull/2545))
+
 ## [19.0.0] - 2023-01-27
 
 ### Changed
