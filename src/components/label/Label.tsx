@@ -14,7 +14,7 @@ export interface LabelProps extends Omit<BoxProps, 'children'> {
   children: ReactNode;
   inverse?: boolean;
   required?: boolean;
-  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
+  size?: Exclude<typeof SIZES[number], 'fullscreen' | 'smallest' | 'hero'>;
   tooltip?: ReactNode;
   tooltipProps?: Record<string, any>;
 }
@@ -33,7 +33,13 @@ const Label: GenericComponent<LabelProps> = ({
     marginTop: 1,
     size,
   };
-  const Element = size === 'large' ? TextDisplay : TextBodyCompact;
+
+  const Element = {
+    tiny: TextSmall,
+    small: TextBodyCompact,
+    medium: TextBodyCompact,
+    large: TextDisplay,
+  }[size];
 
   return (
     <Box data-teamleader-ui="label" display="block" element="label" marginBottom={3} {...others}>
