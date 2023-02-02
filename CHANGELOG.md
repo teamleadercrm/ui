@@ -12,6 +12,12 @@
 
 ### Dependency updates
 
+## [19.1.0] - 2023-02-01
+
+### Added
+
+- `Label`: Add support for "tiny" label size ([@JorenSaeyTL](https://github.com/JorenSaeyTL)) in([#2548](https://github.com/teamleadercrm/ui/pull/2548))
+
 ## [19.0.1] - 2023-01-27
 
 ### Fixed
