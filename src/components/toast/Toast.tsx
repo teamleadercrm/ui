@@ -55,7 +55,7 @@ const Toast: GenericComponent<ToastProps> = ({
     }
 
     setCurrentTimeout(
-      setTimeout(() => {
+      window.setTimeout(() => {
         if (onTimeout) {
           onTimeout();
         }

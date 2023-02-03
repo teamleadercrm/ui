@@ -1,4 +1,13 @@
-import React, { ChangeEvent, FocusEvent, forwardRef, KeyboardEvent, ReactElement, useEffect, useRef } from 'react';
+import React, {
+  ChangeEvent,
+  FocusEvent,
+  forwardRef,
+  KeyboardEvent,
+  MouseEvent,
+  ReactElement,
+  useEffect,
+  useRef,
+} from 'react';
 import Icon from '../icon';
 import {
   IconAddSmallOutline,
@@ -16,7 +25,7 @@ import { GenericComponent } from '../../@types/types';
 interface StepperProps {
   disabled: boolean;
   onBlur: (event: FocusEvent<HTMLInputElement>) => void;
-  onMouseDown: () => void;
+  onMouseDown: (event: MouseEvent<HTMLButtonElement>) => void;
   onMouseUp: () => void;
   onMouseLeave: () => void;
 }
@@ -202,7 +211,9 @@ const NumericInput: GenericComponent<NumericInputProps> = forwardRef<HTMLElement
       handleClearStepperDecreaseTimer();
     }, [decreaseDisabled]);
 
-    const handleDecreaseMouseDown = () => {
+    const handleDecreaseMouseDown = (event: MouseEvent<HTMLButtonElement>) => {
+      event.preventDefault();
+
       if (onDecreaseMouseDown) {
         onDecreaseMouseDown();
 
@@ -228,7 +239,9 @@ const NumericInput: GenericComponent<NumericInputProps> = forwardRef<HTMLElement
       }, 300);
     };
 
-    const handleIncreaseMouseDown = () => {
+    const handleIncreaseMouseDown = (event: MouseEvent<HTMLButtonElement>) => {
+      event.preventDefault();
+
       if (onIncreaseMouseDown) {
         onIncreaseMouseDown();
 

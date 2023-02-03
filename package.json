@@ -1,7 +1,7 @@
 {
   "name": "@teamleader/ui",
   "description": "Teamleader UI library",
-  "version": "18.6.2",
+  "version": "19.1.1",
   "author": "Teamleader <development@teamleader.eu>",
   "bugs": {
     "url": "https://github.com/teamleadercrm/ui/issues"
@@ -47,7 +47,7 @@
     "react-day-picker": "^7.4.10",
     "react-draft-wysiwyg": "^1.14.7",
     "react-input-mask": "^2.0.4",
-    "react-resize-detector": "^7.0.0",
+    "react-resize-detector": "^8.0.1",
     "react-select": "5.6.1",
     "react-transition-group": "^4.2.1",
     "smoothscroll-polyfill": "^0.4.4"
@@ -92,6 +92,7 @@
     "@types/lodash.throttle": "^4.1.7",
     "@types/lodash.without": "^4.4.6",
     "@types/luxon": "^3.0.1",
+    "@types/node": "^18.11.18",
     "@types/react": "^17",
     "@types/react-dom": "^17",
     "@types/react-draft-wysiwyg": "^1.13.4",
@@ -132,7 +133,7 @@
     "postcss-import": "^15.0.0",
     "postcss-loader": "^7.0.1",
     "postcss-nested": "^6.0.0",
-    "postcss-preset-env": "6.7.0",
+    "postcss-preset-env": "8.0.1",
     "postcss-pseudoelements": "^5.0.0",
     "postcss-reporter": "^7.0.5",
     "prettier": "2.8.0",

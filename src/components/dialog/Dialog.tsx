@@ -1,7 +1,7 @@
 import { IconDragMediumFilled } from '@teamleader/ui-icons';
 import cx from 'classnames';
 import omit from 'lodash.omit';
-import React, { ReactNode, useCallback, useEffect, useRef, useState } from 'react';
+import React, { MutableRefObject, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import { useResizeDetector } from 'react-resize-detector';
 import { GenericComponent } from '../../@types/types';
 import { Button, ButtonGroup, DialogBase, Heading3 } from '../../index';
@@ -71,7 +71,7 @@ const Dialog: GenericComponent<DialogProps> = ({
     refreshMode: 'throttle',
     refreshRate: 250,
     onResize: handleScrollShadow,
-    targetRef: bodyRef,
+    targetRef: bodyRef as MutableRefObject<HTMLElement>,
   });
 
   const getHeader = () => {

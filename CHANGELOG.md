@@ -12,6 +12,30 @@
 
 ### Dependency updates
 
+## [19.1.1] - 2023-02-03
+
+### Fixed
+
+- `NumericInput`: Fix input blurring when using the stepper buttons ([@BeirlaenAaron](https://github.com/BeirlaenAaron)) in([#2552](https://github.com/teamleadercrm/ui/pull/2552))
+
+## [19.1.0] - 2023-02-01
+
+### Added
+
+- `Label`: Add support for "tiny" label size ([@JorenSaeyTL](https://github.com/JorenSaeyTL)) in([#2548](https://github.com/teamleadercrm/ui/pull/2548))
+
+## [19.0.1] - 2023-01-27
+
+### Fixed
+
+- `MarketingStatusLabel`: TextElement should not have a margin when no icon is provided ([@kristofcolpaert](https://github.com/KristofColpaert)) in ([#2545](https://github.com/teamleadercrm/ui/pull/2545))
+
+## [19.0.0] - 2023-01-27
+
+### Changed
+
+- [BREAKING] `MarketingStatusLabel`: Make Icon optional and configurable in ([#2544](https://github.com/teamleadercrm/ui/pull/2544))
+
 ## [18.6.2]
 
 ### Changed

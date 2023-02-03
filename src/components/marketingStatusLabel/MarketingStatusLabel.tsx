@@ -3,17 +3,17 @@ import Box from '../box';
 import Icon from '../icon';
 import cx from 'classnames';
 import theme from './theme.css';
-import { IconLockSmallFilled } from '@teamleader/ui-icons';
 import { UITextBody, UITextSmall } from '../typography';
 import { GenericComponent } from '../../@types/types';
 import { BoxProps } from '../box/Box';
 import { SIZES } from '../../constants';
 
-export interface MarketingStatusLabelProps extends Omit<BoxProps, 'ref'> {
+export interface MarketingStatusLabelProps extends Omit<BoxProps, 'ref' | 'size'> {
   children?: ReactNode;
+  className?: string;
   fullWidth?: boolean;
   size?: Exclude<typeof SIZES[number], 'tiny' | 'large' | 'fullscreen' | 'smallest' | 'hero'>;
-  className?: string;
+  icon?: ReactNode;
 }
 
 const MarketingStatusLabel: GenericComponent<MarketingStatusLabelProps> = ({
@@ -21,6 +21,7 @@ const MarketingStatusLabel: GenericComponent<MarketingStatusLabelProps> = ({
   className,
   fullWidth = false,
   size = 'medium',
+  icon,
   ...others
 }) => {
   const classNames = cx(theme['wrapper'], theme[`is-${size}`], className);
@@ -31,18 +32,18 @@ const MarketingStatusLabel: GenericComponent<MarketingStatusLabelProps> = ({
     <Box
       data-teamleader-ui="marketing-status-label"
       {...others}
-      alignItems="center"
       display={fullWidth ? 'flex' : 'inline-flex'}
+      alignItems="center"
       justifyContent="center"
       className={classNames}
       paddingHorizontal={2}
     >
-      <TextElement className={theme['text']} marginRight={2}>
-        {children}
-      </TextElement>
-      <Icon className={theme['icon']}>
-        <IconLockSmallFilled />
-      </Icon>
+      <TextElement className={theme['text']}>{children}</TextElement>
+      {icon && (
+        <Icon className={theme['icon']} marginLeft={2}>
+          {icon}
+        </Icon>
+      )}
     </Box>
   );
 };

@@ -7,30 +7,36 @@ exports[`Component - MarketingStatusLabel renders 1`] = `
     data-teamleader-ui="marketing-status-label"
   >
     <p
-      class="box margin-right-2 ui-text ui-text-body darkest text"
+      class="box ui-text ui-text-body darkest text"
+      data-teamleader-ui="ui-text"
+    >
+      Upgrade now
+    </p>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Component - MarketingStatusLabel renders with an icon 1`] = `
+<DocumentFragment>
+  <div
+    class="box align-items-center display-inline-flex justify-content-center padding-left-2 padding-right-2 wrapper is-medium"
+    data-teamleader-ui="marketing-status-label"
+  >
+    <p
+      class="box ui-text ui-text-body darkest text"
       data-teamleader-ui="ui-text"
     >
       Upgrade now
     </p>
     <span
-      class="box align-items-center display-flex teal normal icon"
+      class="box align-items-center display-flex margin-left-2 teal normal icon"
       data-teamleader-ui="icon"
     >
-      <svg
-        fill="currentColor"
-        height="14"
-        preserveAspectRatio="xMidYMid meet"
-        style="opacity: 0.84; vertical-align: middle;"
-        viewBox="0 0 14 14"
-        width="14"
+      <span
+        opacity="0.84"
       >
-        <path
-          clip-rule="evenodd"
-          d="M4 6V5a3 3 0 116 0v1a1 1 0 011 1v4a1 1 0 01-1 1H4a1 1 0 01-1-1V7a1 1 0 011-1zm3-2a1 1 0 011 1v1H6V5a1 1 0 011-1z"
-          fill="currentColor"
-          fill-rule="evenodd"
-        />
-      </svg>
+        Fake icon
+      </span>
     </span>
   </div>
 </DocumentFragment>
