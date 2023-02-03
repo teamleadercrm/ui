@@ -12,6 +12,12 @@
 
 ### Dependency updates
 
+## [19.1.1] - 2023-02-03
+
+### Fixed
+
+- `NumericInput`: Fix input blurring when using the stepper buttons ([@BeirlaenAaron](https://github.com/BeirlaenAaron)) in([#2552](https://github.com/teamleadercrm/ui/pull/2552))
+
 ## [19.1.0] - 2023-02-01
 
 ### Added
