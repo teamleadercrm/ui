@@ -54,7 +54,7 @@
   },
   "peerDependencies": {
     "postcss": "^8.2.0",
-    "postcss-custom-media": "^8.0.0",
+    "postcss-custom-media": "^9.1.1",
     "postcss-each": "^0.10.0",
     "postcss-import": "^15.0.0",
     "postcss-nested": "^6.0.0",
@@ -128,7 +128,7 @@
     "moment": "^2.22.2",
     "postcss": "^8.4.5",
     "postcss-cli": "^10.0.0",
-    "postcss-custom-media": "^8.0.0",
+    "postcss-custom-media": "^9.1.1",
     "postcss-each": "0.10.0",
     "postcss-import": "^15.0.0",
     "postcss-loader": "^7.0.1",
