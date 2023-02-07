@@ -3021,9 +3021,9 @@
     lodash.without "^4.4.0"
 
 "@teamleader/ui-icons@^2.1.0":
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/@teamleader/ui-icons/-/ui-icons-2.2.1.tgz#296cd0aab7d8dc94bb435920c52d0a17ae45c9a7"
-  integrity sha512-PoEOO6kOISDeUP/w5PI258dQGa9LVQY/e5BpHonPIHeU9caYLFNCcSUiV/5N/AL2JVU08Wl9j8QKXuOMyn7W+w==
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/@teamleader/ui-icons/-/ui-icons-2.3.1.tgz#a4166856416c14d527f764a8d0118662ce941dbf"
+  integrity sha512-SLbr4FvYqkphZCtg6DvT25dDutT32CV+fPKYPqbcYoqefw4bElx1bIfyLeuyL3fYfBgz/3eBFvXxZ37GiuAv4Q==
 
 "@teamleader/ui-illustrations@^1.10.0":
   version "1.14.0"
