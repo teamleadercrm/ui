@@ -89,7 +89,6 @@ import Popover, { PopoverProps } from './components/popover';
 import PoweredByButton, { PoweredByButtonProps } from './components/poweredByButton';
 import ProgressTracker, { ProgressTrackerProps } from './components/progressTracker';
 import { RadioButton, RadioButtonProps, RadioGroup, RadioGroupProps } from './components/radio';
-import Section, { SectionProps } from './components/section';
 import Select, {
   AsyncSelect,
   AsyncSelectProps,
@@ -238,7 +237,6 @@ export {
   ProgressTracker,
   RadioButton,
   RadioGroup,
-  Section,
   Select,
   SplitButton,
   StatusLabel,
@@ -355,7 +353,6 @@ export type {
   ProgressTrackerProps,
   RadioButtonProps,
   RadioGroupProps,
-  SectionProps,
   SelectComponentsProps,
   SelectProps,
   SelectRef,
