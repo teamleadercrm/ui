@@ -61,7 +61,7 @@ describe('Component - Dialog', () => {
     );
 
     expect(handleOnClose).not.toBeCalled();
-    const closeButton = screen.baseElement.querySelector('section button[type="button"]');
+    const closeButton = screen.baseElement.querySelector('div button[type="button"]');
 
     await user.click(closeButton!);
     expect(handleOnClose).toBeCalledTimes(1);

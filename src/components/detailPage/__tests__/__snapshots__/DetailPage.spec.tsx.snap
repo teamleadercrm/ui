@@ -6,10 +6,10 @@ exports[`Component - DetailPage renders 1`] = `
     class="box"
     data-teamleader-ui="detail-page"
   >
-    <section
-      class="box padding-bottom-4 padding-left-4 padding-right-4 padding-top-4 section box container white"
+    <div
+      class="box background-color-neutral-lightest padding-bottom-4 padding-left-4 padding-right-4 padding-top-4 container"
       data-teamleader-ui="detail-page-header"
-      style="box-sizing: content-box;"
+      style="border-bottom: 1px solid #e4e4e6; box-sizing: content-box;"
     >
       <div
         class="box display-flex header-inner"
@@ -48,7 +48,7 @@ exports[`Component - DetailPage renders 1`] = `
           </button>
         </div>
       </div>
-    </section>
+    </div>
     <div
       class="box padding-bottom-8 padding-top-6 container is-fixed"
       data-teamleader-ui="detail-page-body"
