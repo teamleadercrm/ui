@@ -12,6 +12,12 @@
 
 ### Dependency updates
 
+## [20.0.0] - 2023-02-10
+
+### Deprecated
+
+- `Label`: Remove option for 'tiny' label size ([@JorenSaeyTL](https://github.com/JorenSaeyTL)) in([#2552](https://github.com/teamleadercrm/ui/pull/2552))
+
 ## [19.1.1] - 2023-02-03
 
 ### Fixed
