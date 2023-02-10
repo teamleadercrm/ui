@@ -16,7 +16,7 @@
 
 ### Deprecated
 
-- `Label`: Remove option for 'tiny' label size ([@JorenSaeyTL](https://github.com/JorenSaeyTL)) in([#2552](https://github.com/teamleadercrm/ui/pull/2552))
+- `Label`: Remove option for 'tiny' label size ([@JorenSaeyTL](https://github.com/JorenSaeyTL)) in ([#2560](https://github.com/teamleadercrm/ui/pull/2560))
 
 ## [19.1.1] - 2023-02-03
 
