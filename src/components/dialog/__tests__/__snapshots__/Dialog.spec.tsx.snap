@@ -30,7 +30,7 @@ exports[`Component - Dialog renders 1`] = `
             class="inner"
           >
             <div
-              class="box align-items-center background-color-neutral-light display-flex padding-bottom-4 padding-left-4 padding-right-4 padding-top-4"
+              class="box align-items-center background-color-neutral-light display-flex padding-bottom-4 padding-left-4 padding-right-4 padding-top-4 header"
               style="border-bottom: 1px solid #e4e4e6;"
             >
               <span
