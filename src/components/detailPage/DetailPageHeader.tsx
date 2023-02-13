@@ -6,7 +6,6 @@ import { BadgedLinkProps } from '../badgedLink/BadgedLink';
 import { Box } from '../box';
 import Container from '../container';
 import { ContainerProps } from '../container/Container';
-import Section from '../section';
 import { Heading1, TextBody } from '../typography';
 import theme from './theme.css';
 
@@ -28,7 +27,15 @@ const DetailPageHeader: GenericComponent<DetailPageHeaderProps> = ({
   ...others
 }) => {
   return (
-    <Container data-teamleader-ui="detail-page-header" {...others} element={Section}>
+    <Container
+      data-teamleader-ui="detail-page-header"
+      backgroundColor="neutral"
+      backgroundTint="lightest"
+      borderBottomWidth={1}
+      borderTint="normal"
+      padding={4}
+      {...others}
+    >
       <Box className={theme['header-inner']} display="flex">
         {backLinkProps && (
           <TextBody className={theme['back-link']}>

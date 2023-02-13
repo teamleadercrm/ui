@@ -25,9 +25,9 @@ exports[`Component - Dialog renders 1`] = `
               class="box display-flex flex-direction-column"
               style="overflow-y: auto;"
             >
-              <section
-                class="box align-items-center display-flex padding-bottom-4 padding-left-4 padding-right-4 padding-top-4 section neutral"
-                data-teamleader-ui="section"
+              <div
+                class="box align-items-center background-color-neutral-light display-flex padding-bottom-4 padding-left-4 padding-right-4 padding-top-4 header"
+                style="border-bottom: 1px solid #e4e4e6;"
               >
                 <h3
                   class="box heading heading-3 darkest"
@@ -61,7 +61,7 @@ exports[`Component - Dialog renders 1`] = `
                     </svg>
                   </span>
                 </button>
-              </section>
+              </div>
               <div
                 class="box align-items-center display-flex flex-direction-row justify-content-space-between padding-bottom-6 padding-left-6 padding-right-6 padding-top-6"
                 style="overflow-y: auto;"

@@ -99,3 +99,7 @@
     0px -4px 8px rgba(130, 130, 140, 0.09);
   z-index: 2;
 }
+
+.header {
+  color: var(--color-teal-darkest);
+}
