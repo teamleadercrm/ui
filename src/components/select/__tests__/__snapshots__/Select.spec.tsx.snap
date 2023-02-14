@@ -20,19 +20,19 @@ exports[`Component - Select does not render a clear button when no value is prov
         class="css-1f43avz-a11yText-A11yText"
       />
       <div
-        class=" css-1bpkfno-control"
+        class=" css-zylvh4-control"
       >
         <div
-          class=" css-1q5y8er-ValueContainer"
+          class=" css-1og2pl5-ValueContainer"
         >
           <div
-            class=" css-1xe4xsx-placeholder"
+            class=" css-crj073-placeholder"
             id="react-select-12-placeholder"
           >
             Select...
           </div>
           <div
-            class=" css-1r62df1-Input"
+            class=" css-19m4yby-Input"
             data-value=""
           >
             <input
@@ -104,19 +104,19 @@ exports[`Component - Select renders 1`] = `
         class="css-1f43avz-a11yText-A11yText"
       />
       <div
-        class=" css-1bpkfno-control"
+        class=" css-zylvh4-control"
       >
         <div
-          class=" css-1q5y8er-ValueContainer"
+          class=" css-1og2pl5-ValueContainer"
         >
           <div
-            class=" css-1xe4xsx-placeholder"
+            class=" css-crj073-placeholder"
             id="react-select-2-placeholder"
           >
             Select...
           </div>
           <div
-            class=" css-1r62df1-Input"
+            class=" css-19m4yby-Input"
             data-value=""
           >
             <input
@@ -188,18 +188,18 @@ exports[`Component - Select renders a clear button when a value is provided 1`] 
         class="css-1f43avz-a11yText-A11yText"
       />
       <div
-        class=" css-1bpkfno-control"
+        class=" css-zylvh4-control"
       >
         <div
-          class=" css-1q5y8er-ValueContainer"
+          class=" css-1og2pl5-ValueContainer"
         >
           <div
-            class=" css-pnqk86-singleValue"
+            class=" css-1i5bhiv-singleValue"
           >
             Michael Scoott
           </div>
           <div
-            class=" css-1r62df1-Input"
+            class=" css-19m4yby-Input"
             data-value=""
           >
             <input
@@ -291,19 +291,19 @@ exports[`Component - Select renders a help text 1`] = `
         class="css-1f43avz-a11yText-A11yText"
       />
       <div
-        class=" css-1bpkfno-control"
+        class=" css-zylvh4-control"
       >
         <div
-          class=" css-1q5y8er-ValueContainer"
+          class=" css-1og2pl5-ValueContainer"
         >
           <div
-            class=" css-1xe4xsx-placeholder"
+            class=" css-crj073-placeholder"
             id="react-select-10-placeholder"
           >
             Select...
           </div>
           <div
-            class=" css-1r62df1-Input"
+            class=" css-19m4yby-Input"
             data-value=""
           >
             <input
@@ -381,19 +381,19 @@ exports[`Component - Select renders a success message 1`] = `
         class="css-1f43avz-a11yText-A11yText"
       />
       <div
-        class=" css-q7p22b-control"
+        class=" css-14enqk9-control"
       >
         <div
-          class=" css-1q5y8er-ValueContainer"
+          class=" css-1og2pl5-ValueContainer"
         >
           <div
-            class=" css-1xe4xsx-placeholder"
+            class=" css-crj073-placeholder"
             id="react-select-8-placeholder"
           >
             Select...
           </div>
           <div
-            class=" css-1r62df1-Input"
+            class=" css-19m4yby-Input"
             data-value=""
           >
             <input
@@ -473,19 +473,19 @@ exports[`Component - Select renders a warning message 1`] = `
         class="css-1f43avz-a11yText-A11yText"
       />
       <div
-        class=" css-17nui1b-control"
+        class=" css-5mjksy-control"
       >
         <div
-          class=" css-1q5y8er-ValueContainer"
+          class=" css-1og2pl5-ValueContainer"
         >
           <div
-            class=" css-1xe4xsx-placeholder"
+            class=" css-crj073-placeholder"
             id="react-select-9-placeholder"
           >
             Select...
           </div>
           <div
-            class=" css-1r62df1-Input"
+            class=" css-19m4yby-Input"
             data-value=""
           >
             <input
@@ -565,19 +565,19 @@ exports[`Component - Select renders an error message 1`] = `
         class="css-1f43avz-a11yText-A11yText"
       />
       <div
-        class=" css-1jczzw-control"
+        class=" css-sg9y4q-control"
       >
         <div
-          class=" css-1q5y8er-ValueContainer"
+          class=" css-1og2pl5-ValueContainer"
         >
           <div
-            class=" css-1xe4xsx-placeholder"
+            class=" css-crj073-placeholder"
             id="react-select-7-placeholder"
           >
             Select...
           </div>
           <div
-            class=" css-1r62df1-Input"
+            class=" css-19m4yby-Input"
             data-value=""
           >
             <input
