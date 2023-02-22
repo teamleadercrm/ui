@@ -47,8 +47,6 @@ const IconButton: GenericComponent<IconButtonProps> = forwardRef<HTMLElement, Ic
       tint = 'darkest',
       selected,
       type = 'button',
-      onMouseUp,
-      onMouseLeave,
       processing = false,
       ...others
     }: IconButtonProps,

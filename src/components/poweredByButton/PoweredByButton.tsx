@@ -1,4 +1,4 @@
-import React, { useRef, forwardRef, useImperativeHandle, ReactNode, MouseEvent } from 'react';
+import React, { useRef, forwardRef, useImperativeHandle, ReactNode } from 'react';
 import cx from 'classnames';
 import Box from '../box';
 import { TextSmall } from '../typography';
