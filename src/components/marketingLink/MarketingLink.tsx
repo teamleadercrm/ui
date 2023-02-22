@@ -13,10 +13,6 @@ export interface MarketingLinkProps extends Omit<BoxProps, 'ref'> {
   className?: string;
   /** A custom element to be rendered */
   element?: React.ElementType;
-  /** Callback function that is fired when mouse leaves the component. */
-  onMouseLeave?: (event: React.MouseEvent) => void;
-  /** Callback function that is fired when the mouse button is released. */
-  onMouseUp?: (event: React.MouseEvent) => void;
 }
 
 const MarketingLink: GenericComponent<MarketingLinkProps> = forwardRef<HTMLElement, MarketingLinkProps>(
