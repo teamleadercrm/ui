@@ -16,9 +16,21 @@
 
 ## [20.0.0] - 2023-02-13
 
+### Changed
+
+- Focus states are now styled through `:focus-visible` instead of `:focus`. ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2575](https://github.com/teamleadercrm/ui/pull/2575)
+
+### Fixed
+
+- `Toggle`: the component is now focusable. ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2575](https://github.com/teamleadercrm/ui/pull/2575)
+
 ### Removed
 
 - `Label`: Remove option for 'tiny' label size ([@JorenSaeyTL](https://github.com/JorenSaeyTL)) in ([#2560](https://github.com/teamleadercrm/ui/pull/2560))
+
+### Dependency updates
+
+- `postcss-preset-env`: bump peer dependency expectation to `^8.0.0`, otherwise the `:focus-visible` styling will not be included. ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2575](https://github.com/teamleadercrm/ui/pull/2575)
 
 ## [19.1.1] - 2023-02-03
 
