@@ -18,8 +18,8 @@
     text-decoration: none;
   }
 
-    outline: var(--color-marketing-violet-light) auto 3px;
   &:focus-visible {
+    outline: var(--color-marketing-violet-light) auto 3px;
   }
 
   &:active {
