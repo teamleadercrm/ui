@@ -52,17 +52,7 @@ const RadioButton: GenericComponent<RadioButtonProps> = ({
     className,
   );
 
-  const blur = () => {
-    if (inputNode.current) {
-      inputNode.current.blur();
-    }
-  };
-
   const handleToggle = (event: React.MouseEvent) => {
-    if (event.pageX !== 0 && event.pageY !== 0) {
-      blur();
-    }
-
     if (!disabled && onChange) {
       onChange(!checked, event);
     }

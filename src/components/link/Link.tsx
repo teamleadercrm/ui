@@ -19,49 +19,17 @@ export interface LinkProps extends Omit<BoxProps, 'ref'> {
   inverse?: boolean;
   /** A custom element to be rendered */
   element?: React.ElementType;
-  /** Callback function that is fired when mouse leaves the component. */
-  onMouseLeave?: (event: React.MouseEvent) => void;
-  /** Callback function that is fired when the mouse button is released. */
-  onMouseUp?: (event: React.MouseEvent) => void;
   /** If true, component will be shown in a selected state */
   selected?: boolean;
 }
 
 const Link: GenericComponent<LinkProps> = forwardRef<HTMLElement, LinkProps>(
   (
-    {
-      children,
-      className = '',
-      disabled = false,
-      element = 'a',
-      inherit = true,
-      inverse = false,
-      selected,
-      onMouseUp,
-      onMouseLeave,
-      ...others
-    },
+    { children, className = '', disabled = false, element = 'a', inherit = true, inverse = false, selected, ...others },
     ref,
   ) => {
     const linkRef = useRef<HTMLElement>(null);
     useImperativeHandle<HTMLElement | null, HTMLElement | null>(ref, () => linkRef.current);
-
-    const blur = () => {
-      const currentLinkRef = linkRef.current;
-      if (currentLinkRef?.blur) {
-        currentLinkRef.blur();
-      }
-    };
-
-    const handleMouseUp = (event: React.MouseEvent) => {
-      blur();
-      onMouseUp && onMouseUp(event);
-    };
-
-    const handleMouseLeave = (event: React.MouseEvent) => {
-      blur();
-      onMouseLeave && onMouseLeave(event);
-    };
 
     const classNames = cx(
       uiUtilities['reset-font-smoothing'],
@@ -76,15 +44,7 @@ const Link: GenericComponent<LinkProps> = forwardRef<HTMLElement, LinkProps>(
     );
 
     return (
-      <Box
-        element={element}
-        ref={linkRef}
-        className={classNames}
-        data-teamleader-ui="link"
-        onMouseUp={handleMouseUp}
-        onMouseLeave={handleMouseLeave}
-        {...others}
-      >
+      <Box element={element} ref={linkRef} className={classNames} data-teamleader-ui="link" {...others}>
         {children}
       </Box>
     );

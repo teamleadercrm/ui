@@ -21,19 +21,9 @@ const MarketingTab: GenericComponent<MarketingTabProps> = forwardRef<HTMLElement
     const tabRef = useRef<HTMLElement>(null);
     useImperativeHandle<HTMLElement | null, HTMLElement | null>(ref, () => tabRef.current);
 
-    const blur = () => {
-      const currentTabRef = tabRef.current;
-      if (currentTabRef?.blur) {
-        currentTabRef.blur();
-      }
-    };
-
     const handleClick = (event: React.MouseEvent) => {
       if (onClick) {
         onClick(event);
-      }
-      if (event.pageX !== 0 && event.pageY !== 0) {
-        blur();
       }
     };
 
