@@ -66,7 +66,6 @@ const Toggle: GenericComponent<ToggleProps> = ({
       <input
         className={theme['input']}
         type="checkbox"
-        hidden
         checked={checked}
         disabled={disabled}
         onChange={handleToggle}
