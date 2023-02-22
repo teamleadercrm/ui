@@ -82,7 +82,7 @@
       border-color: var(--color-mint-darkest);
     }
 
-    input:focus + .shape {
+    input:focus-visible + .shape {
       box-shadow: inset 0 0 0 1px var(--color-mint-darkest);
       border-color: var(--color-mint-darkest);
     }
@@ -106,7 +106,7 @@
     }
   }
 
-  input:focus + .shape {
+  input:focus-visible + .shape {
     border-color: var(--color-neutral-darkest);
     box-shadow: inset 0 0 0 1px var(--color-neutral-darkest);
   }

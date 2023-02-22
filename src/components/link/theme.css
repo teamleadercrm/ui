@@ -24,8 +24,8 @@
     pointer-events: none;
   }
 
-  &:focus {
     outline: var(--color-aqua-dark) auto 3px;
+  &:focus-visible {
   }
 
   &:active {

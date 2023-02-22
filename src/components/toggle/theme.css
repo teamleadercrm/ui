@@ -82,7 +82,7 @@
       border-color: var(--color-mint-darkest);
     }
 
-    input:focus + .track {
+    input:focus-visible + .track {
       box-shadow: 0 0 0 1px var(--color-mint-darkest);
       border-color: var(--color-mint-darkest);
     }
@@ -116,7 +116,7 @@
     }
   }
 
-  input:focus + .track {
+  input:focus-visible + .track {
     border-color: var(--color-neutral-darkest);
     box-shadow: 0 0 0 1px var(--color-neutral-darkest);
   }

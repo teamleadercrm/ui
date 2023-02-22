@@ -16,7 +16,7 @@
       background-color: hsl(var(--color-neutral-darkest-hsl), 18%);
     }
 
-    &:focus {
+    &:focus-visible {
       box-shadow: 0 0 0 2px hsl(var(--color-neutral-darkest-hsl), 24%);
     }
 
