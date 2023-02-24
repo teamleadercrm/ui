@@ -23,6 +23,7 @@
 ### Fixed
 
 - `Toggle`: the component is now focusable. ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2575](https://github.com/teamleadercrm/ui/pull/2575)
+- `Link` and `MarketingLink`: fixed the focus state styling.  ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2576](https://github.com/teamleadercrm/ui/pull/2576)
 
 ### Removed
 
