@@ -97,7 +97,7 @@
           border: 1px solid var(--color-$(color)-darkest);
         }
 
-        &:focus {
+        &:focus-visible {
           border: 1px solid var(--color-$(color)-darkest);
           box-shadow: 0 0 0 1px var(--color-$(color)-darkest);
         }
@@ -123,7 +123,7 @@
         border: 1px solid var(--color-neutral-lightest);
       }
 
-      &:focus {
+      &:focus-visible {
         border: 1px solid var(--color-neutral-lightest);
         box-shadow: 0 0 0 1px var(--color-neutral-lightest);
       }
@@ -157,7 +157,7 @@
       border: 1px solid var(--color-neutral-darkest);
     }
 
-    &:focus {
+    &:focus-visible {
       background-color: var(--color-neutral-light);
       border: 1px solid var(--color-neutral-darkest);
       box-shadow: 0 0 0 1px var(--color-neutral-darkest);
@@ -192,7 +192,7 @@
       border: 1px solid var(--color-mint-darkest);
     }
 
-    &:focus {
+    &:focus-visible {
       background-color: var(--color-mint);
       border: 1px solid var(--color-mint-dark);
       box-shadow: 0 0 0 1px var(--color-mint-dark);
@@ -223,7 +223,7 @@
       border: 1px solid var(--color-violet-darkest);
     }
 
-    &:focus {
+    &:focus-visible {
       background-color: var(--color-violet);
       border: 1px solid var(--color-violet-dark);
       box-shadow: 0 0 0 1px var(--color-violet-dark);
@@ -255,7 +255,7 @@
       border: 1px solid var(--color-ruby-darkest);
     }
 
-    &:focus {
+    &:focus-visible {
       background-color: var(--color-ruby);
       border: 1px solid var(--color-ruby-darkest);
       box-shadow: 0 0 0 1px var(--color-ruby-darkest);
@@ -278,7 +278,7 @@
   color: var(--color-aqua-dark);
 
   &:not(.is-disabled) {
-    &:focus {
+    &:focus-visible {
       box-shadow: 0 0 0 2px var(--color-aqua-light);
     }
 

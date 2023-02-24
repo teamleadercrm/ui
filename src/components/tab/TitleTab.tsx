@@ -26,19 +26,9 @@ const TitleTab: GenericComponent<TitleTabProps> = forwardRef<HTMLElement, TitleT
     const tabRef = useRef<HTMLElement>(null);
     useImperativeHandle(ref, () => tabRef.current!);
 
-    const blur = () => {
-      const currentTabRef = tabRef.current;
-      if (currentTabRef?.blur) {
-        currentTabRef.blur();
-      }
-    };
-
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
       if (onClick) {
         onClick(event);
-      }
-      if (event.pageX !== 0 && event.pageY !== 0) {
-        blur();
       }
     };
 

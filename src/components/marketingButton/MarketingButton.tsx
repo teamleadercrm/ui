@@ -25,10 +25,6 @@ export interface MarketingButtonProps extends Omit<BoxProps, 'ref' | 'element'> 
   icon?: ReactNode;
   /** The position of the icon inside the button. */
   iconPlacement?: 'left' | 'right';
-  /** Callback function that is fired when mouse leaves the component. */
-  onMouseLeave?: (event: React.MouseEvent) => void;
-  /** Callback function that is fired when the mouse button is released. */
-  onMouseUp?: (event: React.MouseEvent) => void;
   /** If true, component will show a loading spinner instead of label or children. */
   processing?: boolean;
   /** Size of the button. */
@@ -58,35 +54,12 @@ const MarketingButton: GenericComponent<MarketingButtonProps> = forwardRef<HTMLE
       size = 'medium',
       type = 'button',
       processing = false,
-      onMouseUp,
-      onMouseLeave,
       ...others
     },
     ref,
   ) => {
     const buttonRef = useRef<HTMLElement>(null);
     useImperativeHandle<HTMLElement | null, HTMLElement | null>(ref, () => buttonRef.current);
-
-    const blur = () => {
-      const currentButtonRef = buttonRef.current;
-      if (currentButtonRef?.blur) {
-        currentButtonRef.blur();
-      }
-    };
-
-    const handleMouseUp = (event: React.MouseEvent) => {
-      blur();
-      if (onMouseUp) {
-        onMouseUp(event);
-      }
-    };
-
-    const handleMouseLeave = (event: React.MouseEvent) => {
-      blur();
-      if (onMouseLeave) {
-        onMouseLeave(event);
-      }
-    };
 
     const classNames = cx(
       theme['reset-box-sizing'],
@@ -110,8 +83,6 @@ const MarketingButton: GenericComponent<MarketingButtonProps> = forwardRef<HTMLE
       className: classNames,
       disabled: element === 'button' ? disabled : undefined,
       element,
-      onMouseUp: handleMouseUp,
-      onMouseLeave: handleMouseLeave,
       type: element === 'button' ? type : undefined,
       'data-teamleader-ui': 'button',
     };

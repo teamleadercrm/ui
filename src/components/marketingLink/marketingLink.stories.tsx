@@ -24,4 +24,5 @@ export const Basic: ComponentStory<typeof MarketingLink> = (args) => (
 
 Basic.args = {
   children: 'a link for marketing purposes',
+  href: 'https://www.teamleader.eu',
 };

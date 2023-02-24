@@ -42,7 +42,7 @@
       cursor: pointer;
     }
 
-    &:focus {
+    &:focus-visible {
       background-color: hsl(var(--color-neutral-darkest-hsl), 12%);
       border-color: hsl(var(--color-neutral-darkest-hsl), 24%);
       box-shadow: 0 0 0 var(--badge-border-width) hsl(var(--color-neutral-darkest-hsl), 24%);

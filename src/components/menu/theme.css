@@ -152,7 +152,7 @@
     cursor: pointer;
   }
 
-  &:not(.is-disabled):not(.is-selected):focus {
+  &:not(.is-disabled):not(.is-selected):focus-visible {
     background-color: var(--menu-item-hover-background);
   }
 

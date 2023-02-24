@@ -8,7 +8,6 @@ exports[`Component - Toggle renders 1`] = `
   >
     <input
       class="input"
-      hidden=""
       type="checkbox"
     />
     <span
