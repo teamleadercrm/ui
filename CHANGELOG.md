@@ -8,8 +8,6 @@
 
 ### Removed
 
-- [BREAKING] `Section`: removed the component and replaced the instances with either a `Box` or a full-width `Banner` ([@farazatarodi](https://github.com/farazatarodi) in [#2558](https://github.com/teamleadercrm/ui/pull/2558))
-
 ### Fixed
 
 ### Dependency updates
@@ -26,7 +24,8 @@
 
 ### Removed
 
-- `Label`: Remove option for 'tiny' label size ([@JorenSaeyTL](https://github.com/JorenSaeyTL)) in ([#2560](https://github.com/teamleadercrm/ui/pull/2560))
+- [BREAKING] `Label`: Remove option for 'tiny' label size ([@JorenSaeyTL](https://github.com/JorenSaeyTL)) in ([#2560](https://github.com/teamleadercrm/ui/pull/2560))
+- [BREAKING] `Section`: removed the component and replaced the instances with either a `Box` or a full-width `Banner` ([@farazatarodi](https://github.com/farazatarodi) in [#2558](https://github.com/teamleadercrm/ui/pull/2558))
 
 ### Dependency updates
 
