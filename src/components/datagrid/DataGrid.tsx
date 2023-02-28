@@ -212,7 +212,7 @@ export const DataGrid: DatagridComponent = ({
                 return React.cloneElement(child, {
                   sliceFrom: stickyFromLeft > 0 ? stickyFromLeft : 0,
                   sliceTo: stickyFromRight > 0 ? -stickyFromRight : undefined,
-                  ref: (rowNode: HTMLElement) => setRowNodes(rowNodes.set(key, rowNode)),
+                  ref: (rowNode: HTMLElement | null) => rowNode && setRowNodes(rowNodes.set(key, rowNode)),
                   style: isOverflowing
                     ? {
                         minWidth: `${totalRowChildrenWidth - 10}px`,
@@ -226,7 +226,7 @@ export const DataGrid: DatagridComponent = ({
                   onMouseLeave: (event: MouseEvent) => handleBodyRowMouseLeave(child, event),
                   sliceFrom: stickyFromLeft > 0 ? stickyFromLeft : 0,
                   sliceTo: stickyFromRight > 0 ? -stickyFromRight : undefined,
-                  ref: (rowNode: HTMLElement) => setRowNodes(rowNodes.set(key, rowNode)),
+                  ref: (rowNode: HTMLElement | null) => rowNode && setRowNodes(rowNodes.set(key, rowNode)),
                   style: isOverflowing
                     ? {
                         minWidth: `${totalRowChildrenWidth - 10}px`,
