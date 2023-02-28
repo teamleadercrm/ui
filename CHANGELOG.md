@@ -14,7 +14,7 @@
 
 ## [20.0.1] - 2023-02-28
 
-### Changed
+### Fixed
 
 - `DataGrid` Avoid error when hovering over a row. ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2582](https://github.com/teamleadercrm/ui/pull/2582)
 
