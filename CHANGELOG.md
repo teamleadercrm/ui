@@ -4,8 +4,6 @@
 
 ### Changed
 
-- `Bullet`: Changed `Mint` color to be one tint lighter. ([@driesd](https://github.com/driesd) in [#2583](https://github.com/teamleadercrm/ui/pull/2583))
-
 ### Deprecated
 
 ### Removed
@@ -13,6 +11,12 @@
 ### Fixed
 
 ### Dependency updates
+
+## [20.1.0] - 2023-03-01
+
+### Changed
+
+- `Bullet`: Changed `Mint` color to be one tint lighter. ([@driesd](https://github.com/driesd) in [#2583](https://github.com/teamleadercrm/ui/pull/2583))
 
 ## [20.0.1] - 2023-02-28
 
