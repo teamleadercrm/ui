@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `Bullet`: Changed `Mint` color to be one tint lighter. ([@driesd](https://github.com/driesd) in [#2583](https://github.com/teamleadercrm/ui/pull/2583))
+
 ### Deprecated
 
 ### Removed
@@ -27,7 +29,7 @@
 ### Fixed
 
 - `Toggle`: the component is now focusable. ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2575](https://github.com/teamleadercrm/ui/pull/2575)
-- `Link` and `MarketingLink`: fixed the focus state styling.  ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2576](https://github.com/teamleadercrm/ui/pull/2576)
+- `Link` and `MarketingLink`: fixed the focus state styling. ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2576](https://github.com/teamleadercrm/ui/pull/2576)
 
 ### Removed
 
