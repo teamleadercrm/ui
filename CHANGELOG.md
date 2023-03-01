@@ -12,6 +12,12 @@
 
 ### Dependency updates
 
+## [20.0.2] - 2023-03-01
+
+### Changed
+
+- `Bullet`: Changed `Mint` color to be one tint lighter (normal/300). ([@driesd](https://github.com/driesd) in [#2583](https://github.com/teamleadercrm/ui/pull/2583))
+
 ## [20.0.1] - 2023-02-28
 
 ### Fixed
@@ -27,7 +33,7 @@
 ### Fixed
 
 - `Toggle`: the component is now focusable. ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2575](https://github.com/teamleadercrm/ui/pull/2575)
-- `Link` and `MarketingLink`: fixed the focus state styling.  ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2576](https://github.com/teamleadercrm/ui/pull/2576)
+- `Link` and `MarketingLink`: fixed the focus state styling. ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2576](https://github.com/teamleadercrm/ui/pull/2576)
 
 ### Removed
 
