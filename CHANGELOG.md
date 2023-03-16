@@ -12,6 +12,12 @@
 
 ### Dependency updates
 
+## [20.1.0] - 2023-03-17
+
+### Added
+
+- `Avatar`: Added the objectFit prop to allow changing how rectangular images are displayed. ([@lorgan3](https://github.com/lorgan3)) in [#2598](https://github.com/teamleadercrm/ui/pull/2598)
+
 ## [20.0.2] - 2023-03-01
 
 ### Changed
