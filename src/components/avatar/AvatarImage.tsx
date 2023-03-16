@@ -20,6 +20,8 @@ interface AvatarImageProps {
   onImageLoadFailure?: React.ReactEventHandler<HTMLImageElement>;
   /** The size of the avatar. */
   size: Exclude<typeof SIZES[number], 'fullscreen' | 'smallest'>;
+  /** How non-square images should be displayed. Default cover. */
+  objectFit?: 'cover' | 'contain';
 }
 
 const AvatarImage: GenericComponent<AvatarImageProps> = ({
@@ -30,6 +32,7 @@ const AvatarImage: GenericComponent<AvatarImageProps> = ({
   onImageChange,
   size,
   onImageLoadFailure,
+  objectFit = 'cover',
 }) => {
   const [displayAvatarOverlay, setDisplayAvatarOverlay] = useState(false);
 
@@ -51,7 +54,12 @@ const AvatarImage: GenericComponent<AvatarImageProps> = ({
       onMouseEnter={handleOnMouseEnter}
       onMouseLeave={handleOnMouseLeave}
     >
-      <img alt={imageAlt} onError={onImageLoadFailure} src={image} className={theme['image']} />
+      <img
+        alt={imageAlt}
+        onError={onImageLoadFailure}
+        src={image}
+        className={cx(theme['image'], { [theme['image--contain']]: objectFit === 'contain' })}
+      />
       {shouldShowAvatarOverlay && <AvatarOverlay onClick={onImageChange} size={size} />}
       {children && <div className={theme['children']}>{children}</div>}
     </div>
