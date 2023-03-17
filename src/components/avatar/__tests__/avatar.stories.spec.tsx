@@ -16,7 +16,10 @@ export const Main: ComponentStory<typeof Avatar> = () => (
     {(['tiny', 'small', 'medium', 'large', 'hero'] as const).map((size) => (
       <div key={size} style={{ marginBottom: '24px', display: 'flex' }}>
         <Wrapper>
-          <Avatar size={size} imageUrl={avatars[0].image} />
+          <Avatar size={size} imageUrl={avatars[0].image} shape="rounded" />
+        </Wrapper>
+        <Wrapper>
+          <Avatar size={size} imageUrl={avatars[0].image} shape="rounded" objectFit="contain" />
         </Wrapper>
         <Wrapper>
           <Avatar size={size} imageUrl={avatars[1].image} />

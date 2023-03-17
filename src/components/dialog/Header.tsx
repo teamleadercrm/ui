@@ -1,12 +1,13 @@
 import React, { ReactNode } from 'react';
 import { IconCloseMediumOutline } from '@teamleader/ui-icons';
 
-import Section from '../section';
 import IconButton from '../iconButton';
 import Icon from '../icon';
 
 import theme from './theme.css';
 import { GenericComponent } from '../../@types/types';
+import Box from '../box';
+import cx from 'classnames';
 
 export interface HeaderProps {
   /** The content to display inside the dialog. */
@@ -15,11 +16,25 @@ export interface HeaderProps {
   icon?: ReactNode;
   /** Callback function that is fired when the close icon clicked. */
   onCloseClick?: () => void;
+  /** A class name for the wrapper to give custom styles. */
+  className?: string;
 }
 
-const Header: GenericComponent<HeaderProps> = ({ icon, onCloseClick, children, ...rest }) => {
+const Header: GenericComponent<HeaderProps> = ({ icon, onCloseClick, children, className, ...rest }) => {
+  const classNames = cx(className, theme['header']);
+
   return (
-    <Section display="flex" alignItems="center" color="neutral" {...rest}>
+    <Box
+      display="flex"
+      alignItems="center"
+      padding={4}
+      backgroundColor="neutral"
+      backgroundTint="light"
+      borderBottomWidth={1}
+      borderTint="normal"
+      className={classNames}
+      {...rest}
+    >
       {icon && (
         <Icon color="teal" tint="darkest" marginRight={3}>
           {icon}
@@ -34,7 +49,7 @@ const Header: GenericComponent<HeaderProps> = ({ icon, onCloseClick, children, .
           className={theme['close-icon']}
         />
       )}
-    </Section>
+    </Box>
   );
 };
 

@@ -12,6 +12,44 @@
 
 ### Dependency updates
 
+## [20.1.0] - 2023-03-17
+
+### Added
+
+- `Avatar`: Added the objectFit prop to allow changing how rectangular images are displayed. ([@lorgan3](https://github.com/lorgan3)) in [#2598](https://github.com/teamleadercrm/ui/pull/2598)
+
+## [20.0.2] - 2023-03-01
+
+### Changed
+
+- `Bullet`: Changed `Mint` color to be one tint lighter (normal/300). ([@driesd](https://github.com/driesd) in [#2583](https://github.com/teamleadercrm/ui/pull/2583))
+
+## [20.0.1] - 2023-02-28
+
+### Fixed
+
+- `DataGrid` Avoid error when hovering over a row. ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2582](https://github.com/teamleadercrm/ui/pull/2582)
+
+## [20.0.0] - 2023-02-27
+
+### Changed
+
+- Focus states are now styled through `:focus-visible` instead of `:focus`. ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2575](https://github.com/teamleadercrm/ui/pull/2575)
+
+### Fixed
+
+- `Toggle`: the component is now focusable. ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2575](https://github.com/teamleadercrm/ui/pull/2575)
+- `Link` and `MarketingLink`: fixed the focus state styling. ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2576](https://github.com/teamleadercrm/ui/pull/2576)
+
+### Removed
+
+- [BREAKING] `Label`: Remove option for 'tiny' label size ([@JorenSaeyTL](https://github.com/JorenSaeyTL)) in ([#2560](https://github.com/teamleadercrm/ui/pull/2560))
+- [BREAKING] `Section`: removed the component and replaced the instances with either a `Box` or a full-width `Banner` ([@farazatarodi](https://github.com/farazatarodi) in [#2558](https://github.com/teamleadercrm/ui/pull/2558))
+
+### Dependency updates
+
+- `postcss-preset-env`: bump peer dependency expectation to `^8.0.0`, otherwise the `:focus-visible` styling will not be included. ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2575](https://github.com/teamleadercrm/ui/pull/2575)
+
 ## [19.1.1] - 2023-02-03
 
 ### Fixed

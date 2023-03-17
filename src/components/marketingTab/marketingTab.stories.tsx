@@ -32,4 +32,5 @@ Basic.args = {
   active: false,
   children: 'Marketing tab',
   href: 'https://www.teamleader.eu',
+  element: 'a',
 };

@@ -30,6 +30,8 @@ export interface AvatarProps extends Omit<BoxProps, 'size' | 'ref'> {
   editable?: boolean;
   /** The image url to show as an avatar. */
   imageUrl?: string;
+  /** How non-square images should be displayed. Default cover. */
+  objectFit?: 'cover' | 'contain';
   /** When no image available, avatar initials will be based on this string. */
   fullName?: string;
   /** Expects a uuid to determine the avatar initials background color. */
@@ -54,7 +56,16 @@ export interface AvatarProps extends Omit<BoxProps, 'size' | 'ref'> {
 
 type AvatarInternalComponentProps = { size: Exclude<typeof SIZES[number], 'fullscreen' | 'smallest'> } & Pick<
   AvatarProps,
-  'creatable' | 'children' | 'editable' | 'imageUrl' | 'fullName' | 'id' | 'onImageChange' | 'selected' | 'team'
+  | 'creatable'
+  | 'children'
+  | 'editable'
+  | 'imageUrl'
+  | 'objectFit'
+  | 'fullName'
+  | 'id'
+  | 'onImageChange'
+  | 'selected'
+  | 'team'
 >;
 
 const AvatarInternalComponent: GenericComponent<AvatarInternalComponentProps> = ({
@@ -68,6 +79,7 @@ const AvatarInternalComponent: GenericComponent<AvatarInternalComponentProps> = 
   selected,
   size,
   team,
+  objectFit,
 }) => {
   const [failedToLoadImage, setFailedToLoadImage] = useState(false);
   const handleImageLoadFailure = () => {
@@ -108,6 +120,7 @@ const AvatarInternalComponent: GenericComponent<AvatarInternalComponentProps> = 
         onImageChange={onImageChange}
         onImageLoadFailure={handleImageLoadFailure}
         size={size}
+        objectFit={objectFit}
       >
         {childrenToRender}
       </AvatarImage>
@@ -140,6 +153,7 @@ const Avatar = ({
   id,
   onImageChange,
   team,
+  objectFit,
   tooltipProps,
   ...others
 }: AvatarProps) => {
@@ -184,6 +198,7 @@ const Avatar = ({
         selected={selected}
         size={size}
         team={team}
+        objectFit={objectFit}
       >
         {children}
       </AvatarInternalComponent>

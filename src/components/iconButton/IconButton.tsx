@@ -30,10 +30,6 @@ export interface IconButtonProps extends Omit<BoxProps, 'ref' | 'children' | 'cl
   selected?: boolean;
   /** Type of the button element. */
   type?: string;
-  /** Callback function that is fired when the mouse button is released. */
-  onMouseUp?: (e: React.MouseEvent) => void;
-  /** Callback function that is fired when mouse leaves the component. */
-  onMouseLeave?: (e: React.MouseEvent) => void;
   /** If true, component will show a loading spinner instead of icon or children. */
   processing?: boolean;
 }
@@ -51,8 +47,6 @@ const IconButton: GenericComponent<IconButtonProps> = forwardRef<HTMLElement, Ic
       tint = 'darkest',
       selected,
       type = 'button',
-      onMouseUp,
-      onMouseLeave,
       processing = false,
       ...others
     }: IconButtonProps,
@@ -60,27 +54,6 @@ const IconButton: GenericComponent<IconButtonProps> = forwardRef<HTMLElement, Ic
   ) => {
     const buttonRef = useRef<HTMLElement>(null);
     useImperativeHandle<HTMLElement | null, HTMLElement | null>(ref, () => buttonRef.current);
-
-    const blur = () => {
-      const currentButtonRef = buttonRef.current;
-      if (currentButtonRef?.blur) {
-        currentButtonRef.blur();
-      }
-    };
-
-    const handleMouseUp = (event: React.MouseEvent) => {
-      blur();
-      if (onMouseUp) {
-        onMouseUp(event);
-      }
-    };
-
-    const handleMouseLeave = (event: React.MouseEvent) => {
-      blur();
-      if (onMouseLeave) {
-        onMouseLeave(event);
-      }
-    };
 
     const classNames = cx(
       buttonTheme['button-base'],
@@ -100,8 +73,6 @@ const IconButton: GenericComponent<IconButtonProps> = forwardRef<HTMLElement, Ic
       className: classNames,
       disabled: element === 'button' ? disabled : undefined,
       element,
-      onMouseUp: handleMouseUp,
-      onMouseLeave: handleMouseLeave,
       type: element === 'button' ? type : undefined,
       'data-teamleader-ui': 'icon-button',
     };

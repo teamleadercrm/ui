@@ -1,4 +1,4 @@
-import React, { useRef, forwardRef, useImperativeHandle, ReactNode, MouseEvent } from 'react';
+import React, { useRef, forwardRef, useImperativeHandle, ReactNode } from 'react';
 import cx from 'classnames';
 import Box from '../box';
 import { TextSmall } from '../typography';
@@ -21,10 +21,6 @@ export interface PoweredByButtonProps extends Omit<BoxProps, 'className' | 'chil
   shape?: 'pill' | 'box';
   /** Button tint. Light for dark backgrounds and dark for light backgrounds. */
   tint?: 'dark' | 'light';
-  /** Callback function that is fired when mouse leaves the component. */
-  onMouseLeave?: (event: MouseEvent<HTMLElement>) => void;
-  /** Callback function that is fired when the mouse button is released. */
-  onMouseUp?: (event: MouseEvent<HTMLElement>) => void;
 }
 
 const PoweredByButton: GenericComponent<PoweredByButtonProps> = forwardRef<HTMLElement, PoweredByButtonProps>(
@@ -35,8 +31,6 @@ const PoweredByButton: GenericComponent<PoweredByButtonProps> = forwardRef<HTMLE
       tint = 'dark',
       shape = 'pill',
       label = 'text-and-logo',
-      onMouseUp,
-      onMouseLeave,
       className,
       ...rest
     },
@@ -44,27 +38,6 @@ const PoweredByButton: GenericComponent<PoweredByButtonProps> = forwardRef<HTMLE
   ) => {
     const buttonRef = useRef<HTMLElement>(null);
     useImperativeHandle<HTMLElement | null, HTMLElement | null>(ref, () => buttonRef.current);
-
-    const blur = () => {
-      const currentButtonRef = buttonRef.current;
-      if (currentButtonRef?.blur) {
-        currentButtonRef.blur();
-      }
-    };
-
-    const handleMouseUp = (event: MouseEvent<HTMLElement>) => {
-      blur();
-      if (onMouseUp) {
-        onMouseUp(event);
-      }
-    };
-
-    const handleMouseLeave = (event: MouseEvent<HTMLElement>) => {
-      blur();
-      if (onMouseLeave) {
-        onMouseLeave(event);
-      }
-    };
 
     const classNames = cx(
       theme['reset-box-sizing'],
@@ -86,8 +59,6 @@ const PoweredByButton: GenericComponent<PoweredByButtonProps> = forwardRef<HTMLE
         target="_blank"
         rel="noopener noreferrer"
         className={classNames}
-        onMouseUp={handleMouseUp}
-        onMouseLeave={handleMouseLeave}
         ref={buttonRef}
         {...rest}
       >

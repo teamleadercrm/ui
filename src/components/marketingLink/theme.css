@@ -18,8 +18,8 @@
     text-decoration: none;
   }
 
-  &:focus {
-    outline: var(--color-marketing-violet-light) auto 3px;
+  &:focus-visible {
+    outline: 2px solid var(--color-marketing-violet);
   }
 
   &:active {

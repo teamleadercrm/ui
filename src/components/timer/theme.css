@@ -15,7 +15,7 @@
     background-color: hsl(var(--color-neutral-darkest-hsl), 12%);
     border: 1px solid hsl(var(--color-neutral-darkest-hsl), 12%);
 
-    &:focus {
+    &:focus-visible {
       background-color: hsl(var(--color-neutral-darkest-hsl), 12%);
       border-color: hsl(var(--color-neutral-darkest-hsl), 24%);
       box-shadow: 0 0 0 1px hsl(var(--color-neutral-darkest-hsl), 24%);
@@ -35,7 +35,7 @@
     background-color: hsl(var(--color-violet-darkest-hsl), 12%);
     border: 1px solid hsl(var(--color-violet-darkest-hsl), 12%);
 
-    &:focus {
+    &:focus-visible {
       background-color: hsl(var(--color-violet-darkest-hsl), 12%);
       border-color: hsl(var(--color-violet-darkest-hsl), 24%);
       box-shadow: 0 0 0 1px hsl(var(--color-violet-darkest-hsl), 24%);

@@ -44,14 +44,7 @@ const Toggle: GenericComponent<ToggleProps> = ({
   const boxProps = pickBoxProps(others);
   const inputProps = omitBoxProps(others);
 
-  const blur = () => {
-    if (ref.current) {
-      ref.current.blur();
-    }
-  };
-
   const handleToggle = (event: ChangeEvent<HTMLInputElement>) => {
-    blur();
     if (!disabled && onChange) {
       onChange(event);
     }
@@ -73,7 +66,6 @@ const Toggle: GenericComponent<ToggleProps> = ({
       <input
         className={theme['input']}
         type="checkbox"
-        hidden
         checked={checked}
         disabled={disabled}
         onChange={handleToggle}

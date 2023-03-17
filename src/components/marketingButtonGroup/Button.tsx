@@ -15,39 +15,14 @@ export interface ButtonProps extends Omit<BoxProps, 'ref'> {
   active?: boolean;
   /** The textual label displayed inside the button. */
   label?: number | string;
-  /** Callback function that is fired when mouse leaves the component. */
-  onMouseLeave?: (event: React.MouseEvent) => void;
-  /** Callback function that is fired when the mouse button is released. */
-  onMouseUp?: (event: React.MouseEvent) => void;
   /** Button value in case it's being in a button group. */
   value?: string;
 }
 
 const Button: GenericComponent<ButtonProps> = forwardRef<HTMLElement, ButtonProps>(
-  ({ onMouseUp, onMouseLeave, children, className = '', active, label, ...others }, ref) => {
+  ({ children, className = '', active, label, ...others }, ref) => {
     const buttonRef = useRef<HTMLElement>(null);
     useImperativeHandle<HTMLElement | null, HTMLElement | null>(ref, () => buttonRef.current);
-
-    const blur = () => {
-      const currentButtonRef = buttonRef.current;
-      if (currentButtonRef) {
-        currentButtonRef.blur();
-      }
-    };
-
-    const handleMouseUp = (event: React.MouseEvent) => {
-      blur();
-      if (onMouseUp) {
-        onMouseUp(event);
-      }
-    };
-
-    const handleMouseLeave = (event: React.MouseEvent) => {
-      blur();
-      if (onMouseLeave) {
-        onMouseLeave(event);
-      }
-    };
 
     const classNames = cx(
       theme['reset-box-sizing'],
@@ -65,8 +40,6 @@ const Button: GenericComponent<ButtonProps> = forwardRef<HTMLElement, ButtonProp
       ref: buttonRef,
       className: classNames,
       element: 'button' as React.ElementType,
-      onMouseUp: handleMouseUp,
-      onMouseLeave: handleMouseLeave,
       'data-teamleader-ui': 'button',
     };
 

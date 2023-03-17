@@ -54,7 +54,7 @@
   }
 
   &:active,
-  &:focus {
+  &:focus-visible {
     box-shadow: inset 0px 2px 3px hsl(var(--color-black-hsl), 24%);
   }
 
