@@ -1,6 +1,3 @@
-@import '@teamleader/ui-colors';
-@import '@teamleader/ui-utilities';
-
 :root {
   --menu-item-background: var(--color-neutral-lightest);
   --menu-item-hover-background: var(--color-neutral-light);

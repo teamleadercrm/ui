@@ -1,7 +1,3 @@
-@import '@teamleader/ui-colors';
-@import '@teamleader/ui-animations';
-@import '@teamleader/ui-utilities';
-
 :root {
   --scroll-button-size: 48px;
 }

@@ -1,5 +1,3 @@
-@import '@teamleader/ui-utilities';
-
 .container {
   min-width: 1056px;
   padding-left: var(--spacer-big);

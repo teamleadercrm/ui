@@ -1,8 +1,3 @@
-@import '@teamleader/ui-animations';
-@import '@teamleader/ui-colors';
-@import '@teamleader/ui-typography';
-@import '@teamleader/ui-utilities';
-
 :root {
   --button-border-radius: calc(0.4 * var(--unit));
 }

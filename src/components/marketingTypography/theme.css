@@ -1,6 +1,3 @@
-@import '@teamleader/ui-colors';
-@import '@teamleader/ui-typography';
-
 .heading-1,
 .heading-2 {
   color: var(--color-teal-darkest);
