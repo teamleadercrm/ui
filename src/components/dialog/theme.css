@@ -1,7 +1,3 @@
-@import '@teamleader/ui-animations';
-@import '@teamleader/ui-colors';
-@import '@teamleader/ui-utilities';
-
 :root {
   --dialog-background-color: var(--color-white);
   --dialog-border-radius: calc(0.4 * var(--unit));

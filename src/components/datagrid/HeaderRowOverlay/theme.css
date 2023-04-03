@@ -1,6 +1,3 @@
-@import '@teamleader/ui-colors';
-@import '@teamleader/ui-typography';
-
 .header-row-overlay {
   background: var(--color-neutral-light);
   position: absolute;

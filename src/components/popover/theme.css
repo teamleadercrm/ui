@@ -1,7 +1,3 @@
-@import '@teamleader/ui-animations';
-@import '@teamleader/ui-colors';
-@import '@teamleader/ui-utilities';
-
 :root {
   --popover-border-radius: calc(0.4 * var(--unit));
   --popover-box-shadow: 0 0 0 1px hsl(var(--color-teal-dark-hsl), 20%);

@@ -1,7 +1,3 @@
-@import '@teamleader/ui-colors';
-@import '@teamleader/ui-typography';
-@import '@teamleader/ui-utilities';
-
 :root {
   --overflow-padding-horizontal: 8px;
   --stacked-avatars-spacing: 12px;

@@ -1,7 +1,3 @@
-@import '@teamleader/ui-animations';
-@import '@teamleader/ui-colors';
-@import '@teamleader/ui-utilities';
-
 :root {
   --menu-expand-duration: 0.3s;
   --menu-fade-duration: 0.2s;

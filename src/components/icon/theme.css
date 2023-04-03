@@ -1,5 +1,3 @@
-@import '@teamleader/ui-colors';
-
 .neutral {
   &.lightest {
     color: var(--color-neutral-lightest);

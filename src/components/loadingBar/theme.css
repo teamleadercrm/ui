@@ -1,7 +1,3 @@
-@import '@teamleader/ui-animations';
-@import '@teamleader/ui-colors';
-@import '@teamleader/ui-utilities';
-
 @keyframes slideOut {
   to {
     transform: translate3d(650%, 0, 0);
