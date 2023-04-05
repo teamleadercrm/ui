@@ -152,7 +152,7 @@ const Menu = <S,>({
       document.documentElement.addEventListener('click', handleDocumentClick);
 
       return () => {
-        active && document.documentElement.removeEventListener('click', handleDocumentClick);
+        document.documentElement.removeEventListener('click', handleDocumentClick);
       };
     }
   }, [active]);
