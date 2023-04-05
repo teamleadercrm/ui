@@ -65,7 +65,6 @@ const Menu = <S,>({
   const [positionState, setPositionState] = useState<Position>(position);
 
   const menuRef = useRef<HTMLUListElement>(null);
-  const menuWrapperRef = useRef<HTMLElement>(null);
 
   const boxProps = pickBoxProps(others);
   const classNames = cx(
@@ -108,7 +107,7 @@ const Menu = <S,>({
   };
 
   const calculatePosition = () => {
-    const parentNode = menuWrapperRef?.current?.parentNode as HTMLElement;
+    const parentNode = menuRef?.current?.parentNode as HTMLElement;
 
     if (!parentNode) {
       return 'static';
@@ -163,10 +162,8 @@ const Menu = <S,>({
   }, [active]);
 
   return active ? (
-    <Box data-teamleader-ui="menu" className={classNames} ref={menuWrapperRef} {...boxProps}>
-      <ul ref={menuRef} className={innerClassNames}>
-        {getItems()}
-      </ul>
+    <Box data-teamleader-ui="menu" className={classNames} ref={menuRef} {...boxProps}>
+      <ul className={innerClassNames}>{getItems()}</ul>
     </Box>
   ) : null;
 };
