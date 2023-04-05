@@ -72,14 +72,11 @@ const Menu = <S,>({
     theme[positionState],
     {
       [theme['active']]: active,
+      [theme['outline']]: outline,
+      [theme['shadow']]: positionState !== POSITION.STATIC,
     },
     className,
   );
-
-  const innerClassNames = cx(theme['menu-inner'], {
-    [theme['outline']]: outline,
-    [theme['shadow']]: positionState !== POSITION.STATIC,
-  });
 
   const handleDocumentClick = (event: Event) => {
     const clickedNode = event.target as HTMLElement;
@@ -163,7 +160,7 @@ const Menu = <S,>({
 
   return active ? (
     <Box data-teamleader-ui="menu" className={classNames} ref={menuRef} {...others}>
-      <ul className={innerClassNames}>{getItems()}</ul>
+      <ul className={theme['menu-inner']}>{getItems()}</ul>
     </Box>
   ) : null;
 };
