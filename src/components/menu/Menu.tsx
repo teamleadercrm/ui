@@ -1,4 +1,3 @@
-import uiUtilities from '@teamleader/ui-utilities';
 import cx from 'classnames';
 import React, {
   ReactElement,
@@ -81,8 +80,10 @@ const Menu = <S,>({
     },
     className,
   );
-  const outlineClassNames = cx(theme['outline'], {
-    [uiUtilities['box-shadow-200']]: position !== POSITION.STATIC,
+
+  const innerClassNames = cx(theme['menu-inner'], {
+    [theme['outline']]: outline,
+    [theme['shadow']]: position !== POSITION.STATIC,
   });
 
   const handleDocumentClick = (event: Event) => {
@@ -148,29 +149,6 @@ const Menu = <S,>({
     }
   };
 
-  const getActiveMenuStyle = () => {
-    return { clip: `rect(0 ${stateWidth}px ${stateHeight}px 0)` };
-  };
-
-  const getMenuStyleByPosition = () => {
-    switch (statePosition) {
-      case POSITION.TOP_RIGHT:
-        return { clip: `rect(0 ${stateWidth}px 0 ${stateWidth}px)` };
-      case POSITION.BOTTOM_RIGHT:
-        return { clip: `rect(${stateHeight}px ${stateWidth}px ${stateHeight}px ${stateWidth}px)` };
-      case POSITION.BOTTOM_LEFT:
-        return { clip: `rect(${stateHeight}px 0 ${stateHeight}px 0)` };
-      case POSITION.TOP_LEFT:
-        return { clip: 'rect(0 0 0 0)' };
-      default:
-        return {};
-    }
-  };
-
-  const getMenuStyle = () => {
-    return active ? getActiveMenuStyle() : getMenuStyleByPosition();
-  };
-
   const getItems = useCallback(() => {
     return React.Children.map(children, (item: ReactNode) => {
       if (!item) {
@@ -223,13 +201,7 @@ const Menu = <S,>({
 
   return (
     <Box data-teamleader-ui="menu" className={classNames} ref={menuWrapper} style={getRootStyle()} {...boxProps}>
-      {outline && (
-        <div
-          className={outlineClassNames}
-          style={{ ...(stateWidth && { width: Math.ceil(stateWidth) }), height: stateHeight }}
-        />
-      )}
-      <ul ref={menuNode} className={theme['menu-inner']} style={getMenuStyle()}>
+      <ul ref={menuNode} className={innerClassNames}>
         {/* An invisible element so the first element doesn't look like its selected or focused */}
         <Box className={theme['invisible-menu-item']} data-teamleader-ui="menu-item" element="li">
           <Box element="button" />

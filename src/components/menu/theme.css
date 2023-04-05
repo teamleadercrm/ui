@@ -8,7 +8,6 @@
   --menu-background-color: var(--color-white);
   --menu-padding: calc(0.6 * var(--unit)) 0;
   --menu-outline-border-radius: var(--border-radius-medium);
-  --menu-outline-box-shadow: 0 0 0 1px hsl(var(--color-teal-darkest-hsl), 24%);
   --menu-position-spacing: 4px; /* Spacing of 3px + 1px outline border */
   --menu-icon-button-height: 30px;
   --menu-item-background: var(--color-neutral-lightest);
@@ -118,11 +117,15 @@
 .outline {
   background-color: var(--menu-background-color);
   border-radius: var(--menu-outline-border-radius);
-  box-shadow: var(--menu-outline-box-shadow);
+  border: 1px solid var(--color-neutral-dark);
   display: block;
   left: 0;
   position: absolute;
   top: 0;
+}
+
+.shadow {
+  box-shadow: var(--box-shadow-200);
 }
 
 .menu-inner {
