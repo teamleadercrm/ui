@@ -165,10 +165,6 @@ const Menu = <S,>({
   return active ? (
     <Box data-teamleader-ui="menu" className={classNames} ref={menuWrapperRef} {...boxProps}>
       <ul ref={menuRef} className={innerClassNames}>
-        {/* An invisible element so the first element doesn't look like its selected or focused */}
-        <Box className={theme['invisible-menu-item']} data-teamleader-ui="menu-item" element="li">
-          <Box element="button" />
-        </Box>
         {getItems()}
       </ul>
     </Box>
