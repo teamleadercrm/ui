@@ -68,7 +68,6 @@
   }
 
   &:not(.static) {
-    pointer-events: none;
     z-index: 500;
 
     & > .outline {
@@ -92,17 +91,13 @@
       white-space: nowrap;
     }
 
-    &.active {
-      pointer-events: all;
+    & > .outline {
+      opacity: 1;
+      transform: scale(1);
+    }
 
-      & > .outline {
-        opacity: 1;
-        transform: scale(1);
-      }
-
-      & > .menu-inner {
-        opacity: 1;
-      }
+    & > .menu-inner {
+      opacity: 1;
     }
   }
 }

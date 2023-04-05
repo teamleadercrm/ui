@@ -71,7 +71,6 @@ const Menu = <S,>({
     theme['menu'],
     theme[positionState],
     {
-      [theme['active']]: active,
       [theme['outline']]: outline,
       [theme['shadow']]: positionState !== POSITION.STATIC,
     },
