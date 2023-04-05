@@ -115,7 +115,7 @@
 .outline {
   background-color: var(--menu-background-color);
   border-radius: var(--menu-outline-border-radius);
-  border: 1px solid var(--color-neutral-dark);
+  border: 1px solid var(--color-neutral);
   display: block;
   left: 0;
   position: absolute;
