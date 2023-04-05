@@ -11,7 +11,7 @@ import React, {
   useState,
 } from 'react';
 
-import Box, { pickBoxProps } from '../box';
+import Box from '../box';
 import { BoxProps } from '../box/Box';
 import MarketingMenuItem from '../marketingMenuItem';
 import isComponentOfType from '../utils/is-component-of-type';
@@ -31,6 +31,7 @@ const POSITION: Record<string, 'auto' | 'static' | 'top-left' | 'top-right' | 'b
 export interface MenuProps<S = any> extends Omit<BoxProps, 'children' | 'className'> {
   /** If true, the menu will be active. */
   active?: boolean;
+  /** Function to set active state. */
   setActive?: Dispatch<SetStateAction<boolean>>;
   /** The content to display inside the menu. */
   children?: ReactNode;
@@ -66,7 +67,6 @@ const Menu = <S,>({
 
   const menuRef = useRef<HTMLUListElement>(null);
 
-  const boxProps = pickBoxProps(others);
   const classNames = cx(
     theme['menu'],
     theme[positionState],
@@ -162,7 +162,7 @@ const Menu = <S,>({
   }, [active]);
 
   return active ? (
-    <Box data-teamleader-ui="menu" className={classNames} ref={menuRef} {...boxProps}>
+    <Box data-teamleader-ui="menu" className={classNames} ref={menuRef} {...others}>
       <ul className={innerClassNames}>{getItems()}</ul>
     </Box>
   ) : null;
