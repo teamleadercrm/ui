@@ -1,14 +1,5 @@
 import cx from 'classnames';
-import React, {
-  ReactElement,
-  ReactNode,
-  SyntheticEvent,
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from 'react';
+import React, { ReactElement, ReactNode, SyntheticEvent, useCallback, useEffect, useRef, useState } from 'react';
 
 import Box, { pickBoxProps } from '../box';
 import { BoxProps } from '../box/Box';
@@ -51,6 +42,8 @@ export interface MenuProps<S = any> extends Omit<BoxProps, 'children' | 'classNa
   selected?: S;
 }
 
+type Position = Exclude<MenuProps['position'], undefined>;
+
 const Menu = <S,>({
   active = false,
   children,
@@ -64,9 +57,7 @@ const Menu = <S,>({
   selected,
   ...others
 }: MenuProps<S>): ReactElement<any, any> | null => {
-  const [stateWidth, setStateWidth] = useState<number | undefined>(0);
-  const [stateHeight, setStateHeight] = useState<number | undefined>(0);
-  const [statePosition, setPosition] = useState<string | undefined>(position);
+  const [positionState, setPositionState] = useState<Position>(position);
 
   const menuNode = useRef<HTMLUListElement>(null);
   const menuWrapper = useRef<HTMLElement>(null);
@@ -74,7 +65,7 @@ const Menu = <S,>({
   const boxProps = pickBoxProps(others);
   const classNames = cx(
     theme['menu'],
-    theme[position],
+    theme[positionState],
     {
       [theme['active']]: active,
     },
@@ -83,7 +74,7 @@ const Menu = <S,>({
 
   const innerClassNames = cx(theme['menu-inner'], {
     [theme['outline']]: outline,
-    [theme['shadow']]: position !== POSITION.STATIC,
+    [theme['shadow']]: positionState !== POSITION.STATIC,
   });
 
   const handleDocumentClick = (event: Event) => {
@@ -131,7 +122,7 @@ const Menu = <S,>({
     const parentNode = menuWrapper?.current?.parentNode as HTMLElement;
 
     if (!parentNode) {
-      return;
+      return 'static';
     }
 
     const { top, left, height, width } = parentNode.getBoundingClientRect();
@@ -140,7 +131,7 @@ const Menu = <S,>({
     const toTop = top < vh / 2 - height / 2;
     const toLeft = left < vw / 2 - width / 2;
 
-    return `${toTop ? 'top' : 'bottom'}${toLeft ? 'Left' : 'Right'}`;
+    return `${toTop ? 'top' : 'bottom'}-${toLeft ? 'left' : 'right'}` as Position;
   };
 
   const getItems = useCallback(() => {
@@ -172,13 +163,6 @@ const Menu = <S,>({
     removeEvents();
   };
 
-  useLayoutEffect(() => {
-    const { width, height } = menuNode.current?.getBoundingClientRect() || {};
-
-    setStateWidth(width);
-    setStateHeight(height);
-  }, [menuNode.current?.getBoundingClientRect()]);
-
   useEffect(() => {
     active ? show() : hide();
 
@@ -189,9 +173,9 @@ const Menu = <S,>({
 
   useEffect(() => {
     if (position === POSITION.AUTO) {
-      setPosition(calculatePosition());
+      setPositionState(calculatePosition());
     }
-  }, [position]);
+  }, []);
 
   return (
     <Box data-teamleader-ui="menu" className={classNames} ref={menuWrapper} {...boxProps}>
