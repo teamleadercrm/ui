@@ -143,12 +143,6 @@ const Menu = <S,>({
     return `${toTop ? 'top' : 'bottom'}${toLeft ? 'Left' : 'Right'}`;
   };
 
-  const getRootStyle = () => {
-    if (statePosition !== POSITION.STATIC) {
-      return { width: stateWidth, height: stateHeight };
-    }
-  };
-
   const getItems = useCallback(() => {
     return React.Children.map(children, (item: ReactNode) => {
       if (!item) {
@@ -200,7 +194,7 @@ const Menu = <S,>({
   }, [position]);
 
   return (
-    <Box data-teamleader-ui="menu" className={classNames} ref={menuWrapper} style={getRootStyle()} {...boxProps}>
+    <Box data-teamleader-ui="menu" className={classNames} ref={menuWrapper} {...boxProps}>
       <ul ref={menuNode} className={innerClassNames}>
         {/* An invisible element so the first element doesn't look like its selected or focused */}
         <Box className={theme['invisible-menu-item']} data-teamleader-ui="menu-item" element="li">

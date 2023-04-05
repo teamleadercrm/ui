@@ -24,7 +24,6 @@
 }
 
 .menu {
-  width: 100%;
   display: inline-block;
   position: relative;
 
@@ -87,7 +86,6 @@
       margin: 0;
       opacity: 0;
       overflow: hidden;
-      position: absolute;
       top: 0;
       transition: opacity var(--menu-fade-duration) var(--animation-curve-default),
         clip var(--menu-expand-duration) var(--animation-curve-default);
