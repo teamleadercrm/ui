@@ -67,7 +67,7 @@ const Menu = <S,>({
 }: MenuProps<S>): ReactElement<any, any> | null => {
   const [positionState, setPositionState] = useState<Position>(position);
   const [calculatedPosition, setCalculatedPosition] = useState({});
-
+  const [maxHeight, setMaxHeight] = useState<number>();
   const menuRef = useRef<HTMLUListElement>(null);
 
   const localActive = active || positionState === POSITION.STATIC;
@@ -128,7 +128,6 @@ const Menu = <S,>({
     if (anchorElement && menuRef.current) {
       const { height } = anchorElement.getBoundingClientRect();
       const { height: menuHeight } = menuRef.current.getBoundingClientRect();
-      console.log(menuHeight);
 
       if (positionState === POSITION.TOP_LEFT) {
         return {
@@ -160,6 +159,21 @@ const Menu = <S,>({
     }
     return {};
   }, [anchorElement, positionState]);
+
+  const calculateMaxHeight = useCallback(() => {
+    if (menuRef.current) {
+      const { top, height } = menuRef.current.getBoundingClientRect();
+      const { height: viewportHeight } = getViewport();
+
+      if (positionState === POSITION.TOP_LEFT || positionState === POSITION.TOP_RIGHT) {
+        return viewportHeight - top;
+      }
+
+      if (positionState === POSITION.BOTTOM_LEFT || positionState === POSITION.BOTTOM_RIGHT) {
+        return top + height;
+      }
+    }
+  }, [positionState]);
 
   const renderItems = useCallback(() => {
     return React.Children.map(children, (item: ReactNode) => {
@@ -197,12 +211,15 @@ const Menu = <S,>({
 
     if (position !== POSITION.STATIC) {
       setCalculatedPosition(calculatePosition());
+      setMaxHeight(calculateMaxHeight());
     }
-  }, [active, anchorElement, calculatePosition, position]);
+  }, [active, anchorElement, calculateMaxHeight, calculatePosition, maxHeight, position]);
 
   return localActive ? (
     <Box data-teamleader-ui="menu" className={classNames} ref={menuRef} style={calculatedPosition} {...others}>
-      <ul className={theme['menu-inner']}>{renderItems()}</ul>
+      <ul className={theme['menu-inner']} style={{ maxHeight }}>
+        {renderItems()}
+      </ul>
     </Box>
   ) : null;
 };
