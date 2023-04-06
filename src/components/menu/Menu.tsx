@@ -7,6 +7,7 @@ import React, {
   SyntheticEvent,
   useCallback,
   useEffect,
+  useLayoutEffect,
   useRef,
   useState,
 } from 'react';
@@ -144,16 +145,18 @@ const Menu = <S,>({
   }, []);
 
   useEffect(() => {
-    if (position === POSITION.AUTO) {
-      setPositionState(calculatePosition());
-    }
-
     if (position !== POSITION.STATIC && active) {
       document.documentElement.addEventListener('click', handleDocumentClick);
 
       return () => {
         document.documentElement.removeEventListener('click', handleDocumentClick);
       };
+    }
+  }, [active]);
+
+  useLayoutEffect(() => {
+    if (position === POSITION.AUTO) {
+      setPositionState(calculatePosition());
     }
   }, [active]);
 
