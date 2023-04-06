@@ -3,13 +3,6 @@
 @import '@teamleader/ui-utilities';
 
 :root {
-  --menu-expand-duration: 0.3s;
-  --menu-fade-duration: 0.1s;
-  --menu-padding: calc(0.6 * var(--unit)) 0;
-  --menu-outline-border-radius: var(--border-radius-medium);
-  --menu-position-spacing: 4px; /* Spacing of 3px + 1px outline border */
-  --menu-icon-button-height: 30px;
-  --menu-item-background: var(--color-neutral-lightest);
   --menu-item-hover-background: var(--color-neutral-light);
   --menu-item-selected-background: var(--color-aqua-lightest);
   --menu-item-height: calc(3.6 * var(--unit));
@@ -26,14 +19,14 @@
   display: inline-block;
   position: relative;
   background-color: var(--color-white);
-  border-radius: var(--menu-outline-border-radius);
-  padding: var(--menu-padding);
+  border-radius: var(--border-radius-medium);
+  padding: calc(0.6 * var(--unit)) 0;
 
   &:not(.static) {
     position: absolute;
     z-index: 500;
     white-space: nowrap;
-    animation: fadein var(--menu-fade-duration) linear;
+    animation: fadein 0.1s linear;
   }
 }
 
@@ -44,11 +37,6 @@
   100% {
     opacity: 1;
   }
-}
-
-.invisible-menu-item {
-  opacity: 0;
-  height: 0;
 }
 
 .outline {
