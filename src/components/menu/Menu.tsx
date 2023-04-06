@@ -82,30 +82,37 @@ const Menu = <S,>({
     className,
   );
 
-  const handleDocumentClick = (event: Event) => {
-    const clickedNode = event.target as HTMLElement;
-    const menuNode = menuRef.current;
-    if (clickedNode !== menuNode && clickedNode.contains(menuNode)) {
-      onInactive && onInactive();
-    }
-  };
+  const handleDocumentClick = useCallback(
+    (event: Event) => {
+      const clickedNode = event.target as HTMLElement;
+      const menuNode = menuRef.current;
 
-  const handleSelect = (item: ReactElement, event: SyntheticEvent) => {
-    const { value, onClick } = item.props;
+      if (clickedNode !== menuNode && clickedNode.contains(menuNode)) {
+        onInactive && onInactive();
+      }
+    },
+    [onInactive],
+  );
 
-    if (onSelect) {
-      onSelect(value);
-    }
+  const handleSelect = useCallback(
+    (item: ReactElement, event: SyntheticEvent) => {
+      const { value, onClick } = item.props;
 
-    if (onClick) {
-      event.persist();
-      onClick(event);
-    }
+      if (onSelect) {
+        onSelect(value);
+      }
 
-    if (position !== POSITION.STATIC) {
-      onInactive && onInactive();
-    }
-  };
+      if (onClick) {
+        event.persist();
+        onClick(event);
+      }
+
+      if (position !== POSITION.STATIC) {
+        onInactive && onInactive();
+      }
+    },
+    [onInactive, onSelect, position],
+  );
 
   const calculateAutoPosition = (anchorElement: HTMLElement) => {
     const { top, left, height, width } = anchorElement.getBoundingClientRect();
@@ -171,7 +178,7 @@ const Menu = <S,>({
         return React.cloneElement(item);
       }
     });
-  }, [children]);
+  }, [children, handleSelect, selectable, selected]);
 
   useEffect(() => {
     if (position !== POSITION.STATIC && active) {
@@ -181,7 +188,7 @@ const Menu = <S,>({
         document.documentElement.removeEventListener('click', handleDocumentClick);
       };
     }
-  }, [active]);
+  }, [active, handleDocumentClick, position]);
 
   useLayoutEffect(() => {
     if (position === POSITION.AUTO && anchorElement && active) {
