@@ -3,24 +3,12 @@
 exports[`Component - Menu renders 1`] = `
 <DocumentFragment>
   <div
-    class="box menu static active"
+    class="box menu static outline"
     data-teamleader-ui="menu"
   >
-    <div
-      class="outline"
-      style="height: 0px;"
-    />
     <ul
       class="menu-inner"
     >
-      <li
-        class="box invisible-menu-item"
-        data-teamleader-ui="menu-item"
-      >
-        <button
-          class="box"
-        />
-      </li>
       <li
         class="box display-flex"
         data-teamleader-ui="menu-item"
