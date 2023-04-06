@@ -29,31 +29,8 @@
   border-radius: var(--menu-outline-border-radius);
   padding: var(--menu-padding);
 
-  &.top-left {
-    left: 1px;
-    position: absolute;
-    top: calc(var(--menu-icon-button-height) + var(--menu-position-spacing));
-  }
-
-  &.top-right {
-    position: absolute;
-    right: 1px;
-    top: calc(var(--menu-icon-button-height) + var(--menu-position-spacing));
-  }
-
-  &.bottom-left {
-    bottom: calc(var(--menu-icon-button-height) + var(--menu-position-spacing));
-    left: 1px;
-    position: absolute;
-  }
-
-  &.bottom-right {
-    bottom: calc(var(--menu-icon-button-height) + var(--menu-position-spacing));
-    position: absolute;
-    right: 1px;
-  }
-
   &:not(.static) {
+    position: absolute;
     z-index: 500;
     white-space: nowrap;
     animation: fadein var(--menu-fade-duration) linear;

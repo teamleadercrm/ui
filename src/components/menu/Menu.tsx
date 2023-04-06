@@ -46,6 +46,8 @@ export interface MenuProps<S = any> extends Omit<BoxProps, 'children' | 'classNa
   selectable?: boolean;
   /** The value of the menu item that will be highlighted. */
   selected?: S;
+  /** The anchor element */
+  anchorElement?: HTMLElement | null;
 }
 
 type Position = Exclude<MenuProps['position'], undefined>;
@@ -60,9 +62,11 @@ const Menu = <S,>({
   position = 'static',
   selectable = true,
   selected,
+  anchorElement,
   ...others
 }: MenuProps<S>): ReactElement<any, any> | null => {
   const [positionState, setPositionState] = useState<Position>(position);
+  const [calculatedPosition, setCalculatedPosition] = useState({});
 
   const menuRef = useRef<HTMLUListElement>(null);
 
@@ -70,8 +74,8 @@ const Menu = <S,>({
 
   const classNames = cx(
     theme['menu'],
-    theme[positionState],
     {
+      [theme['static']]: positionState === POSITION.STATIC,
       [theme['outline']]: outline,
       [theme['shadow']]: positionState !== POSITION.STATIC,
     },
@@ -103,8 +107,8 @@ const Menu = <S,>({
     }
   };
 
-  const calculatePosition = (parentNode: HTMLElement) => {
-    const { top, left, height, width } = parentNode.getBoundingClientRect();
+  const calculateAutoPosition = (anchorElement: HTMLElement) => {
+    const { top, left, height, width } = anchorElement.getBoundingClientRect();
     const { height: vh, width: vw } = getViewport();
 
     const toTop = top < vh / 2 - height / 2;
@@ -112,6 +116,43 @@ const Menu = <S,>({
 
     return `${toTop ? 'top' : 'bottom'}-${toLeft ? 'left' : 'right'}` as Position;
   };
+
+  const calculatePosition = useCallback(() => {
+    if (anchorElement && menuRef.current) {
+      const { height } = anchorElement.getBoundingClientRect();
+      const { height: menuHeight } = menuRef.current.getBoundingClientRect();
+      console.log(menuHeight);
+
+      if (positionState === POSITION.TOP_LEFT) {
+        return {
+          top: height + 3,
+          left: 0,
+        };
+      }
+
+      if (positionState === POSITION.TOP_RIGHT) {
+        return {
+          top: height + 3,
+          right: 0,
+        };
+      }
+
+      if (positionState === POSITION.BOTTOM_LEFT) {
+        return {
+          top: -1 * (menuHeight + 3),
+          left: 0,
+        };
+      }
+
+      if (positionState === POSITION.BOTTOM_RIGHT) {
+        return {
+          top: -1 * (menuHeight + 3),
+          right: 0,
+        };
+      }
+    }
+    return {};
+  }, [anchorElement, positionState]);
 
   const getItems = useCallback(() => {
     return React.Children.map(children, (item: ReactNode) => {
@@ -143,15 +184,17 @@ const Menu = <S,>({
   }, [active]);
 
   useLayoutEffect(() => {
-    const parentNode = menuRef?.current?.parentNode as HTMLElement;
-
-    if (position === POSITION.AUTO && parentNode) {
-      setPositionState(calculatePosition(parentNode));
+    if (position === POSITION.AUTO && anchorElement && active) {
+      setPositionState(calculateAutoPosition(anchorElement));
     }
-  }, [active]);
+
+    if (position !== POSITION.STATIC) {
+      setCalculatedPosition(calculatePosition());
+    }
+  }, [active, anchorElement, calculatePosition, position]);
 
   return localActive ? (
-    <Box data-teamleader-ui="menu" className={classNames} ref={menuRef} {...others}>
+    <Box data-teamleader-ui="menu" className={classNames} ref={menuRef} style={calculatedPosition} {...others}>
       <ul className={theme['menu-inner']}>{getItems()}</ul>
     </Box>
   ) : null;
