@@ -1,9 +1,7 @@
 import cx from 'classnames';
 import React, {
-  Dispatch,
   ReactElement,
   ReactNode,
-  SetStateAction,
   SyntheticEvent,
   useCallback,
   useEffect,
@@ -32,8 +30,8 @@ const POSITION: Record<string, 'auto' | 'static' | 'top-left' | 'top-right' | 'b
 export interface MenuProps<S = any> extends Omit<BoxProps, 'children' | 'className'> {
   /** If true, the menu will be active. */
   active?: boolean;
-  /** Function to set active state. */
-  setActive?: Dispatch<SetStateAction<boolean>>;
+  /** Callback to hide the menu. */
+  onInactive?: () => void;
   /** The content to display inside the menu. */
   children?: ReactNode;
   /** A class name for the wrapper to give custom styles. */
@@ -54,7 +52,7 @@ type Position = Exclude<MenuProps['position'], undefined>;
 
 const Menu = <S,>({
   active = false,
-  setActive,
+  onInactive,
   children,
   className,
   onSelect,
@@ -67,6 +65,8 @@ const Menu = <S,>({
   const [positionState, setPositionState] = useState<Position>(position);
 
   const menuRef = useRef<HTMLUListElement>(null);
+
+  const localActive = active || positionState === POSITION.STATIC;
 
   const classNames = cx(
     theme['menu'],
@@ -82,7 +82,7 @@ const Menu = <S,>({
     const clickedNode = event.target as HTMLElement;
     const menuNode = menuRef.current;
     if (clickedNode !== menuNode && clickedNode.contains(menuNode)) {
-      setActive && setActive(false);
+      onInactive && onInactive();
     }
   };
 
@@ -99,17 +99,11 @@ const Menu = <S,>({
     }
 
     if (position !== POSITION.STATIC) {
-      setActive && setActive(false);
+      onInactive && onInactive();
     }
   };
 
-  const calculatePosition = () => {
-    const parentNode = menuRef?.current?.parentNode as HTMLElement;
-
-    if (!parentNode) {
-      return 'static';
-    }
-
+  const calculatePosition = (parentNode: HTMLElement) => {
     const { top, left, height, width } = parentNode.getBoundingClientRect();
     const { height: vh, width: vw } = getViewport();
 
@@ -139,12 +133,6 @@ const Menu = <S,>({
   }, [children]);
 
   useEffect(() => {
-    if (position === POSITION.STATIC) {
-      setActive && setActive(true);
-    }
-  }, []);
-
-  useEffect(() => {
     if (position !== POSITION.STATIC && active) {
       document.documentElement.addEventListener('click', handleDocumentClick);
 
@@ -155,12 +143,14 @@ const Menu = <S,>({
   }, [active]);
 
   useLayoutEffect(() => {
-    if (position === POSITION.AUTO) {
-      setPositionState(calculatePosition());
+    const parentNode = menuRef?.current?.parentNode as HTMLElement;
+
+    if (position === POSITION.AUTO && parentNode) {
+      setPositionState(calculatePosition(parentNode));
     }
   }, [active]);
 
-  return active ? (
+  return localActive ? (
     <Box data-teamleader-ui="menu" className={classNames} ref={menuRef} {...others}>
       <ul className={theme['menu-inner']}>{getItems()}</ul>
     </Box>
