@@ -4,7 +4,7 @@
 
 :root {
   --menu-expand-duration: 0.3s;
-  --menu-fade-duration: 0.2s;
+  --menu-fade-duration: 0.1s;
   --menu-padding: calc(0.6 * var(--unit)) 0;
   --menu-outline-border-radius: var(--border-radius-medium);
   --menu-position-spacing: 4px; /* Spacing of 3px + 1px outline border */
@@ -33,74 +33,39 @@
     left: 1px;
     position: absolute;
     top: calc(var(--menu-icon-button-height) + var(--menu-position-spacing));
-
-    & > .outline {
-      transform-origin: 0 0;
-    }
   }
 
   &.top-right {
     position: absolute;
     right: 1px;
     top: calc(var(--menu-icon-button-height) + var(--menu-position-spacing));
-
-    & > .outline {
-      transform-origin: 100% 0;
-    }
   }
 
   &.bottom-left {
     bottom: calc(var(--menu-icon-button-height) + var(--menu-position-spacing));
     left: 1px;
     position: absolute;
-
-    & > .outline {
-      transform-origin: 0 100%;
-    }
   }
 
   &.bottom-right {
     bottom: calc(var(--menu-icon-button-height) + var(--menu-position-spacing));
     position: absolute;
     right: 1px;
-
-    & > .outline {
-      transform-origin: 100% 100%;
-    }
   }
 
   &:not(.static) {
     z-index: 500;
+    white-space: nowrap;
+    animation: fadein var(--menu-fade-duration) linear;
+  }
+}
 
-    & > .outline {
-      opacity: 0;
-      transform: scale(0);
-      transition: transform var(--menu-expand-duration) var(--animation-curve-default),
-        opacity var(--menu-fade-duration) var(--animation-curve-default);
-      will-change: transform;
-    }
-
-    & > .menu-inner {
-      background: var(--color-white);
-      border-radius: var(--menu-outline-border-radius);
-      left: 0;
-      margin: 0;
-      opacity: 0;
-      overflow: hidden;
-      top: 0;
-      transition: opacity var(--menu-fade-duration) var(--animation-curve-default),
-        clip var(--menu-expand-duration) var(--animation-curve-default);
-      white-space: nowrap;
-    }
-
-    & > .outline {
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    & > .menu-inner {
-      opacity: 1;
-    }
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
