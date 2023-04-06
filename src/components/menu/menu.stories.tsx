@@ -13,7 +13,7 @@ export default {
 } as ComponentMeta<typeof Menu>;
 
 export const DefaultStory = (args: ComponentStory<typeof Menu>) => (
-  <Menu {...args}>
+  <Menu active {...args}>
     <MenuItem value="foo" label="Foo label" caption="This is foo's caption" />
     <MenuItem value="bar" label="Bar label" caption="Caption of bar" />
     <MenuItem value="withChildren" caption="Caption of with children prop">
