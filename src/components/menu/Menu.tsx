@@ -161,7 +161,7 @@ const Menu = <S,>({
     return {};
   }, [anchorElement, positionState]);
 
-  const getItems = useCallback(() => {
+  const renderItems = useCallback(() => {
     return React.Children.map(children, (item: ReactNode) => {
       if (!item) {
         return item;
@@ -202,7 +202,7 @@ const Menu = <S,>({
 
   return localActive ? (
     <Box data-teamleader-ui="menu" className={classNames} ref={menuRef} style={calculatedPosition} {...others}>
-      <ul className={theme['menu-inner']}>{getItems()}</ul>
+      <ul className={theme['menu-inner']}>{renderItems()}</ul>
     </Box>
   ) : null;
 };
