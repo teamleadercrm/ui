@@ -87,11 +87,11 @@ const Menu = <S,>({
       const clickedNode = event.target as HTMLElement;
       const menuNode = menuRef.current;
 
-      if (clickedNode !== menuNode && clickedNode.contains(menuNode)) {
+      if (menuNode && menuNode !== clickedNode && anchorElement !== clickedNode && !menuNode.contains(clickedNode)) {
         onHide && onHide();
       }
     },
-    [onHide],
+    [anchorElement, onHide],
   );
 
   const handleSelect = useCallback(
@@ -203,6 +203,19 @@ const Menu = <S,>({
       };
     }
   }, [active, handleDocumentClick, position]);
+
+  useEffect(() => {
+    const menuNode = menuRef.current;
+    if (!menuNode) {
+      return;
+    }
+
+    menuNode.addEventListener('focusout', handleDocumentClick);
+
+    return () => {
+      menuNode && menuNode.removeEventListener('focusout', handleDocumentClick);
+    };
+  }, [handleDocumentClick, menuRef]);
 
   useLayoutEffect(() => {
     if (position === POSITION.AUTO && anchorElement && active) {
