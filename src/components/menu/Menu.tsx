@@ -207,6 +207,8 @@ const Menu = <S,>({
   useLayoutEffect(() => {
     if (position === POSITION.AUTO && anchorElement && active) {
       setPositionState(calculateAutoPosition(anchorElement));
+    } else {
+      setPositionState(position);
     }
 
     if (position !== POSITION.STATIC) {
