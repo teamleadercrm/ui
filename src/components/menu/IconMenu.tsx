@@ -64,7 +64,7 @@ const IconMenu: GenericComponent<IconMenuProps> = ({
       <IconButton className={theme['icon']} icon={buttonIcon} onClick={handleButtonClick} ref={buttonRef} />
       <Menu
         active={active}
-        onInactive={handleMenuHide}
+        onHide={handleMenuHide}
         onSelect={onSelect}
         position={position}
         selectable={selectable}
