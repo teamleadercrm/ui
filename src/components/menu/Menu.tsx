@@ -27,6 +27,8 @@ const POSITION: Record<string, 'auto' | 'static' | 'top-left' | 'top-right' | 'b
   BOTTOM_RIGHT: 'bottom-right',
 };
 
+type Position = 'auto' | 'static' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
+
 export interface MenuProps<S = any> extends Omit<BoxProps, 'children' | 'className'> {
   /** If true, the menu will be active. */
   active?: boolean;
@@ -41,7 +43,7 @@ export interface MenuProps<S = any> extends Omit<BoxProps, 'children' | 'classNa
   /** If true, a border is rendered around the menu. */
   outline?: boolean;
   /** The position in which the menu is rendered. */
-  position?: 'auto' | 'static' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
+  position?: Position;
   /** If true, the menu will highlight the selected value. */
   selectable?: boolean;
   /** The value of the menu item that will be highlighted. */
@@ -49,8 +51,6 @@ export interface MenuProps<S = any> extends Omit<BoxProps, 'children' | 'classNa
   /** The anchor element */
   anchorElement?: HTMLElement | null;
 }
-
-type Position = Exclude<MenuProps['position'], undefined>;
 
 const Menu = <S,>({
   active = false,
