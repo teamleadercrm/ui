@@ -33,7 +33,7 @@ export interface MenuProps<S = any> extends Omit<BoxProps, 'children' | 'classNa
   /** If true, the menu will be active. */
   active?: boolean;
   /** Callback to hide the menu. */
-  onInactive?: () => void;
+  onHide?: () => void;
   /** The content to display inside the menu. */
   children?: ReactNode;
   /** A class name for the wrapper to give custom styles. */
@@ -54,7 +54,7 @@ export interface MenuProps<S = any> extends Omit<BoxProps, 'children' | 'classNa
 
 const Menu = <S,>({
   active = false,
-  onInactive,
+  onHide,
   children,
   className,
   onSelect,
@@ -88,10 +88,10 @@ const Menu = <S,>({
       const menuNode = menuRef.current;
 
       if (clickedNode !== menuNode && clickedNode.contains(menuNode)) {
-        onInactive && onInactive();
+        onHide && onHide();
       }
     },
-    [onInactive],
+    [onHide],
   );
 
   const handleSelect = useCallback(
@@ -108,10 +108,10 @@ const Menu = <S,>({
       }
 
       if (position !== POSITION.STATIC) {
-        onInactive && onInactive();
+        onHide && onHide();
       }
     },
-    [onInactive, onSelect, position],
+    [onHide, onSelect, position],
   );
 
   const calculateAutoPosition = (anchorElement: HTMLElement) => {

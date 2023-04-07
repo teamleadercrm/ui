@@ -9,7 +9,6 @@
 - `Container`: Removed 72px padding on xl viewport ([@farazatarodi](https://https://github.com/farazatarodi) in [#2618](https://github.com/teamleadercrm/ui/pull/2618))
 - [BREAKING] `Menu`: State management now should happen in the parent component ([@farazatarodi](https://https://github.com/farazatarodi) in [#2618](https://github.com/teamleadercrm/ui/pull/2618)).
 - `Menu`: Shadow and border now use the values from the design system ([@farazatarodi](https://https://github.com/farazatarodi) in [#2618](https://github.com/teamleadercrm/ui/pull/2618)).
-- [BREAKING] `Menu`: The `onHide` prop is now called `onInactive` ([@farazatarodi](https://https://github.com/farazatarodi) in [#2618](https://github.com/teamleadercrm/ui/pull/2618)).
 
 ### Deprecated
 
