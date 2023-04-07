@@ -161,19 +161,19 @@ const Menu = <S,>({
   }, [anchorElement, positionState]);
 
   const calculateMaxHeight = useCallback(() => {
-    if (menuRef.current) {
-      const { top, height } = menuRef.current.getBoundingClientRect();
+    if (anchorElement) {
+      const { top, height } = anchorElement.getBoundingClientRect();
       const { height: viewportHeight } = getViewport();
 
       if (positionState === POSITION.TOP_LEFT || positionState === POSITION.TOP_RIGHT) {
-        return viewportHeight - top;
+        return viewportHeight - top - height - 24;
       }
 
       if (positionState === POSITION.BOTTOM_LEFT || positionState === POSITION.BOTTOM_RIGHT) {
-        return top + height;
+        return top - 24;
       }
     }
-  }, [positionState]);
+  }, [anchorElement, positionState]);
 
   const renderItems = useCallback(() => {
     return React.Children.map(children, (item: ReactNode) => {
@@ -210,12 +210,19 @@ const Menu = <S,>({
     } else {
       setPositionState(position);
     }
+  }, [active, anchorElement, position]);
 
-    if (position !== POSITION.STATIC) {
-      setCalculatedPosition(calculatePosition());
+  useLayoutEffect(() => {
+    if (positionState !== POSITION.STATIC && positionState !== POSITION.AUTO) {
       setMaxHeight(calculateMaxHeight());
     }
-  }, [active, anchorElement, calculateMaxHeight, calculatePosition, maxHeight, position]);
+  }, [calculateMaxHeight, positionState]);
+
+  useLayoutEffect(() => {
+    if (positionState !== POSITION.STATIC) {
+      setCalculatedPosition(calculatePosition());
+    }
+  }, [calculatePosition, positionState, maxHeight]);
 
   return localActive ? (
     <Box data-teamleader-ui="menu" className={classNames} ref={menuRef} style={calculatedPosition} {...others}>
