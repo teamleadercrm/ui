@@ -204,19 +204,6 @@ const Menu = <S,>({
     }
   }, [active, handleDocumentClick, position]);
 
-  useEffect(() => {
-    const menuNode = menuRef.current;
-    if (!menuNode) {
-      return;
-    }
-
-    menuNode.addEventListener('focusout', handleDocumentClick);
-
-    return () => {
-      menuNode && menuNode.removeEventListener('focusout', handleDocumentClick);
-    };
-  }, [handleDocumentClick, menuRef]);
-
   useLayoutEffect(() => {
     if (position === POSITION.AUTO && anchorElement && active) {
       setPositionState(calculateAutoPosition(anchorElement));
