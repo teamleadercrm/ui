@@ -1,15 +1,3 @@
-:root {
-  --checkbox-border-width: 1px;
-
-  --checkbox-shape-size-small: 18px;
-  --checkbox-shape-size-medium: 24px;
-  --checkbox-shape-size-large: 30px;
-
-  --checkbox-shape-inner-size-small: 10px;
-  --checkbox-shape-inner-size-medium: 12px;
-  --checkbox-shape-inner-size-large: 18px;
-}
-
 .radiobutton {
   align-items: flex-start;
   display: flex;
@@ -31,7 +19,7 @@
   .shape {
     box-sizing: border-box;
     background: var(--color-neutral-lightest);
-    border: var(--checkbox-border-width) solid var(--color-neutral-dark);
+    border: 1px solid var(--color-neutral-dark);
     border-radius: 100%;
     color: var(--color-white);
     flex-shrink: 0;
@@ -41,6 +29,8 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    width: var(--shape-size);
+    height: var(--shape-size);
 
     &::before {
       box-sizing: border-box;
@@ -52,7 +42,8 @@
       height: 100%;
       transform: scale(0);
       transition: transform var(--animation-duration) var(--animation-curve-default);
-      width: 100%;
+      width: var(--shape-inner-size);
+      height: var(--shape-inner-size);
     }
   }
 
@@ -112,46 +103,25 @@
   }
 
   &.is-small {
-    .shape {
-      width: var(--checkbox-shape-size-small);
-      height: var(--checkbox-shape-size-small);
-
-      &:before {
-        width: var(--checkbox-shape-inner-size-small);
-        height: var(--checkbox-shape-inner-size-small);
-      }
-    }
+    --shape-size: 18px;
+    --shape-inner-size: 10px;
   }
 
   &.is-medium {
+  --shape-size: 24px;
+  --shape-inner-size: 12px;
+
     .label {
       padding-top: var(--spacer-smallest);
-    }
-
-    .shape {
-      width: var(--checkbox-shape-size-medium);
-      height: var(--checkbox-shape-size-medium);
-
-      &:before {
-        width: var(--checkbox-shape-inner-size-medium);
-        height: var(--checkbox-shape-inner-size-medium);
-      }
     }
   }
 
   &.is-large {
+  --shape-size: 30px;
+  --shape-inner-size: 18px;
+
     .label {
       padding-top: var(--spacer-smallest);
-    }
-
-    .shape {
-      width: var(--checkbox-shape-size-large);
-      height: var(--checkbox-shape-size-large);
-
-      &:before {
-        width: var(--checkbox-shape-inner-size-large);
-        height: var(--checkbox-shape-inner-size-large);
-      }
     }
   }
 }
