@@ -1441,6 +1441,11 @@
   dependencies:
     postcss-value-parser "^4.2.0"
 
+"@csstools/postcss-global-data@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@csstools/postcss-global-data/-/postcss-global-data-1.0.3.tgz#baa266a7ed2372d4f7d0996f9148809134d901af"
+  integrity sha512-x2fZOl7RJJtKC9ZfG+1bdrQKeRfP1a3Ff4uF2/fykNUKly8E8Q7lw7oegsEnqenSEDC1xjk6qXJ/fcJkTAdcNg==
+
 "@csstools/postcss-hwb-function@^2.2.0":
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/@csstools/postcss-hwb-function/-/postcss-hwb-function-2.2.0.tgz#80ee5780b88994b1128ad67f98d468798413b7d7"
