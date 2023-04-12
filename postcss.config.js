@@ -14,6 +14,9 @@ module.exports = ({ file, options, env }) => {
       'postcss-reporter': {},
       'postcss-preset-env': {
         preserve: false,
+        features: {
+          'custom-properties': false,
+        },
       },
     },
   };
