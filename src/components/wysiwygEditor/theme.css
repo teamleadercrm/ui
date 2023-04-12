@@ -2,26 +2,26 @@
  * Variables
  */
 :root {
-  --input-text-size: calc(1.4 * var(--unit));
-  --input-border-radius: calc(0.4 * var(--unit));
-  --input-error-border: var(--color-ruby-dark);
-  --input-success-border: var(--color-mint-dark);
-  --input-warning-border: var(--color-gold-dark);
-  --input-min-height: calc(9.3 * var(--unit));
-  --input-spacing: calc(0.5 * var(--unit));
-  --toolbar-height: 43px;
+  --wysiwyg-input-text-size: calc(1.4 * var(--unit));
+  --wysiwyg-input-border-radius: calc(0.4 * var(--unit));
+  --wysiwyg-input-error-border: var(--color-ruby-dark);
+  --wysiwyg-input-success-border: var(--color-mint-dark);
+  --wysiwyg-input-warning-border: var(--color-gold-dark);
+  --wysiwyg-input-min-height: calc(9.3 * var(--unit));
+  --wysiwyg-input-spacing: calc(0.5 * var(--unit));
+  --wysiwyg-toolbar-height: 43px;
 }
 
 /**
  * Components
  */
 .input {
-  height: calc(100% - var(--toolbar-height) - 2 * var(--input-spacing));
+  height: calc(100% - var(--wysiwyg-toolbar-height) - 2 * var(--wysiwyg-input-spacing));
   overflow: auto;
-  min-height: var(--input-min-height);
-  margin: var(--input-spacing);
+  min-height: var(--wysiwyg-input-min-height);
+  margin: var(--wysiwyg-input-spacing);
   resize: vertical;
-  font-size: var(--input-text-size);
+  font-size: var(--wysiwyg-input-text-size);
   font-family: var(--font-family-inter);
   font-weight: 400;
 
@@ -32,7 +32,7 @@
 
 .wrapper {
   width: 100%;
-  border-radius: var(--input-border-radius);
+  border-radius: var(--wysiwyg-input-border-radius);
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
@@ -83,7 +83,7 @@
 .toolbar {
   background-color: var(--color-neutral-light);
   border-bottom: solid 1px var(--color-neutral);
-  border-radius: var(--input-border-radius) var(--input-border-radius) 0 0;
+  border-radius: var(--wysiwyg-input-border-radius) var(--wysiwyg-input-border-radius) 0 0;
   display: flex;
   padding: calc(0.6 * var(--unit));
 }
@@ -116,19 +116,19 @@
  * Modifiers
  */
 .wrapper.has-success {
-  border-color: var(--input-success-border);
-  box-shadow: 0 0 0 1px var(--input-success-border);
+  border-color: var(--wysiwyg-input-success-border);
+  box-shadow: 0 0 0 1px var(--wysiwyg-input-success-border);
   z-index: 2;
 }
 
 .wrapper.has-warning {
-  border-color: var(--input-warning-border);
-  box-shadow: 0 0 0 1px var(--input-warning-border);
+  border-color: var(--wysiwyg-input-warning-border);
+  box-shadow: 0 0 0 1px var(--wysiwyg-input-warning-border);
   z-index: 2;
 }
 
 .wrapper.has-error {
-  border-color: var(--input-error-border);
-  box-shadow: 0 0 0 1px var(--input-error-border);
+  border-color: var(--wysiwyg-input-error-border);
+  box-shadow: 0 0 0 1px var(--wysiwyg-input-error-border);
   z-index: 2;
 }
