@@ -1,5 +1,6 @@
 import cx from 'classnames';
 import React, { CSSProperties, ElementType, forwardRef, ReactNode } from 'react';
+import typography from '@teamleader/ui-typography';
 import { GenericComponent } from '../../@types/types';
 import { COLORS, TINTS } from '../../constants';
 import Box from '../box';
@@ -20,8 +21,8 @@ const factory = (baseType: string, type: string, defaultElement: ElementType) =>
   const Text: GenericComponent<TextProps> = forwardRef<HTMLElement, TextProps>(
     ({ children, className, color, element = null, maxLines, style, tint = 'darkest', ...others }, ref) => {
       const classNames = cx(
-        theme[baseType],
-        theme[type],
+        typography[baseType],
+        typography[type],
 
         theme[tint],
         {
