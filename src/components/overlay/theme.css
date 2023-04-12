@@ -10,6 +10,6 @@
 
 .is-entered {
   &.dark {
-    background-color: hsl(var(--color-teal-dark-hsl), 50%);
+    background-color: hsl(var(--color-teal-dark-hsl) / 50%);
   }
 }

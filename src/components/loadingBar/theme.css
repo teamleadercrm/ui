@@ -38,7 +38,7 @@
 
 @each $color in (neutral, mint, violet, ruby, gold, aqua, teal) {
   .is-$(color) {
-    background-color: hsl(var(--color-$(color)-hsl), 18%);
+    background-color: hsl(var(--color-$(color)-hsl) / 18%);
 
     & .loading-bar-indicator {
       background-color: var(--color-$(color));
@@ -46,7 +46,7 @@
 
     @each $tint in (darkest, dark, light, lightest) {
       &.is-$(tint) {
-        background-color: hsl(var(--color-$(color)-$(tint)-hsl), 18%);
+        background-color: hsl(var(--color-$(color)-$(tint)-hsl) / 18%);
 
         & .loading-bar-indicator {
           background-color: var(--color-$(color)-$(tint));

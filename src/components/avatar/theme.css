@@ -72,25 +72,25 @@
 }
 
 .default-height {
-  background-color: hsl(var(--color-teal-darkest-hsl), 0.84);
+  background-color: hsl(var(--color-teal-darkest-hsl) / 0.84);
   height: 24px;
 }
 
 .full-height {
-  background-color: hsl(var(--color-teal-darkest-hsl), 0.48);
+  background-color: hsl(var(--color-teal-darkest-hsl) / 0.48);
   height: 100%;
 }
 
 .dark {
   .overflow {
-    background: hsl(var(--color-teal-darkest-hsl), 10%);
+    background: hsl(var(--color-teal-darkest-hsl) / 10%);
     color: var(--color-neutral-darkest);
   }
 }
 
 .light {
   .overflow {
-    background: hsl(var(--color-white-hsl), 10%);
+    background: hsl(var(--color-white-hsl) / 10%);
     color: var(--color-white);
   }
 }
