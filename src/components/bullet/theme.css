@@ -1,28 +1,21 @@
-:root {
-  --large-size: 18px;
-  --medium-size: 12px;
-  --small-size: 9px;
-}
-
 .bullet {
   border-radius: 50%;
   display: inline-block;
   vertical-align: middle;
-}
-
-.medium {
-  height: var(--medium-size);
-  width: var(--medium-size);
+  width: var(--size);
+  height: var(--size);
 }
 
 .small {
-  height: var(--small-size);
-  width: var(--small-size);
+  --size: 9px;
+}
+
+.medium {
+  --size: 12px;
 }
 
 .large {
-  height: var(--large-size);
-  width: var(--large-size);
+  --size: 18px;
 }
 
 .neutral {
