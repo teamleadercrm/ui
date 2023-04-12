@@ -8,10 +8,3 @@
   margin: 0 auto;
   max-width: 1056px;
 }
-
-@media (--larger-than-xl-viewport) {
-  .container {
-    padding-left: var(--spacer-biggest);
-    padding-right: var(--spacer-biggest);
-  }
-}

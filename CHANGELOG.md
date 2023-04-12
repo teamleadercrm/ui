@@ -4,6 +4,8 @@
 
 ### Changed
 
+- `Container`: remove 72px on xl viewport ([@farazatarodi](https://https://github.com/farazatarodi) in [#2615](https://github.com/teamleadercrm/ui/pull/2615))
+
 ### Deprecated
 
 ### Removed
