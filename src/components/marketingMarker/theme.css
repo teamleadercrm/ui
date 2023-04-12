@@ -3,6 +3,6 @@
 }
 
 .marker {
-  background-color: hsl(var(--color-marketing-violet-light-hsl), 50%);
+  background-color: hsl(var(--color-marketing-violet-light-hsl) / 50%);
   color: inherit;
 }

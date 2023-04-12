@@ -1,6 +1,6 @@
 :root {
   --popover-border-radius: calc(0.4 * var(--unit));
-  --popover-box-shadow: 0 0 0 1px hsl(var(--color-teal-dark-hsl), 20%);
+  --popover-box-shadow: 0 0 0 1px hsl(var(--color-teal-dark-hsl) / 20%);
 }
 
 .wrapper {

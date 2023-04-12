@@ -26,7 +26,7 @@
 
   &::after {
     content: '';
-    border-color: hsl(var(--color-teal-dark-hsl), 20%);
+    border-color: hsl(var(--color-teal-dark-hsl) / 20%);
     border-style: solid;
     height: var(--tooltip-arrow-size);
     position: absolute;
@@ -112,7 +112,7 @@
 }
 
 .inner {
-  border: var(--tooltip-border-width) solid hsl(var(--color-teal-dark-hsl), 20%);
+  border: var(--tooltip-border-width) solid hsl(var(--color-teal-dark-hsl) / 20%);
   border-radius: var(--tooltip-border-radius);
   display: block;
 }
