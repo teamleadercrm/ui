@@ -1,8 +1,6 @@
 :root {
   --button-border-radius: calc(0.4 * var(--unit));
   --button-margin: calc(0.6 * var(--unit));
-  --color-marketing-violet: #4f1fff;
-  --color-marketing-violet-dark: #2800b8;
 }
 
 .button-base {
