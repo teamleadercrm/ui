@@ -3,15 +3,6 @@
 @import '@teamleader/ui-utilities';
 
 :root {
-  --menu-expand-duration: 0.3s;
-  --menu-fade-duration: 0.2s;
-  --menu-background-color: var(--color-white);
-  --menu-padding: calc(0.6 * var(--unit)) 0;
-  --menu-outline-border-radius: var(--border-radius-medium);
-  --menu-outline-box-shadow: 0 0 0 1px hsl(var(--color-teal-darkest-hsl), 24%);
-  --menu-position-spacing: 4px; /* Spacing of 3px + 1px outline border */
-  --menu-icon-button-height: 30px;
-  --menu-item-background: var(--color-neutral-lightest);
   --menu-item-hover-background: var(--color-neutral-light);
   --menu-item-selected-background: var(--color-aqua-lightest);
   --menu-item-height: calc(3.6 * var(--unit));
@@ -25,114 +16,44 @@
 }
 
 .menu {
-  width: 100%;
   display: inline-block;
   position: relative;
-
-  &.top-left {
-    left: 1px;
-    position: absolute;
-    top: calc(var(--menu-icon-button-height) + var(--menu-position-spacing));
-
-    & > .outline {
-      transform-origin: 0 0;
-    }
-  }
-
-  &.top-right {
-    position: absolute;
-    right: 1px;
-    top: calc(var(--menu-icon-button-height) + var(--menu-position-spacing));
-
-    & > .outline {
-      transform-origin: 100% 0;
-    }
-  }
-
-  &.bottom-left {
-    bottom: calc(var(--menu-icon-button-height) + var(--menu-position-spacing));
-    left: 1px;
-    position: absolute;
-
-    & > .outline {
-      transform-origin: 0 100%;
-    }
-  }
-
-  &.bottom-right {
-    bottom: calc(var(--menu-icon-button-height) + var(--menu-position-spacing));
-    position: absolute;
-    right: 1px;
-
-    & > .outline {
-      transform-origin: 100% 100%;
-    }
-  }
+  background-color: var(--color-white);
+  border-radius: var(--border-radius-medium);
+  padding: calc(0.6 * var(--unit)) 0;
 
   &:not(.static) {
-    pointer-events: none;
+    position: absolute;
     z-index: 500;
-
-    & > .outline {
-      opacity: 0;
-      transform: scale(0);
-      transition: transform var(--menu-expand-duration) var(--animation-curve-default),
-        opacity var(--menu-fade-duration) var(--animation-curve-default);
-      will-change: transform;
-    }
-
-    & > .menu-inner {
-      background: var(--color-white);
-      border-radius: var(--menu-outline-border-radius);
-      left: 0;
-      margin: 0;
-      opacity: 0;
-      overflow: hidden;
-      position: absolute;
-      top: 0;
-      transition: opacity var(--menu-fade-duration) var(--animation-curve-default),
-        clip var(--menu-expand-duration) var(--animation-curve-default);
-      white-space: nowrap;
-    }
-
-    &.active {
-      pointer-events: all;
-
-      & > .outline {
-        opacity: 1;
-        transform: scale(1);
-      }
-
-      & > .menu-inner {
-        opacity: 1;
-      }
-    }
+    white-space: nowrap;
+    animation: fadein 0.1s linear;
   }
 }
 
-.invisible-menu-item {
-  opacity: 0;
-  height: 0;
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .outline {
-  background-color: var(--menu-background-color);
-  border-radius: var(--menu-outline-border-radius);
-  box-shadow: var(--menu-outline-box-shadow);
-  display: block;
-  left: 0;
-  position: absolute;
-  top: 0;
+  border: 1px solid var(--color-neutral);
+}
+
+.shadow {
+  box-shadow: var(--box-shadow-200);
 }
 
 .menu-inner {
-  border-radius: var(--menu-outline-border-radius);
-  display: block;
   list-style: none;
-  margin: 0;
-  padding: var(--menu-padding);
   position: relative;
   text-align: left;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
 }
 
 .menu-item {

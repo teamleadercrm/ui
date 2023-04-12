@@ -2,15 +2,23 @@
 
 ### Added
 
+- `Menu`: It is now scrollable when the available space is less than the height ([@farazatarodi](https://https://github.com/farazatarodi) in [#2618](https://github.com/teamleadercrm/ui/pull/2618))
+
 ### Changed
 
-- `Container`: remove 72px on xl viewport ([@farazatarodi](https://https://github.com/farazatarodi) in [#2615](https://github.com/teamleadercrm/ui/pull/2615))
+- `Container`: Removed 72px padding on xl viewport ([@farazatarodi](https://https://github.com/farazatarodi) in [#2618](https://github.com/teamleadercrm/ui/pull/2618))
+- [BREAKING] `Menu`: State management now should happen in the parent component ([@farazatarodi](https://https://github.com/farazatarodi) in [#2618](https://github.com/teamleadercrm/ui/pull/2618)).
+- `Menu`: Shadow and border now use the values from the design system ([@farazatarodi](https://https://github.com/farazatarodi) in [#2618](https://github.com/teamleadercrm/ui/pull/2618)).
 
 ### Deprecated
 
 ### Removed
 
+- [BREAKING] `Menu`: The `onShow` property is removed as the state management is now moved to the parent component ([@farazatarodi](https://https://github.com/farazatarodi) in [#2618](https://github.com/teamleadercrm/ui/pull/2618)).
+
 ### Fixed
+
+- [BREAKING] `Menu`: It now requires an anchor element for positioning when it is not static. Previously it was based on the parent element, which caused layout bugs in `flex` elements ([@farazatarodi](https://https://github.com/farazatarodi) in [#2618](https://github.com/teamleadercrm/ui/pull/2618)).
 
 ### Dependency updates
 
