@@ -3,7 +3,6 @@
   --menu-item-hover-background: var(--color-neutral-light);
   --menu-item-selected-background: var(--color-aqua-lightest);
   --menu-item-height: calc(3.6 * var(--unit));
-  --color-marketing-violet: #4f1fff;
 }
 
 .marketing-menu-item {
