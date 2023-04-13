@@ -52,7 +52,7 @@ exports[`Component - EmptyState renders 1`] = `
         class="box margin-top-3"
       >
         <a
-          class="box badged-link is-left-icon-placed"
+          class="box reset-font-smoothing ui-text-body badged-link is-left-icon-placed"
           data-teamleader-ui="badgedLink"
         >
           <svg

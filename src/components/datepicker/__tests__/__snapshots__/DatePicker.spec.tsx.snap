@@ -7,7 +7,7 @@ exports[`Component - DatePicker renders 1`] = `
     data-teamleader-ui="date-picker"
   >
     <div
-      class="container date-picker is-medium is-bordered"
+      class="container reset-font-smoothing date-picker is-medium is-bordered"
       lang="en"
     >
       <div

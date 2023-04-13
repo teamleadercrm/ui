@@ -15,7 +15,7 @@ exports[`Component - EmailSelector renders 1`] = `
         data-teamleader-ui="ui-text"
       >
         <button
-          class="box link label-text"
+          class="box reset-font-smoothing link label-text"
           data-teamleader-ui="link"
         >
           David Brent

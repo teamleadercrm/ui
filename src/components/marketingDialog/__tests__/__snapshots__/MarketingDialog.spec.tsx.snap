@@ -15,7 +15,7 @@ exports[`Component - Dialog renders 1`] = `
           tabindex="0"
         />
         <div
-          class="box dialog-base is-medium is-entering marketing-dialog"
+          class="box box-shadow-300 dialog-base is-medium is-entering marketing-dialog"
           data-teamleader-ui="dialog"
         >
           <div
