@@ -2,6 +2,20 @@
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Dependency updates
+
+## [21.0.0] - 2023-04-13
+
+### Added
+
 - `Menu`: It is now scrollable when the available space is less than the height ([@farazatarodi](https://https://github.com/farazatarodi) in [#2618](https://github.com/teamleadercrm/ui/pull/2618))
 
 ### Changed
@@ -10,10 +24,6 @@
 - [BREAKING] `Menu`: State management now should happen in the parent component ([@farazatarodi](https://https://github.com/farazatarodi) in [#2618](https://github.com/teamleadercrm/ui/pull/2618)).
 - `Menu`: Shadow and border now use the values from the design system ([@farazatarodi](https://https://github.com/farazatarodi) in [#2618](https://github.com/teamleadercrm/ui/pull/2618)).
 - [BREAKING]: CSS custom properties are not transpiled anymore. Before, the custom properties were replaced with the actual values in the built CSS, but now they are not replaced as we want to actually use custom properties natively. So you need to make sure that you import the variables into your project (e.g. `import '@teamleader/ui/es/index.css';` in JS or `@import url('@teamleader/ui/es/index.css)` in css). ([@lowiebenoot](https://https://github.com/lowiebenoot) in [#2620](https://github.com/teamleadercrm/ui/pull/2620))
-
-### Deprecated
-
-### Removed
 
 - [BREAKING] `Menu`: The `onShow` property is removed as the state management is now moved to the parent component ([@farazatarodi](https://https://github.com/farazatarodi) in [#2618](https://github.com/teamleadercrm/ui/pull/2618)).
 
