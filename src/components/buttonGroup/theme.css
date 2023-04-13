@@ -1,8 +1,6 @@
-@import '@teamleader/ui-utilities';
-
 :root {
-  --button-border-radius: calc(0.4 * var(--unit));
-  --button-margin: calc(0.6 * var(--unit));
+  --button-group-button-border-radius: calc(0.4 * var(--unit));
+  --button-group-button-margin: calc(0.6 * var(--unit));
 }
 
 .group {
@@ -11,8 +9,8 @@
   min-width: 0;
 
   > * {
-    margin-left: var(--button-margin);
-    margin-right: var(--button-margin);
+    margin-left: var(--button-group-button-margin);
+    margin-right: var(--button-group-button-margin);
   }
 
   > *:first-child {
@@ -32,15 +30,15 @@
   }
 
   > *:first-child:not(:only-child) {
-    border-radius: var(--button-border-radius) 0 0 var(--button-border-radius);
+    border-radius: var(--button-group-button-border-radius) 0 0 var(--button-group-button-border-radius);
     margin-left: 0;
   }
 
   > *:last-child:not(:only-child) {
-    border-radius: 0 var(--button-border-radius) var(--button-border-radius) 0;
+    border-radius: 0 var(--button-group-button-border-radius) var(--button-group-button-border-radius) 0;
   }
 
   > *:only-child {
-    border-radius: var(--button-border-radius);
+    border-radius: var(--button-group-button-border-radius);
   }
 }

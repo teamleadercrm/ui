@@ -7,7 +7,7 @@ exports[`Component - Select does not render a clear button when no value is prov
     data-teamleader-ui="select"
   >
     <div
-      class="select css-b62m3t-container"
+      class="reset-font-smoothing select css-b62m3t-container"
     >
       <span
         class="css-1f43avz-a11yText-A11yText"
@@ -91,7 +91,7 @@ exports[`Component - Select renders 1`] = `
     data-teamleader-ui="select"
   >
     <div
-      class="select css-b62m3t-container"
+      class="reset-font-smoothing select css-b62m3t-container"
     >
       <span
         class="css-1f43avz-a11yText-A11yText"
@@ -175,7 +175,7 @@ exports[`Component - Select renders a clear button when a value is provided 1`] 
     data-teamleader-ui="select"
   >
     <div
-      class="select css-b62m3t-container"
+      class="reset-font-smoothing select css-b62m3t-container"
     >
       <span
         class="css-1f43avz-a11yText-A11yText"
@@ -278,7 +278,7 @@ exports[`Component - Select renders a help text 1`] = `
     data-teamleader-ui="select"
   >
     <div
-      class="select css-b62m3t-container"
+      class="reset-font-smoothing select css-b62m3t-container"
     >
       <span
         class="css-1f43avz-a11yText-A11yText"
@@ -368,7 +368,7 @@ exports[`Component - Select renders a success message 1`] = `
     data-teamleader-ui="select"
   >
     <div
-      class="select css-b62m3t-container"
+      class="reset-font-smoothing select css-b62m3t-container"
     >
       <span
         class="css-1f43avz-a11yText-A11yText"
@@ -460,7 +460,7 @@ exports[`Component - Select renders a warning message 1`] = `
     data-teamleader-ui="select"
   >
     <div
-      class="select css-b62m3t-container"
+      class="reset-font-smoothing select css-b62m3t-container"
     >
       <span
         class="css-1f43avz-a11yText-A11yText"
@@ -552,7 +552,7 @@ exports[`Component - Select renders an error message 1`] = `
     data-teamleader-ui="select"
   >
     <div
-      class="select css-b62m3t-container"
+      class="reset-font-smoothing select css-b62m3t-container"
     >
       <span
         class="css-1f43avz-a11yText-A11yText"

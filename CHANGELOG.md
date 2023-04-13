@@ -9,6 +9,7 @@
 - `Container`: Removed 72px padding on xl viewport ([@farazatarodi](https://https://github.com/farazatarodi) in [#2618](https://github.com/teamleadercrm/ui/pull/2618))
 - [BREAKING] `Menu`: State management now should happen in the parent component ([@farazatarodi](https://https://github.com/farazatarodi) in [#2618](https://github.com/teamleadercrm/ui/pull/2618)).
 - `Menu`: Shadow and border now use the values from the design system ([@farazatarodi](https://https://github.com/farazatarodi) in [#2618](https://github.com/teamleadercrm/ui/pull/2618)).
+- [BREAKING]: CSS custom properties are not transpiled anymore. Before, the custom properties were replaced with the actual values in the built CSS, but now they are not replaced as we want to actually use custom properties natively. So you need to make sure that you import the variables into your project (e.g. `import '@teamleader/ui/es/index.css';` in JS or `@import url('@teamleader/ui/es/index.css)` in css). ([@lowiebenoot](https://https://github.com/lowiebenoot) in [#2620](https://github.com/teamleadercrm/ui/pull/2620))
 
 ### Deprecated
 
@@ -21,6 +22,9 @@
 - [BREAKING] `Menu`: It now requires an anchor element for positioning when it is not static. Previously it was based on the parent element, which caused layout bugs in `flex` elements ([@farazatarodi](https://https://github.com/farazatarodi) in [#2618](https://github.com/teamleadercrm/ui/pull/2618)).
 
 ### Dependency updates
+
+- [BREAKING] `@teamleader/ui-colors` has been updated to version 2.0.0 which uses the newer comma-free syntax for hsl colors. This means that you need to update the syntax where you use the hsl value in combination with alhpa (e.g. `hsl(var(--color-teal), 50%)` should be changed to `hsl(var(--color-teal) /50%)`). ([@lowiebenoot](https://https://github.com/lowiebenoot) in [#2620](https://github.com/teamleadercrm/ui/pull/2620))
+
 
 ## [20.1.0] - 2023-03-17
 

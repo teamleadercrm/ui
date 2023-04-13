@@ -52,7 +52,7 @@ exports[`Component - AvatarStack renders 1`] = `
       </div>
     </div>
     <div
-      class="box align-items-center display-flex justify-content-center overflow"
+      class="box align-items-center display-flex justify-content-center reset-font-smoothing overflow"
     >
       +2
     </div>

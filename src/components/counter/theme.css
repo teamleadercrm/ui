@@ -1,13 +1,5 @@
-@import '@teamleader/ui-colors';
-@import '@teamleader/ui-utilities';
-@import '@teamleader/ui-typography';
-
-:root {
-  --border-radius: 4px;
-}
-
 .counter {
-  border-radius: var(--border-radius);
+  border-radius: var(--border-radius-medium);
   color: var(--color-white);
   display: inline-flex;
   align-items: center;

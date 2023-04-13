@@ -15,7 +15,7 @@ exports[`Component - Alert renders 1`] = `
           tabindex="0"
         />
         <div
-          class="box dialog-base is-small is-entering"
+          class="box box-shadow-300 dialog-base is-small is-entering"
           data-teamleader-ui="dialog"
         >
           <div

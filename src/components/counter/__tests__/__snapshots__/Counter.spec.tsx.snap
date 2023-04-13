@@ -3,7 +3,7 @@
 exports[`Component - Counter renders 1`] = `
 <DocumentFragment>
   <span
-    class="box counter neutral medium"
+    class="box reset-font-smoothing counter neutral medium"
     data-teamleader-ui="counter"
   >
     <span

@@ -1,48 +1,26 @@
-@import '@teamleader/ui-colors';
-
-:root {
-  --size-small: 18px;
-  --size-medium: 24px;
-  --size-large: 30px;
-}
-
 .wrapper {
-  background-color: hsl(var(--color-neutral-darkest-hsl), 12%);
-  box-shadow: inset 0 0 0 1px hsl(var(--color-neutral-darkest-hsl), 12%);
+  background-color: hsl(var(--color-neutral-darkest-hsl) / 12%);
+  box-shadow: inset 0 0 0 1px hsl(var(--color-neutral-darkest-hsl) / 12%);
   max-width: 100%;
+  height: var(--size);
+  border-radius: calc(var(--size) / 2);
 }
 
 .remove-button {
   border-radius: 50%;
   min-width: initial;
+  height: var(--size);
+  width: var(--size);
 }
 
 .is-small {
-  border-radius: calc(var(--size-small) / 2);
-  height: var(--size-small);
-
-  .remove-button {
-    height: var(--size-small);
-    width: var(--size-small);
-  }
+  --size: 18px;
 }
 
 .is-medium {
-  border-radius: calc(var(--size-medium) / 2);
-  height: var(--size-medium);
-
-  .remove-button {
-    height: var(--size-medium);
-    width: var(--size-medium);
-  }
+  --size: 24px;
 }
 
 .is-large {
-  border-radius: calc(var(--size-large) / 2);
-  height: var(--size-large);
-
-  .remove-button {
-    height: var(--size-large);
-    width: var(--size-large);
-  }
+  --size: 30px;
 }

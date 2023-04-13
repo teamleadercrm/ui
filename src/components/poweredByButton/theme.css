@@ -1,8 +1,3 @@
-@import '@teamleader/ui-animations';
-@import '@teamleader/ui-colors';
-@import '@teamleader/ui-typography';
-@import '@teamleader/ui-utilities';
-
 .button {
   align-items: center;
   border-radius: var(--border-radius-medium);
@@ -25,20 +20,20 @@
   }
 
   &-dark {
-    background: hsl(var(--color-black-hsl), 10%);
+    background: hsl(var(--color-black-hsl) / 10%);
     color: var(--color-black);
 
     &:hover {
-      background: hsl(var(--color-black-hsl), 20%);
+      background: hsl(var(--color-black-hsl) / 20%);
     }
   }
 
   &-light {
-    background: hsl(var(--color-white-hsl), 20%);
+    background: hsl(var(--color-white-hsl) / 20%);
     color: var(--color-white);
 
     &:hover {
-      background: hsl(var(--color-white-hsl), 40%);
+      background: hsl(var(--color-white-hsl) / 40%);
     }
   }
 
@@ -55,7 +50,7 @@
 
   &:active,
   &:focus-visible {
-    box-shadow: inset 0px 2px 3px hsl(var(--color-black-hsl), 24%);
+    box-shadow: inset 0px 2px 3px hsl(var(--color-black-hsl) / 24%);
   }
 
   &::-moz-focus-inner {

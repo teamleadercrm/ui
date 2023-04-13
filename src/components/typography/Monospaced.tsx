@@ -1,7 +1,7 @@
 import cx from 'classnames';
 import React, { ElementType, ReactNode } from 'react';
 import { GenericComponent } from '../../@types/types';
-import theme from './theme.css';
+import uiTypography from '@teamleader/ui-typography';
 
 export interface MonospacedProps {
   children?: ReactNode;
@@ -9,7 +9,7 @@ export interface MonospacedProps {
   element?: ElementType;
 }
 const Monospaced: GenericComponent<MonospacedProps> = ({ children, className, element = 'span' }) => {
-  const classNames = cx(theme['monospaced'], className);
+  const classNames = cx(uiTypography['monospaced'], className);
 
   const Element = element;
 

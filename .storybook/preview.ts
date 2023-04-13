@@ -1,6 +1,7 @@
 import { addDecorator, addParameters } from '@storybook/react';
 import { withDesign } from 'storybook-addon-designs';
 import { COLOR } from '../src/constants';
+import '../src/index.css';
 
 import theme from './theme';
 import {

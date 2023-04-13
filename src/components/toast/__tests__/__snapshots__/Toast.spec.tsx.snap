@@ -3,7 +3,7 @@
 exports[`Component - Toast renders 1`] = `
 <DocumentFragment>
   <div
-    class="toast"
+    class="reset-box-sizing box-shadow-400 toast"
     data-teamleader-ui="toast"
   >
     <div

@@ -1,18 +1,14 @@
-@import '@teamleader/ui-colors';
-@import '@teamleader/ui-utilities';
-
 :root {
-  --menu-item-background: var(--color-neutral-lightest);
-  --menu-item-hover-background: var(--color-neutral-light);
-  --menu-item-selected-background: var(--color-aqua-lightest);
-  --menu-item-height: calc(3.6 * var(--unit));
-  --color-marketing-violet: #4f1fff;
+  --marketing-menu-item-background: var(--color-neutral-lightest);
+  --marketing-menu-item-hover-background: var(--color-neutral-light);
+  --marketing-menu-item-selected-background: var(--color-aqua-lightest);
+  --marketing-menu-item-height: calc(3.6 * var(--unit));
 }
 
 .marketing-menu-item {
-  background-color: var(--menu-item-background);
+  background-color: var(--marketing-menu-item-background);
   border: 0;
-  min-height: var(--menu-item-height);
+  min-height: var(--marketing-menu-item-height);
   overflow: hidden;
   position: relative;
   text-decoration: none;
@@ -22,12 +18,12 @@
   user-select: none;
 
   &:not(.is-disabled):not(.is-selected):hover {
-    background-color: var(--menu-item-hover-background);
+    background-color: var(--marketing-menu-item-hover-background);
     cursor: pointer;
   }
 
   &:not(.is-disabled):not(.is-selected):focus-visible {
-    background-color: var(--menu-item-hover-background);
+    background-color: var(--marketing-menu-item-hover-background);
   }
 
   &:hover {
@@ -44,7 +40,7 @@
   }
 
   &.is-selected {
-    background-color: var(--menu-item-selected-background);
+    background-color: var(--marketing-menu-item-selected-background);
   }
 
   &-link-container {

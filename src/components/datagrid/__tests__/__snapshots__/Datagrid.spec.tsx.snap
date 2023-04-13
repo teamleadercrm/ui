@@ -17,7 +17,7 @@ exports[`Component - Datagrid renders 1`] = `
           data-teamleader-ui="datagrid-header-row"
         >
           <div
-            class="box cell align-left flex-1 has-background-undefined has-border-undefined header-cell"
+            class="box reset-font-smoothing cell align-left flex-1 has-background-undefined has-border-undefined header-cell"
             data-teamleader-ui="datagrid-cell"
             style="box-sizing: content-box;"
           >
@@ -29,7 +29,7 @@ exports[`Component - Datagrid renders 1`] = `
             </span>
           </div>
           <div
-            class="box cell align-left flex-1 has-background-undefined has-border-undefined header-cell"
+            class="box reset-font-smoothing cell align-left flex-1 has-background-undefined has-border-undefined header-cell"
             data-teamleader-ui="datagrid-cell"
             style="box-sizing: content-box;"
           >
@@ -46,7 +46,7 @@ exports[`Component - Datagrid renders 1`] = `
           data-teamleader-ui="datagrid-body-row"
         >
           <div
-            class="box cell align-left flex-1 has-background-undefined has-border-undefined"
+            class="box reset-font-smoothing cell align-left flex-1 has-background-undefined has-border-undefined"
             data-teamleader-ui="datagrid-cell"
             style="box-sizing: content-box;"
           >
@@ -57,7 +57,7 @@ exports[`Component - Datagrid renders 1`] = `
             </div>
           </div>
           <div
-            class="box cell align-left flex-1 has-background-undefined has-border-undefined"
+            class="box reset-font-smoothing cell align-left flex-1 has-background-undefined has-border-undefined"
             data-teamleader-ui="datagrid-cell"
             style="box-sizing: content-box;"
           >
@@ -73,7 +73,7 @@ exports[`Component - Datagrid renders 1`] = `
           data-teamleader-ui="datagrid-body-row"
         >
           <div
-            class="box cell align-left flex-1 has-background-undefined has-border-undefined"
+            class="box reset-font-smoothing cell align-left flex-1 has-background-undefined has-border-undefined"
             data-teamleader-ui="datagrid-cell"
             style="box-sizing: content-box;"
           >
@@ -84,7 +84,7 @@ exports[`Component - Datagrid renders 1`] = `
             </div>
           </div>
           <div
-            class="box cell align-left flex-1 has-background-undefined has-border-undefined"
+            class="box reset-font-smoothing cell align-left flex-1 has-background-undefined has-border-undefined"
             data-teamleader-ui="datagrid-cell"
             style="box-sizing: content-box;"
           >
@@ -100,7 +100,7 @@ exports[`Component - Datagrid renders 1`] = `
           data-teamleader-ui="datagrid-footer-row"
         >
           <div
-            class="box cell align-left flex-1 has-background-undefined has-border-undefined"
+            class="box reset-font-smoothing cell align-left flex-1 has-background-undefined has-border-undefined"
             data-teamleader-ui="datagrid-cell"
             style="box-sizing: content-box;"
           >
