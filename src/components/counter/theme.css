@@ -1,5 +1,5 @@
 .counter {
-  border-radius: 4px;
+  border-radius: var(--border-radius-medium);
   color: var(--color-white);
   display: inline-flex;
   align-items: center;
