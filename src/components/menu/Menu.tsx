@@ -1,4 +1,3 @@
-import uiUtilities from '@teamleader/ui-utilities';
 import cx from 'classnames';
 import React, {
   ReactElement,
@@ -11,10 +10,9 @@ import React, {
   useState,
 } from 'react';
 
-import Box, { pickBoxProps } from '../box';
+import Box from '../box';
 import { BoxProps } from '../box/Box';
 import MarketingMenuItem from '../marketingMenuItem';
-import { events } from '../utils';
 import isComponentOfType from '../utils/is-component-of-type';
 import { getViewport } from '../utils/utils';
 import MenuItem from './MenuItem';
@@ -29,149 +27,155 @@ const POSITION: Record<string, 'auto' | 'static' | 'top-left' | 'top-right' | 'b
   BOTTOM_RIGHT: 'bottom-right',
 };
 
+type Position = 'auto' | 'static' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
+
 export interface MenuProps<S = any> extends Omit<BoxProps, 'children' | 'className'> {
   /** If true, the menu will be active. */
   active?: boolean;
+  /** Callback to hide the menu. */
+  onHide?: () => void;
   /** The content to display inside the menu. */
   children?: ReactNode;
   /** A class name for the wrapper to give custom styles. */
   className?: string;
-  /** Callback function that is fired when the menu hides. */
-  onHide?: () => void;
   /** Callback function that is fired when a menu item is clicked. */
   onSelect?: (selected: S) => void;
-  /** Callback function that is fired when the menu shows. */
-  onShow?: () => void;
   /** If true, a border is rendered around the menu. */
   outline?: boolean;
   /** The position in which the menu is rendered. */
-  position?: 'auto' | 'static' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
+  position?: Position;
   /** If true, the menu will highlight the selected value. */
   selectable?: boolean;
   /** The value of the menu item that will be highlighted. */
   selected?: S;
+  /** The anchor element */
+  anchorElement?: HTMLElement | null;
 }
 
 const Menu = <S,>({
   active = false,
+  onHide,
   children,
   className,
-  onHide,
   onSelect,
-  onShow,
   outline = true,
   position = 'static',
   selectable = true,
   selected,
+  anchorElement,
   ...others
 }: MenuProps<S>): ReactElement<any, any> | null => {
-  const [stateWidth, setStateWidth] = useState<number | undefined>(0);
-  const [stateHeight, setStateHeight] = useState<number | undefined>(0);
-  const [statePosition, setPosition] = useState<string | undefined>(position);
+  const [positionState, setPositionState] = useState<Position>(position);
+  const [calculatedPosition, setCalculatedPosition] = useState({});
+  const [maxHeight, setMaxHeight] = useState<number>();
+  const menuRef = useRef<HTMLUListElement>(null);
 
-  const menuNode = useRef<HTMLUListElement>(null);
-  const menuWrapper = useRef<HTMLElement>(null);
+  const localActive = active || positionState === POSITION.STATIC;
 
-  const boxProps = pickBoxProps(others);
   const classNames = cx(
     theme['menu'],
-    theme[position],
     {
-      [theme['active']]: active,
+      [theme['static']]: positionState === POSITION.STATIC,
+      [theme['outline']]: outline,
+      [theme['shadow']]: positionState !== POSITION.STATIC,
     },
     className,
   );
-  const outlineClassNames = cx(theme['outline'], {
-    [uiUtilities['box-shadow-200']]: position !== POSITION.STATIC,
-  });
 
-  const handleDocumentClick = (event: Event) => {
-    if (active && !events.targetIsDescendant(event, menuWrapper.current)) {
-      // eslint-disable-next-line @typescript-eslint/no-use-before-define
-      hide();
-    }
-  };
+  const handleDocumentClick = useCallback(
+    (event: Event) => {
+      const clickedNode = event.target as HTMLElement;
+      const menuNode = menuRef.current;
 
-  const handleSelect = (item: ReactElement, event: SyntheticEvent) => {
-    const { value, onClick } = item.props;
+      if (menuNode && menuNode !== clickedNode && anchorElement !== clickedNode && !menuNode.contains(clickedNode)) {
+        onHide && onHide();
+      }
+    },
+    [anchorElement, onHide],
+  );
 
-    if (onSelect) {
-      onSelect(value);
-    }
+  const handleSelect = useCallback(
+    (item: ReactElement, event: SyntheticEvent) => {
+      const { value, onClick } = item.props;
 
-    if (onClick) {
-      event.persist();
-      onClick(event);
-    }
+      if (onSelect) {
+        onSelect(value);
+      }
 
-    // eslint-disable-next-line @typescript-eslint/no-use-before-define
-    hide();
-  };
+      if (onClick) {
+        event.persist();
+        onClick(event);
+      }
 
-  const addEvents = () => {
-    window.setTimeout(
-      () =>
-        events.addEventsToDocument({
-          click: handleDocumentClick,
-          touchstart: handleDocumentClick,
-        }),
-      0,
-    );
-  };
+      if (position !== POSITION.STATIC) {
+        onHide && onHide();
+      }
+    },
+    [onHide, onSelect, position],
+  );
 
-  const removeEvents = () => {
-    events.removeEventsFromDocument({
-      click: handleDocumentClick,
-      touchstart: handleDocumentClick,
-    });
-  };
-
-  const calculatePosition = () => {
-    const parentNode = menuWrapper?.current?.parentNode as HTMLElement;
-
-    if (!parentNode) {
-      return;
-    }
-
-    const { top, left, height, width } = parentNode.getBoundingClientRect();
+  const calculateAutoPosition = (anchorElement: HTMLElement) => {
+    const { top, left, height, width } = anchorElement.getBoundingClientRect();
     const { height: vh, width: vw } = getViewport();
 
     const toTop = top < vh / 2 - height / 2;
     const toLeft = left < vw / 2 - width / 2;
 
-    return `${toTop ? 'top' : 'bottom'}${toLeft ? 'Left' : 'Right'}`;
+    return `${toTop ? 'top' : 'bottom'}-${toLeft ? 'left' : 'right'}` as Position;
   };
 
-  const getRootStyle = () => {
-    if (statePosition !== POSITION.STATIC) {
-      return { width: stateWidth, height: stateHeight };
+  const calculatePosition = useCallback(() => {
+    if (anchorElement && menuRef.current) {
+      const { height } = anchorElement.getBoundingClientRect();
+      const { height: menuHeight } = menuRef.current.getBoundingClientRect();
+
+      if (positionState === POSITION.TOP_LEFT) {
+        return {
+          top: height + 3,
+          left: 0,
+        };
+      }
+
+      if (positionState === POSITION.TOP_RIGHT) {
+        return {
+          top: height + 3,
+          right: 0,
+        };
+      }
+
+      if (positionState === POSITION.BOTTOM_LEFT) {
+        return {
+          top: -1 * (menuHeight + 3),
+          left: 0,
+        };
+      }
+
+      if (positionState === POSITION.BOTTOM_RIGHT) {
+        return {
+          top: -1 * (menuHeight + 3),
+          right: 0,
+        };
+      }
     }
-  };
+    return {};
+  }, [anchorElement, positionState]);
 
-  const getActiveMenuStyle = () => {
-    return { clip: `rect(0 ${stateWidth}px ${stateHeight}px 0)` };
-  };
+  const calculateMaxHeight = useCallback(() => {
+    if (anchorElement) {
+      const { top, height } = anchorElement.getBoundingClientRect();
+      const { height: viewportHeight } = getViewport();
 
-  const getMenuStyleByPosition = () => {
-    switch (statePosition) {
-      case POSITION.TOP_RIGHT:
-        return { clip: `rect(0 ${stateWidth}px 0 ${stateWidth}px)` };
-      case POSITION.BOTTOM_RIGHT:
-        return { clip: `rect(${stateHeight}px ${stateWidth}px ${stateHeight}px ${stateWidth}px)` };
-      case POSITION.BOTTOM_LEFT:
-        return { clip: `rect(${stateHeight}px 0 ${stateHeight}px 0)` };
-      case POSITION.TOP_LEFT:
-        return { clip: 'rect(0 0 0 0)' };
-      default:
-        return {};
+      if (positionState === POSITION.TOP_LEFT || positionState === POSITION.TOP_RIGHT) {
+        return viewportHeight - top - height - 24;
+      }
+
+      if (positionState === POSITION.BOTTOM_LEFT || positionState === POSITION.BOTTOM_RIGHT) {
+        return top - 24;
+      }
     }
-  };
+  }, [anchorElement, positionState]);
 
-  const getMenuStyle = () => {
-    return active ? getActiveMenuStyle() : getMenuStyleByPosition();
-  };
-
-  const getItems = useCallback(() => {
+  const renderItems = useCallback(() => {
     return React.Children.map(children, (item: ReactNode) => {
       if (!item) {
         return item;
@@ -188,56 +192,45 @@ const Menu = <S,>({
         return React.cloneElement(item);
       }
     });
-  }, [children]);
+  }, [children, handleSelect, selectable, selected]);
 
-  const show = () => {
-    onShow && onShow();
-    addEvents();
-  };
+  useEffect(() => {
+    if (position !== POSITION.STATIC && active) {
+      document.documentElement.addEventListener('click', handleDocumentClick);
 
-  const hide = () => {
-    onHide && onHide();
-    removeEvents();
-  };
+      return () => {
+        document.documentElement.removeEventListener('click', handleDocumentClick);
+      };
+    }
+  }, [active, handleDocumentClick, position]);
 
   useLayoutEffect(() => {
-    const { width, height } = menuNode.current?.getBoundingClientRect() || {};
-
-    setStateWidth(width);
-    setStateHeight(height);
-  }, [menuNode.current?.getBoundingClientRect()]);
-
-  useEffect(() => {
-    active ? show() : hide();
-
-    return () => {
-      active && removeEvents();
-    };
-  }, [active]);
-
-  useEffect(() => {
-    if (position === POSITION.AUTO) {
-      setPosition(calculatePosition());
+    if (position === POSITION.AUTO && anchorElement && active) {
+      setPositionState(calculateAutoPosition(anchorElement));
+    } else {
+      setPositionState(position);
     }
-  }, [position]);
+  }, [active, anchorElement, position]);
 
-  return (
-    <Box data-teamleader-ui="menu" className={classNames} ref={menuWrapper} style={getRootStyle()} {...boxProps}>
-      {outline && (
-        <div
-          className={outlineClassNames}
-          style={{ ...(stateWidth && { width: Math.ceil(stateWidth) }), height: stateHeight }}
-        />
-      )}
-      <ul ref={menuNode} className={theme['menu-inner']} style={getMenuStyle()}>
-        {/* An invisible element so the first element doesn't look like its selected or focused */}
-        <Box className={theme['invisible-menu-item']} data-teamleader-ui="menu-item" element="li">
-          <Box element="button" />
-        </Box>
-        {getItems()}
+  useLayoutEffect(() => {
+    if (positionState !== POSITION.STATIC && positionState !== POSITION.AUTO) {
+      setMaxHeight(calculateMaxHeight());
+    }
+  }, [calculateMaxHeight, positionState]);
+
+  useLayoutEffect(() => {
+    if (positionState !== POSITION.STATIC) {
+      setCalculatedPosition(calculatePosition());
+    }
+  }, [calculatePosition, positionState, maxHeight]);
+
+  return localActive ? (
+    <Box data-teamleader-ui="menu" className={classNames} ref={menuRef} style={calculatedPosition} {...others}>
+      <ul className={theme['menu-inner']} style={{ maxHeight }}>
+        {renderItems()}
       </ul>
     </Box>
-  );
+  ) : null;
 };
 
 export default Menu;

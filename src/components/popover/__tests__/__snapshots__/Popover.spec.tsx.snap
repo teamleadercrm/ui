@@ -19,7 +19,7 @@ exports[`Component - Popover renders 1`] = `
             tabindex="0"
           />
           <div
-            class="box popover"
+            class="box box-shadow-200 popover"
             data-teamleader-ui="popover"
             style="left: 0px; top: 0px; max-width: 50vw; min-width: 180px;"
           >

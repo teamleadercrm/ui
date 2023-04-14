@@ -28,6 +28,18 @@ import { Button } from '@teamleader/ui';
 ReactDOM.render(<Button label="Hello World!" />, document.getElementById('app'));
 ```
 
+Import the CSS into your project via JS or CSS.
+
+JS
+```js
+import '@teamleader/ui/es/index.css';
+```
+
+or CSS
+```css
+@import url('@teamleader/ui/es/index.css');
+```
+
 ## Browser support
 
 This library officially supports the last two versions of the major browsers. This is mainly because of dependencies and ease of mind.

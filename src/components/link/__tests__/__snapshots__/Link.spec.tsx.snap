@@ -3,7 +3,7 @@
 exports[`Component - Link renders 1`] = `
 <DocumentFragment>
   <a
-    class="box link is-inherit"
+    class="box reset-font-smoothing link is-inherit"
     data-teamleader-ui="link"
     href="https://foobar.com"
   >

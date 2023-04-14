@@ -1,11 +1,3 @@
-@import '@teamleader/ui-colors';
-@import '@teamleader/ui-animations';
-
-:root {
-  --color-marketing-violet-lightest: #e9e8ff;
-  --color-marketing-violet: #4f1fff;
-}
-
 .wrapper {
   color: var(--color-neutral-darkest);
   display: flex;

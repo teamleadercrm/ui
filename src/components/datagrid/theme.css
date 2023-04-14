@@ -1,7 +1,3 @@
-@import '@teamleader/ui-colors';
-@import '@teamleader/ui-utilities';
-@import '@teamleader/ui-typography';
-
 :root {
   --datagrid-blend-width: 6px;
   --datagrid-cell-width-base: 80px;

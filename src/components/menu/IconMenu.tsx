@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactNode, SyntheticEvent, MouseEvent, useState } from 'react';
+import React, { ReactElement, ReactNode, SyntheticEvent, MouseEvent, useState, useEffect, useRef } from 'react';
 import cx from 'classnames';
 import { IconMoreMediumOutline } from '@teamleader/ui-icons';
 import IconButton from '../iconButton';
@@ -35,6 +35,9 @@ const IconMenu: GenericComponent<IconMenuProps> = ({
   ...others
 }) => {
   const [active, setActive] = useState(false);
+
+  const buttonRef = useRef<HTMLButtonElement>(null);
+
   const buttonIcon = icon || <IconMoreMediumOutline />;
   const boxProps = pickBoxProps(others);
 
@@ -48,17 +51,25 @@ const IconMenu: GenericComponent<IconMenuProps> = ({
     onHide && onHide();
   };
 
+  useEffect(() => {
+    if (active) {
+      onShow && onShow();
+    } else {
+      onHide && onHide();
+    }
+  }, [active, onHide, onShow]);
+
   return (
     <Box data-teamleader-ui="icon-menu" {...boxProps} className={cx(theme['icon-menu'], className)}>
-      <IconButton className={theme['icon']} icon={buttonIcon} onClick={handleButtonClick} />
+      <IconButton className={theme['icon']} icon={buttonIcon} onClick={handleButtonClick} ref={buttonRef} />
       <Menu
         active={active}
         onHide={handleMenuHide}
         onSelect={onSelect}
-        onShow={onShow}
         position={position}
         selectable={selectable}
         selected={selected}
+        anchorElement={buttonRef.current}
       >
         {children}
       </Menu>

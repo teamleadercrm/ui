@@ -3,7 +3,7 @@
 exports[`Component - MarketingLink renders 1`] = `
 <DocumentFragment>
   <a
-    class="box link"
+    class="box reset-font-smoothing link"
     data-teamleader-ui="marketing-link"
     href="https://foobar.com"
   >

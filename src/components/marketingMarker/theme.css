@@ -1,8 +1,4 @@
-:root {
-  --color-marketing-violet-light: #d3d1fe;
-}
-
 .marker {
-  background-color: hsl(var(--color-marketing-violet-light-hsl), 50%);
+  background-color: hsl(var(--color-marketing-violet-light-hsl) / 50%);
   color: inherit;
 }

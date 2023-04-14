@@ -1,8 +1,3 @@
-@import '@teamleader/ui-animations';
-@import '@teamleader/ui-colors';
-@import '@teamleader/ui-typography';
-@import '@teamleader/ui-utilities';
-
 :root {
   --button-border-radius: calc(0.4 * var(--unit));
 }
@@ -83,17 +78,17 @@
       color: var(--color-$(color)-darkest);
 
       &.is-disabled {
-        background-color: hsl(var(--color-$(color)-darkest-hsl), 12%);
-        border: 1px solid hsl(var(--color-$(color)-darkest-hsl), 12%);
-        color: hsl(var(--color-$(color)-darkest-hsl), 36%);
+        background-color: hsl(var(--color-$(color)-darkest-hsl) / 12%);
+        border: 1px solid hsl(var(--color-$(color)-darkest-hsl) / 12%);
+        color: hsl(var(--color-$(color)-darkest-hsl) / 36%);
       }
 
       &:not(.is-disabled) {
         background-color: transparent;
-        border: 1px solid hsl(var(--color-$(color)-darkest-hsl), 72%);
+        border: 1px solid hsl(var(--color-$(color)-darkest-hsl) / 72%);
 
         &:hover {
-          background-color: hsl(var(--color-$(color)-darkest-hsl), 6%);
+          background-color: hsl(var(--color-$(color)-darkest-hsl) / 6%);
           border: 1px solid var(--color-$(color)-darkest);
         }
 
@@ -109,17 +104,17 @@
     color: var(--color-neutral-lightest);
 
     &.is-disabled {
-      border: 1px solid hsl(var(--color-neutral-lightest-hsl), 12%);
-      background-color: hsl(var(--color-neutral-lightest-hsl), 12%);
-      color: hsl(var(--color-neutral-lightest-hsl), 36%);
+      border: 1px solid hsl(var(--color-neutral-lightest-hsl) / 12%);
+      background-color: hsl(var(--color-neutral-lightest-hsl) / 12%);
+      color: hsl(var(--color-neutral-lightest-hsl) / 36%);
     }
 
     &:not(.is-disabled) {
       background-color: transparent;
-      border: 1px solid hsl(var(--color-neutral-lightest-hsl), 72%);
+      border: 1px solid hsl(var(--color-neutral-lightest-hsl) / 72%);
 
       &:hover {
-        background-color: hsl(var(--color-neutral-lightest-hsl), 12%);
+        background-color: hsl(var(--color-neutral-lightest-hsl) / 12%);
         border: 1px solid var(--color-neutral-lightest);
       }
 
@@ -284,7 +279,7 @@
 
     &:hover,
     &:active {
-      background-color: hsl(var(--color-neutral-hsl), 0.48);
+      background-color: hsl(var(--color-neutral-hsl) / 0.48);
     }
   }
 
@@ -293,7 +288,7 @@
   }
 
   &.has-icon-only:hover {
-    background-color: hsl(var(--color-neutral-darkest-hsl), 0.24);
+    background-color: hsl(var(--color-neutral-darkest-hsl) / 0.24);
   }
 
   &.is-processing {

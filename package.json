@@ -1,7 +1,7 @@
 {
   "name": "@teamleader/ui",
   "description": "Teamleader UI library",
-  "version": "20.1.0",
+  "version": "21.0.0",
   "author": "Teamleader <development@teamleader.eu>",
   "bugs": {
     "url": "https://github.com/teamleadercrm/ui/issues"
@@ -31,7 +31,7 @@
   "dependencies": {
     "@babel/runtime": "^7.18.3",
     "@teamleader/ui-animations": "^0.0.3",
-    "@teamleader/ui-colors": "^1.1.0",
+    "@teamleader/ui-colors": "^2.0.0",
     "@teamleader/ui-icons": "^2.1.0",
     "@teamleader/ui-illustrations": "^1.10.0",
     "@teamleader/ui-typography": "^2.0.2",
@@ -72,6 +72,7 @@
     "@babel/preset-env": "^7.18.2",
     "@babel/preset-react": "^7.12.5",
     "@babel/preset-typescript": "^7.16.7",
+    "@csstools/postcss-global-data": "^1.0.3",
     "@storybook/addon-backgrounds": "6.5.10",
     "@storybook/addon-controls": "^6.5.10",
     "@storybook/addon-docs": "^6.5.10",
@@ -133,7 +134,7 @@
     "postcss-import": "^15.0.0",
     "postcss-loader": "^7.0.1",
     "postcss-nested": "^6.0.0",
-    "postcss-preset-env": "8.0.1",
+    "postcss-preset-env": "8.3.1",
     "postcss-pseudoelements": "^5.0.0",
     "postcss-reporter": "^7.0.5",
     "prettier": "2.8.0",
@@ -170,7 +171,7 @@
     "cjs/**/*.css",
     "es/**/*.css"
   ],
-  "browserslist": ">0.5%, ie 11, not op_mini all",
+  "browserslist": ">0.5%, not op_mini all",
   "scripts": {
     "build:css": "postcss ./src/**/*.css --base src --dir ./es && cp -R ./es ./cjs",
     "build:js": "yarn build:es; yarn build:cjs",

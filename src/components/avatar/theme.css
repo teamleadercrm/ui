@@ -1,28 +1,17 @@
-@import '@teamleader/ui-colors';
-@import '@teamleader/ui-typography';
-@import '@teamleader/ui-utilities';
-
-:root {
-  --overflow-padding-horizontal: 8px;
-  --stacked-avatars-spacing: 12px;
-
-  --tiny-size: 24px;
-  --small-size: 30px;
-  --medium-size: 48px;
-  --large-size: 72px;
-  --hero-size: 144px;
-
-  --shape-circle-image-border-radius: 50%;
-  --shape-rounded-image-border-radius: 4px;
-}
-
 .wrapper {
   position: relative;
   text-decoration: none;
+  height: var(--size);
+  width: var(--size);
 
   &:hover {
     text-decoration: none;
   }
+}
+
+.avatar {
+  height: var(--size);
+  width: var(--size);
 }
 
 .children {
@@ -54,8 +43,11 @@
   font-family: var(--font-family-inter);
   font-weight: 500;
   line-height: 1;
-  padding: 0 var(--overflow-padding-horizontal);
+  padding: 0 8px;
   user-select: none;
+  border-radius: var(--size);
+  height: var(--size);
+  min-width: var(--size);
 }
 
 .overlay {
@@ -76,25 +68,25 @@
 }
 
 .default-height {
-  background-color: hsl(var(--color-teal-darkest-hsl), 0.84);
+  background-color: hsl(var(--color-teal-darkest-hsl) / 0.84);
   height: 24px;
 }
 
 .full-height {
-  background-color: hsl(var(--color-teal-darkest-hsl), 0.48);
+  background-color: hsl(var(--color-teal-darkest-hsl) / 0.48);
   height: 100%;
 }
 
 .dark {
   .overflow {
-    background: hsl(var(--color-teal-darkest-hsl), 10%);
+    background: hsl(var(--color-teal-darkest-hsl) / 10%);
     color: var(--color-neutral-darkest);
   }
 }
 
 .light {
   .overflow {
-    background: hsl(var(--color-white-hsl), 10%);
+    background: hsl(var(--color-white-hsl) / 10%);
     color: var(--color-white);
   }
 }
@@ -118,11 +110,7 @@
 }
 
 .is-tiny {
-  &.wrapper,
-  .avatar {
-    height: var(--tiny-size);
-    width: var(--tiny-size);
-  }
+  --size: 24px;
 
   .initials {
     font-size: 8px;
@@ -134,19 +122,12 @@
   }
 
   .overflow {
-    border-radius: var(--tiny-size);
     font-size: calc(1.2 * var(--unit));
-    height: var(--tiny-size);
-    min-width: var(--tiny-size);
   }
 }
 
 .is-small {
-  &.wrapper,
-  .avatar {
-    height: var(--small-size);
-    width: var(--small-size);
-  }
+  --size: 30px;
 
   .children {
     bottom: 60%;
@@ -154,19 +135,12 @@
   }
 
   .overflow {
-    border-radius: var(--small-size);
     font-size: calc(1.4 * var(--unit));
-    height: var(--small-size);
-    min-width: var(--small-size);
   }
 }
 
 .is-medium {
-  &.wrapper,
-  .avatar {
-    height: var(--medium-size);
-    width: var(--medium-size);
-  }
+  --size: 48px;
 
   .children {
     bottom: 65%;
@@ -174,19 +148,12 @@
   }
 
   .overflow {
-    border-radius: var(--medium-size);
     font-size: calc(1.6 * var(--unit));
-    height: var(--medium-size);
-    min-width: var(--medium-size);
   }
 }
 
 .is-large {
-  &.wrapper,
-  .avatar {
-    height: var(--large-size);
-    width: var(--large-size);
-  }
+  --size: 72px;
 
   .initials {
     font-size: 18px;
@@ -198,19 +165,12 @@
   }
 
   .overflow {
-    border-radius: var(--large-size);
     font-size: calc(1.8 * var(--unit));
-    height: var(--large-size);
-    min-width: var(--large-size);
   }
 }
 
 .is-hero {
-  &.wrapper,
-  .avatar {
-    height: var(--hero-size);
-    width: var(--hero-size);
-  }
+  --size: 144px;
 
   .initials {
     font-size: 36px;
@@ -222,32 +182,31 @@
   }
 
   .overflow {
-    border-radius: var(--hero-size);
     font-size: calc(3.6 * var(--unit));
-    height: var(--hero-size);
-    min-width: var(--hero-size);
   }
 }
 
 .is-circle {
   .avatar,
   .overlay {
-    border-radius: var(--shape-circle-image-border-radius);
+    border-radius: 50%;
   }
 }
 
 .is-rounded {
+  --rounded-border-radius: 4px;
+
   .avatar {
-    border-radius: var(--shape-rounded-image-border-radius);
+    border-radius: var(--rounded-border-radius);
   }
 
   .overlay {
     .default-height {
-      border-radius: 0 0 var(--shape-rounded-image-border-radius) var(--shape-rounded-image-border-radius);
+      border-radius: 0 0 var(--rounded-border-radius) var(--rounded-border-radius);
     }
 
     .full-height {
-      border-radius: var(--shape-rounded-image-border-radius);
+      border-radius: var(--rounded-border-radius);
     }
   }
 }

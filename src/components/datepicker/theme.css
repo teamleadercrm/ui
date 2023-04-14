@@ -1,21 +1,6 @@
-@import '@teamleader/ui-colors';
-@import '@teamleader/ui-typography';
-@import '@teamleader/ui-utilities';
-
-:root {
-  --border-radius: calc(0.4 * var(--unit));
-  --input-error-border: var(--color-ruby-dark);
-  --input-error-border-inverse: var(--color-ruby-light);
-  --input-warning-border: var(--color-gold-dark);
-  --input-warning-border-inverse: var(--color-gold-light);
-  --input-height-large: calc(4.6 * var(--unit));
-  --input-height-medium: calc(3.4 * var(--unit));
-  --input-height-small: calc(2.8 * var(--unit));
-  --input-text-size: calc(1.4 * var(--unit));
-  --input-text-size-large: calc(1.6 * var(--unit));
-}
-
 .date-picker {
+  --border-radius: calc(0.4 * var(--unit));
+
   display: flex;
 
   &-input__non-typeable {
@@ -231,63 +216,6 @@
   color: var(--color-violet-darkest);
 }
 
-.input-wrapper {
-  align-items: center;
-  border: 1px solid;
-  border-radius: var(--border-radius);
-  display: flex;
-  transition: 0.3s ease-in-out border, 0.3s ease-in-out box-shadow;
-  white-space: nowrap;
-
-  input {
-    background: transparent;
-    border: 0;
-    border-radius: var(--border-radius);
-    font-family: var(--font-family-inter);
-    font-size: var(--input-text-size);
-    font-weight: 400;
-    outline: 0;
-    padding: 0;
-    width: 100%;
-  }
-}
-
-.has-warning {
-  &:not(.has-focus) {
-    &:not(.is-inverse) {
-      .input-wrapper {
-        border-color: var(--input-warning-border) !important;
-        box-shadow: 0 0 0 1px var(--input-warning-border);
-      }
-    }
-
-    &.is-inverse {
-      .input-wrapper {
-        border-color: var(--input-warning-border-inverse) !important;
-        box-shadow: 0 0 0 1px var(--input-warning-border-inverse);
-      }
-    }
-  }
-}
-
-.has-error {
-  &:not(.has-focus) {
-    &:not(.is-inverse) {
-      .input-wrapper {
-        border-color: var(--input-error-border) !important;
-        box-shadow: 0 0 0 1px var(--input-error-border);
-      }
-    }
-
-    &.is-inverse {
-      .input-wrapper {
-        border-color: var(--input-error-border-inverse) !important;
-        box-shadow: 0 0 0 1px var(--input-error-border-inverse);
-      }
-    }
-  }
-}
-
 .is-small {
   .caption {
     font-size: 12px;
@@ -327,12 +255,6 @@
     font-size: 12px;
     padding: 6px;
   }
-
-  .input-wrapper {
-    input {
-      height: var(--input-height-small);
-    }
-  }
 }
 
 .is-medium {
@@ -367,12 +289,6 @@
   .weekNumber {
     font-size: 12px;
     padding: 9px;
-  }
-
-  .input-wrapper {
-    input {
-      height: var(--input-height-medium);
-    }
   }
 }
 
@@ -410,12 +326,5 @@
   .weekNumber {
     font-size: 16px;
     padding: 12px;
-  }
-
-  .input-wrapper {
-    input {
-      font-size: var(--input-text-size-large);
-      height: var(--input-height-large);
-    }
   }
 }

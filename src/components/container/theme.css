@@ -1,5 +1,3 @@
-@import '@teamleader/ui-utilities';
-
 .container {
   min-width: 1056px;
   padding-left: var(--spacer-big);
@@ -9,11 +7,4 @@
 .is-fixed {
   margin: 0 auto;
   max-width: 1056px;
-}
-
-@media (--larger-than-xl-viewport) {
-  .container {
-    padding-left: var(--spacer-biggest);
-    padding-right: var(--spacer-biggest);
-  }
 }
