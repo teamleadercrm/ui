@@ -219,14 +219,17 @@ const getDirection = (direction: Direction, anchorPosition: PositionValues, popo
     popoverDimensions,
   );
 
+  const isVisibleInAtLeastOneDirection = inputDirectionRendersOnScreen || oppositeDirectionRendersOnScreen;
+
   if (!inputDirectionRendersOnScreen) {
     if (oppositeDirectionRendersOnScreen) {
       return getOppositeDirection(direction);
     }
-    if (clockwise90DegreeDirectionRendersOnScreen) {
+    if (isVisibleInAtLeastOneDirection && clockwise90DegreeDirectionRendersOnScreen) {
       return getClockwise90DegreeDirection(direction);
     }
-    if (clockwise270DegreeDirectionRendersOnScreen) {
+
+    if (isVisibleInAtLeastOneDirection && clockwise270DegreeDirectionRendersOnScreen) {
       return getClockwise270DegreeDirection(direction);
     }
   }
