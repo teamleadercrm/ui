@@ -12,6 +12,12 @@
 
 ### Dependency updates
 
+## [21.0.1] - 2023-04-19
+
+### Fixed
+
+- `Menu`: Static menu's inside a popover should always be full width ([@lowiebenoot](https://https://github.com/lowiebenoot) in [#2632](https://github.com/teamleadercrm/ui/pull/2632))
+
 ## [21.0.0] - 2023-04-13
 
 ### Added
