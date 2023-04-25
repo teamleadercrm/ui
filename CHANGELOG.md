@@ -12,6 +12,12 @@
 
 ### Dependency updates
 
+## [21.0.2] - 2023-04-25
+
+### Fixed
+
+- `SplitButton`: Render all elements passed to SplitButton instead of only MenuItems ([@lorgan3](https://https://github.com/lorgan3) in [#2634](https://github.com/teamleadercrm/ui/pull/2634))
+
 ## [21.0.1] - 2023-04-19
 
 ### Fixed
@@ -40,7 +46,6 @@
 ### Dependency updates
 
 - [BREAKING] `@teamleader/ui-colors` has been updated to version 2.0.0 which uses the newer comma-free syntax for hsl colors. This means that you need to update the syntax where you use the hsl value in combination with alhpa (e.g. `hsl(var(--color-teal), 50%)` should be changed to `hsl(var(--color-teal) /50%)`). ([@lowiebenoot](https://https://github.com/lowiebenoot) in [#2620](https://github.com/teamleadercrm/ui/pull/2620))
-
 
 ## [20.1.0] - 2023-03-17
 
