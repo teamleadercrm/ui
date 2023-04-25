@@ -26,6 +26,10 @@
   }
 }
 
+[data-teamleader-ui="popover"] .menu.static {
+  width: 100%;
+}
+
 @keyframes fadein {
   0% {
     opacity: 0;
