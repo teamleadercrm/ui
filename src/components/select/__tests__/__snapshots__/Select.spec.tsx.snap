@@ -20,7 +20,7 @@ exports[`Component - Select does not render a clear button when no value is prov
         class="css-1f43avz-a11yText-A11yText"
       />
       <div
-        class=" css-zylvh4-control"
+        class=" css-13v1w7u-control"
       >
         <div
           class=" css-1og2pl5-ValueContainer"
@@ -104,7 +104,7 @@ exports[`Component - Select renders 1`] = `
         class="css-1f43avz-a11yText-A11yText"
       />
       <div
-        class=" css-zylvh4-control"
+        class=" css-13v1w7u-control"
       >
         <div
           class=" css-1og2pl5-ValueContainer"
@@ -188,7 +188,7 @@ exports[`Component - Select renders a clear button when a value is provided 1`] 
         class="css-1f43avz-a11yText-A11yText"
       />
       <div
-        class=" css-zylvh4-control"
+        class=" css-13v1w7u-control"
       >
         <div
           class=" css-1og2pl5-ValueContainer"
@@ -291,7 +291,7 @@ exports[`Component - Select renders a help text 1`] = `
         class="css-1f43avz-a11yText-A11yText"
       />
       <div
-        class=" css-zylvh4-control"
+        class=" css-13v1w7u-control"
       >
         <div
           class=" css-1og2pl5-ValueContainer"
@@ -381,7 +381,7 @@ exports[`Component - Select renders a success message 1`] = `
         class="css-1f43avz-a11yText-A11yText"
       />
       <div
-        class=" css-14enqk9-control"
+        class=" css-1ro7r76-control"
       >
         <div
           class=" css-1og2pl5-ValueContainer"
@@ -473,7 +473,7 @@ exports[`Component - Select renders a warning message 1`] = `
         class="css-1f43avz-a11yText-A11yText"
       />
       <div
-        class=" css-5mjksy-control"
+        class=" css-peu6az-control"
       >
         <div
           class=" css-1og2pl5-ValueContainer"
@@ -565,7 +565,7 @@ exports[`Component - Select renders an error message 1`] = `
         class="css-1f43avz-a11yText-A11yText"
       />
       <div
-        class=" css-sg9y4q-control"
+        class=" css-1pqfd55-control"
       >
         <div
           class=" css-1og2pl5-ValueContainer"
