@@ -12,6 +12,13 @@
 
 ### Dependency updates
 
+## [21.0.3] - 2023-05-05
+
+### Changed
+
+- `Select`: Added pointer cursor on hover ([@BeirlaenAaron](https://https://github.com/BeirlaenAaron) in [#2642](https://github.com/teamleadercrm/ui/pull/2642))
+- `FilterSelection`: Added pointer cursor on hover ([@BeirlaenAaron](https://https://github.com/BeirlaenAaron) in [#2642](https://github.com/teamleadercrm/ui/pull/2642))
+
 ## [21.0.2] - 2023-04-25
 
 ### Fixed
