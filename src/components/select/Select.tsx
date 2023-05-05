@@ -208,6 +208,7 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
           : isFocused
           ? `0 0 0 1px ${COLOR.TEAL.LIGHT}`
           : 'none',
+        cursor: isDisabled ? 'default' : 'pointer',
       };
     }
 
@@ -237,6 +238,7 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
         : isFocused
         ? `0 0 0 1px ${COLOR.NEUTRAL.DARKEST}`
         : 'none',
+      cursor: isDisabled ? 'default' : 'pointer',
     };
   };
 
@@ -383,6 +385,7 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
             wordBreak: 'break-word',
           }),
       padding: '8px 12px',
+      cursor: isDisabled ? 'default' : 'pointer',
     };
 
     if (inverse) {
