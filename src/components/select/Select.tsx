@@ -370,6 +370,7 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
       paddingLeft: size === 'tiny' ? '3px' : '6px',
       paddingRight: size === 'tiny' ? '3px' : '6px',
       transition: 'background-color .35s cubic-bezier(.4, 0, .2, 1)',
+      cursor: 'pointer',
     };
   };
 
