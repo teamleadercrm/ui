@@ -140,6 +140,7 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
     width = '100%',
     truncateOptionText,
     options,
+    isSearchable,
     ...otherProps
   }: SelectProps<Option, IsMulti, IsClearable>,
   ref: ForwardedRef<SelectRef<Option, IsMulti>>,
@@ -181,6 +182,8 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
       width,
     };
 
+    const cursor = isDisabled ? 'default' : isSearchable || isSearchable === undefined ? 'text' : 'pointer';
+
     if (inverse) {
       return {
         ...commonStyles,
@@ -208,6 +211,7 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
           : isFocused
           ? `0 0 0 1px ${COLOR.TEAL.LIGHT}`
           : 'none',
+        cursor,
       };
     }
 
@@ -237,6 +241,7 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
         : isFocused
         ? `0 0 0 1px ${COLOR.NEUTRAL.DARKEST}`
         : 'none',
+      cursor,
     };
   };
 
@@ -365,6 +370,7 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
       paddingLeft: size === 'tiny' ? '3px' : '6px',
       paddingRight: size === 'tiny' ? '3px' : '6px',
       transition: 'background-color .35s cubic-bezier(.4, 0, .2, 1)',
+      cursor: 'pointer',
     };
   };
 
@@ -383,6 +389,7 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
             wordBreak: 'break-word',
           }),
       padding: '8px 12px',
+      cursor: isDisabled ? 'default' : 'pointer',
     };
 
     if (inverse) {
@@ -496,6 +503,7 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
         menuShouldBlockScroll
         styles={getStyles()}
         options={options || []}
+        isSearchable={isSearchable}
         {...restProps}
       />
       <ValidationText error={error} help={helpText} inverse={inverse} success={success} warning={warning} />
