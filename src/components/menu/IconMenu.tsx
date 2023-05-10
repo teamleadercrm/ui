@@ -19,6 +19,7 @@ export interface IconMenuProps extends Omit<BoxProps, 'children' | 'className'> 
   position?: 'auto' | 'static' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
   selectable?: boolean;
   selected?: any;
+  title?: string;
 }
 
 const IconMenu: GenericComponent<IconMenuProps> = ({
@@ -32,6 +33,7 @@ const IconMenu: GenericComponent<IconMenuProps> = ({
   selectable = false,
   selected,
   onClick,
+  title,
   ...others
 }) => {
   const [active, setActive] = useState(false);
@@ -60,7 +62,13 @@ const IconMenu: GenericComponent<IconMenuProps> = ({
 
   return (
     <Box data-teamleader-ui="icon-menu" {...others} className={cx(theme['icon-menu'], className)}>
-      <IconButton className={theme['icon']} icon={buttonIcon} onClick={handleButtonClick} ref={buttonRef} />
+      <IconButton
+        className={theme['icon']}
+        icon={buttonIcon}
+        onClick={handleButtonClick}
+        ref={buttonRef}
+        title={title}
+      />
       <Menu
         active={active}
         onHide={handleMenuHide}
