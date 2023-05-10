@@ -2,11 +2,11 @@
 
 ### Added
 
-- `IconMenu`: Added a `title` prop and pass it to the IconButton ([@driesd](https://https://github.com/driesd) in [#2642](https://github.com/teamleadercrm/ui/pull/2648))
+- `IconMenu`: Added a `title` prop and pass it to the IconButton ([@driesd](https://https://github.com/driesd) in [#2648](https://github.com/teamleadercrm/ui/pull/2648))
 
 ### Changed
 
-- `IconMenu`: Spread all other props instead of only spreading the box props ([@driesd](https://https://github.com/driesd) in [#2642](https://github.com/teamleadercrm/ui/pull/2648))
+- `IconMenu`: Spread all other props instead of only spreading the box props ([@driesd](https://https://github.com/driesd) in [#2648](https://github.com/teamleadercrm/ui/pull/2648))
 
 ### Deprecated
 
