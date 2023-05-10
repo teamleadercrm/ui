@@ -4,7 +4,7 @@ import { IconMoreMediumOutline } from '@teamleader/ui-icons';
 import IconButton from '../iconButton';
 import Menu from './Menu';
 import theme from './theme.css';
-import Box, { pickBoxProps } from '../box';
+import Box from '../box';
 import { BoxProps } from '../box/Box';
 import { GenericComponent } from '../../@types/types';
 
@@ -39,7 +39,6 @@ const IconMenu: GenericComponent<IconMenuProps> = ({
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   const buttonIcon = icon || <IconMoreMediumOutline />;
-  const boxProps = pickBoxProps(others);
 
   const handleButtonClick = (event: MouseEvent) => {
     setActive(!active);
@@ -60,7 +59,7 @@ const IconMenu: GenericComponent<IconMenuProps> = ({
   }, [active, onHide, onShow]);
 
   return (
-    <Box data-teamleader-ui="icon-menu" {...boxProps} className={cx(theme['icon-menu'], className)}>
+    <Box data-teamleader-ui="icon-menu" {...others} className={cx(theme['icon-menu'], className)}>
       <IconButton className={theme['icon']} icon={buttonIcon} onClick={handleButtonClick} ref={buttonRef} />
       <Menu
         active={active}
