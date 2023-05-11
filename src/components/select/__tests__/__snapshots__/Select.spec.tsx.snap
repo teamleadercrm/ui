@@ -225,7 +225,7 @@ exports[`Component - Select renders a clear button when a value is provided 1`] 
         >
           <span
             aria-hidden="true"
-            class="box align-items-center display-flex neutral darkest"
+            class="box align-items-center display-flex neutral darkest clear-indicator"
             data-teamleader-ui="icon"
           >
             <svg
