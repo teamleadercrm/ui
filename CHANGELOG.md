@@ -2,11 +2,7 @@
 
 ### Added
 
-- `IconMenu`: Added a `title` prop and pass it to the IconButton ([@driesd](https://https://github.com/driesd) in [#2648](https://github.com/teamleadercrm/ui/pull/2648))
-
 ### Changed
-
-- `IconMenu`: Spread all other props instead of only spreading the box props ([@driesd](https://https://github.com/driesd) in [#2648](https://github.com/teamleadercrm/ui/pull/2648))
 
 ### Deprecated
 
@@ -15,6 +11,20 @@
 ### Fixed
 
 ### Dependency updates
+
+## [21.2.0] - 2023-05-11
+
+### Added
+
+- `IconMenu`: Added a `title` prop and pass it to the IconButton ([@driesd](https://https://github.com/driesd) in [#2648](https://github.com/teamleadercrm/ui/pull/2648))
+
+### Changed
+
+- `IconMenu`: Spread all other props instead of only spreading the box props ([@driesd](https://https://github.com/driesd) in [#2648](https://github.com/teamleadercrm/ui/pull/2648))
+
+### Fixed
+
+- `Select`: Fixed clear indicator styles ([@BeirlaenAaron](https://https://github.com/BeirlaenAaron) in [#2649](https://github.com/teamleadercrm/ui/pull/2649))
 
 ## [21.1.0] - 2023-05-08
 
