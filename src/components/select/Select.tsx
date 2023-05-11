@@ -114,6 +114,7 @@ const ClearIndicator = <Option extends OptionType, IsMulti extends boolean>(
       color={inverse ? 'teal' : 'neutral'}
       display="flex"
       tint={inverse ? 'lightest' : 'darkest'}
+      className={cx(theme['clear-indicator'], { [theme['clear-indicator--inverse']]: inverse })}
     >
       <IconCloseBadgedSmallFilled />
     </Icon>
@@ -159,21 +160,6 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
       activeSelects -= 1;
     };
   }, []);
-
-  const getClearIndicatorStyles = (base: CSSObjectWithLabel) => {
-    return {
-      ...base,
-      color: inverse ? COLOR.TEAL.LIGHTEST : COLOR.TEAL.DARK,
-      '&:hover': {
-        color: inverse ? COLOR.NEUTRAL.LIGHTEST : COLOR.TEAL.DARKEST,
-      },
-      cursor: 'pointer',
-      svg: {
-        height: '14px',
-        width: '14px',
-      },
-    };
-  };
 
   const getControlStyles = (base: CSSObjectWithLabel, { isDisabled, isFocused }: ControlProps<Option>) => {
     const commonStyles: CSSObjectWithLabel = {
@@ -457,7 +443,6 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
   };
 
   const getStyles = (): StylesConfig<Option> => ({
-    clearIndicator: getClearIndicatorStyles,
     control: getControlStyles,
     group: getGroupStyles,
     groupHeading: getGroupHeadingStyles,

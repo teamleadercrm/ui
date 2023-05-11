@@ -9,6 +9,20 @@
   width: 30px;
 }
 
+.clear-indicator {
+  cursor: pointer;
+
+  &:hover {
+    color: var(--color-teal-darkest);
+  }
+
+  &--inverse {
+    &:hover {
+      color: var(--color-neutral-lightest);
+    }
+  }
+}
+
 .is-large .dropdown-indicator {
   width: 36px;
 }
