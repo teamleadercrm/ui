@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `Input`: Fix warning when using input as an uncontrolled component ([@lorgan3](https://https://github.com/lorgan3) in [#2652](https://github.com/teamleadercrm/ui/pull/2652))
+
 ### Dependency updates
 
 ## [21.2.0] - 2023-05-11

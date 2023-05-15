@@ -17,7 +17,7 @@ export interface InputProps extends Omit<SingleLineInputBaseProps, 'onChange'> {
 
 const Input: GenericComponent<InputProps> = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(
   ({ value, onChange, ...others }: InputProps, forwardedRef) => {
-    const [stateValue, setStateValue] = useState(value);
+    const [stateValue, setStateValue] = useState(value ?? '');
 
     const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
       setStateValue(event.currentTarget.value);
