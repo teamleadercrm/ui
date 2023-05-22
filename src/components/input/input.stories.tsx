@@ -86,7 +86,7 @@ export default {
   },
 } as ComponentMeta<typeof Input>;
 
-export const input: ComponentStory<typeof Input> = (args) => {
+export const InputBasic: ComponentStory<typeof Input> = (args) => {
   const [value, setValue] = useState('');
 
   const handleChange = (event: ChangeEvent<HTMLElement>, value: string) => {
@@ -96,8 +96,8 @@ export const input: ComponentStory<typeof Input> = (args) => {
   return <Input value={value} onChange={handleChange} {...args} />;
 };
 
-input.storyName = 'Input';
-input.args = {
+InputBasic.storyName = 'Input';
+InputBasic.args = {
   bold: false,
   disabled: false,
   error: '',
@@ -112,7 +112,7 @@ input.args = {
   textAlignRight: false,
   width: '',
 };
-input.argTypes = {
+InputBasic.argTypes = {
   ...inputArgTypes,
   type: {
     control: 'select',
@@ -120,7 +120,7 @@ input.argTypes = {
   },
 };
 
-export const inputConnected: ComponentStory<typeof Input> = (args) => {
+export const InputConnected: ComponentStory<typeof Input> = (args) => {
   const [value, setValue] = useState('');
 
   const handleChange = (event: ChangeEvent<HTMLElement>, value: string) => {
@@ -130,13 +130,13 @@ export const inputConnected: ComponentStory<typeof Input> = (args) => {
   return <Input value={value} onChange={handleChange} {...args} />;
 };
 
-inputConnected.storyName = 'Input with connected';
-inputConnected.args = {
-  ...input.args,
+InputConnected.storyName = 'Input with connected';
+InputConnected.args = {
+  ...InputBasic.args,
   connectedLeft,
   connectedRight,
 };
-inputConnected.argTypes = {
+InputConnected.argTypes = {
   ...inputArgTypes,
   type: {
     control: 'select',
@@ -144,7 +144,7 @@ inputConnected.argTypes = {
   },
 };
 
-export const inputPrefixSuffix: ComponentStory<typeof Input> = (args) => {
+export const InputPrefixSuffix: ComponentStory<typeof Input> = (args) => {
   const [value, setValue] = useState('');
 
   const handleChange = (event: ChangeEvent<HTMLElement>, value: string) => {
@@ -154,13 +154,13 @@ export const inputPrefixSuffix: ComponentStory<typeof Input> = (args) => {
   return <Input value={value} onChange={handleChange} {...args} />;
 };
 
-inputPrefixSuffix.storyName = 'Input with prefix and suffix';
-inputPrefixSuffix.args = {
-  ...input.args,
+InputPrefixSuffix.storyName = 'Input with prefix and suffix';
+InputPrefixSuffix.args = {
+  ...InputBasic.args,
   prefix,
   suffix,
 };
-inputPrefixSuffix.argTypes = {
+InputPrefixSuffix.argTypes = {
   ...inputArgTypes,
   type: {
     control: 'select',
@@ -168,7 +168,7 @@ inputPrefixSuffix.argTypes = {
   },
 };
 
-export const numericInput: ComponentStory<typeof NumericInput> = (args) => {
+export const NumericInputBasic: ComponentStory<typeof NumericInput> = (args) => {
   const [value, setValue] = useState<string | number>(6);
 
   const handleChange = (event: ChangeEvent<HTMLElement>, value: string) => {
@@ -178,8 +178,8 @@ export const numericInput: ComponentStory<typeof NumericInput> = (args) => {
   return <NumericInput value={value} onChange={handleChange} {...args} />;
 };
 
-numericInput.storyName = 'NumericInput';
-numericInput.args = {
+NumericInputBasic.storyName = 'NumericInput';
+NumericInputBasic.args = {
   bold: false,
   disabled: false,
   error: '',
@@ -197,9 +197,9 @@ numericInput.args = {
   textAlignRight: false,
   width: '',
 };
-numericInput.argTypes = { ...inputArgTypes, stepper: { control: 'select', options: stepperOptions } };
+NumericInputBasic.argTypes = { ...inputArgTypes, stepper: { control: 'select', options: stepperOptions } };
 
-export const timeInput: ComponentStory<typeof TimeInput> = (args) => {
+export const TimeInputBasic: ComponentStory<typeof TimeInput> = (args) => {
   const [value, setValue] = useState('');
 
   const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -209,8 +209,8 @@ export const timeInput: ComponentStory<typeof TimeInput> = (args) => {
   return <TimeInput value={value} onChange={handleChange} {...args} />;
 };
 
-timeInput.storyName = 'TimeInput';
-timeInput.args = {
+TimeInputBasic.storyName = 'TimeInput';
+TimeInputBasic.args = {
   bold: false,
   disabled: false,
   error: '',
@@ -224,9 +224,9 @@ timeInput.args = {
   textAlighRight: false,
   width: '90px',
 };
-timeInput.argTypes = inputArgTypes;
+TimeInputBasic.argTypes = inputArgTypes;
 
-export const durationInput: ComponentStory<typeof DurationInput> = (args) => {
+export const DurationInputBasic: ComponentStory<typeof DurationInput> = (args) => {
   const [value, setValue] = useState<{ hours?: number | undefined; minutes?: number | undefined } | undefined>();
 
   const handleChange = (value?: { hours?: number; minutes?: number }) => {
@@ -236,9 +236,9 @@ export const durationInput: ComponentStory<typeof DurationInput> = (args) => {
   return <DurationInput value={value} onChange={handleChange} {...args} />;
 };
 
-durationInput.storyName = 'DurationInput';
+DurationInputBasic.storyName = 'DurationInput';
 
-export const textarea: ComponentStory<typeof Textarea> = (args) => {
+export const TextareaBasic: ComponentStory<typeof Textarea> = (args) => {
   const [value, setValue] = useState('');
 
   const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -248,8 +248,8 @@ export const textarea: ComponentStory<typeof Textarea> = (args) => {
   return <Textarea value={value} onChange={handleChange} {...args} />;
 };
 
-textarea.storyName = 'Textarea';
-textarea.args = {
+TextareaBasic.storyName = 'Textarea';
+TextareaBasic.args = {
   bold: false,
   disabled: false,
   error: '',
@@ -262,4 +262,4 @@ textarea.args = {
   size: 'medium',
   textAlignRight: false,
 };
-textarea.argTypes = inputArgTypes;
+TextareaBasic.argTypes = inputArgTypes;

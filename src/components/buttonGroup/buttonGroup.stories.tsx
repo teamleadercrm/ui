@@ -18,7 +18,7 @@ export const Normal: ComponentStory<typeof ButtonGroup> = (args) => (
   </ButtonGroup>
 );
 
-export const withActive = () => {
+export const WithActive = () => {
   const [value, setValue] = useState('option2');
 
   const handleChange = (value: string) => {
@@ -34,4 +34,4 @@ export const withActive = () => {
   );
 };
 
-withActive.storyName = 'With active';
+WithActive.storyName = 'With active';

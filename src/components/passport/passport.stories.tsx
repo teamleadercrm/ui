@@ -71,7 +71,7 @@ const usePassportState = () => {
   return { active, anchorEl, handleButtonClick: handleSetActiveClick, handleCloseClick: handleSetInactiveClick };
 };
 
-export const contact = (args: PassportProps) => {
+export const Contact = (args: PassportProps) => {
   const { active, anchorEl, handleButtonClick, handleCloseClick } = usePassportState();
 
   return (
@@ -94,7 +94,7 @@ export const contact = (args: PassportProps) => {
   );
 };
 
-export const company = (args: PassportProps) => {
+export const Company = (args: PassportProps) => {
   const { active, anchorEl, handleButtonClick, handleCloseClick } = usePassportState();
 
   return (
@@ -117,7 +117,7 @@ export const company = (args: PassportProps) => {
   );
 };
 
-export const empty = (args: PassportProps) => {
+export const Empty = (args: PassportProps) => {
   const { active, anchorEl, handleButtonClick, handleCloseClick } = usePassportState();
 
   return (
