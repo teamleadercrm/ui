@@ -6,8 +6,6 @@
 }
 
 .icon-menu {
-  display: inline-block;
-  position: relative;
   text-align: center;
 }
 
@@ -26,7 +24,7 @@
   }
 }
 
-[data-teamleader-ui="popover"] .menu.static {
+[data-teamleader-ui='popover'] .menu.static {
   width: 100%;
 }
 
