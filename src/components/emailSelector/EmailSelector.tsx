@@ -76,7 +76,7 @@ const EmailSelector: GenericComponent<EmailSelectorProps> = ({
       !disableRemovalOfFirst && setEditingLabel(index);
       setSelection(selection.filter((selection, i) => i <= index || selection.email.trim() !== ''));
     },
-    [setEditingLabel, setSelection, selection],
+    [disableRemovalOfFirst, selection],
   );
 
   const createNewLabel = (selection: Suggestion[]) => {

@@ -87,17 +87,20 @@ function DatePickerInput<IsTypeable extends boolean = true>({
   selectedDate: preselectedDate,
   ...others
 }: DatePickerInputProps<IsTypeable>) {
-  const getFormattedDateString = (date: Date) => {
-    if (!date) {
-      return '';
-    }
+  const getFormattedDateString = useCallback(
+    (date: Date) => {
+      if (!date) {
+        return '';
+      }
 
-    if (typeable || !customFormatDate) {
-      return formatDate(date, DEFAULT_FORMAT, locale);
-    }
+      if (typeable || !customFormatDate) {
+        return formatDate(date, DEFAULT_FORMAT, locale);
+      }
 
-    return customFormatDate(date, locale);
-  };
+      return customFormatDate(date, locale);
+    },
+    [customFormatDate, locale, typeable],
+  );
   const inputRef = useRef<HTMLInputElement>(null);
   const [isPopoverActive, setIsPopoverActive] = useState(false);
   const [popoverAnchorEl, setPopoverAnchorEl] = useState<Element | null>(null);
@@ -143,7 +146,7 @@ function DatePickerInput<IsTypeable extends boolean = true>({
         }
       }
     },
-    [inputValue, selectedDate],
+    [customFormatDate, dayPickerProps?.disabledDays, inputValue, locale, onChange, selectedDate, typeable],
   );
   useEffect(() => {
     if (!preselectedDate) {
@@ -159,7 +162,7 @@ function DatePickerInput<IsTypeable extends boolean = true>({
     } else {
       setSelectedDate(undefined);
     }
-  }, [preselectedDate]);
+  }, [getFormattedDateString, preselectedDate]);
 
   const handleInputFocus = (event: React.FocusEvent<HTMLElement>) => {
     if (inputProps?.readOnly) {

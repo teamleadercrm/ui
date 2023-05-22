@@ -1,5 +1,5 @@
 import omit from 'lodash.omit';
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { InputActionMeta } from 'react-select';
 import Select, { SelectProps } from './Select';
 import { Option as OptionType } from './types';
@@ -46,32 +46,38 @@ const AsyncSelect = <Option extends OptionType, IsMulti extends boolean = false,
     isLastPage: false,
   });
 
-  const handleOptionsLoaded = (loadedOptions: Option[], searchTerm: string, clearOptions: boolean) => {
-    const newOptions = clearOptions ? DEFAULT_OPTIONS.concat(loadedOptions) : state.options.concat(loadedOptions);
-    const isLastPage = loadedOptions.length < pageSize;
-    setState((previousState) => ({
-      ...previousState,
-      options: newOptions,
-      isLastPage,
-      isLoading: false,
-      cache: !cacheOptions
-        ? {}
-        : {
-            ...previousState.cache,
-            [searchTerm]: {
-              options: newOptions,
-              isLastPage,
+  const handleOptionsLoaded = useCallback(
+    (loadedOptions: Option[], searchTerm: string, clearOptions: boolean) => {
+      const newOptions = clearOptions ? DEFAULT_OPTIONS.concat(loadedOptions) : state.options.concat(loadedOptions);
+      const isLastPage = loadedOptions.length < pageSize;
+      setState((previousState) => ({
+        ...previousState,
+        options: newOptions,
+        isLastPage,
+        isLoading: false,
+        cache: !cacheOptions
+          ? {}
+          : {
+              ...previousState.cache,
+              [searchTerm]: {
+                options: newOptions,
+                isLastPage,
+              },
             },
-          },
-    }));
-  };
+      }));
+    },
+    [cacheOptions, pageSize, state.options],
+  );
 
-  const fetchOptions = (searchTerm: string, pageNumber: number, clearOptions: boolean) => {
-    setState((previousState) => ({ ...previousState, isLoading: true }));
-    loadOptions(searchTerm, ...(paginate ? [pageSize, pageNumber] : [])).then((options) => {
-      handleOptionsLoaded(options, searchTerm, clearOptions);
-    });
-  };
+  const fetchOptions = useCallback(
+    (searchTerm: string, pageNumber: number, clearOptions: boolean) => {
+      setState((previousState) => ({ ...previousState, isLoading: true }));
+      loadOptions(searchTerm, ...(paginate ? [pageSize, pageNumber] : [])).then((options) => {
+        handleOptionsLoaded(options, searchTerm, clearOptions);
+      });
+    },
+    [handleOptionsLoaded, loadOptions, pageSize, paginate],
+  );
 
   const handleInputChange = (newSearchTerm: string, inputActionMeta: InputActionMeta) => {
     const { searchTerm, cache } = state;
@@ -134,7 +140,7 @@ const AsyncSelect = <Option extends OptionType, IsMulti extends boolean = false,
       pageNumber: DEFAULT_PAGE_NUMBER,
     }));
     fetchOptions(state.searchTerm, DEFAULT_PAGE_NUMBER, true);
-  }, [pageSize, loadOptions]);
+  }, [pageSize, loadOptions, fetchOptions, state.searchTerm]);
 
   const { isLoading, options } = state;
   return (

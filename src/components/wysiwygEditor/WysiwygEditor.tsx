@@ -119,17 +119,19 @@ const WysiwygEditor: GenericComponent<WysiwygEditorProps> = ({
       return;
     }
 
+    const editor = editorRef.current;
+
     const handleKeyDown = (event: React.KeyboardEvent) => onKeyDown(event);
 
-    editorRef.current.wrapper.addEventListener('keydown', handleKeyDown);
+    editor.wrapper.addEventListener('keydown', handleKeyDown);
 
     return () => {
-      if (!onKeyDown || !editorRef?.current?.wrapper) {
+      if (!onKeyDown || !editor.wrapper) {
         return;
       }
-      editorRef.current.wrapper.removeEventListener('keydown', handleKeyDown);
+      editor.wrapper.removeEventListener('keydown', handleKeyDown);
     };
-  }, []);
+  }, [onKeyDown]);
 
   const handleBlur = (event: React.FocusEvent<any, any>) => {
     const editorInput = document.querySelector("[aria-label='rdw-editor']");

@@ -44,7 +44,7 @@ const LinkOptions: GenericComponent<LinkOptionsProps> = ({
   useEffect(() => {
     setTextValue(link?.title || selectionText);
     setLinkValue(link?.target);
-  }, [link?.target, selectionText]);
+  }, [link?.target, link?.title, selectionText]);
 
   const focusEditor = () => {
     const editorElement: HTMLElement | null = document.querySelector("[aria-label='rdw-editor']");

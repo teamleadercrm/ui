@@ -1,7 +1,7 @@
 import { IconCloseMediumOutline } from '@teamleader/ui-icons';
 import uiUtilities from '@teamleader/ui-utilities';
 import cx from 'classnames';
-import React, { ReactElement, ReactNode, useEffect, useState } from 'react';
+import React, { ReactElement, ReactNode, useCallback, useEffect, useState } from 'react';
 import { GenericComponent } from '../../@types/types';
 import IconButton from '../iconButton';
 import Link from '../link';
@@ -45,11 +45,12 @@ const Toast: GenericComponent<ToastProps> = ({
   onClose,
 }) => {
   const [currentTimeout, setCurrentTimeout] = useState<number | undefined>(undefined);
-  const clearCurrentTimeout = () => {
+  const clearCurrentTimeout = useCallback(() => {
     clearTimeout(currentTimeout);
     setCurrentTimeout(undefined);
-  };
-  const scheduleTimeout = () => {
+  }, [currentTimeout]);
+
+  const scheduleTimeout = useCallback(() => {
     if (currentTimeout) {
       clearCurrentTimeout();
     }
@@ -63,7 +64,8 @@ const Toast: GenericComponent<ToastProps> = ({
         clearCurrentTimeout();
       }, timeout),
     );
-  };
+  }, [clearCurrentTimeout, currentTimeout, onTimeout, timeout]);
+
   const handleMouseEnter = () => {
     if (timeout) {
       clearCurrentTimeout();
@@ -114,7 +116,7 @@ const Toast: GenericComponent<ToastProps> = ({
     return () => {
       clearCurrentTimeout();
     };
-  }, [timeout]);
+  }, [clearCurrentTimeout, scheduleTimeout, timeout]);
   const classNames = cx(uiUtilities['reset-box-sizing'], uiUtilities['box-shadow-400'], theme['toast'], className);
 
   return (

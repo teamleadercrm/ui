@@ -69,7 +69,7 @@ const MonthPickerUnary: GenericComponent<MonthPickerProps> = ({ date, locale, lo
   const selectedMonth = useMemo(
     () =>
       date && localeUtils && { value: date.getMonth().toString(), label: localeUtils.formatMonthTitle(date, locale) },
-    [date],
+    [date, locale, localeUtils],
   );
 
   const handleChangeMonth = (selectedMonth: Option) => {
@@ -96,7 +96,7 @@ const MonthPickerSplit: GenericComponent<MonthPickerProps> = ({ date, locale, lo
   const [yearInput, setYearInput] = useState(date && `${date.getFullYear()}`);
   const selectedMonth = useMemo(
     () => date && localeUtils && { value: date.getMonth(), label: localeUtils.formatMonthTitle(date, locale) },
-    [date],
+    [date, locale, localeUtils],
   );
   const selectedYear = useMemo(() => date && date.getFullYear(), [date]);
 
