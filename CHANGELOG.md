@@ -2,10 +2,13 @@
 
 ### Added
 
+- `Menu`: If the child is a `Fragment` element, the `onClick` event handler will be passed to its children. ([@farazatarodi](https://https://github.com/farazatarodi) in [#2618](https://github.com/teamleadercrm/ui/pull/2656))
+
 ### Changed
 
 - `Flex`: Added support for all `Box` props on the `Flex` component ([@lowiebenoot](https://https://github.com/lowiebenoot) in [#2660](https://github.com/teamleadercrm/ui/pull/2660))
 - `Flex`: Allow reverse flex directions as well ([@lowiebenoot](https://https://github.com/lowiebenoot) in [#2660](https://github.com/teamleadercrm/ui/pull/2660))
+- `Menu`: Menu is now rendered through a portal if the position is not static ([@farazatarodi](https://https://github.com/farazatarodi) in [#2618](https://github.com/teamleadercrm/ui/pull/2656))
 
 ### Deprecated
 
@@ -14,6 +17,7 @@
 ### Fixed
 
 - `Input`: Fix warning when using input as an uncontrolled component ([@lorgan3](https://https://github.com/lorgan3) in [#2652](https://github.com/teamleadercrm/ui/pull/2652))
+- `Menu`: the `onClick` event listener is passed to all children ([@farazatarodi](https://https://github.com/farazatarodi) in [#2618](https://github.com/teamleadercrm/ui/pull/2656))
 
 ### Dependency updates
 
