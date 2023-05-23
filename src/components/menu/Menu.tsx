@@ -88,7 +88,14 @@ const Menu = <S,>({
       const clickedNode = event.target as HTMLElement;
       const menuNode = menuRef.current;
 
-      if (menuNode && menuNode !== clickedNode && anchorElement !== clickedNode && !menuNode.contains(clickedNode)) {
+      if (
+        menuNode &&
+        menuNode !== clickedNode &&
+        !menuNode.contains(clickedNode) &&
+        anchorElement &&
+        anchorElement !== clickedNode &&
+        !anchorElement.contains(clickedNode)
+      ) {
         onHide && onHide();
       }
     },
