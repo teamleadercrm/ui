@@ -250,7 +250,9 @@ const Menu = <S,>({
   useEffect(() => {
     if (active) {
       document.body.style.overflow = 'hidden';
-    } else {
+    }
+
+    if (!active && document.querySelectorAll('[data-teamleader-ui="overlay"]').length === 0) {
       document.body.style.overflow = '';
     }
   }, [active]);
