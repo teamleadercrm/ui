@@ -9,7 +9,7 @@ type Gap = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 export interface FlexProps extends Omit<BoxProps, 'ref' | 'flexDirection'> {
   children?: React.ReactNode;
   gap?: Gap;
-  direction?: 'row' | 'column';
+  direction?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
   /** A class name for the flex element to give custom styles. */
   className?: string;
 }
