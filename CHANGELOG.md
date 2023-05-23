@@ -6,6 +6,8 @@
 
 ### Changed
 
+- `Flex`: Added support for all `Box` props on the `Flex` component ([@lowiebenoot](https://https://github.com/lowiebenoot) in [#2660](https://github.com/teamleadercrm/ui/pull/2660))
+- `Flex`: Allow reverse flex directions as well ([@lowiebenoot](https://https://github.com/lowiebenoot) in [#2660](https://github.com/teamleadercrm/ui/pull/2660))
 - `Menu`: Menu is now rendered through a portal if the position is not static ([@farazatarodi](https://https://github.com/farazatarodi) in [#2618](https://github.com/teamleadercrm/ui/pull/2656))
 
 ### Deprecated
