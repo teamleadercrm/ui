@@ -1,5 +1,6 @@
 import cx from 'classnames';
 import React, {
+  Fragment,
   ReactElement,
   ReactNode,
   SyntheticEvent,
@@ -197,7 +198,21 @@ const Menu = <S,>({
           });
         }
 
-        return React.cloneElement(item);
+        if (isComponentOfType(Fragment, item)) {
+          const itemChildren = React.Children.toArray(item.props.children);
+          return React.Children.map(
+            itemChildren,
+            (child: ReactNode) =>
+              React.isValidElement(child) &&
+              React.cloneElement(child as ReactElement, {
+                onClick: (event: SyntheticEvent) => handleSelect(item, event),
+              }),
+          );
+        }
+
+        return React.cloneElement(item as ReactElement, {
+          onClick: (event: SyntheticEvent) => handleSelect(item, event),
+        });
       }
     });
   }, [children, handleSelect, selectable, selected]);
