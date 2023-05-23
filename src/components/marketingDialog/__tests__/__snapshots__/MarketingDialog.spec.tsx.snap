@@ -93,8 +93,8 @@ exports[`Component - Dialog renders 1`] = `
                     foobar
                   </p>
                   <div
-                    class="flex column gap-3"
-                    style="align-items: center;"
+                    class="box align-items-center display-flex flex-direction-column gap-3"
+                    style="box-sizing: border-box;"
                   >
                     <button
                       class="box reset-box-sizing reset-font-smoothing button-base button primary medium has-icon-only is-full-width"

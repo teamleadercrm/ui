@@ -3,8 +3,8 @@
 exports[`Component - Flex renders 1`] = `
 <DocumentFragment>
   <div
-    class="flex row gap-2"
-    style="align-items: flex-end; justify-content: center;"
+    class="box align-items-flex-end display-flex flex-direction-row justify-content-center gap-2"
+    style="box-sizing: border-box;"
   >
     <div>
       Foo

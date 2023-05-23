@@ -4,6 +4,9 @@
 
 ### Changed
 
+- `Flex`: Added support for all `Box` props on the `Flex` component ([@lowiebenoot](https://https://github.com/lowiebenoot) in [#2660](https://github.com/teamleadercrm/ui/pull/2660))
+- `Flex`: Allow reverse flex directions as well ([@lowiebenoot](https://https://github.com/lowiebenoot) in [#2660](https://github.com/teamleadercrm/ui/pull/2660))
+
 ### Deprecated
 
 ### Removed
