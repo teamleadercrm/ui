@@ -247,6 +247,14 @@ const Menu = <S,>({
     }
   }, [calculatePosition, positionState, maxHeight]);
 
+  useEffect(() => {
+    if (active) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  }, [active]);
+
   const menu = localActive ? (
     <Box data-teamleader-ui="menu" className={classNames} ref={menuRef} style={calculatedPosition} {...others}>
       <ul className={theme['menu-inner']} style={{ maxHeight }}>
