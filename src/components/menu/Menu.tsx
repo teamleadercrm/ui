@@ -84,25 +84,6 @@ const Menu = <S,>({
     className,
   );
 
-  const handleDocumentClick = useCallback(
-    (event: Event) => {
-      const clickedNode = event.target as HTMLElement;
-      const menuNode = menuRef.current;
-
-      if (
-        menuNode &&
-        menuNode !== clickedNode &&
-        !menuNode.contains(clickedNode) &&
-        anchorElement &&
-        anchorElement !== clickedNode &&
-        !anchorElement.contains(clickedNode)
-      ) {
-        onHide && onHide();
-      }
-    },
-    [anchorElement, onHide],
-  );
-
   const handleSelect = useCallback(
     (item: ReactElement, event: SyntheticEvent) => {
       const { value, onClick } = item.props;
@@ -216,16 +197,6 @@ const Menu = <S,>({
       }
     });
   }, [children, handleSelect, selectable, selected]);
-
-  useEffect(() => {
-    if (position !== POSITION.STATIC && active) {
-      document.documentElement.addEventListener('click', handleDocumentClick);
-
-      return () => {
-        document.documentElement.removeEventListener('click', handleDocumentClick);
-      };
-    }
-  }, [active, handleDocumentClick, position]);
 
   useLayoutEffect(() => {
     if (position === POSITION.AUTO && anchorElement && active) {
