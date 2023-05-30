@@ -3,91 +3,96 @@
 exports[`Component - Menu renders 1`] = `
 <DocumentFragment>
   <div
-    class="box menu static outline"
-    data-teamleader-ui="menu"
+    class="menu-overlay"
+    style="position: relative;"
   >
-    <ul
-      class="menu-inner"
+    <div
+      class="box menu static outline"
+      data-teamleader-ui="menu"
     >
-      <li
-        class="box display-flex"
-        data-teamleader-ui="menu-item"
+      <ul
+        class="menu-inner"
       >
-        <button
-          class="box align-items-center display-flex padding-bottom-2 padding-left-3 padding-right-3 padding-top-2 text-align-left menu-item"
-          style="flex: 1 1 auto;"
+        <li
+          class="box display-flex"
+          data-teamleader-ui="menu-item"
         >
-          <div
-            class="box"
+          <button
+            class="box align-items-center display-flex padding-bottom-2 padding-left-3 padding-right-3 padding-top-2 text-align-left menu-item"
             style="flex: 1 1 auto;"
           >
-            <p
-              class="box text text-body darkest teal"
-              data-teamleader-ui="text"
+            <div
+              class="box"
+              style="flex: 1 1 auto;"
             >
-              Michael Scofield
-            </p>
-          </div>
-        </button>
-      </li>
-      <li
-        class="box display-flex"
-        data-teamleader-ui="menu-item"
-      >
-        <button
-          class="box align-items-center display-flex padding-bottom-2 padding-left-3 padding-right-3 padding-top-2 text-align-left menu-item"
-          style="flex: 1 1 auto;"
+              <p
+                class="box text text-body darkest teal"
+                data-teamleader-ui="text"
+              >
+                Michael Scofield
+              </p>
+            </div>
+          </button>
+        </li>
+        <li
+          class="box display-flex"
+          data-teamleader-ui="menu-item"
         >
-          <div
-            class="box"
+          <button
+            class="box align-items-center display-flex padding-bottom-2 padding-left-3 padding-right-3 padding-top-2 text-align-left menu-item"
             style="flex: 1 1 auto;"
           >
-            <p
-              class="box text text-body darkest teal"
-              data-teamleader-ui="text"
+            <div
+              class="box"
+              style="flex: 1 1 auto;"
             >
-              Jim Halpert
-            </p>
-          </div>
-        </button>
-      </li>
-      <hr
-        class="divider"
-        data-teamleader-ui="menu-divider"
-      />
-      <div
-        class="box align-items-center display-flex padding-left-3 padding-right-3 title"
-        data-teamleader-ui="menu-title"
-      >
-        <h4
-          class="box heading heading-4 darkest teal"
-          data-teamleader-ui="heading"
+              <p
+                class="box text text-body darkest teal"
+                data-teamleader-ui="text"
+              >
+                Jim Halpert
+              </p>
+            </div>
+          </button>
+        </li>
+        <hr
+          class="divider"
+          data-teamleader-ui="menu-divider"
+        />
+        <div
+          class="box align-items-center display-flex padding-left-3 padding-right-3 title"
+          data-teamleader-ui="menu-title"
         >
-          Assistants
-        </h4>
-      </div>
-      <li
-        class="box display-flex"
-        data-teamleader-ui="menu-item"
-      >
-        <button
-          class="box align-items-center display-flex padding-bottom-2 padding-left-3 padding-right-3 padding-top-2 text-align-left menu-item"
-          style="flex: 1 1 auto;"
+          <h4
+            class="box heading heading-4 darkest teal"
+            data-teamleader-ui="heading"
+          >
+            Assistants
+          </h4>
+        </div>
+        <li
+          class="box display-flex"
+          data-teamleader-ui="menu-item"
         >
-          <div
-            class="box"
+          <button
+            class="box align-items-center display-flex padding-bottom-2 padding-left-3 padding-right-3 padding-top-2 text-align-left menu-item"
             style="flex: 1 1 auto;"
           >
-            <p
-              class="box text text-body darkest teal"
-              data-teamleader-ui="text"
+            <div
+              class="box"
+              style="flex: 1 1 auto;"
             >
-              Dwight Schrute
-            </p>
-          </div>
-        </button>
-      </li>
-    </ul>
+              <p
+                class="box text text-body darkest teal"
+                data-teamleader-ui="text"
+              >
+                Dwight Schrute
+              </p>
+            </div>
+          </button>
+        </li>
+      </ul>
+    </div>
   </div>
 </DocumentFragment>
 `;
