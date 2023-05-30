@@ -5,7 +5,6 @@ import React, {
   ReactNode,
   SyntheticEvent,
   useCallback,
-  useEffect,
   useLayoutEffect,
   useRef,
   useState,
@@ -217,16 +216,6 @@ const Menu = <S,>({
       setCalculatedPosition(calculatePosition());
     }
   }, [calculatePosition, positionState, maxHeight]);
-
-  useEffect(() => {
-    if (active) {
-      document.body.style.overflow = 'hidden';
-    }
-
-    if (!active && document.querySelectorAll('[data-teamleader-ui="overlay"]').length === 0) {
-      document.body.style.overflow = '';
-    }
-  }, [active]);
 
   const menu = localActive ? (
     <div
