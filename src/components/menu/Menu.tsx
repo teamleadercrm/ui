@@ -258,11 +258,22 @@ const Menu = <S,>({
   }, [active]);
 
   const menu = localActive ? (
+    <div
+      style={{
+        position: position === POSITION.STATIC ? 'relative' : 'absolute',
+      }}
+      className={theme['menu-overlay']}
+      onClick={(event) => {
+        event.stopPropagation();
+        onHide && onHide();
+      }}
+    >
     <Box data-teamleader-ui="menu" className={classNames} ref={menuRef} style={calculatedPosition} {...others}>
       <ul className={theme['menu-inner']} style={{ maxHeight }}>
         {renderItems()}
       </ul>
     </Box>
+    </div>
   ) : null;
 
   return position === POSITION.STATIC ? menu : createPortal(menu, document.body);
