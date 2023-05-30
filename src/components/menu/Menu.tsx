@@ -185,7 +185,7 @@ const Menu = <S,>({
             (child: ReactNode) =>
               React.isValidElement(child) &&
               React.cloneElement(child as ReactElement, {
-                onClick: (event: SyntheticEvent) => handleSelect(item, event),
+                onClick: (event: SyntheticEvent) => handleSelect(child, event),
               }),
           );
         }
@@ -228,11 +228,11 @@ const Menu = <S,>({
         onHide && onHide();
       }}
     >
-    <Box data-teamleader-ui="menu" className={classNames} ref={menuRef} style={calculatedPosition} {...others}>
-      <ul className={theme['menu-inner']} style={{ maxHeight }}>
-        {renderItems()}
-      </ul>
-    </Box>
+      <Box data-teamleader-ui="menu" className={classNames} ref={menuRef} style={calculatedPosition} {...others}>
+        <ul className={theme['menu-inner']} style={{ maxHeight }}>
+          {renderItems()}
+        </ul>
+      </Box>
     </div>
   ) : null;
 
