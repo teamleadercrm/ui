@@ -2,6 +2,8 @@
 
 ### Added
 
+- `Menu`: Added option to keep menu open after clicking the child. ([@farazatarodi](https://https://github.com/farazatarodi) in [#2669](https://github.com/teamleadercrm/ui/pull/2669))
+
 ### Changed
 
 ### Deprecated
