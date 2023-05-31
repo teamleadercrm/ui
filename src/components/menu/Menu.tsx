@@ -49,6 +49,8 @@ export interface MenuProps<S = any> extends Omit<BoxProps, 'children' | 'classNa
   selectable?: boolean;
   /** The value of the menu item that will be highlighted. */
   selected?: S;
+  /** If true, the menu closes on child select */
+  shouldCloseOnSelect?: boolean;
   /** The anchor element */
   anchorElement?: HTMLElement | null;
 }
@@ -63,6 +65,7 @@ const Menu = <S,>({
   position = 'static',
   selectable = true,
   selected,
+  shouldCloseOnSelect = true,
   anchorElement,
   ...others
 }: MenuProps<S>): ReactElement<any, any> | null => {
@@ -96,7 +99,7 @@ const Menu = <S,>({
         onClick(event);
       }
 
-      if (position !== POSITION.STATIC) {
+      if (position !== POSITION.STATIC && shouldCloseOnSelect) {
         onHide && onHide();
       }
     },
@@ -228,7 +231,14 @@ const Menu = <S,>({
         onHide && onHide();
       }}
     >
-      <Box data-teamleader-ui="menu" className={classNames} ref={menuRef} style={calculatedPosition} {...others}>
+      <Box
+        data-teamleader-ui="menu"
+        className={classNames}
+        ref={menuRef}
+        style={calculatedPosition}
+        onClick={(event) => event.stopPropagation()}
+        {...others}
+      >
         <ul className={theme['menu-inner']} style={{ maxHeight }}>
           {renderItems()}
         </ul>

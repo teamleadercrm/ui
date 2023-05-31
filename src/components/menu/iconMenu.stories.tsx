@@ -11,7 +11,7 @@ export default {
 
 export const DefaultStory = (args: ComponentStory<typeof IconMenu>) => (
   <div className={theme['story-container']}>
-    <IconMenu {...args} active>
+    <IconMenu {...args}>
       <MenuItem label="Menu item 1" />
       <MenuItem label="Menu item 2" />
       <MenuDivider />

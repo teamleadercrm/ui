@@ -20,6 +20,7 @@ export interface IconMenuProps extends Omit<BoxProps, 'children' | 'className'> 
   selectable?: boolean;
   selected?: any;
   title?: string;
+  shouldCloseOnSelect?: boolean;
 }
 
 const IconMenu: GenericComponent<IconMenuProps> = ({
@@ -34,6 +35,7 @@ const IconMenu: GenericComponent<IconMenuProps> = ({
   selected,
   onClick,
   title,
+  shouldCloseOnSelect = true,
   ...others
 }) => {
   const [active, setActive] = useState(false);
@@ -77,6 +79,7 @@ const IconMenu: GenericComponent<IconMenuProps> = ({
         selectable={selectable}
         selected={selected}
         anchorElement={buttonRef.current}
+        shouldCloseOnSelect={shouldCloseOnSelect}
       >
         {children}
       </Menu>
