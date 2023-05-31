@@ -99,7 +99,6 @@ const Menu = <S,>({
         onClick(event);
       }
 
-      console.log(shouldCloseOnSelect);
       if (position !== POSITION.STATIC && shouldCloseOnSelect) {
         onHide && onHide();
       }
