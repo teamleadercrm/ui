@@ -2,8 +2,6 @@
 
 ### Added
 
-- `Menu`: Added option to keep menu open after clicking the child. ([@farazatarodi](https://https://github.com/farazatarodi) in [#2669](https://github.com/teamleadercrm/ui/pull/2669))
-
 ### Changed
 
 ### Deprecated
@@ -13,6 +11,12 @@
 ### Fixed
 
 ### Dependency updates
+
+## [22.1.0] - 2023-06-01
+
+### Added
+
+- `Menu`: Added option to keep menu open after clicking the child. ([@farazatarodi](https://https://github.com/farazatarodi) in [#2669](https://github.com/teamleadercrm/ui/pull/2669))
 
 ## [22.0.0] - 2023-05-31
 
