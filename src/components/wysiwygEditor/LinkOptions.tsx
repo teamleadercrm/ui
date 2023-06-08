@@ -44,6 +44,7 @@ const LinkOptions: GenericComponent<LinkOptionsProps> = ({
   useEffect(() => {
     setTextValue(link?.title || selectionText);
     setLinkValue(link?.target);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [link?.target, selectionText]);
 
   const focusEditor = () => {

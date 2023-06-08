@@ -76,6 +76,7 @@ const EmailSelector: GenericComponent<EmailSelectorProps> = ({
       !disableRemovalOfFirst && setEditingLabel(index);
       setSelection(selection.filter((selection, i) => i <= index || selection.email.trim() !== ''));
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [setEditingLabel, setSelection, selection],
   );
 

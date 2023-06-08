@@ -127,8 +127,10 @@ const WysiwygEditor: GenericComponent<WysiwygEditorProps> = ({
       if (!onKeyDown || !editorRef?.current?.wrapper) {
         return;
       }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       editorRef.current.wrapper.removeEventListener('keydown', handleKeyDown);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleBlur = (event: React.FocusEvent<any, any>) => {

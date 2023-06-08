@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useState } from 'react';
+import React, { ReactNode, useCallback, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import cx from 'classnames';
 import throttle from 'lodash.throttle';
@@ -97,11 +97,11 @@ const Popover: GenericComponent<PopoverProps> = (props) => {
     initialFocusRef: undefined,
   });
 
-  const handleResize = () => {
+  const handleResize = useCallback(() => {
     if (ref.current && anchorEl) {
       setPositioning(calculatePositions(anchorEl, ref.current, direction, position, offsetCorrection));
     }
-  };
+  }, [anchorEl, direction, offsetCorrection, position, ref]);
 
   useResizeDetector({
     handleHeight: true,
@@ -124,6 +124,7 @@ const Popover: GenericComponent<PopoverProps> = (props) => {
     if (active) {
       handleResize();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props]);
 
   const { left, top, maxHeight } = positioning;

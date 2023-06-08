@@ -114,6 +114,7 @@ const Toast: GenericComponent<ToastProps> = ({
     return () => {
       clearCurrentTimeout();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [timeout]);
   const classNames = cx(uiUtilities['reset-box-sizing'], uiUtilities['box-shadow-400'], theme['toast'], className);
 

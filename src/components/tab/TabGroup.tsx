@@ -54,7 +54,9 @@ const TabGroup: GenericComponent<TabGroupProps> = ({ children, className, size, 
   useEffect(() => {
     smoothScroll.polyfill();
     scrollContainerRef.current?.addEventListener('scroll', handleScroll);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     return () => scrollContainerRef.current?.removeEventListener('scroll', handleScroll);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const classNames = cx(theme['tab-group'], className);

@@ -74,7 +74,7 @@ export const DataGrid: DatagridComponent = ({
             .reduce((accumulatedChildWidth, currentChildWidth) => accumulatedChildWidth + currentChildWidth, 0),
         )
         .reduce((maxRowWidth, currentRowWidth) => (currentRowWidth > maxRowWidth ? currentRowWidth : maxRowWidth), 0),
-    [rowNodes, rowNodes.size],
+    [rowNodes],
   );
   const childrenArray: (ReactElement | ReactElement[])[] = !Array.isArray(children) ? [children] : children;
   const bodyRowCount = (childrenArray.find((child) => Array.isArray(child)) as ReactElement[] | undefined)?.length;
@@ -139,6 +139,7 @@ export const DataGrid: DatagridComponent = ({
   useEffect(() => {
     setSelectedRows([]);
     handleSelectionChange([]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [comparableId]);
 
   const classNames = cx(
