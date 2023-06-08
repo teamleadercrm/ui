@@ -174,13 +174,12 @@ const Label: GenericComponent<LabelProps> = ({
       }
     },
     [
-      content,
       onFinish,
       index,
+      content,
       option,
       hasValidSuggestions,
       onRemove,
-      disableRemovalOfFirst,
       validSuggestions,
       selectedSuggestion,
       autocompleteOpen,

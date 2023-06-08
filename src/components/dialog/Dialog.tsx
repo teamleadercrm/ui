@@ -65,7 +65,7 @@ const Dialog: GenericComponent<DialogProps> = ({
   }, [bodyRef]);
   useEffect(() => {
     handleScrollShadow();
-  }, [bodyRef, handleScrollShadow, otherProps.active]);
+  }, [bodyRef, otherProps.active]);
 
   useResizeDetector({
     refreshMode: 'throttle',

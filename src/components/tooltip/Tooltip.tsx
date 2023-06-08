@@ -1,7 +1,7 @@
 import uiUtilities from '@teamleader/ui-utilities';
 import cx from 'classnames';
 import omit from 'lodash.omit';
-import React, { MouseEventHandler, ReactNode, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import React, { MouseEventHandler, ReactNode, useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import Transition from 'react-transition-group/Transition';
 import { GenericComponent } from '../../@types/types';
@@ -87,81 +87,72 @@ const TooltippedComponent: GenericComponent<TooltippedComponentProps> = ({
   ComposedComponent,
   ...other
 }) => {
-  const tooltipRoot = useMemo(() => documentObject.createElement('div'), [documentObject]);
+  const tooltipRoot = useMemo(() => documentObject.createElement('div'), []);
   const ref = useRef(null);
   const [active, setActive] = useState(false);
   const [position, setPosition] = useState<PositionState>({ position: tooltipPosition, top: 'auto', left: 'auto' });
 
-  const activate = useCallback(
-    (position: PositionState) => {
-      documentObject.body.appendChild(tooltipRoot);
-      setActive(true);
-      setPosition({ position: position.position, top: position.top, left: position.left });
-    },
-    [documentObject.body, tooltipRoot],
-  );
+  const activate = (position: PositionState) => {
+    documentObject.body.appendChild(tooltipRoot);
+    setActive(true);
+    setPosition({ position: position.position, top: position.top, left: position.left });
+  };
 
-  const getPosition = useCallback(
-    (element: Element) => {
-      if (tooltipPosition === POSITIONS.HORIZONTAL) {
-        const origin = element.getBoundingClientRect();
-        const { width: windowWidth } = getViewport();
-        const toRight = origin.left < windowWidth / 2 - origin.width / 2;
+  const getPosition = (element: Element) => {
+    if (tooltipPosition === POSITIONS.HORIZONTAL) {
+      const origin = element.getBoundingClientRect();
+      const { width: windowWidth } = getViewport();
+      const toRight = origin.left < windowWidth / 2 - origin.width / 2;
 
-        return toRight ? POSITIONS.RIGHT : POSITIONS.LEFT;
-      } else if (tooltipPosition === POSITIONS.VERTICAL) {
-        const origin = element.getBoundingClientRect();
-        const { height: windowHeight } = getViewport();
-        const toBottom = origin.top < windowHeight / 2 - origin.height / 2;
+      return toRight ? POSITIONS.RIGHT : POSITIONS.LEFT;
+    } else if (tooltipPosition === POSITIONS.VERTICAL) {
+      const origin = element.getBoundingClientRect();
+      const { height: windowHeight } = getViewport();
+      const toBottom = origin.top < windowHeight / 2 - origin.height / 2;
 
-        return toBottom ? POSITIONS.BOTTOM : POSITIONS.TOP;
-      }
+      return toBottom ? POSITIONS.BOTTOM : POSITIONS.TOP;
+    }
 
-      return tooltipPosition;
-    },
-    [tooltipPosition],
-  );
+    return tooltipPosition;
+  };
 
-  const calculatePosition = useCallback(
-    (element: Element | null) => {
-      if (typeof element?.getBoundingClientRect !== 'function') {
-        return { top: 0, left: 0, position: tooltipPosition };
-      }
-
-      const { top, left, height, width } = element.getBoundingClientRect();
-      const position = getPosition(element);
-      const xOffset = window.scrollX || window.pageXOffset;
-      const yOffset = window.scrollY || window.pageYOffset;
-
-      if (position === POSITIONS.BOTTOM) {
-        return {
-          top: top + height + yOffset,
-          left: left + width / 2 + xOffset,
-          position,
-        };
-      } else if (position === POSITIONS.TOP) {
-        return {
-          top: top + yOffset,
-          left: left + width / 2 + xOffset,
-          position,
-        };
-      } else if (position === POSITIONS.LEFT) {
-        return {
-          top: top + height / 2 + yOffset,
-          left: left + xOffset,
-          position,
-        };
-      } else if (position === POSITIONS.RIGHT) {
-        return {
-          top: top + height / 2 + yOffset,
-          left: left + width + xOffset,
-          position,
-        };
-      }
+  const calculatePosition = (element: Element | null) => {
+    if (typeof element?.getBoundingClientRect !== 'function') {
       return { top: 0, left: 0, position: tooltipPosition };
-    },
-    [getPosition, tooltipPosition],
-  );
+    }
+
+    const { top, left, height, width } = element.getBoundingClientRect();
+    const position = getPosition(element);
+    const xOffset = window.scrollX || window.pageXOffset;
+    const yOffset = window.scrollY || window.pageYOffset;
+
+    if (position === POSITIONS.BOTTOM) {
+      return {
+        top: top + height + yOffset,
+        left: left + width / 2 + xOffset,
+        position,
+      };
+    } else if (position === POSITIONS.TOP) {
+      return {
+        top: top + yOffset,
+        left: left + width / 2 + xOffset,
+        position,
+      };
+    } else if (position === POSITIONS.LEFT) {
+      return {
+        top: top + height / 2 + yOffset,
+        left: left + xOffset,
+        position,
+      };
+    } else if (position === POSITIONS.RIGHT) {
+      return {
+        top: top + height / 2 + yOffset,
+        left: left + width + xOffset,
+        position,
+      };
+    }
+    return { top: 0, left: 0, position: tooltipPosition };
+  };
 
   const handleMouseEnter: MouseEventHandler = (event) => {
     activate(calculatePosition(event.currentTarget));
@@ -209,7 +200,7 @@ const TooltippedComponent: GenericComponent<TooltippedComponentProps> = ({
     if (!tooltipActive && active) {
       setActive(false);
     }
-  }, [activate, active, calculatePosition, tooltipActive]);
+  }, [tooltipActive]);
 
   const rest = omit(other, [
     'onTooltipEntered',

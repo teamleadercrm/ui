@@ -1,6 +1,6 @@
 import cx from 'classnames';
 import omit from 'lodash.omit';
-import React, { ChangeEvent, ReactElement, ReactNode, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import React, { ChangeEvent, ReactElement, ReactNode, useEffect, useMemo, useRef, useState } from 'react';
 import ReactResizeDetector from 'react-resize-detector';
 import { GenericComponent } from '../../@types/types';
 import Box from '../box';
@@ -74,19 +74,16 @@ export const DataGrid: DatagridComponent = ({
             .reduce((accumulatedChildWidth, currentChildWidth) => accumulatedChildWidth + currentChildWidth, 0),
         )
         .reduce((maxRowWidth, currentRowWidth) => (currentRowWidth > maxRowWidth ? currentRowWidth : maxRowWidth), 0),
-    [rowNodes],
+    [rowNodes, rowNodes.size],
   );
   const childrenArray: (ReactElement | ReactElement[])[] = !Array.isArray(children) ? [children] : children;
   const bodyRowCount = (childrenArray.find((child) => Array.isArray(child)) as ReactElement[] | undefined)?.length;
 
-  const handleSelectionChange = useCallback(
-    (selection: React.Key[], event: ChangeEvent | null = null) => {
-      if (onSelectionChange) {
-        onSelectionChange(selection, event);
-      }
-    },
-    [onSelectionChange],
-  );
+  const handleSelectionChange = (selection: React.Key[], event: ChangeEvent | null = null) => {
+    if (onSelectionChange) {
+      onSelectionChange(selection, event);
+    }
+  };
 
   const handleHeaderRowSelectionChange = (checked: boolean, event: ChangeEvent) => {
     const allBodyRowIndexes = React.Children.map(children, (child) => {
@@ -142,7 +139,7 @@ export const DataGrid: DatagridComponent = ({
   useEffect(() => {
     setSelectedRows([]);
     handleSelectionChange([]);
-  }, [comparableId, handleSelectionChange]);
+  }, [comparableId]);
 
   const classNames = cx(
     theme['data-grid'],

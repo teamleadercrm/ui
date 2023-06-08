@@ -1,6 +1,6 @@
 import { IconChevronLeftSmallOutline, IconChevronRightSmallOutline } from '@teamleader/ui-icons';
 import cx from 'classnames';
-import React, { ReactNode, useCallback, useEffect, useRef, useState } from 'react';
+import React, { ReactNode, useEffect, useRef, useState } from 'react';
 import ReactResizeDetector from 'react-resize-detector';
 import smoothScroll from 'smoothscroll-polyfill';
 import { GenericComponent } from '../../@types/types';
@@ -44,20 +44,18 @@ const TabGroup: GenericComponent<TabGroupProps> = ({ children, className, size, 
     checkForScrollPosition();
   };
 
-  const handleScroll = useCallback(() => {
+  const handleScroll = () => {
     checkForScrollPosition();
-  }, []);
+  };
 
   const scrollContainerBy = (distance: number) => {
     scrollContainerRef.current?.scrollBy({ left: distance, behavior: 'smooth' });
   };
   useEffect(() => {
     smoothScroll.polyfill();
-
-    const scrollContainer = scrollContainerRef.current;
-    scrollContainer?.addEventListener('scroll', handleScroll);
-    return () => scrollContainer?.removeEventListener('scroll', handleScroll);
-  }, [handleScroll]);
+    scrollContainerRef.current?.addEventListener('scroll', handleScroll);
+    return () => scrollContainerRef.current?.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const classNames = cx(theme['tab-group'], className);
 

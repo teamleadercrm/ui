@@ -51,7 +51,7 @@ const useDraggable = ({ active = false, dragTargetRef, dragHandleRef }: UseDragg
     return function cleanup() {
       currentDragHandleRef.removeEventListener('mousedown', mouseDownHandler);
     };
-  }, [active, dragHandleRef, dragTargetRef]);
+  }, [active]);
 };
 
 export default useDraggable;
