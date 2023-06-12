@@ -2,9 +2,6 @@
 on:
   pull_request:
 
-concurrency:
-  group: ${{ github.ref }}
-
 jobs:
   lint-node:
     uses: ./.github/workflows/lint-node.yaml
