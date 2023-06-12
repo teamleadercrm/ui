@@ -19,7 +19,7 @@ jobs:
     secrets: inherit
 
   lint-yaml:
-    runs-on: [self-hosted, X64]
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: yaml lint

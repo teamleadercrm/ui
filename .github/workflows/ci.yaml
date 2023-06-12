@@ -24,7 +24,7 @@ jobs:
 
   deploy-components:
     if: ${{ always() && !contains(needs.*.result, 'failure') && !contains(needs.*.result, 'cancelled') }}
-    runs-on: [self-hosted, X64]
+    runs-on: ubuntu-latest
     needs: [check-types, lint-node, test-node]
     environment: production
     env:
