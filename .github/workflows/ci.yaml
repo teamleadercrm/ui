@@ -10,16 +10,17 @@ concurrency:
   group: ${{ github.ref }}
 
 jobs:
+  lint:
+    uses: teamleadercrm/teamleader-github-workflows/.github/workflows/lint-node.yaml@master
+    secrets: inherit
+
   test:
     uses: teamleadercrm/teamleader-github-workflows/.github/workflows/test-node.yaml@master
     secrets: inherit
 
   deploy-components:
     runs-on: [self-hosted, X64]
-    permissions:
-      id-token: write
-      contents: read
-    needs: [test]
+    needs: [lint, test]
     environment: production
     env:
       env: production
