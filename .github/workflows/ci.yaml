@@ -34,11 +34,17 @@ jobs:
         uses: actions/checkout@v3
       - name: Set env
         run: cat env/${{ env.env }}/build.env >> $GITHUB_ENV
-      - name: AWS Auth
-        uses: teamleadercrm/teamleader-github-workflows/.github/actions/aws-auth@v1.1.0
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1-node16
         with:
-          aws-profile: ${{ env.AWS_PROFILE }}
+          aws-region: eu-west-1
           role-to-assume: ${{ env.IAM_ROLE }}
+      - name: Set AWS Credentials file
+        shell: bash
+        run: |
+          aws configure set aws_session_token ${{ env.AWS_SESSION_TOKEN }} --profile ${{ env.AWS_PROFILE }}
+          aws configure set aws_access_key_id ${{ env.AWS_ACCESS_KEY_ID }} --profile ${{ env.AWS_PROFILE }}
+          aws configure set aws_secret_access_key ${{ env.AWS_SECRET_ACCESS_KEY }} --profile ${{ env.AWS_PROFILE }}
       - name: Install Node
         uses: actions/setup-node@v3
         with:
