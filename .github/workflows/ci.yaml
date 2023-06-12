@@ -18,7 +18,12 @@ jobs:
     uses: teamleadercrm/teamleader-github-workflows/.github/workflows/test-node.yaml@master
     secrets: inherit
 
+  check-types:
+    uses: ./.github/workflows/check-types.yaml
+    secrets: inherit
+
   deploy-components:
+    if: ${{ always() && !contains(needs.*.result, 'failure') && !contains(needs.*.result, 'cancelled') }}
     runs-on: [self-hosted, X64]
     needs: [lint, test]
     environment: production

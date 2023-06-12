@@ -13,3 +13,7 @@ jobs:
   test:
     uses: teamleadercrm/teamleader-github-workflows/.github/workflows/test-node.yaml@master
     secrets: inherit
+
+  check-types:
+    uses: ./.github/workflows/check-types.yaml
+    secrets: inherit
