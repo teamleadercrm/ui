@@ -11,11 +11,11 @@ concurrency:
 
 jobs:
   lint:
-    uses: teamleadercrm/teamleader-github-workflows/.github/workflows/lint-node.yaml@master
+    uses: teamleadercrm/teamleader-github-workflows/.github/workflows/lint-node.yaml@v1.1.0
     secrets: inherit
 
   test:
-    uses: teamleadercrm/teamleader-github-workflows/.github/workflows/test-node.yaml@master
+    uses: teamleadercrm/teamleader-github-workflows/.github/workflows/test-node.yaml@v1.1.0
     secrets: inherit
 
   check-types:
@@ -35,7 +35,7 @@ jobs:
       - name: Set env
         run: cat env/${{ env.env }}/build.env >> $GITHUB_ENV
       - name: AWS Auth
-        uses: teamleadercrm/teamleader-github-workflows/.github/actions/aws-auth@master
+        uses: teamleadercrm/teamleader-github-workflows/.github/actions/aws-auth@v1.1.0
         with:
           aws-profile: ${{ env.AWS_PROFILE }}
           role-to-assume: ${{ env.IAM_ROLE }}
