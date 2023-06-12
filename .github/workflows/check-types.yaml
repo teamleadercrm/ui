@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: |
+      - name: Check types
+        run: |
           yarn install --silent --frozen-lockfile
           yarn check-types
