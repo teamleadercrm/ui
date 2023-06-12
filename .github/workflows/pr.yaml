@@ -1,0 +1,15 @@
+---
+on:
+  pull_request:
+
+concurrency:
+  group: ${{ github.ref }}
+
+jobs:
+  lint:
+    uses: teamleadercrm/teamleader-github-workflows/.github/workflows/lint-node.yaml@master
+    secrets: inherit
+
+  test:
+    uses: teamleadercrm/teamleader-github-workflows/.github/workflows/test-node.yaml@master
+    secrets: inherit

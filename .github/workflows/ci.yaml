@@ -1,0 +1,47 @@
+---
+name: Continuous Integration
+
+on:
+  push:
+    branches:
+      - master
+
+concurrency:
+  group: ${{ github.ref }}
+
+jobs:
+  test:
+    uses: teamleadercrm/teamleader-github-workflows/.github/workflows/test-node.yaml@master
+    secrets: inherit
+
+  deploy-components:
+    runs-on: [self-hosted, X64]
+    permissions:
+      id-token: write
+      contents: read
+    needs: [test]
+    environment: production
+    env:
+      env: production
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+      - name: Set env
+        run: cat env/${{ env.env }}/build.env >> $GITHUB_ENV
+      - name: AWS Auth
+        uses: teamleadercrm/teamleader-github-workflows/.github/actions/aws-auth@master
+        with:
+          aws-profile: ${{ env.AWS_PROFILE }}
+          role-to-assume: ${{ env.IAM_ROLE }}
+      - name: Install Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'yarn'
+      - name: Build
+        run: |
+          yarn && yarn build:${{ env.YARN_BUILD }}
+      - name: Deploy
+        run: aws s3 sync ./dist s3://${{ env.S3_BUCKET }} --profile ${{ env.AWS_PROFILE }}
+      - name: Invalidate CloudFront
+        run: aws cloudfront create-invalidation --distribution-id ${{ env.DISTRIBUTION_ID }} --paths '/*'
