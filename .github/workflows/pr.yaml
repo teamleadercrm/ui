@@ -6,11 +6,15 @@ concurrency:
   group: ${{ github.ref }}
 
 jobs:
-  lint:
+  lint-node:
     uses: teamleadercrm/teamleader-github-workflows/.github/workflows/lint-node.yaml@v1.1.0
     secrets: inherit
 
-  test:
+  lint-yaml:
+    uses: teamleadercrm/teamleader-github-workflows/.github/workflows/lint-yaml.yaml@v1.1.0
+    secrets: inherit
+
+  test-node:
     uses: teamleadercrm/teamleader-github-workflows/.github/workflows/test-node.yaml@v1.1.0
     secrets: inherit
 
