@@ -55,7 +55,7 @@ jobs:
           cache: 'yarn'
       - name: Build
         run: |
-          yarn && yarn build:${{ env.YARN_BUILD }}
+          yarn && yarn deploy:${{ env.YARN_BUILD }}
       - name: Deploy
         run: aws s3 sync ./dist s3://${{ env.S3_BUCKET }} --profile ${{ env.AWS_PROFILE }}
       - name: Invalidate CloudFront
