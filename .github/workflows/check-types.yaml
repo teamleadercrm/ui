@@ -1,3 +1,4 @@
+---
 name: 'Check Types'
 on:
   workflow_call:

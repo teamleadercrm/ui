@@ -11,11 +11,11 @@ concurrency:
 
 jobs:
   lint-node:
-    uses: teamleadercrm/teamleader-github-workflows/.github/workflows/lint-node.yaml@v1.1.0
+    uses: ./.github/workflows/lint-node.yaml
     secrets: inherit
 
   test-node:
-    uses: teamleadercrm/teamleader-github-workflows/.github/workflows/test-node.yaml@v1.1.0
+    uses: ./.github/workflows/test-node.yaml
     secrets: inherit
 
   check-types:

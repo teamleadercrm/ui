@@ -1,3 +1,4 @@
+---
 name: 'Reviewer lottery'
 on:
   pull_request_target:
