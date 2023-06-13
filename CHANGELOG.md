@@ -12,6 +12,12 @@
 
 ### Dependency updates
 
+## [22.1.1] - 2023-06-14
+
+### Fixed
+
+- `ToastContainer`: Fixed all toasts being re-added when removing a toast in the middle of the stack. ([@lorgan3](https://https://github.com/lorgan3) in [#2682](https://github.com/teamleadercrm/ui/pull/2682))
+
 ## [22.1.0] - 2023-06-01
 
 ### Added
