@@ -1,5 +1,5 @@
 import cx from 'classnames';
-import React, { CSSProperties, ReactChild, ReactElement, ReactFragment, ReactNode, ReactPortal } from 'react';
+import React, { CSSProperties, ReactElement, ReactFragment, ReactNode, ReactPortal } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { GenericComponent } from '../../@types/types';
 import theme from './theme.css';
@@ -13,7 +13,7 @@ export interface ToastContainerProps {
   style?: CSSProperties;
 }
 
-type AllowedChildrenTypes = ReactChild | ReactFragment | ReactPortal | boolean;
+type AllowedChildrenTypes = ReactElement | ReactFragment | ReactPortal;
 
 const ToastContainer: GenericComponent<ToastContainerProps> = ({ children, className, style }) => {
   const classNames = cx(theme['container'], className);
@@ -29,7 +29,7 @@ const ToastContainer: GenericComponent<ToastContainerProps> = ({ children, class
           return (
             <CSSTransition
               timeout={1000}
-              key={index}
+              key={'key' in child ? child.key : index}
               classNames={{
                 appear: cx(theme['appear']),
                 appearActive: cx(theme['appear-active']),

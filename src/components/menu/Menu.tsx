@@ -1,10 +1,10 @@
 import cx from 'classnames';
 import React, {
+  Fragment,
   ReactElement,
   ReactNode,
   SyntheticEvent,
   useCallback,
-  useEffect,
   useLayoutEffect,
   useRef,
   useState,
@@ -17,6 +17,7 @@ import isComponentOfType from '../utils/is-component-of-type';
 import { getViewport } from '../utils/utils';
 import MenuItem from './MenuItem';
 import theme from './theme.css';
+import { createPortal } from 'react-dom';
 
 const POSITION: Record<string, 'auto' | 'static' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right'> = {
   AUTO: 'auto',
@@ -48,6 +49,8 @@ export interface MenuProps<S = any> extends Omit<BoxProps, 'children' | 'classNa
   selectable?: boolean;
   /** The value of the menu item that will be highlighted. */
   selected?: S;
+  /** If true, the menu closes on child select */
+  shouldCloseOnSelect?: boolean;
   /** The anchor element */
   anchorElement?: HTMLElement | null;
 }
@@ -62,13 +65,14 @@ const Menu = <S,>({
   position = 'static',
   selectable = true,
   selected,
+  shouldCloseOnSelect = true,
   anchorElement,
   ...others
 }: MenuProps<S>): ReactElement<any, any> | null => {
   const [positionState, setPositionState] = useState<Position>(position);
   const [calculatedPosition, setCalculatedPosition] = useState({});
   const [maxHeight, setMaxHeight] = useState<number>();
-  const menuRef = useRef<HTMLUListElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   const localActive = active || positionState === POSITION.STATIC;
 
@@ -80,18 +84,6 @@ const Menu = <S,>({
       [theme['shadow']]: positionState !== POSITION.STATIC,
     },
     className,
-  );
-
-  const handleDocumentClick = useCallback(
-    (event: Event) => {
-      const clickedNode = event.target as HTMLElement;
-      const menuNode = menuRef.current;
-
-      if (menuNode && menuNode !== clickedNode && anchorElement !== clickedNode && !menuNode.contains(clickedNode)) {
-        onHide && onHide();
-      }
-    },
-    [anchorElement, onHide],
   );
 
   const handleSelect = useCallback(
@@ -107,7 +99,7 @@ const Menu = <S,>({
         onClick(event);
       }
 
-      if (position !== POSITION.STATIC) {
+      if (position !== POSITION.STATIC && shouldCloseOnSelect) {
         onHide && onHide();
       }
     },
@@ -125,40 +117,40 @@ const Menu = <S,>({
   };
 
   const calculatePosition = useCallback(() => {
-    if (anchorElement && menuRef.current) {
-      const { height } = anchorElement.getBoundingClientRect();
-      const { height: menuHeight } = menuRef.current.getBoundingClientRect();
+    if (anchorElement && menuRef.current && active) {
+      const { top, left, height, width } = anchorElement.getBoundingClientRect();
+      const { height: menuHeight, width: menuWidth } = menuRef.current.getBoundingClientRect();
 
       if (positionState === POSITION.TOP_LEFT) {
         return {
-          top: height + 3,
-          left: 0,
+          top: top + height + 3,
+          left,
         };
       }
 
       if (positionState === POSITION.TOP_RIGHT) {
         return {
-          top: height + 3,
-          right: 0,
+          top: top + height + 3,
+          left: left + width - menuWidth,
         };
       }
 
       if (positionState === POSITION.BOTTOM_LEFT) {
         return {
-          top: -1 * (menuHeight + 3),
-          left: 0,
+          top: -1 * (menuHeight + 3) + top,
+          left,
         };
       }
 
       if (positionState === POSITION.BOTTOM_RIGHT) {
         return {
-          top: -1 * (menuHeight + 3),
-          right: 0,
+          top: -1 * (menuHeight + 3) + top,
+          left: left + width - menuWidth,
         };
       }
     }
     return {};
-  }, [anchorElement, positionState]);
+  }, [active, anchorElement, positionState]);
 
   const calculateMaxHeight = useCallback(() => {
     if (anchorElement) {
@@ -189,20 +181,24 @@ const Menu = <S,>({
           });
         }
 
-        return React.cloneElement(item);
+        if (isComponentOfType(Fragment, item)) {
+          const itemChildren = React.Children.toArray(item.props.children);
+          return React.Children.map(
+            itemChildren,
+            (child: ReactNode) =>
+              React.isValidElement(child) &&
+              React.cloneElement(child as ReactElement, {
+                onClick: (event: SyntheticEvent) => handleSelect(child, event),
+              }),
+          );
+        }
+
+        return React.cloneElement(item as ReactElement, {
+          onClick: (event: SyntheticEvent) => handleSelect(item, event),
+        });
       }
     });
   }, [children, handleSelect, selectable, selected]);
-
-  useEffect(() => {
-    if (position !== POSITION.STATIC && active) {
-      document.documentElement.addEventListener('click', handleDocumentClick);
-
-      return () => {
-        document.documentElement.removeEventListener('click', handleDocumentClick);
-      };
-    }
-  }, [active, handleDocumentClick, position]);
 
   useLayoutEffect(() => {
     if (position === POSITION.AUTO && anchorElement && active) {
@@ -224,13 +220,33 @@ const Menu = <S,>({
     }
   }, [calculatePosition, positionState, maxHeight]);
 
-  return localActive ? (
-    <Box data-teamleader-ui="menu" className={classNames} ref={menuRef} style={calculatedPosition} {...others}>
-      <ul className={theme['menu-inner']} style={{ maxHeight }}>
-        {renderItems()}
-      </ul>
-    </Box>
+  const menu = localActive ? (
+    <div
+      style={{
+        position: position === POSITION.STATIC ? 'relative' : 'absolute',
+      }}
+      className={theme['menu-overlay']}
+      onClick={(event) => {
+        event.stopPropagation();
+        onHide && onHide();
+      }}
+    >
+      <Box
+        data-teamleader-ui="menu"
+        className={classNames}
+        ref={menuRef}
+        style={calculatedPosition}
+        onClick={(event) => event.stopPropagation()}
+        {...others}
+      >
+        <ul className={theme['menu-inner']} style={{ maxHeight }}>
+          {renderItems()}
+        </ul>
+      </Box>
+    </div>
   ) : null;
+
+  return position === POSITION.STATIC ? menu : createPortal(menu, document.body);
 };
 
 export default Menu;

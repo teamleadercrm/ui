@@ -12,6 +12,36 @@
 
 ### Dependency updates
 
+## [22.1.1] - 2023-06-14
+
+### Fixed
+
+- `ToastContainer`: Fixed all toasts being re-added when removing a toast in the middle of the stack. ([@lorgan3](https://https://github.com/lorgan3) in [#2682](https://github.com/teamleadercrm/ui/pull/2682))
+
+## [22.1.0] - 2023-06-01
+
+### Added
+
+- `Menu`: Added option to keep menu open after clicking the child. ([@farazatarodi](https://https://github.com/farazatarodi) in [#2669](https://github.com/teamleadercrm/ui/pull/2669))
+
+## [22.0.0] - 2023-05-31
+
+### Added
+
+- `Menu`: If the child is a `Fragment` element, the `onClick` event handler will be passed to its children. ([@farazatarodi](https://https://github.com/farazatarodi) in [#2661](https://github.com/teamleadercrm/ui/pull/2661))
+
+### Changed
+
+- `Flex`: Added support for all `Box` props on the `Flex` component ([@lowiebenoot](https://https://github.com/lowiebenoot) in [#2660](https://github.com/teamleadercrm/ui/pull/2660))
+- `Flex`: Allow reverse flex directions as well ([@lowiebenoot](https://https://github.com/lowiebenoot) in [#2660](https://github.com/teamleadercrm/ui/pull/2660))
+- [BREAKING] `Menu`: Menu is now rendered through a portal if the position is not static ([@farazatarodi](https://https://github.com/farazatarodi) in [#2661](https://github.com/teamleadercrm/ui/pull/2661))
+- `Menu`: Menu uses an overlay to detect clicks outside of it and to lock scroll, similar to `Popover` ([@farazatarodi](https://https://github.com/farazatarodi) in [#2661](https://github.com/teamleadercrm/ui/pull/2661))
+
+### Fixed
+
+- `Input`: Fix warning when using input as an uncontrolled component ([@lorgan3](https://https://github.com/lorgan3) in [#2652](https://github.com/teamleadercrm/ui/pull/2652))
+- `Menu`: the `onClick` event listener is passed to all children ([@farazatarodi](https://https://github.com/farazatarodi) in [#2661](https://github.com/teamleadercrm/ui/pull/2661))
+
 ## [21.2.0] - 2023-05-11
 
 ### Added
