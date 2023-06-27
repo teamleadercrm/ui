@@ -38,7 +38,7 @@ DefaultStory.argTypes = {
   labelTooltip: { control: 'text' },
 };
 
-export const withTooltip = () => {
+export const WithTooltip = () => {
   const [checked, setChecked] = useState(false);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -48,7 +48,7 @@ export const withTooltip = () => {
   return <Toggle label={LABEL} tooltip={LABEL_TOOLTIP} checked={checked} onChange={handleChange} />;
 };
 
-export const withTooltipRight = () => {
+export const WithTooltipRight = () => {
   const [checked, setChecked] = useState(false);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -64,7 +64,7 @@ export const disabled = () => {
   return <Toggle label={LABEL} disabled checked={false} />;
 };
 
-export const small = () => {
+export const Small = () => {
   const [checked, setChecked] = useState(false);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -73,7 +73,7 @@ export const small = () => {
   return <Toggle label={LABEL} maxLines={1} checked={checked} onChange={handleChange} size="small" />;
 };
 
-export const medium = () => {
+export const Medium = () => {
   const [checked, setChecked] = useState(false);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -82,7 +82,7 @@ export const medium = () => {
   return <Toggle label={LABEL} maxLines={1} checked={checked} onChange={handleChange} size="medium" />;
 };
 
-export const large = () => {
+export const Large = () => {
   const [checked, setChecked] = useState(false);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
