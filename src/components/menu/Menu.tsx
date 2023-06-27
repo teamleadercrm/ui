@@ -103,6 +103,7 @@ const Menu = <S,>({
         onHide && onHide();
       }
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [onHide, onSelect, position],
   );
 

@@ -143,6 +143,7 @@ function DatePickerInput<IsTypeable extends boolean = true>({
         }
       }
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [inputValue, selectedDate],
   );
   useEffect(() => {
@@ -159,6 +160,7 @@ function DatePickerInput<IsTypeable extends boolean = true>({
     } else {
       setSelectedDate(undefined);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [preselectedDate]);
 
   const handleInputFocus = (event: React.FocusEvent<HTMLElement>) => {

@@ -65,6 +65,7 @@ const Dialog: GenericComponent<DialogProps> = ({
   }, [bodyRef]);
   useEffect(() => {
     handleScrollShadow();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [bodyRef, otherProps.active]);
 
   useResizeDetector({
