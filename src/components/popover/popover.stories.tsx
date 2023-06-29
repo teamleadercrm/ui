@@ -85,7 +85,7 @@ const usePopoverTrigger = () => {
   return [{ popoverActive, anchorEl }, triggerPopover, closePopover] as const;
 };
 
-export const basic: ComponentStory<typeof Popover> = (args) => {
+export const Basic: ComponentStory<typeof Popover> = (args) => {
   const [{ popoverActive, anchorEl }, handleButtonClick, handleCloseClick] = usePopoverTrigger();
 
   return (
@@ -104,10 +104,10 @@ export const basic: ComponentStory<typeof Popover> = (args) => {
   );
 };
 
-basic.args = defaultPopoverProps;
-basic.argTypes = popoverArgTypes;
+Basic.args = defaultPopoverProps;
+Basic.argTypes = popoverArgTypes;
 
-export const withTitle: ComponentStory<typeof Popover> = (args) => {
+export const WithTitle: ComponentStory<typeof Popover> = (args) => {
   const [{ popoverActive, anchorEl }, handleButtonClick, handleCloseClick] = usePopoverTrigger();
 
   return (
@@ -129,11 +129,11 @@ export const withTitle: ComponentStory<typeof Popover> = (args) => {
   );
 };
 
-withTitle.storyName = 'With title';
-withTitle.args = defaultPopoverProps;
-withTitle.argTypes = popoverArgTypes;
+WithTitle.storyName = 'With title';
+WithTitle.args = defaultPopoverProps;
+WithTitle.argTypes = popoverArgTypes;
 
-export const withTitleSubtitle: ComponentStory<typeof Popover> = (args) => {
+export const WithTitleSubtitle: ComponentStory<typeof Popover> = (args) => {
   const [{ popoverActive, anchorEl }, handleButtonClick, handleCloseClick] = usePopoverTrigger();
 
   return (
@@ -156,11 +156,11 @@ export const withTitleSubtitle: ComponentStory<typeof Popover> = (args) => {
   );
 };
 
-withTitleSubtitle.storyName = 'With title & subtitle';
-withTitleSubtitle.args = defaultPopoverProps;
-withTitleSubtitle.argTypes = popoverArgTypes;
+WithTitleSubtitle.storyName = 'With title & subtitle';
+WithTitleSubtitle.args = defaultPopoverProps;
+WithTitleSubtitle.argTypes = popoverArgTypes;
 
-export const withCloseButton: ComponentStory<typeof Popover> = (args) => {
+export const WithCloseButton: ComponentStory<typeof Popover> = (args) => {
   const [{ popoverActive, anchorEl }, handleButtonClick, handleCloseClick] = usePopoverTrigger();
 
   return (
@@ -182,11 +182,11 @@ export const withCloseButton: ComponentStory<typeof Popover> = (args) => {
   );
 };
 
-withCloseButton.storyName = 'With close button';
-withCloseButton.args = defaultPopoverProps;
-withCloseButton.argTypes = popoverArgTypes;
+WithCloseButton.storyName = 'With close button';
+WithCloseButton.args = defaultPopoverProps;
+WithCloseButton.argTypes = popoverArgTypes;
 
-export const withActions: ComponentStory<typeof Popover> = (args) => {
+export const WithActions: ComponentStory<typeof Popover> = (args) => {
   const [{ popoverActive, anchorEl }, handleButtonClick, handleCloseClick] = usePopoverTrigger();
 
   return (
@@ -209,11 +209,11 @@ export const withActions: ComponentStory<typeof Popover> = (args) => {
   );
 };
 
-withActions.storyName = 'With actions';
-withActions.args = defaultPopoverProps;
-withActions.argTypes = popoverArgTypes;
+WithActions.storyName = 'With actions';
+WithActions.args = defaultPopoverProps;
+WithActions.argTypes = popoverArgTypes;
 
-export const withMenu: ComponentStory<typeof Popover> = (args) => {
+export const WithMenu: ComponentStory<typeof Popover> = (args) => {
   const [{ popoverActive, anchorEl }, handleButtonClick, handleCloseClick] = usePopoverTrigger();
 
   return (
@@ -243,11 +243,11 @@ export const withMenu: ComponentStory<typeof Popover> = (args) => {
   );
 };
 
-withMenu.storyName = 'With menu';
-withMenu.args = defaultPopoverProps;
-withMenu.argTypes = popoverArgTypes;
+WithMenu.storyName = 'With menu';
+WithMenu.args = defaultPopoverProps;
+WithMenu.argTypes = popoverArgTypes;
 
-export const withSplitButtonMenu: ComponentStory<typeof Popover> = (args) => {
+export const WithSplitButtonMenu: ComponentStory<typeof Popover> = (args) => {
   const [buttonLevel, setButtonLevel] = useState('primary');
   const [buttonLabel, setButtonLabel] = useState('Primary action');
   const [anchorEl, setAnchorEl] = useState<Element | null>(null);
@@ -316,11 +316,11 @@ export const withSplitButtonMenu: ComponentStory<typeof Popover> = (args) => {
   );
 };
 
-withSplitButtonMenu.storyName = 'With split button menu';
-withSplitButtonMenu.args = defaultPopoverProps;
-withSplitButtonMenu.argTypes = popoverArgTypes;
+WithSplitButtonMenu.storyName = 'With split button menu';
+WithSplitButtonMenu.args = defaultPopoverProps;
+WithSplitButtonMenu.argTypes = popoverArgTypes;
 
-export const experiment1: ComponentStory<typeof Popover> = (args) => {
+export const Experiment1: ComponentStory<typeof Popover> = (args) => {
   const [{ popoverActive, anchorEl }, handleButtonClick, handleCloseClick] = usePopoverTrigger();
 
   return (
@@ -351,10 +351,10 @@ export const experiment1: ComponentStory<typeof Popover> = (args) => {
   );
 };
 
-experiment1.args = defaultPopoverProps;
-experiment1.argTypes = popoverArgTypes;
+Experiment1.args = defaultPopoverProps;
+Experiment1.argTypes = popoverArgTypes;
 
-export const experiment2: ComponentStory<typeof Popover> = (args) => {
+export const Experiment2: ComponentStory<typeof Popover> = (args) => {
   const [{ popoverActive, anchorEl }, handleButtonClick, handleCloseClick] = usePopoverTrigger();
 
   return (
@@ -389,5 +389,5 @@ export const experiment2: ComponentStory<typeof Popover> = (args) => {
   );
 };
 
-experiment2.args = defaultPopoverProps;
-experiment2.argTypes = popoverArgTypes;
+Experiment2.args = defaultPopoverProps;
+Experiment2.argTypes = popoverArgTypes;

@@ -51,6 +51,7 @@ const useDraggable = ({ active = false, dragTargetRef, dragHandleRef }: UseDragg
     return function cleanup() {
       currentDragHandleRef.removeEventListener('mousedown', mouseDownHandler);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [active]);
 };
 

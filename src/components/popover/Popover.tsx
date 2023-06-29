@@ -97,6 +97,7 @@ const Popover: GenericComponent<PopoverProps> = (props) => {
     initialFocusRef: undefined,
   });
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleResize = () => {
     if (ref.current && anchorEl) {
       setPositioning(calculatePositions(anchorEl, ref.current, direction, position, offsetCorrection));
@@ -124,6 +125,7 @@ const Popover: GenericComponent<PopoverProps> = (props) => {
     if (active) {
       handleResize();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props]);
 
   const { left, top, maxHeight } = positioning;

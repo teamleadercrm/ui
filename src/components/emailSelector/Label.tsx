@@ -173,6 +173,7 @@ const Label: GenericComponent<LabelProps> = ({
           }
       }
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [
       onFinish,
       index,

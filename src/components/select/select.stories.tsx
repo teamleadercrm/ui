@@ -91,25 +91,25 @@ basic.args = {
   inverse: false,
 };
 
-export const grouped: ComponentStory<typeof Select> = () => {
+export const Grouped: ComponentStory<typeof Select> = () => {
   const [value, setValue] = useState<Option | null>(null);
   const handleChange = (option: Option) => setValue(option);
   return <Select value={value} options={groupedOptions} onChange={handleChange} />;
 };
 
-export const groupedWithoutLabels: ComponentStory<typeof Select> = () => {
+export const GroupedWithoutLabels: ComponentStory<typeof Select> = () => {
   const [value, setValue] = useState<Option | null>(null);
   const handleChange = (option: Option) => setValue(option);
   return <Select value={value} options={groupedOptionsWithoutLabels} onChange={handleChange} />;
 };
 
-export const customOption: ComponentStory<typeof Select> = () => {
+export const CustomOptionSelect: ComponentStory<typeof Select> = () => {
   const [value, setValue] = useState<Option | null>(null);
   const handleChange = (option: Option) => setValue(option);
   return <Select value={value} components={{ Option: CustomOption }} options={customOptions} onChange={handleChange} />;
 };
 
-export const async: ComponentStory<typeof AsyncSelect> = () => {
+export const Async: ComponentStory<typeof AsyncSelect> = () => {
   const [value, setValue] = useState<Option | null>(null);
   const handleChange = (option: Option) => setValue(option);
   return (
