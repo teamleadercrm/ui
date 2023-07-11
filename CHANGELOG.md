@@ -12,6 +12,12 @@
 
 ### Dependency updates
 
+## [22.2.0] - 2023-07-11
+
+### Added
+
+- `Toggle`: Props `labelPosition` and `fullWidth`. ([@qubis741](https://https://github.com/qubis741) in [#2710](https://github.com/teamleadercrm/ui/pull/2710))
+
 ## [22.1.1] - 2023-06-14
 
 ### Fixed
