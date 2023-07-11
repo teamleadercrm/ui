@@ -25,6 +25,8 @@ export interface ToggleProps
   label?: ReactNode;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
+  labelPosition?: 'left' | 'right';
+  fullWidth?: boolean;
 }
 
 const Toggle: GenericComponent<ToggleProps> = ({
@@ -38,6 +40,8 @@ const Toggle: GenericComponent<ToggleProps> = ({
   size = 'medium',
   tooltip,
   tooltipPosition,
+  labelPosition = 'right',
+  fullWidth = false,
   ...others
 }) => {
   const ref = useRef<HTMLInputElement>(null);
@@ -55,6 +59,8 @@ const Toggle: GenericComponent<ToggleProps> = ({
     {
       [theme['is-checked']]: checked,
       [theme['is-disabled']]: disabled,
+      [theme['label-on-left']]: labelPosition === 'left',
+      [theme['is-full-width']]: fullWidth,
     },
     className,
   );
