@@ -49,7 +49,6 @@
     }
     .inner {
       background-color: var(--color-neutral-lightest);
-      border-color: var(--color-neutral-lightest);
     }
   }
 
@@ -59,7 +58,6 @@
     }
     .inner {
       background-color: var(--color-neutral-light);
-      border-color: var(--color-neutral-light);
     }
   }
 
@@ -69,7 +67,6 @@
     }
     .inner {
       background-color: var(--color-neutral);
-      border-color: var(--color-neutral);
     }
   }
 
@@ -79,7 +76,6 @@
     }
     .inner {
       background-color: var(--color-neutral-dark);
-      border-color: var(--color-neutral-dark);
     }
   }
 
@@ -89,7 +85,6 @@
     }
     .inner {
       background-color: var(--color-neutral-darkest);
-      border-color: var(--color-neutral-darkest);
     }
   }
 }
@@ -101,7 +96,6 @@
     }
     .inner {
       background-color: var(--color-teal-lightest);
-      border-color: var(--color-teal-lightest);
     }
   }
 
@@ -111,7 +105,6 @@
     }
     .inner {
       background-color: var(--color-teal-light);
-      border-color: var(--color-teal-light);
     }
   }
 
@@ -121,7 +114,6 @@
     }
     .inner {
       background-color: var(--color-teal);
-      border-color: var(--color-teal);
     }
   }
 
@@ -131,7 +123,6 @@
     }
     .inner {
       background-color: var(--color-teal-dark);
-      border-color: var(--color-teal-dark);
     }
   }
 
@@ -141,7 +132,6 @@
     }
     .inner {
       background-color: var(--color-teal-darkest);
-      border-color: var(--color-teal-darkest);
     }
   }
 }
@@ -153,7 +143,6 @@
     }
     .inner {
       background-color: var(--color-mint-lightest);
-      border-color: var(--color-mint-lightest);
     }
   }
 
@@ -163,7 +152,6 @@
     }
     .inner {
       background-color: var(--color-mint-light);
-      border-color: var(--color-mint-light);
     }
   }
 
@@ -173,7 +161,6 @@
     }
     .inner {
       background-color: var(--color-mint);
-      border-color: var(--color-mint);
     }
   }
 
@@ -183,7 +170,6 @@
     }
     .inner {
       background-color: var(--color-mint-dark);
-      border-color: var(--color-mint-dark);
     }
   }
 
@@ -193,7 +179,6 @@
     }
     .inner {
       background-color: var(--color-mint-darkest);
-      border-color: var(--color-mint-darkest);
     }
   }
 }
@@ -205,7 +190,6 @@
     }
     .inner {
       background-color: var(--color-ruby-lightest);
-      border-color: var(--color-ruby-lightest);
     }
   }
 
@@ -215,7 +199,6 @@
     }
     .inner {
       background-color: var(--color-ruby-light);
-      border-color: var(--color-ruby-light);
     }
   }
 
@@ -225,7 +208,6 @@
     }
     .inner {
       background-color: var(--color-ruby);
-      border-color: var(--color-ruby);
     }
   }
 
@@ -235,7 +217,6 @@
     }
     .inner {
       background-color: var(--color-ruby-dark);
-      border-color: var(--color-ruby-dark);
     }
   }
 
@@ -245,7 +226,6 @@
     }
     .inner {
       background-color: var(--color-ruby-darkest);
-      border-color: var(--color-ruby-darkest);
     }
   }
 }
@@ -257,7 +237,6 @@
     }
     .inner {
       background-color: var(--color-aqua-lightest);
-      border-color: var(--color-aqua-lightest);
     }
   }
 
@@ -267,7 +246,6 @@
     }
     .inner {
       background-color: var(--color-aqua-light);
-      border-color: var(--color-aqua-light);
     }
   }
 
@@ -277,7 +255,6 @@
     }
     .inner {
       background-color: var(--color-aqua);
-      border-color: var(--color-aqua);
     }
   }
 
@@ -287,7 +264,6 @@
     }
     .inner {
       background-color: var(--color-aqua-dark);
-      border-color: var(--color-aqua-dark);
     }
   }
 
@@ -297,7 +273,6 @@
     }
     .inner {
       background-color: var(--color-aqua-darkest);
-      border-color: var(--color-aqua-darkest);
     }
   }
 }
@@ -309,7 +284,6 @@
     }
     .inner {
       background-color: var(--color-violet-lightest);
-      border-color: var(--color-violet-lightest);
     }
   }
 
@@ -319,7 +293,6 @@
     }
     .inner {
       background-color: var(--color-violet-light);
-      border-color: var(--color-violet-light);
     }
   }
 
@@ -329,7 +302,6 @@
     }
     .inner {
       background-color: var(--color-violet);
-      border-color: var(--color-violet);
     }
   }
 
@@ -339,7 +311,6 @@
     }
     .inner {
       background-color: var(--color-violet-dark);
-      border-color: var(--color-violet-dark);
     }
   }
 
@@ -349,7 +320,6 @@
     }
     .inner {
       background-color: var(--color-violet-darkest);
-      border-color: var(--color-violet-darkest);
     }
   }
 }
@@ -361,7 +331,6 @@
     }
     .inner {
       background-color: var(--color-gold-lightest);
-      border-color: var(--color-gold-lightest);
     }
   }
 
@@ -371,7 +340,6 @@
     }
     .inner {
       background-color: var(--color-gold-light);
-      border-color: var(--color-gold-light);
     }
   }
 
@@ -381,7 +349,6 @@
     }
     .inner {
       background-color: var(--color-gold);
-      border-color: var(--color-gold);
     }
   }
 
@@ -391,7 +358,6 @@
     }
     .inner {
       background-color: var(--color-gold-dark);
-      border-color: var(--color-gold-dark);
     }
   }
 
@@ -401,7 +367,6 @@
     }
     .inner {
       background-color: var(--color-gold-darkest);
-      border-color: var(--color-gold-darkest);
     }
   }
 }
