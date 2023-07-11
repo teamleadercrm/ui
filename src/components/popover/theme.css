@@ -45,7 +45,7 @@
 .neutral {
   &.lightest {
     .popover {
-      box-shadow: 0 0 0 1px hsl(var(--color-neutral-lightest-hsl-h), var(--color-neutral-lightest-hsl-s), calc(var(--color-neutral-lightest-hsl-l) - 12%));
+      box-shadow: 0 0 0 1px var(--color-neutral);
     }
     .inner {
       background-color: var(--color-neutral-lightest);
