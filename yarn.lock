@@ -3160,10 +3160,10 @@
   resolved "https://registry.yarnpkg.com/@teamleader/ui-typography/-/ui-typography-2.0.3.tgz#aa6cacf815507b229bbf1abab8fdc1999d814595"
   integrity sha512-+Ey43uGyBty9RK7yA7p9OjmlB7+x31FDG3W5SMMX904tgyLfRMxhqqm0foIBdxMW9NIjtd9WB1Xht8MfAt7SxQ==
 
-"@teamleader/ui-utilities@^0.2.0":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@teamleader/ui-utilities/-/ui-utilities-0.2.1.tgz#81efcef5067476f766a21248c14ee136f90fe7c1"
-  integrity sha512-jlFtpcA3bB7Wbe863rOQDP5z0L6EZMHZ2vsSjE0zDcXUcAtiImk9I/FnmMlS4/AbUgYl5qshteyqbtyvSjQkwQ==
+"@teamleader/ui-utilities@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@teamleader/ui-utilities/-/ui-utilities-0.2.2.tgz#0b216a867e643f57950ef838a11050fe9fa7bb94"
+  integrity sha512-7/3q0095zjysj1aPFATdmu6QPZ5pkwkNyr33eSa9XbGMshqqJ7ivdJBmlbJRx4Vm4ETWH8/CC4KNVv3N0In0Lw==
 
 "@testing-library/dom@^8.0.0":
   version "8.20.0"
