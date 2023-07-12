@@ -1,12 +1,11 @@
 import React from 'react';
-import { addStoryInGroup, MARKETING } from '../../../.storybook/utils';
 import { IconAddMediumOutline, IconAddSmallOutline } from '@teamleader/ui-icons';
 import MarketingButton from './MarketingButton';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 export default {
   component: MarketingButton,
-  title: addStoryInGroup(MARKETING, 'MarketingButton'),
+  title: 'Marketing / MarketingButton',
 
   parameters: {
     design: {

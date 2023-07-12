@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { IconAddMediumOutline } from '@teamleader/ui-icons';
 import Button from '../button';
 import ButtonGroup from './ButtonGroup';
@@ -7,7 +6,7 @@ import { ComponentStory } from '@storybook/react';
 
 export default {
   component: ButtonGroup,
-  title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Button group'),
+  title: 'Low level blocks / Button group',
 };
 
 export const Normal: ComponentStory<typeof ButtonGroup> = (args) => (

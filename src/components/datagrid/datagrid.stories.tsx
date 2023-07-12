@@ -1,6 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React, { MouseEvent } from 'react';
-import { addStoryInGroup, COMPOSITIONS } from '../../../.storybook/utils';
 import { DataGrid, IconMenu, MenuItem, Link, Button, ButtonGroup } from '../../index';
 
 import { rows1 } from '../../static/data/datagrid';
@@ -11,7 +10,7 @@ const handleRowSelectionChange = (selectedRows: (number | string)[]) => {
 
 export default {
   component: DataGrid,
-  title: addStoryInGroup(COMPOSITIONS, 'DataGrid'),
+  title: 'Compositions / DataGrid',
 
   parameters: {
     design: {

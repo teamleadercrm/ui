@@ -1,5 +1,4 @@
 import React from 'react';
-import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import {
   IllustrationInvoices120X120Static,
   IllustrationMeetings120X120Static,
@@ -34,7 +33,7 @@ const islandData = [
 
 export default {
   component: IslandGroup,
-  title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'IslandGroup'),
+  title: 'Low level blocks / IslandGroup',
 } as ComponentMeta<typeof IslandGroup>;
 
 export const DefaultStory: ComponentStory<typeof IslandGroup> = (args) => (

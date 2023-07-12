@@ -1,11 +1,10 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import Counter from './Counter';
 
 export default {
   component: Counter,
-  title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Counter'),
+  title: 'Low level blocks / Counter',
 
   parameters: {
     design: {

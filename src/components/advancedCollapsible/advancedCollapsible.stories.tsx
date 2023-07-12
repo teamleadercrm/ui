@@ -1,11 +1,10 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { AdvancedCollapsible, TextBody } from '../../index';
 
 export default {
   component: AdvancedCollapsible,
-  title: addStoryInGroup(MID_LEVEL_BLOCKS, 'AdvancedCollapsible'),
+  title: 'Mid level blocks / AdvancedCollapsible',
 } as ComponentMeta<typeof AdvancedCollapsible>;
 
 export const Basic: ComponentStory<typeof AdvancedCollapsible> = (args) => (

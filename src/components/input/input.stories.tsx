@@ -1,6 +1,5 @@
 import React, { ChangeEvent, useState } from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import Input from './Input';
 import Button from '../button';
 import Checkbox from '../checkbox';
@@ -76,7 +75,7 @@ const inputArgTypes = {
 
 export default {
   component: Input,
-  title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Form elements/Input'),
+  title: 'Low level blocks / Form elements/Input',
   argTypes: {
     value: {
       control: {

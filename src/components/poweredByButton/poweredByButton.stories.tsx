@@ -1,12 +1,11 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
-import { addStoryInGroup, MARKETING } from '../../../.storybook/utils';
 import Box from '../box';
 import PoweredByButton from './PoweredByButton';
 
 export default {
   component: PoweredByButton,
-  title: addStoryInGroup(MARKETING, 'PoweredByButton'),
+  title: 'Marketing / PoweredByButton',
 
   parameters: {
     design: {

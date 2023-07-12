@@ -1,12 +1,11 @@
 import React from 'react';
-import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { TextBody } from '../typography';
 import Message, { MessageProps } from './Message';
 import Link from '../link';
 
 export default {
   component: Message,
-  title: addStoryInGroup(MID_LEVEL_BLOCKS, 'Message'),
+  title: 'Mid level blocks / Message',
 
   parameters: {
     design: {

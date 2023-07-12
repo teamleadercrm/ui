@@ -1,12 +1,11 @@
 import React from 'react';
-import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { IconMenu, MenuItem, MenuDivider } from '../../index';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import theme from './storyTheme.css';
 
 export default {
   component: IconMenu,
-  title: addStoryInGroup(MID_LEVEL_BLOCKS, 'IconMenu'),
+  title: 'Mid level blocks / IconMenu',
 } as ComponentMeta<typeof IconMenu>;
 
 export const DefaultStory = (args: ComponentStory<typeof IconMenu>) => (

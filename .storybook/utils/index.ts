@@ -6,5 +6,3 @@ export const MID_LEVEL_BLOCKS = 'Mid level blocks';
 export const COMPOSITIONS = 'Compositions';
 export const MARKETING = 'Marketing';
 export const PLAYGROUND = 'Playground';
-
-export const addStoryInGroup = (groupTitle: string, storyTitle: string) => `${groupTitle} / ${storyTitle}`;

@@ -1,7 +1,6 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import EmailSelector from './EmailSelector';
 import { TextBody } from '../typography';
 import { Suggestion } from './types';
@@ -14,7 +13,7 @@ const defaultEmailSelectorProps = {
 
 export default {
   component: EmailSelector,
-  title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Form elements/EmailSelector'),
+  title: 'Low level blocks / Form elements/EmailSelector',
 
   parameters: {},
 } as ComponentMeta<typeof EmailSelector>;

@@ -1,7 +1,6 @@
 import { ComponentStory } from '@storybook/react';
 import * as Illustrations from '@teamleader/ui-illustrations';
 import React from 'react';
-import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import Box from '../box';
 import { TextSmall } from '../typography';
 import description from './description.md';
@@ -24,7 +23,7 @@ const itemStyles: Record<string, any> = {
 };
 
 export default {
-  title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Illustration'),
+  title: 'Low level blocks / Illustration',
   parameters: {
     docs: {
       description: {

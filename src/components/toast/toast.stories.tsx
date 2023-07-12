@@ -1,12 +1,11 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React, { useReducer } from 'react';
-import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { Button, Link, Toast, ToastContainer } from '../../index';
 import { ToastProps } from './Toast';
 
 export default {
   component: Toast,
-  title: addStoryInGroup(MID_LEVEL_BLOCKS, 'Toast'),
+  title: 'Mid level blocks / Toast',
 
   parameters: {
     docs: {

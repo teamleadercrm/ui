@@ -1,5 +1,4 @@
 import React, { CSSProperties } from 'react';
-import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import * as Icons from '@teamleader/ui-icons';
 import { Box, Icon, TextSmall } from '../../index';
 import { IconWarningBadgedMediumOutline } from '@teamleader/ui-icons';
@@ -20,7 +19,7 @@ const itemStyles: CSSProperties = {
 
 export default {
   component: Icon,
-  title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Icon'),
+  title: 'Low level blocks / Icon',
   parameters: {
     docs: {
       description: {

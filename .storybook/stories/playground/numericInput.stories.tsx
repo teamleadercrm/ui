@@ -1,10 +1,9 @@
 import React, { ChangeEvent, useState } from 'react';
-import { addStoryInGroup, PLAYGROUND } from '../../utils';
 import { Banner, Box, NumericInput, UITextBody } from '../../../src';
 import { useCallback } from '@storybook/addons';
 
 export default {
-  title: addStoryInGroup(PLAYGROUND, 'Forms'),
+  title: 'Playground / Forms',
 
   parameters: {
     info: {

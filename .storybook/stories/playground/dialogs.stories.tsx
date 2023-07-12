@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { addStoryInGroup, PLAYGROUND } from '../../utils';
 import { Box, Button, DataGrid, Dialog, Input, TextBody } from '../../../src';
 import { rows3 } from '../../../src/static/data/datagrid';
 
 export default {
-  title: addStoryInGroup(PLAYGROUND, 'Dialog'),
+  title: 'Playground / Dialog',
 
   parameters: {
     info: {

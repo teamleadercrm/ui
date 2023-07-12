@@ -1,6 +1,5 @@
 import { IconHelpBadgedMediumOutline } from '@teamleader/ui-icons';
 import React from 'react';
-import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { LARGE, MEDIUM, SMALL } from '../../constants/sizes';
 import { Badge, Button, Link, StatusLabel, TextBody, TextDisplay, TextSmall, Tooltip } from '../../index';
 import { AllowedColor, AllowedSize, POSITIONS, TooltipProps } from './Tooltip';
@@ -51,7 +50,7 @@ const tooltipArgTypes = {
 
 export default {
   component: Tooltip,
-  title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Tooltip'),
+  title: 'Low level blocks / Tooltip',
   parameters: {
     info: {
       propTablesExclude: [TextSmall, TextDisplay, TextBody],

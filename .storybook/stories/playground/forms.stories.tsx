@@ -1,9 +1,8 @@
 import React from 'react';
 import { Box, Button, ButtonGroup, Input, Label, NumericInput, Textarea } from '../../../src';
-import { addStoryInGroup, PLAYGROUND } from '../../utils';
 
 export default {
-  title: addStoryInGroup(PLAYGROUND, 'Forms'),
+  title: 'Playground / Forms',
 
   parameters: {
     info: {

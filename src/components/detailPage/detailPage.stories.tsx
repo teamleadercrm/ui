@@ -1,5 +1,4 @@
 import React from 'react';
-import { addStoryInGroup, COMPOSITIONS } from '../../../.storybook/utils';
 import Button from '../button';
 import ButtonGroup from '../buttonGroup';
 import DetailPage from './DetailPage';
@@ -87,7 +86,7 @@ const totals = () => (
 
 export default {
   component: DetailPage,
-  title: addStoryInGroup(COMPOSITIONS, 'DetailPage'),
+  title: 'Compositions / DetailPage',
 
   parameters: {
     backgrounds: {

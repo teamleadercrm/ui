@@ -1,12 +1,11 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
-import { addStoryInGroup, MARKETING } from '../../../.storybook/utils';
 import { TextBody } from '../typography';
 import MarketingLink from './MarketingLink';
 
 export default {
   component: MarketingLink,
-  title: addStoryInGroup(MARKETING, 'MarketingLink'),
+  title: 'Marketing / MarketingLink',
 
   parameters: {
     design: {

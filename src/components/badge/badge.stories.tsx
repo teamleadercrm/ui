@@ -1,12 +1,11 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { IconBuildingSmallOutline } from '@teamleader/ui-icons';
 import Badge from './Badge';
 
 export default {
   component: Badge,
-  title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Badge'),
+  title: 'Low level blocks / Badge',
 
   parameters: {
     design: {

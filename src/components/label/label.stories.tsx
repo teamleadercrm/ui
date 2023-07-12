@@ -1,11 +1,10 @@
 import React from 'react';
-import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { Input, Label } from '../../index';
 import { ComponentStory } from '@storybook/react';
 
 export default {
   component: Label,
-  title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Form elements/Label'),
+  title: 'Low level blocks / Form elements/Label',
 };
 
 export const DefaultStory: ComponentStory<typeof Label> = (args) => (

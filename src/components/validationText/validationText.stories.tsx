@@ -1,11 +1,10 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
-import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import ValidationText from './ValidationText';
 
 export default {
   component: ValidationText,
-  title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Form elements/ValidationText'),
+  title: 'Low level blocks / Form elements/ValidationText',
   argTypes: {
     success: {
       control: {

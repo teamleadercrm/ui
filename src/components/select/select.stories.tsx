@@ -1,14 +1,13 @@
 import { ComponentStory, Meta } from '@storybook/react';
 import React, { useState } from 'react';
 import { OptionProps } from 'react-select';
-import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { AsyncSelect, Avatar, Box, Label, Select, TextBody } from '../../index';
 import { customOptions, groupedOptions, groupedOptionsWithoutLabels, options } from '../../static/data/select';
 import { Option } from './types';
 
 export default {
   component: Select,
-  title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Form elements/Select'),
+  title: 'Low level blocks / Form elements/Select',
 
   parameters: {
     info: {
