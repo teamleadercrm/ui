@@ -4,8 +4,6 @@
 
 ### Changed
 
-- `Popover`: Aligned the popover shadows with our design spec. ([@lowiebenoot](https://https://github.com/lowiebenoot) in [#2708](https://github.com/teamleadercrm/ui/pull/2708))
-
 ### Deprecated
 
 ### Removed
@@ -13,6 +11,16 @@
 ### Fixed
 
 ### Dependency updates
+
+## [22.2.0] - 2023-07-11
+
+### Added
+
+- `Toggle`: Props `labelPosition` and `fullWidth`. ([@qubis741](https://github.com/qubis741) in [#2710](https://github.com/teamleadercrm/ui/pull/2710))
+
+### Changed
+
+- `Popover`: Aligned the popover shadows with our design spec. ([@lowiebenoot](https://https://github.com/lowiebenoot) in [#2708](https://github.com/teamleadercrm/ui/pull/2708))
 
 ## [22.1.1] - 2023-06-14
 
