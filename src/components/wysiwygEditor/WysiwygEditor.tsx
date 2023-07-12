@@ -107,6 +107,7 @@ const WysiwygEditor: GenericComponent<WysiwygEditorProps> = ({
   const [isFocused, setIsFocused] = useState(false);
   const [isPlaceholderShown, setIsPlaceholderShown] = useState(true);
   const editorRef = useRef<EditorType>(null);
+  const editorElement = editorRef.current;
 
   useEffect(() => {
     if (autoFocus) {
@@ -115,20 +116,21 @@ const WysiwygEditor: GenericComponent<WysiwygEditorProps> = ({
   }, [autoFocus]);
 
   useEffect(() => {
-    if (!onKeyDown || !editorRef?.current?.wrapper) {
+    if (!onKeyDown || !editorElement?.wrapper) {
       return;
     }
 
     const handleKeyDown = (event: React.KeyboardEvent) => onKeyDown(event);
 
-    editorRef.current.wrapper.addEventListener('keydown', handleKeyDown);
+    editorElement.wrapper.addEventListener('keydown', handleKeyDown);
 
     return () => {
-      if (!onKeyDown || !editorRef?.current?.wrapper) {
+      if (!onKeyDown || !editorElement?.wrapper) {
         return;
       }
-      editorRef.current.wrapper.removeEventListener('keydown', handleKeyDown);
+      editorElement.wrapper.removeEventListener('keydown', handleKeyDown);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleBlur = (event: React.FocusEvent<any, any>) => {

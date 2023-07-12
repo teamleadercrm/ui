@@ -29,10 +29,11 @@
     overflow: hidden;
     opacity: 0;
     margin: 0;
+    position: absolute;
   }
 
   .label {
-    margin-left: var(--spacer-small);
+    margin: 0 0 0 var(--spacer-small);
     display: flex;
   }
 
@@ -110,6 +111,18 @@
         background: var(--color-neutral-lightest);
       }
     }
+  }
+
+  &.label-on-left {
+    flex-direction: row-reverse;
+    .label {
+      margin: 0 var(--spacer-small) 0 0;
+    }
+  }
+
+  &.is-full-width {
+    justify-content: space-between;
+    width: 100%;
   }
 
   input:focus-visible + .track {

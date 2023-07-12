@@ -134,6 +134,7 @@ const AsyncSelect = <Option extends OptionType, IsMulti extends boolean = false,
       pageNumber: DEFAULT_PAGE_NUMBER,
     }));
     fetchOptions(state.searchTerm, DEFAULT_PAGE_NUMBER, true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pageSize, loadOptions]);
 
   const { isLoading, options } = state;

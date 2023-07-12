@@ -1,7 +1,7 @@
 {
   "name": "@teamleader/ui",
   "description": "Teamleader UI library",
-  "version": "22.1.1",
+  "version": "22.2.0",
   "author": "Teamleader <development@teamleader.eu>",
   "bugs": {
     "url": "https://github.com/teamleadercrm/ui/issues"
@@ -35,7 +35,7 @@
     "@teamleader/ui-icons": "^2.1.0",
     "@teamleader/ui-illustrations": "^1.10.0",
     "@teamleader/ui-typography": "^2.0.2",
-    "@teamleader/ui-utilities": "^0.2.0",
+    "@teamleader/ui-utilities": "^0.2.2",
     "classnames": "^2.2.5",
     "draft-js": "0.11.7",
     "lodash.omit": "^4.5.0",
@@ -117,6 +117,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.30.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-standard": "^5.0.0",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^6.0.0",
@@ -134,7 +135,7 @@
     "postcss-import": "^15.0.0",
     "postcss-loader": "^7.0.1",
     "postcss-nested": "^6.0.0",
-    "postcss-preset-env": "8.3.1",
+    "postcss-preset-env": "9.0.0",
     "postcss-pseudoelements": "^5.0.0",
     "postcss-reporter": "^7.0.5",
     "prettier": "2.8.0",

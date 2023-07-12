@@ -9,6 +9,6 @@ jobs:
     if: ${{ github.actor == 'dependabot[bot]' }}
     steps:
       - uses: actions/checkout@v3
-      - uses: uesteibar/reviewer-lottery@v2
+      - uses: uesteibar/reviewer-lottery@v3
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}

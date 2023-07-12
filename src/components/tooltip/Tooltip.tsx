@@ -87,6 +87,7 @@ const TooltippedComponent: GenericComponent<TooltippedComponentProps> = ({
   ComposedComponent,
   ...other
 }) => {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const tooltipRoot = useMemo(() => documentObject.createElement('div'), []);
   const ref = useRef(null);
   const [active, setActive] = useState(false);
@@ -200,6 +201,7 @@ const TooltippedComponent: GenericComponent<TooltippedComponentProps> = ({
     if (!tooltipActive && active) {
       setActive(false);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tooltipActive]);
 
   const rest = omit(other, [
