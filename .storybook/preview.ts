@@ -4,16 +4,6 @@ import { COLOR } from '../src/constants';
 import '../src/index.css';
 
 import theme from './theme';
-import {
-  ABOUT_AHOY,
-  CHANGELOG,
-  COMPOSITIONS,
-  FOUNDATION,
-  LOW_LEVEL_BLOCKS,
-  MARKETING,
-  MID_LEVEL_BLOCKS,
-  PLAYGROUND,
-} from './utils';
 
 addParameters({
   backgrounds: {
@@ -34,14 +24,14 @@ addParameters({
   options: {
     storySort: {
       order: [
-        ABOUT_AHOY,
-        CHANGELOG,
-        FOUNDATION,
-        LOW_LEVEL_BLOCKS,
-        MID_LEVEL_BLOCKS,
-        COMPOSITIONS,
-        MARKETING,
-        PLAYGROUND,
+          'About Ahoy',
+          'Changelog',
+          'Foundation',
+          'Low level blocks',
+          'Mid level blocks',
+          'Compositions',
+          'Marketing',
+          'Playground',
       ],
     },
   },
