@@ -8,17 +8,13 @@ module.exports = {
     '@storybook/addon-docs',
     '@storybook/addon-controls',
     {
-      name: '@storybook/addon-postcss',
+      name: '@storybook/addon-styling',
       options: {
-        postcssLoaderOptions: {
+        postCss: {
           implementation: require('postcss'),
         },
-        cssLoaderOptions: {
-          sourceMap: true,
-          modules: {
-            localIdentName: '[name]__[local]___[hash:base64:5]',
-          },
-          importLoaders: 1,
+        cssModules: {
+          localIdentName: '[name]__[local]___[hash:base64:5]',
         },
       },
     },
