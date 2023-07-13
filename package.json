@@ -190,6 +190,7 @@
     "start": "PORT=${PORT:-3000}; storybook dev --port $PORT",
     "test": "jest --config jest.config.js",
     "test:watch": "yarn test --watch",
+    "build-storybook": "storybook build",
     "chromatic:storybook": "PORT=${PORT:-3000}; CHROMATIC=true storybook dev --port $PORT",
     "chromatic": "CHROMATIC=true chromatic",
     "check-types": "tsc --noEmit",
