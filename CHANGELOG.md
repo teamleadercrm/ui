@@ -12,6 +12,12 @@
 
 ### Dependency updates
 
+## [22.2.1] - 2023-07-13
+
+### Fixed
+
+`TabGroup`: Use ref.current instead of constant. ([@eniskraasniqi1](https://https://github.com/eniskraasniqi1) in [#2715](https://github.com/teamleadercrm/ui/pull/2715))
+
 ## [22.2.0] - 2023-07-11
 
 ### Added
