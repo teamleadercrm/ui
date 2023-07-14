@@ -107,7 +107,6 @@ const WysiwygEditor: GenericComponent<WysiwygEditorProps> = ({
   const [isFocused, setIsFocused] = useState(false);
   const [isPlaceholderShown, setIsPlaceholderShown] = useState(true);
   const editorRef = useRef<EditorType>(null);
-  const editorElement = editorRef.current;
 
   useEffect(() => {
     if (autoFocus) {
@@ -116,19 +115,20 @@ const WysiwygEditor: GenericComponent<WysiwygEditorProps> = ({
   }, [autoFocus]);
 
   useEffect(() => {
-    if (!onKeyDown || !editorElement?.wrapper) {
+    if (!onKeyDown || !editorRef.current?.wrapper) {
       return;
     }
 
     const handleKeyDown = (event: React.KeyboardEvent) => onKeyDown(event);
 
-    editorElement.wrapper.addEventListener('keydown', handleKeyDown);
+    editorRef.current.wrapper.addEventListener('keydown', handleKeyDown);
 
     return () => {
-      if (!onKeyDown || !editorElement?.wrapper) {
+      if (!onKeyDown || !editorRef.current?.wrapper) {
         return;
       }
-      editorElement.wrapper.removeEventListener('keydown', handleKeyDown);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      editorRef.current.wrapper.removeEventListener('keydown', handleKeyDown);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
