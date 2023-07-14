@@ -25,11 +25,9 @@ const TabGroup: GenericComponent<TabGroupProps> = ({ children, className, size, 
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
 
-  const scrollContainerElement = scrollContainerRef.current;
-
   const checkForScrollPosition = () => {
-    if (scrollContainerElement) {
-      const { scrollLeft, scrollWidth, clientWidth } = scrollContainerElement;
+    if (scrollContainerRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
 
       setCanScrollLeft(scrollLeft > 0);
       setCanScrollRight(scrollLeft < scrollWidth - clientWidth);
@@ -39,7 +37,7 @@ const TabGroup: GenericComponent<TabGroupProps> = ({ children, className, size, 
   const scrollToActiveTab = () => {
     if (activeTabRef.current) {
       const { offsetLeft } = activeTabRef.current;
-      scrollContainerElement?.scrollTo({ left: offsetLeft - SCROLL_BUTTON_WIDTH });
+      scrollContainerRef.current?.scrollTo({ left: offsetLeft - SCROLL_BUTTON_WIDTH });
     }
   };
   const handleResize = () => {
@@ -52,13 +50,14 @@ const TabGroup: GenericComponent<TabGroupProps> = ({ children, className, size, 
   };
 
   const scrollContainerBy = (distance: number) => {
-    scrollContainerElement?.scrollBy({ left: distance, behavior: 'smooth' });
+    scrollContainerRef.current?.scrollBy({ left: distance, behavior: 'smooth' });
   };
 
   useEffect(() => {
     smoothScroll.polyfill();
-    scrollContainerElement?.addEventListener('scroll', handleScroll);
-    return () => scrollContainerElement?.removeEventListener('scroll', handleScroll);
+    scrollContainerRef.current?.addEventListener('scroll', handleScroll);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    return () => scrollContainerRef.current?.removeEventListener('scroll', handleScroll);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
