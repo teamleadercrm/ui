@@ -1,5 +1,4 @@
 import React from 'react';
-import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import EmptyState from './EmptyState';
 import { Marker, TextBodyCompact } from '../typography';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
@@ -12,7 +11,7 @@ const title = (
 
 export default {
   component: EmptyState,
-  title: addStoryInGroup(MID_LEVEL_BLOCKS, 'EmptyState'),
+  title: 'Mid level blocks / EmptyState',
 
   parameters: {
     design: {

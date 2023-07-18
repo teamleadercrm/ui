@@ -1,12 +1,11 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import Container from '.';
 import Box from '../box';
 
 export default {
   component: Container,
-  title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Container'),
+  title: 'Low level blocks / Container',
 } as ComponentMeta<typeof Container>;
 
 export const Basic: ComponentStory<typeof Container> = (args) => (

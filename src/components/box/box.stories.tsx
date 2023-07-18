@@ -1,11 +1,10 @@
 import { ComponentStory } from '@storybook/react';
 import React from 'react';
-import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { Box, TextBody } from '../../index';
 
 export default {
   component: Box,
-  title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Box'),
+  title: 'Low level blocks / Box',
 
   parameters: {
     info: {

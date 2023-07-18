@@ -1,12 +1,11 @@
 import { ComponentStory } from '@storybook/react';
 import React from 'react';
 
-import { addStoryInGroup, COMPOSITIONS } from '../../../.storybook/utils';
 import FilterSelection, { STATUS } from './FilterSelection';
 
 export default {
   component: FilterSelection,
-  title: addStoryInGroup(COMPOSITIONS, 'FilterSelection'),
+  title: 'Compositions / FilterSelection',
 };
 
 export const DefaultState: ComponentStory<typeof FilterSelection> = (args) => <FilterSelection {...args} />;

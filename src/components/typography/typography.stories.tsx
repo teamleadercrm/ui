@@ -1,5 +1,4 @@
 import React from 'react';
-import { addStoryInGroup, FOUNDATION } from '../../../.storybook/utils';
 import {
   COLORS,
   Heading1,
@@ -21,7 +20,7 @@ import {
 
 export default {
   component: Heading1,
-  title: addStoryInGroup(FOUNDATION, 'Typography'),
+  title: 'Foundation / Typography',
 };
 
 const color: typeof COLORS[number] = 'teal';

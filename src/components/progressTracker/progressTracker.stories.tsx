@@ -1,12 +1,11 @@
 import React from 'react';
-import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import ProgressTracker from './ProgressTracker';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 const steps = ['Draft', 'Book', 'Send invoices', 'Get paid'];
 
 export default {
-  title: addStoryInGroup(MID_LEVEL_BLOCKS, 'ProgressTracker'),
+  title: 'Mid level blocks / ProgressTracker',
   component: ProgressTracker,
 
   parameters: {

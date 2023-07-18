@@ -1,14 +1,13 @@
 import React, { useRef, useState } from 'react';
-import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { Box, Button, Dialog, TextBody } from '../../index';
 import Input from '../input';
 import Label from '../label';
 import { DialogBase } from '.';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, ComponentStory } from '@storybook/react';
 
 export default {
   component: Dialog,
-  title: addStoryInGroup(MID_LEVEL_BLOCKS, 'Dialog'),
+  title: 'Mid level blocks / Dialog',
   parameters: {
     docs: {
       source: {
@@ -16,7 +15,7 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Dialog>;
+} as Meta<typeof Dialog>;
 
 export const DefaultStory: ComponentStory<typeof Dialog> = (args) => {
   const [active, setActive] = useState(false);

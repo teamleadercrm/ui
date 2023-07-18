@@ -1,14 +1,13 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { DateTime } from 'luxon';
 import React from 'react';
-import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { DatePicker } from '../../index';
 
 const preSelectedDate = DateTime.local().plus({ days: 3 }).toJSDate();
 
 export default {
   component: DatePicker,
-  title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Form elements/DatePicker'),
+  title: 'Low level blocks / Form elements/DatePicker',
 } as ComponentMeta<typeof DatePicker>;
 
 export const singleDate: ComponentStory<typeof DatePicker> = (args) => {

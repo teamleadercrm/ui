@@ -1,11 +1,10 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
-import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import Tag from './Tag';
 
 export default {
   component: Tag,
-  title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Tag'),
+  title: 'Low level blocks / Tag',
 
   parameters: {
     design: {

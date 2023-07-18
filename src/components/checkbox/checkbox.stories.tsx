@@ -1,11 +1,10 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { Checkbox, Link, TextBody } from '../../index';
 
 export default {
   component: Checkbox,
-  title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Form elements/Checkbox'),
+  title: 'Low level blocks / Form elements/Checkbox',
 
   parameters: {
     design: {

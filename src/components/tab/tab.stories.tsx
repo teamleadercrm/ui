@@ -1,6 +1,5 @@
 import { ComponentStory } from '@storybook/react';
 import React from 'react';
-import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { TabGroup, TitleTab, Box, Counter as UICounter } from '../../index';
 
 import { tabItems } from '../../static/data/tab';
@@ -14,7 +13,7 @@ const TitleCounter = (props: any) => <UICounter color="ruby" marginLeft={3} {...
 
 export default {
   component: TitleTab,
-  title: addStoryInGroup(MID_LEVEL_BLOCKS, 'Tab'),
+  title: 'Mid level blocks / Tab',
 
   parameters: {
     design: {

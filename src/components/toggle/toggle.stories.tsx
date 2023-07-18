@@ -1,6 +1,5 @@
 import { ComponentMeta } from '@storybook/react';
 import React, { ChangeEvent, useState } from 'react';
-import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import Toggle, { ToggleProps } from './Toggle';
 
 const LABEL = 'I am a label';
@@ -8,7 +7,7 @@ const LABEL_TOOLTIP = 'I am label tooltip';
 
 export default {
   component: Toggle,
-  title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Form elements/Toggle'),
+  title: 'Low level blocks / Form elements/Toggle',
 
   parameters: {
     design: {

@@ -1,34 +1,34 @@
-const chromaticTestStories = ['../src/**/*.stories.spec.@(tsx|mdx)'];
-const storybookStories = ['./**/*.stories.@(tsx|mdx)', '../src/**/*.stories.@(tsx|mdx)'];
-
+const chromaticTestStories = ['../src/**/__tests__/*.stories.@(tsx|mdx)'];
+const storybookStories = ['./**/*.stories.@(tsx|mdx)', '../src/components/*/*.stories.@(tsx|mdx)'];
 module.exports = {
   stories: process.env.CHROMATIC ? chromaticTestStories : storybookStories,
   addons: [
     '@storybook/addon-backgrounds',
-    'storybook-addon-designs',
+    '@storybook/addon-designs',
     '@storybook/addon-docs',
     '@storybook/addon-controls',
     {
-      name: '@storybook/addon-postcss',
+      name: '@storybook/addon-styling',
       options: {
-        postcssLoaderOptions: {
+        postCss: {
           implementation: require('postcss'),
         },
-        cssLoaderOptions: {
-          sourceMap: true,
-          modules: {
-            localIdentName: '[name]__[local]___[hash:base64:5]',
-          },
-          importLoaders: 1,
+        cssModules: {
+          localIdentName: '[name]__[local]___[hash:base64:5]',
         },
       },
     },
+    '@storybook/addon-mdx-gfm',
   ],
   features: {
     // Use babel config from project root .babelrc file
     babelModeV7: true,
   },
-  core: {
-    builder: 'webpack5',
+  framework: {
+    name: '@storybook/react-webpack5',
+    options: {},
+  },
+  docs: {
+    autodocs: true,
   },
 };

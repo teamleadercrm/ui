@@ -5,7 +5,7 @@ import Button, { AllowedButtonColor, BUTTON_LEVELS } from '../Button';
 
 export default {
   component: Button,
-  title: Button.displayName,
+  title: 'Button',
 };
 
 const Wrapper = ({ children, inverse = false }: { children: ReactNode; inverse?: boolean }) => (

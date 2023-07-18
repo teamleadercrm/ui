@@ -1,11 +1,10 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React, { useState } from 'react';
-import { addStoryInGroup, MARKETING } from '../../../.storybook/utils';
 import MarketingButtonGroup from './MarketingButtonGroup';
 
 export default {
   component: MarketingButtonGroup,
-  title: addStoryInGroup(MARKETING, 'MarketingButtonGroup'),
+  title: 'Marketing / MarketingButtonGroup',
 } as ComponentMeta<typeof MarketingButtonGroup>;
 
 export const Basic: ComponentStory<typeof MarketingButtonGroup> = () => {

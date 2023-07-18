@@ -1,12 +1,11 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { IconAddMediumOutline, IconAddSmallOutline } from '@teamleader/ui-icons';
 import Button from './Button';
 
 export default {
   component: Button,
-  title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Button'),
+  title: 'Low level blocks / Button',
 
   parameters: {
     design: {

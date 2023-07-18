@@ -1,5 +1,4 @@
 import React, { SyntheticEvent, useState } from 'react';
-import { addStoryInGroup, COMPOSITIONS } from '../../../.storybook/utils';
 import { IconBuildingSmallOutline, IconPhoneSmallOutline, IconMailSmallOutline } from '@teamleader/ui-icons';
 import { Badge, Box, EmptyPassport, Passport } from '../../index';
 import avatars from '../../static/data/avatar';
@@ -46,7 +45,7 @@ const companyLineItems = [
 
 export default {
   component: Passport,
-  title: addStoryInGroup(COMPOSITIONS, 'Passport'),
+  title: 'Compositions / Passport',
 
   parameters: {
     info: {

@@ -1,11 +1,10 @@
 import { ComponentStory } from '@storybook/react';
 import React from 'react';
-import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import StatusLabel from './StatusLabel';
 
 export default {
   component: StatusLabel,
-  title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Status Label'),
+  title: 'Low level blocks / Status Label',
 
   parameters: {
     design: {

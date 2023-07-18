@@ -1,13 +1,12 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React, { useState } from 'react';
-import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { RadioGroup, RadioButton } from '../../index';
 
 const values = ['Option one', 'Option two', 'Option three'];
 
 export default {
   component: RadioButton,
-  title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Form elements/Radio'),
+  title: 'Low level blocks / Form elements/Radio',
 
   parameters: {
     design: {

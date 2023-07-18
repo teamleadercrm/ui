@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { Pagination, Button } from '../../index';
 import { ComponentStory } from '@storybook/react';
 
 export default {
   component: Pagination,
-  title: addStoryInGroup(MID_LEVEL_BLOCKS, 'Pagination'),
+  title: 'Mid level blocks / Pagination',
 };
 
 export const DefaultStory = (args: ComponentStory<typeof Pagination>) => {

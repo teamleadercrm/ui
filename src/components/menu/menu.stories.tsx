@@ -1,5 +1,4 @@
 import React from 'react';
-import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { IconClockSmallOutline, IconTrashSmallOutline } from '@teamleader/ui-icons';
 import { Avatar, Menu, MenuItem, MenuDivider, MenuTitle, TextBody } from '../../index';
 import avatars from '../../static/data/avatar';
@@ -11,7 +10,7 @@ const avatar = <Avatar imageUrl={avatars[0].image} size="tiny" shape="circle" />
 
 export default {
   component: Menu,
-  title: addStoryInGroup(MID_LEVEL_BLOCKS, 'Menu'),
+  title: 'Mid level blocks / Menu',
 } as ComponentMeta<typeof Menu>;
 
 export const DefaultStory = (args: ComponentStory<typeof Menu>) => (

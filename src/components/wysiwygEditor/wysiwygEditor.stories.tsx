@@ -1,11 +1,10 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
-import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import WysiwygEditor from './WysiwygEditor';
 
 export default {
   component: WysiwygEditor,
-  title: addStoryInGroup(MID_LEVEL_BLOCKS, 'WysiwygEditor'),
+  title: 'Mid level blocks / WysiwygEditor',
 } as ComponentMeta<typeof WysiwygEditor>;
 
 export const Basic: ComponentStory<typeof WysiwygEditor> = (args) => <WysiwygEditor {...args} />;

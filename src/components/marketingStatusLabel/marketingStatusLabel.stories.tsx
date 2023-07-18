@@ -1,12 +1,11 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
-import { addStoryInGroup, MARKETING } from '../../../.storybook/utils';
 import MarketingStatusLabel from './MarketingStatusLabel';
 import { IconLockSmallFilled } from '@teamleader/ui-icons';
 
 export default {
   component: MarketingStatusLabel,
-  title: addStoryInGroup(MARKETING, 'MarketingStatusLabel'),
+  title: 'Marketing / MarketingStatusLabel',
 
   parameters: {
     design: {

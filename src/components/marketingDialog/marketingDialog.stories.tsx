@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { addStoryInGroup, MARKETING } from '../../../.storybook/utils';
 
 import MarketingDialog from './MarketingDialog';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
@@ -7,7 +6,7 @@ import Button from '../button';
 
 export default {
   component: MarketingDialog,
-  title: addStoryInGroup(MARKETING, 'MarketingDialog'),
+  title: 'Marketing / MarketingDialog',
 
   parameters: {
     design: {
