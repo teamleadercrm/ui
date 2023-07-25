@@ -136,7 +136,7 @@
     "postcss-import": "^15.0.0",
     "postcss-loader": "^7.0.1",
     "postcss-nested": "^6.0.0",
-    "postcss-preset-env": "9.0.0",
+    "postcss-preset-env": "9.1.0",
     "postcss-pseudoelements": "^5.0.0",
     "postcss-reporter": "^7.0.5",
     "prettier": "2.8.0",
