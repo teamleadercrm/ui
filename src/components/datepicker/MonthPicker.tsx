@@ -140,7 +140,7 @@ const MonthPickerSplit: GenericComponent<MonthPickerProps> = ({ date, locale, lo
           menuWidth="168px"
         />
         <NumericInput
-          value={`${yearInput}`}
+          value={yearInput}
           className={theme['month-picker-field']}
           onChange={handleChangeYear}
           onBlur={handleYearBlur}
