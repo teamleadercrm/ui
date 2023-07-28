@@ -72,7 +72,7 @@
     "@babel/preset-env": "^7.18.2",
     "@babel/preset-react": "^7.12.5",
     "@babel/preset-typescript": "^7.16.7",
-    "@csstools/postcss-global-data": "^1.0.3",
+    "@csstools/postcss-global-data": "^2.0.1",
     "@storybook/addon-backgrounds": "7.0.27",
     "@storybook/addon-controls": "^7.0.27",
     "@storybook/addon-designs": "^7.0.0",
