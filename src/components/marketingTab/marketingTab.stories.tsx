@@ -1,6 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
-import { addStoryInGroup, MARKETING } from '../../../.storybook/utils';
 import MarketingTab from './MarketingTab';
 
 const handleClick = (event: React.MouseEvent) => {
@@ -9,7 +8,7 @@ const handleClick = (event: React.MouseEvent) => {
 
 export default {
   component: MarketingTab,
-  title: addStoryInGroup(MARKETING, 'MarketingTab'),
+  title: 'Marketing / MarketingTab',
 
   parameters: {
     design: {

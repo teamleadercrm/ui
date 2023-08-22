@@ -1,5 +1,4 @@
 import React from 'react';
-import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import LabelValuePair from './LabelValuePair';
 import LabelValuePairGroup from './LabelValuePairGroup';
 import Badge from '../badge';
@@ -10,7 +9,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 export default {
   component: LabelValuePair,
-  title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'LabelValuePair'),
+  title: 'Low level blocks / LabelValuePair',
 
   parameters: {
     design: {

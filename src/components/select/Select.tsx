@@ -439,6 +439,7 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
       minHeight: minHeightBySizeMap[size] - 2,
       lineHeight: 'normal',
       padding: isMulti && hasValue && size !== 'large' ? 0 : '0 4px',
+      width: '0',
     };
   };
 

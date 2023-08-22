@@ -1,12 +1,11 @@
 import { ComponentStory } from '@storybook/react';
 import React from 'react';
-import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { Flex, Box } from '../../index';
 import { Heading3 } from '../typography';
 
 export default {
   component: Flex,
-  title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Flex'),
+  title: 'Low level blocks / Flex',
 };
 
 const MintBox = ({ size }: { size: number }) => (

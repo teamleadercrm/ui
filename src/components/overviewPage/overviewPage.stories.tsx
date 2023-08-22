@@ -1,5 +1,4 @@
 import React from 'react';
-import { addStoryInGroup, COMPOSITIONS } from '../../../.storybook/utils';
 import { IconChevronDownSmallOutline } from '@teamleader/ui-icons';
 import Button from '../button';
 import ButtonGroup from '../buttonGroup';
@@ -14,7 +13,7 @@ const defaultOverviewPageHeaderProps = {
 
 export default {
   component: OverviewPage,
-  title: addStoryInGroup(COMPOSITIONS, 'OverviewPage'),
+  title: 'Compositions / OverviewPage',
 
   parameters: {
     backgrounds: {

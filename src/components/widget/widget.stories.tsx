@@ -1,12 +1,11 @@
 import React from 'react';
-import { addStoryInGroup, COMPOSITIONS } from '../../../.storybook/utils';
 import { Box, ButtonGroup, Heading3, IconButton, IconMenu, MenuItem, TextBody, Widget, MenuDivider } from '../../index';
 import { IconAddMediumOutline, IconEditMediumOutline } from '@teamleader/ui-icons';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 export default {
   component: Widget,
-  title: addStoryInGroup(COMPOSITIONS, 'Widget'),
+  title: 'Compositions / Widget',
 } as ComponentMeta<typeof Widget>;
 
 export const FullWidget: ComponentStory<typeof Widget> = (args) => (

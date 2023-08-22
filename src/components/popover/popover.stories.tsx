@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import {
   IconChevronDownSmallOutline,
   IconCloseSmallOutline,
@@ -60,7 +59,7 @@ const contentBoxWithSingleTextLine = (
 
 export default {
   component: Popover,
-  title: addStoryInGroup(MID_LEVEL_BLOCKS, 'Popover'),
+  title: 'Mid level blocks / Popover',
 
   parameters: {
     info: {

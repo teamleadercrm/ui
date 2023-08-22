@@ -1,6 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React, { CSSProperties } from 'react';
-import { addStoryInGroup, MARKETING } from '../../../.storybook/utils';
 
 import MarketingMenuItem from './MarketingMenuItem';
 import { IconExternalLinkSmallOutline } from '@teamleader/ui-icons';
@@ -11,7 +10,7 @@ import { useCallback } from '@storybook/addons';
 
 export default {
   component: MarketingMenuItem,
-  title: addStoryInGroup(MARKETING, 'MarketingMenuItem'),
+  title: 'Marketing / MarketingMenuItem',
 
   parameters: {},
 } as ComponentMeta<typeof MarketingMenuItem>;

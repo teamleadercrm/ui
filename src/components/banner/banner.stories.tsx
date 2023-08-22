@@ -1,12 +1,11 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { addStoryInGroup, LOW_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { IconIdeaMediumOutline } from '@teamleader/ui-icons';
 import { Banner, TextDisplay } from '../../index';
 
 export default {
   component: Banner,
-  title: addStoryInGroup(LOW_LEVEL_BLOCKS, 'Banner'),
+  title: 'Low level blocks / Banner',
 } as ComponentMeta<typeof Banner>;
 
 export const DefaultStory: ComponentStory<typeof Banner> = (args) => (

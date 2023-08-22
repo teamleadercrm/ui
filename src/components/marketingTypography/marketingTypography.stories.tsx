@@ -1,12 +1,11 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
-import { addStoryInGroup, MARKETING } from '../../../.storybook/utils';
 import MarketingHeading1 from './MarketingHeading1';
 import MarketingHeading2 from './MarketingHeading2';
 
 export default {
   component: MarketingHeading1,
-  title: addStoryInGroup(MARKETING, 'Typography'),
+  title: 'Marketing / Typography',
 
   parameters: {
     design: {

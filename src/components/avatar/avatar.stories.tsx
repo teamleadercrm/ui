@@ -2,11 +2,10 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Avatar, Bullet, TextBodyCompact } from '../../index';
 import avatars from '../../static/data/avatar';
-import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
 
 export default {
   component: Avatar,
-  title: addStoryInGroup(MID_LEVEL_BLOCKS, 'Avatar'),
+  title: 'Mid level blocks / Avatar',
 
   parameters: {
     design: {

@@ -1,11 +1,10 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
-import { addStoryInGroup, MARKETING } from '../../../.storybook/utils';
 import MarketingLockBadge from './MarketingLockBadge';
 
 export default {
   component: MarketingLockBadge,
-  title: addStoryInGroup(MARKETING, 'MarketingLockBadge'),
+  title: 'Marketing / MarketingLockBadge',
 
   parameters: {
     design: {

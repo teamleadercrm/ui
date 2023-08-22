@@ -1,5 +1,4 @@
 import React from 'react';
-import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import SplitButton from './SplitButton';
 import MenuDivider from '../menu/MenuDivider';
 import MenuItem from '../menu/MenuItem';
@@ -18,7 +17,7 @@ const handleMenuItemClick = () => {
 
 export default {
   component: SplitButton,
-  title: addStoryInGroup(MID_LEVEL_BLOCKS, 'Split button'),
+  title: 'Mid level blocks / Split button',
 } as ComponentMeta<typeof SplitButton>;
 
 export const DefaultStory: ComponentStory<typeof SplitButton> = (args) => (

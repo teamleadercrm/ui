@@ -25,10 +25,9 @@ import {
 import { rows1 } from '../../../src/static/data/datagrid';
 import { LANGUAGES } from '../../../src/static/data/languages';
 import options, { groupedOptions } from '../../../src/static/data/select';
-import { addStoryInGroup, PLAYGROUND } from '../../utils';
 
 export default {
-  title: addStoryInGroup(PLAYGROUND, 'Depths'),
+  title: 'Playground / Depts',
 
   parameters: {
     info: {
@@ -51,93 +50,101 @@ const customFormatDate = (date, locale) => {
 const MyDatagrid = ({ ...props }) => {
   const [selectValue, setSelectValue] = useState<Option | null>(null);
   return (
-  <DataGrid selectable={false} comparableId={1} onSelectionChange={() => console.log('onSelectionChange')} {...props}>
-    <DataGrid.HeaderRowOverlay>
-      <Button size="small" level="primary" label="Marks as paid" />
-      <ButtonGroup segmented marginHorizontal={3}>
-        <Button size="small" label="Book" />
-        <Button size="small" label="Merge" />
-      </ButtonGroup>
-      <Button size="small" level="destructive" label="Delete" />
-      <Select value={selectValue} onChange={setSelectValue} options={options} marginHorizontal={3} size="small" flex="1" menuIsOpen />
-    </DataGrid.HeaderRowOverlay>
+    <DataGrid selectable={false} comparableId={1} onSelectionChange={() => console.log('onSelectionChange')} {...props}>
+      <DataGrid.HeaderRowOverlay>
+        <Button size="small" level="primary" label="Marks as paid" />
+        <ButtonGroup segmented marginHorizontal={3}>
+          <Button size="small" label="Book" />
+          <Button size="small" label="Merge" />
+        </ButtonGroup>
+        <Button size="small" level="destructive" label="Delete" />
+        <Select
+          value={selectValue}
+          onChange={setSelectValue}
+          options={options}
+          marginHorizontal={3}
+          size="small"
+          flex="1"
+          menuIsOpen
+        />
+      </DataGrid.HeaderRowOverlay>
 
-    <DataGrid.HeaderRow>
-      <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} sorted="asc">
-        Invoice
-      </DataGrid.HeaderCell>
-      <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} align="right">
-        Amount
-      </DataGrid.HeaderCell>
-      <DataGrid.HeaderCell flex={2} onClick={() => console.log('onClick: column sort')}>
-        Customer
-      </DataGrid.HeaderCell>
-      <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')}>Due date</DataGrid.HeaderCell>
-      <DataGrid.HeaderCell flex="min-width" />
-    </DataGrid.HeaderRow>
-    {rows1.map((row, index) => {
-      return (
-        <DataGrid.BodyRow key={index}>
-          <DataGrid.Cell>
-            <Link href="#" inherit={false}>
-              {row.column5}
-            </Link>{' '}
-          </DataGrid.Cell>
-          <DataGrid.Cell align="right" strong>
-            {' '}
-            {`€ ${row.column3}`}
-          </DataGrid.Cell>
-          <DataGrid.Cell flex={2}>{row.column2}</DataGrid.Cell>
-          <DataGrid.Cell soft>{row.column4}</DataGrid.Cell>
-          <DataGrid.Cell align="right" flex="min-width" preventOverflow={false}>
-            <IconMenu position="top-right">
-              <MenuItem onClick={() => console.log('onClick: duplicate row')}>Duplicate row</MenuItem>
-              <MenuItem onClick={() => console.log('onClick: delete row')}>Remove row</MenuItem>
-            </IconMenu>
-          </DataGrid.Cell>
-        </DataGrid.BodyRow>
-      );
-    })}
-    <DataGrid.FooterRow backgroundColor="neutral">
-      <DataGrid.Cell flex="min-width" />
-      <DataGrid.Cell align="right" soft>
-        <Heading4>Total Excl Btw</Heading4>
-      </DataGrid.Cell>
-      <DataGrid.Cell align="right" strong>
-        € 13460.52
-      </DataGrid.Cell>
-      <DataGrid.Cell flex={2} />
-      <DataGrid.Cell />
-      <DataGrid.Cell flex="min-width" />
-    </DataGrid.FooterRow>
+      <DataGrid.HeaderRow>
+        <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} sorted="asc">
+          Invoice
+        </DataGrid.HeaderCell>
+        <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')} align="right">
+          Amount
+        </DataGrid.HeaderCell>
+        <DataGrid.HeaderCell flex={2} onClick={() => console.log('onClick: column sort')}>
+          Customer
+        </DataGrid.HeaderCell>
+        <DataGrid.HeaderCell onClick={() => console.log('onClick: column sort')}>Due date</DataGrid.HeaderCell>
+        <DataGrid.HeaderCell flex="min-width" />
+      </DataGrid.HeaderRow>
+      {rows1.map((row, index) => {
+        return (
+          <DataGrid.BodyRow key={index}>
+            <DataGrid.Cell>
+              <Link href="#" inherit={false}>
+                {row.column5}
+              </Link>{' '}
+            </DataGrid.Cell>
+            <DataGrid.Cell align="right" strong>
+              {' '}
+              {`€ ${row.column3}`}
+            </DataGrid.Cell>
+            <DataGrid.Cell flex={2}>{row.column2}</DataGrid.Cell>
+            <DataGrid.Cell soft>{row.column4}</DataGrid.Cell>
+            <DataGrid.Cell align="right" flex="min-width" preventOverflow={false}>
+              <IconMenu position="top-right">
+                <MenuItem onClick={() => console.log('onClick: duplicate row')}>Duplicate row</MenuItem>
+                <MenuItem onClick={() => console.log('onClick: delete row')}>Remove row</MenuItem>
+              </IconMenu>
+            </DataGrid.Cell>
+          </DataGrid.BodyRow>
+        );
+      })}
+      <DataGrid.FooterRow backgroundColor="neutral">
+        <DataGrid.Cell flex="min-width" />
+        <DataGrid.Cell align="right" soft>
+          <Heading4>Total Excl Btw</Heading4>
+        </DataGrid.Cell>
+        <DataGrid.Cell align="right" strong>
+          € 13460.52
+        </DataGrid.Cell>
+        <DataGrid.Cell flex={2} />
+        <DataGrid.Cell />
+        <DataGrid.Cell flex="min-width" />
+      </DataGrid.FooterRow>
 
-    <DataGrid.FooterRow backgroundColor="neutral">
-      <DataGrid.Cell flex="min-width" />
-      <DataGrid.Cell align="right" soft>
-        <Heading4>+ VAT</Heading4>
-      </DataGrid.Cell>
-      <DataGrid.Cell align="right" strong>
-        € 2826.71
-      </DataGrid.Cell>
-      <DataGrid.Cell flex={2} />
-      <DataGrid.Cell />
-      <DataGrid.Cell flex="min-width" />
-    </DataGrid.FooterRow>
+      <DataGrid.FooterRow backgroundColor="neutral">
+        <DataGrid.Cell flex="min-width" />
+        <DataGrid.Cell align="right" soft>
+          <Heading4>+ VAT</Heading4>
+        </DataGrid.Cell>
+        <DataGrid.Cell align="right" strong>
+          € 2826.71
+        </DataGrid.Cell>
+        <DataGrid.Cell flex={2} />
+        <DataGrid.Cell />
+        <DataGrid.Cell flex="min-width" />
+      </DataGrid.FooterRow>
 
-    <DataGrid.FooterRow backgroundColor="neutral">
-      <DataGrid.Cell flex="min-width" />
-      <DataGrid.Cell align="right" soft>
-        <Heading4>Total Incl Btw</Heading4>
-      </DataGrid.Cell>
-      <DataGrid.Cell align="right" strong backgroundColor="white" border="around">
-        € 16287.23
-      </DataGrid.Cell>
-      <DataGrid.Cell flex={2} />
-      <DataGrid.Cell />
-      <DataGrid.Cell flex="min-width" />
-    </DataGrid.FooterRow>
-  </DataGrid>
-)
+      <DataGrid.FooterRow backgroundColor="neutral">
+        <DataGrid.Cell flex="min-width" />
+        <DataGrid.Cell align="right" soft>
+          <Heading4>Total Incl Btw</Heading4>
+        </DataGrid.Cell>
+        <DataGrid.Cell align="right" strong backgroundColor="white" border="around">
+          € 16287.23
+        </DataGrid.Cell>
+        <DataGrid.Cell flex={2} />
+        <DataGrid.Cell />
+        <DataGrid.Cell flex="min-width" />
+      </DataGrid.FooterRow>
+    </DataGrid>
+  );
 };
 
 export const zIndexes = (args) => {
@@ -175,7 +182,13 @@ export const zIndexes = (args) => {
       <Box display="flex">
         <Label flex="1" marginRight={3}>
           Select your flavourite
-          <Select value={selectValue1} onChange={setSelectValue1} helpText="Please select your favorite flavour" options={options} marginBottom={3} />
+          <Select
+            value={selectValue1}
+            onChange={setSelectValue1}
+            helpText="Please select your favorite flavour"
+            options={options}
+            marginBottom={3}
+          />
         </Label>
       </Box>
       <Box display="flex">
@@ -214,7 +227,12 @@ export const zIndexes = (args) => {
           <Heading3 color="teal">I am a Popover</Heading3>
           <Label marginTop={3} marginBottom={0} required>
             Select your flavourite
-            <Select value={selectValue2} onChange={setSelectValue2} helpText="Please select your favorite flavour" options={options} />
+            <Select
+              value={selectValue2}
+              onChange={setSelectValue2}
+              helpText="Please select your favorite flavour"
+              options={options}
+            />
           </Label>
         </Box>
       </Popover>
@@ -230,7 +248,12 @@ export const zIndexes = (args) => {
         <Box display="flex" marginTop={3}>
           <Label flex="1" marginBottom={0} marginRight={2} required>
             Select your flavourite
-            <Select value={selectValue3} onChange={setSelectValue3} helpText="Please select your favorite flavour" options={groupedOptions} />
+            <Select
+              value={selectValue3}
+              onChange={setSelectValue3}
+              helpText="Please select your favorite flavour"
+              options={groupedOptions}
+            />
           </Label>
           <Label required flex="1" marginLeft={2}>
             Pick a date

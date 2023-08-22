@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 import Alert from './Alert';
 import Box from '../box';
 import Button from '../button';
-import { addStoryInGroup, MID_LEVEL_BLOCKS } from '../../../.storybook/utils';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 export default {
   component: Alert,
-  title: addStoryInGroup(MID_LEVEL_BLOCKS, 'Alert'),
+  title: 'Mid level blocks / Alert',
   parameters: {
     docs: {
       source: {

@@ -1,12 +1,11 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
-import { addStoryInGroup, MARKETING } from '../../../.storybook/utils';
 import { TextBody } from '../typography';
 import MarketingMarker from './MarketingMarker';
 
 export default {
   component: MarketingMarker,
-  title: addStoryInGroup(MARKETING, 'MarketingMarker'),
+  title: 'Marketing / MarketingMarker',
 
   parameters: {
     design: {
