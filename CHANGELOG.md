@@ -12,6 +12,12 @@
 
 ### Dependency updates
 
+## [22.2.2] - 2023-08-22
+
+### Fixed
+
+`Select`: Fix that selecting long options causes the select to grow in firefox. ([@lorgan3](https://https://github.com/lorgan3) in [#2735](https://github.com/teamleadercrm/ui/pull/2735))
+
 ## [22.2.1] - 2023-07-13
 
 ### Fixed
