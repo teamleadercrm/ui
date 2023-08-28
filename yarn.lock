@@ -3546,9 +3546,9 @@
     lodash.without "^4.4.0"
 
 "@teamleader/ui-icons@^2.1.0":
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/@teamleader/ui-icons/-/ui-icons-2.4.0.tgz#6655baa4cb4ab82adeffff40d91b280d6184451b"
-  integrity sha512-zRnvPXV+gp1qMEYWtfxkmFkf6XjVUZrHlTumWaz6HBWjXw0SnKLhROIPvuVInaNBZ8T8KJBnhMm5yrA+7iB3sA==
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@teamleader/ui-icons/-/ui-icons-2.5.0.tgz#c201e338ace98e1dcdd09a9476f586549d25ca71"
+  integrity sha512-5v1c9Wt7czevJ5RjUB20IflXDIl1pneQMA8p2oUvRXl3YIAuRgr2eG40QktAQMBz8EcFPrkjYVoEL0LVUNrNTQ==
 
 "@teamleader/ui-illustrations@^1.10.0":
   version "1.18.0"
