@@ -30,6 +30,7 @@ const ProgressStep: GenericComponent<ProgressStepProps> = ({
   color,
   onClick,
 }: ProgressStepProps) => {
+  // If color is undefined, it will never be assigned but I need to have string, because undefined cannot be indexed
   const colorClassName = color || '';
   const classNames = cx(theme['step'], {
     [theme['is-active']]: active,
