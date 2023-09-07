@@ -16,7 +16,7 @@ export default {
   },
 } as ComponentMeta<typeof ProgressTracker>;
 
-export const defaultStory: ComponentStory<typeof ProgressTracker> = (args) => (
+export const Basic: ComponentStory<typeof ProgressTracker> = (args) => (
   <ProgressTracker {...args}>
     {steps.map((step, index) => (
       <ProgressTracker.ProgressStep
@@ -29,7 +29,28 @@ export const defaultStory: ComponentStory<typeof ProgressTracker> = (args) => (
   </ProgressTracker>
 );
 
-defaultStory.args = {
+Basic.args = {
+  done: false,
+  currentStep: 1,
+  color: 'mint',
+  labelPosition: 'top',
+};
+
+export const StepWithDifferentColor: ComponentStory<typeof ProgressTracker> = (args) => (
+  <ProgressTracker {...args}>
+    {steps.map((step, index) => (
+      <ProgressTracker.ProgressStep
+        label={step}
+        meta={`${10 + index * 3}/12/2020`}
+        key={index}
+        onClick={() => console.log('step clicked')}
+        color={index === 1 ? 'ruby' : undefined}
+      />
+    ))}
+  </ProgressTracker>
+);
+
+StepWithDifferentColor.args = {
   done: false,
   currentStep: 1,
   color: 'mint',
