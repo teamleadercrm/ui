@@ -5,6 +5,7 @@ import theme from './theme.css';
 import Box from '../box';
 import { TextSmall } from '../typography';
 import { GenericComponent } from '../../@types/types';
+import { COLORS } from '@teamleader/ui-colors/constants';
 
 export interface ProgressStepProps {
   /** The label for the progress step */
@@ -15,6 +16,8 @@ export interface ProgressStepProps {
   active?: boolean;
   /** Whether or not the step has been completed */
   completed?: boolean;
+  /** Color theme of the progress step. */
+  color?: typeof COLORS[number];
   /** Callback function that is fired when the progress step is clicked */
   onClick?: () => void;
 }
@@ -24,13 +27,16 @@ const ProgressStep: GenericComponent<ProgressStepProps> = ({
   meta,
   active = false,
   completed = false,
+  color,
   onClick,
 }: ProgressStepProps) => {
+  const colorClassName = color || '';
   const classNames = cx(theme['step'], {
     [theme['is-active']]: active,
     [theme['is-completed']]: completed,
     [theme['is-clickable']]: !!onClick,
     [theme['has-meta']]: !!meta,
+    [theme[colorClassName]]: !!color,
   });
   return (
     <Box className={classNames}>

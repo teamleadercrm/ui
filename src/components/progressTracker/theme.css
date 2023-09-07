@@ -259,12 +259,53 @@
   }
 }
 
+/* Step color override */
+.neutral.step {
+  &.is-completed,
+  &.is-active {
+    .status-bullet {
+      background-color: var(--color-neutral);
+    }
+  }
+
+  &.is-active {
+    .status-bullet {
+      background-color: var(--color-neutral-dark);
+    }
+  }
+
+  .status-bullet-halo {
+    background-color: var(--color-neutral);
+  }
+}
+
+
 .mint .step {
   &.is-completed,
   &.is-active {
     &:after {
       background-color: var(--color-mint);
     }
+    .status-bullet {
+      background-color: var(--color-mint);
+    }
+  }
+
+  &.is-active {
+    .status-bullet {
+      background-color: var(--color-mint-dark);
+    }
+  }
+
+  .status-bullet-halo {
+    background-color: var(--color-mint);
+  }
+}
+
+/* Step color override */
+.mint.step {
+  &.is-completed,
+  &.is-active {
     .status-bullet {
       background-color: var(--color-mint);
     }
@@ -303,6 +344,26 @@
   }
 }
 
+/* Step color override */
+.aqua.step {
+  &.is-completed,
+  &.is-active {
+    .status-bullet {
+      background-color: var(--color-aqua);
+    }
+  }
+
+  &.is-active {
+    .status-bullet {
+      background-color: var(--color-aqua-dark);
+    }
+  }
+
+  .status-bullet-halo {
+    background-color: var(--color-aqua);
+  }
+}
+
 .violet .step {
   &.is-completed,
   &.is-active {
@@ -325,12 +386,53 @@
   }
 }
 
+/* Step color override */
+.violet.step {
+  &.is-completed,
+  &.is-active {
+    .status-bullet {
+      background-color: var(--color-violet);
+    }
+  }
+
+  &.is-active {
+    .status-bullet {
+      background-color: var(--color-violet-dark);
+    }
+  }
+
+  .status-bullet-halo {
+    background-color: var(--color-violet);
+  }
+}
+
+
 .gold .step {
   &.is-completed,
   &.is-active {
     &:after {
       background-color: var(--color-gold);
     }
+    .status-bullet {
+      background-color: var(--color-gold);
+    }
+  }
+
+  &.is-active {
+    .status-bullet {
+      background-color: var(--color-gold-dark);
+    }
+  }
+
+  .status-bullet-halo {
+    background-color: var(--color-gold);
+  }
+}
+
+/* Step color override */
+.gold.step {
+  &.is-completed,
+  &.is-active {
     .status-bullet {
       background-color: var(--color-gold);
     }
@@ -369,12 +471,52 @@
   }
 }
 
+/* Step color override */
+.ruby.step {
+  &.is-completed,
+  &.is-active {
+    .status-bullet {
+      background-color: var(--color-ruby);
+    }
+  }
+
+  &.is-active {
+    .status-bullet {
+      background-color: var(--color-ruby-dark);
+    }
+  }
+
+  .status-bullet-halo {
+    background-color: var(--color-ruby);
+  }
+}
+
 .teal .step {
   &.is-completed,
   &.is-active {
     &:after {
       background-color: var(--color-teal);
     }
+    .status-bullet {
+      background-color: var(--color-teal);
+    }
+  }
+
+  &.is-active {
+    .status-bullet {
+      background-color: var(--color-teal-dark);
+    }
+  }
+
+  .status-bullet-halo {
+    background-color: var(--color-teal);
+  }
+}
+
+/* Step color override */
+.teal.step {
+  &.is-completed,
+  &.is-active {
     .status-bullet {
       background-color: var(--color-teal);
     }
