@@ -1,0 +1,13 @@
+---
+name: Create new tag
+
+on:
+  push:
+    branches:
+      - next-release
+    paths:
+      - "package.json"
+jobs:
+  create-new-tag:
+    uses: teamleadercrm/teamleader-github-workflows/.github/workflows/create-tag-node.yaml@v1.12.3
+    secrets: inherit
