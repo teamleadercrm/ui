@@ -9,5 +9,5 @@ on:
       - "package.json"
 jobs:
   create-new-tag:
-    uses: teamleadercrm/teamleader-github-workflows/.github/workflows/create-tag-node.yaml@v1.13
+    uses: teamleadercrm/teamleader-github-workflows/.github/workflows/create-tag-node.yaml@v1.13.0
     secrets: inherit
