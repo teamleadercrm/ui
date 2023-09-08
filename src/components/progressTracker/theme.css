@@ -237,6 +237,25 @@
   }
 }
 
+.custom-color {
+  &.is-completed,
+  &.is-active {
+    .status-bullet {
+      background-color: var(--step-color)!important;
+    }
+  }
+
+  &.is-active {
+    .status-bullet {
+      background-color: var(--step-color)!important;
+    }
+  }
+
+  .status-bullet-halo {
+    background-color: var(--step-color)!important;
+  }
+}
+
 .neutral .step {
   &.is-completed,
   &.is-active {
