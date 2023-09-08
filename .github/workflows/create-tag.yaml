@@ -7,7 +7,53 @@ on:
       - next-release
     paths:
       - "package.json"
+
 jobs:
   create-new-tag:
-    uses: teamleadercrm/teamleader-github-workflows/.github/workflows/create-tag-node.yaml@v1.13.0
-    secrets: inherit
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: write
+    steps:
+      - name: Get Token
+        id: get_workflow_token
+        uses: peter-murray/workflow-application-token-action@v2
+        with:
+          application_id: ${{ secrets.GH_APPLICATION_ID }}
+          application_private_key: ${{ secrets.GH_APPLICATION_PRIVATE_KEY }}
+      - name: Check out code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Get library Package version
+        run: echo "COMPONENT_TAG=$(jq -r '.version' ./package.json)" >> $GITHUB_ENV
+      - name: Check tag does not exists
+        uses: rickstaa/action-contains-tag@v1
+        id: contains_tag
+        with:
+          reference: master
+          tag: ${{ env.COMPONENT_TAG }}
+          frail: false
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        id: release
+        with:
+          token: ${{ steps.get_workflow_token.outputs.token }}
+          tag_name: ${{ env.COMPONENT_TAG }}
+        if: ${{ steps.contains_tag.outputs.retval != 'true' }}
+      - name: Generate Changelog
+        id: generate_changelog
+        uses: mikepenz/release-changelog-builder-action@v4.0.0
+        with:
+          configuration: .github/generate-changelog-configuration.json
+          token: ${{ steps.get_workflow_token.outputs.token }}
+          toTag: ${{ env.COMPONENT_TAG }}
+        if: ${{ steps.contains_tag.outputs.retval != 'true' }}
+      - name: Update release with Changelog
+        uses: softprops/action-gh-release@v1
+        id: release_update
+        with:
+          token: ${{ steps.get_workflow_token.outputs.token }}
+          body: ${{ steps.generate_changelog.outputs.changelog }}
+          tag_name: ${{ env.COMPONENT_TAG }}
+        if: ${{ steps.contains_tag.outputs.retval != 'true' }}
