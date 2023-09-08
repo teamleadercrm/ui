@@ -5,12 +5,10 @@ on:
   push:
     branches:
       - bugfix/workflow
-    paths:
-      - "package.json"
 
 jobs:
   create-new-tag:
-    runs-on: [self-hosted, X64, tool]
+    runs-on: ubuntu-latest
     permissions:
       id-token: write
       contents: write
