@@ -4,7 +4,9 @@ name: Create new tag
 on:
   push:
     branches:
-      - bugfix/workflow
+      - next-release
+    paths:
+      - "package.json"
 
 jobs:
   create-new-tag:
