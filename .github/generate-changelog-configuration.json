@@ -1,0 +1,9 @@
+{
+    "template": "## What's changed\n\n#{{CHANGELOG}}\n\n#{{UNCATEGORIZED}}\n\n**Full Changelog**: #{{RELEASE_DIFF}}",
+    "categories": [
+        {
+            "title": "### Fixes",
+            "labels": ["bug", "bugfix", "hotfix"]
+        }
+    ]
+}
