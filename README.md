@@ -108,6 +108,7 @@ $ PORT=3001 yarn start
 
 4.  Once the pull request has the needed amount of approvals, merge it into the `next-release` branch.
 5.  Github Actions will create a tag + release
+6.  In your `console`, pull the `next-release` branch.
 7.  `Publish` to `npm` using the `npm publish --access=public` command.
 8.  `Merge` the `next-release` branch into `master` and push to Github
 
