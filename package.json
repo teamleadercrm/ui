@@ -1,7 +1,7 @@
 {
   "name": "@teamleader/ui",
   "description": "Teamleader UI library",
-  "version": "22.2.2",
+  "version": "22.3.0",
   "author": "Teamleader <development@teamleader.eu>",
   "bugs": {
     "url": "https://github.com/teamleadercrm/ui/issues"
@@ -47,7 +47,7 @@
     "react-day-picker": "^7.4.10",
     "react-draft-wysiwyg": "^1.14.7",
     "react-input-mask": "^2.0.4",
-    "react-resize-detector": "^8.0.1",
+    "react-resize-detector": "^9.1.0",
     "react-select": "5.7.0",
     "react-transition-group": "^4.2.1",
     "smoothscroll-polyfill": "^0.4.4"
@@ -94,7 +94,7 @@
     "@types/lodash.throttle": "^4.1.7",
     "@types/lodash.without": "^4.4.6",
     "@types/luxon": "^3.0.1",
-    "@types/node": "^18.11.18",
+    "@types/node": "^20.5.9",
     "@types/react": "^17",
     "@types/react-dom": "^17",
     "@types/react-draft-wysiwyg": "^1.13.4",
