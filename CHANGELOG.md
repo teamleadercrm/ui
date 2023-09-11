@@ -12,6 +12,13 @@
 
 ### Dependency updates
 
+## [22.3.2] - 2023-09-08
+
+### Added
+
+`ProgressTracker`: `activeStepColor` prop. ([@qubis741](https://https://github.com/qubis741) in [#2752](https://github.com/teamleadercrm/ui/pull/2752))
+`ProgressStep`: `color` prop. ([@qubis741](https://https://github.com/qubis741) in [#2752](https://github.com/teamleadercrm/ui/pull/2752))
+
 ## [22.2.2] - 2023-08-22
 
 ### Fixed

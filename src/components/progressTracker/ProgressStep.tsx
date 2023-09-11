@@ -1,10 +1,10 @@
-import React, { ReactNode } from 'react';
 import cx from 'classnames';
+import React, { ReactNode } from 'react';
 import theme from './theme.css';
 
+import { GenericComponent } from '../../@types/types';
 import Box from '../box';
 import { TextSmall } from '../typography';
-import { GenericComponent } from '../../@types/types';
 
 export interface ProgressStepProps {
   /** The label for the progress step */
@@ -15,6 +15,8 @@ export interface ProgressStepProps {
   active?: boolean;
   /** Whether or not the step has been completed */
   completed?: boolean;
+  /** Color theme of the progress step. */
+  color?: string;
   /** Callback function that is fired when the progress step is clicked */
   onClick?: () => void;
 }
@@ -24,6 +26,7 @@ const ProgressStep: GenericComponent<ProgressStepProps> = ({
   meta,
   active = false,
   completed = false,
+  color = '',
   onClick,
 }: ProgressStepProps) => {
   const classNames = cx(theme['step'], {
@@ -31,9 +34,10 @@ const ProgressStep: GenericComponent<ProgressStepProps> = ({
     [theme['is-completed']]: completed,
     [theme['is-clickable']]: !!onClick,
     [theme['has-meta']]: !!meta,
+    [theme['custom-color']]: !!color,
   });
   return (
-    <Box className={classNames}>
+    <Box className={classNames} style={{ '--step-color': color } as React.CSSProperties}>
       <div className={theme['step-label-holder']}>
         <TextSmall className={theme['step-label']}>{label}</TextSmall>
         {meta && <TextSmall className={theme['step-meta']}>{meta}</TextSmall>}
