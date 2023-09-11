@@ -8,7 +8,7 @@ interface WeekDayProps {
   className?: string;
   localeUtils?: LocaleUtils;
   locale?: string;
-  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'hero'>;
+  size?: Exclude<(typeof SIZES)[number], 'tiny' | 'fullscreen' | 'hero'>;
 }
 
 const WeekDay: GenericComponent<WeekDayProps> = ({ weekday, className, localeUtils, locale, size }) => {

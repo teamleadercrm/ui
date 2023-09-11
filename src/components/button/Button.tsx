@@ -23,7 +23,7 @@ const textComponentMap = {
   medium: UITextBody,
   large: UITextDisplay,
 };
-export type AllowedButtonColor = typeof COLORS[number] | 'white';
+export type AllowedButtonColor = (typeof COLORS)[number] | 'white';
 
 export interface ButtonProps extends Omit<BoxProps, 'size'> {
   /** The content to display inside the button. */
@@ -51,7 +51,7 @@ export interface ButtonProps extends Omit<BoxProps, 'size'> {
   /** If true, component will show a loading spinner instead of label or children. */
   processing?: boolean;
   /** Size of the button. */
-  size?: Exclude<typeof SIZES[number], 'fullscreen' | 'smallest' | 'hero'>;
+  size?: Exclude<(typeof SIZES)[number], 'fullscreen' | 'smallest' | 'hero'>;
   /** Type of the button element. */
   type?: string;
   /** Button value in case it's being in a button group. */

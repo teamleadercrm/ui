@@ -25,7 +25,7 @@ export interface DatePickerProps extends Omit<BoxProps & DayPickerProps, 'size' 
   /** The current selected date. */
   selectedDate?: Date;
   /** Size of the DatePicker component. */
-  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'hero'>;
+  size?: Exclude<(typeof SIZES)[number], 'tiny' | 'fullscreen' | 'hero'>;
   /** Show a dropdown for the month? */
   withMonthPicker?: boolean;
   /** Show week numbers? */
@@ -69,7 +69,7 @@ const DatePicker: GenericComponent<DatePickerProps> = ({
   const getMonthPickerSize = () => {
     const monthPickerSizeByDatePickerSize: Record<
       string,
-      Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'hero'>
+      Exclude<(typeof SIZES)[number], 'tiny' | 'fullscreen' | 'hero'>
     > = {
       small: 'smallest',
       medium: showWeekNumbers ? 'medium' : 'small',

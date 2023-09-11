@@ -48,7 +48,7 @@ const PoweredByButton: GenericComponent<PoweredByButtonProps> = forwardRef<HTMLE
       className,
     );
 
-    const iconProps: { color?: typeof COLORS[number]; tint: typeof TINTS[number] } =
+    const iconProps: { color?: (typeof COLORS)[number]; tint: (typeof TINTS)[number] } =
       tint === 'light' ? { color: 'neutral', tint: 'lightest' } : { tint: 'darkest' };
 
     return (

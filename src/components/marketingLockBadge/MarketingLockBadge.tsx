@@ -10,7 +10,7 @@ import { SIZES } from '../../constants';
 
 export interface MarketingLockBadgeProps extends Omit<BoxProps, 'ref'> {
   className?: string;
-  size?: Exclude<typeof SIZES[number], 'tiny' | 'large' | 'fullscreen' | 'smallest' | 'hero'>;
+  size?: Exclude<(typeof SIZES)[number], 'tiny' | 'large' | 'fullscreen' | 'smallest' | 'hero'>;
 }
 
 const MarketingLockBadge: GenericComponent<MarketingLockBadgeProps> = ({ className, size = 'medium', ...others }) => {

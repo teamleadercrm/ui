@@ -23,7 +23,7 @@ export interface DialogProps extends Omit<DialogBaseProps, 'ref'> {
   /** Object containing the props of the primary action (a Button, with level prop set to 'primary'). */
   primaryAction: object;
   /** The size of the dialog. */
-  size?: Exclude<typeof SIZES[number], 'tiny' | 'smallest'>;
+  size?: Exclude<(typeof SIZES)[number], 'tiny' | 'smallest'>;
   /** If true, the content of the dialog will be scrollable when it exceeds the available height. */
   scrollable?: boolean;
   /** Object containing the the props of the secondary action (a Button). */

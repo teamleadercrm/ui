@@ -12,7 +12,7 @@ export interface MarketingStatusLabelProps extends Omit<BoxProps, 'ref' | 'size'
   children?: ReactNode;
   className?: string;
   fullWidth?: boolean;
-  size?: Exclude<typeof SIZES[number], 'tiny' | 'large' | 'fullscreen' | 'smallest' | 'hero'>;
+  size?: Exclude<(typeof SIZES)[number], 'tiny' | 'large' | 'fullscreen' | 'smallest' | 'hero'>;
   icon?: ReactNode;
 }
 

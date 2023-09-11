@@ -17,7 +17,7 @@ const Wrapper = ({ children, inverse = false }: { children: ReactNode; inverse: 
 );
 type Sizes = 'small' | 'medium' | 'large';
 const sizes: Sizes[] = ['small', 'medium', 'large'];
-const colors: (typeof COLORS[number] | 'white')[] = [
+const colors: ((typeof COLORS)[number] | 'white')[] = [
   'neutral',
   'white',
   'mint',
@@ -27,7 +27,7 @@ const colors: (typeof COLORS[number] | 'white')[] = [
   'aqua',
   'teal',
 ];
-const tints: typeof TINTS[number][] = ['lightest', 'light', 'normal', 'dark', 'darkest'];
+const tints: (typeof TINTS)[number][] = ['lightest', 'light', 'normal', 'dark', 'darkest'];
 export const Main = () => (
   <div>
     {sizes.map((size) =>

@@ -7,15 +7,15 @@ import { COLORS, SIZES, TINTS } from '../../constants';
 
 export interface BulletProps extends Omit<BoxProps, 'size' | 'ref'> {
   /** A border color to give to the counter */
-  borderColor?: typeof COLORS[number];
+  borderColor?: (typeof COLORS)[number];
   /** A border tint to give to the counter */
-  borderTint?: Exclude<typeof TINTS[number], 'normal'>;
+  borderTint?: Exclude<(typeof TINTS)[number], 'normal'>;
   /** A class name for the wrapper to give custom styles. */
   className?: string;
   /** The color of the bullet. */
-  color?: typeof COLORS[number];
+  color?: (typeof COLORS)[number];
   /** The size of the bullet. */
-  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
+  size?: Exclude<(typeof SIZES)[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
 }
 
 class Bullet extends PureComponent<BulletProps> {

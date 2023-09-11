@@ -15,7 +15,7 @@ export interface ProgressTrackerProps {
   /** The steps to display inside the progress tracker */
   children?: ReactNode;
   /** Color theme of the progress tracker. */
-  color?: typeof COLORS[number];
+  color?: (typeof COLORS)[number];
   /** Where to position the labels. Alternating allows for wider labels. */
   labelPosition?: 'top' | 'alternating' | 'bottom';
 }

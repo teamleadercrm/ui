@@ -5,9 +5,9 @@ import theme from './theme.css';
 import { GenericComponent } from '../../@types/types';
 
 const margins = [-8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8] as const;
-export type Margin = typeof margins[number];
+export type Margin = (typeof margins)[number];
 const paddings = [0, 1, 2, 3, 4, 5, 6, 7, 8] as const;
-export type Padding = typeof paddings[number];
+export type Padding = (typeof paddings)[number];
 
 const borderRadiuses = {
   square: null,
@@ -20,13 +20,13 @@ export type BoxProps = Partial<
     alignContent: 'center' | 'flex-start' | 'flex-end' | 'space-around' | 'space-between' | 'space-evenly';
     alignItems: 'center' | 'flex-start' | 'flex-end' | 'baseline' | 'stretch';
     alignSelf: 'center' | 'flex-start' | 'flex-end' | 'stretch';
-    backgroundColor: typeof COLORS[number];
-    backgroundTint: typeof TINTS[number];
+    backgroundColor: (typeof COLORS)[number];
+    backgroundTint: (typeof TINTS)[number];
     borderBottomWidth: number;
-    borderColor: typeof COLORS[number];
+    borderColor: (typeof COLORS)[number];
     borderLeftWidth: number;
     borderRightWidth: number;
-    borderTint: typeof TINTS[number];
+    borderTint: (typeof TINTS)[number];
     borderTopWidth: number;
     borderWidth: number;
     borderRadius: keyof typeof borderRadiuses;
@@ -130,7 +130,7 @@ const Box: GenericComponent<BoxProps> = forwardRef(
     const getBorder = (value: number) => {
       return `${value}px solid ${
         COLOR[borderColor.toUpperCase() as Uppercase<keyof typeof COLOR>][
-          borderTint.toUpperCase() as Uppercase<keyof typeof COLOR['AQUA']>
+          borderTint.toUpperCase() as Uppercase<keyof (typeof COLOR)['AQUA']>
         ]
       }`;
     };

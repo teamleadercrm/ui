@@ -12,9 +12,9 @@ export interface IconProps extends Omit<BoxProps, 'children' | 'className'> {
   /** Classname for the Icon component */
   className?: string;
   /** Color of the icon */
-  color?: typeof COLORS[number];
+  color?: (typeof COLORS)[number];
   /** Tint of the icon */
-  tint?: typeof TINTS[number];
+  tint?: (typeof TINTS)[number];
   /** Opacity of the icon */
   opacity?: number;
 }

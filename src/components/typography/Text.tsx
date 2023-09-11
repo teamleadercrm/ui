@@ -10,11 +10,11 @@ import theme from './theme.css';
 export interface TextProps extends BoxProps {
   children?: ReactNode;
   className?: string;
-  color?: typeof COLORS[number];
+  color?: (typeof COLORS)[number];
   element?: ElementType;
   maxLines?: number;
   style?: CSSProperties;
-  tint?: typeof TINTS[number];
+  tint?: (typeof TINTS)[number];
 }
 
 const factory = (baseType: string, type: string, defaultElement: ElementType) => {

@@ -8,7 +8,7 @@ import Icon from '../icon';
 import { UITextBody, UITextDisplay, UITextSmall } from '../typography';
 import theme from './theme.css';
 
-export type AllowedBadgeSize = Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
+export type AllowedBadgeSize = Exclude<(typeof SIZES)[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
 export interface BadgeProps extends Omit<BoxProps, 'ref' | 'size'> {
   /** The content to display inside the badge. */
   children?: ReactNode;

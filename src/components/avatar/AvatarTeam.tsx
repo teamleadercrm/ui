@@ -9,7 +9,7 @@ import { SIZES } from '../../constants';
 
 interface AvatarTeamProps {
   /** The size of the avatar. */
-  size?: Exclude<typeof SIZES[number], 'fullscreen' | 'smallest'>;
+  size?: Exclude<(typeof SIZES)[number], 'fullscreen' | 'smallest'>;
 }
 
 const AvatarTeam: GenericComponent<AvatarTeamProps> = ({ size }) => {
