@@ -23,9 +23,9 @@ export default {
   title: 'Foundation / Typography',
 };
 
-const color: typeof COLORS[number] = 'teal';
+const color: (typeof COLORS)[number] = 'teal';
 const maxLines = undefined;
-const tint: typeof TINTS[number] = 'darkest';
+const tint: (typeof TINTS)[number] = 'darkest';
 export const headings = () => {
   return (
     <>

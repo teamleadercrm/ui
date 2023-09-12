@@ -18,7 +18,7 @@ export interface SplitButtonProps extends Omit<BoxProps, 'children' | 'size'> {
   /** Determines which kind of button to be rendered. */
   level?: 'primary' | 'secondary' | 'destructive';
   /** Size of the button. */
-  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
+  size?: Exclude<(typeof SIZES)[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
   /** The function executed, when we click on the main button. */
   onButtonClick: (event: MouseEvent<HTMLElement>) => void;
   /** The function executed, when we click on the secondary button. */

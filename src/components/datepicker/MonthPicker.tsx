@@ -18,7 +18,7 @@ interface MonthPickerProps {
   /** The localeUtils from the DatePicker */
   localeUtils?: LocaleUtils;
   /** Size of the MonthPicker component. */
-  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'hero'>;
+  size?: Exclude<(typeof SIZES)[number], 'tiny' | 'fullscreen' | 'hero'>;
 }
 
 interface Option {

@@ -13,7 +13,7 @@ export interface MarketingTabProps extends Omit<BoxProps, 'ref'> {
   children: ReactNode;
   className?: string;
   onClick?: (event: React.MouseEvent) => void;
-  size?: Exclude<typeof SIZES[number], 'tiny' | 'large' | 'fullscreen' | 'smallest' | 'hero'>;
+  size?: Exclude<(typeof SIZES)[number], 'tiny' | 'large' | 'fullscreen' | 'smallest' | 'hero'>;
 }
 
 const MarketingTab: GenericComponent<MarketingTabProps> = forwardRef<HTMLElement, MarketingTabProps>(

@@ -22,7 +22,7 @@ interface AvatarInitialsProps {
   /** Callback function that is fired when user clicks the edit icon. */
   onImageChange?: React.MouseEventHandler<HTMLDivElement>;
   /** The size of the avatar. */
-  size: Exclude<typeof SIZES[number], 'fullscreen' | 'smallest'>;
+  size: Exclude<(typeof SIZES)[number], 'fullscreen' | 'smallest'>;
 }
 
 const AvatarInitials: GenericComponent<AvatarInitialsProps> = ({

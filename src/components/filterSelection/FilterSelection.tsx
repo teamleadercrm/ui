@@ -23,7 +23,7 @@ export const STATUS: Record<string, StatusValues> = {
   BROKEN: 'broken',
 };
 
-const COLOR_BY_STATUS: Record<string, typeof COLORS[number]> = {
+const COLOR_BY_STATUS: Record<string, (typeof COLORS)[number]> = {
   [STATUS.DEFAULT]: 'neutral',
   [STATUS.ACTIVE]: 'aqua',
   [STATUS.FOCUSED]: 'aqua',
@@ -32,7 +32,7 @@ const COLOR_BY_STATUS: Record<string, typeof COLORS[number]> = {
   [STATUS.BROKEN]: 'ruby',
 };
 
-const BACKGROUND_TINT_BY_STATUS: Record<string, typeof TINTS[number] | undefined> = {
+const BACKGROUND_TINT_BY_STATUS: Record<string, (typeof TINTS)[number] | undefined> = {
   [STATUS.DEFAULT]: undefined,
   [STATUS.ACTIVE]: 'light',
   [STATUS.FOCUSED]: 'light',

@@ -42,11 +42,11 @@ export interface DatePickerInputProps<IsTypeable extends boolean = true> extends
   /** The current selected value. */
   selectedDate?: IsTypeable extends true ? Date | string : Date;
   /** Size of the Input & DatePicker components. */
-  size?: Exclude<typeof SIZES[number], 'tiny' | 'smallest' | 'hero' | 'fullscreen'>;
+  size?: Exclude<(typeof SIZES)[number], 'tiny' | 'smallest' | 'hero' | 'fullscreen'>;
   /** Overridable size of the Input component. */
-  inputSize?: Exclude<typeof SIZES[number], 'tiny' | 'smallest' | 'hero' | 'fullscreen'>;
+  inputSize?: Exclude<(typeof SIZES)[number], 'tiny' | 'smallest' | 'hero' | 'fullscreen'>;
   /** Overridable size of the DatePicker component. */
-  datePickerSize?: Exclude<typeof SIZES[number], 'tiny' | 'smallest' | 'hero' | 'fullscreen'>;
+  datePickerSize?: Exclude<(typeof SIZES)[number], 'tiny' | 'smallest' | 'hero' | 'fullscreen'>;
   /** Whether the picker should automatically open on input focus. True by default. */
   openPickerOnFocus?: boolean;
   /** Whether the input should have button for value clearing. False by default. */

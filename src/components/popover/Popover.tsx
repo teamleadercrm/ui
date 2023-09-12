@@ -28,7 +28,7 @@ export interface PopoverProps extends Omit<BoxProps, 'ref'> {
   /** The class names for the wrapper to apply custom styling. */
   className?: string;
   /** The background colour of the Popover. */
-  color?: typeof COLORS[number];
+  color?: (typeof COLORS)[number];
   /** The preferred direction in which the Popover is rendered, is overridden with the opposite or adjacent direction if the Popover cannot be entirely displayed in the current direction. */
   direction?: 'north' | 'south' | 'east' | 'west';
   /** If true, the Popover stretches to fit its content vertically */
@@ -50,7 +50,7 @@ export interface PopoverProps extends Omit<BoxProps, 'ref'> {
   /** The position in which the Popover is rendered, is overridden with the another position if the Popover cannot be entirely displayed in the current position. */
   position?: 'start' | 'center' | 'end';
   /** The tint of the background colour of the Popover. */
-  tint?: typeof TINTS[number];
+  tint?: (typeof TINTS)[number];
   /** The z-index of the Popover */
   zIndex?: number;
   /** Determines whether the focus should be returned to the source element, enabled by default in useFocusTrap */

@@ -18,7 +18,7 @@ export interface RadioButtonProps extends Omit<BoxProps, 'className' | 'children
   onMouseEnter?: (event: MouseEvent) => void;
   onMouseLeave?: (event: MouseEvent) => void;
   label?: string;
-  size?: Exclude<typeof SIZES[number], 'fullscreen' | 'smallest' | 'tiny' | 'hero'>;
+  size?: Exclude<(typeof SIZES)[number], 'fullscreen' | 'smallest' | 'tiny' | 'hero'>;
   value: string | boolean;
 }
 

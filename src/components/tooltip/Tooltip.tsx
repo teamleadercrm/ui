@@ -28,8 +28,8 @@ interface PositionState {
   top: number | string;
   left: number | string;
 }
-export type AllowedColor = Exclude<typeof COLORS[number], 'teal'> | 'white' | 'inverse';
-export type AllowedSize = Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
+export type AllowedColor = Exclude<(typeof COLORS)[number], 'teal'> | 'white' | 'inverse';
+export type AllowedSize = Exclude<(typeof SIZES)[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
 const SIZE_MAP: Record<AllowedSize, BoxProps> = {
   large: {
     padding: 4,

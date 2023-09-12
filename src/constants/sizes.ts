@@ -10,4 +10,4 @@ export const FULLSCREEN = 'fullscreen';
 
 export const SIZE = { TINY, SMALL, SMALLEST, MEDIUM, LARGE, HERO, FULLSCREEN };
 export const SIZES = Object.keys(SIZE).map((key) => key.toLowerCase()) as unknown as Lowercase<keyof typeof SIZE>[];
-export const sizesWithout = (sizesToExclude: typeof SIZES[number][]) => without(SIZES, ...sizesToExclude);
+export const sizesWithout = (sizesToExclude: (typeof SIZES)[number][]) => without(SIZES, ...sizesToExclude);

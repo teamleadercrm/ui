@@ -24,7 +24,7 @@ export interface ToggleProps
   className?: string;
   label?: ReactNode;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
-  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
+  size?: Exclude<(typeof SIZES)[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
   labelPosition?: 'left' | 'right';
   fullWidth?: boolean;
 }

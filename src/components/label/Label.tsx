@@ -14,7 +14,7 @@ export interface LabelProps extends Omit<BoxProps, 'children'> {
   children: ReactNode;
   inverse?: boolean;
   required?: boolean;
-  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
+  size?: Exclude<(typeof SIZES)[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
   tooltip?: ReactNode;
   tooltipProps?: Record<string, any>;
 }

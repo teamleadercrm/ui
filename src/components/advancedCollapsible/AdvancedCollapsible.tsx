@@ -8,9 +8,12 @@ import { BoxProps } from '../box/Box';
 import { GenericComponent } from '../../@types/types';
 import { COLORS, SIZES } from '../../constants';
 
-export type AllowedAdvancedCollapsibleSize = Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
+export type AllowedAdvancedCollapsibleSize = Exclude<
+  (typeof SIZES)[number],
+  'tiny' | 'fullscreen' | 'smallest' | 'hero'
+>;
 export type AllowedAdvancedCollapsibleColor = Exclude<
-  typeof COLORS[number],
+  (typeof COLORS)[number],
   'aqua' | 'gold' | 'mint' | 'ruby' | 'violet'
 >;
 export interface AdvancedCollapsibleProps extends Omit<BoxProps, 'size'> {

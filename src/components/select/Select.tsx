@@ -62,7 +62,7 @@ export interface SelectProps<
   /** Boolean indicating whether the select option text should render on one single line. */
   truncateOptionText?: boolean;
   /** Size of the input element. */
-  size?: Exclude<typeof SIZES[number], 'smallest' | 'hero' | 'fullscreen'>;
+  size?: Exclude<(typeof SIZES)[number], 'smallest' | 'hero' | 'fullscreen'>;
   /** The text string/element to use as success message below the input. */
   success?: ReactNode;
   /** Selected option value(s) */

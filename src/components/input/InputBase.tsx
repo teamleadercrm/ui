@@ -31,7 +31,7 @@ export interface InputBaseProps
   /** Forwarded ref element. */
   ref?: ForwardedRef<HTMLElement>;
   /** Size of the input element. */
-  size?: Exclude<typeof SIZES[number], 'fullscreen' | 'smallest' | 'hero'>;
+  size?: Exclude<(typeof SIZES)[number], 'fullscreen' | 'smallest' | 'hero'>;
   /** If true, the input text is aligned to the right. */
   textAlignRight?: boolean;
   /** Type of the input element. It can be a valid HTML5 input type. */
