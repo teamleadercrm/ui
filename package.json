@@ -1,7 +1,7 @@
 {
   "name": "@teamleader/ui",
   "description": "Teamleader UI library",
-  "version": "22.3.2",
+  "version": "22.3.3",
   "author": "Teamleader <development@teamleader.eu>",
   "bugs": {
     "url": "https://github.com/teamleadercrm/ui/issues"
@@ -42,7 +42,7 @@
     "lodash.pick": "^4.4.0",
     "lodash.throttle": "^4.1.1",
     "lodash.without": "^4.4.0",
-    "luxon": "^3.0.3",
+    "luxon": "^3.4.3",
     "prop-types": "^15.8.1",
     "react-day-picker": "^7.4.10",
     "react-draft-wysiwyg": "^1.14.7",
