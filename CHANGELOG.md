@@ -12,6 +12,12 @@
 
 ### Dependency updates
 
+## [22.3.3] - 2023-09-13
+
+- - `luxon`: Bump luxon from 3.0.3 to 3.4.3 ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2518](https://github.com/teamleadercrm/ui/pull/2764)
+
+### Dependency updates
+
 ## [22.3.2] - 2023-09-08
 
 ### Added
