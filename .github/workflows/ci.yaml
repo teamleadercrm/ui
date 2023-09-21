@@ -22,6 +22,11 @@ jobs:
     uses: ./.github/workflows/check-types.yaml
     secrets: inherit
 
+  create-tag:
+    uses: ./.github/workflows/create-tag.yaml
+    secrets: inherit
+    needs: [check-types, lint-node, test-node]
+
   deploy-components:
     if: ${{ always() && !contains(needs.*.result, 'failure') && !contains(needs.*.result, 'cancelled') }}
     runs-on: ubuntu-latest

@@ -2,7 +2,7 @@
 name: Create new tag
 
 on:
-  push:
+  workflow_call:
     branches:
       - next-release
     paths:
