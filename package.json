@@ -1,7 +1,7 @@
 {
   "name": "@teamleader/ui",
   "description": "Teamleader UI library",
-  "version": "22.3.3",
+  "version": "22.3.4",
   "author": "Teamleader <development@teamleader.eu>",
   "bugs": {
     "url": "https://github.com/teamleadercrm/ui/issues"
