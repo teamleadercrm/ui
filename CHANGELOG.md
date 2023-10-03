@@ -12,6 +12,12 @@
 
 ### Dependency updates
 
+## [22.3.4]
+
+### Added
+
+`DatePicker`: `onDayClick` callback. ([@BeirlaenAaron](https://https://github.com/BeirlaenAaron) in [#2778](https://github.com/teamleadercrm/ui/pull/2778))
+
 ## [22.3.3] - 2023-09-13
 
 - - `luxon`: Bump luxon from 3.0.3 to 3.4.3 ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2518](https://github.com/teamleadercrm/ui/pull/2764)
