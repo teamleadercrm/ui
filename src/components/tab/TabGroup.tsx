@@ -16,7 +16,7 @@ const SCROLL_DISTANCE = 200;
 export interface TabGroupProps extends Omit<BoxProps, 'children'> {
   children: ReactNode;
   className?: string;
-  size?: Exclude<typeof SIZES[number], 'tiny' | 'large' | 'fullscreen' | 'smallest' | 'hero'>;
+  size?: Exclude<(typeof SIZES)[number], 'tiny' | 'large' | 'fullscreen' | 'smallest' | 'hero'>;
 }
 
 const TabGroup: GenericComponent<TabGroupProps> = ({ children, className, size, ...others }) => {

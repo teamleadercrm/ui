@@ -10,15 +10,15 @@ import { GenericComponent } from '../../@types/types';
 
 export interface CounterProps extends Omit<BoxProps, 'size' | 'ref'> {
   /** A border color to give to the counter */
-  borderColor?: typeof COLORS[number];
+  borderColor?: (typeof COLORS)[number];
   /** A border tint to give to the counter */
-  borderTint?: typeof TINTS[number];
+  borderTint?: (typeof TINTS)[number];
   /** The content to display inside the Counter */
   children?: ReactNode;
   /** A class name for the counter to give custom styles */
   className?: string;
   /** The color theme you want to style the counter in */
-  color?: typeof COLORS[number];
+  color?: (typeof COLORS)[number];
   /** The value of the counter. */
   count: number;
   /** The max value of the counter. */

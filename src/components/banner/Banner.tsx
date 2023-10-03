@@ -25,9 +25,9 @@ export interface BannerProps extends Omit<BoxProps, 'size'> {
   /** If true, component will take the full width of it's container. */
   fullWidth?: boolean;
   /** The color for the Banner background and border */
-  color?: Exclude<typeof COLORS[number], 'teal'> | 'white';
+  color?: Exclude<(typeof COLORS)[number], 'teal'> | 'white';
   /** The size of the Banner component */
-  size?: Exclude<typeof SIZES[number], 'tiny' | 'smallest' | 'hero' | 'fullscreen'>;
+  size?: Exclude<(typeof SIZES)[number], 'tiny' | 'smallest' | 'hero' | 'fullscreen'>;
 }
 
 const Banner = ({

@@ -13,7 +13,8 @@ import localeUtils from './localeUtils';
 import { GenericComponent } from '../../@types/types';
 import { SIZES } from '../../constants';
 
-export interface DatePickerProps extends Omit<BoxProps & DayPickerProps, 'size' | 'onChange' | 'modifiers' | 'ref'> {
+export interface DatePickerProps
+  extends Omit<BoxProps & DayPickerProps, 'size' | 'onChange' | 'modifiers' | 'ref' | 'onDayClick'> {
   /** If true we give a border to our wrapper. */
   bordered?: boolean;
   /** A class name for the DatePicker to give custom styles. */
@@ -25,13 +26,15 @@ export interface DatePickerProps extends Omit<BoxProps & DayPickerProps, 'size' 
   /** The current selected date. */
   selectedDate?: Date;
   /** Size of the DatePicker component. */
-  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'hero'>;
+  size?: Exclude<(typeof SIZES)[number], 'tiny' | 'fullscreen' | 'hero'>;
   /** Show a dropdown for the month? */
   withMonthPicker?: boolean;
   /** Show week numbers? */
   showWeekNumbers?: boolean;
   /** The initial month to display if no date is selected. */
   initialMonth?: Date;
+  /** Callback function that is fired when a day is clicked. */
+  onDayClick?: (day: Date, modifiers: DayModifiers, event: React.MouseEvent<HTMLDivElement>) => void;
 }
 
 const DatePicker: GenericComponent<DatePickerProps> = ({
@@ -43,6 +46,7 @@ const DatePicker: GenericComponent<DatePickerProps> = ({
   showWeekNumbers,
   initialMonth,
   onChange,
+  onDayClick,
   ...others
 }) => {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(others.selectedDate);
@@ -53,13 +57,14 @@ const DatePicker: GenericComponent<DatePickerProps> = ({
     setSelectedMonth(others.selectedDate);
   }, [others.selectedDate]);
 
-  const handleDayClick = (day: Date, modifiers: DayModifiers) => {
+  const handleDayClick = (day: Date, modifiers: DayModifiers, event: React.MouseEvent<HTMLDivElement>) => {
     if (modifiers[theme['disabled']]) {
       return;
     }
 
     setSelectedDate(day);
     onChange && onChange(day);
+    onDayClick && onDayClick(day, modifiers, event);
   };
 
   const handleYearMonthChange = (selectedMonth: Date) => {
@@ -69,7 +74,7 @@ const DatePicker: GenericComponent<DatePickerProps> = ({
   const getMonthPickerSize = () => {
     const monthPickerSizeByDatePickerSize: Record<
       string,
-      Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'hero'>
+      Exclude<(typeof SIZES)[number], 'tiny' | 'fullscreen' | 'hero'>
     > = {
       small: 'smallest',
       medium: showWeekNumbers ? 'medium' : 'small',

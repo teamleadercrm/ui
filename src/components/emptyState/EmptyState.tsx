@@ -17,7 +17,7 @@ import { IconAddSmallOutline } from '@teamleader/ui-icons';
 export interface EmptyStateProps extends Omit<BoxProps, 'size'> {
   hidePointer?: boolean;
   metaText?: ReactNode | string;
-  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
+  size?: Exclude<(typeof SIZES)[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
   title?: ReactNode | string;
   action?: Omit<BadgedLinkProps, 'icon' | 'inherit'> & { children: ReactNode };
 }

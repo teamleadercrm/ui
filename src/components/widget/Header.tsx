@@ -15,7 +15,7 @@ const PADDING_VERTICAL = {
 export interface HeaderProps extends Omit<BoxProps, 'className' | 'children'> {
   className?: string;
   children?: ReactNode;
-  size?: Exclude<typeof SIZES[number], 'fullscreen' | 'smallest' | 'tiny' | 'hero'>;
+  size?: Exclude<(typeof SIZES)[number], 'fullscreen' | 'smallest' | 'tiny' | 'hero'>;
 }
 
 const Header: GenericComponent<HeaderProps> = ({ children, className, size, ...others }) => {
@@ -29,7 +29,7 @@ const Header: GenericComponent<HeaderProps> = ({ children, className, size, ...o
       display="flex"
       size={size}
       paddingVertical={
-        PADDING_VERTICAL[size as Exclude<typeof SIZES[number], 'fullscreen' | 'smallest' | 'tiny' | 'hero'>]
+        PADDING_VERTICAL[size as Exclude<(typeof SIZES)[number], 'fullscreen' | 'smallest' | 'tiny' | 'hero'>]
       }
     >
       {children}

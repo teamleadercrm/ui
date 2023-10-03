@@ -9,7 +9,7 @@ import { BoxProps } from '../box/Box';
 import { TextBodyCompact, TextDisplay, TextSmall } from '../typography';
 import theme from './theme.css';
 
-export type AllowedCheckboxSize = Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
+export type AllowedCheckboxSize = Exclude<(typeof SIZES)[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
 export interface CheckboxProps extends Omit<BoxProps, 'onChange' | 'size'> {
   /** If true, the checkbox will be checked. */
   checked?: boolean;

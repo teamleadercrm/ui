@@ -8,7 +8,7 @@ import { GenericComponent } from '../../@types/types';
 import { SIZES } from '../../constants';
 
 interface AvatarOverlayProps {
-  size: Exclude<typeof SIZES[number], 'fullscreen' | 'smallest'>;
+  size: Exclude<(typeof SIZES)[number], 'fullscreen' | 'smallest'>;
   onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
 

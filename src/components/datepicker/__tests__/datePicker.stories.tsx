@@ -5,7 +5,7 @@ import DatePickerInput from '../DatePickerInput';
 import { SIZES } from '../../../constants';
 
 const SIZE = ['small', 'medium', 'large'];
-type Size = Exclude<typeof SIZES[number], 'tiny' | 'smallest' | 'hero' | 'fullscreen'>;
+type Size = Exclude<(typeof SIZES)[number], 'tiny' | 'smallest' | 'hero' | 'fullscreen'>;
 
 export default {
   component: DatePicker,

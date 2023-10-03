@@ -36,7 +36,7 @@ export interface AvatarStackProps extends Omit<BoxProps, 'size' | 'ref'> {
   /** If true, avatars will not be overlapping each other and will become interactive. */
   selectable?: boolean;
   /** The size of the avatar stack. */
-  size?: Exclude<typeof SIZES[number], 'fullscreen' | 'smallest'>;
+  size?: Exclude<(typeof SIZES)[number], 'fullscreen' | 'smallest'>;
   /** If true, the names will be shown in a tooltip on hover. */
   tooltip?: boolean;
 }

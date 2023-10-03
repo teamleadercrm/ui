@@ -11,7 +11,7 @@ export interface WidgetProps extends Omit<BoxProps, 'children' | 'ref'> {
   /** The content to display inside the widget. */
   children?: ReactNode;
   /** The size which controls the padding of the children. */
-  size?: Exclude<typeof SIZES[number], 'fullscreen' | 'smallest' | 'tiny' | 'hero'>;
+  size?: Exclude<(typeof SIZES)[number], 'fullscreen' | 'smallest' | 'tiny' | 'hero'>;
 }
 
 interface WidgetComponent extends GenericComponent<WidgetProps> {

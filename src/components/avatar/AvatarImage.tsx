@@ -19,7 +19,7 @@ interface AvatarImageProps {
   /** Callback function that is fired the image fails to load. */
   onImageLoadFailure?: React.ReactEventHandler<HTMLImageElement>;
   /** The size of the avatar. */
-  size: Exclude<typeof SIZES[number], 'fullscreen' | 'smallest'>;
+  size: Exclude<(typeof SIZES)[number], 'fullscreen' | 'smallest'>;
   /** How non-square images should be displayed. Default cover. */
   objectFit?: 'cover' | 'contain';
 }

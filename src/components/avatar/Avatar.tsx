@@ -45,7 +45,7 @@ export interface AvatarProps extends Omit<BoxProps, 'size' | 'ref'> {
   /** The shape of the avatar. */
   shape?: Shape;
   /** The size of the avatar. */
-  size?: Exclude<typeof SIZES[number], 'fullscreen' | 'smallest'>;
+  size?: Exclude<(typeof SIZES)[number], 'fullscreen' | 'smallest'>;
   /** If true, a team icon will be shown. */
   team?: boolean;
   /** If true, the name will be shown in a tooltip on hover. */
@@ -54,7 +54,7 @@ export interface AvatarProps extends Omit<BoxProps, 'size' | 'ref'> {
   tooltipProps?: TooltipProps;
 }
 
-type AvatarInternalComponentProps = { size: Exclude<typeof SIZES[number], 'fullscreen' | 'smallest'> } & Pick<
+type AvatarInternalComponentProps = { size: Exclude<(typeof SIZES)[number], 'fullscreen' | 'smallest'> } & Pick<
   AvatarProps,
   | 'creatable'
   | 'children'

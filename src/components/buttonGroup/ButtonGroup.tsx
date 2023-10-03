@@ -18,7 +18,7 @@ export interface ButtonGroupProps extends Omit<BoxProps, 'size' | 'onChange' | '
   /** If true, child components will be displayed segmented. */
   segmented?: boolean;
   /** The level of the buttons */
-  size?: Exclude<typeof SIZES[number], 'fullscreen' | 'smallest' | 'hero'>;
+  size?: Exclude<(typeof SIZES)[number], 'fullscreen' | 'smallest' | 'hero'>;
   /** The level of the buttons */
   level?: keyof typeof BUTTON_LEVELS;
   /** The value of the currently active button. */

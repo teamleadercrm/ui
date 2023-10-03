@@ -20,9 +20,9 @@ export interface IslandProps extends Omit<BoxProps, 'size'> {
   /** A class name for the button to give custom styles. */
   className?: string;
   /** The color for the Island background and border */
-  color?: Exclude<typeof COLORS[number], 'teal'> | 'white';
+  color?: Exclude<(typeof COLORS)[number], 'teal'> | 'white';
   /** Te size of the Island component */
-  size?: Exclude<typeof SIZES[number], 'tiny' | 'smallest' | 'hero' | 'fullscreen'>;
+  size?: Exclude<(typeof SIZES)[number], 'tiny' | 'smallest' | 'hero' | 'fullscreen'>;
 }
 
 const Island: GenericComponent<IslandProps> = ({

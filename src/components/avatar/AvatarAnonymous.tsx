@@ -11,7 +11,7 @@ interface AvatarAnonymousProps {
   /** Component that will be placed top right of the avatar image. */
   children?: React.ReactNode;
   /** The size of the avatar. */
-  size: Exclude<typeof SIZES[number], 'fullscreen' | 'smallest'>;
+  size: Exclude<(typeof SIZES)[number], 'fullscreen' | 'smallest'>;
 }
 
 const AvatarAnonymous: GenericComponent<AvatarAnonymousProps> = ({ children, size }) => {

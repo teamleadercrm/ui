@@ -17,28 +17,28 @@ import { COLORS, TINTS } from '../../constants';
 
 export type Status = 'error' | 'info' | 'success' | 'warning';
 
-const iconColorMap: Record<Status, typeof COLORS[number]> = {
+const iconColorMap: Record<Status, (typeof COLORS)[number]> = {
   error: 'neutral',
   info: 'neutral',
   success: 'neutral',
   warning: 'gold',
 };
 
-const iconTintMap: Record<Status, typeof TINTS[number]> = {
+const iconTintMap: Record<Status, (typeof TINTS)[number]> = {
   error: 'lightest',
   info: 'darkest',
   success: 'lightest',
   warning: 'dark',
 };
 
-const backgroundColorMap: Record<Status, typeof COLORS[number]> = {
+const backgroundColorMap: Record<Status, (typeof COLORS)[number]> = {
   error: 'ruby',
   info: 'neutral',
   success: 'mint',
   warning: 'gold',
 };
 
-const backgroundTintMap: Record<Status, typeof TINTS[number]> = {
+const backgroundTintMap: Record<Status, (typeof TINTS)[number]> = {
   error: 'normal',
   info: 'normal',
   success: 'light',

@@ -17,7 +17,7 @@ export interface TagProps extends Omit<BoxProps, 'className' | 'size'> {
   /** The tint of the components color */
   onRemoveClick?: React.MouseEventHandler;
   /** The tint of the components color */
-  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
+  size?: Exclude<(typeof SIZES)[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
 }
 
 const Tag: GenericComponent<TagProps> = ({ children, className, onRemoveClick, size = 'medium', ...others }) => {

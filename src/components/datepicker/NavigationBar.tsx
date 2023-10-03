@@ -20,7 +20,7 @@ interface NavigationBarProps {
   previousMonth: Date;
   onNextClick?: () => void;
   onPreviousClick?: () => void;
-  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'hero'>;
+  size?: Exclude<(typeof SIZES)[number], 'tiny' | 'fullscreen' | 'hero'>;
   withMonthPicker?: boolean;
 }
 

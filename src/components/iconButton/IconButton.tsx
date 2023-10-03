@@ -21,11 +21,11 @@ export interface IconButtonProps extends Omit<BoxProps, 'ref' | 'children' | 'cl
   /** The icon displayed inside the button. */
   icon?: ReactNode;
   /** Size of the button. */
-  size?: Exclude<typeof SIZES[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
+  size?: Exclude<(typeof SIZES)[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
   /** The color which the icon should have */
-  color?: typeof COLORS[number] | 'white';
+  color?: (typeof COLORS)[number] | 'white';
   /** The tint which the icon should have */
-  tint?: typeof TINTS[number];
+  tint?: (typeof TINTS)[number];
   /** If true, component will be shown in a selected state */
   selected?: boolean;
   /** Type of the button element. */

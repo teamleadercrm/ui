@@ -41,10 +41,10 @@ const StepperControls: GenericComponent<StepperControlsProps> = ({
   stepperDownProps,
 }: StepperControlsProps) => {
   const iconProps: {
-    color: typeof COLORS[number];
+    color: (typeof COLORS)[number];
     element: string;
     tabIndex: string;
-    tint: typeof TINTS[number];
+    tint: (typeof TINTS)[number];
     type: string;
   } = {
     color: inverse ? 'teal' : 'neutral',
@@ -98,7 +98,7 @@ export interface NumericInputProps
   /** Callback function that is fired when the keyboard is touched. */
   onKeyDown?: (event: KeyboardEvent<HTMLElement>) => void;
   /** Size of the input element. */
-  size?: Exclude<typeof SIZES[number], 'fullscreen' | 'smallest' | 'hero'>;
+  size?: Exclude<(typeof SIZES)[number], 'fullscreen' | 'smallest' | 'hero'>;
   /** Limit increment value for numeric inputs. */
   step?: number;
   /** Specifiy where the stepper controls should be rendered. */
