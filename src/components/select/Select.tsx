@@ -121,10 +121,9 @@ const ClearIndicator = <Option extends OptionType, IsMulti extends boolean>(
   );
 };
 
-export const selectOverlayNode = document.createElement('div');
+export const selectOverlayNode =
+  document.querySelector<HTMLDivElement>('div[data-teamleader-ui="select-overlay"]') || document.createElement('div');
 selectOverlayNode.setAttribute('data-teamleader-ui', 'select-overlay');
-
-let activeSelects = 0;
 
 function Select<Option extends OptionType, IsMulti extends boolean, IsClearable extends boolean>(
   {
@@ -147,18 +146,10 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
   ref: ForwardedRef<SelectRef<Option, IsMulti>>,
 ) {
   useEffect(() => {
-    activeSelects += 1;
     const isOverlayMounted = document.contains(selectOverlayNode);
     if (!isOverlayMounted) {
       document.body.appendChild(selectOverlayNode);
     }
-    return () => {
-      const isLastSelect = activeSelects <= 1;
-      if (isLastSelect && selectOverlayNode && document.body.contains(selectOverlayNode)) {
-        document.body.removeChild(selectOverlayNode);
-      }
-      activeSelects -= 1;
-    };
   }, []);
 
   const getControlStyles = (base: CSSObjectWithLabel, { isDisabled, isFocused }: ControlProps<Option>) => {
