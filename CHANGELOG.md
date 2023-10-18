@@ -12,6 +12,12 @@
 
 ### Dependency updates
 
+## [22.3.5] - 2023-10-18
+
+### Fixed
+
+`Select`: only create 1 select-overlay element, even if you run multiple instances of @teamleader/ui ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2788](https://github.com/teamleadercrm/ui/pull/2788)
+
 ## [22.3.4] - 2023-10-03
 
 ### Added
