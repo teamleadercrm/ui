@@ -30,6 +30,7 @@
   "types": "./dist/types/index.d.ts",
   "dependencies": {
     "@babel/runtime": "^7.18.3",
+    "@radix-ui/react-tooltip": "^1.0.7",
     "@teamleader/ui-animations": "^0.0.3",
     "@teamleader/ui-colors": "^2.0.0",
     "@teamleader/ui-icons": "^2.1.0",
