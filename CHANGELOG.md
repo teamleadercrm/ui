@@ -8,9 +8,11 @@
 
 ### Removed
 
-### Fixed
+## [23.0.0] - 2023-10-30
 
-### Dependency updates
+### Removed
+
+- `Tooltip`: removed `horizontal` and `vertical` positions from the `tooltipPosition` options. Tooltips will still render to the opposite side in case there is not enough space on the chosen position. ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2796](https://github.com/teamleadercrm/ui/pull/2796)`
 
 ## [22.3.5] - 2023-10-18
 
