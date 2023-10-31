@@ -113,6 +113,12 @@ const TooltippedComponent: GenericComponent<TooltippedComponentProps> = ({
     }
   };
 
+  const handleOpenChange: RadixTooltip.TooltipProps['onOpenChange'] = (open) => {
+    if (open && onTooltipEntered) {
+      onTooltipEntered();
+    }
+  };
+
   useEffect(() => {
     if (tooltipActive && !active) {
       setActive(true);
@@ -155,13 +161,7 @@ const TooltippedComponent: GenericComponent<TooltippedComponentProps> = ({
   // With a pure radix implementation we couldn't support our `tooltipHideOnClick` prop.
   return (
     <RadixTooltip.Provider delayDuration={tooltipShowDelay}>
-      <RadixTooltip.Root
-        onOpenChange={(open) => {
-          if (open && onTooltipEntered) {
-            onTooltipEntered();
-          }
-        }}
-      >
+      <RadixTooltip.Root onOpenChange={handleOpenChange}>
         <RadixTooltip.Trigger asChild>
           <ComposedComponent {...childProps}>{children}</ComposedComponent>
         </RadixTooltip.Trigger>
