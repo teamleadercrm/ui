@@ -79,7 +79,6 @@ const TooltippedComponent: GenericComponent<TooltippedComponentProps> = ({
   ComposedComponent,
   ...other
 }) => {
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const ref = useRef(null);
   const [active, setActive] = useState(false);
 
