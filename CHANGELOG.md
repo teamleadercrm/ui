@@ -14,6 +14,12 @@
 
 - `Tooltip`: removed `horizontal` and `vertical` positions from the `tooltipPosition` options. Tooltips will still render to the opposite side in case there is not enough space on the chosen position. ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2796](https://github.com/teamleadercrm/ui/pull/2796)`
 
+## [23.0.1] - 2023-10-30
+
+### Fixed
+
+- `Tooltip`: added missing `data-teamleader-ui="tooltip"` attribute ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2799](https://github.com/teamleadercrm/ui/pull/2799)`
+
 ## [22.3.5] - 2023-10-18
 
 ### Fixed

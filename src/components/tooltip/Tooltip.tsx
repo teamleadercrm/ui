@@ -1,13 +1,15 @@
-import uiUtilities from '@teamleader/ui-utilities';
-import cx from 'classnames';
 import * as RadixTooltip from '@radix-ui/react-tooltip';
-import omit from 'lodash.omit';
-import React, { MouseEventHandler, ReactNode, useEffect, useRef, useState } from 'react';
-import { GenericComponent } from '../../@types/types';
+
 import { COLORS, SIZES } from '../../constants';
+import React, { MouseEventHandler, ReactNode, useEffect, useRef, useState } from 'react';
+
 import Box from '../box';
 import { BoxProps } from '../box/Box';
+import { GenericComponent } from '../../@types/types';
+import cx from 'classnames';
+import omit from 'lodash.omit';
 import theme from './theme.css';
+import uiUtilities from '@teamleader/ui-utilities';
 
 type Position = 'bottom' | 'left' | 'right' | 'top';
 
@@ -175,6 +177,7 @@ const TooltippedComponent: GenericComponent<TooltippedComponentProps> = ({
             sideOffset={8}
             side={tooltipPosition}
             style={{ zIndex }}
+            data-teamleader-ui="tooltip"
           >
             <Box className={theme['inner']} {...SIZE_MAP[tooltipSize]}>
               {tooltipIcon && <div className={theme['icon']}>{tooltipIcon}</div>}
