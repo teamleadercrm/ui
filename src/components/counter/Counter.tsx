@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, forwardRef } from 'react';
 import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
@@ -27,34 +27,31 @@ export interface CounterProps extends Omit<BoxProps, 'size' | 'ref'> {
   size: 'small' | 'medium';
 }
 
-const Counter: GenericComponent<CounterProps> = ({
-  children,
-  className,
-  color = 'neutral',
-  count,
-  maxCount,
-  size = 'medium',
-  borderColor,
-  borderTint,
-  ...others
-}) => {
-  const classNames = cx(
-    uiUtilities['reset-font-smoothing'],
-    theme['counter'],
-    theme[color],
-    theme[size],
-    {
-      [theme[`border-${borderColor}-${borderTint}`]]: borderColor && borderTint,
-      [theme[`border-${borderColor}`]]: borderColor && !borderTint,
-    },
-    className,
-  );
+const Counter: GenericComponent<CounterProps> = forwardRef<HTMLElement, CounterProps>(
+  (
+    { children, className, color = 'neutral', count, maxCount, size = 'medium', borderColor, borderTint, ...others },
+    ref,
+  ) => {
+    const classNames = cx(
+      uiUtilities['reset-font-smoothing'],
+      theme['counter'],
+      theme[color],
+      theme[size],
+      {
+        [theme[`border-${borderColor}-${borderTint}`]]: borderColor && borderTint,
+        [theme[`border-${borderColor}`]]: borderColor && !borderTint,
+      },
+      className,
+    );
 
-  return (
-    <Box className={classNames} element="span" {...others} data-teamleader-ui="counter">
-      <Monospaced>{count > maxCount ? `${maxCount}+` : count}</Monospaced> {children}
-    </Box>
-  );
-};
+    return (
+      <Box className={classNames} element="span" {...others} data-teamleader-ui="counter" ref={ref}>
+        <Monospaced>{count > maxCount ? `${maxCount}+` : count}</Monospaced> {children}
+      </Box>
+    );
+  },
+);
+
+Counter.displayName = 'Counter';
 
 export default Counter;
