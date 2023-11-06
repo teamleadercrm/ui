@@ -1,4 +1,4 @@
-import React, { ReactNode, MouseEvent } from 'react';
+import React, { ReactNode, MouseEvent, forwardRef } from 'react';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import Icon from '../icon';
 import { TextBodyCompact } from '../typography';
@@ -25,61 +25,56 @@ export interface MarketingMenuItemProps extends Omit<BoxProps, 'children' | 'cla
   selected?: boolean;
 }
 
-const MarketingMenuItem: GenericComponent<MarketingMenuItemProps> = ({
-  onClick,
-  icon,
-  caption,
-  className = '',
-  element = 'button',
-  label,
-  selected = false,
-  ...others
-}) => {
-  const classNames = cx(
-    theme['marketing-menu-item'],
-    {
-      [theme['is-selected']]: selected,
-    },
-    className,
-  );
+const MarketingMenuItem: GenericComponent<MarketingMenuItemProps> = forwardRef<HTMLElement, MarketingMenuItemProps>(
+  ({ onClick, icon, caption, className = '', element = 'button', label, selected = false, ...others }, ref) => {
+    const classNames = cx(
+      theme['marketing-menu-item'],
+      {
+        [theme['is-selected']]: selected,
+      },
+      className,
+    );
 
-  const boxProps = pickBoxProps(others);
-  const restProps = omitBoxProps(others);
+    const boxProps = pickBoxProps(others);
+    const restProps = omitBoxProps(others);
 
-  return (
-    <Box {...boxProps} data-teamleader-ui="menu-item" display="flex" element="li">
-      <Box
-        onClick={onClick}
-        alignItems="center"
-        className={classNames}
-        display="flex"
-        element={element}
-        flex="1 1 auto"
-        paddingHorizontal={3}
-        paddingVertical={2}
-        textAlign="left"
-        {...(element === 'a' && { tabIndex: -1 })}
-        {...restProps}
-      >
-        <MarketingLockBadge size="small" />
+    return (
+      <Box {...boxProps} data-teamleader-ui="menu-item" display="flex" element="li" ref={ref}>
         <Box
-          marginHorizontal={3}
+          onClick={onClick}
+          alignItems="center"
+          className={classNames}
+          display="flex"
+          element={element}
           flex="1 1 auto"
-          className={cx(theme['marketing-menu-item-text-container'], {
-            [theme['marketing-menu-item-link-container']]: element === 'a',
-          })}
+          paddingHorizontal={3}
+          paddingVertical={2}
+          textAlign="left"
+          {...(element === 'a' && { tabIndex: -1 })}
+          {...restProps}
         >
-          <TextBodyCompact>{label}</TextBodyCompact>
-          {caption && (
-            <TextBodyCompact color="neutral" tint="darkest">
-              {caption}
-            </TextBodyCompact>
-          )}
+          <MarketingLockBadge size="small" />
+          <Box
+            marginHorizontal={3}
+            flex="1 1 auto"
+            className={cx(theme['marketing-menu-item-text-container'], {
+              [theme['marketing-menu-item-link-container']]: element === 'a',
+            })}
+          >
+            <TextBodyCompact>{label}</TextBodyCompact>
+            {caption && (
+              <TextBodyCompact color="neutral" tint="darkest">
+                {caption}
+              </TextBodyCompact>
+            )}
+          </Box>
+          {icon && <Icon className={theme['marketing-menu-item-icon']}>{icon}</Icon>}
         </Box>
-        {icon && <Icon className={theme['marketing-menu-item-icon']}>{icon}</Icon>}
       </Box>
-    </Box>
-  );
-};
+    );
+  },
+);
+
+MarketingMenuItem.displayName = 'MarketingMenuItem';
 
 export default MarketingMenuItem;

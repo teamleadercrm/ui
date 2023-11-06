@@ -1,6 +1,6 @@
 import { IconInfoBadgedSmallFilled } from '@teamleader/ui-icons';
 import cx from 'classnames';
-import React, { ChangeEvent, ReactNode, useRef } from 'react';
+import React, { ChangeEvent, ReactNode, forwardRef } from 'react';
 import { GenericComponent } from '../../@types/types';
 import { SIZES } from '../../constants';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
@@ -29,82 +29,87 @@ export interface ToggleProps
   fullWidth?: boolean;
 }
 
-const Toggle: GenericComponent<ToggleProps> = ({
-  checked = false,
-  children,
-  disabled = false,
-  maxLines,
-  className,
-  label,
-  onChange,
-  size = 'medium',
-  tooltip,
-  tooltipPosition,
-  labelPosition = 'right',
-  fullWidth = false,
-  ...others
-}) => {
-  const ref = useRef<HTMLInputElement>(null);
-  const boxProps = pickBoxProps(others);
-  const inputProps = omitBoxProps(others);
-
-  const handleToggle = (event: ChangeEvent<HTMLInputElement>) => {
-    if (!disabled && onChange) {
-      onChange(event);
-    }
-  };
-  const classNames = cx(
-    theme['toggle'],
-    theme[`is-${size}`],
+const Toggle: GenericComponent<ToggleProps> = forwardRef<HTMLElement, ToggleProps>(
+  (
     {
-      [theme['is-checked']]: checked,
-      [theme['is-disabled']]: disabled,
-      [theme['label-on-left']]: labelPosition === 'left',
-      [theme['is-full-width']]: fullWidth,
+      checked = false,
+      children,
+      disabled = false,
+      maxLines,
+      className,
+      label,
+      onChange,
+      size = 'medium',
+      tooltip,
+      tooltipPosition,
+      labelPosition = 'right',
+      fullWidth = false,
+      ...others
     },
-    className,
-  );
+    ref,
+  ) => {
+    const boxProps = pickBoxProps(others);
+    const inputProps = omitBoxProps(others);
 
-  const TextElement = size === 'small' ? TextSmall : size === 'medium' ? TextBodyCompact : TextDisplay;
+    const handleToggle = (event: ChangeEvent<HTMLInputElement>) => {
+      if (!disabled && onChange) {
+        onChange(event);
+      }
+    };
+    const classNames = cx(
+      theme['toggle'],
+      theme[`is-${size}`],
+      {
+        [theme['is-checked']]: checked,
+        [theme['is-disabled']]: disabled,
+        [theme['label-on-left']]: labelPosition === 'left',
+        [theme['is-full-width']]: fullWidth,
+      },
+      className,
+    );
 
-  return (
-    <Box element="label" data-teamleader-ui="toggle" className={classNames} {...boxProps}>
-      <input
-        className={theme['input']}
-        type="checkbox"
-        checked={checked}
-        disabled={disabled}
-        onChange={handleToggle}
-        ref={ref}
-        {...inputProps}
-      />
-      <span className={theme['track']}>
-        <span className={theme['thumb']} />
-      </span>
-      {(label || children) && (
-        <span className={theme['label']}>
-          {label && (
-            <TextElement element="span" color={disabled ? 'neutral' : 'teal'} maxLines={maxLines}>
-              {label}
-            </TextElement>
-          )}
-          {children}
-          {tooltip && (
-            <TooltippedIcon
-              tooltip={<TextSmall>{tooltip}</TextSmall>}
-              tooltipSize="small"
-              tooltipPosition={tooltipPosition}
-              color="teal"
-              tint="darkest"
-              marginLeft={1}
-            >
-              <IconInfoBadgedSmallFilled />
-            </TooltippedIcon>
-          )}
+    const TextElement = size === 'small' ? TextSmall : size === 'medium' ? TextBodyCompact : TextDisplay;
+
+    return (
+      <Box element="label" data-teamleader-ui="toggle" className={classNames} {...boxProps} ref={ref}>
+        <input
+          className={theme['input']}
+          type="checkbox"
+          checked={checked}
+          disabled={disabled}
+          onChange={handleToggle}
+          {...inputProps}
+        />
+        <span className={theme['track']}>
+          <span className={theme['thumb']} />
         </span>
-      )}
-    </Box>
-  );
-};
+        {(label || children) && (
+          <span className={theme['label']}>
+            {label && (
+              <TextElement element="span" color={disabled ? 'neutral' : 'teal'} maxLines={maxLines}>
+                {label}
+              </TextElement>
+            )}
+            {children}
+            {tooltip && (
+              <TooltippedIcon
+                tooltip={<TextSmall>{tooltip}</TextSmall>}
+                tooltipSize="small"
+                tooltipPosition={tooltipPosition}
+                color="teal"
+                tint="darkest"
+                marginLeft={1}
+              >
+                <IconInfoBadgedSmallFilled />
+              </TooltippedIcon>
+            )}
+          </span>
+        )}
+      </Box>
+    );
+  },
+);
+
+Toggle.displayName = 'Toggle';
 
 export default Toggle;

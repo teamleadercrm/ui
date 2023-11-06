@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import theme from './theme.css';
 import Cell, { CellProps } from './Cell';
 import Icon from '../icon';
@@ -14,46 +14,40 @@ export interface HeaderCellProps extends CellProps {
   sorted?: 'asc' | 'desc';
 }
 
-const HeaderCell: GenericComponent<HeaderCellProps> = ({
-  align = 'left',
-  children,
-  className,
-  onClick,
-  sortable,
-  sorted,
-  ...others
-}) => {
-  const renderSortedIndicators = () => {
-    if (sorted === 'asc' || (!sorted && sortable)) {
-      return <IconArrowUpSmallOutline />;
-    }
+const HeaderCell: GenericComponent<HeaderCellProps> = forwardRef<HTMLElement, HeaderCellProps>(
+  ({ align = 'left', children, className, onClick, sortable, sorted, ...others }, ref) => {
+    const renderSortedIndicators = () => {
+      if (sorted === 'asc' || (!sorted && sortable)) {
+        return <IconArrowUpSmallOutline />;
+      }
 
-    if (sorted === 'desc') {
-      return <IconArrowDownSmallOutline />;
-    }
+      if (sorted === 'desc') {
+        return <IconArrowDownSmallOutline />;
+      }
 
-    return null;
-  };
+      return null;
+    };
 
-  const classNames = cx(
-    theme['header-cell'],
-    {
-      [theme['is-sortable']]: sortable,
-      [theme['is-sorted']]: sorted === 'asc' || sorted === 'desc',
-    },
-    className,
-  );
+    const classNames = cx(
+      theme['header-cell'],
+      {
+        [theme['is-sortable']]: sortable,
+        [theme['is-sorted']]: sorted === 'asc' || sorted === 'desc',
+      },
+      className,
+    );
 
-  return (
-    <Cell align={align} className={classNames} onClick={onClick} {...others} preventOverflow={false}>
-      {sortable && align === 'right' && <Icon marginRight={1}>{renderSortedIndicators()}</Icon>}
-      <UITextBody element="span" maxLines={1}>
-        {children}
-      </UITextBody>
-      {sortable && align === 'left' && <Icon marginLeft={1}>{renderSortedIndicators()}</Icon>}
-    </Cell>
-  );
-};
+    return (
+      <Cell align={align} className={classNames} onClick={onClick} {...others} preventOverflow={false} ref={ref}>
+        {sortable && align === 'right' && <Icon marginRight={1}>{renderSortedIndicators()}</Icon>}
+        <UITextBody element="span" maxLines={1}>
+          {children}
+        </UITextBody>
+        {sortable && align === 'left' && <Icon marginLeft={1}>{renderSortedIndicators()}</Icon>}
+      </Cell>
+    );
+  },
+);
 HeaderCell.displayName = 'DataGrid.HeaderCell';
 
 export default HeaderCell;

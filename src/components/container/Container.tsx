@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, forwardRef } from 'react';
 import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
@@ -11,20 +11,24 @@ export interface ContainerProps extends Omit<BoxProps, 'ref'> {
   fixed?: boolean;
 }
 
-const Container: GenericComponent<ContainerProps> = ({ children, className, fixed, ...others }) => {
-  const classNames = cx(
-    theme['container'],
-    {
-      [theme['is-fixed']]: fixed,
-    },
-    className,
-  );
+const Container: GenericComponent<ContainerProps> = forwardRef<HTMLElement, ContainerProps>(
+  ({ children, className, fixed, ...others }, ref) => {
+    const classNames = cx(
+      theme['container'],
+      {
+        [theme['is-fixed']]: fixed,
+      },
+      className,
+    );
 
-  return (
-    <Box data-teamleader-ui="container" {...others} boxSizing="content-box" className={classNames}>
-      {children}
-    </Box>
-  );
-};
+    return (
+      <Box data-teamleader-ui="container" {...others} boxSizing="content-box" className={classNames} ref={ref}>
+        {children}
+      </Box>
+    );
+  },
+);
+
+Container.displayName = 'Container';
 
 export default Container;

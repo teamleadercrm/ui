@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, forwardRef } from 'react';
 import DayPicker, { DayModifiers, DayPickerProps } from 'react-day-picker';
 import Box, { pickBoxProps } from '../box';
 import NavigationBar from './NavigationBar';
@@ -37,95 +37,102 @@ export interface DatePickerProps
   onDayClick?: (day: Date, modifiers: DayModifiers, event: React.MouseEvent<HTMLDivElement>) => void;
 }
 
-const DatePicker: GenericComponent<DatePickerProps> = ({
-  bordered = true,
-  className,
-  modifiers,
-  size = 'medium',
-  withMonthPicker,
-  showWeekNumbers,
-  initialMonth,
-  onChange,
-  onDayClick,
-  ...others
-}) => {
-  const [selectedDate, setSelectedDate] = useState<Date | undefined>(others.selectedDate);
-  const [selectedMonth, setSelectedMonth] = useState<Date>();
+const DatePicker: GenericComponent<DatePickerProps> = forwardRef<HTMLElement, DatePickerProps>(
+  (
+    {
+      bordered = true,
+      className,
+      modifiers,
+      size = 'medium',
+      withMonthPicker,
+      showWeekNumbers,
+      initialMonth,
+      onChange,
+      onDayClick,
+      ...others
+    },
+    ref,
+  ) => {
+    const [selectedDate, setSelectedDate] = useState<Date | undefined>(others.selectedDate);
+    const [selectedMonth, setSelectedMonth] = useState<Date>();
 
-  useEffect(() => {
-    setSelectedDate(others.selectedDate);
-    setSelectedMonth(others.selectedDate);
-  }, [others.selectedDate]);
+    useEffect(() => {
+      setSelectedDate(others.selectedDate);
+      setSelectedMonth(others.selectedDate);
+    }, [others.selectedDate]);
 
-  const handleDayClick = (day: Date, modifiers: DayModifiers, event: React.MouseEvent<HTMLDivElement>) => {
-    if (modifiers[theme['disabled']]) {
-      return;
-    }
+    const handleDayClick = (day: Date, modifiers: DayModifiers, event: React.MouseEvent<HTMLDivElement>) => {
+      if (modifiers[theme['disabled']]) {
+        return;
+      }
 
-    setSelectedDate(day);
-    onChange && onChange(day);
-    onDayClick && onDayClick(day, modifiers, event);
-  };
-
-  const handleYearMonthChange = (selectedMonth: Date) => {
-    setSelectedMonth(selectedMonth);
-  };
-
-  const getMonthPickerSize = () => {
-    const monthPickerSizeByDatePickerSize: Record<
-      string,
-      Exclude<(typeof SIZES)[number], 'tiny' | 'fullscreen' | 'hero'>
-    > = {
-      small: 'smallest',
-      medium: showWeekNumbers ? 'medium' : 'small',
-      large: 'large',
+      setSelectedDate(day);
+      onChange && onChange(day);
+      onDayClick && onDayClick(day, modifiers, event);
     };
 
-    return monthPickerSizeByDatePickerSize[size];
-  };
+    const handleYearMonthChange = (selectedMonth: Date) => {
+      setSelectedMonth(selectedMonth);
+    };
 
-  const classNames = cx(
-    uiUtilities['reset-font-smoothing'],
-    theme['date-picker'],
-    theme[`is-${size}`],
-    {
-      [theme['is-bordered']]: bordered,
-    },
-    className,
-  );
+    const getMonthPickerSize = () => {
+      const monthPickerSizeByDatePickerSize: Record<
+        string,
+        Exclude<(typeof SIZES)[number], 'tiny' | 'fullscreen' | 'hero'>
+      > = {
+        small: 'smallest',
+        medium: showWeekNumbers ? 'medium' : 'small',
+        large: 'large',
+      };
 
-  return (
-    <Box {...pickBoxProps(others)} data-teamleader-ui="date-picker">
-      <DayPicker
-        {...others}
-        localeUtils={localeUtils}
-        initialMonth={others.selectedDate ?? initialMonth}
-        month={selectedMonth}
-        className={classNames}
-        classNames={theme as any}
-        modifiers={modifiers && convertModifiersToClassnames(modifiers, theme)}
-        navbarElement={({ ...props }) => <NavigationBar {...props} size={size} withMonthPicker={withMonthPicker} />}
-        onDayClick={handleDayClick}
-        selectedDays={selectedDate}
-        weekdayElement={({ ...props }) => <WeekDay {...props} size={size} />}
-        showWeekNumbers={showWeekNumbers}
-        fixedWeeks
-        captionElement={
-          withMonthPicker
-            ? ({ date, locale, localeUtils }) => (
-                <MonthPicker
-                  date={date}
-                  locale={locale}
-                  localeUtils={localeUtils}
-                  onChange={handleYearMonthChange}
-                  size={getMonthPickerSize()}
-                />
-              )
-            : undefined
-        }
-      />
-    </Box>
-  );
-};
+      return monthPickerSizeByDatePickerSize[size];
+    };
+
+    const classNames = cx(
+      uiUtilities['reset-font-smoothing'],
+      theme['date-picker'],
+      theme[`is-${size}`],
+      {
+        [theme['is-bordered']]: bordered,
+      },
+      className,
+    );
+
+    return (
+      <Box {...pickBoxProps(others)} data-teamleader-ui="date-picker" ref={ref}>
+        <DayPicker
+          {...others}
+          localeUtils={localeUtils}
+          initialMonth={others.selectedDate ?? initialMonth}
+          month={selectedMonth}
+          className={classNames}
+          classNames={theme as any}
+          modifiers={modifiers && convertModifiersToClassnames(modifiers, theme)}
+          navbarElement={({ ...props }) => <NavigationBar {...props} size={size} withMonthPicker={withMonthPicker} />}
+          onDayClick={handleDayClick}
+          selectedDays={selectedDate}
+          weekdayElement={({ ...props }) => <WeekDay {...props} size={size} />}
+          showWeekNumbers={showWeekNumbers}
+          fixedWeeks
+          captionElement={
+            withMonthPicker
+              ? ({ date, locale, localeUtils }) => (
+                  <MonthPicker
+                    date={date}
+                    locale={locale}
+                    localeUtils={localeUtils}
+                    onChange={handleYearMonthChange}
+                    size={getMonthPickerSize()}
+                  />
+                )
+              : undefined
+          }
+        />
+      </Box>
+    );
+  },
+);
+
+DatePicker.displayName = 'DatePicker';
 
 export default DatePicker;

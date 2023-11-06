@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, forwardRef } from 'react';
 import { GenericComponent } from '../../@types/types';
 import Box from '../box';
 import { BoxProps } from '../box/Box';
@@ -10,20 +10,25 @@ export interface OverviewPageHeaderProps extends Omit<BoxProps, 'children'> {
   title: ReactNode;
 }
 
-const OverviewPageHeader: GenericComponent<OverviewPageHeaderProps> = ({ children, title, ...others }) => {
-  return (
-    <Container
-      data-teamleader-ui="overview-page-header"
-      {...others}
-      display="flex"
-      marginBottom={5}
-      paddingTop={7}
-      justifyContent="space-between"
-    >
-      <Heading1 color="teal">{title}</Heading1>
-      {children && <Box>{children}</Box>}
-    </Container>
-  );
-};
+const OverviewPageHeader: GenericComponent<OverviewPageHeaderProps> = forwardRef<HTMLElement, OverviewPageHeaderProps>(
+  ({ children, title, ...others }, ref) => {
+    return (
+      <Container
+        data-teamleader-ui="overview-page-header"
+        {...others}
+        display="flex"
+        marginBottom={5}
+        paddingTop={7}
+        justifyContent="space-between"
+        ref={ref}
+      >
+        <Heading1 color="teal">{title}</Heading1>
+        {children && <Box>{children}</Box>}
+      </Container>
+    );
+  },
+);
+
+OverviewPageHeader.displayName = 'OverviewPage.Header';
 
 export default OverviewPageHeader;

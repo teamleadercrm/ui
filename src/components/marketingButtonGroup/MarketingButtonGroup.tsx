@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, forwardRef } from 'react';
 import omit from 'lodash.omit';
 import Box, { omitBoxProps } from '../box';
 import Button, { ButtonProps } from './Button';
@@ -23,7 +23,10 @@ interface MarketingButtonGroupComponent extends GenericComponent<MarketingButton
   Button: GenericComponent<ButtonProps>;
 }
 
-const MarketingButtonGroup: MarketingButtonGroupComponent = ({ children, className, value, onChange, ...others }) => {
+const MarketingButtonGroup: GenericComponent<MarketingButtonGroupProps> = forwardRef<
+  HTMLElement,
+  MarketingButtonGroupProps
+>(({ children, className, value, onChange, ...others }, ref) => {
   const handleChange = (value: string, event: React.ChangeEvent) => {
     if (onChange) {
       onChange(value, event);
@@ -33,7 +36,7 @@ const MarketingButtonGroup: MarketingButtonGroupComponent = ({ children, classNa
   const classNames = cx(theme['group'], theme['segmented'], className);
 
   return (
-    <Box data-teamleader-ui="button-group" className={classNames} {...others}>
+    <Box data-teamleader-ui="button-group" className={classNames} {...others} ref={ref}>
       {React.Children.map(children, (child) => {
         if (!React.isValidElement(child)) {
           return;
@@ -62,8 +65,13 @@ const MarketingButtonGroup: MarketingButtonGroupComponent = ({ children, classNa
       })}
     </Box>
   );
-};
+});
 
-MarketingButtonGroup.Button = Button;
+MarketingButtonGroup.displayName = 'MarketingButtonGroup';
 
-export default MarketingButtonGroup;
+// It has to be written like this, since `forwardRef` return component without sub-components and that doesn't match with our typing
+const MarketingButtonGroupWithSubComponents = MarketingButtonGroup as MarketingButtonGroupComponent;
+
+MarketingButtonGroupWithSubComponents.Button = Button;
+
+export default MarketingButtonGroupWithSubComponents;
