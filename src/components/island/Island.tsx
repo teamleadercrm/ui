@@ -1,4 +1,4 @@
-import React, { MouseEvent, ReactNode } from 'react';
+import React, { MouseEvent, ReactNode, forwardRef } from 'react';
 import Box, { pickBoxProps } from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
@@ -25,37 +25,35 @@ export interface IslandProps extends Omit<BoxProps, 'size'> {
   size?: Exclude<(typeof SIZES)[number], 'tiny' | 'smallest' | 'hero' | 'fullscreen'>;
 }
 
-const Island: GenericComponent<IslandProps> = ({
-  children,
-  className,
-  color = 'white',
-  size = 'medium',
-  onClick,
-  ...others
-}: IslandProps) => {
-  const classNames = cx(theme[color], className);
-  const boxProps = pickBoxProps(others);
+const Island: GenericComponent<IslandProps> = forwardRef<HTMLElement, IslandProps>(
+  ({ children, className, color = 'white', size = 'medium', onClick, ...others }: IslandProps, ref) => {
+    const classNames = cx(theme[color], className);
+    const boxProps = pickBoxProps(others);
 
-  return (
-    <Box
-      data-teamleader-ui="island"
-      backgroundColor={color === 'white' ? 'neutral' : color}
-      backgroundTint={color === 'neutral' ? 'light' : 'lightest'}
-      borderRadius="rounded"
-      borderColor={color === 'white' ? 'neutral' : color}
-      borderTint="normal"
-      borderBottomWidth={1}
-      borderLeftWidth={1}
-      borderRightWidth={1}
-      borderTopWidth={1}
-      className={classNames}
-      padding={PADDING[size]}
-      onClick={onClick}
-      {...boxProps}
-    >
-      {children}
-    </Box>
-  );
-};
+    return (
+      <Box
+        data-teamleader-ui="island"
+        backgroundColor={color === 'white' ? 'neutral' : color}
+        backgroundTint={color === 'neutral' ? 'light' : 'lightest'}
+        borderRadius="rounded"
+        borderColor={color === 'white' ? 'neutral' : color}
+        borderTint="normal"
+        borderBottomWidth={1}
+        borderLeftWidth={1}
+        borderRightWidth={1}
+        borderTopWidth={1}
+        className={classNames}
+        padding={PADDING[size]}
+        onClick={onClick}
+        {...boxProps}
+        ref={ref}
+      >
+        {children}
+      </Box>
+    );
+  },
+);
+
+Island.displayName = 'Island';
 
 export default Island;
