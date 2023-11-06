@@ -6,7 +6,7 @@ import {
   IconTextItalicMediumOutline,
 } from '@teamleader/ui-icons';
 import cx from 'classnames';
-import React, { ReactNode, useEffect, useRef, useState } from 'react';
+import React, { forwardRef, ReactNode, useEffect, useRef, useState } from 'react';
 import { Editor, RawDraftContentState } from 'react-draft-wysiwyg';
 
 import Box, { pickBoxProps } from '../box';
@@ -87,132 +87,139 @@ export interface WysiwygEditorProps extends Omit<BoxProps, 'className'> {
   onKeyDown?: React.KeyboardEventHandler;
 }
 
-const WysiwygEditor: GenericComponent<WysiwygEditorProps> = ({
-  className,
-  error,
-  onInputFocus,
-  onFocus,
-  onInputBlur,
-  onBlur,
-  success,
-  warning,
-  helpText,
-  width,
-  locale = 'en',
-  inputClassName,
-  autoFocus,
-  onKeyDown,
-  ...others
-}) => {
-  const [isFocused, setIsFocused] = useState(false);
-  const [isPlaceholderShown, setIsPlaceholderShown] = useState(true);
-  const editorRef = useRef<EditorType>(null);
+const WysiwygEditor: GenericComponent<WysiwygEditorProps> = forwardRef<HTMLElement, WysiwygEditorProps>(
+  (
+    {
+      className,
+      error,
+      onInputFocus,
+      onFocus,
+      onInputBlur,
+      onBlur,
+      success,
+      warning,
+      helpText,
+      width,
+      locale = 'en',
+      inputClassName,
+      autoFocus,
+      onKeyDown,
+      ...others
+    },
+    ref,
+  ) => {
+    const [isFocused, setIsFocused] = useState(false);
+    const [isPlaceholderShown, setIsPlaceholderShown] = useState(true);
+    const editorRef = useRef<EditorType>(null);
 
-  useEffect(() => {
-    if (autoFocus) {
-      editorRef?.current?.focusEditor();
-    }
-  }, [autoFocus]);
+    useEffect(() => {
+      if (autoFocus) {
+        editorRef?.current?.focusEditor();
+      }
+    }, [autoFocus]);
 
-  useEffect(() => {
-    if (!onKeyDown || !editorRef.current?.wrapper) {
-      return;
-    }
-
-    const handleKeyDown = (event: React.KeyboardEvent) => onKeyDown(event);
-
-    editorRef.current.wrapper.addEventListener('keydown', handleKeyDown);
-
-    return () => {
+    useEffect(() => {
       if (!onKeyDown || !editorRef.current?.wrapper) {
         return;
       }
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      editorRef.current.wrapper.removeEventListener('keydown', handleKeyDown);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
-  const handleBlur = (event: React.FocusEvent<any, any>) => {
-    const editorInput = document.querySelector("[aria-label='rdw-editor']");
-    // Only blur when editorInput is blurred and the newly focussed target is not part of the wysiwyg
-    if (event.target === editorInput && !event.relatedTarget?.dataset?.wysiwyg) {
-      setIsFocused(false);
-      onBlur && onBlur(event);
-    }
+      const handleKeyDown = (event: React.KeyboardEvent) => onKeyDown(event);
 
-    if (onInputBlur) {
-      onInputBlur(event);
-    }
-  };
+      editorRef.current.wrapper.addEventListener('keydown', handleKeyDown);
 
-  const handleFocus = (event: React.FocusEvent<any, any>) => {
-    const editorInput = document.querySelector("[aria-label='rdw-editor']");
-
-    // Only focus when focussed target is part of the wysiwyg and the editor isn't focussed yet
-    if ((event.target.dataset?.wysiwyg || event.target === editorInput) && !isFocused) {
-      setIsFocused(true);
-      onFocus && onFocus(event);
-    }
-
-    if (onInputFocus) {
-      onInputFocus(event);
-    }
-  };
-
-  const handleContentStateChange = ({ blocks: [{ type }] }: RawDraftContentState) => {
-    if (type === 'unstyled') {
-      setIsPlaceholderShown(true);
-      return;
-    }
-    setIsPlaceholderShown(false);
-  };
-
-  const wrapperClassNames = cx(
-    theme['wrapper'],
-    {
-      [theme['has-focus']]: isFocused,
-      [theme['has-error']]: error,
-      [theme['has-success']]: success,
-      [theme['has-warning']]: warning,
-      [theme['has-placeholder']]: isPlaceholderShown,
-    },
-    className,
-  );
-
-  const inputClassNames = cx(theme['input'], inputClassName);
-
-  const boxProps = pickBoxProps(others);
-
-  return (
-    <Box data-teamleader-ui="wysiwyg-editor" style={{ width, flex: width && '0 0 auto' }} {...boxProps}>
-      <Editor
-        toolbar={toolbar}
-        wrapperClassName={wrapperClassNames}
-        editorClassName={inputClassNames}
-        toolbarClassName={theme['toolbar']}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-        onContentStateChange={handleContentStateChange}
-        customStyleMap={customStyleMap}
-        customDecorators={[linkDecorator]}
-        localization={
-          availableLocales.includes(locale)
-            ? {
-                locale,
-                translations: translations[locale],
-              }
-            : {
-                locale: 'en',
-                translations: translations['en'],
-              }
+      return () => {
+        if (!onKeyDown || !editorRef.current?.wrapper) {
+          return;
         }
-        ref={editorRef}
-        {...others}
-      />
-      <ValidationText error={error} help={helpText} success={success} warning={warning} />
-    </Box>
-  );
-};
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        editorRef.current.wrapper.removeEventListener('keydown', handleKeyDown);
+      };
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    const handleBlur = (event: React.FocusEvent<any, any>) => {
+      const editorInput = document.querySelector("[aria-label='rdw-editor']");
+      // Only blur when editorInput is blurred and the newly focussed target is not part of the wysiwyg
+      if (event.target === editorInput && !event.relatedTarget?.dataset?.wysiwyg) {
+        setIsFocused(false);
+        onBlur && onBlur(event);
+      }
+
+      if (onInputBlur) {
+        onInputBlur(event);
+      }
+    };
+
+    const handleFocus = (event: React.FocusEvent<any, any>) => {
+      const editorInput = document.querySelector("[aria-label='rdw-editor']");
+
+      // Only focus when focussed target is part of the wysiwyg and the editor isn't focussed yet
+      if ((event.target.dataset?.wysiwyg || event.target === editorInput) && !isFocused) {
+        setIsFocused(true);
+        onFocus && onFocus(event);
+      }
+
+      if (onInputFocus) {
+        onInputFocus(event);
+      }
+    };
+
+    const handleContentStateChange = ({ blocks: [{ type }] }: RawDraftContentState) => {
+      if (type === 'unstyled') {
+        setIsPlaceholderShown(true);
+        return;
+      }
+      setIsPlaceholderShown(false);
+    };
+
+    const wrapperClassNames = cx(
+      theme['wrapper'],
+      {
+        [theme['has-focus']]: isFocused,
+        [theme['has-error']]: error,
+        [theme['has-success']]: success,
+        [theme['has-warning']]: warning,
+        [theme['has-placeholder']]: isPlaceholderShown,
+      },
+      className,
+    );
+
+    const inputClassNames = cx(theme['input'], inputClassName);
+
+    const boxProps = pickBoxProps(others);
+
+    return (
+      <Box data-teamleader-ui="wysiwyg-editor" style={{ width, flex: width && '0 0 auto' }} {...boxProps} ref={ref}>
+        <Editor
+          toolbar={toolbar}
+          wrapperClassName={wrapperClassNames}
+          editorClassName={inputClassNames}
+          toolbarClassName={theme['toolbar']}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+          onContentStateChange={handleContentStateChange}
+          customStyleMap={customStyleMap}
+          customDecorators={[linkDecorator]}
+          localization={
+            availableLocales.includes(locale)
+              ? {
+                  locale,
+                  translations: translations[locale],
+                }
+              : {
+                  locale: 'en',
+                  translations: translations['en'],
+                }
+          }
+          ref={editorRef}
+          {...others}
+        />
+        <ValidationText error={error} help={helpText} success={success} warning={warning} />
+      </Box>
+    );
+  },
+);
+
+WysiwygEditor.displayName = 'WysiwygEditor';
 
 export default WysiwygEditor;
