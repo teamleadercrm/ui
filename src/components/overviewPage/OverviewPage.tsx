@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, forwardRef } from 'react';
 import OverviewPageBody, { OverviewPageBodyProps } from './OverviewPageBody';
 import OverviewPageHeader, { OverviewPageHeaderProps } from './OverviewPageHeader';
 import Box from '../box';
@@ -14,17 +14,18 @@ interface OverviewPageComponent extends GenericComponent<OverviewPageProps> {
   Header: GenericComponent<OverviewPageHeaderProps>;
 }
 
-const OverviewPage: OverviewPageComponent = ({ children, ...others }) => {
-  return (
-    <Box data-teamleader-ui="overview-page" {...others}>
-      {children}
-    </Box>
-  );
-};
+const OverviewPage: OverviewPageComponent = forwardRef<HTMLElement, OverviewPageProps>(
+  ({ children, ...others }, ref) => {
+    return (
+      <Box data-teamleader-ui="overview-page" {...others} ref={ref}>
+        {children}
+      </Box>
+    );
+  },
+);
 
+OverviewPage.displayName = 'OverviewPage';
 OverviewPage.Body = OverviewPageBody;
-OverviewPage.Body.displayName = 'OverviewPage.Body';
 OverviewPage.Header = OverviewPageHeader;
-OverviewPage.Header.displayName = 'OverviewPage.Header';
 
 export default OverviewPage;
