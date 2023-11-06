@@ -1,5 +1,5 @@
 import cx from 'classnames';
-import React, { ElementType, ReactNode } from 'react';
+import React, { ElementType, ReactNode, forwardRef } from 'react';
 import { GenericComponent } from '../../@types/types';
 import uiTypography from '@teamleader/ui-typography';
 
@@ -8,16 +8,20 @@ export interface MonospacedProps {
   className?: string;
   element?: ElementType;
 }
-const Monospaced: GenericComponent<MonospacedProps> = ({ children, className, element = 'span' }) => {
-  const classNames = cx(uiTypography['monospaced'], className);
+const Monospaced: GenericComponent<MonospacedProps> = forwardRef<HTMLElement, MonospacedProps>(
+  ({ children, className, element = 'span' }, ref) => {
+    const classNames = cx(uiTypography['monospaced'], className);
 
-  const Element = element;
+    const Element = element;
 
-  return (
-    <Element data-teamleader-ui="monospaced" className={classNames}>
-      {children}
-    </Element>
-  );
-};
+    return (
+      <Element data-teamleader-ui="monospaced" className={classNames} ref={ref}>
+        {children}
+      </Element>
+    );
+  },
+);
+
+Monospaced.displayName = 'Monospaced';
 
 export default Monospaced;
