@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, forwardRef } from 'react';
 import Box from '../box';
 import Icon from '../icon';
 import cx from 'classnames';
@@ -16,14 +16,10 @@ export interface MarketingStatusLabelProps extends Omit<BoxProps, 'ref' | 'size'
   icon?: ReactNode;
 }
 
-const MarketingStatusLabel: GenericComponent<MarketingStatusLabelProps> = ({
-  children,
-  className,
-  fullWidth = false,
-  size = 'medium',
-  icon,
-  ...others
-}) => {
+const MarketingStatusLabel: GenericComponent<MarketingStatusLabelProps> = forwardRef<
+  HTMLElement,
+  MarketingStatusLabelProps
+>(({ children, className, fullWidth = false, size = 'medium', icon, ...others }, ref) => {
   const classNames = cx(theme['wrapper'], theme[`is-${size}`], className);
 
   const TextElement = size === 'small' ? UITextSmall : UITextBody;
@@ -37,6 +33,7 @@ const MarketingStatusLabel: GenericComponent<MarketingStatusLabelProps> = ({
       justifyContent="center"
       className={classNames}
       paddingHorizontal={2}
+      ref={ref}
     >
       <TextElement className={theme['text']}>{children}</TextElement>
       {icon && (
@@ -46,6 +43,8 @@ const MarketingStatusLabel: GenericComponent<MarketingStatusLabelProps> = ({
       )}
     </Box>
   );
-};
+});
+
+MarketingStatusLabel.displayName = 'MarketingStatusLabel';
 
 export default MarketingStatusLabel;
