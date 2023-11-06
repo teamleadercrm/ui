@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, forwardRef } from 'react';
 import cx from 'classnames';
 import theme from './theme.css';
 
@@ -22,35 +22,37 @@ export interface ProgressTrackerProps {
   labelPosition?: 'top' | 'alternating' | 'bottom';
 }
 
-const ProgressTracker: GenericComponent<ProgressTrackerProps> & { ProgressStep: typeof ProgressStep } = ({
-  color = 'mint',
-  children,
-  currentStep = 0,
-  done,
-  labelPosition = 'top',
-  activeStepColor,
-}: ProgressTrackerProps) => {
-  const classNames = cx(theme['tracker'], theme[color], theme[`tracker-${labelPosition}`]);
-  return (
-    <Box data-teamleader-ui="progress-tracker" className={classNames}>
-      {React.Children.map(children, (child, index) => {
-        const activeStep = Math.max(0, currentStep);
-        const isActiveStep = index === activeStep;
-        const childProps = React.isValidElement(child) && child.props;
-        const hasColoredActiveStep = isActiveStep && activeStepColor && !done;
-        return (
-          <ProgressStep
-            active={done ? false : isActiveStep}
-            completed={done || index < activeStep}
-            color={hasColoredActiveStep ? activeStepColor : ''}
-            {...childProps}
-          />
-        );
-      })}
-    </Box>
-  );
-};
+const ProgressTracker: GenericComponent<ProgressTrackerProps> & { ProgressStep: typeof ProgressStep } = forwardRef<
+  HTMLElement,
+  ProgressTrackerProps
+>(
+  (
+    { color = 'mint', children, currentStep = 0, done, labelPosition = 'top', activeStepColor }: ProgressTrackerProps,
+    ref,
+  ) => {
+    const classNames = cx(theme['tracker'], theme[color], theme[`tracker-${labelPosition}`]);
+    return (
+      <Box data-teamleader-ui="progress-tracker" className={classNames} ref={ref}>
+        {React.Children.map(children, (child, index) => {
+          const activeStep = Math.max(0, currentStep);
+          const isActiveStep = index === activeStep;
+          const childProps = React.isValidElement(child) && child.props;
+          const hasColoredActiveStep = isActiveStep && activeStepColor && !done;
+          return (
+            <ProgressStep
+              active={done ? false : isActiveStep}
+              completed={done || index < activeStep}
+              color={hasColoredActiveStep ? activeStepColor : ''}
+              {...childProps}
+            />
+          );
+        })}
+      </Box>
+    );
+  },
+);
 
+ProgressTracker.displayName = 'ProgressTracker';
 ProgressTracker.ProgressStep = ProgressStep;
 
 export default ProgressTracker;
