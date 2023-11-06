@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, forwardRef } from 'react';
 import DetailPageBody, { DetailPageBodyProps } from './DetailPageBody';
 import DetailPageHeader, { DetailPageHeaderProps } from './DetailPageHeader';
 import Box from '../box';
@@ -14,13 +14,15 @@ interface DetailPageComponent extends GenericComponent<DetailPageProps> {
   Header: GenericComponent<DetailPageHeaderProps>;
 }
 
-const DetailPage: DetailPageComponent = ({ children, ...others }) => {
+const DetailPage: DetailPageComponent = forwardRef<HTMLElement, DetailPageProps>(({ children, ...others }, ref) => {
   return (
-    <Box data-teamleader-ui="detail-page" {...others}>
+    <Box data-teamleader-ui="detail-page" {...others} ref={ref}>
       {children}
     </Box>
   );
-};
+});
+
+DetailPage.displayName = 'DetailPage';
 
 DetailPage.Body = DetailPageBody;
 DetailPage.Header = DetailPageHeader;
