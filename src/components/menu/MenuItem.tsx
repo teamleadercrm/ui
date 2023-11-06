@@ -1,4 +1,4 @@
-import React, { ReactNode, MouseEvent, CSSProperties } from 'react';
+import React, { ReactNode, MouseEvent, CSSProperties, forwardRef } from 'react';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import Icon from '../icon';
 import { TextBody } from '../typography';
@@ -32,84 +32,91 @@ export interface MenuItemProps extends Omit<BoxProps, 'children' | 'className' |
   style?: CSSProperties;
 }
 
-const MenuItem: GenericComponent<MenuItemProps> = ({
-  onClick,
-  disabled = false,
-  icon,
-  caption,
-  children,
-  className = '',
-  style,
-  destructive = false,
-  element = 'button',
-  label,
-  selected = false,
-  ...others
-}) => {
-  const handleClick = (event: MouseEvent) => {
-    if (onClick && !disabled) {
-      onClick(event);
-    }
-  };
-
-  const classNames = cx(
-    theme['menu-item'],
+const MenuItem: GenericComponent<MenuItemProps> = forwardRef<HTMLElement, MenuItemProps>(
+  (
     {
-      [theme['is-selected']]: selected,
-      [theme['is-disabled']]: disabled,
+      onClick,
+      disabled = false,
+      icon,
+      caption,
+      children,
+      className = '',
+      style,
+      destructive = false,
+      element = 'button',
+      label,
+      selected = false,
+      ...others
     },
-    className,
-  );
+    ref,
+  ) => {
+    const handleClick = (event: MouseEvent) => {
+      if (onClick && !disabled) {
+        onClick(event);
+      }
+    };
 
-  const color = destructive ? 'ruby' : disabled ? 'neutral' : 'teal';
-  const tint = disabled && destructive ? 'light' : disabled || destructive ? 'dark' : 'darkest';
+    const classNames = cx(
+      theme['menu-item'],
+      {
+        [theme['is-selected']]: selected,
+        [theme['is-disabled']]: disabled,
+      },
+      className,
+    );
 
-  const boxProps = pickBoxProps(others);
-  const restProps = omitBoxProps(others);
+    const color = destructive ? 'ruby' : disabled ? 'neutral' : 'teal';
+    const tint = disabled && destructive ? 'light' : disabled || destructive ? 'dark' : 'darkest';
 
-  return (
-    <Box {...boxProps} data-teamleader-ui="menu-item" display="flex" element="li">
-      <Box
-        onClick={handleClick}
-        alignItems="center"
-        className={classNames}
-        style={style}
-        disabled={disabled}
-        display="flex"
-        element={element}
-        flex="1 1 auto"
-        paddingHorizontal={3}
-        paddingVertical={2}
-        textAlign="left"
-        {...(element === 'a' && disabled && { tabIndex: -1 })}
-        {...restProps}
-      >
-        {icon && (
-          <Icon color={color} tint={tint} marginRight={3}>
-            {icon}
-          </Icon>
-        )}
+    const boxProps = pickBoxProps(others);
+    const restProps = omitBoxProps(others);
+
+    return (
+      <Box {...boxProps} data-teamleader-ui="menu-item" display="flex" element="li" ref={ref}>
         <Box
+          onClick={handleClick}
+          alignItems="center"
+          className={classNames}
+          style={style}
+          disabled={disabled}
+          display="flex"
+          element={element}
           flex="1 1 auto"
-          className={cx({
-            [theme['menu-item-text-container']]: element === 'a',
-          })}
+          paddingHorizontal={3}
+          paddingVertical={2}
+          textAlign="left"
+          {...(element === 'a' && disabled && { tabIndex: -1 })}
+          {...restProps}
         >
-          {children}
-          {label && (
-            <TextBody color={color} tint={tint}>
-              {label}
-            </TextBody>
+          {icon && (
+            <Icon color={color} tint={tint} marginRight={3}>
+              {icon}
+            </Icon>
           )}
-          {caption && (
-            <TextBody color="neutral" tint="darkest">
-              {caption}
-            </TextBody>
-          )}
+          <Box
+            flex="1 1 auto"
+            className={cx({
+              [theme['menu-item-text-container']]: element === 'a',
+            })}
+          >
+            {children}
+            {label && (
+              <TextBody color={color} tint={tint}>
+                {label}
+              </TextBody>
+            )}
+            {caption && (
+              <TextBody color="neutral" tint="darkest">
+                {caption}
+              </TextBody>
+            )}
+          </Box>
         </Box>
       </Box>
-    </Box>
-  );
-};
+    );
+  },
+);
+
+MenuItem.displayName = 'MenuItem';
 
 export default MenuItem;
