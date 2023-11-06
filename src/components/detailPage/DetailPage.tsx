@@ -14,17 +14,22 @@ interface DetailPageComponent extends GenericComponent<DetailPageProps> {
   Header: GenericComponent<DetailPageHeaderProps>;
 }
 
-const DetailPage: DetailPageComponent = forwardRef<HTMLElement, DetailPageProps>(({ children, ...others }, ref) => {
-  return (
-    <Box data-teamleader-ui="detail-page" {...others} ref={ref}>
-      {children}
-    </Box>
-  );
-});
+const DetailPage: GenericComponent<DetailPageProps> = forwardRef<HTMLElement, DetailPageProps>(
+  ({ children, ...others }, ref) => {
+    return (
+      <Box data-teamleader-ui="detail-page" {...others} ref={ref}>
+        {children}
+      </Box>
+    );
+  },
+);
 
 DetailPage.displayName = 'DetailPage';
 
-DetailPage.Body = DetailPageBody;
-DetailPage.Header = DetailPageHeader;
+// It has to be written like this, since `forwardRef` return component without sub-components and that doesn't match with our typing
+const DetailPageWithSubComponents = DetailPage as DetailPageComponent;
 
-export default DetailPage;
+DetailPageWithSubComponents.Body = DetailPageBody;
+DetailPageWithSubComponents.Header = DetailPageHeader;
+
+export default DetailPageWithSubComponents;

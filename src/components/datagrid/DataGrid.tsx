@@ -17,7 +17,7 @@ import HeaderRow, { HeaderRowProps } from './HeaderRow';
 import HeaderRowOverlay, { HeaderRowOverlayProps } from './HeaderRowOverlay/HeaderRowOverlay';
 import theme from './theme.css';
 
-export interface DataGridProps extends Omit<BoxProps, 'children' | 'className'> {
+export interface DataGridProps extends Omit<BoxProps, 'children' | 'className' | 'ref'> {
   /** If true, datagrid will have a border and rounded corners. */
   bordered?: boolean;
   /** The content to display inside the data grid. */
@@ -47,7 +47,7 @@ interface DatagridComponent extends GenericComponent<DataGridProps> {
   FooterRow: GenericComponent<FooterRowProps>;
 }
 
-export const DataGrid: DatagridComponent = forwardRef<HTMLElement, DataGridProps>(
+export const DataGrid: GenericComponent<DataGridProps> = forwardRef<HTMLElement, DataGridProps>(
   (
     {
       bordered = false,
@@ -268,13 +268,16 @@ export const DataGrid: DatagridComponent = forwardRef<HTMLElement, DataGridProps
   },
 );
 
-DataGrid.HeaderRow = HeaderRow;
-DataGrid.HeaderRowOverlay = HeaderRowOverlay;
-DataGrid.HeaderCell = HeaderCell;
-DataGrid.BodyRow = BodyRow;
-DataGrid.Cell = Cell;
-DataGrid.FooterRow = FooterRow;
-
 DataGrid.displayName = 'DataGrid';
 
-export default DataGrid;
+// It has to be written like this, since `forwardRef` return component without sub-components and that doesn't match with our typing
+const DataGridWithSubComponents = DataGrid as DatagridComponent;
+
+DataGridWithSubComponents.HeaderRow = HeaderRow;
+DataGridWithSubComponents.HeaderRowOverlay = HeaderRowOverlay;
+DataGridWithSubComponents.HeaderCell = HeaderCell;
+DataGridWithSubComponents.BodyRow = BodyRow;
+DataGridWithSubComponents.Cell = Cell;
+DataGridWithSubComponents.FooterRow = FooterRow;
+
+export default DataGridWithSubComponents;

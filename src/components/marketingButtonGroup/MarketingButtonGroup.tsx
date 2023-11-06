@@ -23,50 +23,55 @@ interface MarketingButtonGroupComponent extends GenericComponent<MarketingButton
   Button: GenericComponent<ButtonProps>;
 }
 
-const MarketingButtonGroup: MarketingButtonGroupComponent = forwardRef<HTMLElement, MarketingButtonGroupProps>(
-  ({ children, className, value, onChange, ...others }, ref) => {
-    const handleChange = (value: string, event: React.ChangeEvent) => {
-      if (onChange) {
-        onChange(value, event);
-      }
-    };
+const MarketingButtonGroup: GenericComponent<MarketingButtonGroupProps> = forwardRef<
+  HTMLElement,
+  MarketingButtonGroupProps
+>(({ children, className, value, onChange, ...others }, ref) => {
+  const handleChange = (value: string, event: React.ChangeEvent) => {
+    if (onChange) {
+      onChange(value, event);
+    }
+  };
 
-    const classNames = cx(theme['group'], theme['segmented'], className);
+  const classNames = cx(theme['group'], theme['segmented'], className);
 
-    return (
-      <Box data-teamleader-ui="button-group" className={classNames} {...others} ref={ref}>
-        {React.Children.map(children, (child) => {
-          if (!React.isValidElement(child)) {
-            return;
-          }
+  return (
+    <Box data-teamleader-ui="button-group" className={classNames} {...others} ref={ref}>
+      {React.Children.map(children, (child) => {
+        if (!React.isValidElement(child)) {
+          return;
+        }
 
-          if (!isComponentOfType(Button, child)) {
-            return child;
-          }
+        if (!isComponentOfType(Button, child)) {
+          return child;
+        }
 
-          let optionalChildProps = {};
-          if (value) {
-            optionalChildProps = {
-              active: child.props.value === value,
-              onClick: (event: React.ChangeEvent) => handleChange(child.props.value || '', event),
-            };
-          }
+        let optionalChildProps = {};
+        if (value) {
+          optionalChildProps = {
+            active: child.props.value === value,
+            onClick: (event: React.ChangeEvent) => handleChange(child.props.value || '', event),
+          };
+        }
 
-          const childProps = omit(child.props, ['value']);
-          const groupProps = omit(others, ['onChange']);
+        const childProps = omit(child.props, ['value']);
+        const groupProps = omit(others, ['onChange']);
 
-          return React.createElement(child.type, {
-            ...childProps,
-            ...optionalChildProps,
-            ...omitBoxProps(groupProps),
-          });
-        })}
-      </Box>
-    );
-  },
-);
+        return React.createElement(child.type, {
+          ...childProps,
+          ...optionalChildProps,
+          ...omitBoxProps(groupProps),
+        });
+      })}
+    </Box>
+  );
+});
 
 MarketingButtonGroup.displayName = 'MarketingButtonGroup';
-MarketingButtonGroup.Button = Button;
 
-export default MarketingButtonGroup;
+// It has to be written like this, since `forwardRef` return component without sub-components and that doesn't match with our typing
+const MarketingButtonGroupWithSubComponents = MarketingButtonGroup as MarketingButtonGroupComponent;
+
+MarketingButtonGroupWithSubComponents.Button = Button;
+
+export default MarketingButtonGroupWithSubComponents;

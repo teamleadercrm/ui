@@ -2,12 +2,12 @@ import React, { ReactNode, forwardRef } from 'react';
 import cx from 'classnames';
 import theme from './theme.css';
 
-import Box from '../box';
-import ProgressStep from './ProgressStep';
+import Box, { BoxProps } from '../box';
+import ProgressStep, { ProgressStepProps } from './ProgressStep';
 import { GenericComponent } from '../../@types/types';
 import { COLORS } from '../../constants';
 
-export interface ProgressTrackerProps {
+export interface ProgressTrackerProps extends Omit<BoxProps, 'children' | 'ref'> {
   /** Whether or not all steps are completed */
   done?: boolean;
   /** The number of the step which is currently active */
@@ -22,14 +22,12 @@ export interface ProgressTrackerProps {
   labelPosition?: 'top' | 'alternating' | 'bottom';
 }
 
-const ProgressTracker: GenericComponent<ProgressTrackerProps> & { ProgressStep: typeof ProgressStep } = forwardRef<
-  HTMLElement,
-  ProgressTrackerProps
->(
-  (
-    { color = 'mint', children, currentStep = 0, done, labelPosition = 'top', activeStepColor }: ProgressTrackerProps,
-    ref,
-  ) => {
+interface ProgressTrackerComponent extends GenericComponent<ProgressTrackerProps> {
+  ProgressStep: GenericComponent<ProgressStepProps>;
+}
+
+const ProgressTracker: GenericComponent<ProgressTrackerProps> = forwardRef<HTMLElement, ProgressTrackerProps>(
+  ({ color = 'mint', children, currentStep = 0, done, labelPosition = 'top', activeStepColor }, ref) => {
     const classNames = cx(theme['tracker'], theme[color], theme[`tracker-${labelPosition}`]);
     return (
       <Box data-teamleader-ui="progress-tracker" className={classNames} ref={ref}>
@@ -53,6 +51,9 @@ const ProgressTracker: GenericComponent<ProgressTrackerProps> & { ProgressStep: 
 );
 
 ProgressTracker.displayName = 'ProgressTracker';
-ProgressTracker.ProgressStep = ProgressStep;
 
-export default ProgressTracker;
+// It has to be written like this, since `forwardRef` return component without sub-components and that doesn't match with our typing
+const ProgressTrackerWithSubComponents = ProgressTracker as ProgressTrackerComponent;
+ProgressTrackerWithSubComponents.ProgressStep = ProgressStep;
+
+export default ProgressTrackerWithSubComponents;

@@ -7,7 +7,7 @@ import isReactElement from '../utils/is-react-element';
 import Label, { LabelProps } from './Label';
 import Value, { ValueProps } from './Value';
 
-export interface LabelValuePairProps extends Omit<BoxProps, 'children'> {
+export interface LabelValuePairProps extends Omit<BoxProps, 'children' | 'ref'> {
   alignValue?: 'left' | 'right';
   children: ReactNode;
   inline?: boolean;
@@ -18,7 +18,7 @@ interface LabelValuePairComponent extends GenericComponent<LabelValuePairProps> 
   Value: GenericComponent<ValueProps>;
 }
 
-const LabelValuePair: LabelValuePairComponent = forwardRef<HTMLElement, LabelValuePairProps>(
+const LabelValuePair: GenericComponent<LabelValuePairProps> = forwardRef<HTMLElement, LabelValuePairProps>(
   ({ alignValue = 'left', children, inline = true, ...others }, ref) => (
     <Box
       data-teamleader-ui="label-value-pair"
@@ -51,7 +51,11 @@ const LabelValuePair: LabelValuePairComponent = forwardRef<HTMLElement, LabelVal
 );
 
 LabelValuePair.displayName = 'LabelValuePair';
-LabelValuePair.Label = Label;
-LabelValuePair.Value = Value;
 
-export default LabelValuePair;
+// It has to be written like this, since `forwardRef` return component without sub-components and that doesn't match with our typing
+const LabelValuePairWithSubComponents = LabelValuePair as LabelValuePairComponent;
+
+LabelValuePairWithSubComponents.Label = Label;
+LabelValuePairWithSubComponents.Value = Value;
+
+export default LabelValuePairWithSubComponents;

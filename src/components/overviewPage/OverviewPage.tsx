@@ -5,7 +5,7 @@ import Box from '../box';
 import { BoxProps } from '../box/Box';
 import { GenericComponent } from '../../@types/types';
 
-export interface OverviewPageProps extends Omit<BoxProps, 'children'> {
+export interface OverviewPageProps extends Omit<BoxProps, 'children' | 'ref'> {
   children: ReactNode;
 }
 
@@ -14,7 +14,7 @@ interface OverviewPageComponent extends GenericComponent<OverviewPageProps> {
   Header: GenericComponent<OverviewPageHeaderProps>;
 }
 
-const OverviewPage: OverviewPageComponent = forwardRef<HTMLElement, OverviewPageProps>(
+const OverviewPage: GenericComponent<OverviewPageProps> = forwardRef<HTMLElement, OverviewPageProps>(
   ({ children, ...others }, ref) => {
     return (
       <Box data-teamleader-ui="overview-page" {...others} ref={ref}>
@@ -25,7 +25,11 @@ const OverviewPage: OverviewPageComponent = forwardRef<HTMLElement, OverviewPage
 );
 
 OverviewPage.displayName = 'OverviewPage';
-OverviewPage.Body = OverviewPageBody;
-OverviewPage.Header = OverviewPageHeader;
 
-export default OverviewPage;
+// It has to be written like this, since `forwardRef` return component without sub-components and that doesn't match with our typing
+const OverviewPageWithSubComponents = OverviewPage as OverviewPageComponent;
+
+OverviewPageWithSubComponents.Body = OverviewPageBody;
+OverviewPageWithSubComponents.Header = OverviewPageHeader;
+
+export default OverviewPageWithSubComponents;
