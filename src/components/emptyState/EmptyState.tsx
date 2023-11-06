@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, forwardRef } from 'react';
 import Box from '../box';
 import cx from 'classnames';
 import {
@@ -28,51 +28,48 @@ const illustrationMap = {
   large: <IllustrationEmptyState130X130Pointer />,
 };
 
-const EmptyState: GenericComponent<EmptyStateProps> = ({
-  className,
-  metaText,
-  hidePointer = false,
-  size = 'medium',
-  title,
-  action,
-  ...others
-}) => {
-  const classNames = cx(
-    theme['wrapper'],
-    theme[`is-${size}`],
-    {
-      [theme['has-pointer']]: title,
-    },
-    className as string,
-  );
+const EmptyState: GenericComponent<EmptyStateProps> = forwardRef<HTMLElement, EmptyStateProps>(
+  ({ className, metaText, hidePointer = false, size = 'medium', title, action, ...others }, ref) => {
+    const classNames = cx(
+      theme['wrapper'],
+      theme[`is-${size}`],
+      {
+        [theme['has-pointer']]: title,
+      },
+      className as string,
+    );
 
-  return (
-    <Box
-      data-teamleader-ui="empty-state"
-      {...others}
-      alignItems="center"
-      className={classNames}
-      display="flex"
-      flexDirection="column"
-      justifyContent="center"
-      textAlign="center"
-    >
-      {title && !hidePointer && <div className={theme['pointer']}>{illustrationMap[size]}</div>}
-      <div className={theme['content']}>
-        {title && <Heading3 color="teal">{title}</Heading3>}
-        {metaText && (
-          <TextBody marginTop={title ? 2 : undefined} color="neutral">
-            {metaText}
-          </TextBody>
-        )}
-        {action && (
-          <Box marginTop={3}>
-            <BadgedLink {...action} icon={<IconAddSmallOutline />} inherit={false} />
-          </Box>
-        )}
-      </div>
-    </Box>
-  );
-};
+    return (
+      <Box
+        data-teamleader-ui="empty-state"
+        {...others}
+        alignItems="center"
+        className={classNames}
+        display="flex"
+        flexDirection="column"
+        justifyContent="center"
+        textAlign="center"
+        ref={ref}
+      >
+        {title && !hidePointer && <div className={theme['pointer']}>{illustrationMap[size]}</div>}
+        <div className={theme['content']}>
+          {title && <Heading3 color="teal">{title}</Heading3>}
+          {metaText && (
+            <TextBody marginTop={title ? 2 : undefined} color="neutral">
+              {metaText}
+            </TextBody>
+          )}
+          {action && (
+            <Box marginTop={3}>
+              <BadgedLink {...action} icon={<IconAddSmallOutline />} inherit={false} />
+            </Box>
+          )}
+        </div>
+      </Box>
+    );
+  },
+);
+
+EmptyState.displayName = 'EmptyState';
 
 export default EmptyState;
