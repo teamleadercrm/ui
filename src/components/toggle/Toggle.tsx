@@ -1,6 +1,6 @@
 import { IconInfoBadgedSmallFilled } from '@teamleader/ui-icons';
 import cx from 'classnames';
-import React, { ChangeEvent, ReactNode, forwardRef, useRef } from 'react';
+import React, { ChangeEvent, ReactNode, forwardRef } from 'react';
 import { GenericComponent } from '../../@types/types';
 import { SIZES } from '../../constants';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
@@ -48,7 +48,6 @@ const Toggle: GenericComponent<ToggleProps> = forwardRef<HTMLElement, ToggleProp
     },
     ref,
   ) => {
-    const inputRef = useRef<HTMLInputElement>(null);
     const boxProps = pickBoxProps(others);
     const inputProps = omitBoxProps(others);
 
@@ -79,7 +78,6 @@ const Toggle: GenericComponent<ToggleProps> = forwardRef<HTMLElement, ToggleProp
           checked={checked}
           disabled={disabled}
           onChange={handleToggle}
-          ref={inputRef}
           {...inputProps}
         />
         <span className={theme['track']}>
