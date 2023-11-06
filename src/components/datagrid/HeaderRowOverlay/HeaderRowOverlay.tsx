@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, forwardRef } from 'react';
 import cx from 'classnames';
 import Box from '../../box';
 import BulkActions from './BulkActions';
@@ -19,33 +19,29 @@ export interface HeaderRowOverlayProps {
   numSelectedRowsLabel?: (numSelectedRows?: number) => string;
 }
 
-const HeaderRowOverlay: GenericComponent<HeaderRowOverlayProps> = ({
-  children,
-  className,
-  headerCellCheckboxSize,
-  numSelectedRows = 0,
-  numSelectedRowsLabel,
-  ...others
-}) => {
-  const classNames = cx(
-    theme['header-row-overlay'],
-    theme[`data-grid-checkbox-size-${headerCellCheckboxSize}`],
-    className,
-  );
+const HeaderRowOverlay: GenericComponent<HeaderRowOverlayProps> = forwardRef<HTMLElement, HeaderRowOverlayProps>(
+  ({ children, className, headerCellCheckboxSize, numSelectedRows = 0, numSelectedRowsLabel, ...others }, ref) => {
+    const classNames = cx(
+      theme['header-row-overlay'],
+      theme[`data-grid-checkbox-size-${headerCellCheckboxSize}`],
+      className,
+    );
 
-  return (
-    <Box
-      display="flex"
-      alignItems="center"
-      className={classNames}
-      data-teamleader-ui="datagrid-header-row-overlay"
-      {...others}
-    >
-      <NumSelectedRows numSelectedRows={numSelectedRows} numSelectedRowsLabel={numSelectedRowsLabel} />
-      <BulkActions bulkActions={children} />
-    </Box>
-  );
-};
+    return (
+      <Box
+        display="flex"
+        alignItems="center"
+        className={classNames}
+        data-teamleader-ui="datagrid-header-row-overlay"
+        ref={ref}
+        {...others}
+      >
+        <NumSelectedRows numSelectedRows={numSelectedRows} numSelectedRowsLabel={numSelectedRowsLabel} />
+        <BulkActions bulkActions={children} />
+      </Box>
+    );
+  },
+);
 
 export default HeaderRowOverlay;
 HeaderRowOverlay.displayName = 'DataGrid.HeaderRowOverlay';

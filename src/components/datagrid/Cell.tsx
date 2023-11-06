@@ -1,4 +1,4 @@
-import React, { MouseEventHandler, ReactNode } from 'react';
+import React, { MouseEventHandler, ReactNode, forwardRef } from 'react';
 import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
@@ -29,38 +29,43 @@ export interface CellProps extends Omit<BoxProps, 'backgroundColor'> {
   onClick?: MouseEventHandler<HTMLElement>;
 }
 
-const Cell: GenericComponent<CellProps> = ({
-  align = 'left',
-  backgroundColor,
-  border,
-  children,
-  className,
-  flex = 1,
-  preventOverflow = true,
-  soft = false,
-  strong = false,
-  ...others
-}) => {
-  const classNames = cx(
-    uiUtilities['reset-font-smoothing'],
-    theme['cell'],
-    theme[`align-${align}`],
-    theme[`flex-${flex}`],
-    theme[`has-background-${backgroundColor}`],
-    theme[`has-border-${border}`],
+const Cell: GenericComponent<CellProps> = forwardRef<HTMLElement, CellProps>(
+  (
     {
-      [theme['is-soft']]: soft,
-      [theme['is-strong']]: strong,
+      align = 'left',
+      backgroundColor,
+      border,
+      children,
+      className,
+      flex = 1,
+      preventOverflow = true,
+      soft = false,
+      strong = false,
+      ...others
     },
-    className,
-  );
+    ref,
+  ) => {
+    const classNames = cx(
+      uiUtilities['reset-font-smoothing'],
+      theme['cell'],
+      theme[`align-${align}`],
+      theme[`flex-${flex}`],
+      theme[`has-background-${backgroundColor}`],
+      theme[`has-border-${border}`],
+      {
+        [theme['is-soft']]: soft,
+        [theme['is-strong']]: strong,
+      },
+      className,
+    );
 
-  return (
-    <Box className={classNames} data-teamleader-ui="datagrid-cell" boxSizing="content-box" {...others}>
-      {preventOverflow ? <div className={theme['has-overflow-prevention']}>{children}</div> : children}
-    </Box>
-  );
-};
+    return (
+      <Box className={classNames} data-teamleader-ui="datagrid-cell" boxSizing="content-box" {...others} ref={ref}>
+        {preventOverflow ? <div className={theme['has-overflow-prevention']}>{children}</div> : children}
+      </Box>
+    );
+  },
+);
 Cell.displayName = 'DataGrid.Cell';
 
 export default Cell;
