@@ -8,6 +8,12 @@
 
 ### Removed
 
+## [23.2.0] - 2023-11-14
+
+### Added
+
+`Dialog`: Support disabling footer buttons with a tooltip. ([@lorgan3](https://https://github.com/lorgan3) in [#2807](https://github.com/teamleadercrm/ui/pull/2807))
+
 ## [23.1.0] - 2023-11-06
 
 ### Changed
