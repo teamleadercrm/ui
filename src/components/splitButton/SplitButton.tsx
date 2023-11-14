@@ -1,4 +1,4 @@
-import React, { MouseEvent, ReactElement, ReactNode, useRef, useState } from 'react';
+import React, { MouseEvent, ReactElement, ReactNode, forwardRef, useRef, useState } from 'react';
 import Box, { pickBoxProps } from '../box';
 import Button from '../button';
 import ButtonGroup from '../buttonGroup';
@@ -38,104 +38,109 @@ export interface SplitButtonProps extends Omit<BoxProps, 'children' | 'size'> {
   };
 }
 
-const SplitButton: GenericComponent<SplitButtonProps> = ({
-  children,
-  level = 'primary',
-  size = 'medium',
-  onButtonClick,
-  onSecondaryButtonClick,
-  disabled,
-  processing,
-  popoverProps,
-  ...others
-}) => {
-  const [popoverActive, setPopoverActive] = useState<boolean>(false);
-  const popoverAnchorEl = useRef<HTMLElement | null>(null);
+const SplitButton: GenericComponent<SplitButtonProps> = forwardRef<HTMLElement, SplitButtonProps>(
+  (
+    {
+      children,
+      level = 'primary',
+      size = 'medium',
+      onButtonClick,
+      onSecondaryButtonClick,
+      disabled,
+      processing,
+      popoverProps,
+      ...others
+    },
+    ref,
+  ) => {
+    const [popoverActive, setPopoverActive] = useState<boolean>(false);
+    const popoverAnchorEl = useRef<HTMLElement | null>(null);
 
-  const handleMainButtonClick = (event: MouseEvent<HTMLElement>) => {
-    onButtonClick(event);
-  };
+    const handleMainButtonClick = (event: MouseEvent<HTMLElement>) => {
+      onButtonClick(event);
+    };
 
-  const handleSecondaryButtonClick = (event: MouseEvent<HTMLElement>) => {
-    setPopoverActive(true);
-    popoverAnchorEl.current = event.currentTarget;
-    onSecondaryButtonClick && onSecondaryButtonClick(event);
-  };
+    const handleSecondaryButtonClick = (event: MouseEvent<HTMLElement>) => {
+      setPopoverActive(true);
+      popoverAnchorEl.current = event.currentTarget;
+      onSecondaryButtonClick && onSecondaryButtonClick(event);
+    };
 
-  const handleMenuItemClick = (child: ReactElement, event: MouseEvent) => {
-    const childProps = child.props;
-    setPopoverActive(false);
-    childProps.onClick(event);
-  };
+    const handleMenuItemClick = (child: ReactElement, event: MouseEvent) => {
+      const childProps = child.props;
+      setPopoverActive(false);
+      childProps.onClick(event);
+    };
 
-  const handleCloseClick = () => {
-    setPopoverActive(false);
-  };
+    const handleCloseClick = () => {
+      setPopoverActive(false);
+    };
 
-  const boxProps = {
-    ...pickBoxProps(others),
-  };
+    const boxProps = {
+      ...pickBoxProps(others),
+    };
 
-  let buttonLabel: string | undefined;
-  if (Array.isArray(children)) {
-    const childrenArray: Array<any> = children;
+    let buttonLabel: string | undefined;
+    if (Array.isArray(children)) {
+      const childrenArray: Array<any> = children;
 
-    if (childrenArray.length && isReactElement(childrenArray[0])) {
-      buttonLabel = childrenArray[0].props.label;
+      if (childrenArray.length && isReactElement(childrenArray[0])) {
+        buttonLabel = childrenArray[0].props.label;
+      }
     }
-  }
 
-  return (
-    <Box display="flex" justifyContent="center" {...boxProps} data-teamleader-ui="split-menu">
-      {processing ? (
-        <Button
-          label={buttonLabel}
-          level={level}
-          size={size}
-          processing
-          className={theme[`split-button-${size}--processing`]}
-        />
-      ) : (
-        <ButtonGroup segmented>
-          <Button label={buttonLabel} level={level} size={size} disabled={disabled} onClick={handleMainButtonClick} />
+    return (
+      <Box display="flex" justifyContent="center" {...boxProps} data-teamleader-ui="split-menu" ref={ref}>
+        {processing ? (
           <Button
-            icon={<IconChevronDownSmallOutline />}
+            label={buttonLabel}
             level={level}
             size={size}
-            disabled={disabled}
-            onClick={handleSecondaryButtonClick}
+            processing
+            className={theme[`split-button-${size}--processing`]}
           />
-        </ButtonGroup>
-      )}
-      <Popover
-        active={popoverActive}
-        anchorEl={popoverAnchorEl?.current}
-        backdrop="transparent"
-        lockScroll={false}
-        onEscKeyDown={handleCloseClick}
-        onOverlayClick={handleCloseClick}
-        position="start"
-        {...popoverProps}
-      >
-        <Menu>
-          {React.Children.map(children, (child) => {
-            if (!React.isValidElement(child) || !isComponentOfType(MenuItem, child)) {
-              return child;
-            }
+        ) : (
+          <ButtonGroup segmented>
+            <Button label={buttonLabel} level={level} size={size} disabled={disabled} onClick={handleMainButtonClick} />
+            <Button
+              icon={<IconChevronDownSmallOutline />}
+              level={level}
+              size={size}
+              disabled={disabled}
+              onClick={handleSecondaryButtonClick}
+            />
+          </ButtonGroup>
+        )}
+        <Popover
+          active={popoverActive}
+          anchorEl={popoverAnchorEl?.current}
+          backdrop="transparent"
+          lockScroll={false}
+          onEscKeyDown={handleCloseClick}
+          onOverlayClick={handleCloseClick}
+          position="start"
+          {...popoverProps}
+        >
+          <Menu>
+            {React.Children.map(children, (child) => {
+              if (!React.isValidElement(child) || !isComponentOfType(MenuItem, child)) {
+                return child;
+              }
 
-            if (child.props.label === buttonLabel) {
-              return null;
-            }
+              if (child.props.label === buttonLabel) {
+                return null;
+              }
 
-            return React.cloneElement(child, {
-              onClick: (event: MouseEvent) => handleMenuItemClick(child, event),
-            });
-          })}
-        </Menu>
-      </Popover>
-    </Box>
-  );
-};
+              return React.cloneElement(child, {
+                onClick: (event: MouseEvent) => handleMenuItemClick(child, event),
+              });
+            })}
+          </Menu>
+        </Popover>
+      </Box>
+    );
+  },
+);
 
 SplitButton.displayName = 'SplitButton';
 

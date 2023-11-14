@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, forwardRef } from 'react';
 
 import { GenericComponent } from '../../@types/types';
 import { BoxProps } from '../box/Box';
@@ -15,47 +15,44 @@ export interface ValidationTextProps extends Omit<BoxProps, 'children'> {
   warning?: ReactNode;
 }
 
-const ValidationText: GenericComponent<ValidationTextProps> = ({
-  error,
-  inverse,
-  help,
-  success,
-  warning,
-  ...others
-}) => {
-  if (error && typeof error !== 'boolean') {
-    return (
-      <ErrorText inverse={inverse} {...others}>
-        {error}
-      </ErrorText>
-    );
-  }
+const ValidationText: GenericComponent<ValidationTextProps> = forwardRef<HTMLElement, ValidationTextProps>(
+  ({ error, inverse, help, success, warning, ...others }, ref) => {
+    if (error && typeof error !== 'boolean') {
+      return (
+        <ErrorText inverse={inverse} {...others} ref={ref}>
+          {error}
+        </ErrorText>
+      );
+    }
 
-  if (warning && typeof warning !== 'boolean') {
-    return (
-      <WarningText inverse={inverse} {...others}>
-        {warning}
-      </WarningText>
-    );
-  }
+    if (warning && typeof warning !== 'boolean') {
+      return (
+        <WarningText inverse={inverse} {...others} ref={ref}>
+          {warning}
+        </WarningText>
+      );
+    }
 
-  if (success && typeof success !== 'boolean') {
-    return (
-      <SuccessText inverse={inverse} {...others}>
-        {success}
-      </SuccessText>
-    );
-  }
+    if (success && typeof success !== 'boolean') {
+      return (
+        <SuccessText inverse={inverse} {...others} ref={ref}>
+          {success}
+        </SuccessText>
+      );
+    }
 
-  if (help) {
-    return (
-      <HelpText inverse={inverse} {...others}>
-        {help}
-      </HelpText>
-    );
-  }
+    if (help) {
+      return (
+        <HelpText inverse={inverse} {...others} ref={ref}>
+          {help}
+        </HelpText>
+      );
+    }
 
-  return null;
-};
+    return null;
+  },
+);
+
+ValidationText.displayName = 'ValidationText';
 
 export default ValidationText;

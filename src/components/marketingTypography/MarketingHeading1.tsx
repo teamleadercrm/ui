@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, forwardRef } from 'react';
 import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
@@ -10,14 +10,19 @@ export interface MarketingHeadingProps extends Omit<BoxProps, 'ref'> {
   className?: string;
 }
 
-const MarketingHeading1: GenericComponent<MarketingHeadingProps> = ({ children, className, ...others }) => {
+const MarketingHeading1: GenericComponent<MarketingHeadingProps> = forwardRef<
+  HTMLHeadingElement,
+  MarketingHeadingProps
+>(({ children, className, ...others }, ref) => {
   const classNames = cx(theme['heading-1'], className);
 
   return (
-    <Box data-teamleader-ui="marketing-heading-1" {...others} className={classNames} element="h1">
+    <Box data-teamleader-ui="marketing-heading-1" {...others} className={classNames} element="h1" ref={ref}>
       {children}
     </Box>
   );
-};
+});
+
+MarketingHeading1.displayName = 'MarketingHeading1';
 
 export default MarketingHeading1;

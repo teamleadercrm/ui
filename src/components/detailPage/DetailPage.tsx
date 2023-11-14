@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, forwardRef } from 'react';
 import DetailPageBody, { DetailPageBodyProps } from './DetailPageBody';
 import DetailPageHeader, { DetailPageHeaderProps } from './DetailPageHeader';
 import Box from '../box';
@@ -14,15 +14,22 @@ interface DetailPageComponent extends GenericComponent<DetailPageProps> {
   Header: GenericComponent<DetailPageHeaderProps>;
 }
 
-const DetailPage: DetailPageComponent = ({ children, ...others }) => {
-  return (
-    <Box data-teamleader-ui="detail-page" {...others}>
-      {children}
-    </Box>
-  );
-};
+const DetailPage: GenericComponent<DetailPageProps> = forwardRef<HTMLElement, DetailPageProps>(
+  ({ children, ...others }, ref) => {
+    return (
+      <Box data-teamleader-ui="detail-page" {...others} ref={ref}>
+        {children}
+      </Box>
+    );
+  },
+);
 
-DetailPage.Body = DetailPageBody;
-DetailPage.Header = DetailPageHeader;
+DetailPage.displayName = 'DetailPage';
 
-export default DetailPage;
+// It has to be written like this, since `forwardRef` return component without sub-components and that doesn't match with our typing
+const DetailPageWithSubComponents = DetailPage as DetailPageComponent;
+
+DetailPageWithSubComponents.Body = DetailPageBody;
+DetailPageWithSubComponents.Header = DetailPageHeader;
+
+export default DetailPageWithSubComponents;

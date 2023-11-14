@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import Box from '../box';
 import Icon from '../icon';
 import cx from 'classnames';
@@ -13,24 +13,29 @@ export interface MarketingLockBadgeProps extends Omit<BoxProps, 'ref'> {
   size?: Exclude<(typeof SIZES)[number], 'tiny' | 'large' | 'fullscreen' | 'smallest' | 'hero'>;
 }
 
-const MarketingLockBadge: GenericComponent<MarketingLockBadgeProps> = ({ className, size = 'medium', ...others }) => {
-  const classNames = cx(theme['wrapper'], theme[`is-${size}`], className);
+const MarketingLockBadge: GenericComponent<MarketingLockBadgeProps> = forwardRef<HTMLElement, MarketingLockBadgeProps>(
+  ({ className, size = 'medium', ...others }, ref) => {
+    const classNames = cx(theme['wrapper'], theme[`is-${size}`], className);
 
-  return (
-    <Box
-      data-teamleader-ui="marketing-lock-badge"
-      {...others}
-      alignItems="center"
-      borderRadius="rounded"
-      display="flex"
-      justifyContent="center"
-      className={classNames}
-    >
-      <Icon className={theme['icon']}>
-        <IconLockSmallFilled />
-      </Icon>
-    </Box>
-  );
-};
+    return (
+      <Box
+        data-teamleader-ui="marketing-lock-badge"
+        {...others}
+        alignItems="center"
+        borderRadius="rounded"
+        display="flex"
+        justifyContent="center"
+        className={classNames}
+        ref={ref}
+      >
+        <Icon className={theme['icon']}>
+          <IconLockSmallFilled />
+        </Icon>
+      </Box>
+    );
+  },
+);
+
+MarketingLockBadge.displayName = 'MarketingLockBadge';
 
 export default MarketingLockBadge;

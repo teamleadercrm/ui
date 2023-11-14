@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, forwardRef } from 'react';
 import { GenericComponent } from '../../@types/types';
 import { BoxProps } from '../box/Box';
 import { TextSmall } from '../typography';
@@ -8,14 +8,21 @@ export interface ErrorTextProps extends BoxProps {
   inverse?: boolean;
 }
 
-const ErrorText: GenericComponent<ErrorTextProps> = ({
-  children = 'This is the error text',
-  inverse = false,
-  ...others
-}) => (
-  <TextSmall {...others} color="ruby" data-teamleader-ui="error-text" marginTop={1} tint={inverse ? 'light' : 'dark'}>
-    {children}
-  </TextSmall>
+const ErrorText: GenericComponent<ErrorTextProps> = forwardRef<HTMLElement, ErrorTextProps>(
+  ({ children = 'This is the error text', inverse = false, ...others }, ref) => (
+    <TextSmall
+      {...others}
+      color="ruby"
+      data-teamleader-ui="error-text"
+      marginTop={1}
+      tint={inverse ? 'light' : 'dark'}
+      ref={ref}
+    >
+      {children}
+    </TextSmall>
+  ),
 );
+
+ErrorText.displayName = 'ErrorText';
 
 export default ErrorText;

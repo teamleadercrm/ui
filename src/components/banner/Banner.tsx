@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import cx from 'classnames';
 
 import Box, { BoxProps, Padding } from '../box';
@@ -30,43 +30,42 @@ export interface BannerProps extends Omit<BoxProps, 'size'> {
   size?: Exclude<(typeof SIZES)[number], 'tiny' | 'smallest' | 'hero' | 'fullscreen'>;
 }
 
-const Banner = ({
-  children,
-  className,
-  color = 'white',
-  size = 'medium',
-  icon,
-  onClose,
-  fullWidth,
-  ...others
-}: BannerProps) => {
-  const classNames = cx(className, theme[color], theme['banner'], { [theme['banner_full-width']]: fullWidth });
+const Banner = forwardRef<HTMLElement, BannerProps>(
+  (
+    { children, className, color = 'white', size = 'medium', icon, onClose, fullWidth, ...others }: BannerProps,
+    ref,
+  ) => {
+    const classNames = cx(className, theme[color], theme['banner'], { [theme['banner_full-width']]: fullWidth });
 
-  return (
-    <Box
-      data-teamleader-ui="banner"
-      className={classNames}
-      color={color}
-      padding={PADDINGS[size]}
-      borderRadius={fullWidth ? 'square' : 'rounded'}
-      {...others}
-    >
-      <div className={theme['inner']}>
-        {icon && <span className={theme['icon']}>{icon}</span>}
-        <Box flex={1} element="span" paddingRight={onClose && 7}>
-          {children}
-        </Box>
-        {onClose && (
-          <IconButton
-            className={theme['close-button']}
-            icon={<IconCloseMediumOutline />}
-            color={color === 'white' ? 'neutral' : color}
-            onClick={onClose}
-          />
-        )}
-      </div>
-    </Box>
-  );
-};
+    return (
+      <Box
+        data-teamleader-ui="banner"
+        className={classNames}
+        color={color}
+        padding={PADDINGS[size]}
+        borderRadius={fullWidth ? 'square' : 'rounded'}
+        {...others}
+        ref={ref}
+      >
+        <div className={theme['inner']}>
+          {icon && <span className={theme['icon']}>{icon}</span>}
+          <Box flex={1} element="span" paddingRight={onClose && 7}>
+            {children}
+          </Box>
+          {onClose && (
+            <IconButton
+              className={theme['close-button']}
+              icon={<IconCloseMediumOutline />}
+              color={color === 'white' ? 'neutral' : color}
+              onClick={onClose}
+            />
+          )}
+        </div>
+      </Box>
+    );
+  },
+);
+
+Banner.displayName = 'Banner';
 
 export default Banner;

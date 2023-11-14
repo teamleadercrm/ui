@@ -1,33 +1,25 @@
-import uiUtilities from '@teamleader/ui-utilities';
-import cx from 'classnames';
-import omit from 'lodash.omit';
-import React, { MouseEventHandler, ReactNode, useEffect, useMemo, useRef, useState } from 'react';
-import { createPortal } from 'react-dom';
-import Transition from 'react-transition-group/Transition';
-import { GenericComponent } from '../../@types/types';
+import * as RadixTooltip from '@radix-ui/react-tooltip';
+
 import { COLORS, SIZES } from '../../constants';
+import React, { MouseEventHandler, ReactNode, useEffect, useRef, useState } from 'react';
+
 import Box from '../box';
 import { BoxProps } from '../box/Box';
-import DocumentObjectProvider, { Context as DocumentObjectContext } from '../hoc/DocumentObjectProvider';
-import { getViewport } from '../utils/utils';
+import { GenericComponent } from '../../@types/types';
+import cx from 'classnames';
+import omit from 'lodash.omit';
 import theme from './theme.css';
+import uiUtilities from '@teamleader/ui-utilities';
 
-type Position = 'bottom' | 'horizontal' | 'left' | 'right' | 'top' | 'vertical';
+type Position = 'bottom' | 'left' | 'right' | 'top';
 
 export const POSITIONS: Record<string, Position> = {
   BOTTOM: 'bottom',
-  HORIZONTAL: 'horizontal',
   LEFT: 'left',
   RIGHT: 'right',
   TOP: 'top',
-  VERTICAL: 'vertical',
 };
 
-interface PositionState {
-  position: Position;
-  top: number | string;
-  left: number | string;
-}
 export type AllowedColor = Exclude<(typeof COLORS)[number], 'teal'> | 'white' | 'inverse';
 export type AllowedSize = Exclude<(typeof SIZES)[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
 const SIZE_MAP: Record<AllowedSize, BoxProps> = {
@@ -57,19 +49,21 @@ interface TooltippedComponentProps {
   tooltipPosition?: Position;
   tooltipShowOnClick?: boolean;
   tooltipSize?: AllowedSize;
-  documentObject: Document;
   tooltipShowDelay?: number;
   /** The z-index of the Tooltip */
   zIndex?: number;
   tooltipActive?: boolean;
   ComposedComponent: React.ElementType;
 }
-export interface TooltipProps extends Omit<TooltippedComponentProps, 'ComposedComponent' | 'documentObject'> {}
+export interface TooltipProps extends Omit<TooltippedComponentProps, 'ComposedComponent'> {}
+
+const Arrow = () => {
+  return <div className={theme['arrow']} />;
+};
 
 const TooltippedComponent: GenericComponent<TooltippedComponentProps> = ({
   children,
   className,
-  documentObject,
   tooltip,
   tooltipColor = 'white',
   onTooltipEntered,
@@ -87,76 +81,11 @@ const TooltippedComponent: GenericComponent<TooltippedComponentProps> = ({
   ComposedComponent,
   ...other
 }) => {
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const tooltipRoot = useMemo(() => documentObject.createElement('div'), []);
   const ref = useRef(null);
   const [active, setActive] = useState(false);
-  const [position, setPosition] = useState<PositionState>({ position: tooltipPosition, top: 'auto', left: 'auto' });
-
-  const activate = (position: PositionState) => {
-    documentObject.body.appendChild(tooltipRoot);
-    setActive(true);
-    setPosition({ position: position.position, top: position.top, left: position.left });
-  };
-
-  const getPosition = (element: Element) => {
-    if (tooltipPosition === POSITIONS.HORIZONTAL) {
-      const origin = element.getBoundingClientRect();
-      const { width: windowWidth } = getViewport();
-      const toRight = origin.left < windowWidth / 2 - origin.width / 2;
-
-      return toRight ? POSITIONS.RIGHT : POSITIONS.LEFT;
-    } else if (tooltipPosition === POSITIONS.VERTICAL) {
-      const origin = element.getBoundingClientRect();
-      const { height: windowHeight } = getViewport();
-      const toBottom = origin.top < windowHeight / 2 - origin.height / 2;
-
-      return toBottom ? POSITIONS.BOTTOM : POSITIONS.TOP;
-    }
-
-    return tooltipPosition;
-  };
-
-  const calculatePosition = (element: Element | null) => {
-    if (typeof element?.getBoundingClientRect !== 'function') {
-      return { top: 0, left: 0, position: tooltipPosition };
-    }
-
-    const { top, left, height, width } = element.getBoundingClientRect();
-    const position = getPosition(element);
-    const xOffset = window.scrollX || window.pageXOffset;
-    const yOffset = window.scrollY || window.pageYOffset;
-
-    if (position === POSITIONS.BOTTOM) {
-      return {
-        top: top + height + yOffset,
-        left: left + width / 2 + xOffset,
-        position,
-      };
-    } else if (position === POSITIONS.TOP) {
-      return {
-        top: top + yOffset,
-        left: left + width / 2 + xOffset,
-        position,
-      };
-    } else if (position === POSITIONS.LEFT) {
-      return {
-        top: top + height / 2 + yOffset,
-        left: left + xOffset,
-        position,
-      };
-    } else if (position === POSITIONS.RIGHT) {
-      return {
-        top: top + height / 2 + yOffset,
-        left: left + width + xOffset,
-        position,
-      };
-    }
-    return { top: 0, left: 0, position: tooltipPosition };
-  };
 
   const handleMouseEnter: MouseEventHandler = (event) => {
-    activate(calculatePosition(event.currentTarget));
+    setActive(true);
 
     if (onMouseEnter) {
       onMouseEnter(event);
@@ -177,7 +106,7 @@ const TooltippedComponent: GenericComponent<TooltippedComponentProps> = ({
     }
 
     if (tooltipShowOnClick && !active) {
-      activate(calculatePosition(event.currentTarget));
+      setActive(true);
     }
 
     if (onClick) {
@@ -185,17 +114,15 @@ const TooltippedComponent: GenericComponent<TooltippedComponentProps> = ({
     }
   };
 
-  const handleTransitionExited = () => {
-    documentObject.body.removeChild(tooltipRoot);
-  };
-
-  const handleTransitionEntered = () => {
-    onTooltipEntered && onTooltipEntered();
+  const handleOpenChange: RadixTooltip.TooltipProps['onOpenChange'] = (open) => {
+    if (open && onTooltipEntered) {
+      onTooltipEntered();
+    }
   };
 
   useEffect(() => {
     if (tooltipActive && !active) {
-      activate(calculatePosition(ref.current));
+      setActive(true);
     }
 
     if (!tooltipActive && active) {
@@ -210,7 +137,6 @@ const TooltippedComponent: GenericComponent<TooltippedComponentProps> = ({
     'tooltipPosition',
     'tooltipShowOnClick',
     'tooltipShowDelay',
-    'documentObject',
   ]);
 
   let childProps = {
@@ -231,47 +157,39 @@ const TooltippedComponent: GenericComponent<TooltippedComponentProps> = ({
     };
   }
 
-  return React.createElement(
-    ComposedComponent,
-    childProps,
-    children,
-    createPortal(
-      <Transition
-        in={active}
-        onExited={handleTransitionExited}
-        onEntered={handleTransitionEntered}
-        timeout={{ enter: tooltipShowDelay, exit: 1000 }}
-      >
-        {(state) => {
-          const classNames = cx(
-            uiUtilities['box-shadow-200'],
-            theme['tooltip'],
-            theme[tooltipColor],
-            theme[tooltipSize],
-            {
-              [theme['is-entering']]: state === 'entering',
-              [theme['is-entered']]: state === 'entered',
-              [theme['is-exiting']]: state === 'exiting',
-              [theme[position.position]]: theme[position.position],
-            },
-          );
-
-          return (
-            <div
-              className={classNames}
-              data-teamleader-ui="tooltip"
-              style={{ top: position.top, left: position.left, zIndex }}
-            >
-              <Box className={theme['inner']} {...SIZE_MAP[tooltipSize]}>
-                {tooltipIcon && <div className={theme['icon']}>{tooltipIcon}</div>}
-                <div className={theme['text']}>{tooltip}</div>
-              </Box>
-            </div>
-          );
-        }}
-      </Transition>,
-      tooltipRoot,
-    ),
+  // Using the radix tooltip component, but we only use it for rendering the tooltip
+  // we still manually implement the trigger with mouseover/leave/click and keep that in state.
+  // With a pure radix implementation we couldn't support our `tooltipHideOnClick` prop.
+  return (
+    <RadixTooltip.Provider delayDuration={tooltipShowDelay}>
+      <RadixTooltip.Root onOpenChange={handleOpenChange}>
+        <RadixTooltip.Trigger asChild>
+          <ComposedComponent {...childProps}>{children}</ComposedComponent>
+        </RadixTooltip.Trigger>
+        <RadixTooltip.Portal forceMount={active || undefined}>
+          <RadixTooltip.Content
+            className={cx(
+              uiUtilities['box-shadow-200'],
+              theme['tooltip-content'],
+              theme[tooltipColor],
+              theme[tooltipSize],
+            )}
+            sideOffset={8}
+            side={tooltipPosition}
+            style={{ zIndex }}
+            data-teamleader-ui="tooltip"
+          >
+            <Box className={theme['inner']} {...SIZE_MAP[tooltipSize]}>
+              {tooltipIcon && <div className={theme['icon']}>{tooltipIcon}</div>}
+              <div className={theme['text']}>{tooltip}</div>
+            </Box>
+            <RadixTooltip.Arrow asChild>
+              <Arrow />
+            </RadixTooltip.Arrow>
+          </RadixTooltip.Content>
+        </RadixTooltip.Portal>
+      </RadixTooltip.Root>
+    </RadixTooltip.Provider>
   );
 };
 
@@ -280,22 +198,14 @@ function Tooltip<E extends keyof JSX.IntrinsicElements>(
 ): React.ComponentType<JSX.IntrinsicElements[E] & TooltipProps>;
 function Tooltip<P>(ComposedComponent: React.ElementType<P>): React.ComponentType<P & TooltipProps>;
 function Tooltip(ComposedComponent: TooltippedComponentProps['ComposedComponent']) {
-  return DocumentObjectProvider<TooltipProps>((props) => {
+  const WrappedComponent = (props: TooltipProps) => {
     return (
-      <DocumentObjectContext.Consumer>
-        {(documentObject) => (
-          <TooltippedComponent
-            {...props}
-            tooltip={props.tooltip}
-            documentObject={documentObject as Document}
-            ComposedComponent={ComposedComponent}
-          >
-            {props.children}
-          </TooltippedComponent>
-        )}
-      </DocumentObjectContext.Consumer>
+      <TooltippedComponent {...props} tooltip={props.tooltip} ComposedComponent={ComposedComponent}>
+        {props.children}
+      </TooltippedComponent>
     );
-  });
+  };
+  return WrappedComponent;
 }
 
 export default Tooltip;

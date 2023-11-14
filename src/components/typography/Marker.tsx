@@ -1,5 +1,5 @@
 import cx from 'classnames';
-import React, { ReactNode } from 'react';
+import React, { ReactNode, forwardRef } from 'react';
 import { GenericComponent } from '../../@types/types';
 import Box from '../box';
 import { BoxProps } from '../box/Box';
@@ -10,21 +10,26 @@ export interface MarkerProps extends BoxProps {
   className?: string;
 }
 
-const Marker: GenericComponent<MarkerProps> = ({ children, className, ...others }) => {
-  const classNames = cx(theme['marker'], className);
+const Marker: GenericComponent<MarkerProps> = forwardRef<HTMLElement, MarkerProps>(
+  ({ children, className, ...others }, ref) => {
+    const classNames = cx(theme['marker'], className);
 
-  return (
-    <Box
-      data-teamleader-ui="marker"
-      {...others}
-      className={classNames}
-      element="mark"
-      paddingHorizontal={1}
-      marginHorizontal={-1}
-    >
-      {children}
-    </Box>
-  );
-};
+    return (
+      <Box
+        data-teamleader-ui="marker"
+        {...others}
+        className={classNames}
+        element="mark"
+        paddingHorizontal={1}
+        marginHorizontal={-1}
+        ref={ref}
+      >
+        {children}
+      </Box>
+    );
+  },
+);
+
+Marker.displayName = 'Marker';
 
 export default Marker;

@@ -16,6 +16,6 @@ describe('Component - Tooltip', () => {
 
     const screen = render(<TooltippedDiv tooltip="This is the tooltip">Hover me</TooltippedDiv>);
     await user.hover(screen.getByText('Hover me'));
-    expect(screen.getByText('This is the tooltip')).toBeVisible();
+    expect(screen.getAllByText('This is the tooltip')[0]).toBeVisible();
   });
 });

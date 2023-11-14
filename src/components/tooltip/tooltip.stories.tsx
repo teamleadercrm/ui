@@ -26,7 +26,7 @@ const textSmallTooltipContent = (
 
 const defaultTooltipProps = {
   tooltipColor: 'white',
-  tooltipPosition: 'horizontal',
+  tooltipPosition: 'bottom',
   tooltipSize: 'medium',
 };
 const tooltipArgTypes = {
