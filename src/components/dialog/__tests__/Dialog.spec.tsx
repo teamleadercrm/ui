@@ -133,7 +133,7 @@ describe('Component - Dialog', () => {
     expect(handleSubmit).toBeCalled();
   });
 
-  it.only('shows a tooltip', async () => {
+  it('shows a tooltip', async () => {
     const user = userEvent.setup();
 
     const screen = render(
