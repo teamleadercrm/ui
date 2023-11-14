@@ -4,10 +4,11 @@ import omit from 'lodash.omit';
 import React, { MutableRefObject, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import { useResizeDetector } from 'react-resize-detector';
 import { GenericComponent } from '../../@types/types';
-import { Button, ButtonGroup, DialogBase, Heading3 } from '../../index';
+import { ButtonGroup, DialogBase, Heading3 } from '../../index';
 import { DialogBaseProps } from './DialogBase';
 import theme from './theme.css';
 import { SIZES } from '../../constants';
+import TooltippedButton from './TooltippedButton';
 
 export interface DialogProps extends Omit<DialogBaseProps, 'ref'> {
   /** If true, the dialog will show on screen. */
@@ -96,11 +97,11 @@ const Dialog: GenericComponent<DialogProps> = ({
         justifyContent={leftAction ? 'space-between' : 'flex-end'}
         className={cx({ [theme['scroll-shadow']]: !reachedScrollEnd && showScrollShadow })}
       >
-        {leftAction && <Button {...leftAction} />}
+        {leftAction && <TooltippedButton {...leftAction} />}
         <ButtonGroup justifyContent="flex-end">
-          {tertiaryAction && <Button {...tertiaryAction} level="link" />}
-          {secondaryAction && <Button {...secondaryAction} />}
-          <Button level="primary" {...primaryAction} />
+          {tertiaryAction && <TooltippedButton {...tertiaryAction} level="link" />}
+          {secondaryAction && <TooltippedButton {...secondaryAction} />}
+          <TooltippedButton level="primary" {...primaryAction} />
         </ButtonGroup>
       </DialogBase.Footer>
     );

@@ -132,4 +132,29 @@ describe('Component - Dialog', () => {
 
     expect(handleSubmit).toBeCalled();
   });
+
+  it('shows a tooltip', async () => {
+    const user = userEvent.setup();
+
+    const screen = render(
+      <Dialog
+        active
+        title="Foobar"
+        primaryAction={{
+          label: 'Confirm',
+          type: 'submit',
+          tooltip: 'Submit disabled',
+        }}
+        form
+      >
+        Foobar
+      </Dialog>,
+    );
+
+    const submitButton = screen.getByRole('button', { name: 'Confirm' });
+    await user.hover(submitButton);
+
+    expect(submitButton).toBeDisabled();
+    expect(screen.getByRole('tooltip')).toHaveTextContent('Submit disabled');
+  });
 });

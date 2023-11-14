@@ -47,6 +47,7 @@ DefaultStory.args = {
     label: 'Remove',
     level: 'destructive',
     onClick: () => console.log('leftAction.onClick'),
+    tooltip: <TextBody>Removing is not allowed!</TextBody>,
   },
   primaryAction: {
     label: 'Confirm',
