@@ -2,10 +2,6 @@
   "presets": ["@babel/preset-env", "@babel/preset-react", "@babel/preset-typescript"],
   "plugins": ["@babel/plugin-transform-runtime"],
   "env": {
-    "cjs": {
-      "plugins": ["transform-react-remove-prop-types"],
-      "ignore": ["**/*.stories.tsx", "**/*.spec.tsx", "**/*.spec.ts", "./src/static/**/*"]
-    },
     "es": {
       "plugins": ["transform-react-remove-prop-types"],
       "presets": [
