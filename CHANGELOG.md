@@ -4,9 +4,13 @@
 
 ### Changed
 
+- [BREAKING] The ES Modules build has been moved to the dist folder, so you now need update the css import to `@teamleader/ui/dist/index.css` ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2809](https://github.com/teamleadercrm/ui/pull/2809)
+
 ### Deprecated
 
 ### Removed
+
+- [BREAKING] The CommonJS build has been removed. We now only have an ES Modules build. ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2809](https://github.com/teamleadercrm/ui/pull/2809)
 
 ## [23.2.0] - 2023-11-14
 
