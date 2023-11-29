@@ -80,7 +80,7 @@
     "@storybook/addon-docs": "^7.0.27",
     "@storybook/addon-mdx-gfm": "7.5.1",
     "@storybook/addon-styling": "^1.3.2",
-    "@storybook/addons": "7.0.27",
+    "@storybook/addons": "7.6.0",
     "@storybook/react": "7.0.27",
     "@storybook/react-webpack5": "7.0.27",
     "@storybook/theming": "^7.0.27",
