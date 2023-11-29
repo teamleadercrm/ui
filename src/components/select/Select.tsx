@@ -30,6 +30,7 @@ import ValidationText from '../validationText';
 import theme from './theme.css';
 import { Option as OptionType } from './types';
 import Tag from '../tag';
+import { TagSize } from '../tag/Tag';
 
 const minHeightBySizeMap: Record<string, number> = {
   tiny: 24,
@@ -40,6 +41,8 @@ const minHeightBySizeMap: Record<string, number> = {
 
 export interface SelectRef<Option extends OptionType = OptionType, IsMulti extends boolean = false>
   extends SelectType<Option, IsMulti> {}
+
+export type SelectSize = Exclude<(typeof SIZES)[number], 'smallest' | 'hero' | 'fullscreen'>;
 
 export interface SelectProps<
   Option extends OptionType = OptionType,
@@ -64,7 +67,7 @@ export interface SelectProps<
   /** Boolean indicating whether the select option text should render on one single line. */
   truncateOptionText?: boolean;
   /** Size of the input element. */
-  size?: Exclude<(typeof SIZES)[number], 'smallest' | 'hero' | 'fullscreen'>;
+  size?: SelectSize;
   /** The text string/element to use as success message below the input. */
   success?: ReactNode;
   /** Selected option value(s) */
@@ -123,6 +126,13 @@ const ClearIndicator = <Option extends OptionType, IsMulti extends boolean>(
   );
 };
 
+const SELECT_TO_TAG_SIZE: Record<SelectSize, TagSize> = {
+  tiny: 'small',
+  small: 'medium',
+  medium: 'large',
+  large: 'large',
+};
+
 const MultiValue = <Option, IsMulti extends boolean, Group extends GroupBase<Option>>(
   props: MultiValueProps<Option, IsMulti, Group>,
 ) => {
@@ -130,9 +140,15 @@ const MultiValue = <Option, IsMulti extends boolean, Group extends GroupBase<Opt
     children,
     removeProps: { onClick, onMouseDown, onMouseUp, ...rest },
   } = props;
+  const size = (
+    props.selectProps as Props<Option, IsMulti, Group> & {
+      size: SelectSize;
+    }
+  ).size;
 
   return (
     <Tag
+      size={SELECT_TO_TAG_SIZE[size]}
       onRemoveClick={onClick}
       onRemoveMouseDown={onMouseDown}
       onRemoveMouseUp={onMouseUp}
@@ -429,7 +445,7 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
   });
 
   const boxProps = pickBoxProps(otherProps);
-  const restProps = { ...omitBoxProps(otherProps), ...{ inverse } };
+  const restProps = { ...omitBoxProps(otherProps), ...{ inverse, size } };
 
   const wrapperClassnames = cx(theme[`is-${size}`], {
     [theme['has-error']]: error,
