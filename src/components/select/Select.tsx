@@ -12,6 +12,7 @@ import ReactSelect, {
   GroupHeadingProps,
   GroupProps,
   MenuListProps,
+  MultiValueProps,
   OptionProps,
   OptionsOrGroups,
   PlaceholderProps,
@@ -28,6 +29,7 @@ import Icon from '../icon';
 import ValidationText from '../validationText';
 import theme from './theme.css';
 import { Option as OptionType } from './types';
+import Tag from '../tag';
 
 const minHeightBySizeMap: Record<string, number> = {
   tiny: 24,
@@ -118,6 +120,26 @@ const ClearIndicator = <Option extends OptionType, IsMulti extends boolean>(
     >
       <IconCloseBadgedSmallFilled />
     </Icon>
+  );
+};
+
+const MultiValue = <Option, IsMulti extends boolean, Group extends GroupBase<Option>>(
+  props: MultiValueProps<Option, IsMulti, Group>,
+) => {
+  const {
+    children,
+    removeProps: { onClick, onMouseDown, onMouseUp, ...rest },
+  } = props;
+
+  return (
+    <Tag
+      onRemoveClick={onClick}
+      onRemoveMouseDown={onMouseDown}
+      onRemoveMouseUp={onMouseUp}
+      {...rest}
+    >
+      {children}
+    </Tag>
   );
 };
 
@@ -427,6 +449,7 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
           ClearIndicator,
           DropdownIndicator,
           IndicatorSeparator: null,
+          MultiValue,
           ...components,
         }}
         hideSelectedOptions={false}
