@@ -349,7 +349,7 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
       ...base,
       minHeight: minHeightBySizeMap[size] - 2,
       lineHeight: 'normal',
-      padding: size !== 'tiny' ? '3px' : '0 3px',
+      padding: size !== 'tiny' ? '2px' : '0 2px',
       width: '0',
       gap: '3px',
     };
