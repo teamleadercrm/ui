@@ -2,6 +2,8 @@
 
 ### Added
 
+- `Select`: Render multiselect values as Tags ([@lorgan3](https://github.com/lorgan3)) in [#2814](https://github.com/teamleadercrm/ui/pull/2814)
+
 ### Changed
 
 - [BREAKING] The ES Modules build has been moved to the dist folder, so you now need update the css import to `@teamleader/ui/dist/index.css` ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2809](https://github.com/teamleadercrm/ui/pull/2809)
@@ -11,6 +13,7 @@
 ### Removed
 
 - [BREAKING] The CommonJS build has been removed. We now only have an ES Modules build. ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2809](https://github.com/teamleadercrm/ui/pull/2809)
+- `Select`: `inverse` prop ([@lorgan3](https://github.com/lorgan3)) in [#2814](https://github.com/teamleadercrm/ui/pull/2814)
 
 ## [23.2.0] - 2023-11-14
 
