@@ -18,7 +18,6 @@ import ReactSelect, {
   PlaceholderProps,
   Props,
   StylesConfig,
-  ValueContainerProps,
 } from 'react-select';
 import ReactCreatableSelect from 'react-select/creatable';
 import SelectType from 'react-select/dist/declarations/src/Select';
@@ -420,13 +419,14 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
     color: inverse ? COLOR.NEUTRAL.LIGHTEST : COLOR.TEAL.DARKEST,
   });
 
-  const getValueContainerStyles = (base: CSSObjectWithLabel, { isMulti, hasValue }: ValueContainerProps<Option>) => {
+  const getValueContainerStyles = (base: CSSObjectWithLabel) => {
     return {
       ...base,
       minHeight: minHeightBySizeMap[size] - 2,
       lineHeight: 'normal',
-      padding: isMulti && hasValue && size !== 'large' ? 0 : '0 4px',
+      padding: size !== 'tiny' ? '3px' : '0 3px',
       width: '0',
+      gap: '3px',
     };
   };
 
