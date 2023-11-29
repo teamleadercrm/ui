@@ -21,7 +21,7 @@ export interface AlertProps extends Omit<DialogBaseProps, 'scrollable' | 'size'>
   /** The title of the alert. */
   title: ReactNode;
   /** The body of the alert. */
-  body?: string;
+  body?: ReactNode;
   /** The type of the alert. */
   type?: Type;
 }

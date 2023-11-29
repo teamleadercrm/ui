@@ -4,9 +4,16 @@
 
 ### Changed
 
-- [BREAKING] The ES Modules build has been moved to the dist folder, so you now need update the css import to `@teamleader/ui/dist/index.css` ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2809](https://github.com/teamleadercrm/ui/pull/2809)
-
 ### Deprecated
+
+### Removed
+
+## [24.0.0]
+
+### Changed
+
+- [BREAKING] The ES Modules build has been moved to the dist folder, so you now need update the css import to `@teamleader/ui/dist/index.css` ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2809](https://github.com/teamleadercrm/ui/pull/2809)
+- `Alert`: implemented support for jsx element in Alert `body` prop ([@eniskraasniqi1](https://https://github.com/eniskraasniqi1) in [#2813](https://github.com/teamleadercrm/ui/pull/2813))
 
 ### Removed
 
