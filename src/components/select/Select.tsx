@@ -309,48 +309,6 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
     };
   };
 
-  const getMultiValueStyles = (base: CSSObjectWithLabel) => {
-    return {
-      ...base,
-      borderColor: inverse ? COLOR.TEAL.DARK : COLOR.NEUTRAL.NORMAL,
-      borderStyle: 'solid',
-      borderWidth: '1px',
-      borderRadius: '4px',
-      margin: '1px',
-    };
-  };
-
-  const getMultiValueLabelStyles = (base: CSSObjectWithLabel) => {
-    return {
-      ...base,
-      backgroundColor: inverse ? COLOR.TEAL.DARK : COLOR.NEUTRAL.LIGHT,
-      borderRadius: 0,
-      color: inverse ? COLOR.NEUTRAL.LIGHTEST : COLOR.TEAL.DARKEST,
-      fontFamily: 'Inter',
-      fontWeight: 500,
-      fontSize: size === 'tiny' || size === 'small' ? '12px' : size === 'large' ? '16px' : '14px',
-      lineHeight: size === 'tiny' || size === 'small' ? '1' : '18px',
-      padding: size === 'tiny' ? '3px' : size === 'large' ? '9px' : '6px',
-    };
-  };
-
-  const getMultiValueRemoveStyles = (base: CSSObjectWithLabel) => {
-    return {
-      ...base,
-      backgroundColor: inverse ? COLOR.TEAL.DARK : COLOR.NEUTRAL.LIGHT,
-      borderRadius: 0,
-      color: inverse ? COLOR.NEUTRAL.LIGHTEST : COLOR.TEAL.DARKEST,
-      '&:hover': {
-        backgroundColor: inverse ? COLOR.TEAL.DARKEST : COLOR.NEUTRAL.NORMAL,
-        color: inverse ? COLOR.NEUTRAL.LIGHTEST : COLOR.TEAL.DARKEST,
-      },
-      paddingLeft: size === 'tiny' ? '3px' : '6px',
-      paddingRight: size === 'tiny' ? '3px' : '6px',
-      transition: 'background-color .35s cubic-bezier(.4, 0, .2, 1)',
-      cursor: 'pointer',
-    };
-  };
-
   const getOptionStyles = (
     base: CSSObjectWithLabel,
     { isDisabled, isFocused, isSelected }: OptionProps<Option>,
@@ -442,9 +400,6 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
     menu: getMenuStyles,
     menuList: getMenuListStyles,
     menuPortal: getMenuPortalStyles,
-    multiValue: getMultiValueStyles,
-    multiValueLabel: getMultiValueLabelStyles,
-    multiValueRemove: getMultiValueRemoveStyles,
     option: getOptionStyles,
     placeholder: getPlaceholderStyles,
     singleValue: getSingleValueStyles,
