@@ -4,6 +4,8 @@
 
 ### Changed
 
+- [BREAKING] Reverted the removal of the CommonJS build from previous version ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2817](https://github.com/teamleadercrm/ui/pull/2817)
+
 ### Deprecated
 
 ### Removed
