@@ -87,7 +87,6 @@ basic.args = {
   size: 'medium',
   menuWidth: undefined,
   menuHorizontalOffset: undefined,
-  inverse: false,
 };
 
 export const Grouped: ComponentStory<typeof Select> = () => {

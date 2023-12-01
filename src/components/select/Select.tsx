@@ -7,17 +7,15 @@ import ReactSelect, {
   ClearIndicatorProps,
   ControlProps,
   CSSObjectWithLabel,
-  DropdownIndicatorProps,
   GroupBase,
   GroupHeadingProps,
   GroupProps,
   MenuListProps,
+  MultiValueProps,
   OptionProps,
   OptionsOrGroups,
-  PlaceholderProps,
   Props,
   StylesConfig,
-  ValueContainerProps,
 } from 'react-select';
 import ReactCreatableSelect from 'react-select/creatable';
 import SelectType from 'react-select/dist/declarations/src/Select';
@@ -28,6 +26,8 @@ import Icon from '../icon';
 import ValidationText from '../validationText';
 import theme from './theme.css';
 import { Option as OptionType } from './types';
+import Tag from '../tag';
+import { TagSize } from '../tag/Tag';
 
 const minHeightBySizeMap: Record<string, number> = {
   tiny: 24,
@@ -38,6 +38,8 @@ const minHeightBySizeMap: Record<string, number> = {
 
 export interface SelectRef<Option extends OptionType = OptionType, IsMulti extends boolean = false>
   extends SelectType<Option, IsMulti> {}
+
+export type SelectSize = Exclude<(typeof SIZES)[number], 'smallest' | 'hero' | 'fullscreen'>;
 
 export interface SelectProps<
   Option extends OptionType = OptionType,
@@ -53,8 +55,6 @@ export interface SelectProps<
   error?: ReactNode;
   /** The text string to use as help text below the input. */
   helpText?: string;
-  /** Boolean indicating whether the select should render as inverse. */
-  inverse?: boolean;
   /** A custom width for the menu dropdown */
   menuWidth?: string;
   /** A custom horizontal offset for the menu dropdown, useful when also using a custom menuWidth  */
@@ -62,7 +62,7 @@ export interface SelectProps<
   /** Boolean indicating whether the select option text should render on one single line. */
   truncateOptionText?: boolean;
   /** Size of the input element. */
-  size?: Exclude<(typeof SIZES)[number], 'smallest' | 'hero' | 'fullscreen'>;
+  size?: SelectSize;
   /** The text string/element to use as success message below the input. */
   success?: ReactNode;
   /** Selected option value(s) */
@@ -84,19 +84,15 @@ export interface SelectProps<
   isMulti?: IsMulti;
 }
 
-const DropdownIndicator = <Option extends OptionType, IsMulti extends boolean>(
-  dropdownIndicatorProps: DropdownIndicatorProps<Option, IsMulti>,
-) => {
-  // @ts-ignore
-  const inverse = dropdownIndicatorProps.selectProps.inverse;
+const DropdownIndicator = () => {
   return (
     <Icon
       alignItems="center"
       className={theme['dropdown-indicator']}
-      color={inverse ? 'teal' : 'neutral'}
+      color="neutral"
       display="flex"
       justifyContent="center"
-      tint={inverse ? 'lightest' : 'darkest'}
+      tint="darkest"
     >
       <IconChevronDownSmallOutline />
     </Icon>
@@ -106,18 +102,49 @@ const DropdownIndicator = <Option extends OptionType, IsMulti extends boolean>(
 const ClearIndicator = <Option extends OptionType, IsMulti extends boolean>(
   clearIndicatorProps: ClearIndicatorProps<Option, IsMulti>,
 ) => {
-  // @ts-ignore
-  const inverse = clearIndicatorProps.selectProps.inverse;
   return (
     <Icon
       {...clearIndicatorProps.innerProps}
-      color={inverse ? 'teal' : 'neutral'}
+      color="neutral"
       display="flex"
-      tint={inverse ? 'lightest' : 'darkest'}
-      className={cx(theme['clear-indicator'], { [theme['clear-indicator--inverse']]: inverse })}
+      tint="darkest"
+      className={theme['clear-indicator']}
     >
       <IconCloseBadgedSmallFilled />
     </Icon>
+  );
+};
+
+const SELECT_TO_TAG_SIZE: Record<SelectSize, TagSize> = {
+  tiny: 'small',
+  small: 'medium',
+  medium: 'large',
+  large: 'large',
+};
+
+const MultiValue = <Option, IsMulti extends boolean, Group extends GroupBase<Option>>(
+  props: MultiValueProps<Option, IsMulti, Group>,
+) => {
+  const {
+    children,
+    removeProps: { onClick, onMouseDown, onMouseUp, ...rest },
+  } = props;
+  const size = (
+    props.selectProps as Props<Option, IsMulti, Group> & {
+      size: SelectSize;
+    }
+  ).size;
+
+  return (
+    <Tag
+      size={SELECT_TO_TAG_SIZE[size]}
+      onRemoveClick={onClick}
+      onRemoveMouseDown={onMouseDown}
+      onRemoveMouseUp={onMouseUp}
+      {...rest}
+    >
+      {children}
+    </Tag>
   );
 };
 
@@ -130,7 +157,6 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
     components,
     creatable = false,
     error,
-    inverse = false,
     helpText,
     menuHorizontalOffset,
     size = 'medium',
@@ -160,37 +186,6 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
     };
 
     const cursor = isDisabled ? 'default' : isSearchable || isSearchable === undefined ? 'text' : 'pointer';
-
-    if (inverse) {
-      return {
-        ...commonStyles,
-        backgroundColor: isDisabled ? COLOR.TEAL.DARK : COLOR.TEAL.NORMAL,
-        '&:hover': {
-          borderColor: !error && !warning && !success ? COLOR.TEAL.LIGHT : undefined,
-        },
-        borderColor: error
-          ? COLOR.RUBY.LIGHT
-          : warning
-          ? COLOR.GOLD.LIGHT
-          : success
-          ? COLOR.MINT.LIGHT
-          : isDisabled
-          ? COLOR.TEAL.DARK
-          : isFocused
-          ? COLOR.TEAL.LIGHT
-          : COLOR.TEAL.NORMAL,
-        boxShadow: error
-          ? `0 0 0 1px ${COLOR.RUBY.LIGHT}`
-          : warning
-          ? `0 0 0 1px ${COLOR.GOLD.LIGHT}`
-          : success
-          ? `0 0 0 1px ${COLOR.MINT.LIGHT}`
-          : isFocused
-          ? `0 0 0 1px ${COLOR.TEAL.LIGHT}`
-          : 'none',
-        cursor,
-      };
-    }
 
     return {
       ...commonStyles,
@@ -230,7 +225,7 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
       ...base,
       paddingTop: props.data.label ? 3 : 0,
       paddingBottom: 3,
-      borderBottomColor: inverse ? COLOR.TEAL.LIGHT : COLOR.NEUTRAL.NORMAL,
+      borderBottomColor: COLOR.NEUTRAL.NORMAL,
       borderBottomStyle: 'solid',
       borderBottomWidth: '1px',
       '&:last-child': {
@@ -245,7 +240,7 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
   ) => {
     return {
       ...base,
-      color: inverse ? COLOR.NEUTRAL.LIGHTEST : COLOR.TEAL.DARKEST,
+      color: COLOR.TEAL.DARKEST,
       fontSize: '12px',
       fontWeight: 700,
       letterSpacing: '0.6px',
@@ -298,7 +293,7 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
     return {
       ...base,
       ...(menuWidth && { width: menuWidth }),
-      backgroundColor: inverse ? COLOR.TEAL.NORMAL : COLOR.NEUTRAL.LIGHTEST,
+      backgroundColor: COLOR.NEUTRAL.LIGHTEST,
       fontFamily: 'Inter',
       fontSize: '14px',
       fontWeight: 400,
@@ -309,53 +304,11 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
     };
   };
 
-  const getMultiValueStyles = (base: CSSObjectWithLabel) => {
-    return {
-      ...base,
-      borderColor: inverse ? COLOR.TEAL.DARK : COLOR.NEUTRAL.NORMAL,
-      borderStyle: 'solid',
-      borderWidth: '1px',
-      borderRadius: '4px',
-      margin: '1px',
-    };
-  };
-
-  const getMultiValueLabelStyles = (base: CSSObjectWithLabel) => {
-    return {
-      ...base,
-      backgroundColor: inverse ? COLOR.TEAL.DARK : COLOR.NEUTRAL.LIGHT,
-      borderRadius: 0,
-      color: inverse ? COLOR.NEUTRAL.LIGHTEST : COLOR.TEAL.DARKEST,
-      fontFamily: 'Inter',
-      fontWeight: 500,
-      fontSize: size === 'tiny' || size === 'small' ? '12px' : size === 'large' ? '16px' : '14px',
-      lineHeight: size === 'tiny' || size === 'small' ? '1' : '18px',
-      padding: size === 'tiny' ? '3px' : size === 'large' ? '9px' : '6px',
-    };
-  };
-
-  const getMultiValueRemoveStyles = (base: CSSObjectWithLabel) => {
-    return {
-      ...base,
-      backgroundColor: inverse ? COLOR.TEAL.DARK : COLOR.NEUTRAL.LIGHT,
-      borderRadius: 0,
-      color: inverse ? COLOR.NEUTRAL.LIGHTEST : COLOR.TEAL.DARKEST,
-      '&:hover': {
-        backgroundColor: inverse ? COLOR.TEAL.DARKEST : COLOR.NEUTRAL.NORMAL,
-        color: inverse ? COLOR.NEUTRAL.LIGHTEST : COLOR.TEAL.DARKEST,
-      },
-      paddingLeft: size === 'tiny' ? '3px' : '6px',
-      paddingRight: size === 'tiny' ? '3px' : '6px',
-      transition: 'background-color .35s cubic-bezier(.4, 0, .2, 1)',
-      cursor: 'pointer',
-    };
-  };
-
   const getOptionStyles = (
     base: CSSObjectWithLabel,
     { isDisabled, isFocused, isSelected }: OptionProps<Option>,
   ): CSSObjectWithLabel => {
-    const commonStyles: CSSObjectWithLabel = {
+    return {
       ...base,
       ...(truncateOptionText
         ? {
@@ -367,28 +320,6 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
           }),
       padding: '8px 12px',
       cursor: isDisabled ? 'default' : 'pointer',
-    };
-
-    if (inverse) {
-      return {
-        ...commonStyles,
-        color: isDisabled
-          ? COLOR.TEAL.LIGHT
-          : isSelected
-          ? COLOR.NEUTRAL.LIGHTEST
-          : isFocused
-          ? COLOR.TEAL.DARK
-          : COLOR.NEUTRAL.LIGHTEST,
-        backgroundColor: isSelected ? COLOR.TEAL.DARK : isFocused ? COLOR.TEAL.LIGHT : COLOR.TEAL.NORMAL,
-        '&:active': {
-          backgroundColor: isDisabled ? COLOR.TEAL.NORMAL : COLOR.TEAL.DARK,
-          color: isDisabled ? COLOR.TEAL.LIGHT : COLOR.NEUTRAL.LIGHTEST,
-        },
-      };
-    }
-
-    return {
-      ...commonStyles,
       color: isDisabled ? COLOR.NEUTRAL.DARK : COLOR.TEAL.DARK,
       backgroundColor: isSelected ? COLOR.AQUA.LIGHTEST : isFocused ? COLOR.NEUTRAL.LIGHT : COLOR.NEUTRAL.LIGHTEST,
       '&:active': {
@@ -398,39 +329,29 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
     };
   };
 
-  const getPlaceholderStyles = (base: CSSObjectWithLabel, { isDisabled }: PlaceholderProps<Option>) => {
-    const commonStyles: CSSObjectWithLabel = {
+  const getPlaceholderStyles = (base: CSSObjectWithLabel) => {
+    return {
       ...base,
       marginLeft: '2px',
       marginRight: '2px',
-      whiteSpace: 'nowrap',
-    };
-
-    if (inverse) {
-      return {
-        ...commonStyles,
-        color: isDisabled ? COLOR.TEAL.NORMAL : COLOR.TEAL.LIGHT,
-      };
-    }
-
-    return {
-      ...commonStyles,
+      whiteSpace: 'nowrap' as const,
       color: COLOR.NEUTRAL.DARKEST,
     };
   };
 
   const getSingleValueStyles = (base: CSSObjectWithLabel) => ({
     ...base,
-    color: inverse ? COLOR.NEUTRAL.LIGHTEST : COLOR.TEAL.DARKEST,
+    color: COLOR.TEAL.DARKEST,
   });
 
-  const getValueContainerStyles = (base: CSSObjectWithLabel, { isMulti, hasValue }: ValueContainerProps<Option>) => {
+  const getValueContainerStyles = (base: CSSObjectWithLabel) => {
     return {
       ...base,
       minHeight: minHeightBySizeMap[size] - 2,
       lineHeight: 'normal',
-      padding: isMulti && hasValue && size !== 'large' ? 0 : '0 4px',
+      padding: size !== 'tiny' ? '2px' : '0 2px',
       width: '0',
+      gap: '3px',
     };
   };
 
@@ -442,9 +363,6 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
     menu: getMenuStyles,
     menuList: getMenuListStyles,
     menuPortal: getMenuPortalStyles,
-    multiValue: getMultiValueStyles,
-    multiValueLabel: getMultiValueLabelStyles,
-    multiValueRemove: getMultiValueRemoveStyles,
     option: getOptionStyles,
     placeholder: getPlaceholderStyles,
     singleValue: getSingleValueStyles,
@@ -452,11 +370,10 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
   });
 
   const boxProps = pickBoxProps(otherProps);
-  const restProps = { ...omitBoxProps(otherProps), ...{ inverse } };
+  const restProps = { ...omitBoxProps(otherProps), ...{ size } };
 
   const wrapperClassnames = cx(theme[`is-${size}`], {
     [theme['has-error']]: error,
-    [theme['is-inverse']]: inverse,
   });
 
   const Element = creatable
@@ -472,6 +389,7 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
           ClearIndicator,
           DropdownIndicator,
           IndicatorSeparator: null,
+          MultiValue,
           ...components,
         }}
         hideSelectedOptions={false}
@@ -483,7 +401,7 @@ function Select<Option extends OptionType, IsMulti extends boolean, IsClearable 
         isSearchable={isSearchable}
         {...restProps}
       />
-      <ValidationText error={error} help={helpText} inverse={inverse} success={success} warning={warning} />
+      <ValidationText error={error} help={helpText} success={success} warning={warning} />
     </Box>
   );
 }

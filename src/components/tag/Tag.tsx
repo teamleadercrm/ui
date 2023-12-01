@@ -9,19 +9,19 @@ import IconButton from '../iconButton';
 import { UITextBody, UITextDisplay, UITextSmall } from '../typography';
 import theme from './theme.css';
 
+export type TagSize = Exclude<(typeof SIZES)[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
+
 export interface TagProps extends Omit<BoxProps, 'className' | 'size'> {
-  /** The tint of the components color */
   children: ReactNode;
-  /** The tint of the components color */
   className?: string;
-  /** The tint of the components color */
   onRemoveClick?: React.MouseEventHandler;
-  /** The tint of the components color */
-  size?: Exclude<(typeof SIZES)[number], 'tiny' | 'fullscreen' | 'smallest' | 'hero'>;
+  onRemoveMouseDown?: React.MouseEventHandler;
+  onRemoveMouseUp?: React.MouseEventHandler;
+  size?: TagSize;
 }
 
 const Tag: GenericComponent<TagProps> = forwardRef<HTMLElement, TagProps>(
-  ({ children, className, onRemoveClick, size = 'medium', ...others }, ref) => {
+  ({ children, className, onRemoveClick, onRemoveMouseDown, onRemoveMouseUp, size = 'medium', ...others }, ref) => {
     const classNames = cx(theme[`is-${size}`], theme['wrapper'], className);
 
     const TextElement = size === 'small' ? UITextSmall : size === 'large' ? UITextDisplay : UITextBody;
@@ -44,6 +44,8 @@ const Tag: GenericComponent<TagProps> = forwardRef<HTMLElement, TagProps>(
             flexShrink={0}
             icon={<IconCloseSmallOutline />}
             onClick={onRemoveClick}
+            onMouseDown={onRemoveMouseDown}
+            onMouseUp={onRemoveMouseUp}
           />
         )}
       </Box>

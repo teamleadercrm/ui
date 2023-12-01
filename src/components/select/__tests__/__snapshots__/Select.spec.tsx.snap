@@ -23,7 +23,7 @@ exports[`Component - Select does not render a clear button when no value is prov
         class=" css-8v26ep-control"
       >
         <div
-          class=" css-wbqiiw-ValueContainer"
+          class=" css-cqth4k-ValueContainer"
         >
           <div
             class=" css-crj073-placeholder"
@@ -107,7 +107,7 @@ exports[`Component - Select renders 1`] = `
         class=" css-8v26ep-control"
       >
         <div
-          class=" css-wbqiiw-ValueContainer"
+          class=" css-cqth4k-ValueContainer"
         >
           <div
             class=" css-crj073-placeholder"
@@ -191,7 +191,7 @@ exports[`Component - Select renders a clear button when a value is provided 1`] 
         class=" css-8v26ep-control"
       >
         <div
-          class=" css-wbqiiw-ValueContainer"
+          class=" css-cqth4k-ValueContainer"
         >
           <div
             class=" css-1i5bhiv-singleValue"
@@ -294,7 +294,7 @@ exports[`Component - Select renders a help text 1`] = `
         class=" css-8v26ep-control"
       >
         <div
-          class=" css-wbqiiw-ValueContainer"
+          class=" css-cqth4k-ValueContainer"
         >
           <div
             class=" css-crj073-placeholder"
@@ -384,7 +384,7 @@ exports[`Component - Select renders a success message 1`] = `
         class=" css-1ecujp2-control"
       >
         <div
-          class=" css-wbqiiw-ValueContainer"
+          class=" css-cqth4k-ValueContainer"
         >
           <div
             class=" css-crj073-placeholder"
@@ -476,7 +476,7 @@ exports[`Component - Select renders a warning message 1`] = `
         class=" css-1qn4nre-control"
       >
         <div
-          class=" css-wbqiiw-ValueContainer"
+          class=" css-cqth4k-ValueContainer"
         >
           <div
             class=" css-crj073-placeholder"
@@ -568,7 +568,7 @@ exports[`Component - Select renders an error message 1`] = `
         class=" css-153luwj-control"
       >
         <div
-          class=" css-wbqiiw-ValueContainer"
+          class=" css-cqth4k-ValueContainer"
         >
           <div
             class=" css-crj073-placeholder"
