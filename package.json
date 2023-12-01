@@ -1,7 +1,7 @@
 {
   "name": "@teamleader/ui",
   "description": "Teamleader UI library",
-  "version": "24.0.0",
+  "version": "25.0.0",
   "author": "Teamleader <development@teamleader.eu>",
   "bugs": {
     "url": "https://github.com/teamleadercrm/ui/issues"
@@ -22,6 +22,8 @@
     "Joren Saey <joren.saey@teamleader.eu>"
   ],
   "files": [
+    "cjs",
+    "es",
     "postcss.config.js",
     "dist"
   ],
@@ -159,7 +161,8 @@
     "ui"
   ],
   "license": "MIT",
-  "module": "dist/index.js",
+  "main": "cjs/index.js",
+  "module": "es/index.js",
   "engines": {
     "node": "^14.15.0 || >=16"
   },
@@ -168,13 +171,16 @@
     "url": "git+https://github.com/teamleadercrm/ui.git"
   },
   "sideEffects": [
-    "dist/**/*.css"
+    "cjs/**/*.css",
+    "es/**/*.css"
   ],
   "browserslist": ">0.5%, not op_mini all",
   "scripts": {
-    "build:css": "postcss ./src/**/*.css --base src --dir ./dist",
-    "build:js": "NODE_ENV=es babel src --extensions '.js,.ts,.tsx' --out-dir dist",
-    "build": "rimraf dist && yarn build-types && yarn build:css && yarn build:js",
+    "build:css": "postcss ./src/**/*.css --base src --dir ./es && cp -R ./es ./cjs",
+    "build:js": "yarn build:es; yarn build:cjs",
+    "build:cjs": "NODE_ENV=cjs babel src --extensions '.js,.ts,.tsx' --out-dir cjs",
+    "build:es": "NODE_ENV=es babel src --extensions '.js,.ts,.tsx' --out-dir es",
+    "build": "rimraf es && rimraf cjs && rimraf ./dist/types && yarn build-types && yarn build:css && yarn build:js",
     "compile": "storybook build -o dist",
     "lint:clean": "yarn lint && rimraf dist",
     "deploy:prod": "yarn lint:clean && NODE_ENV=production yarn compile",

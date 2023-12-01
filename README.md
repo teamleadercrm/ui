@@ -31,15 +31,13 @@ ReactDOM.render(<Button label="Hello World!" />, document.getElementById('app'))
 Import the CSS into your project via JS or CSS.
 
 JS
-
 ```js
-import '@teamleader/ui/dist/index.css';
+import '@teamleader/ui/es/index.css';
 ```
 
 or CSS
-
 ```css
-@import url('@teamleader/ui/dist/index.css');
+@import url('@teamleader/ui/es/index.css');
 ```
 
 ## Browser support
