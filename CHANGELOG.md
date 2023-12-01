@@ -2,15 +2,21 @@
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+## [25.0.0]
+
+### Added
+
 - `Select`: Render multiselect values as Tags ([@lorgan3](https://github.com/lorgan3)) in [#2814](https://github.com/teamleadercrm/ui/pull/2814)
 
 ### Changed
 
 - [BREAKING] Reverted the removal of the CommonJS build from previous version ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2817](https://github.com/teamleadercrm/ui/pull/2817)
-
-### Deprecated
-
-### Removed
 
 ## [24.0.0]
 
