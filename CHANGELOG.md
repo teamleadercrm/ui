@@ -8,6 +8,14 @@
 
 ### Removed
 
+### Fixed
+
+## [25.0.1]
+
+### Fixed
+
+- `Select`: Do not render buttons inside the select because they can get focussed when rendered in a label. ([@lorgan3](https://github.com/lorgan3)) in [#2824](https://github.com/teamleadercrm/ui/pull/2824)
+
 ## [25.0.0]
 
 ### Added
