@@ -86,7 +86,7 @@
     "@storybook/theming": "^7.0.27",
     "@storybook/ui": "6.5.16",
     "@testing-library/dom": "^9.0.0",
-    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/jest-dom": "^6.1.4",
     "@testing-library/react": "^12.1.5",
     "@testing-library/user-event": "^14.4.3",
     "@types/jest": "^29.2.3",
