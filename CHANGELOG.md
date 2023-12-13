@@ -8,6 +8,36 @@
 
 ### Removed
 
+### Fixed
+
+## [25.0.1]
+
+### Fixed
+
+- `Select`: Do not render buttons inside the select because they can get focussed when rendered in a label. ([@lorgan3](https://github.com/lorgan3)) in [#2824](https://github.com/teamleadercrm/ui/pull/2824)
+
+## [25.0.0]
+
+### Added
+
+- `Select`: Render multiselect values as Tags ([@lorgan3](https://github.com/lorgan3)) in [#2814](https://github.com/teamleadercrm/ui/pull/2814)
+
+### Changed
+
+- [BREAKING] Reverted the removal of the CommonJS build from previous version ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2817](https://github.com/teamleadercrm/ui/pull/2817)
+
+## [24.0.0]
+
+### Changed
+
+- [BREAKING] The ES Modules build has been moved to the dist folder, so you now need update the css import to `@teamleader/ui/dist/index.css` ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2809](https://github.com/teamleadercrm/ui/pull/2809)
+- `Alert`: implemented support for jsx element in Alert `body` prop ([@eniskraasniqi1](https://https://github.com/eniskraasniqi1) in [#2813](https://github.com/teamleadercrm/ui/pull/2813))
+
+### Removed
+
+- [BREAKING] The CommonJS build has been removed. We now only have an ES Modules build. ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2809](https://github.com/teamleadercrm/ui/pull/2809)
+- `Select`: `inverse` prop ([@lorgan3](https://github.com/lorgan3)) in [#2814](https://github.com/teamleadercrm/ui/pull/2814)
+
 ## [23.2.0] - 2023-11-14
 
 ### Added
@@ -18,47 +48,47 @@
 
 ### Changed
 
-- `WysiwygEditor`: implementeed ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
-- `ValidationText`: implementeed ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
-- `WarningText`: implementeed ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
-- `SuccessText`: implementeed ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
-- `HelpText`: implementeed ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
-- `ErrorText`: implementeed ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
-- `Monospaced`: implementeed ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
-- `Marker`: implementeed ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
-- `Toggle`: implementeed ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
-- `ToastContainer`: implementeed ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
-- `Toast`: implementeed ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
-- `Tag`: implementeed ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
-- `TabGroup`: implementeed ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
-- `SplitButton`: implementeed ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
-- `RadioButton`: implementeed ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
-- `ProgressTracker`: implementeed ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
-- `Pagination`: implementeed ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
-- `OverviewPage`: implementeed ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
-- `Message`: implementeed ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
-- `MarketingHeading2`: implementeed ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
-- `MarketingHeading1`: implementeed ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
-- `MarketingMarker`: implementeed ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
-- `MarketingLockBadge`: implementeed ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
-- `MarketingButtonGroup`: implementeed ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
-- `LoadingBar`: implementeed ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
-- `LabelValuePair`: implementeed ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
-- `Island`: implementeed ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
-- `GridItem`: implementeed ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
-- `EmptyState`: implementeed ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
-- `DetailPage`: implementeed ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
-- `DatePicker`: implementeed ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
-- `DataGrid`: implementeed ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
-- `Counter`: implementeed ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
-- `Container`: implementeed ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
-- `Banner`: implementeed ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
-- `AdvancedCollapsible`: implementeed ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
-- `MarketingStatusLabel`: implementeed ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
-- `MenuItem`: implementeed ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
-- `MarketingMenuItem`: implementeed ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
-- `Label`: implementeed ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
-- `Bullet`: implementeed ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
+- `WysiwygEditor`: implemented ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
+- `ValidationText`: implemented ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
+- `WarningText`: implemented ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
+- `SuccessText`: implemented ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
+- `HelpText`: implemented ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
+- `ErrorText`: implemented ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
+- `Monospaced`: implemented ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
+- `Marker`: implemented ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
+- `Toggle`: implemented ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
+- `ToastContainer`: implemented ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
+- `Toast`: implemented ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
+- `Tag`: implemented ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
+- `TabGroup`: implemented ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
+- `SplitButton`: implemented ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
+- `RadioButton`: implemented ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
+- `ProgressTracker`: implemented ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
+- `Pagination`: implemented ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
+- `OverviewPage`: implemented ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
+- `Message`: implemented ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
+- `MarketingHeading2`: implemented ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
+- `MarketingHeading1`: implemented ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
+- `MarketingMarker`: implemented ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
+- `MarketingLockBadge`: implemented ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
+- `MarketingButtonGroup`: implemented ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
+- `LoadingBar`: implemented ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
+- `LabelValuePair`: implemented ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
+- `Island`: implemented ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
+- `GridItem`: implemented ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
+- `EmptyState`: implemented ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
+- `DetailPage`: implemented ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
+- `DatePicker`: implemented ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
+- `DataGrid`: implemented ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
+- `Counter`: implemented ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
+- `Container`: implemented ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
+- `Banner`: implemented ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
+- `AdvancedCollapsible`: implemented ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
+- `MarketingStatusLabel`: implemented ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
+- `MenuItem`: implemented ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
+- `MarketingMenuItem`: implemented ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
+- `Label`: implemented ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
+- `Bullet`: implemented ref forwarding ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2803](https://github.com/teamleadercrm/ui/pull/2803)
 
 ## [23.0.1] - 2023-10-30
 

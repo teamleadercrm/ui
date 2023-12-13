@@ -8,7 +8,8 @@
     "esModuleInterop": true,
     "allowJs": true,
     "checkJs": false,
-    "jsx": "react"
+    "jsx": "react",
+    "types": ["node", "jest", "@testing-library/jest-dom"]
   },
   "include": ["./src"]
 }
