@@ -17,11 +17,24 @@ export interface TagProps extends Omit<BoxProps, 'className' | 'size'> {
   onRemoveClick?: React.MouseEventHandler;
   onRemoveMouseDown?: React.MouseEventHandler;
   onRemoveMouseUp?: React.MouseEventHandler;
+  removeElement?: React.ElementType;
   size?: TagSize;
 }
 
 const Tag: GenericComponent<TagProps> = forwardRef<HTMLElement, TagProps>(
-  ({ children, className, onRemoveClick, onRemoveMouseDown, onRemoveMouseUp, size = 'medium', ...others }, ref) => {
+  (
+    {
+      children,
+      className,
+      onRemoveClick,
+      onRemoveMouseDown,
+      onRemoveMouseUp,
+      removeElement,
+      size = 'medium',
+      ...others
+    },
+    ref,
+  ) => {
     const classNames = cx(theme[`is-${size}`], theme['wrapper'], className);
 
     const TextElement = size === 'small' ? UITextSmall : size === 'large' ? UITextDisplay : UITextBody;
@@ -40,6 +53,7 @@ const Tag: GenericComponent<TagProps> = forwardRef<HTMLElement, TagProps>(
         </TextElement>
         {onRemoveClick && (
           <IconButton
+            element={removeElement}
             className={theme['remove-button']}
             flexShrink={0}
             icon={<IconCloseSmallOutline />}

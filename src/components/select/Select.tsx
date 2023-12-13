@@ -141,6 +141,7 @@ const MultiValue = <Option, IsMulti extends boolean, Group extends GroupBase<Opt
       onRemoveClick={onClick}
       onRemoveMouseDown={onMouseDown}
       onRemoveMouseUp={onMouseUp}
+      removeElement="div"
       {...rest}
     >
       {children}
