@@ -2,7 +2,7 @@ import { IconCloseSmallOutline } from '@teamleader/ui-icons';
 import cx from 'classnames';
 import React, { ReactNode, forwardRef } from 'react';
 import { GenericComponent } from '../../@types/types';
-import { SIZES } from '../../constants';
+import { COLORS, SIZES } from '../../constants';
 import Box from '../box';
 import { BoxProps } from '../box/Box';
 import IconButton from '../iconButton';
@@ -19,6 +19,7 @@ export interface TagProps extends Omit<BoxProps, 'className' | 'size'> {
   onRemoveMouseUp?: React.MouseEventHandler;
   removeElement?: React.ElementType;
   size?: TagSize;
+  color?: (typeof COLORS)[number];
 }
 
 const Tag: GenericComponent<TagProps> = forwardRef<HTMLElement, TagProps>(
@@ -31,6 +32,7 @@ const Tag: GenericComponent<TagProps> = forwardRef<HTMLElement, TagProps>(
       onRemoveMouseUp,
       removeElement,
       size = 'medium',
+      color,
       ...others
     },
     ref,
@@ -42,7 +44,7 @@ const Tag: GenericComponent<TagProps> = forwardRef<HTMLElement, TagProps>(
     return (
       <Box {...others} className={classNames} data-teamleader-ui="tag" display="inline-flex" ref={ref}>
         <TextElement
-          color="teal"
+          color={color || 'teal'}
           marginLeft={size === 'small' ? 2 : 3}
           marginRight={onRemoveClick ? 1 : size === 'small' ? 2 : 3}
           marginVertical={size === 'small' ? 0 : 1}
@@ -60,6 +62,7 @@ const Tag: GenericComponent<TagProps> = forwardRef<HTMLElement, TagProps>(
             onClick={onRemoveClick}
             onMouseDown={onRemoveMouseDown}
             onMouseUp={onRemoveMouseUp}
+            color={color || 'neutral'}
           />
         )}
       </Box>
