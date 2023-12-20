@@ -20,6 +20,7 @@ export interface TagProps extends Omit<BoxProps, 'className' | 'size'> {
   removeElement?: React.ElementType;
   size?: TagSize;
   color?: (typeof COLORS)[number];
+  backgroundColor?: (typeof COLORS)[number];
 }
 
 const Tag: GenericComponent<TagProps> = forwardRef<HTMLElement, TagProps>(
@@ -33,16 +34,29 @@ const Tag: GenericComponent<TagProps> = forwardRef<HTMLElement, TagProps>(
       removeElement,
       size = 'medium',
       color,
+      backgroundColor,
       ...others
     },
     ref,
   ) => {
-    const classNames = cx(theme[`is-${size}`], theme['wrapper'], className);
+    const classNames = cx(
+      theme[`is-${size}`],
+      { [theme['has-default-background-color']]: !backgroundColor },
+      theme['wrapper'],
+      className,
+    );
 
     const TextElement = size === 'small' ? UITextSmall : size === 'large' ? UITextDisplay : UITextBody;
 
     return (
-      <Box {...others} className={classNames} data-teamleader-ui="tag" display="inline-flex" ref={ref}>
+      <Box
+        {...others}
+        backgroundColor={backgroundColor}
+        className={classNames}
+        data-teamleader-ui="tag"
+        display="inline-flex"
+        ref={ref}
+      >
         <TextElement
           color={color || 'teal'}
           marginLeft={size === 'small' ? 2 : 3}

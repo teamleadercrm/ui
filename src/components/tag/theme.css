@@ -1,9 +1,12 @@
 .wrapper {
-  background-color: hsl(var(--color-neutral-darkest-hsl) / 12%);
   box-shadow: inset 0 0 0 1px hsl(var(--color-neutral-darkest-hsl) / 12%);
   max-width: 100%;
   height: var(--size);
   border-radius: calc(var(--size) / 2);
+
+  &.has-default-background-color {
+    background-color: hsl(var(--color-neutral-darkest-hsl) / 12%);
+  }
 }
 
 .remove-button {
