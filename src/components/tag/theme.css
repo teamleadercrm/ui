@@ -7,6 +7,10 @@
   &.has-default-background-color {
     background-color: hsl(var(--color-neutral-darkest-hsl) / 12%);
   }
+
+  &.has-border {
+    box-sizing: content-box;
+  }
 }
 
 .remove-button {
