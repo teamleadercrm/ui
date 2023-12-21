@@ -16,7 +16,19 @@ export default {
 
 export const Basic: ComponentStory<typeof Tag> = (args) => <Tag {...args} />;
 
+export const WithColor: ComponentStory<typeof Tag> = (args) => <Tag {...args} />;
+
 Basic.args = {
   children: 'I am a tag',
+  onRemoveClick: () => console.log('Tag removed'),
+};
+
+WithColor.args = {
+  children: 'Error state tag',
+  backgroundColor: 'ruby',
+  borderWidth: 1,
+  borderColor: 'ruby',
+  backgroundTint: 'lightest',
+  color: 'ruby',
   onRemoveClick: () => console.log('Tag removed'),
 };

@@ -3,7 +3,7 @@
 exports[`Component - Tag renders 1`] = `
 <DocumentFragment>
   <div
-    class="box display-inline-flex is-medium wrapper"
+    class="box display-inline-flex is-medium has-default-background-color wrapper"
     data-teamleader-ui="tag"
   >
     <p

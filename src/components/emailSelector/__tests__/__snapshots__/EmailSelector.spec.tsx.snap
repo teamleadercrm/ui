@@ -7,7 +7,7 @@ exports[`Component - EmailSelector renders 1`] = `
     data-teamleader-ui="email-selector"
   >
     <div
-      class="box display-inline-flex margin-bottom-1 margin-left-1 margin-right-2 margin-top-1 is-medium wrapper"
+      class="box display-inline-flex margin-bottom-1 margin-left-1 margin-right-2 margin-top-1 is-medium has-default-background-color wrapper"
       data-teamleader-ui="tag"
     >
       <p
