@@ -10,6 +10,12 @@
 
 ### Fixed
 
+## [25.0.2]
+
+### Added
+
+- `Tag`: Allow passing `color`, `backgroundColor` to Tag. ([@eniskrasniqi1](https://github.com/eniskraasniqi1)) in [#2833](https://github.com/teamleadercrm/ui/pull/2833)
+
 ## [25.0.1]
 
 ### Fixed

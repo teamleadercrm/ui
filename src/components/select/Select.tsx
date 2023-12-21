@@ -19,7 +19,7 @@ import ReactSelect, {
 } from 'react-select';
 import ReactCreatableSelect from 'react-select/creatable';
 import SelectType from 'react-select/dist/declarations/src/Select';
-import { COLOR, SIZES } from '../../constants';
+import { COLOR, COLORS, SIZES } from '../../constants';
 import Box, { omitBoxProps, pickBoxProps } from '../box';
 import { BoxProps } from '../box/Box';
 import Icon from '../icon';
@@ -127,7 +127,7 @@ const MultiValue = <Option, IsMulti extends boolean, Group extends GroupBase<Opt
 ) => {
   const {
     children,
-    removeProps: { onClick, onMouseDown, onMouseUp, ...rest },
+    removeProps: { onClick, onMouseDown, onMouseUp, color, ...rest },
   } = props;
   const size = (
     props.selectProps as Props<Option, IsMulti, Group> & {
@@ -142,6 +142,7 @@ const MultiValue = <Option, IsMulti extends boolean, Group extends GroupBase<Opt
       onRemoveMouseDown={onMouseDown}
       onRemoveMouseUp={onMouseUp}
       removeElement="div"
+      color={color as (typeof COLORS)[number]}
       {...rest}
     >
       {children}
