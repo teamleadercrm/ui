@@ -10,6 +10,12 @@
 
 ### Fixed
 
+## [25.0.3]
+
+### Fixed
+
+- `Tag`: Height of remove button ([@qubis741](https://github.com/qubis741)) in [#2834](https://github.com/teamleadercrm/ui/pull/2834)
+
 ## [25.0.2]
 
 ### Added
