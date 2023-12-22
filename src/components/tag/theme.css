@@ -16,8 +16,8 @@
 .remove-button {
   border-radius: 50%;
   min-width: initial;
-  height: var(--size);
-  width: var(--size);
+  height: var(--size)!important;
+  width: var(--size)!important;
 }
 
 .is-small {
