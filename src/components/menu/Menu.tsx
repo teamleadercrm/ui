@@ -122,31 +122,39 @@ const Menu = <S,>({
       const { top, left, height, width } = anchorElement.getBoundingClientRect();
       const { height: menuHeight, width: menuWidth } = menuRef.current.getBoundingClientRect();
 
+      let leftOffset = 0;
+      let topOffset = 0;
+
+      if (/^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
+        leftOffset = window.visualViewport?.offsetLeft || 0;
+        topOffset = window.visualViewport?.offsetTop || 0;
+      }
+
       if (positionState === POSITION.TOP_LEFT) {
         return {
-          top: top + height + 3,
-          left,
+          top: top + height + 3 + topOffset,
+          left: left + leftOffset,
         };
       }
 
       if (positionState === POSITION.TOP_RIGHT) {
         return {
-          top: top + height + 3,
-          left: left + width - menuWidth,
+          top: top + height + 3 + topOffset,
+          left: left + width - menuWidth + leftOffset,
         };
       }
 
       if (positionState === POSITION.BOTTOM_LEFT) {
         return {
-          top: -1 * (menuHeight + 3) + top,
-          left,
+          top: -1 * (menuHeight + 3) + top + topOffset,
+          left: left + leftOffset,
         };
       }
 
       if (positionState === POSITION.BOTTOM_RIGHT) {
         return {
-          top: -1 * (menuHeight + 3) + top,
-          left: left + width - menuWidth,
+          top: -1 * (menuHeight + 3) + top + topOffset,
+          left: left + width - menuWidth + leftOffset,
         };
       }
     }
