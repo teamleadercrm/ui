@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `Popover` and `Menu`: Fixed positioning in Safari when zoomed in by pinching ([@lowiebenoot](https://github.com/lowiebenoot)) in [#2837](https://github.com/teamleadercrm/ui/pull/2837)
+
 ## [25.0.3]
 
 ### Fixed

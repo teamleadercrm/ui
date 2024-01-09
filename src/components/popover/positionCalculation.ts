@@ -131,22 +131,33 @@ const getPositionValues = ({
   anchorPosition,
   popoverDimensions,
   inputOffsetCorrection,
-}: DirectionPositionValues) =>
-  direction === DIRECTION_NORTH || direction === DIRECTION_SOUTH
-    ? getVerticalDirectionPositionValues({
-        direction,
-        position,
-        anchorPosition,
-        popoverDimensions,
-        inputOffsetCorrection,
-      })
-    : getHorizontalDirectionPositionValues({
-        direction,
-        position,
-        anchorPosition,
-        popoverDimensions,
-        inputOffsetCorrection,
-      });
+}: DirectionPositionValues) => {
+  const positionValues =
+    direction === DIRECTION_NORTH || direction === DIRECTION_SOUTH
+      ? getVerticalDirectionPositionValues({
+          direction,
+          position,
+          anchorPosition,
+          popoverDimensions,
+          inputOffsetCorrection,
+        })
+      : getHorizontalDirectionPositionValues({
+          direction,
+          position,
+          anchorPosition,
+          popoverDimensions,
+          inputOffsetCorrection,
+        });
+
+  // For Safari we need to take the visual viewport into account
+  // https://github.com/floating-ui/floating-ui/pull/1099/files#r418947428
+  if (/^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
+    positionValues.left += window.visualViewport?.offsetLeft || 0;
+    positionValues.top += window.visualViewport?.offsetTop || 0;
+  }
+
+  return positionValues;
+};
 
 const isInViewport = (direction: Direction, anchorPosition: PositionValues, popoverDimensions: DimensionValues) => {
   switch (direction) {
